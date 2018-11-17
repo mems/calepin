@@ -1,0 +1,2 @@
+- [freeboxv6_boosterwifi - Qui n’a jamais rêvé d’avoir un réseau WiFI performant ?](https://doc.ubuntu-fr.org/freeboxv6_boosterwifi)
+- [Quel canal Wi-Fi choisir pour optimiser son débit ?](https://lafibre.info/wifi/quel-canal-wi-fi-choisir-pour-optimiser-son-debit/)

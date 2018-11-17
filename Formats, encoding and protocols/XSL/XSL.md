@@ -1,0 +1,7 @@
+- [XSLTdoc - A Code Documentation Tool for XSLT - Main Page](http://www.pnp-software.com/XSLTdoc/index.html)
+- [XSLTdoc - Browse /xsltdoc at SourceForge.net](http://sourceforge.net/projects/xsltdoc/files/xsltdoc/)
+- [XSLT Cookbook](http://users.atw.hu/xsltcookbook2/index.html)
+- [Things XSLT can't do](http://www.dpawson.co.uk/xsl/sect2/nono.html)
+- [Transforming XML with XSLT | MDN](https://developer.mozilla.org/en-US/docs/Transforming_XML_with_XSLT)
+- [EXSLT | MDN](https://developer.mozilla.org/en-US/docs/Web/EXSLT)
+- [XSLT and javascript code intended mostly for manipulating MathML and OpenMath](https://github.com/davidcarlisle/web-xslt)

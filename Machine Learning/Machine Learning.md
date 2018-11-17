@@ -1,0 +1,8 @@
+- [A Visual Introduction to Machine Learning](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+- [Machine learning — Wikipedia](https://en.wikipedia.org/wiki/Machine_learning)
+- [Self-driving cars in the browser | Jan Hünermann](http://janhuenermann.com/projects/learning-to-drive) - See [neurojs - A machine learning framework for browsers](https://github.com/janhuenermann/neurojs)
+- [My Text in Your Handwriting | UCL Visual Computing](http://visual.cs.ucl.ac.uk/pubs/handwriting/)
+- [Super Resolution for images using deep learning](https://github.com/alexjc/neural-enhance) - Enhance image with deep learning
+- [tonybeltramelli/pix2code: pix2code: Generating Code from a Graphical User Interface Screenshot](https://github.com/tonybeltramelli/pix2code) - Generate code from design (image). See [pix2code - YouTube](https://www.youtube.com/watch?v=pqKeXkhFA3I) - 
+- [Machine Learning with JavaScript : Part 1 – Hacker Noon](https://hackernoon.com/machine-learning-with-javascript-part-1-9b97f3ed4fe5) and [Machine Learning with JavaScript : Part 2 – Hacker Noon](https://hackernoon.com/machine-learning-with-javascript-part-2-da994c17d483)
+- [Getting Started With Machine Learning — Smashing Magazine](https://www.smashingmagazine.com/2018/09/getting-started-with-machine-learning/)

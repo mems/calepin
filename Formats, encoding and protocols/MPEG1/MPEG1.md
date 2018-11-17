@@ -1,0 +1,2 @@
+- [MPEG-1 — Wikipedia](https://en.wikipedia.org/wiki/MPEG-1)
+- [JSMpeg – MPEG1 Video & MP2 Audio Decoder in JavaScript](https://github.com/phoboslab/jsmpeg) and [MPEG1 Video Decoder in JavaScript - PhobosLab](http://phoboslab.org/log/2013/05/mpeg1-video-decoder-in-javascript) [JSMpeg – Decode it like it's 1999](http://jsmpeg.com/)

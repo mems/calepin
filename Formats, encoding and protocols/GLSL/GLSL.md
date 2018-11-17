@@ -1,0 +1,2 @@
+- [Parse, Analyse, Clean GLSL code in JS](https://github.com/zz85/glsl-cleaner/)
+- [GLSL to HLSL transpiler code](https://github.com/MicrosoftEdge/WebGL/tree/master/GLSLParse)

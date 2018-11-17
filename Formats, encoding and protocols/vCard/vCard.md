@@ -1,0 +1,4 @@
+- [mikechambers/as3corelib: An ActionScript 3 Library that contains a number of classes and utilities for working with ActionScript? 3. These include classes for MD5 and SHA 1 hashing, Image encoders, and JSON serialization as well as general String, Number and Date APIs.](https://github.com/mikechambers/as3corelib)
+- [thomascube/vcfconvert: vCard to LDIF/CSV Converter](https://github.com/thomascube/vcfconvert)
+- [vCard — Wikipedia](https://en.wikipedia.org/wiki/VCard)
+- [X2V · Microformats Wiki](http://microformats.org/wiki/x2v) XSLT transform hCard to vCard

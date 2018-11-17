@@ -1,0 +1,8 @@
+- [PostScript — Wikipedia](https://en.wikipedia.org/wiki/PostScript)
+- [Encapsulated PostScript — Wikipedia](https://en.wikipedia.org/wiki/Encapsulated_PostScript)
+- [PostScript Language Reference, third edition - PLRM.pdf](http://www.adobe.com/products/postscript/pdfs/PLRM.pdf)
+- [PostScript – Simon Heys – Freelance iPad / iPhone / iOS app developer in London](https://www.simonheys.com/2007/06/05/postscript/)
+- [WPS: PostScript for the Web](http://logand.com/sw/wps/)
+- [PostCanvas - A PostScript interpreter for the HTML5 Canvas element](http://www.feiri.de/pcan/) - see https://code.google.com/archive/p/postcanvas/
+- [Mathematical Illustrations](http://www.math.ubc.ca/~cass/graphics/manual/) - A manual of geometry and PostScript
+- [www.pugo.org - PS-HTTPD: The PostScript web server](http://www.pugo.org:8080/)

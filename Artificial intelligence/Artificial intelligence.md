@@ -1,0 +1,4 @@
+- [AiGameDev.com | Your Online Hub for Game/AI](http://aigamedev.com/)
+- [Artificial intelligence — Wikipedia](https://en.wikipedia.org/wiki/Artificial_intelligence)
+- [Show and Tell: A Neural Image Caption Generator](https://github.com/tensorflow/models/tree/master/im2txt)
+- [The AI Systems of Left 4 Dead - ai_systems_of_l4d_mike_booth.pdf](http://www.valvesoftware.com/publications/2009/ai_systems_of_l4d_mike_booth.pdf) - See [The AI Systems of Left 4 Dead — Mike Booth](The AI Systems of Left 4 Dead — Mike Booth.pdf)

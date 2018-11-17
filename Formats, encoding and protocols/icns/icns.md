@@ -1,0 +1,2 @@
+- [Apple Icon Image format — Wikipedia](https://en.wikipedia.org/wiki/Apple_Icon_Image_format)
+- [pornel/libicns: icns2png / libicns for OS X icns files](https://github.com/pornel/libicns)

@@ -1,0 +1,7 @@
+- http://swieskowski.net/carve/
+- http://swieskowski.net/carve/carve.swf
+- http://git.nicolast.be/?p=scarving.git;a=summary
+- http://inamidst.com/code/seamless.c
+- http://www.quasimondo.com/archives/000652.php
+- http://rsizr.com/
+- http://www.thegedanken.com/retarget/

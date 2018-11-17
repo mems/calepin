@@ -1,0 +1,2 @@
+- [How Do I Declare A Function Pointer in C?](http://fuckingfunctionpointers.com/)
+- [How to Write Portable C Without Complicating Your Build « null program](http://nullprogram.com/blog/2017/03/30/)

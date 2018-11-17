@@ -1,0 +1,3 @@
+- [Catmull–Clark subdivision surface — Wikipedia](https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface)
+- [Recursive Polygon Subdivision › Experimenting with a 2D Polygon Subdivision Algorithm › Soulwire](http://blog.soulwire.co.uk/laboratory/flash/recursive-polygon-subdivision)
+- [Catmull-Clark demo](http://erkaman.github.io/gl-catmull-clark/) - see [A javascript implementation of the Catmull-Clark subdivision surface algorithm](https://github.com/Erkaman/gl-catmull-clark) for WebGL

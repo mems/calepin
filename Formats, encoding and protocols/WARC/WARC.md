@@ -1,0 +1,13 @@
+- [Web ARChive — Wikipedia](https://en.wikipedia.org/wiki/Web_ARChive)
+- [WARC, Web ARChive file format](http://www.digitalpreservation.gov/formats/fdd/fdd000236.shtml)
+- [WARC File Format specifications](http://archive-access.sourceforge.net/warc/)
+- [Wget with WARC output - Archiveteam](http://www.archiveteam.org/index.php?title=Wget_with_WARC_output)
+- https://github.com/iipc/warc-specifications
+- [Experimental WARC to ZIP converter](http://warctozip.archive.org/)
+- [The WARC File Format (ISO 28500) - Information, Maintenance, Drafts](http://bibnum.bnf.fr/WARC/)
+- [WARC - Just Solve the File Format Problem](http://fileformats.archiveteam.org/wiki/WARC)
+- [Upload WARC to the Internet Archive using command line](https://gist.github.com/Asparagirl/6206247) 6206247-24426019b688dd4c99483893688d44315aedddb0.zip
+- [Make a WARC of a website](https://gist.github.com/Asparagirl/6202872) 6202872-c10e5d08d33f26ef1d16631c75f66925f020946e.zip
+
+- [What is the best format/standard for archiving static web pages? What software generates that format?](http://anjackson.net/zombse/062013%20Libraries%20&%20Information%20Science/static/questions/479.html)
+- [Archiving URLs - Gwern.net](http://www.gwern.net/Archiving%20URLs) https://news.ycombinator.com/item?id=6504331

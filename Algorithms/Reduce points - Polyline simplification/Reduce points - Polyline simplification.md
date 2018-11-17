@@ -1,0 +1,5 @@
+- [High-performance JavaScript polyline simplification library](https://github.com/mourner/simplify-js) - Use Douglas-Peucker algorithm and distance-based simplification
+- [Ramer–Douglas–Peucker algorithm — Wikipedia](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm)
+- [Reduce the number of points in a polygon with the Ramer-Douglas-Peucker algorithm | Emanuele Feronato](http://www.emanueleferonato.com/2013/03/04/reduce-the-number-of-points-in-a-polygon-with-the-ramer-douglas-peucker-algorithm/) - Create a contour of bitmap (using marching squares) and simplify
+- [Line generalisation by repeated elimination of the smallest area - Digital Repository](https://hydra.hull.ac.uk/resources/hull:8338) - Visvalingam’s algorithm
+- [Line Simplification](https://bost.ocks.org/mike/simplify/) - Use Visvalingam’s algorithm

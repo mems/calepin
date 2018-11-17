@@ -1,0 +1,2 @@
+- [How to Stop Saying Um, Uh, and Other Filler Words](http://sixminutes.dlugan.com/stop-um-uh-filler-words/)
+- [9 tips to help you rock your first (or next) conference presentation - InVision Blog](http://blog.invisionapp.com/tips-for-conference-presentations/)

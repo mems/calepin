@@ -1,0 +1,3 @@
+- [IPTC Information Interchange Model — Wikipedia](https://en.wikipedia.org/wiki/IPTC_Information_Interchange_Model)
+- [IPTC Standard - IPTC](https://iptc.org/standards/photo-metadata/iptc-standard/)
+- [libiptcdata - C library for IPTC metadata manipulation](http://libiptcdata.sourceforge.net/)

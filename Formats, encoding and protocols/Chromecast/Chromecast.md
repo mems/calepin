@@ -1,0 +1,11 @@
+- [EiNSTeiN-/chromecast-widevine-tools: Some experimental tools that are meant to run on a rooted chromecast in order to interact with the widevine library (libwvcdm).](https://github.com/EiNSTeiN-/chromecast-widevine-tools)
+- [oliverpool/go-chromecast: A command line tool to control Google Chromecast devices.](https://github.com/oliverpool/go-chromecast)
+- [thibauts/node-castv2: An implementation of the Chromecast CASTV2 protocol](https://github.com/thibauts/node-castv2)
+- [thibauts/node-castv2-client: A Chromecast client based on the new (CASTV2) protocol](https://github.com/thibauts/node-castv2-client)
+- [Windows PC as Chromecast Server : Chromecast](https://www.reddit.com/r/Chromecast/comments/716nga/windows_pc_as_chromecast_server/)
+- [jloutsenhizer/CR-Cast: Chromecast Emulator for Google Chrome](https://github.com/jloutsenhizer/CR-Cast)
+- [xat/chromecast-scanner: scan your local network for chromecast devices and return the first found](https://github.com/xat/chromecast-scanner)
+- [dz0ny/leapcast: ChromeCast emulation app for any device](https://github.com/dz0ny/leapcast)
+- [Support becoming a ChromeCast server · Issue #7 · ii/iigadget](https://github.com/ii/iigadget/issues/7)
+- [Google Cast for Education - Chrome Web Store](https://chrome.google.com/webstore/detail/google-cast-for-education/bnmgbcehmiinmmlmepibeeflglhbhlea/reviews) https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3Dbnmgbcehmiinmmlmepibeeflglhbhlea%26installsource%3Dondemand%26uc
+- [apache - Doe Chromecast come with a certificate bundle allowing simple webserver authentication/verification? - Stack Overflow](https://stackoverflow.com/questions/27146081/does-chromecast-come-with-a-certificate-bundle-allowing-simple-webserver-authent)

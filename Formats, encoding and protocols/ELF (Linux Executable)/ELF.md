@@ -1,0 +1,2 @@
+- [ELF Parser](http://www.elfparser.com/index.html) https://github.com/jacob-baines/elfparser
+- https://github.com/HaxeFoundation/format/tree/master/format/elf

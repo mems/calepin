@@ -1,0 +1,4 @@
+- [LZMA SDK (Software Development Kit)](http://www.7-zip.org/sdk.html)
+- LZMA decoder https://github.com/joa/apparat/tree/27cd014cb464d94f0f869a34c373031aca97b489/apparat-lzma-decoder
+- LZMA encoder https://github.com/joa/apparat/tree/27cd014cb464d94f0f869a34c373031aca97b489/apparat-lzma-encoder
+- [Lempel–Ziv–Markov chain algorithm — Wikipedia](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Markov_chain_algorithm)

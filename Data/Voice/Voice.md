@@ -1,0 +1,2 @@
+- [Phonétique articulatoire — Wikipédia](https://fr.wikipedia.org/wiki/Phon%C3%A9tique_articulatoire)
+- [Pink Trombone](https://dood.al/pinktrombone/)

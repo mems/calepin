@@ -1,0 +1,3 @@
+- [C++ python bytecode disassembler and decompiler](https://github.com/zrax/pycdc)
+- [Extract .pyc files from executables created with py2exe](https://github.com/matiasb/unpy2exe)
+- [py2exe download | SourceForge.net](https://sourceforge.net/projects/py2exe/)

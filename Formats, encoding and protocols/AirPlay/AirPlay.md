@@ -1,0 +1,16 @@
+- https://github.com/abrasive/shairport
+- https://github.com/jamesdlow/open-airplay
+- https://github.com/timvideos/gst-plugins-bad/tree/master/ext/apexsink
+- http://www.freedesktop.org/wiki/Software/PulseAudio/
+- https://github.com/juhovh/shairplay
+- https://github.com/espes/Slave-in-the-Magic-Mirror
+- [mikebrady/shairport-sync: AirPlay audio player. Shairport Sync add multi-room capability with Audio Synchronisation](https://github.com/mikebrady/shairport-sync)
+
+- [AirPlay - Official Kodi Wiki](http://kodi.wiki/view/AirPlay)
+- [Airtunes2 - Specification of RAOP protocol with timing.](https://git.zx2c4.com/Airtunes2/about/)
+- [Developer achieves AirPlay Mirroring on Kodi](http://forum.kodi.tv/showthread.php?tid=223465)
+- [disassembly - AirPlay Mirroring decryption (FairPlay) - Reverse Engineering Stack Exchange](http://reverseengineering.stackexchange.com/questions/6678/airplay-mirroring-decryption-fairplay) - [foxsen/shairplay: Apple airplay and raop protocol server](https://github.com/foxsen/shairplay)
+- [Exploring Airplay Mirroring Internals](https://www.aorensoftware.com/blog/2011/08/20/exploring-airplay-mirroring-internals/)
+- [AirPlay Mirroring without Apple TV (using RPi)](http://www.instructables.com/id/AirPlay-Mirroring-without-Apple-TV-using-RPi/)
+- [Unofficial AirPlay Protocol Specification](http://nto.github.io/AirPlay.html)
+- [reverse engineering - Ha anyone reversed engineered the protocol used by Apple' iOS Remote app for controlling an Apple TV over IP? - Stack Overflow](https://stackoverflow.com/questions/35355807/has-anyone-reversed-engineered-the-protocol-used-by-apples-ios-remote-app-for-c)

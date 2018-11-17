@@ -1,0 +1,4 @@
+- [Thoughts on VP8 | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2010/05/25/thoughts-on-vp8/)
+- [VP8 Implementations - wiki](http://wiki.webmproject.org/vp8-implementations)
+- [VP8 - WebM JavaScript Decoder for every browser](http://libwebpjs.appspot.com/vp8/webm-javascript-decoder/)
+- [Route9.js: A VP8/WebM decoder in JavaScript | Badass JavaScript](http://badassjs.com/post/13551173773/route9js-a-vp8webm-decoder-in-javascript) - [Route9.js](https://people.xiph.org/~bens/route9/route9.html) and [Broadway/vp8 at master · bemasc/Broadway](https://github.com/bemasc/Broadway/tree/master/vp8)

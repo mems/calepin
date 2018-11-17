@@ -1,0 +1,7 @@
+- [Adobe Photoshop File Formats Specification](http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/)
+- [c++ - psd file format - Stack Overflow](https://stackoverflow.com/questions/5355708/psd-file-format/5355949#5355949)
+- [WAHa_06x36 / Old Xee — Bitbucket](https://bitbucket.org/WAHa_06x36/old-xee) - See `XeePhotoshopLoader.m`
+- [View Photoshop PSD PSB PDD PDF AI EPS INDD files in Windows - x64 PSD CODEC for Windows 10, Windows 8.1, Windows 8, Windows 7](http://www.ardfry.com/psd-codec/)
+- [Photoshop Preview Handler for Windows Vista - CodeProject](https://www.codeproject.com/kb/vista/photoshoppreviewhandler.aspx)
+- [munegon/PSDParser - Spark project](http://www.libspark.org/wiki/munegon/PSDParser)
+- https://www.photopea.com/code/external/ext.js - Photopea PSD lib (but also PDF, Windows Metafile/WMF/EMF), JPEG, JPEG 2000/JPX, PNG, TIF, TTF, ZIP, DDS, PVR and use https://github.com/deanm/omggif)

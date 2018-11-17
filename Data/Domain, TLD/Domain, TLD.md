@@ -1,0 +1,8 @@
+- List of TLDs from Opera: `/usr/share/opera/pubsuffix.xml` (Linux version) See [`pubsuffix.xml`](pubsuffix.xml)
+- [TLD List - MozillaWiki](https://wiki.mozilla.org/TLD_List)
+- [Whois server list for all top level domains.](https://github.com/whois-server-list/whois-server-list)
+- [Public Suffix List](https://publicsuffix.org/)
+- [IANA — Root Zone Database](http://www.iana.org/domains/root/db)
+- [TLDs alpha by domain](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+- [Common Crawl](http://commoncrawl.org/)
+- [Alexa top 1 million sites](http://s3.amazonaws.com/alexa-static/top-1m.csv.zip)
