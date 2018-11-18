@@ -1,4 +1,4 @@
-See also [ECMAScript](Formats, encoding and protocols/ECMAScript - JavaScript/ECAMScript)
+See also [ECMAScript](../../Formats,%20encoding%20and%20protocols/ECMAScript%20-%20JavaScript/ECAMScript.md)
 
 # Language
 
