@@ -1,0 +1,5 @@
+- [Organizationally unique identifier — Wikipedia](https://en.wikipedia.org/wiki/Organizationally_unique_identifier)
+- http://standards-oui.ieee.org/oui.txt
+- [Wireshark · OUI Lookup Tool](https://www.wireshark.org/tools/oui-lookup.html)
+- https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf
+- [IEEE-SA - IEEE Registration Authority](https://standards.ieee.org/faqs/regauth.html#18)
