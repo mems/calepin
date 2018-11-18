@@ -642,6 +642,7 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 	
 	See [User generated content problems](Conception#User generated content problems)
 
+	- [Scunthorpe problem — Wikipedia](https://en.wikipedia.org/wiki/Scunthorpe_problem)
 	- [Text transform](Text#Text transform)
 	- [shortened URLs](https://en.wikipedia.org/wiki/URL_shortening#Shortcomings)
 	- [Slip Me Some Skin - The Hacker Factor Blog](http://www.hackerfactor.com/blog/index.php?/archives/479-Slip-Me-Some-Skin.html) - Problems with skin-detection algorithms
@@ -690,6 +691,7 @@ See also
 
 - [Unicode Security Guide](http://websec.github.io/unicode-security-guide/)
 - can contains special chars and emoji: `éà}`, etc. Ex: emoji in bank account nickname broke banking system https://twitter.com/ajlobster/status/735240869859753985
+- [Glitchr ‮ (@glitchr_) / Twitter](https://mobile.twitter.com/glitchr_)
 
 ##### Unsafe URI
 

@@ -3268,9 +3268,12 @@ or
 
 ### Drag and drop item
 
+Use `event.dataTransfer.items` instead of `event.dataTransfer.files` or `event.dataTransfer.getData()`: [javascript - event.dataTransfer.files vs. event.dataTransfer.items - Stack Overflow](https://stackoverflow.com/questions/44842247/event-datatransfer-files-vs-event-datatransfer-items)
+
 Drag image should be visible (on Chrome). Create a top level clone with a negative z-index (require an opaque body's background)?
 
 - [File drag and drop - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop)
+- [Drag Operations - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [HTML Drag and Drop API - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 - [Drag Operation - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#droptargets)
 - http://www.kryogenix.org/code/browser/custom-drag-image.html
