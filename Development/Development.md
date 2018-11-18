@@ -262,7 +262,7 @@ See also [Case styles](#Case styles)
 - tight, thin, narrow vs wide, large, thick
 - lead, base
 - setting
-- payload (network)
+- [payload](https://en.wikipedia.org/wiki/Payload_%28computing%29) (network)
 - analytics / a7s
 - source / src, destination / dst / dest
 - constructor / ctor
