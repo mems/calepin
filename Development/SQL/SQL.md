@@ -115,7 +115,10 @@ Import file:
 	- [MySQL :: MySQL 5.6 Reference Manual :: 12.19 Miscellaneous Functions](https://dev.mysql.com/doc/refman/5.6/en/miscellaneous-functions.html#function_inet6-aton)
 	- [php - Store IPv6 in database - Stack Overflow](https://stackoverflow.com/questions/2049681/store-ipv6-in-database/4423041#4423041)
 - sex (ISO/IEC 5218): `TINYINT`
-	- 0 = Not Known, 1 = Male, 2 = Female, 9 = Not applicable
+	- 0 = Not Known
+	- 1 = Male
+	- 2 = Female
+	- 9 = Not applicable
 
 ## Variables
 
