@@ -422,6 +422,7 @@ Mediaqueries can't always be used (eg. in email client). Use specificities of [`
 
 Use CSS grid
 
+- [Hardcore CSS calc( ) – Buildit @ Wipro Digital – Medium](https://medium.com/buildit/hardcore-css-calc-bdfb0162993c)
 - [HOW TO: Pure CSS masonry layouts – Medium](https://medium.com/@_jh3y/how-to-pure-css-masonry-layouts-a8ede07ba31a#)
 - [Create a Responsive CSS-only Masonry layout](http://w3bits.com/css-masonry/) (use columns) like https://codepen.io/AdamBlum/pen/fwrnE
 - (JS) https://github.com/desandro/masonry
