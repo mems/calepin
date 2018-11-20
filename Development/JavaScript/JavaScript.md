@@ -2987,7 +2987,7 @@ FLIP (First, Last, Invert, Play):
 - [Aerotwist - FLIP Your Animations](https://aerotwist.com/blog/flip-your-animations/)
 - [Animating Layouts with the FLIP Technique | CSS-Tricks](https://css-tricks.com/animating-layouts-with-the-flip-technique/)
 
-See also [Animation](CSS#Animation), [Debounce function](#Debounce function)
+See also [Animation](CSS#Animation), [Debounce function](#debounce-function)
 
 - [GianlucaGuarini/animore: 1kb script that will make your DOM state transitions smoother & easier](https://github.com/GianlucaGuarini/animore)
 - [DasSur.ma – 2018: 120fps and no jank](https://dassur.ma/things/120fps/)
@@ -4832,6 +4832,17 @@ Aka throttle, throttling, de-spam
 For spammy event: resize, scroll, etc.
 
 Note: de-bouncing is not the same as throttling
+
+	// Example in a chat app (where the log is always scrolled to bottom) where the function scrollToEnd() is called after each new log entry is appended (but only if the log view is already at bottom before the message is appended)
+	// Use requestIdleCallback to debounce the request of scrolling
+	function scrollToEnd(){
+		requestIdleCallback(() => {
+			logView.scrollIntoView({
+				behavior: 'smooth',
+				block: 'end'
+			});
+		});
+	});
 
 - [resize - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/resize#Examples)
 - [Basic JavaScript Event Throttling by Amelia Bellamy-Royds on CodePen](https://codepen.io/AmeliaBR/post/basic-javascript-event-throttling)
