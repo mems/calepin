@@ -3968,9 +3968,9 @@ Note: It create a new history entry (navigated to `wyciwyg://0/DOCUMENT_URL`) if
 
 - [Document.open() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/open#Notes)
 
-##### As sandoxed document
+##### As sandboxed document
 
-You can't access direclty to the document, you need to use `postMessage()`
+You can't access direclty to the document, you need to use `iframe.contentWindow.postMessage()`
 
 	let iframe = document.createElement("iframe");
 	iframe.sandbox = "";// enable sandbox mode, same as iframe.setAttribute("sandbox", "");
@@ -6440,6 +6440,8 @@ iframe, window, worker, etc.
 	//vs
 	ch.port1.onmessage = …;
 	//ch.port1.start(); is automatically called
+
+Note: if you listen an iframe with `sandbox` attribute that dispatch `message` events, you need to add `allow-same-origin`, else `event.origin` will always be equal to `"null"`. See [javascript - PostMessage from a sandboxed iFrame to the main window, origin is always null - Stack Overflow](https://stackoverflow.com/questions/37838875/postmessage-from-a-sandboxed-iframe-to-the-main-window-origin-is-always-null)
 
 - [Dev.Opera — An Introduction to HTML5 Web Messaging](https://dev.opera.com/articles/window-postmessage-messagechannel/)
 - [Using channel messaging - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
