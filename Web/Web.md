@@ -2094,9 +2094,13 @@ Example: the hero image
 	- fired when page's resources are loaded (load event) and the main thread is idle (for at least 5 seconds)
 	
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
-- PWT (Pinner Wait Time)
+
+Composite metric examples (based on what the user care about):
+	
+- Pinterest use PWT (Pinner Wait Time)
 	- [Get Down to Business: Why the Web Matters (Chrome Dev Summit 2018) - YouTube](https://www.youtube.com/watch?v=Xryhxi45Q5M&t=1214)
-	- "[for website like Pinterest] look to what your users care about. For us, that’s images. Until the above-the-fold images are loaded, to our users, page load is not complete.": "Time to Interactive" and "Above-the-Fold Images"
+	- "For us, that’s images. Until the above-the-fold images are loaded, to our users, page load is not complete."
+	- "Time to Interactive" and "Above-the-Fold Images"
 
 ##### Anatomy of a webpage
 
