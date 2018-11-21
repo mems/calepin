@@ -1459,7 +1459,7 @@ Require a flat background color
 
 	a {
 		text-decoration: none;
-		box-shadow: inset 0 -.14em 0 0 currentcolor;
+		box-shadow: inset 0 -.14em 0 0 currentColor;
 	}
 
 	a {
@@ -1477,7 +1477,7 @@ Require a flat background color
 	/*
 	a{
 		text-decoration: none;
-		box-shadow: inset 0 -0.12em 0 0 rgba(255, 255, 255, 1), inset 0 -.14em 0 0 rgba(255, 255, 255, 0.5), inset 0 -.14em 0 0 currentcolor;
+		box-shadow: inset 0 -0.12em 0 0 rgba(255, 255, 255, 1), inset 0 -.14em 0 0 rgba(255, 255, 255, 0.5), inset 0 -.14em 0 0 currentColor;
 		text-shadow: .05em 0 rgba(255, 255, 255, 1), -0.05em 0 rgba(255, 255, 255, 1), 1.5px 0 rgba(255, 255, 255, 1), -1.5px 0 rgba(255, 255, 255, 1);
 	}
 	*/
@@ -1576,11 +1576,11 @@ or use background clip:
 		color: transparent;
 	}
 
-alternate version where `currentcolor` can be used:
+alternate version where `currentColor` can be used:
 
 	p {
 		/*color: red;*/
-		background: linear-gradient(to top, transparent, currentcolor 2em, currentcolor);
+		background: linear-gradient(to top, transparent, currentColor 2em, currentColor);
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -2258,12 +2258,12 @@ Note: To support protocol relative links, use `[href*="//itunes.apple.com/"]` in
 
 ### Visited limitations
 
-`:visited` can only use color properties. Inherit `currentcolor` can be used.
+`:visited` can only use color properties. Inherit `currentColor` can be used.
 
 Only color can be used
 
 - [Privacy and the :visited selector - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector)
-- [Color `currentcolor` keyword](#Color `currentcolor` keyword)
+- [Color `currentColor` keyword](#Color `currentColor` keyword)
 
 ### CSS Engine selectors
 
@@ -2933,7 +2933,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 - [Variables: The Backbone Of CSS Architecture – Smashing Magazine](https://www.smashingmagazine.com/2016/01/variables-in-css-architecture/)
 - [Using CSS variables correctly - Mike Riethmuller](https://madebymike.com.au/writing/using-css-variables/)
 
-## Color `currentcolor` keyword
+## Color `currentColor` keyword
 
 It's a keyword but act like a [variable](#Variables)
 
@@ -2942,7 +2942,8 @@ Like a inherited color but used by border-color or background-color
 Supported by all major browser (include IE9+)
 
 - https://stackoverflow.com/questions/23936150/issues-with-css-currentcolor-keyword-in-ios-and-safari
-- [\<color\> - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword)
+- [\<color\> - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentColor_keyword)
+- [Difference between currentColor & Custom Properties | Mike Riethmuller](https://www.madebymike.com.au/writing/currentcolor-and-custom-properties/)
 
 ## Colors names
 
