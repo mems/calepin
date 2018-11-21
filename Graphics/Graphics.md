@@ -34,6 +34,7 @@ GPU/3D rendering:
 - [RenderDoc is a stand-alone graphics debugging tool](https://github.com/baldurk/renderdoc) - Debug tool for OpenGL, Vulkan, D3D
 - [The Little Grasshopper](http://prideout.net/blog/)
 - [Scratchapixel](http://www.scratchapixel.com/)
+- [How does a GPU shader core work?](http://aras-p.info/texts/files/2018Academy%20-%20GPU.pdf)
 
 Old films techniques for special effects [How some cool silent film effects were done - Album on Imgur](http://imgur.com/gallery/wUAcl)
 
