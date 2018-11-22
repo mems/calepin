@@ -752,7 +752,7 @@ Examples of native functions/methods or properties:
 - `getElementById`
 - `getElementsByTagNameNS`
 
-Are browser-specific additions (by Microsoft Internet Explorer):
+Are browser-specific additions (by Microsoft for Internet Explorer):
 
 - `XMLHttpRequest` should be `XMLHTTPRequest`
 - `onreadystatechange` should be `onReadyStateChange`
