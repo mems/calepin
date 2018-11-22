@@ -3157,8 +3157,10 @@ A few notes about this event:
 > …whenever a default action like scroll or zoom is triggered, you’ll get a `pointercancel` event, to let you know that the browser has taken control of the pointer. […] You can stop the browser from taking control with the CSS `touch-action` property.
 — [Pointing the Way Forward  |  Web  |  Google Developers](https://developers.google.com/web/updates/2016/10/pointer-events)
 
-> **If you listen to touchend events, be sure to also listen for touchcancel**
-> 
+
+<details>
+	<summary>"If you listen to touchend events, be sure to also listen for touchcancel"</summary>
+	
 > The touchend event fires whenever a finger lifts normally from the touchscreen.  All browsers can also fire a touchcancel event (http://www.w3.org/TR/touch-events/#the-touchcancel-event) to indicate that a touch has terminated abnormally.  This can happen, for example, if focus is taken away from the page (such as by the browser's menu being activated), or for any number of other implementation-defined reasons.  The reason this is a separate event is that you may want to avoid triggering some action (eg. a tap that ends with a touchend should activate something, but one that ends in touchcancel should not).
 > 
 > I've seen many websites which listen for touchend but ignore touchcancel entirely.  This results in some subtle but nasty bugs.  For example, the app may think that a finger is stuck down when there are no fingers on the page at all.  When a new touchstart occurs, the app may get very confused - possibly thinking two fingers are now down.
@@ -3168,7 +3170,9 @@ A few notes about this event:
 > Chrome for Android has always had this optimization, and now in M32 Chrome desktop is changing (http://crbug.com/240735) to match the Android behavior.  You can see this in action here: http://www.rbyers.net/janky-touch-scroll.html.  Enable the "do lots of work" and "empty touchmove handler" checkboxes.  Scrolling will take a little while to start (to verify the page doesn't want to prevent scrolling entirely), but once it starts it will proceed smoothly on browsers that have this touchcancel behavior (or other such optimizations).  For bonus points, scroll down and try the same thing with the scrollable element.  In Chrome we work hard to try to make scrolling of elements behave the same as document scrolling, but there are some (shrinking) scenarios where this isn't yet possible (and so it will be janky when scrolling the document is smooth).
 > 
 > The precise behavior here is painfully specific to each browser.  I've put some details here: https://docs.google.com/a/chromium.org/document/d/12k_LL_Ot9GjF8zGWP9eI_3IMbSizD72susba0frg44Y/edit#heading=h.nxfgrfmqhzn7.  At least this is very well specified in Pointer Events (http://www.w3.org/TR/pointerevents/), and Chrome's behavior is equivalent to the Pointer Event behavior.  We're talking at the W3C at trying to improve consistency between browsers for this touch event case (see http://lists.w3.org/Archives/Public/public-webevents/2013AprJun/0040.html).
-— [If you listen to touchend events, be sure to also listen for touchcancel The…](https://plus.google.com/+RickByers/posts/Ny6ZXuzWdN5)
+> 
+> — [If you listen to touchend events, be sure to also listen for touchcancel The…](https://plus.google.com/+RickByers/posts/Ny6ZXuzWdN5)
+</details>
 
 - [pointercancel - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/pointercancel)
 
