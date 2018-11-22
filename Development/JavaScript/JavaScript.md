@@ -165,7 +165,10 @@ See also [`contentEditable`](#contentEditable)
 
 ### Table editors
 
-	// from http://jsfiddle.net/ondras/o3tzx1px/ JS Excel, ES2015 edition - JSFiddle
+<details>
+	<summary>JS Excel code snipet</summary>
+	
+	// from http://jsfiddle.net/ondras/o3tzx1px/
 	<p>This is an updated version of <a href="http://jsfiddle.net/ondras/hYfN3/">http://jsfiddle.net/ondras/hYfN3/</a>. Some people argued that the original approach was too hacky and incompatible with strict/ES2015, so here we go again <strong>without <code>with</code>:</strong></p>
 	
 	<ul>
@@ -250,8 +253,7 @@ See also [`contentEditable`](#contentEditable)
 	window.addEventListener("focus", e => e.target.value = localStorage[e.target.id] || "", true)
 	window.addEventListener("blur", e => (localStorage[e.target.id] = e.target.value, update()), true)
 	</script>
-
-- not a library, but code snipet
+</details>
 
 ### Polyfills
 
@@ -324,6 +326,10 @@ Find object at camera target
 	var intersects = raycaster.intersectObjects( targetList );
 
 Sprites and custom shaders, aka custom sprite material: [Three.js sprites and custom shaders? | Coding on acid.](https://makc3d.wordpress.com/2015/03/20/three-js-sprites-custom-shaders/). See http://jsdo.it/makc/cozIcan
+
+
+<details>
+	<summary>Sprites and custom shaders</summary>
 
 	// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md
 	
@@ -453,13 +459,17 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 		}
 	
 	}
+</details>
 
 3D to 2D position (used to display DOM elements), overriding Object3D’s `updateMatrixWorld()`
 
 - [Three.js and 2D overlays | Coding on acid.](https://makc3d.wordpress.com/2015/04/04/three-js-and-2d-overlays/)
 - [2D overlays in three.js - jsdo.it - Share JavaScript, HTML5 and CSS](http://jsdo.it/makc/hw0L/fullscreen)
 - [Raycaster](https://threejs.org/docs/api/core/Raycaster.html) "Raycasting is used for mouse picking"
- 
+
+<details>
+	<summary>2D position to 3D</summary>
+	
 	// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md ThreeJS r71
 	
 	// we define this balloon class to handle 2D overlay stuff for us
@@ -536,7 +546,7 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 		THREE.ImageUtils.crossOrigin = '';
 	
 		geometry = new THREE.SphereGeometry( 400, 30, 20 );
-		material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture('http://i.imgur.com/DhOF0XH.jpg') } );
+		material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture('http://i.imgur.com/DhOF0XH.jpg'/*earth texture*/) } );
 	
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
@@ -570,6 +580,7 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 		renderer.render( scene, camera );
 	
 	}
+</details>
 
 ### Documents
 
@@ -1150,20 +1161,20 @@ Tab 2:
 It's a fake problems, that must be fixed by browser makers, and don't protect data from someone with bad intentions 
 
 	(function() {
-			try {
-					var $_console$$ = console;
-					Object.defineProperty(window, "console", {
-							get: function() {
-									if ($_console$$._commandLineAPI)
-											throw "Sorry, for security reasons, the script console is deactivated on netflix.com";
-									return $_console$$
-							},
-							set: function($val$$) {
-									$_console$$ = $val$$
-							}
-					})
-			} catch ($ignore$$) {
-			}
+		try {
+			var $_console$$ = console;
+				Object.defineProperty(window, "console", {
+					get: function() {
+						if ($_console$$._commandLineAPI)
+							throw "Sorry, for security reasons, the script console is deactivated on netflix.com";
+						return $_console$$
+					},
+					set: function($val$$) {
+						$_console$$ = $val$$
+					}
+				})
+		} catch ($ignore$$) {
+		}
 	})();
 
 This example work only on Webkit (Chrome only?) browsers
@@ -1183,6 +1194,9 @@ See [javascript - Restoring console.log() - Stack Overflow](https://stackoverflo
 
 In others browser (or if redefine `console` property is not possible), log a message:
 
+<details>
+	<summary>Log in console in non Chrome browsers</summary>
+	
 	// From Facebook
 	let j = 'Stop!';
 	let k = 'This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Facebook feature or "hack" someone\'s account, it is a scam and will give them access to your Facebook account.';
@@ -1221,6 +1235,7 @@ In others browser (or if redefine `console` property is not possible), log a mes
 		}
 		console.log('\n\n\n' + n.join('\n') + '\n\n' + l + '\n');
 	}
+</details>
 
 - https://stackoverflow.com/questions/21692646/how-does-facebook-disable-the-browsers-integrated-developer-tools
 - http://davidwalsh.name/disable-console
@@ -1380,8 +1395,10 @@ Aka WebGL progressive image
 
 Or use WebGL:
 
+<details>
+	<summary>Draw in Canvas with WebGL</summary>
+	
 	<img id="image" src="image.jpg">
-	</main>
 	
 	<script id="vertex-shader" type="x-shader/x-vertex">
 		attribute vec2 a_position;
@@ -1511,6 +1528,7 @@ Or use WebGL:
 			ctx.drawArrays(ctx.TRIANGLES, 0, 6);
 		}
 	</script>
+</details>
 
 - [Canvas image manipulation techniques · MadebyMike](https://madebymike.com.au//writing/canvas-image-manipulation/)
 
@@ -1593,6 +1611,9 @@ Usefull for detect low-end devices or old tablets/smartphones
 
 ### 2D WebGL shader
 
+<details>
+	<summary>2D WeBGL shader</summary>
+	
 	<!--
 	Chromatic aberration effect
 	From https://codepen.io/robin-dela/pen/oMOeGg/
@@ -1752,6 +1773,7 @@ Usefull for detect low-end devices or old tablets/smartphones
 	
 	main();
 	</script>
+</details>
 
 ### WebGL shader performance
 
@@ -1874,6 +1896,9 @@ Autocomplete is weird (using the [`<datalist>`](https://developer.mozilla.org/en
 
 Field mask
 
+<details>
+	<summary>Field mask snippet</summary>
+	
 	<!-- http://jsfiddle.net/Lhxpg6wb/1/ -->
 	<style>
 		html{
@@ -2025,6 +2050,7 @@ Field mask
 		
 		input.parentNode.insertBefore(extendedInput, input.nextSibling);
 	</script>
+</details>
 
 To go further, Input masking:
 
@@ -2136,6 +2162,9 @@ See [Calendar](HTML#Calendar) for valid markup / semantic
 
 From https://bugzilla.mozilla.org/show_bug.cgi?id=1069609#attach_8710338
 
+<details>
+	<summary>Date picker snippet</summary>
+	
 	<!DOCTYPE html>
 	  <head>
 		<title>Calendar</title>
@@ -2687,6 +2716,7 @@ From https://bugzilla.mozilla.org/show_bug.cgi?id=1069609#attach_8710338
 		</div>
 	  </body>
 	</html>
+</details>
 
 ### Keypad
 
@@ -4174,6 +4204,9 @@ See [Tree iteration](Tree traversal#Tree iteration)
 
 **The loop does not support modifications (insert/delete)**
 
+<details>
+	<summary>Stylesheet rule walker</summary>
+	
 	console.group("sheet:");
 	var treeIndexes = [];
 	var deep = 0;
@@ -4264,9 +4297,13 @@ See [Tree iteration](Tree traversal#Tree iteration)
 		index++;
 	}
 	console.groupEnd();
+</details>
 
 Remove all `:hover` and `:active` rules:
 
+<details>
+	<summary>Snippet</summary>
+	
 	const selectorFilter = (selector) => !selector.match(":hover") && !selector.match(":active");
 	var rulesGroups = Array.from(document.styleSheets);
 	while(rulesGroups.length > 0){
@@ -4316,6 +4353,7 @@ Remove all `:hover` and `:active` rules:
 			}
 		}
 	}
+</details>
 
 ### Remove all children
 
@@ -5286,6 +5324,9 @@ See [Store bytes in JS source as Data URI](#Store bytes in JS source as Data URI
 
 Base64 to bytes. The ratio is 4:3 bytes
 
+<details>
+	<summary>Base64 storage</summary>
+	
 	function base64ToBytes(data){
 		// Use atob() but less performant for big data (string->string->arraybuffer)
 		//let decodedData = atob(data);
@@ -5364,6 +5405,7 @@ Base64 to bytes. The ratio is 4:3 bytes
 			.replace(/\+/g, "-")
 			.replace(/\//g, "_");
 	}
+</details>
 
 - [Base64 encoding and decoding - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem)
 - [StringView - Mozilla | MDN](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView)
@@ -5397,7 +5439,8 @@ See http://blog.kevinalbs.com/base122 and https://github.com/kevinAlbs/Base122 a
 
 Against: performance (probably), less performant with deflate compression, not well supported and not standard
 
-Inspiration (base122?) :
+<details>
+	<summary>Inspiration (base122?)</summary>
 
 	/*
 	This table includes 11280 characters: characters are defined in Japanese Industrial Standards(JIS X 0208-1997), special characters is available in windows, “i-mode EMOJI”(pictogram).
@@ -5446,6 +5489,7 @@ Inspiration (base122?) :
 		}
 	}
 	//s
+</details>
 
 
 #### Store bytes in JS source as Data URI
@@ -5522,6 +5566,9 @@ The compress ratio is between 1 : 2 to 11 : 4
 
 To generate the corresponding code:
 
+<details>
+	<summary>Generate source</summary>
+	
 	let xhr = new XMLHttpRequest();
 	xhr.open("GET", "data:application/octet-stream;base64,AAECAwQFBgcICQ==");//0x010203040506070809
 	xhr.responseType = "arraybuffer";
@@ -5562,6 +5609,7 @@ To generate the corresponding code:
 		console.log(output);
 	});
 	xhr.send(null);
+</details>
 
 ### Decompress GZIP
 
@@ -6051,6 +6099,9 @@ The workaround is use `eval(anchor.href)` instead.
 
 ## Firefox service provider
 
+<details>
+	<summary>Snippet</summary>
+	
 	function activateProvider(node, name) {
 		// fixup the service data with a postActivationURL if one doesn't exist.
 		var data = JSON.parse(node.getAttribute("data-service"));
@@ -6093,6 +6144,7 @@ The workaround is use `eval(anchor.href)` instead.
 		"shareURL": "https://www.facebook.com/sharer/sharer.php?u=%{url}",
 		"version": 2
 	}
+</details>
 
 - https://activations.cdn.mozilla.net/fr/activated/google.html
 - https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Social_API/Guide/FirstSteps
@@ -6498,6 +6550,9 @@ Last instruction should return undefined (like `undefined` or `void(0)`), or the
 
 Copy current document as Markdown link bookmarklet (see [Clipboard API](#Clipboard API)):
 
+<details>
+	<summary>Bookmarklet snippet</summary>
+	
 	// Encode with Uglify3 https://skalman.github.io/UglifyJS-online/
 	// copy("javascript:"+document.getElementById("out").value.replace(/[\s#%]/g, match => "%" + match.charCodeAt(0).toString(16).padStart(2, "0"))+"void(0)")
 	{
@@ -6539,6 +6594,7 @@ Copy current document as Markdown link bookmarklet (see [Clipboard API](#Clipboa
 	}
 
 	javascript:{let%20e=document,t=e.URL,a=[e.title].concat(Array.from(e.querySelectorAll("h1,h2"),e=>e.textContent.replace(/\s+/g,"%20")),t).reduce((e,t)=>e||t.trim(),""),n=(e,t,a="&%23x",n=";")=>e.replace(t,e=>a+e.charCodeAt(0).toString(16).padStart(2,"0")+n),l=n(t,/[()"]/g,"%25",""),r=e.contentType.startsWith("image/"),[,i="Untitled"]=/\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new%20URL(t).pathname)||[];if(i+="."+e.contentType.split("/")[1].split("+")[0],["IFRAME","FRAME"].includes(e.activeElement.tagName)){let%20t=e.createElement("span");t.tabIndex=-1,t.setAttribute("aria-hidden","true"),t.style.position="fixed",e.documentElement.appendChild(t),t.focus(),t.remove()}e.addEventListener("copy",e=>{let%20c=e.clipboardData,o=c.setData.bind(c);e.preventDefault(),c.clearData(),o("text/x-moz-url",t),o("text/uri-list",t),o("text/html",r?`<img%20src="${l}"%20alt="${n(i,/["&<>]/g)}">`:`<a%20href="${l}">${n(a,/[&<>]/g)}</a>`),o("text/plain",r||a!==t?(r?"!":"")+"["+(r?i:a).replace(/[\\<>\[\]]/g,"\\$&")+"]("+l+")":l)},{once:!0}),e.execCommand("copy")}void(0)
+</details>
 
 Older version:
 
