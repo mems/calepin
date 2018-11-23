@@ -78,7 +78,7 @@ Magic File:
 
 ## Media type
 
-Aka MIME type, content type
+Aka MIME type / Mimetype (terme used for email "MIME - Multipurpose Internet Mail Extensions" specs), content type
 
 By default `application/octet-stream` (`application/force-download` doesn't exist, fallback to the default)
 
@@ -123,14 +123,124 @@ Sources:
 - [Mime types | Schemaphic Systems Blog](https://deepanjandas.wordpress.com/2010/06/07/mime-types/)
 - [jshttp/mime-db: Media Type Database](https://github.com/jshttp/mime-db) (from iana, apache and ngnix)
 - [The Filename Extension Database](https://datatypes.net/)
+- see `!:mime` in https://github.com/file/file/tree/master/magic/Magdir using format [magic(5): file command's magic pattern file - Linux man page](https://linux.die.net/man/5/magic)
 
-> The use of text/ for interpreted languages (scripts) is discouraged
-> already by IETF and things like javascript/ecmascript are already
-> migrated to application/*, the legacy text/* definitions being
-> deprecated.
+> The use of `text/` for interpreted languages (scripts) is discouraged already by IETF and things like javascript/ecmascript are already migrated to `application/*`, the legacy `text/*` definitions being deprecated.
+> - [RFC 4329 - Scripting Media Types](https://tools.ietf.org/html/rfc4329#section-3) and [RFC 4329 - Scripting Media Types](http://tools.ietf.org/html/rfc4329#section-7)
 
 Note: Fonts have now a dedicated type [`font`](http://www.iana.org/assignments/media-types/media-types.xhtml#font).
 Instead of using `application/x-font-truetype-collection`, use `font/collection`
+
+Script type:
+
+- Bash: `text/x-shellscript`
+- Java: `text/x-java-source`
+- C: `text/x-c`, `text/x-csrc`
+- C++: `text/x-c++`, `text/x-c++src`
+- Python: `text/x-python`
+
+Native executable:
+
+- `application/x-msdownload; format=pe32`
+- `application/x-msdownload;format=pe`
+- `application/x-dosexec`
+- `application/exe`
+- `application/x-exe`
+- `application/dos-exe`
+- `vms/exe`
+- `application/x-winexe`
+- `application/msdos-windows`
+- `application/x-msdos-program`
+
+Audio & video types:
+
+- WebM `.webm`, `video/webm` (video with optional audio), `audio/webm` (audio only)
+	Examples:
+	
+	- `video/webm; codecs=vp8`
+
+	Video codecs:
+	
+	- VP8: `vp8` `vp8.0`
+	- VP8: `vp9` `vp9.0`
+	
+	Audio codecs:
+	
+	- Vorbis: `vorbis`
+	- Opus: `opus`
+- Ogg `.ogg`, `.ogv`, `video/ogg` (video with optional audio), `audio/ogg` (audio only)
+	Examples:
+	
+	- `audio/ogg`
+	- `video/ogg`
+	
+	Video codecs: 
+	
+	- Theora `theora`
+	
+	Audio codecs:
+	
+	- Vorbis `vorbis`
+- MPEG `audio/mpeg`
+	Examples:
+	
+	- `audio/mpeg; codecs="mp3"`
+
+	Audio codecs:
+	
+	- MP1 `mp1`
+	- MP2 `mp2`
+	- MP3 `mp3`
+- MP4 `.mp4`, `.m4a` (audio only), `video/mp4` (video with optional audio), `audio/mp4` (audio only), `application/ogg` (unspecified content)
+	Examples:
+	
+	- `video/mp4; codecs="avc1.42E01E"`
+	- `video/mp4; codecs="avc1.4D401E, mp4a.40.2"`
+	- `audio/mp4; codecs="mp4a.40.2"`
+	
+	Video codecs:
+	
+	- H.264 Baseline (main and extended video compatible): `avc1.42E0xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
+	- H.264 Main: `avc1.4D40xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
+	- H.264 Extended profile (baseline-compatible): `avc1.58A0xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
+	- H.264 High: `avc1.6400xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
+	- MPEG-4 Visual Simple Profile Level 0: `mp4v.20.9`
+	- MPEG-4 Visual Advanced Simple Profile Level 0: `mp4v.20.240`
+	
+	Audio codecs:
+	
+	- Low-Complexity AAC: `mp4a.40.2`
+- RAW AAC `.aac` `audio/aac` (no MP4 container)
+- HLS `application/x-mpegURL; codecs="avc1.42E01E"`
+
+- [ffmpeg - What is the difference between M4A and AAC Audio Files? - Stack Overflow](https://stackoverflow.com/questions/18110399/what-is-the-difference-between-m4a-and-aac-audio-files/18111039#18111039)
+- [Video type parameters - WHATWG Wiki](https://wiki.whatwg.org/wiki/Video_type_parameters)
+- [html5 video tag codecs attribute - Stack Overflow](https://stackoverflow.com/questions/16363167/html5-video-tag-codecs-attribute)
+- [Media type - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Media_type)
+- [RFC 2231 - MIME Parameter Value and Encoded Word Extensions: Character Sets, Languages, and Continuations](https://tools.ietf.org/html/rfc2231)
+- [RFC 6381 - The 'Codecs' and 'Profiles' Parameters for "Bucket" Media Types](https://tools.ietf.org/html/rfc6381)
+
+- `audio/opus`
+- `.m4b`
+- `.mp4v`
+- `.3gp`
+- `.3g2`
+- `audio/mp3`
+- `audio/MPA`
+- `audio/mpa-robust`
+- `audio/x-m4a`
+- `audio/MP4A-LATM`
+- `audio/mpeg4-generic`
+- `audio/wav; codecs="1"`
+- `audio/wav`
+- `audio/wave` (official)
+- `audio/x-wav`
+- `audio/x-pn-wav`
+- `audio/flac` (preferred)
+- `audio/x-flac`
+- `.mkv`
+- `video/x-matroska`
+- `video/x-matroska; codecs="theora, vorbis"`
 
 `/etc/mime.types`:
 
