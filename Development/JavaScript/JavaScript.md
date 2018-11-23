@@ -3679,6 +3679,15 @@ See also [Parse HTML using the native parser](#Parse HTML using the native parse
 
 - http://jsperf.com/textcontent-vs-createtextelement
 
+### Read text
+
+	htmlScriptElement.text;//htmlStyleElement don't have that property 
+	htmlScriptElement.innerText;// trigger reflow to handle hidden elements
+	htmlScriptElement.textContent;// return all text nodes (even in hidden elements)
+
+- [The poor, misunderstood innerText — Perfection Kills](http://perfectionkills.com/the-poor-misunderstood-innerText/)
+- [JSON Miller 🦊⚛ on Twitter: "Demo: https://t.co/Bzi5OTohaR… "](https://twitter.com/_developit/status/1064548728906964994)
+
 ### `className` of SVG Element
 
 To get class(es):
@@ -3726,16 +3735,14 @@ See [DOM clobbering](Security#DOM clobbering)
 
 Empty children
 
-**Never use `innerHTML` or `textContent` to clear all child: won't destroy event handlers**
+	// use lastChild cause less layout than fistChild
+	while (parent.lastChild && !parent.lastChild.remove());
 
-	let i = box.children.length
-	while (--i >= 0) {
-		box.removeChild(box.firstChild);
-	}
+	parent.textContent = "";
 
-	while (node.firstChild) {
-		node.removeChild(node.firstChild);
-	}
+	parent.innerHTML = "";
+
+	node.parentNode.replaceChild(node.cloneNode(false), node);// but all attached listeners and references will not match the new element
 
 Use `lastChild` is not better in all browsers
 
