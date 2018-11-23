@@ -1,6 +1,3 @@
-> Never use "SHOULD" in official guidance. Do the hard work to make it simple: "MUST" when people must do it, "MAY" when there's a choice.
-— [Caroline Jarrett](https://twitter.com/cjforms/status/808333086563897345)
-
 > A successful software tool is one that was used to do something undreamed of by its author.
 — Stephen C. Johnson
 
@@ -10,6 +7,15 @@
 > Tout est faisable, c'est juste une question coût et/ou de temps
 
 - [Starting an Internet Service Provider | Chris Hacken](http://chrishacken.com/starting-an-internet-service-provider/) - Create your own ISP
+
+## Specification
+
+> Never use "SHOULD" in official guidance. Do the hard work to make it simple: "MUST" when people must do it, "MAY" when there's a choice.
+— [Caroline Jarrett](https://twitter.com/cjforms/status/808333086563897345)
+
+> "must" when people must do it, "may" when there's a choice.
+
+> must = duty, may = power
 
 ## Some possible issues
 
