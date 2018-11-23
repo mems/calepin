@@ -3688,6 +3688,14 @@ See also [Parse HTML using the native parser](#Parse HTML using the native parse
 - [The poor, misunderstood innerText — Perfection Kills](http://perfectionkills.com/the-poor-misunderstood-innerText/)
 - [JSON Miller 🦊⚛ on Twitter: "Demo: https://t.co/Bzi5OTohaR… "](https://twitter.com/_developit/status/1064548728906964994)
 
+### Element visibility
+
+`element.getBoundingClientRect()` return `0,0,0,0` for not displayed elements
+
+`element.offsetHeight === 0` means the element is not displayed but not work if element without padding nor border contains no element (children elements are out of the flow). This trigger a reflow.
+
+`element.offsetParent !== null` return `null` when element is not displayed (!= not visible or transparent). See [javascript - What would make offsetParent null? - Stack Overflow](https://stackoverflow.com/questions/306305/what-would-make-offsetparent-null) and [HTMLElement.offsetParent - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent)
+
 ### `className` of SVG Element
 
 To get class(es):
