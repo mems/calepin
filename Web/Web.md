@@ -6220,31 +6220,10 @@ use ISO 8601 in JSON
 	- [Class and ID to avoid because of AdBlock](https://gist.github.com/spyesx/42fe84c0ef757d1c38a4) https://github.com/easylist/easylist (IDs start with `###`, classes start with `##.`)
 	- [Remove hint on beacon.js as it's apparently a bad name · ntzwrk/beacon@17c2042](https://github.com/ntzwrk/beacon/commit/17c20422b2912bed0c414093ebaaf672e1ea2a57)
 	- [Don't use "ad" as a class · Issue #139 · rtsao/styletron](https://github.com/rtsao/styletron/issues/139)
-	- [EasyList - Overview](https://easylist.to/)
-	- [ghostery/ghostery-extension: Ghostery Browser Extension for Firefox, Chrome, Opera and Edge](https://github.com/ghostery/ghostery-extension) - https://github.com/ghostery/ghostery-extension/tree/master/databases `https://cdn.ghostery.com/update/v3/bugs`, `https://cdn.ghostery.com/update/click2play`, `https://cdn.ghostery.com/update/compatibility` and `https://cdn.ghostery.com/update/surrogates`
-	
-	Safe Browsing (UrlSubresourceFilter, BetterAds):
-	
-	- [Chromium Blog: Under the hood: How Chrome's ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
-	- [Bloqueur de publicités de Chrome : EasyList utilisé pour le blocage, de nouveaux détails](https://www.nextinpact.com/news/106147-bloqueur-publicites-chrome-easylist-utilise-pour-blocage-nouveaux-details.htm)
-	- [Safe Browsing Lists | Safe Browsing APIs (v4) | Google Developers](https://developers.google.com/safe-browsing/v4/lists)
-	- [Safe Browsing - The Chromium Projects](https://www.chromium.org/developers/design-documents/safebrowsing)
-	- [Issue 2086213003: Data structures for Safe Browsing subresource filtering rules. - Code Review](https://codereview.chromium.org/2086213003)
-	- [README - Code Search](https://cs.chromium.org/chromium/src/components/subresource_filter/README)
-	- [google/safebrowsing: Safe Browsing API Go Client](https://github.com/google/safebrowsing)
-	- [Safe Browsing API — Yandex Technologies](https://tech.yandex.com/safebrowsing/)
-	- [Here’s how Google Chrome’s new ad blocker works – Ctrl blog](https://www.ctrl.blog/entry/chrome-adblocker)
-	- [Should web browsers adopt Google’s new selective ad blocking tech? – Ctrl blog](https://www.ctrl.blog/entry/google-adblocking-competition)
-	- [Security/Safe Browsing/Chromium Implementation Overview - MozillaWiki](https://wiki.mozilla.org/Security/Safe_Browsing/Chromium_Implementation_Overview)
-	- `chrome://safe-browsing/` and `chrome://components/`
-
-	- [Intelligent Tracking Prevention | WebKit](https://webkit.org/blog/7675/intelligent-tracking-prevention/) - ITP, third party cookies isolation
-	- [Proxy can transform content](#Proxy can transform content) - proxy or extensions can block / hide ads
-	- [Chromium Blog: Under the hood: How Chrome' ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
 - some pages or files are not display correctly. Do you use the `Vary` header to define on which request headers you use to deliver content (often `Accept-Encoding`, `User-Agent` or `Cookie`)
-- [Proxies can transform content](#Proxies can transform content)
+- [Proxies can transform content](#proxies-can-transform-content)
 - scripts or content not executed/loaded because CSP don't allow it
-- [Redirects can break `POST`](#Redirects can break `POST`)
+- [Redirects can break `POST`](#redirects-can-break-post)
 
 ## Cross domain & integrity
 
@@ -6454,12 +6433,35 @@ SMS and phone call (voice):
 
 Aka Ads
 
-See also [Troubleshooting](#Troubleshooting) - blocked ads by filters
-
+See also 
+- [Content Blocking](#content-blocking) - blocked ads by filters
 - [Acceptable Ad criteria](https://acceptableads.com/en/about/criteria) - Rules by AdBlock
 - [SEO and ASO](#SEO and ASO) - balance between content and ads
 - [The Initial Better Ad Standard - Coalition for Better Ads](https://www.betterads.org/standards/) - Coalition for Better Ads
 - [Web Tools - Web Tools](https://www.google.com/webmasters/tools/ad-experience-unverified?pli=1) - [About the Ad Experience Report - Web Tool Help](https://support.google.com/webtools/topic/7073612?ref_topic=7566613)
+
+## Content Blocking
+
+Safe Browsing (UrlSubresourceFilter, BetterAds)
+
+- [Category:Ad blocking software - Wikipedia](https://en.wikipedia.org/wiki/Category:Ad_blocking_software)
+- [Ad blocking - Wikipedia](https://en.wikipedia.org/wiki/Ad_blocking)	
+- [Chromium Blog: Under the hood: How Chrome's ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
+- [Bloqueur de publicités de Chrome : EasyList utilisé pour le blocage, de nouveaux détails](https://www.nextinpact.com/news/106147-bloqueur-publicites-chrome-easylist-utilise-pour-blocage-nouveaux-details.htm)
+- [Here’s how Google Chrome’s new ad blocker works – Ctrl blog](https://www.ctrl.blog/entry/chrome-adblocker)
+- [Should web browsers adopt Google’s new selective ad blocking tech? – Ctrl blog](https://www.ctrl.blog/entry/google-adblocking-competition)
+- [Security/Safe Browsing/Chromium Implementation Overview - MozillaWiki](https://wiki.mozilla.org/Security/Safe_Browsing/Chromium_Implementation_Overview)
+- `chrome://safe-browsing/` and `chrome://components/`
+
+- [Intelligent Tracking Prevention 2.0 | WebKit](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) - ITP (Intelligent Tracking Prevention), third party cookies isolation
+- [Chromium Blog: Under the hood: How Chrome' ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
+- [Focus by Firefox - Content Blocking for the Open Web - The Mozilla Blog](https://blog.mozilla.org/blog/2015/12/07/focus-by-firefox-content-blocking-for-the-open-web/)
+- [Selectively Filtering Content in Web Browsers – IEBlog](https://blogs.msdn.microsoft.com/ie/2010/11/30/selectively-filtering-content-in-web-browsers/)
+
+See also:
+
+- [Troubleshooting](#troubleshooting)
+- [Advertising](#advertising)
 
 ## Datasets
 
