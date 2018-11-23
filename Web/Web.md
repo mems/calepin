@@ -1786,16 +1786,17 @@ Reactive prefetch: [Google mobile search is getting faster - to be exact, 100-15
 
 Aka Lazyload, LOD, defered loading
 
-Use `<noscript>` tags, or handle it with Service Worker (replace all `<img>` by a placeholder). See [`<noscript>` and search engines](#`<noscript>` and search engines)
+Use `<noscript>` tags, or handle it with Service Worker (replace all `<img>` by a placeholder). See [`<noscript>` and search engines](#noscript-and-search-engines)
 
 - [Dominant Colors for Lazy-Loading Images | manu.ninja](https://manu.ninja/dominant-colors-for-lazy-loading-images)
-- [`<noscript>` and search engines](#`<noscript>` and search engines)
-- [Image lazyload](#Image lazyload) and [Non-blocking stylesheets](#Non-blocking stylesheets)
+- [`<noscript>` and search engines](#noscript-and-search-engines)
+- [Image lazyload](#image-lazyload) and [Non-blocking stylesheets](#non-blocking-stylesheet)
 - [Extensible Web Resource Loading Manifesto - igvita.com](https://www.igvita.com/2014/10/02/extensible-web-resource-loading-manifesto/)
 - [google - Is this a good approach to image Lazy Loading for SEO? - Webmasters Stack Exchange](http://webmasters.stackexchange.com/questions/26190/is-this-a-good-approach-to-image-lazy-loading-for-seo)
 - [Redefining Lazy Loading With Lazy Load XT - Smashing Magazine](http://www.smashingmagazine.com/2015/02/03/redefining-lazy-loading-with-lazy-load-xt/)
 - [Lazy loading and the SEO problem, solved! | Idea R Blog](https://www.idea-r.it/blog/110/en/lazy-loading-seo-problem#blogimage=5)
 - [Progressivement en ‹img /› - da scritch net works](https://dascritch.net/post/2014/06/10/Progressivement-en-img#lazyloading)
+- [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes)
 
 Live streaming, or start play video when the file is not completely generated:
 
@@ -1887,8 +1888,7 @@ After a user action or intersection observation (scroll → visible in the viewp
 1. Read document visibility `document.visibilityState === "visible" || document.visibilityState === "prerender"`
 2. Listen document visibility change `document.addEventListener("visibilitychange", documentVisibilityChange);` if hidden, store which placeholder(s) must be replaced then wait the document to be visible
 3. Use the IntersectionObserver API of observe placeholders (currently) in the DOM
-4. Use MutationObserver to handle DOM modifications (to observe later attached placeholders or disconnect detached placeholders)
-	See tips for observing mutations https://stackoverflow.com/questions/31659567/performance-of-mutationobserver-to-detect-nodes-in-entire-dom/39332340#39332340
+4. Use MutationObserver to handle DOM modifications (to observe later attached placeholders or disconnect detached placeholders). See [DOM mutation](../Development/JavaScript/Javascript.md#dom-mutation)
 5. Use matchMedia API to match print media (to load all images)
 
 		const mediaQuery = window.matchMedia("print");
