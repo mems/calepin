@@ -1210,14 +1210,11 @@ Test:
 
 ## Media type
 
-Mimetype (name for media type used in email specs)
+Aka MIME type, content type
 
-- [Media type](htaccess#Media type)
-- [Media type](Formats, encoding and protocols#Media type)
- 
-	application/octet-stream
-	application/x-www-form-urlencoded
-
+- [Media type](../Development/htaccess.md#media-type)
+- [Media type](../Formats,%20encoding%20and%20protocols/Formats,%20encoding%20and%20protocols.md#media-type)
+- `application/x-www-form-urlencoded`
 - `text/event-stream` used by [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (Set charset could be required `text/event-stream; charset=utf-8`)
 
 Some subtypes support optional parameters`image/webp;animation=y`, `image/webp;version=0.3`
@@ -6068,129 +6065,6 @@ For HTTPS page (on `http://www.example.com/page`):
 - [Official Google Webmaster Central Blog: 5 common mistakes with rel=canonical](https://webmasters.googleblog.com/2013/04/5-common-mistakes-with-relcanonical.html)
 - [hreflang and canonical: How to use them together](http://www.rebelytics.com/hreflang-canonical/)
 - [Set your preferred domain (www or non-www) - Search Console Help](https://support.google.com/webmasters/answer/44231?hl=en)
-
-## Media type
-
-Often called erroneously Mimetype (terme used only by email MIME - Multipurpose Internet Mail Extensions - specs)
-
-See `!:mime` in https://github.com/file/file/tree/master/magic/Magdir using format [magic(5): file command's magic pattern file - Linux man page](https://linux.die.net/man/5/magic)
-
-Script type:
-
-- Bash: `text/x-shellscript`
-- Java: `text/x-java-source`
-- C: `text/x-c`, `text/x-csrc`
-- C++: `text/x-c++`, `text/x-c++src`
-- Python: `text/x-python`
-
-Native executable:
-
-- `application/x-msdownload; format=pe32`
-- `application/x-msdownload;format=pe`
-- `application/x-dosexec`
-- `application/exe`
-- `application/x-exe`
-- `application/dos-exe`
-- `vms/exe`
-- `application/x-winexe`
-- `application/msdos-windows`
-- `application/x-msdos-program`
-
-Note: not `application/*`?
-
-Use `application/javascript` instead of `text/javascript`: [RFC 4329 - Scripting Media Types](http://tools.ietf.org/html/rfc4329#section-7)
-
-Audio & video types:
-
-- WebM `.webm`, `video/webm` (video with optional audio), `audio/webm` (audio only)
-	Examples:
-	
-	* `video/webm; codecs=vp8`
-
-	Video codecs:
-	
-	* VP8: `vp8` `vp8.0`
-	* VP8: `vp9` `vp9.0`
-	
-	Audio codecs:
-	
-	* Vorbis: `vorbis`
-	* Opus: `opus`
-- Ogg `.ogg`, `.ogv`, `video/ogg` (video with optional audio), `audio/ogg` (audio only)
-	Examples:
-	
-	* `audio/ogg`
-	* `video/ogg`
-	
-	Video codecs: 
-	
-	* Theora `theora`
-	
-	Audio codecs:
-	
-	* Vorbis `vorbis`
-- MPEG `audio/mpeg`
-	Examples:
-	
-	* `audio/mpeg; codecs="mp3"`
-
-	Audio codecs:
-	
-	* MP1 `mp1`
-	* MP2 `mp2`
-	* MP3 `mp3`
-- MP4 `.mp4`, `.m4a` (audio only), `video/mp4` (video with optional audio), `audio/mp4` (audio only), `application/ogg` (unspecified content)
-	Examples:
-	
-	* `video/mp4; codecs="avc1.42E01E"`
-	* `video/mp4; codecs="avc1.4D401E, mp4a.40.2"`
-	* `audio/mp4; codecs="mp4a.40.2"`
-	
-	Video codecs:
-	
-	* H.264 Baseline (main and extended video compatible): `avc1.42E0xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
-	* H.264 Main: `avc1.4D40xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
-	* H.264 Extended profile (baseline-compatible): `avc1.58A0xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
-	* H.264 High: `avc1.6400xx`, where `xx` is the AVC level (ex: level 3 = `1E`)
-	* MPEG-4 Visual Simple Profile Level 0: `mp4v.20.9`
-	* MPEG-4 Visual Advanced Simple Profile Level 0: `mp4v.20.240`
-	
-	Audio codecs:
-	
-	* Low-Complexity AAC: `mp4a.40.2`
-	
-- RAW AAC `.aac` `audio/aac` (no MP4 container)
-- HLS `application/x-mpegURL; codecs="avc1.42E01E"`
-
-`audio/opus`
-`.m4b`
-`.mp4v`
-`.3gp`
-`.3g2`
-`audio/mp3`
-`audio/MPA`
-`audio/mpa-robust`
-`audio/x-m4a`
-`audio/MP4A-LATM`
-`audio/mpeg4-generic`
-`audio/wav; codecs="1"`
-`audio/wav`
-`audio/wave` (official)
-`audio/x-wav`
-`audio/x-pn-wav`
-`audio/flac` (preferred)
-`audio/x-flac`
-`.mkv`
-`video/x-matroska`
-`video/x-matroska; codecs="theora, vorbis"`
-
-- [ffmpeg - What is the difference between M4A and AAC Audio Files? - Stack Overflow](https://stackoverflow.com/questions/18110399/what-is-the-difference-between-m4a-and-aac-audio-files/18111039#18111039)
-- [Video type parameters - WHATWG Wiki](https://wiki.whatwg.org/wiki/Video_type_parameters)
-- [html5 video tag codecs attribute - Stack Overflow](https://stackoverflow.com/questions/16363167/html5-video-tag-codecs-attribute)
-
-- [Media type - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Media_type)
-- [RFC 2231 - MIME Parameter Value and Encoded Word Extensions: Character Sets, Languages, and Continuations](https://tools.ietf.org/html/rfc2231)
-- [RFC 6381 - The 'Codecs' and 'Profiles' Parameters for "Bucket" Media Types](https://tools.ietf.org/html/rfc6381)
 
 ## Date
 
