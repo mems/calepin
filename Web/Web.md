@@ -95,6 +95,8 @@ For live content (live number of watchers, real-time transport traffic, real-tim
 
 **Note: proxy servers and firewalls could buffer the response, increasing the latency of the message delivery. Antivirus software may block the event streaming data chunks. TLS could be use to solve this problem:**
 
+Note: don't forget to push/flush the content: - [php - Server sent events work, but with a massive time delay - Stack Overflow](https://stackoverflow.com/questions/12297740/server-sent-events-work-but-with-a-massive-time-delay) 
+
 - [Networking 101: Transport Layer Security (TLS) - High Performance Browser Networking (O'Reilly)](https://hpbn.co/transport-layer-security-tls/#proxies-intermediaries-tls-and-new-protocols-on-the-web)
 - [html5 - JavaScript EventSource SSE not firing in browser - Stack Overflow](https://stackoverflow.com/questions/12978466/javascript-eventsource-sse-not-firing-in-browser/13135995#13135995)
 - [Sophos AV blocks server-sent events (SSE) on Mac OS X Yosemite - Sophos Anti-Virus for Mac Home Edition - Free Tools - Sophos Community](https://community.sophos.com/products/free-antivirus-tools-for-desktops/f/sophos-anti-virus-for-mac-home-edition/5750/sophos-av-blocks-server-sent-events-sse-on-mac-os-x-yosemite)
