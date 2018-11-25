@@ -314,6 +314,7 @@ Aka POST, GET, HEAD, PUT, etc.
 
 See [RESTful](#RESTful) and [API](#API)
 
+- `X-HTTP-Method` (Microsoft), `X-HTTP-Method-Override` (Google/GData), `X-Method-Override` (IBM)
 - [The Definitive Guide to GET vs POST - Treehouse Blog](http://blog.teamtreehouse.com/the-definitive-guide-to-get-vs-post)
 
 ### Simple HTTP Server
