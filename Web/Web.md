@@ -2055,10 +2055,11 @@ Example: the hero image
 	- start by preload scanner
 - prerender
 	- start by preload scanner
-- start Render
+- start Render - the time from the start of the initial navigation until the first non-white content is painted
 	- blocked ("rendering of subsequent content" / for progressive rendering) by sync stylesheets that match current media
 		- [CSS and Network Performance – CSS Wizardry – CSS Architecture, Web Performance Optimisation, and more, by Harry Roberts](https://csswizardry.com/2018/11/css-and-network-performance/#firefox-and-ieedge-place-import-before-js-and-css-in-html#place-link-relstylesheet--in-body)
 		- [The future of loading CSS - JakeArchibald.com](https://jakearchibald.com/2016/link-in-body/)
+	- [Metrics - WebPagetest Documentation](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics)
 - font
 	- load start only if an element in the page use it
 - text render
@@ -2075,29 +2076,35 @@ Example: the hero image
 	- [font-display - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display)
 	- [Font-display playground](https://font-display.glitch.me/)
 	- [`font-display` for the Masses | CSS-Tricks](https://css-tricks.com/font-display-masses/)
-- FMP (First Meaningful Paint)
+- FMP (First Meaningful Paint) - The paint after which the biggest above-the-fold layout change has happened, and web fonts have loaded
 	- when some contentful thing (text, image, canvas, or SVG) is painted for the first time
 	- blocked by loading fonts (only for font that contains more than 200 characters, until the font is displayed with loaded font or with fallback font if 3 seconds timeout exceeded, based on `font-display`?)
 	- [Time to First Meaningful Paint: a layout-based approach - Google Docs](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/edit)
-- FP (First Paint)
+- FP (First Paint) - The time when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint.
 	- when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint and the enclosing box of an iframe.
+	- [Time to First Meaningful Paint: a layout-based approach - Google Docs](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/edit)
 	
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-paint)
-- FCP (First Contentful Paint)
+- FCP (First Contentful Paint) - When the browser first rendered any text, image (including background images), non-white canvas or SVG. Text and graphics start to render (but often catches non-leaningful paints, e.g. headers, nav bars)
 	- when the browser first rendered any text, image (including background images), non-white canvas or SVG. This excludes any content of iframes, but includes text with pending webfonts
 		"Styles are loaded and browser can paint content"
 
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-contentful-paint)
 - FID (First Input Delay)
 	- based on users interaction, based on RUM
-- FCI (First CPU Idle
+- FCI (First CPU Idle)
 	
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
 	- [GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay)
-- TTI (Time to interactive)
+- TTI (Time to interactive) / TFI (Time to First Interactive) - when the page is first expected to be usable and will respond to input quickly
+	 It is the first span of 5 seconds where the browser main thread is never blocked for more than 50ms after First Contentful Paint with no more than 2 in-flight requests
 	- fired when page's resources are loaded (load event) and the main thread is idle (for at least 5 seconds)
 	
+	- [webpagetest/TimeToInteractive.md at master · WPO-Foundation/webpagetest](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
+- Speed Index - the average time at which visible parts of the page are displayed. It is expressed in milliseconds
+	- [Speed Index - WebPagetest Documentation](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
+- Visual Complete - first time when the visual progress reaches 100%
 
 Composite metric examples (based on what the user care about):
 	
@@ -2106,9 +2113,14 @@ Composite metric examples (based on what the user care about):
 	- "For us, that’s images. Until the above-the-fold images are loaded, to our users, page load is not complete."
 	- "Time to Interactive" and "Above-the-Fold Images"
 - Twitter use TFT (Time to First Tweet)
+- HRT (Hero Rendering Times) - Combination of when the largest IMG, H1, and background image in the viewport are rendered
+	- `max(h1, (biggest_img || bg_img))`
+	- [SpeedCurve | Hero Rendering Times: New metrics for measuring UX](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
 - largest background image rendered
 - largest image render
 - H1 render
+
+- [SpeedCurve | Evaluating rendering metrics](https://speedcurve.com/blog/rendering-metrics/)
 
 ##### Anatomy of a webpage
 
