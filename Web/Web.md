@@ -2123,6 +2123,8 @@ Composite metric examples (based on what the user care about):
 - largest background image rendered
 - largest image render
 - H1 render
+- SMC (Second Meaningful Content) for page with A/B tests
+	- [Second Meaningful Content: the Worst Performance Metric | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/second-meaningful-content.html)
 
 Which metric is best?
 
