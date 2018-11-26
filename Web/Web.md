@@ -2091,17 +2091,19 @@ Example: the hero image
 
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-contentful-paint)
 - FID (First Input Delay)
+	First Click (Click Interaction Time), First scroll (Scroll Interaction Time), First Key (Key Interacton Time)
 	- based on users interaction, based on RUM
-- FCI (First CPU Idle)
+- FCI (First CPU Idle) / TFI (Time to First Interactive) - Page is minimally interactive, most visible UI elements are interactive, repsonds to user input reasonably quickly
 	
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
-	- [GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay)
-- TTI (Time to interactive) / TFI (Time to First Interactive) - when the page is first expected to be usable and will respond to input quickly
-	 It is the first span of 5 seconds where the browser main thread is never blocked for more than 50ms after First Contentful Paint with no more than 2 in-flight requests
+- TTI (Time to interactive) / TCI (Time to Consistently Interactive) - when the page is first expected to be usable and will respond to input quickly
+	It is the first span of 5 seconds where the browser main thread is never blocked for more than 50ms after First Contentful Paint with no more than 2 in-flight requests
+	Displays useful content, event handlers are registered for most visible elements, page responds to user interaction within 50ms
 	- fired when page's resources are loaded (load event) and the main thread is idle (for at least 5 seconds)
 	
 	- [webpagetest/TimeToInteractive.md at master · WPO-Foundation/webpagetest](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
+	- [GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay)
 - Speed Index - the average time at which visible parts of the page are displayed. It is expressed in milliseconds
 	- [Speed Index - WebPagetest Documentation](https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index)
 - Visual Complete - first time when the visual progress reaches 100%
@@ -2114,13 +2116,22 @@ Composite metric examples (based on what the user care about):
 	- "Time to Interactive" and "Above-the-Fold Images"
 - Twitter use TFT (Time to First Tweet)
 - HRT (Hero Rendering Times) - Combination of when the largest IMG, H1, and background image in the viewport are rendered
+	Don't work for image carousels and popups
 	- `max(h1, (biggest_img || bg_img))`
 	- [SpeedCurve | Hero Rendering Times: New metrics for measuring UX](https://speedcurve.com/blog/web-performance-monitoring-hero-times/)
+- TTI (Time to Interact)
 - largest background image rendered
 - largest image render
 - H1 render
 
+Which metric is best?
+
+- deliver any content: Start render
+- deliver significant amount of content: speed index, FMP
+- deliver critical content: Hearo Rendering Times
+
 - [SpeedCurve | Evaluating rendering metrics](https://speedcurve.com/blog/rendering-metrics/)
+- [Picker - Rendering Metrics](http://lab.speedcurve.com/rendering/picker.php)
 
 ##### Anatomy of a webpage
 
