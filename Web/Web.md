@@ -1801,6 +1801,7 @@ Use `<noscript>` tags, or handle it with Service Worker (replace all `<img>` by 
 - [Lazy loading and the SEO problem, solved! | Idea R Blog](https://www.idea-r.it/blog/110/en/lazy-loading-seo-problem#blogimage=5)
 - [Progressivement en ‹img /› - da scritch net works](https://dascritch.net/post/2014/06/10/Progressivement-en-img#lazyloading)
 - [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes)
+- [Make sure Google can see lazy-loaded content  |  Search  |  Google Developers](https://developers.google.com/search/docs/guides/lazy-loading)
 
 Live streaming, or start play video when the file is not completely generated:
 
