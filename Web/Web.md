@@ -1388,6 +1388,7 @@ Loading, parsing, rendering, etc.
 > We don't want humans waiting on computers. We want computers waiting on humans.
 — Gregory Szorc
 
+- [SpeedCurve on Twitter: "200ms start render = 16% bounce rate 1.8s start render = 49% bounce rate See how user engagement charts show you correlations between #webperf and #UX: https://t.co/Nz6ilYOuaA… https://t.co/fIPquBIH2P"](https://twitter.com/SpeedCurve/status/938877356386611201)
 - [High Performance Browser Networking (O'Reilly)](https://hpbn.co/)
 - [Front-End Performance Checklist 2017 (PDF, Apple Pages) – Smashing Magazine](https://www.smashingmagazine.com/2016/12/front-end-performance-checklist-2017-pdf-pages/)
 - [Improving Smashing Magazine's Performance: A Case Study](https://www.smashingmagazine.com/2014/09/improving-smashing-magazine-performance-case-study/)
@@ -2025,7 +2026,7 @@ Example: the hero image
 	- [HTML Standard](https://html.spec.whatwg.org/#dom-document-readystate-dev)
 - DOM Content Loaded event execution
 	- fired after executing all listener of DOMContentLoaded event
-- load event
+- load event / fully loaded
 	- after DOMContentLoaded event execution
 	- fired when the document has finished loading
 	
@@ -2089,6 +2090,7 @@ Example: the hero image
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-contentful-paint)
 - FID (First Input Delay)
 	- based on users interaction, based on RUM
+- FCI (First CPU Idle
 	
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
 	- [GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay)
@@ -2103,6 +2105,10 @@ Composite metric examples (based on what the user care about):
 	- [Get Down to Business: Why the Web Matters (Chrome Dev Summit 2018) - YouTube](https://www.youtube.com/watch?v=Xryhxi45Q5M&t=1214)
 	- "For us, that’s images. Until the above-the-fold images are loaded, to our users, page load is not complete."
 	- "Time to Interactive" and "Above-the-Fold Images"
+- Twitter use TFT (Time to First Tweet)
+- largest background image rendered
+- largest image render
+- H1 render
 
 ##### Anatomy of a webpage
 
