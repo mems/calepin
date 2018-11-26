@@ -6334,6 +6334,7 @@ Safe Browsing (UrlSubresourceFilter, BetterAds)
 - [Chromium Blog: Under the hood: How Chrome' ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
 - [Focus by Firefox - Content Blocking for the Open Web - The Mozilla Blog](https://blog.mozilla.org/blog/2015/12/07/focus-by-firefox-content-blocking-for-the-open-web/)
 - [Selectively Filtering Content in Web Browsers – IEBlog](https://blogs.msdn.microsoft.com/ie/2010/11/30/selectively-filtering-content-in-web-browsers/)
+- [Storage access policy: Block cookies from trackers - Mozilla | MDN](https://developer.mozilla.org/fr/docs/Mozilla/Firefox/Privacy/Storage_access_policy#Tracking_protection_explained)
 
 See also:
 
