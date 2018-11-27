@@ -182,6 +182,13 @@ RESTful routing (resource, facet):
 
 - [node.js - Difference between npm install and npm run build - Stack Overflow](https://stackoverflow.com/questions/43664200/difference-between-npm-install-and-npm-run-build)
 
+### Install for continuous integration
+
+	npm ci
+
+- [npm-ci Install a project with a clean slate](https://docs.npmjs.com/cli/ci)
+- [The npm Blog — Introducing `npm ci` for faster, more reliable...](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)
+
 ### Packages version
 
 `npm outdated` to list "Current", "Wanted" (aka fuzzy, latest minor release) and "Latest" (latest major release) version, use `npm install <package name>@latest` to install latest version
