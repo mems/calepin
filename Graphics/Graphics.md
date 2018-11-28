@@ -2204,6 +2204,7 @@ See also [cloud](#Cloud), [water](#Water), [flame](#Flame), [distortion](#Distor
 - [Canvas Filters](https://codepen.io/osublake/pen/RLOzxo)
 - [chromeography - Codevember 2017](https://www.clicktorelease.com/code/codevember-2017/chromeography/)
 - [3D Particle Explorations | Codrops](https://tympanus.net/codrops/2017/12/12/3d-particle-explorations/)
+- [Electricity](http://sketches.vlucendo.com/electricity/)
 
 - [Fluid - Experiments - Yuichiroh Arai](https://www.yuichiroharai.com/experiments/fluid/)
 - [Fluid Particles](http://david.li/fluid/) - https://github.com/dli/fluid

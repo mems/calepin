@@ -221,7 +221,7 @@ Aka like
 ## Time
 
 - `CAST(date AS DATETIME)`
-- [MySQL :: MySQL 5.5 Reference Manual :: 12.7 Date and Time Functions](https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html#function_timestampdiff)
+- [MySQL :: MySQL 5.5 Reference Manual :: 12.7 Date and Time Functions](https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html#function_timestampdiff) - `TIMESTAMPDIFF(MONTH,'2003-02-01','2003-05-01')`
 - [php - Should I use the datetime or timestamp data type in MySQL? - Stack Overflow](https://stackoverflow.com/questions/409286/should-i-use-the-datetime-or-timestamp-data-type-in-mysql)
 
 ## Enum
