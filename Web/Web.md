@@ -1817,7 +1817,7 @@ Live streaming, or start play video when the file is not completely generated:
 
 ##### Image lazyload
 
-Use noscript as a placeholder element
+Use a placeholder element, or at least [use an SVG in data URI for the `src` attribute](https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/#article-header-id-5)
 
 1. placeholder shouldn't be visible if script is not available (inlined CSS hide the placeholder)
 2. placeholder should have `role="img"` and `aria-label` set with image `alt` (will be set by the JS)
