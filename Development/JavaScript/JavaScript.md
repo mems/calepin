@@ -2764,6 +2764,8 @@ Inside SVG doc `element.ownerDocument` and `window.parent` or `parent` equals wi
 
 Use `transform` instead of `top`/`left`/`bottom`/`right` style properties. These last ones repaint elements where the first one don't.
 
+	void(element.offsetHeight);// get the value and evaluate it (else it's will be discarded, and the reflow will not be triggered)
+
 > you force a synchronous style flush any time you query for style information after the DOM has changed within the same frame tick. Depending on whether or not the style information you’re asking for has something to do with size or position, you may also cause a layout recalculation (also referred to as layout flush or reflow)
 
 	requestAnimationFrame(() => {
