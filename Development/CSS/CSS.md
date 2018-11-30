@@ -2418,6 +2418,12 @@ Chrome is better to animate (or make a transition using transform) a large conta
 
 **It's a hack and maybe not work in the future!** Force layer creation using `translate3d()` instead of `translate()` or use `transform: translateZ(0)`. Maybe usefull to use in conjunction with `backface-visibility: hidden;`
 
+- CSS3 Gradients vs Image Gradients:
+	- [CSS gradients are faster than SVG backgrounds | Lea Verou](http://lea.verou.me/2011/08/css-gradients-are-much-faster-than-svg/)
+	- [CSS linear gradient that kills firefox's performance :'(](https://gist.github.com/foca/3888302)
+	- [How does the performance of using background-gradients in CSS vs using images? - Stack Overflow](https://stackoverflow.com/questions/5793586/how-does-the-performance-of-using-background-gradients-in-css-vs-using-images)
+	- [Runtime Performance with CSS3 vs Images | Jacob Wright](http://jacwright.com/476/runtime-performance-with-css3-vs-images/)
+- [Fix scrolling performance with CSS will-change property – Four Kitchens](https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property/)
 - [Smooth as Butter: Achieving 60 FPS Animations with CSS3](https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108)
 - [GPU Animation: Doing It Right – Smashing Magazine](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/)
 - [Aerotwist - On translate3d and layer creation hacks](https://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/)
