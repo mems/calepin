@@ -5501,6 +5501,14 @@ Twitter has a limit of max 15 MB
 
 - [Getting Started Guide | Twitter Developers](https://dev.twitter.com/cards/getting-started#crawling)
 
+### Instagram
+
+To add line breaks in post caption on iOS, copy the caption and past in Note app to add lines break or use a [text replacement](https://support.apple.com/en-us/HT207525)
+
+To add a text replacement for add a line break you need macOS synchronized with the same iCloud account than the iOS device (on iOS you can't add text replacement with only spaces / line breaks). Copy a line return, then go at System Preferences > Keyboard > Text, add a shortcut.
+
+**Note: You need to remove all space before the last line of previous paragraph (automatically added after each hashtags, user names or text replacements)**
+
 ### Pinterest
 
 #### Pinterest share count
