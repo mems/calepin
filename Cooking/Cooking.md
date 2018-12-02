@@ -24,6 +24,6 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 
 - 4 egg whites
 
-- in ring molds at low heat 10min + 5min
+- in ring molds at very low heat 10min + 5min
 
 - [Japanese Fluffy Foods](https://www.facebook.com/buzzfeedtasty/videos/347993689082304/)
