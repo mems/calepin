@@ -1,5 +1,6 @@
 - [Improving the performance of full-text search | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2016/09/improving-the-performance-of-full-text-search/)
 - [An interactive explanation of quadtrees.](http://jimkang.com/quadtreevis/)
+- [Regular Expression Matching with a Trigram Index](https://swtch.com/~rsc/regexp/regexp4.html) - Search with regular expression in large document set
 
 See also [Tree search](Tree traversal#Tree search)
  

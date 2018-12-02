@@ -1348,6 +1348,7 @@ See [How ECMAScript engine works](ECMAScript#How engine works) (event loop, etc.
 	- [Server to Client · An A List Apart Article](https://alistapart.com/article/server-to-client)
 	- [Tags to DOM · An A List Apart Article](https://alistapart.com/article/tags-to-dom)
 	- [Braces to Pixels · An A List Apart Article](https://alistapart.com/article/braces-to-pixels)
+	- [var to JIT · An A List Apart Article](https://alistapart.com/article/var-to-jit)
 
 - [Using Hardware to Decode and Load JPG Images up to 45% faster in Internet Explorer 11 – IEBlog](https://blogs.msdn.microsoft.com/ie/2013/09/12/using-hardware-to-decode-and-load-jpg-images-up-to-45-faster-in-internet-explorer-11/)
 
