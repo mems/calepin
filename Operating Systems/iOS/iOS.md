@@ -1,6 +1,9 @@
 - [Test if native application installed](Security#Test if native application installed)
 - [About Apple Configurator 2.3 - Apple Support](https://support.apple.com/en-us/HT207133)
 
+- [iMazing | iPhone, iPad & iPod Manager for Mac & PC](https://imazing.com/en)
+- [iTools - Provide the most useful tools for iOS users (thinkskysoft)](https://www.thinkskysoft.com/itools/)
+
 ## Application
 
 Download native application IPA
