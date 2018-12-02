@@ -1,6 +1,11 @@
 - [Improving the performance of full-text search | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2016/09/improving-the-performance-of-full-text-search/)
 - [An interactive explanation of quadtrees.](http://jimkang.com/quadtreevis/)
-- [Regular Expression Matching with a Trigram Index](https://swtch.com/~rsc/regexp/regexp4.html) - Search with regular expression in large document set
+- [Regular Expression Matching with a Trigram Index](https://swtch.com/~rsc/regexp/regexp4.html) - Search with regular expression in large document set https://github.com/google/codesearch
+- [Debian Code Search](https://codesearch.debian.net/) - https://codesearch.debian.net/research/bsc-thesis.pdf
+- [etsy/hound: Lightning fast code searching made easy](https://github.com/etsy/hound)
+
+- Soundex(phonetics): semi-tolerant to misspellings and also brings up similar-sounding results http://yomguithereal.github.io/talisman/phonetics/#fuzzy-soundex
+- Damerau-Levenshtein is used to sort the results by closeness http://yomguithereal.github.io/talisman/metrics/distance#damerau-levenshtein
 
 See also [Tree search](Tree traversal#Tree search)
  

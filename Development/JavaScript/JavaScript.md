@@ -771,6 +771,7 @@ Are browser-specific additions (by Microsoft for Internet Explorer):
 
 Examples: `userId` and `profileURL`
 
+- [Why String.prototype.startsWith but not String.prototype.startWith? : javascript](https://www.reddit.com/r/javascript/comments/a2etsp/why_stringprototypestartswith_but_not/eaxnxip/) - "String starts with?" ('Does "foobar" start with "foo"?' → '"Foobar" starts with "foo"')
 - [Client-side API Design Principles](https://w3ctag.github.io/design-principles/#casing-rules)
 - [javascript - Why does XMLHttpRequest not seem to follow a naming convention? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/157375/why-does-xmlhttprequest-not-seem-to-follow-a-naming-convention)
 - [coding style - Acronyms in CamelCase - Stack Overflow](https://stackoverflow.com/questions/15526107/acronyms-in-camelcase)
