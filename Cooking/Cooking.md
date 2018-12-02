@@ -10,3 +10,20 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 
 - [5 Mouth-Watering Rib Recipes by Tasty](https://tasty.co/compilation/5-mouth-watering-rib-recipes)
 - [Tasty Present - Here are five easy tip to cook perfect eggs...](https://www.facebook.com/TastyPresents/videos/154478935252929/)
+
+## Fluffy pancake
+
+- 2 egg yolks
+- 60gr sugar
+- 120ml milk
+- 180gr pancake mix
+	- plain flour
+	- baking soda
+	- pinch of salt
+	- a little oil for frying
+
+- 4 egg whites
+
+- in ring molds at low heat 10min + 5min
+
+- [Japanese Fluffy Foods](https://www.facebook.com/buzzfeedtasty/videos/347993689082304/)
