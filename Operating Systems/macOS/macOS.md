@@ -1780,7 +1780,16 @@ Or Finder
 	/Library/Sounds/
 	~/Library/Sounds/
 
+### AFPS
+
+> Does Apple File System support directory hard links?
+> 
+> Directory hard links are not supported by Apple File System. All directory hard links are converted to symbolic links or aliases when you convert from HFS+ to APFS volume formats on macOS.
+> — [Frequently Asked Questions](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/APFS_Guide/FAQ/FAQ.html)
+
 ### NTFS
+
+Read only
 
 Use NTFS-3G or use exFAT instead (supported natively)
 
