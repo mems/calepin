@@ -2938,6 +2938,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 - [CSS custom properties (native variables) In-Depth](https://blog.hospodarets.com/css_properties_in_depth)
 - [Variables: The Backbone Of CSS Architecture – Smashing Magazine](https://www.smashingmagazine.com/2016/01/variables-in-css-architecture/)
 - [Using CSS variables correctly - Mike Riethmuller](https://madebymike.com.au/writing/using-css-variables/)
+- [DRY Switching with CSS Variables: The Difference of One Declaration | CSS-Tricks](https://css-tricks.com/dry-switching-with-css-variables-the-difference-of-one-declaration/)
 
 ## Color `currentColor` keyword
 
