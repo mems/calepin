@@ -712,7 +712,7 @@ Ex: MySql DB files. Solution: cron mysqldump hourly (or less if large DB) + exlu
 ### Install macOS
 
 Use Option-Command (⌘)-R at startup to reinstall lastest version of the OS: [How to reinstall macOS - Apple Support](https://support.apple.com/en-us/HT204904)
-For clean install, rease the drive with Disk Utility ([macOS Recovery](https://support.apple.com/en-us/HT201314)) first
+For clean install, erase the drive with Disk Utility ([macOS Recovery](https://support.apple.com/en-us/HT201314)) first
 
 - [How to reinstall macOS from macOS Recovery - Apple Support](https://support.apple.com/en-us/HT204904)
 - [osx - How can I get back a system file after deleting it from my Mac? - Ask Different](http://apple.stackexchange.com/questions/116611/how-can-i-get-back-a-system-file-after-deleting-it-from-my-mac/116612#116612)
@@ -823,7 +823,7 @@ Compare 2 version (before and after clean upgrade):
 
 	comm -13 <(cat tree-pristine.txt | grep -o '/Volumes/.*' - | sort) <(cat tree-dirty.txt | grep -o '/Volumes/.*' - | sort)
 
-After OS update some config files are replace, where then previous one are kept and renamed as *~orig or *~previous
+After OS update some config files are replaced, where then previous one are kept and renamed as *~orig or *~previous
 
 Note `dirname` command is not available in Recovery System
 
