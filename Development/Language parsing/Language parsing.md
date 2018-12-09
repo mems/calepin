@@ -51,6 +51,7 @@ Generators:
 Examples:
 
 - [retextjs/retext: Natural language processor powered by plugins based on @unifiedjs (and @vfile, @syntax-tree)](https://github.com/retextjs/retext) - Natural language parser (latin, english, etc.)
+- [shift-regexp-acceptor-js/index.js at es2016 · shapesecurity/shift-regexp-acceptor-js](https://github.com/shapesecurity/shift-regexp-acceptor-js/blob/es2016/src/index.js)
 - [Esprima](http://esprima.org/) - ECMAScript parser written in ECMAScript. See https://github.com/jquery/esprima
 - JSCSSP written by Daniel Glazman
 	- [therealglazou/jscssp: a fast and extensible CSS parser written in JavaScript](https://github.com/therealglazou/jscssp)

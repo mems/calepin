@@ -830,6 +830,8 @@ There is no session
 
 Can be used server side to detect browser, bot, etc.
 
+Apple Shortcuts App: `Shortcuts/700 CFNetwork/974.2.1 Darwin/18.0.0`
+
 See [Detection](#Detection)
 
 - [WebAIM: History of the browser user-agent string](http://webaim.org/blog/user-agent-string-history/)
