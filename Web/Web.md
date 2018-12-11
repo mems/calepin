@@ -32,6 +32,7 @@ See also:
 
 `X-` prefix is discouraged ("SHOULD NOT") if this header would come a standard
 
+- [RFC 7230 - Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing](https://tools.ietf.org/html/rfc7230#section-3.2.2)
 - [Custom HTTP headers : naming conventions - Stack Overflow](https://stackoverflow.com/questions/3561381/custom-http-headers-naming-conventions/3561399#3561399)
 - [RFC 6648 - Deprecating the "X-" Prefix and Similar Constructs in Application Protocols](https://tools.ietf.org/html/rfc6648)
 
@@ -628,6 +629,16 @@ Aka ICAP
 - [icapjs/icap_server.js at master · LordEidi/icapjs](https://github.com/LordEidi/icapjs/blob/master/icap_server.js)
 
 ### HTTP/2.0
+
+#### Header compression
+
+Aka HPACK
+
+- [Headers](#headers)
+- [mnot’s blog: Designing Headers for HTTP Compression](https://www.mnot.net/blog/2018/11/27/header_compression)
+- [HPACK: Header Compression for HTTP/2](https://http2.github.io/http2-spec/compression.html)
+- [RFC 7541 - HPACK: Header Compression for HTTP/2](https://tools.ietf.org/html/rfc7541)
+- [h2load - HTTP/2 benchmarking tool - HOW-TO — nghttp2 1.36.0-DEV documentation](https://nghttp2.org/documentation/h2load-howto.html)
 
 #### Anonymous requests require clean connection
 
@@ -1486,6 +1497,19 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	Example: compress CSS with optimized dictionary based alogrithms (like gzip use huffman tables): blocks, selectors, media queries, properties, values. See [Compression & Minification](CSS#Compression & Minification)
 	
 	- [Optimising GIFs for the Web](https://bitsofco.de/optimising-gifs/) - use `gifsicle -O3 --lossy=80 -o compressed.gif original.gif`
+- split commbined HTTP headers values: to use HPACK (HTTP/2.0)
+	Instead of:
+	
+		set-cookie: key1=value1; key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	
+	Use:
+	
+		set-cookie: key1=value1; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+		set-cookie: key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	
+	- [mnot’s blog: Designing Headers for HTTP Compression](https://www.mnot.net/blog/2018/11/27/header_compression)
+	- [Headers](#headers)
+	- [Header compression](#header-compression)
 - use the right format (if supported, or a fallback):
 	- ~~as binary representation of CSS (really usefull vs GZ?)~~
 	- use image as data container (as colors, but could be lossy)
@@ -5855,6 +5879,12 @@ Save the RSS / Atom
 	- edit files/index.html to add `categorie-0.html">Uncategorized</a>`
 - [Back up, import, or delete your blog - Blogger Help](https://support.google.com/blogger/answer/41387?hl=en)
 - `httrack myblog.com/faq "-admin.over-blog.com/*" "-www.over-blog.com/*" -O "My blog" -s0` - add `--update` to update only
+
+### RFC
+
+- https://datatracker.ietf.org/doc/search/?rfcs=on&name=%s (where `%s` is 2616 for RFC 2616)
+- [IETF | RFCs](https://www.ietf.org/standards/rfcs/)
+- [📄 HTTP Documentation](https://httpwg.org/specs/)
 
 ## Browsers extension
 
