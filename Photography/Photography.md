@@ -5,3 +5,5 @@ Lumière diffue:
 - réflecteur (dédié ou mur ou plafond)
 - feutrine (fibre de verre) résistante à la chaleur / inifugé (spun)
 - gélatine (à acheter en boutique d'éclairage / de matériel de spectacle)
+
+WB "neutral": 5200K
