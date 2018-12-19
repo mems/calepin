@@ -4203,6 +4203,7 @@ Note: Observe the common ancestor of targeted nodes (eg. `document.documentEleme
 - use `MutationObserver` or use Live Collections with `requestAnimationFrame` (or `setInterval`)
 - [Three Real-World Uses for Mutation Observer - Eager Blog](https://eager.io/blog/three-real-world-use-cases-for-mutation-observer/)
 - [javascript - Performance of MutationObserver to detect nodes in entire DOM - Stack Overflow](https://stackoverflow.com/questions/31659567/performance-of-mutationobserver-to-detect-nodes-in-entire-dom/39332340#39332340) - Tips about observing node in the whole document
+- [Mutation Observer notes - QuirksBlog](https://www.quirksmode.org/blog/archives/2017/11/mutation_observ.html)
 
 ### Create a stylesheet
 
