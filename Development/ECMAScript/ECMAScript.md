@@ -124,6 +124,18 @@ Use a name that describe it's usage like `childIndex` or `wheelIndex` instead of
 	
 	console.log(new SubSub())// {isBase: true, isSub: true, isSubSub: true}
 
+## Modules
+
+	// isDebug.js
+	export default new URLSearchParams(window.location.search.substring(1)).has("debug")
+	
+	// config.js
+	const config = JSON.parse(document.querySelector("js-config").text);
+	export const debug = config.debug;
+	export const lang = config.lang;
+	export const region = config.region;
+	export const currency = config.currency;
+
 ## Floating point numbers
 
 Use a libs like https://github.com/dtrebbien/BigDecimal.js, https://github.com/MikeMcl/bignumber.js, https://github.com/MikeMcl/decimal.js or https://github.com/MikeMcl/big.js. See [What is the difference between big.js, bignumber.js and decimal.js?](https://github.com/MikeMcl/big.js/wiki)
