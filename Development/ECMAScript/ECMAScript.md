@@ -135,6 +135,11 @@ Use a name that describe it's usage like `childIndex` or `wheelIndex` instead of
 	export const lang = config.lang;
 	export const region = config.region;
 	export const currency = config.currency;
+	
+	export let counter = 0;
+	export function inc(){counter++}
+
+- [ecmascript 6 - Javascript ES6 export const vs export let - Stack Overflow](https://stackoverflow.com/questions/32558514/javascript-es6-export-const-vs-export-let)
 
 ## Floating point numbers
 
