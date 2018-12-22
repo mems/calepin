@@ -1464,6 +1464,11 @@ Aka drag and drop list, dnd list, orderable list, reorderable list
 
 - use `aria-activedescendant` if collapsible
 
+## Dynamic area
+
+- [Using aria-live](https://bitsofco.de/using-aria-live/)
+- [ARIA Live Regions | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
+
 # Patterns, markup, semantics and snippets
 
 > Semantic HTML is HTML which makes a positive contribution to the meaning conveyed by the plain language of the page.

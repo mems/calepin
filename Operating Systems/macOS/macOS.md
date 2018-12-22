@@ -2336,15 +2336,17 @@ Install ports:
 		cmake\
 		apache-ant\
 		httrack\
-		xorg-server
+		xorg-server\
+		twain-sane
 	
 	# Start D-Bus
 	sudo port install dbus
-	sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
-	launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
+	sudo port load dbus
+	#sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
+	#launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
 		
 	# Create the missing symlink to exiftool when install p5-image-exiftool until https://trac.macports.org/ticket/45312 is resolved (check exiftool version)
-	cd /opt/local/bin/ && sudo ln -s exiftool-5.24 exiftool
+	cd /opt/local/bin/ && sudo ln -s exiftool-5.26 exiftool
 	
 	# Add `/opt/local/libexec/gnubin` to PATH
 	if ! grep -q "export PATH=/opt/local/libexec/gnubin:" ~/.profile
@@ -2367,7 +2369,7 @@ Install ports:
 	# NodeJS
 	# Note: nodejs and npm without version specified are not the lastest available
 	# sudo port install nodejs npm
-	sudo port install nodejs10 npm6
+	sudo port install nodejs11 npm6
 	# Add to profile node config
 	if ! grep -q "export NODE_PATH=" ~/.profile
 	then
@@ -2389,23 +2391,25 @@ Install ports:
 	# To update global packages, use `npm update -g`
 
 	# Install PHP and composer (PHP package manager)
-	sudo port install php71 php71-intl php71-openssl
-	sudo port select --set php php71
+	sudo port install php php73-intl php73-openssl
+	#sudo port install php71 php71-intl php71-openssl
+	#sudo port select --set php php71
 	# Create PHP config (dev only)
-	sudo cp /opt/local/etc/php71/php.ini-development /opt/local/etc/php71/php.ini
+	sudo cp /opt/local/etc/php73/php.ini-development /opt/local/etc/php73/php.ini
 	
 	# [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
-	sudo port install php71-iconv php71-mbstring
+	sudo port install php73-iconv php73-mbstring
 	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/opt/local/bin
 	sudo ln -s composer.phar /opt/local/bin/composer
 	# Or use in each project's folder `php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar install`
 	# Will install packages in ./vendor
 
 	# Install python and pip (Python package manager)
-	sudo port install python35 py35-pip
+	sudo port install python37 py37-pip
 	#sudo port install python27 py27-pip
-	sudo port select --set python python35
-	sudo port select --set pip pip35
+	sudo port select --set python python37
+	sudo port select --set python3 python37
+	sudo port select --set pip pip37
 	# Or for OSX's default python come with easy_install
 	#sudo easy_install pip
 	#pip install --user package
@@ -2435,8 +2439,8 @@ Install ports:
 	sudo port install testdisk
 
 	# Ruby and gems (Ruby package manager)
-	sudo port install ruby23 rb-rubygems
-	sudo port select --set ruby ruby23
+	sudo port install ruby25 rb-rubygems
+	sudo port select --set ruby ruby25
 	
 	# Add to profile user's gems folder
 	if ! grep -q "export GEM_HOME=" ~/.profile
@@ -2488,6 +2492,13 @@ Icon can be change be changed in `/System/Library/Displays/Overrides/Icons.plist
 
 - [#19804 ("sudo launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist" should not sudo?) – MacPorts](https://trac.macports.org/ticket/19804)
 - [macos - com.apple.launchd.peruser -\> org.freedesktop.dbus-session error - Super User](https://superuser.com/questions/162238/com-apple-launchd-peruser-org-freedesktop-dbus-session-error)
+
+### Shutdown
+
+- `pmset -g`
+- `log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h`
+- [MacBook Pro's shutting down in sleep | Discussion | Jamf Nation](https://www.jamf.com/jamf-nation/discussions/24990/macbook-pro-s-shutting-down-in-sleep)
+- [How Power Nap works on your Mac - Apple Support](https://support.apple.com/en-us/HT204032)
 
 ## FileVault
 

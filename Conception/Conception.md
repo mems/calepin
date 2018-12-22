@@ -219,6 +219,8 @@ It's like unsolicited "redesign" website or app (without real constraints). See 
 
 ## Time estimation
 
+<video src="Estimating software projects.mp4"></video>
+
 > Fact: it takes 2 days to hack an idea. 2 weeks to prove it works. 2 months to make it production ready. And 2 years to see it succeed.
 — [Inigo Quilez](https://twitter.com/iquilezles/status/716475533836455936)
 
@@ -250,6 +252,8 @@ It's like unsolicited "redesign" website or app (without real constraints). See 
 > — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
 
 See [Time estimation](Work#Time estimation) and [Unsolicited reworks](#Unsolicited reworks)
+
+- [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
 
 ### Evidence based scheduling
 
