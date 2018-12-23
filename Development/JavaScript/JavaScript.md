@@ -3778,6 +3778,9 @@ or
 - `TreeWalker` and `NodeIterator`
 - ...
 
+- [Why is getElementsByTagName() faster than querySelectorAll()? - Human Who Codes](https://humanwhocodes.com/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/)
+- [TreeWalker performance](https://codepen.io/mmems/pen/dwWyxv) - Performance of differents APIs
+
 ### Destructuring DOM nodes
 
 **Note: be carefull if multiple input have same id/name.**

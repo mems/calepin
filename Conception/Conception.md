@@ -8,6 +8,9 @@
 
 - [Starting an Internet Service Provider | Chris Hacken](http://chrishacken.com/starting-an-internet-service-provider/) - Create your own ISP
 
+> Même si on est intelligent, et dieu sait qu'on croit l'être quand on est jeune, on est pas à l'abris de rater sa vie
+> — Unknown
+
 ## Specification
 
 > Never use "SHOULD" in official guidance. Do the hard work to make it simple: "MUST" when people must do it, "MAY" when there's a choice.
