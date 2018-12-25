@@ -34,3 +34,5 @@ Due to leap second, it's possible to have 61 seconds or only 59 seconds in 1 min
 - [ISO week date — Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
 - [Time Zones](http://everytimezone.com/)
 - [dmfilipenko/timezones.json: Full list of timezones](https://github.com/dmfilipenko/timezones.json)
+
+- [Time.is](https://time.is/)

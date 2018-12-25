@@ -209,6 +209,7 @@ See also [Destructuring](#Destructuring)
 
 - [Annotated ES5](https://es5.github.io/#x15.3.4.3)
 - [An adventure in sparse arrays](https://remysharp.com/2018/06/26/an-adventure-in-sparse-arrays)
+- [Creating and filling Arrays of arbitrary lengths in JavaScript](http://2ality.com/2018/12/creating-arrays.html)
 
 ### Array fill
 
@@ -220,6 +221,7 @@ See [Array holes](#Array holes)
 - [18. New Array features](http://exploringjs.com/es6/ch_arrays.html#sec_creating-filled-arrays)
 - [Generate ranges in javascript](https://gist.github.com/xgrommx/a25ffa3a7753e01ee679)
 - [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+- [Creating and filling Arrays of arbitrary lengths in JavaScript](http://2ality.com/2018/12/creating-arrays.html)
 
 ## String
 
