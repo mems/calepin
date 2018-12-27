@@ -131,6 +131,10 @@ Via quantization tables.
 
 ## Compression
 
+> By default, JPEG will half the resolution of colour data, but you can disable this. You'll need to lower the overall quality to achieve the same file size, but the colours will stay sharper.
+> [...] below 90% quality many encoders will default to 4:2:0 subsampling
+> — [Jake Archibald on Twitter: "By default, JPEG will half the resolution of colour data, but you can disable this. You'll need to lower the overall quality to achieve the same file size, but the colours will stay sharper. https://t.co/N4XD3KFOvM Here's the original vs the JPEG too: https://t.co/g3mBJp68I9"](https://twitter.com/jaffathecake/status/1077881624765833218)
+
 - [ImpulseAdventure - JPEG Huffman Coding Tutorial](http://www.impulseadventure.com/photo/jpeg-huffman-coding.html)
 - [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/15) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page=15)
 - [jpegcrush](http://akuvian.org/src/jpgcrush.tar.gz) (use jpegtran to trial many progressive configurations, same as JPEGrescan)
@@ -208,14 +212,18 @@ Via quantization tables.
 
 ### Lossely compression
 
-- Lepton is a tool and file format for losslessly compressing JPEGs by an average of 22%. https://github.com/dropbox/lepton
-- [Lepton image compression: saving 22% losslessly from images at 15MB/s | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2016/07/lepton-image-compression-saving-22-losslessly-from-images-at-15mbs/)
+By default, JPEG will half the resolution of colour data, but you can disable this. You'll need to lower the overall quality to achieve the same file size, but the colours will stay sharper.
+
+- [Lepton](https://github.com/dropbox/lepton)
+	A tool and file format for losslessly compressing JPEGs by an average of 22%.
+	
+	- [Lepton image compression: saving 22% losslessly from images at 15MB/s | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2016/07/lepton-image-compression-saving-22-losslessly-from-images-at-15mbs/)
 
 ### Selective compression
 
 - [Optimisation JPEG: focalisation](http://css-ig.net/articles/optimisation-jpeg-focalisation)
 - [senocular.com](http://www.senocular.com/fireworks/tutorials/mighthavemissed/#selectivejpeg)
-- https://github.com/technopagan/adept-jpg-compressor/
+- [technopagan/adept-jpg-compressor: A Bash script to automate adaptive JPEG compression using common CLI tools](https://github.com/technopagan/adept-jpg-compressor/)
 
 Edit to blur the background to reduce weight: [Reducing image sizes — Responsive Web Design](https://responsivedesign.is/articles/reducing-image-sizes)
 

@@ -3175,11 +3175,15 @@ On touch only devices it's could be a problem, especially if it's a link. Apple 
 
 - [Things to Watch Out for When Working with CSS 3D | CSS-Tricks](https://css-tricks.com/things-watch-working-css-3d/)
 
-## Pie chart
+## Chart
+
+- [Interactive Pie chart \[all Browsers\]](https://codepen.io/captlid/pen/BvZybM) - use clip rect and rotate transform
+
+### Pie chart
 
 Use SVG instead, with a `stroke-width` smaller than circle radius (to fix IE rending bug), eg. for a radius of 50px, use `stroke-width: 49.9px`
 
-## Line alternate `pre`
+## Line alternation in `pre`
 
 	pre{
 		line-height: 1.5;

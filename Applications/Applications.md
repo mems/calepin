@@ -569,7 +569,7 @@ Offset (soft) subtitle track embeded in a video container
 
 - [How can I fix delayed subtitles in videos? - Super User](https://superuser.com/questions/494841/how-can-i-fix-delayed-subtitles-in-videos/1242613#1242613)
 
-Offset subtitle track file:
+Offset subtitle track file (in seconds):
 
 	ffmpeg -itsoffset -0.7 -i input.srt -c copy output.srt
 
