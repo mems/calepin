@@ -1968,7 +1968,16 @@ Or partial load
 	
 	See also [JPEG - Progressive](JPEG#Progressive) (scan config and number of it can be tweak)
 
-**Could require preload polyfill**
+For images (works better with progressive images), in Edge Workers (Service Workers for CDN):
+
+1. receive the client request (for document, images, etc.)
+2. send first 521B/1kB (headers of image / metadata - size) for the browser to do the layout as soon as possible
+3. wait 20ms to let the client to process CSS, JS and other critical resources
+4. send first 15% of the resource (~15% = contains the progressive bytes of the image)
+5. wait for other resources (for the same client/requested document/referrer) to let the browser render first layers, before it recieve the rest of the resources
+6. send the rest
+
+- [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU?start=1035&end=1650)
 
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
 - [Modern Asynchronous CSS Loading | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/async-css.html)
@@ -1986,6 +1995,7 @@ Note: `media!='all'&&...` is required as a workaround for infinite event loop on
 - [Loading CSS without blocking render by Keith Clark](http://keithclark.co.uk/articles/loading-css-without-blocking-render/)
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
 - [Fonts and FOXX](CSS#Fonts and FOXX)
+
 
 See [`<noscript>` and search engines](#`<noscript>` and search engines)
 
@@ -4004,7 +4014,8 @@ Unshorten:
 Link at time: `http://www.youtube.com/watch?v=cOde0332432&t=1m5s`
 
 Embed with start time and stop (in seconds) `https://www.youtube.com/embed/7qkmGjWtG0w?start=840&end=1240&aut‌​oplay=1` or `https://www.youtube.com/v/7qkmGjWtG0w?start=840&end=1240&aut‌​oplay=1`
-See [YouTube Embedded Players and Player Parameters](https://developers.google.com/youtube/player_parameters?hl=en#Parameters)
+See [YouTube Embedded Players and Player Parameters  |  YouTube IFrame Player API  |  Google Developers](https://developers.google.com/youtube/player_parameters?#end) or [How to share a YouTube video with a specific start and end time? - Web Applications Stack Exchange](https://webapps.stackexchange.com/questions/61397/how-to-share-a-youtube-video-with-a-specific-start-and-end-time/61398)
+But it's looklike the end parameter doesn't works (2018)
 
 #### Youtube video view count
 

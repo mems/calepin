@@ -1,0 +1,3 @@
+- [Does VP9 deserve attention – Part II | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2016/06/17/does-vp9-deserve-attention-part-ii/)
+- [H265 – part I : Technical Overview | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2014/06/20/h265-part-i-technical-overview/)
+- [H265 – part II : Considerations on quality and “state-of-the-art” | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2015/01/28/h265-part-ii-considerations-on-quality-and-state-of-the-art/)

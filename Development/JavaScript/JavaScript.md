@@ -53,6 +53,9 @@ Or use in Chrome devtools: Sources tab > Event Listener Breakpoints > Script > S
 
 ## Libraries and frameworks
 
+> Use third-party libraries to solve user problems, not developer problems
+> — Adrian Holovaty [Adrian Holovaty | How I optimized my JS sheet music rendering engine | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=XH5EtQge_Bg&t=2216)
+
 See [localization](Development#Localization), [libaries](ECMAScript#Libaries)
 
 Collections:
@@ -74,6 +77,7 @@ Some libraries:
 - [schteppe/p2.js: JavaScript 2D physics library](https://github.com/schteppe/p2.js) - 2D physics engine
 - [schteppe/cannon.js: A lightweight 3D physics engine written in JavaScript.](https://github.com/schteppe/cannon.js) - 3D physics engine
 - [barmalei/zebkit: JavaScript library that follow easy OOP concept, provide HTML5 Canva based Rich UI and include Java to JavaScript converter tool](https://github.com/barmalei/zebkit) - UI framework
+- [kornelski/slip: Slip.js — UI library for manipulating lists via swipe and drag gestures](https://github.com/kornelski/slip)
 
 ### Choose and use libraries
 

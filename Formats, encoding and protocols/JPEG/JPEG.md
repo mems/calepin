@@ -35,6 +35,7 @@ Lightroom infos:
 - [ImpulseAdventure - JPEG Quality and Quantization Tables for Digital Cameras, Photoshop](http://www.impulseadventure.com/photo/jpeg-quantization.html)
 - [JPEGsnoop download | SourceForge.net](https://sourceforge.net/projects/jpegsnoop/) - see [ImpulseAdventure - JPEGsnoop 1.7.5 - JPEG Decoder Utility](http://www.impulseadventure.com/photo/jpeg-snoop.html)
 - [How does JPEG actually work? – Developing for Developers](https://blogs.msdn.microsoft.com/devdev/2006/04/12/how-does-jpeg-actually-work/)
+- [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU&start=66&end=616) - How JPEG works
 - PDF uses JPEG2000
 
 Luminance, Chroma Blue, Chroma Red
@@ -129,7 +130,7 @@ Via quantization tables.
 - [Image Compression: How JPEG Works](http://nboddula.blogspot.fr/2013/05/image-compression-how-jpeg-works.html)
 - [jpegtran fork with significant performance improvements](https://github.com/cloudflare/jpegtran)
 
-## Compression
+## Compression optimization
 
 > By default, JPEG will half the resolution of colour data, but you can disable this. You'll need to lower the overall quality to achieve the same file size, but the colours will stay sharper.
 > [...] below 90% quality many encoders will default to 4:2:0 subsampling

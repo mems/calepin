@@ -833,6 +833,35 @@ To speed up results of often call function like `Math.sqrt`, pre-compute all val
 		}
 	}
 
+### Binary flags
+
+aka bit fields
+
+Save memory (instead of use 8 bytes in memory for each boolean)
+
+Binary flags:
+
+	const FLAG_1 = 1;
+	const FLAG_2 = 1 << 1;
+	const FLAG_3 = 1 << 2;
+	const FLAG_4 = 1 << 3;
+	
+	//Set differents flags
+	let flags = FLAG_1 | FLAG_2;
+	
+	//Add flag 3
+	flags |= FLAG_3;
+	
+	//Remove flag 4
+	flags &= ~FLAG_4;
+	
+	//Get flag
+	let hasFlag2 = (flags & FLAG_2) !== 0;
+
+Where flag are unsigned integer with value power of 2: (0, 0x0), (1, 0x1), (2, 0x2, `1 << 1`), (4, 0x4, `1 << 2`), …
+
+See [Bitwise operations](#bitwise-operations)
+
 ## Bitwise operations
 
 Aka bit twiddling
@@ -846,19 +875,6 @@ is not exactly the same because bitwise will **clamp Number to 32bits integers**
 - [javascript - What does a tilde do when it precedes an expression? - Stack Overflow](https://stackoverflow.com/questions/12299665/what-does-a-tilde-do-when-it-precedes-an-expression)
 - [Bitwise operators - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 - [Bit Twiddling Hacks](https://graphics.stanford.edu/~seander/bithacks.html) - collection of bit twiddling examples
-
-Binary flags:
-
-	//Set differents flags
-	var flags:uint = FLAG_1 | FLAG_2;
-	//Add one flag
-	flags |= FLAG_3;
-	//Remove flag
-	flags &= ~FLAG_4;
-	//Get flag
-	var flag:Boolean = (flags & FLAG_2) > 0;
-
-Where flag are unsigned integer with value power of 2: (0, 0x0), (1, 0x1), (2, 0x2, `1 << 1`), (4, 0x4, `1 << 2`), …
 
 Rotates x left n bits:
 
@@ -1010,9 +1026,39 @@ To make the debug easier comment variable type by using [JSDoc comment](#Comment
 	 */
 	var myString = "a string";
 
+## Always declare object properties in same order
+
+Don't:
+
+	var a = {property1: "1", property2: "2"};
+	var b = {property2: "4", property1: "3"};
+
+instead:
+
+	var a = {property1: "1", property2: "2"};
+	var b = {property1: "3", property2: "4"};
+
+Don't:
+
+	var a = {property1: "1", property2: "2"};
+	var b = {property1: "3"};
+	if(condition){
+		b.property2 = "4";
+	}
+
+instead:
+
+	var a = {property1: "1", property2: "2"};
+	var b = {property1: "3", property2: null};
+	if(condition){
+		b.property2 = "4";
+	}
+
+See [hidden class](#hidden-classes)
+
 ## Don't use `delete`
 
-Don't use `delete` on instance of classes or classless similar objects ("point" objects: `{x: 0, y: 0}`, etc.). It's modifies hidden class of the object.
+Don't use `delete` on instance of classes or classless similar objects ("point" objects: `{x: 0, y: 0}`, etc.). It's modifies [hidden class](#hidden-classes) of the object.
 
 Set to `null` instead, or (only if you have a prototype chain) use:
 
@@ -1024,7 +1070,9 @@ Set to `null` instead, or (only if you have a prototype chain) use:
 - [delete operator - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete)
 - [Writing Fast, Memory-Efficient JavaScript – Smashing Magazine](https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/#de-referencing-misconceptions)
 
-About hidden classes:
+## Hidden classes
+
+Always use the same type in same property
 
 - [Design Elements](https://github.com/v8/v8/wiki/Design%20Elements#fast-property-access)
 - [Performance Tips for JavaScript in V8 - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/speed/v8/#toc-topic-hiddenclasses)
