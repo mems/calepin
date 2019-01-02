@@ -3121,7 +3121,7 @@ It's complexe and yet inaccurate.
 	//"onpointerdown" in document
 	// Test if the browser support mutli touch points (== 0 if no touch)
 	Boolean(navigator.msMaxTouchPoints) || Boolean(navigator.maxTouchPoints);
-	// Test if via media queries level 4, support hover (if matchMedia and `hover` media query supported)
+	// Test if via media queries level 4, don't support hover nor have fine pointer
 	var mqList;
 	window.matchMedia && (mqList = window.matchMedia('(pointer: coarse), (hover: none)')) && (mqList.media == "not all"/*if `hover` MQ not supported*/ || mqList.matches/*supported and match*/);
 	<UIEvent>.sourceCapabilities.firesTouchEvents// non standard
@@ -3141,6 +3141,7 @@ It's complexe and yet inaccurate.
 	    }
 	}
 
+- [Touch Devices Should Not Be Judged By Their Size | CSS-Tricks](https://css-tricks.com/touch-devices-not-judged-size/)
 - [Modernizr/touchevents.js at master · Modernizr/Modernizr](https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js)
 - [You Can't Detect A Touchscreen | Blog | Stu Cox](http://www.stucox.com/blog/you-cant-detect-a-touchscreen/)
 - [jquery - Detecting touch screen devices with Javascript - Stack Overflow](https://stackoverflow.com/questions/3974827/detecting-touch-screen-devices-with-javascript)
