@@ -3322,23 +3322,12 @@ Aka slideshow, carrousel
 
 	.items{
 		overflow-x: auto;/*or overflow-x: hidden; allow to control scrollLeft to custom scroll*/
-	}
-	.items-list{
 		display: flex;
-		width: 100%;
 	}
-	/* use commented sections for narrow slides + centered horizontally */
 	.item{
-		width: 100%;/*width: 60%;*/
-		flex-shrink: 0;
+		flex: 1 0 0;// allow to grow (>2: min-width, 2: 50% each, 1: 100%)
+		min-width: 47%;// show at least 2 + a part of an other
 	}
-	/*
-	.item::before,
-	.item::after{
-		content: "";
-		padding-left: 20%;
-	}
-	*/
 
 ## Parallax effect
 
