@@ -916,7 +916,7 @@ TLS JavaScript Implementation
 - [A JavaScript Implementation of TLS (Part 1/2) « Digital Bazaar](http://digitalbazaar.com/2010/07/20/javascript-tls-1/) and [A JavaScript Implementation of TLS (Part 2/2) « Digital Bazaar](http://digitalbazaar.com/2010/07/20/javascript-tls-2/)
 - [Moxie Marlinspike \>> Software >> sslstrip](https://moxie.org/software/sslstrip/)
 
-**Never mix HTTP and HTTPS, because HTTP parts can be compromised, even in navigation (page 1 HTTP -> page 2 HTTPS, via link, form or redirect).** Use [CSP](#Content Security Policy) `block-all-mixed-content` or `upgrade-insecure-requests`.
+**Never mix HTTP and HTTPS, because HTTP parts can be compromised, even in navigation (page 1 HTTP -> page 2 HTTPS, via link, form or redirection).** Use [CSP](#Content Security Policy) `block-all-mixed-content` or `upgrade-insecure-requests`.
 
 Note: Root certificate can be compromises (by a malware, by the manufacturer, etc.) on the client machine.
 
@@ -940,6 +940,8 @@ Note: Root certificate can be compromises (by a malware, by the manufacturer, et
 - [Why do we need HTTPS? - How HTTPS works](https://howhttps.works/why-do-we-need-https/)
 
 ###### Self-signed certificate
+
+For *.localhost domains see [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/)
 
 Create an self-signed certificate (SSC)
 
