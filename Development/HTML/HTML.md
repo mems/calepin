@@ -2119,7 +2119,7 @@ Aka open POST in a new tab.
 		<input type="submit">
 	</form>
 
-### Disabled autofill
+### Disable autofill
 
 (Aka disable prepopulation of forms by the browser)
 
@@ -2133,6 +2133,22 @@ Some workarounds:
 - Use header like `Cache-Control: no-store` (`no-cache`, `private` too?)
 - Use a delayed script (timeout) and after page load to clear data (revert value to defaultValue)
 - Use a script after page load to select all auto filled fields (webkit only: `input:-webkit-autofill`) and revert value to default
+
+		// https://stackoverflow.com/a/41530164/470117
+		const style = document.createElement("style");
+		style.textContent = "@keyframes autofillstart{from{}to{}}@keyframes autofillend{from{}to{}}input:-webkit-autofill{animation-name: autofillstart}input:not(:-webkit-autofill){animation-name: autofillend}";
+		document.body.addEventListener("animationstart", function(event){
+			if(event.animationName !== "autofillstart" && event.animationName !== "autofillend") return;
+			var autofill = event.animationName === "autofillstart";
+			// do something: event.target.value = event.target.defaultValue;
+			/*
+			var changeEvent = document.createEvent('Event');
+			changeEvent.initEvent('change', true, false);
+			event.target.dispatchEvent(changeEvent);
+			*/
+		});
+		document.body.appendChild(style);
+		
 - Use an honey pot: Add dummy a text and a password field (given name doesn't matter) before any other fields. These fields should be hidden: `style="display:none"`
 - Some people use readonly/disable attr (and update when focus), create fields onfly
 
@@ -3960,7 +3976,7 @@ tabs, modal, carousel/slideshow, details, etc.
 
 **Don't use it.** It require JS and to update aria attributes. So why use form fields?
 
-States are saved by browsers ("remember form values"). To disable autofill, see [Disabled autofill](#Disabled autofill).
+States are saved by browsers ("remember form values"). To disable autofill, see [Disable autofill](#disable-autofill).
 Inputs must use `position: fixed` to fix the possible autoscroll-when-focus (interest area).
 If input is nested in form, `form=""` should be added.
 
