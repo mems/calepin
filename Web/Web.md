@@ -1404,7 +1404,7 @@ Loading, parsing, rendering, etc.
 
 - [SpeedCurve on Twitter: "200ms start render = 16% bounce rate 1.8s start render = 49% bounce rate See how user engagement charts show you correlations between #webperf and #UX: https://t.co/Nz6ilYOuaA… https://t.co/fIPquBIH2P"](https://twitter.com/SpeedCurve/status/938877356386611201)
 - [High Performance Browser Networking (O'Reilly)](https://hpbn.co/)
-- [Front-End Performance Checklist 2017 (PDF, Apple Pages) – Smashing Magazine](https://www.smashingmagazine.com/2016/12/front-end-performance-checklist-2017-pdf-pages/)
+- [Front-End Performance Checklist 2019 \[PDF, Apple Pages, MS Word\] — Smashing Magazine](https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/)
 - [Improving Smashing Magazine's Performance: A Case Study](https://www.smashingmagazine.com/2014/09/improving-smashing-magazine-performance-case-study/)
 - [Mobile-Friendly Test - Google Search Console](https://search.google.com/search-console/mobile-friendly)
 - [Le web mobile et la performance – 24 jours de web](http://www.24joursdeweb.fr/2014/le-web-mobile-et-la-performance/)
@@ -1527,6 +1527,7 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	- Use code/lib to animate elements instead of video or sprites: https://github.com/bodymovin/bodymovin
 	- VP9 (8bit) good on small screens (but not on big)
 		- [Does VP9 deserve attention – Part II | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2016/06/17/does-vp9-deserve-attention-part-ii/)
+	- [Don’t use JPEG-XR on the Web](https://calendar.perfplanet.com/2018/dont-use-jpeg-xr-on-the-web/) (JPEG-XRs are decoded on "the software-side on the CPU" by Internet Explorer and Microsoft Edge, the only browsers that support it)
 - HTML: remove comments, spaces, not required closing tags, attibutes, chars like `"`, entities (when not required), etc.
 - CSS: remove comments, prefixed properties, useless selectors, regroup using shorthand properties (like `background` for: `background-image`, etc.), etc.
 	- [CSS](CSS)
@@ -1666,6 +1667,116 @@ Ex: `static1.example.com` and `static2.example.com`
 - [Connection management in HTTP/1.x - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x#Domain_sharding)
 - [Performance Calendar » Reducing Domain Sharding](https://calendar.perfplanet.com/2013/reducing-domain-sharding/)
 
+#### Precompress
+
+See [Content encoding](#Content encoding)
+
+For all text formats: CSS, SVG, JavaScript
+
+Could also be used for generic data (other formats that don't already use compression), or if the compression mode in those format can be disabled (ex: uncompressed PNG + Content encoding)
+
+- Create a gzip without store the original file name `gzip -9 -k -n file.ext`
+- create a TAR of all .ext `COPYFILE_DISABLE=1 tar -cvf file.tar *.ext`
+- `Content-Encoding: br` Brotli
+
+With nginx: http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#example
+
+With Apache:
+ 
+	# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
+	# http://developer.yahoo.com/performance/rules.html#gzip
+	<IfModule mod_rewrite.c>
+		# If the browser accepts gzip and the requested file exists under
+		# pre-encoded version, then rewrite to that version.
+		# Requires both mod_rewrite and mod_headers to be enabled.
+		<IfModule mod_headers.c>
+			RewriteEngine on
+			
+			# *.br
+			# Serve gzip compressed CSS files if they exist and the client accepts brotli.
+			RewriteCond %{HTTP:Accept-Encoding} \bbr\b
+			RewriteCond %{REQUEST_FILENAME}.br -s
+			RewriteRule (.*) $1.br [QSA]
+			
+			# *.gz
+			# Serve gzip compressed CSS files if they exist and the client accepts gzip.
+			RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
+			RewriteCond %{REQUEST_FILENAME}.gz -s
+			RewriteRule (.*) $1.gz [QSA]
+			
+			# *.svg to *.svgz
+			RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
+			RewriteCond %{REQUEST_FILENAME} .svg$
+			RewriteCond %{REQUEST_FILENAME}z -s
+			RewriteRule (.*) $1z [QSA]
+			
+			<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.(gz|br)|svgz)$">
+				# Tell caching proxy servers to cache the file based on encoding
+				# Apache should add it automatically: http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
+				Header append Vary Accept-Encoding
+				# Do this to set proper ETags for server clusters
+				FileETag MTime Size
+			</FilesMatch>
+			
+			<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.gz|svgz)$">
+				# Prevent double compression
+				SetEnv no-gzip 1
+				# We serve a gzipped stream
+				Header set Content-Encoding br
+			</FilesMatch>
+			
+			<FilesMatch "\.(js|css|html|xml|svg|json|tar)\.br$">
+				# Prevent double compression
+				SetEnv no-brotli 1
+				# We serve a gzipped stream
+				Header set Content-Encoding gzip
+			</FilesMatch>
+			
+			# And set proper media type:
+			RewriteRule \.js\.(gz|br)$ - [T=application/javascript]
+			RewriteRule \.css\.(gz|br)$ - [T=text/css]
+			RewriteRule \.svg(z|\.gz|br)$ - [T=image/svg+xml]
+			RewriteRule \.html\.(gz|br)$ - [T=text/html]
+			RewriteRule \.xml\.(gz|br)$ - [T=text/xml]
+			RewriteRule \.json\.(gz|br)$ - [T=application/json]
+			# Allow for example JS to access tar data already ungzipped (done by the browser, instead using JS to decode)
+			#RewriteRule \.tar\.(gz|br)$ - [T=application/x-tar]
+			# For browsers compatibility we can't use the right media type but:
+			RewriteRule \.tar\.(gz|br)$ - [T=application/octet-stream]
+		</IfModule>
+	</IfModule>
+
+	RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javascript]
+
+An other way (**need to test**: content not double encoded, `.gz.html` output). It is use [content negotiation](http://httpd.apache.org/docs/2.4/en/content-negotiation.html):
+
+	# Activate Content Negotiation
+	Options +MultiViews
+	RemoveType .gz
+	AddEncoding gzip .gz
+	RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
+	RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
+	RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
+	# By using content negociation, Apache will add Content-Encoding to Vary header
+
+Or:
+
+- use a CDN
+- use `mod_mem_cache` or `mod_disk_cache`: [webdirect.no Apache caching with gzip enabled | webdirect.no](http://webdirect.no/linux/apache-caching-with-gzip-enabled/)
+- use a proxy cache like Varnish
+
+- Serving pre-compressed content [mod_deflate - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/current/en/mod/mod_deflate.html#precompressed)
+- [Getting more out of GZIP for web content](http://mainroach.blogspot.fr/2013/09/getting-more-out-of-gzip-for-web-content.html)
+- [Code Grill: How To Serve Pre-Compressed Static Files in Apache](http://blog.codegrill.org/2009/07/how-to-pre-compress-static-files-in.html)
+- [caching - How to force Apache to use manually pre-compressed gz file of CSS and JS files? - Stack Overflow](https://stackoverflow.com/questions/9076752/how-to-force-apache-to-use-manually-pre-compressed-gz-file-of-css-and-js-files)
+- [javascript - How to host static content pre-compressed in apache? - Stack Overflow](https://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache)
+- [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-simple-gzip-support-for-apache-with-mod_rewrite.html)
+- [apache - How to configure mod_deflate to serve gzipped assets prepared with assets:precompile - Stack Overflow](https://stackoverflow.com/questions/7509501/how-to-configure-mod-deflate-to-serve-gzipped-assets-prepared-with-assetsprecom)
+- [Gzip Your CSS and JavaScript | ODLAN](http://odlan.com/gzip-your-css-and-js/)
+- [Optimizing Mendix for low bandwidth - Using Compression](https://forum.mendixcloud.com/link/questions/3475)
+- [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-Simple-gzip-Support-for-Apache-with-mod_rewrite.html)
+- [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x)
+
 #### Multiplexed / Pipelining
 
 HTTP/1.1 has pipelining, but not well supported (by proxies, etc.)
@@ -1689,6 +1800,140 @@ HTTP/2 is multiplexed
 - [SSL Performance Diary #1: The Certificate Chain - Zoompf Web Performance](https://zoompf.com/blog/2014/06/ssl-performance-diary-1-the-certificate-chain)
 - [Enabling HTTPS Without Sacrificing Your Web Performance - Moz](https://moz.com/blog/enabling-https-without-sacrificing-web-performance)
 - [SSL/TLS Performance Diary #3: Optimizing Data Encryption - Zoompf Web Performance](https://zoompf.com/blog/2014/11/ssl-performance-diary-3-optimizing-data-encryption) - (old)
+
+#### Use dedicated servers
+
+Load balancer, localized CDN, etc.
+
+- [How We Knew It Was Time to Leave the Cloud | GitLab](https://about.gitlab.com/2016/11/10/why-choose-bare-metal/)
+
+#### Cache
+
+To control static resource version, **use checksum instead of build number**. Which means you only download a new copy _when it actually changes_ (see ETag).
+
+Use forever cache (cache immutable) for static resources.
+
+- [Un tutoriel de la mise en cache pour les auteurs Web et les webmestres](https://www.mnot.net/cache_docs/)
+- [Increasing Application Performance with HTTP Cache Headers | Heroku Dev Center](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
+- https://restpatterns.mindtouch.us/Articles/Caching_Matters
+
+##### Cached
+
+max-age or expires headers, `Header append Cache-Control "public"`, `Header append Cache-Control "immutable"` avoid check of 304s
+
+`.htaccess`: 
+
+	# Requires mod_expires to be enabled.
+	<IfModule mod_expires.c>
+		# Enable expirations.
+		ExpiresActive On
+		
+		# Cache all files for 2 weeks after access (A).
+		ExpiresDefault A1209600
+		
+		<FilesMatch \.php$>
+		  # Do not allow PHP scripts to be cached unless they explicitly send cache
+		  # headers themselves. Otherwise all scripts would have to overwrite the
+		  # headers set by mod_expires if they want another caching behavior. This may
+		  # fail if an error occurs early in the bootstrap process.
+		  ExpiresActive Off
+		</FilesMatch>
+	</IfModule>
+
+PHP:
+
+	header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 12)));// 2 weeks
+
+Varnish script to Handle `Vary: User-Agent` to create classes to reduce variations.
+
+	# recv
+	if (req.http.host ~ "^example.com$") {
+		if (req.http.User-Agent ~ "MSIE\s[1-10]\." || req.http.User-Agent ~ "Edge\/[1-10]\." || req.http.User-Agent ~ "Trident\/.*rv:[1-10]\." || req.http.User-Agent ~ "Firefox\/[1-41]\." || req.http.User-Agent ~ "Safari\/[1-8]\." || req.http.User-Agent ~ "Version\/[1-8]\.")
+		{
+			# Set header for "old browser"
+			set req.http.X-UA-Device = "old";
+		}
+		elsif (req.http.User-Agent ~ "facebookexternalhit\/" || req.http.User-Agent ~ "Facebot" || req.http.User-Agent ~ "Pinterest\/")
+		{
+			# Set header for "bot"
+			set req.http.X-UA-Device = "bot";
+		}
+		else
+		{
+			# Set header for "recent browser"
+			set req.http.X-UA-Device = "new";
+		}
+	}
+	
+	# Fetch
+	if (req.http.host ~ "^example.com$") {
+		set beresp.http.X-UA-Device = req.http.X-UA-Device;
+		
+		# Vary by X-UA-Device, so varnish will keep distinct object copies by X-UA-Device value
+		if (beresp.http.Vary)
+		{
+			set beresp.http.Vary = beresp.http.Vary + ",X-UA-Device";
+		}
+		else
+		{
+			set beresp.http.Vary = "X-UA-Device";
+		}
+		
+		# Remove User-Agent from Vary (provide by App)
+		if (beresp.http.Vary ~ "User-Agent") {
+			set beresp.http.Vary = regsub(beresp.http.Vary, ",? *User-Agent *", "");
+			set beresp.http.Vary = regsub(beresp.http.Vary, "^, *", "");
+			if (beresp.http.Vary == "") {
+				unset beresp.http.Vary;
+			}
+		}
+	}
+
+- [Device detection — Varnish version trunk documentation](https://www.varnish-cache.org/docs/trunk/users-guide/devicedetection.html)
+- [Achieving a high hitrate — Varnish version trunk documentation](https://www.varnish-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#http-vary)
+- https://github.com/varnishcache/varnish-devicedetect
+
+- [Are Your Cache-Control Directives Doing What They Are Supposed to Do? — theScore Tech Blog](http://techblog.thescore.com/2014/11/19/are-your-cache-control-directives-doing-what-they-are-supposed-to-do/)
+- [Caching best practices & max-age gotchas - JakeArchibald.com](https://jakearchibald.com/2016/caching-best-practices/)
+- [mnot’s blog: The State of Browser Caching, Revisited](https://www.mnot.net/blog/2017/03/16/browser-caching)
+
+- [RFC 7234 in JavaScript. Parses HTTP headers to correctly compute cacheability of responses, even in complex cases ](https://github.com/pornel/http-cache-semantics)
+
+##### Not cached
+
+Prevent back button to show cache page (ex.: after logout)
+
+	HTTP/1.1 200 OK
+	Cache-Control: no-cache, no-store, must-revalidate
+	Expires: 0
+
+	HTTP/1.0 200 OK
+	Pragma: no-cache
+	Cache-Control: max-age=0
+
+Note: `Cache-Control: no-cache` is for HTTP/1.1 where `Pragma: no-cache` is for HTTP/1.0. See [http - Difference between Pragma and Cache-control headers? - Stack Overflow](https://stackoverflow.com/questions/10314174/difference-between-pragma-and-cache-control-headers/15050018#15050018)
+
+	header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
+	//header('ETag: "' . sha1(time()) . '"');
+
+- [http - Making sure a web page is not cached, across all browsers - Stack Overflow](https://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers)
+
+#### Reduce processing
+
+- [JavaScript Start-up Performance – reloading – Medium](https://medium.com/reloading/javascript-start-up-performance-69200f43b201)
+- [Time spent in JS parse & eval for average JS - Google Sheets](https://docs.google.com/spreadsheets/d/1wHcNNQea28LhwQ_amFamT33d5woVrJfJy53Z1k6V090/edit) - Parse times for a 1MB bundle of JavaScript across desktop & mobile devices of differing classes
+- [Too Hot To Handle - Optimizing for Low Powered Devices // Speaker Deck](https://speakerdeck.com/simonhearne/too-hot-to-handle-optimizing-for-low-powered-devices) - JS framework are too heavy for low-end devices
+- [Ember.js - Glimmer.js Progress Report](https://emberjs.com/blog/2017/10/10/glimmer-progress-report.html#toc_binary-templates) - Ember.js use binary templates for faster parse
+	- [glimmer-vm/packages/@glimmer/bundle-compiler at master · glimmerjs/glimmer-vm](https://github.com/glimmerjs/glimmer-vm/tree/master/packages/@glimmer/bundle-compiler)
+	- [Glimmer: Blazing Fast Rendering for Ember.js, Part 1 | LinkedIn Engineering](https://engineering.linkedin.com/blog/2017/03/glimmer--blazing-fast-rendering-for-ember-js--part-1)
+	- [Glimmer: Blazing Fast Rendering for Ember.js, Part 2 | LinkedIn Engineering](https://engineering.linkedin.com/blog/2017/06/glimmer--blazing-fast-rendering-for-ember-js--part-2)
+	- [The Glimmer Binary Experience | LinkedIn Engineering](https://engineering.linkedin.com/blog/2017/12/the-glimmer-binary-experience)
+	- [Glimmer's Optimizing Compiler](https://www.linkedin.com/pulse/glimmers-optimizing-compiler-chad-hietala?articleId=6321437215352242176)
+- [JSON.parse() vs eval() - corrected · jsPerf](https://web.archive.org/web/20171119085518/https://jsperf.com/json-parse-vs-eval-corrected/1)
+
+#### Relayout, repaint, reflow
+
+See [Relayout, repaint, reflow](JavaScript#Relayout, repaint, reflow)
 
 ### Control loading
 
@@ -2364,130 +2609,13 @@ At the bottom: Use the script as blocking script. Should be executed after all p
 - [Async Attribute and Scripts At The Bottom | CSS-Tricks](https://css-tricks.com/async-attribute-scripts-bottom/)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/#use_async_or_defer)
 - [Optimizing HTTP/2 prioritization with BBR and tcp_notsent_lowat](https://blog.cloudflare.com/http-2-prioritization-with-nginx/#browsersandrequestprioritization)
-
-See also [Download priority](#download-priority)
+- [Download priority](#download-priority)
+- [Load external script](Javascript.md#load-external-script)
 
 ###### Non-blocking stylesheet
 
 	<link rel="preload" href="styles.css" as="style" onload="rel='stylesheet';onload=0">
 	<noscript><link rel="stylesheet" href="styles.css"></noscript>
-
-### Reduce processing
-
-- [JavaScript Start-up Performance – reloading – Medium](https://medium.com/reloading/javascript-start-up-performance-69200f43b201)
-- [Time spent in JS parse & eval for average JS - Google Sheets](https://docs.google.com/spreadsheets/d/1wHcNNQea28LhwQ_amFamT33d5woVrJfJy53Z1k6V090/edit) - Parse times for a 1MB bundle of JavaScript across desktop & mobile devices of differing classes
-- [Too Hot To Handle - Optimizing for Low Powered Devices // Speaker Deck](https://speakerdeck.com/simonhearne/too-hot-to-handle-optimizing-for-low-powered-devices) - JS framework are too heavy for low-end devices
-
-### Cache
-
-To control static resource version, **use checksum instead of build number**. Which means you only download a new copy _when it actually changes_ (see ETag).
-
-Use forever cache (cache immutable) for static resources.
-
-- [Un tutoriel de la mise en cache pour les auteurs Web et les webmestres](https://www.mnot.net/cache_docs/)
-- [Increasing Application Performance with HTTP Cache Headers | Heroku Dev Center](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
-- https://restpatterns.mindtouch.us/Articles/Caching_Matters
-
-#### Cached
-
-max-age or expires headers, `Header append Cache-Control "public"`, `Header append Cache-Control "immutable"` avoid check of 304s
-
-`.htaccess`: 
-
-	# Requires mod_expires to be enabled.
-	<IfModule mod_expires.c>
-		# Enable expirations.
-		ExpiresActive On
-		
-		# Cache all files for 2 weeks after access (A).
-		ExpiresDefault A1209600
-		
-		<FilesMatch \.php$>
-		  # Do not allow PHP scripts to be cached unless they explicitly send cache
-		  # headers themselves. Otherwise all scripts would have to overwrite the
-		  # headers set by mod_expires if they want another caching behavior. This may
-		  # fail if an error occurs early in the bootstrap process.
-		  ExpiresActive Off
-		</FilesMatch>
-	</IfModule>
-
-PHP:
-
-	header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 12)));// 2 weeks
-
-Varnish script to Handle `Vary: User-Agent` to create classes to reduce variations.
-
-	# recv
-	if (req.http.host ~ "^example.com$") {
-		if (req.http.User-Agent ~ "MSIE\s[1-10]\." || req.http.User-Agent ~ "Edge\/[1-10]\." || req.http.User-Agent ~ "Trident\/.*rv:[1-10]\." || req.http.User-Agent ~ "Firefox\/[1-41]\." || req.http.User-Agent ~ "Safari\/[1-8]\." || req.http.User-Agent ~ "Version\/[1-8]\.")
-		{
-			# Set header for "old browser"
-			set req.http.X-UA-Device = "old";
-		}
-		elsif (req.http.User-Agent ~ "facebookexternalhit\/" || req.http.User-Agent ~ "Facebot" || req.http.User-Agent ~ "Pinterest\/")
-		{
-			# Set header for "bot"
-			set req.http.X-UA-Device = "bot";
-		}
-		else
-		{
-			# Set header for "recent browser"
-			set req.http.X-UA-Device = "new";
-		}
-	}
-	
-	# Fetch
-	if (req.http.host ~ "^example.com$") {
-		set beresp.http.X-UA-Device = req.http.X-UA-Device;
-		
-		# Vary by X-UA-Device, so varnish will keep distinct object copies by X-UA-Device value
-		if (beresp.http.Vary)
-		{
-			set beresp.http.Vary = beresp.http.Vary + ",X-UA-Device";
-		}
-		else
-		{
-			set beresp.http.Vary = "X-UA-Device";
-		}
-		
-		# Remove User-Agent from Vary (provide by App)
-		if (beresp.http.Vary ~ "User-Agent") {
-			set beresp.http.Vary = regsub(beresp.http.Vary, ",? *User-Agent *", "");
-			set beresp.http.Vary = regsub(beresp.http.Vary, "^, *", "");
-			if (beresp.http.Vary == "") {
-				unset beresp.http.Vary;
-			}
-		}
-	}
-
-- [Device detection — Varnish version trunk documentation](https://www.varnish-cache.org/docs/trunk/users-guide/devicedetection.html)
-- [Achieving a high hitrate — Varnish version trunk documentation](https://www.varnish-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#http-vary)
-- https://github.com/varnishcache/varnish-devicedetect
-
-- [Are Your Cache-Control Directives Doing What They Are Supposed to Do? — theScore Tech Blog](http://techblog.thescore.com/2014/11/19/are-your-cache-control-directives-doing-what-they-are-supposed-to-do/)
-- [Caching best practices & max-age gotchas - JakeArchibald.com](https://jakearchibald.com/2016/caching-best-practices/)
-- [mnot’s blog: The State of Browser Caching, Revisited](https://www.mnot.net/blog/2017/03/16/browser-caching)
-
-- [RFC 7234 in JavaScript. Parses HTTP headers to correctly compute cacheability of responses, even in complex cases ](https://github.com/pornel/http-cache-semantics)
-
-#### Not cached
-
-Prevent back button to show cache page (ex.: after logout)
-
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache, no-store, must-revalidate
-	Expires: 0
-
-	HTTP/1.0 200 OK
-	Pragma: no-cache
-	Cache-Control: max-age=0
-
-Note: `Cache-Control: no-cache` is for HTTP/1.1 where `Pragma: no-cache` is for HTTP/1.0. See [http - Difference between Pragma and Cache-control headers? - Stack Overflow](https://stackoverflow.com/questions/10314174/difference-between-pragma-and-cache-control-headers/15050018#15050018)
-
-	header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
-	//header('ETag: "' . sha1(time()) . '"');
-
-- [http - Making sure a web page is not cached, across all browsers - Stack Overflow](https://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers)
 
 ### Reduce media memory usage
 
@@ -2535,126 +2663,6 @@ WebGL DDS + texture atlas 4096 require `bufferData`/`texImage2D` + check an `OUT
 RGBA4444 = 16bit **but not related to paletted**, use `context.texImage2D(context.TEXTURE_2D, 0, context.RGBA, context.RGBA, context.UNSIGNED_SHORT_4_4_4_4, data);` where `data` must be an `Uint16Array` (4bits for each colors, something like `Uint4ClampedArray`) with each channel must be clamped to `0xF` (not directly compatible with a PNG16 image)
 
 Note: In WebGL 2, `PALETTE8_RGBA8_OES` can be used with `compressedTexImage2D()` to upload paletted colors (like from PNG8): https://www.opengl.org/registry/specs/OES/OES_compressed_paletted_texture.txt
-
-### Use dedicated servers
-
-Load balancer, localized CDN, etc.
-
-- [How We Knew It Was Time to Leave the Cloud | GitLab](https://about.gitlab.com/2016/11/10/why-choose-bare-metal/)
-
-### Precompress
-
-See [Content encoding](#Content encoding)
-
-For all text formats: CSS, SVG, JavaScript
-
-Could also be used for generic data (other formats that don't already use compression), or if the compression mode in those format can be disabled (ex: uncompressed PNG + Content encoding)
-
-- Create a gzip without store the original file name `gzip -9 -k -n file.ext`
-- create a TAR of all .ext `COPYFILE_DISABLE=1 tar -cvf file.tar *.ext`
-- `Content-Encoding: br` Brotli
-
-With nginx: http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#example
-
-With Apache:
- 
-	# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
-	# http://developer.yahoo.com/performance/rules.html#gzip
-	<IfModule mod_rewrite.c>
-		# If the browser accepts gzip and the requested file exists under
-		# pre-encoded version, then rewrite to that version.
-		# Requires both mod_rewrite and mod_headers to be enabled.
-		<IfModule mod_headers.c>
-			RewriteEngine on
-			
-			# *.br
-			# Serve gzip compressed CSS files if they exist and the client accepts brotli.
-			RewriteCond %{HTTP:Accept-Encoding} \bbr\b
-			RewriteCond %{REQUEST_FILENAME}.br -s
-			RewriteRule (.*) $1.br [QSA]
-			
-			# *.gz
-			# Serve gzip compressed CSS files if they exist and the client accepts gzip.
-			RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
-			RewriteCond %{REQUEST_FILENAME}.gz -s
-			RewriteRule (.*) $1.gz [QSA]
-			
-			# *.svg to *.svgz
-			RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
-			RewriteCond %{REQUEST_FILENAME} .svg$
-			RewriteCond %{REQUEST_FILENAME}z -s
-			RewriteRule (.*) $1z [QSA]
-			
-			<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.(gz|br)|svgz)$">
-				# Tell caching proxy servers to cache the file based on encoding
-				# Apache should add it automatically: http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
-				Header append Vary Accept-Encoding
-				# Do this to set proper ETags for server clusters
-				FileETag MTime Size
-			</FilesMatch>
-			
-			<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.gz|svgz)$">
-				# Prevent double compression
-				SetEnv no-gzip 1
-				# We serve a gzipped stream
-				Header set Content-Encoding br
-			</FilesMatch>
-			
-			<FilesMatch "\.(js|css|html|xml|svg|json|tar)\.br$">
-				# Prevent double compression
-				SetEnv no-brotli 1
-				# We serve a gzipped stream
-				Header set Content-Encoding gzip
-			</FilesMatch>
-			
-			# And set proper media type:
-			RewriteRule \.js\.(gz|br)$ - [T=application/javascript]
-			RewriteRule \.css\.(gz|br)$ - [T=text/css]
-			RewriteRule \.svg(z|\.gz|br)$ - [T=image/svg+xml]
-			RewriteRule \.html\.(gz|br)$ - [T=text/html]
-			RewriteRule \.xml\.(gz|br)$ - [T=text/xml]
-			RewriteRule \.json\.(gz|br)$ - [T=application/json]
-			# Allow for example JS to access tar data already ungzipped (done by the browser, instead using JS to decode)
-			#RewriteRule \.tar\.(gz|br)$ - [T=application/x-tar]
-			# For browsers compatibility we can't use the right media type but:
-			RewriteRule \.tar\.(gz|br)$ - [T=application/octet-stream]
-		</IfModule>
-	</IfModule>
-
-	RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javascript]
-
-An other way (**need to test**: content not double encoded, `.gz.html` output). It is use [content negotiation](http://httpd.apache.org/docs/2.4/en/content-negotiation.html):
-
-	# Activate Content Negotiation
-	Options +MultiViews
-	RemoveType .gz
-	AddEncoding gzip .gz
-	RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
-	RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
-	RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
-	# By using content negociation, Apache will add Content-Encoding to Vary header
-
-Or:
-
-- use a CDN
-- use `mod_mem_cache` or `mod_disk_cache`: [webdirect.no Apache caching with gzip enabled | webdirect.no](http://webdirect.no/linux/apache-caching-with-gzip-enabled/)
-- use a proxy cache like Varnish
-
-- Serving pre-compressed content [mod_deflate - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/current/en/mod/mod_deflate.html#precompressed)
-- [Getting more out of GZIP for web content](http://mainroach.blogspot.fr/2013/09/getting-more-out-of-gzip-for-web-content.html)
-- [Code Grill: How To Serve Pre-Compressed Static Files in Apache](http://blog.codegrill.org/2009/07/how-to-pre-compress-static-files-in.html)
-- [caching - How to force Apache to use manually pre-compressed gz file of CSS and JS files? - Stack Overflow](https://stackoverflow.com/questions/9076752/how-to-force-apache-to-use-manually-pre-compressed-gz-file-of-css-and-js-files)
-- [javascript - How to host static content pre-compressed in apache? - Stack Overflow](https://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache)
-- [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-simple-gzip-support-for-apache-with-mod_rewrite.html)
-- [apache - How to configure mod_deflate to serve gzipped assets prepared with assets:precompile - Stack Overflow](https://stackoverflow.com/questions/7509501/how-to-configure-mod-deflate-to-serve-gzipped-assets-prepared-with-assetsprecom)
-- [Gzip Your CSS and JavaScript | ODLAN](http://odlan.com/gzip-your-css-and-js/)
-- [Optimizing Mendix for low bandwidth - Using Compression](https://forum.mendixcloud.com/link/questions/3475)
-- [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-Simple-gzip-Support-for-Apache-with-mod_rewrite.html)
-- [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x)
-
-### Relayout, repaint, reflow
-
-See [Relayout, repaint, reflow](JavaScript#Relayout, repaint, reflow)
 
 ### Performance reporting
 

@@ -41,6 +41,7 @@ Project documentation:
 - [dhurlburtusa/YourJS: A JS library you can use in YOUR chosen namespace.](https://github.com/dhurlburtusa/YourJS)
 - serialize/deserialize data (binary) efficiently [google/flatbuffers: Memory Efficient Serialization Library](https://github.com/google/flatbuffers)
 - [epoberezkin/ajv: The fastest JSON Schema Validator. Supports draft-04/06/07](https://github.com/epoberezkin/ajv)
+- [Benchmark.js](https://benchmarkjs.com/) - A benchmarking library that supports high-resolution timers & returns statistically significant results.
 
 ## Formatting
 

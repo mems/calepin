@@ -460,7 +460,9 @@ In folder `/.MobileBackups`
 - http://apple.stackexchange.com/questions/80183/any-way-to-change-the-location-of-time-machine-local-backups-mobilebackups-t
 - http://support.apple.com/kb/HT4878
 
-### Create / Resize sparsebundle (specify a size)
+### Create or resize sparsebundle
+
+Aka specify a size
 
 Sparsebundle are use on network drives.
 
@@ -718,6 +720,26 @@ For clean install, erase the drive with Disk Utility ([macOS Recovery](https://s
 - [osx - How can I get back a system file after deleting it from my Mac? - Ask Different](http://apple.stackexchange.com/questions/116611/how-can-i-get-back-a-system-file-after-deleting-it-from-my-mac/116612#116612)
 - [OSX on Bootable USB](#OSX on Bootable USB)
 - [Restore from a Time Machine backup](#Restore from a Time Machine backup)
+
+#### Install on Virtual Machine
+
+	cd "C:\Program Files\Oracle\VirtualBox\"
+	# 
+	# Virtualbox 5.x 00000001 000106e5 00100800 0098e3fd bfebfbff
+	# Virtualbox 4.x 00000001 000306a9 04100800 7fbae3ff bfebfbff
+	VBoxManage.exe modifyvm "Virtual Machine Name" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+	# use "MacBookPro11,3"
+	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac11,3"
+	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+	# "Mac-2BD1B31983FE1663"
+	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
+	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+
+- [jonanh/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/jonanh/osx-vm-templates) - [timsutton/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/timsutton/osx-vm-templates)
+- [Notes on getting macOS Sierra running in Virtualbox on a Windows 10 host](https://gist.github.com/rob-smallshire/0c4403afb0523dd57c9f4b3693344f14)
+- [mac - Install macOS High Sierra as VirtualBox guest (on macOS High Sierra)? - Ask Different](https://apple.stackexchange.com/questions/307099/install-macos-high-sierra-as-virtualbox-guest-on-macos-high-sierra)
+- [Install macOS Sierra on VirtualBox? - Ask Different](https://apple.stackexchange.com/questions/290643/install-macos-sierra-on-virtualbox)
 
 ### Bootable USB
 
@@ -1876,6 +1898,32 @@ Aka defragmentation
 
 - [Ten Things Apple Did To Make Mac OS X Faster](http://osxbook.com/book/bonus/misc/optimizations/#FIVE) - On-the-fly Defragmentation
 - [Ten Things Apple Did To Make Mac OS X Faster](http://osxbook.com/book/bonus/misc/optimizations/#THREE) - Hot File Clustering
+
+### Disk image
+
+> ## Create a disk image from a disk or connected device
+> 
+> [...]
+> 
+> - **Sparse bundle disk image:** Same as a sparse disk image (below), but the directory data for the image is stored differently. Uses the .sparsebundle file extension.
+> - **Sparse disk image:** Creates an expandable file that shrinks and grows as needed. No additional space is used. Uses the .sparseimage file extension.
+> - **Read/write disk image:** Allows you to add files to the disk image after it’s created. Uses the .dmg file extension.
+> - **DVD/CD master:** Changes the size of the image to 177 MB (CD 8 cm). Uses the .cdr file extension.
+> 
+> [...]
+> 
+> ## Create a disk image from a folder or connected device
+> 
+> [...]
+> 
+> - **Read-only:** The disk image can’t be written to, and is quicker to create and open.
+> - **Compressed:** Compresses data, so the disk image is smaller than the original data. The disk image is read-only.
+> - **Read/write:** Allows you to add files to the disk image after it’s created.
+> - **DVD/CD master:** Can be used with third-party apps. It includes a copy of all sectors of the disk image, whether they’re used or not. When you use a master disk image to create other DVDs or CDs, all data is copied exactly.
+> 
+> — [Create a disk image using Disk Utility on Mac - Apple Support](https://support.apple.com/guide/disk-utility/create-a-disk-image-dskutl11888/mac)
+
+- [Create or resize sparsebundle](#create-or-resize-sparsebundle)
 
 ## Startup and login
 

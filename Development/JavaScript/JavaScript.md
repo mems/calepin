@@ -2978,7 +2978,10 @@ Script-created scripts are by default async. (but not with `document.write()`)
 - [javascript - Is the "async" attribute/property useful if a script is dynamically added to the DOM? - Stack Overflow](https://stackoverflow.com/questions/3408805/is-the-async-attribute-property-useful-if-a-script-is-dynamically-added-to-the/5160676#5160676)
 - [The non-blocking script loader pattern](http://www.lognormal.com/blog/2012/12/12/the-script-loader-pattern/)
 
-See [Don't use `document.write()`](#Don't use `document.write()`)
+See:
+
+- [Don't use `document.write()`](#Don't use `document.write()`)
+- [Blocking resources](Web.md#blocking-resources)
 
 ## Animation
 
