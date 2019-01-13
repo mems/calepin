@@ -2122,6 +2122,7 @@ See [Prevent violation](#Prevent violation)
 - [Exploring OS X Preview Signatures – mikeymikey blogs here](http://michaellynn.github.io/2015/07/26/exploring-os-x-preview-signatures/) - Decode data from macOS Preview Signatures
 - [class-dump - Steve Nygard](http://stevenygard.com/projects/class-dump/) - Generates declarations for the classes, categories and protocols from Objective-C runtime information stored in Mach-O files
 - [RE for Beginners | Reverse Engineering](https://www.begin.re/)
+- [Reverse Engineering Stickies.app - Low Level Bits](https://lowlevelbits.org/reverse-engineering-stickies.app/)
 
 ### Vulnerabilities
 

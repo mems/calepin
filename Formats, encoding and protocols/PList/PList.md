@@ -2,20 +2,6 @@
 
 Start with `bplist00` (binary plists)
 
-## typedstream data
-
-Similar (and old) format: `<0x04><0x0b>streamtyped`
-
-- `typedstream.h`
-	> You can use typedstreams to save arbitrary C data, including Objective C objects, onto an arbitrary stream (see NXStream)
-	> [...]
-	> Not only data structures are written, but also their type, allowing for retrieval even in the absence of the code used for saving them
-- `NSCompatibility.h`
-- [objective c - Is there a way to read in files in TypedStream format - Stack Overflow](https://stackoverflow.com/questions/4371588/is-there-a-way-to-read-in-files-in-typedstream-format)
-- [Legacy File Formats](http://www.stone.com/The_Cocoa_Files/Legacy_File_Formats.html)
-- [Apple - Lists.apple.com](https://lists.apple.com/archives/Cocoa-dev/2005/Jan/msg00736.html) - NSUnarchiver and StickiesDatabase
-- http://www.opensource.apple.com/source/CF/CF-744.19/CFBinaryPList.c
-
 ## Convertion
 
 	# Rewrite the source file with given format

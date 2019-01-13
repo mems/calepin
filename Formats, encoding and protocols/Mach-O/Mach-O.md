@@ -1,0 +1,3 @@
+- [Parsing Mach-O files - Low Level Bits](https://lowlevelbits.org/parsing-mach-o-files/)
+- [MachOView download | SourceForge.net](https://sourceforge.net/projects/machoview/)
+- [Mach-O Executables · objc.io](https://www.objc.io/issues/6-build-tools/mach-o-executables/)
