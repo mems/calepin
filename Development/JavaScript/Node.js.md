@@ -4,7 +4,8 @@ Node.js
 
 ## Libraries
 
-- [jindw/xmldom: A PURE JS W3C Standard based(XML DOM Level2 CORE) DOMParser and XMLSerializer.](https://github.com/jindw/xmldom) - Read and write XML with a DOM (pure JS)
+- [NaturalIntelligence/fast-xml-parser: Validate XML, Parse XML to JS/JSON and vise versa, or parse XML to Nimn rapidly without C/C++ based libraries and no callback](https://github.com/NaturalIntelligence/fast-xml-parser) - Read and write XML with a DOM (pure JS)
+	It's an alternative to [jindw/xmldom: A PURE JS W3C Standard based(XML DOM Level2 CORE) DOMParser and XMLSerializer.](https://github.com/jindw/xmldom)
 - [libxmljs/libxmljs: libxml bindings for v8 javascript engine](https://github.com/libxmljs/libxmljs) - Read and write XML (native)
 - [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip) - Read and write ZIP asynchronously
 - [csstree/csstree: Fast detailed CSS parser with syntax validation](https://github.com/csstree/csstree) - Read and write CSS

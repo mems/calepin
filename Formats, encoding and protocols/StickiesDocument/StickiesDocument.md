@@ -1,3 +1,7 @@
+- [Stickies (Apple) — Wikipedia](https://en.wikipedia.org/wiki/Stickies_%28Apple%29)
+
+`/Applications/Stickies.app`
+
 Document: mRTFData, mWindowFlags, mWindowFrame, mWindowColor, then mCreationDate and mModificationDate
 
 - Inside StYNCies
@@ -17,13 +21,19 @@ Document: mRTFData, mWindowFlags, mWindowFrame, mWindowColor, then mCreationDate
 	
 Specificity with Apple implementation RTF don't embed images:
 
+You can create RTF with inlined images (hex-encoded data) via `jpegblip` or `pngblip` (for PNG, GIF, BMP, TIFF)
+
 - [ios - trouble saving NSAttributedString, with image, to an RTF file - Stack Overflow](https://stackoverflow.com/questions/23370275/trouble-saving-nsattributedstring-with-image-to-an-rtf-file/29181130#29181130)
+- [HUB/NSAttributedString-EncodeRTFwithPictures.m at master · kinph/HUB](https://github.com/kinph/HUB/blob/master/Beans/NSAttributedString-EncodeRTFwithPictures.m)
 - [objective c - Creating RTFD Programmatically - Stack Overflow](https://stackoverflow.com/questions/23637194/creating-rtfd-programmatically/35684977#35684977) — Create RTFD Bundle (with NSFileWrapper)
 - [cocoadev.github.io/index.md at master · cocoadev/cocoadev.github.io](https://github.com/cocoadev/cocoadev.github.io/blob/master/RTFOrWordDocsWithImages/index.md)
 
 ## Stickies to RTFD
 
-```
+Export old stickies (from `~/Library/StickiesDatabase`) data to RTFD files readable by TextEdit.
+Works at least on macOS 10.14.
+
+```sh
 clang stickies2rtfd.m StickiesDocument.m -fmodules -mmacosx-version-min=10.6 -o stickies2rtfd && ./stickies2rtfd
 ```
 
@@ -32,7 +42,7 @@ clang stickies2rtfd.m StickiesDocument.m -fmodules -mmacosx-version-min=10.6 -o 
 - `-mmacosx-version-min=10.6`: support older OS X versions, this might increase the binary size
 
 <details>
-	<summary><code>stickies2rtfd.m</code></summary>
+	<summary><code>stickies2rtfd.m</code> code</summary>
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -48,7 +58,7 @@ int main() {
 	stickyNotes = [[unarchiver decodeObject] retain];
 	//NSLog(@"Decoded object: %@", stickyNotes);
 	[unarchiver release];
-
+	
 	if (stickyNotes && [stickyNotes isKindOfClass:[NSMutableArray class]]) {
 		NSMutableArray *notes = [NSMutableArray arrayWithCapacity:[stickyNotes count]];
 	
@@ -71,7 +81,7 @@ int main() {
 		];
 		
 		NSFileManager *fileManager = [NSFileManager defaultManager];
-
+		
 		unsigned int i;
 		for (i=0; i<[stickyNotes count]; i++) {
 			StickiesDocument *doc = [stickyNotes objectAtIndex:i];
@@ -110,7 +120,7 @@ int main() {
 				NSLog(@"Sticky document is wrong: %@", [doc description]);
 			}
 		}
-
+		
 		[stickyNotes release];
 	} else {
 		NSLog(@"Sticky notes array is wrong: %@", [stickyNotes description]);
@@ -120,3 +130,16 @@ int main() {
 }
 ```
 </details>
+
+## Dashboard widget
+
+```sh
+plutil -convert json -r -o - ~/Library/Preferences/widget-com.apple.widget.stickies.plist |
+    awk '$1 ~ /-data/ { start=index($0, ":")+3
+                        end=length($0)-2
+                        sticky=substr($0, start, end-start+1)
+                        gsub(/<.?.?div>/, "", sticky)
+                        gsub(/<br>/, "\n", sticky)
+                        print sticky
+                        print "---" }' > ~/all-my-stickies.txt
+```
