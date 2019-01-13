@@ -18,99 +18,105 @@ Document: mRTFData, mWindowFlags, mWindowFrame, mWindowColor, then mCreationDate
 Specificity with Apple implementation RTF don't embed images:
 
 - [ios - trouble saving NSAttributedString, with image, to an RTF file - Stack Overflow](https://stackoverflow.com/questions/23370275/trouble-saving-nsattributedstring-with-image-to-an-rtf-file/29181130#29181130)
-- [objective c - Creating RTFD Programmatically - Stack Overflow](https://stackoverflow.com/questions/23637194/creating-rtfd-programmatically/35684977#35684977) - Create RTFD Bundle (with NSFileWrapper)
+- [objective c - Creating RTFD Programmatically - Stack Overflow](https://stackoverflow.com/questions/23637194/creating-rtfd-programmatically/35684977#35684977) — Create RTFD Bundle (with NSFileWrapper)
 - [cocoadev.github.io/index.md at master · cocoadev/cocoadev.github.io](https://github.com/cocoadev/cocoadev.github.io/blob/master/RTFOrWordDocsWithImages/index.md)
+
+## Stickies to RTFD
+
+```
+clang stickies2rtfd.m StickiesDocument.m -fmodules -mmacosx-version-min=10.6 -o stickies2rtfd && ./stickies2rtfd
+```
 
 - `-fobjc-arc`: enables ARC
 - `-fmodules`: enables modules so you can import with `@import AppKit;`
 - `-mmacosx-version-min=10.6`: support older OS X versions, this might increase the binary size
 
-	clang stickies2rtfd.m StickiesDocument.m -fmodules -mmacosx-version-min=10.6 -o stickies2rtfd && ./stickies2rtfd
+<details>
+	<summary><code>stickies2rtfd.m</code></summary>
 
-<details>
-	<summary>`stickies2rtfd.m`</summary>
+```objc
+#import <Foundation/Foundation.h>
+#import "StickiesDocument.h"
+
+int main() {
+	NSMutableArray *stickyNotes = nil;
+	NSData *stickyData = [NSData dataWithContentsOfFile:@"StickiesDatabase"];// usally at ~/Library/StickiesDatabase
+	// NSUnarchiver is deprecated in macOS 10.13, could be replaced by https://github.com/berkus/cocotron/ NSUnarchiver or https://github.com/depth42/MEUnarchiver
+	NSUnarchiver *unarchiver = [[NSUnarchiver alloc] initForReadingWithData:stickyData];
+	// Use https://github.com/scrod/nv/blob/master/StickiesDocument.m
+	[unarchiver decodeClassName:@"Document" asClassName:@"StickiesDocument"];
+	stickyNotes = [[unarchiver decodeObject] retain];
+	//NSLog(@"Decoded object: %@", stickyNotes);
+	[unarchiver release];
+
+	if (stickyNotes && [stickyNotes isKindOfClass:[NSMutableArray class]]) {
+		NSMutableArray *notes = [NSMutableArray arrayWithCapacity:[stickyNotes count]];
 	
-	#import <Foundation/Foundation.h>
-	#import "StickiesDocument.h"
-	
-	int main() {
-		NSMutableArray *stickyNotes = nil;
-		NSData *stickyData = [NSData dataWithContentsOfFile:@"StickiesDatabase"];// usally at ~/Library/StickiesDatabase
-		// NSUnarchiver is deprecated in macOS 10.13, could be replaced by https://github.com/berkus/cocotron/ NSUnarchiver or https://github.com/depth42/MEUnarchiver
-		NSUnarchiver *unarchiver = [[NSUnarchiver alloc] initForReadingWithData:stickyData];
-		// Use https://github.com/scrod/nv/blob/master/StickiesDocument.m
-		[unarchiver decodeClassName:@"Document" asClassName:@"StickiesDocument"];
-		stickyNotes = [[unarchiver decodeObject] retain];
-		//NSLog(@"Decoded object: %@", stickyNotes);
-		[unarchiver release];
-	
-		if (stickyNotes && [stickyNotes isKindOfClass:[NSMutableArray class]]) {
-			NSMutableArray *notes = [NSMutableArray arrayWithCapacity:[stickyNotes count]];
+		// Stickies default colors
+		// https://github.com/AlexDenisov/ModernStickies/blob/master/main.c
+		// https://lowlevelbits.org/reverse-engineering-stickies.app/
+		NSArray *colors = @[
+			// Yello
+			[NSColor colorWithDeviceRed:0.996078f green:0.956862f blue:0.611764f alpha:1.0f],
+			// Blue
+			[NSColor colorWithDeviceRed:0.678431f green:0.956863f blue:1.0f alpha:1.0f],
+			// Green
+			[NSColor colorWithDeviceRed:0.698039f green:1.0f blue:0.631373f alpha:1.0f],
+			// Pink
+			[NSColor colorWithDeviceRed:1.0f green:0.780392f blue:0.780392f alpha:1.0f],
+			// Purple
+			[NSColor colorWithDeviceRed:0.713725f green:0.792157f blue:1.0f alpha:1.0f],
+			// Gray
+			[NSColor colorWithDeviceRed:0.933333f green:0.933333f blue:0.933333f alpha:1.0f]
+		];
 		
-			// Stickies default colors
-			// https://github.com/AlexDenisov/ModernStickies/blob/master/main.c
-			// https://lowlevelbits.org/reverse-engineering-stickies.app/
-			NSArray *colors = @[
-				// Yello
-				[NSColor colorWithDeviceRed:0.996078f green:0.956862f blue:0.611764f alpha:1.0f],
-				// Blue
-				[NSColor colorWithDeviceRed:0.678431f green:0.956863f blue:1.0f alpha:1.0f],
-				// Green
-				[NSColor colorWithDeviceRed:0.698039f green:1.0f blue:0.631373f alpha:1.0f],
-				// Pink
-				[NSColor colorWithDeviceRed:1.0f green:0.780392f blue:0.780392f alpha:1.0f],
-				// Purple
-				[NSColor colorWithDeviceRed:0.713725f green:0.792157f blue:1.0f alpha:1.0f],
-				// Gray
-				[NSColor colorWithDeviceRed:0.933333f green:0.933333f blue:0.933333f alpha:1.0f]
-			];
+		NSFileManager *fileManager = [NSFileManager defaultManager];
+
+		unsigned int i;
+		for (i=0; i<[stickyNotes count]; i++) {
+			StickiesDocument *doc = [stickyNotes objectAtIndex:i];
+			if ([doc isKindOfClass:[StickiesDocument class]]) {
+				NSString *filename = [NSString stringWithFormat:@"stickynote-%d.rtfd", i + 1];
 			
-			NSFileManager *fileManager = [NSFileManager defaultManager];
-	
-			unsigned int i;
-			for (i=0; i<[stickyNotes count]; i++) {
-				StickiesDocument *doc = [stickyNotes objectAtIndex:i];
-				if ([doc isKindOfClass:[StickiesDocument class]]) {
-					NSString *filename = [NSString stringWithFormat:@"stickynote-%d.rtfd", i + 1];
-				
-					// RTFDData can't be written directly (it's not RTFD bundle / disk format / com.apple.rtfd but Flat RTFD / pasteboard format / com.apple.flat-rtfd), TextEdit can't read it
-					//[[doc RTFDData] writeToFile:filename atomically:NO];
-					// We need to encode the data to an other format: RTF Apple implementation does not embedded images natively (see https://stackoverflow.com/a/29181130/470117) or an other format that support images attachment like NSWebArchiveTextDocumentType (use NSKeyedArchiver), etc. https://developer.apple.com/documentation/uikit/nsattributedstringdocumenttype?language=objc
-					// Instead we use NSFileWrapper create RTFD bundle				
-					int colorIndex = [doc windowColor];
-					id color = colorIndex < (int)[colors count] ? colors[colorIndex] : colors[0];
-					NSAttributedString *str = 
-						[[NSAttributedString alloc] 
-							initWithRTFD:[doc RTFDData] 
-								documentAttributes:nil];
-					NSDictionary *docAttrs = @{
-						NSDocumentTypeDocumentAttribute: NSRTFDTextDocumentType,//NSWebArchiveTextDocumentType,
-						//NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInteger:NSASCIIStringEncoding],
-						// Update the background color to use the same color as stikies
-						NSBackgroundColorDocumentAttribute: color
-					};
-					NSFileWrapper* fileWrapper = [str fileWrapperFromRange:NSMakeRange(0, str.length) documentAttributes:docAttrs error:nil];
-					// Remove the file or bundle first
-					[NSFileManager.defaultManager removeItemAtPath:filename error:nil];
-					[fileWrapper writeToURL:[NSURL fileURLWithPath:filename] options:NSFileWrapperWritingAtomic originalContentsURL:nil error:nil];
-				
-					// Update creation and modification dates
-					[NSFileManager.defaultManager setAttributes: @{
-						NSFileCreationDate: [doc creationDate],
-						NSFileModificationDate: [doc modificationDate]
-						}
-						ofItemAtPath:filename
-							error:nil];
-				} else {
-					NSLog(@"Sticky document is wrong: %@", [doc description]);
-				}
+				// RTFDData can't be written directly (it's not RTFD bundle / disk format / com.apple.rtfd but Flat RTFD / pasteboard format / com.apple.flat-rtfd), TextEdit can't read it
+				//[[doc RTFDData] writeToFile:filename atomically:NO];
+				// We need to encode the data to an other format: RTF Apple implementation does not embedded images natively (see https://stackoverflow.com/a/29181130/470117) or an other format that support images attachment like NSWebArchiveTextDocumentType (use NSKeyedArchiver), etc. https://developer.apple.com/documentation/uikit/nsattributedstringdocumenttype?language=objc
+				// Instead we use NSFileWrapper create RTFD bundle				
+				int colorIndex = [doc windowColor];
+				id color = colorIndex < (int)[colors count] ? colors[colorIndex] : colors[0];
+				NSAttributedString *str = 
+					[[NSAttributedString alloc] 
+						initWithRTFD:[doc RTFDData] 
+							documentAttributes:nil];
+				NSDictionary *docAttrs = @{
+					NSDocumentTypeDocumentAttribute: NSRTFDTextDocumentType,//NSWebArchiveTextDocumentType,
+					//NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInteger:NSASCIIStringEncoding],
+					// Update the background color to use the same color as stikies
+					NSBackgroundColorDocumentAttribute: color
+				};
+				NSFileWrapper* fileWrapper = [str fileWrapperFromRange:NSMakeRange(0, str.length) documentAttributes:docAttrs error:nil];
+				// Remove the file or bundle first
+				[NSFileManager.defaultManager removeItemAtPath:filename error:nil];
+				[fileWrapper writeToURL:[NSURL fileURLWithPath:filename] options:NSFileWrapperWritingAtomic originalContentsURL:nil error:nil];
+			
+				// Update creation and modification dates
+				[NSFileManager.defaultManager setAttributes: @{
+					NSFileCreationDate: [doc creationDate],
+					NSFileModificationDate: [doc modificationDate]
+					}
+					ofItemAtPath:filename
+						error:nil];
+			} else {
+				NSLog(@"Sticky document is wrong: %@", [doc description]);
 			}
-	
-			[stickyNotes release];
-		} else {
-			NSLog(@"Sticky notes array is wrong: %@", [stickyNotes description]);
 		}
-		
-		return 0;
+
+		[stickyNotes release];
+	} else {
+		NSLog(@"Sticky notes array is wrong: %@", [stickyNotes description]);
 	}
-<details>
+	
+	return 0;
+}
+```
+</details>
