@@ -10,7 +10,7 @@ Document: mRTFData, mWindowFlags, mWindowFrame, mWindowColor, then mCreationDate
 	- [MacDevCenter.com](https://web.archive.org/web/20160823130712/http://www.macdevcenter.com:80/pub/a/mac/2005/03/18/cocoa.html)
 	- [MacDevCenter.com](https://web.archive.org/web/20160813130502/http://www.macdevcenter.com/pub/a/mac/2005/03/18/cocoa.html?page=2)
 - [class-dump - Steve Nygard](http://stevenygard.com/projects/class-dump/)
-- [nv/StickiesDocument.m at master · scrod/nv](https://github.com/scrod/nv/blob/master/StickiesDocument.m)
+- [Notational Velocity](http://notational.net/) - [nv/StickiesDocument.m at master · scrod/nv](https://github.com/scrod/nv/blob/master/StickiesDocument.m)
 - [calacoles/Document.m at master · kazu/calacoles](https://github.com/kazu/calacoles/blob/master/stickies-local/bundle/Document.m)
 - [Reverse Engineering Stickies.app - Low Level Bits](https://lowlevelbits.org/reverse-engineering-stickies.app/)
 - [cocoadev.github.io/index.md at master · cocoadev/cocoadev.github.io](https://github.com/cocoadev/cocoadev.github.io/blob/master/StickiesDatabase/index.md)
@@ -143,3 +143,5 @@ plutil -convert json -r -o - ~/Library/Preferences/widget-com.apple.widget.stick
                         print sticky
                         print "---" }' > ~/all-my-stickies.txt
 ```
+
+- [mountain lion - Export all stickies at once on OS X 10.8? - Ask Different](https://apple.stackexchange.com/questions/59525/export-all-stickies-at-once-on-os-x-10-8/59531#59531)
