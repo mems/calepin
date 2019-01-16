@@ -3116,6 +3116,9 @@ CSS for `<sub>` and `<sup>`:
 
 ## List
 
+> remove list element semantics when `list-style: none` is used
+> - ["Fixing" Lists | scottohara.me](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html)
+
 	.link{
 		
 	}
