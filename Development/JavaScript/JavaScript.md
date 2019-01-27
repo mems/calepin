@@ -4211,6 +4211,18 @@ An iframe don't inherit it's parent's CSP if sandbox attribute has `allow-same-o
 
 Note: Observe the common ancestor of targeted nodes (eg. `document.documentElement`, `document.body` or deeper) instead of small subtrees (multiple observers)
 
+All mutation happend even for disconnected nodes. Mutation happend on newly created node are "muted":
+
+	const a = document.body.firstChild;
+	const b = document.createElement("div");
+	b.appendChild(a);// mutation: a removed from body
+	document.body.appendChild(b);// mutation: b added to body
+
+	const a = document.body.firstChild;
+	const b = document.createElement("div");
+	document.body.appendChild(b);// mutation: b added to body
+	b.appendChild(a);// mutation: a removed from body + a added to b
+
 - use `MutationObserver` or use Live Collections with `requestAnimationFrame` (or `setInterval`)
 - [Three Real-World Uses for Mutation Observer - Eager Blog](https://eager.io/blog/three-real-world-use-cases-for-mutation-observer/)
 - [javascript - Performance of MutationObserver to detect nodes in entire DOM - Stack Overflow](https://stackoverflow.com/questions/31659567/performance-of-mutationobserver-to-detect-nodes-in-entire-dom/39332340#39332340) - Tips about observing node in the whole document

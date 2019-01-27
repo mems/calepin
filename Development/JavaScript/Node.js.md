@@ -1,4 +1,4 @@
-Node.js
+["Node.js" (written and spoken guidelines)](https://twitter.com/bitandbang/status/1087359646367731719)
 
 - [Node.js Security Checklist | @RisingStack](https://blog.risingstack.com/node-js-security-checklist/)
 
