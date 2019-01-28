@@ -49,21 +49,6 @@ TODO use generator function
 
 - [List all file in a directory in Node.j recursively in a synchronou fashion](https://gist.github.com/kethinov/6658166)
 
-## Package
-
-	{
-		...
-		"main": "server/index.js",
-		"scripts": {
-			"start": "node $npm_package_main",
-			"start-dev": "NODE_ENV=dev node $npm_package_main"
-		},
-		...
-		"engines": {
-			"node": ">=9.0"
-		}
-	}
-
 ## Keep local copy of dependencies
 
 Usefull to keep it on version control system or in context of security
@@ -182,6 +167,23 @@ RESTful routing (resource, facet):
 ## NPM
 
 - [node.js - Difference between npm install and npm run build - Stack Overflow](https://stackoverflow.com/questions/43664200/difference-between-npm-install-and-npm-run-build)
+- [`npm install` modifies `package-lock`! (changes resolved url protocol!) · Issue #20106 · npm/npm](https://github.com/npm/npm/issues/20106) - npm install issue that update `package-lock.json` by changing `https://` to `http://`. See also [Some packages have dist.tarball as http and not https - 🐞 bugs - npm forum](https://npm.community/t/some-packages-have-dist-tarball-as-http-and-not-https/285/15)
+
+
+### Package variables
+
+	{
+		...
+		"main": "server/index.js",
+		"scripts": {
+			"start": "node $npm_package_main",
+			"start-dev": "NODE_ENV=dev node $npm_package_main"
+		},
+		...
+		"engines": {
+			"node": ">=9.0"
+		}
+	}
 
 ### Install for continuous integration
 
