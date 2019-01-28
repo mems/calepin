@@ -269,6 +269,8 @@ See [Warning "root" does not have permission to access the dev dir · Issue #454
 
 ## Node sources
 
+- [node/lib at master · nodejs/node](https://github.com/nodejs/node/tree/master/lib)
+
 Zlib will don't have extra gzip header fiels (empty values):
 
 > If deflateSetHeader is not used, the default gzip header has text false, the time set to zero, and os set to 255, with no extra, name, or comment fields.
