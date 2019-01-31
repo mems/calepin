@@ -3332,10 +3332,10 @@ See HTML Media [`canplaythrough`](https://developer.mozilla.org/en-US/docs/Web/E
 
 	if (duration > 0)
 	{
-		var bufferingDuration:Number = Date.now() - startTimer;
-		var totalLoadTime:Number = bytesLoaded == 0 ? Number.POSITIVE_INFINITY : bytesTotal / bytesLoaded * bufferingDuration;
-		var duration:Number = duration * 1000;//s -> ms
-		trace("(" + bytesLoaded + "/" + bytesTotal + ")" + bufferingDuration + " : " + totalLoadTime.toFixed(2))
+		var bufferingDuration = Date.now() - startTimer;
+		var totalLoadTime = bytesLoaded == 0 ? Number.POSITIVE_INFINITY : bytesTotal / bytesLoaded * bufferingDuration;
+		var duration = duration * 1000;//s -> ms
+		console.log("(" + bytesLoaded + "/" + bytesTotal + ")" + bufferingDuration + " : " + totalLoadTime.toFixed(2))
 		if (totalLoadTime < duration || bufferingDuration + duration > totalLoadTime)
 			// here the media can be play through
 	}
@@ -3496,3 +3496,109 @@ About stack:
 - [StackTrace.JS - Framework-agnostic, micro-library for getting stack trace in all web browsers](https://www.stacktracejs.com/)
 - [stacktracejs/stacktrace.js: Generate, parse, and enhance JavaScript stack trace in all web browsers](https://github.com/stacktracejs/stacktrace.js/)
 - [stacktracejs/error-stack-parser: Extract meaning from JS Errors](https://github.com/stacktracejs/error-stack-parser)
+
+## Multiple replace
+
+```javascript
+// Search first occurence and replace, then move after the match and repeat
+// string and non global rexexp can replace the first occurrence only. Global rexexp can replace each occurences
+/*
+multipleReplace("à partir du 31/01", [[
+	/D\u00e8s demain/g,
+	"En stock : livr\u00e9 d\u00e8s demain"
+],[
+	/A partir du/g,
+	"En stock : livr\u00e9 \u00e0 partir du"
+],[
+	/à partir du/g,
+	"En stock : livr\u00e9 \u00e0 partir du"
+],[
+	/En 2H Chrono/g,
+	"En stock : en 2H Chrono"
+]]);
+// > "En stock : livré à partir du 31/01"
+*/
+function multipleReplace(str, rules){
+	var result = "";
+	var lastIndex = 0;
+	// mutiple replace
+	// loop over matches: if string only first is replaced, if global rexexp search for each occurences
+	// See how string.replace works
+	while(lastIndex < str.length){
+		var bestMatch = null;
+		var bestMatchReplace = null;
+		
+		for (var i = 0; i < rules.length; ++i) {
+			var substr = rules[i][0];
+			var match = null;
+			
+			// Some types can only be used to match only the first occurence
+			if(lastIndex > 0 && (typeof substr === "string" || substr instanceof RegExp && substr.global)){
+				continue;
+			}
+			
+			if(typeof substr === "string"){
+				var index = str.indexOf(substr, lastIndex);
+				if(index >= 0){
+					// impersonate regexp exec result
+					match = [substr];
+					match.index = index;
+					match.input = str;
+				}
+			}else if(substr instanceof RegExp){
+				substr.lastIndex = lastIndex;
+				match = substr.exec(str);
+			}else{
+				throw new Error("Unsupported type");
+			}
+			
+			if(!bestMatch || match && match.index < bestMatch.index){
+				bestMatch = match;
+				bestMatchReplace = rules[i][1];
+			}
+		}
+		
+		// No best match
+		if(bestMatch === null){
+			break;
+		}
+		
+		var bestMatchIndex = bestMatch.index;
+		var bestMatchStr = bestMatch[0];
+		var bestMatchLength = bestMatchStr.length;
+		var bestMatchResult = null;
+		if(typeof bestMatchReplace === "string"){
+			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter
+			bestMatchResult = bestMatchReplace.replace(/\$([$&`']|\d{1,2})/, function(match, grp1){
+				switch(match){
+					case "$":
+						return match;
+					case "&":
+						return bestMatchStr;
+					case "`":
+						return str.substring(0, bestMatchIndex);
+					case "'":
+						return str.substring(bestMatchIndex + bestMatchLength);
+					default:
+						var index = parseInt(grp1, 10);
+						return index >= bestMatch.length ? match : bestMatch[index];
+				}
+			})
+		} else if(typeof bestMatchReplace === "function"){
+			var args = bestMatch.slice();// clone (match + nth grps)
+			args.push(bestMatchIndex, str);
+			bestMatchResult = bestMatchReplace.apply(null, args);
+		} else {
+			throw new Error("Unsupported type");
+		}
+		
+		result += str.substring(lastIndex, bestMatchIndex) + bestMatchResult;
+		lastIndex += bestMatchIndex + bestMatchLength;
+	}
+	
+	// Add last part
+	result += str.substring(lastIndex);
+	
+	return result;
+}
+```
