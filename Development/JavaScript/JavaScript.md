@@ -4098,8 +4098,20 @@ Note: `document.adoptNode()` and `document.importNode()` are not supported by IE
 Note: For XML it don't throw a parse error if fail to parse the document source. Instead it return an [error document](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser#Error_handling).
 For HTML documents parser are permissive https://www.w3.org/TR/html5/single-page.html#parse-error https://www.w3.org/TR/html5/single-page.html#syntax-errors
 
-	var parser = new DOMParser();
-	var doc = parser.parseFromString(htmlString, "text/html");
+> `script` elements get marked unexecutable and the contents of `noscript` get parsed as markup.
+> - [DOM Parsing and Serialization](https://w3c.github.io/DOM-Parsing/#the-domparser-interface)
+
+```js
+const parser = new DOMParser();
+const doc = parser.parseFromString(htmlString, "text/html");
+```
+
+```js
+// Parse encoded HTML, HTML entities
+const str = "&lt;p&gt;";
+new DOMParser().parseFromString('<!doctype html><body>' + str, 'text/html').body.textContent
+// > "<p>"
+```
 
 - https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
 
