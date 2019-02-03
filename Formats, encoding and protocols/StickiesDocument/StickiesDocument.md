@@ -2,7 +2,7 @@
 
 `/Applications/Stickies.app`
 
-Document:
+Document fields:
 
 - `mRTFData`
 - `mWindowFlags`
@@ -10,6 +10,8 @@ Document:
 - `mWindowColor`
 - `mCreationDate`
 - `mModificationDate`
+
+See also:
 
 - Inside StYNCies
 	- [MacDevCenter.com](https://web.archive.org/web/20160823123634/http://www.macdevcenter.com:80/pub/a/mac/2005/03/11/cocoa.html)
