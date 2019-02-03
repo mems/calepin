@@ -2,7 +2,14 @@
 
 `/Applications/Stickies.app`
 
-Document: mRTFData, mWindowFlags, mWindowFrame, mWindowColor, then mCreationDate and mModificationDate
+Document:
+
+- `mRTFData`
+- `mWindowFlags`
+- `mWindowFrame`
+- `mWindowColor`
+- `mCreationDate`
+- `mModificationDate`
 
 - Inside StYNCies
 	- [MacDevCenter.com](https://web.archive.org/web/20160823123634/http://www.macdevcenter.com:80/pub/a/mac/2005/03/11/cocoa.html)
@@ -41,8 +48,7 @@ clang stickies2rtfd.m StickiesDocument.m -fmodules -mmacosx-version-min=10.6 -o 
 - `-fmodules`: enables modules so you can import with `@import AppKit;`
 - `-mmacosx-version-min=10.6`: support older OS X versions, this might increase the binary size
 
-<details>
-	<summary><code>stickies2rtfd.m</code> code</summary>
+`stickies2rtfd.m` code:
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -129,7 +135,6 @@ int main() {
 	return 0;
 }
 ```
-</details>
 
 ## Dashboard widget
 
