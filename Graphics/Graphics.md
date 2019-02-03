@@ -1502,6 +1502,7 @@ Aka fire
 
 - [ciaccodavide evaporating shader tutorial](https://static.ciaccodavi.de/old/games/shader-test/tutorial/) - See ![Evaporating sharder](Pixel Shader/Flame/Evaporating sharder.mp4)
 - [Quick Game Art Tips - Unity Fire Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-17021975)
+- [How DOOM fire was done](http://fabiensanglard.net/doom_fire_psx/)
 - See "The VFX of Diablo" at 28:26 and 30:45
 
 ### Sparkle shader
@@ -1730,20 +1731,78 @@ From https://github.com/devongovett/glsl.js/blob/master/stdlib.glsl
 	void main(void) { vec4 c = texture2D(tex, gl_TexCoord[0].st);
 	mat3 m[9] = 
 	{
-		mat3(1.0  , 0.0  , 0.0  ,  0.0  , 1.0  , 0.0  ,  0.0  , 0.0  , 1.0  ), // normal
-		mat3(0.567, 0.433, 0.0  ,  0.558, 0.442, 0.0  ,  0.0  , 0.242, 0.758), // protanopia
-		mat3(0.817, 0.183, 0.0  ,  0.333, 0.667, 0.0  ,  0.0  , 0.125 ,0.875), // protanomaly
-		mat3(0.625, 0.375, 0.0  ,  0.7  , 0.3  , 0.0  ,  0.0  , 0.3   ,0.7  ), // deuteranopia
-		mat3(0.8  , 0.2  , 0.0  ,  0.258, 0.742, 0.0  ,  0.0  , 0.142 ,0.858), // deuteranomaly
-		mat3(0.95 , 0.05 , 0.0  ,  0.0  , 0.433, 0.567,  0.0  , 0.475 ,0.525), // tritanopia
-		mat3(0.967, 0.033, 0.0  ,  0.0  , 0.733, 0.267,  0.0  , 0.183 ,0.817), // tritanomaly
-		mat3(0.299, 0.587, 0.114,  0.299, 0.587, 0.114,  0.299, 0.587 ,0.114), // achromatopsia
-		mat3(0.618, 0.320, 0.062,  0.163, 0.775, 0.062,  0.163, 0.320 ,0.516)  // achromatomaly
+		// normal
+		mat3(
+			1.0    , 0.0    , 0.0  ,
+			0.0    , 1.0    , 0.0  ,
+			0.0    , 0.0    , 1.0
+		),
+		// protanopia
+		mat3(
+			0.56667, 0.43333, 0.0    ,
+			0.55833, 0.44167, 0.0    ,
+			0.0    , 0.24167, 0.75833
+		),
+		// protanomaly
+		mat3(
+			0.81667, 0.18333, 0.0    ,
+			0.33333, 0.66667, 0.0    ,
+			0.0    , 0.125  , 0.875
+		),
+		// deuteranopia
+		mat3(
+			0.625  , 0.375  , 0.0    ,
+			0.7    , 0.3    , 0.0    ,
+			0.0    , 0.3    , 0.7
+		),
+		// deuteranomaly
+		mat3(
+			0.8    , 0.2    , 0.0    ,
+			0.25833, 0.74167, 0.0    ,
+			0.0    , 0.14167, 0.85833
+		),
+		// tritanopia
+		mat3(
+			0.95   , 0.05   , 0.0    ,
+			0.0    , 0.43333, 0.56667,
+			0.0    , 0.475  , 0.525
+		),
+		// tritanomaly
+		mat3(
+			0.96667, 0.03333, 0.0    ,
+			0.0    , 0.73333, 0.26667,
+			0.0    , 0.18333, 0.81667
+		),
+		// achromatopsia
+		mat3(
+			0.299  , 0.587  , 0.114  ,
+			0.299  , 0.587  , 0.114  ,
+			0.299  , 0.587  , 0.114
+		),
+		// achromatomaly
+		mat3(
+			0.618  , 0.320  , 0.062  ,
+			0.163  , 0.775  , 0.062  ,
+			0.163  , 0.320  , 0.516
+		)
 	};
 	vec3 c2 = {c.r, c.g, c.b};
 	c2 *= m[index];
 	gl_FragColor = vec4( c2.x , c2.y, c2.z, 1.0 );
 	}
+
+- Trichromatic view: Normal
+- Anomalous Trichromacy:
+	- Red-Weak/Protanomaly
+	- Green-Weak/Deuteranomaly
+	- Blue-Weak/Tritanomaly
+- Dichromatic view:
+	- Red-Blind/Protanopia
+	- Green-Blind/Deuteranopia
+	- Blue-Blind/Tritanopia
+- Monochromatic view:
+	- Monochromacy/Achromatopsia
+	- Blue Cone Monochromacy
 
 - [Color blindness — Wikipedia](https://en.wikipedia.org/wiki/Color_blindness)
 - [Color Laboratory -- AWARE Center -- HTML Writers Guild](http://colorlab.wickline.org/colorblind/colorlab/)
@@ -1753,6 +1812,7 @@ From https://github.com/devongovett/glsl.js/blob/master/stdlib.glsl
 - [\<canvas\> + ColorMatrix = Color Blindness](http://web.archive.org/web/20080422231727/http://www.colorjack.com/labs/colormatrix/)
 - [Web Student - Building a Colorblindness Simulator - ImageMagick](https://www.imagemagick.org/discourse-server/viewtopic.php?t=17964)
 - [Color-Blindness Simulators](http://lpetrich.org/Science/ColorBlindnessSim/ColorBlindnessSim.html)
+- [MaPePeR/jsColorblindSimulator: Simulate different kinds of colorblindness on images in your browser.](https://github.com/MaPePeR/jsColorblindSimulator)
 
 ![Simple code/result to create filters for colorblind, think about it for your games!](http://s9.postimg.org/fsxy3cdpr/colorblind.png)
 
@@ -2205,6 +2265,7 @@ See also [cloud](#Cloud), [water](#Water), [flame](#Flame), [distortion](#Distor
 - [chromeography - Codevember 2017](https://www.clicktorelease.com/code/codevember-2017/chromeography/)
 - [3D Particle Explorations | Codrops](https://tympanus.net/codrops/2017/12/12/3d-particle-explorations/)
 - [Electricity](http://sketches.vlucendo.com/electricity/)
+- [Interactive Particles with Three.js | Codrops](https://tympanus.net/codrops/2019/01/17/interactive-particles-with-three-js/)
 
 - [Fluid - Experiments - Yuichiroh Arai](https://www.yuichiroharai.com/experiments/fluid/)
 - [Fluid Particles](http://david.li/fluid/) - https://github.com/dli/fluid

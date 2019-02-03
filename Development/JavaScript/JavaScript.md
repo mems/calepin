@@ -4583,6 +4583,21 @@ About SEO:
 
 - [Is or how can Shadow DOM be 'SEO friendly'? · Issue #500 · w3c/webcomponents](https://github.com/w3c/webcomponents/issues/500)
 
+### Document contains
+
+Aka test if the element attached to the document
+
+```js
+element.ownerDocument.body.contains(element)
+element.ownerDocument.contains(element)// not supported by IE11
+element.isConnected// not supported by IE11
+Boolean(element.ownerDocument.compareDocumentPosition(element) & Node.DOCUMENT_POSITION_CONTAINED_BY)
+```
+
+- [Node.isConnected - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected)
+- [Node.contains() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/contains)
+- [Node.compareDocumentPosition() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition)
+
 ## Parse JavaScript using the native parser
 
 - [`HTMLScriptElement#src=x`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement/href) via URI of a resource contains script code

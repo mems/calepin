@@ -2491,8 +2491,8 @@ a total line, footnotes for data or repeat header (for long tables)
 
 ## `hr` element
 
-> The hr element represents a paragraph-level thematic break.
-— [W3C specification](http://dev.w3.org/html5/markup/hr.html)
+> The hr element represents a paragraph-level thematic break, e.g. a scene change in a story, or a transition to another topic within a section of a reference book.
+> — [HTML Standard](https://html.spec.whatwg.org/multipage/grouping-content.html#the-hr-element)
 
 Is the same semantically as `section`. But is more for thematic breaks, such as separating different topics within a section of prose, or between scenes in a novel
 

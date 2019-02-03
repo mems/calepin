@@ -472,6 +472,9 @@ Don't forget the SVG namespace:
 - [My Article on SVG Filters at Smashingmag | eleqtriq](http://w3.eleqtriq.com/2015/05/the-svg-filter-and-why-its-awesome/)
 - [SVG Filter Effects—3 Simple Filter Primitives - Vanseo Design](http://vanseodesign.com/web-design/simple-filter-primitives/)
 - [SVG Filters](https://yoksel.github.io/svg-filters/#/)
+- [SVG Filters 101 | Codrops](https://tympanus.net/codrops/2019/01/15/svg-filters-101/)
+
+- [SVG Gradient Map Filter](https://yoksel.github.io/svg-gradient-map/#/)
 
 ### Filter cropped, filter size
 

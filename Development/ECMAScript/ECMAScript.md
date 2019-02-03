@@ -620,6 +620,25 @@ Return an object
 
 	(param) => ({attr1: "value1", attr1: "value2"})
 
+### Function name
+
+```js
+// Fix Function#name on browsers that do not support it (IE):
+if (!(function f() {}).name) {
+	Object.defineProperty(Function.prototype, 'name', {
+		get: function() {
+			var name = (this.toString().match(/^function\s*([^\s(]+)/) || [])[1];
+			// For better performance only parse once, and then cache the
+			// result through a new accessor for repeated access.
+			Object.defineProperty(this, 'name', { value: name });
+			return name;
+		}
+	});
+}
+```
+
+- [javascript - function.name not supported in IE. - Stack Overflow](https://stackoverflow.com/questions/6903762/function-name-not-supported-in-ie)
+
 ## Ternary
 
 	var result = value > 10 ? getA() || getB()
@@ -3600,5 +3619,23 @@ function multipleReplace(str, rules){
 	result += str.substring(lastIndex);
 	
 	return result;
+}
+```
+
+## Empty object
+
+```js
+o.constructor === Object && Object.keys(o).length === 0
+// Note: Object.keys(new Date()).length === 0;
+```
+
+```js
+function isEmpty(o) {
+	for(var p in o) {
+		if(o.hasOwnProperty(p)){
+			return false;
+		}
+	}
+	return JSON.stringify(o) === JSON.stringify({});
 }
 ```

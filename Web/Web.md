@@ -360,6 +360,12 @@ About brotli vs gzip:
 - [http - Why do real-world servers prefer gzip over deflate encoding? - Stack Overflow](https://stackoverflow.com/questions/883841/why-do-real-world-servers-prefer-gzip-over-deflate-encoding/1579506#1579506)
 - [Lose the Wait: HTTP Compression - Zoompf Web Performance](https://zoompf.com/blog/2012/02/lose-the-wait-http-compression/)
 
+### Content language
+
+`lang` indicates the language of the text, whereas `Content-Language` provides metadata about the intended audience of the document.
+
+- [Types of language declaration](https://www.w3.org/International/questions/qa-text-processing-vs-metadata)
+
 ### Request content encoding
 
 See [Content encoding](#Content encoding)
@@ -3366,6 +3372,7 @@ See offline-first approach, [Progressive Enhancement (CSS)](CSS#Progressive Enha
 Aka I18n
 
 - [W3C I18n Checker](https://validator.w3.org/i18n-checker/)
+- [Project Fluent](https://projectfluent.org/)
 
 ## Image sequence
 

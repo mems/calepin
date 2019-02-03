@@ -131,9 +131,13 @@ See [Fixed elements](#Fixed elements) and [Sticky header](#Sticky header)
 
 ### Scrollable shadow
 
+Use `background-attachment: local`
+
 Require plain background color (ex.: white) and it's not a real shadow (below content)
 
 - [Pure CSS scrolling shadows with background-attachment: local | Lea Verou](http://lea.verou.me/2012/04/background-attachment-local/)
+- [Table Design Patterns On The Web — Smashing Magazine](https://www.smashingmagazine.com/2019/01/table-design-patterns-web/#style-the-scroll)
+- [Table #3: Style the scroll (basic)](https://codepen.io/huijing/pen/XBGaNQ/left/)
 
 ### Scroll behavior
 
@@ -2563,6 +2567,11 @@ Outline is squared even with `border-radius`. Use `box-shadow` to bypass that.
 
 - https://bitsofco.de/the-box-shadow-property/
 - [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/dikita/edit?html,css,output)
+
+### Double borders with mutlpile background clip
+
+- [background clip is configurable for every background gradient separately](https://www.stefanjudis.com/today-i-learned/background-clip-is-configurable-for-every-background-gradient-separately/)
+- [Stefan Judis on Twitter: "I just felt like I understood a little bit more how all these creative developers make artworks "with just a few gradients". TIL: #css background clip is configurable for every background gradient separately. 😲 https://t.co/ceWAzQFW6a https://t.co/r6mDUGnaAE" / Twitter](https://mobile.twitter.com/stefanjudis/status/1086393334619402240)
 
 ## Shape
 

@@ -19,8 +19,6 @@ Lightroom infos:
 - [PDF Reader in JavaScript](https://github.com/mozilla/pdf.js) - read JPEG and JPEG 2000
 - [JPEG/DCT data decoder](https://github.com/notmasteryet/jpgjs) - read JPEG. share the same code from PDF.js
 - https://github.com/HaxeFoundation/format/tree/master/format/jpg - write
-- [54- The JPEG compression algorithm - YouTube](https://www.youtube.com/watch?v=aFbGqXFT0Nw)
-- [How JPEG Works - Computerphile - YouTube](https://www.youtube.com/playlist?list=PLzH6n4zXuckoAod3z31QEST1ZaizBuNHh)
 - [JPEG for the horseshoe crabs - JPEG_for_the_horseshoe_crabs.pdf](http://wayback.archive.org/web/20160510122740/http://frdx.free.fr/JPEG_for_the_horseshoe_crabs.pdf)
 - [Source Coding and Compression](http://iphome.hhi.de/schwarz/assets/pdfs/08_ImageCoding.pdf)
 - [image processing - JPEG DCT padding - Signal Processing Stack Exchange](http://dsp.stackexchange.com/questions/35339/jpeg-dct-padding/35343)
@@ -46,6 +44,12 @@ Subsampling:
 - 4:2:2 (reduction by 2×1) horizontal shrink (16×8 blocks)
 - 4:1:1
 - 4:2:0 (reduction by 2×2) both axes (16×16 blocks)
+
+### Compression
+
+- [Fourier Transforms](http://www.jezzamon.com/fourier/index.html)
+- [54- The JPEG compression algorithm - YouTube](https://www.youtube.com/watch?v=aFbGqXFT0Nw)
+- [How JPEG Works - Computerphile - YouTube](https://www.youtube.com/playlist?list=PLzH6n4zXuckoAod3z31QEST1ZaizBuNHh)
 
 ## Grayscale
 
