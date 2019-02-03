@@ -10,7 +10,9 @@ Bank details statement (Relevé d'identité bancaire):
 	- RIB code (clé RIB)
 	- Paying bank (Domiciliation)
 	- (branch name)
-	
+
+## BIC and IBAN
+
 - [Basic Bank Account Number — Wikipédia](https://fr.wikipedia.org/wiki/Basic_Bank_Account_Number)
 - https://www2.swift.com/bsl/ - Find details from BIC
 - [Bank Code/BIC Search](https://www.ibancalculator.com/blz.html) - Find BIC from Bank Code
@@ -100,3 +102,21 @@ mm  = maximum length
 France also includes French Guyana (GF), French Polynesia (PF), French Southern Territories (TF), Guadeloupe (GP), Martinique (MQ), Mayotte (YT), New Caledonia (NC), Reunion (RE), Saint Barthelemy (BL), Saint Martin (French part) (MF), Saint Pierre et Miquelon (PM), Wallis and Futuna Islands (WF).
 
 http://www.mobilefish.com/services/random_iban_generator/random_iban_generator.php
+
+- [Basic Bank Account Number — Wikipédia](https://fr.wikipedia.org/wiki/Basic_Bank_Account_Number)
+- [IBAN Calculator](https://www.ibancalculator.com/)
+- [International Bank Account Number — Wikipedia](https://en.wikipedia.org/wiki/International_Bank_Account_Number)
+- [ISO 9362 — Wikipedia](https://en.wikipedia.org/wiki/ISO_9362)
+- [php - Generate BIC from IBAN bank account number - Stack Overflow](https://stackoverflow.com/questions/13135361/generate-bic-from-iban-bank-account-number)
+- [Mobilefish.com - Random IBAN generator](https://www.mobilefish.com/services/random_iban_generator/random_iban_generator.php)
+
+## Dates
+
+- transaction date / booking date / posting date / (normal) date
+- [value date](https://en.wikipedia.org/wiki/Value_date)
+
+> the day when transaction initialized is the posting date and the day when the amount finally credited to your account will be the value date.
+
+- [value date - Wiktionary](https://en.wiktionary.org/wiki/value_date)
+- [Date de valeur — Wikipédia](https://fr.wikipedia.org/wiki/Date_de_valeur)
+- [Date d'opération — Wikipédia](https://fr.wikipedia.org/wiki/Date_d%27op%C3%A9ration)
