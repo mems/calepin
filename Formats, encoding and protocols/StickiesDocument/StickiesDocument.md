@@ -96,8 +96,9 @@ int main() {
 			
 				// RTFDData can't be written directly (it's not RTFD bundle / disk format / com.apple.rtfd but Flat RTFD / pasteboard format / com.apple.flat-rtfd), TextEdit can't read it
 				//[[doc RTFDData] writeToFile:filename atomically:NO];
-				// We need to encode the data to an other format: RTF Apple implementation does not embedded images natively (see https://stackoverflow.com/a/29181130/470117) or an other format that support images attachment like NSWebArchiveTextDocumentType (use NSKeyedArchiver), etc. https://developer.apple.com/documentation/uikit/nsattributedstringdocumenttype?language=objc
-				// Instead we use NSFileWrapper create RTFD bundle				
+				// We need to encode the data to an other format, RTF Apple implementation does not embedded images natively (see https://stackoverflow.com/a/29181130/470117)
+				// Or we can use an other format that support images attachment like NSWebArchiveTextDocumentType (which use NSKeyedArchiver) https://developer.apple.com/documentation/uikit/nsattributedstringdocumenttype?language=objc
+				// Here, instead we use the NSFileWrapper to create RTFD bundle (a folder with name *.rtfd that contains TXT.rtf and all includes images as file)
 				int colorIndex = [doc windowColor];
 				id color = colorIndex < (int)[colors count] ? colors[colorIndex] : colors[0];
 				NSAttributedString *str = 
