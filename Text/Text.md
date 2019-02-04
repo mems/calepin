@@ -528,9 +528,13 @@ Aka "Tu vous"
 
 > L'emploi de l'infinitif convient davantage aux avis de sécurité, aux simples indications techniques, aux instructions très courtes, aux modes d'emploi généraux ou aux consignes qui s'adressent à un lectorat indifférencié. Le texte à l'infinitif est impersonnel, neutre, distant, moins prescriptif que l'impératif.
 
+![Tu vous logic](t-v.svg)
+
 - infinitif ("Prendre la crème et la rajouter au fromage") vs [Impératif (grammaire) — Wikipédia](https://fr.wikipedia.org/wiki/Imp%C3%A9ratif_%28grammaire%29) ("Prendrez la crème et rajoutez la au fromage")
 - [Banque de dépannage linguistique - Impératif et infinitif](http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?t1=1&id=4208)
 - [T–V distinction — Wikipedia](https://en.wikipedia.org/wiki/T%E2%80%93V_distinction) and [Tutoiement et vouvoiement — Wikipédia](https://fr.wikipedia.org/wiki/Tutoiement_et_vouvoiement)
+- [Brush up on your French with this Bastille Day flowchart - Los Angeles Times](https://web.archive.org/web/20181130102359/https://www.latimes.com/opinion/op-ed/la-og-bastile-vous-tu-20140711-htmlstory.html)
+- [Vouvoyer et Tutoyer pour les anglophones : france](https://www.reddit.com/r/france/comments/a0n5gu/vouvoyer_et_tutoyer_pour_les_anglophones/)
 
 ## Draw with chars
 
