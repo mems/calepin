@@ -855,13 +855,13 @@ See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
 
 Aka case style, casing
 
-- `camelCase` `PascalCase`
-- `underscore_case` (`snake_case`)
-- `hyphen-case` (`kebab-case`)
-- `StUdLyCaPs`
-- `Capitalize` (CSS, uppercase first letters of all words): "February 4th, 2015" (not "February 4Th, 2015")
-- `Title Case` (used in titles of books, movies, songs, and poems, where articles are lowercase). ex: "Raiders of the Lost Ark". See https://github.com/gouch/to-title-case (for english only)
-- `caps-for-acronyms`
+- [`camelCase` `PascalCase`](https://en.wikipedia.org/wiki/Camel_case)
+- [`underscore_case` (`snake_case`)](https://en.wikipedia.org/wiki/Snake_case)
+- [`hyphen-case` (`kebab-case`)](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
+- [`StUdLyCaPs`](https://en.wikipedia.org/wiki/Studly_caps)
+- [`Capitalize`](https://en.wikipedia.org/wiki/Capitalization) (CSS, uppercase first letters of all words): "February 4th, 2015" (not "February 4Th, 2015")
+- [`Title Case`](https://en.wikipedia.org/wiki/Letter_case#Initial-caps) (used in titles of books, movies, songs, and poems, where articles are lowercase). ex: "Raiders of the Lost Ark". See https://github.com/gouch/to-title-case (for english only)
+- [`caps-for-acronyms`](https://en.wikipedia.org/wiki/Acronym#Small-caps_variant)
 
 - [Naming convention (programming) — Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Multiple-word_identifiers)
 - [Letter case — Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
