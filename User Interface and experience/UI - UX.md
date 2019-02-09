@@ -844,6 +844,10 @@ Or menu with sub menus
 - [Dropdown Menus with More Forgiving Mouse Movement Paths | CSS-Tricks](https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/)
 - [Menu (computing) — Wikipedia](https://en.wikipedia.org/wiki/Menu_(computing)#Sub-menus)
 
+## Table
+
+- [How To Architect A Complex Web Table — Smashing Magazine](https://www.smashingmagazine.com/2019/02/complex-web-tables/)
+
 ## Range selector (sliders)
 
 - [Form Usability: 5 Requirements for Slider Interfaces - Articles - Baymard Institute](http://baymard.com/blog/slider-interfaces)
