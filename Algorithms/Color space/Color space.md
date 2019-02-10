@@ -16,17 +16,21 @@
 - [Color: From Hexcodes to Eyeballs](http://jamie-wong.com/post/color/#color-spaces)
 - [Color JS library](https://gist.github.com/westc/e2830febf6f2bc31ac16aa3a2cc39023)
 
+```
 YUV conversion - (ColorMatrix ?) YUV is the same as YCbCr and the matrix for that is: Y’ = 16 + ( 65.481 * R’ + 128.553 * G’ + 24.966 * B’)
 Cb = 128 + (-37.797 * R’ - 74.203 * G’ + 112.0 * B’)
 Cr = 128 + (112.0 * R’ - 93.786 * G’ - 18.214 * B’)
+```
 
-	const mat3 RGBtoLMS = mat3( //Convert from color to LMS
-		 17.8824,   43.5161,  4.11935,
-		 3.45565,   27.1554,  3.86714,
-		 0.0299566, 0.184309, 1.46709
-	);
-	const mat3 LMStoRGB = mat3( //Convert from LMS to color
-		 0.0809444479,   -0.130504409,    0.116721066,
-		-0.0102485335,    0.0540193266,  -0.113614708,
-		-0.000365296938, -0.00412161469,  0.693511405
-	);
+```
+const mat3 RGBtoLMS = mat3( //Convert from color to LMS
+	 17.8824,   43.5161,  4.11935,
+	 3.45565,   27.1554,  3.86714,
+	 0.0299566, 0.184309, 1.46709
+);
+const mat3 LMStoRGB = mat3( //Convert from LMS to color
+	 0.0809444479,   -0.130504409,    0.116721066,
+	-0.0102485335,    0.0540193266,  -0.113614708,
+	-0.000365296938, -0.00412161469,  0.693511405
+);
+```
