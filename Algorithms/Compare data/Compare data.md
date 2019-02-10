@@ -1,6 +1,6 @@
 Aka diff
 
- - Diff, Match and Patch libraries for Plain Text by Neil Fraser. Use [Myer's diff algorithm](http://neil.fraser.name/software/diff_match_patch/myers.pdf).
+- Diff, Match and Patch libraries for Plain Text by Neil Fraser. Use [Myer's diff algorithm](http://neil.fraser.name/software/diff_match_patch/myers.pdf).
 	- [google-diff-match-patch - Diff, Match and Patch libraries for Plain Text - Google Project Hosting](https://code.google.com/p/google-diff-match-patch/)
 	- [Diff, Match and Patch: Demo of Diff](https://neil.fraser.name/software/diff_match_patch/svn/trunk/demos/demo_diff.html)
 	- [Diff, Match and Patch: Demo of Match](https://neil.fraser.name/software/diff_match_patch/svn/trunk/demos/demo_match.html)
