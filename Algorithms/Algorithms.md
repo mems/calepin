@@ -1,4 +1,4 @@
-See also [Math](Math)
+See also [Math](../Math/Math.md)
 
 ## Resources
 
