@@ -2042,6 +2042,7 @@ Reactive prefetch: [Google mobile search is getting faster - to be exact, 100-15
 - [Link prefetching — Wikipedia](https://en.wikipedia.org/wiki/Link_prefetching)
 - [Prefetching, preloading, prebrowsing | CSS-Tricks](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 - [A Link: rel=preload Analysis From the Chrome Data Saver Team – reloading – Medium](https://medium.com/reloading/a-link-rel-preload-analysis-from-the-chrome-data-saver-team-5edf54b08715#.hewz602sh)
+- [GoogleChromeLabs/quicklink: ⚡️Faster subsequent page-loads by prefetching in-viewport links during idle time](https://github.com/GoogleChromeLabs/quicklink)
 
 #### Download priority
 
@@ -2268,6 +2269,7 @@ Example: the hero image
 - [Mission Critical: optimizing CSS for CDN | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/critical-cdn.html)
 - [The Critical Request | CSS-Tricks](https://css-tricks.com/the-critical-request/#article-header-id-1)
 - [Critical Rendering Path  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
+- [Rendering on the Web  |  Web  |  Google Developers](https://developers.google.com/web/updates/2019/02/rendering-on-the-web)
 
 - [Bottleneck (production) — Wikipedia](https://en.wikipedia.org/wiki/Bottleneck_%28production%29)
 - [Critical path method — Wikipedia](https://en.wikipedia.org/wiki/Critical_path_method)

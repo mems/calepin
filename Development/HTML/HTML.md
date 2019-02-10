@@ -40,6 +40,9 @@ See [Accessibility](#Accessibility) and [Patterns, markup, semantics and snippet
 
 ## Buttons vs links
 
+> Links that don’t go anywhere should be buttons
+> - [Links that don’t go anywhere should be buttons | Christian Heilmann](https://christianheilmann.com/2019/02/05/links-that-dont-go-anywhere-should-be-buttons/)
+
 **Interactive buttons should be injected by JS and not available without JS**
 
 	<button type="button">Action 1</button>

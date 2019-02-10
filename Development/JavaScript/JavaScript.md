@@ -1,6 +1,8 @@
 > it's a common misconception that JavaScript isn't an elegant language. The real issue is that it's the only language with a monopoly. So people who want to work on the web have to use it. This results in people being forced to use it against their will. So obviously a lot of people don't like it - probably because it doesn't have that feature they really like from their primary language - whatever that is. If we invented a replacement language, the issue would not go away, but simply shift.
 — [Thomas Watson](https://news.ycombinator.com/item?id=13849478)
 
+See also [ECMAScript](../ECMAScript/ECMAScript.md)
+
 # Best pratices — Coding conventions
 
 Style guide, code conventions:

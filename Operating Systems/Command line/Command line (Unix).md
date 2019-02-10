@@ -625,6 +625,7 @@ open a file or url with the registered desktop application
 
 ## Shell
 
+- [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
 - [dylanaraps/pure-bash-bible: 📖 A collection of pure bash alternatives to external processes.](https://github.com/dylanaraps/pure-bash-bible)
 
 Lister les shells disponibles :

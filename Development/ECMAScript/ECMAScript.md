@@ -113,34 +113,44 @@ Use a name that describe it's usage like `childIndex` or `wheelIndex` instead of
 
 ## Class
 
-	class SubSub extends
+```js
+class SubSub extends
 	class Sub extends
-	class Base {
-		isBase = true
-	} {
+		class Base {
+			isBase = true
+		}
+	{
 		isSub = true
-	} {
-		isSubSub = true
 	}
-	
-	console.log(new SubSub())// {isBase: true, isSub: true, isSubSub: true}
+{
+	isSubSub = true
+}
+
+console.log(new SubSub())// {isBase: true, isSub: true, isSubSub: true}
+```
 
 ## Modules
 
-	// isDebug.js
-	export default new URLSearchParams(window.location.search.substring(1)).has("debug")
-	
-	// config.js
-	const config = JSON.parse(document.querySelector("js-config").text);
-	export const debug = config.debug;
-	export const lang = config.lang;
-	export const region = config.region;
-	export const currency = config.currency;
-	
-	export let counter = 0;
-	export function inc(){counter++}
+```js
+// isDebug.js
+export default new URLSearchParams(window.location.search.substring(1)).has("debug")
+
+// config.js
+const config = JSON.parse(document.querySelector("js-config").text);
+export const debug = config.debug;
+export const lang = config.lang;
+export const region = config.region;
+export const currency = config.currency;
+
+export let counter = 0;
+export function inc(){counter++}
+```
 
 - [ecmascript 6 - Javascript ES6 export const vs export let - Stack Overflow](https://stackoverflow.com/questions/32558514/javascript-es6-export-const-vs-export-let)
+
+### Modules names
+
+- [This or that? Component Names: index.js or Component.js | Brad Frost](http://bradfrost.com/blog/post/this-or-that-component-names-index-js-or-component-js/)
 
 ## Floating point numbers
 
@@ -245,64 +255,64 @@ See [quotes](#Quotes)
 - [Escape Codec Library module conformed to Closure Library](https://github.com/Kuniwak/Escape-Codec-Library-for-Closure) allow escape and unescape EUC-JP, JIS7, JIS8, Shift-JIS, Unicode, UTF16LE, UTF7, UTF8
 - generating the shortest possible valid ASCII-only output https://github.com/mathiasbynens/jsesc
 - implementation of character encoding
-	* https://github.com/mathiasbynens/x-mac-cyrillic
-	* https://github.com/mathiasbynens/windows-874
-	* https://github.com/mathiasbynens/windows-1258
-	* https://github.com/mathiasbynens/windows-1257
-	* https://github.com/mathiasbynens/windows-1256
-	* https://github.com/mathiasbynens/windows-1255
-	* https://github.com/mathiasbynens/windows-1254
-	* https://github.com/mathiasbynens/windows-1253
-	* https://github.com/mathiasbynens/windows-1252
-	* https://github.com/mathiasbynens/windows-1251
-	* https://github.com/mathiasbynens/windows-1250
-	* https://github.com/mathiasbynens/macintosh
-	* https://github.com/mathiasbynens/koi8-u
-	* https://github.com/mathiasbynens/koi8-r
-	* https://github.com/mathiasbynens/iso-8859-8
-	* https://github.com/mathiasbynens/iso-8859-8-i
-	* https://github.com/mathiasbynens/iso-8859-7
-	* https://github.com/mathiasbynens/iso-8859-6
-	* https://github.com/mathiasbynens/iso-8859-5
-	* https://github.com/mathiasbynens/iso-8859-4
-	* https://github.com/mathiasbynens/iso-8859-3
-	* https://github.com/mathiasbynens/iso-8859-2
-	* https://github.com/mathiasbynens/iso-8859-16
-	* https://github.com/mathiasbynens/iso-8859-15
-	* https://github.com/mathiasbynens/iso-8859-13
-	* https://github.com/mathiasbynens/iso-8859-14
-	* https://github.com/mathiasbynens/iso-8859-10
-	* https://github.com/mathiasbynens/ibm866
+	- https://github.com/mathiasbynens/x-mac-cyrillic
+	- https://github.com/mathiasbynens/windows-874
+	- https://github.com/mathiasbynens/windows-1258
+	- https://github.com/mathiasbynens/windows-1257
+	- https://github.com/mathiasbynens/windows-1256
+	- https://github.com/mathiasbynens/windows-1255
+	- https://github.com/mathiasbynens/windows-1254
+	- https://github.com/mathiasbynens/windows-1253
+	- https://github.com/mathiasbynens/windows-1252
+	- https://github.com/mathiasbynens/windows-1251
+	- https://github.com/mathiasbynens/windows-1250
+	- https://github.com/mathiasbynens/macintosh
+	- https://github.com/mathiasbynens/koi8-u
+	- https://github.com/mathiasbynens/koi8-r
+	- https://github.com/mathiasbynens/iso-8859-8
+	- https://github.com/mathiasbynens/iso-8859-8-i
+	- https://github.com/mathiasbynens/iso-8859-7
+	- https://github.com/mathiasbynens/iso-8859-6
+	- https://github.com/mathiasbynens/iso-8859-5
+	- https://github.com/mathiasbynens/iso-8859-4
+	- https://github.com/mathiasbynens/iso-8859-3
+	- https://github.com/mathiasbynens/iso-8859-2
+	- https://github.com/mathiasbynens/iso-8859-16
+	- https://github.com/mathiasbynens/iso-8859-15
+	- https://github.com/mathiasbynens/iso-8859-13
+	- https://github.com/mathiasbynens/iso-8859-14
+	- https://github.com/mathiasbynens/iso-8859-10
+	- https://github.com/mathiasbynens/ibm866
 - Unicode data generator https://github.com/mathiasbynens/node-unicode-data and
-	* https://github.com/mathiasbynens/unicode-1.1.5
-	* https://github.com/mathiasbynens/unicode-2.0.14
-	* https://github.com/mathiasbynens/unicode-2.1.2
-	* https://github.com/mathiasbynens/unicode-2.1.5
-	* https://github.com/mathiasbynens/unicode-2.1.8
-	* https://github.com/mathiasbynens/unicode-2.1.9
-	* https://github.com/mathiasbynens/unicode-3.0.0
-	* https://github.com/mathiasbynens/unicode-3.0.1
-	* https://github.com/mathiasbynens/unicode-3.1.0
-	* https://github.com/mathiasbynens/unicode-3.2.0
-	* https://github.com/mathiasbynens/unicode-4.0.0
-	* https://github.com/mathiasbynens/unicode-4.0.1
-	* https://github.com/mathiasbynens/unicode-4.1.0
-	* https://github.com/mathiasbynens/unicode-5.0.0
-	* https://github.com/mathiasbynens/unicode-5.1.0
-	* https://github.com/mathiasbynens/unicode-5.2.0
-	* https://github.com/mathiasbynens/unicode-6.0.0
-	* https://github.com/mathiasbynens/unicode-6.1.0
-	* https://github.com/mathiasbynens/unicode-6.2.0
-	* https://github.com/mathiasbynens/unicode-6.3.0
-	* https://github.com/mathiasbynens/unicode-7.0.0
-	* https://github.com/mathiasbynens/unicode-8.0.0
-	* https://github.com/mathiasbynens/unicode-9.0.0
-	* https://github.com/mathiasbynens/unicode-loose-match
-	* https://github.com/mathiasbynens/unicode-property-value-aliases
-	* https://github.com/mathiasbynens/unicode-property-aliases
-	* https://github.com/mathiasbynens/unicode-canonical-property-names
-	* https://github.com/mathiasbynens/unicode-match-property
-	* https://github.com/mathiasbynens/unicode-match-property-value
+	- https://github.com/mathiasbynens/unicode-1.1.5
+	- https://github.com/mathiasbynens/unicode-2.0.14
+	- https://github.com/mathiasbynens/unicode-2.1.2
+	- https://github.com/mathiasbynens/unicode-2.1.5
+	- https://github.com/mathiasbynens/unicode-2.1.8
+	- https://github.com/mathiasbynens/unicode-2.1.9
+	- https://github.com/mathiasbynens/unicode-3.0.0
+	- https://github.com/mathiasbynens/unicode-3.0.1
+	- https://github.com/mathiasbynens/unicode-3.1.0
+	- https://github.com/mathiasbynens/unicode-3.2.0
+	- https://github.com/mathiasbynens/unicode-4.0.0
+	- https://github.com/mathiasbynens/unicode-4.0.1
+	- https://github.com/mathiasbynens/unicode-4.1.0
+	- https://github.com/mathiasbynens/unicode-5.0.0
+	- https://github.com/mathiasbynens/unicode-5.1.0
+	- https://github.com/mathiasbynens/unicode-5.2.0
+	- https://github.com/mathiasbynens/unicode-6.0.0
+	- https://github.com/mathiasbynens/unicode-6.1.0
+	- https://github.com/mathiasbynens/unicode-6.2.0
+	- https://github.com/mathiasbynens/unicode-6.3.0
+	- https://github.com/mathiasbynens/unicode-7.0.0
+	- https://github.com/mathiasbynens/unicode-8.0.0
+	- https://github.com/mathiasbynens/unicode-9.0.0
+	- https://github.com/mathiasbynens/unicode-loose-match
+	- https://github.com/mathiasbynens/unicode-property-value-aliases
+	- https://github.com/mathiasbynens/unicode-property-aliases
+	- https://github.com/mathiasbynens/unicode-canonical-property-names
+	- https://github.com/mathiasbynens/unicode-match-property
+	- https://github.com/mathiasbynens/unicode-match-property-value
 - Punycode converter https://github.com/bestiejs/punycode.js
 - code points that Verisign allows by default in IDN https://github.com/mathiasbynens/idn-allowed-code-points-regex and https://github.com/mathiasbynens/idn-allowed-code-points
 - Emoji data extracted https://github.com/mathiasbynens/unicode-tr51
@@ -312,170 +322,180 @@ See [quotes](#Quotes)
 - Python scripts that generate JavaScript-compatible Unicode data https://github.com/mathiasbynens/unicode-data
 - A letter case swapper with full Unicode support https://github.com/mathiasbynens/swapcase
 - Normalization (composition) `String.prototype.normalize()` or https://github.com/walling/unorm
-	* [Unicode equivalence — Wikipedia](https://en.wikipedia.org/wiki/Unicode_equivalence#Normalization)
- 
-	//Simple way to read and write UTF-8/UTF-16 string from/to UintArray
-	function uintToString(bytes) {
-		return decodeURIComponent(escape(String.fromCharCode.apply(null, bytes)));
-	}
-	function stringToUTF8array(string) {
-		let binaryString = unescape(encodeURIComponent(s)),
-		let bytes = new Uint8Array(binaryString.length);
-		for (let i = 0; i < bytes.length; i++){
-			bytes[i] = binaryString.charCodeAt(i);
-		}
-		return bytes;
-	}
+	- [Unicode equivalence — Wikipedia](https://en.wikipedia.org/wiki/Unicode_equivalence#Normalization)
 
-	// Should store length in bytes (not length in chars)
-	var utf8 = [];
-	var i = 0;
-	
-	while (i < s.length) {
-		var codePoint;
-		
-		// Decode UTF-16
-		var a = s.charCodeAt(i++);
-		if (a < 0xD800 || a >= 0xDC00) {
-			codePoint = a;
-		} else {
-			var b = s.charCodeAt(i++);
-			codePoint = (a << 10) + b + (0x10000 - (0xD800 << 10) - 0xDC00);
-		}
-		
-		// Encode UTF-8
-		if (codePoint < 0x80) {
-			utf8.push(codePoint);
-		} else {
-			if (codePoint < 0x800) {
-				utf8.push(((codePoint >> 6) & 0x1F) | 0xC0);
-			} else {
-				if (codePoint < 0x10000) {
-					utf8.push(((codePoint >> 12) & 0x0F) | 0xE0);
-				} else {
-					utf8.push(
-						((codePoint >> 18) & 0x07) | 0xF0,
-						((codePoint >> 12) & 0x3F) | 0x80);
-				}
-				utf8.push(((codePoint >> 6) & 0x3F) | 0x80);
-			}
-			utf8.push((codePoint & 0x3F) | 0x80);
-		}
+```js
+//Simple way to read and write UTF-8/UTF-16 string from/to UintArray
+function uintToString(bytes) {
+	return decodeURIComponent(escape(String.fromCharCode.apply(null, bytes)));
+}
+function stringToUTF8array(string) {
+	let binaryString = unescape(encodeURIComponent(s)),
+	let bytes = new Uint8Array(binaryString.length);
+	for (let i = 0; i < bytes.length; i++){
+		bytes[i] = binaryString.charCodeAt(i);
 	}
+	return bytes;
+}
+```
 
-	// From https://github.com/google/flatbuffers/blob/master/js/flatbuffers.js
-	var offset = 0;
-	var bytes = new DataView(...);
-	var length = bytes.readInt32(offset);
-	var result = "";
-	var i = 0;
+```js
+// Should store length in bytes (not length in chars)
+var utf8 = [];
+var i = 0;
+
+while (i < s.length) {
+	var codePoint;
 	
-	while (i < length) {
-		var codePoint;
-		
-		// Decode UTF-8
-		var a = bytes.readUint8(offset + i++);
-		if (a < 0xC0) {
-			codePoint = a;
+	// Decode UTF-16
+	var a = s.charCodeAt(i++);
+	if (a < 0xD800 || a >= 0xDC00) {
+		codePoint = a;
+	} else {
+		var b = s.charCodeAt(i++);
+		codePoint = (a << 10) + b + (0x10000 - (0xD800 << 10) - 0xDC00);
+	}
+	
+	// Encode UTF-8
+	if (codePoint < 0x80) {
+		utf8.push(codePoint);
+	} else {
+		if (codePoint < 0x800) {
+			utf8.push(((codePoint >> 6) & 0x1F) | 0xC0);
 		} else {
-			var b = bytes.readUint8(offset + i++);
-			if (a < 0xE0) {
-				codePoint =
-					((a & 0x1F) << 6) |
-					(b & 0x3F);
-			} else {
-				var c = bytes.readUint8(offset + i++);
-				if (a < 0xF0) {
-					codePoint =
-						((a & 0x0F) << 12) |
-						((b & 0x3F) << 6) |
-						(c & 0x3F);
-				} else {
-					var d = bytes.readUint8(offset + i++);
-					codePoint =
-						((a & 0x07) << 18) |
-						((b & 0x3F) << 12) |
-						((c & 0x3F) << 6) |
-						(d & 0x3F);
-				}
-			}
-			
-			// Encode UTF-16
 			if (codePoint < 0x10000) {
-				result += String.fromCharCode(codePoint);
+				utf8.push(((codePoint >> 12) & 0x0F) | 0xE0);
 			} else {
-				codePoint -= 0x10000;
-				result += String.fromCharCode(
-					(codePoint >> 10) + 0xD800,
-					(codePoint & ((1 << 10) - 1)) + 0xDC00);
+				utf8.push(
+					((codePoint >> 18) & 0x07) | 0xF0,
+					((codePoint >> 12) & 0x3F) | 0x80);
 			}
+			utf8.push(((codePoint >> 6) & 0x3F) | 0x80);
+		}
+		utf8.push((codePoint & 0x3F) | 0x80);
+	}
+}
+```
+
+```js
+// From https://github.com/google/flatbuffers/blob/master/js/flatbuffers.js
+var offset = 0;
+var bytes = new DataView(...);
+var length = bytes.readInt32(offset);
+var result = "";
+var i = 0;
+
+while (i < length) {
+	var codePoint;
+	
+	// Decode UTF-8
+	var a = bytes.readUint8(offset + i++);
+	if (a < 0xC0) {
+		codePoint = a;
+	} else {
+		var b = bytes.readUint8(offset + i++);
+		if (a < 0xE0) {
+			codePoint =
+				((a & 0x1F) << 6) |
+				(b & 0x3F);
+		} else {
+			var c = bytes.readUint8(offset + i++);
+			if (a < 0xF0) {
+				codePoint =
+					((a & 0x0F) << 12) |
+					((b & 0x3F) << 6) |
+					(c & 0x3F);
+			} else {
+				var d = bytes.readUint8(offset + i++);
+				codePoint =
+					((a & 0x07) << 18) |
+					((b & 0x3F) << 12) |
+					((c & 0x3F) << 6) |
+					(d & 0x3F);
+			}
+		}
+		
+		// Encode UTF-16
+		if (codePoint < 0x10000) {
+			result += String.fromCharCode(codePoint);
+		} else {
+			codePoint -= 0x10000;
+			result += String.fromCharCode(
+				(codePoint >> 10) + 0xD800,
+				(codePoint & ((1 << 10) - 1)) + 0xDC00);
 		}
 	}
+}
+```
 
-	String.prototype.encodeURIComponent = function() {
-		var Result = [];
-		var len = this.length;
-		for (var i = 0; i < len; i++) {
-			Result.push(this.charAt(i).toUtf8());
+```js
+String.prototype.encodeURIComponent = function() {
+	var result = [];
+	var len = this.length;
+	for (var i = 0; i < len; i++) {
+		result.push(this.charAt(i).toUTF8());
+	}
+	return result.join("");
+};
+String.prototype.toUTF8 = function() {
+	var code = this.charCodeAt(0);
+	if (code <= 16) {
+		return "%0" + code.toString(16);
+	}
+	var iByte = 0;
+	var i = 0;
+	var result = "";
+	while (code > 0x7f) {
+		iByte = code % 0x40;
+		code = (code - iByte) / 0x40;
+		result = "%" + (iByte | 0x80).toString(16).toUpperCase() + Result;
+		i++;
+	}
+	prefix = [0x0, 0xc0, 0xe0, 0xf0, 0xf8, 0xfc];
+	if (i > prefix.length) {
+		i = 5;
+	}
+	result = "%" + (code | prefix[i]).toString(16).toUpperCase() + Result;
+	return result;
+};
+String.prototype.encodeURI = function() {
+	var result = [];
+	var len = this.length;
+	for (var i = 0; i < len; i++) {
+		var code = this.charCodeAt(i);
+		if (code < 255) {
+			//if (code == 61 || code == 38) {	
+			result.push(this.charAt(i));
+		} else {
+			result.push(this.charAt(i).toUTF8());
 		}
-		return Result.join("");
-	};
-	String.prototype.toUtf8 = function() {
-		var code = this.charCodeAt(0);
-		if (code <= 16) {
-			return "%0" + code.toString(16);
-		}
-		var iByte = 0;
-		var i = 0;
-		var Result = "";
-		while (code > 0x7f) {
-			iByte = code % 0x40;
-			code = (code - iByte) / 0x40;
-			Result = "%" + (iByte | 0x80).toString(16).toUpperCase() + Result;
-			i++;
-		}
-		prefix = [0x0, 0xc0, 0xe0, 0xf0, 0xf8, 0xfc];
-		if (i > prefix.length) {
-			i = 5;
-		}
-		Result = "%" + (code | prefix[i]).toString(16).toUpperCase() + Result;
-		return Result;
-	};
-	String.prototype.encodeURI = function() {
-		var result = [];
-		var len = this.length;
-		for (var i = 0; i < len; i++) {
-			var code = this.charCodeAt(i);
-			if (code < 255) {
-				//if (code == 61 || code == 38) {	
-				result.push(this.charAt(i));
-			} else {
-				result.push(this.charAt(i).toUtf8());
-			}
-		}
-		return result.join("");
-	};
-	var st = "http://220.133.52.91/????a=10&b=lamb-mei";
-	trace(st.encodeURI());
-	trace(st.encodeURIComponent());
+	}
+	return result.join("");
+};
+var st = "http://220.133.52.91/????a=10&b=lamb-mei";
+console.log(st.encodeURI());
+console.log(st.encodeURIComponent());
+```
 
 Count number of chars (especially emojis):
 
-	// From http://blog.jonnew.com/posts/poo-dot-length-equals-two
-	function fancyCount2(str){
-	  const joiner = "\u{200D}";
-	  const split = str.split(joiner);
-	  let count = 0;
-	  
-	  for(const s of split){
-	    //removing the variation selectors
-	    const num = Array.from(s.split(/[\ufe00-\ufe0f]/).join("")).length;
-	    count += num;
-	  }
-	  
-	  //assuming the joiners are used appropriately
-	  return count / split.length;
-	}
+```js
+// From http://blog.jonnew.com/posts/poo-dot-length-equals-two
+function fancyCount2(str){
+  const joiner = "\u{200D}";
+  const split = str.split(joiner);
+  let count = 0;
+  
+  for(const s of split){
+    //removing the variation selectors
+    const num = Array.from(s.split(/[\ufe00-\ufe0f]/).join("")).length;
+    count += num;
+  }
+  
+  //assuming the joiners are used appropriately
+  return count / split.length;
+}
+```
 
 ### Template literal
 

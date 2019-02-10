@@ -170,9 +170,34 @@ Use values from MariaDB 10 application
 Support `.m3u` (but not `.m3u8`)
 Support only relative paths (start with `./` or `../`, not `/volumeX/`)
 
-### Restart service
+### Printer server CUPS
 
-	synoservicectl  --restart pkgctl-MariaDB10
+CUPS WebInterface is not available (files in `/usr/lib/cups/cgi-bin/`, `/usr/share/cups/doc-root/`, `/usr/share/cups/templates/`, etc. doesn't exist)
+
+Access control is not configured as [it should be](https://github.com/apple/cups/blob/5048d3ba8d38b2bc9c3cf33af043fbccebf90ea2/conf/cupsd.conf.in#L30-L47) (if the web interface is enabled, see also [How can I enable remote access to the Admin page in CUPS - Server Fault](https://serverfault.com/questions/836266/how-can-i-enable-remote-access-to-the-admin-page-in-cups))
+
+Enable `WebInterface=yes` take to "Not Found" error
+
+```sh
+cat /etc/cups/cupsd.conf
+synoservice --restart cupsd
+```
+
+- [Setting up a CUPS server with Docker on a Synology NAS for my Brother printer](http://www.theghostbit.com/2016/10/setting-up-cups-server-with-docker-on.html) - see [RoryQ/Docker-CUPS-for-Synology: Scripts for setting up CUPS server in Docker running on Synology Diskstation for Brother HL-1110](https://github.com/RoryQ/Docker-CUPS-for-Synology)
+- [maxandersen/aircups: Cups print server with airprint enabled, works well with Synology](https://github.com/maxandersen/aircups)
+	Based on [quadportnick/docker-cups-airprint: Docker image for CUPS intended as an AirPrint relay on Synology DSM](https://github.com/quadportnick/docker-cups-airprint)
+- [mnbf9rca/cups-google-print: a CUPS printer with Google Cloud Print enabled](https://github.com/mnbf9rca/cups-google-print)
+
+### Restart service / daemon
+
+```sh
+synoservicectl  --restart pkgctl-MariaDB10
+```
+
+```sh
+synoservice --help
+synoservicecfg --list
+```
 
 ### Create application
 
