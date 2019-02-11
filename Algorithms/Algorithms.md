@@ -13,7 +13,7 @@ See also [Math](../Math/Math.md)
 - [jj's useful and ugly FXT page](http://www.jjj.de/fxt/fxtpage.html#fxt)
 - [Essential Math for Games Programmers](http://www.essentialmath.com/tutorial.htm)
 - [Collection of projects and links about algorithm visualization](https://github.com/enjalot/algovis)
-- [Algorithm Visualizer](http://algo-visualizer.jasonpark.me/) - Algorithm Visualizer. see https://github.com/parkjs814/AlgorithmVisualizer
+- [Algorithm Visualizer](http://algo-visualizer.jasonpark.me/) - Algorithm Visualizer. see <https://github.com/parkjs814/AlgorithmVisualizer>
 - [The Stony Brook Algorithm Repository](http://www8.cs.umu.se/kurser/TDBAfl/VT06/algorithms/WEBSITE/INDEX.HTM) - Algorithms and implementations
 - [The pocket handbook of image processing algorithms in C](http://adaptiveart.eecs.umich.edu/2011/wp-content/uploads/2011/09/The-pocket-handbook-of-image-processing-algorithms-in-C.pdf)
 - [Javascript Math Toolkit](https://github.com/theAlgorithmist/JSMathToolkit) - math library
@@ -28,71 +28,75 @@ See also [Math](../Math/Math.md)
 
 See also SMID
 
-- [Computing with WebGL](JavaScript#Computing with WebGL)
-- [Marching cubes](Marching cubes)
-- [GPU physics](Physics#GPU physics)
-- [Tree traversal](Tree traversal)
-- [Condition optimizations](Graphics#Condition optimizations)
-- [Binary search](#Binary search)
+- [Computing with WebGL](../Development/JavaScript/JavaScript.md#computing-with-webgl)
+- [Marching cubes](./Marching%20cubes/Marching%20cubes.md)
+- [GPU physics](../Math/Physics/Physics.md#gpu-physics)
+- [Tree traversal](./Tree%20traversal/Tree%20traversal.md)
+- [Condition optimizations](../Graphics/Graphics.md#condition-optimizations)
+- [Binary search](#binary-search)
 
 ## Progressive data
 
 PNG use Adam7 algorithm:
 
-	1 6 4 6 2 6 4 6
-	7 7 7 7 7 7 7 7
-	5 6 5 6 5 6 5 6
-	7 7 7 7 7 7 7 7
-	3 6 4 6 3 6 4 6
-	7 7 7 7 7 7 7 7
-	5 6 5 6 5 6 5 6
-	7 7 7 7 7 7 7 7
+```
+1 6 4 6 2 6 4 6
+7 7 7 7 7 7 7 7
+5 6 5 6 5 6 5 6
+7 7 7 7 7 7 7 7
+3 6 4 6 3 6 4 6
+7 7 7 7 7 7 7 7
+5 6 5 6 5 6 5 6
+7 7 7 7 7 7 7 7
+```
 
-	//Progressive PNG
-	/*
-		variables declared and initialized elsewhere in the code:
-			height, width
-		functions or macros defined elsewhere in the code:
-			visit(), min()
-	 */
-	 
-	int starting_row[7]  = { 0, 0, 4, 0, 2, 0, 1 };
-	int starting_col[7]  = { 0, 4, 0, 2, 0, 1, 0 };
-	int row_increment[7] = { 8, 8, 8, 4, 4, 2, 2 };
-	int col_increment[7] = { 8, 8, 4, 4, 2, 2, 1 };
-	int block_height[7]  = { 8, 8, 4, 4, 2, 2, 1 };
-	int block_width[7]   = { 8, 4, 4, 2, 2, 1, 1 };
-	
-	int pass;
-	long row, col;
-	
-	pass = 0;
-	while (pass < 7)
+```c
+//Progressive PNG
+/*
+	variables declared and initialized elsewhere in the code:
+		height, width
+	functions or macros defined elsewhere in the code:
+		visit(), min()
+ */
+ 
+int starting_row[7]  = { 0, 0, 4, 0, 2, 0, 1 };
+int starting_col[7]  = { 0, 4, 0, 2, 0, 1, 0 };
+int row_increment[7] = { 8, 8, 8, 4, 4, 2, 2 };
+int col_increment[7] = { 8, 8, 4, 4, 2, 2, 1 };
+int block_height[7]  = { 8, 8, 4, 4, 2, 2, 1 };
+int block_width[7]   = { 8, 4, 4, 2, 2, 1, 1 };
+
+int pass;
+long row, col;
+
+pass = 0;
+while (pass < 7)
+{
+	row = starting_row[pass];
+	while (row < height)
 	{
-		row = starting_row[pass];
-		while (row < height)
+		col = starting_col[pass];
+		while (col < width)
 		{
-			col = starting_col[pass];
-			while (col < width)
-			{
-				visit(row, col,
-					  min(block_height[pass], height - row),
-					  min(block_width[pass], width - col));
-				col = col + col_increment[pass];
-			}
-			row = row + row_increment[pass];
+			visit(row, col,
+				  min(block_height[pass], height - row),
+				  min(block_width[pass], width - col));
+			col = col + col_increment[pass];
 		}
-		pass = pass + 1;
+		row = row + row_increment[pass];
 	}
+	pass = pass + 1;
+}
+```
 
 ![An illustration of Adam7 interlacing over a 16×16 image](https://upload.wikimedia.org/wikipedia/commons/2/27/Adam7_passes.gif)
 ![adam7gif.gif](http://www.libpng.org/pub/png/img_png/adam7gif.gif)
 
 - [Adam7 algorithm — Wikipedia](https://en.wikipedia.org/wiki/Adam7_algorithm)
 - [PNG Adam7 interlacing](http://www.schaik.com/png/adam7.html)
-- http://www.w3.org/TR/PNG/#8Interlace
-- http://www.w3.org/TR/PNG/#4Concepts.Encoding
-- http://www.w3.org/TR/PNG/#13Progressive-display
+- <http://www.w3.org/TR/PNG/#8Interlace>
+- <http://www.w3.org/TR/PNG/#4Concepts.Encoding>
+- <http://www.w3.org/TR/PNG/#13Progressive-display>
 
 ## Algorithm/math formula in scientific papier
 
@@ -107,11 +111,13 @@ PNG use Adam7 algorithm:
 
 ## Hash
 
-	// Knuth multiplicative hash where unsigned integer overflow is used to perform the moduolo operation
-	uint32_t hash(uint32_t v)
-	{
-		return v * UINT32_C(2654435761);
-	}
+```c
+// Knuth multiplicative hash where unsigned integer overflow is used to perform the moduolo operation
+uint32_t hash(uint32_t v)
+{
+	return v * UINT32_C(2654435761);
+}
+```
 
 - [c++ - knuth multiplicative hash - Stack Overflow](https://stackoverflow.com/questions/11871245/knuth-multiplicative-hash)
 - [Hash table — Wikipedia](https://en.wikipedia.org/wiki/Hash_table#Choosing_a_good_hash_function) - Choosing a good hash function
@@ -125,67 +131,68 @@ PNG use Adam7 algorithm:
 
 - [R-tree — Wikipedia](https://en.wikipedia.org/wiki/R-tree)
 - [Tree Traversal in C without Recursion | Dr Dobb's](http://www.drdobbs.com/tree-traversal-in-c-without-recursion/184401260)
+	```c
+	void tree_depth_traversal1 (struct t_node *root, void (*process)(struct t_node *node, int first_flag))
+	{
+		// TRUE  1st exploration of node,  continue with 1st subnode
+		// FALSE node completely explored, continue with sibling
+		int dir_flag = TRUE;
 
-		void tree_depth_traversal1 (struct t_node *root, void (*process)(struct t_node *node, int first_flag))
+		// the current node during exploration
+		struct t_node *current = root;
+
+		//----- no tree or no user function , nothing to do
+		if ((root == NULL) || (process == NULL)) return;
+
+		//----- the root pre order
+		(* process) (root, TRUE);
+
+		if (has_sub(root))
 		{
-			// TRUE  1st exploration of node,  continue with 1st subnode
-			// FALSE node completely explored, continue with sibling
-			int dir_flag = TRUE;
-		
-			// the current node during exploration
-			struct t_node *current = root;
-		
-			//----- no tree or no user function , nothing to do
-			if ((root == NULL) || (process == NULL)) return;
-		
-			//----- the root pre order
-			(* process) (root, TRUE);
-		
-			if (has_sub(root))
+			//----- the exploration loop
+			current = get_sub(root);
+			while (node_exist(current)
+				&& ((current != root) || (dir_flag == TRUE)))
 			{
-				//----- the exploration loop
-				current = get_sub(root);
-				while (node_exist(current)
-					&& ((current != root) || (dir_flag == TRUE)))
+				//--- process the node : TRUE prefix, FALSE postfix
+
+				(* process) (current, dir_flag);
+
+				//--- 1st expl. of the node, continue with 1st subnode
+				// or stay for 2nd part of the process
+				if (dir_flag == TRUE)
 				{
-					//--- process the node : TRUE prefix, FALSE postfix
-		
-					(* process) (current, dir_flag);
-		
-					//--- 1st expl. of the node, continue with 1st subnode
-					// or stay for 2nd part of the process
-					if (dir_flag == TRUE)
-					{
-						if (has_sub(current))
-							current = get_sub(current);
-						else
-						// 1st exploration of current node is finished
-						// go to 2nd exploration of the current node
-						dir_flag = FALSE;
-					}
-		
-					//--- second expl. of the node, continue with sibling
-					// or the parent if no sibling
+					if (has_sub(current))
+						current = get_sub(current);
 					else
-					{
-						if (has_sibling(current))
-						{
-							// goto 1st exploration of the sibling 
-							// (now current)
-							current = get_sibling(current);
-		
-							dir_flag = TRUE;
-						}
-						else
-							current = get_parent(current);
-					}
+					// 1st exploration of current node is finished
+					// go to 2nd exploration of the current node
+					dir_flag = FALSE;
 				}
-				// ASSERT ((current == root) && (dir_flag == FALSE));
+
+				//--- second expl. of the node, continue with sibling
+				// or the parent if no sibling
+				else
+				{
+					if (has_sibling(current))
+					{
+						// goto 1st exploration of the sibling 
+						// (now current)
+						current = get_sibling(current);
+
+						dir_flag = TRUE;
+					}
+					else
+						current = get_parent(current);
+				}
 			}
-		
-			//----- the root post order
-			(* process) (root, FALSE);
+			// ASSERT ((current == root) && (dir_flag == FALSE));
 		}
+
+		//----- the root post order
+		(* process) (root, FALSE);
+	}
+	```
 
 ## Fast Inverse Square Root
 
@@ -193,48 +200,52 @@ Aka Quake Fast Inverse Square Root
 
 **Note: be carefull about speed. The ECMAScript version is useless compared to the speed of `1 / Math.sqrt(x)`.**
 
-	// From https://stackoverflow.com/questions/11644441/fast-inverse-square-root-on-x64/41637260#41637260 Fast Inverse Square Root on x64
-	#include <cstdint>
+```c
+// From https://stackoverflow.com/questions/11644441/fast-inverse-square-root-on-x64/41637260#41637260 Fast Inverse Square Root on x64
+#include <cstdint>
+
+// Fast inverse square root double version (64 bit floating point)
+double rsqrt( double number )
+{
+	std::int64_t i;
+	double x2, y;
+	const double threehalfs = 1.5;
 	
-	// Fast inverse square root double version (64 bit floating point)
-	double rsqrt( double number )
-	{
-		std::int64_t i;
-		double x2, y;
-		const double threehalfs = 1.5;
-		
-		x2 = number * 0.5;
-		y = number;
-		i = *(std::int64_t *) &y;// evil floating point bit level hacking
-		i = 0x5fe6eb50c7b537a9 - (i >> 1);// what the fuck? 
-		y = *(double *) &i;
-		y = y * ( threehalfs - ( x2 * y * y ) );// 1st iteration
-	//	y = y * ( threehalfs - ( x2 * y * y ) );// 2nd iteration, this can be removed
-		return y;
-	}
+	x2 = number * 0.5;
+	y = number;
+	i = *(std::int64_t *) &y;// evil floating point bit level hacking
+	i = 0x5fe6eb50c7b537a9 - (i >> 1);// what the fuck? 
+	y = *(double *) &i;
+	y = y * ( threehalfs - ( x2 * y * y ) );// 1st iteration
+//	y = y * ( threehalfs - ( x2 * y * y ) );// 2nd iteration, this can be removed
+	return y;
+}
+```
 
 For the code before, note:
 
 > you also have SSE (especially on x64) and its own inverse square root (intrinsic: `_mm_rsqrt_ss/ps`) is probably faster and more precise than Carmack's hack. Of course it still only works for 32-bit floats, but **you don't use doubles for inaccurate approximate values anyway**
-— [Christian Rau](https://stackoverflow.com/questions/11644441/fast-inverse-square-root-on-x64#comment15427042_11644441)
+> — [Christian Rau](https://stackoverflow.com/questions/11644441/fast-inverse-square-root-on-x64#comment15427042_11644441)
 
-	// ~2x quicker than 1/Math.sqrt(x)
-	// Be carefull of byte order! DataView is ~20x slower
-	const buffer = new ArrayBuffer(Float32Array.BYTES_PER_ELEMENT);
-	const fv = new Float32Array(buffer);
-	const lv = new Uint32Array(buffer);
-	const threehalfs = 1.5;
-	
-	function rsqrt(number) {
-		let x2 = number * 0.5;
-		// evil floating point bit level hacking by using float and uint views for the same buffer
-		fv[0] = number;
-		lv[0] = 0x5f3759df - ( lv[0] >> 1 );// what the fuck?
-		let y = fv[0];
-		y = y * ( threehalfs - ( x2 * y * y ) );// 1st iteration
-	//	y = y * ( threehalfs - ( x2 * y * y ) );// 2nd iteration, this can be removed
-		return y;
-	}
+```js
+// ~2x quicker than 1/Math.sqrt(x)
+// Be carefull of byte order! DataView is ~20x slower
+const buffer = new ArrayBuffer(Float32Array.BYTES_PER_ELEMENT);
+const fv = new Float32Array(buffer);
+const lv = new Uint32Array(buffer);
+const threehalfs = 1.5;
+
+function rsqrt(number) {
+	let x2 = number * 0.5;
+	// evil floating point bit level hacking by using float and uint views for the same buffer
+	fv[0] = number;
+	lv[0] = 0x5f3759df - ( lv[0] >> 1 );// what the fuck?
+	let y = fv[0];
+	y = y * ( threehalfs - ( x2 * y * y ) );// 1st iteration
+//	y = y * ( threehalfs - ( x2 * y * y ) );// 2nd iteration, this can be removed
+	return y;
+}
+```
 
 - [Fast inverse square root — Wikipedia](https://en.wikipedia.org/wiki/Fast_inverse_square_root)
 - [Understanding Quake’s Fast Inverse Square Root – BetterExplained](https://betterexplained.com/articles/understanding-quakes-fast-inverse-square-root/)
@@ -244,65 +255,67 @@ For the code before, note:
 
 ## Nearest neighbor search
 
-See also [binary search](#Binary search)
+See also [binary search](#binary-search)
 
 See [Nearest neighbor search — Wikipedia](https://en.wikipedia.org/wiki/Nearest_neighbor_search)
 
 ## Binary search
 
-See also [nearest neighbor search](#Nearest neighbor search)
+See also [nearest neighbor search](#nearest-neighbor-search)
 
-	// From http://wayback.archive.org/web/20131006181606/http://www.brooksandrus.com/blog/2008/11/12/improve-flash-mpeg-4-avc-seeking-with-binary-search/#comment-49096 Improve Flash MPEG-4 AVC Seeking With Binary Search | Brooks Andrus
-	/**
-	* Loops through an array of seekpoints to find a requested time. 
-	* If the value is found within the array of seekpoints the index at which 
-	* the value is found is returned. If an exact match is not found, -1 is returned 
-	* and the the upper and lower indices between which the value falls are set 
-	* (so you can determine the closest indice, or seek to to the nearest indexed 
-	* time behind or forward in the array of seekpoints.
-	* 
-	* Seekpoints array must be sorted.
-	* 
-	* @param value	the requested seek time to find
-	* @param range the array of seekpoints collected from an MPEG-4 AVC NetStream metadata event
-	* @param the low index within the range we'd like to scan
-	* @param the high index within the range we'd like to scan
-	* 
-	*/
-	public function binarySearch(value:Number, range:Array, low:int, high:int):int
+```js
+// From http://wayback.archive.org/web/20131006181606/http://www.brooksandrus.com/blog/2008/11/12/improve-flash-mpeg-4-avc-seeking-with-binary-search/#comment-49096 Improve Flash MPEG-4 AVC Seeking With Binary Search | Brooks Andrus
+/**
+* Loops through an array of seekpoints to find a requested time. 
+* If the value is found within the array of seekpoints the index at which 
+* the value is found is returned. If an exact match is not found, -1 is returned 
+* and the the upper and lower indices between which the value falls are set 
+* (so you can determine the closest indice, or seek to to the nearest indexed 
+* time behind or forward in the array of seekpoints.
+* 
+* Seekpoints array must be sorted.
+* 
+* @param {number} value	the requested seek time to find
+* @param {Array} range the array of seekpoints collected from an MPEG-4 AVC NetStream metadata event
+* @param {number} the low index within the range we'd like to scan
+* @param {number} the high index within the range we'd like to scan
+* 
+*/
+function binarySearch(value, range, low, high)
+{
+	var val = -1;
+	var time;
+	while (low < = time	)
 	{
-		var val:int = -1;
-		var time:Number;
-		while (low < = time	)
+		var median = (low + high) / 2;
+		time = range[median].time;
+		if (value > time	)
 		{
-			var median:int = (low + high) / 2;
-			time = range[median].time;
-			if (value > time	)
-			{
-				low = median + 1;
-			}
-			else if (value < time	)
-			{
-				high = median - 1;
-			}
-			else // found a match
-			{
-				low = median;
-				high = median;
-				val = median;
-				break;
-			}
+			low = median + 1;
 		}
-		_upperBounds = low;
-		_lowerBounds = high;
-		return val; // failed to find value. Look at the upper / lower bounds
+		else if (value < time	)
+		{
+			high = median - 1;
+		}
+		else // found a match
+		{
+			low = median;
+			high = median;
+			val = median;
+			break;
+		}
 	}
-	
-	// binarySearch( 33.3, [0,10,20,30,40,50], 0, 6 ) returns 3
-	// binarySearch( 30.0, [0,10,20,30,40,50], 0, 6 ) returns 3
-	// binarySearch( 90  , [0,10,20,30,40,50], 0, 6 ) returns 5
-	// binarySearch( 0   , [0,10,20,30,40,50], 0, 6 ) returns 0
-	// binarySearch( -90 , [0,10,20,30,40,50], 0, 6 ) returns -1
+	_upperBounds = low;
+	_lowerBounds = high;
+	return val; // failed to find value. Look at the upper / lower bounds
+}
+
+// binarySearch( 33.3, [0,10,20,30,40,50], 0, 6 ) returns 3
+// binarySearch( 30.0, [0,10,20,30,40,50], 0, 6 ) returns 3
+// binarySearch( 90  , [0,10,20,30,40,50], 0, 6 ) returns 5
+// binarySearch( 0   , [0,10,20,30,40,50], 0, 6 ) returns 0
+// binarySearch( -90 , [0,10,20,30,40,50], 0, 6 ) returns -1
+```
 
 - [Implementing binary search of an array (article) | Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/implementing-binary-search-of-an-array)
 - [SIMD / GPU Friendly Branchless Binary Search « The blog at the bottom of the sea](https://blog.demofox.org/2017/06/20/simd-gpu-friendly-branchless-binary-search/)
@@ -318,10 +331,10 @@ See also [nearest neighbor search](#Nearest neighbor search)
 
 ## Constraint solver
 
-- https://github.com/slightlyoff/cassowary.js
+- <https://github.com/slightlyoff/cassowary.js>
 - [UW Cassowary Constraint Solving Toolkit](http://constraints.cs.washington.edu/cassowary/)
-- [Quadrilateral demo - Cassowary Javascript](http://www.badros.com/greg/cassowary/js/quaddemo.html) - http://www.badros.com/greg/cassowary/js/quaddemo.js
-- http://cassowary.cvs.sourceforge.net/viewvc/cassowary/cassowary/js/ 
+- [Quadrilateral demo - Cassowary Javascript](http://www.badros.com/greg/cassowary/js/quaddemo.html) - <http://www.badros.com/greg/cassowary/js/quaddemo.js>
+- <http://cassowary.cvs.sourceforge.net/viewvc/cassowary/cassowary/js/> 
 
 ## Diamond-square
 
@@ -339,70 +352,76 @@ If you work around more, you can create gradient spots from any pixel you wish e
 ## Luhn
 
 - [Luhn algorithm — Wikipedia](https://en.wikipedia.org/wiki/Luhn_algorithm)
- 
+
 Could be simplier that example below:
 
-	// http://jqueryvalidation.org/creditcard-method/
-	function test( value ) {
-		// accept only spaces, digits and dashes
-		if ( /[^0-9 \-]+/.test( value ) ) {
-			return false;
-		}
-		var nCheck = 0,
-			nDigit = 0,
-			bEven = false,
-			n, cDigit;
-		
-		value = value.replace( /\D/g, "" );
-		
-		// Basing min and max length on
-		// http://developer.ean.com/general_info/Valid_Credit_Card_Types
-		if ( value.length < 13 || value.length > 19 ) {
-			return false;
-		}
-		
-		for ( n = value.length - 1; n >= 0; n--) {
-			cDigit = value.charAt( n );
-			nDigit = parseInt( cDigit, 10 );
-			if ( bEven ) {
-				if ( ( nDigit *= 2 ) > 9 ) {
-					nDigit -= 9;
-				}
+```js
+// http://jqueryvalidation.org/creditcard-method/
+function test( value ) {
+	// accept only spaces, digits and dashes
+	if ( /[^0-9 \-]+/.test( value ) ) {
+		return false;
+	}
+	var nCheck = 0,
+		nDigit = 0,
+		bEven = false,
+		n, cDigit;
+	
+	value = value.replace( /\D/g, "" );
+	
+	// Basing min and max length on
+	// http://developer.ean.com/general_info/Valid_Credit_Card_Types
+	if ( value.length < 13 || value.length > 19 ) {
+		return false;
+	}
+	
+	for ( n = value.length - 1; n >= 0; n--) {
+		cDigit = value.charAt( n );
+		nDigit = parseInt( cDigit, 10 );
+		if ( bEven ) {
+			if ( ( nDigit *= 2 ) > 9 ) {
+				nDigit -= 9;
 			}
-			nCheck += nDigit;
-			bEven = !bEven;
 		}
-		
-		return ( nCheck % 10 ) === 0;
+		nCheck += nDigit;
+		bEven = !bEven;
 	}
+	
+	return ( nCheck % 10 ) === 0;
+}
+```
 
-	// Luhn algorithm validator, by Avraham Plotnitzky. (aviplot at gmail)
-	function luhnCheckFast(luhn)
+```js
+// Luhn algorithm validator, by Avraham Plotnitzky. (aviplot at gmail)
+function luhnCheckFast(luhn)
+{
+	var ca, sum = 0, mul = 0;
+	var len = luhn.length;
+	while (len--)
 	{
-		var ca, sum = 0, mul = 0;
-		var len = luhn.length;
-		while (len--)
-		{
-			ca = parseInt(luhn.charAt(len),10) << mul;
-			sum += ca - (ca>9)*9; // sum += ca - (-(ca>9))|9
-			// 1 <--> 0 toggle.
-			mul ^= 1; // mul = 1 - mul;
-		};
-		return (sum%10 === 0) && (sum > 0);
-	}
+		ca = parseInt(luhn.charAt(len),10) << mul;
+		sum += ca - (ca>9)*9; // sum += ca - (-(ca>9))|9
+		// 1 <--> 0 toggle.
+		mul ^= 1; // mul = 1 - mul;
+	};
+	return (sum%10 === 0) && (sum > 0);
+}
+```
 
-	// https://gist.github.com/2134376
-	// Phil Green (ShirtlessKirk)
-	const prodArr = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]];
-	function luhnChk(luhn) {
-		let length = luhn.length,
-		let mul = 0;
-		let sum = 0;
-		
-		while (length--) {
-			sum += prodArr[mul][parseInt(luhn.charAt(length), 10)];
-			mul ^= 1;
-		}
-		
-		return sum % 10 === 0 && sum > 0;
+```js
+// https://gist.github.com/2134376
+// Phil Green (ShirtlessKirk)
+const prodArr = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]];
+function luhnChk(luhn) {
+	let length = luhn.length,
+	let mul = 0;
+	let sum = 0;
+	
+	while (length--) {
+		sum += prodArr[mul][parseInt(luhn.charAt(length), 10)];
+		mul ^= 1;
 	}
+	
+	return sum % 10 === 0 && sum > 0;
+}
+```
