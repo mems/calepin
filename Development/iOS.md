@@ -1,1 +1,2 @@
 - [iOS testing tool that runs UI tests using multiple simulators on a single machine](https://github.com/linkedin/bluepill)
+- [ios-control/ios-deploy: Install and debug iPhone apps from the command line, without using Xcode](https://github.com/ios-control/ios-deploy)
