@@ -269,6 +269,16 @@ Should use double quotes.
 See [Common issues](Web#Common issues) about limitation adblocks order.
 See also [Development](Development#Naming)
 
+### IDs for robots
+
+IDs could be used, but (could be) often changed by frontend developers. Instead use a dedicated data attribute, like `<button data-test-role="delete-comment" type="button">Delete comment</button>`
+
+- [Software Testing Article - Data-QA Attribute! A better way to select elements for UI test automation](https://www.utest.com/articles/data-qa-attribute-a-better-way-to-select-elements-for-ui-test-automation)
+- [Best Practices | Cypress Documentation](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
+- [selenium - Test automation html element selectors. Element ID or DataAttribute - Stack Overflow](https://stackoverflow.com/questions/37492803/test-automation-html-element-selectors-element-id-or-dataattribute)
+- [Using "data-test" in Tests](http://blog.rstankov.com/using-rel-in-testing/)
+- [Making your UI tests resilient to change – kentcdodds](https://blog.kentcdodds.com/making-your-ui-tests-resilient-to-change-d37a6ee37269)
+
 ### Validity of CSS class names and ids
 
 **Double hyphen within the comment `--` is perceived as part of the comment and therefore its presence lead to error during document validation.** See [8 The HTML syntax — HTML5](https://www.w3.org/TR/html5/syntax.html#comments)
