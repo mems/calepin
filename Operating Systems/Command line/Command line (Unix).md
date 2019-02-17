@@ -874,6 +874,9 @@ Here-doc & here-string:
 File pointer and file redirection
 
 - [BashGuide/InputAndOutput - Greg's Wiki](http://mywiki.wooledge.org/BashGuide/InputAndOutput#Redirection)
+- [I/O Redirection](http://tldp.org/LDP/abs/html/io-redirection.html)
+- [Bash scripting quirks & safety tips - Julia Evans](http://jvns.ca/blog/2017/03/26/bash-quirks/)
+- named pipe (`mkfifo`)
  
 	while read item; do
 		echo $item
@@ -887,8 +890,6 @@ Same as: `echo hello > file; cat file`
 
 	cat <<< hello
 
-- [Bash scripting quirks & safety tips - Julia Evans](http://jvns.ca/blog/2017/03/26/bash-quirks/)
- 
 	diff <(cd dir1; ls) <(cd dir2; ls)
 
 	$(cat file) is same as $(< file)

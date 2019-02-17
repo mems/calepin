@@ -781,3 +781,19 @@ Advanced Settings:
 - [Turn off packet signing for SMB 2 and SMB 3 connections - Apple Support](https://support.apple.com/en-bh/HT205926)
 - [SMB | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_winmacnfs_win)
 - `smbutil statshares -a` if share mounted has `SIGNING_ON	TRUE`
+
+## USB Scanner
+
+With MFP (USB connected multi-function printer) you can use the scanner from Windows clients. On network scanner you can "upload" scans on SMB shares.
+But for USB connected scanner only or MFP for non Windows clients, you need a server software like [SANE](http://www.sane-project.org/) to allow clients to use it.
+
+- [External Devices | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_externaldevice_printer)
+- [SANE - Supported Devices](http://www.sane-project.org/sane-supported-devices.html)
+- [Share a multifunctional printer (with your Synology) | Here and Now … Then and There](https://francois.aichelbaum.com/2016/03/10/share-multifunctional-printer-synology)
+- [Attaching a scanner to my Synology Diskstation 107](https://web.archive.org/web/20110910090930/http://arnoutboer.nl:80/weblog/?p=223)
+- [SANE Backends network scanning package for Synology NAS | PC LOAD LETTER](https://pcloadletter.co.uk/2015/12/16/sane-backends-syno-package/)
+- [Manual: Network scanning with HPLIP and Sane (HP all in one) - Synology Forum](https://forum.synology.com/enu/viewtopic.php?f=27&t=14801)
+- [ScanningHowTo - Community Help Wiki](https://help.ubuntu.com/community/ScanningHowTo)
+- [Installer un serveur de numérisation, SANE](https://artisan.karma-lab.net/installer-serveur-numerisation-sane)
+
+See also [macOS Scanning](macOS.md#scanning)

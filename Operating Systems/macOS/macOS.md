@@ -2301,6 +2301,28 @@ See also the possibility to create configuration profiles:
 	pbpaste
 	pbpaste > file.txt
 
+## Scanning
+
+- [VueScan Scanner Software for Windows, Mac OS X and Linux](https://www.hamrick.com/) - Support of old scanners
+
+SANE:
+
+- [SANE - Supported Devices](http://www.sane-project.org/sane-supported-devices.html)
+- [chrspeich/SaneNetScanner: A Mac OS X Scanner Driver for sane net devices](https://github.com/chrspeich/SaneNetScanner) - This allow to use network scanner that support SANE with Image Capture, Preview
+	See also [Possible bridge for TWAIN scanner: Image Capture → SaneNetScanner → localhost/saned → Scanner · Issue #13 · chrspeich/SaneNetScanner](https://github.com/chrspeich/SaneNetScanner/issues/13)
+- [Install SANE drivers – BeagleScan](https://www.lazybrowndog.net/beaglescan/?page_id=6) - Install SANE drivers on macOS (`sane-find-scanner`, `scanimage -L`, `TWAINBridge.app` reinstall, `open /System/Library/Image Capture/Devices/TWAINBridge.app`, SANE > Open Scanner)
+- [SwingSane](http://swingsane.com/) - Java SANE client
+- [The MacPorts Project -- Available Ports](https://www.macports.org/ports.php?by=name&substr=twain-sane)
+- [David Poole: Scanning from Apple AirPrint + AirScan](http://testcluster.blogspot.com/2014/03/scanning-from-apple-airprint-airscan.html)
+- [phpSANE download | SourceForge.net](https://sourceforge.net/projects/phpsane/) - SANE frontend in PHP
+- [SimulPiscator/AirSane: Apple AirScan compatible SANE web frontend.](https://github.com/SimulPiscator/AirSane) - Install that frontend on the device where SANE backend are used (where the USB scanner is connected) to share the scanner over AirScan
+	See also [David Poole: Scanning from Apple AirPrint + AirScan](http://testcluster.blogspot.com/2014/03/scanning-from-apple-airprint-airscan.html)`
+- [Snac - Mac OSX GUI for SANE scanimage](http://www.wallner.nu/fredrik/software/snac/)
+- [TWAIN Scanners in OS X Maverick (and Yosemite) | janegil.net](https://janegil.net/2014/01/twain-scanners-in-os-x-maverick/) - TWAINBridge Maverick Fix, not useful on macOS 10.11 due to SIP
+- [Axel-Erfurt/Sane-OSX-Xojo: Sane Scanner GUI with Xojo](https://github.com/Axel-Erfurt/Sane-OSX-Xojo) - SANE frontend written in [Xojo](https://en.wikipedia.org/wiki/Xojo) include support of tesseract (OCR lib)
+	- [News - Axel Schneider - good old music](https://goodoldsongs.jimdo.com/news/)
+- [fixed : use unsupported scanner in OSX 10.11 El_Capitan | MacManus.nl](https://macmanus.nl/2015/11/10/fixed-use-unsupported-scanner-in-osx-10-11-el_capitan/)
+
 ## Automator
 
 - [localization - How to use AppleScript’s “localized string” inside an Automator workflow - Stack Overflow](https://stackoverflow.com/questions/9345648/how-to-use-applescript-s-localized-string-inside-an-automator-workflow)

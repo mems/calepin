@@ -686,6 +686,7 @@ Reduce learning curve by use common usage the user already know (with her/him to
 
 And what about forward compatibility: you ovewrite the current logic not the future one (design or features could change)
 
+- [Paint the Picture, Not the Frame: How Browsers Provide Everything Users Need · An A List Apart Article](https://alistapart.com/article/paint-the-picture-not-the-frame)
 - [Fixed Positioning in Mobile Browsers | Brad Frost](http://bradfrost.com/blog/mobile/fixed-position/) - tried to be set fixed element by overriding default scroll behavior
 - [Principle of least astonishment — Wikipedia](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
 - [“God is in the details.” – Prevue App – Medium](https://medium.com/prevue-app/god-is-in-the-details-bc3a9a9a5d88#041a)

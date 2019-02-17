@@ -131,22 +131,23 @@ uint32_t hash(uint32_t v)
 
 - [R-tree — Wikipedia](https://en.wikipedia.org/wiki/R-tree)
 - [Tree Traversal in C without Recursion | Dr Dobb's](http://www.drdobbs.com/tree-traversal-in-c-without-recursion/184401260)
+	
 	```c
 	void tree_depth_traversal1 (struct t_node *root, void (*process)(struct t_node *node, int first_flag))
 	{
 		// TRUE  1st exploration of node,  continue with 1st subnode
 		// FALSE node completely explored, continue with sibling
 		int dir_flag = TRUE;
-
+		
 		// the current node during exploration
 		struct t_node *current = root;
-
+		
 		//----- no tree or no user function , nothing to do
 		if ((root == NULL) || (process == NULL)) return;
-
+		
 		//----- the root pre order
 		(* process) (root, TRUE);
-
+		
 		if (has_sub(root))
 		{
 			//----- the exploration loop
@@ -155,9 +156,9 @@ uint32_t hash(uint32_t v)
 				&& ((current != root) || (dir_flag == TRUE)))
 			{
 				//--- process the node : TRUE prefix, FALSE postfix
-
+				
 				(* process) (current, dir_flag);
-
+				
 				//--- 1st expl. of the node, continue with 1st subnode
 				// or stay for 2nd part of the process
 				if (dir_flag == TRUE)
@@ -169,7 +170,7 @@ uint32_t hash(uint32_t v)
 					// go to 2nd exploration of the current node
 					dir_flag = FALSE;
 				}
-
+				
 				//--- second expl. of the node, continue with sibling
 				// or the parent if no sibling
 				else
@@ -179,7 +180,7 @@ uint32_t hash(uint32_t v)
 						// goto 1st exploration of the sibling 
 						// (now current)
 						current = get_sibling(current);
-
+						
 						dir_flag = TRUE;
 					}
 					else
@@ -188,7 +189,7 @@ uint32_t hash(uint32_t v)
 			}
 			// ASSERT ((current == root) && (dir_flag == FALSE));
 		}
-
+		
 		//----- the root post order
 		(* process) (root, FALSE);
 	}
