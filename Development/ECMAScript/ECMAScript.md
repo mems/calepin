@@ -1355,6 +1355,23 @@ Instead:
 > using one “var” for multiple var decls tho means you can’t step through them with the debugger.
 — https://twitter.com/ljharb/status/690695085239861249
 
+## Increment operator
+
+```js
+let obj = {
+	_val: 0,
+	get p() {return this._val},
+	set p(v) {this._val = v*10},
+};
+console.log(++obj.p, " ", obj.p);// > 1 " " 10
+```
+
+```js
+let r = (++obj.p, obj.p);
+```
+
+- [A JavaScript Typed Array Gotcha « null program](https://nullprogram.com/blog/2019/01/23/)
+
 ## Common mistakes
 
 ### Missing variable declaration

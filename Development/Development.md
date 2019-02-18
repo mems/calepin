@@ -454,6 +454,29 @@ Aka Spaces vs tabs
 
 - [As a Designer I want better Release Notes](https://uxdesign.cc/design-better-release-notes-3e8c8c785231)
 
+## Game dev
+
+- Use a framerate, and compute all physics on that in each frames, compute the number of frames must be computed with the delta time or within a loop (for replay, as anti-cheat method)
+- store all account activity (connections, change status/state, name, email, password, login, logout, rights, game start, game end, etc.)
+- separate user account and user logins (email, native, OAuth, etc.)
+- clients don't always have the right time (time offset of few seconds/minutes)
+
+Anticheat:
+
+- use a replay engine (simulation)
+- save IP, device type, connection type, client revision/version, server revision/version, etc.
+- save input and output (see below)
+- use a seed (a PRNG) for random, you could use it for only short timelapse the client need to retrive at defined delay (ex: each 10 seconds need to get a new seed from the server). If in the timeframe the client can't get the new seed, it's a asychronous issue. The player is disconnected (the game end) or the game paused until the seed is retrived.
+	Or use server side event to be sure the server control randomness continuously
+
+For replay, be sure:
+
+- your engine should use fixed framerate
+- nothing should be based on time, but on frames (store results in engine frames, not time units)
+- be sure sorted items are stable (what happend when 2 elements have the same compared value)
+- consider all external values that could modify states
+- record input and all values (objects position, states)
+
 # Concepts and Methodology
 
 > Just because you can't see it, doesn't mean it isn't there.

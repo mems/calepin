@@ -3791,6 +3791,124 @@ or
 - [Why is getElementsByTagName() faster than querySelectorAll()? - Human Who Codes](https://humanwhocodes.com/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/)
 - [TreeWalker performance](https://codepen.io/mmems/pen/dwWyxv) - Performance of differents APIs
 
+### Find an element / text
+
+See also [Subordinate resource](../../Web/Web.md#subordinate-resource)
+
+Syntaxes:
+
+```
+http://.../#css()
+http://.../#xpath:/html/body/div[3]
+```
+
+Less specific = sensible to document changes
+Why not just search for the text chunk: like [Adblock Plus specific CSS selector `:-abp-contains()`](https://adblockplus.org/filter-cheatsheet#elementhideemulation), [jQuery specific CSS selector `:contains()`](https://api.jquery.com/contains-selector/), [CSS selector `:contains()` removed from CSS selectors level 3 spec](https://www.w3.org/TR/selectors-3/#content-selectors) or XPath `//div[text()="bananas"]`
+
+```js
+document.evaluate('//*[contains(text(),"text to search")]', $0, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+// For IE, see [XPath, unleashed — coming to Internet Explorer 5+ HTML DOM near you | Dimitri Glazkov](https://glazkov.com/2004/04/06/xpath-unleashed/) and the code here: [XPath over HTML for MSIE download | SourceForge.net](https://sourceforge.net/projects/html-xpath/)
+```
+
+Find the nearest 50px? ascendant / neighour
+
+1. find the nearest root
+	- `body`
+	- `:root` (SVG document where document.documentElement)
+2. less specific
+	- `#id ...`
+	- `#id ~ ...`
+	- `#id + ...`
+3. find the path to the element
+	- `element`
+	- `.class`
+	- `[attr=]`
+	- search for siblings uniqueness
+4. Match if the target is the first element that match
+	- try first to find unique ascendant:
+
+`[id=]`, `[name=]`
+
+Or
+
+1. `#id`
+2. siblings uniqueness
+	- `#id ~ ...`
+	- `#id + ...`
+3. element
+4. `ns|...`
+5. `.class`
+6. `[attr]` (not name and not id) with approximation `[attr=value]` `[attr~=value]` `[attr|=value]` `[attr^=value]` `[attr$=value]` `[attr*=value]`
+7. `:first-child`
+8. `:nth-of-type(5)` `:nth-last-child()`
+9. `:nth-child(5)` `:nth-last-of-type()`
+10. restart at 1 with parent
+
+```js
+// XPath selector of an element
+for(var path = '', elt = ...; elt && elt.nodeType == 1; elt = elt.parentNode){
+	let idx = elt.parentNode ? Array.from(elt.parentNode.children).filter(child => child.tagName === elt.tagName).indexOf(elt) + 1 : 1;
+	path = '/'+elt.tagName.toLowerCase() + (idx > 1 ? '['+idx+']' : '') + path;
+}
+```
+
+Test:
+- https://www.metafilter.com/175389/None-Dare-Call-It-Treason
+
+- [Pinpointer – Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/pinpointer/) - [Pinpointer/pinpointer.js at master · Rumperuu/Pinpointer](https://github.com/Rumperuu/Pinpointer/blob/master/content_scripts/pinpointer.js)
+- [ericclemmons/unique-selector: Given a DOM node, return a unique CSS selector matching only that element](https://github.com/ericclemmons/unique-selector) - used by Cypress
+- [Show HN: Pinpointer – A Firefox extension to share links to page elements | Hacker News](https://news.ycombinator.com/item?id=17556805)
+- [pinpoint/end.js at 4b2ec192c0400f26d7ff80ec3a652e467d5ee563 · karanlyons/pinpoint](https://github.com/karanlyons/pinpoint/blob/4b2ec192c0400f26d7ff80ec3a652e467d5ee563/Pinpoint.safariextension/end.js#L98)
+- [Shorter link that still works with your addon: https://en.wikipedia.org/wiki/Nel... | Hacker News](https://news.ycombinator.com/item?id=17557686)
+- [Comparison of CSS Selectors and XPath - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors/Comparison_with_XPath)
+
+### Find all links in DOM
+
+```js
+const html = document.documentElement.cloneNode(true);
+
+function patchURL(value){
+	
+}
+
+for(let [property, collection] of [
+	["src", null, html.querySelectorAll("img, video, audio, track, source, iframe, script, embed")],
+	["srcset", null, html.querySelectorAll("img, picture")],
+	["data", null, html.querySelectorAll("object")],
+	// inc. SVG 2 where href doesn't need anymore to be namespaced
+	["href", null, html.querySelectorAll("link, a, area, base, animate, linearGradient, radialGradient, discard, feImage, hatch, image, mesh, meshgradientmpath, pattern, scripttextPath, use")],
+	// SVG 1.1
+	["href", "http://www.w3.org/1999/xlink", html.querySelectorAll("a, animate, linearGradient, radialGradient, discard, feImage, hatch, image, mesh, meshgradientmpath, pattern, scripttextPath, use")],
+]){
+	for(let element of collection){
+		const isSVGElement = element instanceof SVGElement;
+		
+		// Some elements have deliberately this missing attribute (like <script> or <video><source src=""></video>)
+		if(!element.hasAttributeNS(property)){
+			continue;
+		}
+	
+		let value = element[property];
+	
+		if(property === "srcset"){
+			value = value.split(",").map(value => {
+				// https://html.spec.whatwg.org/multipage/images.html#srcset-attribute
+				let [url, descriptor] = value.trim().split(/\s+/);
+				url = patchURL(url, base);
+				return [url, descriptor].join(" ");
+			}).join(",");
+		}else{
+			value = patchURL(value, base);
+		}
+	
+		// Update the property (JSDOM doesn't rebase metas, we use absolute URLs)
+		// It's often better to use absolute URLs for metas
+		// But loose the ability to update base tag href
+		element[property] = value;
+	}
+}
+```
+
 ### Destructuring DOM nodes
 
 **Note: be carefull if multiple input have same id/name.**

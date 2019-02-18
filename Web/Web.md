@@ -985,11 +985,48 @@ See [RESTful](Development#RESTful) and [API](Development#API)
 - [URLs are UI - Scott Hanselman](https://www.hanselman.com/blog/URLsAreUI.aspx)
 - https://restpatterns.mindtouch.us/Articles/Designing_URIs
 
-### Hash
+## Subordinate resource
+
+Aka subresource, hash, fragment identifier
+
+Aka fragment
+
+Selectors:
+
+- [RFC 3236 - The 'application/xhtml+xml' Media Type](https://tools.ietf.org/html/rfc3236) - HTML: `page.html#namedSection`
+- [RFC 3778 - The application/pdf Media Type](https://tools.ietf.org/html/rfc3778) - PDF: `slides.pdf#page=10&viewrect=50,50,640,480`
+- [RFC 5147 - URI Fragment Identifiers for the text/plain Media Type](https://tools.ietf.org/html/rfc5147#section-2) - Plain Text: `text.txt#char=0,10`, `text.txt#line=10,20`
+- [RFC 3023 - XML Media Types](https://tools.ietf.org/html/rfc3023) - XML: `page.xml#xpointer(/a/b/c)`, `page.html#xpointer(string-range(//,"target text"))`
+- [RFC 3870 - application/rdf+xml Media Type Registration](https://tools.ietf.org/html/rfc3870) - RDF/XML: `data.rdf#namedResource`
+- [RFC 7111 - URI Fragment Identifiers for the text/csv Media Type](https://tools.ietf.org/html/rfc7111) - CSV: `data.csv#row=5-7`
+- [Media Fragments URI 1.0 (basic)](https://www.w3.org/TR/media-frags/) - Media: `image.jpg#xywh=50,50,640,480`, `video.ogv#t=60,100`
+- [Linking – SVG 1.1 (Second Edition)](https://www.w3.org/TR/SVG11/linking.html#SVGFragmentIdentifiers) - SVG: `image.svg#svgView(viewBox(50,50,640,480))`
+- [EPUB Canonical Fragment Identifier (epubcfi) Specification](http://www.idpf.org/epub/linking/cfi/epub-cfi-20140628.html) - EPUB3: `book.epub#epubcfi(/6/4[chap01ref]!/4[body01]/10[para05]/3:10)`
+- [Selectors and States](https://www.w3.org/TR/selectors-states/#frags) - Media, Text, RDF/HTML/XML: `page.html#selector(type=CssSelector,value=%23elemid%20>%20.elemclass%20+%20p)`
+- [Web Annotation Data Model](https://www.w3.org/TR/annotation-model/#fragment-selector)
+- [Using CSS Selectors as Fragment Identifiers](http://simonstl.com/articles/cssFragID.html) - `page.html#css(.myclass)`
+	- [CSS Selectors as Fragment Identifiers Community Group](https://www.w3.org/community/cssselfrags/)
+	- [Laurian/CSSFrag: Fork of Shaun Inman 'CSS Selectors as Fragment Identifiers' implementation.](https://github.com/Laurian/CSSFrag)
+- [npm-package.json | npm Documentation](https://docs.npmjs.com/files/package.json#git-urls-as-dependencies) - Github repo `github.com/npm/cli#semver:^5.0`
+- [fragmention - IndieWeb](https://indieweb.org/fragmention) - `page.html##text`
+- [NYTimes/Emphasis: Dynamic Deep-Linking and Highlighting](https://github.com/NYTimes/Emphasis) - HTML/XML `page.html#h5s1,2`
+- [bokand/ScrollToTextFragment: Proposal to allow specifying a text snippet in a URL fragment](https://github.com/bokand/ScrollToTextFragment) - `page.html#targetText=percent%20encoded`
+- [RFC 6901 - JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) - JSON: `data.json#/foo/0`
+- `jar:https://domain.com/path/to/jar.jar!/Pictures/a.jpg` (`jar:<url>!/{entry}`)
+- `zip:password@http://domain.com/path/to/file#/Pictures/a.jpg`
+- `swf:http://domain.com/path/to/file.swf#com.domain.ClassName` and `http://domain.com/path/to/file.swc#com.domain.ClassName`
+- [xpath.js](https://gist.github.com/antimatter15/223708) - HTML/XML: `page.html#xpath:/html/body/p[3]`. [XPath Bookmark Bookmarklet – Blog](http://antimatter15.com/wp/2009/11/xpath-bookmark-bookmarklet/#xpath:/html/body/div/div[3]/div/div/div/div/p[6]/strong/em)
+
+More infos:
 
 - [Fragment identifier - Wikipedia](https://en.wikipedia.org/wiki/Fragment_identifier)
+- [Best Practices for Fragment Identifiers and Media Type Definitions](https://www.w3.org/TR/fragid-best-practices/)
 - [List of valid characters for the fragment identifier in an URL? - Stack Overflow](https://stackoverflow.com/questions/2849756/list-of-valid-characters-for-the-fragment-identifier-in-an-url)
-- [Using CSS Selectors as Fragment Identifiers](http://simonstl.com/articles/cssFragID.html) - [CSS Selectors as Fragment Identifiers Community Group](https://www.w3.org/community/cssselfrags/)
+- [brettz9/jump-to-anchor: Jump to the closest anchor for a selected element](https://github.com/brettz9/jump-to-anchor)
+- [Rumperuu/Pinpointer: A browser extension to create and share links to arbitrary bits of webpages.](https://github.com/Rumperuu/Pinpointer) - [Developing Pinpointer – bengoldsworthy.net](https://bengoldsworthy.net/2018/04/developing-pinpointer/)
+- [karanlyons/pinpoint: Link anywhere.](https://github.com/karanlyons/pinpoint)
+- [ericclemmons/unique-selector: Given a DOM node, return a unique CSS selector matching only that element](https://github.com/ericclemmons/unique-selector)
+- [Find an element / text](../../Development/JavaScript/JavaScript.md#find-an-element--text)
 
 ### Data URI
 
@@ -1143,92 +1180,6 @@ Site-wide metadata files
 ## PDF
 
 - [Parameters for Opening PDF Files - pdf_open_parameters_v9.pdf](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/pdf_open_parameters_v9.pdf)
-
-## Subordinate resource
-
-Aka subresource, fragment identifier
-
-- `jar:https://domain.com/path/to/jar.jar!/Pictures/a.jpg` (`jar:<url>!/{entry}`)
-- `zip:password@http://domain.com/path/to/file#/Pictures/a.jpg`
-- `swf:http://domain.com/path/to/file.swf#com.domain.ClassName` and `http://domain.com/path/to/file.swc#com.domain.ClassName`
-- `xml:http://domain.com/path/to/file#element(/nodename[0]/nodename[2])` (xpath)
-- `http://example.com/foo.mp4#t=10,20`
-
-- [Fragment identifier — Wikipedia](https://en.wikipedia.org/wiki/Fragment_identifier)
-- [Best Practices for Fragment Identifiers and Media Type Definitions](https://www.w3.org/TR/fragid-best-practices/)
-- [RFC 6901 - JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) (proposal)
-
-### Element selector
-
-Syntaxes:
-
-	http://.../#css()
-	http://.../#xpath:/html/body/div[3]
-
-Less specific = sensible to document changes
-Why not just search for the text chunk: like [Adblock Plus specific CSS selector `:-abp-contains()`](https://adblockplus.org/filter-cheatsheet#elementhideemulation), [jQuery specific CSS selector `:contains()`](https://api.jquery.com/contains-selector/), [CSS selector `:contains()` removed from CSS selectors level 3 spec](https://www.w3.org/TR/selectors-3/#content-selectors) or XPath `//div[text()="bananas"]`
-
-	document.evaluate('//*[contains(text(),"text to search")]', $0, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
-	// For IE, see [XPath, unleashed — coming to Internet Explorer 5+ HTML DOM near you | Dimitri Glazkov](https://glazkov.com/2004/04/06/xpath-unleashed/) and the code here: [XPath over HTML for MSIE download | SourceForge.net](https://sourceforge.net/projects/html-xpath/)
-
-Find the nearest 50px? ascendant / neighour
-
-Find the nearest root
-
-- `body`
-- `:root` (SVG document where document.documentElement)
-
-Less specific:
-
-- `#id ...`
-- `#id ~ ...`
-- `#id + ...`
-
-Find the path to the element:
-
-- element
-- .class
-- [attr=]
-- search for siblings uniqueness
-
-
-Match if the target is the first element that match
-
-- try first to find unique ascendant:
-
-`[id=]`, `[name=]`
-
-- `#id`
-- siblings uniqueness
-	- `#id ~ ...`
-	- `#id + ...`
-- element
-- `ns|...`
-- `.class`
-- `[attr]` (not name and not id) with approximation `[attr=value]` `[attr~=value]` `[attr|=value]` `[attr^=value]` `[attr$=value]` `[attr*=value]`
-- `:first-child`
-- `:nth-of-type(5)` `:nth-last-child()`
-- `:nth-child(5)` `:nth-last-of-type()`
- 
-	// XPath selector of an element
-	for(var path = '', elt = ...; elt && elt.nodeType == 1; elt = elt.parentNode){
-		let idx = elt.parentNode ? Array.from(elt.parentNode.children).filter(child => child.tagName === elt.tagName).indexOf(elt) + 1 : 1;
-		path = '/'+elt.tagName.toLowerCase() + (idx > 1 ? '['+idx+']' : '') + path;
-	}
-
-Test:
-- https://www.metafilter.com/175389/None-Dare-Call-It-Treason
-
-- [CSS selectors - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-- [Developing Pinpointer – bengoldsworthy.net](https://bengoldsworthy.net/2018/04/developing-pinpointer/)
-- [Pinpointer – Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/pinpointer/) - [Pinpointer/pinpointer.js at master · Rumperuu/Pinpointer](https://github.com/Rumperuu/Pinpointer/blob/master/content_scripts/pinpointer.js)
-- [ericclemmons/unique-selector: Given a DOM node, return a unique CSS selector matching only that element](https://github.com/ericclemmons/unique-selector) - used by Cypress
-- [Show HN: Pinpointer – A Firefox extension to share links to page elements | Hacker News](https://news.ycombinator.com/item?id=17556805)
-- [pinpoint/end.js at 4b2ec192c0400f26d7ff80ec3a652e467d5ee563 · karanlyons/pinpoint](https://github.com/karanlyons/pinpoint/blob/4b2ec192c0400f26d7ff80ec3a652e467d5ee563/Pinpoint.safariextension/end.js#L98)
-- [Shorter link that still works with your addon: https://en.wikipedia.org/wiki/Nel... | Hacker News](https://news.ycombinator.com/item?id=17557686)
-- [Using CSS Selectors as Fragment Identifiers](http://simonstl.com/articles/cssFragID.html) - [CSS Selectors as Fragment Identifiers Community Group](https://www.w3.org/community/cssselfrags/)
-- [Laurian/CSSFrag: Fork of Shaun Inman 'CSS Selectors as Fragment Identifiers' implementation.](https://github.com/Laurian/CSSFrag)
-- [Comparison of CSS Selectors and XPath - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors/Comparison_with_XPath)
 
 ## Media type
 
