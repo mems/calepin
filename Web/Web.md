@@ -1994,6 +1994,7 @@ Reactive prefetch: [Google mobile search is getting faster - to be exact, 100-15
 - [Prefetching, preloading, prebrowsing | CSS-Tricks](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 - [A Link: rel=preload Analysis From the Chrome Data Saver Team – reloading – Medium](https://medium.com/reloading/a-link-rel-preload-analysis-from-the-chrome-data-saver-team-5edf54b08715#.hewz602sh)
 - [GoogleChromeLabs/quicklink: ⚡️Faster subsequent page-loads by prefetching in-viewport links during idle time](https://github.com/GoogleChromeLabs/quicklink)
+- [instant.page](https://instant.page/) - Prefetch pages under pointer before the user click (~300ms with cursor, ~90ms with touch) [Technical details — instant.page](https://instant.page/tech) [instantpage/instant.page: Make your site’s pages instant in 1 minute and improve your conversion rate by 1%](https://github.com/instantpage/instant.page)
 
 #### Download priority
 
