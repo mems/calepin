@@ -642,8 +642,8 @@ Aka HPACK
 
 - [Headers](#headers)
 - [mnot’s blog: Designing Headers for HTTP Compression](https://www.mnot.net/blog/2018/11/27/header_compression)
-- [HPACK: Header Compression for HTTP/2](https://http2.github.io/http2-spec/compression.html)
 - [RFC 7541 - HPACK: Header Compression for HTTP/2](https://tools.ietf.org/html/rfc7541)
+- [HPACK: the silent killer (feature) of HTTP/2](https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/)
 - [h2load - HTTP/2 benchmarking tool - HOW-TO — nghttp2 1.36.0-DEV documentation](https://nghttp2.org/documentation/h2load-howto.html)
 
 #### Anonymous requests require clean connection
@@ -1610,6 +1610,8 @@ CDN or cache proxy agregade differents resource fragments with cache
 Reduce latency server side.
 
 For statics resources (don't require cookies), use a dedicated domain.
+
+With HTTP/2.0 it's no more useful, with [header compression](#header-compression).
 
 #### Multiple domains for static resources
 
