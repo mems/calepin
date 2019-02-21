@@ -6411,3 +6411,15 @@ Datasets:
 
 - [chrome-ux-report](https://bigquery.cloud.google.com/dataset/chrome-ux-report:all) (aka CrUX)
 - [httparchive](https://bigquery.cloud.google.com/dataset/httparchive:runs.latest_pages)
+
+## Sourcemap
+
+Aka source map
+
+For CSS and JavaScript
+
+- [DIY source maps / Stoyan's phpied.com](https://www.phpied.com/diy-source-maps/)
+- [Source Mapper](https://sourcemaps.info/)
+- [mozilla/source-map: Consume and generate source maps.](https://github.com/mozilla/source-map)
+- [Introduction to JavaScript Source Maps - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/)
+- [Source maps: languages, tools and other info · ryanseddon/source-map Wiki](https://github.com/ryanseddon/source-map/wiki/Source-maps%3A-languages%2C-tools-and-other-info)
