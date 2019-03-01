@@ -3553,13 +3553,13 @@ About stack:
 - [stacktracejs/stacktrace.js: Generate, parse, and enhance JavaScript stack trace in all web browsers](https://github.com/stacktracejs/stacktrace.js/)
 - [stacktracejs/error-stack-parser: Extract meaning from JS Errors](https://github.com/stacktracejs/error-stack-parser)
 
-## Multiple replace
+## Replace all
 
 ```javascript
 // Search first occurence and replace, then move after the match and repeat
 // string and non global rexexp can replace the first occurrence only. Global rexexp can replace each occurences
 /*
-multipleReplace("à partir du 31/01", [[
+replaceAll("à partir du 31/01", [[
 	/D\u00e8s demain/g,
 	"En stock : livr\u00e9 d\u00e8s demain"
 ],[
@@ -3574,7 +3574,7 @@ multipleReplace("à partir du 31/01", [[
 ]]);
 // > "En stock : livré à partir du 31/01"
 */
-function multipleReplace(str, rules){
+function replaceAll(str, rules){
 	var result = "";
 	var lastIndex = 0;
 	// mutiple replace
