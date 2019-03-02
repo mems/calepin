@@ -1,5 +1,7 @@
 See [LZ77](Algorithms#LZ77)
 
+- [Compressor Head - YouTube](https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) - Videos about compression (how to compression works, how to write a compression algorithms) by Colt McAnlis
+
 ## Exploits
 
 All compressions are subject to decompression bomb.
