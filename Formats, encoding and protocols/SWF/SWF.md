@@ -13,6 +13,8 @@
 - [FrontPage - Libming Wiki](http://www.libming.org/FrontPage)
 - [getDefinitionNames by Denis Kolyako](getDefinitionNames.as)
 - [JSwiff Project Overview](http://wayback.archive.org/web/20100512061346/http://jswiff.com/)
+- [lykenware/flashback: Adobe Flash / SWF preservation tools.](https://github.com/lykenware/flashback)
+- [open-flash](https://github.com/open-flash)
 
 ## SWF
 
@@ -36,6 +38,7 @@
 - [Shumway is a Flash VM and runtime written in JavaScript](https://github.com/mozilla/shumway) - Dead project. See https://github.com/mozilla/shumway/issues/2420
 - [Low level Actionscript 3 library to parse, create, modify and publish SWF files](https://github.com/claus/as3swf)
 - [yossy/swfassist - Spark project](http://www.libspark.org/wiki/yossy/swfassist) - The ActionScript library to create the SWF binary
+- [open-flash/swf-parser: Rust and Typescript parsers for SWF](https://github.com/open-flash/swf-parser)
 
 ## ABC
 

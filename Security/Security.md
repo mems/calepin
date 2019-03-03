@@ -2681,6 +2681,7 @@ Doesn't work for Canada, China, Taiwan and the USA. China, Mexico, South Africa,
 	* https://twitter.com/anttiviljami/status/816585860661518336
 - [Have I been pwned? Check if your email has been compromised in a data breach](https://haveibeenpwned.com/)
 - [Did you know that the NSA uses Uber Drivers and Soccer Moms to Spy on You?](https://medium.com/@amuse/did-you-know-that-the-nsa-uses-uber-drivers-and-soccer-moms-to-spy-on-you-d912fe74befd)
+- [Restore Privacy | Your online privacy resource center](https://restoreprivacy.com/)
 
 - [OSINT Search Tool by IntelTechnique | Open Source Intelligence](https://inteltechniques.com/menu.html)
 - [Michael Bazzell' Blog  » Blog Archive   » Updated OSINT Flowcharts](https://inteltechniques.com/blog/2018/03/06/updated-osint-flowcharts/)

@@ -10,6 +10,8 @@ See also:
 
 - [dexteryy/spellbook-of-modern-webdev: A Big Picture, Thesaurus, and Taxonomy of Modern JavaScript Web Development](https://github.com/dexteryy/spellbook-of-modern-webdev)
 
+- [simevidas/webplatformnews-feeds: An OPML file containing over 600 feeds for web developers](https://github.com/simevidas/webplatformnews-feeds)
+
 ## DNS
 
 - [How DNS works](https://howdns.works/)
