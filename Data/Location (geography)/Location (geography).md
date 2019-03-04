@@ -112,4 +112,23 @@ See Geocoder
 
 ## Map data
 
+Aka satellite imagery
+
 - [Drawing every street in Romania · Dan Cătălin Burzo](http://danburzo.ro/every-street/)
+- [Tangram Heightmapper](https://tangrams.github.io/heightmapper/) - use  [Mapzen](http://mapzen.com/tangrams/tangram)'s global [elevation service](https://mapzen.com/blog/elevation) [tangrams/heightmapper: interactive heightmaps from terrain data](https://github.com/tangrams/heightmapper/)
+- [What a Relief: Global Test Pilots Wanted · Mapzen](https://www.mapzen.com/blog/elevation/)
+- [Tile Map Service Specification - OSGeo](http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification#local)
+- [Earthdata Search](https://search.earthdata.nasa.gov/)
+- [EarthExplorer - Home](https://earthexplorer.usgs.gov/)
+	- [USGS Earth Explorer: Download Free Landsat Imagery](https://gisgeography.com/usgs-earth-explorer-download-free-landsat-imagery/)
+	- [The National Map](https://www.usgs.gov/core-science-systems/national-geospatial-program/national-map)
+- [Open Access Hub](https://scihub.copernicus.eu/)
+- [EOSDIS Worldview](https://worldview.earthdata.nasa.gov/)
+- [DigitalGlobe — OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/DigitalGlobe)
+- [15 Free Satellite Imagery Data Sources - GIS Geography](https://gisgeography.com/free-satellite-imagery-data-list/)
+- [Satellite Maps, Satellite Imagery, GIS Data | Satellite Imaging Corp](https://www.satimagingcorp.com/)
+- [GLCF: Welcome](http://glcf.umd.edu/)
+- [Versions de Google Earth – Google Earth](https://www.google.com/earth/versions/#earth-pro) - Google Earth Pro can save image (file > save > save image; turn 3D buildings and terrain off) Can fix FOV (to 0.1deg) with http://dylanbrowndesigns.com/wordpress/wp-content/uploads/2017/05/FOV-1.zip
+	See also print as a PDF with 1200ppi (use a PDF printer). See [Save or Print High Resolution Images from Google Earth - Dylan Brown Designs](http://dylanbrowndesigns.com/tutorials/how-to-save-or-print-high-resolution-images-from-google-earth/)
+- [High Resolution Satellite Imagery | Harris Geospatial](https://www.harrisgeospatial.com/Data-Imagery/Satellite-Imagery/High-Resolution)
+- [How to access data / Observing the Earth / Our Activities / ESA](http://www.esa.int/Our_Activities/Observing_the_Earth/How_to_access_data)

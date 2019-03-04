@@ -1,6 +1,12 @@
 See [LZ77](Algorithms#LZ77)
 
-- [Compressor Head - YouTube](https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) - Videos about compression (how to compression works, how to write a compression algorithms) by Colt McAnlis
+- [Compressor Head - YouTube](https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) - Well explained videos about compression (how to compression works, how to write a compression algorithms) by Colt McAnlis.
+	- Variable Length Codes
+	- The LZ77 Compression Family
+	- Markov Chains
+	- Burrows-Wheeler transform
+	- Arithmetic Compression
+	- Adaptive Statistical Encoding
 
 ## Exploits
 
