@@ -1861,6 +1861,15 @@ Icon font, inline SVG or background SVG
 
 Prefer using SVG. Font it's realy hard to get a consitent (pixel) align correctly across browsers
 
+> - each platform handles fonts varies a lot
+> - icon-fonts have a smaller footprint
+> - Opera mini doesn't support custom fonts
+> - icon fonts fail a lot; especially on slow connections
+> - users can disable fonts & therefore won't get them
+> - icon fonts are limited in styling and animations
+> - icon fonts they have zero semantics
+> - adblockers sometimes block icon fonts
+
 > icon fonts do not use progressive enhancement by default
 — [Performance Calendar » No @font-face Syntax will ever be Bulletproof, Nor Should It Be](http://calendar.perfplanet.com/2016/no-font-face-bulletproof-syntax/#addendum_okay_but_what_about_icon_fonts)
 
@@ -1871,6 +1880,7 @@ Prefer using SVG. Font it's realy hard to get a consitent (pixel) align correctl
 - [css - SVG as icon font alternative - Stack Overflow](https://stackoverflow.com/questions/30820787/svg-as-icon-font-alternative)
 - [Bulletproof Accessible Icon Fonts | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html)
 - (not sure Custom Elements is the best solution, but explain others solutions) [The Road to SVG and Custom Elements in Clarity Icons – Clarity Design System – Medium](https://medium.com/claritydesignsystem/the-road-to-svg-and-custom-elements-in-clarity-icons-1d691c6cc91#.2anohjioj)
+- [Making the Switch Away from Icon Fonts to SVG: Converting Font Icons to SVG — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/icon-fonts-to-svg/)
 
 Align SVG icon with text:
 
