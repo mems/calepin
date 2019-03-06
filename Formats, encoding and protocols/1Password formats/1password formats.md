@@ -15,7 +15,7 @@ Unencrypted data
 
 ## Agile Keychain
 
-**Don't use this format, but [OPVault](#OPVault) instead**
+**Don't use this format, but [OPVault](#opvault) instead**
 
 `.agilekeychain` and `.cloudKeychain`
 
@@ -42,7 +42,7 @@ Older format, use 1 Password to version 4
 
 `.opvault`
 
-Replace [Agile Keychain](#Agile Keychain)
+Replace [Agile Keychain](#agile-keychain)
 
 - [How to switch to the OPVault format from Agile Keychain - 1Password Support](https://support.1password.com/cs/switch-to-opvault/)
 - [OPVault design - 1Password Support](https://support.1password.com/opvault-design/)

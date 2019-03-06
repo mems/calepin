@@ -112,7 +112,7 @@ Mobile: 16:9, 1280 × 800 @2dppx
 
 ## Scroll
 
-See [Fixed elements](#Fixed elements) and [Sticky header](#Sticky header)
+See [Fixed elements](#fixed-elements) and [Sticky header](#sticky-header)
 
 ### Custom scrollbar
 
@@ -281,7 +281,7 @@ Use `dppx` instead of `dpi`, but it's not currently supported everywhere
 - http://graphics.wikia.com/wiki/Pixel
 - [pixels-per-degree (PPD)](https://en.wikipedia.org/wiki/Retina_Display#Technical_definition)
 
-See [Responsive typography](#Responsive typography)
+See [Responsive typography](#responsive-typography)
 
 ### Reduced motion
 
@@ -347,7 +347,7 @@ Use autoprefixer
 		}
 	}
 
-See [Cover and contain of replaced element](#Cover and contain of replaced element)
+See [Cover and contain of replaced element](#cover-and-contain-of-replaced-element)
 
 - [@supports - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 
@@ -466,7 +466,7 @@ The grid doesn't auto size, use display flexbox or table instead
 
 ![Content that fits nicely into the grid in English doesn’t work so well in French](https://cdn-images-1.medium.com/1*K5Ahhn4JOiJgpgOy7pZa-A.gif)
 
-See [Flexbox](#Flexbox)
+See [Flexbox](#flexbox)
 
 	@supports (display: grid){
 		.container{
@@ -506,7 +506,7 @@ See [Flexbox](#Flexbox)
 
 ### Flexbox
 
-Usefull for sliders, etc. see [Slider](#Slider)
+Usefull for sliders, etc. see [Slider](#slider)
 
 - [A Complete Guide to Flexbox | CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [CodePen - Flexbox playground](http://codepen.io/enxaneta/full/adLPwv/)
@@ -518,7 +518,7 @@ Usefull for sliders, etc. see [Slider](#Slider)
 - [Visual CSS flexbox builder | Webflow](https://flexbox.webflow.com/)
 - [Flexbox Patterns](http://www.flexboxpatterns.com/home)
 - [CSS Flexbox Is Entirely Logical (Almost) / Paul Robert Lloyd](https://paulrobertlloyd.com/2016/03/logical_flexbox)
-- Change layout of lastest elements with [`nth-child()`](#Range selector) [Quantity queries and Flexbox part 2 | Charlotte Jackson, Front-end developer](http://www.lottejackson.com/learning/quantity-queries-and-flexbox-part-2)
+- Change layout of lastest elements with [`nth-child()`](#range-selector) [Quantity queries and Flexbox part 2 | Charlotte Jackson, Front-end developer](http://www.lottejackson.com/learning/quantity-queries-and-flexbox-part-2)
 - [Quick Tip: How z-index and Auto Margins Work in Flexbox](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
 
 Notes:
@@ -566,7 +566,7 @@ Override default `align-items: stretch` with `align-self: center` on `img` or `a
 
 #### Flexbox centering
 
-See [Alignment](#Alignment)
+See [Alignment](#alignment)
 
 #### Nav bar
 
@@ -811,7 +811,7 @@ For font size lock
 	}
 
 - [The math of CSS locks](https://fvsch.com/code/css-locks/)
-- [Responsive typography](#Responsive typography)
+- [Responsive typography](#responsive-typography)
 - [Truly Fluid Typography With vh And vw Units – Smashing Magazine](https://www.smashingmagazine.com/2016/05/fluid-typography/#controlling-viewport-units-to-get-minimum-and-maximum-font-sizes)
 - [Precise control over responsive typography · MadebyMike](http://madebymike.com.au/writing/precise-control-responsive-typography/)
 - viewport units and aspect ratio http://codepen.io/webdesserts/pen/zqMZGo
@@ -821,7 +821,7 @@ For font size lock
 
 #### Responsive iframe
 
-Use the padding (see [Vertical percentages](#Vertical percentages)) to autoscale iframes:
+Use the padding (see [Vertical percentages](#vertical-percentages)) to autoscale iframes:
 
 	<style>
 		.iframe-container{
@@ -898,7 +898,7 @@ Fabllback with SVG (works only for images):
 		<image xlink:href="path/to/image.jpg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/>
 	</svg>
 
-See also [Vertical percentages](#Vertical percentages)
+See also [Vertical percentages](#vertical-percentages)
 
 - [javascript - simulate background-size:cover on \<video\> or <img> - Stack Overflow](https://stackoverflow.com/questions/10797632/simulate-background-sizecover-on-video-or-img/29997746#29997746)
 - [html - Is there an equivalent to background-size: cover and contain for image elements? - Stack Overflow](https://stackoverflow.com/questions/11670874/is-there-an-equivalent-to-background-size-cover-and-contain-for-image-elements/31059913#31059913)
@@ -1372,7 +1372,7 @@ Arguments against `em`: [In CSS: use pixels, not em](http://jgthms.com/in-css-us
 - [CodePen - Accessibility of viewport percentage units](http://codepen.io/vcurd/full/ByerKw)
 - [Accessibility at Penn State | Font Size on the Web](http://accessibility.psu.edu/fontsizehtml/)
 - [Care With Font Size - Quality Web Tips](http://www.w3.org/QA/Tips/font-size)
-- [Responsive typography](#Responsive typography)
+- [Responsive typography](#responsive-typography)
 - [REM vs EM – The Great Debate | Zell Liew's blog about web design and development](http://zellwk.com/blog/rem-vs-em/)
 - [Building Resizeable Components with Relative CSS Units | CSS-Tricks](https://css-tricks.com/building-resizeable-components-relative-css-units/)
 - [Size Calculator](http://sizecalc.com/)
@@ -1390,8 +1390,8 @@ For `font-size` and/or `line-height`, etc.
 	  font-size: calc(2rem + 3vw);
 	}
 
-- [Font size](#Font size)
-- [Clamp values](#Clamp values)
+- [Font size](#font-size)
+- [Clamp values](#clamp-values)
 - [Variable font](OpenType#Variable font)
 - [Truly Fluid Typography With vh And vw Units – Smashing Magazine](https://www.smashingmagazine.com/2016/05/fluid-typography/)
 - [The Typekit Blog | Flexible typography with CSS locks](https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/)
@@ -1507,7 +1507,7 @@ Require a flat background color
 
 Aka break inline blocks, wrap text
 
-See [Ellipsis](#Ellipsis), [Flexbox](#Flexbox)
+See [Ellipsis](#ellipsis), [Flexbox](#flexbox)
 
 If used in table, use `table-layout: fixed` to force to break line.
 
@@ -1804,7 +1804,7 @@ Sprites aka texture atlas or tiles.
 	* https://gist.github.com/KrofDrakula/3639830
 	* https://stackoverflow.com/questions/831189/css-sprites-browser-rendering
 	* scale with `background-size`
-	* [Web # Data URI](#Data URI)
+	* [Web # Data URI](#data-uri)
 	* [CSS Sprites vs. Data URIs: Which is Faster on Mobile?](http://www.mobify.com/blog/css-sprites-vs-data-uris-which-is-faster-on-mobile/)
 	* [Bryan McQuade at ChromeDevSummit 2013: data:uris in CSS is considered a render-blocking anti-pattern for delivering critical/minimal CSS](https://docs.google.com/presentation/d/1z49qp03iXAJIkbXaMtCmWW_Pnnq-MzXGW139Xw8-paM/edit#slide=id.g174590d5d_0194)
 	* [On Mobile, Data URIs are 6x Slower than Source Linking (New Research) | Mobify](http://www.mobify.com/blog/data-uris-are-slow-on-mobile/)
@@ -1903,7 +1903,7 @@ See [Preload and prefetch](Web#Preload and prefetch)
 
 ## Animation & transition
 
-Use `transform` instead of `top`/`left`/`bottom`/`right` for better performances. See [relayout, repaint, reflow](#Relayout, repaint, reflow).
+Use `transform` instead of `top`/`left`/`bottom`/`right` for better performances. See [relayout, repaint, reflow](#relayout-repaint-reflow).
 
 Transition or animation on some devices (tablet or smartphone) are not perfectly synchronized, when lot of differents animated elements.
 
@@ -2171,7 +2171,7 @@ See [JavaScript selectors](HTML#JavaScript selectors)
 
 - [@supports for selectors by Taylor Hunt on CodePen](https://codepen.io/tigt/post/supports-for-selectors)
 
-See [Progressive Enhancement](#Progressive Enhancement)
+See [Progressive Enhancement](#progressive-enhancement)
 
 ### Classname
 
@@ -2278,7 +2278,7 @@ Note: To support protocol relative links, use `[href*="//itunes.apple.com/"]` in
 Only color can be used
 
 - [Privacy and the :visited selector - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector)
-- [Color `currentColor` keyword](#Color `currentColor` keyword)
+- [Color `currentColor` keyword](#color-currentcolor-keyword)
 
 ### CSS Engine selectors
 
@@ -2590,14 +2590,14 @@ Outline is squared even with `border-radius`. Use `box-shadow` to bypass that.
 
 Aka clipped element
 
-See [Mask](#Mask)
+See [Mask](#mask)
 
 Border with angle / angled edges
 
 Possible solutions:
 
 - `transform` (with or without pseudo element)
-- border (see [CSS Arrow](#CSS Arrow))
+- border (see [CSS Arrow](#css-arrow))
 - `clip-path`
 - SVG background
 - CSS mask
@@ -2681,7 +2681,7 @@ With ![](iphone6-shadow.png) and ![](iphone6.png)
 
 Can't scale to 100% of it container, use SVG instead
 
-See [Sloppy border](#Sloppy border)
+See [Sloppy border](#sloppy-border)
 
 	element{
 		overflow: hidden;
@@ -2962,7 +2962,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 
 ## Color `currentColor` keyword
 
-It's a keyword but act like a [variable](#Variables)
+It's a keyword but act like a [variable](#variables)
 
 Like a inherited color but used by border-color or background-color
 
@@ -3190,7 +3190,7 @@ See [detect touch device](JS#Detect touch device)
 
 ## Don't reveal element with hover
 
-See [detect touch device](#detect touch device)
+See [detect touch device](#detect-touch-device)
 
 On touch only devices it's could be a problem, especially if it's a link. Apple circumvent that: [The Annoying Mobile Double-Tap Link Issue | CSS-Tricks](https://css-tricks.com/annoying-mobile-double-tap-link-issue/)
 
@@ -3341,7 +3341,7 @@ Or toggle `text-overflow` when field is focused.
 
 Aka slideshow, carrousel
 
-[scroll snap points](#Snap points) can be used.
+[scroll snap points](#snap-points) can be used.
 
 	.items{
 		overflow-x: auto;/*or overflow-x: hidden; allow to control scrollLeft to custom scroll*/

@@ -116,7 +116,7 @@ Magic = complexity. With react, jsx is magic
 
 ## The wrong way
 
-Often due to [complexity](#Complexity) or [misconceptions and falsehoods](#Falsehoods)
+Often due to [complexity](#complexity) or [misconceptions and falsehoods](#falsehoods)
 
 > It’s harder to read code than to write it.
 > — Joel Spolsky
@@ -135,7 +135,7 @@ Often due to [complexity](#Complexity) or [misconceptions and falsehoods](#False
 
 - [Category Optimization](http://wiki.c2.com/?CategoryOptimization) - range of subjects related to performance
 
-See also [Multiple users](#Multiple users)
+See also [Multiple users](#multiple-users)
 
 ### Premature optimization
 
@@ -250,7 +250,7 @@ Aka naming things, few words
 - [Naming Guidelines](https://msdn.microsoft.com/en-us/library/ms229002%28v=vs.110%29.aspx)
 - [Sensible Interfaces](http://verraes.net/2013/09/sensible-interfaces/)
 
-See also [Case styles](#Case styles)
+See also [Case styles](#case-styles)
 
 - [Glue code — Wikipedia](https://en.wikipedia.org/wiki/Glue_code)
 - Patch: a piece of tape covering some punched holes [Patch (computing) — Wikipedia](https://en.wikipedia.org/wiki/Patch_%28computing%29)

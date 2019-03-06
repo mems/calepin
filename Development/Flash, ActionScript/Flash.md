@@ -636,7 +636,7 @@ The comment: `/** @see "oops can't document this." */` will also cause the same 
 
 #### Accessibility
 
-See [Accessibility](#Accessibility)
+See [Accessibility](#accessibility)
 
 #### Takes long to load
 

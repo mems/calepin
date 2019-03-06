@@ -112,7 +112,7 @@ See also [JPEG XR](https://en.wikipedia.org/wiki/JPEG_XR)
 
 Aka atlas of RGB and Alpha as "black and white". This makes the image wider or taller.
 
-Note: For image formats that use chrominance compression (like JPEG) this will **use the luminance channel (Y) only**. Cb & Cr will have all pixels grey, equal to 0.5 (for float value or 128 for 8bit values, in range of [0...255]) and are not required. See how [JNG](#JNG) works
+Note: For image formats that use chrominance compression (like JPEG) this will **use the luminance channel (Y) only**. Cb & Cr will have all pixels grey, equal to 0.5 (for float value or 128 for 8bit values, in range of [0...255]) and are not required. See how [JNG](#jng) works
 
 #### Pre-multiplied alpha
 

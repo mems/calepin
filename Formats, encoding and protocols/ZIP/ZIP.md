@@ -12,7 +12,7 @@ Add a uncompressed file without attributes then file `zip -0 -X doc.odt mimetype
 
 ## Decompression Bomb
 
-[ZIP Quine](#ZIP Quine) could a bomb if all contained zip are decompressed
+[ZIP Quine](#zip-quine) could a bomb if all contained zip are decompressed
 
 - [Zip bomb — Wikipedia](https://en.wikipedia.org/wiki/Zip_bomb)
 

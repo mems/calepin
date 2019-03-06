@@ -167,7 +167,7 @@ Aka Virtual DOM
 - (Math specific) [MathQuill](https://github.com/mathquill/mathquill) see also https://github.com/mathjax/MathJax
 - [pell - jaredreich.com](https://jaredreich.com/pell)
 
-See also [`contentEditable`](#contentEditable)
+See also [`contentEditable`](#contenteditable)
 
 ### Table editors
 
@@ -678,7 +678,7 @@ Hide element to reduce rendering flicker (initial state to complete state) for f
 	<script src="..." async></script>
 
 - `noscript` and fallback
-- [Polyfills](#Polyfills)
+- [Polyfills](#polyfills)
 - [Adactio: Journal—Just what is it that you want to do?](https://adactio.com/journal/7774)
 - [Don’t tell me what my browser can’t do! | Christian Heilmann](https://www.christianheilmann.com/2016/01/16/dont-tell-me-what-my-browser-cant-do/)
 - [Everyone has JavaScript, right?](http://kryogenix.org/code/browser/everyonehasjs.html)
@@ -717,7 +717,7 @@ browser’s preload scanner, create a synchronous blocking script tag when encou
 - https://github.com/WICG/interventions/issues/17
 - [If you use use document.write, you suck at JavaScript - Pomax.github.io](https://pomax.github.io/1473270609919/if-you-use-use-document-write-you-suck-at-javascript)
 
-See [Load external script](#Load external script)
+See [Load external script](#load-external-script)
 
 ### Don't put CSS and template in script
 
@@ -918,13 +918,13 @@ Can be:
 
 form.action or submitter(button[type=submit]|input[type=button]) formaction
 
-See [get the form submitter](#Get the form submitter)
+See [get the form submitter](#get-the-form-submitter)
 
 ### Android form keyboard submitter
 
 Next or Go
 
-See [Don't override native logic](#Don't override native logic)
+See [Don't override native logic](#dont-override-native-logic)
 
 - [HTML: Why does Android browser show "Go" instead of "Next" in keyboard? - Stack Overflow](https://stackoverflow.com/questions/6545086/html-why-does-android-browser-show-go-instead-of-next-in-keyboard)
 - [android - Replace Go button on soft keyboard with Next in Phonegap - Stack Overflow](https://stackoverflow.com/questions/23470439/replace-go-button-on-soft-keyboard-with-next-in-phonegap)
@@ -935,7 +935,7 @@ See [Don't override native logic](#Don't override native logic)
 Use `FormData` but require to use `POST` and content type `multipart/form-data`.
 
 	var form;
-	var submitter;//non disabled button[type=submit]|input[type=button]|input[type=image]. See [get the form submitter](#Get the form submitter)
+	var submitter;//non disabled button[type=submit]|input[type=button]|input[type=image]. See [get the form submitter](#get-the-form-submitter)
 	var xhr = new XMLHttpRequest();
 	var method = "POST"/*submitter.formMethod !== "" ? submitter.formMethod : form.method*/;// FormData works only with POST
 	var enctype = submitter.formEnctype !== "" ? submitter.formEnctype : form.enctype;// Use FormData overwrite content type to "multipart/form-data;boundary=RANDOM_STRING"
@@ -1266,7 +1266,7 @@ In others browser (or if redefine `console` property is not possible), log a mes
 - [Static Memory Javascript with Object Pools - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/static-mem-pools/) - Use object pools (recycle). See [Slay'n the Waste Monster by Colt McAnlis (#perfmatters at SFHTML5) - YouTube](https://www.youtube.com/watch?v=RWmzxyMf2cE)
 - [GCview](https://github.com/adobe-research/GCview) - GC / memory management visualization and monitoring framework
 
-- [WebGL progressive texture](#WebGL progressive texture)
+- [WebGL progressive texture](#webgl-progressive-texture)
 
 ## WebGL, Canvas2D
 
@@ -2732,7 +2732,7 @@ From https://bugzilla.mozilla.org/show_bug.cgi?id=1069609#attach_8710338
 ### AJAX Form
 
 - [Enhancing a comment form: From basic to custom error message to BackgroundSync | justmarkup](https://justmarkup.com/log/2016/10/enhancing-a-comment-form/)
-- [Submit form with AJAX](#Submit form with AJAX)
+- [Submit form with AJAX](#submit-form-with-ajax)
 
 ### Combobox with multiselect listbox
 
@@ -2756,7 +2756,7 @@ http://alistapart.com/article/application-cache-is-a-douchebag
 
 ## SVG document communication with parent document
 
-[Context messaging](#Context messaging) or listen load event on object/embed/iframe and access to `getSVGDocument()` or `contentDocument`
+[Context messaging](#context-messaging) or listen load event on object/embed/iframe and access to `getSVGDocument()` or `contentDocument`
 
 Inside SVG doc `element.ownerDocument` and `window.parent` or `parent` equals window of parent
 
@@ -2890,7 +2890,7 @@ You can use intersection observers' root option to find out when an element appe
 
 ## Restart CSS animation/transition
 
-Trigger a [reflow](#Relayout, repaint, reflow). Or set `animation` to `none` then after an immediate timeout (delay=0), reset `animation` to its original value.
+Trigger a [reflow](#relayout-repaint-reflow). Or set `animation` to `none` then after an immediate timeout (delay=0), reset `animation` to its original value.
 
 ## Get data from stylesheet
 
@@ -2982,7 +2982,7 @@ Script-created scripts are by default async. (but not with `document.write()`)
 
 See:
 
-- [Don't use `document.write()`](#Don't use `document.write()`)
+- [Don't use `document.write()`](#dont-use-documentwrite)`)
 - [Blocking resources](Web.md#blocking-resources)
 
 ## Animation
@@ -3102,7 +3102,7 @@ Because `offset[Left|Top]` is not available on SVG nodes and don't take account 
 See also:
 
 - Use CSS instead of JS: [Parallax effect](CSS#Parallax effect)
-- [scroll](#Scroll)
+- [scroll](#scroll)
 - Scroll with momentum / kinetic scrolling: [JavaScript Kinetic Scrolling: Part 2](http://ariya.ofilabs.com/2013/11/javascript-kinetic-scrolling-part-2.html)
 - Horizontal swipe + parallax effect: [JavaScript Kinetic Scrolling: Part 4](http://ariya.ofilabs.com/2013/12/javascript-kinetic-scrolling-part-4.html)
 - Cover Flow: [JavaScript Kinetic Scrolling: Part 5 (Cover Flow Effect)](http://ariya.ofilabs.com/2014/01/javascript-kinetic-scrolling-part-5-cover-flow-effect.html)
@@ -3449,7 +3449,7 @@ See [3D orientation](Math#3D orientation):
 
 ### Page transition
 
-As onepage (fetch/XHR + History API) or with multipages with [iframe trick](#Parse streamed HTML) or with `document.open()`. The only one issue is with living timers and listeners added to the previous page.
+As onepage (fetch/XHR + History API) or with multipages with [iframe trick](#parse-streamed-html) or with `document.open()`. The only one issue is with living timers and listeners added to the previous page.
 
 - [Improving User Flow Through Page Transitions – Smashing Magazine](https://www.smashingmagazine.com/2016/07/improving-user-flow-through-page-transitions/)
 
@@ -3463,7 +3463,7 @@ As onepage (fetch/XHR + History API) or with multipages with [iframe trick](#Par
 
 And it's not 100% forward compatible. Native user experience can or native UI change, a new browser version can be broken with this script
 
-- [Scroll to](#Scroll to)
+- [Scroll to](#scroll-to)
 - [UI - UX#Scroll]()
 - [Scroll-linked effects - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Scroll-linked_effects)
 - [Asynchronous scrolling in Firefox - staktrace.com](https://staktrace.com/spout/entry.php?id=834)
@@ -3544,7 +3544,7 @@ Use `requestAnimationFrame` (but `setInterval` shouldn't be better?)
 
 See "Fix 2. use requestAnimationFrame for resize and scroll event handlers" in [Fixing a parallax scrolling website to run in 60 FPS - Adventures in WebKit land](http://kristerkari.github.io/adventures-in-webkit-land/blog/2013/08/30/fixing-a-parallax-scrolling-website-to-run-in-60-fps/)
 
-See [Relayout, repaint, reflow](#Relayout, repaint, reflow)
+See [Relayout, repaint, reflow](#relayout-repaint-reflow)
 
 ### Scroll value
 
@@ -3678,7 +3678,7 @@ See [JavaScript selectors](HTML#JavaScript selectors)
 
 Prefer using `ref.parentNode.insertBefore(node, ref);` instead of `ref.parentNode.appendChild(node);`
 
-See also [Parse HTML using the native parser](#Parse HTML using the native parser)
+See also [Parse HTML using the native parser](#parse-html-using-the-native-parser)
 
 - [Surefire DOM Element insertion - Paul Irish](http://www.paulirish.com/2011/surefire-dom-element-insertion/)
 
@@ -3688,7 +3688,7 @@ See also [Parse HTML using the native parser](#Parse HTML using the native parse
 - `element.appendChild(document.createTextNode(text))`
 - `element.insertAdjacentText("beforeend", text)` (Firefox 48+, all others)
 
-See also [Parse HTML using the native parser](#Parse HTML using the native parser)
+See also [Parse HTML using the native parser](#parse-html-using-the-native-parser)
 
 - http://jsperf.com/textcontent-vs-createtextelement
 
@@ -4262,7 +4262,7 @@ Note: This method (XHR + data URI) is not supported by all browsers (eg.: Safari
 
 HTML Document or fragment.
 
-See [Streamed data](#Streamed data)
+See [Streamed data](#streamed-data)
 
 Note: scripts insert in parent document shouldn't be executed (but Edge, Safari & Chrome all do) https://html.spec.whatwg.org/multipage/syntax.html#scripts-that-modify-the-page-as-it-is-being-parsed https://twitter.com/zcorpan/status/806150847184928768
 What about `<meta http-equiv="Content-Security-Policy" content="script-src 'none';">`?
@@ -4364,7 +4364,7 @@ Note: It's impossible to observe only namespaced attributes like `xlink:href`, b
 
 ### Create a stylesheet
 
-See [Parse CSS using the native parser](#Parse CSS using the native parser)
+See [Parse CSS using the native parser](#parse-css-using-the-native-parser)
 
 	var s = document.createElement("style");
 	s.type = "text/css";
@@ -5423,7 +5423,7 @@ XMLHttpRequest can't be send in `unload` event because it's asynchronous. But a 
 	new DataView(typedarray.buffer, typedarray.byteOffset, typedarray.byteLength)
 
 **Do not use** `new SomeTypedArray(typedarray)`, **only values will be copied (doesn't use the same buffer)**. Example: if the typed array is `Uint8Array[0x01, 0x02, 0x03, 0x04]` and use `Uint32Array`, the result will be `Uint32Array[0x01, 0x02, 0x03, 0x04]` not `Uint32Array[0x01020304]`
-**Be carefull with [endianess](#TypedArray endianness)
+**Be carefull with [endianess](#typedarray-endianness)
 
 ### Use `StringView` to read/write strings in `ArrayBuffer`
 
@@ -5516,7 +5516,7 @@ The ratio is 2:1 bytes
 
 #### Store bytes in JS source as base64
 
-See [Store bytes in JS source as Data URI](#Store bytes in JS source as Data URI)
+See [Store bytes in JS source as Data URI](#store-bytes-in-js-source-as-data-uri)
 
 Base64 to bytes. The ratio is 4:3 bytes
 
@@ -5690,7 +5690,7 @@ Against: performance (probably), less performant with deflate compression, not w
 
 #### Store bytes in JS source as Data URI
 
-See [Store bytes in JS source as base64](#Store bytes in JS source as base64)
+See [Store bytes in JS source as base64](#store-bytes-in-js-source-as-base64)
 
 	let uri = "data:application/octet-stream;base64,..."
 
@@ -5717,7 +5717,7 @@ Note: encoding scheme must be supported (base64 or unencoded)
 	xhr.addEventListener("load", event => console.log(event.target.response));
 	xhr.send(null);
 
-Decode directly, see [As base64](#As base64)
+Decode directly, see [As base64](#as-base64)
 
 	// https://github.com/graingert/datauritoblob/blob/master/dataURItoBlob.js
 	// https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
@@ -5967,7 +5967,7 @@ For some browsers, loading data URI will be synchronous and won't trigger the `l
 - `image.src = canvas.toDataURL("image/png")` is async in Chrome 57+ [514206 - Data URI image resource should be loaded async - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=514206)
 - [Why does the value of img.complete can thus change while a script is executing? · Issue #1055 · whatwg/html](https://github.com/whatwg/html/issues/1055)
 - https://twitter.com/kuvos/status/602167106499665922 "et tu, Chrome? `img.onload = function(){ img = null; }; log(img);` onload can fire before the log, so logs null :'( this used to be IE only."
-- [`img.complete` can change](#`img.complete` can change)
+- [`img.complete` can change](#imgcomplete-can-change)
 
 ### Image dispatch progress events
 
@@ -6556,7 +6556,7 @@ Maxium of local variables per function (all function compared) will affect also 
 
 - [How to Record Heap Snapshots  |  Web  |  Google Developers](https://developers.google.com/web/tools/chrome-devtools/memory-problems/heap-snapshots)
 
-See [Garbage collecting and references](#Garbage collecting and references)
+See [Garbage collecting and references](#garbage-collecting-and-references)
 
 ## Font metrics
 
@@ -6744,7 +6744,7 @@ See [Bookmarklet](Web#Bookmarklet)
 
 Last instruction should return undefined (like `undefined` or `void(0)`), or the current page will navigate to a page with the result as HTML body. Ex: `javascript:"<b>Bold text</b>"`
 
-Copy current document as Markdown link bookmarklet (see [Clipboard API](#Clipboard API)):
+Copy current document as Markdown link bookmarklet (see [Clipboard API](#clipboard-api)):
 
 <details>
 	<summary>Bookmarklet snippet</summary>

@@ -107,7 +107,7 @@ https://kev.inburke.com/kevin/invalid-username-or-password-useless/
 
 ### Password
 
-- [Password storage](#Password storage)
+- [Password storage](#password-storage)
 - [Password Guidance: Simplifying Your Approach | CESG Site](https://www.cesg.gov.uk/guidance/password-guidance-simplifying-your-approach)
 - [Offensive Passwords – Tim MalcomVetter – Medium](https://medium.com/@malcomvetter/offensive-passwords-451371ccd02e)
 - [Password — Wikipedia](https://en.wikipedia.org/wiki/Password)
@@ -116,7 +116,7 @@ https://kev.inburke.com/kevin/invalid-username-or-password-useless/
 
 - [AgileBits Blog | Security](https://blog.agilebits.com/category/security/)
 
-Be carefull with renew password links send by email. See [Password-less login problems](#Password-less login).
+Be carefull with renew password links send by email. See [Password-less login problems](#password-less-login).
 
 Use password manager
 
@@ -192,7 +192,7 @@ Password strength:
 - [Reusable Security: New Paper on Password Security Metrics](http://reusablesec.blogspot.fr/2010/10/new-paper-on-password-security-metrics.html) - "Shannon entropy" (longer is stronger) is false
 - [Password strength — Wikipedia](https://en.wikipedia.org/wiki/Password_strength#Entropy_as_a_measure_of_password_strength)
 
-See lists of [commonly used passwords](#Password leaks)
+See lists of [commonly used passwords](#password-leaks)
 
 #### Password leaks
 
@@ -353,7 +353,7 @@ Against attacks, read/write access or modifications
 
 Aka authentification data storage
 
-See [Password](#Password)
+See [Password](#password)
 
 Use [bcrypt](http://en.wikipedia.org/wiki/Bcrypt) or a better one: https://github.com/p-h-c/phc-winner-argon2
 
@@ -456,8 +456,8 @@ Content submission: bots create account, add review, video, message / post (SPAM
 - require a phone number, verify it (by sending a verification code). Check reused for different accounts
 - verify email (send an verification link)
 - authentificate with [multi-factors](https://en.wikipedia.org/wiki/Multi-factor_authentication) see also [Universal 2nd Factor](https://en.wikipedia.org/wiki/Universal_2nd_Factor)
-- [prevent XSS and injection](#XSS and injection prevention)
-- check emptyness and validate values. See [Third party data](#Third party data)
+- [prevent XSS and injection](#xss-and-injection-prevention)
+- check emptyness and validate values. See [Third party data](#third-party-data)
 - use time as a limit (lifespan)
 - denunciation / reporting
 - blacklist or whitelists of IPs (or ranges), browsers, clients names, words, etc.
@@ -494,18 +494,18 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	Use statistics (point cloud, graphs, threshold, etc.) and compare with the average people. Ex: ingame real people can't always aim perfectly (perfect angles values)
 - [Copyright infringement](Conception#Copyright infringement)
 - use counter-measure against side-channel leaks based on time (timing attack):
-	See [Timing attack](#Timing attack)
+	See [Timing attack](#timing-attack)
 
 For contexts where code/data is given to untrusted parties (games, webapp, downloaded native app):
 
-- [Hide data](#Hide data)
+- [Hide data](#hide-data)
 - encrypted files (code) use param provided by the preloader. If the default value is used instead, the app run in a standalone mode: someone try to hack it (track IP + all infos)
 - Always force a fresh download of preloaders (dynamically generated?)
 - no hard code keys, tokens and IDs in source code
 - remove debug symbols
 - save value snapshots at random time interval
 - check memory alteration. Never store a numeric or a string of the result / score. Use pointer, etc.
-- use intergrity checks / DRM: [Subresource Integrity](#Subresource Integrity), native non overwritable class method of VM API, etc.
+- use intergrity checks / DRM: [Subresource Integrity](#subresource-integrity), native non overwritable class method of VM API, etc.
 - detect tools and modifications:
 
 		// See [795547 - Detecting deveoper tools open status kinda againis your princibles - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=795547#c8)
@@ -617,7 +617,7 @@ Automated systems are not perfect, humans too
 - [Flash Player Security Advanced Walkthrough | jpauclair](https://jpauclair.net/2009/12/11/flash-player-security-advanced-walkthrough/)
 - [How to protect flash games](how_to_protect_flash_games.pdf)
 
-See also [Reverse engineering and cracking](#Reverse engineering and cracking)
+See also [Reverse engineering and cracking](#reverse-engineering-and-cracking)
 
 #### Third party data
 
@@ -664,13 +664,13 @@ Always store data from third party in an external folder, outside root of the we
 
 See also
 
-- [Vulnerabilities](#Vulnerabilities)
+- [Vulnerabilities](#vulnerabilities)
 - [Safe String Theory for the Web — Acko.net](http://acko.net/blog/safe-string-theory-for-the-web/)
 
 ##### Unsafe HTML
 
 - **Do not decode with `s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#39;/g, "'").replace(/&quot;/g, '"')`** https://github.com/WebReflection/html-escaper#why https://github.com/WebReflection/html-escaper/blob/master/html.js https://github.com/mathiasbynens/he
-- **Note: All browsers don't support the same syntax** [HTML5 Security Cheatsheet - A collection of HTML5 related XSS attack vectors](https://github.com/cure53/H5SC) see [XSS and injection vulnerabilities](#XSS and injection vulnerabilities)
+- **Note: All browsers don't support the same syntax** [HTML5 Security Cheatsheet - A collection of HTML5 related XSS attack vectors](https://github.com/cure53/H5SC) see [XSS and injection vulnerabilities](#xss-and-injection-vulnerabilities)
 - [Detergent.io](https://detergent.io/) and [codsen/detergent: The text cleaner/encoder for web and email development](https://github.com/codsen/detergent)
 - `<noscript><noscript></noscript><script>confirm(1)</script></noscript>`
 - `htmlspecialchars()` or (`htmlentities()`). `'<a href="' . htmlspecialchars($url) . '">Link</>'` You can use `ENT_QUOTES` as flag to escape simple quotes. And you should check the protocol of `$url` before.
@@ -748,7 +748,7 @@ See also
 
 ##### Unsafe filename
 
-For filename see also [Unsafe URI](#Unsafe URI) and [Unsafe name](#Unsafe name)
+For filename see also [Unsafe URI](#unsafe-uri) and [Unsafe name](#unsafe-name)
 
 - filename, remove path separators `/` and ignore `.` and `..` (ex: `../../etc/passwd`, `folder/../../../etc/passwd`) or use something like `in_array(array_diff(scandir($directory), array('..', '.')), $filename)` to compare
 - check filename of uploaded files. Some lib (like ImageMagick) use patterns to treat files: `*`, `@`, `#`, `|`, `` `: [File Handling -- IM v6 Examples](http://www.imagemagick.org/Usage/files/)
@@ -761,12 +761,12 @@ For filename see also [Unsafe URI](#Unsafe URI) and [Unsafe name](#Unsafe name)
 
 From upload and loaded files / data
 
-See [Unsafe filename](#Unsafe filename)
+See [Unsafe filename](#unsafe-filename)
 
 - check upload file type with magic number:
 	* [Remote code execution vulnerability in ImageMagick | Hacker News](https://news.ycombinator.com/item?id=11624056)
 	* List of blacklisted types by MediaWiki [Manual talk:$wgMimeTypeBlacklist - MediaWiki](https://www.mediawiki.org/wiki/Manual_talk:$wgMimeTypeBlacklist#Default_changed_in_1.17)
-	* [HTML/SVG/XML vulnerabilities](#HTML/SVG/XML vulnerabilities)
+	* [HTML/SVG/XML vulnerabilities](#htmlsvgxml-vulnerabilities)
 - check upload file content:
 	- [Secure user uploads and exploiting served user content](https://opensourcehacker.com/2013/07/31/secure-user-uploads-and-exploiting-served-user-content/)
 	- [exploit - How should I serve untrusted / unsanitized documents (PDF, DOC, XLS) to end users over the web? - Information Security Stack Exchange](http://security.stackexchange.com/questions/11995/how-should-i-serve-untrusted-unsanitized-documents-pdf-doc-xls-to-end-user)
@@ -789,7 +789,7 @@ See [Unsafe filename](#Unsafe filename)
 
 Name for: username, page name, application name, etc.
 
-Remove diacritics, [normalize](http://www.unicode.org/reports/tr15/), replace [confusables](http://www.unicode.org/Public/security/6.3.0/confusables.txt). See ["use special chars or lookalike chars"](#Obfuscation (code))
+Remove diacritics, [normalize](http://www.unicode.org/reports/tr15/), replace [confusables](http://www.unicode.org/Public/security/6.3.0/confusables.txt). See ["use special chars or lookalike chars"](#obfuscation-code))
 
 Don't allow (approve) name change too often
 
@@ -874,7 +874,7 @@ See [Web scrapping](Web scrapping)
 
 #### Know your weaknesses
 
-See [Vulnerabilities](#Vulnerabilities)
+See [Vulnerabilities](#vulnerabilities)
 
 **… and solve it!**
 
@@ -908,7 +908,7 @@ It's possible to make calculation on encrypted data using [Homomorphic encryptio
 
 Aka TLS
 
-See also [Client Certificate](#Client Certificate)
+See also [Client Certificate](#client-certificate)
 
 TLS JavaScript Implementation
 
@@ -916,7 +916,7 @@ TLS JavaScript Implementation
 - [A JavaScript Implementation of TLS (Part 1/2) « Digital Bazaar](http://digitalbazaar.com/2010/07/20/javascript-tls-1/) and [A JavaScript Implementation of TLS (Part 2/2) « Digital Bazaar](http://digitalbazaar.com/2010/07/20/javascript-tls-2/)
 - [Moxie Marlinspike \>> Software >> sslstrip](https://moxie.org/software/sslstrip/)
 
-**Never mix HTTP and HTTPS, because HTTP parts can be compromised, even in navigation (page 1 HTTP -> page 2 HTTPS, via link, form or redirection).** Use [CSP](#Content Security Policy) `block-all-mixed-content` or `upgrade-insecure-requests`.
+**Never mix HTTP and HTTPS, because HTTP parts can be compromised, even in navigation (page 1 HTTP -> page 2 HTTPS, via link, form or redirection).** Use [CSP](#content-security-policy) `block-all-mixed-content` or `upgrade-insecure-requests`.
 
 Note: Root certificate can be compromises (by a malware, by the manufacturer, etc.) on the client machine.
 
@@ -1044,9 +1044,9 @@ For HTML, use:
 - `noopener`
 - `Content-Security-Policy: frame-ancestors 'self'` header (or the depreciated `X-Frame-Options: SAMEORIGIN`)
 - `X-Content-Type-Options: nosniff` header (discard content detection = use only `Content-Type` header)
-- [Subresource Integrity](#Subresource Integrity)
-- [Content Security Policy](#Content Security Policy)
-- [Cross-Origin Resource Sharing](#Cross-Origin Resource Sharing)
+- [Subresource Integrity](#subresource-integrity)
+- [Content Security Policy](#content-security-policy)
+- [Cross-Origin Resource Sharing](#cross-origin-resource-sharing)
 - use `SameSite=Strict` cookies
 
 - add a timestamp (use it also to create the "nonce") and check the diff time (depends how much input number is), a user require a minimum of few seconds
@@ -1061,12 +1061,12 @@ For JSON, use (affect only old browsers):
 - [AJAX Security Cheat Sheet - OWASP](https://www.owasp.org/index.php/AJAX_Security_Cheat_Sheet#Protect_against_JSON_Hijacking_for_Older_Browsers)
 - [jquery - Is it possible to XSS exploit JSON responses with proper JavaScript string escaping - Stack Overflow](https://stackoverflow.com/questions/3146324/is-it-possible-to-xss-exploit-json-responses-with-proper-javascript-string-escap)
 - prefix with `for(;;);` or `)]}'`
-- [Polyglot JSON - JS file](#Polyglot JSON - JS file)
+- [Polyglot JSON - JS file](#polyglot-json---js-file)
 
 See also
 
-- [Polyglot HTML - JPEG file](#Polyglot HTML - JPEG file)
-- [DOM clobbering](#DOM clobbering)
+- [Polyglot HTML - JPEG file](#polyglot-html---jpeg-file)
+- [DOM clobbering](#dom-clobbering)
 - [Cross-site scripting — Wikipedia](https://en.wikipedia.org/wiki/Cross-site_scripting)
 - [Link types - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)
 - [Source-Breaking Injections - Fooling the Interpreter](http://brutelogic.com.br/blog/source-breaking-injections/)
@@ -1587,7 +1587,7 @@ An other example:
 - [PortSwigger Web Security Blog: Bypassing CSP using polyglot JPEGs](http://blog.portswigger.net/2016/12/bypassing-csp-using-polyglot-jpegs.html)
 - [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/kenuka/edit?html,output)
 - http://portswigger-labs.net/csp/csp.php?x=%3Cscript%20charset=%22ISO-8859-1%22%20src=%22http://portswigger-labs.net/polyglot/jpeg/xss.jpg%22%3E%3C/script%3E
-- [XSS and injection vulnerabilities](#XSS and injection vulnerabilities)
+- [XSS and injection vulnerabilities](#xss-and-injection-vulnerabilities)
 
 ###### Polyglot PNG
 
@@ -1635,7 +1635,7 @@ AES(A) = B; where A and B are documents (image, pdf, etc.)
 
 Valid JavaScript, use implicit type coercion.
 
-See also [Obfuscation (code)](#Obfuscation%20%28code%29)
+See also [Obfuscation (code)](#obfuscation2028code29)
 
 - [JSFuck — Wikipedia](https://en.wikipedia.org/wiki/JSFuck)
 - [JSFuck - Write any JavaScript with 6 Characters: \[\]()!+](http://www.jsfuck.com/) - see https://github.com/aemkei/jsfuck/blob/master/jsfuck.js
@@ -1750,11 +1750,11 @@ Then evaluate JavaScript. See [Parse JavaScript using the native parser](JavaScr
 
 ##### Obfuscation (code)
 
-See [Reverse engineering and cracking](#Reverse engineering and cracking)
+See [Reverse engineering and cracking](#reverse-engineering-and-cracking)
 
 Obfuscate code and bytecode
 
-Pirates bypass anti-viruses. Client integrity — prevent client to modify instruction/code. See [Malware](#Malware)
+Pirates bypass anti-viruses. Client integrity — prevent client to modify instruction/code. See [Malware](#malware)
 
 - Ajouter du bruit / Injection de code inutile (alourdir volontairement le code pour noyer dans la masse)
 	* ajout d'instructions valides inutiles et/ou d'arguments inutiles aux fonctions (pour rendre la lecture du code plus complexe)
@@ -1775,7 +1775,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 - use different types: string or bits / bytes vs numbers
 - intermediate state (use evaluation/decoding step)
 	* [ROT13 — Wikipedia](https://en.wikipedia.org/wiki/ROT13), ROT47 - translate charset to an other charset. [Substitution cipher — Wikipedia](https://en.wikipedia.org/wiki/Substitution_cipher)
-	* Encoder des informations (clés, bytecode…) dans les fichiers image, audio, etc.: [Hide data](#Hide data)
+	* Encoder des informations (clés, bytecode…) dans les fichiers image, audio, etc.: [Hide data](#hide-data)
 	* Encoder les informations (clés) dans des chaines courantes "This program cannot be run in DOS mode."
 		- [assembly - Is it possible to hide a password defined within C++ code - Stack Overflow](https://stackoverflow.com/questions/5316562/is-it-possible-to-hide-a-password-defined-within-c-code/5316925#5316925)
 - Use predictible but unsual / non logical / ambigous operations:
@@ -1848,7 +1848,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		- `-0 === +0`
 		- `3 / -0 === -Infinity` (or `Math.pow(-0, -1)`) where `3 / +0 === Infinity` (or `Math.pow(+0, -1)`)
 		- http://speakingjs.com/es5/ch11.html#_distinguishing_the_two_zeros
-	* ECMAScript, implicit type coercion, see [JSFuck and similar](#JSFuck and similar)
+	* ECMAScript, implicit type coercion, see [JSFuck and similar](#jsfuck-and-similar)
 	* ECMAScript, rewrite test:
 		- `let a = new Number(10); a.valueOf => 20; //-> a == 20; a !== 20; Number.prototype.valueOf.apply(a) === 10 // String(a) == "10" && a.toString() == "10" // typeof a == "object"` primitive can be wrapped by an object
 		- `Symbol.hasInstance`, `Symbol.toPrimitive`, `Symbol.toStringTag`: http://www.2ality.com/2015/09/well-known-symbols-es6.html
@@ -1913,7 +1913,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		
 		- [c# - Why can't a 'continue' statement be inside a 'finally' block? - Stack Overflow](https://stackoverflow.com/questions/17991036/why-cant-a-continue-statement-be-inside-a-finally-block)
 	* Esoteric programming language that are subset of a language 
-		see [JSFuck](#Esoteric programming languages)
+		see [JSFuck](#esoteric-programming-languages)
 	* closures
 	* enumerable
 	* write or switch Object prototype
@@ -1926,7 +1926,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		
 		To resolve it, just use: `var trueUndefined = (function(undefined) {return undefined})();` or `var trueUndefined = void(0);`
 	* PHP, copy array instead of using it reference. See [Is there a function to make a copy of a PHP array to another? - Stack Overflow](https://stackoverflow.com/questions/1532618/is-there-a-function-to-make-a-copy-of-a-php-array-to-another/1532632#1532632)
-	* JS: [DOM clobbering](#DOM clobbering)
+	* JS: [DOM clobbering](#dom-clobbering)
 	* CSS: escaped char can be followed by space `.\65 lement{}` is same as `.element{}` but not `.e lement{}` (spaces are often used to combine selectors) [Using character escapes in markup and CSS](https://www.w3.org/International/questions/qa-escapes#cssescapes)
 	* C, `#define true false`, `#define if(x) if((rand % 10) ? (x) : !(x))`, `#define if(x) if((x) && ( ((double)rand()*10.0 / (double)RAND_MAX) < 1.0))`
 	* PHP `$func = 'foo';$func();// This calls foo()`: [PHP: Variable functions - Manual](http://php.net/manual/en/functions.variable-functions.php)
@@ -2079,7 +2079,7 @@ And recover, hijacking, pirated, hacked
 
 ### Reverse engineering and cracking
 
-See [Prevent violation](#Prevent violation)
+See [Prevent violation](#prevent-violation)
 
 	# mach injection hack
 	# From https://github.com/mschrag/slowmo
@@ -2126,7 +2126,7 @@ See [Prevent violation](#Prevent violation)
 
 ### Vulnerabilities
 
-See [Know your weaknesses](#Know your weaknesses)
+See [Know your weaknesses](#know-your-weaknesses)
 
 - Fake hotspot: [Wifi ouvert - Attention aux faux hotspot ! (+ une démo avec un module Arduino) - Korben](http://korben.info/wifi-ouvert-attention-aux-faux-hotspot-demo-module-arduino.html?utm_source=dlvr.it&utm_medium=twitter)
 - [Malware in the browser: how you might get hacked by a Chrome extension](https://kjaer.io/extension-malware/)
@@ -2189,10 +2189,10 @@ Look like phishing / spoofing trusted UI
 - [The Line of Death – text/plain](https://textslashplain.com/2017/01/14/the-line-of-death/)
 - fullscreen document (can display a fake OS / browser UI)
 - [Beware! Don't Fall For "Font Wasn't Found" Google Chrome Malware Scam](http://thehackernews.com/2017/02/HoeflerText-font-chrome.html)
-- [Clickjacking](#Clickjacking)
-- [Tabnabbing and Address Bar Spoofing](#Tabnabbing and Address Bar Spoofing)
-- [Pastejacking](#Pastejacking)
-- [Fake History](#Fake History)
+- [Clickjacking](#clickjacking)
+- [Tabnabbing and Address Bar Spoofing](#tabnabbing-and-address-bar-spoofing)
+- [Pastejacking](#pastejacking)
+- [Fake History](#fake-history)
 - [Email spoofing — Wikipedia](https://en.wikipedia.org/wiki/Email_spoofing)
 - [Phishing — Wikipedia](https://en.wikipedia.org/wiki/Phishing)
 - [The Attack of the Alerts and the Zombie Script – Broken Browser](https://www.brokenbrowser.com/zombie-alert/)
@@ -2573,7 +2573,7 @@ The same for HTML files. See also `innerHTML`
 
 All browsers/libs don't handle the same way this files
 
-- [XSS and injection vulnerabilities](#XSS and injection vulnerabilities)
+- [XSS and injection vulnerabilities](#xss-and-injection-vulnerabilities)
 - [XXE](https://www.owasp.org/index.php/XML_External_Entity_%28XXE%29_Processing)
 - [Billion laughs](https://www.owasp.org/index.php/XML_Security_Cheat_Sheet#Billion_Laughs)
 - [quadratic blowup](https://www.owasp.org/index.php/XML_Security_Cheat_Sheet#Quadratic_Blowup)
@@ -2626,7 +2626,7 @@ All browsers/libs don't handle the same way this files
 	- [Security: A harmless SVG + XSLT curiousity](http://scarybeastsecurity.blogspot.fr/2011/01/harmless-svg-xslt-curiousity.html)
 - etc.
 
-Some attacks can be blocked by [Content Security Policy](#Content Security Policy)
+Some attacks can be blocked by [Content Security Policy](#content-security-policy)
 
 - [Deserialization of untrusted data - OWASP](https://www.owasp.org/index.php/Deserialization_of_untrusted_data)
 - [XML Security Cheat Sheet - OWASP](https://www.owasp.org/index.php/XML_Security_Cheat_Sheet#Quadratic_Blowup)
@@ -2641,14 +2641,14 @@ Some attacks can be blocked by [Content Security Policy](#Content Security Polic
 
 #### XSS and injection vulnerabilities
 
-See [XSS and injection prevention](#XSS and injection prevention)
+See [XSS and injection prevention](#xss-and-injection-prevention)
 
 - [XSS game](https://xss-game.appspot.com/) - [Google created an XSS game to teach you how to exploit and prevent them (x-post from /r/php) : webdev](https://www.reddit.com/r/webdev/comments/5s1ex0/google_created_an_xss_game_to_teach_you_how_to/)
-- [HTTP/0.9 vulnerability](#HTTP/0.9 vulnerability)
+- [HTTP/0.9 vulnerability](#http09-vulnerability)
 - [HTML5 Security Cheatsheet - A collection of HTML5 related XSS attack vectors](https://github.com/cure53/H5SC)
 - [EXIF Cross Site Scripting, PHP Fun – Confessions Of A Dangerous Mind](http://www.sectorix.com/2013/12/02/exif-cross-site-scripting-php-fun/)
 - [Malware Hidden Inside JPG EXIF Headers](https://blog.sucuri.net/2013/07/malware-hidden-inside-jpg-exif-headers.html)
-- Some data can bypass CSP [Polyglot JPEG - JS file](#Polyglot JPEG - JS file)
+- Some data can bypass CSP [Polyglot JPEG - JS file](#polyglot-jpeg---js-file)
 - [The Shortest Reflected XSS Attack Possible - Fooling the Interpreter](http://brutelogic.com.br/blog/shortest-reflected-xss-possible/)
 - [Widespread XSS Vulnerabilities in Ad Network Code Affecting Top Tier Publishers, Retailers - Randy Westergren](https://randywestergren.com/widespread-xss-vulnerabilities-ad-network-code-affecting-top-tier-publishers-retailers/)
 - [PortSwigger Web Security Blog: Exploiting CORS Misconfigurations for Bitcoins and Bounties](http://blog.portswigger.net/2016/10/exploiting-cors-misconfigurations-for.html)
@@ -3091,11 +3091,11 @@ Issues: health, order, safety, etc.
 - [Wrong Number Puts Rotterdam, NY, at Center of Turkey-Netherlands Rift](https://www.dailydot.com/layer8/turkey-netherlands-rotterdam-wrong-number-protest/) - People call the wrong phone number, Rotterdam Police could refer to Politie Rotterdam, Netherlands or Rotterdam Police Department, New York, USA
 - [A Tweet to Kurt Eichenwald, a Strobe and a Seizure. Now, an Arrest. - The New York Times](https://www.nytimes.com/2017/03/17/technology/social-media-attack-that-set-off-a-seizure-leads-to-an-arrest.html) - Send a blink GIF to a [photosensitive epilepsy](https://en.wikipedia.org/wiki/Photosensitive_epilepsy) person.
 - [Dennō Senshi Porygon — Wikipedia](https://en.wikipedia.org/wiki/Denn%C5%8D_Senshi_Porygon#Reception_and_controversy) - trigger a seizure in vulnerable users with a movie (contains flashes) or with strobe lights
-- Use [Virtual mobile number](https://en.wikipedia.org/wiki/Virtual_number) or [spoof SMS](#SMS spoofing) to send lot of SMS to one target (DDoS)
+- Use [Virtual mobile number](https://en.wikipedia.org/wiki/Virtual_number) or [spoof SMS](#sms-spoofing) to send lot of SMS to one target (DDoS)
 - [An interesting thought on IRL equivalence of DDOS attacks on a business. I'd love to hear your thoughts. : DepthHub](https://www.reddit.com/r/DepthHub/comments/ejqyb/an_interesting_thought_on_irl_equivalence_of_ddos/)
 
-See [DDoS](#DDoS)
-See [Usurpation & social engineering](#Usurpation & social engineering)
+See [DDoS](#ddos)
+See [Usurpation & social engineering](#usurpation--social-engineering)
 
 ## Sabotage
 

@@ -85,7 +85,7 @@ About mixed content:
 
 Server Side Event, WebSocket or long-polling HTTP request, pull
 
-For live content (live number of watchers, real-time transport traffic, real-time updated article, etc.), doesn't require bi-directional (full-duplex) communication, use [SSE](#Server Side Event) first
+For live content (live number of watchers, real-time transport traffic, real-time updated article, etc.), doesn't require bi-directional (full-duplex) communication, use [SSE](#server-side-event) first
 
 - [Google Maps .Net Control](http://gmapsdotnetcontrol.blogspot.fr/2006/08/exploring-reverse-ajax-ajax.html)
 - [Push technology — Wikipedia](https://en.wikipedia.org/wiki/Push_technology)
@@ -317,7 +317,7 @@ See [Security](Security#HTTP Referer)
 
 Aka POST, GET, HEAD, PUT, etc.
 
-See [RESTful](#RESTful) and [API](#API)
+See [RESTful](#restful) and [API](#api)
 
 - `X-HTTP-Method` (Microsoft), `X-HTTP-Method-Override` (Google/GData), `X-Method-Override` (IBM)
 - [The Definitive Guide to GET vs POST - Treehouse Blog](http://blog.teamtreehouse.com/the-definitive-guide-to-get-vs-post)
@@ -334,7 +334,7 @@ See [RESTful](#RESTful) and [API](#API)
 
 ### Content encoding
 
-See [Precompress](#Precompress)
+See [Precompress](#precompress)
 
 Note: sometimes you can't encode content, event if the final client support it, mediators could not (proxies, cache servers, etc.): [Who’s not getting gzip? | High Performance Web Sites](http://www.stevesouders.com/blog/2009/11/11/whos-not-getting-gzip/)
 
@@ -370,7 +370,7 @@ About brotli vs gzip:
 
 ### Request content encoding
 
-See [Content encoding](#Content encoding)
+See [Content encoding](#content-encoding)
 
 Send compressed request body
 
@@ -398,7 +398,7 @@ About ranges and chunked transfert encoding:
 
 ### Send binary data in JSON
 
-See [Request content encoding](#Request content encoding)
+See [Request content encoding](#request-content-encoding)
 
 base64 or `multipart/form-data`
 
@@ -851,7 +851,7 @@ Can be used server side to detect browser, bot, etc.
 
 Apple Shortcuts App: `Shortcuts/700 CFNetwork/974.2.1 Darwin/18.0.0`
 
-See [Detection](#Detection)
+See [Detection](#detection)
 
 - [WebAIM: History of the browser user-agent string](http://webaim.org/blog/user-agent-string-history/)
 - [User agent - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/User_agent)
@@ -1446,7 +1446,7 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 - minification: optimize/reduce without require reverse operation, remove unessary data (duplicates, unused tags, selectors)
 	http://cssstats.com/
 	https://isellsoap.github.io/specificity-visualizer/
-- compact/compress (require processing to recover operable state): pre-gzip. See [Precompress](#Precompress) and [Content encoding`](#Content encoding)
+- compact/compress (require processing to recover operable state): pre-gzip. See [Precompress](#precompress) and [Content encoding`](#content-encoding)
 - use different compression algorithm, or a better tool/algorithm implementation (like zopfli for deflate)
 	- [Guetzli](https://github.com/google/guetzli/) can be use in conjunction of tools like [ImageOptim](https://imageoptim.com/)
 	- brotli (vs gzip)
@@ -1481,7 +1481,7 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 				<img src="original.gif">
 			</video>
 		
-		See [Animated image](Image#Animated image). See also [Image sequence](#Image sequence)
+		See [Animated image](Image#Animated image). See also [Image sequence](#image-sequence)
 	- Use a video with only 1 frame as image (ex: WebP), could done with H.264/H.265, see [Use video codec](Image#Use video codec)
 	- Use code/lib to animate elements instead of video or sprites: https://github.com/bodymovin/bodymovin
 	- VP9 (8bit) good on small screens (but not on big)
@@ -1529,9 +1529,9 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 - CSS/HTML in JavaScript variables
 - HTML prerendered (HTML + JS + data)
 - bundle JS and/or CSS, image spriting https://github.com/clyfish/zerosprites http://yostudios.github.io/Spritemapper/
-- add the right header(s) for server cache strategy (see [Cache](#Cache))
+- add the right header(s) for server cache strategy (see [Cache](#cache))
 
-Note: HTTP/2 [multiplex](#Multiplexed / Pipelining) and [push](#Server Push) are not always a good alternative, because compression is more efficient on larger chunk data. [Musings on HTTP/2 and Bundling | CSS-Tricks](https://css-tricks.com/musings-on-http2-and-bundling/)
+Note: HTTP/2 [multiplex](#multiplexed--pipelining) and [push](#server-push) are not always a good alternative, because compression is more efficient on larger chunk data. [Musings on HTTP/2 and Bundling | CSS-Tricks](https://css-tricks.com/musings-on-http2-and-bundling/)
 
 - [The Best Request Is No Request, Revisited · An A List Apart Article](https://alistapart.com/article/the-best-request-is-no-request-revisited) - Unbundle resources with HTTP/2.0 but be carefull
 
@@ -1630,7 +1630,7 @@ Ex: `static1.example.com` and `static2.example.com`
 
 #### Precompress
 
-See [Content encoding](#Content encoding)
+See [Content encoding](#content-encoding)
 
 For all text formats: CSS, SVG, JavaScript
 
@@ -1907,9 +1907,9 @@ Load based on the device or network capabilities:
 
 Full raw data vs. data + computations (ex: BMP vs PNG)
 
-Use [cache](#Cache)
+Use [cache](#cache)
 
-- [push content with HTTP/2](#Server Push)
+- [push content with HTTP/2](#server-push)
 - [Fonts and FO*T](CSS#Fonts and FO*T)
 - use `font-display` property for fonts
 - use fallback font
@@ -1929,7 +1929,7 @@ Aka dynamic buffering
 
 See also dns-prefetch, preconnect, prerender
 
-See [Server Push](#Server Push)
+See [Server Push](#server-push)
 
 	<link rel="preload" as="style" href="style.css">
 	<link rel="prefetch" href="style.css">
@@ -2153,8 +2153,8 @@ If the IntersectionObserver API is not supported:
 - or fallback to scroll listener, `setInterval()` with a not too small delay and `getClientBoundingRect()`
 - or load all lazyloaded images, it's the default behavior before lazyload has been implemented
 
-See [`<noscript>` and search engines](#`<noscript>` and search engines)
-See [Partial/Progressive load](#Progressive load)
+See [`<noscript>` and search engines](#noscript-and-search-engines)
+See [Partial/Progressive load](#progressive-load)
 
 #### Progressive load
 
@@ -2205,7 +2205,7 @@ Note: `media!='all'&&...` is required as a workaround for infinite event loop on
 - [Fonts and FOXX](CSS#Fonts and FOXX)
 
 
-See [`<noscript>` and search engines](#`<noscript>` and search engines)
+See [`<noscript>` and search engines](#noscript-and-search-engines)
 
 #### Critical path
 
@@ -2387,7 +2387,7 @@ Which metric is best?
 Aka wireframe of a webpage
 
 **Note: always render document server side. All the document content must be delivered.**
-JavaScript (client side) can be used to enhance experience (loading, UI elements, etc.). See [Progressive Enhancement](#Progressive Enhancement)
+JavaScript (client side) can be used to enhance experience (loading, UI elements, etc.). See [Progressive Enhancement](#progressive-enhancement)
 
 **Have things (critical content) before 1000ms.** See [responsiveness](UI - UX#Responsiveness)
 
@@ -2395,7 +2395,7 @@ Anatomy/wireframe of a webpage:
 
 	<!--
 	HTTP header `Link` dns-prefetch, preconnect and preload for critical style, script and content
-	Critical styles and scripts should be in the [Initial TCP window](#Initial TCP window)
+	Critical styles and scripts should be in the [Initial TCP window](#initial-tcp-window)
 	Inlined scripts below, can be files if pushed with HTTP/2 server push before the HTML document
 	-->
 	<!DOCTYPE html>
@@ -2426,7 +2426,7 @@ Anatomy/wireframe of a webpage:
 			Critical styles
 			Style for critical content: above floating line (main nav, header, hero image, article) or show a loader, while the rest is loading.
 			Shouldn't be used to display aside content: comments, commercial components/ads, popular content, related content, sharing widgets, etc.
-			See [Critical rendering path](#Critical rendering path)
+			See [Critical rendering path](#critical-rendering-path)
 			-->
 			<style>/*inlined style*/</style>
 			<link rel="stylesheet" href="..."><!-- Only if pushed with HTTP/2 server push -->
@@ -2435,7 +2435,7 @@ Anatomy/wireframe of a webpage:
 			<!--
 			Critical script
 			Script for critical content: display a loader, handle critical content interaction/layout while the non critical content is loading.
-			See [Critical rendering path](#Critical rendering path)
+			See [Critical rendering path](#critical-rendering-path)
 			-->
 			<script>/*inlined script*/</script>
 			<script src="..."></script><!-- Only if pushed with HTTP/2.0 server push before the HTML document -->
@@ -2454,7 +2454,7 @@ Anatomy/wireframe of a webpage:
 			<!--
 			For non critical content
 			Non blocking resource (styles and scripts)
-			See also [Non-blocking stylesheet](#Non-blocking stylesheet) and [Blocking resources](#Blocking resources)
+			See also [Non-blocking stylesheet](#non-blocking-stylesheet) and [Blocking resources](#blocking-resources)
 			-->
 			<noscript>
 				<link rel="stylesheet" href="styles.css">
@@ -2488,7 +2488,7 @@ Anatomy/wireframe of a webpage:
 			
 			<!--
 			Non critical content
-			See [Image lazyload](#Image lazyload)
+			See [Image lazyload](#image-lazyload)
 			-->
 			<link rel="stylesheet" href="..."><!-- only if use HTTP/2.0 (allowed in body) https://html.spec.whatwg.org/multipage/links.html#body-ok https://jakearchibald.com/2016/link-in-body/#a-simpler-better-way -->
 			<style id="noscript-style">.media-placeholder{display: none;}</style><!-- can be placed anywhere before in the body or the header. ("[can be used] in the body, where flow content is expected.") https://www.w3.org/TR/html52/document-metadata.html#the-style-element
@@ -2500,7 +2500,7 @@ Anatomy/wireframe of a webpage:
 			<!--
 			Non critical scripts and styles
 			For tracking, ads, etc..
-			See [Blocking resources](#Blocking resources)
+			See [Blocking resources](#blocking-resources)
 			Could be in the section "For non critical content" inside noscript in the header
 			-->
 			<script src="" defer></script>
@@ -2508,7 +2508,7 @@ Anatomy/wireframe of a webpage:
 		</body>
 	</html>
 
-See also [Critical rendering path](#Critical rendering path) and [Blocking resources](#Blocking resources)
+See also [Critical rendering path](#critical-rendering-path) and [Blocking resources](#blocking-resources)
 
 Use HTTP2:
 
@@ -2674,7 +2674,7 @@ Cache:
 > `var webkit = !document.uniqueID && !window.opera && !window.globalStorage`: old code that evaluates to true in IE, Opera + Firefox today.
 — [Mike Taylor on Twitter](https://twitter.com/miketaylr/status/598211928272437248)
 
-- [User Agent String](#User Agent String)
+- [User Agent String](#user-agent-string)
 - [Detect touch device](JavaScript#Detect touch device)
 - [peter.michaux.ca - Feature Detection: State of the Art Browser Scripting](http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting)
 - [Browser Detection (and What to Do Instead)](http://jibbering.com/faq/notes/detect-browser/)
@@ -2779,7 +2779,7 @@ Use [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-U
 
 Aka `ga.js`
 
-**Use [analytics.js](#Universal Analytics tracking library) instead**
+**Use [analytics.js](#universal-analytics-tracking-library) instead**
 
 **Use async, via `_gaq.push()`**
 
@@ -3077,7 +3077,7 @@ Size is limited to 50,000 URLs and 50 MB
 
 ### Flash and search engines
 
-See [JavaScript and search engines](#JavaScript and search engines)
+See [JavaScript and search engines](#javascript-and-search-engines)
 
 - [Providing alternative content for SWF files | Adobe Developer Connection](http://wayback.archive.org/web/20120911162007/http://www.adobe.com/devnet/flashplayer/articles/alternative_content.html)
 - [SEO | Adobe Developer Connection](http://wayback.archive.org/web/20150505144120/http://www.adobe.com/cn/devnet/seo.html)
@@ -3141,7 +3141,7 @@ See [hide graphicaly a text](CSS#Hide graphicaly a text)
 
 ### URLs
 
-See [URI/URL](#URI/URL) and [Links and alternate](#Links and alternate)
+See [URI/URL](#uriurl) and [Links and alternate](#links-and-alternate)
 
 Don't have a real impact: [15 SEO Best Practices for Structuring URLs - Moz](http://moz.com/blog/15-seo-best-practices-for-structuring-urls)
 
@@ -3347,7 +3347,7 @@ Methods:
 	Use only I-Frames or B-frames (B for bidirectional frame). See [Frame types](Video#Frame types)
 3. use images:
 	Can use format like [APNG](PNG#APNG), [MNG](PNG), [JNG](JNG), [Animated WebP](WebP), SVG (animation), QTVR, tar archive contains images and data files.
-	If multiple images use the same container, [content encoding](#Content encoding) could be used to compress more (GZip, Brotli) to reduce redonancy between images. For JPEG, use same DCT coefficients and omit it to reduce weight.
+	If multiple images use the same container, [content encoding](#content-encoding) could be used to compress more (GZip, Brotli) to reduce redonancy between images. For JPEG, use same DCT coefficients and omit it to reduce weight.
 	Use codecs of [compressed texture format](Texture format), JPEG, PNG, etc.
 	
 	1. images diff (pixels + metadata) and draw the patched image (frames: I,P,P,P...) P images could refer to the I frame or to the previous P frame (see [how APNG works](PNG#APNG))
@@ -4495,7 +4495,7 @@ Or:
 
 - https://addons.opera.com/en/extensions/details/download-chrome-extension-9/
 
-See [CRX / NEX (Opera)](#CRX / NEX (Opera))
+See [CRX / NEX (Opera)](#crx--nex-opera))
 
 #### CRX / NEX (Opera)
 
@@ -4808,7 +4808,7 @@ https://developers.facebook.com/tools/explorer/?method=GET&path=%3Fid%3DURL%26fi
 
 #### Facebook share and like
 
-Simple URL. See [Share URLs](#Share URLs)
+Simple URL. See [Share URLs](#share-urls)
 
 Following methods require an Facebook App ID:
 
@@ -4828,7 +4828,7 @@ Following methods require an Facebook App ID:
 		  &display=popup
 		  &caption=An%20example%20caption
 		  &link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
-- Feed Dialog or Share Dialog from SDK. SDK need to be included, see [Setup Facebook Website Application](#Setup Facebook Website Application).
+- Feed Dialog or Share Dialog from SDK. SDK need to be included, see [Setup Facebook Website Application](#setup-facebook-website-application).
 
 		var dialog = FB.ui({
 			method: "share",
@@ -4880,7 +4880,7 @@ Metadata:
 
 #### Stream
 
-See [Facebook Graph API](#Facebook Graph API)
+See [Facebook Graph API](#facebook-graph-api)
 
 - (obselete) http://liljosh.com/facebook-page-json-rss-feed/
 - (obselete) `https://www.facebook.com/feeds/page.php?id=163276271689&format=json` (`format=rss20`)
@@ -5422,7 +5422,7 @@ Note: you need to request approval to allow your domain to be allowed to use twi
 
 #### Twitter share and like
 
-- [Share URLs](#Share URLs)
+- [Share URLs](#share-urls)
 - Twitter buttons [Twitter Publish](https://publish.twitter.com/)
 
 #### Stream
@@ -5528,7 +5528,7 @@ To add a text replacement for add a line break you need macOS synchronized with 
 
 #### Pinterest share
 
-- [Share URLs](#Share URLs)
+- [Share URLs](#share-urls)
 - http://business.pinterest.com/widget-builder/
 - [Pinterest Developers](https://developers.pinterest.com/docs/widgets/pin-it/)
 
@@ -5569,7 +5569,7 @@ https://calendar.google.com/calendar/event?action=TEMPLATE&text=Title+part&detai
 
 ### Google+
 
-- [Share URLs](#Share URLs)
+- [Share URLs](#share-urls)
 - [Share  |  Google+ Platform for Web  |  Google Developers](https://developers.google.com/+/web/share/#sharelink)
 
 #### Google+ share and like
@@ -6370,7 +6370,7 @@ Aka Ads
 See also 
 - [Content Blocking](#content-blocking) - blocked ads by filters
 - [Acceptable Ad criteria](https://acceptableads.com/en/about/criteria) - Rules by AdBlock
-- [SEO and ASO](#SEO and ASO) - balance between content and ads
+- [SEO and ASO](#seo-and-aso) - balance between content and ads
 - [The Initial Better Ad Standard - Coalition for Better Ads](https://www.betterads.org/standards/) - Coalition for Better Ads
 - [Web Tools - Web Tools](https://www.google.com/webmasters/tools/ad-experience-unverified?pli=1) - [About the Ad Experience Report - Web Tool Help](https://support.google.com/webtools/topic/7073612?ref_topic=7566613)
 

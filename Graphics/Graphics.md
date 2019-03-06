@@ -107,7 +107,7 @@ See [Sample files](Sample files)
 
 ## Interaction
 
-See also [draw & paint](#Draw & paint)
+See also [draw & paint](#draw--paint)
 
 - [Spatial Keyframing for Performance-driven Animation](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/research/squirrel/index.html)
 - [My Research Theme](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/research/cloth/index.html) - Clothing Manipulation
@@ -118,7 +118,7 @@ See also [draw & paint](#Draw & paint)
 
 ## Draw & paint
 
-See also [interaction](#Interaction)
+See also [interaction](#interaction)
 
 Aka pen, pencil, paintbrush, brush effects
 
@@ -145,7 +145,7 @@ Draw 3D model from 2D sketch:
 
 ## Vector
 
-See also [Rendering text](#Rendering text), [Bezier](Bezier)
+See also [Rendering text](#rendering-text), [Bezier](Bezier)
 
 ![Vertexes To Vector](Vector/Vertexes%20to%20vector.jpg)
 
@@ -174,7 +174,7 @@ For [bloom](https://learnopengl.com/#!Advanced-Lighting/Bloom), see [Blur](Blur)
 - [Circular Harmonics](http://blackpawn.com/texts/ch/) - Spherical harmonics can be used in 3d to project lighting environments
 - [3D lighting and normal mapping](https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson6) - see also https://github.com/mattdesl/kami-demos (normals and normals-pixel)
 - [InFictitious: 2.5D XNA RPG Engine - Some Technical Details](https://infictitious.blogspot.fr/2012/09/25d-xna-rpg-engine-some-technical.html) - about 2.5D lighting. See also [XNA RPG 2.5D Game Engine - Updated WIP - YouTube](https://www.youtube.com/watch?v=-Q6ISVaM5Ww) and [XNA RPG 2.5D Game Engine - Weather - YouTube](https://www.youtube.com/watch?v=vtYvNEmmHXE)
-- [(1 new) \[GLSL\] Using Normal Maps to Illuminate a 2D Texture (LibGDX) - Java-Gaming.org](http://www.java-gaming.org/topics/glsl-using-normal-maps-to-illuminate-a-2d-texture-libgdx/27516/view.html)
+- [1 new) \[GLSL\] Using Normal Maps to Illuminate a 2D Texture (LibGDX) - Java-Gaming.org](#httpwwwjava-gamingorgtopicsglsl-using-normal-maps-to-illuminate-a-2d-texture-libgdx27516viewhtml)
 - [Sprite Lamp](http://www.spritelamp.com/) - about dynamic lighting for 2D art (using diffuse map)
 - [Area Lights](http://marcinignac.com/experiments/area-light-box/demo/) - see https://twitter.com/marcinignac/status/730053584704909312
 - [//game dev log of martins upitis: //status update 04 & RGP day 8](http://devlog-martinsh.blogspot.fr/2012/10/status-update-04-rgp-day-8.html) - lens flare
@@ -189,7 +189,7 @@ Create normal map
 
 Aka Eclipse, start/sun and planets,  splotlight, godrays
 
-- [(WebGL) Volumetric Light Approximation in Three.js - Blog - (BKcore) Thibaut Despoulain](http://bkcore.com/blog/3d/webgl-three-js-volumetric-light-godrays.html) - see `Godrays` shader https://github.com/BKcore/Three.js-extensions, https://github.com/BKcore/Three.js-experiments-pool
+- [WebGL) Volumetric Light Approximation in Three.js - Blog - (BKcore) Thibaut Despoulain](#httpbkcorecomblog3dwebgl-three-js-volumetric-light-godrayshtml) - see `Godrays` shader https://github.com/BKcore/Three.js-extensions, https://github.com/BKcore/Three.js-experiments-pool
 - [Volumetric Light Scattering in three.js](http://codepen.io/abberg/details/pbWkjg/) - see [Volumetric Light Scattering in three.js – Medium](https://medium.com/@andrew_b_berg/volumetric-light-scattering-in-three-js-6e1850680a41)
 - [GPU Gems 3 - Chapter 13. Volumetric Light Scattering as a Post-Process](http://http.developer.nvidia.com/GPUGems3/gpugems3_ch13.html)
 - [three.js extension to provide a volumetric spot light](http://jeromeetienne.github.io/threex.volumetricspotlight/examples/basic.html) - see [three.js extension to provide a volumetric spot light](https://github.com/jeromeetienne/threex.volumetricspotlight)
@@ -253,7 +253,7 @@ Aka AO, SSAO, screen-space ambient occlusion
 
 Aka smoke, volumetric data (medical scans)
 
-See [Volumetric billboard](#Volumetric billboard), [particles](#Particles) and [voxel](#Voxel)
+See [Volumetric billboard](#volumetric-billboard), [particles](#particles) and [voxel](#voxel)
 
 - [Volumetric Ray Marcher * Distance Field Shadows - YouTube](https://www.youtube.com/watch?v=hWNX9jGEt8k) - distance fields can be used to add shadowing to volumetric effects https://twitter.com/ShaderBits/status/801498333172928512
 - [Creating a Volumetric Ray Marcher](http://shaderbits.com/blog/creating-volumetric-ray-marcher)
@@ -350,7 +350,7 @@ Example, Live2D Euclid (use multiple layers and project it using [Orthographic p
 
 Aka sand dune
 
-See [Water](#Water)
+See [Water](#water)
 
 - [Nighttime Sand Dunes](https://www.shadertoy.com/view/XtySRm)
 
@@ -396,7 +396,7 @@ Aka flame, heat, heat haze, water reflection
 
 ## Planet
 
-See also [volumetric light](#Volumetric light) (for eclipse effect) and [projection](Projection)
+See also [volumetric light](#volumetric-light) (for eclipse effect) and [projection](Projection)
 
 - [Mirage — Wikipedia](https://en.wikipedia.org/wiki/Mirage)
 - [Globe Viewer](http://k9.github.io/globe-viewer/index.html), [Globe Viewer](http://k9.github.io/globe-viewer-svg-simple/index.html) and [Globe Viewer](http://k9.github.io/globe-viewer-svg-simple/index.html) - see https://github.com/k9/globe-viewer and https://github.com/k9/k9.github.com
@@ -528,7 +528,7 @@ Black Rubber		ambient					0.02 0.02 0.02 1 0
 
 ### Reflection
 
-[Voxel](#Voxel) can be used for reflection
+[Voxel](#voxel) can be used for reflection
 
 - [Advanced WebGL - Part 3: Irradiance Environment Map - Codeflow](http://codeflow.org/entries/2011/apr/18/advanced-webgl-part-3-irradiance-environment-map/)
 - [GPU Gems - Chapter 10. Real-Time Computation of Dynamic Irradiance Environment Maps](http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter10.html)
@@ -550,7 +550,7 @@ Performances:
 
 - [Performance optimization for cocos2d-x using polygon sprite meshes](https://www.codeandweb.com/texturepacker/tutorials/cocos2d-x-performance-optimization) - Trim mesh to reduce paint time
 
-See also [Triplanar Mapping](#Triplanar Shader)
+See also [Triplanar Mapping](#triplanar-shader)
 
 - [Luos's Free Noise Textures (for vfx)](https://gumroad.com/l/FreeNoise) - Noise textures
 
@@ -708,14 +708,14 @@ See also [spline rasterization](Spline#Rasterization)
 
 > Microsoft did patent the Loop-Blinn curve-filling technique, but a quick read makes it look like it only applies to outlines defined in part by cubic Bezier curves (http://www.google.com/patents/US20070097123).
 
-- [It’s 2015 and drawing text is still hard (WebGL, ThreeJS) | Engineering Blog](https://www.eventbrite.com/engineering/its-2015-and-drawing-text-is-still-hard-webgl-threejs/) see also [Signed Distance Fields](#Signed Distance Fields)
+- [It’s 2015 and drawing text is still hard (WebGL, ThreeJS) | Engineering Blog](https://www.eventbrite.com/engineering/its-2015-and-drawing-text-is-still-hard-webgl-threejs/) see also [Signed Distance Fields](#signed-distance-fields)
 - [Theta](http://thetamath.com/app/) - This is a simple web app that graphs an equation. See https://github.com/evanw/theta and [Easy Scalable Text Rendering on the GPU – Medium](https://medium.com/@evanwallace/easy-scalable-text-rendering-on-the-gpu-c3f4d782c5ac)
 - [GPU Font Rendering](https://github.com/ds-hwang/wiki/wiki/GPU-Font-Rendering) - reference list about text rendering on GPU
 - [Android’s Font Renderer – Medium](https://medium.com/@romainguy/androids-font-renderer-c368bbde87d9)
 - [Higher Quality 2D Text Rendering](http://jcgt.org/published/0002/01/04/paper.pdf)
 - [Anti-Grain Geometry - Texts Rasterization Exposures](http://www.antigrain.com/research/font_rasterization/)
 - [Vector Texture Maps on the GPU](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.101.2464&rep=rep1&type=pdf) - This paper presents VTMs (Vector Texture Maps), a novel representation of vector images that can be used as a texture by the GPU for real-time rendering.
-- [Rendering Text in WebVR  |  Web  |  Google Developers](https://developers.google.com/web/showcase/2017/within) - Article about use case of rendering text in a VR context (3D content with GPU acceleration). One of the best option to use for this case is [SDF](#Signed Distance Fields).
+- [Rendering Text in WebVR  |  Web  |  Google Developers](https://developers.google.com/web/showcase/2017/within) - Article about use case of rendering text in a VR context (3D content with GPU acceleration). One of the best option to use for this case is [SDF](#signed-distance-fields).
 - [Inside the fastest font renderer in the world – Medium](https://medium.com/@raphlinus/inside-the-fastest-font-renderer-in-the-world-75ae5270c445) - CPU font renderer using SIMD written in Rust. See https://github.com/google/font-rs
 - [Pathfinder, a fast GPU-based font rasterizer in Rust - pcwalton](http://pcwalton.github.io/blog/2017/02/14/pathfinder/) - A fast, practical GPU rasterizer for OpenType fonts. See https://github.com/pcwalton/pathfinder
 - [Texture-Based Text rendering](https://cscheid.github.io/lux/demos/texture_text/texture_text.html) - Texture-based text rendering infrastructure includes an adaptive antialiasing algorithm meant to produce better results at very low resolutions (or very deep zooms). See https://github.com/cscheid/lux/tree/master/demos/texture_text
@@ -846,7 +846,7 @@ Aka MSDF
 
 ## Render line
 
-For anti-aliasing, see [line anti-aliasing](#Line anti-aliasing)
+For anti-aliasing, see [line anti-aliasing](#line-anti-aliasing)
 
 - [Line drawing on a grid](http://www.redblobgames.com/grids/line-drawing.html)
 
@@ -1490,7 +1490,7 @@ Aka image enhancement (scan)
 
 ### Glow
 
-- [(WebGL) Animated selective glow in Three.js - Blog - (BKcore) Thibaut Despoulain](http://bkcore.com/blog/3d/webgl-three-js-animated-selective-glow.html)
+- [WebGL) Animated selective glow in Three.js - Blog - (BKcore) Thibaut Despoulain](#httpbkcorecomblog3dwebgl-three-js-animated-selective-glowhtml)
 - [CodePen - Thank You.](https://codepen.io/shubniggurath/full/GGXKJe/)
 
 ### Specular
@@ -2237,7 +2237,7 @@ Aka fluid, smoke, flame, volume rendering
 
 Can be combined with volume and transparent textures
 
-See also [cloud](#Cloud), [water](#Water), [flame](#Flame), [distortion](#Distortion), [impostor](#Impostor)
+See also [cloud](#cloud), [water](#water), [flame](#flame), [distortion](#distortion), [impostor](#impostor)
 
 - See "The VFX of Diablo" at 31:37
 - [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=13) - Particle system
@@ -2531,7 +2531,7 @@ See premultiplied alpha data loss due to rounding
 
 Aka trail, wireframe
 
-See [Line anti-aliasing](#Line anti-aliasing)
+See [Line anti-aliasing](#line-anti-aliasing)
 
 - [WebGL rendering of solid trails - Codeflow](http://codeflow.org/entries/2012/aug/05/webgl-rendering-of-solid-trails/)
 - [Drawing Lines is Hard](https://mattdesl.svbtle.com/drawing-lines-is-hard) - See https://github.com/mattdesl/webgl-lines

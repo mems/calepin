@@ -111,7 +111,7 @@ Depth-first search like traversal
 
 Will accumulate in a queue node to visit. In the loop, lastest added nodes are visited first. Support multiple root nodes.
 
-Simple, but require more memory than [Stack](#Stack), because in each loop iteration the queue is updated (remove the last element and concat new elements). It's store current nodes (but all nodes of the tree) that waiting for visitation. Ex: root node contains 100 children. Each children contains 100 children, which contains 100 nodes each (total 100^100^100). The queue will contains at max 199 nodes.
+Simple, but require more memory than [Stack](#stack), because in each loop iteration the queue is updated (remove the last element and concat new elements). It's store current nodes (but all nodes of the tree) that waiting for visitation. Ex: root node contains 100 children. Each children contains 100 children, which contains 100 nodes each (total 100^100^100). The queue will contains at max 199 nodes.
 
 **This method can't track in the loop iteration the deep in the tree.**
 

@@ -150,7 +150,7 @@ See [Design](Design)
 
 ## 80/20 rule
 
-See also [The X-Y Problem](#The X-Y Problem)
+See also [The X-Y Problem](#the-x-y-problem)
 
 > Don’t set your goals to high, try to make something small so you’ll finish it in time and you’ll stay motivated to make your next project.
 
@@ -161,7 +161,7 @@ See also [The X-Y Problem](#The X-Y Problem)
 
 ## The X-Y Problem
 
-See also [80/20 rule](#80/20 rule)
+See also [80/20 rule](#8020-rule)
 
 > The X-Y Problem, as it is sometimes called, is a mental block which leads to enormous amounts of wasted time and energy, both on the part of people asking for help, and on the part of those providing help. It often goes something like this: 
 > 
@@ -254,7 +254,7 @@ It's like unsolicited "redesign" website or app (without real constraints). See 
 > Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
 > — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
 
-See [Time estimation](Work#Time estimation) and [Unsolicited reworks](#Unsolicited reworks)
+See [Time estimation](Work#Time estimation) and [Unsolicited reworks](#unsolicited-reworks)
 
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
 
@@ -430,7 +430,7 @@ See also:
 
 ### Market
 
-Market (marché nord américain, européen, indien, etc.): [territory, languages](#Locale)
+Market (marché nord américain, européen, indien, etc.): [territory, languages](#locale)
 
 See locale's region
 

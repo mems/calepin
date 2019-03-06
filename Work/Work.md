@@ -96,7 +96,7 @@ Cela répond au besoin de flexibilité de paiement dont le client se réclame.
 
 ## Price
 
-See [Time estimation](#Time estimation)
+See [Time estimation](#time-estimation)
 
 Always show prices.
 

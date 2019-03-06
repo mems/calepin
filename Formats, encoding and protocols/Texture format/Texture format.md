@@ -21,7 +21,7 @@ Aditional compression can be applied:
 - LZMA/deflate
 - Generalized Texture Compression (See [GST](GST))
 
-[ATF](#ATF) use this technique
+[ATF](#atf) use this technique
 
 To premultiply alpha (for formats that don't use it) of an PNG image:
 

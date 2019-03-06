@@ -32,7 +32,7 @@ Instead of
 
 ## Choose the right tag and attribute
 
-See [Accessibility](#Accessibility) and [Patterns, markup, semantics and snippets](#Patterns, markup, semantics and snippets)
+See [Accessibility](#accessibility) and [Patterns, markup, semantics and snippets](#patterns-markup-semantics-and-snippets)
 
 - http://html5doctor.com/i-b-em-strong-element/
 
@@ -236,7 +236,7 @@ Small screen viewport size
 
 ### `alt` vs `title`
 
-Note: [`title` attribute is not accessible](#`title` attribute is not accessible)
+Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 Alternative text is... the text version of image. Same information/data or summary, but with words. Ex.: "WordPress awesomeness has increased from 90% awesome in 2006, to 120% awesome in 2008".
 Caption describe the meaning the image. Ex.: "WordPress awesomeness by time, based on data from the WordPress Awesomeness Institute"
@@ -789,7 +789,7 @@ See [Development](Development#Few words)
 #### Modifier / States / Actions (provided as information, usefull for JS)
 
 - spotlighted, highlight/highlighted, emphasize/emphasized, target/targeted (only for one fragment / main / large content, corresponds to [`:target`](https://developer.mozilla.org/en-US/docs/Web/CSS/:target) pseudo class. Could have a specific hash), stress, underline, focus attention on, draw attention to, spotlight...
-	If it's just text (highlighted in yello), use [`<mark>`](#`mark` element)
+	If it's just text (highlighted in yello), use [`<mark>`](#mark-element)
 - set back/unhighlight
 - show/visible, shown, open - close
 - hide/hidden
@@ -892,7 +892,7 @@ Aka a11y
 	> If you feel a need to do `<nav role="presentation">` or `<header role="presentation">` or `<article role="presentation">` **use `<div>` instead**
 	— https://twitter.com/stevefaulkner/status/798835014670512128
 - **DONT:** Remove focus outline, underline, and no diff color for links (people with parkinson are unable to use the website, hovering over text to find the links is difficult with this condition)
-- > Links without href attributes are cannot be focused. It's a [placeholder hyperlink](#placeholder hyperlink)
+- > Links without href attributes are cannot be focused. It's a [placeholder hyperlink](#placeholder-hyperlink)
 - > An overkill of web animations and parallaxing can make people physically sick. Be kind to your users.
 	* https://twitter.com/zeldman/status/492805247455072256
 - > Animation can be a useful tool to make a focus state more obvious and at the same time easier on the eyes.
@@ -971,7 +971,7 @@ Examples (pattern, components):
 
 Others (doc, about, etc.):
 
-- See also [Input-Controlled Web Design](#Input-Controlled Web Design)
+- See also [Input-Controlled Web Design](#input-controlled-web-design)
 - See also [SVG](SVG#Accessibility)
 
 - [Tips for making accessibility a core design principle](https://pixelpioneers.co/blog/2017/13-expert-tips-accessibility)
@@ -1076,7 +1076,7 @@ Avoid the title attribute. Because touch can't handle it on link, abbr, images, 
 
 Don't use `aria-describedby` for that. It's describe the element "provides more information that the user might need".
 
-Don't use the `title` attribute (see [`title` attribute is not accessible](#`title` attribute is not accessible)), but a graphical hidden span to explain the linked document:
+Don't use the `title` attribute (see [`title` attribute is not accessible](#title-attribute-is-not-accessible)), but a graphical hidden span to explain the linked document:
 
 	<p>
 		Washington has announced plans to stimulate economic growth.
@@ -1109,7 +1109,7 @@ Don't use the `title` attribute (see [`title` attribute is not accessible](#`tit
 
 ## Update content (script, AJAX)
 
-- [AJAX progress/loader](#AJAX progress/loader)
+- [AJAX progress/loader](#ajax-progressloader)
 - `output` element
 - [Accessible forms with ARIA live regions – Tink](http://tink.uk/accessible-forms-with-aria-live-regions/)
 - [Using the ARIA application role – Tink](http://tink.uk/using-the-aria-application-role/)
@@ -1194,7 +1194,7 @@ Using `hidden` don't allow to make transitional states with CSS only. If you wan
 
 ## Collapsible
 
-See [Details and summary](#Details and summary)
+See [Details and summary](#details-and-summary)
 
 Note: Ideally, expandable items should be following the item that expands and collapses them
 
@@ -1396,7 +1396,7 @@ Note: 'eg' should be written 'e.g.' and 'ie' 'i.e.'
 
 Accessible to user with AT but for touch device users too.
 
-See [Labelling](#Labelling)
+See [Labelling](#labelling)
 
 - [Using the HTML title attribute – Updated Dec 2012 | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
 
@@ -1434,7 +1434,7 @@ Or use CSS with extra elements:
 	<a href="">Learn more<span class="extra"> about Victorian Room</span></a>
 
 - `<span role="img" aria-label="peach or bum">🍑</span>` [Accessible Emoji, Tweaked | Adrian Roselli](http://adrianroselli.com/2016/12/accessible-emoji-tweaked.html)
-- [Tagline & subheader](#Tagline & subheader)
+- [Tagline & subheader](#tagline--subheader)
 - [Aesthetics of the invisible | Francesco Schwarz](https://francescoschwarz.de/en/blog/aesthetics-of-the-invisible/)
 - [Text for Screen Readers Only (Updated) - Coolfields Consulting](http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/)
 - [The Roles Model | Accessible Rich Internet Applications (WAI-ARIA) 1.0](https://www.w3.org/TR/wai-aria/roles#textalternativecomputation)
@@ -1542,7 +1542,7 @@ By default its `role` is `banner`
 
 Can contains title, subtitles, tagline, strapline, aside, introduction, navigation
 
-- [Tagline & subheader](#Tagline & subheader)
+- [Tagline & subheader](#tagline--subheader)
 
 ## `h1`-`h6`
 
@@ -1556,7 +1556,7 @@ Can contains title, subtitles, tagline, strapline, aside, introduction, navigati
 	<h1>About Bob's Chunky Bacon Store</h1>
 	<p>About the store etc...</p>
 
-- See [Tagline & subheader](#Tagline & subheader)
+- See [Tagline & subheader](#tagline--subheader)
 
 About the brand's logo:
 
@@ -1607,7 +1607,7 @@ It's no more true with HTML 5.1
 - If you remove the image (ex. image load error) (or remove all CSS), does the content still have a meaning? Yes: CSS or `img[alt=""]`, No: img
 - If the element is interactive and you remove the CSS or the bg not load, does it still comprehensible (not a fully transparent area)?
 - Logo or diagram or person (real person, not stock photo people) should be an image
-- you can use `aria-label` or `aria-labelledby` and `title`. Note: [`title` attribute is not accessible](#`title` attribute is not accessible)
+- you can use `aria-label` or `aria-labelledby` and `title`. Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 - CSS can use aspect ratio with `padding-top: 100%` (percentage of padding are relative to element's width). But it's predefined, not based on image's real aspect ratio.
 - If its logo or icon, does have a alternative if the image not loaded (alt attribute for image) or label (aria-label)? You should use text with the icon.
 - CSS allows to add img with CSS using pseudo elements: `div::after{content: url("image.jpg") / "alt text"}`. See links below
@@ -1779,7 +1779,7 @@ Also because with this technique, the input can have only have one associated la
 		<p id="username-error" role="alert">Username is already taken</p>
 	</form>
 
-- [Accessible form](#Accessible form)
+- [Accessible form](#accessible-form)
 - http://html5doctor.com/the-output-element/#comment-47159 Use `output` element as error message for input
 - https://stackoverflow.com/questions/4707936/error-message-span-vs-label
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role
@@ -2010,7 +2010,7 @@ Aka value/word/option completion/suggestion
 
 Pick a predefined value (suggest any value match the entered data), but allow to add freely any other value.
 
-See also [Multiselect component](#Multiselect component) and [`autocomplete` attribute]()
+See also [Multiselect component](#multiselect-component) and [`autocomplete` attribute]()
 
 > The search field
 > 
@@ -2297,7 +2297,7 @@ Represents strong importance for its contents
 
 http://html5doctor.com/element-index/#strong
 
-Use `mark` element for [quotation emphasis](#`mark` element)
+Use `mark` element for [quotation emphasis](#mark-element)
 
 ## `s` element
 
@@ -2412,7 +2412,7 @@ Pro.: wrapper (`<div>`) can be used to group multiple elements (`dt`s and `dd`s)
 
 Key-value can be on same line (using `float: left` and `clear: left;` for dt) and pseudo element on each first `dt` or last `dd`
 
-Don't use it for [Conversations](#Conversations), use `p` instead.
+Don't use it for [Conversations](#conversations), use `p` instead.
 
 ### `p` element
    
@@ -2547,7 +2547,7 @@ But (could be) required for:
 
 - group (company, VIP) might not well know by the reader: MTA (US), RATP (FR), MEDEF (FR), JFK (US), PPDA (FR), W3C (tech), IEEE (tech)...
 
-- See [Labelling](#Labelling)
+- See [Labelling](#labelling)
 - [Utilisabilité des <abbr> (tactile et vocale) (avec tweets) · tetue · Storify](https://storify.com/tetue/utilisabilite-des-abbr-tactile-et-vocale)
 - [Comment utiliser <abbr> en HTML?](http://fvsch.com/code/utiliser-abbr/)
 - [Acronym - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Acronym)
@@ -2712,7 +2712,7 @@ Or subheading, subtitle, alternative title, sub header, sub title
 	
 	<h2>The Lord of the Rings<span class="sep">: <span><span class="sub">The Two Towers</span></h2>
 
-See [`h1`-`h6`](#`h1`-`h6`) and [`header` element](#header-element)
+See [`h1`-`h6`](#h1-h6) and [`header` element](#header-element)
 
 ## Breadcrumb
 
@@ -3051,7 +3051,7 @@ The `small` element is marked as being important small print.
 
 Also called annotation, comment and incorrectly "footer notes". Use `aside` or `small` (for inline)
 
-Note: [`title` attribute is not accessible](#`title` attribute is not accessible)
+Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 > For annotations, the `a` element should be used, pointing to an element later in the document. The convention is that the contents of the link be a number in square brackets.
 
@@ -3087,7 +3087,7 @@ Note: [`title` attribute is not accessible](#`title` attribute is not accessible
 	</aside>
 
 > For figures or tables, footnotes can be included in the relevant `figcaption` or `caption` element, or in surrounding prose.
-.. or [`tfoot` element](#`tfoot` element)
+.. or [`tfoot` element](#tfoot-element)
 
 > In this example, a table has cells with footnotes that are given in prose. A `figure` element is used to give a single legend to the combination of the table and its footnotes.
 
@@ -3269,7 +3269,7 @@ http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-fo
 
 > The actual frequency of each tag is given using the `title` attribute. A CSS style sheet is provided to convert the markup into a cloud of differently-sized words, but for user agents that do not support CSS or are not visual, the markup contains annotations like "(popular)" or "(rare)" to categorize the various tags by frequency, thus enabling all users to benefit from the information.
 
-Note: [`title` attribute is not accessible](#`title` attribute is not accessible)
+Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 > The `ul` element is used (rather than `ol`) because the order is not particularly important: while the list is in fact ordered alphabetically, it would convey the same information if ordered by, say, the length of the tag.
 
@@ -3279,7 +3279,7 @@ Note: [`title` attribute is not accessible](#`title` attribute is not accessible
 
 Conversation transcript or chat
 
-See also [forum post](#Forum post)
+See also [forum post](#forum-post)
 
 **Note: for chat wrap conversation with `role="log" aria-live="polite" aria-relevant="additions"`.** See [ARIA Live Regions - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) and [Using the aria-relevant attribute - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-relevant_attribute)
 
@@ -3502,7 +3502,7 @@ Note: you can use `<time>` tag:
 		</style>
 	</svg>
 
-See [Responsive image](#Responsive image)
+See [Responsive image](#responsive-image)
 
 Some techniques used below are based on SVG with CSS media queries, but exist before `<picture>` element exist. Keep here for historical reason and for inspiration:
 
@@ -3521,7 +3521,7 @@ http://www.w3.org/html/wg/drafts/html/master/semantics.html#dom-time-datetime
 
 ## Event log
 
-And for timed text. For conversation see [conversations](#Conversations)
+And for timed text. For conversation see [conversations](#conversations)
 
 Note: if it's live use `aria-live="polite" aria-relevant="additions"`. If live with element with removed elements (current connected players) use `aria-live="polite" aria-relevant="additions removals"` instead
 
@@ -4103,7 +4103,7 @@ But you shouldn't disable spell check juste because it's underlined misspelled w
 	<textarea lang="zxx">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</textarea>
 	<label for="isbn">ISBN:</label><input id="isbn" lang="zxx" type="text" value="978-3-16-148410-0">
 
-See [Language attribute](#Language attribute) and [Field type](#Field type)
+See [Language attribute](#language-attribute) and [Field type](#field-type)
 
 - [javascript - Turn off grammar correction in a contenteditable div in FireFox - Stack Overflow](https://stackoverflow.com/questions/5782835/turn-off-grammar-correction-in-a-contenteditable-div-in-firefox)
 - [spellcheck - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)

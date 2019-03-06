@@ -14,7 +14,7 @@ See also [Rendering text](Graphics#Rendering text)
 
 ## Rasterization
 
-See [bézier rasterization](#Bézier rasterization)
+See [bézier rasterization](#bézier-rasterization)
 
 ## Bézier
 

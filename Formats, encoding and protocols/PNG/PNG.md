@@ -1,8 +1,8 @@
 APNG used by iMessage stickers: [tinify/iMessage-Panda-sticker: Animated PNG example iMessage sticker for iOS 10, with waving panda!](https://github.com/tinify/iMessage-Panda-sticker)
 
-Absolute coordinates can be store separatly (see [Metadata](#Metadata)): [Image Offset (oFFs) - PNG Options and Extensions (PNG: The Definitive Guide)](http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.10)
+Absolute coordinates can be store separatly (see [Metadata](#metadata)): [Image Offset (oFFs) - PNG Options and Extensions (PNG: The Definitive Guide)](http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.10)
 
-Text and annotation can be included (see [Metadata](#Metadata)): [International Text Annotations (iTXt) - PNG Options and Extensions (PNG: The Definitive Guide)](http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.4) and [Latin-1 Text Annotations (tEXt, zTXt) - PNG Options and Extensions (PNG: The Definitive Guide)](http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.3)
+Text and annotation can be included (see [Metadata](#metadata)): [International Text Annotations (iTXt) - PNG Options and Extensions (PNG: The Definitive Guide)](http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.4) and [Latin-1 Text Annotations (tEXt, zTXt) - PNG Options and Extensions (PNG: The Definitive Guide)](http://www.libpng.org/pub/png/book/chapter11.html#png.ch11.div.3)
 
 For PNG to be 32 bits:
 

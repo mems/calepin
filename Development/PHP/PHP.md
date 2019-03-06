@@ -277,7 +277,7 @@ for files, use `scandir()`
 - `filter_input(INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_ENCODED)`
 - `rawurlencode()`
 - `htmlspecialchars()`
-- [Encode URI](#Encode URI)
+- [Encode URI](#encode-uri)
 - `htmlspecialchars($value, ENT_COMPAT | ENT_HTML5)` for HTML tag attribute value `if(!defined('ENT_HTML5')) define('ENT_HTML5', 16|32);`
 
 ### `Host:` poisoning
@@ -389,7 +389,7 @@ Encore URL
 
 ## Build URL
 
-`http_build_url()` see [Merge URL or query string](#Merge URL or query string)
+`http_build_url()` see [Merge URL or query string](#merge-url-or-query-string)
 
 ## Remove empty values from arrays
 

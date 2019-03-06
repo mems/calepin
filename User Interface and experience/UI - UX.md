@@ -253,7 +253,7 @@ For simple tasks, where 97 to 99% will be sucess.
 
 ### Action buttons
 
-- [Icon](#Icon)
+- [Icon](#icon)
 - [Primary & Secondary Action Buttons](http://babich.biz/primary-secondary-action-buttons/) and [Primary & Secondary Action Buttons — UX Planet](https://uxplanet.org/primary-secondary-action-buttons-c16df9b36150)
 - (ghost button are best used for secondary or tertiary actions) [Ghost Buttons in UX Design](http://babich.biz/ghost-buttons-in-ux-design/)
 
@@ -350,10 +350,10 @@ TextMate Recent Elements. If both files have the same name, the folder is also d
 Loading progress
 Loading and splash screen
 
-- [Responsiveness](#Responsiveness)
-- [Skeleton screens](#Skeleton screens)
+- [Responsiveness](#responsiveness)
+- [Skeleton screens](#skeleton-screens)
 - [Best Practices For Animated Progress Indicators – Smashing Magazine](https://www.smashingmagazine.com/2016/12/best-practices-for-animated-progress-indicators/)
-- [Triggered success instantly](#Triggered success instantly)
+- [Triggered success instantly](#triggered-success-instantly)
 - [Progress Bars vs. Spinners: When to Use Which - UX Movement](http://uxmovement.com/navigation/progress-bars-vs-spinners-when-to-use-which/)
 - [How To Make Users Think Your App Loads Faster](http://babich.biz/how-to-make-users-think-your-app-loads-faster/)
 - [Splash Screens are Evil, Don't Use Them! - Cyril Mottier](http://cyrilmottier.com/2012/05/03/splash-screens-are-evil-dont-use-them/)
@@ -388,7 +388,7 @@ Hamburger menu, Kebab menu, Döner menu, Bento menu, Metballs menu
 > The mystery meat of mobile navigation
 — Luke Wroblewski
 
-- [The best icon is a text label](#Icon)
+- [The best icon is a text label](#icon)
 - [The Hamburger Menu Doesn't Work - Deep Design](http://deep.design/the-hamburger-menu/)
 - [Making A Case For The Desktop Hamburger Menu - Usability Geek](http://usabilitygeek.com/making-case-for-desktop-hamburger-menu/)
 - [Don't ever say you don't have choices on mobile.](https://twitter.com/lukew/status/591296890030915585)
@@ -422,7 +422,7 @@ Alternative Idea: Complex Grids
 
 ## Pagination
 
-- [Infinite scroll](#Infinite scroll)
+- [Infinite scroll](#infinite-scroll)
 - [Pagination Best Practices](http://babich.biz/pagination-best-practices/)
 
 ## E-commerce
@@ -479,8 +479,8 @@ Advices, see [Design Better Forms](https://medium.com/uxdesign/design-better-for
 - top align labels
 - group labels with their inputs
 - avoid all caps label (or any other things)
-- show all selection options if under 5. See [Select](#Select)
-- resist using placeholder text as labels. See [Form labels](#Form labels)
+- show all selection options if under 5. See [Select](#select)
+- resist using placeholder text as labels. See [Form labels](#form-labels)
 - place checkboxes (and radios) underneath each other for scannability
 - make CTAs descriptive. Use "Sign Up" instead of "Submit"
 - specify errors inline. "There is already an account with this email" instead of "1 error found"
@@ -578,7 +578,7 @@ Show validation error(s) only after the user enter input (after focus blur), upd
 > Telling the users they’ve made a mistake before they even had a chance to interact with the form is bad UX.
 – [Native form validation — part 1 – Samsung Internet Developers – Medium](https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f1d)
 
-See also [Error messages](#Error messages)
+See also [Error messages](#error-messages)
 
 #### Duplicate form fields
 
@@ -779,7 +779,7 @@ And it's not 100% forward compatible. Native user experience can or native UI ch
 See also
 
 - [Javascript#Scroll](Javascript#Scroll)
-- [Don't override native logic](#Don't override native logic)
+- [Don't override native logic](#dont-override-native-logic)
 - [5 Fancy (But Useless) Web Components You Should Avoid](http://www.sitepoint.com/5-fancy-useless-web-components-avoid/#2.-the-scrolljacker)
 
 Scrolls and zoom is an option:
@@ -796,7 +796,7 @@ Scrolls and zoom is an option:
 
 Use "Load more" button, and a transient message "Loading more posts"
 
-- [Pagination](#Pagination)
+- [Pagination](#pagination)
 - [Stop building websites with infinite scroll!](https://logrocket.com/blog/infinite-scroll/)
 - [Infinite Scrolling, Pagination Or “Load More” Buttons? Usability Findings In eCommerce – Smashing Magazine](https://www.smashingmagazine.com/2016/03/pagination-infinite-scrolling-load-more-buttons/)
 - [Why Infinite Scrolling is probably a bad idea | Adam Silver | UX. Engineering. Design. Strategy. Making things simple and human. Based in London.](http://adamsilver.io/articles/why-infinite-scrolling-is-probably-a-bad-idea/)
@@ -932,7 +932,7 @@ Aka performance preception, perceived performance, speed
 - 1.0s: the limit for the user's flow of thought to stay uninterrupted
 - 10s: the limit for keeping the user's attention
 
-- [Loading](#Loading)
+- [Loading](#loading)
 - [Response Time Limits: Article by Jakob Nielsen](https://www.nngroup.com/articles/response-times-3-important-limits/)
 - [Responsiveness — Wikipedia](https://en.wikipedia.org/wiki/Responsiveness)
 - [A Designer’s Guide to Perceived Performance - Marvel Blog](https://blog.marvelapp.com/a-designers-guide-to-perceived-performance/)

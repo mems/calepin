@@ -343,7 +343,7 @@ With Winebottler, create Application bundle from the zip version:
 	> copy file (Program) and all files in the folder to the App Bundle
 4. System: `XP`
 5. don't include Mono and Gecko
-6. DLL Override: `mscoree=n,b;mshtml=n,b` (see [Wine DLL overrides](#Wine DLL overrides))
+6. DLL Override: `mscoree=n,b;mshtml=n,b` (see [Wine DLL overrides](#wine-dll-overrides))
 6. Winetricks: `dotnet40` (or `dotnet45` for v3). Recommanded, but not required: `flash`, `gdiplus`, `ie8`
 7. App Bundle:
 	Copyright: `© Captvty`
@@ -885,7 +885,7 @@ Error examples:
 If install libs with MacPorts, builded for the local architecture, you need to build for i386 too: [howto/buildUniversal – MacPorts](https://trac.macports.org/wiki/howto/buildUniversal).
 See also `universal_archs` in [`macports.conf)`](https://guide.macports.org/chunked/internals.configuration-files.html#internals.configuration-files.macports-conf), [`variants.conf`](https://guide.macports.org/chunked/internals.configuration-files.html#internals.configuration-files.variants-conf) and [Is MacPorts Universal?](https://trac.macports.org/wiki/FAQ#universal)).
 
-**Install [X11 (XQuartz version)](#X11) could also fix the issue.** But you often don't wan't to mix XQuartz with MacPort or Brew versions.
+**Install [X11 (XQuartz version)](#x11) could also fix the issue.** But you often don't wan't to mix XQuartz with MacPort or Brew versions.
 
 Found which port build libs:
 
@@ -1043,7 +1043,7 @@ A file manager is included (to copy/past/rename/etc. files): System > File manag
 
 - [Userdata - Official Kodi Wiki](http://kodi.wiki/view/userdata)
 
-See also `sources.xml`. See also [Store passwords](#Store passwords)
+See also `sources.xml`. See also [Store passwords](#store-passwords)
 
 	<!-- No complete -->
 	<source>
@@ -1248,7 +1248,7 @@ execute file (installer)
 
 ## Inkscape
 
-On macOS, Inkscape require [X11](#X11). If it's installed with MacPort, select `/Applications/MacPorts/X11.app` when Inkspace prompt the location of X11.
+On macOS, Inkscape require [X11](#x11). If it's installed with MacPort, select `/Applications/MacPorts/X11.app` when Inkspace prompt the location of X11.
 - [Inkscape 0.92.2 - Mac-Os-X : 107 : Dmg | Inkscape](https://inkscape.org/en/release/0.92.2/mac-os-x/107/dmg/dl/)
 
 ## USB Overdrive

@@ -19,7 +19,7 @@ Properties notation: `Object#toString()` (for `Object.prototype.toString()`) vs 
 
 Project documentation:
 
-- [JSDoc](http://usejsdoc.org/index.html), see [Comments](#Comments)
+- [JSDoc](http://usejsdoc.org/index.html), see [Comments](#comments)
 - [sphinx-js 2.0.1 : Python Package Index](https://pypi.python.org/pypi/sphinx-js/)
 - [Introducing sphinx-js, a better way to document large JavaScript projects ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2017/07/introducing-sphinx-js-a-better-way-to-document-large-javascript-projects/)
 
@@ -90,7 +90,7 @@ Give uppercase name :
 
 	var MY_CONST_NAME = "value";
 
-Use [JSDoc comment](#Comments) like:
+Use [JSDoc comment](#comments) like:
 
 	/**
 	 * My own constance
@@ -204,7 +204,7 @@ Convert Arguments to Array:
 
 	let argsArray = [...arguments];
 
-See also [Destructuring](#Destructuring)
+See also [Destructuring](#destructuring)
 
 - [JavaScript & The spread operator – Hacker Noon](https://hackernoon.com/javascript-the-spread-operator-a867a71668ca)
 - [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
@@ -227,7 +227,7 @@ See also [Destructuring](#Destructuring)
 	Array.from({length: 3})// => [undefined, undefined, undefined]
 	Array.from({length: 3}, (value, index, array) => 2 + index * 2)// => [2, 4, 6]
 
-See [Array holes](#Array holes)
+See [Array holes](#array-holes)
 
 - [18. New Array features](http://exploringjs.com/es6/ch_arrays.html#sec_creating-filled-arrays)
 - [Generate ranges in javascript](https://gist.github.com/xgrommx/a25ffa3a7753e01ee679)
@@ -243,7 +243,7 @@ See [Array holes](#Array holes)
 > Always slice (never substr or substring)
 > shift = how bash accesses args (left to right)
 
-See [quotes](#Quotes)
+See [quotes](#quotes)
 
 - [Text Escaping and Unescaping in JavaScript](http://0xcc.net/jsescape/)
 - [Chapter 24. Unicode and JavaScript](http://speakingjs.com/es5/ch24.html)
@@ -625,7 +625,7 @@ Or "dispatched method call" for `obj.foo()` and "direct method call" for `func.c
 
 ### Arrow function
 
-Return without return keyword, use the [comma operator](#Comma operator)
+Return without return keyword, use the [comma operator](#comma-operator)
 
 	(param1) => (doSomething(), param1)
 
@@ -716,7 +716,7 @@ Performances tests results can change over engines and versions.
 - [Let’s get those Javascript Arrays to work fast | gamealchemist](https://gamealchemist.wordpress.com/2013/05/01/lets-get-those-javascript-arrays-to-work-fast/)
 - [Announcing key advances to JavaScript performance in Windows 10 Technical Preview – IEBlog](https://blogs.msdn.microsoft.com/ie/2014/10/09/announcing-key-advances-to-javascript-performance-in-windows-10-technical-preview/)
 
-See also [Bitwise operations](#Bitwise operations)
+See also [Bitwise operations](#bitwise-operations)
 
 ### Long Switch
 
@@ -906,7 +906,7 @@ See [Bitwise operations](#bitwise-operations)
 
 Aka bit twiddling
 
-**See [Micro optimization are useless](#Micro optimization are useless) before**
+**See [Micro optimization are useless](#micro-optimization-are-useless) before**
 
 is not exactly the same because bitwise will **clamp Number to 32bits integers**.
 
@@ -1058,7 +1058,7 @@ Handle promises rejection in node v6.6.0+:
 
 JavaScript is dynamic type, but it hard to debug if you use more than one type per variable.
 
-To make the debug easier comment variable type by using [JSDoc comment](#Comments) like:
+To make the debug easier comment variable type by using [JSDoc comment](#comments) like:
 
 	/**
 	 * My own string variable
@@ -1133,7 +1133,7 @@ Always use the same type in same property
 
 ### Cache length
 
-**Don't do it because it faster for millions iterations.** See [Micro optimization are useless](#Micro optimization are useless)
+**Don't do it because it faster for millions iterations.** See [Micro optimization are useless](#micro-optimization-are-useless)
 
 	for (let i = 0; i < arr.length; i++);
 
@@ -1166,7 +1166,7 @@ ES6 class
 - https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/seal
 - https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object/freeze
 
-Private properties or methods use specific [name convention](#Scoped variable) like prefix `_` (eg. `_property`) or [double square brackets](http://www.ecma-international.org/ecma-262/5.1/#sec-8.6.2).
+Private properties or methods use specific [name convention](#scoped-variable) like prefix `_` (eg. `_property`) or [double square brackets](http://www.ecma-international.org/ecma-262/5.1/#sec-8.6.2).
 
 ### Data properties on prototype
 
@@ -1283,7 +1283,7 @@ Private:
 
 	_myPrivateVariable
 
-See [Private slots](#Private slots)
+See [Private slots](#private-slots)
 
 Global, public:
 
@@ -1543,7 +1543,7 @@ If possible use positive conditions
 
 ### Block condition
 
-See [Return condition](#Return condition)
+See [Return condition](#return-condition)
 
 Block statment with a label:
 
@@ -1560,7 +1560,7 @@ Block statment with a label:
 
 ### Return condition
 
-See [Block condition](#Block condition)
+See [Block condition](#block-condition)
 
 Filter first, use less conditional blocks
 
@@ -1659,7 +1659,7 @@ Unless it's to backport the features of newers ECMAscript engines (like `Array.f
 
 > The comma operator has the lowest priority of all operators
 
-Usefull for [arrow function](#Arrow function): `x => (a(), b())`
+Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 
 - [Comma operator - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator)
 
@@ -2022,7 +2022,7 @@ Java `org.jctools.util.Pow2.roundToPowerOfTwo()`
 
 	Math.ceil(value / 2) * 2;
 
-See [Round to multiple](#Round to multiple)
+See [Round to multiple](#round-to-multiple)
 
 ## Odd and even
 
@@ -2468,7 +2468,7 @@ These alternatives will only work with positive signed 32-bit floats, i.e. numbe
 	-3.14 -> -3
 
 - Simple expression: `n > 0 ? Math.floor(n) : Math.ceil(n)`
-- Bitwise OR with 0 + Math.floor and ceil for high values: `n >= 0 && n < 2 ^ 31 ? n|0 : n >= 0 ? Math.floor(n) : Math.ceil(n)`. See [Micro optimization are useless](#Micro optimization are useless)
+- Bitwise OR with 0 + Math.floor and ceil for high values: `n >= 0 && n < 2 ^ 31 ? n|0 : n >= 0 ? Math.floor(n) : Math.ceil(n)`. See [Micro optimization are useless](#micro-optimization-are-useless)
 - Real full expression: `typeof n === 'number' && !isNaN(n) && n !== Infinity ? n > 0 ? Math.floor(n) : Math.ceil(n) : 0`
 
 Work only for 32bits signed floats :
@@ -2542,7 +2542,7 @@ But not:
 
 Specificities: `(1000000000000000000000).toFixed(3) == "1e+21"` and `35.855*100 == 3585.4999999999995`
 
-See [Floating point numbers](#Floating point numbers)
+See [Floating point numbers](#floating-point-numbers)
 
 - [Snippet: Rounding with Precision](http://yourjs.com/snippets/33)
 

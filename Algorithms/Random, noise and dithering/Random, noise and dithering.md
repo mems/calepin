@@ -287,7 +287,7 @@ Could use [Diamond-square algorithm](Algorithms#Diamond-square) to do the same e
 
 Aka random number, pseudo random number (PRN)
 
-See also [Noise](#Noise)
+See also [Noise](#noise)
 
 - [Poisson distribution — Wikipedia](https://en.wikipedia.org/wiki/Poisson_distribution)
 - [Better, smaller and faster random number generator](http://www.rgba.org/articles/sfrand/sfrand.htm)

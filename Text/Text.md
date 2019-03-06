@@ -502,7 +502,7 @@ Reversed pseudoalphabet (backwards) (better with Capitals)
 
 > be redundant when you explain stuff to people
 
-See also [Spelling is important](HTML#Spelling is important), [Language](#Language)
+See also [Spelling is important](HTML#Spelling is important), [Language](#language)
 
 - [Lack of Oxford Comma Could Cost Maine Company Millions in Overtime Dispute - The New York Times](https://www.nytimes.com/2017/03/16/us/oxford-comma-lawsuit.html)
 	- [The New York Times on Twitter: "This class-action lawsuit hinged entirely on the dreaded — or totally necessary — Oxford comma https://t.co/TWsK7o1bpP"](https://twitter.com/nytimes/status/842463014536249345)

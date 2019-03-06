@@ -424,7 +424,7 @@ Or use an app:
 
 > You can't restore this backup because it was created by a different model of Mac
 
-Could restore from a Time Machine Backup with [Migration Assistant](#Migration Assistant).
+Could restore from a Time Machine Backup with [Migration Assistant](#migration-assistant).
 
 Restore from a Time Machine backup should restore all files, but few things are not:
 
@@ -683,7 +683,7 @@ On non Mac Machine (AFP) or other network protocols
 - 10.11 `tmutil version 4.0.0 (built Oct  3 2015)` appears to not support SMB but only AFP. 10,13 `tmutil version 4.0.0 (built Jul 15 2017)` does
 - Time Machine use an SMB extension `F_FullfSync` available in SMB3 (SAMBA 4.1 implement it) to ensure that data is actually written to disk. See [MacOS Sierra support Time Machine via SMB- but how? : apple](https://www.reddit.com/r/apple/comments/53upnj/macos_sierra_supports_time_machine_via_smb_but_how/)
 - [Time Machine Over SMB Specification](https://developer.apple.com/library/content/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/index.html)
-- [Backup into a sparsebundle file](#Backup into a sparsebundle file)
+- [Backup into a sparsebundle file](#backup-into-a-sparsebundle-file)
 - `defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1 && killall Finder` (apparently it's ignored with OSX 10.11, SIP?)
 - [HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume ¦ kremalicious](https://kremalicious.com/ubuntu-as-mac-file-server-and-time-machine-volume/)
 - Why can't I use a sparsebundle disk image on a filesystem that does not support the F_FULLFSYNC file control? [Backing up to a disk image | Carbon Copy Cloner | Bombich Software](https://bombich.com/kb/ccc4/backing-up-disk-image#fullfsync)
@@ -718,8 +718,8 @@ For clean install, erase the drive with Disk Utility ([macOS Recovery](https://s
 
 - [How to reinstall macOS from macOS Recovery - Apple Support](https://support.apple.com/en-us/HT204904)
 - [osx - How can I get back a system file after deleting it from my Mac? - Ask Different](http://apple.stackexchange.com/questions/116611/how-can-i-get-back-a-system-file-after-deleting-it-from-my-mac/116612#116612)
-- [OSX on Bootable USB](#OSX on Bootable USB)
-- [Restore from a Time Machine backup](#Restore from a Time Machine backup)
+- [OSX on Bootable USB](#osx-on-bootable-usb)
+- [Restore from a Time Machine backup](#restore-from-a-time-machine-backup)
 
 #### Install on Virtual Machine
 
@@ -829,9 +829,9 @@ but doesn't migrate:
 - `/Library/Logs/SystemMigration.log` or `/private/var/log/system.log` (sender MigrateTool)
 - [macOS Sierra: Transfer your info from a computer or storage device](https://support.apple.com/kb/PH25651)
 - [How to move data to your new Mac using Mountain Lion and earlier - Apple Support](https://support.apple.com/en-us/HT204320)
-- [Restore from a Time Machine backup](#Restore from a Time Machine backup)
-- [Install macOS](#Install macOS)
-- [Migration Assistant](#Migration Assistant)
+- [Restore from a Time Machine backup](#restore-from-a-time-machine-backup)
+- [Install macOS](#install-macos)
+- [Migration Assistant](#migration-assistant)
 
 ### Cleanup from previous upgrades
 
@@ -1526,7 +1526,7 @@ Files can be removed in 10.13.6:
 
 ### Reset Setup Assistant
 
-Integrate features of [Migration Assistant](#Migration Assistant).
+Integrate features of [Migration Assistant](#migration-assistant).
 
 Remove `/var/db/.AppleSetupDone`:
 
