@@ -4495,7 +4495,7 @@ Or:
 
 - https://addons.opera.com/en/extensions/details/download-chrome-extension-9/
 
-See [CRX / NEX (Opera)](#crx--nex-opera))
+See [CRX / NEX (Opera)](#crx--nex-opera)
 
 #### CRX / NEX (Opera)
 
