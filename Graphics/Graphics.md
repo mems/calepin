@@ -1508,10 +1508,33 @@ Aka fire
 
 ### Sparkle shader
 
- - ![Sparkle shader](Pixel Shader/Sparkle shader/Sparkle shader.mp4)
+Aka sparly shader
+
+- ![Sparkle shader](Pixel Shader/Sparkle shader/Sparkle shader.mp4)
+- ![Sparkle shader 2](Pixel Shader/Sparkle shader 2/Sparkle shader 2.mp4) (normalize the direction vector, make sure you normalize the direction vector), could use using the camera direction vector
+
+```
+// From https://www.shadertoy.com/view/tdsXRX
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	// Normalized pixel coordinates (from 0 to 1)
+	vec2 uv = fragCoord/iResolution.xy;
+	
+	vec2 light = vec2(cos(iTime*.5), sin(iTime*.5));
+	
+	vec2 direction = normalize(texture(iChannel0,uv).xy - .5);
+	float sparkle = dot(direction, light);
+	
+	sparkle = step(.999,sparkle);
+	// Output to screen
+	fragColor = vec4(sparkle);
+}
+```
 
 - [°.☀️ ｡rob｡☀️.° i love my girlfriend sur Twitter : "got a lot of people asking how i do my sparkly effects and i love the shader tutorials by @minionsart so i got inspired to make my own!! gonna go more in-depth in the replies #gamedev #madewithunity https://t.co/yfKO93yRq7"](https://mobile.twitter.com/bobacupcake/status/957777266959794176)
 - [Shader Breakdown #1 | Rob Fichman on Patreon](https://www.patreon.com/posts/shader-breakdown-21471588)
+- [rob @ i ✨💖✨ my girlfriend on Twitter: "someone was asking about the concepts behind my sparly shader so i made a little gif, maybe it will be helpful to you too!!… https://t.co/HsETCTGpjV"](https://twitter.com/bobacupcake/status/1102631340774694912?s=12)
+- [Sparkles effect](https://www.shadertoy.com/view/tdsXRX)
 
 ### Filter
 

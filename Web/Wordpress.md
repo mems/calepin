@@ -8,6 +8,8 @@
 
 ## Composer
 
+- [Using Composer With WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/03/composer-wordpress/)
+ 
 	"extra": {
 		"webroot-dir": "www",
 		"webroot-package": "wordpress",
