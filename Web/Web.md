@@ -5928,21 +5928,21 @@ On mobile browsers
 
 ## Viewport size
 
-|----------------------------|-----------------------|-----------------------|-------------------|-----------------------|-----------------------|------------------- |
-| 							 | iPhone 4/4s			 | iPhone 5/5c/5s/SE	 | iPhone 6… 		 | iPhone 6… Plus		 | iPad pro 12.9		 | iPad pro 9.7
-| Screen Size[1]			 | 	320 × 480 pt		 | 320 × 568 pt			 | 375 × 667 pt		 | 414 × 736 pt			 | 1366 × 1024 pt		 | 1024 × 768 pt
-| Rendered Pixels			 | 	640 × 960 (@2x)		 | 640 × 1136 (@2x)		 | 750 × 1334 (@2x)	 | 1242 × 2208 (@3x)	 | 2732 × 2048 (@2x)	 | 2048 × 1536 (@2x)
-| Physical Pixels			 | 	640 × 960			 | 640 × 1136			 | 750 × 1334		 | 1080 × 1920			 | 2732 × 2048			 | 2048 × 1536
-| Pixels Per Inch (PPI)		 | 326					 | 326					 | 326				 | 401					 | 264					 | 264
-| Browser viewport			 | -					 | -					 | -				 | -			
-| - Portrait				 | 	-					 | -					 | -				 | -
-| 	* normal[2]				 | 320 × 372 px			 | 320 × 460 px			 | 375 × 559 px		 | 414 × 628 px
-| 	* minimal[3]			 | 320 × 440			 | 320 × 528			 | 375 × 627		 | 414 × 696
-| 	* fullscreen[4]			 | 320 × 460			 | 320 × 548			 | 375 × 647		 | 414 × 716
-| - Landscape 				 | -					 | -					 | -				 | -
-| 	* normal[2]				 | 480 × 212 px			 | 568 × 212 px			 | 667 × 267 px		 | 736 × 306 px
-| 	* minimal[3]			 | 480 × 280			 | 568 × 280			 | 667 × 335		 | 736 × 374
-| 	* fullscreen[4]			 | 480 × 300			 | 568 × 300			 | 667 × 355		 | 736 × 394
+| 							 | iPhone 4/4s			 | iPhone 5/5c/5s/SE	 | iPhone 6… 		 | iPhone 6… Plus		 | iPad pro 12.9		 | iPad pro 9.7			 |
+| -------------------------- | --------------------- | --------------------- | ----------------- | --------------------- | --------------------- | --------------------- |
+| Screen Size[1]			 | 	320 × 480 pt		 | 320 × 568 pt			 | 375 × 667 pt		 | 414 × 736 pt			 | 1366 × 1024 pt		 | 1024 × 768 pt		 |
+| Rendered Pixels			 | 	640 × 960 (@2x)		 | 640 × 1136 (@2x)		 | 750 × 1334 (@2x)	 | 1242 × 2208 (@3x)	 | 2732 × 2048 (@2x)	 | 2048 × 1536 (@2x)	 |
+| Physical Pixels			 | 	640 × 960			 | 640 × 1136			 | 750 × 1334		 | 1080 × 1920			 | 2732 × 2048			 | 2048 × 1536			 |
+| Pixels Per Inch (PPI)		 | 326					 | 326					 | 326				 | 401					 | 264					 | 264					 |
+| Browser viewport			 | -					 | -					 | -				 | -					 | -					 | -					 |
+| - Portrait				 | 	-					 | -					 | -				 | -					 | -					 | -					 |
+| 	* normal[2]				 | 320 × 372 px			 | 320 × 460 px			 | 375 × 559 px		 | 414 × 628 px			 | ?					 | ?					 |
+| 	* minimal[3]			 | 320 × 440			 | 320 × 528			 | 375 × 627		 | 414 × 696			 | ?					 | ?					 |
+| 	* fullscreen[4]			 | 320 × 460			 | 320 × 548			 | 375 × 647		 | 414 × 716			 | ?					 | ?					 |
+| - Landscape 				 | -					 | -					 | -				 | -					 | -					 | -					 |
+| 	* normal[2]				 | 480 × 212 px			 | 568 × 212 px			 | 667 × 267 px		 | 736 × 306 px			 | ?					 | ?					 |
+| 	* minimal[3]			 | 480 × 280			 | 568 × 280			 | 667 × 335		 | 736 × 374			 | ?					 | ?					 |
+| 	* fullscreen[4]			 | 480 × 300			 | 568 × 300			 | 667 × 355		 | 736 × 394			 | ?					 | ?					 |
 
 1. JS: `screen.[height|width]`; CSS: `device-width`, `device-height`
 2. normal-ui (with normal browser navigation bars) JS: `window.inner[Height|Width]`; CSS: `width`, `height`
@@ -6147,7 +6147,7 @@ use ISO 8601 in JSON
 ## Troubleshooting
 
 - safe browsing / ad blocker issues:
-	- "banner.jpg"; "ads.js" and "analytics.js"
+	- `banner.jpg`, `ads.js` and `analytics.js`
 	- analytics can even fails
 	- some HTML element like images or video with keywords like "publicité" (in URL or title) don't appears on some browsers
 	- Firefox with the Tracking Protection block the Facebook SDK in private mode (by default)
