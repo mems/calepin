@@ -58,7 +58,7 @@ Reduce artifacts
 	* [Scaling images with alpha - Wolfire Games Blog](http://blog.wolfire.com/2009/01/scaling-images-with-alpha/)
 - clean transparent pixels (outside alpha bleeding)
 - align to compression blocks
-- use [dithering](Random, noise and dithering#Dithering):
+- use [dithering](Random, noise and dithering#dithering):
 	Add noise pre-processing (before compression) depends algorithm used to compress (especially for gradient with PVRTC1). See [Making the quality of PVRTC textures higher | Heyworks Blog](http://wayback.archive.org/web/20160406130348/http://blog.heyworks.com/making-the-quality-of-pvrtc-textures-higher/) or [Избавление от артефактов сжатия PVRTC текстур / Хабрахабр](https://habrahabr.ru/post/158963/)
 	
 	* nearest-neighbour, has the least color error but color distribution leads to less contrast than linear.

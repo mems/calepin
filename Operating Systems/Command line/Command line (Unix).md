@@ -2027,7 +2027,7 @@ Find the location of a command
 
 ## Backup external server
 
-**Note: Be carefull with [crendentials used in job schedulers](Security#Crendentials used in job schedulers).** It's why we try to use configuration files instead pure command line
+**Note: Be carefull with [crendentials used in job schedulers](Security#crendentials-used-in-job-schedulers).** It's why we try to use configuration files instead pure command line
 
 Use [`rsync`](#rsync) if possible, or `lftp`, `curl`, `wget`, `scp`, `sftp`. See also `unison`, `bacula`, `amanda`
 

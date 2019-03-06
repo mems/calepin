@@ -720,7 +720,7 @@ Create image (from nothing). `xc` "X Constant Image" / Canvas: [Canvas Creation 
 
 	convert -size 100x100 xc:white canvas.jpg
 
-Remove metadata (see also `-define` and[PNG Metadata](PNG#Metadata))
+Remove metadata (see also `-define` and[PNG Metadata](PNG#metadata))
 
 	convert -strip image.jpg image_slim.jpg
 
@@ -827,7 +827,7 @@ Some interesting files:
 
 If winetrick don't install (error log contains `pathchk: illegal option -- P`) get `https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks` and replace content of `~/Library/Application Support/Wine/winetricks`
 
-`Wine.app` start `winetrick` with a `$PATH` as it's original value (for any spawned process), it's why you need when debug a wine app on macOS, always start with **absolute path** in Terminal: `/Applications/MyApp.app/Contents/MacOS/startwine`. See [Define PATH globaly](macOS#Define PATH globaly)
+`Wine.app` start `winetrick` with a `$PATH` as it's original value (for any spawned process), it's why you need when debug a wine app on macOS, always start with **absolute path** in Terminal: `/Applications/MyApp.app/Contents/MacOS/startwine`. See [Define PATH globaly](macOS#define-path-globaly)
 
 > With the introduction of SIP, all environment variables matching DYLD_* will be stripped before executing a restricted binary.
 

@@ -1,6 +1,6 @@
 ## Resources
 
-See also [Compare image](Compare data#Compare image)
+See also [Compare image](Compare data#compare-image)
 
 `identify -verbose image.ext`
 

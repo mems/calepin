@@ -12,8 +12,8 @@
 
 See also
 
-- [Headless browser](Web#Headless browser)
-- [Data scraping](Security#Data scraping)
+- [Headless browser](Web#headless-browser)
+- [Data scraping](Security#data-scraping)
 
 ## Simple way (declarative)
 

@@ -18,7 +18,7 @@ Add a uncompressed file without attributes then file `zip -0 -X doc.odt mimetype
 
 ## ZIP Quine
 
-Is a ZIP file that contains an exact copy of itself. See [LZ77](Algorithms#LZ77)
+Is a ZIP file that contains an exact copy of itself. See [LZ77](Algorithms#lz77)
 
 - [ZIP Quine](https://alf.nu/ZipQuine)
 - [Quine.zip](https://wgreenberg.github.io/quine.zip/) - See https://github.com/wgreenberg/quine.zip

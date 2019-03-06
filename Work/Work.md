@@ -76,7 +76,7 @@ Lorsqu’on travaille sur un projet, il faut le faire tester le plus tôt possib
 
 Aka efficiency
 
-See [Counterproductive rules](Conception#Counterproductive rules)
+See [Counterproductive rules](Conception#counterproductive-rules)
 
 Give better/efficient tools.
 
@@ -226,7 +226,7 @@ Régie / prix unitaire / à débours (direct labour hours, timework, sous-traita
 
 Aka Chiffrage
 
-See [Time estimation](Conception#Time estimation)
+See [Time estimation](Conception#time-estimation)
 
 ## Stagiaire
 

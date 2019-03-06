@@ -363,7 +363,7 @@ Encore URL
 	<!-- As value of JS variable -->
 	<script>var data = <?php echo json_encode_unicode($results, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES | JSON_PARTIAL_OUTPUT_ON_ERROR) ?></script>
 
-- [Data input implication](Security#Data input implication)
+- [Data input implication](Security#data-input-implication)
 
 ## Detect XHR
 
@@ -437,4 +437,4 @@ Encore URL
 	echo "0\r\n\r\n";
 	flush();
 
-See [Transfert encoding](Web#Transfert encoding)
+See [Transfert encoding](Web#transfert-encoding)

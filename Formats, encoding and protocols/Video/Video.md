@@ -1,4 +1,4 @@
-- [Enhance detail](Graphics#Enhance detail)
+- [Enhance detail](Graphics#enhance-detail)
 - [ffdshow tryouts | Official Website](http://ffdshow-tryout.sourceforge.net/)
 - [GPAC | Multimedia Open Source Project](https://gpac.wp.imt.fr/)
 - [Fabio_Sonnati_Encoding Video for the Highest Quality and Performance_MaxEurope2008.pdf](Fabio_Sonnati_Encoding Video for the Highest Quality and Performance_MaxEurope2008.pdf)
@@ -17,7 +17,7 @@ Pixel aligned on H.264/AVC which use 16×16 macroblocks (partition size predicti
 
 ## Frame types
 
-[APNG](PNG#APNG) use one one I-Frame + P‑frame (base on the I-Frame only) with blend mode
+[APNG](PNG#apng) use one one I-Frame + P‑frame (base on the I-Frame only) with blend mode
 
 To get frames infos:
 
@@ -40,10 +40,10 @@ Videos codec often don't support alpha, often used for entertainment or support 
 
 Use a dedicated format like: WebM with codecs: VP8, VP8 or MOV with codecs: PNG (FourCC: `png `), QuickTime None (FourCC: `v408`) or QuickTime Animation (FourCC: `rle `) or FLV/F4V
 
-Or use side by side (or 2 files) for channels (RGB + A) videos. See [Side by side channels](Image#Side by side channels)
+Or use side by side (or 2 files) for channels (RGB + A) videos. See [Side by side channels](Image#side-by-side-channels)
 
 - Generate a MOV from suite of PNG images and use the PNG codec: `ffmpeg  -i "test.%04d.png" -vcodec copy -y test.mov`
-- [Alpha compression](Image#Alpha compression)
+- [Alpha compression](Image#alpha-compression)
 - [HTML5 Video with alpha transparency](http://www.sciencelifeny.com/transparency/transparency.html) - Use side by side channels
 - [m90/seeThru: HTML5 video with alpha channel transparencies](https://github.com/m90/seeThru) - Use side by side channels
 - [tsheaff/TSHAlphaVideos: Play mp4 videos with alpha background on iOS](https://github.com/tsheaff/TSHAlphaVideos)

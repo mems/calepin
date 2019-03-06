@@ -32,7 +32,7 @@ See also [resample](Resample)
 
 ## Correct color interpolation
 
-See [correct color interpolation](Interpolation#Correct color interpolation)
+See [correct color interpolation](Interpolation#correct-color-interpolation)
 
 ## Angle gradient
 
@@ -54,13 +54,13 @@ Aka conic gradient, conical gradient, whirl, fowler angle
 
 ## Diamond-square
 
-See [Diamond-square algorithm](Algorithms#Diamond-square)
+See [Diamond-square algorithm](Algorithms#diamond-square)
 
 - [labs.hellokeita.com » Multi Gradient](http://wayback.archive.org/web/20120225094220/http://labs.hellokeita.com/2008/01/24/multi-gradient/)
 
 ## Plasma effect
 
-See [Sinusoids combination](Random, noise and dithering#Sinusoids combination)
+See [Sinusoids combination](Random, noise and dithering#sinusoids-combination)
 
 ## Scrim gradient
 

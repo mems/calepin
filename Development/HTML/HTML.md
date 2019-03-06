@@ -152,7 +152,7 @@ Correct:
 	<meta charset="UTF-8">
 	<meta charset="utf-8">
 
-`UTF-8` is prefered, but `utf-8` works too. See [Media type - Charset case](Web#Charset case)
+`UTF-8` is prefered, but `utf-8` works too. See [Media type - Charset case](Web#charset-case)
 
 CDATA in HTML for script or style tags is not need in HTML5
 
@@ -174,7 +174,7 @@ Implicit `role=""`: [3 Semantics, structure, and APIs of HTML documents — HTML
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
 
-See [Web](Web#Favicon)
+See [Web](Web#favicon)
 
 ## (depreciated) Conditional comment for IE
 
@@ -197,7 +197,7 @@ See [Web#Data URI]
 It's a security issue if the link is provided by user, in the target document `window.opener` is accessible and can change it `location`
 
 - [When to use target="_blank" | CSS-Tricks](https://css-tricks.com/use-target_blank/)
-- [Security # Link and `target="_blank"` or `window.open()`](Security#Link and `target="_blank"` or `window.open()`)
+- [Security # Link and `target="_blank"` or `window.open()`](Security#link-and-target_blank-or-windowopen)`)
 
 ## Performance impact of images
 
@@ -266,8 +266,8 @@ Should use double quotes.
 > It may require a bit more analysis, but it is always better to think of class names that represent the meaning/function of the specific element(s) rather than what happens to be their current presentation. That way when their presentation changes (as it inevitably does), or alternative presentations are designed for additional media types or devices, you avoid such confusing style rules like: `.black { color:navy; }`
 — [Tantek, 2004](http://meyerweb.com/eric/thoughts/2004/07/18/competent-classing/#comment-529)
 
-See [Common issues](Web#Common issues) about limitation adblocks order.
-See also [Development](Development#Naming)
+See [Common issues](Web#common-issues) about limitation adblocks order.
+See also [Development](Development#naming)
 
 ### IDs for robots
 
@@ -639,7 +639,7 @@ UI
 
 - notice
 - alert
-- command hierarchy / cmd hrchy or menu hierarchy (in docs, like `File > Save`. See [Hierarchy](Text#Hierarchy))
+- command hierarchy / cmd hrchy or menu hierarchy (in docs, like `File > Save`. See [Hierarchy](Text#hierarchy))
 - bookmark / bm
 - notification
 - message / msg
@@ -784,7 +784,7 @@ webpage, text, image, video, map
 
 #### Others
 
-See [Development](Development#Few words)
+See [Development](Development#few-words)
 
 #### Modifier / States / Actions (provided as information, usefull for JS)
 
@@ -848,7 +848,7 @@ Use data attribute `[data-slideshow]` or classname `.js-slideshow`
 
 Some `name` attribute can override element's properties (like `name`, `attributes`, `childNodes`, etc.)
 
-See [DOM Clobbering](JavaScript#DOM Clobbering)
+See [DOM Clobbering](JavaScript#dom-clobbering)
 
 ## Entities and emoji
 
@@ -856,7 +856,7 @@ and symbols
 
 Sometimes it's better to use image or svg instead
 
-- [Symbols](Text#Symbols)
+- [Symbols](Text#symbols)
 - [You, Me And The Emoji: Character Sets, Encoding And Emoji – Smashing Magazine](https://www.smashingmagazine.com/2016/11/character-sets-encoding-emoji/)
 - [Emoji on the Web – Making Faces (and Other Emoji) – Medium](https://medium.com/making-faces-and-other-emoji/emoji-on-the-web-537c5769dffa)
 
@@ -897,7 +897,7 @@ Aka a11y
 	* https://twitter.com/zeldman/status/492805247455072256
 - > Animation can be a useful tool to make a focus state more obvious and at the same time easier on the eyes.
 - HTML tags are for semantic. `role` and other aria attributes are for interactions description
-- role attribute force elements for be exposed to AT. See who to [hide an element to assistive technologies](CSS#Hide an element to assistive technologies)
+- role attribute force elements for be exposed to AT. See who to [hide an element to assistive technologies](CSS#hide-an-element-to-assistive-technologies)
 - > don't replace a native control with a scripted one that doesn't retain the same semantics
 	Example using select2 where selected item is not announced
 	* [Custom UI Widget Accessibility Problems - YouTube](https://www.youtube.com/watch?v=mydQJjf981g)
@@ -911,7 +911,7 @@ Aka a11y
 > build a ramp instead of a staircase
 — [The Veil of Ignorance](http://mrmrs.io/writing/2016/03/23/the-veil-of-ignorance/)
 
-See [Color contrast](UI - UX#Color contrast)
+See [Color contrast](UI - UX#color-contrast)
 
 Tools:
 
@@ -972,7 +972,7 @@ Examples (pattern, components):
 Others (doc, about, etc.):
 
 - See also [Input-Controlled Web Design](#input-controlled-web-design)
-- See also [SVG](SVG#Accessibility)
+- See also [SVG](SVG#accessibility)
 
 - [Tips for making accessibility a core design principle](https://pixelpioneers.co/blog/2017/13-expert-tips-accessibility)
 - [Notes on ARIA by Taylor Hunt on CodePen](https://codepen.io/tigt/post/notes-on-aria)
@@ -1652,7 +1652,7 @@ Image alternative:
 - [More Than Just Pretty: How Imagery Drives User Experience – Smashing Magazine](https://www.smashingmagazine.com/2017/01/more-than-just-pretty-how-imagery-drives-user-experience/)
 - [Alternate text for background images, alt text accessibility](http://davidmacd.com/blog/alternate-text-for-css-background-images.html)
 
-See also [CSS - Image](CSS#Image)
+See also [CSS - Image](CSS#image)
 
 ## Responsive image
 
@@ -1747,7 +1747,7 @@ See also:
 - [Labels in input fields aren’t such a good idea | Laura Kalbag](http://laurakalbag.com/labels-in-input-fields-arent-such-a-good-idea/)
 - [The HTML5 placeholder attribute is not a substitute for the label element | 456 Berea Street](http://www.456bereastreet.com/archive/201204/the_html5_placeholder_attribute_is_not_a_substitute_for_the_label_element/)
 - [HTML5 Accessibility Chops: the placeholder attribute | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2011/02/html5-accessibility-chops-the-placeholder-attribute/)
-- [UI - UX - Placeholder as label](UI - UX#Placeholder as label)
+- [UI - UX - Placeholder as label](UI - UX#placeholder-as-label)
 
 ### Input inside label
 
@@ -2562,8 +2562,8 @@ It's could be required to duplicate it with an HTML comment (for compatibility r
 
 	<noscript><img src="image.jpg"></noscript>
 
-- [`<noscript>` and search engines](Web#`<noscript>` and search engines)
-- [Lazyload and async load stylesheets and imgs](JavaScript#Lazyload and async load stylesheets and imgs)
+- [`<noscript>` and search engines](Web#noscript-and-search-engines)
+- [Lazyload and async load stylesheets and imgs](JavaScript#lazyload-and-async-load-stylesheets-and-imgs)
 
 ## Quote
 
@@ -2671,7 +2671,7 @@ https://en.wikipedia.org/wiki/Non-breaking_space#Non-breaking_behavior
 
 For hyphen `&#8209;`
 
-For breaking oportunity, use `<wbr>` or `&#8203;`. See [line break](Text#Line break)
+For breaking oportunity, use `<wbr>` or `&#8203;`. See [line break](Text#line-break)
 
 ## Tagline & subheader
 
@@ -3772,11 +3772,11 @@ Use a table or articles. But not list and list-items
 
 ## Gender / plurial combined form
 
-- [Gender / plurial combined form](Text#Gender / plurial combined form)
+- [Gender / plurial combined form](Text#gender--plurial-combined-form)
 
 ## Calendar
 
-See [Date picker](JavaScript#Date picker)
+See [Date picker](JavaScript#date-picker)
 
 For input use `<input type="date">`
 
@@ -3891,7 +3891,7 @@ Skip to content:
 		<li><a href="#languages">Skip to languages</a></li>
 	</ul>
 
-Use [Hide graphicaly an element](CSS#Hide graphicaly an element)
+Use [Hide graphicaly an element](CSS#hide-graphicaly-an-element)
 
 	<nav id="navigation">
 		<ul>
@@ -3976,7 +3976,7 @@ Use `<u>keyword</u>`
 
 With `tabindex="-1"` and with `aria-hidden="true"` and/or `role="presentation"` or simply `style="display:none"` (or `hidden` attribute, but not really supported)
 
-See also [Hide an element to assistive technologies](CSS#Hide an element to assistive technologies)
+See also [Hide an element to assistive technologies](CSS#hide-an-element-to-assistive-technologies)
 
 - [Know your ARIA: 'Hidden' vs 'None'](http://www.scottohara.me/blog/2018/05/05/hidden-vs-none.html)
 - http://asurkov.blogspot.fr/2012/02/aria-hidden-and-rolepresentation.html

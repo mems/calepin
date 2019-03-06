@@ -61,7 +61,7 @@ Mitsubishi Pajero (ex: masturbator, wanker)
 
 ## Counterproductive rules
 
-See [Productiveness](Work#Productiveness)
+See [Productiveness](Work#productiveness)
 
 > Et si la rémunération à la performance nuisait à la performance ?
 > 
@@ -75,7 +75,7 @@ See [Productiveness](Work#Productiveness)
 
 ## Copyright infringement
 
-See [Prevent violation](Security#Prevent violation) and [Reverse engineering and cracking](Security#Reverse engineering and cracking), [DMCA](Law#DMCA)
+See [Prevent violation](Security#prevent-violation) and [Reverse engineering and cracking](Security#reverse-engineering-and-cracking), [DMCA](Law#dmca)
 
 Launch world-wide from beginning, Crawl the web
 
@@ -254,7 +254,7 @@ It's like unsolicited "redesign" website or app (without real constraints). See 
 > Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
 > — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
 
-See [Time estimation](Work#Time estimation) and [Unsolicited reworks](#unsolicited-reworks)
+See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
 
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
 
@@ -359,7 +359,7 @@ See [Stars and Stripes and ISO Codes · An A List Apart Column](http://alistapar
 
 ### Localization
 
-See [localization](Development#Localization)
+See [localization](Development#localization)
 
 - [L’internationalisation, c’est long et dur (et ça racle le fond) | Sam & Max](http://sametmax.com/linternationalisation-cest-long-et-dur-et-ca-racle-le-fond/)
 - [Localizing PHP Applications "The Right Way" — SitePoint](https://www.sitepoint.com/series/localizing-php-applications-the-right-way/)

@@ -668,13 +668,13 @@ if (!(function f() {}).name) {
 
 ## Performance and optimization
 
-See [Performance and optimization](Development#Performance and optimization)
+See [Performance and optimization](Development#performance-and-optimization)
 
 - [JS MythBusters, A JavaScript optimization handbook from a high level point of view.](https://mythbusters.js.org/)
 - [Writing Fast, Memory-Efficient JavaScript – Smashing Magazine](https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/)
 - [Find common memory issues | Web Tools - Google Developers](https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/memory-diagnosis)
 - [Memory Management - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-- [Optimization](Development#Optimization)
+- [Optimization](Development#optimization)
 - [Premature Optimization](http://wiki.c2.com/?PrematureOptimization)
 - [.map() vs .forEach() vs for()](https://ryanpcmcquen.org/javascript/2015/10/25/map-vs-foreach-vs-for.html)
 - [Optimizing dynamic JavaScript with inline caches · sq/JSIL Wiki](https://github.com/sq/JSIL/wiki/Optimizing-dynamic-JavaScript-with-inline-caches)
@@ -1640,7 +1640,7 @@ do:
 
 If you need to detect host object, instead of `"WheelEvent" in self` or `"WheelEvent" in window`, use `typeof WheelEvent == "function"`.
 
-See [detect a feature](Web#Detect a feature)
+See [detect a feature](Web#detect-a-feature)
 
 ## Don't extend build-in types
 

@@ -7,7 +7,7 @@
 - Soundex(phonetics): semi-tolerant to misspellings and also brings up similar-sounding results http://yomguithereal.github.io/talisman/phonetics/#fuzzy-soundex
 - Damerau-Levenshtein is used to sort the results by closeness http://yomguithereal.github.io/talisman/metrics/distance#damerau-levenshtein
 
-See also [Tree search](Tree traversal#Tree search)
+See also [Tree search](Tree traversal#tree-search)
  
 	function get_nearest_keyframe(second:Number, keytimes)
 	{

@@ -28,7 +28,7 @@ And because style have meaning to and related to ARIA attributes (like `aria-has
 
 ## Write CSS
 
-See [Classname and ID](HTML#Classname and ID)
+See [Classname and ID](HTML#classname-and-id)
 
 - [Mini Convention CSS - Alsacreations](http://www.alsacreations.com/article/lire/1707-mini-convention-css.html)
 - [CSS coding techniques ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2016/05/css-coding-techniques/)
@@ -88,7 +88,7 @@ Patterns
 
 ## Viewport
 
-- [JavaScript # Viewport sizes](JavaScript#Viewport dimension)
+- [JavaScript # Viewport sizes](JavaScript#viewport-dimension)
 - [Display resolution - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Display_resolution)
 
 Mobile: 16:9, 1280 × 800 @2dppx
@@ -660,7 +660,7 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 
 ### Alignment
 
-See [Align text](SVG#Align text)
+See [Align text](SVG#align-text)
 
 - [CSS Box Alignment Module Level 3](https://www.w3.org/TR/css-align-3/#overview)
 - [Les alignements en CSS3 : passez-moi deux doliprane SVP – La Tête dans le Flux](https://blog.goetter.fr/2017/01/28/les-alignements-en-css3-passez-moi-deux-doliprane-svp/)
@@ -922,7 +922,7 @@ Is the same as use `transform-origin: bottom center;`
 - anchor scroll position shifted with header height
 
 - [Sticky headers — Medium](https://medium.com/@adactio/sticky-headers-fe9537519c83)
-- [Autoscroll to anchors](JavaScript#Autoscroll to anchors)
+- [Autoscroll to anchors](JavaScript#autoscroll-to-anchors)
 
 ### Full width content
 
@@ -1079,7 +1079,7 @@ Negative z-index:
 
 Note: always declare `font-weight` in `@font-face` (if not `normal` or `400`). Don't use different font name for styles.
 
-Tip: Changing weight based on ambient light. "Heavy" font in low-light. See also [Variable font](OpenType#Variable font)
+Tip: Changing weight based on ambient light. "Heavy" font in low-light. See also [Variable font](OpenType#variable-font)
 
 If weight is unavailable, weights 100–500 will render as normal, 600–900 will render as bold, or use [font-synthesis - CSS | MDN](https://developer.mozilla.org/en/docs/Web/CSS/font-synthesis)
 
@@ -1392,7 +1392,7 @@ For `font-size` and/or `line-height`, etc.
 
 - [Font size](#font-size)
 - [Clamp values](#clamp-values)
-- [Variable font](OpenType#Variable font)
+- [Variable font](OpenType#variable-font)
 - [Truly Fluid Typography With vh And vw Units – Smashing Magazine](https://www.smashingmagazine.com/2016/05/fluid-typography/)
 - [The Typekit Blog | Flexible typography with CSS locks](https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/)
 - [Fluid Responsive Typography With CSS Poly Fluid Sizing – Smashing Magazine](https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/)
@@ -1677,7 +1677,7 @@ Some people don't recommand to use the `text-indent` techniques:
 
 #### ARIA label
 
-You can use [`aria-label` and/or `title` attributes](HTML#Labelling) instead or with `aria-labelledby=ID`
+You can use [`aria-label` and/or `title` attributes](HTML#labelling) instead or with `aria-labelledby=ID`
 It's accessible, but HTML is invalid when tag like `a`, `button`, `p`, `h1`, etc. are empty.
 
 ### Hide graphicaly an element
@@ -1727,7 +1727,7 @@ Don't use `visibility: hidden;` (http://accessibilitytips.com/2008/03/05/avoidin
 ### Hide an element to assistive technologies
 
 Use `display: none` or `visibility: hidden` but will hide it graphicaly too.
-Prefer using `aria-hidden="true"`, `role="presentation"` or `hidden` attributes. See [Hide an element](HTML#Hide an element).
+Prefer using `aria-hidden="true"`, `role="presentation"` or `hidden` attributes. See [Hide an element](HTML#hide-an-element).
 For images, set an empty `alt` attribute: `<img src="image.png" alt="">`
 You can also use `content` CSS property. It will not be read.
 Could not work if a role attribute is defined on the element.
@@ -1756,8 +1756,8 @@ Use `visibility: hidden; position: fixed;` instead of `display: none`. Else docu
 
 ## Image
 
-See [Performance impact of images](HTML#Performance impact of images)
-See [Content vs. decorative image](HTML#Content vs. decorative image)
+See [Performance impact of images](HTML#performance-impact-of-images)
+See [Content vs. decorative image](HTML#content-vs-decorative-image)
 
 ### Broken image
 
@@ -1784,7 +1784,7 @@ That means you can't resize it or use srcset
 
 ### Compression
 
-See [reduce bytes](Web#Reduce bytes)
+See [reduce bytes](Web#reduce-bytes)
 
 ### Sprites vs Data URI
 
@@ -1838,7 +1838,7 @@ More infos:
 
 ### SVG Stacks (fragment identifiers)
 
-See [Fragment identifier and SVG stack](SVG#Fragment identifier and SVG stack)
+See [Fragment identifier and SVG stack](SVG#fragment-identifier-and-svg-stack)
 
 `icons.svg#plus`
 
@@ -1894,7 +1894,7 @@ Set `width: 100%` on `img` or `object` or `embed` (for IE)
 
 ### Preload img with CSS
 
-See [Preload and prefetch](Web#Preload and prefetch)
+See [Preload and prefetch](Web#preload-and-prefetch)
 
 	body::after {
 		content: url(img01.jpg) url(img02.jpg) url(img03.jpg);
@@ -2134,7 +2134,7 @@ Aka barberpole
 
 Unsuall selector: `.foo:not(:hover) > .bar:hover` ("The parent of an element that is `:hover` is also in that state." — [CSS Selector Level 4](https://www.w3.org/TR/selectors4/#the-hover-pseudo)) only works for input's label hover or when forcing a hover style on .bar through the DevTools/inspector
 
-See [JavaScript selectors](HTML#JavaScript selectors)
+See [JavaScript selectors](HTML#javascript-selectors)
 
 - [CSS4-Selectors | All selectors from CSS4 to CSS1](https://css4-selectors.com/selectors/)
 - [Splicing HTML’s DNA With CSS Attribute Selectors — Smashing Magazine](https://www.smashingmagazine.com/2018/10/attribute-selectors-splicing-html-dna-css/)
@@ -2175,7 +2175,7 @@ See [Progressive Enhancement](#progressive-enhancement)
 
 ### Classname
 
-See [HTML Classname](HTML#Classname)
+See [HTML Classname](HTML#classname)
 
 ### Selector specificity
 
@@ -2453,7 +2453,7 @@ Chrome is better to animate (or make a transition using transform) a large conta
 
 ### Relayout, repaint, reflow
 
-See [relayout, repaint, reflow](JavaScript#Relayout, repaint, reflow)
+See [relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
 - [CSS Triggers](https://csstriggers.com/)
 - [Why moving elements with translate() is better than pos:abs top/left - Paul Irish](http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
@@ -2643,7 +2643,7 @@ Aka 9 slice
 - [border-image-slice - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice)
 - [Understanding border-image | CSS-Tricks](https://css-tricks.com/understanding-border-image/)
 - [Aerotwist - Slicing SVG 9 Ways](https://aerotwist.com/blog/slicing-svg-9-ways/)
-- [Resize](Graphics#Resize)
+- [Resize](Graphics#resize)
 
 Or use multiple backgrounds and background offset:
 
@@ -2895,7 +2895,7 @@ Gradient border (use SVG):
 
 - [How To Apply SVG Linear Gradients To A Fill Or Stroke - Vanseo Design](http://vanseodesign.com/web-design/svg-linear-gradients/)
 
-See [SVG/Gradient](SVG#Gradient)
+See [SVG/Gradient](SVG#gradient)
 
 ## Variables
 
@@ -3024,7 +3024,7 @@ Default value of `transform-origin` is `0 0` (vs. `50% 50%` for HTML). Absolute 
 
 3D transforms can work (but perspective don't on Chrome). There not hw. accelerated
 
-See [Content vs. decorative image](HTML#Content vs. decorative image)
+See [Content vs. decorative image](HTML#content-vs-decorative-image)
 
 ## Normalize
 
@@ -3080,7 +3080,7 @@ May be necessary:
 
 - appearance dropped from CSS3: [css4-ui features list [CSS Working Group Wiki]](https://wiki.csswg.org/spec/css4-ui#dropped-css3-features)
 
-To reset as a interactive element, `cursor: pointer` could be required (**but you shouldn't**: [Buttons shouldn't have a hand cursor](UI - UX#Buttons shouldn't have a hand cursor)).
+To reset as a interactive element, `cursor: pointer` could be required (**but you shouldn't**: [Buttons shouldn't have a hand cursor](UI - UX#buttons-shouldnt-have-a-hand-cursor)).
  
 	/* Fieldset */
 	legend {
@@ -3173,13 +3173,13 @@ CSS for `<sub>` and `<sup>`:
 
 ## Detect touch device
 
-See [detect touch device](JS#Detect touch device)
+See [detect touch device](JS#detect-touch-device)
 
 	@media (pointer: coarse) and (hover: none) {
 		/* primary input mechanism is a touch screen, require larger interactive elements (!= small screen) */
 	}
 
-- [Size of touch screen button](UI - UX#Size of touch screen button)
+- [Size of touch screen button](UI - UX#size-of-touch-screen-button)
 - [Dev.Opera — Interaction Media Features and their potential (for incorrect assumptions)](https://dev.opera.com/articles/media-features/)
 - [pointer - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer)
 - [hover - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover)
@@ -3657,7 +3657,7 @@ Aka fallback, feature detection
 - [CSS and progressive enhancement | justmarkup](https://justmarkup.com/log/2017/02/css-and-progressive-enhancement/)
 - [Using Feature Detection to Write CSS with Cross-Browser Support | CSS-Tricks](https://css-tricks.com/using-feature-detection-to-write-css-with-cross-browser-support/)
 
-See [Progressive Enhancement](Web#Progressive Enhancement)
+See [Progressive Enhancement](Web#progressive-enhancement)
 
 ## Lockup
 

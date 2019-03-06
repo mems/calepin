@@ -276,7 +276,7 @@ Use a meaning label instead of "OK" ex: "Save" / "Save the file", "Print", "Open
 
 ### Buttons vs links
 
-See [Buttons vs links](HTML#Buttons vs links)
+See [Buttons vs links](HTML#buttons-vs-links)
 
 ### Size of touch screen interactive element
 
@@ -596,7 +596,7 @@ User can fill confirm field then original field, often anti-copy mecanism not wo
 
 #### “Invalid Username or Password”: a useless security measure
 
-See [“Invalid Username or Password”: a useless security measure](Security#“Invalid Username or Password”: a useless security measure)
+See [“Invalid Username or Password”: a useless security measure](Security#invalid-username-or-password-a-useless-security-measure)
 
 #### Password interaction
 
@@ -606,7 +606,7 @@ See [“Invalid Username or Password”: a useless security measure](Security#�
 	* [login - Why should we ask the password twice during registration? - User Experience Stack Exchange](http://ux.stackexchange.com/questions/20953/why-should-we-ask-the-password-twice-during-registration)
 	* [Case Study - small changes to sign up form lead to 55% more conversions](http://www.formisimo.com/blog/case-study-small-changes-lead-to-a-55-increase-in-conversions/)
 
-See [Password rules](Security#Password rules)
+See [Password rules](Security#password-rules)
 
 ### Form field label
 
@@ -619,7 +619,7 @@ See [Password rules](Security#Password rules)
 
 - [Don’t Put Hints Inside Text Boxes in Web Forms :: UXmatters](http://www.uxmatters.com/mt/archives/2010/03/dont-put-hints-inside-text-boxes-in-web-forms.php)
 - [Don’t Put Labels Inside Text Boxes (Unless You’re Luke W) :: UXmatters](http://www.uxmatters.com/mt/archives/2013/02/dont-put-labels-inside-text-boxes-unless-youre-luke-w.php)
-- [HTML - Placeholder as label](HTML#Placeholder as label)
+- [HTML - Placeholder as label](HTML#placeholder-as-label)
 - [10 reasons why placeholders are problematic — Simple = Human — Medium](https://medium.com/simple-human/10-reasons-why-placeholders-are-problematic-f8079412b960)
 - [Always use a label — Simple = Human — Medium](https://medium.com/simple-human/always-use-a-label-a39ceab554e6)
 - [Alternatives to Placeholder Text](https://uxdesign.cc/alternatives-to-placeholder-text-13f430abc56f)
@@ -778,7 +778,7 @@ And it's not 100% forward compatible. Native user experience can or native UI ch
 
 See also
 
-- [Javascript#Scroll](Javascript#Scroll)
+- [Javascript#Scroll](Javascript#scroll)
 - [Don't override native logic](#dont-override-native-logic)
 - [5 Fancy (But Useless) Web Components You Should Avoid](http://www.sitepoint.com/5-fancy-useless-web-components-avoid/#2.-the-scrolljacker)
 
@@ -831,7 +831,7 @@ Maybe used for Playstation Controller?
 
 ### Breadcrumb
 
-See [Text — Hierarchy](Text#Hierarchy)
+See [Text — Hierarchy](Text#hierarchy)
 
 ## User name
 

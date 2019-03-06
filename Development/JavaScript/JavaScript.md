@@ -35,7 +35,7 @@ Style guide, code conventions:
 
 ## Documentation
 
-See also [Documentation](ECMAScript#Documentation)
+See also [Documentation](ECMAScript#documentation)
 
 - [The DOM Explained, Quick and Simple](http://prettydiff.com/guide/unrelated_dom.xhtml)
 
@@ -58,7 +58,7 @@ Or use in Chrome devtools: Sources tab > Event Listener Breakpoints > Script > S
 > Use third-party libraries to solve user problems, not developer problems
 > — Adrian Holovaty [Adrian Holovaty | How I optimized my JS sheet music rendering engine | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=XH5EtQge_Bg&t=2216)
 
-See [localization](Development#Localization), [libaries](ECMAScript#Libaries)
+See [localization](Development#localization), [libaries](ECMAScript#libaries)
 
 Collections:
 
@@ -110,7 +110,7 @@ jQuery: `$('.foo > .bar')` is way faster than `$fooEl.find('> .bar')` because jQ
 ### Include library from CDN
 
 Always make sure you have the library available locally, as fallback of the CDN. The used CDN could be unavailable.
-Prefer to use library locally direclty. Use [`integrity` attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity), see [Subresource Integrity](Security#Subresource Integrity).
+Prefer to use library locally direclty. Use [`integrity` attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity), see [Subresource Integrity](Security#subresource-integrity).
 
 **Always use HTTPS for external resources.** Don't use protocol relative URLs or HTTP (without TLS)
 
@@ -594,7 +594,7 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 
 ## Language and API
 
-See [Language](ECMAScript#Language)
+See [Language](ECMAScript#language)
 
 ### Reference to the global scope
 
@@ -619,7 +619,7 @@ Don't use `document.implementation.hasFeature()`:
 > hasFeature() originally would report whether the user agent claimed to support a given DOM feature, but experience proved it was not nearly as reliable or granular as simply checking whether the desired objects, attributes, or methods existed. As such, it should no longer be used, but continues to exist (and simply returns true) so that old pages don't stop working. 
 — [DOM Standard](https://dom.spec.whatwg.org/#dom-domimplementation-hasfeature)
 
-See [feature detection](ECMAScript#Feature detection) and [detect a feature](Web#Detect a feature)
+See [feature detection](ECMAScript#feature-detection) and [detect a feature](Web#detect-a-feature)
 
 ### Don't override native logic
 
@@ -643,7 +643,7 @@ Never prevent `contextmenu` (use the [`menu` element](https://developer.mozilla.
 
 See
 
-- [Don't override native logic](UI - UX#Don't override native logic)
+- [Don't override native logic](UI - UX#dont-override-native-logic)
 - [The disadvantages of single page applications | Adam Silver | UX design, Front-end Engineering and Strategy | London, UK.](http://adamsilver.io/articles/the-disadvantages-of-single-page-applications/)
 
 ### Progressive enhancement
@@ -785,7 +785,7 @@ Examples: `userId` and `profileURL`
 - [Coding Standards: Naming conventions for abbreviated camel-case · Issue #2511 · WordPress/gutenberg](https://github.com/WordPress/gutenberg/issues/2511)
 - [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)
 
-See [Naming convention](Development#Naming convention)
+See [Naming convention](Development#naming-convention)
 
 # Tips & snippets
 
@@ -1308,7 +1308,7 @@ To use WebGL for 2D, you can use [`pixi.js`](http://www.pixijs.com/) or [`Orthog
 
 ### Reduce WebGL artifacts
 
-See [Texture format](Texture format#Reduce artifacts)
+See [Texture format](Texture format#reduce-artifacts)
 
 ### Draw DOM Objects to Canvas2D
 
@@ -1331,7 +1331,7 @@ Note: Safari marked as trainted canvas where SVG contains `foreignObject` elemen
 
 The SVG element can be the alternative content of used canvas
 
-See [Restrictions](SVG#Restrictions)
+See [Restrictions](SVG#restrictions)
 
 - `new XMLSerializer().serializeToString(svgnode)`
 - [Drawing DOM objects into a canvas - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas)
@@ -1563,7 +1563,7 @@ See also `getContext("3d", {premultipliedAlpha: false})`
 
 But it's not recommended to work with non pre-multiplied alphas
 
-See [Premultiplied alpha](Blend modes#Premultiplied alpha)
+See [Premultiplied alpha](Blend modes#premultiplied-alpha)
 
 - [WebGL and Alpha](http://webglfundamentals.org/webgl/lessons/webgl-and-alpha.html)
 - [WebGL: Why does transparent canvas show clearColor color component when alpha is 0? - Stack Overflow](https://stackoverflow.com/questions/20362023/webgl-why-does-transparent-canvas-show-clearcolor-color-component-when-alpha-is)
@@ -1792,7 +1792,7 @@ Usefull for detect low-end devices or old tablets/smartphones
 
 ### Computing with WebGL
 
-See [GPU computing](Algorithms#GPU computing)
+See [GPU computing](Algorithms#gpu-computing)
 
 using GPU
 
@@ -2068,7 +2068,7 @@ To go further, Input masking:
 - (tabindex -1 for input)
 - display none input
 - fix replace with maxlength
-- valid test for credit card (see [Luhn algorithm](Algorithms#Luhn)), not all credit card number use this algorithm
+- valid test for credit card (see [Luhn algorithm](Algorithms#luhn)), not all credit card number use this algorithm
 - credit card detect issuer (see [Credit Card](Credit Card))
 
 Formatting examples:
@@ -2165,7 +2165,7 @@ See also: `input.selectionStart`, `input.selectionEnd` and `input.selectionDirec
 - [Useful Calendar & Date Picker Scripts For Web Developers - Hongkiat](http://www.hongkiat.com/blog/useful-calendar-date-picker-scripts-for-web-developers/)
 - [Date picker module accessibility](https://docs.google.com/spreadsheets/d/1Q-apLCPEyV-hJYVBN-wN3FS7AOSx9YqQJGj-Y2rW6No/edit#gid=0) (yes for: [jQuery UI DatePicker](http://www.deque.com/blog/accessible-jquery-ui-datepicker/), [Pikaday](https://github.com/dbushell/Pikaday/pull/522), [Accessible Bootstrap Date Picker](http://eureka2.github.io/ab-datepicker/))
 
-See [Calendar](HTML#Calendar) for valid markup / semantic
+See [Calendar](HTML#calendar) for valid markup / semantic
 
 From https://bugzilla.mozilla.org/show_bug.cgi?id=1069609#attach_8710338
 
@@ -2842,7 +2842,7 @@ Layout triggers :
 	* webkitConvertPointFromPageToNode()
 - ...
 
-See [relayout, repaint, reflow](CSS#Relayout, repaint, reflow)
+See [relayout, repaint, reflow](CSS#relayout-repaint-reflow)
 
 - [What forces layout/reflow. The comprehensive list.](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)
 - [Fastersite: How (not) to trigger a layout in WebKit](http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html)
@@ -3029,7 +3029,7 @@ FLIP (First, Last, Invert, Play):
 - [Aerotwist - FLIP Your Animations](https://aerotwist.com/blog/flip-your-animations/)
 - [Animating Layouts with the FLIP Technique | CSS-Tricks](https://css-tricks.com/animating-layouts-with-the-flip-technique/)
 
-See also [Animation](CSS#Animation), [Debounce function](#debounce-function)
+See also [Animation](CSS#animation), [Debounce function](#debounce-function)
 
 - [GianlucaGuarini/animore: 1kb script that will make your DOM state transitions smoother & easier](https://github.com/GianlucaGuarini/animore)
 - [DasSur.ma – 2018: 120fps and no jank](https://dassur.ma/things/120fps/)
@@ -3046,7 +3046,7 @@ Tools
 
 ## Viewport dimension
 
-See [Viewport](CSS#Viewport)
+See [Viewport](CSS#viewport)
 
 Aka window dimension, viewport size, window size
 
@@ -3101,7 +3101,7 @@ Because `offset[Left|Top]` is not available on SVG nodes and don't take account 
 
 See also:
 
-- Use CSS instead of JS: [Parallax effect](CSS#Parallax effect)
+- Use CSS instead of JS: [Parallax effect](CSS#parallax-effect)
 - [scroll](#scroll)
 - Scroll with momentum / kinetic scrolling: [JavaScript Kinetic Scrolling: Part 2](http://ariya.ofilabs.com/2013/11/javascript-kinetic-scrolling-part-2.html)
 - Horizontal swipe + parallax effect: [JavaScript Kinetic Scrolling: Part 4](http://ariya.ofilabs.com/2013/12/javascript-kinetic-scrolling-part-4.html)
@@ -3111,7 +3111,7 @@ See also:
 
 ### Detect touch device
 
-See [detect touch device](CSS#detect touch device)
+See [detect touch device](CSS#detect-touch-device)
 
 > We found that some sites are assuming that “if this web browser supports touch events, then it shouldn’t support mouse events at the same time.” e.g. Apple.com and Wells Fargo.
 > 
@@ -3442,7 +3442,7 @@ Other examples: https://github.com/adtile/Full-Tilt/blob/master/examples/vr_test
 
 To add offset (like drag and drop with touch): [javascript - Add offset to DeviceOrientationControls in three.js - Stack Overflow](https://stackoverflow.com/questions/36314415/add-offset-to-deviceorientationcontrols-in-three-js)
 
-See [3D orientation](Math#3D orientation):
+See [3D orientation](Math#3d-orientation):
 
 - [deviceorientation - quaternion & rotation matrix manipulation - w/ three.js](http://rawgit.com/richtr/threeVR/master/examples/vr_basic.html)
 - [FULLTILT DeviceOrientation three.js test page](http://rawgit.com/adtile/Full-Tilt/master/examples/vr_test.html)
@@ -3470,7 +3470,7 @@ And it's not 100% forward compatible. Native user experience can or native UI ch
 - [Six things I learnt about iOS Safari's rubber band scrolling](http://blog.christoffer.me/six-things-i-learnt-about-ios-safaris-rubber-band-scrolling/)
 - [Scrolling on the web: A primer - Microsoft Edge Dev BlogMicrosoft Edge Dev Blog](https://blogs.windows.com/msedgedev/2017/03/08/scrolling-on-the-web/)
 
-- [Scroll indicator](CSS#Scroll indicator)
+- [Scroll indicator](CSS#scroll-indicator)
 
 **ALWAYS USE ROUNDED VALUES**: `window.scroll[X|Y]`, `element.scroll[Left|Top]` are rounded!
 
@@ -3525,7 +3525,7 @@ Behaviors:
 - autoscroll to the anchor despite it's ID/name changed for history back/forward. For Chrome, IE and Firefox
 - IE scroll to anchor async (define location.hash don't jump directly)
 
-- [Anchor hash tag behaviour](Web#Anchor hash tag behaviour)
+- [Anchor hash tag behaviour](Web#anchor-hash-tag-behaviour)
 - [javascript - Modifying document.location.hash without page scrolling - Stack Overflow](https://stackoverflow.com/questions/1489624/modifying-document-location-hash-without-page-scrolling)
 - [Jump links and viewport positioning – Nicolas Gallagher](http://nicolasgallagher.com/jump-links-and-viewport-positioning/)
 
@@ -3641,7 +3641,7 @@ http://developer.telerik.com/featured/scroll-event-change-ios-8-big-deal/
 
 ## DOM
 
-See [JavaScript selectors](HTML#JavaScript selectors)
+See [JavaScript selectors](HTML#javascript-selectors)
 
 ### DOM Relations
 
@@ -3750,7 +3750,7 @@ or
 		form.attributes// HTMLInputElement instead of NamedNodeMap
 	</script>
 
-See [DOM clobbering](Security#DOM clobbering)
+See [DOM clobbering](Security#dom-clobbering)
 
 ### Clear all child nodes
 
@@ -4381,7 +4381,7 @@ Or to link to a file:
 
 ### Iterate over stylesheet
 
-See [Tree iteration](Tree traversal#Tree iteration)
+See [Tree iteration](Tree traversal#tree-iteration)
 
 **The loop does not support modifications (insert/delete)**
 
@@ -4826,7 +4826,7 @@ For inaccessible crossorigin scripts errors (`Script Error.` or `Script Error, L
 - [What the heck is "Script error"?](https://blog.sentry.io/2016/05/17/what-is-script-error)
 - [Script Error: JavaScript Forensics](https://trackjs.com/blog/script-error-javascript-forensics/)
 
-See also [Tracking scripts errors](Web#Tracking scripts errors)
+See also [Tracking scripts errors](Web#tracking-scripts-errors)
 
 - [Capture and report JavaScript errors with window.onerror](https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html)
 - [GlobalEventHandlers.onerror - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror)
@@ -5143,7 +5143,7 @@ prefer use media query, it's per screen, where `window.devicePixelRatio` is not 
 - [devicePixelRatio - QuirksBlog](http://www.quirksmode.org/blog/archives/2012/06/devicepixelrati.html) and [More about devicePixelRatio - QuirksBlog](http://www.quirksmode.org/blog/archives/2012/07/more_about_devi.html)
 - [High DPI Images for Variable Pixel Densities - HTML5 Rocks](http://www.html5rocks.com/en/mobile/high-dpi/)
 
-See also [Resolution](CSS#Resolution)
+See also [Resolution](CSS#resolution)
 
 ## Partial AJAX load/upload
 
@@ -5390,7 +5390,7 @@ From [SmallestJS](http://schierlm.users.sourceforge.net/smallestjs.html)
 
 Use Unicode Roman Numerals: ⅰ, ⅴ, ⅹ, ⅼ, ⅽ, ⅾ, ⅿ... (not to be confused with i, v, x, l, c, d, m)
 
-See [Obfuscation (code)](Security#Obfuscation (code))
+See [Obfuscation (code)](Security#obfuscation-code))
 
 ## Listen user page navigation
 
@@ -6253,7 +6253,7 @@ The endpoint is related to (provided by) the browser vendor (["There is only one
 
 ### WebSocket and streaming
 
-See [Web — Streaming](Web#Streaming)
+See [Web — Streaming](Web#streaming)
 
 ## `javascript:` protocol is async
 
@@ -6560,7 +6560,7 @@ See [Garbage collecting and references](#garbage-collecting-and-references)
 
 ## Font metrics
 
-See [Font metrics](CSS#Font metrics)
+See [Font metrics](CSS#font-metrics)
 
 - [Calculate the cap height of fonts loaded with Web Font Loader](https://github.com/sebdesign/cap-height) - Use canvas to get font metrics
 - [TextMetrics - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics)
@@ -6736,7 +6736,7 @@ Screen sharing:
 
 ## Bookmarklet
 
-See [Bookmarklet](Web#Bookmarklet)
+See [Bookmarklet](Web#bookmarklet)
 
 	javascript:{code;undefined}
 

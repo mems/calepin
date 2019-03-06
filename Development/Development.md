@@ -148,7 +148,7 @@ If so **add comments** to explain the choice.
 
 ## Localization
 
-See [Localization](Conception#Localization), [Locale](Locale)
+See [Localization](Conception#localization), [Locale](Locale)
 
 - [A Programmer’s Introduction to Unicode – Nathan Reed’s coding blog](http://reedbeta.com/blog/programmers-intro-to-unicode/)
 - [UTF-8](UTF-8)
@@ -391,7 +391,7 @@ See also [Git](Git)
 
 - [StackExchange/blackbox: Safely store secrets in Git/Mercurial/Subversion](https://github.com/StackExchange/blackbox)
 
-See [Check hash and keys leak or reversed (hashes)](Security#Hash and keys)
+See [Check hash and keys leak or reversed (hashes)](Security#hash-and-keys)
 
 ### Version message
 
@@ -506,7 +506,7 @@ Simplicity Matters, KISS
 > - Can an idiot make something quickly without a tutorial?
 — https://twitter.com/elsassph/status/557866984705380352
 
-See also [API](Web#API)
+See also [API](Web#api)
 
 ## MVC
 
@@ -520,7 +520,7 @@ Aka model, storage
 
 - [NoSQL Data Modeling Techniques – Highly Scalable Blog](https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/)
 
-See also [CMS](Web#CMS)
+See also [CMS](Web#cms)
 
 ## Outline
 

@@ -56,7 +56,7 @@ Use center of mass" / centroid
 ![Optical Center](optical-center.png)
 ![Centered At The Centroid](centered%20at%20the%20centroid.jpg)
 
-- [Optical alignement](Graphics#Optical alignement)
+- [Optical alignement](Graphics#optical-alignement)
 - [Optical Adjustment - Logic vs. Designers - Marvel - Marvel Blog](https://blog.marvelapp.com/optical-adjustment-logic-vs-designers/) - [Optical Adjustment – Medium](https://medium.com/@lukejones/optical-adjustment-b55492a1165c) (same content)
 - [Golden Ratio in UI design - Marvel Blog](https://blog.marvelapp.com/golden-ratio-ui-design/)
 - [The Art of Eyeballing – Part III: Overshooting | Learn – Scannerlicker!](http://learn.scannerlicker.net/2014/09/03/the-art-of-eyeballing-part-3-overshooting/)

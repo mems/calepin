@@ -302,7 +302,7 @@ Issues:
 	* any other solution mimic finger with fingerprint
 - face recognition: use a picture (ex: a selfie) or a video
 
-See also [Face](Person#Face)
+See also [Face](Person#face)
 
 - [Pourquoi j’ai (encore) piraté TouchID et je trouve toujours cela génial | Le Blog Lookout](https://blog.lookout.com/fr/2014/09/23/pourquoi-jai-encore-pirate-touchid-et-je-trouve-toujours-cela-genial/)
 - [Fingerprints from 5.6 million people were stolen in huge U.S. data breach](http://mashable.com/2015/09/23/opm-hack-fingerprints/)
@@ -489,10 +489,10 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	- [Publisher under fire for fake article webpages : Nature News & Comment](http://www.nature.com/news/publisher-under-fire-for-fake-article-webpages-1.20154)
 	- Crawlers and scrappers https://github.com/JayBizzle/Crawler-Detect
 	- [The Web's Largest Community Tracking Online Fraud & Abuse | Project Honey Pot](http://www.projecthoneypot.org/)
-- include archive or image bomb but not used as is (attack). Ex: use it raw data as key for encryption. See [Exploits](Compression#Exploits)
+- include archive or image bomb but not used as is (attack). Ex: use it raw data as key for encryption. See [Exploits](Compression#exploits)
 - detect physically impossible for one human to react below some timespan or to move quicker than some speed or repeat too much times similar action (flood). Ex. nobody could send 100 reviews in few days (specially if the reviews are more than 100 chars)
 	Use statistics (point cloud, graphs, threshold, etc.) and compare with the average people. Ex: ingame real people can't always aim perfectly (perfect angles values)
-- [Copyright infringement](Conception#Copyright infringement)
+- [Copyright infringement](Conception#copyright-infringement)
 - use counter-measure against side-channel leaks based on time (timing attack):
 	See [Timing attack](#timing-attack)
 
@@ -658,7 +658,7 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 	* [Copy & Pest - A case-study on the clipboard, blind trust and invisibl…](http://www.slideshare.net/x00mario/copypest)
 - CSS
 	* [Scriptless Attacks - Stealing the Pie without touching the Sill](http://www.slideshare.net/x00mario/stealing-the-pie/)
-- [JavaScript - Unsafe HTML](JavaScript#Unsafe HTML)
+- [JavaScript - Unsafe HTML](JavaScript#unsafe-html)
 
 Always store data from third party in an external folder, outside root of the web server, and use `open_basedir` to protect against local inclusion
 
@@ -997,7 +997,7 @@ Should redirect HTTP to HTTPS first, then the browser remember it.
 - [HTTP Strict Transport Security — Wikipedia](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
 - [HTTP Strict Transport Security Cheat Sheet - OWASP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)
 - [Strict-Transport-Security - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
-- [HSTS](htaccess#HSTS)
+- [HSTS](htaccess#hsts)
 - [How to clear HSTS Settings in Major Browsers | that's so … classically.me](http://classically.me/blogs/how-clear-hsts-settings-major-browsers) - Chrome / Opera: `chrome://net-internals/#hsts`, Safari: `~/Library/Cookies/HSTS.plist`, Firefox `%firefox_profile%/SiteSecurityServiceState.txt`
 
 Firefox:
@@ -1122,7 +1122,7 @@ See also as example GitHub ultra strict CSP.
 
 Exception of inline script and style can be made with `script-src` and `style-src` by using a checksum/hash of source code of inlined script. Note: nonce can also be used, but not recommended. See [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/#script-src-hash-usage)
 
-- [Subresource checksum](Web#Subresource checksum)
+- [Subresource checksum](Web#subresource-checksum)
 - [Content-Security-Policy - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 - [Making CSP great again! - Michele Spagnuolo and Lukas Weichselbaum // Speaker Deck](https://speakerdeck.com/mikispag/making-csp-great-again-michele-spagnuolo-and-lukas-weichselbaum)
 - [GitHub’s CSP journey - GitHub Engineering](https://githubengineering.com/githubs-csp-journey/)
@@ -1707,7 +1707,7 @@ See also [Obfuscation (code)](#obfuscation2028code29)
 	// No alphanumeric characters, all 32 ASCII symbols
 	-~!/#/^("\@"._*[,]>='<'?$&+_|$:``%{});// === 1
 
-Then evaluate JavaScript. See [Parse JavaScript using the native parser](JavaScript#Parse JavaScript using the native parser)
+Then evaluate JavaScript. See [Parse JavaScript using the native parser](JavaScript#parse-javascript-using-the-native-parser)
 
 	var w = this;
 	for(p1 in w)
@@ -2732,7 +2732,7 @@ Uploading a document can expose/leak private data. This data and metadata should
 
 Metadata:
 
-- [Metadata](Image#Medata)
+- [Metadata](Image#medata)
 - [Metadata removal tool - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metadata_removal_tool)
 - [Remove hidden data and personal information by inspecting documents - Office Support](https://support.office.com/en-us/article/Remove-hidden-data-and-personal-information-by-inspecting-documents-356b7b5d-77af-44fe-a07f-9aa4d085966f)
 - [Document Metadata Extraction - ForensicsWiki](http://www.forensicswiki.org/wiki/Document_Metadata_Extraction)
@@ -2921,7 +2921,7 @@ iOS and Android
 
 Allow to open native apps with custom arguments
 
-- [Open native application](Web#Open native application)
+- [Open native application](Web#open-native-application)
 - [Twitter detect installed Apps on iOS `canOpenURL`](https://gist.github.com/genadyo/295a5e8f0d743f57137f)
 	http://nikf.org/blog/twitter-ads-app-detection
 	[Andreas Kurtz on Twitter: "iOS Twitter determines installed apps by checking the 2.551 custom URI schemes (canOpenURL) listed in main bundle's app_store_app_data.json"](https://twitter.com/aykay/status/537976040996749312)

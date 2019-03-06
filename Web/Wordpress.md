@@ -193,7 +193,7 @@ Note: Has a performance impact
 
 ## Security
 
-See [Wordpress](Security#Wordpress)
+See [Wordpress](Security#wordpress)
 
 ## File permissions for automatic update
 

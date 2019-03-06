@@ -1,6 +1,6 @@
 Aka geometry
 
-See also [Algorithms](Algorithms#Resources), [Easing](Animation#Easing)
+See also [Algorithms](Algorithms#resources), [Easing](Animation#easing)
 
 ## Resources
 

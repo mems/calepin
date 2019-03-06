@@ -79,7 +79,7 @@ Compared to other formats:
 
 Tools and infos:
 
-- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/12) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page=12)
+- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/12) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page12)
 - [The smallest 256x256 single-color PNG file, and where you've seen it](https://www.mjt.me.uk/posts/smallest-png/)
 - [PNG Test Corpus (2017)](http://css-ig.net/png-test-corpus)
 - [PNGQuant](http://pngquant.org/)
@@ -362,6 +362,6 @@ Decode:
 
 ## Decompression Bomb
 
-- [Decompression Bomb](Deflate#Decompression Bomb)
+- [Decompression Bomb](Deflate#decompression-bomb)
 
 A very big image with could take 18.44 TB (2147483647x2147483647x4) of memory for uncompressed data 13.83TB

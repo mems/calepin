@@ -262,7 +262,7 @@ Aka 3D noise
 
 ### Sinusoids combination
 
-Could use [Diamond-square algorithm](Algorithms#Diamond-square) to do the same effect, but often use a combination of multiple sinusoids
+Could use [Diamond-square algorithm](Algorithms#diamond-square) to do the same effect, but often use a combination of multiple sinusoids
 
 - [Plasma effect — Wikipedia](https://en.wikipedia.org/wiki/Plasma_effect)
 - [0ldskool Plasma Effect - Bidouille.org](http://www.bidouille.org/prog/plasma)

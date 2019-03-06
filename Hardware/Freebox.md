@@ -93,7 +93,7 @@ Logitech Harmony 350:
 
 L'application "mobile" fonctionne, mais n'apparait pas sur le launcher (accessible uniquement via Settings > Applications > Downloaded applications). L'interface n'est pas vraiment navigable avec une télécommande (utiliser une souris USB)
 
-See [Android TV apps](Android#Android TV apps)
+See [Android TV apps](Android#android-tv-apps)
 
 - [Freebox mini 4k : comment installer Netflix facilement](http://www.universfreebox.com/article/35826/Freebox-mini-4k-comment-installer-Netflix-facilement)
 - [Tuto : comment installer Netflix facilement sur Freebox mini 4K](http://www.universfreebox.com/article/40235/Tuto-comment-installer-Netflix-facilement-sur-Freebox-mini-4K)

@@ -1,7 +1,7 @@
 -[.htaccess Snippets phanan/htaccess](https://github.com/phanan/htaccess)
 - https://github.com/h5bp/html5-boilerplate/blob/master/dist/.htaccess
 
-See also [Pre compress assets, GZip - Deflate](Web#Pre compress assets, GZip - Deflate)
+See also [Pre compress assets, GZip - Deflate](Web#pre-compress-assets-gzip---deflate)
 
 ## Authorized access
 
@@ -173,7 +173,7 @@ Use header `Content-type`
 		AddType text/plain md markdown mdown txt
 	</IfModule>
 
-See also [Media type](Formats, encoding and protocols#Media type)
+See also [Media type](Formats, encoding and protocols#media-type)
 
 ## Documentation and editors
 
@@ -189,7 +189,7 @@ http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html
 
 And redirect HTTP to HTTPS
 
-See [HSTS](Security#HTTP Strict Transport Security)
+See [HSTS](Security#http-strict-transport-security)
 
 You should add a mecanism to redirect HTTP to HTTPS too. It's adviced to **use [VirtualHost](https://stackoverflow.com/questions/13376219/htaccess-redirect-http-to-https/13376534#13376534)**:
 
@@ -359,7 +359,7 @@ From Symfony https://github.com/symfony/symfony-standard/blob/master/web/.htacce
 	    </IfModule>
 	</IfModule>
 
-and use [Base](PHP#Base)
+and use [Base](PHP#base)
 
 	////  http://mydomain/seach/a10/b30/c9/f99 -> http://mydomain/myscript.php?param_a=10&param_b=30&param_c_new=9&param_f=99
 	RewriteRule ^/seach/(.*) /myscript.php/$1

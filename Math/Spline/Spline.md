@@ -1,6 +1,6 @@
 Aka curve, bézier
 
-See also [Rendering text](Graphics#Rendering text)
+See also [Rendering text](Graphics#rendering-text)
 
 > Catmull–Rom splines are frequently used to get smooth interpolated motion between key frames. For example, most camera path animations generated from discrete key-frames are handled using Catmull–Rom splines
 

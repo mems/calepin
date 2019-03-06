@@ -1,4 +1,4 @@
-See [Luhn algorithm](Algorithms#Luhn), China UnionPay is use non luhn cards number
+See [Luhn algorithm](Algorithms#luhn), China UnionPay is use non luhn cards number
 
 MasterCard BIN 2-Series (222100-272099)
 Sample Master Card: 2221 0012 3412 3456, Expiry : 12/18

@@ -286,7 +286,7 @@ Aka sprite, billboard, Z-sprite
 
 - [Sprite (computer graphics) — Wikipedia](https://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Use_in_3D_rendering)
 
-Example, Live2D Euclid (use multiple layers and project it using [Orthographic projection](Projection#Orthographic projection)): 
+Example, Live2D Euclid (use multiple layers and project it using [Orthographic projection](Projection#orthographic-projection)): 
 
 > Basically, it allows for certain details to be rendered in a way that isn't easy to do in 3D. eg: 2D-animated mouths when seen from the side
 > Like lighting & shadows etc.
@@ -683,7 +683,7 @@ See [resample](Resample)
 
 ### Procedural texture
 
-See [Random, noise and dithering - Procedural](Random, noise and dithering#Procedural)
+See [Random, noise and dithering - Procedural](Random, noise and dithering#procedural)
 
 - [TexGen - AngelCode.com](http://www.angelcode.com/texgen/)
 - [blogorrhea: Procedural Textures in HTML5 Canvas](http://asserttrue.blogspot.fr/2012/01/procedural-textures-in-html5-canvas.html) - see [Procedural Textures](Procedural Textures.html)
@@ -704,7 +704,7 @@ Aka spritesheet
 
 ## Rendering text
 
-See also [spline rasterization](Spline#Rasterization)
+See also [spline rasterization](Spline#rasterization)
 
 > Microsoft did patent the Loop-Blinn curve-filling technique, but a quick read makes it look like it only applies to outlines defined in part by cubic Bezier curves (http://www.google.com/patents/US20070097123).
 
@@ -1013,7 +1013,7 @@ Aka object, model, mesh, draw geometry. Vertexes and normals
 
 Aka z-sorting, depth buffer
 
-See [Depth sorting](Projection#Depth sorting)
+See [Depth sorting](Projection#depth-sorting)
 
 - [order-independent transparency](https://tsherif.github.io/nanogl.js/examples/oit.html) - WebGL. Based on [Weighted Blended Order-Independent Transparency](http://jcgt.org/published/0002/02/09/)
 - [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/volumesort/volumesort.htm) - volumetric sort
@@ -1069,7 +1069,7 @@ For wheels use spiral blur / radial blur cage: you can mix/swap between a plan w
 
 See also "wagon wheel effect"
 
-Use a vertex shader to compute motion (velocity texture). [Motion blur](Blur#Motion blur) shader can be used too
+Use a vertex shader to compute motion (velocity texture). [Motion blur](Blur#motion-blur) shader can be used too
 
 	using UnityEngine;
 	
@@ -1179,7 +1179,7 @@ Aka Fragment Shaders
 
 Usefull functions:
 
-- [Easing](Animation#Easing)
+- [Easing](Animation#easing)
 
 ### Pixel shaders examples and libraries
 
@@ -1349,7 +1349,7 @@ Doing the math linearly and applying the nonlinearity at end is called [gamma co
 - [Understanding Gamma Correction](http://www.cambridgeincolour.com/tutorials/gamma-correction.htm)
 - [RenderWonk » Blog Archive » Adventures with Gamma-Correct Rendering](http://renderwonk.com/blog/index.php/archive/adventures-with-gamma-correct-rendering/)
 - search this document for "gamma"
-- [Correct color interpolation](Resample#Correct color interpolation)
+- [Correct color interpolation](Resample#correct-color-interpolation)
 - [Computer Color is Broken - YouTube](https://www.youtube.com/watch?v=LKnqECcg6Gw)
 - [Linear gamma RGB: blur, normal blend](http://ninedegreesbelow.com/photography/linear-gamma-blur-normal-blend.html)
 - [Unity - Manual: Linear rendering overview](https://docs.unity3d.com/Manual/LinearLighting.html)
@@ -1431,7 +1431,7 @@ In a cube
 
 ### Arc-tangent
 
-See [Math](Math#Arc-tangent)
+See [Math](Math#arc-tangent)
 
 > HLSL atan2(x,y) == GLSL atan(y,x)
 > GLSL provides two atan-operators. One taking 1 parameter and one taking 2 parameters. The one with 2 parameters is the equivalent of atan2.
@@ -2219,7 +2219,7 @@ Use center of mass" / centroid, logarithmic weight
 
 Color adjustment (of text where: logo + text) using darker color (adjust brightness) based on the size of the element (number of pixels used)
 
-- [Optical alignement](Design#Optical alignement)
+- [Optical alignement](Design#optical-alignement)
 - [Visual Center](http://javier.xyz/visual-center/) - Use the square root of the difference between the pixel and the background color. See https://github.com/javierbyte/visual-center and [visualCenter.js](visualCenter.js)
 - [Center of mass — Wikipedia](https://en.wikipedia.org/wiki/Center_of_mass)
 - [Centroid — Wikipedia](https://en.wikipedia.org/wiki/Centroid)

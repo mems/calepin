@@ -18,7 +18,7 @@ See also:
 
 ## HTTP
 
-Note: don't name your local server `*.local`. See [Local TLD](macOS#Local TLD)
+Note: don't name your local server `*.local`. See [Local TLD](macOS#local-tld)
 Note: `Range` header could be ignore if the content need to be gzipped (It's the case with nginx)
 
 See also:
@@ -72,7 +72,7 @@ See also:
 
 ### HTTPS (TLS)
 
-See [Transport Layer Security](Security#Transport Layer Security) and [Decrypt TLS](Security#Decrypt TLS)
+See [Transport Layer Security](Security#transport-layer-security) and [Decrypt TLS](Security#decrypt-tls)
 
 About mixed content:
 
@@ -209,7 +209,7 @@ To disable HSTS use the following header (when HTTPS): `Strict-Transport-Securit
 - [tls - Is there a problem with issuing a HSTS header in PHP? - Information Security Stack Exchange](http://security.stackexchange.com/questions/43148/is-there-a-problem-with-issuing-a-hsts-header-in-php)
 - [Preloading HSTS | Mozilla Security Blog](https://blog.mozilla.org/security/2012/11/01/preloading-hsts/)
 
-See [HSTS](Security#HSTS)
+See [HSTS](Security#hsts)
 
 ### Server Push
 
@@ -311,7 +311,7 @@ You can use also:
 
 ### Referer
 
-See [Security](Security#HTTP Referer)
+See [Security](Security#http-referer)
 
 ### Method
 
@@ -383,7 +383,7 @@ If the server doesn't support the given encoding, should response with the statu
 
 > Note that chunked is always acceptable for HTTP/1.1 recipients
 
-- [Chunked transfert encoding](PHP#Chunked transfert encoding)
+- [Chunked transfert encoding](PHP#chunked-transfert-encoding)
 - [TE - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/TE)
 - [Transfer-Encoding - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Transfer-Encoding)
 - [Trailer - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Trailer)
@@ -513,7 +513,7 @@ Serve HTTPS can't always resolve issues.
 - [Cache-Control — Wikipédia](http://fr.wikipedia.org/wiki/Cache-Control#no-transform)
 
 See also Ads / Content blockers like [Focus](https://support.mozilla.org/en/products/focus-firefox) or [Adblock Plus](https://adblockplus.org/) or Anti Ad blocker https://github.com/reek/anti-adblock-killer/
-See [Validity of CSS class names and ids](HTML#Validity of CSS class names and ids)
+See [Validity of CSS class names and ids](HTML#validity-of-css-class-names-and-ids)
 
 #### Proxy Server
 
@@ -675,7 +675,7 @@ But may not support this.
 
 ## API
 
-See also [API](Development#API)
+See also [API](Development#api)
 
 `Location: https://...` for POST `201 Created` entity. https://restpatterns.mindtouch.us/HTTP_Status_Codes/201_-_Created
 
@@ -973,7 +973,7 @@ Encode special chars: `mypass#gh647` to `mypass%23gh647`
 
 ### Write URI well
 
-See [RESTful](Development#RESTful) and [API](Development#API)
+See [RESTful](Development#restful) and [API](Development#api)
 
 - [Good Practice for Capability URLs](https://www.w3.org/TR/capability-urls/)
 - [Use Canonical URLs, Please](http://gadgetopia.com/post/7390)
@@ -1041,7 +1041,7 @@ On some browser, data URI are considered from different domain. See [javascript 
 - Firefox require hash to be encoded/escaped
 - IE require more chars to be encoded/escaped
 
-- [CSS # Sprites vs Data URI](CSS#Sprites vs Data URI)
+- [CSS # Sprites vs Data URI](CSS#sprites-vs-data-uri)
 - [Formats and protocols/URI](#data)
 - [SVG gradient and backgrounds]()
 - [Optimizing SVGs in data URIs by Taylor Hunt on CodePen](http://codepen.io/Tigt/blog/optimizing-svgs-in-data-uris)
@@ -1268,7 +1268,7 @@ Note: With the exception of intersection observers & element resize observers, w
 
 Caches: ( Application DNS cache) → ( libc DNS cache ) → ( gateway DNS cache ) → ( DNS caching resolver cache ) → ( DNS nameserver authoritative cache ) → Filesystem Cache → Hard disk Device Cache → ( JavaScript JIT cache ) → HTTP cache → HTTP push cache → HTTP Preload cache → CPU L1 → CPU L2 → (CPU L3) → ( HTTP proxy cache ) → (N hops invoking many of these steps N times) → ( HTTP router/relay cache ) → ( HTTP Reverse Proxy cache ) → HTTP Server request caching. (add also CSS cache and Image cache)
 
-See [How ECMAScript engine works](ECMAScript#How engine works) (event loop, etc.)
+See [How ECMAScript engine works](ECMAScript#how-engine-works) (event loop, etc.)
 
 - [Design Documents - The Chromium Projects](http://www.chromium.org/developers/design-documents)
 - [How Web Works](https://github.com/vasanthk/how-web-works)
@@ -1384,7 +1384,7 @@ Loading, parsing, rendering, etc.
 
 > Progressive JPEGs decode slower than Baseline ones. [..] decoding a progressive JPEG takes about 3.3× as long as a baseline one. (I would still absolutely recommend using progressive, because they feel a lot faster than their baseline counterparts.)
 
-See also [Images](Images), [Content Security Policy](Security#Content Security Policy)
+See also [Images](Images), [Content Security Policy](Security#content-security-policy)
 
 Small DOMs, no CSS descendant selectors (offsetTop, etc. trigger layout)
 
@@ -1894,7 +1894,7 @@ Note: `Cache-Control: no-cache` is for HTTP/1.1 where `Pragma: no-cache` is for 
 
 #### Relayout, repaint, reflow
 
-See [Relayout, repaint, reflow](JavaScript#Relayout, repaint, reflow)
+See [Relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
 ### Control loading
 
@@ -1910,7 +1910,7 @@ Full raw data vs. data + computations (ex: BMP vs PNG)
 Use [cache](#cache)
 
 - [push content with HTTP/2](#server-push)
-- [Fonts and FO*T](CSS#Fonts and FO*T)
+- [Fonts and FO*T](CSS#fonts-and-fot)
 - use `font-display` property for fonts
 - use fallback font
 - download only diff of images (like videos using relative compression + keyframes): render in canvas
@@ -1991,7 +1991,7 @@ Reactive prefetch: [Google mobile search is getting faster - to be exact, 100-15
 - [Preload](https://www.w3.org/TR/preload/#h-attributes)
 - [Preload: What Is It Good For? – Smashing Magazine](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
 - [Resource Hints](https://www.w3.org/TR/resource-hints/)
-- [Preload img with CSS](CSS#Preload img with CSS)
+- [Preload img with CSS](CSS#preload-img-with-css)
 - [Link prefetching FAQ - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ)
 - [Preloading content with rel="preload" - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
 - [Link prefetching — Wikipedia](https://en.wikipedia.org/wiki/Link_prefetching)
@@ -2202,7 +2202,7 @@ Note: `media!='all'&&...` is required as a workaround for infinite event loop on
 
 - [Loading CSS without blocking render by Keith Clark](http://keithclark.co.uk/articles/loading-css-without-blocking-render/)
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
-- [Fonts and FOXX](CSS#Fonts and FOXX)
+- [Fonts and FOXX](CSS#fonts-and-foxx)
 
 
 See [`<noscript>` and search engines](#noscript-and-search-engines)
@@ -2389,7 +2389,7 @@ Aka wireframe of a webpage
 **Note: always render document server side. All the document content must be delivered.**
 JavaScript (client side) can be used to enhance experience (loading, UI elements, etc.). See [Progressive Enhancement](#progressive-enhancement)
 
-**Have things (critical content) before 1000ms.** See [responsiveness](UI - UX#Responsiveness)
+**Have things (critical content) before 1000ms.** See [responsiveness](UI - UX#responsiveness)
 
 Anatomy/wireframe of a webpage:
 
@@ -2531,7 +2531,7 @@ Use HTTP2:
 - https://github.com/bocoup/critical-css-boilerplate
 - [DOMContentLoaded and stylesheets · molily](http://molily.de/domcontentloaded/#appendix)
 - [DOMContentLoaded - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
-- Use progress events for media (img, video and audio) element. See [Image dispatch progress events](JavaScript#Image dispatch progress events)
+- Use progress events for media (img, video and audio) element. See [Image dispatch progress events](JavaScript#image-dispatch-progress-events)
 - [CSSconf EU 2014 | Patrick Hamann: CSS and the Critical Path ](https://www.youtube.com/watch?v=_0Fk85to6hA)
 - [Deep dive into the murky waters of script loading - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/script-loading/)
 - [Faster Pageloads: Effectively using HTTP Caching, Cache Busting, and a CDN - FoxyCart](http://www.foxycart.com/blog/caching-and-cdn#.VPZa0xfHNE4)
@@ -2593,7 +2593,7 @@ By drawing downscaled images when smaller image are required.
 
 Use compressed textures and/or less bytes per channels (require canvas).
 
-See [Decompression using GPU](Video#Decompression using GPU)
+See [Decompression using GPU](Video#decompression-using-gpu)
 
 See [Texture format](Texture format)
 
@@ -2675,7 +2675,7 @@ Cache:
 — [Mike Taylor on Twitter](https://twitter.com/miketaylr/status/598211928272437248)
 
 - [User Agent String](#user-agent-string)
-- [Detect touch device](JavaScript#Detect touch device)
+- [Detect touch device](JavaScript#detect-touch-device)
 - [peter.michaux.ca - Feature Detection: State of the Art Browser Scripting](http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting)
 - [Browser Detection (and What to Do Instead)](http://jibbering.com/faq/notes/detect-browser/)
 - [Same Markup: Writing Cross-Browser Code - IEBlog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/ie/archive/2010/04/14/same-markup-writing-cross-browser-code.aspx)
@@ -3131,7 +3131,7 @@ What happend, if the script execution fail?
 
 ### Hidden text
 
-See [hide graphicaly a text](CSS#Hide graphicaly a text)
+See [hide graphicaly a text](CSS#hide-graphicaly-a-text)
 
 ### Nofollow
 
@@ -3228,7 +3228,7 @@ What about Google with websites desktop + mobile / desktop + AMP / desktop + mob
 - `History.scrollRestoration = "manual"` https://developer.mozilla.org/en-US/docs/Web/API/History/scrollRestoration
 - http://lea.verou.me/2011/05/change-url-hash-without-page-jump/
 - http://css-tricks.com/hash-tag-links-padding/
-- [Autoscroll to anchors](JavaScript#Autoscroll to anchors)
+- [Autoscroll to anchors](JavaScript#autoscroll-to-anchors)
 
 ## in frame blocking
 
@@ -3241,7 +3241,7 @@ What about Google with websites desktop + mobile / desktop + AMP / desktop + mob
 
 Use header `Content-Security-Policy: frame-ancestors 'self'` (or the depreciated `X-Frame-Options: SAMEORIGIN`)
 
-See [Clickjacking](Security#Clickjacking)
+See [Clickjacking](Security#clickjacking)
 
 ## Adaptive
 
@@ -3277,7 +3277,7 @@ Aka content aware image cropping and art direction
 
 Define an interest area or predefined crop rules based on breakpoints
 
-See also [HTML - Responsive image](HTML#Responsive image)
+See also [HTML - Responsive image](HTML#responsive-image)
 
 > _art direction_ problem involves wanting to change the image displayed to suit different image display sizes
 — [Responsive images - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images#Art_direction)
@@ -3310,7 +3310,7 @@ Service generate art directed images:
 
 Aka feature detection
 
-See offline-first approach, [Progressive Enhancement (CSS)](CSS#Progressive Enhancement)
+See offline-first approach, [Progressive Enhancement (CSS)](CSS#progressive-enhancement)
 
 - [Progressive enhancement — Wikipedia](https://en.wikipedia.org/wiki/Progressive_enhancement)
 - [Progressive Enhancement and Data Visualizations | CSS-Tricks](http://css-tricks.com/progressive-enhancement-data-visualizations/)
@@ -3377,7 +3377,7 @@ Logos: https://github.com/larsenwork/social.svg.min
 - [site-deaths - IndieWeb](https://indieweb.org/site-deaths)
 
 - [anticontainer/plugins at master · downthemall/anticontainer](https://github.com/downthemall/anticontainer/tree/master/plugins)
-- [jdownloader/src/jd/plugins/hoster at master · mirror/jdownloader](https://github.com/mirror/jdownloader/tree/master/src/jd/plugins/hoster) - see [jDownloadder](Applications#jDownloader)
+- [jdownloader/src/jd/plugins/hoster at master · mirror/jdownloader](https://github.com/mirror/jdownloader/tree/master/src/jd/plugins/hoster) - see [jDownloadder](Applications#jdownloader)
 - [tinyMediaManager](https://github.com/tinyMediaManager)
 
 - [Bit rate - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bit_rate#MP3)
@@ -3829,7 +3829,7 @@ Note: if the intent document load start can't be made direclty after the user in
 	- login: content: 974×622, window.open(): 974×688 (Chrome macOS)
 	- share: content: 550×475 (content call automatically `window.resizeBy(offsetX, offsetY)`)
 
-- [Tabnabbing: Link and `target="_blank"` or `window.open()`](Security#Tabnabbing: Link and `target="_blank"` or `window.open`)
+- [Tabnabbing: Link and `target="_blank"` or `window.open()`](Security#tabnabbing-link-and-target_blank-or-windowopen)
 - [Overview — Twitter Developers](https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview)
 - [Window.open() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/open)
 - [javascript - Use window.open but block use of window.opener - Stack Overflow](https://stackoverflow.com/questions/40593632/use-window-open-but-block-use-of-window-opener)
@@ -6051,7 +6051,7 @@ See [Sample files](Sample files)
 
 ## Web fonts
 
-See [CSS - Font web safe](CSS#Font web safe)
+See [CSS - Font web safe](CSS#font-web-safe)
 
 ## Favicon
 
@@ -6168,7 +6168,7 @@ use ISO 8601 in JSON
 - `X-Frame-Options` header (depreciated)
 - `Content-Security-Policy` header
 
-See [XSS and injection](Security#XSS and injection)
+See [XSS and injection](Security#xss-and-injection)
 
 ### Subresource checksum
 
@@ -6269,7 +6269,7 @@ JSON Schema + form:
 
 ## Bookmarklet
 
-See [Bookmarklet](JavaScript#Bookmarklet)
+See [Bookmarklet](JavaScript#bookmarklet)
 
 Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-inline` script
 
@@ -6290,7 +6290,7 @@ Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-in
 
 ## Accessibility
 
-See [Accessibility](HTML#Accessibility)
+See [Accessibility](HTML#accessibility)
 
 ## Screensaver
 
@@ -6330,10 +6330,10 @@ See [Accessibility](HTML#Accessibility)
 
 See also:
 
-- [iOS](iOS#Kiosk mode)
-- [Android](Android#Kiosk mode)
-- [Windows](Windows#Kiosk mode)
-- [macOS](macOS#Kiosk mode)
+- [iOS](iOS#kiosk-mode)
+- [Android](Android#kiosk-mode)
+- [Windows](Windows#kiosk-mode)
+- [macOS](macOS#kiosk-mode)
 
 ## BaaS
 

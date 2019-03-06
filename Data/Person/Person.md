@@ -201,6 +201,6 @@ Aka gender
 
 - [ISO/IEC 5218 — Wikipedia](https://en.wikipedia.org/wiki/ISO/IEC_5218)
 - [How to ask about gender | Yoomee](https://www.yoomee.com/how-to-ask-about-gender)
-- [Gender / plurial combined form](Text#Gender%20%2F%20plurial%20combined%20form)
+- [Gender / plurial combined form](Text#gender202f20plurial20combined20form)
 - [gender formats · Microformats Wiki](http://microformats.org/wiki/gender-formats)
 - [Sex and gender distinction — Wikipedia](https://en.wikipedia.org/wiki/Sex_and_gender_distinction)

@@ -10,6 +10,6 @@ Base on VP8 video codec
 - [Lossless and Alpha Gallery  |  WebP  |  Google Developers](https://developers.google.com/speed/webp/gallery2)
 - [WebP decoder for Flash. | UnitZeroOne](http://unitzeroone.com/blog/2011/11/20/webp-decoder-for-flash/)
 - [FRDX - PNG vs WebP](http://frdx.free.fr/png_vs_webp.htm)
-- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/44) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page=44)
+- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/44) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page44)
 - [antimatter15/whammy: A real time javascript webm encoder based on a canvas hack](https://github.com/antimatter15/whammy) - Convert WebP to WebM (1 frame movie), this allow a browser that support WebM but not WebP to ready it.
 - [Essential Image Optimization](https://images.guide/#what-is-webp)

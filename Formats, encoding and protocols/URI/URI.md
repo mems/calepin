@@ -7,14 +7,14 @@
 - [About Apple URL Schemes](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007891-SW1)
 - [christopherdwhite/iosWorkflows: This is a collection of bookmarklets, scripts and custom URL scheme actions that help bridge apps and manipulate the data you can send between them.](https://github.com/christopherdwhite/iosWorkflows)
 
-See also [URI/URL](Web#URL/URL)
+See also [URI/URL](Web#urlurl)
 
 ## Mobile Application URL Schemes 
 
 iOS and/or Android
 
-- [Open native application](Web#Open native application)
-- [Fingerprinting - Native application is installed](Security#Native application is installed)
+- [Open native application](Web#open-native-application)
+- [Fingerprinting - Native application is installed](Security#native-application-is-installed)
 
 - [IPhone URL Schemes - akosma wiki](https://web.archive.org/web/20161018100533/http://wiki.akosma.com:80/IPhone_URL_Schemes)
 - [handleOpenURL, Shared Interapp Communication on iOS](https://web.archive.org/web/20161128234603/http://handleopenurl.com:80/)
@@ -69,7 +69,7 @@ See [Phone number](Phone number)
 
 	<p>Appelez le <a href="tel:+33612345678">06 12 34 56 78</a>.</p>
 
-Should support extensions: `tel:+00000;ext=00`, but often only `tel:+00000,00` is supported. See [Phone number](Phone number#Extension)
+Should support extensions: `tel:+00000;ext=00`, but often only `tel:+00000,00` is supported. See [Phone number](Phone number#extension)
 
 Chars are composed as number (what about `w`/"wait for dial tone" or `p`/"pause").
 

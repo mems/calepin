@@ -23,7 +23,7 @@
 
 RAID mirror disks: remove a disk and rebuild volume
 
-RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](Command line (Unix)#Clone disk)
+RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](Command line (Unix)#clone-disk)
 
 - [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
 - [Adding a new disk drive to a Synology 2-bay drive - Super User](https://superuser.com/questions/575408/adding-a-new-disk-drive-to-a-synology-2-bay-drive)
@@ -633,7 +633,7 @@ Since the Time Machine backup cycle is 1h, **wait 1h before entering in hybernat
 
 ## Backup a remote server with FTP
 
-Command line, see [backup external server](Command line (Unix)#Backup external server)
+Command line, see [backup external server](Command line (Unix)#backup-external-server)
 
 or use Download station, (support FTP) (can use RSS as source list)
 

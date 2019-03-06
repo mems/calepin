@@ -12,7 +12,7 @@ See [Deblur](Deblur)
 
 ## Correct color interpolation
 
-See [correct color interpolation](Interpolation#Correct color interpolation)
+See [correct color interpolation](Interpolation#correct-color-interpolation)
 
 ## Radial blur
 

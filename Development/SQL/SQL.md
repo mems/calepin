@@ -48,7 +48,7 @@ For performances, you can create temporary/virtual table [`CREATE TEMPORARY TABL
 
 1. game end timestamp
 2. player's ID
-3. player's ip (see [Get client IP](Web#Get client IP))
+3. player's ip (see [Get client IP](Web#get-client-ip))
 4. player's email
 5. player's mobile
 6. game over reason

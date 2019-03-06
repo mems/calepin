@@ -6,8 +6,8 @@
 
 ## Tablet kiosk mode
 
-- [iOS](iOS#Tablet kiosk Mode)
-- [Android](Android#Tablet kiosk Mode)
+- [iOS](iOS#tablet-kiosk-mode)
+- [Android](Android#tablet-kiosk-mode)
 
 ## Network Link Aggregation and aggregate the bandwidth
 

@@ -113,7 +113,7 @@ Debug targets, dependencies, etc. `make target --debug=b`
 	$(error "ImageMagick is not found. Install it via 'sudo brew install imagemagick', 'sudo port install ImageMagick', 'sudo apt-get install imagemagick' or from http://imagemagick.org/script/binary-releases.php.")
 	endif
 
-- [Command line - Find the location of a command](Command line (Unix)#Find the location of a command)
+- [Command line - Find the location of a command](Command line (Unix)#find-the-location-of-a-command)
 - [gnu make - Check if a program exists from a Makefile - Stack Overflow](https://stackoverflow.com/questions/5618615/check-if-a-program-exists-from-a-makefile)
 
 ## Generic
