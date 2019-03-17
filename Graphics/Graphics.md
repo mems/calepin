@@ -1508,7 +1508,7 @@ Aka fire
 
 ### Sparkle shader
 
-Aka sparly shader
+Aka sparly shader, twinkling
 
 - ![Sparkle shader](Pixel Shader/Sparkle shader/Sparkle shader.mp4)
 - ![Sparkle shader 2](Pixel Shader/Sparkle shader 2/Sparkle shader 2.mp4) (normalize the direction vector, make sure you normalize the direction vector), could use using the camera direction vector
@@ -1535,6 +1535,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 - [Shader Breakdown #1 | Rob Fichman on Patreon](https://www.patreon.com/posts/shader-breakdown-21471588)
 - [rob @ i ✨💖✨ my girlfriend on Twitter: "someone was asking about the concepts behind my sparly shader so i made a little gif, maybe it will be helpful to you too!!… https://t.co/HsETCTGpjV"](https://twitter.com/bobacupcake/status/1102631340774694912?s=12)
 - [Sparkles effect](https://www.shadertoy.com/view/tdsXRX)
+- [Shooting Star](https://codepen.io/ko-yelie/pen/LqXWWx?editors=0010)
 
 ### Filter
 
