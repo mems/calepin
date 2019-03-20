@@ -25,6 +25,7 @@ Style guide, code conventions:
 - [JS: The Right Way](http://jstherightway.org/)
 - https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/categories.md
 - [ryanmcdermott/clean-code-javascript: Clean Code concepts adapted for JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
+- [JavaScript naming conventions: do’s and don’ts – freeCodeCamp.org](https://medium.freecodecamp.org/javascript-naming-conventions-dos-and-don-ts-99c0e2fdd78a)
 
 - [Simple Techniques for Writing More Semantic and Maintainable JavaScript Apps — Space Camp — Medium](https://medium.com/space-camp/three-simple-techniques-for-writing-more-semantic-and-maintainable-javascript-apps-206b4fb89f15)
 
