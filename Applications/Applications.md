@@ -436,11 +436,14 @@ Install an application on virtual device
 - [Chrome APKs - APKMirror](http://www.apkmirror.com/apk/google-inc/chrome/)
 - [Android Debug Bridge | Android Studio](https://developer.android.com/studio/command-line/adb.html)
 
-## Intellij Applications
+## IntelliJ Applications
+
+Aka WebStorm, PhpStorm, IntelliJ IDEA
 
 Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by the app: [Grunt feedback : WEB-11713](https://youtrack.jetbrains.com/issue/WEB-11713#comment=27-718038)
 
 - Command keyboard shortcut match only US layout: [National keyboard layouts support : IDEA-165950](https://youtrack.jetbrains.com/issue/IDEA-165950#comment=27-2053321)
+- Support ANSI sequences in Run tool (use terminal for NodeJS registry key, at least in PhpStorm 2018.3 and WebStorm 2018.2): [Console output manipulation is not supported when using WebStorm Run : IDEA-154313](https://youtrack.jetbrains.com/issue/IDEA-154313#focus=streamItem-27-2842206.0-0)
 
 ## Adobe
 
