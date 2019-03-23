@@ -363,6 +363,7 @@ See [Water](#water)
 - [Realistic water shader for Three.js](https://github.com/jbouny/ocean) - see [Ocean - Jérémy BOUNY](http://jeremybouny.fr/ocean/demo/))
 - [Seascape](https://www.shadertoy.com/view/Ms2SD1) - see `Seascape.glsl`
 - [Tileable Water Caustic](https://www.shadertoy.com/view/MdlXz8)
+- [Stylized Waterfall](http://sketches.vlucendo.com/waterfall/)
 
 ### Wave
 
@@ -1037,6 +1038,7 @@ Aka path tracing, ray marching, raytracing, pathtracing
 - [CPU Real Time Rendering - Report](http://graphics.cs.williams.edu/courses/cs371/f16/gallery/4-midterm/realtime/report.md.html)
 - [Premiers pas, Raytracer en C++ : LeGreg Homepage - Gregory Massal](http://www.massal.net/article/raytrace/page1.html)
 - [erichlof/THREE.js-PathTracing-Renderer: Real-time PathTracing with global illumination and progressive rendering, all on top of the Three.js WebGL framework. Click here for Live Demo: https://erichlof.github.io/THREE.js-PathTracing-Renderer/ThreeJS_PathTracing_Renderer_GeometryShowcase.html](https://github.com/erichlof/THREE.js-PathTracing-Renderer)
+- [Wolfenstein: Ray Tracing On using WebGL1 - reindernijhoff.net](https://reindernijhoff.net/2019/03/wolfenstein-raytracing-on-using-webgl1/)
 
 ## Ray casting
 

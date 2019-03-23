@@ -136,6 +136,7 @@ Aka Virtual DOM
 		// each times, strings argument (the first one) is the same reference: call2Strings === call1Strings; callNStrings === call1Strings
 - [Reactive UI's with VanillaJS - Part 2: Class Based Components | CSS-Tricks](https://css-tricks.com/reactive-uis-vanillajs-part-2-class-based-components/)
 - [Building a React-esque component using vanilla javascript.](https://medium.com/@bluepnume/building-a-react-esque-component-using-vanilla-javascript-ddc99e76b867)
+- [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
 
 - [A Virtual DOM and diffing algorithm](https://github.com/Matt-Esch/virtual-dom)
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
@@ -267,7 +268,7 @@ See also [`contentEditable`](#contenteditable)
 > A polyfill …, is a piece of code or plugin that provides the technology that you, the developer, expect the browser to provide natively. Flattening the API landscape if you will.
 — [What is a Polyfill?](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 
-- [Polyfills and the evolution of the web - TAG finding](https://w3ctag.github.io/polyfills/)
+- [Polyfills and the evolution of the Web](https://www.w3.org/2001/tag/doc/polyfills/)
 - [inexorabletash/polyfill](https://github.com/inexorabletash/polyfill)
 - https://github.com/inexorabletash/polyfill#readme
 - [URL Polyfill](https://gist.github.com/arv/1384398) https://github.com/inexorabletash/polyfill/blob/master/url.js
@@ -588,6 +589,8 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 	
 	}
 </details>
+
+- [Portal](http://sketches.vlucendo.com/portal/)
 
 ### Documents
 
