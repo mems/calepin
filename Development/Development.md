@@ -416,6 +416,7 @@ Use verbes:
 - [Bug Prediction at Google](https://google-engtools.blogspot.fr/2011/12/bug-prediction-at-google.html) - Use Git version message to predict spot bugs
 - [How to Write a Git Commit Message (2014) | Hacker News](https://news.ycombinator.com/item?id=13889155)
 - [Karma - Git Commit Msg](http://karma-runner.github.io/1.0/dev/git-commit-msg.html)
+- [How to Get More Out of Your Git Commit Message - datree](https://datree.io/blog/git-commit-message-conventions-for-readable-git-log/)
 
 ## Indentation
 
