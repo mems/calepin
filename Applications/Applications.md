@@ -444,7 +444,7 @@ Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by 
 
 - Command keyboard shortcut match only US layout: [National keyboard layouts support : IDEA-165950](https://youtrack.jetbrains.com/issue/IDEA-165950#comment=27-2053321)
 - Support ANSI sequences in Run tool (use terminal for NodeJS registry key, at least in PhpStorm 2018.3 and WebStorm 2018.2): [Console output manipulation is not supported when using WebStorm Run : IDEA-154313](https://youtrack.jetbrains.com/issue/IDEA-154313#focus=streamItem-27-2842206.0-0)
-- Help > Find Action > Check "UML support" on, right click on file or folder > Diagram
+- Help > Find Action > Check "UML support" on, right click on file or folder > Diagram. [Module Dependency Diagrams - Help | PhpStorm](https://www.jetbrains.com/help/phpstorm/module-dependency-diagram.html)
 
 ## Adobe
 
