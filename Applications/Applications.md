@@ -12,6 +12,8 @@ Awesome bar:
 > - Add `$` to search for matches in suggestions.
 – [Awesome Bar - Search your Firefox bookmarks, history and tabs from the address bar | Firefox Help](https://support.mozilla.org/en-US/kb/awesome-bar-search-firefox-bookmarks-history-tabs#w_changing-results-on-the-fly_2)
 
+- Open Tabs to the right of the current tab: `about:config?filter=browser.tabs.insertAfterCurrent`, https://addons.mozilla.org/en-US/firefox/addon/always-right/
+
 ## Thunderbird
 
 Wrap lines:

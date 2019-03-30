@@ -1010,6 +1010,14 @@ Use async/await with destructuring
 
 	const [user, image] = await Promise.all([fetch("/user"), fetch("/image.jpg")]);
 
+```js
+async function isPromiseResolved(promise){
+	const ref = Symbol();
+	return (await Promise.race([promise, ref])) !== ref;
+}
+// See also https://github.com/MattiasBuelens/remote-web-streams/blob/afe2a98832272d592e454a9d4640c47912f939cd/test/promise-utils.ts#L1
+```
+
 - [Understanding JQuery.Deferred and Promise](http://joseoncode.com/2011/09/26/a-walkthrough-jquery-deferred-and-promise/)
 - [javascript - Promise - is it possible to force cancel a promise - Stack Overflow](https://stackoverflow.com/questions/30233302/promise-is-it-possible-to-force-cancel-a-promise)
 
