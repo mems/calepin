@@ -155,16 +155,22 @@ Smoothing
 
 ### Prevent body to scroll
 
-	body.noscroll {
-	   overflow: hidden;
-	   position: fixed;
-	   top: 0;
-	   right: 0;
-	   bottom: 0;
-	   left: 0;
-	   height: 100%;
-	   width: 100%;
-	}
+```css
+body.noscroll {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+```
+
+### Animate with scroll
+
+- [Bind CSS keyframe animation to scroll](https://codepen.io/scottkellum/pen/WWeXab) - use a CSS variable defined with JS
 
 ## Mediaqueries
 
