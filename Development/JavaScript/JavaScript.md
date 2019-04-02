@@ -3125,6 +3125,34 @@ Do you mean: Is it an hover media? or: What is precision of the pointer? (none, 
 
 It's complexe and yet inaccurate.
 
+```js
+// if the mediaquery is supported (media="not all" if not supported)
+// See https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
+// true = at least one media query match (others are not supported or doesn't match)
+// false = at least one media query is supported, but none of supported media query match
+// null = none of media queries are supported
+const isTouchMediaMatches = [
+  '(pointer: coarse)',
+  '(hover: none)',
+  '(-moz-touch-enabled)',
+].reduce((result, query) => {
+  const {media, matches} = matchMedia(query);
+
+  // This media query is not supported
+  if(media === "not all"){
+    return result;
+  }
+
+  return result || matches;
+}, null);
+// fallback to API detection for browsers that dont support used mediaqueries
+const isTouchWithFallback = isTouchMediaMatches !== null ? isTouchMediaMatches : ('ontouchstart' in window) || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch;
+
+// is primary pointer have limited accuracy or the primary input mechanism can hover
+// see also isMobile
+export const isTouch = isTouchWithFallback;
+```
+
 	// Test if the browser support of `touch*` events (but there no guarantee it's a touch device)
 	"ontouchstart" in window;
 	//"onpointerdown" in document
