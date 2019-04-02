@@ -170,7 +170,7 @@ body.noscroll {
 
 ### Animate with scroll
 
-- [Bind CSS keyframe animation to scroll](https://codepen.io/scottkellum/pen/WWeXab) - use a CSS variable defined with JS
+- [Bind CSS keyframe animation to scroll](https://codepen.io/scottkellum/pen/WWeXab) - use a CSS variable defined with JS to control `animation-delay` of a paused animation
 
 ## Mediaqueries
 
