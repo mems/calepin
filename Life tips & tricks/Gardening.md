@@ -1,3 +1,32 @@
+## Insecticide
+
+Anti-cochenille:
+
+> Alcool médical
+
+> Diluer dans 1 litre d'eau :
+> - 1 cuillère à café de savon noir liquide
+> - 1 cuillère à café d'alcool à 90°
+> - 1 cuillère à café d'huile de paraffine
+
+> pour un litre d'eau tiède:
+> Une (ou deux) cuillère à soupe de savon noir.
+> + une (ou deux) cuillère à soupe d'alcool queconque
+> + une (ou deux) cuillère à soupe d'huile de cuisine
+> (c'est la recette miou-miou diffisée depuis des années sur une radio).
+> 
+> Pour les pucerons le savon noir suffit.
+> Pour les cochenilles la recette complète, et en plus passer deux fois à 20mn d'intervalle. La première pulvérisation les empêche de respirer donc elles se soulèvent et la deuxième pulvérisation passe par dessous => kaput assuré. Il faut repasser une semaine après au cas où. Résultat assuré à condition de bien pulvériser dessous jusqu'à ce que ça coule.
+> 
+> Pourquoi ce (une ou deux) ? Quand le temps est frais je mets deux. Quand la température est haute je mets une cuillére à soupe. Certaines plantes n'apprécient pas l'huile qui bouche leurs pores donc une cuillère, et il faut ensuite les rincer .
+> 
+> Je prépare d'avance le mélange savon+ alcool+huile de colza. L'alcool et le savon rendent l'huile hydrosoluble. Ce concentré est une émulsion. Tout prêt il se garde, il n'y a plus qu'à agiter le flacon et mettre 3 cuillères à soupe ou 6 dans un litre d'eau quand on en a besoin..
+> 
+> A ceux qui disent de pulvériser de l'huile , directement de l'huile, le voudrais leur demander dans quel état est leur pulvérisateur après... Si c'est de l'huile vendue pour, elle est rendue hydrosoluble ,alors là d'accord.
+
+- [Maladie sur laurier-sauce - Au jardin, forum de jardinage](https://www.aujardin.org/viewtopic.php?t=128886#p2400614)
+- [La recette naturelle anti-cochenilles du 24 août 2013 - France Inter](https://www.franceinter.fr/emissions/la-main-verte/la-main-verte-24-aout-2013)
+
 ## Frangipanier
 
 Pour l'engrais n'en mettre que très peu

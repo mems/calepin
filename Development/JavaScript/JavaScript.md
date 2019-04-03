@@ -141,6 +141,7 @@ Aka Virtual DOM
 - [A Virtual DOM and diffing algorithm](https://github.com/Matt-Esch/virtual-dom)
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
 - [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](http://webreflection.blogspot.fr/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
+- [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
 
 ### Date and time
 

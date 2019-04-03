@@ -1,6 +1,8 @@
 ## Resources
 
-	purge
+```sh
+purge
+```
 
 - https://github.com/emred/osx-hack/blob/master/hack.sh
 - https://gist.github.com/brandonb927/3195465#file-osx-for-hackers-sh
@@ -51,27 +53,31 @@ Time Machine backup fiability:
 
 	`.snapshots/daily.0/`
 
-		#!/bin/sh
-		date=`date "+%Y-%m-%dT%H:%M:%S"`
-		HOME=/home/user/
-		rsync -aP \
-			--link-dest=$HOME/Backups/current\
-			$HOME $HOME/Backups/back-$date.incomplete
-		mv $HOME/Backups/back-$date.incomplete $HOME/Backups/back-$date
-		ln -sf back-$date $HOME/Backups/current
+	```sh
+	#!/bin/sh
+	date=`date "+%Y-%m-%dT%H:%M:%S"`
+	HOME=/home/user/
+	rsync -aP \
+		--link-dest=$HOME/Backups/current\
+		$HOME $HOME/Backups/back-$date.incomplete
+	mv $HOME/Backups/back-$date.incomplete $HOME/Backups/back-$date
+	ln -sf back-$date $HOME/Backups/current
+	```
 	
-		#!/bin/sh
-		date=`date "+%Y-%m-%dT%H_%M_%S"`
-		HOME=/home/user/
-		rsync -azP \
-			--delete \
-			--delete-excluded \
-			--exclude-from=$HOME/.rsync/exclude \
-			--link-dest=../current \
-			$HOME user@backupserver:Backups/incomplete_back-$date \
-		&& ssh user@backupserver \
-			"mv Backups/incomplete_back-$date Backups/back-$date \
-			&& ln -sf back-$date Backups/current"
+	```sh
+	#!/bin/sh
+	date=`date "+%Y-%m-%dT%H_%M_%S"`
+	HOME=/home/user/
+	rsync -azP \
+		--delete \
+		--delete-excluded \
+		--exclude-from=$HOME/.rsync/exclude \
+		--link-dest=../current \
+		$HOME user@backupserver:Backups/incomplete_back-$date \
+	&& ssh user@backupserver \
+		"mv Backups/incomplete_back-$date Backups/back-$date \
+		&& ln -sf back-$date Backups/current"
+	```
 	
 	See also [Easy Automated Snapshot-Style Backups with Rsync](http://www.mikerubel.org/computers/rsync_snapshots/)
 - [osx - Using rsync to backup - Ask Different](http://apple.stackexchange.com/questions/224747/using-rsync-to-backup)
@@ -440,19 +446,27 @@ Also don't erase immediatly all TM snapshots, some are not complete due to concu
 
 ### Change harddrive
 
-	sudo tmutil associatedisk -a mount_point snapshot_volume
-	sudo tmutil inheritbackup {machine_directory | sparsebundle}
+```sh
+sudo tmutil associatedisk -a mount_point snapshot_volume
+sudo tmutil inheritbackup {machine_directory | sparsebundle}
+```
 
 - [Time Machine: Inherit Backup Using `tmutil` - Simon Heimlicher](https://simon.heimlicher.com/articles/2012/07/10/time-machine-inherit-backup-using-tmutil)
 - [How can I use an existing Time Machine backup with my new computer? - Ask Different](http://apple.stackexchange.com/questions/32841/how-can-i-use-an-existing-time-machine-backup-with-my-new-computer)
 
 ### Local snapshots
 
-	sudo tmutil enablelocal
+```sh
+sudo tmutil enablelocal
+```
 
-	sudo tmutil disablelocal
+```sh
+sudo tmutil disablelocal
+```
 
-	tmutil snapshot
+```sh
+tmutil snapshot
+```
 
 In folder `/.MobileBackups`
 
@@ -468,14 +482,16 @@ Sparsebundle are use on network drives.
 
 Create a sparsebundle of 320GiB or use `320000000000b` (= 320GB)
 
-	hdiutil create -size 320g -type SPARSEBUNDLE -nospotlight -fs "HFS+J" -volname "MyMacBook Time Machine Backup" MyMacBook.sparsebundle
-	#
-	# Mount image
-	open MyMacBook.sparsebundle
-	# diskutil list
-	# sudo diskutil enableOwnership /dev/diskXsX
-	# Set Time Machine a destination volume
-	sudo tmutil setdestination "/Volumes/MyMacBook Time Machine Backup"
+```sh
+hdiutil create -size 320g -type SPARSEBUNDLE -nospotlight -fs "HFS+J" -volname "MyMacBook Time Machine Backup" MyMacBook.sparsebundle
+#
+# Mount image
+open MyMacBook.sparsebundle
+# diskutil list
+# sudo diskutil enableOwnership /dev/diskXsX
+# Set Time Machine a destination volume
+sudo tmutil setdestination "/Volumes/MyMacBook Time Machine Backup"
+```
 
 To create dynamic sparsebundle, create it without partition scheme.
 
@@ -483,8 +499,10 @@ Sparsebundle will increase by it's content
 
 You can shrink sparseimage directly (should not be used). Could require a `compact` before
 
-	hdiutil resize -size 320g -shrinkonly /Volumes/Network_Drive_Name/path/to/timemachine.sparseimage
-	# -limits will just displays the minimum, current, and maximum sizes (in 512-byte sectors)
+```sh
+hdiutil resize -size 320g -shrinkonly /Volumes/Network_Drive_Name/path/to/timemachine.sparseimage
+# -limits will just displays the minimum, current, and maximum sizes (in 512-byte sectors)
+```
 
 - reclaim unused bands (free space) `sudo hdiutil compact -verbose image.sparsebundle` (could be executed multiple times) or `hdiutil resize -verbose -sectors min image.sparseimage`.
 	- [mac osx - How to reclaim all/most free space from a sparsebundle on OS X - Server Fault](https://serverfault.com/questions/14112/how-to-reclaim-all-most-free-space-from-a-sparsebundle-on-os-x)
@@ -499,83 +517,85 @@ You can shrink sparseimage directly (should not be used). Could require a `compa
 - [Time Machine - Troubleshooting A8. Changing the size or case-sensitivity of a sparse bundle](http://pondini.org/TM/A8.html)
 - http://java.dzone.com/articles/shrink-your-time-machine
 - http://www.readynas.com/?p=253
- 
-	#!/bin/bash
-	# A bash script to create a time machine disk image suitable for
-	# backups with OS X 10.6 (Snow Leopard)
-	# This script probably only works for me, so try it at your own peril!
-	# Use, distribute, and modify as you see fit but leave this header intact.
-	# (R) sunkid - September 5, 2009
-	
-	usage ()
-	{
-	     echo ${errmsg}"\n"
-	     echo "makeImage.sh"
-	     echo "	usage: makeImage.sh size [directory]"
-	     echo "	Create a disk image with a max storage size of <size> and copy it"
-	     echo "	to your backup volume (if specified)"
-	}
-	
-	# test if we have two arguments on the command line
-	if [ $# -lt 1 ]
+
+```sh
+#!/bin/bash
+# A bash script to create a time machine disk image suitable for
+# backups with OS X 10.6 (Snow Leopard)
+# This script probably only works for me, so try it at your own peril!
+# Use, distribute, and modify as you see fit but leave this header intact.
+# (R) sunkid - September 5, 2009
+
+usage ()
+{
+     echo ${errmsg}"\n"
+     echo "makeImage.sh"
+     echo "	usage: makeImage.sh size [directory]"
+     echo "	Create a disk image with a max storage size of <size> and copy it"
+     echo "	to your backup volume (if specified)"
+}
+
+# test if we have two arguments on the command line
+if [ $# -lt 1 ]
+then
+    usage
+    exit
+fi
+
+# see if there are two arguments and we can write to the directory
+if [ $# == 2 ]
+then
+	if [ ! -d $2 ]
 	then
-	    usage
-	    exit
+ 		errmsg=${2}": No such directory"
+    	usage
+    	exit
 	fi
-	
-	# see if there are two arguments and we can write to the directory
-	if [ $# == 2 ]
+	if [ ! -w $2 ]
 	then
-		if [ ! -d $2 ]
-		then
-	 		errmsg=${2}": No such directory"
-	    	usage
-	    	exit
-		fi
-		if [ ! -w $2 ]
-		then
-			errmsg="Cannot write to "${2}
-			usage
-	    	exit
-		fi
+		errmsg="Cannot write to "${2}
+		usage
+    	exit
 	fi
+fi
+
+SIZE=$1
+DIR=$2
+NAME=`scutil --get ComputerName`;
+UUID=`system_profiler SPHardwareDataType | grep 'Hardware UUID' | awk '{print $3}'`
+
+# get busy
+echo -n "Generating disk image ${NAME}.sparsebundle with size ${SIZE}GB ... "
+hdiutil create -size ${SIZE}G -fs HFS+J -type SPARSEBUNDLE \
+	-volname 'Time Machine Backups' "${NAME}.sparsebundle" >> /dev/null 2>&1
 	
-	SIZE=$1
-	DIR=$2
-	NAME=`scutil --get ComputerName`;
-	UUID=`system_profiler SPHardwareDataType | grep 'Hardware UUID' | awk '{print $3}'`
-	
-	# get busy
-	echo -n "Generating disk image ${NAME}.sparsebundle with size ${SIZE}GB ... "
-	hdiutil create -size ${SIZE}G -fs HFS+J -type SPARSEBUNDLE \
-		-volname 'Time Machine Backups' "${NAME}.sparsebundle" >> /dev/null 2>&1
-		
-	echo "done!"
-	
-	echo -n "Generating property list file with uuid $UUID ... "
-	
-	PLIST=$(cat <<EOFPLIST
-	<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	<plist version="1.0">
-	<dict>
-	        <key>com.apple.backupd.HostUUID</key>
-	        <string>$UUID</string>
-	</dict>
-	</plist>
-	EOFPLIST)
-	
-	echo $PLIST > "${NAME}.sparsebundle"/com.apple.TimeMachine.MachineID.plist
-	echo "done!"
-	
-	if [ $# == 2 ]
-	then
-		echo -n "Copying ${NAME}.sparsebundle to $DIR ... "
-		cp -pfr "${NAME}.sparsebundle" $DIR/"${NAME}.sparsebundle"
-		echo "done"
-	fi
-	
-	echo "Finished! Happy backups!"
+echo "done!"
+
+echo -n "Generating property list file with uuid $UUID ... "
+
+PLIST=$(cat <<EOFPLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>com.apple.backupd.HostUUID</key>
+        <string>$UUID</string>
+</dict>
+</plist>
+EOFPLIST)
+
+echo $PLIST > "${NAME}.sparsebundle"/com.apple.TimeMachine.MachineID.plist
+echo "done!"
+
+if [ $# == 2 ]
+then
+	echo -n "Copying ${NAME}.sparsebundle to $DIR ... "
+	cp -pfr "${NAME}.sparsebundle" $DIR/"${NAME}.sparsebundle"
+	echo "done"
+fi
+
+echo "Finished! Happy backups!"
+```
 
 ### Change sparsebundle band size
 
@@ -723,18 +743,20 @@ For clean install, erase the drive with Disk Utility ([macOS Recovery](https://s
 
 #### Install on Virtual Machine
 
-	cd "C:\Program Files\Oracle\VirtualBox\"
-	# 
-	# Virtualbox 5.x 00000001 000106e5 00100800 0098e3fd bfebfbff
-	# Virtualbox 4.x 00000001 000306a9 04100800 7fbae3ff bfebfbff
-	VBoxManage.exe modifyvm "Virtual Machine Name" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
-	# use "MacBookPro11,3"
-	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac11,3"
-	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
-	# "Mac-2BD1B31983FE1663"
-	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
-	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
-	VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+```sh
+cd "C:\Program Files\Oracle\VirtualBox\"
+# 
+# Virtualbox 5.x 00000001 000106e5 00100800 0098e3fd bfebfbff
+# Virtualbox 4.x 00000001 000306a9 04100800 7fbae3ff bfebfbff
+VBoxManage.exe modifyvm "Virtual Machine Name" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+# use "MacBookPro11,3"
+VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac11,3"
+VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+# "Mac-2BD1B31983FE1663"
+VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
+VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+```
 
 - [jonanh/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/jonanh/osx-vm-templates) - [timsutton/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/timsutton/osx-vm-templates)
 - [Notes on getting macOS Sierra running in Virtualbox on a Windows 10 host](https://gist.github.com/rob-smallshire/0c4403afb0523dd57c9f4b3693344f14)
@@ -743,12 +765,14 @@ For clean install, erase the drive with Disk Utility ([macOS Recovery](https://s
 
 ### Bootable USB
 
-	hdiutil convert -format UDRW -o /path/to/target.img /path/to/ubuntu.iso
-	diskutil list
-	# (determine the device node assigned to your flash media (e.g. /dev/disk2))
-	diskutil unmountDisk /dev/diskN
-	sudo dd if=/path/to/downloaded.img.dmg of=/dev/rdiskN bs=1M
-	diskutil eject /dev/diskN
+```sh
+hdiutil convert -format UDRW -o /path/to/target.img /path/to/ubuntu.iso
+diskutil list
+# (determine the device node assigned to your flash media (e.g. /dev/disk2))
+diskutil unmountDisk /dev/diskN
+sudo dd if=/path/to/downloaded.img.dmg of=/dev/rdiskN bs=1M
+diskutil eject /dev/diskN
+```
 
 - [How to Copy an ISO to a USB Drive from Mac OS X with dd](http://osxdaily.com/2015/06/05/copy-iso-to-usb-drive-mac-os-x-command/)
 - [Installation/FromImgFiles - Community Help Wiki](https://help.ubuntu.com/community/Installation/FromImgFiles)
@@ -781,30 +805,32 @@ On an HFS+ (Journaled) formatted USB drive
 - User accounts and groups (reset UserShell and NFSHomeDirectory for created users)
 	For macports, see:
 	
-		#!/bin/sh
-		
-		# Fix MacPorts user config
-		# Sources here: https://trac.macports.org/browser/trunk/base/portmgr/dmg/postflight.in?rev=154110#L159
-		
-		# Variable provided by postinstall script, extracted from MacPort installer package (*.pkg)
-		PREFIX="/opt/local"
-		DSCL=/usr/bin/dscl
-		RUNUSR=macports
-		
-		# List all users:
-		# ${DSCL} . list /Users | grep -E -v ^_
-		# Read user infos
-		# ${DSCL} . read "/Users/${RUNUSR}"
-		
-		${DSCL} -q . -delete "/Users/${RUNUSR}" AuthenticationAuthority
-		${DSCL} -q . -delete "/Users/${RUNUSR}" PasswordPolicyOptions
-		${DSCL} -q . -delete "/Users/${RUNUSR}" dsAttrTypeNative:KerberosKeys
-		${DSCL} -q . -delete "/Users/${RUNUSR}" dsAttrTypeNative:ShadowHashData
-		${DSCL} -q . -create "/Users/${RUNUSR}" RealName MacPorts
-		${DSCL} -q . -create "/Users/${RUNUSR}" Password "*"
-		${DSCL} -q . -create "/Users/${RUNUSR}" PrimaryGroupID "$(${DSCL} -q . -read "/Groups/${RUNUSR}" PrimaryGroupID | /usr/bin/awk '{print $2}')"
-		${DSCL} -q . -create "/Users/${RUNUSR}" NFSHomeDirectory "${PREFIX}/var/macports/home"
-		${DSCL} -q . -create "/Users/${RUNUSR}" UserShell /usr/bin/false
+	```sh
+	#!/bin/sh
+	
+	# Fix MacPorts user config
+	# Sources here: https://trac.macports.org/browser/trunk/base/portmgr/dmg/postflight.in?rev=154110#L159
+	
+	# Variable provided by postinstall script, extracted from MacPort installer package (*.pkg)
+	PREFIX="/opt/local"
+	DSCL=/usr/bin/dscl
+	RUNUSR=macports
+	
+	# List all users:
+	# ${DSCL} . list /Users | grep -E -v ^_
+	# Read user infos
+	# ${DSCL} . read "/Users/${RUNUSR}"
+	
+	${DSCL} -q . -delete "/Users/${RUNUSR}" AuthenticationAuthority
+	${DSCL} -q . -delete "/Users/${RUNUSR}" PasswordPolicyOptions
+	${DSCL} -q . -delete "/Users/${RUNUSR}" dsAttrTypeNative:KerberosKeys
+	${DSCL} -q . -delete "/Users/${RUNUSR}" dsAttrTypeNative:ShadowHashData
+	${DSCL} -q . -create "/Users/${RUNUSR}" RealName MacPorts
+	${DSCL} -q . -create "/Users/${RUNUSR}" Password "*"
+	${DSCL} -q . -create "/Users/${RUNUSR}" PrimaryGroupID "$(${DSCL} -q . -read "/Groups/${RUNUSR}" PrimaryGroupID | /usr/bin/awk '{print $2}')"
+	${DSCL} -q . -create "/Users/${RUNUSR}" NFSHomeDirectory "${PREFIX}/var/macports/home"
+	${DSCL} -q . -create "/Users/${RUNUSR}" UserShell /usr/bin/false
+	```
 	
 	- [#30168 (adduser results in macports users appearing as interactive users) – MacPorts](https://trac.macports.org/ticket/30168#comment:16)
 	- [Transferring from Time Machine shows "MacPorts". What is this and should I transfer it? - Ask Different](https://apple.stackexchange.com/questions/275708/transferring-from-time-machine-shows-macports-what-is-this-and-should-i-trans)
@@ -1624,8 +1650,10 @@ Finder, desktop, menus, etc.
 
 If hidden files are not visible:
 
-	chflags hidden file
-	chflags nohidden file
+```sh
+chflags hidden file
+chflags nohidden file
+```
 
 Else :
 
@@ -1637,7 +1665,9 @@ Else :
 
 ### Reload "Open With" menu entries
 
-	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
+```sh
+/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
+```
 
 - [How to rebuild the LaunchServices database - Mac OS X Hints](http://hints.macworld.com/article.php?story=20031215144430486)
 
@@ -1693,7 +1723,7 @@ Add or update
 
 In `fr.strings`:
 
-			"Stuff" = "Choses";
+	"Stuff" = "Choses";
 
 - `/Applications/VMware Fusion.app/Contents/ResourcesVirtual Machines.localized/.localized/*` (VMware Fusion 7.0)
 
@@ -1751,18 +1781,22 @@ USB Overdrive works if you change system mouse speed to 0 (or -1)
 
 System mouse speed
 
-	defaults read .GlobalPreferences com.apple.mouse.scaling
-	# same value as System Preferences > Mouse > Speed
-	#defaults write .GlobalPreferences com.apple.mouse.scaling -1
-	
+```sh
+defaults read .GlobalPreferences com.apple.mouse.scaling
+# same value as System Preferences > Mouse > Speed
+#defaults write .GlobalPreferences com.apple.mouse.scaling -1
+```
+
 killmouseaccel:
 
 Doesn't work with High Sierra due to depreciation of IOHID API.
 
-	#gcc killmouseaccel.c -o killmouseaccel -framework IOKit -framework Carbon
-	gcc killmouseaccel/main.c -o killmouseaccel/killmouseaccel -framework IOKit -framework Carbon
-	#chmod +x killmouseaccel
-	./killmouseaccel mouse
+```sh
+#gcc killmouseaccel.c -o killmouseaccel -framework IOKit -framework Carbon
+gcc killmouseaccel/main.c -o killmouseaccel/killmouseaccel -framework IOKit -framework Carbon
+#chmod +x killmouseaccel
+./killmouseaccel mouse
+```
 
 - [docwhat/killmouseaccel: Kills mouse acceleration dead (OS-X)](https://github.com/docwhat/killmouseaccel)
 - [How to kill mouse acceleration in OS X | MacRumors Forums](https://forums.macrumors.com/threads/how-to-kill-mouse-acceleration-in-os-x.812687/)
@@ -1771,20 +1805,28 @@ Doesn't work with High Sierra due to depreciation of IOHID API.
 
 Will restart Dock, Mission Control, Spaces, etc.
 
-	killall -KILL Dock
+```sh
+killall -KILL Dock
+```
 
 For menubar
 
-	killall -KILL SystemUIServer
+```sh
+killall -KILL SystemUIServer
+```
 
 Or Finder
 
-	killall -KILL Finder
+```sh
+killall -KILL Finder
+```
 
 ### Spaces in dock
 
-	defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-	killall Dock
+```sh
+defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
+killall Dock
+```
 
 ## Disk, file system and paths
 
@@ -1840,13 +1882,19 @@ Preference and help links
 
 Open an pref
 
-	x-help-script://com.apple.machelp/scpt/OpnPrefsBndID.scpt?com.apple.Localization,InputMenu
+```
+x-help-script://com.apple.machelp/scpt/OpnPrefsBndID.scpt?com.apple.Localization,InputMenu
+```
 
 Open an app:
 
-	x-help-script://com.apple.machelp/scpt/OpnAppBndID.scpt?open,com.apple.ScriptEditor2
+```
+x-help-script://com.apple.machelp/scpt/OpnAppBndID.scpt?open,com.apple.ScriptEditor2
+```
 
-	help:anchor=%27mh28040%27%20bookID='com.apple.machelp'
+```
+help:anchor=%27mh28040%27%20bookID='com.apple.machelp'
+```
 
 Home (`help:anchor=%27access%27%20bookID=com.apple.machelp`)
 Index (`help:anchor=%27xall%27%20bookID=com.apple.machelp`)
@@ -1861,8 +1909,10 @@ Index (`help:anchor=%27xall%27%20bookID=com.apple.machelp`)
 
 ### Re-add `staff` premission
 
-	sudo chgrp staff path/to/item
-	sudo chmod g+r,+X path/to/item
+```sh
+sudo chgrp staff path/to/item
+sudo chmod g+r,+X path/to/item
+```
 
 - [How do I add permissions for "System" and "Staff"? | Official Apple Support Communities](https://discussions.apple.com/thread/2240708)
 
@@ -1874,7 +1924,9 @@ Aka UTI
 
 Get UTI:
 
-	mdls -raw -name kMDItemContentType $FILE
+```sh
+mdls -raw -name kMDItemContentType $FILE
+```
 
 For the same extension, mutliple UTI definitions could exist. But the last definition will be used. Exemple: Adobe Flash use `.as` for ActionScript files (source code), but `.as` is declared instead as "AppleSingle archive" (UTI: `com.apple.applesingle-archive`). Installing Adobe Flash should override the default declaration. See [uti - Revert Filetype Association - Ask Different](http://apple.stackexchange.com/questions/49447/revert-filetype-association/86762#86762)
 
@@ -1933,11 +1985,15 @@ Not work with OSX 10.10+
 
 Mute
 
-	sudo nvram SystemAudioVolume=%80
+```sh
+sudo nvram SystemAudioVolume=%80
+```
 
 Restore
 
-	sudo nvram -d SystemAudioVolume
+```sh
+sudo nvram -d SystemAudioVolume
+```
 
 - http://apple.stackexchange.com/questions/168092/disable-yosemite-startup-sound
 - https://discussions.apple.com/message/28013107#28013107
@@ -1962,27 +2018,29 @@ See also [Change the language used at the login screen on your Mac - Apple Suppo
 
 Create in `/Library/LaunchDaemons` a file called like `info.mamp.start.apache.plist` contains
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	<plist version="1.0">
-	  <dict>
-	    <key>Label</key>
-	    <string>info.mamp.start.apache</string>
-	    <key>ProgramArguments</key>
-	    <array>
-	      <string>/path/to/binary</string>
-	      <string>arg1</string>
-		  <string>arg2=value</string>
-		  <string>arg3</string>
-	    </array>
-	    <key>RunAtLoad</key>
-	    <true/>
-		<!-- Use this user to launch daemon, remove if not defined -->
-		<key>UserName</key>
-		<string>YOUR_USERNAME</string>
-		<!-- -->
-	  </dict>
-	</plist>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>info.mamp.start.apache</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/path/to/binary</string>
+      <string>arg1</string>
+	  <string>arg2=value</string>
+	  <string>arg3</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+	<!-- Use this user to launch daemon, remove if not defined -->
+	<key>UserName</key>
+	<string>YOUR_USERNAME</string>
+	<!-- -->
+  </dict>
+</plist>
+```
 
 `Label` must reflect filename without `plist` extension.
 
@@ -2037,15 +2095,21 @@ Some specific softwares require to disable it
 
 ### Downloaded file quarantine
 
-	find ~/Downloads/geeklog-1.6.1 -type f -exec xattr -d com.apple.quarantine {} \;
+```sh
+find ~/Downloads/geeklog-1.6.1 -type f -exec xattr -d com.apple.quarantine {} \;
+```
 
 or
 
-	xattr -d -r com.apple.quarantine ~/Downloads
+```sh
+xattr -d -r com.apple.quarantine ~/Downloads
+```
 
 Disable
 
-	defaults write com.apple.LaunchServices LSQuarantine -bool NO
+```sh
+defaults write com.apple.LaunchServices LSQuarantine -bool NO
+```
 
 ### Certificats
 
@@ -2067,11 +2131,15 @@ A [security update](https://support.apple.com/en-us/HT207275) could break/change
 
 ### Open application (twice and so on)
 
-	open -n /Applications/VOTRE_APPLICATION.app
+```sh
+open -n /Applications/VOTRE_APPLICATION.app
+```
 
 Or add this as Automator script
 
-	do shell script "open -n /Applications/VOTRE_APPLICATION.app"
+```sh
+do shell script "open -n /Applications/VOTRE_APPLICATION.app"
+```
 
 ### Pass command line arguments to Application
 
@@ -2079,7 +2147,9 @@ Or add this as Automator script
 
 Automator > create an Application with `Library/Utilities/Run Shell Script`
 
-	open -a "Google Chrome" --args -pinned-tag-count=4
+```sh
+open -a "Google Chrome" --args -pinned-tag-count=4
+```
 
 Replace app icon: `Get Info` on original App, select icon, `Cmd+C` -> `Get Info` on target App, select icon, `Cmd+V`
 
@@ -2091,10 +2161,14 @@ Edit `/Applications/Firefox.app/Contents/Info.plist`, change for `CFBundleExecut
 
 In `/Applications/Firefox.app/Contents/MacOS/`, create a file `firefox-bin-with-args.sh` (called like change in `Info.plist`)
 
-	#!/usr/bin/env bash
-	exec exec $(dirname "$0")/firefox-bin -ProfileManager
+```sh
+#!/usr/bin/env bash
+exec exec $(dirname "$0")/firefox-bin -ProfileManager
+```
 
-	chmod +x firefox-bin-with-args.sh
+```sh
+chmod +x firefox-bin-with-args.sh
+```
 
 - http://superuser.com/questions/271678/how-do-i-pass-command-line-arguments-to-dock-items
 
@@ -2116,7 +2190,9 @@ Script app (bash script) can't start anymore with OSX 10.10: "Can’t open the a
 
 "%s can’t be opened because it is from an unidentified developer"
 
-	sudo spctl --master-disable
+```sh
+sudo spctl --master-disable
+```
 
 - [How to Allow Apps from Anywhere in macOS Sierra Gatekeeper](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/)
 
@@ -2128,11 +2204,15 @@ Extensions: `/usr/libexec/apache2`
 
 Restart Apache:
 
-	sudo /usr/sbin/apachectl restart
+```sh
+sudo /usr/sbin/apachectl restart
+```
 
 or
 
-	sudo apachectl -k restart
+```sh
+sudo apachectl -k restart
+```
 
 ## Preference pane
 
@@ -2155,7 +2235,9 @@ Aka QLGenerator
 
 To view handle types:
 
-	qrmanage -m
+```sh
+qrmanage -m
+```
 
 Precedence :
 
@@ -2198,33 +2280,41 @@ Turn off:
 
 Reindex drive
 
-	# Here the main drive mounted at /
-	# turn indexing off
-	sudo mdutil -i off /
-	# delete Spotlight folder
-	sudo rm -rf /.Spotlight*
-	# turn indexing on
-	sudo mdutil -i on /
-	# rebuild
-	sudo mdutil -E /
+```sh
+# Here the main drive mounted at /
+# turn indexing off
+sudo mdutil -i off /
+# delete Spotlight folder
+sudo rm -rf /.Spotlight*
+# turn indexing on
+sudo mdutil -i on /
+# rebuild
+sudo mdutil -E /
+```
 
 Reindex (eq. Finder's Search not work properly): `find . -name "*.md" -exec mdimport {} \;` or `sudo mdutil -E /` (where `/` is the affected volume, or all volumes)
 
-	sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
-	sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+```sh
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+```
 
 List file indexing (where PID is pid of process of `mdworker`, use `ps -e | grep mdworker`):
 
-	sudo opensnoop -n mdworker
-	# Use 0.1 or 0,1 depends locale or prepend command with `LANG=C`: (eg. `LANG=C sudo watch -n 0.1 "CMD"`)
-	sudo watch -n 0 "lsof +p PID"
-	sudo watch -n 0 "lsof -c mdworker"
-	strace -p PID -e trace=open,close
-	sudo fs_usage -w -f filesys mdworker | grep "open" | less +F --follow-name
+```sh
+sudo opensnoop -n mdworker
+# Use 0.1 or 0,1 depends locale or prepend command with `LANG=C`: (eg. `LANG=C sudo watch -n 0.1 "CMD"`)
+sudo watch -n 0 "lsof +p PID"
+sudo watch -n 0 "lsof -c mdworker"
+strace -p PID -e trace=open,close
+sudo fs_usage -w -f filesys mdworker | grep "open" | less +F --follow-name
+```
 
 Erase all Spotlight data (all volumes):
 
-	sudo mdutil -avE
+```sh
+sudo mdutil -avE
+```
 
 Metadata:
 
@@ -2242,20 +2332,22 @@ Metadata:
 
 Add to `/System/Library/Spotlight/RichText.mdimporter/Contents/info.plist` (get file format `mdimport -n -d1 somefile.ext`)
 
-	<string>public.c-header</string>
-	<string>public.c-plus-plus-header</string>
-	<string>public.c-source</string>
-	<string>public.objective-c-source</string>
-	<string>public.c-plus-plus-source</string>
-	<string>public.objective-c-plus-plus-source</string>
-	<string>com.sun.java-source</string>
-	<string>public.perl-script</string>
-	<string>public.python-script</string>
-	<string>public.csh-script</string>
-	<string>public.shell-script</string>
-	<string>public.ruby-script</string>
-	<string>public.php-script</string>
-	<string>com.netscape.javascript-source</string>
+```xml
+<string>public.c-header</string>
+<string>public.c-plus-plus-header</string>
+<string>public.c-source</string>
+<string>public.objective-c-source</string>
+<string>public.c-plus-plus-source</string>
+<string>public.objective-c-plus-plus-source</string>
+<string>com.sun.java-source</string>
+<string>public.perl-script</string>
+<string>public.python-script</string>
+<string>public.csh-script</string>
+<string>public.shell-script</string>
+<string>public.ruby-script</string>
+<string>public.php-script</string>
+<string>com.netscape.javascript-source</string>
+```
 
 - [Mac OSX Spotlight Enhancement](https://gist.github.com/gereon/3150445)
 - [Fixing Spotlight indexing of Markdown content - BrettTerpstra.com](http://brettterpstra.com/2011/10/18/fixing-spotlight-indexing-of-markdown-content/)
@@ -2295,11 +2387,26 @@ See also the possibility to create configuration profiles:
 
 ## Clipbload CLI
 
-	pbcopy < file.txt
-	echo "test" | pbcopy
+```sh
+pbcopy < file.txt
+echo "test" | pbcopy
+```
 
-	pbpaste
-	pbpaste > file.txt
+```sh
+pbpaste
+pbpaste > file.txt
+```
+
+## Corrupted executable script
+
+Create a bash script and execute give:
+
+> bad interpreter: Operation not permitted
+
+```sh
+chmod u+x file.sh
+xattr -d com.apple.quarantine file.sh
+```
 
 ## Scanning
 
@@ -2345,15 +2452,21 @@ Use cron or launchd
 
 Accept for this account:
 
-	xcodebuild -license
+```sh
+xcodebuild -license
+```
 
 Accept for all accounts:
 
-	sudo xcodebuild -license
+```sh
+sudo xcodebuild -license
+```
 
 Install Xcode Command Line Tools:
 
-	xcode-select --install
+```sh
+xcode-select --install
+```
 
 ## Macports
 
@@ -2375,9 +2488,11 @@ Macports install in `/opt/local` where Homebrew install in `/usr/local`.
 
 Update and upgrade ports:
 
-	sudo port selfupdate && sudo port upgrade outdated
-	# later to remove old version
-	sudo port uninstall inactive
+```sh
+sudo port selfupdate && sudo port upgrade outdated
+# later to remove old version
+sudo port uninstall inactive
+```
 
 - [MacPorts Guide](https://guide.macports.org/#using.port.upgrade)
 
@@ -2385,142 +2500,144 @@ Update and upgrade ports:
 
 Install ports:
 
-	# 1. Install Xcode Command Line Tools: `xcode-select --install`
-	# 2. Accept Xcode licence: `sudo xcodebuild -license`
-	# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, etc.) 
-	
-	sudo port install\
-		wget rsync\
-		bash bash-completion\
-		coreutils diffutils findutils gsed gawk gpatch\
-		watch\
-		p5-file-rename\
-		openssl\
-		gzip gnutar\
-		git\
-		curl\
-		gettext\
-		ffmpeg\
-		ImageMagick +rsvg\
-		p5-image-exiftool\
-		cmake\
-		apache-ant\
-		httrack\
-		xorg-server\
-		twain-sane
-	
-	# Start D-Bus
-	sudo port install dbus
-	sudo port load dbus
-	#sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
-	#launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
-		
-	# Create the missing symlink to exiftool when install p5-image-exiftool until https://trac.macports.org/ticket/45312 is resolved (check exiftool version)
-	cd /opt/local/bin/ && sudo ln -s exiftool-5.26 exiftool
-	
-	# Add `/opt/local/libexec/gnubin` to PATH
-	if ! grep -q "export PATH=/opt/local/libexec/gnubin:" ~/.profile
-	then
-		echo "" >> ~/.profile
-		echo "# Use GNU coreutils by default (installed with macport)" >> ~/.profile
-		echo "export PATH=/opt/local/libexec/gnubin:\$PATH" >> ~/.profile
-	fi
-	
-	# To use bash_completion, add the following lines at the end of your .bash_profile:
-	if ! grep -q "/opt/local/etc/profile.d/bash_completion.sh" ~/.bash_profile
-	then
-		echo "" >> ~/.bash_profile
-		echo "# Enable bash-completion" >> ~/.bash_profile
-		echo "if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then" >> ~/.bash_profile
-		echo "        . /opt/local/etc/profile.d/bash_completion.sh" >> ~/.bash_profile
-		echo "fi" >> ~/.bash_profile
-	fi
+```sh
+# 1. Install Xcode Command Line Tools: `xcode-select --install`
+# 2. Accept Xcode licence: `sudo xcodebuild -license`
+# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, etc.) 
 
-	# NodeJS
-	# Note: nodejs and npm without version specified are not the lastest available
-	# sudo port install nodejs npm
-	sudo port install nodejs11 npm6
-	# Add to profile node config
-	if ! grep -q "export NODE_PATH=" ~/.profile
-	then
-		echo "" >> ~/.profile
-		echo "# Use global node modules (installed with macport)" >> ~/.profile
-		echo "export NODE_PATH=/opt/local/lib/node_modules:\$NODE_PATH" >> ~/.profile
-	fi
-	# NPM can be updated with:
-	# sudo npm install -g npm@latest
-	
-	# Install globally some tools
-	# use --python=python2.7 if required
-	#npm install -g sqlite3
-	
-	# Note: never install globaly/system-wide npm packages (via `-g`). Install in ./node_module instead
-	# Clean cache: `sudo npm cache clean`
-	# If so packages are in /opt/local/lib/node_modules/ and remains even if npm is uninstalled or deactivate via macport
-	# To see outdated packages, use `npm outdated -g --depth=0`
-	# To update global packages, use `npm update -g`
+sudo port install\
+	wget rsync\
+	bash bash-completion\
+	coreutils diffutils findutils gsed gawk gpatch\
+	watch\
+	p5-file-rename\
+	openssl\
+	gzip gnutar\
+	git\
+	curl\
+	gettext\
+	ffmpeg\
+	ImageMagick +rsvg\
+	p5-image-exiftool\
+	cmake\
+	apache-ant\
+	httrack\
+	xorg-server\
+	twain-sane
 
-	# Install PHP and composer (PHP package manager)
-	sudo port install php php73-intl php73-openssl
-	#sudo port install php71 php71-intl php71-openssl
-	#sudo port select --set php php71
-	# Create PHP config (dev only)
-	sudo cp /opt/local/etc/php73/php.ini-development /opt/local/etc/php73/php.ini
+# Start D-Bus
+sudo port install dbus
+sudo port load dbus
+#sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
+#launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
 	
-	# [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
-	sudo port install php73-iconv php73-mbstring
-	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/opt/local/bin
-	sudo ln -s composer.phar /opt/local/bin/composer
-	# Or use in each project's folder `php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar install`
-	# Will install packages in ./vendor
+# Create the missing symlink to exiftool when install p5-image-exiftool until https://trac.macports.org/ticket/45312 is resolved (check exiftool version)
+cd /opt/local/bin/ && sudo ln -s exiftool-5.26 exiftool
 
-	# Install python and pip (Python package manager)
-	sudo port install python37 py37-pip
-	#sudo port install python27 py27-pip
-	sudo port select --set python python37
-	sudo port select --set python3 python37
-	sudo port select --set pip pip37
-	# Or for OSX's default python come with easy_install
-	#sudo easy_install pip
-	#pip install --user package
-	# or
-	#python -m pip install --user package
-	# will install package in ~/Library/Python/X.Y/lib/python/site-packages
-	# could also be in ~/.local/lib/pythonX.Y/site-packages
-	# See
-	# - https://pip.pypa.io/en/latest/user_guide/#user-installs
-	# - https://www.python.org/dev/peps/pep-0370/
-	# - https://stackoverflow.com/questions/15912804/easy-install-or-pip-as-a-limited-user
-	
-	# Install Python BeautifulSoup
-	pip install --user beautifulsoup4
-	# or with macports (system-wide):
-	#sudo port install py35-beautifulsoup4
-	# Then check
-	#python -c "help('modules')" | grep bs4
-	
-	# Note: never install python packages system-wide http://scicomp.stackexchange.com/a/2988 (use always `--user`)
+# Add `/opt/local/libexec/gnubin` to PATH
+if ! grep -q "export PATH=/opt/local/libexec/gnubin:" ~/.profile
+then
+	echo "" >> ~/.profile
+	echo "# Use GNU coreutils by default (installed with macport)" >> ~/.profile
+	echo "export PATH=/opt/local/libexec/gnubin:\$PATH" >> ~/.profile
+fi
 
-	# Install ntfs-3g https://trac.macports.org/wiki/howto/Ntfs3gFinder (need to disable SIP)
-	sudo port install ntfs-3g
-	# TODO. See link
+# To use bash_completion, add the following lines at the end of your .bash_profile:
+if ! grep -q "/opt/local/etc/profile.d/bash_completion.sh" ~/.bash_profile
+then
+	echo "" >> ~/.bash_profile
+	echo "# Enable bash-completion" >> ~/.bash_profile
+	echo "if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then" >> ~/.bash_profile
+	echo "        . /opt/local/etc/profile.d/bash_completion.sh" >> ~/.bash_profile
+	echo "fi" >> ~/.bash_profile
+fi
 
-	# TestDisk and photorec
-	sudo port install testdisk
+# NodeJS
+# Note: nodejs and npm without version specified are not the lastest available
+# sudo port install nodejs npm
+sudo port install nodejs11 npm6
+# Add to profile node config
+if ! grep -q "export NODE_PATH=" ~/.profile
+then
+	echo "" >> ~/.profile
+	echo "# Use global node modules (installed with macport)" >> ~/.profile
+	echo "export NODE_PATH=/opt/local/lib/node_modules:\$NODE_PATH" >> ~/.profile
+fi
+# NPM can be updated with:
+# sudo npm install -g npm@latest
 
-	# Ruby and gems (Ruby package manager)
-	sudo port install ruby25 rb-rubygems
-	sudo port select --set ruby ruby25
-	
-	# Add to profile user's gems folder
-	if ! grep -q "export GEM_HOME=" ~/.profile
-	then
-		echo "" >> ~/.profile
-		echo "# Use user gems (rb-rubygems installed with macport)" >> ~/.profile
-		echo "export PATH=~/.gem/bin:\$PATH" >> ~/.profile
-		echo "export GEM_HOME=~/.gem" >> ~/.profile
-		echo "export GEM_PATH=~/.gem:\$GEM_PATH" >> ~/.profile
-	fi
+# Install globally some tools
+# use --python=python2.7 if required
+#npm install -g sqlite3
+
+# Note: never install globaly/system-wide npm packages (via `-g`). Install in ./node_module instead
+# Clean cache: `sudo npm cache clean`
+# If so packages are in /opt/local/lib/node_modules/ and remains even if npm is uninstalled or deactivate via macport
+# To see outdated packages, use `npm outdated -g --depth=0`
+# To update global packages, use `npm update -g`
+
+# Install PHP and composer (PHP package manager)
+sudo port install php php73-intl php73-openssl
+#sudo port install php71 php71-intl php71-openssl
+#sudo port select --set php php71
+# Create PHP config (dev only)
+sudo cp /opt/local/etc/php73/php.ini-development /opt/local/etc/php73/php.ini
+
+# [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
+sudo port install php73-iconv php73-mbstring
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/opt/local/bin
+sudo ln -s composer.phar /opt/local/bin/composer
+# Or use in each project's folder `php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar install`
+# Will install packages in ./vendor
+
+# Install python and pip (Python package manager)
+sudo port install python37 py37-pip
+#sudo port install python27 py27-pip
+sudo port select --set python python37
+sudo port select --set python3 python37
+sudo port select --set pip pip37
+# Or for OSX's default python come with easy_install
+#sudo easy_install pip
+#pip install --user package
+# or
+#python -m pip install --user package
+# will install package in ~/Library/Python/X.Y/lib/python/site-packages
+# could also be in ~/.local/lib/pythonX.Y/site-packages
+# See
+# - https://pip.pypa.io/en/latest/user_guide/#user-installs
+# - https://www.python.org/dev/peps/pep-0370/
+# - https://stackoverflow.com/questions/15912804/easy-install-or-pip-as-a-limited-user
+
+# Install Python BeautifulSoup
+pip install --user beautifulsoup4
+# or with macports (system-wide):
+#sudo port install py35-beautifulsoup4
+# Then check
+#python -c "help('modules')" | grep bs4
+
+# Note: never install python packages system-wide http://scicomp.stackexchange.com/a/2988 (use always `--user`)
+
+# Install ntfs-3g https://trac.macports.org/wiki/howto/Ntfs3gFinder (need to disable SIP)
+sudo port install ntfs-3g
+# TODO. See link
+
+# TestDisk and photorec
+sudo port install testdisk
+
+# Ruby and gems (Ruby package manager)
+sudo port install ruby25 rb-rubygems
+sudo port select --set ruby ruby25
+
+# Add to profile user's gems folder
+if ! grep -q "export GEM_HOME=" ~/.profile
+then
+	echo "" >> ~/.profile
+	echo "# Use user gems (rb-rubygems installed with macport)" >> ~/.profile
+	echo "export PATH=~/.gem/bin:\$PATH" >> ~/.profile
+	echo "export GEM_HOME=~/.gem" >> ~/.profile
+	echo "export GEM_PATH=~/.gem:\$GEM_PATH" >> ~/.profile
+fi
+```
 
 ## Custom screen resolution or HiDPI
 
@@ -2572,8 +2689,10 @@ Icon can be change be changed in `/System/Library/Displays/Overrides/Icons.plist
 
 ## FileVault
 
-	diskutil cs list | grep "Conversion Progress"
-	diskutil apfs list | grep "FileVault"
+```sh
+diskutil cs list | grep "Conversion Progress"
+diskutil apfs list | grep "FileVault"
+```
 
 	Conversion Progress:       Optimizing 39%
 

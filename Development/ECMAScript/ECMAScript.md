@@ -571,9 +571,14 @@ function fancyCount2(str){
 	f([1, 2, 3])// 6
 	*/
 
+	const obj = {
+		...condition && { prop: value },
+	};
+
 - [10. Destructuring](http://exploringjs.com/es6/ch_destructuring.html)
 - [Destructuring assignment - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Swapping_variables) - use destructuring to swap variables
 - [Rest parameters - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#Destructuring_rest_parameters)
+- [The shortest way to conditional insert properties into an object literal - DEV Community 👩‍💻👨‍💻](https://dev.to/jfet97/the-shortest-way-to-conditional-insert-properties-into-an-object-literal-4ag7)
 
 ## Default parameters
 

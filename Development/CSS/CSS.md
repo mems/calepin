@@ -377,6 +377,7 @@ For selectors supports, all rules with one unsupport selector are ignored (from 
 ## Layout
 
 - [position: sticky is Amazing](https://gedd.ski/post/position-sticky/)
+- [The stacking context - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
 ### Float
 
@@ -967,84 +968,88 @@ Note: Using 100vw will display horizontal scrollbar if the document height is hi
 
 Use padding:
 
-	<style>
-	.simple-page{
-		margin: 0 auto;
-		max-width: 1044px;
-		position: relative;
-		
-		/*decorations*/
-		font-family: sans-serif;
-		/*end of decorations*/
-	}
-	.content{
-		/*decorations*/
-		background: green;
-		padding: 20px;
-		/*end of decorations*/
-	}
-	/* Some content of simple page overflow for full width */
-	.content-overflow{
-		margin-left: calc(50% - 50vw);
-		width: 100vw;
-		min-width: 100%;
-		padding: 0 calc(50vw - 50%);
-		margin-right: calc(100% - 50vw);/* break line for flex parent */
-		box-sizing: border-box;
-		
-		/*decorations*/
-		background: gray;
-		/*end of decorations*/
-	}
-	</style>
-	<div class="simple-page">
-		<p class="content">Content</p>
-		<div class="content-overflow">
-			<p class="content">Full width content</p>
-		</div>
+```html
+<style>
+.simple-page{
+	margin: 0 auto;
+	max-width: 1044px;
+	position: relative;
+	
+	/*decorations*/
+	font-family: sans-serif;
+	/*end of decorations*/
+}
+.content{
+	/*decorations*/
+	background: green;
+	padding: 20px;
+	/*end of decorations*/
+}
+/* Some content of simple page overflow for full width */
+.content-overflow{
+	margin-left: calc(50% - 50vw);
+	width: 100vw;
+	min-width: 100%;
+	padding: 0 calc(50vw - 50%);
+	margin-right: calc(100% - 50vw);/* break line for flex parent */
+	box-sizing: border-box;
+	
+	/*decorations*/
+	background: gray;
+	/*end of decorations*/
+}
+</style>
+<div class="simple-page">
+	<p class="content">Content</p>
+	<div class="content-overflow">
+		<p class="content">Full width content</p>
 	</div>
+</div>
+```
 
 Use a pseudo element. Fix issue if content larger than viewport
 
-	<style>
-	.simple-page{
-		margin: 0 auto;
-		max-width: 1044px;
-		
-		/*decorations*/
-		font-family: sans-serif;
-		/*end of decorations*/
-	}
-	.content{
-		/*decorations*/
-		background: green;
-		padding: 20px;
-		/*end of decorations*/
-	}
-	/* Some content of simple page overflow for full width */
-	.content-overflow{
-		position: relative;
-	}
-	.content-overflow::before{
-		content: "";
-		height: 100%;
-		width: 100vw;
-		left: calc(-50vw + 50%);
-		position: absolute;
-		margin-right: calc(100% - 50vw);/* break line for flex parent */
-		z-index: -1;
-		
-		/*decorations*/
-		background: gray;
-		/*end of decorations*/
-	}
-	</style>
-	<div class="simple-page">
-		<p class="content">Content</p>
-		<div class="content-overflow">
-			<p class="content">Full width content</p>
-		</div>
+```html
+<style>
+.simple-page{
+	margin: 0 auto;
+	max-width: 1044px;
+	
+	/*decorations*/
+	font-family: sans-serif;
+	/*end of decorations*/
+}
+.content{
+	/*decorations*/
+	background: green;
+	padding: 20px;
+	/*end of decorations*/
+}
+/* Some content of simple page overflow for full width */
+.content-overflow{
+	position: relative;
+}
+.content-overflow::before{
+	content: "";
+	height: 100%;
+	width: 100vw;
+	left: calc(-50vw + 50%);
+	position: absolute;
+	margin-right: calc(100% - 50vw);/* break line for flex parent */
+	z-index: -1;
+	
+	/*decorations*/
+	background: gray;
+	/*end of decorations*/
+}
+</style>
+<div class="simple-page">
+	<p class="content">Content</p>
+	<div class="content-overflow">
+		<p class="content">Full width content</p>
 	</div>
+</div>
+```
 
 - [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
 - [Hassle-free Full Bleed with *:not() - daverupert.com](http://daverupert.com/2017/03/full-bleed-with-not/)
@@ -1204,48 +1209,50 @@ All foundries don't use the same names:
 
 Use the same `font-family` name for all styles, weights and stretches. **Always include only the styles, weights and stretches you use.**
 
-	@font-face {
-		font-family: "Open Sans";
-		font-style: normal;
-		font-weight: 300;
-		font-stretch: normal;
-		src: local("Open Sans Light"), local("OpenSans-Light"),
-			url(opensans-light.woff2) format("woff2"),
-			url(opensans-light.woff) format("woff");
-	}
-	@font-face {
-		font-family: "Open Sans";
-		font-style: italic;
-		font-weight: 300;
-		font-stretch: normal;
-		src: local("Open Sans Light Italic"), local("OpenSansLight-Italic"),
-			url(opensans-lightitalic.woff2) format("woff2"),
-			url(opensans-lightitalic.woff) format("woff");
-	}
-	
-	/*
-	...do the same for all styles, weights and stretch you want to use
-	*/
-	
-	@font-face {
-		font-family: "Open Sans";
-		font-style: italic;
-		font-weight: 800;
-		src: local("Open Sans Extrabold Italic"), local("OpenSans-ExtraboldItalic"),
-			url(opensans-extrabolditalic.woff2) format("woff2"),
-			url(opensans-extrabolditalic.woff) format("woff");
-	}
-	
-	/*
-	... you can also use a font only for specific chars
-	*/
-	@font-face {
-		font-family: "Open Sans";
-		src: local("Open Sans Special"), local("OpenSansSpecial"),
-			url(opensansspecial.woff2) format("woff2"),
-			url(opensansspecial.woff) format("woff");
-		unicode-range: U+2D, U+3D;/* use this font as "Open Sans" for only chars "-" and "="*/
-	}
+```css
+@font-face {
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: 300;
+	font-stretch: normal;
+	src: local("Open Sans Light"), local("OpenSans-Light"),
+		url(opensans-light.woff2) format("woff2"),
+		url(opensans-light.woff) format("woff");
+}
+@font-face {
+	font-family: "Open Sans";
+	font-style: italic;
+	font-weight: 300;
+	font-stretch: normal;
+	src: local("Open Sans Light Italic"), local("OpenSansLight-Italic"),
+		url(opensans-lightitalic.woff2) format("woff2"),
+		url(opensans-lightitalic.woff) format("woff");
+}
+
+/*
+...do the same for all styles, weights and stretch you want to use
+*/
+
+@font-face {
+	font-family: "Open Sans";
+	font-style: italic;
+	font-weight: 800;
+	src: local("Open Sans Extrabold Italic"), local("OpenSans-ExtraboldItalic"),
+		url(opensans-extrabolditalic.woff2) format("woff2"),
+		url(opensans-extrabolditalic.woff) format("woff");
+}
+
+/*
+... you can also use a font only for specific chars
+*/
+@font-face {
+	font-family: "Open Sans";
+	src: local("Open Sans Special"), local("OpenSansSpecial"),
+		url(opensansspecial.woff2) format("woff2"),
+		url(opensansspecial.woff) format("woff");
+	unicode-range: U+2D, U+3D;/* use this font as "Open Sans" for only chars "-" and "="*/
+}
+```
 
 Then use:
 
@@ -1258,7 +1265,9 @@ Then use:
 - [fontfamily.io](http://fontfamily.io/)
 - [CSS Font Stack: Web Safe and Web Font Family with HTML and CSS code.](http://www.cssfontstack.com/)
 - http://web.archive.org/web/20130426150237/http://www.codestyle.org/css/font-family/sampler-CombinedResultsFull.shtml
- 
+
+```css
+*{
 	font-family: Arial, Helvetica, sans-serif;
 	font-family: Arial Black, Gadget, sans-serif;
 	font-family: Bookman Old Style, serif;
@@ -1280,6 +1289,8 @@ Then use:
 	font-family: Verdana, Geneva, sans-serif;
 	font-family: Webdings, sans-serif;
 	font-family: Wingdings, Zapf Dingbats, sans-serif;
+}
+```
 
 Times New Roman et serif
 
@@ -1392,9 +1403,11 @@ Aka Responsive font, flexible typography
 
 For `font-size` and/or `line-height`, etc.
 
-	element{
-	  font-size: calc(2rem + 3vw);
-	}
+```css
+element{
+	font-size: calc(2rem + 3vw);
+}
+```
 
 - [Font size](#font-size)
 - [Clamp values](#clamp-values)
@@ -1430,18 +1443,22 @@ See also
 
 ### Text position on baseline
 
-	<p class="text">the baseline is at 100px</p>
+```html
+<p class="text">the baseline is at 100px</p>
+```
 
-	/**
-	Create a vertical spacer. It will be aligned with the parent's content baseline:
-	**/
-	.text::before{
-		content: "";
-		/*the Y value:*/
-		height: 100px;
-		width: 0px;
-		display: inline-block;
-	}
+```css
+/**
+Create a vertical spacer. It will be aligned with the parent's content baseline:
+**/
+.text::before{
+	content: "";
+	/*the Y value:*/
+	height: 100px;
+	width: 0px;
+	display: inline-block;
+}
+```
 
 - [css - How to absolutely position the baseline of text in HTML - Stack Overflow](https://stackoverflow.com/questions/20443220/how-to-absolutely-position-the-baseline-of-text-in-html/36476034#36476034)
 
@@ -1449,9 +1466,13 @@ See also
 
 Or text overflow and "..."/"…"
 
+```css
+*{
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+```
 
 but can't be multilines (but workaround exist, see below)
 
@@ -1468,42 +1489,48 @@ See [`text-decoration-skip`](https://developer.mozilla.org/en-US/docs/Web/CSS/te
 
 Require a flat background color
 
-	a {
-		text-decoration: none;
-		box-shadow: inset 0 -.14em 0 0 currentColor;
-	}
+```css
+a {
+	text-decoration: none;
+	box-shadow: inset 0 -.14em 0 0 currentColor;
+}
+```
 
-	a {
-		--line-height: 1.2em;/* need the em unit */
-		line-height: var(--line-height);
-		/*background-attachment: local*/
-		background: url("data:image/svg+xml,%3Csvg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cline%20x='0'%20y='80%25'%20width='100%25'%20height='1'%20fill='%23cccccc'/%3E%3C/svg%3E") 0 0 / 100% var(--line-height) content-box;
-		/*
-		<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-			<rect x="0" y="80%" width="100%" height="1" fill="#cccccc"/>
-		</svg>
-		*/
-	}
-
+```css
+a {
+	--line-height: 1.2em;/* need the em unit */
+	line-height: var(--line-height);
+	/*background-attachment: local*/
+	background: url("data:image/svg+xml,%3Csvg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cline%20x='0'%20y='80%25'%20width='100%25'%20height='1'%20fill='%23cccccc'/%3E%3C/svg%3E") 0 0 / 100% var(--line-height) content-box;
 	/*
-	a{
-		text-decoration: none;
-		box-shadow: inset 0 -0.12em 0 0 rgba(255, 255, 255, 1), inset 0 -.14em 0 0 rgba(255, 255, 255, 0.5), inset 0 -.14em 0 0 currentColor;
-		text-shadow: .05em 0 rgba(255, 255, 255, 1), -0.05em 0 rgba(255, 255, 255, 1), 1.5px 0 rgba(255, 255, 255, 1), -1.5px 0 rgba(255, 255, 255, 1);
-	}
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+		<rect x="0" y="80%" width="100%" height="1" fill="#cccccc"/>
+	</svg>
 	*/
-	a{
-		text-decoration: none;
-		box-shadow:
-			inset 0 calc(var(--text-underline-position) + var(--text-underline-size)) 0 0 var(--text-underline-background-color),
-			inset 0 var(--text-underline-position) 0 0 color( var(--text-underline-background-color) alpha( calc( 1 - var(--text-underline-opacity) * 100% ) ) ),
-			inset 0 var(--text-underline-position) 0 0 var(--text-underline-color);
-		text-shadow:
-			var(--text-underline-gap) 0 var(--text-underline-background-color),
-			calc(-var(--text-underline-gap)) 0 var(--text-underline-background-color),
-			var(--text-underline-gap-minimum) 0 var(--text-underline-background-color),
-			-var(--text-underline-gap-minimum) 0 var(--text-underline-background-color);
-	}
+}
+```
+
+```css
+/*
+a{
+	text-decoration: none;
+	box-shadow: inset 0 -0.12em 0 0 rgba(255, 255, 255, 1), inset 0 -.14em 0 0 rgba(255, 255, 255, 0.5), inset 0 -.14em 0 0 currentColor;
+	text-shadow: .05em 0 rgba(255, 255, 255, 1), -0.05em 0 rgba(255, 255, 255, 1), 1.5px 0 rgba(255, 255, 255, 1), -1.5px 0 rgba(255, 255, 255, 1);
+}
+*/
+a{
+	text-decoration: none;
+	box-shadow:
+		inset 0 calc(var(--text-underline-position) + var(--text-underline-size)) 0 0 var(--text-underline-background-color),
+		inset 0 var(--text-underline-position) 0 0 color( var(--text-underline-background-color) alpha( calc( 1 - var(--text-underline-opacity) * 100% ) ) ),
+		inset 0 var(--text-underline-position) 0 0 var(--text-underline-color);
+	text-shadow:
+		var(--text-underline-gap) 0 var(--text-underline-background-color),
+		calc(-var(--text-underline-gap)) 0 var(--text-underline-background-color),
+		var(--text-underline-gap-minimum) 0 var(--text-underline-background-color),
+		-var(--text-underline-gap-minimum) 0 var(--text-underline-background-color);
+}
+```
 
 - [Decorative Text Underline](http://codepen.io/jonneal/details/PzGYEE/)
 - [Crafting link underlines on Medium](https://medium.design/crafting-link-underlines-on-medium-7c03a9274f9)
@@ -1530,11 +1557,15 @@ With or without, you can use:
 
 Give the following CSS :
 
+```css
+*{
 	word-wrap: break-word;/*compat IE*/
 	overflow-wrap: break-word;
 	-webkit-hyphens: auto;/*Safari*/
 	-ms-hyphens: auto;
 	hyphens: auto;/*don't forget to add lang attribute*/
+}
+```
 
 Or use `overflow-wrap: break-word` or `white-space: pre-wrap` to break long lines in pre block, like URLs
 
@@ -1545,6 +1576,7 @@ See also
 > _The Yahoo Style Guide_ recommends **breaking a URL _before_ punctuation**, to avoid leaving a punctuation mark at the end of the line, which the reader might mistake for the end of the URL.
 — [\<wbr\> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr#Example)
 
+- [My takeaways from Florian Rivoal’s “Line breaking” talk# | Web Platform News](https://webplatform.news/issues/2019-04-01#my-takeaways-from-florian-rivoal-s-line-breaking-talk)
 - [Injecting a Line Break | CSS-Tricks](https://css-tricks.com/injecting-line-break/)
 - [Wrap at sibling's width](http://codepen.io/simurai/pen/evgVvm/) - Wrap text automatically at a sibling element's width
 - [What is the difference between "word-break: break-all" versus "word-wrap: break-word" in CSS - Stack Overflow](https://stackoverflow.com/questions/1795109/what-is-the-difference-between-word-break-break-all-versus-word-wrap-break/15137272#15137272)
@@ -1575,39 +1607,49 @@ Paragraph fadeout:
 
 Use a mask:
 
-	p {
-		mask-image: linear-gradient(to top, transparent, black 2em);
-	}
+```css
+p {
+	mask-image: linear-gradient(to top, transparent, black 2em);
+}
+```
 
 or use background clip:
 
-	p {
-		background: linear-gradient(to top, transparent, black 2em, black);
-		background-clip: text;
-		color: transparent;
-	}
+```css
+p {
+	background: linear-gradient(to top, transparent, black 2em, black);
+	background-clip: text;
+	color: transparent;
+}
+```
 
 alternate version where `currentColor` can be used:
 
-	p {
-		/*color: red;*/
-		background: linear-gradient(to top, transparent, currentColor 2em, currentColor);
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
+```css
+p {
+	/*color: red;*/
+	background: linear-gradient(to top, transparent, currentColor 2em, currentColor);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+```
 
 Letter spacing is supported for SVG text elements
 
-	element {
-		background: white;
-		mix-blend-mode: screen;/*works only with black text over white bg*/
-	}
+```css
+element {
+	background: white;
+	mix-blend-mode: screen;/*works only with black text over white bg*/
+}
+```
 
-	element {
-		background: black;
-		color: white;
-		mix-blend-mode: multiply;/*works only with white text over black bg*/
-	}
+```css
+element {
+	background: black;
+	color: white;
+	mix-blend-mode: multiply;/*works only with white text over black bg*/
+}
+```
 
 - [How to Create (Animated) Text Fills | Codrops](http://tympanus.net/codrops/2015/02/16/create-animated-text-fills/)
 - [Applying SVG effects to HTML content - SVG | MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Applying_SVG_effects_to_HTML_content#Example_Filtering)
@@ -1625,11 +1667,15 @@ Photoshop space unit is 1/1000em
 
 ### Text stroke, text border
 
+```css
+*{
 	text-shadow:
 	   -1px -1px 0 #000,  
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		 1px 1px 0 #000;
+}
+```
 
 - [Adding Stroke to Web Text | CSS-Tricks](https://css-tricks.com/adding-stroke-to-web-text/)
 
@@ -1657,17 +1703,25 @@ But still accessible (and selectable)
 
 Use `padding-top` to push down the content:
 
+```css
+*{
 	display: block;/*or any other display mode where width is not defined by the content*/
 	overflow: hidden;
 	height: 0px;
 	padding-top: 100px;
+}
+```
 
 #### `text-indent`
 
+```css
+*{
 	display: block;/*or any other display mode where width is not defined by the content*/
 	text-indent: 9999px;
 	overflow: hidden;
 	white-space: nowrap;
+}
+```
 
 Use `px` for `text-indent` with great value instead of `%` because percentages not work correctly every times (and don't require relative computations)
 
@@ -1690,31 +1744,33 @@ It's accessible, but HTML is invalid when tag like `a`, `button`, `p`, `h1`, etc
 
 But still accessible (and selectable).
 
-	/*
-	1. https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
-	*/
-	element:not(:active):not(:focus){
-		/*Use !important to force higher specificity for possible overwrites*/
-		position: absolute !important;
-		width: 1px !important;
-		height: 1px !important;
-		clip: rect(1px, 1px, 1px, 1px) !important;
-		clip-path: inset(100%) !important;
-		overflow: hidden !important;
-		white-space: nowrap !important;/* 1 */
-		left: auto !important;
-		top: auto !important;
-		right: auto !important;
-		bottom: auto !important;
-		min-width: none !important;
-		min-height: none !important;
-		max-width: none !important;
-		max-height: none !important;
-		margin: 0 !important;
-		border: 0 !important;
-		padding: 0 !important;
-		transform: none !important;
-	}
+```css
+/*
+1. https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+*/
+element:not(:active):not(:focus){
+	/*Use !important to force higher specificity for possible overwrites*/
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	clip-path: inset(100%) !important;
+	overflow: hidden !important;
+	white-space: nowrap !important;/* 1 */
+	left: auto !important;
+	top: auto !important;
+	right: auto !important;
+	bottom: auto !important;
+	min-width: none !important;
+	min-height: none !important;
+	max-width: none !important;
+	max-height: none !important;
+	margin: 0 !important;
+	border: 0 !important;
+	padding: 0 !important;
+	transform: none !important;
+}
+```
 
 **Don't forget to display it when it's active**: http://littlebigdetails.com/post/110541390831/new-york-times-tabbing-reveals-accessibility
 Don't use `visibility: hidden;` (http://accessibilitytips.com/2008/03/05/avoiding-visibility-hidden/) or `display: none;` because it hide content for all users. "line feeds are not interpreted as spaces". [Beware smushed off-screen accessible text – Medium](https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe)
@@ -1771,7 +1827,11 @@ Use pseudo elements (works only when the image is broken): [Styling Broken Image
 
 Or override the image src with CSS (don't do that, see above):
 
+```css
+*{
 	content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==") / "";
+}
+```
 
 [This syntax](https://www.w3.org/TR/css-content-3/#alt) is not widly supported. (15/09/2016: it's still an Editor's Draft). If not supported (or removed from spec), don't use it because **(if not empty) you should always let the alt text be displayed**. (or use `... / attr(alt)`)
 
@@ -1779,7 +1839,11 @@ Or use Shadow DOM selector (not work currently): [Border Around ALT Text in Emai
 
 ### Content generated image
 
+```css
+*{
 	content: url(image1.jpg) url(image2.jpg);
+}
+```
 
 > content generated image is like `<img>` inside an anonymous `<span>`
 
@@ -1848,11 +1912,16 @@ See [Fragment identifier and SVG stack](SVG#fragment-identifier-and-svg-stack)
 
 `icons.svg#plus`
 
+```html
+<svg>
+	<style>
 	.icon{display: none;}
 	.icon:target{display: inline;}
-
+	</style>
 	<g id="plus" class="icon"></g>
 	<g id="chart" class="icon"></g>
+</svg>
+```css
 
 > Works currently only for img, iframe, embed, object in Firefox, Opera, IE9, Chrome, Safari
 
@@ -1902,10 +1971,12 @@ Set `width: 100%` on `img` or `object` or `embed` (for IE)
 
 See [Preload and prefetch](Web#preload-and-prefetch)
 
-	body::after {
-		content: url(img01.jpg) url(img02.jpg) url(img03.jpg);
-		display: none;
-	}
+```css
+body::after {
+	content: url(img01.jpg) url(img02.jpg) url(img03.jpg);
+	display: none;
+}
+```
 
 ## Animation & transition
 
@@ -1932,15 +2003,17 @@ Note: Declarations in a keyframe that are qualified with `!important` are ignore
 
 For accessibility, disable animations / transitions with:
 
-	/* Can break scripts using events like animationend, transitionstart, etc. */
-	@media (prefers-reduced-motion: reduce){
-		* {
-			animation-duration: 0;
-			animation-delay: 0;
-			transition-duration: 0;
-			transition-delay: 0;
-		}
+```css
+/* Can break scripts using events like animationend, transitionstart, etc. */
+@media (prefers-reduced-motion: reduce){
+	* {
+		animation-duration: 0;
+		animation-delay: 0;
+		transition-duration: 0;
+		transition-delay: 0;
 	}
+}
+```
 
 `auto` for `width` and `height` is not animatable (computed value):
 
@@ -1954,21 +2027,23 @@ For accessibility, disable animations / transitions with:
 
 ### Content
 
-	body::before {
-		animation: counter 10s infinite;
-	}
-	@keyframes counter {
-		0%  { content: "1/10" }
-		10% { content: "2/10" }
-		20% { content: "3/10" }
-		30% { content: "4/10" }
-		40% { content: "5/10" }
-		50% { content: "6/10" }
-		60% { content: "7/10" }
-		70% { content: "8/10" }
-		80% { content: "9/10" }
-		90% { content: "10/10" }
-	}
+```css
+body::before {
+	animation: counter 10s infinite;
+}
+@keyframes counter {
+	0%  { content: "1/10" }
+	10% { content: "2/10" }
+	20% { content: "3/10" }
+	30% { content: "4/10" }
+	40% { content: "5/10" }
+	50% { content: "6/10" }
+	60% { content: "7/10" }
+	70% { content: "8/10" }
+	80% { content: "9/10" }
+	90% { content: "10/10" }
+}
+```
 
 - [Animating the `content` Property | CSS-Tricks](https://css-tricks.com/animating-the-content-property/)
 
@@ -1980,17 +2055,19 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
 
 ### Sprite animation
 
-	.animable {
-		width: 50px;
-		height: 50px;
-		background-image: url("sprites.png");
-		animation: play .8s steps(10) infinite;
-	}
-	
-	@keyframes play {
-	   from { background-position:	0px; }
-		 to { background-position: -500px; }
-	}
+```css
+.animable {
+	width: 50px;
+	height: 50px;
+	background-image: url("sprites.png");
+	animation: play .8s steps(10) infinite;
+}
+
+@keyframes play {
+   from { background-position:	0px; }
+	 to { background-position: -500px; }
+}
+```
 
 http://simurai.com/blog/2012/12/03/step-animation/
 
@@ -2000,49 +2077,53 @@ http://simurai.com/blog/2012/12/03/step-animation/
 
 Add "no change" keyframes:
 
-	@keyframes{
-		0%{
-			top: 0;
-		}
-		50%{
-			top: 20px;
-		}
-		100%{
-			/* same value of the previous keyframe */
-			top: 20px;
-		}
+```css
+@keyframes{
+	0%{
+		top: 0;
 	}
+	50%{
+		top: 20px;
+	}
+	100%{
+		/* same value of the previous keyframe */
+		top: 20px;
+	}
+}
+```
 
 ### Roll over and out different animations
 
 Use transition to restore the initial state and animation for hover.
 If you want to use animation for both state transitions and don't want initial animation, you need to use animations it in conjunction with opacity/visibility animation/transition (but required initially hidden) on element or its parent
 
-	<style>
-		@keyframes roll{
-			from {
-				stroke-dashoffset: -100px;
-			}
-			to {
-				stroke-dashoffset: 0px;
-			}
+```html
+<style>
+	@keyframes roll{
+		from {
+			stroke-dashoffset: -100px;
 		}
-		.element{
-		 	stroke-dasharray: 100px 100px;
-			stroke-dashoffset: 100px;
-			transition: stroke-dashoffset 1s;
-			stroke: red;
-			stroke-width: 20px;
-		}
-		html:hover .element{
+		to {
 			stroke-dashoffset: 0px;
-			animation: roll 1s;
-			transition: none 0;
 		}
-	</style>
-	<svg>
-		<path class="element" d="M0,0l100,0"/>
-	</svg>
+	}
+	.element{
+	 	stroke-dasharray: 100px 100px;
+		stroke-dashoffset: 100px;
+		transition: stroke-dashoffset 1s;
+		stroke: red;
+		stroke-width: 20px;
+	}
+	html:hover .element{
+		stroke-dashoffset: 0px;
+		animation: roll 1s;
+		transition: none 0;
+	}
+</style>
+<svg>
+	<path class="element" d="M0,0l100,0"/>
+</svg>
+```
 
 Note: Firefox could require to replace `transition: none 0;` by `transition: none;` to work proprely
 
@@ -2052,17 +2133,19 @@ If roll over and roll out are both animations, an different `animation-name` is 
 
 That let browsers don't support or ignore animations (like IE9) to "jump to the end" of animation.
 
-	@keyframe fade{
-		from {
-			left: 0;
-		}
-		/* to { left: 100px; } */
-		/* skip "to"/"100%" keyframe, will compute final values of current style (without animation) */
+```css
+@keyframe fade{
+	from {
+		left: 0;
 	}
-	.element{
-		left: 100px;/* this will be used to compute empty last frames "to"/"100%" */
-		animation: fade 1s;
-	}
+	/* to { left: 100px; } */
+	/* skip "to"/"100%" keyframe, will compute final values of current style (without animation) */
+}
+.element{
+	left: 100px;/* this will be used to compute empty last frames "to"/"100%" */
+	animation: fade 1s;
+}
+```
 
 It's not required for animation where the final value is the default value, like: `opacity: 0 → 1` or `visibility: hidden → visible`, `padding: 10px → 0px`, etc.
 
@@ -2070,12 +2153,14 @@ But prefer transition for simple animation (like normal for rollin then reverse 
 
 ### Animation fill mode declaration for `none` animation is ignored
 
-	selector{
-		animation: none 1s 10s backwards;
-	}
-	selector{
-		animation-name: animname;
-	}
+```css
+selector{
+	animation: none 1s 10s backwards;
+}
+selector{
+	animation-name: animname;
+}
+```
 
 Will not work as expected. Because it's parsed as `animation-fill-mode: none; animation-duration: 1s; animation-delay: 10s; animation-name: backwards;`.
 All words can be used as valid keywords are used to define properties other than `animation-name`.
@@ -2097,19 +2182,23 @@ For performance, clone the element with different stages of blurness (wrapped)
 
 use dummy animations to tigger `animationend` events in javascript
 
-	// Dummy animation with specific name, allow module CSS to change intro/outro duration
-	@keyframes module-intro {from{visibility: visible}to{visibility: visible}}
-	@keyframes module-outro {from{visibility: visible}to{visibility: visible}}
-	
-	.module--active{
-		animation: module-intro 1s;
-	}
+```css
+/* Dummy animation with specific name, allow module CSS to change intro/outro duration */
+@keyframes module-intro {from{visibility: visible}to{visibility: visible}}
+@keyframes module-outro {from{visibility: visible}to{visibility: visible}}
 
-	module.addEventListener("animationend", function(event){
-		if(event.animationName == "module-intro"){
-			//
-		}
-	})
+.module--active{
+	animation: module-intro 1s;
+}
+```
+
+```html
+module.addEventListener("animationend", function(event){
+	if(event.animationName == "module-intro"){
+		//
+	}
+})
+```
 
 dummy animation need keyframes (WebKit) with animatable property (IE)
 
@@ -2123,12 +2212,14 @@ Make a gradient larger than content-box (via `background-size`) and apply transi
 
 TODO test it
 
-	selector{
-		transition: opacity 0s 10s;
-	}
-	selector{
-		transition-duration: 2s;
-	}
+```css
+selector{
+	transition: opacity 0s 10s;
+}
+selector{
+	transition-duration: 2s;
+}
+```
 
 ## Stripes animation
 
@@ -2149,11 +2240,13 @@ See [JavaScript selectors](HTML#javascript-selectors)
 
 ### Invalid selector
 
-	*,
-	*::nope {
-		background: red;
-		/* nothing will have a red background, because ::nope is an invalid (pseudo-)selector that invalidate the whole ruleset (but there is some exceptions) */
-	}
+```css
+*,
+*::nope {
+	background: red;
+	/* nothing will have a red background, because ::nope is an invalid (pseudo-)selector that invalidate the whole ruleset (but there is some exceptions) */
+}
+```
 
 - [One Invalid Pseudo Selector Equals an Entire Ignored Selector | CSS-Tricks](https://css-tricks.com/one-invalid-pseudo-selector-equals-an-entire-ignored-selector/)
 
@@ -2171,9 +2264,11 @@ See [JavaScript selectors](HTML#javascript-selectors)
 
 ### `@supports` for selectors
 
-	element:-x-not-supported-dummy-selector(), selector {
-		/* rules applied only if ":-x-not-supported-dummy-selector()" is supported */
-	}
+```css
+element:-x-not-supported-dummy-selector(), selector {
+	/* rules applied only if ":-x-not-supported-dummy-selector()" is supported */
+}
+```
 
 - [@supports for selectors by Taylor Hunt on CodePen](https://codepen.io/tigt/post/supports-for-selectors)
 
@@ -2868,17 +2963,23 @@ or more specific
 - [Adding captions and subtitles to HTML5 video - App Center | MDN](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)
 - [865395 – Implement the ::cue pseudo-element](https://bugzilla.mozilla.org/show_bug.cgi?id=865395)
 
+## Content
+
+- [Displaying numeric CSS vars in generated content](https://codepen.io/cassie-codes/pen/22ea69e0f681d45f2f4c2ca5e6acf4ab) - Use `counter-reset` and `content`
+
 ## Quotes
 
-	html[lang=fr] blockquote {
-		quotes: "«\00A0" "\00A0»";
-	}
-	blockquote::before {
-		content: open-quote;
-	}
-	blockquote::after {
-		content: close-quote;
-	}
+```css
+html[lang=fr] blockquote {
+	quotes: "«\00A0" "\00A0»";
+}
+blockquote::before {
+	content: open-quote;
+}
+blockquote::after {
+	content: close-quote;
+}
+```
 
 ## Round values
 
@@ -3230,58 +3331,60 @@ Use SVG instead, with a `stroke-width` smaller than circle radius (to fix IE ren
 
 ## Jokes
 
-	#titanic{
-		float: none;
-	}
-	#bermuda-triangle {
-		display: none;
-	}
-	.sinper-mode-engaged{
-		cursor: crosshair;
-	}
-	#periodic{
-		display: table;
-	}
-	#big-bang::before { 
-		content: "";
-	}
-	#chucknouris{
-		color: #BADA55;
-	}
-	#nsa{
-		opacity: 1;
-	}
-	#tower-of-pisa { 
-		font-style: italic;
-	}
-	.ninja{
-		visibility: hidden;
-		color: black;
-	}
-	.obese{
-		width: 200%;
-		overflow: visible;
-	}
-	.yomama{
-		width: 99999999px;
-	}
-	.wife{
-		right: 100%
-		margin: 0%;
-	}
-	#lego { 
-		display: block;
-	}
-	.delorean{
-		z-index: -1955;
-	}
-	.fear { 
-		display: none;
-	}
-	.illuminati{
-		position: absolute;
-		visibility: hidden;
-	}
+```css
+#titanic{
+	float: none;
+}
+#bermuda-triangle {
+	display: none;
+}
+.sinper-mode-engaged{
+	cursor: crosshair;
+}
+#periodic{
+	display: table;
+}
+#big-bang::before { 
+	content: "";
+}
+#chucknouris{
+	color: #BADA55;
+}
+#nsa{
+	opacity: 1;
+}
+#tower-of-pisa { 
+	font-style: italic;
+}
+.ninja{
+	visibility: hidden;
+	color: black;
+}
+.obese{
+	width: 200%;
+	overflow: visible;
+}
+.yomama{
+	width: 99999999px;
+}
+.wife{
+	right: 100%
+	margin: 0%;
+}
+#lego { 
+	display: block;
+}
+.delorean{
+	z-index: -1955;
+}
+.fear { 
+	display: none;
+}
+.illuminati{
+	position: absolute;
+	visibility: hidden;
+}
+```
 
 - [CSS Puns & CSS Jokes ~ Curated by Saijo George](http://saijogeorge.com/css-puns/)
 - [CSS Humor (@CSSHumor) | Twitter](https://twitter.com/csshumor)

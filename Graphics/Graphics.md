@@ -224,6 +224,7 @@ Dithered noise can be used to enhance, see [enhance](Enhance)
 - [Exponential Cascaded Shadow Mapping with WebGL – Jean-Marc Le Roux](https://blogs.aerys.in/jeanmarc-leroux/2015/01/21/exponential-cascaded-shadow-mapping-with-webgl/) - use [Cascaded Shadow Maps](http://developer.download.nvidia.com/SDK/10.5/opengl/src/cascaded_shadow_maps/doc/cascaded_shadow_maps.pdf)
 - [Shadows & Decals: D3D10 Techniques in Frostbite (GDC'09)](https://fr.slideshare.net/repii/02-g-d-c09-shadow-and-decals-frostbite-final3flat)
 - [Shadow volume — Wikipedia](https://en.wikipedia.org/wiki/Shadow_volume) - see [The Theory of Stencil Shadow Volumes - Graphics Programming and Theory - Articles - Articles - GameDev.net](https://www.gamedev.net/resources/_/technical/graphics-programming-and-theory/the-theory-of-stencil-shadow-volumes-r1873)
+- [Advanced Map Shading wwwtyro.net](https://wwwtyro.net/2019/03/21/advanced-map-shading.html) - [wwwtyro/map-tile-lighting-demo](https://github.com/wwwtyro/map-tile-lighting-demo)
 
 > Signed Distance Fields are basically volume textures that are assigned to a mesh or height map etc.. The idea is to sample a number of locations around a mesh and calculate the shortest distance to any mesh point for each of these samples and finally store all of that in a volume texture.
 > 
