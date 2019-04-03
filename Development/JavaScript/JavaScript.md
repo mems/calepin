@@ -4732,6 +4732,7 @@ To share data between different origins, use instead `postMessage()`
 - [Web Components | MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 - [HTML Standard](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
 - [html - W3C validation for \<ui-select\> - Stack Overflow](https://stackoverflow.com/questions/28508533/w3c-validation-for-ui-select/28711028#28711028) - W3C HTML Checker (validator) support Web components
+- [Web Components will replace your frontend framework](https://medium.com/@drmoerkerke/web-components-will-replace-your-frontend-framework-3b17a580831c)
 
 About SEO:
 
