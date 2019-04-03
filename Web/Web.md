@@ -6147,13 +6147,16 @@ use ISO 8601 in JSON
 ## Troubleshooting
 
 - safe browsing / ad blocker issues:
-	- `banner.jpg`, `ads.js` and `analytics.js`
+	- `banner.jpg`, `ads.js` and `analytics.js`, `sponsor`
 	- analytics can even fails
 	- some HTML element like images or video with keywords like "publicité" (in URL or title) don't appears on some browsers
 	- Firefox with the Tracking Protection block the Facebook SDK in private mode (by default)
+	- Adblock block IDs starts with `ad`
 	- [Class and ID to avoid because of AdBlock](https://gist.github.com/spyesx/42fe84c0ef757d1c38a4) https://github.com/easylist/easylist (IDs start with `###`, classes start with `##.`)
 	- [Remove hint on beacon.js as it's apparently a bad name · ntzwrk/beacon@17c2042](https://github.com/ntzwrk/beacon/commit/17c20422b2912bed0c414093ebaaf672e1ea2a57)
 	- [Don't use "ad" as a class · Issue #139 · rtsao/styletron](https://github.com/rtsao/styletron/issues/139)
+	- [Avoid the Twitter icon being blocked by AdBlock · whatwg/whatwg.org@20beccb](https://github.com/whatwg/whatwg.org/commit/20beccbcd71cd3c1d242bdd2043f1feb1cf7c67a)
+	- [Tim on Twitter: "Next.js uses nanoid, it’s a really small library to generate random ids. In this case the random id started with “ad_” which is on the Adblock list as “/static/ad_”, likeliness that another id like that will be generated is very low. We’ve patched it to be sure!… https://t.co/3wWnjrBN5N"](https://twitter.com/timneutkens/status/1112852174952939520)
 - some pages or files are not display correctly. Do you use the `Vary` header to define on which request headers you use to deliver content (often `Accept-Encoding`, `User-Agent` or `Cookie`)
 - [Proxies can transform content](#proxies-can-transform-content)
 - scripts or content not executed/loaded because CSP don't allow it
