@@ -11,6 +11,8 @@
 - https://github.com/AndyA/as3svgrendererlib
 - http://www.libspark.org/svn/as3/SvgParser/trunk/src/svgparser/parser/Path.as
 
+- [maphew/svg-explorer-extension: import from https://svgextension.codeplex.com/SourceControl/latest](https://github.com/maphew/svg-explorer-extension) - SVG Viewer Extension for Windows Explorer
+
 ## Path
 
 smooth-curveto (S | s) and smooth-quadratic-bezier-curveto (T | t) are hard to implement
