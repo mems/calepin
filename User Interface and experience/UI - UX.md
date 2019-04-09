@@ -34,6 +34,7 @@
 - [Design Principles - Overview - iOS Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/)
 - [Website Tools and Applications with Flash | Free NN/g Report](https://www.nngroup.com/reports/website-tools-and-applications-flash/) - tips for creating interactive web-based applications, including accessibility considerations (not specific to Flash)
 - [Refactoring UI](https://refactoringui.com/)
+- [Checklist Design - best UI elements for the best UX practice](https://www.checklist.design/)
 
 From [GoodUI](http://www.goodui.org/):
 

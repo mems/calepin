@@ -1071,6 +1071,7 @@ Negative z-index:
 		c, css: null → z-index == parent's z-index (here auto, means 0) "The stack level of the generated box in the current stacking context is the same as its parent's box."
 		d, css: z-index = -1 → behind it's parent
 
+- [Managing Z-Index In A Component-Based Web Application — Smashing Magazine](https://www.smashingmagazine.com/2019/04/z-index-component-based-web-application/) - TLDR; create a stacking context for each component
 - [What No One Told You About Z-Index — Philip Walton](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)
 - [The stacking context - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 - [perspective - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)

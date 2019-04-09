@@ -71,7 +71,6 @@ See [Sample files](Sample files)
 - [Digital Emily](http://alteredqualia.com/xg/examples/emily.html) - 3D portrait
 - [xg - skylon spacecraft](http://alteredqualia.com/xg/examples/skylon.html) - with thrust effect
 - [metal cube │ sketch of three.js](http://ykob.github.io/sketch-threejs/sketch/metal_cube.html) - Sketch-threejs by Yoichi Kobayashi. See https://github.com/ykob/sketch-threejs/
-- [Some grass experiment](https://www.interascope.com/experiments/grass/) - Grass with wind effect. WebGL. Can be use for trees. Use simple meshes (triangles)
 
 ## Tips
 
@@ -338,6 +337,11 @@ Example, Live2D Euclid (use multiple layers and project it using [Orthographic p
 
 - [Thick Glass with Floating-Point Textures at The Little Grasshopper](http://prideout.net/blog/?p=51)
 - [FresnelGlass Recipe](http://prideout.net/recipes/FresnelGlass.html)
+
+## Grass
+
+- [Some grass experiment](https://www.interascope.com/experiments/grass/) - Grass with wind effect. WebGL. Can be use for trees. Use simple meshes (triangles)
+- [GRASS](https://codepen.io/al-ro/details/jJJygQ)
 
 ## Fog
 
@@ -2264,7 +2268,7 @@ Aka fluid, smoke, flame, volume rendering
 
 Can be combined with volume and transparent textures
 
-See also [cloud](#cloud), [water](#water), [flame](#flame), [distortion](#distortion), [impostor](#impostor)
+See also [cloud](#cloud), [water](#water), [flame](#flame), [distortion](#distortion), [impostor](#impostor), [grass](#grass)
 
 - See "The VFX of Diablo" at 31:37
 - [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=13) - Particle system

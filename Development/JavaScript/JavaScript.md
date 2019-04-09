@@ -155,7 +155,11 @@ Aka Virtual DOM
 - Read HTTP Live Streaming https://github.com/RReverser/mpegts
 - Read MPEG1 [JSMpeg – Decode it like it's 1999](http://jsmpeg.com/)
 
-### Text editors
+### Edit controls
+
+- [Cleave.js - Format input text content when you are typing](https://nosir.github.io/cleave.js/)
+
+#### Text editors
 
 - [Example | Sir Trevor JS | Made by Many](http://madebymany.github.io/sir-trevor-js/example.html) - smart editor using blocks. see [Rich content editing entirely re-imagined for the web](https://github.com/madebymany/sir-trevor-js)
 - [Ace (Ajax.org Cloud9 Editor)](https://ace.c9.io/)
@@ -172,7 +176,7 @@ Aka Virtual DOM
 
 See also [`contentEditable`](#contenteditable)
 
-### Table editors
+#### Table editors
 
 <details>
 	<summary>JS Excel code snipet</summary>
@@ -4734,6 +4738,13 @@ To share data between different origins, use instead `postMessage()`
 - [HTML Standard](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
 - [html - W3C validation for \<ui-select\> - Stack Overflow](https://stackoverflow.com/questions/28508533/w3c-validation-for-ui-select/28711028#28711028) - W3C HTML Checker (validator) support Web components
 - [Web Components will replace your frontend framework](https://medium.com/@drmoerkerke/web-components-will-replace-your-frontend-framework-3b17a580831c)
+- [Shadow DOM v1: Self-Contained Web Components  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/web-components/shadowdom)
+- [What's New in Shadow DOM v1 (by examples) — hayato.io](https://hayato.io/2016/shadowdomv1/) - Differences between draft (v0) and spec (v1)
+
+Polyfills:
+
+- [tuespetre/shadow-dom: A Shadow DOM v1 polyfill](https://github.com/tuespetre/shadow-dom)
+- [webcomponents/webcomponentsjs: A suite of polyfills supporting the HTML Web Components specs](https://github.com/webcomponents/webcomponentsjs)
 
 About SEO:
 

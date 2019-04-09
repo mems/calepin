@@ -1626,6 +1626,7 @@ vs iteration
 - [Recursion, iteration and tail calls in JS](http://www.jstips.co/en/javascript/recursion-iteration-and-tail-calls-in-js/)
 - [ES6 Tail Call Optimization Explained · Kyle Owen](http://benignbemine.github.io/2015/07/19/es6-tail-calls/)
 - [JS ES6 Recursive Tail Call Optimization – Michael Laythe – Medium](https://medium.com/@mlaythe/js-es6-recursive-tail-call-optimization-feaf2dada3f6)
+- [Javascript fonctionnel: Recursion suite: Algorithme d'Euclide et Tours de Hanoi](http://jsfunctionnal.blogspot.com/2008/09/recursion-suite.html) and [Javascript fonctionnel: Javascript récursif, suite](http://jsfunctionnal.blogspot.com/2008/09/javascript-rcursif-suite.html) - Example with Fibonacci suite
 
 ## Feature detection
 
