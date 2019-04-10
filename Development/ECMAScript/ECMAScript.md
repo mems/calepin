@@ -574,6 +574,10 @@ function fancyCount2(str){
 	const obj = {
 		...condition && { prop: value },
 	};
+	
+	const arr = [
+		...condition && ["a"] || [],// need a default value or it will throw a type error: boolean false is not iterable
+	];
 
 - [10. Destructuring](http://exploringjs.com/es6/ch_destructuring.html)
 - [Destructuring assignment - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Swapping_variables) - use destructuring to swap variables
