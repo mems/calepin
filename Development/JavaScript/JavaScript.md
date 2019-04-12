@@ -81,6 +81,7 @@ Some libraries:
 - [schteppe/cannon.js: A lightweight 3D physics engine written in JavaScript.](https://github.com/schteppe/cannon.js) - 3D physics engine
 - [barmalei/zebkit: JavaScript library that follow easy OOP concept, provide HTML5 Canva based Rich UI and include Java to JavaScript converter tool](https://github.com/barmalei/zebkit) - UI framework
 - [kornelski/slip: Slip.js — UI library for manipulating lists via swipe and drag gestures](https://github.com/kornelski/slip)
+- [cure53/DOMPurify: DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify works with a secure default, but offers a lot of configurability and hooks. Demo:](https://github.com/cure53/DOMPurify) - Remove "dirty" HTML, filter out tags and attributes
 
 ### Choose and use libraries
 
