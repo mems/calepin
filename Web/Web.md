@@ -2656,9 +2656,12 @@ Cache:
 - [Overview  |  Google AMP Cache  |  Google Developers](https://developers.google.com/amp/cache/overview#google-amp-cache-updates)
 - [Update AMP Content  |  Google AMP Cache  |  Google Developers](https://developers.google.com/amp/cache/update-cache)
 
+Others links:
+
 - [How AMP Works – AMP](https://www.ampproject.org/learn/about-how/)
 - [Everything You Need To Know About Google's Accelerated Mobile Pages — Smashing Magazine](https://www.smashingmagazine.com/2016/02/everything-about-google-accelerated-mobile-pages/)
 - [Adactio: Journal—AMPstinction](https://adactio.com/journal/13964)
+- [Google AMP lowered our page speed, and there's no choice but to use it - unlike kinds](https://unlikekinds.com/amp/article/google-amp-page-speed)
 
 ### Third parties
 
