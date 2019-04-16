@@ -744,7 +744,7 @@ Use `event.preventDefault()` instead
 
 ### Events
 
-Event handler: `el.onload = func;`
+Event handler: `el.onload = func;`. Note: when func has its scope to `eventTarget` and its `this` value. Ex: `onload="console.log(prop===this.prop)"`, properties can be used without `this` (but not functions). See [DOM on-event handlers - Developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers#Event_handler's_parameters_this_binding_and_the_return_value) and [HTML Standard - "callback this value"](https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm) and [HTML Standard - "internal raw uncompiled handler FunctionCreate Scope"](https://html.spec.whatwg.org/multipage/webappapis.html#internal-raw-uncompiled-handler)
 Event listener: `el.addEventListener("load", listener);`, where listener is a `function` or an object (`EventListener`) implement `handleEvent` method
 
 - [DOM on-event handlers - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)
@@ -4350,6 +4350,13 @@ What about `<meta http-equiv="Content-Security-Policy" content="script-src 'none
 
 - [Fun hacks for faster content - JakeArchibald.com](https://jakearchibald.com/2016/fun-hacks-faster-content/#using-iframes-and-documentwrite-to-improve-performance)
 - https://github.com/jakearchibald/streaming-html
+
+### Load SVG inline
+
+- `<svg><use xlink:href="symbols.svg#signal"/></svg>`
+- `<iframe src="signal.svg" onload="this.before(contentDocument.children[0]);this.remove();"></iframe>`
+
+- [CodePen - Inline an SVG file in HTML, declaratively & asynchronously!](https://codepen.io/scottjehl/project/full/XrzdYk)
 
 ### `iframe`
 
