@@ -582,7 +582,8 @@ PLIST=$(cat <<EOFPLIST
         <string>$UUID</string>
 </dict>
 </plist>
-EOFPLIST)
+EOFPLIST
+)
 
 echo $PLIST > "${NAME}.sparsebundle"/com.apple.TimeMachine.MachineID.plist
 echo "done!"
@@ -603,9 +604,11 @@ If "Time Machine must recreate a new copy" occure too often, or if after few mon
 
 By default Time Machine use band in sparsebundle with size of 8MiB. It's can be problematic when the size of the backup is > 300GB. 16MiB (32768 blocks) could be a good compromise.
 
-	hdiutil convert -format UDSB -imagekey sparse-band-size=32768 -o new.sparsebundle old.sparsebundle
-	# Will take lot of time ~ hours
-	cp old.sparsebundle/com.apple.TimeMachine.MachineID* new.sparsebundle/
+```sh
+hdiutil convert -format UDSB -imagekey sparse-band-size=32768 -o new.sparsebundle old.sparsebundle
+# Will take lot of time ~ hours
+cp old.sparsebundle/com.apple.TimeMachine.MachineID* new.sparsebundle/
+```
 
 Note: Increase band size only for unencrypted backups. Large bands could be problematic with encrypted backups (take lot of time): download band, decrypt, update, encrypt then finally upload
 
@@ -615,8 +618,10 @@ Where 262144 equals 128MiB bands/byte sectors (`128 MiBytes == 128*1024*1024 byt
 
 Read it (for mounted sparsebundle):
 
-	hdiutil info -verbose | grep band-size
-	# Or accessible in Info.plist in the .sparsebundle
+```sh
+hdiutil info -verbose | grep band-size
+# Or accessible in Info.plist in the .sparsebundle
+```
 
 - [Improve Time Machine performance with Big Bands - The Endless Geek](http://endlessgeek.com/2014/03/improve-time-machine-performance-big-bands/)
 - [The Reluctant Sysadmin: NAS Time Machine | David Wicks : Writing](http://sansumbrella.com/writing/2012/the-reluctant-sysadmin-nas-time-machine/)
@@ -743,7 +748,7 @@ For clean install, erase the drive with Disk Utility ([macOS Recovery](https://s
 
 #### Install on Virtual Machine
 
-```sh
+```cmd
 cd "C:\Program Files\Oracle\VirtualBox\"
 # 
 # Virtualbox 5.x 00000001 000106e5 00100800 0098e3fd bfebfbff
@@ -2500,7 +2505,7 @@ sudo port uninstall inactive
 
 Install ports:
 
-```sh
+```
 # 1. Install Xcode Command Line Tools: `xcode-select --install`
 # 2. Accept Xcode licence: `sudo xcodebuild -license`
 # 3. Check installed version (newer version can exist for php, node, python, perl, ruby, etc.) 
@@ -2694,12 +2699,22 @@ diskutil cs list | grep "Conversion Progress"
 diskutil apfs list | grep "FileVault"
 ```
 
-	Conversion Progress:       Optimizing 39%
+```
+Conversion Progress:       Optimizing 39%
 
-	FileVault:                 Yes (Unlocked)
+FileVault:                 Yes (Unlocked)
 
-	FileVault:                 No (Encrypted at rest)
+FileVault:                 No (Encrypted at rest)
+```
 
 - [How to View FileVault Progress When Encrypting a Mac Disk](http://osxdaily.com/2017/02/08/view-filevault-progress-mac/)
 - [Secure Enclave, Mac SSD hardware encryption and the future of FileVault | Der Flounder](https://derflounder.wordpress.com/2018/01/08/secure-enclave-mac-ssd-hardware-encryption-and-the-future-of-filevault/)
 - [Set a FileVault recovery key for computers in your institution - Apple Support](https://support.apple.com/en-us/HT202385) - Use same master key
+
+## Split disk image
+
+```sh
+hdiutil segment -segmentSize 1G -o "disk-1G-parts.dmg" "/path/to/disk.dmg"
+```
+
+Will generate files `*.XXX.dmgpart` and `*.dmg`

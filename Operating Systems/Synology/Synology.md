@@ -510,8 +510,11 @@ Rotation advice for "Smart Recycle" (1 version per hour for last 24h, 1 per day 
 For 90 retention days, use (90+12+4) 106
 
 Check Backup integrity:
+> "Check backup integrity: Perform integrity check on backup data to know if the related backup task can proceed and if the backup data can be successfully restored."
 > no data is actually transferred during the Integrity Check
 > The integrity check simply checks on backup data to know if the related backup task can proceed and if the backup data can be successfully restored.
+> This will check all the backed up files to make sure everything required for restore or continue backup exists on the cloud side.
+- [Create Backup Tasks | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/HyperBackup/data_backup_create)
 
 - [How to backup files directly between Synology DiskStation and Apple AirPort Time Capsule? | iknowsomething.com](http://iknowsomething.com/how-to-backup-files-directly-between-synology-diskstation-and-apple-airport-time-capsule/)
 - `sudo /var/packages/HyperBackup/target/bin/synoimgbkptool --help`
