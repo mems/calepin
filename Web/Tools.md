@@ -6,6 +6,7 @@
 - [google/ios-webkit-debug-proxy: A DevTools proxy (Chrome Remote Debugging Protocol) for iOS devices (Safari Remote Web Inspector).](https://github.com/google/ios-webkit-debug-proxy)
 - [Debugging Node.js with Chrome DevTools – Medium](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27) - `node --inspect index.js` then open the provieded URL (start with `chrome-devtools://`)
 - [RemoteDebug, an initiative to unify remote debugging across browsers.](http://remotedebug.org/)
+- [google/tamperchrome: Tamper Chrome is a Chrome extension that allows you to modify HTTP requests on the fly and aid on web security testing. Tamper Chrome works across all operating systems (including Chrome OS).](https://github.com/google/tamperchrome)
 
 ## Tools & Workflow
 
