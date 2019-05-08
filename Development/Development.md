@@ -193,7 +193,7 @@ Fake langues to test UI, etc.
 	- [RootsLabs » Firefox OS : Localiser son application](https://rootslabs.net/blog/184-firefox-os-localiser-son-application)
 - messageformat.js - Gender and plural-capable messages using ICU MessageFormat (based mostly on CLDR data)
 	- [messageformat.js · ICU MessageFormat for Javascript](https://messageformat.github.io/)
-	- [ICU MessageFormat for Javascript - i18n Plural and Gender Capable Messages](https://github.com/messageformat/messageformat.js)
+	- [messageformat/messageformat: ICU MessageFormat for Javascript - i18n Plural and Gender Capable Messages](https://github.com/messageformat/messageformat)
 - LocalePlanet - Javascript, use ICU
 	- [LocalePlanet: L10N et I18N pour JavaScript](http://www.localeplanet.com/index.html)
 	- [LocalePlanet Translation Tools](http://www.localeplanet.com/support/tools.html) and [LocalePlanet tools](https://github.com/fileformat/lptools)

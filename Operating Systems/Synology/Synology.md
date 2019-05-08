@@ -446,7 +446,7 @@ TODO script: create file list from DB with mtime, create file list from Disk wit
 - [[Synology] L’Indexation instantannée pour le DLNA](http://blogmotion.fr/systeme/indexer-media-11535)
 - https://github.com/carljm/synology-mediamon
 
-## Backup
+## Backup & Sync
 
 Cloud Sync vs Hyper Backup
 
@@ -455,9 +455,10 @@ Cloud Sync vs Hyper Backup
 	- allow to encrypt client side (before send data to the provider)
 	- config: schedule backup (when), max versions
 	- app data backup
-- Cloud Sync: Real-time push replication not for backup (no backup history, but files version provider side), like a distant virtual filesystem. File updated often require to upload the whole file. ()
+- Cloud Sync: Real-time push replication not for backup (no backup history, but files version provider side), like a distant virtual filesystem. File updated often require to upload the whole file.
 	- can be started and stopped with a task schedule
-Some provider are only available to Cloud Sync, a workaround is create a local backup with Hyper Backup then sync it with Cloud Sync. See https://www.reddit.com/r/backblaze/comments/5ilifq/a_guide_on_how_to_backup_your_synology_nas_to/df01ric/
+
+Some provider are only available with Cloud Sync, a workaround is create a local backup with Hyper Backup then sync it with Cloud Sync. See https://www.reddit.com/r/backblaze/comments/5ilifq/a_guide_on_how_to_backup_your_synology_nas_to/df01ric/
 
 Note: Hyper Backup lot of API requests and it's not adpated for paid API request type plan
 
@@ -583,7 +584,25 @@ Remove local cache directory broke the local index ("Local index broken"), need 
 
 ### Cloud Sync
 
+- [Synology NAS and Backblaze B2 Cloud Storage](https://www.backblaze.com/b2/partner-synology.html)
+- [How to back up the data on your Synology NAS to the public cloud | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Backup/How_to_back_up_the_data_on_your_Synology_NAS_with_public_cloud)
 
+### Drive
+
+Synology Drive (sync part) is remplacement of Cloud Station, see ["Differences between Drive and Cloud Station"](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Collaboration/What_do_I_need_to_know_before_upgrading_from_Cloud_Station_to_Synology_Drive#b_11)
+
+- [What is On-demand Sync? | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Application/What_is_On-demand_Sync)
+- [Why are files not synced between Synology Drive and Drive desktop application? | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Collaboration/Why_are_files_not_synced_between_Synology_Drive_and_Drive_desktop_application)
+- [Drive for PC | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/SynologyDriveClient/synologydriveclient)
+- [Drive (Android) | Synology Inc.](https://www.synology.com/en-global/knowledgebase/Mobile/help/Drive)
+- [Drive | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/SynologyDrive/drive_desc)
+
+Apps: 
+
+- Web portal: <https://yourhost:port/?launchApp=SYNO.SDS.Drive.Application>
+- PC & Mac: Synology Drive Client [Download Center - DS415+ | Synology Inc.](https://www.synology.com/en-global/support/download/DS415+#utilities)
+- Android: Synology Drive [Download Center - DS415+ | Synology Inc.](https://www.synology.com/en-global/support/download/DS415+#androids)
+- iOS: [‎Synology Drive on the App Store](https://itunes.apple.com/us/app/synology-drive/id1267275421?mt=8)
 
 ### OVH Public Cloud Storage vs HubiC
 

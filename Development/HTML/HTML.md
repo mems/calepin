@@ -2189,6 +2189,10 @@ Input date value use [RFC 3339](http://tools.ietf.org/html/rfc3339) format. YYYY
 
 	<input type="date" value="<?php echo date("Y-m-d");?>">
 
+#### Input mode
+
+- [The HTML inputmode attribute is now supported in most mobile browsers# | Web Platform News](https://webplatform.news/issues/2019-05-06#the-html-inputmode-attribute-is-now-supported-in-most-mobile-browsers)
+
 ### Tabular form 
 
 Aka booking form, book an appointment

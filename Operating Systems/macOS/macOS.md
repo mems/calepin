@@ -1648,8 +1648,12 @@ Finder, desktop, menus, etc.
 
 ### Show hidden files
 
+Or use the combination of <kbd>Shift ⇧</kbd> <kbd>Cmd ⌘</kbd> <kbd>.</kbd> or <kbd>Fn</kbd> <kbd>Shift ⇧</kbd> <kbd>Cmd ⌘</kbd> <kbd>.</kbd> (for French NUM? keyboards)
+
 	defaults write com.apple.finder AppleShowAllFiles -bool YES && killall Finder
 	defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
+
+- [Mac keyboard shortcuts - Apple Support](https://support.apple.com/en-us/HT201236)
 
 ### Hide specific file on desktop
 

@@ -1170,6 +1170,7 @@ Site-wide metadata files
 - `www.mysite.com/robots.txt` symlink to `www.mysite.com/.well-known/robots.txt`
 - [App Search Programming Guide: Support Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) - `/.well-known/apple-app-site-association`
 - [Getting Started | Google Digital Asset Links | Google Developers](https://developers.google.com/digital-asset-links/v1/getting-started) - `/.well-known/assetlinks.json`
+- [WebFinger](https://webfinger.net/) - `https://<domain>/.well-known/webfinger?resource=<resource>` (where resource value - URI encoded - is `acct:<email-address>`)
 
 ### About URI
 
@@ -2666,6 +2667,7 @@ Others links:
 ### Third parties
 
 - [Hard Costs of Third-Party Scripts - daverupert.com](https://daverupert.com/2018/10/hard-costs-of-third-party-scripts/)
+- [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5)
 - [Smashing Magazine sur Twitter : "⌘ Taking control over third-party content to maintain performance. https://t.co/YzjrLvVc3y http](https://mobile.twitter.com/smashingmag/status/944920025823174657)
 - [Third-Party Script Prevalence on Alexa Top 50 | Trent Walton](http://trentwalton.com/notes/2018/01/23/third-party-script-prevalence-on-alexa-top-50.html)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/)
@@ -3422,7 +3424,7 @@ This can also impact dependencies like styles, fonts, images, video, scripts (li
 
 See also [Web Intents](http://www.webintents.org/) and [WebActivities](https://wiki.mozilla.org/WebAPI/WebActivities)
 
-See also [`navigator.share()` API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
+See also [`navigator.share()` API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) and [`navigator.canShare()` API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/canShare)
 
 Some social network have a direct access to share an URL, text or to prefill a message
 

@@ -41,27 +41,30 @@ Only `img`, `iframe` and `object` can provide alternative content. `img` only pr
 
 ## Restrictions
 
-SVG Embed Technique											External resources (Styles, Images)		Scripts		Interactivity (Links, etc.)		CSS Animations
-Inline `<svg> … </svg>`										Yes										Yes			Yes								Yes
-`<object type="image/svg+xml" data="image.svg"></object>`	Yes										Yes			Yes								Yes, only inlined
-`<embed type="image/svg+xml" src="image.svg">`				Yes										Yes			Yes								Yes, only inlined
-`<iframe src="image.svg"></iframe>`							Yes										Yes			Yes								Yes, only inlined
-`<img src="img.svg" alt=""/>`								No										No			No								Yes, only inlined?
-`element::before{content: url(img.svg);}`					No										No			No								Yes, only inlined?
-`background-image: url(image.svg);`							No										No			No								Yes, only inlined?
+| SVG Embed Technique											 | External resources (styles, images)		 | Scripts		 | Interactivity (links, etc.)		 | CSS Animations		 | [CSS Inheritance][css-inheritance]	 |
+|----------------------------------------------------------------|-------------------------------------------|---------------|-----------------------------------|-----------------------|---------------------------------------|
+| `<svg> … </svg>` (inlined)									 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
+| `<svg><use xlink:href="image.svg"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
+| `<object type="image/svg+xml" data="image.svg"></object>`		 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
+| `<embed type="image/svg+xml" src="image.svg">`				 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
+| `<iframe src="image.svg"></iframe>`							 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
+| `<img src="img.svg" alt="">`									 | No [^2]									 | No			 | No								 | Yes, only inlined?	 | No									 |
+| `element::before{content: url(img.svg);}`						 | No [^2]									 | No			 | No								 | Yes, only inlined?	 | No									 |
+| `background-image: url(image.svg);`							 | No [^2]									 | No			 | No								 | Yes, only inlined?	 | No									 |
 
-TODO test CSS Animations for "SVG as an Image" aka "SVG img src", SMIL animations (appreas works at least with Safari)
+[css-inheritance]: https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance
 
-When used as an image:
+[^1]: "For security reasons, browsers could apply the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) on `use` elements and could refuse to load a cross-origin URL in the [`href`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/href) attribute.". IE11 don't support load from external URI
+[^2]: no other URI that data URI can be used inside image SVG (Blob works only with Firefox, not Chrome, not Safari)
 
-- no other URI that data URI can be used inside image SVG (Blob works only with Firefox, not Chrome, not Safari)
-- iframe doesn't work (no data URI, no srcdoc)
-- only inline CSS is supported
-- no script is supported
+**TODO test CSS Animations for "SVG as an Image" aka "SVG img src", SMIL animations (apprears to works at least with Safari)**
+
+~~When used as an image: iframe doesn't work (no data URI, no srcdoc)~~ (don't know what I wanted to say there)
 
 > Basically when using a foreign object tag [in fact elements inside SVG as an Image] all its content must be origin free
 
 - [SVG as an Image - SVG | MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_as_an_Image#Restrictions)
+- [SVG `use` with External Reference, Take 2 | CSS-Tricks](https://css-tricks.com/svg-use-with-external-reference-take-2/)
 - `LayoutTests/http/tests/security/svg-imge-with-url-data-image.html` and `LayoutTests/http/tests/security/resources/image-with-url-data-image.svg`
 - [141261 – SVG animation is slow only when the SVG is the background of the \<body\>](https://bugs.webkit.org/show_bug.cgi?id=141261)
 
@@ -119,111 +122,26 @@ Aka icon
 - [Comment travailler avec des icônes en SVG](https://la-cascade.io/comment-travailler-avec-des-icones-en-svg/)
 - [SVG `symbol` a Good Choice for Icons | CSS-Tricks](https://css-tricks.com/svg-symbol-good-choice-icons/)
 
-## SVG Path Commands
+## SVG Path
 
 - [SVG Path Strings - Road to Larissa](http://roadtolarissa.com/blog/2015/02/22/svg-path-strings/)
 - [The SVG `path` Syntax: An Illustrated Guide | CSS-Tricks](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
 
 ### Relative ↔︎ Absolute path
 
+- [Utility: Convert SVG path to all-relative or all-absolute commands | Lea Verou](http://lea.verou.me/2019/05/utility-convert-svg-path-to-all-relative-or-all-absolute-commands/)
 - https://stackoverflow.com/questions/14179333/convert-svg-path-to-relative-commands/14179367#14179367
 - https://stackoverflow.com/questions/9677885/convert-svg-path-to-absolute-commands/9677915#9677915
 - https://github.com/DmitryBaranovskiy/raphael/blob/bef7f6b0e259030138193d42f2c74b754c292f3e/dev/raphael.core.js#L1646
 
-## Transform
+### SVG Path Data API
 
-- [Transforms on SVG Elements | CSS-Tricks](https://css-tricks.com/transforms-on-svg-elements/)
+`SVGPathSeg`, `getPathData()` and `setPathData()`
 
-### `transform-origin` in SVG not the same as HTML
+- [jarek-foksa/path-data-polyfill.js: Polyfill for SVG 2 getPathData() and setPathData() methods.](https://github.com/jarek-foksa/path-data-polyfill.js)
+- [progers/pathseg: SVGPathSeg polyfill](https://github.com/progers/pathseg/)
 
-Default values:
-
-- HTML: `center, center`
-- SVG: `0, 0`
-
-### Transform on Firefox
-
-`transform-origin: 50% 50%` is not supported in Firefox. Use `translate(-halfWpx -halfHpx) ... translate(halfWpx halfHpx)` or `transform-origin: 200px 200px` instead
-
-## Animation
-
-SMIL animation in SVG are powerfull, but hard to control. Prefer use CSS animation/transition but it is not supported in IE -11+. A pure JS fallback is the solution.
-
-- http://jakearchibald.com/2013/animated-line-drawing-svg/
-
-Animation as a huge impact on performance, especially on mobile. Rasterization is the problem. May be use canvas instead.
-
-> [SVG is] perfect for mobile… as long as it doesn’t move. There is no way to animate it smoothly on Android - rasterization won’t give you a chance.
-
-- https://github.com/kdzwinel/progress-bar-animation
-- https://github.com/kdzwinel/progress-bar-animation/issues/1
-
-### SMIL
-
-Can't make multiple transform in the same time. Don't have an equivalent of `transform-orign` (it's the fault of SVG transform)
-
-	<!-- Animate element's translate -->
-	<animateTransform attributeName="transform" attributeType="XML" type="translate" from="589 122" to="580 -57" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
-	<!-- Animate opacity -->
-	<animate class="target" attributeName="opacity" attributeType="XML" from="1" to="0" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
-
-Control it with JS: Add `begin="indefinite"` to `animate*` element, and `element.beginElement()` or `element.endElement()` (and few others methods) to control it.
-
-- http://leunen.me/fakesmile/index.html
-- http://css-tricks.com/guide-svg-animations-smil/
-- http://tutorials.jenkov.com/svg/svg-animation.html
-- http://oak.is/thinking/animated-svgs
-- http://apike.ca/prog_svg_smil.html
-- https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL
-
-### CSS
-
-- https://stackoverflow.com/questions/24302615/css3-animation-is-not-working
-
-### JS
-
-- [TweenMax](https://github.com/greensock/GreenSock-JS)
-- http://codepen.io/GreenSock/full/gpDrC/
-- http://www.w3.org/TR/SVG/animate.html#DOMAnimationExample
-
-Now (05/11/2014) there no lib that can animate SVG transform attribute.
-
-Interpolation:
-
-- http://www.w3.org/TR/css3-transforms/#interpolation-of-transform-functions
-- http://www.w3.org/TR/css3-transforms/#transform-function-lists
-- https://wiki.csswg.org/topics/transform-interpolation
-- `transform-origin: 200px 300px; transform: rotate(45deg);` is equivalent to: `transform: translate(200px 300px) rotate(45deg) translate(-200px -300px)`. Apply it to `scale`, `rotate`, ``
-	(exist in SVG only for rotate: `transform="rotate(45 200 300)"` ). http://www.w3.org/TR/css3-transforms/#transformation-matrix-computation
-- https://stackoverflow.com/questions/19154631/how-to-get-coordinates-of-an-svg-element https://github.com/mbostock/d3/blob/48ad44fdeef32b518c6271bb99a9aed376c1a1d6/src/math/transform.js
-
-- http://greensock.com/forums/tags/forums/svg/
-- http://greensock.com/forums/topic/10666-svg-animations-in-ie/
-- http://greensock.com/forums/topic/10684-apply-transforms-with-transform-attr-instead-of-inline-style-on-svg/
-- http://greensock.com/forums/topic/10725-animating-svgs-fill-opacity/
-- http://greensock.com/forums/topic/7376-general-purpose-svg-plug-in/
-- https://github.com/akbr/GSAPSvgPlugin/blob/master/SvgPlugin.js
-- https://gist.github.com/raldred/7769278
-- http://www.benknowscode.com/2012/09/diving-into-matrices-with-css3_4970.html
-- http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined
-- https://github.com/jcoglan/sylvester
-
-### Stroke animation
-
-Works only on path elements. See code below to do that.
-
-- `stroke-dashoffset`
-- can be used for pie chart (camembert) animation. Use large `stroke-width` of a `<circle>`. On IE use a value minus <1px (50px → 49.9px)
-- [SVG-Stroke Animation](http://codepen.io/niorad/pen/xmfza)
-- [Animated line drawing in SVG - JakeArchibald.com](https://jakearchibald.com/2013/animated-line-drawing-svg/)
-- [css - Animate Path in Internet Explorer - Stack Overflow](https://stackoverflow.com/questions/24918529/animate-path-in-internet-explorer)
-- [Three Illustrator tricks for better SVG stroke animations | Val Head - Web & UI animation expert](http://valhead.com/2017/03/03/three-illustrator-tricks-for-better-svg-stroke-animations/)
-
-## Stroke
-
-- [Paths: Stroking and Offsetting | Tavmjong Bah's Blog](http://tavmjong.free.fr/blog/?p=1257)
-
-## Primitives to path
+### Primitives to path
 
 See `MorphSVGPlugin.convertToPath` (require to be Club GreenSock membership)
 
@@ -443,6 +361,99 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 	    s5-110,10-67s-51,77.979-50,33.989"/>
 	</svg>
 
+## Transform
+
+- [Transforms on SVG Elements | CSS-Tricks](https://css-tricks.com/transforms-on-svg-elements/)
+
+### `transform-origin` in SVG not the same as HTML
+
+Default values:
+
+- HTML: `center, center`
+- SVG: `0, 0`
+
+### Transform on Firefox
+
+`transform-origin: 50% 50%` is not supported in Firefox. Use `translate(-halfWpx -halfHpx) ... translate(halfWpx halfHpx)` or `transform-origin: 200px 200px` instead
+
+## Animation
+
+SMIL animation in SVG are powerfull, but hard to control. Prefer use CSS animation/transition but it is not supported in IE -11+. A pure JS fallback is the solution.
+
+- http://jakearchibald.com/2013/animated-line-drawing-svg/
+
+Animation as a huge impact on performance, especially on mobile. Rasterization is the problem. May be use canvas instead.
+
+> [SVG is] perfect for mobile… as long as it doesn’t move. There is no way to animate it smoothly on Android - rasterization won’t give you a chance.
+
+- https://github.com/kdzwinel/progress-bar-animation
+- https://github.com/kdzwinel/progress-bar-animation/issues/1
+
+### SMIL
+
+Can't make multiple transform in the same time. Don't have an equivalent of `transform-orign` (it's the fault of SVG transform)
+
+	<!-- Animate element's translate -->
+	<animateTransform attributeName="transform" attributeType="XML" type="translate" from="589 122" to="580 -57" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
+	<!-- Animate opacity -->
+	<animate class="target" attributeName="opacity" attributeType="XML" from="1" to="0" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
+
+Control it with JS: Add `begin="indefinite"` to `animate*` element, and `element.beginElement()` or `element.endElement()` (and few others methods) to control it.
+
+- http://leunen.me/fakesmile/index.html
+- http://css-tricks.com/guide-svg-animations-smil/
+- http://tutorials.jenkov.com/svg/svg-animation.html
+- http://oak.is/thinking/animated-svgs
+- http://apike.ca/prog_svg_smil.html
+- https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL
+
+### CSS
+
+- https://stackoverflow.com/questions/24302615/css3-animation-is-not-working
+
+### JS
+
+- [TweenMax](https://github.com/greensock/GreenSock-JS)
+- http://codepen.io/GreenSock/full/gpDrC/
+- http://www.w3.org/TR/SVG/animate.html#DOMAnimationExample
+
+Now (05/11/2014) there no lib that can animate SVG transform attribute.
+
+Interpolation:
+
+- http://www.w3.org/TR/css3-transforms/#interpolation-of-transform-functions
+- http://www.w3.org/TR/css3-transforms/#transform-function-lists
+- https://wiki.csswg.org/topics/transform-interpolation
+- `transform-origin: 200px 300px; transform: rotate(45deg);` is equivalent to: `transform: translate(200px 300px) rotate(45deg) translate(-200px -300px)`. Apply it to `scale`, `rotate`, ``
+	(exist in SVG only for rotate: `transform="rotate(45 200 300)"` ). http://www.w3.org/TR/css3-transforms/#transformation-matrix-computation
+- https://stackoverflow.com/questions/19154631/how-to-get-coordinates-of-an-svg-element https://github.com/mbostock/d3/blob/48ad44fdeef32b518c6271bb99a9aed376c1a1d6/src/math/transform.js
+
+- http://greensock.com/forums/tags/forums/svg/
+- http://greensock.com/forums/topic/10666-svg-animations-in-ie/
+- http://greensock.com/forums/topic/10684-apply-transforms-with-transform-attr-instead-of-inline-style-on-svg/
+- http://greensock.com/forums/topic/10725-animating-svgs-fill-opacity/
+- http://greensock.com/forums/topic/7376-general-purpose-svg-plug-in/
+- https://github.com/akbr/GSAPSvgPlugin/blob/master/SvgPlugin.js
+- https://gist.github.com/raldred/7769278
+- http://www.benknowscode.com/2012/09/diving-into-matrices-with-css3_4970.html
+- http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined
+- https://github.com/jcoglan/sylvester
+
+### Stroke animation
+
+Works only on path elements. See code below to do that.
+
+- `stroke-dashoffset`
+- can be used for pie chart (camembert) animation. Use large `stroke-width` of a `<circle>`. On IE use a value minus <1px (50px → 49.9px)
+- [SVG-Stroke Animation](http://codepen.io/niorad/pen/xmfza)
+- [Animated line drawing in SVG - JakeArchibald.com](https://jakearchibald.com/2013/animated-line-drawing-svg/)
+- [css - Animate Path in Internet Explorer - Stack Overflow](https://stackoverflow.com/questions/24918529/animate-path-in-internet-explorer)
+- [Three Illustrator tricks for better SVG stroke animations | Val Head - Web & UI animation expert](http://valhead.com/2017/03/03/three-illustrator-tricks-for-better-svg-stroke-animations/)
+
+## Stroke
+
+- [Paths: Stroking and Offsetting | Tavmjong Bah's Blog](http://tavmjong.free.fr/blog/?p=1257)
+
 ## Pattern
 
 - [An Overview of SVG Patterns : Adobe Dreamweaver Team Blog](http://blogs.adobe.com/dreamweaver/2015/09/svg-patterns.html)
@@ -651,28 +662,23 @@ keyword	| CSS equivalent
 
 - [Easily center text vertically, with SVG! | Lea Verou](http://lea.verou.me/2013/03/easily-center-text-vertically-with-svg/)
 
-## SVG Path Data API
-
-`SVGPathSeg`, `getPathData()` and `setPathData()`
-
-- [jarek-foksa/path-data-polyfill.js: Polyfill for SVG 2 getPathData() and setPathData() methods.](https://github.com/jarek-foksa/path-data-polyfill.js)
-- [progers/pathseg: SVGPathSeg polyfill](https://github.com/progers/pathseg/)
-
 ## Fallback
 
-	<svg>
-		<switch>
-			<use xlink:href="#icon-twitter"></use>
-			<foreignObject>
-				<div class="fallback icon-twitter-fallback"></div>
-			</foreignObject>
-		</switch>
-	</svg>
-	<style>
-		.icon-twitter-fallback{
-			background-image: url("icon-twitter.png");
-		}
-	</style>
+```svg
+<svg>
+	<switch>
+		<use xlink:href="#icon-twitter"></use>
+		<foreignObject>
+			<div class="fallback icon-twitter-fallback"></div>
+		</foreignObject>
+	</switch>
+</svg>
+<style>
+	.icon-twitter-fallback{
+		background-image: url("icon-twitter.png");
+	}
+</style>
+```
 
 > the logic is embedded inside the `<svg>` and use the `<foreignObject>` element to insert the non-SVG fallback. Using `<switch>`, SVG-capable browsers will render the first markup they understand (the SVG) and ignore the rest (the contents of the `<foreignObject>`). IE will do the opposite: it ignore the SVG it does not understand and renders the contents of the `<foreignObject>` because it is plain HTML.
 
@@ -685,7 +691,7 @@ keyword	| CSS equivalent
 
 ## HTML Entities
 
-```
+```js
 // create a doctype that includes definitions for all HTML entities - http://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
 const HTML_ENTITIES = {
 	"quot": 34,

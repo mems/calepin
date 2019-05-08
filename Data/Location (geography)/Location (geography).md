@@ -89,6 +89,7 @@ See Geocoder
 - [International Address Fields in Web Forms :: UXmatters](http://www.uxmatters.com/mt/archives/2008/06/international-address-fields-in-web-forms.php)
 - [Label and name inputs properly — Web Fundamentals](https://developers.google.com/web/fundamentals/input/form/label-and-name-inputs?hl=en)
 - [List of postal codes — Wikipedia](https://en.wikipedia.org/wiki/List_of_postal_codes)
+- [Base officielle des codes postaux — OpenDataSoft](https://data.opendatasoft.com/explore/dataset/laposte_hexasmal%40datanova/information/)
 - [JSON Zip/Postal Code API made with Python and MongoDB](https://github.com/ekotechnology/Zippopotamus-Cloud)
 - [Public infrastructure — Wikipedia](https://en.wikipedia.org/wiki/Public_infrastructure)
 - [Thoroughfare — Wikipedia](https://en.wikipedia.org/wiki/Thoroughfare)

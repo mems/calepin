@@ -2298,6 +2298,7 @@ See also [cloud](#cloud), [water](#water), [flame](#flame), [distortion](#distor
 - [3D Particle Explorations | Codrops](https://tympanus.net/codrops/2017/12/12/3d-particle-explorations/)
 - [Electricity](http://sketches.vlucendo.com/electricity/)
 - [Interactive Particles with Three.js | Codrops](https://tympanus.net/codrops/2019/01/17/interactive-particles-with-three-js/)
+- [Mouse Trail - Noah Yamamoto](https://noahyamamoto.com/blog/mousetrailanimation)
 
 - [Fluid - Experiments - Yuichiroh Arai](https://www.yuichiroharai.com/experiments/fluid/)
 - [Fluid Particles](http://david.li/fluid/) - https://github.com/dli/fluid

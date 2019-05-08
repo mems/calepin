@@ -2130,6 +2130,14 @@ Note: Firefox could require to replace `transition: none 0;` by `transition: non
 
 If roll over and roll out are both animations, an different `animation-name` is required
 
+### Direction aware hover effect
+
+- [Direction aware hover effect](https://codepen.io/electerious/full/xeJPbB)
+
+### Fading out siblings on hover
+
+- [Fading out siblings on hover in CSS | Trys Mudford](https://www.trysmudford.com/blog/fade-out-siblings-css-trick/)
+
 ### Don't define last frame value
 
 That let browsers don't support or ignore animations (like IE9) to "jump to the end" of animation.
