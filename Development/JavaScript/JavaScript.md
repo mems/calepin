@@ -6198,7 +6198,7 @@ Use blob to store RAW data
 - [Service Worker & HTTP Client Hints](https://gist.github.com/deanhume/c04478df744ce833925c) - Rewrite URL if WebP is supported
 - [Using Service Worker for server-side adaption based on network type - Tales of a Developer Advocate by Paul Kinlan](https://paul.kinlan.me/using-service-worker-server-side-adaption-based-on-network-type/) - Example (but shouldn't used as is) to send client Hint network infos
 - [Service Workers — Gotchas — Medium](https://medium.com/@boopathi/service-workers-gotchas-44bec65eab3f)
-- https://github.com/delapuente/service-workers-101/
+- [delapuente/service-workers-101: An infographic to summarize the most important parts of the Service Workers' API](https://github.com/delapuente/service-workers-101/)
 - [Service Worker, what are you? - Mariko Kosaka](http://kosamari.com/notes/Service-Worker-what-are-you)
 
 ### Streamed data
