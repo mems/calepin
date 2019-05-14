@@ -2671,6 +2671,7 @@ Others links:
 - [Smashing Magazine sur Twitter : "⌘ Taking control over third-party content to maintain performance. https://t.co/YzjrLvVc3y http](https://mobile.twitter.com/smashingmag/status/944920025823174657)
 - [Third-Party Script Prevalence on Alexa Top 50 | Trent Walton](http://trentwalton.com/notes/2018/01/23/third-party-script-prevalence-on-alexa-top-50.html)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/)
+- [Performance Calendar » Reducing Single Point of Failure using Service Workers](https://calendar.perfplanet.com/2015/reducing-single-point-of-failure-using-service-workers/) - Block slow third-party with service worker
 
 ## Detection
 
