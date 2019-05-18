@@ -10,7 +10,17 @@ See also:
 
 - [dexteryy/spellbook-of-modern-webdev: A Big Picture, Thesaurus, and Taxonomy of Modern JavaScript Web Development](https://github.com/dexteryy/spellbook-of-modern-webdev)
 
+News
+
+- [All issues | Web Platform News](https://webplatform.news/issues) - https://webplatform.news/feed.xml
 - [simevidas/webplatformnews-feeds: An OPML file containing over 600 feeds for web developers](https://github.com/simevidas/webplatformnews-feeds)
+- [webplatformdaily-site/content/dailies at 53c36a5daf62633a1c3f4f769071585f4aaddf6f · simevidas/webplatformdaily-site](https://github.com/simevidas/webplatformdaily-site/tree/53c36a5daf62633a1c3f4f769071585f4aaddf6f/content/dailies)
+- [web-platform-timeline.md](https://gist.github.com/simevidas/cccf3e9885327a52fb7ccb23c4be3a5c)
+- [https://webplatform.news](https://gist.github.com/simevidas/2a207094f505aa177d625b8e2c1ac010)
+- [All issues | Web Platform News](https://webplatform.news/issues)
+- [webplatformnews-weekly/issues at master · simevidas/webplatformnews-weekly](https://github.com/simevidas/webplatformnews-weekly/tree/master/issues)
+- [simevidas/browser-intents](https://github.com/simevidas/browser-intents)
+- [Web Platform News (@WebPlatformNews) | Twitter](https://twitter.com/webplatformnews)
 
 ## DNS
 
@@ -2665,6 +2675,8 @@ Others links:
 - [Google AMP lowered our page speed, and there's no choice but to use it - unlike kinds](https://unlikekinds.com/amp/article/google-amp-page-speed)
 
 ### Third parties
+
+> Don't trust your third parties
 
 - [Hard Costs of Third-Party Scripts - daverupert.com](https://daverupert.com/2018/10/hard-costs-of-third-party-scripts/)
 - [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5)

@@ -6056,20 +6056,51 @@ fetch is a very explicit API:
 - POST data must be a string (you must set the `Content-Type` header)
 - abortable (using [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal))
 - promise will reject only for network error or CORS misconfiguration: [Using Fetch - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful)
- 
-	fetch(url)
-		.then(response => {
-			return response.json().then(data => {
-				if (response.ok) {
-					return data;
-				} else {
-					return Promise.reject({status: response.status, data});
-				}
-			});
-		})
-		.then(result => console.log('success:', result))
-		.catch(error => console.log('error:', error));
 
+```js
+fetch(url)
+	.then(response => {
+		return response.json().then(data => {
+			if (response.ok) {
+				return data;
+			} else {
+				return Promise.reject({status: response.status, data});
+			}
+		});
+	})
+	.then(result => console.log('success:', result))
+	.catch(error => console.log('error:', error));
+```
+
+Opaque response:
+
+```js
+fetch('https://example.com', {
+	mode: 'no-cors'
+})
+.then(response => {
+	/*
+	Response {
+	  body: null
+	  bodyUsed: false
+	  headers: Headers // always empty
+	  ok: false
+	  redirected: false
+	  status: 0 // not a regular HTTP status code
+	  statusText: "" // always empty
+	  type: "opaque"
+	  url: ""
+	}
+	*/
+	return console.log(response)
+}).catch(error => {
+	return console.log(error)
+});
+```
+
+**Note: I you store in cache API (via [Service Worker](#service-worker)) an opaque response is padded and count for around 7MB (Chrome) in quota limit. See [796060 - Cache Storage value rises on each refresh when Analytics code is in the html - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=796060#c17)**
+
+- [CORS](#cors)
 - [Using Fetch - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful)
 - [Why I won’t be using Fetch API in my apps – Shahar Talmi – Medium](https://medium.com/@shahata/why-i-wont-be-using-fetch-api-in-my-apps-6900e6c6fe78)
 
@@ -6109,7 +6140,7 @@ If top domain is shared, update `document.domain`
 
 ### Parse URL
 
-	new URL();
+	new URL(location);
 
 If not supported on old browser, you can use an `HTMLAnchorElement` (`document.createElement('a')`) to parse the URL (see `a.protocol`, `a.hostname`, `a.host`, `a.port`, `a.search`, `a.pathname`, `a.href`, `a.getAttribute("href")`)
 
@@ -6123,8 +6154,14 @@ If not supported on old browser, you can use an `HTMLAnchorElement` (`document.c
 
 #### Querystring
 
-	let params = {};
-	let search = Object.keys(params).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(params[key])).join("&");
+```js
+new URLSearchParams(location.search)
+```
+
+```js
+let params = {};
+let search = Object.keys(params).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(params[key])).join("&");
+```
 
 - [Javascript Madness: Query String Parsing](http://unixpapa.com/js/querystring.html)
 
@@ -6194,12 +6231,34 @@ Use blob to store RAW data
 
 ### Service Worker
 
+- require HTTPS
 - Client Hints polyfill
 - [Service Worker & HTTP Client Hints](https://gist.github.com/deanhume/c04478df744ce833925c) - Rewrite URL if WebP is supported
 - [Using Service Worker for server-side adaption based on network type - Tales of a Developer Advocate by Paul Kinlan](https://paul.kinlan.me/using-service-worker-server-side-adaption-based-on-network-type/) - Example (but shouldn't used as is) to send client Hint network infos
 - [Service Workers — Gotchas — Medium](https://medium.com/@boopathi/service-workers-gotchas-44bec65eab3f)
 - [delapuente/service-workers-101: An infographic to summarize the most important parts of the Service Workers' API](https://github.com/delapuente/service-workers-101/)
 - [Service Worker, what are you? - Mariko Kosaka](http://kosamari.com/notes/Service-Worker-what-are-you)
+- [javascript - What limitations apply to opaque responses? - Stack Overflow](https://stackoverflow.com/questions/39109789/what-limitations-apply-to-opaque-responses/39109790#39109790)
+- [Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/) - A framework to handle cache in service worker
+
+Handle too long response (force third parties SLA)
+
+```
+function timeout(delay){
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(new Response("",  {
+				status: 408,
+				statusText: "Request timed out.",
+			}));
+		}, delay);
+	});
+}
+
+self.adEventListener("fetch", event => {
+	event.respondWith(Promise.race([timeout(2000), fetch(event.request)]));// handmade response or opaque response
+});
+```
 
 ### Streamed data
 
@@ -6307,6 +6366,11 @@ The endpoint is related to (provided by) the browser vendor (["There is only one
 ### WebSocket and streaming
 
 See [Web — Streaming](Web#streaming)
+
+### CORS
+
+- [Send request without CORS](#send-request-without-cors)
+- [Handle Third Party Requests  |  Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests#remember_to_opt-in_to_cors_mode)
 
 ## `javascript:` protocol is async
 

@@ -1946,6 +1946,15 @@ Prefer using SVG. Font it's realy hard to get a consitent (pixel) align correctl
 > - icon fonts they have zero semantics
 > - adblockers sometimes block icon fonts
 
+> 1. Vector! - Typically sharper than icon fonts because of non-text anti-aliasing
+> 2. Easy multu-color! - More CSS control than any other method.
+> 3. Animate! - Easy to apply transitions and animations
+> 4. Script away! - Everything is in the DOM.
+> 5. Better accessibility! Plus fallbacks! - Fool-proof, once you set it up well
+> 6. Better semantics! - `<svg>` = "image" / `<span>` = "nothing"
+> 7. Ease of use - Easy to manage individual icons, instant build processes.
+> — Sarah Drasner, Chris Coyier, Seren Davies
+
 > icon fonts do not use progressive enhancement by default
 — [Performance Calendar » No @font-face Syntax will ever be Bulletproof, Nor Should It Be](http://calendar.perfplanet.com/2016/no-font-face-bulletproof-syntax/#addendum_okay_but_what_about_icon_fonts)
 
@@ -1957,6 +1966,7 @@ Prefer using SVG. Font it's realy hard to get a consitent (pixel) align correctl
 - [Bulletproof Accessible Icon Fonts | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html)
 - (not sure Custom Elements is the best solution, but explain others solutions) [The Road to SVG and Custom Elements in Clarity Icons – Clarity Design System – Medium](https://medium.com/claritydesignsystem/the-road-to-svg-and-custom-elements-in-clarity-icons-1d691c6cc91#.2anohjioj)
 - [Making the Switch Away from Icon Fonts to SVG: Converting Font Icons to SVG — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/icon-fonts-to-svg/)
+- [How I learnt to stop using icon fonts (and love SVG) – Triggers & Sparks](https://triggersandsparks.com/talks/svg-icons/)
 
 Align SVG icon with text:
 
@@ -2092,6 +2102,27 @@ Add "no change" keyframes:
 	}
 }
 ```
+
+### Underline animation
+
+```css
+a {
+	text-decoration: none;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0% 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 4px;/* underline equivalent, but animatable */
+	transition: background-size cubic-bezier(0,.5,0,1) 0.3s;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+	background-size: 100% 4px;
+}
+```
+
+- [Animated Multiline Link Underlines with CSS](https://www.dannyguo.com/blog/animated-multiline-link-underlines-with-css/)
 
 ### Roll over and out different animations
 

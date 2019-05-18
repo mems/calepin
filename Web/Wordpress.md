@@ -232,3 +232,12 @@ Ex: FTP: user 522/538; Apache/PHP: 48/48 (www-data)
 - [Fix wordpress file permissions](https://gist.github.com/Adirael/3383404)
 - [Wordpress asking for my FTP credentials to install plugins - Stack Overflow](https://stackoverflow.com/questions/17922644/wordpress-asking-for-my-ftp-credentials-to-install-plugins)
 - [plugins - What security concerns should I have when setting FS_METHOD to "direct" in wp-config? - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/189554/what-security-concerns-should-i-have-when-setting-fs-method-to-direct-in-wp-co)
+
+## Minify
+
+- Autoptimize
+- Merge + Minify + Refresh (doesn’t include an option to optimize your HTML)
+- Fast Velocity Minify
+
+- [We Tested 3 WordPress Minify Plugins: Our Results](https://themeisle.com/blog/wordpress-minify-plugins/)
+- [Plugins categorized as minify | WordPress.org](https://wordpress.org/plugins/tags/minify/)

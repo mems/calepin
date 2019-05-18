@@ -23,6 +23,24 @@ Download native application IPA
 - [Download iPhone Software (IPSW firmware files)](http://www.iphonehacks.com/download-iphone-ios-firmware)
 - [Firmware - The iPhone Wiki](https://www.theiphonewiki.com/wiki/Firmware)
 
+## Record phone call
+
+Works better with visual voicemail
+
+Note: voicemail duration could be limited
+
+Use the conference with you voicemail:
+
+1. call your self (you should get your voicemail "leave a message after the bip")
+2. call the person
+3. merge calls, conversation will be recorded by the voicemail
+4. end the call
+5. you should now have a new voicemail, with visual voicemail you save it with share button
+
+Or use the speaker an record with an external recorder (or a Mac with QuickTime Player, File > New Audio Recoding, using internal microphone)
+
+It's possible to develop an app that use CallKit to fake a call, and use conference mode?
+
 ## Phone Codes
 
 	Any command can be preceded by *#, ** or ##.

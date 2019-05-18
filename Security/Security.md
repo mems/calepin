@@ -490,6 +490,7 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	- Crawlers and scrappers https://github.com/JayBizzle/Crawler-Detect
 	- [The Web's Largest Community Tracking Online Fraud & Abuse | Project Honey Pot](http://www.projecthoneypot.org/)
 - include archive or image bomb but not used as is (attack). Ex: use it raw data as key for encryption. See [Exploits](Compression#exploits)
+	- [10 GB in a 27 KB Gzip File \[My Present To HTTP Scanners\] -](https://rehmann.co/blog/10-gb-27-kb-gzip-file-present-http-scanners/)
 - detect physically impossible for one human to react below some timespan or to move quicker than some speed or repeat too much times similar action (flood). Ex. nobody could send 100 reviews in few days (specially if the reviews are more than 100 chars)
 	Use statistics (point cloud, graphs, threshold, etc.) and compare with the average people. Ex: ingame real people can't always aim perfectly (perfect angles values)
 - [Copyright infringement](Conception#copyright-infringement)
@@ -617,7 +618,7 @@ Automated systems are not perfect, humans too
 - [Flash Player Security Advanced Walkthrough | jpauclair](https://jpauclair.net/2009/12/11/flash-player-security-advanced-walkthrough/)
 - [How to protect flash games](how_to_protect_flash_games.pdf)
 
-See also [Reverse engineering and cracking](#reverse-engineering-and-cracking)
+See also [Hacking](#hacking)
 
 #### Third party data
 
@@ -1159,7 +1160,7 @@ Find hidden data of faked data (ex: image):
 
 Note: code is also data
 
-**It's impossible to prevent access to data provided to untrusted parties. NEVER**
+**It's impossible to prevent access to data provided to untrusted parties, NEVER!** It's too late.
 
 The reader / browser / VM must be able to read your files and since it has no idea of what encryption you use, you must "load" a encrypted file, and the algorithm of your encrypted file is in the loader. But what do you do with the loader itself then?
 
@@ -1192,13 +1193,15 @@ The reader / browser / VM must be able to read your files and since it has no id
 		}
 	}
 
-Hidden text part can be recovered if short parts:
-![DW19QBdWsAAPCJk.jpeg](https://pbs.twimg.com/media/DW19QBdWsAAPCJk.jpg:orig)
+Hidden text part can be recovered if short parts missing:
+![DW19QBdWsAAPCJk.jpeg](./Data access and integrity/Prevent and detect violation/DW19QBdWsAAPCJk.jpg)
 [Tom 7 on Twitter: "Redaction pro-tip: Most short word will have distinct length in a proportional font like Time New Roman. I think it' pretty clear, but decide for yourself...
 (Thi i the Democratic "rebuttal" #memo unclassified today, page 3.)… https://t.co/eQvmiDwL1M"](https://twitter.com/tom7/status/967568358861430785)
 
 
 ##### Steganography
+
+See also [Alternative data storage](#alternative-data-storage)
 
 Hide data in data or metadata in a carrier format (image, video, etc.)
 
@@ -1253,6 +1256,7 @@ Hide data in data or metadata in a carrier format (image, video, etc.)
 - [OpenPuff - Steganography & Watermarking](http://embeddedsw.net/OpenPuff_Steganography_Home.html) - steganography tool. See [OpenPuff — Wikipedia](https://en.wikipedia.org/wiki/OpenPuff)
 - [ZEDZ.NET: purveyors of crypto since 1994.](http://zedz.net/) ftp://ftp.zedz.net/pub/security/steganography/ zedz.net/wiretapped.net Stenography examples (local copy in "zedz.net steganographic software")
 - [owencm/js-steg: Javascript JPEG steganography library. Includes JS JPEG encoder and decoder with coefficient access helper functions.](https://github.com/owencm/js-steg)
+- [Punk Ode: Hiding Shellcode in Plain Sight](https://www.blackhat.com/presentations/bh-usa-06/BH-US-06-Sutton.pdf)
 
 ###### Hide data in text
 
@@ -1326,13 +1330,20 @@ It's still valid, but add extra data will be invisible / ingored when read norma
 
 In metadata, comment, extra fields or unused fields
 
-- Hide file in PNG EXIF:
+- PNG `tEXt` chunk (comment)
+	See also [chunks `zTXt` and `iTXt`](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/PNG.html#TextualData)
 
-		exiftool "-Comment<=/path/to/secret.txt" dummy.png
-		exiftool -b -Comment dummy.png > secret.txt
-- PHP contains base64 contains PNG with data encoded in `tEXt` chunk (comment)
-	- [When Bad Guys are Pwning Bad Guys... - SANS Internet Storm Center](https://isc.sans.edu/forums/diary/When+Bad+Guys+are+Pwning+Bad+Guys/22410/)
-	- [backdoor as stripped from RC-SHELL](https://gist.github.com/anonymous/319ef7124affebec67ebc56bc83cbe87)
+
+	```bash
+	exiftool "-Comment<=/path/to/secret.txt" dummy.png
+	exiftool -b -Comment dummy.png > secret.txt
+	```
+	- PHP contains base64 contains PNG with data encoded in `tEXt` chunk (comment)
+		- [When Bad Guys are Pwning Bad Guys... - SANS Internet Storm Center](https://isc.sans.edu/forums/diary/When+Bad+Guys+are+Pwning+Bad+Guys/22410/)
+		- [backdoor as stripped from RC-SHELL](https://gist.github.com/anonymous/319ef7124affebec67ebc56bc83cbe87)
+- PNG custom chunk
+	- [Pozo/punk: Hiding a payload in PNG files with JAVA](https://github.com/Pozo/punk)
+	- [Hiding a payload in PNG files with Python](http://blog.brian.jp/python/png/2016/07/07/file-fun-with-pyhon.html)
 - gzip stream can optionaly contains additional data and often ignored when not handling files (like HTTP response):
 	* extra header (2 Bytes + 256 Bytes max)
 	* original filename: N Bytes + 1 Byte (`\0`)
@@ -1359,6 +1370,8 @@ In metadata, comment, extra fields or unused fields
 	- [JPEG effets de bord et sous-échantillonnage chroma - YouTube](https://www.youtube.com/watch?v=V7LvgXqsh60)
 - [NTFS Alternate Data Streams: Hiding data in plain sight since 1993 – EventSentry Blog](https://www.eventsentry.com/blog/2008/07/ntfs-alternate-data-streams-hi.html)
 - embedded font or image in PDF, HTML, SVG, etc.
+
+- [ExifTool FAQ](https://sno.phy.queensu.ca/~phil/exiftool/faq.html#Q10) - "How does ExifTool handle coded character sets?", type-specific details are given below about comment handling for EXIF, IPTC, XMP, PNG, ID3, PDF, Photoshop, QuickTime, AIFF, RIFF, MIE and Vorbis information
 
 ###### Hide data in pixels
 
@@ -1424,17 +1437,13 @@ Prepend or append data. Easily detectable.
 	`zip` return a warning "extra bytes at beginning or within zipfile"
 
 	- [Doesn't respect zip format · Issue #148 · gildas-lormeau/zip.js](https://github.com/gildas-lormeau/zip.js/issues/148)
-- Some plaform allow upload of image format like a gif, can be used to store any other file type
-	This file can be reencoded, destroy/alter appended data. Prepend data with a valid image
+
+	Ex: prepend data with a valid image
 	
 		zip -r secret.zip file1 file2
 		cat cat.gif secret.zip > fun.gif
 		# Upload fun.gif
 		unzip fun.gif
-
-	- [How to Use Your New Terabyte of Free Flickr Storage for More Than Just Photos Using This Hack « Digiwonk :: Gadget Hacks](https://digiwonk.gadgethacks.com/how-to/use-your-new-terabyte-free-flickr-storage-for-more-than-just-photos-using-hack-0147022/)
-	- [At the risk of "ruining" it for some users, Amazon doesn't appear to validate no... | Hacker News](https://news.ycombinator.com/item?id=13998534)
-	- [PNG Embedded - Malicious payload hidden in a PNG file - Securelist](https://securelist.com/blog/virus-watch/74297/png-embedded-malicious-payload-hidden-in-a-png-file/)
 
 ###### VeraCrypt partition hidden in MP4 video
 
@@ -1620,6 +1629,12 @@ AES(A) = B; where A and B are documents (image, pdf, etc.)
 - https://www.blackhat.com/docs/eu-14/materials/eu-14-Apvrille-Hide-Android-Applications-In-Images.pdf
 - [Encrypting a PNG into an Android application](https://github.com/cryptax/angeapk)
 
+###### IP-over-DNS
+
+> iodine lets you tunnel IPv4 data through a DNS server. This can be usable in different situations where internet access is firewalled, but DNS queries are allowed.
+
+- [kryo.se: iodine (IP-over-DNS, IPv4 over DNS tunnel)](https://code.kryo.se/iodine/)
+
 ##### Esoteric programming languages
 
 - [Esoteric programming language — Wikipedia](https://en.wikipedia.org/wiki/Esoteric_programming_language)
@@ -1750,7 +1765,7 @@ Then evaluate JavaScript. See [Parse JavaScript using the native parser](JavaScr
 
 ##### Obfuscation (code)
 
-See [Reverse engineering and cracking](#reverse-engineering-and-cracking)
+See [Hacking](#hacking)
 
 Obfuscate code and bytecode
 
@@ -2077,7 +2092,7 @@ And recover, hijacking, pirated, hacked
 - [hacking - How do I deal with a compromised server? - Server Fault](http://serverfault.com/questions/218005/how-do-i-deal-with-a-compromised-server)
 - [Steps for Recovering from a UNIX or NT System Compromise](http://www.cert.org/historical/tech_tips/win-UNIX-system_compromise.cfm)
 
-### Reverse engineering and cracking
+### Hacking
 
 See [Prevent violation](#prevent-violation)
 
@@ -2123,6 +2138,36 @@ See [Prevent violation](#prevent-violation)
 - [class-dump - Steve Nygard](http://stevenygard.com/projects/class-dump/) - Generates declarations for the classes, categories and protocols from Objective-C runtime information stored in Mach-O files
 - [RE for Beginners | Reverse Engineering](https://www.begin.re/)
 - [Reverse Engineering Stickies.app - Low Level Bits](https://lowlevelbits.org/reverse-engineering-stickies.app/)
+
+#### Alternative data storage
+
+See also [Steganography](#steganography)
+
+Use (abuse) special cases where the data storage have different (better) quota limitation:
+
+- Google Docs take up 0 bytes of quota in your Google Drive
+- 1 TB of free storage for Flickr users (images only)
+- Amazon Drive: the Prime Photos plan offers unlimited storage for photos and RAW files
+- Google Docs store complete history version of the document (keystrokes?)
+- YouTube imposes no limits on the total number or length of videos users can upload, pixels of each frames to store data
+- URL shorteners
+- Gmail allow in 2006 a large amount of storage for email attachments
+- Usenet store data files
+- create multi accounts
+
+Inject data ZIP at the end of a valid image, for platform that don't reencode/destroy appended data to images (ex: GIF)
+
+- [How to Use Your New Terabyte of Free Flickr Storage for More Than Just Photos Using This Hack « Digiwonk :: Gadget Hacks](https://digiwonk.gadgethacks.com/how-to/use-your-new-terabyte-free-flickr-storage-for-more-than-just-photos-using-hack-0147022/)
+- [At the risk of "ruining" it for some users, Amazon doesn't appear to validate no... | Hacker News](https://news.ycombinator.com/item?id=13998534)
+- [GmailFS - Gmail Filesystem](https://web.archive.org/web/20060424165737/http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html)
+- [dzhang314/YouTubeDrive: Store files as YouTube videos == infinite disk space](https://github.com/dzhang314/YouTubeDrive)
+- [stewartmcgown/uds: Unlimited Drive Storage by splitting binary files into base64](https://github.com/stewartmcgown/uds)
+- [tuxxy/BandcampFS: BandcampFS is a proof of concept that allows people to backup files to bandcamp.com via WAV files.](https://github.com/tuxxy/BandcampFS)
+- [hansendc/gmailfs: FUSE-based filesystem for using an IMAP server (like gmail) as normal storage like a hard disk.](https://github.com/hansendc/gmailfs)
+- [NZB — Wikipedia](https://en.wikipedia.org/wiki/NZB)
+- [Usenet — Wikipedia](https://en.wikipedia.org/wiki/Usenet#Binary_content)
+- [DNSFS. Store your files in others DNS resolver caches](https://blog.benjojo.co.uk/post/dns-filesystem-true-cloud-storage-dnsfs) - [DNSFS – Store files in others' DNS resolver caches | Hacker News](https://news.ycombinator.com/item?id=16134041)
+- [WarrenGreen/InfiniteDrop: Distributed FileSystem across Dropbox accounts](https://github.com/WarrenGreen/InfiniteDrop)
 
 ### Vulnerabilities
 
