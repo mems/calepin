@@ -35,6 +35,7 @@ Lightroom infos:
 - [How does JPEG actually work? – Developing for Developers](https://blogs.msdn.microsoft.com/devdev/2006/04/12/how-does-jpeg-actually-work/)
 - [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU&start=66&end=616) - How JPEG works
 - PDF uses JPEG2000
+- [Unraveling The JPEG](https://parametric.press/issue-01/unraveling-the-jpeg/)
 
 Luminance, Chroma Blue, Chroma Red
 

@@ -2959,6 +2959,8 @@ Track errors, like front end (`window.onerror`) or backend errors with https://d
 
 ## SEO and ASO
 
+[Search engine optimization](https://en.wikipedia.org/wiki/Search_engine_optimization) and [App store optimization](https://en.wikipedia.org/wiki/App_store_optimization)
+
 - [Your Guide to App Store Optimization (ASO)](https://www.sitepoint.com/your-guide-to-app-store-optimization-aso/)
 
 Things changes over time, but [10 Things Google Wished You Knew - Search Engine People Blog | Search Engine People](http://www.searchenginepeople.com/blog/what-google-wished-you-knew.html)
@@ -3106,23 +3108,30 @@ See [JavaScript and search engines](#javascript-and-search-engines)
 
 **For multiple reasons (SEO, accessibility, archive, etc.), make the content your website accessible without script.**
 
-All crawler engines can't execute JS. Even Google Bot (one of the most advanced engine) don't always execute JS.
+All crawler engines can't execute JS. Even Google Bot (one of the most advanced engine) don't always execute JS (only in rendering phase, but in crawl phase).
 
-> Even with an improved ability to crawl JavaScript, Google will prefer pure HTML content because it takes up fewer resources. 
+> Even with an improved ability to crawl JavaScript, Google will prefer pure HTML content because it takes up fewer resources.
 
 > Googlebot uses a web rendering service (WRS) that is based on Chrome 41 (M41)
 – [Rendering on Google Search | Search | Google Developers](https://developers.google.com/search/docs/guides/rendering) - 2017-08-25
 
-Note: Chrome 41 was released in March 2015
+> Today, we are happy to announce that Googlebot now runs the latest Chromium rendering engine (74 at the time of this post) when rendering pages for Search. Moving forward, Googlebot will regularly update its rendering engine to ensure support for latest web platform features.
+– [Official Google Webmaster Central Blog: The new evergreen Googlebot](https://webmasters.googleblog.com/2019/05/the-new-evergreen-googlebot.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+blogspot%2FamDG+%28Official+Google+Webmaster+Central+Blog%29)
 
+Note: Chrome 41 was released in march 2015, Chrome 69 in septembre 2018
+
+- [Fix Search-related JavaScript problems  |  Search  |  Google Developers](https://developers.google.com/search/docs/guides/fix-search-javascript)
+- [Implement dynamic rendering  |  Search  |  Google Developers](https://developers.google.com/search/docs/guides/dynamic-rendering)
+- [Google Renders 98% Of Pages They Crawl But It Can Take Weeks](https://www.seroundtable.com/google-render-slow-26538.html)
+- [Going Beyond Google: Are Search Engines Ready for JavaScript Crawling & Indexing? - Moz](https://moz.com/blog/search-engines-ready-for-javascript-crawling)
 - [Use Fetch a Google for website - Search Console Help](https://support.google.com/webmasters/answer/6066468?hl=en) - 10 fetches per days
 - [JavaScript SEO Test](http://pstenstrm.se/seo/)
 - [Does Google crawl and index dynamic content?](http://www.centrical.com/test/google-json-ld-and-javascript-crawling-and-indexing-test.html)
 - [Does Google execute JavaScript? | Stephan Boyer](https://www.stephanboyer.com/post/122/does-google-execute-javascript)
 - [An update (March 2016) on the current state & recommendations for JavaScript in Google Search](https://plus.google.com/+JohnMueller/posts/LT4fU7kFB8W)
 - [JavaScript & SEO - What You Need To Know #SMXParis](https://www.slideshare.net/Badams/javascript-seo-what-you-need-to-know-smxparis) - Crawler, Indexer and Ranker
-- [Going Beyond Google: Are Search Engines Ready for JavaScript Crawling & Indexing? - Moz](https://moz.com/blog/search-engines-ready-for-javascript-crawling)
 - [Can Google Properly Crawl and Index JavaScript Frameworks? A JavaScript SEO Experiment. | Elephate](https://www.elephate.com/blog/javascript-seo-experiment/)
+- [What version of Chrome is Google actually using for rendering? - DeepCrawl](https://www.deepcrawl.com/blog/news/what-version-of-chrome-is-google-actually-using-for-rendering/)
 
 #### `<noscript>` and search engines
 
@@ -6164,6 +6173,7 @@ use ISO 8601 in JSON
 
 ## Troubleshooting
 
+- [Content blocking](#content-blocking)
 - safe browsing / ad blocker issues:
 	- `banner.jpg`, `ads.js` and `analytics.js`, `sponsor`
 	- analytics can even fails
@@ -6175,6 +6185,7 @@ use ISO 8601 in JSON
 	- [Don't use "ad" as a class · Issue #139 · rtsao/styletron](https://github.com/rtsao/styletron/issues/139)
 	- [Avoid the Twitter icon being blocked by AdBlock · whatwg/whatwg.org@20beccb](https://github.com/whatwg/whatwg.org/commit/20beccbcd71cd3c1d242bdd2043f1feb1cf7c67a)
 	- [Tim on Twitter: "Next.js uses nanoid, it’s a really small library to generate random ids. In this case the random id started with “ad_” which is on the Adblock list as “/static/ad_”, likeliness that another id like that will be generated is very low. We’ve patched it to be sure!… https://t.co/3wWnjrBN5N"](https://twitter.com/timneutkens/status/1112852174952939520)
+	- Opera and UC Browser include ad blockers
 - some pages or files are not display correctly. Do you use the `Vary` header to define on which request headers you use to deliver content (often `Accept-Encoding`, `User-Agent` or `Cookie`)
 - [Proxies can transform content](#proxies-can-transform-content)
 - scripts or content not executed/loaded because CSP don't allow it
@@ -6388,14 +6399,15 @@ SMS and phone call (voice):
 
 Aka Ads
 
-See also 
-- [Content Blocking](#content-blocking) - blocked ads by filters
+See also:
+
+- [Content blocking](#content-blocking) - blocked ads by filters
 - [Acceptable Ad criteria](https://acceptableads.com/en/about/criteria) - Rules by AdBlock
 - [SEO and ASO](#seo-and-aso) - balance between content and ads
 - [The Initial Better Ad Standard - Coalition for Better Ads](https://www.betterads.org/standards/) - Coalition for Better Ads
 - [Web Tools - Web Tools](https://www.google.com/webmasters/tools/ad-experience-unverified?pli=1) - [About the Ad Experience Report - Web Tool Help](https://support.google.com/webtools/topic/7073612?ref_topic=7566613)
 
-## Content Blocking
+## Content blocking
 
 Safe Browsing (UrlSubresourceFilter, BetterAds)
 
@@ -6413,6 +6425,8 @@ Safe Browsing (UrlSubresourceFilter, BetterAds)
 - [Focus by Firefox - Content Blocking for the Open Web - The Mozilla Blog](https://blog.mozilla.org/blog/2015/12/07/focus-by-firefox-content-blocking-for-the-open-web/)
 - [Selectively Filtering Content in Web Browsers – IEBlog](https://blogs.msdn.microsoft.com/ie/2010/11/30/selectively-filtering-content-in-web-browsers/)
 - [Storage access policy: Block cookies from trackers - Mozilla | MDN](https://developer.mozilla.org/fr/docs/Mozilla/Firefox/Privacy/Storage_access_policy#Tracking_protection_explained)
+- [Microsoft Edge – All the news from Build 2019 - Microsoft Edge Blog](https://blogs.windows.com/msedgedev/2019/05/06/edge-chromium-build-2019-pwa-ie-mode-devtools/) - Privacy tools: tracking prevention
+- [New Year, New Samsung Internet – Samsung Internet Developers – Medium](https://medium.com/samsung-internet-dev/new-year-new-samsung-internet-b74f282e4429) - Samsung Internet 9.2 includes Smart Anti-Tracking
 
 See also:
 

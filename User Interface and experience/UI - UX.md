@@ -525,6 +525,7 @@ Don't use select if you have less than 5 choices or more than 15 choices. Use in
 - [Redesigning The Country Selector – Smashing Magazine](https://www.smashingmagazine.com/2011/11/redesigning-the-country-selector/)
 - [Misusing the select control | Adam Silver | UX design, Front-end Engineering and Strategy | London, UK.](http://adamsilver.io/articles/misusing-the-select-control/)
 - [Don’t Use Split Buttons for Navigation Menus](https://www.nngroup.com/articles/split-buttons-navigation/)
+- [Dropdowns: Design Guidelines](https://www.nngroup.com/articles/drop-down-menus/)
 
 ### Multiple choice select
 
