@@ -382,6 +382,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 	- [rehype parse errors](https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse#optionsemitparseerrors)
 	- [SonarLint](https://www.sonarlint.org/)
 
+	See also linter for website/webpage
 	See also [globant-ui/arialinter](https://github.com/globant-ui/arialinter) (accessibility) and [DuaneOBrien/A11YLint-Brackets](https://github.com/DuaneOBrien/A11YLint-Brackets) (accessibility)
 	[Linter based on rehype · Issue #1 · rehypejs/ideas](https://github.com/rehypejs/ideas/issues/1)
 - Markdown/CommonMark:
@@ -439,6 +440,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 	- [webhint](https://github.com/webhintio/hint)
 	- [axe-core](https://github.com/dequelabs/axe-core) (accessibility)
 	- [Size Limit](https://github.com/ai/size-limit/) (webperf)
+	- [YozhikM/stylelint-a11y: Plugin for stylelint with a11y rules](https://github.com/YozhikM/stylelint-a11y) (accessibility)
 - Pull request: [Danger JS](https://github.com/danger/danger-js)
 - text:
 	- [yaspeller](https://github.com/hcodes/yaspeller)
