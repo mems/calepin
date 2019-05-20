@@ -434,8 +434,11 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 	- [PMD](https://github.com/pmd/pmd)
 - C#:
 	- [SonarLint](https://www.sonarlint.org/)
+- PO:
+	- [Dennis](https://dennis.readthedocs.io/en/latest/linting.html)
 	
 - git repository: repolinter
+- commit message: [commitlint](https://commitlint.js.org/)
 - website/webpage:
 	- [webhint](https://github.com/webhintio/hint)
 	- [axe-core](https://github.com/dequelabs/axe-core) (accessibility)
@@ -449,6 +452,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 - [hcodes/yaspeller: Search tool typos in the text, files and websites](https://github.com/hcodes/yaspeller)
 
 - [okonet/lint-staged: 🚫💩 — Run linters on git staged files](https://github.com/okonet/lint-staged)
+- [Introducing a fully extendable eslint plugin for JSON i18n translation files — GoDaddy Engineering Blog](https://godaddy.github.io/2018/04/02/introducing-eslint-plugin-i18n-json/)
 
 ## Source code organisation
 
