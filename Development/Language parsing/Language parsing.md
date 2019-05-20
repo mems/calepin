@@ -47,6 +47,7 @@ Generators:
 - [A Parser Combinator library for C ](https://github.com/orangeduck/mpc)
 - [Build parsers in Java](https://github.com/jparsec/jparsec)
 - [tree-sitter/tree-sitter: An incremental parsing system for programmings tools](https://github.com/tree-sitter/tree-sitter)
+- [SAP/chevrotain: Parser Building Toolkit for JavaScript](https://github.com/SAP/chevrotain)
 
 Examples:
 

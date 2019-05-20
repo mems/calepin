@@ -333,11 +333,120 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 
 Time spend vs quality / technical debt
 
+### Testing
+
 Domain-Driven Design : on étudie le problème en large et en travers avant de concevoir et avant de programmer
 
-- [Code smell — Wikipedia](https://en.wikipedia.org/wiki/Code_smell)
-- [Technical debt — Wikipedia](https://en.wikipedia.org/wiki/Technical_debt)
+- [unit testing](https://en.wikipedia.org/wiki/Unit_testing) (individual module testing) + [integration testing](https://en.wikipedia.org/wiki/Integration_testing) (test modules all together)
+- [Code smell](https://en.wikipedia.org/wiki/Code_smell)
+- [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
 - [Slow Is Fast](http://www.programmerfu.com/2017/04/20/fast-is-slow-slow-is-smooth-smooth-is-fast.html) - [Trolldi : pourquoi coder lentement c'est coder plus vite, mais aucun développeur ne peut le faire dans la réalité](https://www.developpez.com/actu/144428/Trolldi-pourquoi-coder-lentement-c-est-coder-plus-vite-mais-aucun-developpeur-ne-peut-le-faire-dans-la-realite/)
+
+### Linting and static analyzing
+
+- JavaScript/ECMAScript:
+	- ESLint
+	- JSLint
+	- JSHint
+	- [SonarLint](https://www.sonarlint.org/)
+	- [Standard JS](https://github.com/standard/standard)
+	- [PMD](https://github.com/pmd/pmd)
+- CSS:
+	- CSS Lint
+	- Stylelint (compatible with LESS and SASS)
+- Shell scripts:
+	- [ShellCheck](https://github.com/koalaman/shellcheck)
+- Docker files:
+	- hadolint
+- Ruby:
+	- Rubocop
+	- [SonarLint](https://www.sonarlint.org/)
+- PHP:
+	- [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+	- [phpstan](https://github.com/phpstan/phpstan)
+	- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+	- [SonarLint](https://www.sonarlint.org/)
+	
+	See also [Is there a static code analyzer \[like Lint\] for PHP files? - Stack Overflow](https://stackoverflow.com/questions/378959/is-there-a-static-code-analyzer-like-lint-for-php-files/379471#379471)
+- TypeScript:
+	- TSLint
+- Python:
+	- Flake8
+	- Black
+	- [pylint](https://github.com/PyCQA/pylint)
+	- Pylama
+	- [SonarLint](https://www.sonarlint.org/)
+- HTML:
+	- HtmlHint
+	- [selective lint](https://github.com/ChristianMurphy/selective)
+	- [rehype parse errors](https://github.com/rehypejs/rehype/tree/master/packages/rehype-parse#optionsemitparseerrors)
+	- [SonarLint](https://www.sonarlint.org/)
+
+	See also [globant-ui/arialinter](https://github.com/globant-ui/arialinter) (accessibility) and [DuaneOBrien/A11YLint-Brackets](https://github.com/DuaneOBrien/A11YLint-Brackets) (accessibility)
+	[Linter based on rehype · Issue #1 · rehypejs/ideas](https://github.com/rehypejs/ideas/issues/1)
+- Markdown/CommonMark:
+	- Markdownlint
+	- [remark-lint](https://github.com/remarkjs/remark-lint)
+- Swift:
+	- SwiftLint
+- Go:
+	- Revive
+	- Gofmt
+- Kotlin:
+	- Detekt
+	- [ktlint](https://github.com/pinterest/ktlint)
+	- Android Lint
+	- [SonarLint](https://www.sonarlint.org/)
+- C/C++:
+	- cppcheck
+	- cpplint
+	- [SonarLint](https://www.sonarlint.org/)
+- Rust:
+	- rustfmt
+	- [Clippy](https://github.com/rust-lang/rust-clippy)
+- Java:
+	- Google Java Format
+	- Android Lint
+	- [Error Prone](https://github.com/google/error-prone)
+	- [SpotBugs](https://github.com/spotbugs/spotbugs)
+	- [PMD](https://github.com/pmd/pmd)
+	- [SonarLint](https://www.sonarlint.org/)
+- SQL:
+	- [PHP-SQLlint](https://cweiske.de/tagebuch/php-sqllint.htm)
+	- [SqlFluff](https://github.com/alanmcruickshank/sqlfluff)
+- JSON:
+	- [JSON Lint](https://github.com/zaach/jsonlint)
+	
+	See [JSONLint - The JSON Validator](https://jsonlint.com/)
+- YAML:
+	- [yamllint](https://github.com/adrienverge/yamllint)
+	
+	See [YAMLlint - The YAML Validator](http://www.yamllint.com/)
+- Dart:
+	- dartfmt
+	
+	See [dart-lang/dart_style: An opinionated formatter/linter for Dart code](https://github.com/dart-lang/dart_style)
+- VBA/VB.Net:
+	- [Rubberduck](https://github.com/rubberduck-vba/Rubberduck/)
+	- [SonarLint](https://www.sonarlint.org/)
+- XML/XSL:
+	- [PMD](https://github.com/pmd/pmd)
+- C#:
+	- [SonarLint](https://www.sonarlint.org/)
+	
+- git repository: repolinter
+- website/webpage:
+	- [webhint](https://github.com/webhintio/hint)
+	- [axe-core](https://github.com/dequelabs/axe-core) (accessibility)
+	- [Size Limit](https://github.com/ai/size-limit/) (webperf)
+- Pull request: [Danger JS](https://github.com/danger/danger-js)
+- text:
+	- [yaspeller](https://github.com/hcodes/yaspeller)
+	- [textlint](https://github.com/textlint/textlint)
+- [sindresorhus/awesome-lint: Linter for Awesome lists](https://github.com/sindresorhus/awesome-lint)
+- [hcodes/yaspeller: Search tool typos in the text, files and websites](https://github.com/hcodes/yaspeller)
+
+- [okonet/lint-staged: 🚫💩 — Run linters on git staged files](https://github.com/okonet/lint-staged)
 
 ## Source code organisation
 

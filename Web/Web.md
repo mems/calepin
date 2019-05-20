@@ -1454,9 +1454,13 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 - [Appcanary: Should you encrypt or compress first?](http://blog.appcanary.com/2016/encrypt-or-compress.html)
 - [encryption - When compressing and encrypting, should I compress first, or encrypt first? - Stack Overflow](https://stackoverflow.com/questions/4676095/when-compressing-and-encrypting-should-i-compress-first-or-encrypt-first)
 
-- minification: optimize/reduce without require reverse operation, remove unessary data (duplicates, unused tags, selectors)
-	http://cssstats.com/
-	https://isellsoap.github.io/specificity-visualizer/
+- minification:
+	- optimize/reduce without require reverse operation
+	- remove unessary data (duplicates, unused tags, selectors)
+	- merge/round similar data, reduce precision (`0.2345` -> `.23`)
+	
+	- http://cssstats.com/
+	- https://isellsoap.github.io/specificity-visualizer/
 - compact/compress (require processing to recover operable state): pre-gzip. See [Precompress](#precompress) and [Content encoding`](#content-encoding)
 - use different compression algorithm, or a better tool/algorithm implementation (like zopfli for deflate)
 	- [Guetzli](https://github.com/google/guetzli/) can be use in conjunction of tools like [ImageOptim](https://imageoptim.com/)
@@ -1518,6 +1522,13 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	
 		To investigate: store vector using SWF, decompress on the fly (to SVG) with ServiceWorker; decompress biJPEG to PNG or webp with OfflineCanvas
 	- use the right dimensions (ex.: thumbnails)
+- 3D models:
+	drops leading zeroes (`-0.5` -> `-.5`) and changes the scale of the model
+
+	- https://jsfiddle.net/w43q2mac/ - optimize OBJ file
+	- [😏 on Twitter: "in case you want to reduce obj file by 20-40% https://t.co/saHVrLtdjm"](https://twitter.com/makc3d/status/896495973572247553)
+	- [OBJ compression to the smallest file size possible – Compress-Or-Die](https://compress-or-die.com/obj/)
+	- https://compress-or-die.com/public/javascript/OBMLoader.min.js - [OBJ compression to the smallest file size possible – Compress-Or-Die](https://compress-or-die.com/obj-process?example)
 - fonts:
 	- use [WOFF](WOFF) especially WOFF2 (use a Brotli instead of Deflate, a gain of ~26%). For WOFF (v1) optimize compression with Zopfli
 	- create WOFF files from OpenType/CFF font (instead of TrueType) (OpenType/CFF use cubic Bézier vs quadratic Bézier for TrueType)
@@ -1907,6 +1918,15 @@ Note: `Cache-Control: no-cache` is for HTTP/1.1 where `Pragma: no-cache` is for 
 
 See [Relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
+### Reduce CPU/GPU
+
+Code markup:
+
+Client side: Serve HTML + CSS + JS + Execute JS
+Server side: Serve HTML (gzipped, a tiny tiny bit more) + CSS
+
+- [Jake Archibald on Twitter: "I took the code examples from https://t.co/Oyiax6163l and compared with highlighting markup, and without (https://t.co/oIYkvupr2D). After gzip: With highlighting markup: 900b. Without highlighting markup: 723b. PrismJS: 5.2k.… https://t.co/0xcp53jdrB"](https://twitter.com/jaffathecake/status/1113017397655547905)
+
 ### Control loading
 
 Load based on the device or network capabilities:
@@ -2197,6 +2217,7 @@ For images (works better with progressive images), in Edge Workers (Service Work
 6. send the rest
 
 - [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU?start=1035&end=1650)
+- [HTTP/2 progressive image streaming](https://blog.cloudflare.com/parallel-streaming-of-progressive-images/)
 
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
 - [Modern Asynchronous CSS Loading | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/async-css.html)
@@ -3113,12 +3134,10 @@ All crawler engines can't execute JS. Even Google Bot (one of the most advanced 
 > Even with an improved ability to crawl JavaScript, Google will prefer pure HTML content because it takes up fewer resources.
 
 > Googlebot uses a web rendering service (WRS) that is based on Chrome 41 (M41)
-– [Rendering on Google Search | Search | Google Developers](https://developers.google.com/search/docs/guides/rendering) - 2017-08-25
+– [Rendering on Google Search | Search | Google Developers](https://developers.google.com/search/docs/guides/rendering) - 2017-08-25 (Chrome 41 was released in march 2015)
 
 > Today, we are happy to announce that Googlebot now runs the latest Chromium rendering engine (74 at the time of this post) when rendering pages for Search. Moving forward, Googlebot will regularly update its rendering engine to ensure support for latest web platform features.
-– [Official Google Webmaster Central Blog: The new evergreen Googlebot](https://webmasters.googleblog.com/2019/05/the-new-evergreen-googlebot.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+blogspot%2FamDG+%28Official+Google+Webmaster+Central+Blog%29)
-
-Note: Chrome 41 was released in march 2015, Chrome 69 in septembre 2018
+– [Official Google Webmaster Central Blog: The new evergreen Googlebot](https://webmasters.googleblog.com/2019/05/the-new-evergreen-googlebot.html)
 
 - [Fix Search-related JavaScript problems  |  Search  |  Google Developers](https://developers.google.com/search/docs/guides/fix-search-javascript)
 - [Implement dynamic rendering  |  Search  |  Google Developers](https://developers.google.com/search/docs/guides/dynamic-rendering)

@@ -107,6 +107,15 @@ or
 
 Use a name that describe it's usage like `childIndex` or `wheelIndex` instead of `i`, `j` or `ii`
 
+### Semicolons
+
+Are optional, but required in some cases
+
+> if the next line start with a `[`, `(`, `` ` ``, `+`, `*`, `/`, `-`, `,`, `.`.
+
+- [blog.izs.me](https://blog.izs.me/2010/12/an-open-letter-to-javascript-leaders-regarding)
+- [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)
+
 ## Prototype
 
 - [Document Object Model Prototypes, Part 1](https://msdn.microsoft.com/en-us/library/dd282900%28v=vs.85%29.aspx)
@@ -807,6 +816,8 @@ Some JS/ECMAScript Engines are not optimised for extrem long switch. Use if-else
 	// Pseudo code
 	while (true)
 	{
+		nextToken = readToken()
+		
 		switch (true)
 		{
 			case currentToken is A && nextToken is B:
@@ -833,7 +844,7 @@ See [language parsing (see `goto`s)](Language parsing)
 
 To speed up results of often call function like `Math.sqrt`, pre-compute all values (with precision error):
 
-	var lut = new LUT(2, 100, Math.sqrt);
+	const lut = new LUT(2, 100, Math.sqrt);
 	lut.val(25);//
 
 	/**
@@ -856,15 +867,15 @@ To speed up results of often call function like `Math.sqrt`, pre-compute all val
 		*               Must be valid on [0,max).
 		*   @throws Error If func is null or invalid on [0,max)
 		*/
-		function LUT(numDigits, max, func)
+		constructor(numDigits, max, func)
 		{
-			var pow:Number = this.pow = Math.pow(10, numDigits);
-			var round:Number = 1 / pow;
-			var len:uint = 1 + max * pow;
-			var table = this.table = new Array(len);
+			const pow = this.pow = Math.pow(10, numDigits);
+			const round = 1 / pow;
+			const len = 1 + max * pow;
+			const table = this.table = new Array(len);
 			
-			var val:Number = 0;
-			for (var i = 0; i < len; i++)
+			let val = 0;
+			for (let i = 0; i < len; i++)
 			{
 				table[i] = func(val);
 				val += round;
@@ -876,9 +887,9 @@ To speed up results of often call function like `Math.sqrt`, pre-compute all val
 		*   @param val Input value to look up the value of
 		*   @return The value of the given input
 		*/
-		function val(val)
+		val(val)
 		{
-			return this.table[Math.floor(val*this.pow)];
+			return this.table[Math.floor(val * this.pow)];
 		}
 	}
 
@@ -910,6 +921,21 @@ Binary flags:
 Where flag are unsigned integer with value power of 2: (0, 0x0), (1, 0x1), (2, 0x2, `1 << 1`), (4, 0x4, `1 << 2`), …
 
 See [Bitwise operations](#bitwise-operations)
+
+### Remove an item in an unsorted array
+
+Instead (it's slow):
+
+```js
+array.splice(index, 1);
+```
+
+Replace the current element with the last array item and pop:
+
+```js
+array[index] = array[array.length - 1];// replace with the last item
+array.pop();
+```
 
 ## Bitwise operations
 

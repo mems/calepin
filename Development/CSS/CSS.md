@@ -1700,6 +1700,9 @@ Aka `font-smooth`, font smoothing
 
 But still accessible (and selectable)
 
+- [Hiding DOM elements - ally.js](https://allyjs.io/tutorials/hiding-elements.html#hiding-dom-elements)
+- [WebAIM: CSS in Action - Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+
 #### `padding-top`
 
 Use `padding-top` to push down the content:

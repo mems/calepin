@@ -36,6 +36,7 @@ Lightroom infos:
 - [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU&start=66&end=616) - How JPEG works
 - PDF uses JPEG2000
 - [Unraveling The JPEG](https://parametric.press/issue-01/unraveling-the-jpeg/)
+- [Finally understanding JPG – Compress-Or-Die](https://compress-or-die.com/Understanding-JPG/)
 
 Luminance, Chroma Blue, Chroma Red
 

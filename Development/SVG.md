@@ -528,6 +528,7 @@ Don't remove `xmlns="http://www.w3.org/2000/svg"` if you not inline the SVG docu
 - remove subtle transforms ex: `matrix(1 0 0 1 -1.220703e-04 -6.103516e-05)`
 - remove on root `<svg></svg>` attributes like `id`, `x`, `y`, `width`, `height`, `enabled-background`, `xml:space`...
 - precompress (gzip) and use appropriate headers http://kaioa.com/node/45
+- reduce precision
 
 - `<?xml version="1.0"?>` can be omitted
 - `xmlns:xlink="http://www.w3.org/1999/xlink"` can be removed if not used

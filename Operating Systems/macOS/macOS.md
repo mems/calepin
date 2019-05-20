@@ -1598,7 +1598,8 @@ Install:
 
 ### VPN
 
-- http://superuser.com/questions/744174/mac-os-x-and-vpn-option-all-traffic-over-vpn
+- [macos - Mac OS X and VPN Option all traffic over vpn - Super User](https://superuser.com/questions/744174/mac-os-x-and-vpn-option-all-traffic-over-vpn)
+- [Overriding Routing for VPNs on macOS - Dennis Tsang](https://dennistt.net/2019/05/05/overriding-routing-for-vpns-on-macos/)
 
 ### Local TLD
 

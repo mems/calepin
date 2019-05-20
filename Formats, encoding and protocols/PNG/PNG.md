@@ -24,6 +24,7 @@ See also MNG
 - https://github.com/HaxeFoundation/format/tree/master/format/png
 - [Performance Calendar » PNG that works](http://calendar.perfplanet.com/2010/png-that-works/)
 - [photopea/UPNG.js: Fast and advanced PNG decoder](https://github.com/photopea/UPNG.js)
+- [Finally understanding PNG – Compress-Or-Die](https://compress-or-die.com/Understanding-PNG/)
 
 ## Fireworks PNG
 
