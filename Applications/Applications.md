@@ -14,6 +14,23 @@ Awesome bar:
 
 - Open Tabs to the right of the current tab: `about:config?filter=browser.tabs.insertAfterCurrent`, https://addons.mozilla.org/en-US/firefox/addon/always-right/
 
+### Session / tabs
+
+1. open `about:support` (profile directory)
+2. open the directory
+3. open the sub directory `sessionstore-backups`
+
+Files in this directory:
+
+- `previous.jsonlz4`: cleanBackup: copy of sessionstore.js from previous session that was loaded successfully
+- `recovery.jsonlz4`: latest version of the sessionstore written during runtime
+- `recovery.baklz4`: previous version of the sessionstore written during runtime
+- `upgrade.jsonlz4-<build_id>`: backup created during an upgrade of Firefox
+
+See also:
+
+- [Session History Scrounger for Firefox (with lz4 support) — Fx File Utilities](https://www.jeffersonscher.com/ffu/scrounger.html) - read file format in `sessionstore-backups` directory
+
 ## Thunderbird
 
 Wrap lines:
