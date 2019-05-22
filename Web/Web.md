@@ -3848,24 +3848,26 @@ Plugins and libs:
 
 Use `target="_blank"` (adviced) and `rel="nofollow"` (required).
 
-	// Note: chrome doesn't support "noopener", that break other features
-	const width = 600;
-	const height = 600;
-	const left = (window.screen.width - width) / 2 - 10;
-	const top = (window.screen.height - height) / 2 - 50;
-	
-	// top and left not work when the opener window is at secondary screen.
-	const intentWindow = window.open("about:blank", "Share on Twitter", `resizable,scrollbars,noopener,status,width=${width},height=${height},left=${left},top=${top}`);
-	
-	// Or:
-	//const intentWindow = window.open("about:blank", "Share on Twitter", `resizable,scrollbars,noopener,status`);
-	//intentWindow.resizeBy(width - shareWindow.innerHeight, height - shareWindow.innerWidth);// resize to match requested size for the content (innerWidth and innerHeight)
-	//intentWindow.moveTo(top, left);// don't support toolbars, scrollbars, and other UI element size. But let the browser to choose where the popup should be
-	
-	// Clear opener (for security purpose)
-	intentWindow.document.write(`<script>window.opener=null;location.replace("${url}");setTimeout(function(){window.close();}, 2000)</script>`);// on iOS, when an Universal Link is registered by an app (ex: Twitter catch all URLs https://www.twitter.com/*), it could handle the URL, leaving the about:blank page opened. Else wait few second let the time to the next page to load and discard the setTimeout.
-	// doc.write is a navigation and require doc.close()
-	// data URI can't be used here because of IE. You can use blob URI, but it's not pratical because we need to revoke the object URL once the popup is loaded
+```js
+// Note: chrome doesn't support "noopener", that break other features
+const width = 600;
+const height = 600;
+const left = (window.screen.width - width) / 2 - 10;
+const top = (window.screen.height - height) / 2 - 50;
+
+// top and left not work when the opener window is at secondary screen.
+const intentWindow = window.open("about:blank", "Share on Twitter", `resizable,scrollbars,noopener,status,width=${width},height=${height},left=${left},top=${top}`);
+
+// Or:
+//const intentWindow = window.open("about:blank", "Share on Twitter", `resizable,scrollbars,noopener,status`);
+//intentWindow.resizeBy(width - shareWindow.innerHeight, height - shareWindow.innerWidth);// resize to match requested size for the content (innerWidth and innerHeight)
+//intentWindow.moveTo(top, left);// don't support toolbars, scrollbars, and other UI element size. But let the browser to choose where the popup should be
+
+// Clear opener (for security purpose)
+intentWindow.document.write(`<script>window.opener=null;location.replace("${url}");setTimeout(function(){window.close();}, 2000)</script>`);// on iOS, when an Universal Link is registered by an app (ex: Twitter catch all URLs https://www.twitter.com/*), it could handle the URL, leaving the about:blank page opened. Else wait few second let the time to the next page to load and discard the setTimeout.
+// doc.write is a navigation and require doc.close()
+// data URI can't be used here because of IE. You can use blob URI, but it's not pratical because we need to revoke the object URL once the popup is loaded
+```
 
 Note: if the intent document load start can't be made direclty after the user interaction (set the final `window.open` href in click listener), open a blank document the intent window first, and later (after a asynchronous task, update the content of popup) set the final URL
 
