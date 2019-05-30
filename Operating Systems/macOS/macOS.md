@@ -2014,6 +2014,8 @@ Aka login screen text
 
 > If found, please contact XXXX XXXX at YYYYYYYYYYY or at ZZZZZZ@ZZZZZZ.ZZZZ
 
+Control+Command+Q
+
 - [How to set a lock message on the login window of your Mac - Apple Support](https://support.apple.com/en-us/HT203580) - Settings > security and privacy > (unlock with padlock) > Show a message when the screen is locked
 - [Onyx](https://www.titanium-software.fr/) - Settings > Session > Login screen message
 - [How and Why You Should Customise Your Mac's Login Screen](https://computers.tutsplus.com/tutorials/how-and-why-you-should-customise-your-macs-login-screen--mac-56657)

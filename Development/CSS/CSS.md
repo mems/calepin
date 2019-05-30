@@ -436,6 +436,7 @@ Use CSS grid
 - [Hardcore CSS calc( ) – Buildit @ Wipro Digital – Medium](https://medium.com/buildit/hardcore-css-calc-bdfb0162993c)
 - [HOW TO: Pure CSS masonry layouts – Medium](https://medium.com/@_jh3y/how-to-pure-css-masonry-layouts-a8ede07ba31a#)
 - [Create a Responsive CSS-only Masonry layout](http://w3bits.com/css-masonry/) (use columns) like https://codepen.io/AdamBlum/pen/fwrnE
+- [CSS masonry with flexbox, :nth-child(), and order | Tobias Ahlin](https://tobiasahlin.com/blog/masonry-with-css/)
 - (JS) https://github.com/desandro/masonry
 - (JS), 2 cols:
 
@@ -860,6 +861,7 @@ Can be required for IE for inline SVG too.
 
 Use `flex-direction: column;` on `tr`. But don't handle well cell with different height.
 
+- [Flexible data tables with CSS Grid](https://adamlynch.com/flexible-data-tables-with-css-grid/)
 - [CSS only Responsive Tables](http://codepen.io/dbushell/pen/wGaamR)
 - [CSS only Responsive Tables – David Bushell – Web Design & Front-end Development (based in Manchester, UK)](http://dbushell.com/2016/03/04/css-only-responsive-tables/)
 - [Responsive Tables - a Collection by Chris Coyier on CodePen](http://codepen.io/collection/AdGVYP/)

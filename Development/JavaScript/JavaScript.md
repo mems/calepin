@@ -4406,6 +4406,7 @@ Note: It's impossible to observe only namespaced attributes like `xlink:href`, b
 - [Three Real-World Uses for Mutation Observer - Eager Blog](https://eager.io/blog/three-real-world-use-cases-for-mutation-observer/)
 - [javascript - Performance of MutationObserver to detect nodes in entire DOM - Stack Overflow](https://stackoverflow.com/questions/31659567/performance-of-mutationobserver-to-detect-nodes-in-entire-dom/39332340#39332340) - Tips about observing node in the whole document
 - [Mutation Observer notes - QuirksBlog](https://www.quirksmode.org/blog/archives/2017/11/mutation_observ.html)
+- [Examples Using the MutationObserver API - a Collection by Louis Lazaris on CodePen](https://codepen.io/collection/njwmrK/#)
 
 ### Create a stylesheet
 
