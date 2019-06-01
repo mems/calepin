@@ -57,3 +57,8 @@ Certains utilisent de la cire pour protéger les plastiques / carroserie
 - [Quelques produits recommandés pour l'entretien de sa moto](http://www.motoservices.com/entretien/produits.htm)
 - [Moto : laver ou faire laver sa moto](http://www.motoservices.com/entretien/laver.htm)
 - http://www.motoservices.com/reparer-moto/nettoyer-moto-protection-2k10098.htm
+
+## Pneumatiques
+
+- [Changer ses pneus moto - Tuto Moto Magazine - YouTube](https://www.youtube.com/watch?v=gFWBx3Y-eqU)
+- [Équilibrer ses roues de moto - TUTO Moto Magazine - YouTube](https://www.youtube.com/watch?v=slqOyS_oEoU)

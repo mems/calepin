@@ -1987,6 +1987,14 @@ Aka defragmentation
 
 - [Create or resize sparsebundle](#create-or-resize-sparsebundle)
 
+### Split disk image
+
+```sh
+hdiutil segment -segmentSize 1G -o "disk-1G-parts.dmg" "/path/to/disk.dmg"
+```
+
+Will generate files `*.XXX.dmgpart` and `*.dmg`
+
 ## Startup and login
 
 ### Startup chime
@@ -2126,6 +2134,29 @@ defaults write com.apple.LaunchServices LSQuarantine -bool NO
 ### Certificats
 
 Delete Known Government-Linked Certificate Authorities: https://github.com/sammcj/delete-unknown-root-ca
+
+### FileVault
+
+```sh
+diskutil cs list | grep "Conversion Progress"
+diskutil apfs list | grep "FileVault"
+```
+
+```
+Conversion Progress:       Optimizing 39%
+
+FileVault:                 Yes (Unlocked)
+
+FileVault:                 No (Encrypted at rest)
+```
+
+- [How to View FileVault Progress When Encrypting a Mac Disk](http://osxdaily.com/2017/02/08/view-filevault-progress-mac/)
+- [Secure Enclave, Mac SSD hardware encryption and the future of FileVault | Der Flounder](https://derflounder.wordpress.com/2018/01/08/secure-enclave-mac-ssd-hardware-encryption-and-the-future-of-filevault/)
+- [Set a FileVault recovery key for computers in your institution - Apple Support](https://support.apple.com/en-us/HT202385) - Use same master key
+
+### Firmware password
+
+- [How to set a firmware password on your Mac - Apple Support](https://support.apple.com/en-us/HT204455)
 
 ## Applications
 
@@ -2698,30 +2729,3 @@ Icon can be change be changed in `/System/Library/Displays/Overrides/Icons.plist
 - `log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h`
 - [MacBook Pro's shutting down in sleep | Discussion | Jamf Nation](https://www.jamf.com/jamf-nation/discussions/24990/macbook-pro-s-shutting-down-in-sleep)
 - [How Power Nap works on your Mac - Apple Support](https://support.apple.com/en-us/HT204032)
-
-## FileVault
-
-```sh
-diskutil cs list | grep "Conversion Progress"
-diskutil apfs list | grep "FileVault"
-```
-
-```
-Conversion Progress:       Optimizing 39%
-
-FileVault:                 Yes (Unlocked)
-
-FileVault:                 No (Encrypted at rest)
-```
-
-- [How to View FileVault Progress When Encrypting a Mac Disk](http://osxdaily.com/2017/02/08/view-filevault-progress-mac/)
-- [Secure Enclave, Mac SSD hardware encryption and the future of FileVault | Der Flounder](https://derflounder.wordpress.com/2018/01/08/secure-enclave-mac-ssd-hardware-encryption-and-the-future-of-filevault/)
-- [Set a FileVault recovery key for computers in your institution - Apple Support](https://support.apple.com/en-us/HT202385) - Use same master key
-
-## Split disk image
-
-```sh
-hdiutil segment -segmentSize 1G -o "disk-1G-parts.dmg" "/path/to/disk.dmg"
-```
-
-Will generate files `*.XXX.dmgpart` and `*.dmg`

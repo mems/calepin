@@ -254,6 +254,33 @@ It's like unsolicited "redesign" website or app (without real constraints). See 
 > Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
 > — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
 
+> Making artwork, on its own, is challenging. If you want to develop the business side of that, it's a whole other thing. You need to be prepared to dedicate time to things like:
+> 
+> - Building a website
+> - Ordering prints
+> - Buying shipping materials
+> - Packaging art for shipping
+> - Going to the post office, filling out customs forms
+> - Posting your artwork online on various platforms
+> - Connecting with other artists, supporting them, and learning from them
+> - Doing taxes
+> - Responding to loads of random emails
+> - Photographing your work
+> - Editing photographs of your work
+> - Keeping your work organized, accessible, and backed up
+> - Framing your work (buying materials, cutting mats, etc)
+> - Hanging your work for shows
+> - Talking with folks who enjoy your work during opening receptions, studio tours, interviews, etc.
+> - Sending invoices
+> - Negotiating commissions and licensing deals
+> - Speaking about your work at events
+> - Delivering your work in person
+> - Reading about all the things you don't know about running a business, like marketing, accounting, and sales
+> - Writing about your work, including about a dozen variations of an artist's statement, which is possibly the least fun thing to write
+> 
+> This adds up to a large percentage of your time, often more time than you get to spend creating artwork.
+> — [Reflections on Five Years of Making Art Through Programming — TYLER HOBBS](https://tylerxhobbs.com/essays/2019/reflections-on-five-years-of-making-art-through-programming)
+
 See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
 
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
