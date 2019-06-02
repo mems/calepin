@@ -1,6 +1,6 @@
 ## Color
 
-See [OpenType font](OpenType font#color)
+See [OpenType font](../OpenType%20font%20-%20OTF%20-%20TTF/OpenType.md#color)
 
 - [iamcal/emoji-data: Easy to parse data and spritesheets for emoji](https://github.com/iamcal/emoji-data)
 - [715798 - add color emoji support to Gecko](https://bugzilla.mozilla.org/show_bug.cgi?id=715798)

@@ -1,7 +1,7 @@
 Convert all PNG to JPEG with quality 90: `mogrify -verbose -format jpg -quality 90 *.png`
 
 Lightroom infos:
-> “0 quality” is not zero [...] “0-100” is really “0-12” [eg. 13 grades]
+> “0 quality” is not zero \[...\] “0-100” is really “0-12” \[eg. 13 grades\]
 [Jeffrey Friedl's Blog » An Analysis of Lightroom JPEG Export Quality Settings](http://regex.info/blog/lightroom-goodies/jpeg-quality#surprise)
 
 ## Format
@@ -139,11 +139,11 @@ Via quantization tables.
 ## Compression optimization
 
 > By default, JPEG will half the resolution of colour data, but you can disable this. You'll need to lower the overall quality to achieve the same file size, but the colours will stay sharper.
-> [...] below 90% quality many encoders will default to 4:2:0 subsampling
+> \[...\] below 90% quality many encoders will default to 4:2:0 subsampling
 > — [Jake Archibald on Twitter: "By default, JPEG will half the resolution of colour data, but you can disable this. You'll need to lower the overall quality to achieve the same file size, but the colours will stay sharper. https://t.co/N4XD3KFOvM Here's the original vs the JPEG too: https://t.co/g3mBJp68I9"](https://twitter.com/jaffathecake/status/1077881624765833218)
 
 - [ImpulseAdventure - JPEG Huffman Coding Tutorial](http://www.impulseadventure.com/photo/jpeg-huffman-coding.html)
-- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/15) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page15)
+- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/15) - see [A picture costs a thousand words](./a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page15)
 - [jpegcrush](http://akuvian.org/src/jpgcrush.tar.gz) (use jpegtran to trial many progressive configurations, same as JPEGrescan)
 - [jpegoptim](https://github.com/glennr/jpegoptim)
 - [png and jpg size optimization scripts](https://github.com/clyfish/pngopt)
@@ -283,4 +283,4 @@ Aka lossless orientation
 
 Use it if you don't want to recompress the image data (quality loss)
 
-See [Orientation](EXIF#orientation)
+See [Orientation](../EXIF/EXIF.md#orientation)

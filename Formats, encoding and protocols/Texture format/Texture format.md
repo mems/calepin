@@ -35,9 +35,9 @@ Reduce artifacts
 - add noise post-processing (shader, blend with an other texture)
 - bleed edges
 	See also alpha bleeding
-	* [Adding bleed margins to CSS sprites with ImageMagick - Super User](http://superuser.com/questions/755134/adding-bleed-margins-to-css-sprites-with-imagemagick)
+	- [Adding bleed margins to CSS sprites with ImageMagick - Super User](http://superuser.com/questions/755134/adding-bleed-margins-to-css-sprites-with-imagemagick)
 - alpha bleeding: adds color to transparent pixels of adjacent opaque pixels by repeating a sprite's outer color values (like bleed edges, but only for RGB channels)
-	See also bleed edges and [Color bleed](Color bleed).
+	See also bleed edges and [Color bleed](../../Graphics/Color%20bleed/Color%20bleed.md).
 
 	Happend when textures when transform is applyed (scale, rotation, perspective).
 	
@@ -51,26 +51,26 @@ Reduce artifacts
 	Should be aligned to few blocks (texture compression blocks) aways
 	Fully transparent pixels are often filled with `rgba(1.0, 1.0, 1.0, 0.0)`
 	
-	* [Unity - Manual: How do I Import Alpha Textures?](https://docs.unity3d.com/Manual/HOWTO-alphamaps.html) and `AlphaUtility.atn`
-	* [PNG transparency has white border/halo - Unity Answers](http://answers.unity3d.com/questions/238922/png-transparency-has-white-borderhalo.html#answer-949217)
-	* [Messy Alpha Problem - White around edges - Unity Answers](http://answers.unity3d.com/questions/10302/messy-alpha-problem-white-around-edges.html)
-	* [OpenGL filters and Sprite bleeding | J Fixby](https://jfixbi.wordpress.com/2013/02/23/opengl-filters/)
-	* [Scaling images with alpha - Wolfire Games Blog](http://blog.wolfire.com/2009/01/scaling-images-with-alpha/)
+	- [Unity - Manual: How do I Import Alpha Textures?](https://docs.unity3d.com/Manual/HOWTO-alphamaps.html) and `AlphaUtility.atn`
+	- [PNG transparency has white border/halo - Unity Answers](http://answers.unity3d.com/questions/238922/png-transparency-has-white-borderhalo.html#answer-949217)
+	- [Messy Alpha Problem - White around edges - Unity Answers](http://answers.unity3d.com/questions/10302/messy-alpha-problem-white-around-edges.html)
+	- [OpenGL filters and Sprite bleeding | J Fixby](https://jfixbi.wordpress.com/2013/02/23/opengl-filters/)
+	- [Scaling images with alpha - Wolfire Games Blog](http://blog.wolfire.com/2009/01/scaling-images-with-alpha/)
 - clean transparent pixels (outside alpha bleeding)
 - align to compression blocks
-- use [dithering](Random, noise and dithering#dithering):
+- use [dithering](../../Algorithms/Random,%20noise%20and%20dithering/Random,%20noise%20and%20dithering.md#dithering):
 	Add noise pre-processing (before compression) depends algorithm used to compress (especially for gradient with PVRTC1). See [Making the quality of PVRTC textures higher | Heyworks Blog](http://wayback.archive.org/web/20160406130348/http://blog.heyworks.com/making-the-quality-of-pvrtc-textures-higher/) or [Избавление от артефактов сжатия PVRTC текстур / Хабрахабр](https://habrahabr.ru/post/158963/)
 	
-	* nearest-neighbour, has the least color error but color distribution leads to less contrast than linear.
-	* linear color distribution with some color error but better contrast than nearest-neighbour.
-	* Floyd-Steinberg
-	* Floyd-Steinberg with alpha values.
-	* Atkinson
-	* Atkinson with alpha values.
+	- nearest-neighbour, has the least color error but color distribution leads to less contrast than linear.
+	- linear color distribution with some color error but better contrast than nearest-neighbour.
+	- Floyd-Steinberg
+	- Floyd-Steinberg with alpha values.
+	- Atkinson
+	- Atkinson with alpha values.
 - use channel swizzle (require shader when it's not supported): [Texture swizzling in OpenGL, OpenGL ES and WebGL](https://www.g-truc.net/post-0734.html)
 	Add more precision to defined channels
 	
-	* https://www.opengl.org/wiki/Texture#Swizzle_mask
+	- https://www.opengl.org/wiki/Texture#Swizzle_mask
 	
 - [How to get the best out of PVRTC for iOS - Kruger Heavy Industries Devlog](http://www.krugerheavyindustries.com/pebble/2012/04/02/1333338720000.html)
 
@@ -96,22 +96,23 @@ Specific: Crabby, S3TC/DXT derivated (RGBV, RGBM, CRN, YCoCg DXT5)
 
 Block Compression:
 
-FOURCC								DX Name		Bit/channel		Description				Alpha premultiplied?	Compression ratio				Texture Type
-DXT1								BC1							1-bit Alpha / Opaque	Yes						6:1(for 24 bit source image)	Simple non-alpha
-DXT2								BC2							Explicit alpha			Yes						4:1								Sharp alpha
-DXT3								BC2							Explicit alpha			No						4:1								Sharp alpha
-DXT4								BC3							Interpolated alpha		Yes						4:1								Gradient alpha
-DXT5								BC3							Interpolated alpha		No						4:1								Gradient alpha
+| FOURCC | DX Name | Bit/channel | Description          | Alpha premultiplied? | Compression ratio            | Texture Type     |
+|--------|---------|-------------|----------------------|----------------------|------------------------------|------------------|
+| DXT1   | BC1     |             | 1-bit Alpha / Opaque | Yes                  | 6:1(for 24 bit source image) | Simple non-alpha |
+| DXT2   | BC2     |             | Explicit alpha       | Yes                  | 4:1                          | Sharp alpha      |
+| DXT3   | BC2     |             | Explicit alpha       | No                   | 4:1                          | Sharp alpha      |
+| DXT4   | BC3     |             | Interpolated alpha   | Yes                  | 4:1                          | Gradient alpha   |
+| DXT5   | BC3     |             | Interpolated alpha   | No                   | 4:1                          | Gradient alpha   |
 
-Name								FourCC	DX name	Channels	Depth (bit/channel)		rate (bit/px)	Alpha						Comment
-BCn											BCn		Type Of Data						Data Rate						Palette Size		Line Segments		Use For
-BC1									DXT1	BC1		RGB + optional 1-bit alpha			4 bit/px						4					1					Color maps Cutout color maps (1-bit alpha), Normal maps, if memory is tight
-BC2									DXT2-3	BC2		RGB + 4-bit alpha					8 bit/px						4					1					n/a
-BC3									DXT4-5	BC3		RGBA								8 bit/px						4 color + 8 alpha	1 color + 1 alpha	Color maps with full alpha, Packing color and mono maps together
-BC4											BC4		Grayscale							4 bit/px						8					1					Height maps, Gloss maps, Font atlases, Any grayscale image
-BC5											BC5		2 × grayscale						8 bit/px						8 per channel		1 per channel		Tangent-space normal maps
-BC6											BC6		RGB, floating-point					8 bit/px						8–16				1–2					HDR images
-BC7											BC7		RGB or RGBA							8 bit/px						4–16				1–3					High-quality color maps, Color maps with full alpha
+| Name | FourCC | DX name | Channels                   | Data Rate | Palette Size      | Line Segments     | Use For                                                                     |
+|------|--------|---------|----------------------------|-----------|-------------------|-------------------|-----------------------------------------------------------------------------|
+| BC1  | DXT1   | BC1     | RGB + optional 1-bit alpha | 4 bit/px  | 4                 | 1                 | Color maps Cutout color maps (1-bit alpha), Normal maps, if memory is tight |
+| BC2  | DXT2-3 | BC2     | RGB + 4-bit alpha          | 8 bit/px  | 4                 | 1                 | n/a                                                                         |
+| BC3  | DXT4-5 | BC3     | RGBA                       | 8 bit/px  | 4 color + 8 alpha | 1 color + 1 alpha | Color maps with full alpha, Packing color and mono maps together            |
+| BC4  |        | BC4     | Grayscale                  | 4 bit/px  | 8                 | 1                 | Height maps, Gloss maps, Font atlases, Any grayscale image                  |
+| BC5  |        | BC5     | 2 × grayscale              | 8 bit/px  | 8 per channel     |                   | 1 per channel                                                               |
+| BC6  |        | BC6     | RGB, floating-point        | 8 bit/px  | 8–16              | 1–2               | HDR images                                                                  |
+| BC7  |        | BC7     | RGB or RGBA                | 8 bit/px  | 4–16              | 1–3               | High-quality color maps, Color maps with full alpha                         |
 
 - [Block Compression (Direct3D 10) (Windows)](https://msdn.microsoft.com/en-us/library/bb694531.aspx)
 - [Texture Block Compression in Direct3D 11 (Windows)](https://msdn.microsoft.com/en-us/library/hh308955.aspx)
@@ -132,11 +133,13 @@ BC7											BC7		RGB or RGBA							8 bit/px						4–16				1–3					High-qual
 - [Legacy:Texture Format - Unreal Wiki](https://wiki.beyondunreal.com/Legacy:Texture_Format)
 
 > - Vulkan is based on Mantle and usable on "OpenGL 4.x / OpenGL ES3.1" compatible hardware.
-> - Mantle 1.0 has in core[1] : BC1/DXT1, BC2/DXT3, BC3/DXT5, BC4/ATI1/3Dc+/RGTC1, BC5/ATI2/3Dc/DXN/RGTC2, BC6 and BC7/BPTC.
+> - Mantle 1.0 has in core[^1] : BC1/DXT1, BC2/DXT3, BC3/DXT5, BC4/ATI1/3Dc+/RGTC1, BC5/ATI2/3Dc/DXN/RGTC2, BC6 and BC7/BPTC.
 > - OpenGL 4.3 has in core: ETC2/EAC, RGTC/BC4&5 and BPTC/BC6&7, plus extensions for S3TC/BC1&2&3, and other proprietary formats.
 > - OpenGL ES 3.1 has in core: ETC2/EAC, plus extensions for PVRTC, ASTC, and other proprietary formats.
 > - WebGL 1.0 has no compressed formats in core, plus an extension for S3TC/BC1&2&3 (plus pending ratifications for ATC/BC4&5, ETC1 and PVRTC, plus drafts for ETC2/EAC and ASTC).
 > - Less than 2 years before S3 patent expiration for S3TC/BC1&2&3.
+> 
+> [^1]: There is no reference to whether some compressed format where optional, but the last phrase before listing 9 seems to imply that all Mantle devices support "read-only access of optimally tiled images" for all BCn formats.
 — [Some compressed texture formats in "core"? : vulkan](https://www.reddit.com/r/vulkan/comments/3xvl3m/some_compressed_texture_formats_in_core/)
 
 Official texture compression OpenGL extensions:
@@ -165,10 +168,13 @@ Official texture compression OpenGL extensions:
 
 sRGB colorspace and S3TC [S3 Texture Compression - OpenGL.org](https://www.opengl.org/wiki/S3_Texture_Compression#sRGB_and_S3TC)
 
-SNORM	Signed normalized integer, meaning that for an n-bit 2's complement number, the maximum value means 1.0f (e.g. the 5-bit value 01111 maps to 1.0f), and the minimum value means -1.0f (e.g. the 5-bit value 10000 maps to -1.0f). In addition, the second-minimum number maps to -1.0f (e.g. the 5-bit value 10001 maps to -1.0f). There are thus two integer representations for -1.0f. There is a single representation for 0.0f, and a single representation for 1.0f. This results in a set of integer representations for evenly spaced floating point values in the range (-1.0f...0.0f), and also a complementary set of representations for numbers in the range (0.0f...1.0f)
-UNORM	Unsigned normalized integer, meaning that for an n-bit number, all 0's means 0.0f, and all 1's means 1.0f. A sequence of evenly spaced floating point values from 0.0f to 1.0f are represented. e.g. a 2-bit UNORM represents 0.0f, 1/3, 2/3, and 1.0f.
-SRGB	Similar to UNORM, in that for an n-bit number, all 0's means 0.0f and all 1's means 1.0f. However unlike UNORM, with SRGB the sequence of unsigned integer encodings between all 0's to all 1's represent a nonlinear progression in the floating point interpretation of the numbers, between 0.0f to 1.0f. Roughly, if this nonlinear progression, SRGB, is displayed as a sequence of colors, it would appear as a linear ramp of luminosity levels to an "average" observer, under "average" viewing conditions, on an "average" display. For complete detail, refer to the SRGB color standard, IEC 61996-2-1, at IEC (International Electrotechnical Commission).
-https://msdn.microsoft.com/en-us/library/windows/desktop/dd607323(v=vs.85).aspx
+> ````
+> SNORM	Signed normalized integer, meaning that for an n-bit 2's complement number, the maximum value means 1.0f (e.g. the 5-bit value 01111 maps to 1.0f), and the minimum value means -1.0f (e.g. the 5-bit value 10000 maps to -1.0f). In addition, the second-minimum number maps to -1.0f (e.g. the 5-bit value 10001 maps to -1.0f). There are thus two integer representations for -1.0f. There is a single representation for 0.0f, and a single representation for 1.0f. This results in a set of integer representations for evenly spaced floating point values in the range (-1.0f...0.0f), and also a complementary set of representations for numbers in the range (0.0f...1.0f)
+> UNORM	Unsigned normalized integer, meaning that for an n-bit number, all 0's means 0.0f, and all 1's means 1.0f. A sequence of evenly spaced floating point values from 0.0f to 1.0f are represented. e.g. a 2-bit UNORM represents 0.0f, 1/3, 2/3, and 1.0f.
+> SRGB	Similar to UNORM, in that for an n-bit number, all 0's means 0.0f and all 1's means 1.0f. However unlike UNORM, with SRGB the sequence of unsigned integer encodings between all 0's to all 1's represent a nonlinear progression in the floating point interpretation of the numbers, between 0.0f to 1.0f. Roughly, if this nonlinear progression, SRGB, is displayed as a sequence of colors, it would appear as a linear ramp of luminosity levels to an "average" observer, under "average" viewing conditions, on an "average" display. For complete detail, refer to the SRGB color standard, IEC 61996-2-1, at IEC (International Electrotechnical Commission).
+> ````
+> 
+> - [Data Conversion Rules - Windows applications | Microsoft Docs](https://docs.microsoft.com/fr-fr/windows/desktop/direct3d10/d3d10-graphics-programming-guide-resources-data-conversion)
 
 Fixed channels or float channels
 
@@ -181,304 +187,311 @@ Notes:
 > VTC is NVidia's application of this same base compression method (DXT/S3TC) to 3D textures IIRC
 > BPTC extension/formats offers higher quality LDR compression and HDR compression (it's a modified DXT)
 
-Name								FourCC	DX name	Channels	Depth (bit/channel)		rate (bit/px)	Alpha						Comment
-S3TC DXT1/DXT1c						BC1		BC1		RGB			5:6:5					4				N/A							Useful for color maps or normal maps if memory is tight. Generally the best DXT format for textures without an Alpha channel. Doesn't work very well on images that have stark color changes, like pixel art.
-S3TC DXT1/DXT1c						BC1		BC1		RGB			5:6:5 sRGB				4				N/A							Same as above with sRGB extended header only on DX10+ level hardware. Generally the best DXT format for textures without an Alpha channel. Doesn't work very well on images that have stark color changes, like pixel art.
-S3TC DXT1/DXT1a						BC1		BC1		RGBA		5:6:5:1 UNORM			4				explicit					Generally the best DXT format for textures with just black and white in the Alpha channel, no grays. Doesn't work very well on images that have stark color changes, like pixel art.
-S3TC DXT1/DXT1a						BC1		BC1		RGBA		5:6:5:1 sRGB			4				explicit					Generally the best DXT format for textures with just black and white in the Alpha channel, no grays. Doesn't work very well on images that have stark color changes, like pixel art.
-S3TC DXT2							BC2		BC2		RGBA		5:6:5:4 UNORM			8				explicit, premultiplied		
-S3TC DXT2							BC2		BC2		RGBA		5:6:5:4 sRGB			8				explicit, premultiplied		
-S3TC DXT3							BC2		BC2		RGBA		5:6:5:4					8				explicit					A DXT3-compressed image in an RGBA image format. Compared to a 32-bit RGBA texture, it offers 4:1 compression.	
-S3TC DXT4							BC3		BC3		RGBA		5:6:5:8					8				interpolated, premultiplied	
-S3TC DXT5							BC3		BC3		RGBA								8				interpolated				A DXT5-compressed image in an RGBA image format. It also provides a 4:1 compression, but differs to the DXT3 compression in how the alpha compression is done. 
-S3TC DXT5							BC3		BC3		RGBA		5:6:5:8					8				interpolated				Useful for color maps with full alpha, packing color and mono maps together. Contains RGBA types of data.
-S3TC DXT5							BC3		BC3		RGBA		sRGBA					8				interpolated				Same as above with sRGB extended header only on DX10 + level hardware
-S3TC DXT1							BC1		BC1		RGBA								4											Four component opaque (or 1-bit alpha) compressed texture format
-S3TC DXT2/DXT3						BC2		BC2		RGBA								4											Four component compressed texture format with explicit alpha
-S3TC DXT4/DXT5						BC3		BC3		RGBA								4											Four component compressed texture format with interpolated alpha
-S3TC DXT5							xGBR			xGBR								8				interpolated				DXT5 with the red component swizzled into the alpha channel
-S3TC DXT5							RxBG			RxBG								8				interpolated				Swizzled DXT5 format with the green component swizzled into the alpha channel
-S3TC DXT5							RBxG			RBxG								8				interpolated				Swizzled DXT5 format with the green component swizzled into the alpha channel & the blue component swizzled into the green channel
-S3TC DXT5							xRBG			xRBG								8				interpolated				Swizzled DXT5 format with the green component swizzled into the alpha channel & the red component swizzled into the green channel
-S3TC DXT5							RGxB			RGxB								8				interpolated				Swizzled DXT5 format with the blue component swizzled into the alpha channel
-S3TC DXT5							xGxR			xGxR								8				interpolated				Two-component swizzled DXT5 format with the red component swizzled into the alpha channel & the green component in the green channel
-S3TC DXT5							GxRB												8				interpolated				
-S3TC DXT5							GRxB												8				interpolated				
-S3TC DXT5							RxGB												8				interpolated				
-S3TC DXT5							BRGx												8				interpolated				
-S3TC DXT2									BC2											8				explicit					Same format as DXT3, except it assumes the alpha is not pre-multiplied. Rarely used because it requires extra processing in the shader.
-S3TC DXT3									BC2					:::4					8											Generally the best DXT format for textures with a sharp Alpha channel. This works well if the alpha values are mostly black and mostly white, with thin anti-aliasing between them. Color is compressed the same as DXT1.
-S3TC DXT4									BC3											8											Same format as DXT5, except it assumes the alpha is not pre-multiplied. Rarely used because it requires extra processing in the shader.
-S3TC DXT5									BC3											8				interpolated, premultiplied	Generally the best DXT format for textures with a smooth Alpha channel. Color is compressed the same as DXT1. In the alpha channel, each 4x4 block is compressed separately from the others. Two of the pixels are stored in 256 levels of gray, while the other 14 pixels in the block are interpolated between those two, using 8 levels of gray. This works well when each block has a fairly smooth gradation of values, rather than sharp transitions.
-PVRTC1												RGB									4				N/A							One block for each 4×4 pixels
-PVRTC1												RGBA								4											One block for each 4×4 pixels
-PVRTC1												RGB									2				N/A							One block for each 8×4 pixels
-PVRTC1												RGBA								2											One block for each 8×4 pixels
-PVRTC2																																
-PVRTC																																The PVRTC image format was introduced by Imagination Technologies, creators of the PowerVR series of GPUs at the heart of every iOS device. It was first described in a 2003 paper by Simon Fenney.
-PVRTC																																operates by downsampling the source image into two smaller images, which are upscaled and blended to reconstruct an approximation of the original. It considers blocks of 4×4 or 4×8 pixels at a time, which are packed into one 64-bit quantity. Thus, each pixel occupies 4 bits or 2 bits, respectively.
-PVRTC																																One significant limitation of using PVRTC format on iOS is that textures must be square, and each dimension must be a power of two. Fortunately, game textures are most commonly produced in dimensions that are compatible with this limitation.
-ETC/ETC1																															Mandatory in OpenGL 2.0 and OpenGL ES 2.0 and optional in WebGL 1.0
-ETC2 and EAC																														Mandatory in OpenGL 3.0 and OpenGL ES 3.0
-ETC1																																Compatible with OpenGL ES 1.1 and higher.
-ETC2																																Highest quality for OpenGL ES 3.0, but not backward (ETC1) compatible.
-ETC2												RGB			8:8:8									N/A							Compress RBG8 data with no alpha channel.
-ETC2												RGBA		8:8:8:1																This format is very similar to ETC2(RGB8), but has the ability to represent punchthrough alpha, which is the ability to make it completely opaque or transparent.
-ETC2												RGB			8:8:8 UNORM								N/A							RGB 
-ETC2												RGB			8:8:8 SRGB								N/A							
-ETC2												RGBA		8:8:8:1 UNORM														
-ETC2												RGBA		8:8:8:1 SRGB														
-ETC2												RGBA		8:8:8:8 UNORM														
-ETC2												RGBA		8:8:8:8 SRGB														
-ETC2/ETC2_EAC										RGBA		8:8:8:8																Encodes RGBA8 data. The RGB part is encoded the same as ETC2(RGB), but the alpha part is encoded separately.
-ETC2/EAC											R			11										N/A							One-channel (red) unsigned format. It is similar to the alpha part of ETC2_EAC(RGB8) but delivers higher precision.
-ETC																																	debuted in 2005. Similarly to PVRTC’s 4-bit-per-pixel mode, it compresses each 4×4 block of pixels into a single 64-bit quantity, but lacks support for an alpha channel. A subsequent version, ETC2, adds support for 1-bit and 8-bit alpha channels. ETC2 is supported by all Metal-compatible hardware, but PVRTC often offers better quality at comparable file sizes.
-ETC													RGB													N/A							
-ETC2												RGB													N/A							
-ETC1																																the mobile standard and compatible with the new standardized ETC2 format in OpenGL 4.3 and OpenGL ES 3.0.
-ETC2																																an improved version of ETC1. RGB8 as well as RGBA8 and RGB8 with punchthrough alpha are supported.
-ETC2																																Preliminary support for one or two component textures (stored as one or two 16-bit values in an image file): R11_EAC and RG11_EAC and their signed variants. These are part of the ETC2 family.
-ETC1																																ETC1, an RGB8 format. 64-bit per block (4x4 pixels).
-ETC2 RGB8																															ETC2 RGB8 format that is backwards compatible with ETC1. 64-bit.
-ETC2 EAC																															ETC2 RGBA8 format with alpha values ranging from 0 to 255. 128-bit blocks.
-ETC2_PUNCHTHROUGH																													RGB8 + alpha that is either on or off (0 or 255). 64-bit blocks.
-ETC2_RGB							ETC2																							
-ECT EAC												R			11										N/A							One-channel (red) unsigned format compression.
-ECT EAC												R			11 SIGNED								N/A							One-channel (red) signed format compression.
-ECT EAC												RG			11:11									N/A							Two-channel (red and green) unsigned format compression.
-ECT EAC												RG			11:11 SIGNED							N/A							Two-channel (red and green) signed format compression.
-ETC2												RGB			8:8:8									N/A							Compresses RGB8 data with no alpha channel.
-ETC2 EAC											RGBA		8:8:8:8																Compresses RGBA8 data. The RGB part is encoded the same as RGB_ETC2, but the alpha part is encoded separately.
-ETC2												RGB			8:8:8 SRGB								N/A							Compresses sRGB8 data with no alpha channel.
-ETC2 EAC											RGBA		8:8:8 SRGB + 8														Compresses sRGBA8 data. The sRGB part is encoded the same as SRGB_ETC2, but the alpha part is encoded separately.
-ETC2												RGBA		8:8:8:1																Similar to RGB8_ETC, but with ability to punch through the alpha channel, which means to make it completely opaque or transparent.
-ETC2												RGBA		8:8:8:1 SRGB														Similar to SRGB8_ETC, but with ability to punch through the alpha channel, which means to make it completely opaque or transparent.
-ETC1												RGB													N/A							Compresses 24-bit RGB data with no alpha channel. 
-ETC													RGB													N/A							Ericsson Texture Compression - Compressed RGB format.
-ETC																																	Standard OpenGL ES 2.0 texture compression format (for RGB)
-ETC2												RGB													N/A							Ericsson Texture Compression - Compressed RGB format.
-ETC2																																Texture compression format that is supported in the OpenGL ES 3.0 API (for R, RG, RGB, and RGBA)
-ETC 								ETC							RGB										N/A							
-ETC 								ETCA						RGBA									explicit					
-ETC 								ETCI						RGBA									interpolated				
-EAC													RG			11:11									N/A							Two-channel (red and green) unsigned format. Each channel is decoded exactly as with EAC(R11) encoding.
-EAC Signed											R			11										N/A							One-channel signed format. It allows preserving zero exactly, while still using both positive and negative values.
-EAC Signed											RG			11:11									N/A							Two-channel (red and green) signed format. Each channel is decoded exactly as for EAC(SIGNED_R11).
-EAC													R			11 UNORM								N/A							Unsigned R11 EAC
-EAC													R			11 SNORM								N/A							Signed R11 EAC
-EAC													RG			11:11 UNORM								N/A							Unsigned RG11 EAC
-EAC													RG			11:11 SNORM								N/A							Signed RG11 EAC
-EAC													R			11										N/A							A single 16-bit component. Stored in the lower 16-bits (R and G) with little endian byte order of a 32-bit pixel of a PNG image with alpha.
-EAC													RG			11:11									N/A							Two 16-bit components. Stored as two 16-bit values, in the lower (R and G) and upper (B and alpha) 16-bits of a PNG image with alpha.
-EAC													R			11 SIGNED								N/A							A single signed 16-bit component.
-EAC													RG			11:11 SIGNED							N/A							Two signed 16-bit components.
-ASTC																																(magic number 0x5CA1AB13 LE, 0x13ABA15C BE) [webkit - Determine internal format of given astc compressed image through its header? - Stack Overflow](https://stackoverflow.com/questions/22600678/determine-internal-format-of-given-astc-compressed-image-through-its-header)
-ASTC																																via ARM's encoder.
-ASTC																																Most recent compressed texture format supported by Metal. Developed by AMD and supported fairly widely on OpenGL ES 3.0-class hardware, this format incorporates a selectable block size (from 4×4 to 12×12) that determines the compression ratio of the image. This unprecedented flexibility makes ASTC a very attractive choice, but it requires an A8 processor at a minimum, making it unusable on devices such as the iPhone 5s.
-ASTC								ASTC																							Adaptive Scalable Texture Compression
-ATC 								ATC				RGB																				
-ATC 								ATCA			RGBA												explicit					
-ATC 								ATCI			RGBA												interpolated				
-ATCIA
-ATC/AXT												RGB																				Compresses RGB textures with no alpha channel.
-ATC													RGBA												explicit					Compresses RGBA textures using explicit alpha encoding (useful when alpha transitions are sharp).
-ATC													RGBA												interpolated				Compresses RGBA textures using interpolated alpha encoding (useful when alpha transitions are gradient). 
-ATC													RGB																				Compressed RGB format
-ATC													RGBA												explicit					ARGB format with explicit alpha
-ATC													RGBA												interpolated				ARGB format with interpolated alpha
-ATC																																	Proprietary Adreno texture compression format (for RGB and RGBA)
-ATC																																	similar to DXT (can convert from the last one)
-ATI1N																																Single component compression format using the same technique as DXT5 alpha. Four bits per pixel
-ATI2N																																Two component compression format using the same technique as DXT5 alpha. Designed for compression object space normal maps. Eight bits per pixel
-ATI2N_XY																															Two component compression format using the same technique as DXT5 alpha. The same as ATI2N but with the channels swizzled. Eight bits per pixel
-ATI2N_DXT5																															An ATI2N like format using DXT5. Intended for use on GPUs that do not natively support ATI2N. Eight bits per pixel
-3Dc+								ATI1	BC4																						algorithm originally developed by ATI
-3Dc/DXN								ATI2	BC5																						algorithm originally developed by ATI. Implemented by Nvidia and ATI. It builds upon the earlier DXT5 algorithm and is an open standard
-3Dc																																	format is version of RGTC/BC5
-LATC/3Dc+/ATI1								BC4		R									4											Grayscale, Useful for height maps, gloss maps, font atlases or any other grey-scale image
-ATI1/BC4U/AT1N/RGTC1_RED			ATI1	BC4U										1:8											
-ATI1/BC4U/AT1N/RGTC1_RED			BC4U	BC4U										1:8											
-RGTC1S/BC4U/RGTC1U					BC4S	BC4S										1:8											
-ATI2										ATI2										1:16										RGT2 variant with swapped R and G (3Dc)
-ATI1N										BC4																						
-ATI2N										BC4																						
-ATI2N/ATI2N_XY								BC5																						
-ATI2N_DXT5									BC5																						
-RGTC2/SBC5S							BC5S	BC5S																					
-RGTC										BC4					UNORM					1:16										unsigned
-RGTC										BC4					SNORM																signed
-RGTC										BC5					UNORM																unsigned
-RGTC										BC5					SNORM																signed
-RGTC1/RGTC2 (BC4/BC5)																												for one and two component textures.
-RGTC1																																Single-channel (red) compression format. Equivalent to BC4.
-RGTC2																																Two channel (red/green) compression format. Equivalent to BC5.
-RGTC1															SIGNED																Signed version of RGTC1.
-RGTC2															SIGNED																Signed version of RGTC2.
-									BC4		BC4		R			8																	
-											BC5		RG			8:8																														
-									BC4S	BC4S																					
-									BC4U	BC4U																					
-											BC4																						Single component compressed texture format for Microsoft
-									BC5		BC5																						Two component compressed texture format for Microsoft
-									BC6H	BC6H																					High-Dynamic Range  compression format
-											BC7																						High-quality compression of RGB and RGBA data
-									BC6		BC6		RGB			8:8:8 half float													can natively store HDR images and is an excellent replacement for RGBM. DX11+
-									BC7x	BC7		RGB			8:8:8																DX11+
-									BC7x	BC7		RGBA		8:8:8																DX11+
-RGTC																																https://www.opengl.org/wiki/Red_Green_Texture_Compression
-RGTC																																trivial adaptations of S3TC
-RGTC																																https://www.opengl.org/registry/specs/EXT/texture_compression_rgtc.txt
-RGTC																																Mandatory in OpenGL 3.0 and OpenGL ES 3.0
-RGTC1_SIGNED_RED							BC4S																					
-RGTC/3Dc									BC5		RG									8											Useful for tangent space normal maps. A two Channel Tangent Map
-RGTC2_SIGNED_RG								BC5S																					
-ATI1N								ATI1																							
-ATI2N								ATI2																							
-ATI2N_XY							A2XY																							
-ATI2N_DXT5							A2D5																							
-ATI2/AT2N/RGTC2_RG/ATIN/ATIN2_XY			BC5U																					
-BPTC										BC6H				UFLOAT_BLOCK														unsigned version
-BPTC										BC6H				SFLOAT_BLOCK														signed version
-BPTC										BC7					UNORM_BLOCK															
-BPTC										BC7					SRGB_BLOCK															sRGB-encoded
-BPTC										BC7																						a high-quality RGBA compression format.
-BPTC										BC6H				UF16 FLOAT															for linear and HDR textures
-BPTC										BC6H				SF16 SIGNED_FLOAT													for linear and HDR textures
-BPTC																																High quality recent 128-bit compressed format, also known as BC7. Supports alpha.
-BPTC															FLOAT																Half-float RGB format, also known as BC6H_UF16. --hdr option supported for HDR textures.
-BPTC															SIGNED_FLOAT														Signed half-float format, also known as BC6H_SF16.
-BPTC										BC6H																					algorithm originally developed by NVIDIA
-BPTC										BC7																						algorithm originally developed by NVIDIA
-BPTC										BC6H	RGB									8											Fast Compression, Useful for HDR 16 images only on DX11+ level hardware
-BPTC										BC6H	RGB									8											Fine Compression, Same as above with longer optimized compression time for a finer result
-BPTC										BC7		RGBA								8											Fast Compression, Useful for high quality color maps, color maps with full alpha.  It provides the best quality compression only on DX11+ level hardware
-BPTC										BC7		RGBA								8											Fine Compression, Same as above with longer optimized compression time for a finer result
-BPTC										BC7		RGBA		sRGBA					8											Fast Compression, Same as BC7 Fast above with sRGB extended header only on DX10 + level hardware
-BPTC										BC7		RGBA		sRGBA					8											Fine Compression, Same as BC7 Fine above with sRGB extended header only on DX10 + level hardware
-LATC																																trivial adaptations of S3TC
-VTC																																	Volume Texture Compression (VTC) is analogous to the S3TC texture compression formats
-GT									GT1x																							
+**The following tables contains (lot of) duplicates:**
 
+| Name                                 | FourCC | DX name | Channels | Depth (bit/channel) | rate (bit/px) | Alpha                                                    | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|--------------------------------------|--------|---------|----------|---------------------|---------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| S3TC DXT1/DXT1c                      | BC1    | BC1     | RGB      | 5:6:5               | 4             | N/A                                                      | Useful for color maps or normal maps if memory is tight. Generally the best DXT format for textures without an Alpha channel. Doesn't work very well on images that have stark color changes, like pixel art.                                                                                                                                                                                                                                               |
+| S3TC DXT1/DXT1c                      | BC1    | BC1     | RGB      | 5:6:5 sRGB          | 4             | N/A                                                      | Same as above with sRGB extended header only on DX10+ level hardware. Generally the best DXT format for textures without an Alpha channel. Doesn't work very well on images that have stark color changes, like pixel art.                                                                                                                                                                                                                                  |
+| S3TC DXT1/DXT1a                      | BC1    | BC1     | RGBA     | 5:6:5:1 UNORM       | 4             | explicit                                                 | Generally the best DXT format for textures with just black and white in the Alpha channel, no grays. Doesn't work very well on images that have stark color changes, like pixel art.                                                                                                                                                                                                                                                                        |
+| S3TC DXT1/DXT1a                      | BC1    | BC1     | RGBA     | 5:6:5:1 sRGB        | 4             | explicit                                                 | Generally the best DXT format for textures with just black and white in the Alpha channel, no grays. Doesn't work very well on images that have stark color changes, like pixel art.                                                                                                                                                                                                                                                                        |
+| S3TC DXT2                            | BC2    | BC2     | RGBA     | 5:6:5:4 UNORM       | 8             | explicit, premultiplied                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT2                            | BC2    | BC2     | RGBA     | 5:6:5:4 sRGB        | 8             | explicit, premultiplied                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT3                            | BC2    | BC2     | RGBA     | 5:6:5:4             | 8             | explicit                                                 | A DXT3-compressed image in an RGBA image format. Compared to a 32-bit RGBA texture, it offers 4:1 compression.                                                                                                                                                                                                                                                                                                                                              |
+| S3TC DXT4                            | BC3    | BC3     | RGBA     | 5:6:5:8             | 8             | interpolated, premultiplied                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT5                            | BC3    | BC3     | RGBA     | ?                   | 8             | interpolated                                             | A DXT5-compressed image in an RGBA image format. It also provides a 4:1 compression, but differs to the DXT3 compression in how the alpha compression is done.                                                                                                                                                                                                                                                                                              |
+| S3TC DXT5                            | BC3    | BC3     | RGBA     | 5:6:5:8             | 8             | interpolated                                             | Useful for color maps with full alpha, packing color and mono maps together. Contains RGBA types of data.                                                                                                                                                                                                                                                                                                                                                   |
+| S3TC DXT5                            | BC3    | BC3     | RGBA     | sRGBA               | 8             | interpolated                                             | Same as above with sRGB extended header only on DX10 + level hardware                                                                                                                                                                                                                                                                                                                                                                                       |
+| S3TC DXT1                            | BC1    | BC1     | RGBA     | ?                   | 4             | ?                                                        | Four component opaque (or 1-bit alpha) compressed texture format                                                                                                                                                                                                                                                                                                                                                                                            |
+| S3TC DXT2/DXT3                       | BC2    | BC2     | RGBA     | ?                   | 4             | ?                                                        | Four component compressed texture format with explicit alpha                                                                                                                                                                                                                                                                                                                                                                                                |
+| S3TC DXT4/DXT5                       | BC3    | BC3     | RGBA     | ?                   | 4             | ?                                                        | Four component compressed texture format with interpolated alpha                                                                                                                                                                                                                                                                                                                                                                                            |
+| S3TC DXT5                            | xGBR   | ?       | xGBR     | ?                   | 8             | interpolated                                             | DXT5 with the red component swizzled into the alpha channel                                                                                                                                                                                                                                                                                                                                                                                                 |
+| S3TC DXT5                            | RxBG   | ?       | RxBG     | ?                   | 8             | interpolated                                             | Swizzled DXT5 format with the green component swizzled into the alpha channel                                                                                                                                                                                                                                                                                                                                                                               |
+| S3TC DXT5                            | RBxG   | ?       | RBxG     | ?                   | 8             | interpolated                                             | Swizzled DXT5 format with the green component swizzled into the alpha channel & the blue component swizzled into the green channel                                                                                                                                                                                                                                                                                                                          |
+| S3TC DXT5                            | xRBG   | ?       | xRBG     | ?                   | 8             | interpolated                                             | Swizzled DXT5 format with the green component swizzled into the alpha channel & the red component swizzled into the green channel                                                                                                                                                                                                                                                                                                                           |
+| S3TC DXT5                            | RGxB   | ?       | RGxB     | ?                   | 8             | interpolated                                             | Swizzled DXT5 format with the blue component swizzled into the alpha channel                                                                                                                                                                                                                                                                                                                                                                                |
+| S3TC DXT5                            | xGxR   | ?       | xGxR     | ?                   | 8             | interpolated                                             | Two-component swizzled DXT5 format with the red component swizzled into the alpha channel & the green component in the green channel                                                                                                                                                                                                                                                                                                                        |
+| S3TC DXT5                            | GxRB   | ?       | ?        | ?                   | 8             | interpolated                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT5                            | GRxB   | ?       | ?        | ?                   | 8             | interpolated                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT5                            | RxGB   | ?       | ?        | ?                   | 8             | interpolated                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT5                            | BRGx   | ?       | ?        | ?                   | 8             | interpolated                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| S3TC DXT2                            | ?      | BC2     | ?        | ?                   | 8             | explicit                                                 | Same format as DXT3, except it assumes the alpha is not pre-multiplied. Rarely used because it requires extra processing in the shader.                                                                                                                                                                                                                                                                                                                     |
+| S3TC DXT3                            | ?      | BC2     | ?        | :::4                | 8             | ?                                                        | Generally the best DXT format for textures with a sharp Alpha channel. This works well if the alpha values are mostly black and mostly white, with thin anti-aliasing between them. Color is compressed the same as DXT1.                                                                                                                                                                                                                                   |
+| S3TC DXT4                            | ?      | BC3     | ?        | ?                   | 8             | ?                                                        | Same format as DXT5, except it assumes the alpha is not pre-multiplied. Rarely used because it requires extra processing in the shader.                                                                                                                                                                                                                                                                                                                     |
+| S3TC DXT5                            | ?      | BC3     | ?        | ?                   | 8             | interpolated, premultiplied                              | Generally the best DXT format for textures with a smooth Alpha channel. Color is compressed the same as DXT1. In the alpha channel, each 4x4 block is compressed separately from the others. Two of the pixels are stored in 256 levels of gray, while the other 14 pixels in the block are interpolated between those two, using 8 levels of gray. This works well when each block has a fairly smooth gradation of values, rather than sharp transitions. |
+| PVRTC1                               | ?      | ?       | RGB      | ?                   | 4             | N/A                                                      | One block for each 4×4 pixels                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| PVRTC1                               | ?      | ?       | RGBA     | ?                   | 4             | ?                                                        | One block for each 4×4 pixels                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| PVRTC1                               | ?      | ?       | RGB      | ?                   | 2             | N/A                                                      | One block for each 8×4 pixels                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| PVRTC1                               | ?      | ?       | RGBA     | ?                   | 2             | ?                                                        | One block for each 8×4 pixels                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| PVRTC2                               | ?      | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| PVRTC                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | The PVRTC image format was introduced by Imagination Technologies, creators of the PowerVR series of GPUs at the heart of every iOS device. It was first described in a 2003 paper by Simon Fenney.                                                                                                                                                                                                                                                         |
+| PVRTC                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | operates by downsampling the source image into two smaller images, which are upscaled and blended to reconstruct an approximation of the original. It considers blocks of 4×4 or 4×8 pixels at a time, which are packed into one 64-bit quantity. Thus, each pixel occupies 4 bits or 2 bits, respectively.                                                                                                                                                 |
+| PVRTC                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | One significant limitation of using PVRTC format on iOS is that textures must be square, and each dimension must be a power of two. Fortunately, game textures are most commonly produced in dimensions that are compatible with this limitation.                                                                                                                                                                                                           |
+| ETC/ETC1                             | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Mandatory in OpenGL 2.0 and OpenGL ES 2.0 and optional in WebGL 1.0                                                                                                                                                                                                                                                                                                                                                                                         |
+| ETC2 and EAC                         | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Mandatory in OpenGL 3.0 and OpenGL ES 3.0                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ETC1                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Compatible with OpenGL ES 1.1 and higher.                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ETC2                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Highest quality for OpenGL ES 3.0, but not backward (ETC1) compatible.                                                                                                                                                                                                                                                                                                                                                                                      |
+| ETC2                                 | ?      | ?       | RGB      | 8:8:8               | ?             | N/A                                                      | Compress RBG8 data with no alpha channel.                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:1             | ?             | ?                                                        | This format is very similar to ETC2(RGB8), but has the ability to represent punchthrough alpha, which is the ability to make it completely opaque or transparent.                                                                                                                                                                                                                                                                                           |
+| ETC2                                 | ?      | ?       | RGB      | 8:8:8 UNORM         | ?             | N/A                                                      | RGB                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ETC2                                 | ?      | ?       | RGB      | 8:8:8 SRGB          | ?             | N/A                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:1 UNORM       | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:1 SRGB        | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:8 UNORM       | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:8 SRGB        | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC2/ETC2_EAC                        | ?      | ?       | RGBA     | 8:8:8:8             | ?             | ?                                                        | Encodes RGBA8 data. The RGB part is encoded the same as ETC2(RGB), but the alpha part is encoded separately.                                                                                                                                                                                                                                                                                                                                                |
+| ETC2/EAC                             | ?      | ?       | R        | 11                  | ?             | N/A                                                      | One-channel (red) unsigned format. It is similar to the alpha part of ETC2_EAC(RGB8) but delivers higher precision.                                                                                                                                                                                                                                                                                                                                         |
+| ETC                                  | ?      | ?       | ?        | ?                   | ?             | ?                                                        | debuted in 2005. Similarly to PVRTC’s 4-bit-per-pixel mode, it compresses each 4×4 block of pixels into a single 64-bit quantity, but lacks support for an alpha channel. A subsequent version, ETC2, adds support for 1-bit and 8-bit alpha channels. ETC2 is supported by all Metal-compatible hardware, but PVRTC often offers better quality at comparable file sizes.                                                                                  |
+| ETC                                  | ?      | ?       | RGB      | ?                   | ?             | N/A                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC2                                 | ?      | ?       | RGB      | ?                   | ?             | N/A                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC1                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | the mobile standard and compatible with the new standardized ETC2 format in OpenGL 4.3 and OpenGL ES 3.0.                                                                                                                                                                                                                                                                                                                                                   |
+| ETC2                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | an improved version of ETC1. RGB8 as well as RGBA8 and RGB8 with punchthrough alpha are supported.                                                                                                                                                                                                                                                                                                                                                          |
+| ETC2                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Preliminary support for one or two component textures (stored as one or two 16-bit values in an image file): R11_EAC and RG11_EAC and their signed variants. These are part of the ETC2 family.                                                                                                                                                                                                                                                             |
+| ETC1                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | ETC1, an RGB8 format. 64-bit per block (4x4 pixels).                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ETC2 RGB8                            | ?      | ?       | ?        | ?                   | ?             | ?                                                        | ETC2 RGB8 format that is backwards compatible with ETC1. 64-bit.                                                                                                                                                                                                                                                                                                                                                                                            |
+| ETC2 EAC                             | ?      | ?       | ?        | ?                   | ?             | ?                                                        | ETC2 RGBA8 format with alpha values ranging from 0 to 255. 128-bit blocks.                                                                                                                                                                                                                                                                                                                                                                                  |
+| ETC2_PUNCHTHROUGH                    | ?      | ?       | ?        | ?                   | ?             | ?                                                        | RGB8 + alpha that is either on or off (0 or 255). 64-bit blocks.                                                                                                                                                                                                                                                                                                                                                                                            |
+| ETC2_RGB                             | ETC2   | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ECT EAC                              | ?      | ?       | R        | 11                  | ?             | N/A                                                      | One-channel (red) unsigned format compression.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ECT EAC                              | ?      | ?       | R        | 11 SIGNED           | ?             | N/A                                                      | One-channel (red) signed format compression.                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ECT EAC                              | ?      | ?       | RG       | 11:11               | ?             | N/A                                                      | Two-channel (red and green) unsigned format compression.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ECT EAC                              | ?      | ?       | RG       | 11:11 SIGNED        | ?             | N/A                                                      | Two-channel (red and green) signed format compression.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ETC2                                 | ?      | ?       | RGB      | 8:8:8               | ?             | N/A                                                      | Compresses RGB8 data with no alpha channel.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ETC2 EAC                             | ?      | ?       | RGBA     | 8:8:8:8             | ?             | ?                                                        | Compresses RGBA8 data. The RGB part is encoded the same as RGB_ETC2, but the alpha part is encoded separately.                                                                                                                                                                                                                                                                                                                                              |
+| ETC2                                 | ?      | ?       | RGB      | 8:8:8 SRGB          | ?             | N/A                                                      | Compresses sRGB8 data with no alpha channel.                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ETC2 EAC                             | ?      | ?       | RGBA     | 8:8:8 SRGB + 8      | ?             | ?                                                        | Compresses sRGBA8 data. The sRGB part is encoded the same as SRGB_ETC2, but the alpha part is encoded separately.                                                                                                                                                                                                                                                                                                                                           |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:1             | ?             | ?                                                        | Similar to RGB8_ETC, but with ability to punch through the alpha channel, which means to make it completely opaque or transparent.                                                                                                                                                                                                                                                                                                                          |
+| ETC2                                 | ?      | ?       | RGBA     | 8:8:8:1 SRGB        | ?             | ?                                                        | Similar to SRGB8_ETC, but with ability to punch through the alpha channel, which means to make it completely opaque or transparent.                                                                                                                                                                                                                                                                                                                         |
+| ETC1                                 | ?      | ?       | RGB      | ?                   | ?             | N/A                                                      | Compresses 24-bit RGB data with no alpha channel.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ETC                                  | ?      | ?       | RGB      | ?                   | ?             | N/A                                                      | Ericsson Texture Compression - Compressed RGB format.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ETC                                  | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Standard OpenGL ES 2.0 texture compression format (for RGB)                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ETC2                                 | ?      | ?       | RGB      | ?                   | ?             | N/A                                                      | Ericsson Texture Compression - Compressed RGB format.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ETC2                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Texture compression format that is supported in the OpenGL ES 3.0 API (for R, RG, RGB, and RGBA)                                                                                                                                                                                                                                                                                                                                                            |
+| ETC                                  | ETC    | ?       | ?        | RGB                 | ?             | N/A                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC                                  | ETCA   | ?       | ?        | RGBA                | ?             | explicit                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ETC                                  | ETCI   | ?       | ?        | RGBA                | ?             | interpolated                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| EAC                                  | ?      | ?       | RG       | 11:11               | ?             | N/A                                                      | Two-channel (red and green) unsigned format. Each channel is decoded exactly as with EAC(R11) encoding.                                                                                                                                                                                                                                                                                                                                                     |
+| EAC Signed                           | ?      | ?       | R        | 11                  | ?             | N/A                                                      | One-channel signed format. It allows preserving zero exactly, while still using both positive and negative values.                                                                                                                                                                                                                                                                                                                                          |
+| EAC Signed                           | ?      | ?       | RG       | 11:11               | ?             | N/A                                                      | Two-channel (red and green) signed format. Each channel is decoded exactly as for EAC(SIGNED_R11).                                                                                                                                                                                                                                                                                                                                                          |
+| EAC                                  | ?      | ?       | R        | 11 UNORM            | ?             | N/A                                                      | Unsigned R11 EAC                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| EAC                                  | ?      | ?       | R        | 11 SNORM            | ?             | N/A                                                      | Signed R11 EAC                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| EAC                                  | ?      | ?       | RG       | 11:11 UNORM         | ?             | N/A                                                      | Unsigned RG11 EAC                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| EAC                                  | ?      | ?       | RG       | 11:11 SNORM         | ?             | N/A                                                      | Signed RG11 EAC                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| EAC                                  | ?      | ?       | R        | 11                  | ?             | N/A                                                      | A single 16-bit component. Stored in the lower 16-bits (R and G) with little endian byte order of a 32-bit pixel of a PNG image with alpha.                                                                                                                                                                                                                                                                                                                 |
+| EAC                                  | ?      | ?       | RG       | 11:11               | ?             | N/A                                                      | Two 16-bit components. Stored as two 16-bit values, in the lower (R and G) and upper (B and alpha) 16-bits of a PNG image with alpha.                                                                                                                                                                                                                                                                                                                       |
+| EAC                                  | ?      | ?       | R        | 11 SIGNED           | ?             | N/A                                                      | A single signed 16-bit component.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| EAC                                  | ?      | ?       | RG       | 11:11 SIGNED        | ?             | N/A                                                      | Two signed 16-bit components.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ASTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | (magic number 0x5CA1AB13 LE, 0x13ABA15C BE) [webkit - Determine internal format of given astc compressed image through its header? - Stack Overflow](https://stackoverflow.com/questions/22600678/determine-internal-format-of-given-astc-compressed-image-through-its-header)                                                                                                                                                                              |
+| ASTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | via ARM's encoder.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ASTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Most recent compressed texture format supported by Metal. Developed by AMD and supported fairly widely on OpenGL ES 3.0-class hardware, this format incorporates a selectable block size (from 4×4 to 12×12) that determines the compression ratio of the image. This unprecedented flexibility makes ASTC a very attractive choice, but it requires an A8 processor at a minimum, making it unusable on devices such as the iPhone 5s.                     |
+| ASTC                                 | ASTC   | ?       | ?        | ?                   | ?             | ?                                                        | Adaptive Scalable Texture Compression                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ATC                                  | ATC    | ?       | RGB      | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATC                                  | ATCA   | ?       | RGBA     | ?                   | ?             | explicit                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATC                                  | ATCI   | ?       | RGBA     | ?                   | ?             | interpolated                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATCIA                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATC/AXT                              | ?      | ?       | RGB      | ?                   | ?             | ?                                                        | Compresses RGB textures with no alpha channel.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ATC                                  | ?      | ?       | RGBA     | ?                   | ?             | explicit                                                 | Compresses RGBA textures using explicit alpha encoding (useful when alpha transitions are sharp).                                                                                                                                                                                                                                                                                                                                                           |
+| ATC                                  | ?      | ?       | RGBA     | ?                   | ?             | interpolated                                             | Compresses RGBA textures using interpolated alpha encoding (useful when alpha transitions are gradient).                                                                                                                                                                                                                                                                                                                                                    |
+| ATC                                  | ?      | ?       | RGB      | ?                   | ?             | ?                                                        | Compressed RGB format                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ATC                                  | ?      | ?       | RGBA     | ?                   | ?             | explicit                                                 | ARGB format with explicit alpha                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATC                                  | ?      | ?       | RGBA     | ?                   | ?             | interpolated                                             | ARGB format with interpolated alpha                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ATC                                  | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Proprietary Adreno texture compression format (for RGB and RGBA)                                                                                                                                                                                                                                                                                                                                                                                            |
+| ATC                                  | ?      | ?       | ?        | ?                   | ?             | ?                                                        | similar to DXT (can convert from the last one)                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ATI1N                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Single component compression format using the same technique as DXT5 alpha. Four bits per pixel                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Two component compression format using the same technique as DXT5 alpha. Designed for compression object space normal maps. Eight bits per pixel                                                                                                                                                                                                                                                                                                            |
+| ATI2N_XY                             | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Two component compression format using the same technique as DXT5 alpha. The same as ATI2N but with the channels swizzled. Eight bits per pixel                                                                                                                                                                                                                                                                                                             |
+| ATI2N_DXT5                           | ?      | ?       | ?        | ?                   | ?             | ?                                                        | An ATI2N like format using DXT5. Intended for use on GPUs that do not natively support ATI2N. Eight bits per pixel                                                                                                                                                                                                                                                                                                                                          |
+| 3Dc+                                 | ATI1   | BC4     | ?        | ?                   | ?             | ?                                                        | algorithm originally developed by ATI                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 3Dc/DXN                              | ATI2   | BC5     | ?        | ?                   | ?             | ?                                                        | algorithm originally developed by ATI. Implemented by Nvidia and ATI. It builds upon the earlier DXT5 algorithm and is an open standard                                                                                                                                                                                                                                                                                                                     |
+| 3Dc                                  | ?      | ?       | ?        | ?                   | ?             | ?                                                        | format is version of RGTC/BC5                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| LATC/3Dc+/ATI1                       | ?      | BC4     | R        | ?                   | 4             | ?                                                        | Grayscale, Useful for height maps, gloss maps, font atlases or any other grey-scale image                                                                                                                                                                                                                                                                                                                                                                   |
+| ATI1/BC4U/AT1N/RGTC1_RED             | ATI1   | BC4U    | ?        | ?                   | 1:8           | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI1/BC4U/AT1N/RGTC1_RED             | BC4U   | BC4U    | ?        | ?                   | 1:8           | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| RGTC1S/BC4U/RGTC1U                   | BC4S   | BC4S    | ?        | ?                   | 1:8           | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2                                 | ?      | ATI2    | ?        | ?                   | 1:16          | ?                                                        | RGT2 variant with swapped R and G (3Dc)                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ATI1N                                | ?      | BC4     | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N                                | ?      | BC4     | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N/ATI2N_XY                       | ?      | BC5     | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N_DXT5                           | ?      | BC5     | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| RGTC2/SBC5S                          | BC5S   | BC5S    | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| RGTC                                 | ?      | BC4     | ?        | UNORM               | 1:16          | ?                                                        | unsigned                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| RGTC                                 | ?      | BC4     | ?        | SNORM               | ?             | ?                                                        | signed                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| RGTC                                 | ?      | BC5     | ?        | UNORM               | ?             | ?                                                        | unsigned                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| RGTC                                 | ?      | BC5     | ?        | SNORM               | ?             | ?                                                        | signed                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| RGTC1/RGTC2 (BC4/BC5)                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | for one and two component textures.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| RGTC1                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Single-channel (red) compression format. Equivalent to BC4.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| RGTC2                                | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Two channel (red/green) compression format. Equivalent to BC5.                                                                                                                                                                                                                                                                                                                                                                                              |
+| RGTC1                                | ?      | ?       | ?        | SIGNED              | ?             | ?                                                        | Signed version of RGTC1.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| RGTC2                                | ?      | ?       | ?        | SIGNED              | ?             | ?                                                        | Signed version of RGTC2.                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ?                                    | BC4    | BC4     | R        | 8                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ?                                    | BC5    | RG      | 8:8      | ?                   | ?             |                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ?                                    | BC4S   | BC4S    | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ?                                    | BC4U   | BC4U    | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ?                                    | BC4    | ?       | ?        | ?                   | ?             | Single component compressed texture format for Microsoft |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ?                                    | BC5    | BC5     | ?        | ?                   | ?             | ?                                                        | Two component compressed texture format for Microsoft                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ?                                    | BC6H   | BC6H    | ?        | ?                   | ?             | ?                                                        | High-Dynamic Range  compression format                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ?                                    | BC7    | ?       | ?        | ?                   | ?             | High-quality compression of RGB and RGBA data            |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ?                                    | BC6    | BC6     | RGB      | 8:8:8 half float    | ?             | ?                                                        | can natively store HDR images and is an excellent replacement for RGBM. DX11+                                                                                                                                                                                                                                                                                                                                                                               |
+| ?                                    | BC7x   | BC7     | RGB      | 8:8:8               | ?             | ?                                                        | DX11+                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ?                                    | BC7x   | BC7     | RGBA     | 8:8:8               | ?             | ?                                                        | DX11+                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| RGTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | https://www.opengl.org/wiki/Red_Green_Texture_Compression                                                                                                                                                                                                                                                                                                                                                                                                   |
+| RGTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | trivial adaptations of S3TC                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| RGTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | https://www.opengl.org/registry/specs/EXT/texture_compression_rgtc.txt                                                                                                                                                                                                                                                                                                                                                                                      |
+| RGTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Mandatory in OpenGL 3.0 and OpenGL ES 3.0                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `RGTC1_SIGNED_RED`                   | ?      | BC4S    | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| RGTC/3Dc                             | ?      | BC5     | RG       | ?                   | 8             | ?                                                        | Useful for tangent space normal maps. A two Channel Tangent Map                                                                                                                                                                                                                                                                                                                                                                                             |
+| `RGTC2_SIGNED_RG`                    | ?      | BC5S    | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI1N                                | ATI1   | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N                                | ATI2   | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N_XY                             | A2XY   | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2N_DXT5                           | A2D5   | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ATI2/AT2N/`RGTC2_RG`/ATIN/`ATIN2_XY` | ?      | BC5U    | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| BPTC                                 | ?      | BC6H    | ?        | UFLOAT_BLOCK        | ?             | ?                                                        | unsigned version                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| BPTC                                 | ?      | BC6H    | ?        | SFLOAT_BLOCK        | ?             | ?                                                        | signed version                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| BPTC                                 | ?      | BC7     | ?        | UNORM_BLOCK         | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| BPTC                                 | ?      | BC7     | ?        | SRGB_BLOCK          | ?             | ?                                                        | sRGB-encoded                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| BPTC                                 | ?      | BC7     | ?        | ?                   | ?             | ?                                                        | a high-quality RGBA compression format.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| BPTC                                 | ?      | BC6H    | ?        | UF16 FLOAT          | ?             | ?                                                        | for linear and HDR textures                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| BPTC                                 | ?      | BC6H    | ?        | SF16 SIGNED_FLOAT   | ?             | ?                                                        | for linear and HDR textures                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| BPTC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | High quality recent 128-bit compressed format, also known as BC7. Supports alpha.                                                                                                                                                                                                                                                                                                                                                                           |
+| BPTC                                 | ?      | ?       | ?        | FLOAT               | ?             | ?                                                        | Half-float RGB format, also known as BC6H_UF16. --hdr option supported for HDR textures.                                                                                                                                                                                                                                                                                                                                                                    |
+| BPTC                                 | ?      | ?       | ?        | SIGNED_FLOAT        | ?             | ?                                                        | Signed half-float format, also known as BC6H_SF16.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| BPTC                                 | ?      | BC6H    | ?        | ?                   | ?             | ?                                                        | algorithm originally developed by NVIDIA                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| BPTC                                 | ?      | BC7     | ?        | ?                   | ?             | ?                                                        | algorithm originally developed by NVIDIA                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| BPTC                                 | ?      | BC6H    | RGB      | ?                   | 8             | ?                                                        | Fast Compression, Useful for HDR 16 images only on DX11+ level hardware                                                                                                                                                                                                                                                                                                                                                                                     |
+| BPTC                                 | ?      | BC6H    | RGB      | ?                   | 8             | ?                                                        | Fine Compression, Same as above with longer optimized compression time for a finer result                                                                                                                                                                                                                                                                                                                                                                   |
+| BPTC                                 | ?      | BC7     | RGBA     | ?                   | 8             | ?                                                        | Fast Compression, Useful for high quality color maps, color maps with full alpha.  It provides the best quality compression only on DX11+ level hardware                                                                                                                                                                                                                                                                                                    |
+| BPTC                                 | ?      | BC7     | RGBA     | ?                   | 8             | ?                                                        | Fine Compression, Same as above with longer optimized compression time for a finer result                                                                                                                                                                                                                                                                                                                                                                   |
+| BPTC                                 | ?      | BC7     | RGBA     | sRGBA               | 8             | ?                                                        | Fast Compression, Same as BC7 Fast above with sRGB extended header only on DX10 + level hardware                                                                                                                                                                                                                                                                                                                                                            |
+| BPTC                                 | ?      | BC7     | RGBA     | sRGBA               | 8             | ?                                                        | Fine Compression, Same as BC7 Fine above with sRGB extended header only on DX10 + level hardware                                                                                                                                                                                                                                                                                                                                                            |
+| LATC                                 | ?      | ?       | ?        | ?                   | ?             | ?                                                        | trivial adaptations of S3TC                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| VTC                                  | ?      | ?       | ?        | ?                   | ?             | ?                                                        | Volume Texture Compression (VTC) is analogous to the S3TC texture compression formats                                                                                                                                                                                                                                                                                                                                                                       |
+| GT                                   | GT1x   | ?       | ?        | ?                   | ?             | ?                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-ASTC												L 	Luminance-only
-ASTC												LA 	Luminance with transparency
-ASTC												L+A 	Luminance with uncorrelated transparency
-ASTC												X+Y 	Surface normals
-ASTC												RGB 	Full color
-ASTC												XY+Z 	Surface normals with uncorrelated Z
-ASTC												RGBA 	Full color with transparency
-ASTC												RGB+A 	Full color with uncorrelated transparency
+| Name | FourCC | DX name | Channels | Depth (bit/channel) | rate (bit/px) | Alpha | Comment                                   |
+|------|--------|---------|----------|---------------------|---------------|-------|-------------------------------------------|
+| ASTC | ?      | ?       | L        | ?                   | ?             | ?     | Luminance-only                            |
+| ASTC | ?      | ?       | LA       | ?                   | ?             | ?     | Luminance with transparency               |
+| ASTC | ?      | ?       | L+A      | ?                   | ?             | ?     | Luminance with uncorrelated transparency  |
+| ASTC | ?      | ?       | X+Y      | ?                   | ?             | ?     | Surface normals                           |
+| ASTC | ?      | ?       | RGB      | ?                   | ?             | ?     | Full color                                |
+| ASTC | ?      | ?       | XY+Z     | ?                   | ?             | ?     | Surface normals with uncorrelated Z       |
+| ASTC | ?      | ?       | RGBA     | ?                   | ?             | ?     | Full color with transparency              |
+| ASTC | ?      | ?       | RGB+A    | ?                   | ?             | ?     | Full color with uncorrelated transparency |
 
-Uncompressed										RGBA		8:8:8:8					32											Uncompressed
-Uncompressed										ARGB		8:8:8:8					32											Uncompressed
-Uncompressed										RGB			8:8:8					24											Uncompressed
-Uncompressed										RG			8						8											Uncompressed
-Uncompressed										R			8																	Uncompressed
-Uncompressed										ARGB		2:10:10:10															Uncompressed
-Uncompressed										ARGB		16:16:16:16															Uncompressed
-Uncompressed										RG			16:16																Uncompressed
-Uncompressed										R			16:16																Uncompressed
-Uncompressed										ARGB		16:16:16:16 FLOAT													Uncompressed
-Uncompressed										RG			16:16 FLOAT															Uncompressed
-Uncompressed										R			16 FLOAT															Uncompressed
-Uncompressed										ARGB		32:32:32:32 FLOAT													Uncompressed
-Uncompressed										RG			32:32 FLOAT															Uncompressed
-Uncompressed										R			32 FLOAT															Uncompressed
-Uncompressed										RGB			HALF_FLOAT															Uncompressed format where each color component is stored in a 16-bits floating point number.
-Uncompressed										RGBA		HALF_FLOAT															Includes alpha.
-P1									P1																								1-bit palletized
-P2									P2																								2-bit palletized
-P4									P4																								4-bit palletized
-P8									P8																								ATI Palette8 8-bit palletized
-G1									G1																								1-bit gray-scale
-G2									G2																								2-bit gray-scale
-G4									G4																								4-bit gray-scale
-G8									G8																								8-bit gray-scale
-G16									G16																								16-bit gray-scale
-AG1									AG1																								1-bit gray-scale with alpha
-AG2									AG2																								2-bit gray-scale with alpha
-AG4									AG4																								4-bit gray-scale with alpha
-AG8									AG8																								8-bit gray-scale with alpha
-A1									A1																								1-bit alpha
-A2									A2																								2-bit alpha
-A4									A4																								4-bit alpha
-A8									A8																								8-bit alpha
-APC1								APC1																							
-APC2								APC2																							
-APC3								APC3																							
-APC4								APC4																							
-APC5								APC5																							
-APC6								APC6																							
-
-UYVY								UYVY			UYVY		4:2:2
-YUY2								YUY2			YUYV		4:2:2
+| Name         | FourCC | DX name | Channels | Depth (bit/channel) | rate (bit/px) | Alpha | Comment                                                                                      |
+|--------------|--------|---------|----------|---------------------|---------------|-------|----------------------------------------------------------------------------------------------|
+| Uncompressed | ?      | ?       | RGBA     | 8:8:8:8             | 32            | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | ARGB     | 8:8:8:8             | 32            | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | RGB      | 8:8:8               | 24            | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | RG       | 8                   | 8             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | R        | 8                   | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | ARGB     | 2:10:10:10          | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | ARGB     | 16:16:16:16         | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | RG       | 16:16               | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | R        | 16:16               | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | ARGB     | 16:16:16:16 FLOAT   | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | RG       | 16:16 FLOAT         | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | R        | 16 FLOAT            | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | ARGB     | 32:32:32:32 FLOAT   | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | RG       | 32:32 FLOAT         | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | R        | 32 FLOAT            | ?             | ?     | Uncompressed                                                                                 |
+| Uncompressed | ?      | ?       | RGB      | HALF_FLOAT          | ?             | ?     | Uncompressed format where each color component is stored in a 16-bits floating point number. |
+| Uncompressed | ?      | ?       | RGBA     | HALF_FLOAT          | ?             | ?     | Includes alpha.                                                                              |
+| P1           | P1     | ?       | ?        | ?                   | ?             | ?     | 1-bit palletized                                                                             |
+| P2           | P2     | ?       | ?        | ?                   | ?             | ?     | 2-bit palletized                                                                             |
+| P4           | P4     | ?       | ?        | ?                   | ?             | ?     | 4-bit palletized                                                                             |
+| P8           | P8     | ?       | ?        | ?                   | ?             | ?     | ATI Palette8 8-bit palletized                                                                |
+| G1           | G1     | ?       | ?        | ?                   | ?             | ?     | 1-bit gray-scale                                                                             |
+| G2           | G2     | ?       | ?        | ?                   | ?             | ?     | 2-bit gray-scale                                                                             |
+| G4           | G4     | ?       | ?        | ?                   | ?             | ?     | 4-bit gray-scale                                                                             |
+| G8           | G8     | ?       | ?        | ?                   | ?             | ?     | 8-bit gray-scale                                                                             |
+| G16          | G16    | ?       | ?        | ?                   | ?             | ?     | 16-bit gray-scale                                                                            |
+| AG1          | AG1    | ?       | ?        | ?                   | ?             | ?     | 1-bit gray-scale with alpha                                                                  |
+| AG2          | AG2    | ?       | ?        | ?                   | ?             | ?     | 2-bit gray-scale with alpha                                                                  |
+| AG4          | AG4    | ?       | ?        | ?                   | ?             | ?     | 4-bit gray-scale with alpha                                                                  |
+| AG8          | AG8    | ?       | ?        | ?                   | ?             | ?     | 8-bit gray-scale with alpha                                                                  |
+| A1           | A1     | ?       | ?        | ?                   | ?             | ?     | 1-bit alpha                                                                                  |
+| A2           | A2     | ?       | ?        | ?                   | ?             | ?     | 2-bit alpha                                                                                  |
+| A4           | A4     | ?       | ?        | ?                   | ?             | ?     | 4-bit alpha                                                                                  |
+| A8           | A8     | ?       | ?        | ?                   | ?             | ?     | 8-bit alpha                                                                                  |
+| APC1         | APC1   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
+| APC2         | APC2   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
+| APC3         | APC3   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
+| APC4         | APC4   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
+| APC5         | APC5   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
+| APC6         | APC6   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
+| UYVY         | UYVY   | ?       | UYVY     | 4:2:2               | ?             | ?     |                                                                                              |
+| YUY2         | YUY2   | ?       | YUYV     | 4:2:2               | ?             | ?     |                                                                                              |
 
 ### KTX
 
 KTX is the standard compression format, used as a container for multiple images/textures, and is ideal for mipmapping.
-Khronos provides an open source C library (libktx) in which KTX texture loading with mipmaps is supported. [...] This function (ktxLoadTextureM) was provided in [the library (libktx)](https://www.khronos.org/opengles/sdk/tools/KTX/doc/libktx/)
+Khronos provides an open source C library (libktx) in which KTX texture loading with mipmaps is supported. \[...\] This function (ktxLoadTextureM) was provided in [the library (libktx)](https://www.khronos.org/opengles/sdk/tools/KTX/doc/libktx/)
 
-	UINT8 * LoadKTX(const CHAR * strFileName , UINT32 *pWidth , UINT32 * pHeight , UINT32 * nFormat , UINT32 * nSize){
-		typedef struct KTX_header_t {
-			UINT8  identifier[12];
-			UINT32  endianness;
-			UINT32  glType;
-			UINT32  glTypeSize;
-			UINT32  glFormat;
-			UINT32  glInternalFormat;
-			UINT32  glBaseInternalFormat;
-			UINT32  pixelWidth;
-			UINT32  pixelHeight;
-			UINT32  pixelDepth;
-			UINT32  numberOfArrayElements;
-			UINT32  numberOfFaces;
-			UINT32  numberOfMipmapLevels;
-			UINT32  bytesOfKeyValueData;
-		} KTX_Header;
+```c
+UINT8 * LoadKTX(const CHAR * strFileName , UINT32 *pWidth , UINT32 * pHeight , UINT32 * nFormat , UINT32 * nSize){
+	typedef struct KTX_header_t {
+		UINT8  identifier[12];
+		UINT32  endianness;
+		UINT32  glType;
+		UINT32  glTypeSize;
+		UINT32  glFormat;
+		UINT32  glInternalFormat;
+		UINT32  glBaseInternalFormat;
+		UINT32  pixelWidth;
+		UINT32  pixelHeight;
+		UINT32  pixelDepth;
+		UINT32  numberOfArrayElements;
+		UINT32  numberOfFaces;
+		UINT32  numberOfMipmapLevels;
+		UINT32  bytesOfKeyValueData;
+	} KTX_Header;
+
+	typedef struct KTX_texinfo_t {
+		UINT32  textureDemensions;
+		UINT32  glTarget;
+		UINT32 compressed;
+		UINT32 generateMipmaps;
+	} KTX_Texinfo;
+
+	KTX_Header header;
+	KTX_Texinfo texinfo;
+	UINT8 * data = NULL;
+	UINT32 dataSize = 0;
+	UINT32 texname;
+	int texnameUser;
+	UINT32 faceLodSize;
+	UINT32  faceLodSizeRounded;
+	UINT32 level;
+	UINT32 face;
+
+	// Read the file
+	FILE* file = fopen( strFileName, "rb" );
+
+	if( NULL == file )
+		return NULL;
+
+	//read the header of ktx file
+	fread( &header, sizeof(header), 1, file );
+
+	//
+	fseek(file,(long)header.bytesOfKeyValueData,SEEK_CUR);
+	fread(&faceLodSize,sizeof(faceLodSize),1,file);
 	
-		typedef struct KTX_texinfo_t {
-			UINT32  textureDemensions;
-			UINT32  glTarget;
-			UINT32 compressed;
-			UINT32 generateMipmaps;
-		} KTX_Texinfo;
-	
-		KTX_Header header;
-		KTX_Texinfo texinfo;
-		UINT8 * data = NULL;
-		UINT32 dataSize = 0;
-		UINT32 texname;
-		int texnameUser;
-		UINT32 faceLodSize;
-		UINT32  faceLodSizeRounded;
-		UINT32 level;
-		UINT32 face;
-	
-		// Read the file
-		FILE* file = fopen( strFileName, "rb" );
-	
-		if( NULL == file )
-			return NULL;
-	
-		//read the header of ktx file
-		fread( &header, sizeof(header), 1, file );
-	
-		//
-		fseek(file,(long)header.bytesOfKeyValueData,SEEK_CUR);
-		fread(&faceLodSize,sizeof(faceLodSize),1,file);
-		
-		faceLodSizeRounded = (faceLodSize + 3) & ~(UINT32)3;
-		data = (UINT8 *)malloc(faceLodSizeRounded);
-	
-		fread(data,faceLodSizeRounded,1,file);
-	
-		*pWidth = header.pixelWidth;
-		*pHeight= header.pixelHeight;
-		*nSize = faceLodSizeRounded;
-		*nFormat = header.glInternalFormat;
-	
-		return data;
-	}
+	faceLodSizeRounded = (faceLodSize + 3) & ~(UINT32)3;
+	data = (UINT8 *)malloc(faceLodSizeRounded);
+
+	fread(data,faceLodSizeRounded,1,file);
+
+	*pWidth = header.pixelWidth;
+	*pHeight= header.pixelHeight;
+	*nSize = faceLodSizeRounded;
+	*nFormat = header.glInternalFormat;
+
+	return data;
+}
+```
 
 ### PKM
 
@@ -512,45 +525,55 @@ For the texture:
 
 One 4x4 bloc, use ATC explicit (ATCA), with following pixels:
 
+```
 RGRG
 GGRG
 RRRG
 GGGG
+```
 
 Where R = Red, G = Green
 And the top-left pixel semi transparent (58% A=0x69)
 
 To create it use:
 
-	printf '\xFF\x00\x00\x69\x00\xFF\x00\xFF\xFF\x00\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\xFF\x00\x00\xFF\x00\xFF\x00\xFF\xFF\x00\x00\xFF\xFF\x00\x00\xFF\xFF\x00\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF' | convert -depth 8 -size 4x4+0 rgba:- image4x4.png
+```sh
+printf '\xFF\x00\x00\x69\x00\xFF\x00\xFF\xFF\x00\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\xFF\x00\x00\xFF\x00\xFF\x00\xFF\xFF\x00\x00\xFF\xFF\x00\x00\xFF\xFF\x00\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF\x00\xFF' | convert -depth 8 -size 4x4+0 rgba:- image4x4.png
+```
 
 Compress it, then you get the following bloc data:
 
-	F6 FF FF FF FF FF FF FF 00 7C E0 07 CC CF C0 FF
+```
+F6 FF FF FF FF FF FF FF 00 7C E0 07 CC CF C0 FF
+```
 
 The RGB color part:
 
-	00 7C E0 07 CC CF C0 FF
+```
+00 7C E0 07 CC CF C0 FF
+```
 
-	encodingMethod = 00 7C (LE), 0x7C00 = first bit (0x7C00 >> 15) = 0
-	color0 = 00 7C (LE), 0x7C00 = (skip first bit),0b11111,0b00000,0b00000 = 31,0,0 = rgb(255,0,0)
-	color1 = E0 07 (LE), 0x07E0 = 0b00000,0b111111,0b00000 = 0,63,0 = rgb(0,255,0)
-	p0_0 = 11 => color1
-	p1_0 = 00 => color0
-	p2_0 = 11 => color1
-	p3_0 = 00 => color0
-	p0_1 = 11 => color1
-	p1_1 = 00 => color0
-	p2_1 = 11 => color1
-	p3_1 = 11 => color1
-	p0_2 = 11 => color1
-	p1_2 = 00 => color0
-	p2_2 = 00 => color0
-	p3_2 = 00 => color0
-	p0_3 = 11 => color1
-	p1_3 = 11 => color1
-	p2_3 = 11 => color1
-	p3_3 = 11 => color1
+```
+encodingMethod = 00 7C (LE), 0x7C00 = first bit (0x7C00 >> 15) = 0
+color0 = 00 7C (LE), 0x7C00 = (skip first bit),0b11111,0b00000,0b00000 = 31,0,0 = rgb(255,0,0)
+color1 = E0 07 (LE), 0x07E0 = 0b00000,0b111111,0b00000 = 0,63,0 = rgb(0,255,0)
+p0_0 = 11 => color1
+p1_0 = 00 => color0
+p2_0 = 11 => color1
+p3_0 = 00 => color0
+p0_1 = 11 => color1
+p1_1 = 00 => color0
+p2_1 = 11 => color1
+p3_1 = 11 => color1
+p0_2 = 11 => color1
+p1_2 = 00 => color0
+p2_2 = 00 => color0
+p3_2 = 00 => color0
+p0_3 = 11 => color1
+p1_3 = 11 => color1
+p2_3 = 11 => color1
+p3_3 = 11 => color1
+```
 
 - https://www.khronos.org/registry/gles/extensions/AMD/AMD_compressed_ATC_texture.txt
 - [\[REF\][11.11.09] CFC - THE Manila/TF3D Image … | Windows Mobile Development and Hacking](http://forum.xda-developers.com/showthread.php?t=437777#postcount2798443)
@@ -559,57 +582,73 @@ The RGB color part:
 
 Qualcomm adapted version of ATC used by Manila/Mode9
 
-> - Find an x, with which a following expression has a minimum value (of F):
+> Find an x, with which a following expression has a minimum value (of F):
+> 
+> ````
 > F(x) = 30 * (r - R)^2 + 59 * (g - G)^2 + 11 * (b - B)^2
 > where
 > r = x * r1 + (1 - x) * r2
 > g = x * g1 + (1 - x) * g2
 > r = x * g1 + (1 - x) * g2
-> 
+> ````
+>
 > Basically, we need to find a function MinX(R, G, B, r1, g1, b1, r2, g2, b2) which value will turn F(x) into minimum value, and 0 <= MinX <= 1
 > 
 > I guess in the last equation all r and g should be replaced by b.
 > In that case, according to Maple, the solution of dF(x)/dx = 0 is:
+> ````
 > x = (-30*r2*r1+30*r2^2+30*R*r1-30*R*r2-59*g2*g1+
 > 59*g2^2+59*G*g1-59*G*g2-11*b2*b1+11*b2^2+
 > 11*B*b1-11*B*b2)/
 > (30*r1^2-60*r2*r1+30*r2^2+59*g1^2-118*g2*g1+
 > 59*g2^2+11*b1^2-22*b2*b1+11*b2^2) 
+> ````
 
 > 0x0000: xx xx xx xx xx xx xx xx - transparency data. 1-byte/pixel. But you may ask: hey! there're 16 pixels per chunk! Wtf? Sorry guys, QTC image is actually halved by width and restored via interpolation during decoding.
 > Bytes are drawn in this order:
+> 
+> ````
 > [i2][0][i][1]
 > [i2][2][i][3]
 > [i2][4][i][5]
 > [i2][6][i][7]
+> ````
 > 
 > "i" means interpolated pixel, "i2" means pixel, interpolated between 2 chunks
 > also, FYI, tflo3d wrap's image around during edge interpolation
 > 
+> ````
 > 0x0008: xx xx - color non-uniformity info. see next. also, dunno how it works yet
 > 
 > 0x000a: BB RG - key chunk color in RGB format (8 bits for blue, and 4+4 bits for red+green). Yes, pixels in chunk have shared color, modified by previous 2 and next 4 bytes
 > 
 > 0x000c: 21 43 65 87 - ligthness values for each drawn pixel (number corresponds to pixel #), 4bits each
+> ````
 
 > . QTC files
 > They're non-compressed bitmaps, but encoding used there is completely retarded.
 > As ryujakk *almost* correctly stated, header is:
+> 
+> ````
 > 0x0000: 51 54 43 31 01(?) - magic bytes signature
 > 0x0008: xx xx xx xx - UINT32 image width
 > 0x000c: xx xx xx xx - UINT32 image height
 > 0x0010: .... some metadata goes here, maybe encoding type too, dunno yet
 > 0x0020: image data
 > 0x......: last ~500 bytes are padded with zeros for some reason (> QTC files are padded up to multiples of 512. For faster loading, i reckon.)
-
+> 
 > 0x0008: xx xx - Key color 1. Color is calculated by adding values from 4 LUTs (lookup tables) for each 4 bits. Each LUT holds RGB values
 > 
 > 0x000a: xx xx - Key color 2. Same as key color 1, but different LUTs
 > 
 > 0x000c: 21 43 65 87 - mixdown coefficients for each drawn pixel (number corresponds to pixel #), 4bits each. see next
+> ````
 > 
 > As i wrote earlier, pixels in chunk have shared master colors. The resulting is calulated as:
+> 
+> ````
 > color = mixdown * key_color_2 + (1 - mixdown) * key_color_1
+> ````
 > 
 > Note 1. Mixdown value is normalized to 1
 > Note 2. Mixdown operation s/b done for each color channel distinctly
@@ -622,15 +661,16 @@ Adopted by official extension for both OpenGL 3.0
 
 Adaptive Scalable Texture Compression (ASTC)
 
-Encoding Format		Description
-L					Luminance-only
-LA					Luminance with transparency
-L+A					Luminance with uncorrelated transparency
-X+Y					Surface normals
-RGB					Full color
-XY+Z				Surface normals with uncorrelated Z
-RGBA				Full color with transparency
-RGB+A				Full color with uncorrelated transparency
+| Encoding Format | Description                               |
+|-----------------|-------------------------------------------|
+| L               | Luminance-only                            |
+| LA              | Luminance with transparency               |
+| L+A             | Luminance with uncorrelated transparency  |
+| X+Y             | Surface normals                           |
+| RGB             | Full color                                |
+| XY+Z            | Surface normals with uncorrelated Z       |
+| RGBA            | Full color with transparency              |
+| RGB+A           | Full color with uncorrelated transparency |
 
 Three compression formats are introduced:
 
@@ -661,55 +701,59 @@ If working with floating point data, ASTC LDR is not suitable — consider using
 
 The ASTC container format is custom-tailored to the ASTC compression format. The header indicates the compression block size, which allows you to select the correct pixel format when loading the data into texture memory and calculate the length of the texture data. Here is the layout of the ASTC header:
 
-	struct ASTCHeader {
-		uint32_t magic;
-		unsigned char blockDimX;
-		unsigned char blockDimY;
-		unsigned char blockDimZ;
-		unsigned char xSize[3];
-		unsigned char ySize[3];
-		unsigned char zSize[3];
-	};
+```c
+struct ASTCHeader {
+	uint32_t magic;
+	unsigned char blockDimX;
+	unsigned char blockDimY;
+	unsigned char blockDimZ;
+	unsigned char xSize[3];
+	unsigned char ySize[3];
+	unsigned char zSize[3];
+};
+```
 
 The `xSize`, `ySize`, and `zSize` fields are 24-bit quantities, each encoded as three bytes. The compressed image data immediately follows the header.
 
 ### Other formats
 
 - [Floating-point formats](https://www.khronos.org/registry/dataformat/specs/1.1/dataformat.1.1.html#fpformats)
- 
-	// from https://github.com/libgdx/libgdx/blob/155fd6972e7084862ccdba9b12894538685416ff/gdx/jni/gdx2d/gdx2d.c#L52-L83
-	static inline uint32_t to_format(uint32_t format, uint32_t color) {
-		uint32_t r, g, b, a, l;
-		
-		switch(format) {
-			case GDX2D_FORMAT_ALPHA: 
-				return color & 0xff;
-			case GDX2D_FORMAT_LUMINANCE_ALPHA: 
-				r = (color & 0xff000000) >> 24;
-				g = (color & 0xff0000) >> 16;
-				b = (color & 0xff00) >> 8;
-				a = (color & 0xff);
-				l = ((uint32_t)(0.2126f * r + 0.7152 * g + 0.0722 * b) & 0xff) << 8;
-				return (l & 0xffffff00) | a;
-			case GDX2D_FORMAT_RGB888:
-				return color >> 8;
-			case GDX2D_FORMAT_RGBA8888:
-				return color;
-			case GDX2D_FORMAT_RGB565: 
-				r = (((color & 0xff000000) >> 27) << 11) & 0xf800;
-				g = (((color & 0xff0000) >> 18) << 5) & 0x7e0;
-				b = ((color & 0xff00) >> 11) & 0x1f;
-				return r | g | b;
-			case GDX2D_FORMAT_RGBA4444:
-				r = (((color & 0xff000000) >> 28) << 12) & 0xf000;
-				g = (((color & 0xff0000) >> 20) << 8) & 0xf00;
-				b = (((color & 0xff00) >> 12) << 4) & 0xf0;
-				a = ((color & 0xff) >> 4) & 0xf;
-				return r | g | b | a;
-			default: 
-				return 0;
-		}
+
+```c
+// from https://github.com/libgdx/libgdx/blob/155fd6972e7084862ccdba9b12894538685416ff/gdx/jni/gdx2d/gdx2d.c#L52-L83
+static inline uint32_t to_format(uint32_t format, uint32_t color) {
+	uint32_t r, g, b, a, l;
+	
+	switch(format) {
+		case GDX2D_FORMAT_ALPHA: 
+			return color & 0xff;
+		case GDX2D_FORMAT_LUMINANCE_ALPHA: 
+			r = (color & 0xff000000) >> 24;
+			g = (color & 0xff0000) >> 16;
+			b = (color & 0xff00) >> 8;
+			a = (color & 0xff);
+			l = ((uint32_t)(0.2126f * r + 0.7152 * g + 0.0722 * b) & 0xff) << 8;
+			return (l & 0xffffff00) | a;
+		case GDX2D_FORMAT_RGB888:
+			return color >> 8;
+		case GDX2D_FORMAT_RGBA8888:
+			return color;
+		case GDX2D_FORMAT_RGB565: 
+			r = (((color & 0xff000000) >> 27) << 11) & 0xf800;
+			g = (((color & 0xff0000) >> 18) << 5) & 0x7e0;
+			b = ((color & 0xff00) >> 11) & 0x1f;
+			return r | g | b;
+		case GDX2D_FORMAT_RGBA4444:
+			r = (((color & 0xff000000) >> 28) << 12) & 0xf000;
+			g = (((color & 0xff0000) >> 20) << 8) & 0xf00;
+			b = (((color & 0xff00) >> 12) << 4) & 0xf0;
+			a = ((color & 0xff) >> 4) & 0xf;
+			return r | g | b | a;
+		default: 
+			return 0;
 	}
+}
+```
 
 Note: RGBA4444 = 16bit **but not related to paletted**
 
@@ -718,6 +762,7 @@ Note: RGBA4444 = 16bit **but not related to paletted**
 
 	Use a palette mode, with gray scale colors:
 
+	```
 	0 0 0
 	17 17 17
 	34 34 34
@@ -734,6 +779,7 @@ Note: RGBA4444 = 16bit **but not related to paletted**
 	221 221 221
 	238 238 238
 	255 255 255
+	```
 
 `PALETTE8_RGBA8_OES` can be used with `compressedTexImage2D()` to upload paletted colors (like from PNG8): https://www.opengl.org/registry/specs/OES/OES_compressed_paletted_texture.txt
 
@@ -773,43 +819,43 @@ Get list and market share:
 - [PassMark Android Benchmark Charts - Popular Phones](http://www.androidbenchmark.net/popular_chart.html)
 
 - S3TC/DXT
-	* All desktop (Nvidia, ATI/AMD, Intel)
-	* some mobile devices
-	* NVIDIA Tegra 2 chipset integrated into Motorola products such as XOOM and ATRIX
+	- All desktop (Nvidia, ATI/AMD, Intel)
+	- some mobile devices
+	- NVIDIA Tegra 2 chipset integrated into Motorola products such as XOOM and ATRIX
 - PVRTC
-	* All PowerVR GPUs
-	* iPhone or iPad
-	* Nexus S, Kindle fire
-	* HTC EVO (PowerVR SGX 531 version)
-	* some Motorola devices, such as those in the DROID by Motorola series
-	* BlackBerry Z10 STL100-1 (PowerVR)
+	- All PowerVR GPUs
+	- iPhone or iPad
+	- Nexus S, Kindle fire
+	- HTC EVO (PowerVR SGX 531 version)
+	- some Motorola devices, such as those in the DROID by Motorola series
+	- BlackBerry Z10 STL100-1 (PowerVR)
 - PVRTC2
-	* All PowerVR Series5XT, Series6
-	* Apple A8+ devices using OpenGL ES 3.0
+	- All PowerVR Series5XT, Series6
+	- Apple A8+ devices using OpenGL ES 3.0
 - ASTC
-	* Qualcomm Adreno 420
-	* Adreno 4xx adds support for ASTC LDR compression, which is made available through the Android Extension Pack
-	* Intel HD Graphics Gen9+
-	* Nexus One
-	* BlackBerry Z10 STL100-2, Z10 STL100-3, Z10 STL100-4, Q10 SQN, DAC SQN, Q5 SQR (Qualcomm)
-	* Nvidia's Kepler and Maxwell-based Tegra
-	* ARM Mali-T620, Mali-T720, Mali-T760, Mali-T820/T830, Mali-T860/T880 and Mali-G71 [Mali (GPU) — Wikipedia](https://en.wikipedia.org/wiki/Mali_%28GPU%29)
+	- Qualcomm Adreno 420
+	- Adreno 4xx adds support for ASTC LDR compression, which is made available through the Android Extension Pack
+	- Intel HD Graphics Gen9+
+	- Nexus One
+	- BlackBerry Z10 STL100-2, Z10 STL100-3, Z10 STL100-4, Q10 SQN, DAC SQN, Q5 SQR (Qualcomm)
+	- Nvidia's Kepler and Maxwell-based Tegra
+	- ARM Mali-T620, Mali-T720, Mali-T760, Mali-T820/T830, Mali-T860/T880 and Mali-G71 [Mali (GPU) — Wikipedia](https://en.wikipedia.org/wiki/Mali_%28GPU%29)
 - ATITC/ATC
-	* Adreno GPU: all Qualcomm Snapdragon devices
-	* HTC EVO (Adreno 200 version)
-	* HTC G1 and HTC Hero
-	* LG Nexus 5X (Adreno 418)
-	* Sony Ericsson Android™ phones such as the Xperia™ X10 or Xperia™ PLAY (Qualcomm Adreno 200 and 205)
+	- Adreno GPU: all Qualcomm Snapdragon devices
+	- HTC EVO (Adreno 200 version)
+	- HTC G1 and HTC Hero
+	- LG Nexus 5X (Adreno 418)
+	- Sony Ericsson Android™ phones such as the Xperia™ X10 or Xperia™ PLAY (Qualcomm Adreno 200 and 205)
 - ETC1
-	* most of Android devices
-	* Intel HD Graphics Gen8+
-	* Qualcomm Adreno 3xx
+	- most of Android devices
+	- Intel HD Graphics Gen8+
+	- Qualcomm Adreno 3xx
 - ETC2
-	* all compatible GPU with OpenGL 3.0
-	* Qualcomm Adreno 3xx
+	- all compatible GPU with OpenGL 3.0
+	- Qualcomm Adreno 3xx
 - RGTC
-	* all compatible GPU with OpenGL 3.0
-	* Nvidia GeForce 8 Series https://www.opengl.org/registry/specs/EXT/texture_compression_rgtc.txt
+	- all compatible GPU with OpenGL 3.0
+	- Nvidia GeForce 8 Series https://www.opengl.org/registry/specs/EXT/texture_compression_rgtc.txt
 
 Adreno 530 compatible Vulkan
 
@@ -834,8 +880,8 @@ GPU Model (09/2016):
 - Intel: 0.3%
 - Nvidia (DXT): 0.3%
 - Emulators: 0.7%
-	* Android ES Emulator (GeForce): 0.4%
-	* BlueStacks ES2.0 Emu: 0.3%
+	- Android ES Emulator (GeForce): 0.4%
+	- BlueStacks ES2.0 Emu: 0.3%
 
 - Imagination Technologies PowerVR http://withimagination.imgtec.com/wp-content/uploads/2013/03/Why_use_PVRTC.png https://en.wikipedia.org/wiki/PowerVR and https://imgtec.com/powervr/graphics/
 - ARM Mali https://www.arm.com/products/graphics-and-multimedia/mali-gpu and https://developer.arm.com/products/graphics-and-multimedia/mali-gpus
@@ -889,7 +935,7 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 		convert image.png -channel rgba -alpha on -set colorspace RGB -separate -swap 0,2 -combine -define png:color-type=6 image_bgra.png
 - [NVIDIA Texture Tools](https://github.com/castano/nvidia-texture-tools) DXT1, DXT5, BPTC See also https://github.com/floooh/nvidia-texture-tools (and all potential fork)
 	Based on libsquish (see [S3TC - DXT](S3TC - DXT))
-	* [GPU Accelerated Texture Compression | NVIDIA Developer](https://developer.nvidia.com/gpu-accelerated-texture-compression)
+	- [GPU Accelerated Texture Compression | NVIDIA Developer](https://developer.nvidia.com/gpu-accelerated-texture-compression)
 - [A fast texture compressor for various formats](https://github.com/GammaUNC/FasTC): PNG, KTX, ASTC, BPTC, ETC1, DXT1, DXT5, PVRTC version 1 4BPP RGBA
 	For S3TC/DXT, use https://github.com/nothings/stb/blob/master/stb_dxt.h
 	See `/build/CLTool/tc`
@@ -899,15 +945,15 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 
 	Note: in SDK v5.0 the FOURCC of ATC is incorrect for ATC Interpolated and ATC Explicit (ATCI and ATCA are inversed):
 	
-	* [Texture Tool does not code FOURCC code correctly in DDS files - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/26480)
-	* [Adreno Texture Tool's bug? (in AdrenoSDK 3.0) - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/18926)
-	* `Adreno SDK/Docs/QCompress/QCompress.pdf` "Developer Notes"
+	- [Texture Tool does not code FOURCC code correctly in DDS files - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/26480)
+	- [Adreno Texture Tool's bug? (in AdrenoSDK 3.0) - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/18926)
+	- `Adreno SDK/Docs/QCompress/QCompress.pdf` "Developer Notes"
 	
 	`QCompress` (Adreno Texture Tool) is GUI only. For CLI command, create you own with TextureConverter lib included in the SDK
 	
 	Note: An other existing bug:
 	
-	* [KTX swap Red Channel and Blue Channel in Adreno Texture tool - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/14993)
+	- [KTX swap Red Channel and Blue Channel in Adreno Texture tool - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/14993)
 - [Mali GPU Texture Compression Tool - Mali Developer Center](http://malideveloper.arm.com/resources/tools/mali-gpu-texture-compression-tool/) ASTC, ETC1, ETC2 / EAC (Java Application)
 - Lib (see texgenpack) [Low-level library for decompression and manipulation of texture blocks compressed](https://github.com/hglm/detex) KTX, DDS, BC1/DXT1/S3TC, BC2-BC3, BC4/RGTC1, BC5/RGTC2, BC6 (BPTC_FLOAT), BC7 (BPTC), ETC1/2
 - Skia lib write/read https://skia.googlesource.com/skia and https://github.com/google/skia PKM, ARTC, KTX, LATC, R11_EAC, ETC1

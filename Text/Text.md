@@ -500,22 +500,48 @@ Reversed pseudoalphabet (backwards) (better with Capitals)
 
 ## Spelling is important
 
+Especially when a screen reader is used
+
 > be redundant when you explain stuff to people
 
-See also [Spelling is important](HTML#spelling-is-important), [Language](#language)
+- minus: `&minus;`/`−` (U+2212 / minus sign) instead of `-` (U+002D / hyphen-minus)
+- multiply: `×` instead of `*`
+- division: `÷` instead of `/`
+
+- (french) "Ca" → 💬"ka", "Ça" → 💬"sa"
+- (french) "Acceuil" → 💬"ak-seuil", "Accueil" → 💬"akeuil"
+- (french) "UN INTERNE TUE" (an intern kill) → "UN INTERNÉ TUÉ" (a patient killed)
+- "CONTACT US" → 💬"Contact U S". Use CSS text-transform instead
+
+Note: 'eg' should be written 'e.g.' and 'ie' 'i.e.'
+
+> ‘eg’ can sometimes be read aloud as ‘egg’ by screen reading software. Instead use ‘for example’ or ‘such as’ or 'like' or ‘including’ - whichever works best in the specific context.
+> ‘etc’ can usually be avoided. Try using ‘for example’ or ‘such as’ or ‘including’. Never use ‘etc’ at the end of a list starting with ‘for example’ or ‘such as’ or ‘including’.
+> ‘ie’ - used to clarify a sentence - isn’t always well understood. Try (re)writing sentences to avoid the need to use it. If that isn’t possible, use an alternative such as ‘meaning’ or ‘that is’.
+– [Changes to the style guide: no more eg, and ie, etc | Inside GOV.UK](https://insidegovuk.blog.gov.uk/2016/07/20/changes-to-the-style-guide-no-more-eg-and-ie-etc/)
+
+Lists interpretations:
+
+> The canning, processing, preserving, freezing, drying, marketing, storing, packing for shipment or distribution of:
+> 1. Agricultural produce;
+> 2. Meat and fish products; and
+> 3. Perishable foods.
+
+Possibilities:
+
+1. ... + "marketing" + "storing" + "packing for shipment or distribution" "of: ..."
+2. ... + "marketing" + "storing" + "packing for shipment" + "distribution" "of: ..."
 
 - [Lack of Oxford Comma Could Cost Maine Company Millions in Overtime Dispute - The New York Times](https://www.nytimes.com/2017/03/16/us/oxford-comma-lawsuit.html)
-	- [The New York Times on Twitter: "This class-action lawsuit hinged entirely on the dreaded — or totally necessary — Oxford comma https://t.co/TWsK7o1bpP"](https://twitter.com/nytimes/status/842463014536249345)
-	
-	> The canning, processing, preserving, freezing, drying, marketing, storing, packing for shipment or distribution of:
-	> 1. Agricultural produce;
-	> 2. Meat and fish products; and
-	> 3. Perishable foods.
-	
-	Possibilities:
-	
-	1. ... "marketing" - "storing" - "packing for shipment or distribution" "of: ..."
-	2. ... "marketing" - "storing" - "packing for shipment" - "distribution" "of: ..."
+- [The New York Times on Twitter: "This class-action lawsuit hinged entirely on the dreaded — or totally necessary — Oxford comma https://t.co/TWsK7o1bpP"](https://twitter.com/nytimes/status/842463014536249345)
+
+See also
+
+- [Spelling is important](HTML#spelling-is-important)
+- [Language](#language)
+- [Orthographe et accessibilité | nota-bene.org](http://nota-bene.org/Orthographe-et-accessibilite)
+- [Dash — Wikipedia](https://en.wikipedia.org/wiki/Dash)
+- [UK government changes website guidelines due to buggy screen readers | Hacker News](https://news.ycombinator.com/item?id=12164831)
 
 ## T–V distinction
 

@@ -2,7 +2,7 @@ BookmarkData is data structure used in OSX to keep reference to a file even in c
 
 It's similar to finder Alias, but without magic header
 
-Sometimes contained in [PList](PList) use the extension `.sfl`, ex: `~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.FavoriteServers.sfl`
+Sometimes contained in [PList](./PList/PList.md) use the extension `.sfl`, ex: `~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.FavoriteServers.sfl`
 
 - [Accessing Files and Directories](https://developer.apple.com/library/ios/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/AccessingFilesandDirectories/AccessingFilesandDirectories.html#//apple_ref/doc/uid/TP40010672-CH3-SW10)
 - `URLByResolvingBookmarkData`

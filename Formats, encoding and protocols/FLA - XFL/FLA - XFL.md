@@ -1,6 +1,6 @@
 ## XFL
 
-See [OLE Compound File](OLE Compound File)
+See [OLE Compound File](../OLE%20Compound%20File/OLE%20Compound%20File.md)
 
 - [Compound File Binary Format - Wikipedia](http://en.wikipedia.org/wiki/Compound_File_Binary_Format)
 - [Format description published by Microsoft](http://download.microsoft.com/download/0/B/E/0BE8BDD7-E5E8-422A-ABFD-4342ED7AD886/WindowsCompoundBinaryFileFormatSpecification.pdf)

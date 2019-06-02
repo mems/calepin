@@ -36,7 +36,7 @@ Start with `bplist00` (binary plists)
 
 JavaScript implementation:
 
-> From what I understand, all Javascript implementations store numbers internally as doubles (even what appear to be integers!)[1]. There are two problems; the first one is that bplists can contain 32-bit floats as well as 64-bit doubles, and so you need two separate code paths for decoding them into the native JS Number type. The other problem is that decoding them is not exactly straightforward - there's no simple way I've found yet to unpack a 4-byte buffer into a float, or an 8-byte buffer into a double.
+> From what I understand, all Javascript implementations store numbers internally as doubles [even what appear to be integers!](http://www.jwz.org/blog/2010/10/every-day-i-learn-something-new-and-stupid/). There are two problems; the first one is that bplists can contain 32-bit floats as well as 64-bit doubles, and so you need two separate code paths for decoding them into the native JS Number type. The other problem is that decoding them is not exactly straightforward - there's no simple way I've found yet to unpack a 4-byte buffer into a float, or an 8-byte buffer into a double.
 > 
 > The good news is, solving the double case also solves the date case - all dates in bplists are stored as a 64-bit double value, which is an offset since the epoch (although I think Apple uses a different epoch than the usual UNIX one). Anyway, once we can parse doubles correctly, dates should be trivial to implement.
 — https://github.com/TooTallNate/plist.js/issues/2#issuecomment-1299675

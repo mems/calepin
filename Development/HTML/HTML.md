@@ -1368,29 +1368,7 @@ Or use a shadow DOM/subdom:
 
 ## Spelling is important
 
-Especially when you use a screen reader.
-
-Use right chars:
-
-- minus: `&minus;`/`−` (U+2212 / minus sign) instead of `-` (U+002D / hyphen-minus)
-- multiply: `×` instead of `*`
-- division: `÷` instead of `/`
-
-- (french) "Ca" → 💬"ka", "Ça" → 💬"sa"
-- (french) "Acceuil" → 💬"ak-seuil", "Accueil" → 💬"akeuil"
-- (french) "UN GENDARME TUE" (a police officer kill) → "UN GENDARME TUÉ" (a police officer killed)
-- "CONTACT US" → 💬"Contact U S". Use CSS text-transform instead
-
-> ‘eg’ can sometimes be read aloud as ‘egg’ by screen reading software. Instead use ‘for example’ or ‘such as’ or 'like' or ‘including’ - whichever works best in the specific context.
-> ‘etc’ can usually be avoided. Try using ‘for example’ or ‘such as’ or ‘including’. Never use ‘etc’ at the end of a list starting with ‘for example’ or ‘such as’ or ‘including’.
-> ‘ie’ - used to clarify a sentence - isn’t always well understood. Try (re)writing sentences to avoid the need to use it. If that isn’t possible, use an alternative such as ‘meaning’ or ‘that is’.
-– [Changes to the style guide: no more eg, and ie, etc | Inside GOV.UK](https://insidegovuk.blog.gov.uk/2016/07/20/changes-to-the-style-guide-no-more-eg-and-ie-etc/)
-
-Note: 'eg' should be written 'e.g.' and 'ie' 'i.e.'
-
-- [Orthographe et accessibilité | nota-bene.org](http://nota-bene.org/Orthographe-et-accessibilite)
-- [Dash — Wikipedia](https://en.wikipedia.org/wiki/Dash)
-- [UK government changes website guidelines due to buggy screen readers | Hacker News](https://news.ycombinator.com/item?id=12164831)
+See [Spelling is important](Text#spelling-is-important)
 
 ## `title` attribute is not accessible
 

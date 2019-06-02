@@ -7,14 +7,14 @@
 - [About Apple URL Schemes](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007891-SW1)
 - [christopherdwhite/iosWorkflows: This is a collection of bookmarklets, scripts and custom URL scheme actions that help bridge apps and manipulate the data you can send between them.](https://github.com/christopherdwhite/iosWorkflows)
 
-See also [URI/URL](Web#urlurl)
+See also [URI/URL](../../Web/Web.md#uriurl)
 
 ## Mobile Application URL Schemes 
 
 iOS and/or Android
 
-- [Open native application](Web#open-native-application)
-- [Fingerprinting - Native application is installed](Security#native-application-is-installed)
+- [Open native application](../../Web/Web.md#open-native-application)
+- [Fingerprinting - Native application is installed](../../Security/Security.md#native-application-is-installed)
 
 - [IPhone URL Schemes - akosma wiki](https://web.archive.org/web/20161018100533/http://wiki.akosma.com:80/IPhone_URL_Schemes)
 - [handleOpenURL, Shared Interapp Communication on iOS](https://web.archive.org/web/20161128234603/http://handleopenurl.com:80/)
@@ -28,7 +28,7 @@ iOS and/or Android
 	- [HBehrens/collectIPAMetaData: extract and merge meaningful meta data from iOS IPAs such as URL schemes and app store ID](https://github.com/HBehrens/collectIPAMetaData)
 - (from `Iconical.ipa`) `Iconical.app/actionapps.data`
 
-## Apple Maps protocol
+## Apple Maps URI
 
 `x-maps-mapitemhandles://%plist_base64_encoded%`
 
@@ -63,13 +63,15 @@ Sometimes, iOS keyboard predict a part of calendar event address links
 	</dict>
 	</plist>
 
-## `tel:`
+## Tel URI
 
-See [Phone number](Phone number)
+`tel:`
+
+See [Phone number](../../Data/Phone%20number/Phone%20number.md)
 
 	<p>Appelez le <a href="tel:+33612345678">06 12 34 56 78</a>.</p>
 
-Should support extensions: `tel:+00000;ext=00`, but often only `tel:+00000,00` is supported. See [Phone number](Phone number#extension)
+Should support extensions: `tel:+00000;ext=00`, but often only `tel:+00000,00` is supported. See [Phone number](../../Data/Phone%20number/Phone%20number.md#extension)
 
 Chars are composed as number (what about `w`/"wait for dial tone" or `p`/"pause").
 
@@ -80,21 +82,25 @@ Chars are composed as number (what about `w`/"wait for dial tone" or `p`/"pause"
 - [Extension (telephone) - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Extension_(telephone))
 - [html - How do I include extensions in the tel: URI? - Stack Overflow](https://stackoverflow.com/questions/9482633/how-do-i-include-extensions-in-the-tel-uri)
 
-## `sms:`
+## SMS URI
 
 	sms:?body=http%3A%2F%2F…
 
-## `geo:`
+## Geo URI
 
 	geo:{lat},{long}
 
 - [The "geo:" URI scheme](http://geouri.org/)
 
-## `mailto:`
+## Mailto
+
+`mailto:`
 
 - [mailto - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Mailto)
 
-## `data:`
+## Data URI
+
+`data:`
 
 - [RFC 2397 - The "data" URL scheme](http://tools.ietf.org/html/rfc2397)
 
@@ -137,11 +143,15 @@ See also:
 
 - https://en.wikipedia.org/wiki/Base64
 
-## `webcal:`
+## Webcal URI
+
+`webcal:`
 
 - [Apple Breaks ICS Calendar Auto-Subscription In iOS 4.2](http://blog.fosketts.net/2011/01/13/apple-breaks-ics-calendar-autosubscription-ios-42/)
 
-## `skype:`
+## Skype URI
+
+`skype:`
 
 - [Skype Developer - Skype URIs (home)](http://wayback.archive.org/web/20130821013555/http://dev.skype.com/skype-uri)
 - [Skype Developer - Reference](http://wayback.archive.org/web/20130928164350/http://dev.skype.com/skype-uri/reference)

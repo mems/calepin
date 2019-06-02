@@ -243,6 +243,39 @@ See [Array holes](#array-holes)
 - [Array.from() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
 - [Creating and filling Arrays of arbitrary lengths in JavaScript](http://2ality.com/2018/12/creating-arrays.html)
 
+## Constructor
+
+```js
+// Class & function but not generator nor arrow function
+const isConstructorFunction = (value) => Boolean(value && value.prototype && value.prototype.constructor);
+
+/*
+// true
+function(){}
+class A {}
+Array
+Function
+new Function
+
+// false
+undefined
+null
+1
+new Number(1)
+Array.prototype
+Function.prototype
+() => {}
+{method() {}}.method
+function*(){}
+*/
+```
+
+```js
+new function(){return ["test"]} // > Array [ "test" ]
+```
+
+- [How to check if a Javascript function is a constructor - Stack Overflow](https://stackoverflow.com/questions/40922531/how-to-check-if-a-javascript-function-is-a-constructor)
+
 ## String
 
 > slice vs splice

@@ -15,7 +15,7 @@ Texture container. Can contains multiple levels (mipmap) encoded with S3TC/DXT a
 
 ## Output
 
-See [Texture format](Texture format)
+See [Texture format](../Texture%20format/Texture%20format.md)
 
 - http://trac.openscenegraph.org/projects/osg/browser/OpenSceneGraph/branches/OpenSceneGraph-3.0/src/osgPlugins/dds/ReaderWriterDDS.cpp
 - [Download DirectX Software Development Kit from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=6812)

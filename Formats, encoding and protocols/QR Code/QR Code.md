@@ -5,14 +5,14 @@ Aka QRCode, Quick Response Code
 
 ## Datatypes
 
-See [URI](URI)
+See [URI](../URI/URI.md)
 
 - URI: `http:`/`https:`, `mms:`, `sms:` ([RFC 5724 - URI Scheme for GSM Short Message Service](https://tools.ietf.org/html/rfc5724)), `mailto:`, `tel:`, `geo:lat,long,alt`
 - vCard
 - WiFi access QR codes `WIFI:T:WPA;S:networkname;P:password;;`, `WIFI:S:networkname;T:WEP;P:password;;`, `H:true` https://github.com/zxing/zxing/wiki/Barcode-Contents#wifi-network-config-android https://cweiske.de/tagebuch/wifi-config-qrcode.htm
 - iCal?
 
-- [Barcode Contents](ZXing/zxing.wiki/Barcode-Contents), [Barcode Contents · zxing/zxing Wiki](https://github.com/zxing/zxing/wiki/Barcode-Contents)
+- [Barcode Contents](./ZXing/zxing.wiki/Barcode-Contents.md), [Barcode Contents · zxing/zxing Wiki](https://github.com/zxing/zxing/wiki/Barcode-Contents)
 - [data type supported qrcode - Google Search](https://www.google.com/search?q=data+supported+qrcode&ie=utf-8&oe=utf-8#q=data+type+supported+qrcode)
 
 ## Reader
@@ -35,6 +35,6 @@ See [URI](URI)
 - [research!rsc: QArt Codes](https://research.swtch.com/qart) - see https://code.google.com/archive/p/rsc (download `pubgo.zip `, uncompresse `pubgo/src/code.google.com/p/rsc/qr`)
 - [Using generalizations of Kuznetsov-Tsybakov problem for new possibilities of steganography](qrsem.pdf)
 - [Generate artistic QR code](https://github.com/kciter/qart.js)
-- [Halftone QR Codes](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/halftone_QR/halftoneQR_sigga13.html) [Halftone QR Codes Video](Halftone QR Codes.mov) [hqrc_demo.zip](hqrc_demo.zip)
+- [Halftone QR Codes](http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/halftone_QR/halftoneQR_sigga13.html) [Halftone QR Codes Video](./Halftone QR Codes.mov) [hqrc_demo.zip](./hqrc_demo.zip)
 - [QArt Python Implementation](https://github.com/7sDream/pyqart)
 - [Creative Arabic Calligraphy: Square Kufic](https://design.tutsplus.com/tutorials/creative-arabic-calligraphy-square-kufic--cms-23012)

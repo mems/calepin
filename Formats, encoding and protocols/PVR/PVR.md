@@ -57,7 +57,7 @@ Note: Valid PVR is at least 32 bytes in size. This means that images that are 8�
 
 ## Input
 
-See [Texture format](Texture format)
+See [Texture format](../Texture%20format/Texture%20format.md)
 
 - http://trac.openscenegraph.org/projects/osg//browser/OpenSceneGraph/branches/OpenSceneGraph-3.0/src/osgPlugins/pvr/ReaderWriterPVR.cpp
 - https://github.com/powervr-graphics/WebGL_SDK/blob/4.0/Tools/PVRTexture.js
@@ -66,12 +66,12 @@ See [Texture format](Texture format)
 - https://github.com/sergeyreznik/et-engine/blob/master/src/imaging/pvrloader.cpp
 - https://github.com/kexplo/irrlicht_ogl-es/blob/master/source/Irrlicht/CImageLoaderPVR.cpp
 - https://github.com/mrdoob/three.js/blob/master/examples/js/loaders/PVRLoader.js
-- https://bitbucket.org/sinbad/ogre/commits/9c1b2dd18371/ support PVRv3 instead of PVRv2 (See [Texture format](Texture format))
+- https://bitbucket.org/sinbad/ogre/commits/9c1b2dd18371/ support PVRv3 instead of PVRv2 (See [Texture format](../Texture%20format/Texture%20format.md))
 - https://github.com/cocos2d/cocos2d-objc/blob/develop/cocos2d/CCTexturePVR.m
 
 ## Output
 
-See [Texture format](Texture format)
+See [Texture format](../Texture%20format/Texture%20format.md)
 
 - [Agent_007 / PVRTC encoder/decoder for Unity — Bitbucket](https://bitbucket.org/Agent_007/pvrtc-encoder-decoder-for-unity)
 - [jthlim / PvrTcCompressor — Bitbucket](https://bitbucket.org/jthlim/pvrtccompressor)

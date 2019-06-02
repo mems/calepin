@@ -1,6 +1,6 @@
 ## Resources
 
-See also [Compare image](Compare data#compare-image)
+See also [Compare image](../../Algorithms/Compare%20data/Compare%20data.md#compare-image)
 
 `identify -verbose image.ext`
 
@@ -106,13 +106,13 @@ Hybrid/Combined format (or container) to encode color channel in a format and tr
 
 See also [JPEG XR](https://en.wikipedia.org/wiki/JPEG_XR)
 
-- Texture format ETC1 + ETC1 See [Texture format](Texture format)
+- Texture format ETC1 + ETC1 See [Texture format](../Texture%20format/Texture%20format.md)
 
 #### Side by side channels
 
 Aka atlas of RGB and Alpha as "black and white". This makes the image wider or taller.
 
-Note: For image formats that use chrominance compression (like JPEG) this will **use the luminance channel (Y) only**. Cb & Cr will have all pixels grey, equal to 0.5 (for float value or 128 for 8bit values, in range of [0...255]) and are not required. See how [JNG](#jng) works
+Note: For image formats that use chrominance compression (like JPEG) this will **use the luminance channel (Y) only**. Cb & Cr will have all pixels grey, equal to 0.5 (for float value or 128 for 8bit values, in range of `[0...255]`) and are not required. See how [JNG](#jng) works
 
 #### Pre-multiplied alpha
 
@@ -134,7 +134,7 @@ And derived support of WebM with Alpha Channel
 #### JNG
 
 > JNG is a JPEG-based graphics file format which is closely related to PNG: it uses the PNG file structure (with a different signature) as a container format to wrap JPEG-encoded image data.
-> [...] JNG files embed an 8-bit or 12-bit JPEG datastream in order to store color data, and may embed another datastream (1, 2, 4, 8, 16-bit PNG, or 8-bit JPEG grayscale image) for transparency information
+> \[...\] JNG files embed an 8-bit or 12-bit JPEG datastream in order to store color data, and may embed another datastream (1, 2, 4, 8, 16-bit PNG, or 8-bit JPEG grayscale image) for transparency information
 — [JPEG Network Graphics — Wikipedia](https://en.wikipedia.org/wiki/JPEG_Network_Graphics)
 
 `image/x-jng`
@@ -219,7 +219,7 @@ Other possibilities:
 
 In an `APPn` segment.
 
-See [JPEG format](JPEG#format)
+See [JPEG format](../JPEG/JPEG.md#format)
 
 - [JPEG with Alpha](http://jim.studt.net/jpeg-alpha/)
 
@@ -245,7 +245,7 @@ Only available in Fireworks. Removed in Photoshop CS4.
 
 ### Others techniques
 
-And pixel aligned on [8×8 JPEG macroblock/grid](https://stackoverflow.com/questions/10780425/why-jpeg-compression-processes-image-by-8x8-blocks) or PNG [deflate windows](PNG#deflate). Blur, reduce number of colors ([Posterization](http://en.wikipedia.org/wiki/Posterization)), [add noise](http://coding.smashingmagazine.com/2011/08/30/optimize-images-with-html5-canvas/)
+And pixel aligned on [8×8 JPEG macroblock/grid](https://stackoverflow.com/questions/10780425/why-jpeg-compression-processes-image-by-8x8-blocks) or PNG [deflate windows](../PNG/PNG.md#deflate). Blur, reduce number of colors ([Posterization](http://en.wikipedia.org/wiki/Posterization)), [add noise](http://coding.smashingmagazine.com/2011/08/30/optimize-images-with-html5-canvas/)
 
 - [Оптимизация JPEG. Часть первая](http://www.artlebedev.ru/tools/technogrette/img/jpeg-1/)
 - [Clever JPEG Optimization Techniques - Smashing Magazine](http://www.smashingmagazine.com/2009/07/01/clever-jpeg-optimization-techniques/)
@@ -265,7 +265,7 @@ Sharpen focus/important protions: High Pass filter (+ Soft Light or Hard Light)
 
 ## Metadata
 
-See [EXIF](EXIF), [IPTC](IPTC) and [XMP](XMP)
+See [EXIF](../EXIF/EXIF.md), [IPTC](../IPTC/IPTC.md) and XMP
 
 Remove all metadata:
 

@@ -56,11 +56,6 @@ Games:
 - [010 Editor - Binary Templates - Parsing Binary Files](http://www.sweetscape.com/010editor/templates.html)
 - [010 Editor - Binary Template Repository - Download Binary Templates](http://www.sweetscape.com/010editor/repository/templates/)
 
-Synalyze It Grammar
-
-- [The Grammar Page of Synalyze It!](https://www.synalysis.net/formats.xml) and https://github.com/synalysis/Grammars/
-- [Synalyze It Grammar](Synalyze It Grammar)
-
 TrID and TrIDScan:
 
 - [Marco Pontello's Home - Software - TrID](http://mark0.net/soft-trid-e.html)
@@ -75,6 +70,10 @@ Magic File:
 - [file(1): determine file type - Linux man page](https://linuxdienet/man/1/file) 
 - [mod_mime_magic - Apache HTTP Server Version 24](https://httpdapacheorg/docs/24/en/mod/mod_mime_magichtml#format)
 - [net/base/mime_sniffer.cc - chromium/src.git - Git at Google](https://chromium.googlesource.com/chromium/src.git/+/master/net/base/mime_sniffer.cc)
+
+### Synalyze It Grammar
+
+- [The Grammar Page of Synalyze It!](https://www.synalysis.net/formats.xml) and [synalysis/Grammars: Grammars for Synalyze It! and Hexinator](https://github.com/synalysis/Grammars)
 
 ## Media type
 
@@ -1460,7 +1459,7 @@ Use `multipart/related`?
 
 ## Reverse engineering data
 
-- [Protocol Buffers](Protocol Buffers)
+- [Protocol Buffers](./Protocol%20Buffers/Protocol%20Buffers.md)
 - string length (32 bits) + string data (ascii or utf-8 bytes)
 
 > The timestamps could be stored as absolute values since unix epoch, or could be stored as relative to the previous sample, or relative to the start of the profile, and could be stored as floating point values or integers, and those integers might be big endian or small endian.
@@ -1534,7 +1533,7 @@ Use `multipart/related`?
 - [Fractal art](http://greentunic.deviantart.com/art/Fractal-Pack-4-150661301)
 - [Braid game graphics](http://www.davidhellman.net/braidbrief.htm)
 - [wallpaper-jpegs](http://tincek-marincek.deviantart.com/art/Wallpaper-Pack-484504974)
-- [Icons](https://github.com/icons8/flat-color-icons (svg converted to 8bit RGB png))
+- [icons8/flat-color-icons: Free Flat Color Icons](https://github.com/icons8/flat-color-icons)
 - [guihints](http://guihints.openpandora.org/n22/best-before/2013-03-31/guihints01-0.8.2.0-alpha.zip)
 - [google-material-design-icons](https://github.com/google/material-design-icons/releases/tag/1.0.0)
 - Niels Fröhling's sparse color images
@@ -1563,7 +1562,7 @@ Use `multipart/related`?
 - [The Rest of the Lenna Story](http://www.cs.cmu.edu/~chuck/lennapg/lenna.shtml)
 - [Test Images for the ZaaIL project](https://github.com/ZaaLabs/ZaaIL-TestImages)
 
-See also [Compare image](Compare image)
+See also [Compare image](../Algorithms/Compare%20data/Compare%20data.md#compare-image)
 
 ### Videos
 
@@ -1587,9 +1586,9 @@ Test page, test card, test pattern
 - [Test card — Wikipedia](https://en.wikipedia.org/wiki/Test_card)
 - [Category:Test cards — Wikipedia](https://en.wikipedia.org/wiki/Category:Test_cards)
 - [MPEG-2 HD Test Patterns](http://www.w6rz.net/) http://www.w6rz.net/hdtestpatterns.zip
-- [E1-1CD22.PDF](E1-1CD22.PDF)
-- [EIA1956.pdf](EIA1956.pdf)
-- [ISO_12233-reschart.pdf](ISO_12233-reschart.pdf)
+- [E1-1CD22.PDF](./Sample%20files/Test%20media/E1-1CD22.PDF)
+- [EIA1956.pdf](./Sample%20files/Test%20media/EIA1956.pdf)
+- [ISO_12233-reschart.pdf](./Sample%20files/Test%20media/ISO_12233-reschart.pdf)
 - [High Resolution Test Patterns](http://www.bealecorner.org/red/test-patterns/)
 - [Test Charts | imatest](http://www.imatest.com/products/test-charts/)
 - [ISO 12233:2000 - Photography -- Electronic still-picture cameras -- Resolution measurements](http://www.iso.org/iso/catalogue_detail?csnumber=33715)

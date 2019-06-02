@@ -1,4 +1,4 @@
-- [A library for writing file metadata in ActionScript3 ](https://github.com/benstucki/metaphile)
+- [A library for writing file metadata in ActionScript3](https://github.com/benstucki/metaphile)
 - [Codec Central - QuickTime](https://www.siggraph.org/education/materials/HyperGraph/video/architectures/QuickTime.html) - (old) Codecs QuickTime supports
 - [Media Data Atom Types](https://developer.apple.com/library/content/documentation/QuickTime/QTFF/QTFFChap3/qtff3.html#//apple_ref/doc/uid/TP40000939-CH205-74522) - (Video) image compression formats
 - [FFmpeg/mov.c at master · FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg/blob/master/libavformat/mov.c)

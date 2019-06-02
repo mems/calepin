@@ -34,7 +34,7 @@ Note: The PVRTC header is packed due to the presence of the 64-bit pixel format 
 
 ## Output
 
-See [Texture format](Texture format)
+See [Texture format](../Texture%20format/Texture%20format.md)
 
 - [Agent_007 / PVRTC encoder/decoder for Unity — Bitbucket](https://bitbucket.org/Agent_007/pvrtc-encoder-decoder-for-unity)
 - [jthlim / PvrTcCompressor — Bitbucket](https://bitbucket.org/jthlim/pvrtccompressor)

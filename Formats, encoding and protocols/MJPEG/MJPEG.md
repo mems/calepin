@@ -62,7 +62,7 @@ Additional headers can be used to discard browser cache:
 - [Motion JPEG File Format](http://forums.codeguru.com/showthread.php?173230-Motion-JPEG-File-Format)
 - [Photo JPEG vs Motion JPEG A vs Motion JPEG B](http://lists.apple.com/archives/quicktime-talk/2000/Nov/msg00269.html)
 - [JPEG image compression FAQ, part 1/2Section - \[20\] Isn't there an M-JPEG standard for motion pictures?](http://www.faqs.org/faqs/jpeg-faq/part1/section-20.html)
-- "An MJPEG variant with data rearranged in a slightly unusual manner [...] used by the software for Aiptek MegaCam" https://wiki.multimedia.cx/index.php?title=Sunplus_JPEG
+- "An MJPEG variant with data rearranged in a slightly unusual manner \[...\] used by the software for Aiptek MegaCam" https://wiki.multimedia.cx/index.php?title=Sunplus_JPEG
 - [Motion JPEG - MultimediaWiki](https://wiki.multimedia.cx/index.php/Motion_JPEG)
 
 See also

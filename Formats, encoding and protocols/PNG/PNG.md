@@ -80,7 +80,7 @@ Compared to other formats:
 
 Tools and infos:
 
-- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/12) - see [A picture costs a thousand words](a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page12)
+- [A Picture Costs A Thousand Words](http://www.slideshare.net/guypod/a-picture-costs-a-thousand-words18062013/12) - see [A picture costs a thousand words](./a-20picture-20costs-20a-20thousand-20words-130619124428-phpapp01.pdf#page12)
 - [The smallest 256x256 single-color PNG file, and where you've seen it](https://www.mjt.me.uk/posts/smallest-png/)
 - [PNG Test Corpus (2017)](http://css-ig.net/png-test-corpus)
 - [PNGQuant](http://pngquant.org/)
@@ -88,7 +88,7 @@ Tools and infos:
 - [PNGCrush](http://pmt.sourceforge.net/pngcrush/)
 - [OptiPNG](http://optipng.sourceforge.net/)
 - [PNGOut](http://advsys.net/ken/utils.htm) (Win) and [pngwolf](http://bjoern.hoehrmann.de/pngwolf)
-- [https://github.com/subzey/zopfli-png](zopfli-png) and [Pngnq S9](http://sourceforge.net/projects/pngnqs9/)
+- [subzey/zopfli-png: PNG optimizer using zopfli deflate packer](https://github.com/subzey/zopfli-png) and [Pngnq S9](http://sourceforge.net/projects/pngnqs9/)
 - [ScriptPNG](http://css-ig.net/scriptpng) (Win CMD) use AdvDef, DeflOpt, Defluff, Huffmix, PNGOut, PNGQuant, PNGWolf, PNGZopfli, TruePNG and Zopfli
 - [PNG, JPG and GIF optimizers](http://css-ig.net/tools/)
 - [PNG Compression : 5 simple improvements](http://mainroach.blogspot.fr/2013/09/png-compression-5-simple-improvements.html)
@@ -132,7 +132,7 @@ zlib-compatible (gzip, deflate):
 
 ## Deflate
 
-See [Deflate](Deflate)
+See [Deflate](../Deflate/Deflate.md)
 
 ## Metadata
 
@@ -363,6 +363,6 @@ Decode:
 
 ## Decompression Bomb
 
-- [Decompression Bomb](Deflate#decompression-bomb)
+- [Decompression Bomb](../Deflate/Deflate.md#decompression-bomb)
 
 A very big image with could take 18.44 TB (2147483647x2147483647x4) of memory for uncompressed data 13.83TB
