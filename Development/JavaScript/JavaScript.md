@@ -126,7 +126,7 @@ Note: in the example above, the attribute `onerror` will not work with CSP that 
 
 ### HTML templating
 
-Aka Virtual DOM
+And Virtual DOM
 
 - [Polymer/lit-html: HTML template literals in JavaScript](https://github.com/Polymer/lit-html)
 - [WebReflection/hyperHTML: A Fast & Light Virtual DOM Alternative](https://github.com/WebReflection/hyperHTML) - Use compile an object based on [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) [hyperHTML: A Virtual DOM Alternative – Medium](https://medium.com/@WebReflection/hyperhtml-a-virtual-dom-alternative-279db455ee0e)
@@ -143,6 +143,7 @@ Aka Virtual DOM
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
 - [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](http://webreflection.blogspot.fr/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
 - [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
+- [JSX + jQuery = jreact](https://glitch.com/~jquery-jsx-pragma) - Custom JSX renderer based on jQuery (no react)
 
 ### Date and time
 
