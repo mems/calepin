@@ -1950,6 +1950,10 @@ Use [cache](#cache)
 
 "preload" metadata like size, duration, dominant color / thumbnail, LOD, deepth, etc.
 
+> The simple summary is
+> - preload: when you use on the **same** page
+> - prefetch: for future use (**next** page)
+
 #### Buffering
 
 Aka dynamic buffering
