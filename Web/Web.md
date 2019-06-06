@@ -6485,3 +6485,7 @@ For CSS and JavaScript
 - [mozilla/source-map: Consume and generate source maps.](https://github.com/mozilla/source-map)
 - [Introduction to JavaScript Source Maps - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/)
 - [Source maps: languages, tools and other info · ryanseddon/source-map Wiki](https://github.com/ryanseddon/source-map/wiki/Source-maps%3A-languages%2C-tools-and-other-info)
+
+## PWA
+
+- [What’s new on iOS 12.2 for Progressive Web Apps – Maximiliano Firtman – Medium](https://medium.com/@firt/whats-new-on-ios-12-2-for-progressive-web-apps-75c348f8e945#06d6) - PWA lifecycle on iOS 12.2
