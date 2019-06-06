@@ -32,6 +32,8 @@ Perceptual Evaluation of Quality
 - [php - Good way to identify similar images? - Stack Overflow](https://stackoverflow.com/questions/2838775/good-way-to-identify-similar-images)
 - [The structural similarity (SSIM) index is a method for measuring the similarity between two images](https://github.com/bytespider/ssim)
 - [How to compare images fairly](https://kornel.ski/en/faircomparison)
+- [pHash.org: Home of pHash, the open source perceptual hash library](http://www.phash.org/)
+- [How does tineye work? : programming](https://www.reddit.com/r/programming/comments/bvmln/how_does_tineye_work/)
 
 - ImageMagick generate pixel hash [Comparing -- IM v6 Examples](http://www.imagemagick.org/Usage/compare/#doubles)
 - [Near-Duplicate Image Detection - Stack Overflow](https://stackoverflow.com/questions/1034900/near-duplicate-image-detection)
