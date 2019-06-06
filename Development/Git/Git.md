@@ -212,4 +212,21 @@ Unicode
 
 ## Search
 
-	git log --all --grep='<keywork in commit msg>'
+```sh
+git log --all --grep='<keywork in commit msg>'
+```
+
+## Undo
+
+```sh
+git reflog
+```
+
+Reset HEAD to log entry
+
+```sh
+git reset --hard "HEAD@{5}"
+```
+
+- [Undoing a git rebase - Stack Overflow](https://stackoverflow.com/questions/134882/undoing-a-git-rebase)
+- [Git - git-reflog Documentation](https://git-scm.com/docs/git-reflog)
