@@ -14,6 +14,7 @@
 
 - [Bien utiliser Git merge et rebase • Git Attitude : formations Git qualitatives et sympathiques](http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/)
 - [git merge v git rebase: Avoiding Rebase Hell - Jarrod Spillers](http://www.jarrodspillers.com/git/2009/08/19/git-merge-vs-git-rebase-avoiding-rebase-hell.html)
+- [Why you should stop using Git rebase – Fredrik V. Mørken – Medium](https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1)
 
 ## Hooks
 
@@ -24,6 +25,9 @@
 
 ## Branching
 
+Merge branch, not rebase
+
+- [Merge and rebase](#merge-and-rebase)
 - [What are some examples of commonly used practices for naming git branches? - Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches#answer-6065944)
 
 ## Stash
@@ -230,3 +234,11 @@ git reset --hard "HEAD@{5}"
 
 - [Undoing a git rebase - Stack Overflow](https://stackoverflow.com/questions/134882/undoing-a-git-rebase)
 - [Git - git-reflog Documentation](https://git-scm.com/docs/git-reflog)
+
+## Find a bug
+
+```sh
+git bisect run <yourtest.sh>
+```
+
+- [Git - git-bisect Documentation](https://git-scm.com/docs/git-bisect)

@@ -6233,8 +6233,11 @@ Use blob to store RAW data
 
 ### Service Worker
 
+- clone requests before reuse it: `self.addEventListener("fetch", event => event.respondWith(fetch(event.request.clone()))`, or it will throw `Cannot construct a Request with a Request object that has already been used.`
 - require HTTPS
-- Client Hints polyfill
+- [`fetchEvent.clientId`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/clientId): get the controlled client id
+- [ServiceWorker Cookbook](https://serviceworke.rs/)
+- can be used for polyfill Client Hints
 - [Service Worker & HTTP Client Hints](https://gist.github.com/deanhume/c04478df744ce833925c) - Rewrite URL if WebP is supported
 - [Using Service Worker for server-side adaption based on network type - Tales of a Developer Advocate by Paul Kinlan](https://paul.kinlan.me/using-service-worker-server-side-adaption-based-on-network-type/) - Example (but shouldn't used as is) to send client Hint network infos
 - [Service Workers — Gotchas — Medium](https://medium.com/@boopathi/service-workers-gotchas-44bec65eab3f)
