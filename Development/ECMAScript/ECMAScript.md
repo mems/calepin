@@ -16,6 +16,7 @@ Properties notation: `Object#toString()` (for `Object.prototype.toString()`) vs 
 - [Exploring ES2016 and ES2017](http://exploringjs.com/es2016-es2017.html)
 - [getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 - [All JavaScript Language Topics - Stack Overflow](https://stackoverflow.com/documentation/javascript/topics)
+- [lydiahallie/javascript-questions: A long list of (advanced) JavaScript questions, and their explanations Updated weekly!](https://github.com/lydiahallie/javascript-questions)
 
 Project documentation:
 
