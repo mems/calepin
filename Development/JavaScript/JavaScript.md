@@ -6245,6 +6245,7 @@ Use blob to store RAW data
 - [Service Worker, what are you? - Mariko Kosaka](http://kosamari.com/notes/Service-Worker-what-are-you)
 - [javascript - What limitations apply to opaque responses? - Stack Overflow](https://stackoverflow.com/questions/39109789/what-limitations-apply-to-opaque-responses/39109790#39109790)
 - [Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/) - A framework to handle cache in service worker
+- [javascript - Understanding Service Worker scope - Stack Overflow](https://stackoverflow.com/questions/35780397/understanding-service-worker-scope) - `Service-Worker-Allowed` HTTP header to define the max scope
 
 Handle too long response (force third parties SLA)
 
