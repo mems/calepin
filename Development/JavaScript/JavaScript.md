@@ -1174,6 +1174,17 @@ Tab 2:
 - https://jsbin.com/velolu/1/quiet
 - https://gist.github.com/jakearchibald/abf8489a93d564055244
 
+### `IndexDB`
+
+> IDB transaction auto-closes if it doesn't have anything left do once microtasks have been processed
+> - [jakearchibald/idb: IndexedDB, but with promises](https://github.com/jakearchibald/idb#transaction-lifetime)
+
+That means if couldn't do an async operation (with a `setTimeout()`, [`requestIdleCallback()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback), `fetch`, user click, etc.) then use a transaction.
+
+Use transaction in an unload event is not guarantied to works, implementations could works differently: [Re: \[IndexedDB\] Transactions during window.unload? from Jonas Sicking on 2012-03-01 (public-webapps@w3.org from January to March 2012)](https://lists.w3.org/Archives/Public/public-webapps/2012JanMar/0944.html)
+
+- [How do you keep an indexeddb transaction alive? - Stack Overflow](https://stackoverflow.com/questions/10385364/how-do-you-keep-an-indexeddb-transaction-alive)
+
 ## Break `console.log()`
 
 It's a fake problems, that must be fixed by browser makers, and don't protect data from someone with bad intentions 
