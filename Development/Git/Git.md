@@ -246,3 +246,7 @@ git bisect run <yourtest.sh>
 ```
 
 - [Git - git-bisect Documentation](https://git-scm.com/docs/git-bisect)
+
+## Tools
+
+- [samkelleher/conventional-github-releaser: Node utility to auto generate GitHub Release Notes from git commits using latest ECMAScript](https://github.com/samkelleher/conventional-github-releaser)
