@@ -95,17 +95,21 @@ Exemple to diff PNG files with EXIFtool
 
 	identify -verbose info: <image>
 
-## Don't commit generated files
-
-- [Why I don’t commit generated files to master — Medium](https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564)
-
 ## Sparse checkout
 
 Aka partial checkout
 
 [Is there any way to clone a git repository's sub-directory only? - Stack Overflow](https://stackoverflow.com/questions/600079/is-there-any-way-to-clone-a-git-repositorys-sub-directory-only/13738951#13738951)
 
-## Commit for other author
+## Commit
+
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)
+
+### Don't commit generated files
+
+- [Why I don’t commit generated files to master — Medium](https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564)
+
+### Commit for other author
 
 	--author=<author>
 
@@ -115,7 +119,7 @@ Aka partial checkout
 
 - [git - Change commit author at one specific commit - Stack Overflow](https://stackoverflow.com/questions/3042437/change-commit-author-at-one-specific-commit)
 
-## Update commit messages
+### Update commit messages
 
 Do it only for non pushed commits
 
