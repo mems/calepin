@@ -6242,6 +6242,11 @@ Use blob to store RAW data
 	};
 	xhr.send(null);
 
+See also cache API:
+
+- [Cache - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
+- [Using the Cache API  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/instant-and-offline/web-storage/cache-api)
+
 ### Service Worker
 
 - clone requests before reuse it: `self.addEventListener("fetch", event => event.respondWith(fetch(event.request.clone()))`, or it will throw `Cannot construct a Request with a Request object that has already been used.`
