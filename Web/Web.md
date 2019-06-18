@@ -6495,3 +6495,30 @@ See also
 - [Service worker](../Development/JavaScript/JavaScript.md#service-worker)
 - [What’s new on iOS 12.2 for Progressive Web Apps – Maximiliano Firtman – Medium](https://medium.com/@firt/whats-new-on-ios-12-2-for-progressive-web-apps-75c348f8e945#06d6) - PWA lifecycle on iOS 12.2
 - [iOS Add to Homescreen =\> simulate web app manifest](https://gist.github.com/PaulKinlan/d66f777f5bde04926f29fc5c7ff345e7) - simulate `start_url` manifest field in iOS
+
+## Wi-Fi Captivate
+
+Walled garden, captive portal
+
+- with Captive Network Assistant (mini-browser / webview), some features can be disabled (persistant cookies, alert, confirm, popin, cross-origin AJAX, sessionStorage)
+- [local area network - Captive portal popups: the definitive guide - Server Fault](https://serverfault.com/questions/679393/captive-portal-popups-the-definitive-guide)
+- [Use captive Wi-Fi networks on your iPhone, iPad, or iPod touch - Apple Support](https://support.apple.com/en-us/HT204497)
+- [Captive portal - Wikipedia](https://en.wikipedia.org/wiki/Captive_portal)
+- [FX-Captive-Portals-Design/detection.md at master · vtsatskin/FX-Captive-Portals-Design](https://github.com/vtsatskin/FX-Captive-Portals-Design/blob/master/detection.md)
+- [iOS: Open a Welcome Page in Safari, not CNA (post-authentication) - Stack Overflow](https://stackoverflow.com/questions/29744245/ios-open-a-welcome-page-in-safari-not-cna-post-authentication/30251103#30251103)
+- [ios - Captive Wifi Popup: Click a link to open Safari - Stack Overflow](https://stackoverflow.com/questions/23281552/captive-wifi-popup-click-a-link-to-open-safari/40561556#40561556)
+- [wifi - How to automatically login to captive portals on OS X? - Ask Different](https://apple.stackexchange.com/questions/45418/how-to-automatically-login-to-captive-portals-on-os-x/338596#338596)
+- `/Library/Preferences/SystemConfiguration/CaptiveNetworkSupport/Settings.plist`
+- `User-Agent: CaptiveNetworkSupport/1.0 wispr`
+- `/System/Library/CoreServices/Captive Network Assistant.app`
+- [Making Phones Believe the WiFi has Internet ~ Foxdog Studios](https://foxdogstudios.com/blog/making-phones-believe-the-wifi-has-internet) - [backup page](https://archive.is/hioCo)
+- [tripflex/captive-portal: Mongoose OS Captive Portal Library](https://github.com/tripflex/captive-portal)
+- ["Strange url in iOS CaptiveNetworkSupport binary" | itsme's blog](http://nlitsme.github.io/posts/2014-10-20-strange-url-in-ios-captivenetworksupport-binary/)
+- [Captive Portal](https://wikileaks.org/ciav7p1/cms/page_31883312.html) - How to trick a device to launch its captive portal window
+
+Tested URLs:
+
+- http://www.apple.com/library/test/success.html
+- http://captive.apple.com/hotspot-detect.html
+- http://connectivitycheck/gstatic/com/generate_204
+- [tripflex/captive-portal: Mongoose OS Captive Portal Library](https://github.com/tripflex/captive-portal#known-endpoints)
