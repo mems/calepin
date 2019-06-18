@@ -6245,7 +6245,8 @@ Use blob to store RAW data
 ### Service Worker
 
 - clone requests before reuse it: `self.addEventListener("fetch", event => event.respondWith(fetch(event.request.clone()))`, or it will throw `Cannot construct a Request with a Request object that has already been used.`
-- require HTTPS
+- you can't install service worker from data URI (`data:application/javascript,console.log('hello')`), but `importScripts` can (with Chrome, but not with Firefox "NetworkError: Failed to load worker script at data:...")
+- require HTTPS (with a verified certificate)
 - [`fetchEvent.clientId`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/clientId): get the controlled client id
 - [ServiceWorker Cookbook](https://serviceworke.rs/)
 - can be used for polyfill Client Hints
@@ -6276,6 +6277,23 @@ self.adEventListener("fetch", event => {
 	event.respondWith(Promise.race([timeout(2000), fetch(event.request)]));// handmade response or opaque response
 });
 ```
+
+Do some tasks before complete the installation (fill cache, dynamic additional `importScripts`, dynamic event listeners, etc.):
+
+```
+addEventListener('install', event => {
+  event.waitUntil(async function() {
+// additional importScripts based on config, etc.
+    const [cache, urls] = await Promise.all([
+      caches.open('static-v1'),
+      idbKeyval.get('urlsToCache')
+    ]);
+    await cache.addAll(urls);
+  }());
+});
+```
+
+See [Proposal: pass custom params in ServiceWorkerRegistration for future use · Issue #1157 · w3c/ServiceWorker](https://github.com/w3c/ServiceWorker/issues/1157#issuecomment-306469745) and [Fix the ServiceWorker mode to create the event handlers on the initial evaluation of the script · Issue #189 · kiwix/kiwix-js](https://github.com/kiwix/kiwix-js/issues/189)
 
 ### Streamed data
 
