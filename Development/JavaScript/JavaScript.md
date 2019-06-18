@@ -6252,6 +6252,7 @@ See also cache API:
 - clone requests before reuse it: `self.addEventListener("fetch", event => event.respondWith(fetch(event.request.clone()))`, or it will throw `Cannot construct a Request with a Request object that has already been used.`
 - you can't install service worker from data URI (`data:application/javascript,console.log('hello')`), but `importScripts` can (with Chrome, but not with Firefox "NetworkError: Failed to load worker script at data:...")
 - add listeners for `pushsubscriptionchange`, `install`, `push`, `notificationclick`, `message`, etc. events must be made  synchronously ("initial evaluation of worker script"), see ["The user agents are encouraged to show a warning that the event listeners must be added on the very first evaluation of the worker script."](https://www.w3.org/TR/service-workers/#run-service-worker)
+- hash in location of the service worker are ignored (not available in worker scope: `self.location.hash === ""`)
 - require HTTPS (with a verified certificate)
 - [`fetchEvent.clientId`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/clientId): get the controlled client id
 - [ServiceWorker Cookbook](https://serviceworke.rs/)
