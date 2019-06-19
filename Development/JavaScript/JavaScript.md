@@ -6254,7 +6254,11 @@ See also cache API:
 - add listeners for `pushsubscriptionchange`, `install`, `push`, `notificationclick`, `message`, etc. events must be made  synchronously ("initial evaluation of worker script"), see ["The user agents are encouraged to show a warning that the event listeners must be added on the very first evaluation of the worker script."](https://www.w3.org/TR/service-workers/#run-service-worker)
 - hash in location of the service worker are ignored (not available in worker scope: `self.location.hash === ""`)
 - require HTTPS (with a verified certificate)
-- [`fetchEvent.clientId`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/clientId): get the controlled client id
+- fetch event handlers will be triggered in the order in which they were registered, until the first call is made to `event.respondWith()`. See [javascript - Sharing fetch handler logic defined across multiple service workers - Stack Overflow](https://stackoverflow.com/questions/45257602/sharing-fetch-handler-logic-defined-across-multiple-service-workers)
+- service worker script is redownloaded at least each 24h (cache is max 24h). See [Service worker JavaScript update frequency (every 24 hours?) - Stack Overflow](https://stackoverflow.com/questions/38843970/service-worker-javascript-update-frequency-every-24-hours/38854905#38854905)
+- [the max scope](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register#Parameters) can be changed with the HTTP header `Service-Worker-Allowed`. See [Using Service Workers - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers#Why_is_my_service_worker_failing_to_register)
+- use [`registration.update()`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update) to force the update of the service worker script
+- use [`fetchEvent.clientId`](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/clientId): to get the controlled client id
 - [ServiceWorker Cookbook](https://serviceworke.rs/)
 - can be used for polyfill Client Hints
 - [Service Worker & HTTP Client Hints](https://gist.github.com/deanhume/c04478df744ce833925c) - Rewrite URL if WebP is supported
