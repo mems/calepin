@@ -1087,6 +1087,31 @@ async function isPromiseResolved(promise){
 // See also https://github.com/MattiasBuelens/remote-web-streams/blob/afe2a98832272d592e454a9d4640c47912f939cd/test/promise-utils.ts#L1
 ```
 
+```js
+/**
+ * Set timeout for promise
+ * @example promiseTimeout(100, fetch("https://example.com"))
+ * @see https://italonascimento.github.io/applying-a-timeout-to-your-promises/#comment-3401043682
+ * @see https://stackoverflow.com/questions/46946380/fetch-api-request-timeout/46946573#46946573
+ */
+function promiseTimeout(ms, promise) {
+  let id;
+  const timeout = new Promise((resolve, reject) => {
+    id = setTimeout(() => {
+      reject(`Timed out in ${ms}ms.`)
+    }, ms)
+  })
+
+  return Promise.race([
+    promise,
+    timeout
+  ]).then(result => {
+    clearTimeout(id)
+    return result
+  })
+}
+```
+
 - [Understanding JQuery.Deferred and Promise](http://joseoncode.com/2011/09/26/a-walkthrough-jquery-deferred-and-promise/)
 - [javascript - Promise - is it possible to force cancel a promise - Stack Overflow](https://stackoverflow.com/questions/30233302/promise-is-it-possible-to-force-cancel-a-promise)
 
