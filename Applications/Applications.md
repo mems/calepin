@@ -31,6 +31,26 @@ See also:
 
 - [Session History Scrounger for Firefox (with lz4 support) — Fx File Utilities](https://www.jeffersonscher.com/ffu/scrounger.html) - read file format in `sessionstore-backups` directory
 
+### Integrated authentication
+
+> authenticate the user to an Intranet server or proxy without prompting the user for a username or password
+
+- [HTTP authentication - The Chromium Projects](https://www.chromium.org/developers/design-documents/http-authentication)
+- [microHOWTO: Configure Firefox to authenticate using SPNEGO and Kerberos](http://www.microhowto.info/howto/configure_firefox_to_authenticate_using_spnego_and_kerberos.html)
+- [Integrated Authentication - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication)
+- [header - Authentication issues with WWW-Authenticate: Negotiate - Stack Overflow](https://stackoverflow.com/questions/4265975/authentication-issues-with-www-authenticate-negotiate)
+
+1. go to `about:config`
+2. accept harmful consequences warning
+3. search `network.negotiate-auth.trusted-uris` and update with value `example.com` to allow auto login on that domains
+4. search `network.negotiate-auth.allow-non-fqdn` and set to `true` to allow non fully qualified domain names in the previous given list
+
+For the list of trusted URIs, see:
+
+- `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains`
+- [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users)
+- [How to configuring IE Site Zone mapping using group policy without locking out the user](http://www.grouppolicy.biz/2012/07/how-to-configuring-ie-site-zone-mapping-using-group-policy-without-locking-out-the-user/)
+
 ## Thunderbird
 
 Wrap lines:
