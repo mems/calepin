@@ -42,8 +42,8 @@ See also:
 
 1. go to `about:config`
 2. accept harmful consequences warning
-3. search `network.negotiate-auth.trusted-uris` and update with value `example.com` to allow auto login on that domains
-4. search `network.negotiate-auth.allow-non-fqdn` and set to `true` to allow non fully qualified domain names in the previous given list
+3. search `network.negotiate-auth.trusted-uris` and update with value `.example.com` to allow auto login on that domains
+4. if required, search `network.negotiate-auth.allow-non-fqdn` and set to `true` to allow non fully qualified domain names in the previous given list
 
 For the list of trusted URIs, see:
 
