@@ -33,6 +33,8 @@ See also:
 
 ### Integrated authentication
 
+Aka silent authentication
+
 > authenticate the user to an Intranet server or proxy without prompting the user for a username or password
 
 - [HTTP authentication - The Chromium Projects](https://www.chromium.org/developers/design-documents/http-authentication)
