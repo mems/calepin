@@ -10,7 +10,10 @@
 - [Use `pdflatex` to embed image in PDF without modification (byte-for-byte identical)](https://askubuntu.com/questions/776679/why-are-the-images-produced-by-pdfimages-different-when-using-the-all-flag#778395)
 - [imagemagick - Convert PDF to image with high resolution - Stack Overflow](https://stackoverflow.com/questions/6605006/convert-pdf-to-image-with-high-resolution#6605085)
 
-
 ![PDF](PDF.png)
 
 ![PDF101 An Adobe Document Walkthrough](PDF101%20an%20Adobe%20document%20walkthrough.png)
+
+## Optimization
+
+- [mattdesl/gsx-pdf-optimize: Optimize PDFs with Ghostscript command](https://github.com/mattdesl/gsx-pdf-optimize)
