@@ -2202,38 +2202,6 @@ Note: according to step 3 of “[General Principles of Landmark Design](https://
 > When you link to something, make sure the group of words you link to work as a standalone thing. [...] If you remove the words around the link, someone should be able to predict the type of content they’re going to get
 — [How to make blog posts accessible | GDS Digital Engagement](https://gdsengagement.blog.gov.uk/2016/11/28/how-to-make-blog-posts-accessible/)
 
-## `article` element
-
-All things need a inclusion? (a product, a blog post, a comment, a part of other document, a forum post, a magazine or newspaper article)
-
-The teaser should also be an `article` – the teaser `article` and the fulltext `article` are different `article`s, although they refer to the same entity.
-
-Don't use unorder list for list of articles, news, items. Just use `<article><!--content--></article><article><!--content--></article><article><!--content--></article>`.
-
-Use dedicated elements like `figure` for a graphical element with a legend, etc.
-
-	<article>
-		<h1>Product #1</h1>
-		
-		<p>Description blah...</p>
-		
-		<!-- attributes -->
-		<dl>
-			<dt>Color</dt>
-			<dd>Red</dd>
-			<dt>Size</dt>
-			<dd>2 x 3 x 4cm</dd>
-		</dl>
-		
-		<!-- actions, etc. -->
-		<footer>
-			<a href="/delete">Delete</a>
-		</footer>
-	</article>
-
-- http://www.w3.org/TR/2013/CR-html5-20130806/sections.html#the-article-element
-- http://html5doctor.com/the-article-element/
-
 ## `i` vs `em` vs `b` vs `cite` vs `strong`
 
 	Our favorite cruise was on the <i>Explorer of the Seas</i><!-- italicize the name of a ship -->,
@@ -2643,17 +2611,20 @@ Element		Purpose 			Example
 
 ## Non-breaking chars
 
+Space, thin space are breakable (Lorem — ipsum) and hyphen are breakable (after)
+
 For space `&nbsp;`:
 
-- Units: `12&nbsp;m/s`
-- Time: `8&nbsp;PM`
-- Proper nouns: `Dairy&nbsp;Queen`
+- units: `12&nbsp;m/s`
+- time: `8&nbsp;PM`
+- proper nouns: `Dairy&nbsp;Queen`
+- [section](https://en.wikipedia.org/wiki/Section_sign) `§ 3.2`
 
 https://en.wikipedia.org/wiki/Non-breaking_space#Non-breaking_behavior
 
-For hyphen `&#8209;`
+For hyphen `&#8209;` or `‑` (non breaking hyphen)
 
-For breaking oportunity, use `<wbr>` or `&#8203;`. See [line break](Text#line-break)
+For breaking oportunity, use `<wbr>` or `&#8203;` and soft hyphen (SHY, `&shy;`). See [line break](Text#line-break)
 
 ## Tagline & subheader
 
@@ -2770,29 +2741,6 @@ Some peoples use only a series of links in a paragraph ([in a previous - draft v
 		</nav>
 	</body>
 
-## `nav` element
-
-	<nav aria-label="Search navigation">...
-
-> Intended for major navigation information. A group of links grouped together isn’t enough reason to use the nav element. Site-wide navigation, on the other hand belongs in a nav element.
-
-- major navigation
-- Table of Contents
-- Previous/next buttons (or pagination). **Note: don't forget `rel="next"` or `rel="prev"`, and `accesskey="."`**
-- (if it's important to the navigation of the site) Search form
-- (if breadcrumb trail is an important navigation aid, specialy on large sites) [Bread crumbs]
-- (potential) Skip links ("Skip content" and "skip navigation")
-
-Use `ul` and `li` for to list links (`a`), and set `aria-current="page"` for current page
-
-But not for:
-
-- sponsors/ advertisers links
-
-- https://stackoverflow.com/questions/5544885/should-i-use-uls-and-lis-inside-my-navs
-- http://css-tricks.com/navigation-in-lists-to-be-or-not-to-be/
-- [1.6 Structurer les menus de navigation avec des listes | AcceDe Web](http://www.accede-web.com/notices/html-css-javascript/1-structure/1-6-menus-navigation-listes/)
-
 ## Block level links (anchors, `a`, block link)
 
 HTML5 allow to wrap multiple elements with a link
@@ -2831,38 +2779,6 @@ Link as wrapper / block-level link:
 	</article>
 
 - [“Block-level” links in HTML5 | HTML5 Doctor](http://html5doctor.com/block-level-links-in-html-5/)
-
-## `section` element
-
-> Used for grouping together thematically-related content. Sounds like a div element, but its not. The div has no semantic meaning. Before replacing all your div’s with section elements, always ask yourself, “Is all of the content related?”
-
-> A general rule is that the section element is appropriate only if the element’s contents would be listed explicitly in the document’s outline.
-
-> `section` is a blob of content that you could store as an individual record in a database.
-
-> The theme of each section should be identified, typically by including a heading (h1-h6 element) as a child of the section element.
-
-> A List of DOs…
-> 
-> DO use section for each individual section of a tab switcher or content slider (if an unordered list isn’t needed)
-> DO use section to divide a lengthy “terms and conditions” (or similar) page into numbered sections
-> DO nest section elements if necessary (as you might do with the “terms and conditions” page)
-> 
-> A List of DON’Ts…
-> 
-> DON’T use section to divide content from the header and footer; use div instead (see the doctor)
-> DON’T use section to wrap a tab switcher for DOM manipulation or styling
-> DON’T use section for sidebar or other tangentially-related content boxes; use aside instead
-> DON’T use section just to add a border or drop shadow around something; use div instead
-> DON’T use section for the wrapper when implementing faux columns; again, use div instead
-> DON’T use section to nest elements when trying to avoid IE6′s float double-margin bug (or a similar layout-related issue); again, use div
-> DON’T use section to hold an individual author bio on a blog post or news article; use aside instead
-— http://www.impressivewebs.com/html5-section/
-- [Sectioning Content in HTML5 - div or section or article? | bitsofcode](http://bitsofco.de/2015/sectioning-content-in-html5/)
-
-- https://stackoverflow.com/questions/7173558/html5-section-inside-unordered-list
-- http://html5doctor.com/the-section-element/
-- http://gsnedders.html5.org/outliner/
 
 ## `figure` element
 
@@ -2922,13 +2838,15 @@ Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data type
 - Including an e-mail, with paragraphs indicated by blank lines, lists indicated by lines prefixed with a bullet, and so on.
 - Including fragments of computer code, with structure indicated according to the conventions of that language.
 - Displaying ASCII art.
- 
-	<p>This is the <code>Panel</code> constructor:</p>
-	<pre><code>function Panel(element, canClose, closeHandler) {
-	  this.element = element;
-	  this.canClose = canClose;
-	  this.closeHandler = function () { if (closeHandler) closeHandler() };
-	}</code></pre>
+
+```html
+<p>This is the <code>Panel</code> constructor:</p>
+<pre><code>function Panel(element, canClose, closeHandler) {
+  this.element = element;
+  this.canClose = canClose;
+  this.closeHandler = function () { if (closeHandler) closeHandler() };
+}</code></pre>
+```
 
 > The pre element represents a block of preformatted text, in which structure is represented by typographic conventions rather than by elements.
 > [...]
@@ -2940,6 +2858,85 @@ Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data type
 - [L’espace insécable chez Vincent Valentin.](http://vincent-valentin.name/articles/l-espace-insecable)
 - [Espace insécable — Wikipédia](https://fr.wikipedia.org/wiki/Espace_ins%C3%A9cable)
 - [Non-breaking space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Non-breaking_space)
+
+## Sections
+
+> - `<nav>` - Equivalent to `role="navigation"`. Major site navigation that consistently appears frequently across the site. Examples include the primary navigation, secondary navigation, and in-page navigation.
+> - `<aside>` - Equivalent to `role="complimentary"`. Content that is only tangentially related (or not related) to the main content. Think of something like a sidebar with supplementary information, a note within an article, or the outer container for a list of related articles at the bottom of a blog post.
+> - `<article>` - Equivalent to `role="article"`. Content that is self-contained in that it makes sense on its own when taken out of context. That could mean a widget, a blog post or even a comment within a blog post.
+> - `<section>` - Equivalent to `role="region"`. Content that needs extra context from its parent sectioning element to make sense. This is a generic sectioning element that is used whenever it doesn’t make sense to use the other more semantic ones.
+> — [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/)
+
+- [Navigation](#navigation)
+- [Secondary content, side comments](#secondary-content-side-comments)
+- [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/#article-header-id-7) - "Article is like "Block"; Section is like "Element""
+
+### `article` element
+
+All things need a inclusion? (a product, a blog post, a comment, a part of other document, a forum post, a magazine or newspaper article)
+
+The teaser should also be an `article` – the teaser `article` and the fulltext `article` are different `article`s, although they refer to the same entity.
+
+Don't use unorder list for list of articles, news, items. Just use `<article><!--content--></article><article><!--content--></article><article><!--content--></article>`.
+
+Use dedicated elements like `figure` for a graphical element with a legend, etc.
+
+```html
+<article>
+	<h1>Product #1</h1>
+	
+	<p>Description blah...</p>
+	
+	<!-- attributes -->
+	<dl>
+		<dt>Color</dt>
+		<dd>Red</dd>
+		<dt>Size</dt>
+		<dd>2 x 3 x 4cm</dd>
+	</dl>
+	
+	<!-- actions, etc. -->
+	<footer>
+		<a href="/delete">Delete</a>
+	</footer>
+</article>
+```
+
+- http://www.w3.org/TR/2013/CR-html5-20130806/sections.html#the-article-element
+- http://html5doctor.com/the-article-element/
+
+### `section` element
+
+> Used for grouping together thematically-related content. Sounds like a div element, but its not. The div has no semantic meaning. Before replacing all your div’s with section elements, always ask yourself, “Is all of the content related?”
+
+> A general rule is that the section element is appropriate only if the element’s contents would be listed explicitly in the document’s outline.
+
+> `section` is a blob of content that you could store as an individual record in a database.
+
+> The theme of each section should be identified, typically by including a heading (h1-h6 element) as a child of the section element.
+
+> A List of DOs…
+> 
+> DO use section for each individual section of a tab switcher or content slider (if an unordered list isn’t needed)
+> DO use section to divide a lengthy “terms and conditions” (or similar) page into numbered sections
+> DO nest section elements if necessary (as you might do with the “terms and conditions” page)
+> 
+> A List of DON’Ts…
+> 
+> DON’T use section to divide content from the header and footer; use div instead (see the doctor)
+> DON’T use section to wrap a tab switcher for DOM manipulation or styling
+> DON’T use section for sidebar or other tangentially-related content boxes; use aside instead
+> DON’T use section just to add a border or drop shadow around something; use div instead
+> DON’T use section for the wrapper when implementing faux columns; again, use div instead
+> DON’T use section to nest elements when trying to avoid IE6′s float double-margin bug (or a similar layout-related issue); again, use div
+> DON’T use section to hold an individual author bio on a blog post or news article; use aside instead
+— http://www.impressivewebs.com/html5-section/
+- [Sectioning Content in HTML5 - div or section or article? | bitsofcode](http://bitsofco.de/2015/sectioning-content-in-html5/)
+
+- [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/#article-header-id-9) - "Don’t swap `<div>` for `<section>`"
+- https://stackoverflow.com/questions/7173558/html5-section-inside-unordered-list
+- http://html5doctor.com/the-section-element/
+- http://gsnedders.html5.org/outliner/
 
 ## Secondary content, side comments
 
@@ -2963,35 +2960,46 @@ side explanations, blogroll, shares, credits, copyrights, advertisements, biogra
 
 Put `aside` in article if it's related to the article, else put in page's body if it's related to the whole page (like blogroll or twitter messages from the blog author)
 
-	<aside><blockquote></blockquote></aside>
+```html
+<aside><blockquote></blockquote></aside>
+```
 
-	<aside><p>Written by Alex Feyerke</p></aside>
+```html
+<aside><p>Written by Alex Feyerke</p></aside>
+```
 
 Social links:
 
-	<aside>
-		<h1>Share it on</h1>
-		<ul>
-			<li><a href="http://twitter.com/intent/tweet?url=http://domain.example&amp;text=Title&amp;via=someone">Twitter</a></li>
-			<li><a href="http://www.facebook.com/sharer.php?u=http://domain.example&amp;t=Title">Facebook</a></li>
-			<li><a href="https://plus.google.com/share?url=http://domain.example">Google+</a></li>
-		</ul>
-	</aside>
+```html
+<aside>
+	<h1>Share it on</h1>
+	<ul>
+		<li><a href="http://twitter.com/intent/tweet?url=http://domain.example&amp;text=Title&amp;via=someone">Twitter</a></li>
+		<li><a href="http://www.facebook.com/sharer.php?u=http://domain.example&amp;t=Title">Facebook</a></li>
+		<li><a href="https://plus.google.com/share?url=http://domain.example">Google+</a></li>
+	</ul>
+</aside>
+```
 
 http://html5doctor.com/your-questions-16/
 
 Copyright:
 
-	<p><small>Copyright<small></p>
+```html
+<p><small>Copyright<small></p>
+```
 
-	<footer>
-		<address>
-			For more details, contact
-			<a href="mailto:hello@html5doctor.com">HTML5 Doctor</a>.
-		</address>
-		<small> © copyright HTML5 Doctor. </small>
-	</footer>
+```html
+<footer>
+	<address>
+		For more details, contact
+		<a href="mailto:hello@html5doctor.com">HTML5 Doctor</a>.
+	</address>
+	<small> © copyright HTML5 Doctor. </small>
+</footer>
+```
 
+- [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/#article-header-id-6) - "Avoid nesting an `<aside>` inside an `<aside>`"
 - http://html5doctor.com/small-hr-element/
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
 - http://www.w3.org/TR/html5/sections.html#the-aside-element
@@ -3743,7 +3751,7 @@ Use a table or articles. But not list and list-items
 - [Products Comparison Table | CodyHouse](https://codyhouse.co/demo/products-comparison-table/index.html)
 - Example for CSS, but not for semantic: [Pricing table](https://codepen.io/stevemckinney/pen/rLJNYV)
 
-## `script`
+## `script` element
 
 - [Everything I Know About The Script Tag - Eager Blog](https://eager.io/blog/everything-I-know-about-the-script-tag/)
 
@@ -3835,79 +3843,116 @@ Note: `<time datetime="2016-07-12">12</time>` can be used to add semantic for da
 
 ## Time schedule
 
-	<ul>
-		<li>9am to 10am: Welcome</li>
-		<li aria-current="time">10am to 11am: Keynote</li><!-- now -->
-		<li>11am to 11.30pm: Break</li>
-		<li>11.30am to 1pm: Workshop</li>
-		<li>1pm to 2pm: Lunch</li>
-		<li>2pm to 3pm: Lecture</li>
-		<li>3pm to 3.30pm: Break</li>
-		<li>3.30pm to 5pm: Workshop</li>
-	</ul>
-
+```html
+<ul>
+	<li>9am to 10am: Welcome</li>
+	<li aria-current="time">10am to 11am: Keynote</li><!-- now -->
+	<li>11am to 11.30pm: Break</li>
+	<li>11.30am to 1pm: Workshop</li>
+	<li>1pm to 2pm: Lunch</li>
+	<li>2pm to 3pm: Lecture</li>
+	<li>3pm to 3.30pm: Break</li>
+	<li>3.30pm to 5pm: Workshop</li>
+</ul>
+```
 
 ## Navigation
 
-	<link rel="home" title="Home" href="index.html">
-	<link rel="next" title="Next" href="services.html">
-	<link rel="prev" title="Previous" href="products.html">
-	<link rel="help" title="Get Help" href="about.html">
+```html
+<link rel="home" title="Home" href="index.html">
+<link rel="next" title="Next" href="services.html">
+<link rel="prev" title="Previous" href="products.html">
+<link rel="help" title="Get Help" href="about.html">
+```
 
 - [Accessibility Matters - Pagination](http://www.a11ymatters.com/pattern/pagination/)
- 
-	<nav>
-		<ul>
-			<li><a href="/" class="current" aria-current="page">Home</a></li>
-			<li><a href="/">About</a></li>
-			<li><a href="/">Contact</a></li>
-		</ul>
-	</nav>
+
+```html
+<nav>
+	<ul>
+		<li><a href="/" class="current" aria-current="page">Home</a></li>
+		<li><a href="/">About</a></li>
+		<li><a href="/">Contact</a></li>
+	</ul>
+</nav>
+```
 
 Skip to content:
 
-	<!-- don't put in <nav> -->
-	<ul>
-		<li><a href="#content">Skip to content</a></li>
-		<li><a href="#search">Skip to search</a></li>
-		<li><a href="#languages">Skip to languages</a></li>
-	</ul>
+```html
+<!-- don't put in <nav> -->
+<ul>
+	<li><a href="#content">Skip to content</a></li>
+	<li><a href="#search">Skip to search</a></li>
+	<li><a href="#languages">Skip to languages</a></li>
+</ul>
+```
 
 Use [Hide graphicaly an element](CSS#hide-graphicaly-an-element)
 
-	<nav id="navigation">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/shop">Shop</a></li>
-			<li><a href="/content">Content</a></li>
-		</ul>
-	</nav>
+```html
+<nav id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/about">About</a></li>
+		<li><a href="/shop">Shop</a></li>
+		<li><a href="/content">Content</a></li>
+	</ul>
+</nav>
+```
 
 Enhanced to (with JS):
 
-	<nav id="navigation">
-		<button aria-expanded="false">Menu</button>
-		<ul hidden>
-			<li><a href="/">Home</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/shop">Shop</a></li>
-			<li><a href="/contact">Contact</a></li>
-		</ul>
-	</nav>
-	<!--
-	var navButton = document.querySelector('#navigation button');
-	navButton.addEventListener('click', function() {
-	  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-	  this.setAttribute('aria-expanded', !expanded);
-	  let menu = this.nextElementSibling;
-	  menu.hidden = !menu.hidden;
-	});
-	-->
+```html
+<nav id="navigation">
+	<button aria-expanded="false">Menu</button>
+	<ul hidden>
+		<li><a href="/">Home</a></li>
+		<li><a href="/about">About</a></li>
+		<li><a href="/shop">Shop</a></li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+</nav>
+<!--
+var navButton = document.querySelector('#navigation button');
+navButton.addEventListener('click', function() {
+  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+  this.setAttribute('aria-expanded', !expanded);
+  let menu = this.nextElementSibling;
+  menu.hidden = !menu.hidden;
+});
+-->
+```
 
 - [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/)
 - [Accessible Dropdown Menus Revisited | Terrill Thompson](http://terrillthompson.com/blog/474)
 - Improve rollover dropdown accessibility [Dropdown Menus with More Forgiving Mouse Movement Paths | CSS-Tricks](http://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/)
+- [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/#article-header-id-1) - "When to use `<nav>`"
+
+### `nav` element
+
+```html
+<nav aria-label="Search navigation">...
+```
+
+> Intended for major navigation information. A group of links grouped together isn’t enough reason to use the nav element. Site-wide navigation, on the other hand belongs in a nav element.
+
+- major navigation
+- Table of Contents
+- Previous/next buttons (or pagination). **Note: don't forget `rel="next"` or `rel="prev"`, and `accesskey="."`**
+- (if it's important to the navigation of the site) Search form
+- (if breadcrumb trail is an important navigation aid, specialy on large sites) [Bread crumbs]
+- (potential) Skip links ("Skip content" and "skip navigation")
+
+Use `ul` and `li` for to list links (`a`), and set `aria-current="page"` for current page
+
+But not for:
+
+- sponsors/ advertisers links
+
+- https://stackoverflow.com/questions/5544885/should-i-use-uls-and-lis-inside-my-navs
+- http://css-tricks.com/navigation-in-lists-to-be-or-not-to-be/
+- [1.6 Structurer les menus de navigation avec des listes | AcceDe Web](http://www.accede-web.com/notices/html-css-javascript/1-structure/1-6-menus-navigation-listes/)
 
 ## Menu
 

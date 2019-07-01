@@ -1581,6 +1581,15 @@ or:
 - [How to Re-Run the OS X Setup Assistant - The Instructional](http://www.theinstructional.com/guides/how-to-re-run-the-os-x-setup-assistant)
 - [OSX Tips Setting-up a new Mac from an old one, its Backups, or a PC](http://pondini.org/OSX/Setup.html)
 
+### Bootcamp
+
+- Windows: Configuration pannel > System & Security > Power management > Choose when the screen close (works only in native, not in a VM)
+- Windows: `Compact.exe /CompactOS:always` to compact (`Compact.exe /CompactOS:never` to restore); `powercfg /h /type reduced` to reduce hibernation file size (`powercfg /h /size 100` to restore)
+- macOS: Sytem preferences > Startup > Choose the disk you want to use at each startup (you still can use opt key to Start up to [Startup Manager](https://support.apple.com/en-us/HT202796))
+- [Install Windows 10 on your Mac with Boot Camp Assistant - Apple Support](https://support.apple.com/en-us/HT201468)
+- [Launching your Boot Camp partition in VMware Fusion (1014618)](https://kb.vmware.com/s/article/1014618)
+- [How to Free Resize Bootcamp Partition without Deleting Windows](https://www.partitionwizard.com/partitionmagic/reszie-boot-camp-partition.html)
+
 ## Network
 
 ### Bandwidth limiter

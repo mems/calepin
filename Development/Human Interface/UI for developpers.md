@@ -32,6 +32,11 @@ Comment shouldn't use grey, but more visible color like red, because it's import
 - [Customizing GitHub Gists: Filters](http://codepen.io/lonekorean/pen/dvXPqm) - Palette hue, brihtness, contrast, saturation
 - [Your syntax highlighter is wrong – James Fisher – Medium](https://medium.com/@MrJamesFisher/your-syntax-highlighter-is-wrong-6f83add748c9)
 - [The Typography of Code | the hamstu](http://web.archive.org/web/20131001172035/http://blog.hamstu.com/2008/02/03/the-typography-of-code/)
+- [Frame-Based Editing](https://www.greenfoot.org/frames/)
+
+Sticky blocks / smart folding (context, label, compound):
+
+- [nsTextFrame.cpp - mozsearch](https://searchfox.org/mozilla-central/source/layout/generic/nsTextFrame.cpp#1327)
 
 Use font size, style and weight to make differences and differents glyphs for better reading
 

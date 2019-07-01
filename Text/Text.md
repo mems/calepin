@@ -510,7 +510,7 @@ Especially when a screen reader is used
 
 - (french) "Ca" → 💬"ka", "Ça" → 💬"sa"
 - (french) "Acceuil" → 💬"ak-seuil", "Accueil" → 💬"akeuil"
-- (french) "UN INTERNE TUE" (an intern kill) → "UN INTERNÉ TUÉ" (a patient killed)
+- (french) "UN INTERNE TUE" (an intern kill) → "UN INTERNÉ TUÉ" (a patient killed). See [Capitale et majuscule — Wikipédia](https://fr.wikipedia.org/wiki/Capitale_et_majuscule#Accentuation_des_capitales_et_majuscules)
 - "CONTACT US" → 💬"Contact U S". Use CSS text-transform instead
 
 Note: 'eg' should be written 'e.g.' and 'ie' 'i.e.'

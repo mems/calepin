@@ -342,6 +342,14 @@ For videos
 
 You can also (only for pictures) use `xcrun simctl addphoto`
 
+### Clear devices data
+
+`~/Library/Developer/CoreSimulator/Devices/`
+
+```sh
+xcrun simctl delete unavailable
+```
+
 ### Create link to iOS Simulator app
 
 Require Xcode installed.

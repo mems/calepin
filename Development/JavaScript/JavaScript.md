@@ -5822,6 +5822,8 @@ Decode directly, see [As base64](#as-base64)
 
 #### Store bytes in JS source as ArrayBuffer
 
+Note: store the number array in a string that could be parsed as JSON. [It’s much faster, especially for cold loads!](https://twitter.com/mathias/status/1143551692732030979?s=12), see also [The cost of JavaScript in 2019 · V8](https://v8.dev/blog/cost-of-javascript-2019#json)
+
 The compress ratio is between 1 : 2 to 11 : 4
 
 	let buffer = Uint32Array.from([0, 1, 2, ...]).buffer.slice(0);// not accurate, see below
@@ -6569,6 +6571,7 @@ or
 ## WebAssembly
 
 - [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
+- [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
 
 ### asm.js
 

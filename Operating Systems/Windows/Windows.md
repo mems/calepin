@@ -59,11 +59,25 @@ Navigate to `HKEY_USERS\.DEFAULT\Control Panel\Keyboard`
 
 The value of InitialKeyboardIndicators controls the state of num lock, caps lock and scroll lock:
 
-0 - Indicators off
-1 - Caps Lock on
-2 - Num Lock on
-3 - Caps Lock on and Num Lock on
-4 - Scroll Lock on
-5 - Caps Lock on and Scroll Lock on
-6 - Num Lock on and Scroll Lock on
-7 - Caps Lock on, Num Lock on, and Scroll Lock on 
+- 0 = Indicators off
+- 1 = Caps Lock on
+- 2 = Num Lock on
+- 3 = Caps Lock on and Num Lock on
+- 4 = Scroll Lock on
+- 5 = Caps Lock on and Scroll Lock on
+- 6 = Num Lock on and Scroll Lock on
+- 7 = Caps Lock on, Num Lock on, and Scroll Lock on
+
+## Install Windows
+
+[Create installation media for Windows - Windows Help](https://support.microsoft.com/en-us/help/15088/windows-10-create-installation-media)
+
+### Variant N and KN
+
+- [Windows 10 editions — Wikipedia](https://en.wikipedia.org/wiki/Windows_10_editions#Variations)
+
+Install the Media Feature Pack:
+
+- [Download Media Feature Pack for N and KN versions of Windows 10 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=48231)
+- [Download Windows 10 Media Feature Pack](https://www.microsoft.com/en-us/software-download/mediafeaturepack)
+- [Media Feature Pack list for Windows N editions](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)

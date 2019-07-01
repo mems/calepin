@@ -52,7 +52,9 @@ Project documentation:
 
 Use camel casing
 
-	variableName
+```js
+variableName
+```
 
 Use name that mean something : content or action
 
@@ -64,41 +66,59 @@ Don't use variable function
 
 Use:
 
-	function myfunction(){}
+```js
+function myfunction(){}
+```
 
 Not:
 
-	var mufunction = function(){};
+```js
+var mufunction = function(){};
+```
 
 Name all function. Debug will be easer with stack traces contains those names
 
 For a `function` used for an `Object` method:
 
-	class MyClass {
-		myMethod(){}
-		myOtherMethod(){}
-	}
-	/*
-	MyClass.prototype = {
-		myMethod: function myMethod(){}
-		myOtherMethod: function myOtherMethod(){}
-	}
-	*/
+```js
+class MyClass {
+	myMethod(){}
+	myOtherMethod(){}
+}
+/*
+MyClass.prototype = {
+	myMethod: function myMethod(){}
+	myOtherMethod: function myOtherMethod(){}
+}
+*/
+```
+
+Convert a function in strict mode to a function in sloppy (non-strict) mode (if it doesn’t have "use strict" in it):
+
+```js
+function sloppify(func) {
+    return new Function('return ' + func)();
+}
+```
 
 ### Constant
 
 Give uppercase name :
 
-	var MY_CONST_NAME = "value";
+```js
+var MY_CONST_NAME = "value";
+```
 
 Use [JSDoc comment](#comments) like:
 
-	/**
-	 * My own constance
-	 * @const
-	 * @type {string}
-	 */
-	var MY_CONST_NAME = "value";
+```js
+/**
+ * My own constance
+ * @const
+ * @type {string}
+ */
+var MY_CONST_NAME = "value";
+```
 
 or
 
@@ -733,6 +753,7 @@ See [Performance and optimization](Development#performance-and-optimization)
 - reduce garbage collection time by using object pools
 - in an async loop (like setTimeout or requestAnimationFrame) use `date.setTime(Date.now())` instead of recreate a `new Date()` object each iteration. [new Date() vs. setTime(Date.now()) · jsPerf](https://jsperf.com/new-date-vs-settime)
 - [thejameskyle/js-memory-heap-profiling](https://github.com/thejameskyle/js-memory-heap-profiling) - Approximate memory usage (in bytes) of various types of objects
+- [Adventures in Microbenchmarking - tomdale.net](https://tomdale.net/2017/07/adventures-in-microbenchmarking/) - store large data in a string instead of pure JS, then `JSON.parse()` when needed. See also [Mathias Bynens on Twitter: "That benchmark is testing caching, not JSON.parse vs. object literal. To test, create a JS file containing a large object literal, and a file containing the equivalent JSON.parse("..."). No loops or other boilerplate. Then run in d8 or with RCS https://t.co/ysinxs1fHv… https://t.co/ia8tBIOaEF"](https://twitter.com/mathias/status/1143818364059619329)
 
 `if(obj !== undefined && obj !== null){return obj.x}` (explicit) vs `if(obj){return obj.x}` (implicit). The second is less performant (the first one is ~15% faster). See [Michael Haeuslmann on Twitter: "Not only is declarative code more readable, it also produces beautiful byte code and is therefore faster. Thanks @bmeurer @munichnug https://t.co/Iae0s3e40W"](https://twitter.com/michaelhaeu/status/845003383153025024) and [TurboFan: A new code generation architecture for V8 - Google Slides](https://docs.google.com/presentation/d/1_eLlVzcj94_G4r9j9d_Lj5HRKFnq6jgpuPJtnmIBs88/edit#slide=id.g2134da681e_0_596)
 `let len = (obj !== undefined) ? obj.length : 0` vs `let len = obj && obj.length` convert length as boolean, then later check if it's a number. [More specific if conditions lead to ~10% faster render. by asolove · Pull Request #610 · developit/preact](https://github.com/developit/preact/pull/610#issuecomment-289981990)

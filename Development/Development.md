@@ -333,6 +333,8 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 
 Time spend vs quality / technical debt
 
+Organization complexity is predictor of bugs (more preople + more departments + higer turnover = worse code): [The Influence of Organizational Structure On Software Quality: An Empirical Case Study - Microsoft Research](https://www.microsoft.com/en-us/research/publication/the-influence-of-organizational-structure-on-software-quality-an-empirical-case-study/)
+
 ### Testing
 
 Domain-Driven Design : on étudie le problème en large et en travers avant de concevoir et avant de programmer
