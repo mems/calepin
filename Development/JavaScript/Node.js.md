@@ -283,3 +283,14 @@ Zlib binding:
 - [node/node_zlib.cc at master · nodejs/node](https://github.com/nodejs/node/blob/master/src/node_zlib.cc)
 - [node/zlib.js at master · nodejs/node](https://github.com/nodejs/node/blob/master/lib/zlib.js)
 - [node/zlib.h at master · nodejs/node](https://github.com/nodejs/node/blob/master/deps/zlib/zlib.h)
+
+## Read UTF-8 JSON with BOM
+
+```js
+const fs = require('fs');
+cost config = fs.readFileSync('./config.json', 'utf-8');
+// JSON.parse(config); fail if not start with an allowed char (`"`, `[`, `{`);
+// BOM is 0xefbbbf and is considered white-space
+// It can be stripped by `.trim()`:
+JSON.parse(config.trim());
+```
