@@ -888,23 +888,33 @@ Create a fake tmp file:
 
 Same as: `echo hello > file; cat file`
 
-	cat <<< hello
+```sh
+cat <<< hello
 
-	diff <(cd dir1; ls) <(cd dir2; ls)
+diff <(cd dir1; ls) <(cd dir2; ls)
 
-	$(cat file) is same as $(< file)
+$(cat file) is same as $(< file)
 	
-	(
-		echo open ip_address
-		echo user username password
-		echo put -O $today $file_gnome_curr
-		echo bye
-	) | lftp -f /dev/stdin >> lftp.log 2>&1
+(
+	echo open ip_address
+	echo user username password
+	echo put -O $today $file_gnome_curr
+	echo bye
+) | lftp -f /dev/stdin >> lftp.log 2>&1
 	
-	cat <<EOF
-	test1
-	test2
-	EOF
+cat <<EOF
+test1
+test2
+EOF
+
+(cat <<'EOF'
+file1
+file2
+EOF
+) | while read -r file; do
+	cp "from/$file" "to/$file";
+done;
+```
 
 File descriptors (fd) :
 
@@ -916,15 +926,21 @@ File descriptors (fd) :
 
 Empty a file (ex: clean a log file):
 
-	> /var/log/apache2/error.log
+```sh
+> /var/log/apache2/error.log
+```
 
 Append to a file:
 
-	echo "Appended text" >> /path/file
+```sh
+echo "Appended text" >> /path/file
+```
 
 Log all infos (and erros) of following commands to a file `/tmp/log.txt`: 
 
-	( /bin/ps acxfwwwe 2>&1; /usr/sbin/lsof -Pwln 2>&1; /bin/netstat -anpe 2>&1; /usr/bin/lastlog 2>&1; /usr/bin/last 2>&1; /usr/bin/who -a 2>&1 ) > /tmp/log.txt
+```sh
+( /bin/ps acxfwwwe 2>&1; /usr/sbin/lsof -Pwln 2>&1; /bin/netstat -anpe 2>&1; /usr/bin/lastlog 2>&1; /usr/bin/last 2>&1; /usr/bin/who -a 2>&1 ) > /tmp/log.txt
+```
 
 - `man -P less\ +/^REDIRECTION bash`
 - http://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html#sect_08_02_03_02
