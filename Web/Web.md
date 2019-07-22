@@ -890,20 +890,6 @@ See [Detection](#detection)
 - [Web crawler — Wikipedia](https://en.wikipedia.org/wiki/Web_crawler)
 - [WebAIM: History of the browser user-agent string](http://webaim.org/blog/user-agent-string-history/)
 
-## Serve progressive HTML document
-
-Serve the document using chunk encoding.
-
-Note: browser often have a buffer of 4096 bytes
-
-1. Send the HTTP headers
-2. the HTML head (title, metas, scripts, styles, etc.)
-3. first part of the HTML body
-4. (*n) send chunks with `<p class="progress">Progress: XX%...</p>` to show progression
-5. send chunk `<p class="progress">Complete</p>`
-6. send chunk `<style>.progress{display: none}</style>`
-5. send the remains HTML document part
-
 ## URI/URL
 
 URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org/html/rfc6570)
@@ -1650,6 +1636,20 @@ Ex: `static1.example.com` and `static2.example.com`
 
 - [Connection management in HTTP/1.x - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x#Domain_sharding)
 - [Performance Calendar » Reducing Domain Sharding](https://calendar.perfplanet.com/2013/reducing-domain-sharding/)
+
+#### Serve progressive HTML document
+
+Serve the document using chunk encoding.
+
+Note: browser often have a buffer of 4096 bytes
+
+1. Send the HTTP headers
+2. the HTML head (title, metas, scripts, styles, etc.)
+3. first part of the HTML body
+4. (*n) send chunks with `<p class="progress">Progress: XX%...</p>` to show progression
+5. send chunk `<p class="progress">Complete</p>`
+6. send chunk `<style>.progress{display: none}</style>`
+5. send the remains HTML document part
 
 #### Precompress
 
