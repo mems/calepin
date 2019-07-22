@@ -1421,6 +1421,7 @@ Or use CSS with extra elements:
 ## Media player
 
 - [HTML 5 Form Elements](https://dequeuniversity.com/assets/html/jquery-summit/html5/slides/video.html)
+- [Improving Video Accessibility with WebVTT | CSS-Tricks](https://css-tricks.com/improving-video-accessibility-with-webvtt/)
 
 ### Play / pause
 

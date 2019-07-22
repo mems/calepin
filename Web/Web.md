@@ -5979,6 +5979,7 @@ On mobile browsers
 ## Web Application
 
 - [Script to create custom shortcuts on the iOS springboard. Check it out at: http://dev.fokkezb.nl/shortcutter](https://gist.github.com/FokkeZB/5899387) - Generate data URI HTML document (to bookmark), allow to start native apps with custom arguments
+- [Shortcuts JS](https://shortcuts.fun/)
 
 ## Open native application
 

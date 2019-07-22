@@ -1268,6 +1268,7 @@ In document, user's comment, chat message, source code / script, source code's c
 	- [Off-side rule — Wikipedia](https://en.wikipedia.org/wiki/Off-side_rule#Off-side_rule_languages)
 	- [Whitespace (programming language) — Wikipedia](https://en.wikipedia.org/wiki/Whitespace_%28programming_language%29)
 	- [Voidmaker - JSFiddle](https://jsfiddle.net/Lcjo35h4/1/)
+	- [Homoglyph — Wikipedia](https://en.wikipedia.org/wiki/Homoglyph)
 	- Ruby annotation are usally not visible
 		> They tend not to have any rendering in fonts, since they’re control characters, and Unicode actually recommends they not be exposed directly to users at all, so there are no rules for how to actually display them
 	
@@ -1275,6 +1276,36 @@ In document, user's comment, chat message, source code / script, source code's c
 	- Unicode decomposition `"한글" !== "한글"` `"ㅎㅏㄴ ㄱㅡㄹ"`
 	- http://www.unicode.org/Public/security/latest/confusables.txt see [UTS #39: Unicode Security Mechanisms](http://www.unicode.org/reports/tr39/#confusables)
 	- [vhf/confusable_homoglyphs: ϲοｎｆｕѕаｂｌе＿һοｍоɡｌｙｐｈｓ](https://github.com/vhf/confusable_homoglyphs)
+	- replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" -> "асеіјорѕху"), or Roman Numerals ("ⅰⅴⅹⅼⅽⅾⅿ" -> "ivxlcdm"):
+        - [(1) Martin Kleppe on Twitter: "Evil note: In JavaScript you can replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" =&gt; "асеіјорѕху") to use reserved words as your variable names such as: var vаr = function functіon(functіon){ cаtch = "me"; іf \[you = "can"\]; } vаr (breаk = true);" / Twitter](https://twitter.com/aemkei/status/1146884713371578369?s=12)
+        
+        ```js
+        var vаr = function functіon(functіon){
+          cаtch = "me"; 
+          іf [you = "can"];
+        }
+
+        vаr (breаk = true);
+        ```
+        
+        ```js
+        dо='',vаr=!dо+dо,breаk=!vаr+dо,cаtch=dо+{},іf=vаr[dо++],ѕwitch=vаr[іn=dо],thiѕ=++іn+dо,cоnst=cаtch[іn+thiѕ],vаr[cоnst+=cаtch[dо]+(vаr.breаk+cаtch)[dо]+breаk[thiѕ]+іf+ѕwitch+vаr[іn]+cоnst+іf+cаtch[dо]+ѕwitch][cоnst](breаk[dо]+breаk[іn]+vаr[thiѕ]+ѕwitch+іf+"(dо)")()
+        ```
+        
+        ```js
+        [breаk,caѕe,cаtch,contіnue,dеbugger,defаult,dеlete,dо,elѕe,fіnally,fоr,functіon,іf,іn,inѕtanceof,nеw,rеturn,ѕwitch,thiѕ,thrоw,trу,typeоf,vаr,voіd,whіle,wіth] = "cyrillic doppelgänger of reserved words";
+        ```
+        
+        ```js
+        var сonst = "W";
+        let vаr = "T";
+        const lеt = "F";
+        сonst + vаr + lеt // WTF
+        ```
+        
+        ```js
+        ([cοnst,cοnst,сοnst,сοnst,сοnst,сοnst]=[]+{},[сonst,cоnst,conѕt,соnst,сonѕt,сonѕt,cоnѕt,соnѕt,сοnѕt,сοnѕt,cοnѕt]=[!!cοnst]+!cοnst+cοnst.cοnst)[сοnst+=cοnst+cοnѕt+соnѕt+сonst+cоnst+conѕt+сοnst+сonst+cοnst+cоnst][сοnst](сonѕt+cоnѕt+соnst+cоnst+сonst+'("const")')()
+        ```
 - Zero width chars:
 
 		<!-- [SmallestJS](http://schierlm.users.sourceforge.net/smallestjs.html) -->
@@ -2699,6 +2730,7 @@ See [XSS and injection prevention](#xss-and-injection-prevention)
 - [PortSwigger Web Security Blog: Exploiting CORS Misconfigurations for Bitcoins and Bounties](http://blog.portswigger.net/2016/10/exploiting-cors-misconfigurations-for.html)
 - [Cross-Site Request Forgery (CSRF) - OWASP](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29)
 - [XSS Archive | XSSed.com](http://www.xssed.com/archive/)
+- [Zoom Zero Day: 4+ Million Webcams & maybe an RCE? Just get them to visit your website!](https://medium.com/bugbountywriteup/zoom-zero-day-4-million-webcams-maybe-an-rce-just-get-them-to-visit-your-website-ac75c83f4ef5)
 
 #### SMS spoofing
 
@@ -2727,6 +2759,10 @@ Doesn't work for Canada, China, Taiwan and the USA. China, Mexico, South Africa,
 - [Have I been pwned? Check if your email has been compromised in a data breach](https://haveibeenpwned.com/)
 - [Did you know that the NSA uses Uber Drivers and Soccer Moms to Spy on You?](https://medium.com/@amuse/did-you-know-that-the-nsa-uses-uber-drivers-and-soccer-moms-to-spy-on-you-d912fe74befd)
 - [Restore Privacy | Your online privacy resource center](https://restoreprivacy.com/)
+- Facebook image tracking data (image identifier)
+    - [(1) Edin Jusupovic on Twitter: "#facebook is embedding tracking data inside photos you download. I noticed a structural abnormality when looking at a hex dump of an image file from an unknown origin only to discover it contained what I now understand is an IPTC special instruction. Shocking level of tracking.. https://t.co/WC1u7Zh5gN" / Twitter](https://mobile.twitter.com/oasace/status/1149181539000864769)
+    - [IPTC metadata automatically added to uploaded images on Facebook - Stack Overflow](https://stackoverflow.com/questions/31120222/iptc-metadata-automatically-added-to-uploaded-images-on-facebook)
+    - [watzon/fbmdob: Facebook image Metadata Obfuscation server](https://github.com/watzon/fbmdob)
 
 - [OSINT Search Tool by IntelTechnique | Open Source Intelligence](https://inteltechniques.com/menu.html)
 - [Michael Bazzell' Blog  » Blog Archive   » Updated OSINT Flowcharts](https://inteltechniques.com/blog/2018/03/06/updated-osint-flowcharts/)

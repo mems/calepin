@@ -6419,6 +6419,7 @@ See [Web — Streaming](Web#streaming)
 
 - [Send request without CORS](#send-request-without-cors)
 - [Handle Third Party Requests  |  Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests#remember_to_opt-in_to_cors_mode)
+- [javascript - Deadly CORS when http://localhost is the origin - Stack Overflow](https://stackoverflow.com/questions/10883211/deadly-cors-when-http-localhost-is-the-origin/10892392#10892392)
 
 ## `javascript:` protocol is async
 
@@ -6861,6 +6862,10 @@ Note: if you listen an iframe with `sandbox` attribute that dispatch `message` e
 - [Using channel messaging - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API/Using_channel_messaging)
 - [Communicating between Web Workers via MessageChannel](http://www.2ality.com/2017/01/messagechannel.html)
 - [html5 - Is cross-origin postMessage broken in IE10? - Stack Overflow](https://stackoverflow.com/questions/16226924/is-cross-origin-postmessage-broken-in-ie10)
+
+## Postmessage
+
+- [Is postMessage slow? — DasSur.ma](https://dassur.ma/things/is-postmessage-slow/)
 
 ## Canvas cursor
 
