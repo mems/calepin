@@ -1646,6 +1646,7 @@ Moved in CoreServices in 10.9
 
 ### Share network connection
 
+- [macOS Sierra: Share the Internet connection on your Mac](https://support.apple.com/kb/ph25327?locale=en_US)
 - [Reverse Tether - Share OSX Yosemite Wifi Connection Over Bluetooth - Ask Different](http://apple.stackexchange.com/questions/180578/reverse-tether-share-osx-yosemite-wifi-connection-over-bluetooth)
 
 ## UI
