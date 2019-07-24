@@ -688,6 +688,7 @@ Hide element to reduce rendering flicker (initial state to complete state) for f
 	<noscript><style>body {opacity: 1}</style></noscript>
 	<script src="..." async></script>
 
+- [Modern Script Loading](https://jasonformat.com/modern-script-loading/) - How to load JavaScript module and it fallback
 - `noscript` and fallback
 - [Polyfills](#polyfills)
 - [Adactio: Journal—Just what is it that you want to do?](https://adactio.com/journal/7774)
