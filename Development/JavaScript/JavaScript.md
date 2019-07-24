@@ -3839,6 +3839,9 @@ or
 - `TreeWalker` and `NodeIterator`
 - ...
 
+See also:
+
+- [javascript - querySelector search immediate children - Stack Overflow](https://stackoverflow.com/questions/6481612/queryselector-search-immediate-children/18607777#18607777) - `element.querySelector(":scope > children")`
 - [Why is getElementsByTagName() faster than querySelectorAll()? - Human Who Codes](https://humanwhocodes.com/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/)
 - [TreeWalker performance](https://codepen.io/mmems/pen/dwWyxv) - Performance of differents APIs
 
