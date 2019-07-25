@@ -297,6 +297,34 @@ new function(){return ["test"]} // > Array [ "test" ]
 
 - [How to check if a Javascript function is a constructor - Stack Overflow](https://stackoverflow.com/questions/40922531/how-to-check-if-a-javascript-function-is-a-constructor)
 
+## Lookup table
+
+```js
+const table = new Map([
+    ["key1", "value1"],
+    ["key2", "value2"],
+])
+```
+
+```js
+// ES6
+const table = Object.create(null, {
+    key1: "value1",
+    key2: "value2", 
+});
+```
+
+```js
+// ES5
+const table = {
+    __proto__: null,// avoids the pitfall of inheriting properties such as 'toString'
+    key1: "value1",
+    key2: "value2",
+};
+```
+
+- [Axel Rauschmayer on Twitter: "Lookup tables: If I create one via an object literal (and not via `new Map()`), I use the following pattern. const obj = { __proto__: null, key1: 'value1', // etc. }; That avoids the pitfall of inheriting properties such as 'toString': https://t.co/Q4siSPAmNt" / Twitter](https://twitter.com/rauschma/status/1154052569259376640?s=12)
+
 ## String
 
 > slice vs splice
