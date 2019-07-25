@@ -2993,11 +2993,11 @@ Use `<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1" async></scr
 
 Script-created scripts are by default async. (but not with `document.write()`)
 
-	var script = document.createElement("script");
-	script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
-	document.querySelector("head").appendChild(script);
-
-	document.querySelector("head").insertAdjacentHTML("beforeend", "<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1"></script>");
+```js
+const script = document.createElement("script");
+script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+document.head.appendChild(script);
+```
 
 - [<script> - HTML (HyperText Markup Language) | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Async_support)
 - [javascript - Is the "async" attribute/property useful if a script is dynamically added to the DOM? - Stack Overflow](https://stackoverflow.com/questions/3408805/is-the-async-attribute-property-useful-if-a-script-is-dynamically-added-to-the/5160676#5160676)
@@ -4139,7 +4139,11 @@ See jQuery [`$.parseHTML()`](https://github.com/jquery/jquery/blob/master/src/co
 
 ##### As a sibling nodes
 
-	element.insertAdjacentHTML("afterend", htmlString);// after element
+```js
+element.insertAdjacentHTML("afterend", htmlString);// after element
+```
+
+**Note: injected HTML is parsed with the [scripting flag](https://html.spec.whatwg.org/#scripting-flag) disabled, that means like `.innerHTML` script elements are not executed**
 
 - [Element.insertAdjacentHTML() - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
 
