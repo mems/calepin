@@ -702,6 +702,7 @@ Hide element to reduce rendering flicker (initial state to complete state) for f
 - [Progressive Misconceptions, From the Notebook of Aaron Gustafson](https://www.aaron-gustafson.com/notebook/progressive-misconceptions/?utm_source=codropscollective)
 - [\[Insert Clickbait Headline About Progressive Enhancement Here\], From the Notebook of Aaron Gustafson](https://www.aaron-gustafson.com/notebook/insert-clickbait-headline-about-progressive-enhancement-here/)
 - [The disadvantages of Javascript polyfills | Adam Silver | UX design, Front-end Engineering and Strategy | London, UK.](http://adamsilver.io/articles/the-disadvantages-of-javascript-polyfills/)
+- [Progressive Enhancement](https://remysharp.com/2019/07/24/progressive-enhancement)
 
 ### Document location
 
@@ -799,6 +800,10 @@ Examples: `userId` and `profileURL`
 
 See [Naming convention](Development#naming-convention)
 
+## Custom elements
+
+- [Progressive Enhancement](https://remysharp.com/2019/07/24/progressive-enhancement#web-components)
+
 # Tips & snippets
 
 - [JavaScript | CSS-Tricks](https://css-tricks.com/snippets/javascript/)
@@ -875,6 +880,10 @@ Alternatively using iterator / generator:
 
 - [AbortController - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 - [Async iterator and generator - JakeArchibald.com](https://jakearchibald.com/2017/async-iterators-and-generators/)
+
+## Components
+
+- [Building a modern carousel with CSS scroll snap, smooth scrolling, and pinch-zoom | Read the Tea Leaves](https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/)
 
 ## Form
 

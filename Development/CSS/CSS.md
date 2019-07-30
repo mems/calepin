@@ -423,7 +423,11 @@ Or use `display: table;` to stop margin collapsing.
 
 - http://nicolasgallagher.com/micro-clearfix-hack/
 
-### Number of columns
+### Columns
+
+- [Multi-column manipulation: Every Layout](https://every-layout.dev/blog/multi-column-manipulation/)
+
+#### Number of columns
 
 Use `column-count` or flex with `flex-direction: column`
 
@@ -648,6 +652,10 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 	}
  
 - [`flex-grow` is weird. Or is it? | CSS-Tricks](https://css-tricks.com/flex-grow-is-weird/)
+
+### Inline list
+
+- [Accessible inline list with bullets between items — Artem Sapegin’s Blog](https://blog.sapegin.me/all/accessible-inline-list/)
 
 ### Inline blocks
 
@@ -1371,7 +1379,7 @@ See `font-display` property.
 
 Use `font-size: 100%` (or `1em` / `1rem`) on root for `~16px`
 
-**You should'nt use absolute values (like `pt`, `px`, `vw`). Let the UA respect the user's font settings.**
+**You should'nt use absolute values (like `pt`, `px`, `vw`). Let the UA respect the user's font settings.** See [@heydon@mastodon.social on Twitter: "Periodic reminder: don't set your font sizes in `px`. At all. Ever. It still suppresses the ability to resize text in browser settings. #a11y https://t.co/uhQUm3P9aJ" / Twitter](https://twitter.com/heydonworks/status/1151443153657958405?s=12)
 
 It's why we use `calc()` function.
 

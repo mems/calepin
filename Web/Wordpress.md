@@ -109,7 +109,16 @@ Plugins:
 ## Custom fields
 
 - [Compare WP - Plugin Comparison - Content Type / Custom Fields - Google Sheets](https://docs.google.com/spreadsheets/d/1mSqienVYxLopTFGLPK0lGCJst2knKzXDtLQRgwjeBN8/edit#gid=3)
-- [ACF | Advanced Custom Fields Plugin for WordPress](https://www.advancedcustomfields.com/) and https://wordpress.org/plugins/acf-to-rest-api/
+- [ACF to REST API – WordPress plugin | WordPress.org](https://wordpress.org/plugins/acf-to-rest-api/)
+
+Some:
+
+- [Home - Carbon Fields](https://carbonfields.net/)
+- [ACF | Advanced Custom Fields Plugin for WordPress](https://www.advancedcustomfields.com/)
+- [Home - Pods Framework](https://pods.io/)
+- [Meta Box - WordPress Custom Fields and Custom Meta Boxes Framework](https://metabox.io/)
+- [justintadlock/butterbean: A neat little post meta framework.](https://github.com/justintadlock/butterbean)
+- [CMB2/CMB2: CMB2 is a developer's toolkit for building metaboxes, custom fields, and forms for WordPress that will blow your mind.](https://github.com/CMB2/CMB2)
 
 ## Regenerate thumbnails
 

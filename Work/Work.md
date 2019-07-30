@@ -13,6 +13,8 @@ Be a good senior dev:
 
 ## Citations
 
+> L’expérience c’est comme une bougie elle n’éclaire que celui qui la porte
+
 > Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.
 — Sénèque
 

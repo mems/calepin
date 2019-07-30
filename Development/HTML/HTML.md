@@ -3578,6 +3578,7 @@ Use where you want to use an anchor element, but not have it navigate anywhere. 
 
 > links to the current page might become a placeholder
 
+- [The accessibility of placeholder links | scottohara.me](https://www.scottohara.me/note/2019/07/17/placeholder-link.html)
 - [HTML 5.1: 4.5. Text-level semantics](https://www.w3.org/TR/html/textlevel-semantics.html#the-a-element)
 - [What Are HTML5 Placeholder Links For?](http://webdesign.about.com/od/html5tutorials/qt/html5-placeholder-links.htm)
 

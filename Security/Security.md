@@ -871,7 +871,7 @@ Hash collision:
 - [Web scraping — Wikipedia](https://en.wikipedia.org/wiki/Web_scraping)
 - [html - How do I prevent site scraping? - Stack Overflow](https://stackoverflow.com/questions/3161548/how-do-i-prevent-site-scraping/34828465#34828465)
 
-See [Web scrapping](Web scrapping)
+See [Web scrapping](../Data/Web%20scrapping/Web%20scrapping.md)
 
 #### Know your weaknesses
 

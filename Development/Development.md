@@ -510,6 +510,10 @@ See also [Git](Git)
 
 See [Check hash and keys leak or reversed (hashes)](Security#hash-and-keys)
 
+### Monorepo
+
+- [Don't ask if a monorepo is good for you – ask if you're good enough for a monorepo](https://yosefk.com/blog/dont-ask-if-a-monorepo-is-good-for-you-ask-if-youre-good-enough-for-a-monorepo.html)
+
 ### Version message
 
 Aka Git commit message.

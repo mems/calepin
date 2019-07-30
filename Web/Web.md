@@ -703,6 +703,7 @@ Infos and docs:
 - [Reverse-engineering Instagram to access the private API](http://blog.will3942.com/reverse-engineering-instagram)
 - [The Definitive Guide to GET vs POST - Treehouse Blog](http://blog.teamtreehouse.com/the-definitive-guide-to-get-vs-post)
 - [The art of creating simple but flexible APIs - Jos de Jong](http://josdejong.com/blog/2014/10/18/the-art-of-creating-simple-but-flexible-apis/)
+- [APIs are about Policy — Acko.net](http://acko.net/blog/apis-are-about-policy/)
 
 Tools:
 
@@ -1325,18 +1326,29 @@ See [How ECMAScript engine works](ECMAScript#how-engine-works) (event loop, etc.
 ## Headless browser
 
 - [Headless browser — Wikipedia](https://en.wikipedia.org/wiki/Headless_browser)
+- Puppeteer: Node API for [Headless Chrome](https://github.com/GoogleChrome/puppeteer) and [Headless Firefox](https://github.com/GoogleChrome/puppeteer/tree/master/experimental/puppeteer-firefox) - [Puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md)
 - [Headless web browsers](https://gist.github.com/evandrix/3694955)
 - [PhantomJS | PhantomJS](http://phantomjs.org/)
 - [Nightmare](http://www.nightmarejs.org/)
 - [selenium - Headless Browser and scraping - solutions - Stack Overflow](https://stackoverflow.com/questions/18539491/headless-browser-and-scraping-solutions)
+- [SeleniumHQ/docker-selenium: Docker images for Selenium Grid Server (Standalone, Hub, and Nodes).](https://github.com/SeleniumHQ/docker-selenium)
 - [Headless Chrome/Firefox testing in NodeJS with Selenium and Xvfb | CodeUtopia](http://codeutopia.net/blog/2013/07/13/headless-chromefirefox-testing-in-nodejs-with-selenium-and-xvfb/)
 - [`chrome --headless --remote-debugging-port=9222 https://chromium.org`](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 - [Getting Started with Headless Chrome | Web | Google Developers](https://developers.google.com/web/updates/2017/04/headless-chrome)
 - https://developer.mozilla.org/en-US/Firefox/Headless_mode
-
 - Chrome: `--user-agent="..."`, could require `--single-process`. See also `--use-mobile-user-agent`
 
 See [Data - Web scrapping](Web scrapping)
+
+### Headless browser detection
+
+It's a [cat-and-mouse game](https://en.wikipedia.org/wiki/Cat_and_mouse)
+
+- [Detecting Chrome Headless](http://antoinevastel.github.io/bot%20detection/2017/08/05/detect-chrome-headless.html)
+- [berstend/puppeteer-extra: 💯 Teach puppeteer new tricks through plugins.](https://github.com/berstend/puppeteer-extra)
+- [puppeteer-extra/packages/puppeteer-extra-plugin-recaptcha at master · berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-recaptcha?source=post_page---------------------------)
+- [Detecting Chrome headless | Hacker News](https://news.ycombinator.com/item?id=14936025)
+- [How to bypass “slider CAPTCHA” with JS and Puppeteer](https://medium.com/@filipvitas/how-to-bypass-slider-captcha-with-js-and-puppeteer-cd5e28105e3c)
 
 ## Server environments
 

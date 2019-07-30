@@ -506,8 +506,7 @@ Check Backup integrity:
 - `sudo /var/packages/HyperBackup/target/bin/synoimgbkptool --help`
 - ?? `/var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_synology.coene_AKIAII7X3LHP5R4HOUNA.Hkx7Wx -t ds414_1.hbk -S bkp -E /tmp/scoped_temp_file.XeMJPp`
  
-	sudo cat /var/log/messages | grep img_backup
-	sudo cat /var/log/messages | grep synolocalbkp
+	sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp'
 
 #### Format and storage
 

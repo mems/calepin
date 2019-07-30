@@ -1,7 +1,6 @@
 - [Advanced Web Scraping: Bypassing "403 Forbidden," captchas, and more | sangaline.com](http://sangaline.com/post/advanced-web-scraping-tutorial/)
-- [Detecting Chrome Headless](http://antoinevastel.github.io/bot%20detection/2017/08/05/detect-chrome-headless.html)
 
-# Tools
+## Tools
 
 - [Options for HTML scraping? - Stack Overflow](https://stackoverflow.com/questions/2861/options-for-html-scraping)
 - [parsing - How do you parse and process HTML/XML in PHP? - Stack Overflow](https://stackoverflow.com/questions/3577641/how-do-you-parse-and-process-html-xml-in-php)
@@ -49,9 +48,9 @@ Headless Web Browser (binded to PHP) + custom code "filter" (handle interactions
 
 Template: declartive with impertive inclusions
 
-# Websites
+## Websites
 
-## Blogs: Blogger, Wordpress, etc.
+### Blogs: Blogger, Wordpress, etc.
 
 - [Plateformes de blogs : comment transférer ses articles ? - Iv Oam Blog](http://iv-oam.blogspot.fr/2013/05/plateformes-de-blogs-et-transferts.html)
 - http://ivoam.raidghost.com/index/conversions-en.html
@@ -60,7 +59,7 @@ Template: declartive with impertive inclusions
 - [Blogger 2 WordPress — WordPress Plugins](https://wordpress.org/plugins/blogger-2-wp/)
 - [Blogger Importer — WordPress Plugins](https://wordpress.org/plugins/blogger-importer/)
 
-## Itunes
+### Itunes
 
 - https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/8_AddingNewApps/AddingNewApps.html
 - http://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html
@@ -75,11 +74,11 @@ Template: declartive with impertive inclusions
 
 - https://stackoverflow.com/questions/16164847/itunes-lookup-api-get-iphone-5-app-screenshots
 
-### App Icon
+#### App Icon
 
 - 1024 x 1024 pixels
 
-### iPhone and iPod touch Screenshots
+#### iPhone and iPod touch Screenshots
 
 - 640x920 pixels for hi-res portrait (without status bar) minimum
 - 640x960 pixels for hi-res portrait (full screen) maximum
@@ -88,7 +87,7 @@ Template: declartive with impertive inclusions
 
 `screen568x568.jpeg` → `screen920x920.jpeg`
 
-### iPhone 5 and iPod touch (5th gen) Screenshots
+#### iPhone 5 and iPod touch (5th gen) Screenshots
 
 - 640x1096 pixels for portrait (without status bar) minimum
 - 640x1136 pixels for portrait (full screen) maximum
@@ -97,11 +96,11 @@ Template: declartive with impertive inclusions
 
 `screen568x568.jpeg` → `screen1136x1136.jpeg`
 
-### iPhone 6
+#### iPhone 6
 
 `screen1334x1334.jpeg`
 
-### iPad Screenshots
+#### iPad Screenshots
 
 - 1024x748 pixels for landscape (without status bar) minimum
 - 1024x768 pixels for landscape (full screen) maximum
@@ -114,7 +113,7 @@ Template: declartive with impertive inclusions
 
 `screen480x480.jpeg` → `screen960x960.jpeg`, `screen1024x1024.jpeg`, `screen2048x2048.jpeg`
 
-### Desktop Screenshot
+#### Desktop Screenshot
 
 - 1280x800 pixels
 - 1440x900 pixels
@@ -123,7 +122,7 @@ Template: declartive with impertive inclusions
 `screen800x500.jpeg` → `screen1280x800.jpeg`
 `mzl.anmvzyyt.225x225-75.jpg` → `mzl.anmvzyyt.png`
 
-### View iTunes/App Store HTML
+#### View iTunes/App Store HTML
 
 Enable WebKit’s Inspector (no more works):
 
@@ -836,11 +835,11 @@ And open it with `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 
 https://gist.github.com/sgmurphy/1878352
 
-## Flickr
+### Flickr
 
 - [Services Flickr](https://www.flickr.com/services/api/misc.urls.html)
 
-### Image page from image URL
+#### Image page from image URL
 
 	https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 		or
@@ -850,24 +849,24 @@ https://gist.github.com/sgmurphy/1878352
 
 And use [Flickr Api Explorer - flickr.photos.getInfo](https://www.flickr.com/services/api/explore/flickr.photos.getInfo) and fill photo_id with `{id}` and secret with `{secret}`
 
-## Facebook
+### Facebook
 
-### Image page from image URL
+#### Image page from image URL
 
 1. from `http://sphotos-b.ak.fbcdn.net/hphotos-ak-ash4/395011_296213017144925_709418796_n.png`
 2. give `296213017144925`
 3. final `http://facebook.com/296213017144925`
 
-### Get album images href
+#### Get album images href
 
 	// Exemple: https://www.facebook.com/Simoneconti88/media_set?set=a.3415113746951.2152114.1543299430&type=3
 	console.log(Array.prototype.map.call(document.querySelectorAll("#album_photos_pagelet a.uiMediaThumb"), function (a) {
 		return (new URL(a.href)).searchParams.get("src");
 	}).join("\n"));
 
-## Crédit Agricole
+### Crédit Agricole
 
-### Crédit Agricole Login
+#### Crédit Agricole Login
 
 https://github.com/brutasse/dotfiles/blob/master/bin/ca
 https://github.com/bouil/userscripts/tree/master/src
@@ -930,7 +929,7 @@ Crédit Agricole Val de France						DCIV2+frame	https://www.ca-valdefrance.fr/		
 
 DCIV2+frame: `startcomptes();`
 
-### Regional Banks
+#### Regional Banks
 
 http://www.ca-recrute.fr/connaitre_implantations.php
 https://fr.wikipedia.org/wiki/Liste_des_caisses_r%C3%A9gionales_de_Cr%C3%A9dit_agricole
@@ -975,7 +974,7 @@ Toulouse 31
 Touraine et Poitou
 Val de France
 
-### Liste des codes banques du Réseau Crédit Agricole 
+#### Liste des codes banques du Réseau Crédit Agricole 
 
 [LstBq_reseauCA - liste_banques_reseau_ca.pdf](https://www.aspone.fr/files/aspone/banques/liste_banques_reseau_ca.pdf)
 
