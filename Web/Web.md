@@ -1366,6 +1366,8 @@ Aka WebPerfs
 
 > respecting the medium
 
+- [The Ethics of Web Performance - Web Performance Consulting | TimKadlec.com](https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/)
+
 Loading, parsing, rendering, etc.
 
 > We don't want humans waiting on computers. We want computers waiting on humans.
