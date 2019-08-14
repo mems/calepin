@@ -1366,11 +1366,12 @@ The SVG element can be the alternative content of used canvas
 See [Restrictions](SVG#restrictions)
 
 - `new XMLSerializer().serializeToString(svgnode)`
-- [Drawing DOM objects into a canvas - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas)
-- [cburgmer/rasterizeHTML.js: Renders HTML into the browser's canvas](https://github.com/cburgmer/rasterizeHTML.js).
+- [Drawing DOM objects into a canvas - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas) - [Drawing DOM objects into a canvas - Web APIs | MDN](https://web.archive.org/web/20181006205840/https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas) (archive)
+- [cburgmer/rasterizeHTML.js: Renders HTML into the browser's canvas](https://github.com/cburgmer/rasterizeHTML.js)
 - https://github.com/niklasvh/html2canvas http://html2canvas.hertzen.com/
 - [gabelerner/canvg](https://github.com/gabelerner/canvg)
 - [DasSur.ma – DOM2Texture: Abusing Arcane APIs](http://dassur.ma/things/dom2texture/)
+- [trevorlinton/webkit.js: Pure JavaScript Port of WebKit](https://github.com/trevorlinton/webkit.js)
 
 ### Draw with Canvas2D
 
