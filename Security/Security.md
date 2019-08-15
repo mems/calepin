@@ -942,8 +942,6 @@ Note: Root certificate can be compromises (by a malware, by the manufacturer, et
 
 ###### Self-signed certificate
 
-For *.localhost domains see [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/)
-
 Create an self-signed certificate (SSC)
 
 	# Create self signed certificate for 10 years (no use shorter validity for production):
@@ -967,6 +965,9 @@ Self-signed CA vs self-signed certificate:
 Note: Android require Basic constraints extension ("CA flag") to be set to `TRUE`.
 Note: Chrome 58 and Firefox 48 require Subject Alternative Name (SAN) (`subjectAltName`) for the domain(s) name(s), to define all domains used by this certificate
 
+- mkcert:
+    - [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
+    - [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
 - [ssl - Difference between self-signed CA and self-signed certificate - Stack Overflow](https://stackoverflow.com/questions/4024393/difference-between-self-signed-ca-and-self-signed-certificate)
 - [Self-signed SSL certificates, CA flagged true, for Android and OS X | Best Mac Tips](http://best-mac-tips.com/2015/05/28/self-signed-ssl-certificates-ca-true-android-os-x/)
 - [Des certificats signés par votre autorité de certification avec OpenSSL - Jeyg.info](http://jeyg.info/des-certificats-signes-par-votre-autorite-de-certification-avec-openssl/)

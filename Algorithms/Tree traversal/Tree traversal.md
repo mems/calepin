@@ -1,11 +1,15 @@
-Aka tree walking
+Aka tree walking, path finding, pathfinding
 
 - [An interactive explanation of quadtrees.](http://jimkang.com/quadtreevis/)
 - [Tree traversal — Wikipedia](https://en.wikipedia.org/wiki/Tree_traversal)
 - [Breadth-first search — Wikipedia](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [sql - What is the most efficient/elegant way to parse a flat table into a tree? - Stack Overflow](https://stackoverflow.com/questions/192220/what-is-the-most-efficient-elegant-way-to-parse-a-flat-table-into-a-tree)
-- [A GPU Approach to Path Finding « null program](http://nullprogram.com/blog/2014/06/22/) - [WebGL Shortest Path Solver](http://nullprogram.com/webgl-path-solver/) [skeeto/webgl-path-solver: WebGL shortest path solver](https://github.com/skeeto/webgl-path-solver)
+- [A GPU Approach to Path Finding « null program](http://nullprogram.com/blog/2014/06/22/) - [WebGL Shortest Path Solver](http://nullprogram.com/webgl-path-solver/) [skeeto/webgl-path-solver: WebGL shortest path solver](https://github.com/skeeto/webgl-path-solver). Note this implementation could not be the optimal ones (because "it has to execute N iterations serially", see [Pathfinding on GPU? - Game Development & Technical Discussion - Wildfire Games Community Forums](https://wildfiregames.com/forum/index.php?/topic/18892-pathfinding-on-gpu/&tab=comments#comment-294653))
+- [Random Walk Pathfinding – A Global Distance Field – Thomas Diewald](https://web.archive.org/web/20180130054634/http://thomasdiewald.com/blog/?p=3250)
+- [GPU FlowField Pathfinding \[R&D\] : GraphicsProgramming](https://www.reddit.com/r/GraphicsProgramming/comments/6yg1se/gpu_flowfield_pathfinding_rd/dmn21ya/) - [GPU FlowField Pathfinding – Thomas Diewald](https://web.archive.org/web/20180324184430/http://thomasdiewald.com/blog/?p=3294) [FlowField Pathfinding - Particle Simulation on Vimeo](https://vimeo.com/232576820)
 - [Unity Compute Shader Experiments: GPU Pathfinding - YouTube](https://www.youtube.com/watch?v=1OSXWhd3hvI)
+- [GPU Accelerated Pathfinding - Avi Bleiweiss](https://folk.idi.ntnu.no/elster/tdt24/tdt24-f12/presentations/lars-espen-presentation.pdf)
+- [Browse (1) - Shadertoy BETA](https://www.shadertoy.com/results?query=tag%3Dpathfinding)
 
 To visit a node for a finite tree
  

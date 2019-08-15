@@ -538,7 +538,7 @@ Possibilities:
 See also
 
 - [Spelling is important](HTML#spelling-is-important)
-- [Language](#language)
+- [Language](../Data/Language/Language.md)
 - [Orthographe et accessibilité | nota-bene.org](http://nota-bene.org/Orthographe-et-accessibilite)
 - [Dash — Wikipedia](https://en.wikipedia.org/wiki/Dash)
 - [UK government changes website guidelines due to buggy screen readers | Hacker News](https://news.ycombinator.com/item?id=12164831)

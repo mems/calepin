@@ -91,8 +91,8 @@ Specific: Crabby, S3TC/DXT derivated (RGBV, RGBM, CRN, YCoCg DXT5)
 - KTX, an OpenGL standard, multiple mipmap levels supported with multitude of texture formats.
 - PKM, for ETC textures containing a single mipmap level.
 - DDS, for DXTC, RGTC, BPTC (BC1-7) or uncompressed textures, multiple mipmap levels supported.
-- PKM is a simple file format for single compressed images. If you generate Mipmaps, multiple PKM files are created.
-- KTX format that provides a container for images. If you generate Mipmaps, a single KTX file is generated.
+- PKM is a simple file format for single compressed images. If you generate mipmaps, multiple PKM files are created.
+- KTX format that provides a container for images. If you generate mipmaps, a single KTX file is generated.
 
 Block Compression:
 

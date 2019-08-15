@@ -26,6 +26,8 @@ See also [Math](../Math/Math.md)
 
 ## GPU computing
 
+> GPU can do lot of pallel work, but the latency involved in getting results back from the GPU make this unattractive for realtime
+
 See also SMID
 
 - [Computing with WebGL](../Development/JavaScript/JavaScript.md#computing-with-webgl)

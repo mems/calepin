@@ -52,6 +52,24 @@ Idioms:
 - "plus" (more) ≠ "plus" (anymore). "Je veux plus de pain" can both mean _I want more bread)_ and _I don't want bread anymore_.
 - "un ver vert" (a green worm) ≠ "un verre vert" (a green glace); "Le ver vert va vers un verre vert."
 
+Homographes (même graphie, sens différent) :
+
+> Nous portions les portions.
+> Les poules du couvent couvent.
+> Mes fils ont cassé mes fils.
+> Il est de l'Est.
+> Je vis ces vis.
+> Cet homme est fier. Peut-on s'y fier ?
+> Nous éditions de belles éditions.
+> Je suis content qu'ils content ces histoires.
+> Il convient qu'ils convient leurs amis.
+> Ils on un caractères violent : ils violent leurs promesses.
+> Nos intentions sont que nous intentions ce procès.
+> Ils négligent leurs devoirs; je suis moins négligent qu'eux.
+> Ils résident à Paris chez le résident d'une nation étrangère.
+> Les cuisiniers excellent à faire ce mets excellent.
+> Les poissons affluent à un affluent.
+
 - "cent" (hundred), "sans" (without), "sang" (blood) pronounced the same but not "sens" (senses)
 - "Ces" (these/those), "ses" (his/her/its), "c'est" (it's), "(il) s'est" (It has/he has/she has), "(je) sais" (I know), "(Il) sait" (he/she/it knows) are all pronounced the same but not "cet" (this/that)
 

@@ -627,59 +627,140 @@ Reduce Video memory usage, limit texture upload
 
 ### Texture repetition
 
-Aka texture variation
+Aka texture variation, avoid texture repetition
 
 - [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/texturerepetition/texturerepetition.htm) - texture repetition
 - [Texture variation V](https://www.shadertoy.com/view/Xtl3zf)
- 
-	// Created by inigo quilez - iq/2017
-	// License Creative Commons Attribution-ShareAlike 3.0 Unported
-	// https://creativecommons.org/licenses/by-sa/3.0/
+
+```glsl
+// Created by inigo quilez - iq/2017
+// License Creative Commons Attribution-ShareAlike 3.0 Unported
+// https://creativecommons.org/licenses/by-sa/3.0/
+
+// One way to avoid texture tile repetition one using one small texture to cover a huge area.
+// Basically, it creates 8 different offsets for the texture and picks two to interpolate
+// between.
+//
+// Unlike previous methods that tile space (https://www.shadertoy.com/view/lt2GDd or
+// https://www.shadertoy.com/view/4tsGzf), this one uses a random low frequency texture
+// (cache friendly) to pick the actual texture's offset.
+//
+// Also, this one mipmaps to something (ugly, but that's better than not having mipmaps
+// at all like in previous methods)
+
+
+float sum( vec3 v ) { return v.x+v.y+v.z; }
+
+vec3 textureNoTile( in vec2 x, float v )
+{
+	float k = texture( iChannel1, 0.005*x ).x; // cheap (cache friendly) lookup
+
+	float l = k*8.0;
+	float i = floor( l );
+	float f = fract( l );
+
+	vec2 offa = sin(vec2(3.0,7.0)*(i+0.0)); // can replace with any other hash
+	vec2 offb = sin(vec2(3.0,7.0)*(i+1.0)); // can replace with any other hash
+
+	vec2 dx = dFdx(x), dy = dFdy(x);
+
+	vec3 cola = textureGrad( iChannel0, x + v*offa, dx, dy ).xyz;
+	vec3 colb = textureGrad( iChannel0, x + v*offb, dx, dy ).xyz;
+
+	return mix( cola, colb, smoothstep(0.2,0.8,f-0.1*sum(cola-colb)) );
+}
+
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	vec2 uv = fragCoord.xy / iResolution.xx;
+
+	float f = smoothstep( 0.4, 0.6, sin(iGlobalTime	) );
+	float s = smoothstep( 0.4, 0.6, sin(iGlobalTime*0.5) );
 	
-	// One way to avoid texture tile repetition one using one small texture to cover a huge area.
-	// Basically, it creates 8 different offsets for the texture and picks two to interpolate
-	// between.
-	//
-	// Unlike previous methods that tile space (https://www.shadertoy.com/view/lt2GDd or
-	// https://www.shadertoy.com/view/4tsGzf), this one uses a random low frequency texture
-	// (cache friendly) to pick the actual texture's offset.
-	//
-	// Also, this one mipmaps to something (ugly, but that's better than not having mipmaps
-	// at all like in previous methods)
+	vec3 col = textureNoTile( (4.0 + 6.0*s)*uv, f );
+
+	fragColor = vec4( col, 1.0 );
+}
+```
+
+```glsl
+// One simple way to avoid texture tile repetition, at the cost of 4 times the amount of texture lookups. Needs GL_NEAREST_MIPMAP_LINEAR for the noise textureto be usable in real life.
+// https://www.shadertoy.com/view/lt2GDd
+// Created by inigo quilez - iq/2015
+// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
+// One simple way to avoid texture tile repetition, at the cost of 4 times the amount of
+// texture lookups (still much better than https://www.shadertoy.com/view/4tsGzf)
+//
+// More info: http://www.iquilezles.org/www/articles/texturerepetition/texturerepetition.htm
+
+#define USEHASH
+
+vec4 hash4( vec2 p ) { return fract(sin(vec4( 1.0+dot(p,vec2(37.0,17.0)), 
+											  2.0+dot(p,vec2(11.0,47.0)),
+											  3.0+dot(p,vec2(41.0,29.0)),
+											  4.0+dot(p,vec2(23.0,31.0))))*103.0); }
+
+vec4 texture2DNoTile( sampler2D samp, in vec2 uv )
+{
+	vec2 iuv = floor( uv );
+	vec2 fuv = fract( uv );
+
+#ifdef USEHASH	
+	// generate per-tile transform (needs GL_NEAREST_MIPMAP_LINEARto work right)
+	vec4 ofa = texture2D( iChannel1, (iuv + vec2(0.5,0.5))/256.0 );
+	vec4 ofb = texture2D( iChannel1, (iuv + vec2(1.5,0.5))/256.0 );
+	vec4 ofc = texture2D( iChannel1, (iuv + vec2(0.5,1.5))/256.0 );
+	vec4 ofd = texture2D( iChannel1, (iuv + vec2(1.5,1.5))/256.0 );
+#else
+	// generate per-tile transform
+	vec4 ofa = hash4( iuv + vec2(0.0,0.0) );
+	vec4 ofb = hash4( iuv + vec2(1.0,0.0) );
+	vec4 ofc = hash4( iuv + vec2(0.0,1.0) );
+	vec4 ofd = hash4( iuv + vec2(1.0,1.0) );
+#endif
 	
+	vec2 ddx = dFdx( uv );
+	vec2 ddy = dFdy( uv );
+
+	// transform per-tile uvs
+	ofa.zw = sign(ofa.zw-0.5);
+	ofb.zw = sign(ofb.zw-0.5);
+	ofc.zw = sign(ofc.zw-0.5);
+	ofd.zw = sign(ofd.zw-0.5);
 	
-	float sum( vec3 v ) { return v.x+v.y+v.z; }
-	
-	vec3 textureNoTile( in vec2 x, float v )
-	{
-		float k = texture( iChannel1, 0.005*x ).x; // cheap (cache friendly) lookup
-	
-		float l = k*8.0;
-		float i = floor( l );
-		float f = fract( l );
-	
-		vec2 offa = sin(vec2(3.0,7.0)*(i+0.0)); // can replace with any other hash
-		vec2 offb = sin(vec2(3.0,7.0)*(i+1.0)); // can replace with any other hash
-	
-		vec2 dx = dFdx(x), dy = dFdy(x);
-	
-		vec3 cola = textureGrad( iChannel0, x + v*offa, dx, dy ).xyz;
-		vec3 colb = textureGrad( iChannel0, x + v*offb, dx, dy ).xyz;
-	
-		return mix( cola, colb, smoothstep(0.2,0.8,f-0.1*sum(cola-colb)) );
-	}
-	
-	void mainImage( out vec4 fragColor, in vec2 fragCoord )
-	{
-		vec2 uv = fragCoord.xy / iResolution.xx;
-	
-		float f = smoothstep( 0.4, 0.6, sin(iGlobalTime	) );
-		float s = smoothstep( 0.4, 0.6, sin(iGlobalTime*0.5) );
+	// uv's, and derivarives (for correct mipmapping)
+	vec2 uva = uv*ofa.zw + ofa.xy; vec2 ddxa = ddx*ofa.zw; vec2 ddya = ddy*ofa.zw;
+	vec2 uvb = uv*ofb.zw + ofb.xy; vec2 ddxb = ddx*ofb.zw; vec2 ddyb = ddy*ofb.zw;
+	vec2 uvc = uv*ofc.zw + ofc.xy; vec2 ddxc = ddx*ofc.zw; vec2 ddyc = ddy*ofc.zw;
+	vec2 uvd = uv*ofd.zw + ofd.xy; vec2 ddxd = ddx*ofd.zw; vec2 ddyd = ddy*ofd.zw;
 		
-		vec3 col = textureNoTile( (4.0 + 6.0*s)*uv, f );
+	// fetch and blend
+	vec2 b = smoothstep(0.25,0.75,fuv);
 	
-		fragColor = vec4( col, 1.0 );
-	}
+	return mix( mix( texture2DGradEXT( samp, uva, ddxa, ddya ), 
+					 texture2DGradEXT( samp, uvb, ddxb, ddyb ), b.x ), 
+				mix( texture2DGradEXT( samp, uvc, ddxc, ddyc ),
+					 texture2DGradEXT( samp, uvd, ddxd, ddyd ), b.x), b.y );
+}
+
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	vec2 uv = fragCoord / iResolution.x;
+	
+	float f = smoothstep( 0.4, 0.6, sin(iGlobalTime	) );
+	float s = smoothstep( 0.4, 0.6, sin(iGlobalTime*0.5) );
+		
+	uv = (4.0 + 16.0*s)*uv + iGlobalTime*0.1;
+		
+	vec3 cola = texture2DNoTile( iChannel0, uv ).xyz;
+	vec3 colb = texture2D( iChannel0, uv ).xyz;
+	
+	vec3 col = mix( cola, colb, f );
+	
+	fragColor = vec4( col, 1.0 );
+}
+```
 
 ### Perspective texture correction
 
@@ -791,6 +872,8 @@ Aka MSDF
 
 ## Anti-aliasing
 
+Aka antialiasing
+
 - [Edge-distance anti-aliasing](https://abandonedwig.info/edge-distance-anti-aliasing/demo.html) - see [Edge-distance anti-aliasing | Woohoo](https://abandonedwig.info/blog/2013/02/24/edge-distance-anti-aliasing.html)
 - [ClearType — Wikipedia](https://en.wikipedia.org/wiki/ClearType)
 - [Category:Anti-aliasing — Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Anti-aliasing)
@@ -798,47 +881,56 @@ Aka MSDF
 - [Feedback Applet Ported to WebGL « null program](http://nullprogram.com/blog/2014/06/21/#anti-aliasing)
 - aastep
 	- [anti-alias smoothstep utility function](https://github.com/stackgl/glsl-aastep) - aastep
-	 
-		float aastep(float threshold, float value) {
-		  #ifdef GL_OES_standard_derivatives
-			float afwidth = length(vec2(dFdx(value), dFdy(value))) * 0.70710678118654757;
-			return smoothstep(threshold-afwidth, threshold+afwidth, value);
-		  #else
-			return step(threshold, value);
-		  #endif  
-		}
+	
+    ```glsl
+	float aastep(float threshold, float value) {
+	  #ifdef GL_OES_standard_derivatives
+		float afwidth = length(vec2(dFdx(value), dFdy(value))) * 0.70710678118654757;
+		return smoothstep(threshold-afwidth, threshold+afwidth, value);
+	  #else
+		return step(threshold, value);
+	  #endif  
+	}
+    ```
 
-		# A full example of 2D circle rendering
-		precision highp float;
+    ```glsl
+	# A full example of 2D circle rendering
+	precision highp float;
+	
+	#ifdef GL_OES_standard_derivatives
+	#extension GL_OES_standard_derivatives : enable
+	#endif
+	
+	#include aastep
+	
+	uniform float iGlobalTime;
+	uniform vec3  iResolution;
+	
+	void main() {
+		//centered texture coordinates
+		vec2 uv = vec2(gl_FragCoord.xy / iResolution.xy) - 0.5;
 		
-		#ifdef GL_OES_standard_derivatives
-		#extension GL_OES_standard_derivatives : enable
-		#endif
+		//correct aspect
+		uv.x *= iResolution.x / iResolution.y;
 		
-		#include aastep
+		//animate zoom
+		uv /= sin(iGlobalTime * 0.2); 
 		
-		uniform float iGlobalTime;
-		uniform vec3  iResolution;
+		//radial distance
+		float len = length(uv);
 		
-		void main() {
-			//centered texture coordinates
-			vec2 uv = vec2(gl_FragCoord.xy / iResolution.xy) - 0.5;
-			
-			//correct aspect
-			uv.x *= iResolution.x / iResolution.y;
-			
-			//animate zoom
-			uv /= sin(iGlobalTime * 0.2); 
-			
-			//radial distance
-			float len = length(uv);
-			
-			//anti-alias
-			len = aastep(0.5, len);
-			
-			gl_FragColor.rgb = vec3(len);
-			gl_FragColor.a   = 1.0;
-		}
+		//anti-alias
+		len = aastep(0.5, len);
+		
+		gl_FragColor.rgb = vec3(len);
+		gl_FragColor.a   = 1.0;
+	}
+    ```
+
+### Mipmap
+
+- [Mipmap — Wikipedia](https://en.wikipedia.org/wiki/Mipmap)
+- [Sharper Mipmapping using Shader Based Supersampling](https://medium.com/@bgolus/sharper-mipmapping-using-shader-based-supersampling-ed7aadb47bec)
 
 ### Line anti-aliasing
 
@@ -1848,85 +1940,6 @@ From https://github.com/devongovett/glsl.js/blob/master/stdlib.glsl
 - [MaPePeR/jsColorblindSimulator: Simulate different kinds of colorblindness on images in your browser.](https://github.com/MaPePeR/jsColorblindSimulator)
 
 ![Simple code/result to create filters for colorblind, think about it for your games!](http://s9.postimg.org/fsxy3cdpr/colorblind.png)
-
-### Avoid texture repeation
-
-	// One simple way to avoid texture tile repetition, at the cost of 4 times the amount of texture lookups. Needs GL_NEAREST_MIPMAP_LINEAR for the noise textureto be usable in real life.
-	// https://www.shadertoy.com/view/lt2GDd
-	// Created by inigo quilez - iq/2015
-	// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-	
-	// One simple way to avoid texture tile repetition, at the cost of 4 times the amount of
-	// texture lookups (still much better than https://www.shadertoy.com/view/4tsGzf)
-	//
-	// More info: http://www.iquilezles.org/www/articles/texturerepetition/texturerepetition.htm
-	
-	#define USEHASH
-	
-	vec4 hash4( vec2 p ) { return fract(sin(vec4( 1.0+dot(p,vec2(37.0,17.0)), 
-												  2.0+dot(p,vec2(11.0,47.0)),
-												  3.0+dot(p,vec2(41.0,29.0)),
-												  4.0+dot(p,vec2(23.0,31.0))))*103.0); }
-	
-	vec4 texture2DNoTile( sampler2D samp, in vec2 uv )
-	{
-		vec2 iuv = floor( uv );
-		vec2 fuv = fract( uv );
-	
-	#ifdef USEHASH	
-		// generate per-tile transform (needs GL_NEAREST_MIPMAP_LINEARto work right)
-		vec4 ofa = texture2D( iChannel1, (iuv + vec2(0.5,0.5))/256.0 );
-		vec4 ofb = texture2D( iChannel1, (iuv + vec2(1.5,0.5))/256.0 );
-		vec4 ofc = texture2D( iChannel1, (iuv + vec2(0.5,1.5))/256.0 );
-		vec4 ofd = texture2D( iChannel1, (iuv + vec2(1.5,1.5))/256.0 );
-	#else
-		// generate per-tile transform
-		vec4 ofa = hash4( iuv + vec2(0.0,0.0) );
-		vec4 ofb = hash4( iuv + vec2(1.0,0.0) );
-		vec4 ofc = hash4( iuv + vec2(0.0,1.0) );
-		vec4 ofd = hash4( iuv + vec2(1.0,1.0) );
-	#endif
-		
-		vec2 ddx = dFdx( uv );
-		vec2 ddy = dFdy( uv );
-	
-		// transform per-tile uvs
-		ofa.zw = sign(ofa.zw-0.5);
-		ofb.zw = sign(ofb.zw-0.5);
-		ofc.zw = sign(ofc.zw-0.5);
-		ofd.zw = sign(ofd.zw-0.5);
-		
-		// uv's, and derivarives (for correct mipmapping)
-		vec2 uva = uv*ofa.zw + ofa.xy; vec2 ddxa = ddx*ofa.zw; vec2 ddya = ddy*ofa.zw;
-		vec2 uvb = uv*ofb.zw + ofb.xy; vec2 ddxb = ddx*ofb.zw; vec2 ddyb = ddy*ofb.zw;
-		vec2 uvc = uv*ofc.zw + ofc.xy; vec2 ddxc = ddx*ofc.zw; vec2 ddyc = ddy*ofc.zw;
-		vec2 uvd = uv*ofd.zw + ofd.xy; vec2 ddxd = ddx*ofd.zw; vec2 ddyd = ddy*ofd.zw;
-			
-		// fetch and blend
-		vec2 b = smoothstep(0.25,0.75,fuv);
-		
-		return mix( mix( texture2DGradEXT( samp, uva, ddxa, ddya ), 
-						 texture2DGradEXT( samp, uvb, ddxb, ddyb ), b.x ), 
-					mix( texture2DGradEXT( samp, uvc, ddxc, ddyc ),
-						 texture2DGradEXT( samp, uvd, ddxd, ddyd ), b.x), b.y );
-	}
-	
-	void mainImage( out vec4 fragColor, in vec2 fragCoord )
-	{
-		vec2 uv = fragCoord / iResolution.x;
-		
-		float f = smoothstep( 0.4, 0.6, sin(iGlobalTime	) );
-		float s = smoothstep( 0.4, 0.6, sin(iGlobalTime*0.5) );
-			
-		uv = (4.0 + 16.0*s)*uv + iGlobalTime*0.1;
-			
-		vec3 cola = texture2DNoTile( iChannel0, uv ).xyz;
-		vec3 colb = texture2D( iChannel0, uv ).xyz;
-		
-		vec3 col = mix( cola, colb, f );
-		
-		fragColor = vec4( col, 1.0 );
-	}
 
 ### Calculate image contrast
 

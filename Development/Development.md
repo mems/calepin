@@ -512,7 +512,7 @@ See [Check hash and keys leak or reversed (hashes)](Security#hash-and-keys)
 
 ### Monorepo
 
-- [Don't ask if a monorepo is good for you – ask if you're good enough for a monorepo](https://yosefk.com/blog/dont-ask-if-a-monorepo-is-good-for-you-ask-if-youre-good-enough-for-a-monorepo.html)
+- [Don't ask if a monorepo is good for you – ask if you're good enough for a monorepo](https://yosefk.com/blog/dont-ask-if-a-monorepo-is-good-for-you-ask-if-youre-good-enough-for-a-monorepo.html) - [Monorepo is great if you're really good | Hacker News](https://news.ycombinator.com/item?id=20565017)
 
 ### Version message
 
