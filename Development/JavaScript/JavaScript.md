@@ -6755,31 +6755,37 @@ See [Font metrics](CSS#font-metrics)
 
 **It's not perfect, because ligatures**
 
-	let context = document.createElement("canvas").getContext("2d");
-	let fontSize = 48;
-	context.font = `${fontSize}px myfont`;
-	var kerning = context.measureText("a").width + context.measureText("v").width - context.measureText("av").width;
+```js
+let context = document.createElement("canvas").getContext("2d");
+let fontSize = 48;
+context.font = `${fontSize}px myfont`;
+var kerning = context.measureText("a").width + context.measureText("v").width - context.measureText("av").width;
+```
 
 - `letter-spacing: 0`
 
 ## Read / write cookies
 
-	// Read cookies (returns Map)
-	let cookies = document.cookie.split("; ").reduce((cookies, pair) => {let [key, ...value] = pair.split("="); return cookies.set(key, decodeURIComponent(value.join("=")))}, new Map());// cookie-pair *( ";" SP cookie-pair )
-	// Read cookies (returns Object)
-	let cookies = document.cookie.split("; ").reduce((cookies, pair) => {let [key, ...value] = pair.split("="); cookies[key] = decodeURIComponent(value.join("=")); return cookies}, {});// cookie-pair *( ";" SP cookie-pair )
+```js
+// Read cookies (returns Map)
+const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key, , ...valueChunks] = pair.trim().split(/\s*(=)\s*/); return cookies.set(key, decodeURIComponent(valueChunks.join("")))}, new Map());// cookie-pair *( ";" SP cookie-pair )
+// Read cookies (returns Object)
+const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key, , ...valueChunks] = pair.trim().split(/\s*(=)\s*/); cookies[key] = decodeURIComponent(valueChunks.join("")); return cookies}, {});// cookie-pair *( ";" SP cookie-pair )
 
-	let acceptCookies = !!document.cookie.split("; ").find(pair => /accept_cookies(=true|$)/.test(pair))
+const acceptCookies = !!document.cookie.split(";").find(pair => /accept_cookies(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "accept_cookies=true"
+```
 
 **TODO write:**
 
-	name[=value];
-	path,//cookie path
-	expires,//absolute expiration date for the cookie (Date object)
-	maxAge,//relative max age of the cookie from when the client receives it (seconds)
-	domain//domain for the cookie
-	secure
-	httpOnly
+```
+name[=value];
+path,//cookie path
+expires,//absolute expiration date for the cookie (Date object)
+maxAge,//relative max age of the cookie from when the client receives it (seconds)
+domain//domain for the cookie
+secure
+httpOnly
+```
 
 - Detect if cookies are enabled https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cookies.js (Note: Server side scripts need a redirection to check if cookies are enabled)
 - [RFC 6265 - HTTP State Management Mechanism](https://tools.ietf.org/html/rfc6265)
