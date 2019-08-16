@@ -487,6 +487,39 @@ Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by 
 - Support ANSI sequences in Run tool (use terminal for NodeJS registry key, at least in PhpStorm 2018.3 and WebStorm 2018.2): [Console output manipulation is not supported when using WebStorm Run : IDEA-154313](https://youtrack.jetbrains.com/issue/IDEA-154313#focus=streamItem-27-2842206.0-0)
 - Help > Find Action > Check "UML support" on, right click on file or folder > Diagram. [Module Dependency Diagrams - Help | PhpStorm](https://www.jetbrains.com/help/phpstorm/module-dependency-diagram.html)
 
+List of files in search:
+
+```js
+// In a webpage, add the following code in dev tools console, then past in the page the copied content of "Export to text file" of the Find Window
+document.addEventListener("paste", function(event) {
+	console.log(event.clipboardData.getData("Text").split(/\r?\n/).reduce((list, rawLine) => {
+		const [, prefix = "", line = rawLine] = rawLine.match(/^((?: {4})*)(.*)$/) || [];
+		
+		switch(prefix){
+			// indent 3, path + usage count
+			case "            ":
+				list.push({
+					path: (line.match(/^(.*?)(\s*\(.*?\))?$/) || [])[1] || line,
+					files: []
+				});
+				break;
+			// indent 4, filename + usage count
+			case "                ":
+				list[list.length - 1].files.push((line.match(/^(.*?)(\s*\(.*?\))?$/) || [])[1] || line)
+				break;
+			// indent 5, line match + extract
+			case "                    ":
+			// others
+			default:
+				// ignore
+				break;
+		}
+		
+		return list;
+	}, []).reduce((list, {path, files}) => list.concat(files.map(file => path + "\\" + file)), []).join("\n"))
+});
+```
+
 ## Adobe
 
 ### Uninstall Adobe
