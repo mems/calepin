@@ -3006,7 +3006,7 @@ Track errors, like front end (`window.onerror`) or backend errors with https://d
 
 Things changes over time, but [10 Things Google Wished You Knew - Search Engine People Blog | Search Engine People](http://www.searchenginepeople.com/blog/what-google-wished-you-knew.html)
 
-See also [HTML/Accessiblilty]() and [HTML/Semantics]().
+See also [HTML Accessiblilty](../Development/HTML/HTML.md#accessibility) and [HTML Semantics](../Development/HTML/HTML.md#patterns-markup-semantics-and-snippets).
 
 - [Search Appearance - Search Console Help](https://support.google.com/webmasters/topic/4589289)
 - International, Mobile, Quality: [Follow our guidelines - Search Console Help](https://support.google.com/webmasters/topic/6001981)
