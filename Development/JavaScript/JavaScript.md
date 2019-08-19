@@ -6775,6 +6775,8 @@ const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key
 const acceptCookies = !!document.cookie.split(";").find(pair => /accept_cookies(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "accept_cookies=true"
 ```
 
+[Proxying of `document.cookie`](https://stackoverflow.com/questions/32410331/proxying-of-document-cookie):
+
 ```js
 const cookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie") || Object.getOwnPropertyDescriptor(HTMLDocument.prototype, "cookie");
 if (cookieDesc && cookieDesc.configurable) {
