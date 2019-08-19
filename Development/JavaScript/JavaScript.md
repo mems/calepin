@@ -6775,6 +6775,21 @@ const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key
 const acceptCookies = !!document.cookie.split(";").find(pair => /accept_cookies(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "accept_cookies=true"
 ```
 
+```js
+const cookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie") || Object.getOwnPropertyDescriptor(HTMLDocument.prototype, "cookie");
+if (cookieDesc && cookieDesc.configurable) {
+    Object.defineProperty(document, "cookie", {
+        get: function () {
+            return cookieDesc.get.call(document);
+        },
+        set: function (val) {
+            debugger;
+            cookieDesc.set.call(document, val);
+        }
+    });
+}
+```
+
 **TODO write:**
 
 ```
