@@ -3006,7 +3006,7 @@ Track errors, like front end (`window.onerror`) or backend errors with https://d
 
 Things changes over time, but [10 Things Google Wished You Knew - Search Engine People Blog | Search Engine People](http://www.searchenginepeople.com/blog/what-google-wished-you-knew.html)
 
-See also [HTML Accessiblilty](../Development/HTML/HTML.md#accessibility) and [HTML Semantics](../Development/HTML/HTML.md#patterns-markup-semantics-and-snippets).
+See also [HTML Accessibility](../Development/HTML/HTML.md#accessibility) and [HTML Semantics](../Development/HTML/HTML.md#patterns-markup-semantics-and-snippets).
 
 - [Search Appearance - Search Console Help](https://support.google.com/webmasters/topic/4589289)
 - International, Mobile, Quality: [Follow our guidelines - Search Console Help](https://support.google.com/webmasters/topic/6001981)
@@ -6372,6 +6372,25 @@ Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-in
 ## Accessibility
 
 See [Accessibility](HTML#accessibility)
+
+- EU: [ETSI EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf "ETSI EN 301 549 – Accessibility requirements for ICT products and services"), require WCAG 2.1 Level AA
+- FR: ETSI EN 301 549 and fallback to internations standards + use [RGAA](https://references.modernisation.gouv.fr/rgaa-accessibilite/ "Référentiel Général d'Accessibilité pour les Administrations") (based on WCAG 2.1) for technical requirements - public online communication services, public institutions, and the state
+- DE: [BITV 2.0](https://www.einfach-fuer-alle.de/artikel/bitv_english/bitv_annex1/ "Barrierefreie Informationstechnik-Verordnung") (based on WCAG 2.1 Level AA) - government websites
+- IT: [Stanca Act](https://www.agid.gov.it/dm-8-luglio-2005-allegato-A#requisiti "Disposizioni per favorire l’accesso dei soggetti disabili agli strumenti informatici") (based on WCAG 2.0 Level A)
+- JP: JIS X 83141 (based on WCAG 2.1)
+- ES: UNE 139803:2012 (based on WCAG 2.1 Level AA): government and government-funded organizations; or organizations larger than 100 employees; or with trading column greater than six million euros; or those providing financial, utility, travel/passenger, or retail services online
+- US: [Section 508](https://www.section508.gov/) require WCAG 2.0 Level AA
+- AU: Disability Discrimination Act (Advisory Notes, based on WCAG 2.0)
+
+See also:
+
+- [Décret sur l’accessibilité numérique : revue détaillée de ce nouveau cadre réglementaire - Access42](http://www.access42.net/decret-accessibilite-juillet-2019)
+- [AccessiWeb - Accueil](http://www.accessiweb.org/)
+- [The W3C Markup Validation Service](http://validator.w3.org/)
+- [IDI Web Accessibility Checker : Web Accessibility Checker](https://achecker.ca/checker/index.php)
+- [Loi n° 2005-102 du 11 février 2005 pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647&dateTexte=)
+- [Décret n° 2019-768 du 24 juillet 2019 relatif à l'accessibilité aux personnes handicapées des services de communication au public en ligne | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000038811937&categorieLien=id)
+- [Accessibility Law: International Accessibility Regulations – Introduction to Web Accessibility](https://pressbooks.library.ryerson.ca/iwacc/chapter/international-accessibility-regulations-2/)
 
 ## Screensaver
 
