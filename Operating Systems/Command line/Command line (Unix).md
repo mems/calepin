@@ -901,12 +901,16 @@ $(cat file) is same as $(< file)
 	echo put -O $today $file_gnome_curr
 	echo bye
 ) | lftp -f /dev/stdin >> lftp.log 2>&1
-	
+```
+
+```sh
 cat <<EOF
 test1
 test2
 EOF
+```
 
+```sh
 (cat <<'EOF'
 file1
 file2
@@ -914,6 +918,13 @@ EOF
 ) | while read -r file; do
 	cp "from/$file" "to/$file";
 done;
+```
+
+```sh
+cat <<EOT >> greetings.txt
+line 1
+line 2
+EOT
 ```
 
 File descriptors (fd) :
