@@ -6396,6 +6396,7 @@ See also:
 - [Loi n° 2005-102 du 11 février 2005 pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647&dateTexte=)
 - [Décret n° 2019-768 du 24 juillet 2019 relatif à l'accessibilité aux personnes handicapées des services de communication au public en ligne | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000038811937&categorieLien=id)
 - [Accessibility Law: International Accessibility Regulations – Introduction to Web Accessibility](https://pressbooks.library.ryerson.ca/iwacc/chapter/international-accessibility-regulations-2/)
+- [ARC Toolkit | The Paciello Group (TPG) – Digital Accessibility Solutions](https://www.paciellogroup.com/toolkit/) - Accessibility tool to evaluate screens for accessibility and uncover issues related to the WCAG 2.1 Level A/AA
 
 ## Screensaver
 
