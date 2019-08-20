@@ -2383,12 +2383,17 @@ Example: the hero image
 	- when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint and the enclosing box of an iframe.
 	- [Time to First Meaningful Paint: a layout-based approach - Google Docs](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/edit)
 	
+	Heuristic/guess are used when "meaningful" was (the paint after the largest layout change). See also LCP.
+	
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-paint)
 - FCP (First Contentful Paint) - When the browser first rendered any text, image (including background images), non-white canvas or SVG. Text and graphics start to render (but often catches non-leaningful paints, e.g. headers, nav bars)
 	- when the browser first rendered any text, image (including background images), non-white canvas or SVG. This excludes any content of iframes, but includes text with pending webfonts
 		"Styles are loaded and browser can paint content"
 
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-contentful-paint)
+- LCP (Largest Contentful Paint) - when the main content of a web page has loaded
+	
+	- [Largest Contentful Paint  |  web.dev](https://web.dev/largest-contentful-paint/)
 - FID (First Input Delay)
 	First Click (Click Interaction Time), First scroll (Scroll Interaction Time), First Key (Key Interacton Time)
 	- based on users interaction, based on RUM
