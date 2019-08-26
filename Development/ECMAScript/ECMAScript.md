@@ -2601,6 +2601,12 @@ Or use a specific library: https://github.com/spiritit/timezonecomplete
 
 - [Universally unique identifier - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 
+## Random Identifier
+
+```js
+Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)// > "5lv1liy34k"
+```
+
 ## Rounding numbers
 
 Use bitwise operators for rounding, which convert numbers to a 32-bit sequence.
