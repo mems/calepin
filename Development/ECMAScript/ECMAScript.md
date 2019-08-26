@@ -78,6 +78,12 @@ var mufunction = function(){};
 
 Name all function. Debug will be easer with stack traces contains those names
 
+```js
+function renameFunction(func, name){
+  return Object.defineProperty(func, "name", {value: name});// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name
+}
+```
+
 For a `function` used for an `Object` method:
 
 ```js
