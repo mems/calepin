@@ -14,6 +14,10 @@ Awesome bar:
 
 - Open Tabs to the right of the current tab: `about:config?filter=browser.tabs.insertAfterCurrent`, https://addons.mozilla.org/en-US/firefox/addon/always-right/
 
+### Network debug
+
+- [HTTP logging - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/HTTP_logging)
+
 ### Session / tabs
 
 1. open `about:support` (profile directory)
@@ -247,11 +251,97 @@ Redirect UDP 28960
 
 - [List of Chromium Command Line Switches « Peter Beverloo](https://peter.sh/experiments/chromium-command-line-switches/)
 
-### Get details about requests
+### Network debug
 
 - chrome://net-internals/#events
 
 To know what extension handle requests (marked as `307 Internal Redirect`, see `delegate_info`, `CHROME_EXTENSION_REDIRECTED_REQUEST`, `URL_REQUEST_FAKE_RESPONSE_HEADERS_CREATED`)
+
+- [Importateurs de violoneux](https://blog.arcoptimizer.com/importateurs-de-violoneux)
+- [ericlaw1979/FiddlerImportNetlog: Fiddler Importer for Chromium NetLog .json files](https://github.com/ericlaw1979/FiddlerImportNetlog)
+
+```js
+const readline = require("readline");
+const {createReadStream} = require("fs");
+
+// NetLog chrome://net-export/# event https://cs.chromium.org/chromium/src/net/log/net_log_event_type_list.h
+// https://www.chromium.org/for-testers/providing-network-details --net-log-capture-mode=IncludeCookiesAndCredentials or IncludeSocketBytes --log-net-log=/path/to/file netlog.json net-export/chrome-net-export-log.json
+// https://rmurphey.com/blog/2015/11/28/chrome-http2-log-parser
+// https://netlog-viewer.appspot.com/#events
+// https://peter.sh/experiments/chromium-command-line-switches/
+// https://github.com/webrtc-uwp/chromium-tools/blob/master/chrome_proxy/webdriver/common.py#L576-L579
+// third_party/catapult/netlog_viewer/netlog_viewer/log_util.js?rcl=017fd5cf4ccbcbed7bba20760f1b3d923a7cd3ca&l=275-296
+// https://www.chromium.org/developers/design-documents/network-stack/netlog
+// https://cs.chromium.org/chromium/src/content/browser/network_service_instance_impl.cc?dr=C&g=0&l=239
+// https://cs.chromium.org/chromium/src/services/network/network_service.cc?dr=C&g=0&l=401
+// https://cs.chromium.org/chromium/src/net/log/file_net_log_observer.h?dr=C&g=0&l=57
+// https://cs.chromium.org/chromium/src/components/cronet/cronet_url_request_context.cc?dr=C&g=0&l=527
+async function readNetLogFile(file, eventFilter = null){
+  const readlineIterable = readline.createInterface({
+    input: createReadStream(file),
+    crlfDelay: Infinity,
+  });
+
+  let result = null;
+
+  const useEventFilter = typeof eventFilter === "function";
+
+  let parent = null;
+  lineLoop: for await(const line of readlineIterable){
+    switch(true){
+      // header
+      case line.startsWith("{\"constants\":"):{
+        result = {
+          ...JSON.parse(line.slice(0, -1) + "}"),
+          events: [],
+          polledData: null,
+        };// remove trailing comma and add the closing parenthese
+        break;
+      }
+      // start events section
+      case line.startsWith("\"events\":"):
+        parent = "events";
+        break;
+      // event
+      case parent === "events":{
+        const eof = line.endsWith("]}");
+        const isLastEvent = eof || line.endsWith("],");
+        // If it's the last event, before next section
+        // then skip the events array close braket and trailing comma
+        // else skip the trailing comma
+        const rawData = line.slice(0, isLastEvent ? -2 : -1);
+        const event = JSON.parse(rawData);
+
+        // Filter events
+        if(!useEventFilter || eventFilter(event, result)){
+          result.events.push(event);
+        }
+
+        if(eof){
+          parent = null;
+          break lineLoop;
+        }
+
+        if(isLastEvent){
+          parent = null;
+        }
+        break;
+      }
+      // footer
+      case line.startsWith("\"polledData\":"):
+        // TODO
+        break;
+      // EOF
+      case line === "}":
+        parent = null;
+        break lineLoop;
+      default:
+    }
+  }
+
+  return result;
+}
+```
 
 ### Custom device with higher granularity
 
