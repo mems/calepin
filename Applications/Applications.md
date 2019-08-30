@@ -259,6 +259,8 @@ To know what extension handle requests (marked as `307 Internal Redirect`, see `
 
 - [Importateurs de violoneux](https://blog.arcoptimizer.com/importateurs-de-violoneux)
 - [ericlaw1979/FiddlerImportNetlog: Fiddler Importer for Chromium NetLog .json files](https://github.com/ericlaw1979/FiddlerImportNetlog)
+- https://chromium.googlesource.com/catapult/+/master/netlog_viewer/
+- https://cs.chromium.org/chromium/src/third_party/catapult/netlog_viewer/
 
 ```js
 const readline = require("readline");
