@@ -719,7 +719,8 @@ See also
 - `urlencode()` and `rawurlencode()` for URLs `$url = 'http://localhost/' . rawurlencode($page) . '?foo=' . urlencode($foo) . '&bar=' . urlencode($bar)`. The same with `encodeURI()`, `encodeURIComponent()`
 	See also [`http_build_query()`](http://php.net/manual/en/function.http-build-query.php) and [`parse_url()`](http://docs.php.net/manual/en/function.parse-url.php)
 - `snprintf(&s, 0x80u, "texts/%s.json", ".////////////////////////////////////////////////////////////////////////////////////////../../../../../etc/passwd")` overflow the 128 byte string value
-- `http://localhost`, `http://0`
+- `http://localhost`, `http://0`, `http://[::0]`
+- [Google Safe Browsing  |  Google Developers](https://developers.google.com/safe-browsing/) - Chrome, Firefox, Safari, etc. use this service to alert users for fraudulent websites
 
 ##### Unsafe HTTP headers
 
