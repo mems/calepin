@@ -253,31 +253,31 @@ Redirect UDP 28960
 
 ### Network debug
 
-- chrome://net-internals/#events
+NetLog
 
-To know what extension handle requests (marked as `307 Internal Redirect`, see `delegate_info`, `CHROME_EXTENSION_REDIRECTED_REQUEST`, `URL_REQUEST_FAKE_RESPONSE_HEADERS_CREATED`)
+> Features needing reliable network information should never be built on top of NetLog
+> - [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
 
+- chrome://net-export/#
+- [List of event types](https://cs.chromium.org/chromium/src/net/log/net_log_event_type_list.h)
+- [How to capture a NetLog dump - The Chromium Projects](https://www.chromium.org/for-testers/providing-network-details)
+- `--net-log-capture-mode=IncludeCookiesAndCredentials` or `IncludeSocketBytes` `--log-net-log=/path/to/file` (ex: `netlog.json` or `net-export/chrome-net-export-log.json`)
+- [NetLog viewer](https://netlog-viewer.appspot.com/#events)
+- [chromium tools - chrome_proxy/webdriver/common.py](https://chromium.googlesource.com/chromium/src/tools/+/6dd06e1a895bd96e385f3bacd13d2c7a84a69915/chrome_proxy/webdriver/common.py#668) and [chromium catapult - netlog_viewer/netlog_viewer/log_util.js](https://chromium.googlesource.com/catapult/+/refs/heads/master/netlog_viewer/netlog_viewer/log_util.js#250) - About the invalidity of NetLog output when used with `--log-net-log` and a workaround
+- [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
+- [Life of a URLRequest](https://chromium.googlesource.com/chromium/src/+/master/net/docs/life-of-a-url-request.md)
+- [NetLog viewer sources](https://chromium.googlesource.com/catapult/+/master/netlog_viewer/)
 - [Importateurs de violoneux](https://blog.arcoptimizer.com/importateurs-de-violoneux)
 - [ericlaw1979/FiddlerImportNetlog: Fiddler Importer for Chromium NetLog .json files](https://github.com/ericlaw1979/FiddlerImportNetlog)
-- https://chromium.googlesource.com/catapult/+/master/netlog_viewer/
-- https://cs.chromium.org/chromium/src/third_party/catapult/netlog_viewer/
+- Event time: `new Date(data.constants.timeTickOffset + parseInt(event.time))`
+- [Network Traffic Annotations](https://chromium.googlesource.com/chromium/src/+/master/docs/network_traffic_annotations.md) - "What is the intent behind each network request"
+
+To know what extension handle requests (marked as `307 Internal Redirect`, see `delegate_info`, `CHROME_EXTENSION_REDIRECTED_REQUEST`, `URL_REQUEST_FAKE_RESPONSE_HEADERS_CREATED`)
 
 ```js
 const readline = require("readline");
 const {createReadStream} = require("fs");
 
-// NetLog chrome://net-export/# event https://cs.chromium.org/chromium/src/net/log/net_log_event_type_list.h
-// https://www.chromium.org/for-testers/providing-network-details --net-log-capture-mode=IncludeCookiesAndCredentials or IncludeSocketBytes --log-net-log=/path/to/file netlog.json net-export/chrome-net-export-log.json
-// https://rmurphey.com/blog/2015/11/28/chrome-http2-log-parser
-// https://netlog-viewer.appspot.com/#events
-// https://peter.sh/experiments/chromium-command-line-switches/
-// https://github.com/webrtc-uwp/chromium-tools/blob/master/chrome_proxy/webdriver/common.py#L576-L579
-// third_party/catapult/netlog_viewer/netlog_viewer/log_util.js?rcl=017fd5cf4ccbcbed7bba20760f1b3d923a7cd3ca&l=275-296
-// https://www.chromium.org/developers/design-documents/network-stack/netlog
-// https://cs.chromium.org/chromium/src/content/browser/network_service_instance_impl.cc?dr=C&g=0&l=239
-// https://cs.chromium.org/chromium/src/services/network/network_service.cc?dr=C&g=0&l=401
-// https://cs.chromium.org/chromium/src/net/log/file_net_log_observer.h?dr=C&g=0&l=57
-// https://cs.chromium.org/chromium/src/components/cronet/cronet_url_request_context.cc?dr=C&g=0&l=527
 async function readNetLogFile(file, eventFilter = null){
   const readlineIterable = readline.createInterface({
     input: createReadStream(file),
