@@ -283,7 +283,7 @@ NetLog log:
 - [Importateurs de violoneux](https://blog.arcoptimizer.com/importateurs-de-violoneux)
 - [ericlaw1979/FiddlerImportNetlog: Fiddler Importer for Chromium NetLog .json files](https://github.com/ericlaw1979/FiddlerImportNetlog)
 - Event time: `new Date(data.constants.timeTickOffset + parseInt(event.time))`
-- [Network Traffic Annotations](https://chromium.googlesource.com/chromium/src/+/master/docs/network_traffic_annotations.md) and [tools/traffic_annotation - chromium/src](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/tools/traffic_annotation/) - "What is the intent behind each network request"
+- [Network Traffic Annotations](https://chromium.googlesource.com/chromium/src/+/master/docs/network_traffic_annotations.md) and [tools/traffic_annotation - chromium/src](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/tools/traffic_annotation/) - "What is the intent behind each network request". See also `DefineNetworkTrafficAnnotation`
 
 To know what extension handle requests (marked as `307 Internal Redirect`, see `delegate_info`, `CHROME_EXTENSION_REDIRECTED_REQUEST`, `URL_REQUEST_FAKE_RESPONSE_HEADERS_CREATED`)
 
