@@ -125,12 +125,6 @@ Is same as
 
 - https://github.com/qfox/htmlday16/blob/master/htmlday2016.final.pdf
 
-## Validator and tools
-
-- [debugCSS : (X)HTML debugging tool built with CSS](http://yahoo.github.io/debugCSS/)
-- [Css Accessibility Validator](http://elad2412.github.io/css-accessibility-validator/)
-- [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
-
 ## Common errors
 
 Aka mistakes
@@ -912,31 +906,6 @@ Aka a11y
 — [The Veil of Ignorance](http://mrmrs.io/writing/2016/03/23/the-veil-of-ignorance/)
 
 See [Color contrast](UI - UX#color-contrast)
-
-Tools:
-
-- [ChromeLens](http://chromelens.xyz/)
-- Checklist [Vox Product Accessibility Guidelines](http://accessibility.voxmedia.com/)
-- [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools)
-- [random a11y](http://www.randoma11y.com/) curate beautiful color palettes that are accessible
-- [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
-- [GoogleChrome/accessibility-developer-tools](https://github.com/GoogleChrome/accessibility-developer-tools)
-- [WebAIM: Using VoiceOver to Evaluate Web Accessibility](http://webaim.org/articles/voiceover/)
-- [The Visual ARIA Bookmarklet](http://whatsock.com/training/matrices/visual-aria.htm)
-- [Introducing aXe by Deque!](http://www.deque.com/products/axe/)
-- https://github.com/nature/pa11y
-- [Accessible-email.org - Accessibility Checker Results](http://accessible-email.org/)
-- https://github.com/squizlabs/HTML_CodeSniffer
-- [The Browser Accessibility Tree | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/)
-- XCode Accessibility Inspector
-- `chrome://accessibility/`
-- Edge 14: F12 Developer Tools > Accessibility Tree viewer
-- [ally.js](https://allyjs.io/)
-- [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
-- https://tenon.io/ (non free)
-- [dequelabs/axe-core: Accessibility engine for automated Web UI testing](https://github.com/dequelabs/axe-core)
-- [Pa11y](http://pa11y.org/)
-- [WebAIM: Three things you should know before using VoiceOver for testing](http://webaim.org/blog/three-things-voiceover/)
 
 Examples (pattern, components):
 
