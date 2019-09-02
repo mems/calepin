@@ -6376,7 +6376,7 @@ Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-in
 
 ## Accessibility
 
-See [Accessibility](HTML#accessibility)
+See [Accessibility](../Development/HTML/HTML.md#accessibility)
 
 - EU: [ETSI EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf "ETSI EN 301 549 – Accessibility requirements for ICT products and services"), require WCAG 2.1 Level AA
 - FR: ETSI EN 301 549 and fallback to internations standards + use [RGAA](https://references.modernisation.gouv.fr/rgaa-accessibilite/ "Référentiel Général d'Accessibilité pour les Administrations") (based on WCAG 2.1) for technical requirements - public online communication services, public institutions, and the state
@@ -6390,13 +6390,41 @@ See [Accessibility](HTML#accessibility)
 See also:
 
 - [Décret sur l’accessibilité numérique : revue détaillée de ce nouveau cadre réglementaire - Access42](http://www.access42.net/decret-accessibilite-juillet-2019)
-- [AccessiWeb - Accueil](http://www.accessiweb.org/)
-- [The W3C Markup Validation Service](http://validator.w3.org/)
 - [IDI Web Accessibility Checker : Web Accessibility Checker](https://achecker.ca/checker/index.php)
 - [Loi n° 2005-102 du 11 février 2005 pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647&dateTexte=)
 - [Décret n° 2019-768 du 24 juillet 2019 relatif à l'accessibilité aux personnes handicapées des services de communication au public en ligne | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000038811937&categorieLien=id)
 - [Accessibility Law: International Accessibility Regulations – Introduction to Web Accessibility](https://pressbooks.library.ryerson.ca/iwacc/chapter/international-accessibility-regulations-2/)
 - [ARC Toolkit | The Paciello Group (TPG) – Digital Accessibility Solutions](https://www.paciellogroup.com/toolkit/) - Accessibility tool to evaluate screens for accessibility and uncover issues related to the WCAG 2.1 Level A/AA
+
+Tools:
+
+- [AccessiWeb - Accueil](http://www.accessiweb.org/)
+- [The W3C Markup Validation Service](http://validator.w3.org/)
+- [ChromeLens](http://chromelens.xyz/)
+- Checklist [Vox Product Accessibility Guidelines](http://accessibility.voxmedia.com/)
+- [Accessibility Developer Tools](https://github.com/GoogleChrome/accessibility-developer-tools)
+- [random a11y](http://www.randoma11y.com/) curate beautiful color palettes that are accessible
+- [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
+- [GoogleChrome/accessibility-developer-tools](https://github.com/GoogleChrome/accessibility-developer-tools)
+- [WebAIM: Using VoiceOver to Evaluate Web Accessibility](http://webaim.org/articles/voiceover/)
+- [The Visual ARIA Bookmarklet](http://whatsock.com/training/matrices/visual-aria.htm)
+- [Introducing aXe by Deque!](http://www.deque.com/products/axe/)
+- https://github.com/nature/pa11y
+- [Accessible-email.org - Accessibility Checker Results](http://accessible-email.org/)
+- https://github.com/squizlabs/HTML_CodeSniffer
+- [The Browser Accessibility Tree | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2015/01/the-browser-accessibility-tree/)
+- XCode Accessibility Inspector
+- `chrome://accessibility/`
+- Edge 14: F12 Developer Tools > Accessibility Tree viewer
+- [ally.js](https://allyjs.io/)
+- [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
+- https://tenon.io/ (non free)
+- [dequelabs/axe-core: Accessibility engine for automated Web UI testing](https://github.com/dequelabs/axe-core)
+- [Pa11y](http://pa11y.org/)
+- [WebAIM: Three things you should know before using VoiceOver for testing](http://webaim.org/blog/three-things-voiceover/)
+- [Css Accessibility Validator](http://elad2412.github.io/css-accessibility-validator/)
+- [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
+- [WAVE Web Accessibility Tool](http://wave.webaim.org/)
 
 ## Screensaver
 
