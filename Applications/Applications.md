@@ -253,7 +253,20 @@ Redirect UDP 28960
 
 ### Network debug
 
-NetLog
+NetLog log:
+
+- queueing delay to schedule DNS resolves to threads
+- stalls due to exceeding socket pool limits
+- attempts to do a TCP connect to an IP address
+- speculative DNS resolves
+- proxy resolution
+- cache hits for DNS resolves
+- reads/writes from disk cache
+- network change events
+- proxy configuration change events
+- stalls due to chrome extensions pausing requests
+- errors
+- cookie store
 
 > Features needing reliable network information should never be built on top of NetLog
 > - [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
