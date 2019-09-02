@@ -272,7 +272,7 @@ NetLog log:
 > - [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
 
 - chrome://net-export/#
-- [List of event types](https://cs.chromium.org/chromium/src/net/log/net_log_event_type_list.h)
+- [List of event types](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/net/log/net_log_event_type_list.h)
 - [How to capture a NetLog dump - The Chromium Projects](https://www.chromium.org/for-testers/providing-network-details)
 - `--net-log-capture-mode=IncludeCookiesAndCredentials` or `IncludeSocketBytes` `--log-net-log=/path/to/file` (ex: `netlog.json` or `net-export/chrome-net-export-log.json`)
 - [NetLog viewer](https://netlog-viewer.appspot.com/#events)
