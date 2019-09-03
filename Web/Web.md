@@ -686,13 +686,14 @@ But may not support this.
 
 ## API
 
-See also [API](Development#api)
+See also [API](../Development/Development.md#api)
 
 `Location: https://...` for POST `201 Created` entity. https://restpatterns.mindtouch.us/HTTP_Status_Codes/201_-_Created
 
 Infos and docs:
 
 - [Web API - Wikipedia](https://en.wikipedia.org/wiki/Web_API)
+- [API designs for low-connectivity | OCTO Talks !](https://blog.octo.com/en/api-designs-for-low-connectivity/) - How to handle API calls when the network fail
 - [How To Design Better JavaScript APIs – Smashing Magazine](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)
 - [How to Create a custom Authentication Provider (current)](http://symfony.com/doc/current/security/custom_authentication_provider.html)
 - http://techblog.appnexus.com/2012/on-restful-api-standards-just-be-cool-11-rules-for-practical-api-development-part-1-of-2/
