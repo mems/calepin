@@ -14,6 +14,12 @@ Awesome bar:
 
 - Open Tabs to the right of the current tab: `about:config?filter=browser.tabs.insertAfterCurrent`, https://addons.mozilla.org/en-US/firefox/addon/always-right/
 
+### Source code
+
+- [Viewing and searching Mozilla source code online - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Viewing_and_searching_Mozilla_source_code_online)
+- [mozilla-central - DXR](https://dxr.mozilla.org/mozilla-central/source/)
+- [Firefox DevTools](https://github.com/firefox-devtools)
+
 ### Network debug
 
 - [HTTP logging - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/HTTP_logging)
@@ -250,6 +256,12 @@ Redirect UDP 28960
 ## Chrome
 
 - [List of Chromium Command Line Switches « Peter Beverloo](https://peter.sh/experiments/chromium-command-line-switches/)
+
+### Source code
+
+- [ChromeDevTools](https://github.com/ChromeDevTools)
+- [Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/)
+- [OmahaProxy - Google Chrome](http://omahaproxy.appspot.com/) - Look up information about a given Chrome release
 
 ### Network debug
 
