@@ -628,6 +628,8 @@ Simplicity Matters, KISS
 > - Can an idiot make something quickly without a tutorial?
 — https://twitter.com/elsassph/status/557866984705380352
 
+- [How to design a REST API | OCTO Talks !](https://blog.octo.com/en/design-a-rest-api/)
+
 See also [API](Web#api)
 
 ## MVC
