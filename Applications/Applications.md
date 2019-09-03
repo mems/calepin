@@ -262,6 +262,8 @@ Redirect UDP 28960
 - [ChromeDevTools](https://github.com/ChromeDevTools)
 - [Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/)
 - [OmahaProxy - Google Chrome](http://omahaproxy.appspot.com/) - Look up information about a given Chrome release
+- [chromium Git repositories - Git at Google](https://chromium.googlesource.com/)
+- [Code Search](https://cs.chromium.org/)
 
 ### Network debug
 
