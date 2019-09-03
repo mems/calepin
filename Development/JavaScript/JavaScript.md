@@ -5776,7 +5776,9 @@ Against: performance (probably), less performant with deflate compression, not w
 
 See [Store bytes in JS source as base64](#store-bytes-in-js-source-as-base64)
 
-	let uri = "data:application/octet-stream;base64,..."
+```js
+let uri = "data:application/octet-stream;base64,..."
+```
 
 Easyier to transmit in data (XML, JSON)
 
@@ -5794,57 +5796,63 @@ Note: It's async, because `XMLHttpRequest` can't be used in synchronous mode bec
 
 Note: encoding scheme must be supported (base64 or unencoded)
 
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", uri, true);
-	xhr.responseType = "arraybuffer";
-	xhr.addEventListener("error", event => console.log(event));
-	xhr.addEventListener("load", event => console.log(event.target.response));
-	xhr.send(null);
+```js
+let xhr = new XMLHttpRequest();
+xhr.open("GET", uri, true);
+xhr.responseType = "arraybuffer";
+xhr.addEventListener("error", event => console.log(event));
+xhr.addEventListener("load", event => console.log(event.target.response));
+xhr.send(null);
+```
 
 Decode directly, see [As base64](#as-base64)
 
-	// https://github.com/graingert/datauritoblob/blob/master/dataURItoBlob.js
-	// https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
-	// https://stackoverflow.com/questions/10412299/whats-the-difference-between-blobbuilder-and-the-new-blob-constructor
-	// https://stackoverflow.com/questions/5729842/what-parameters-are-possible-in-a-data-uris-mediatype
-	// https://tools.ietf.org/html/rfc2397
-	function dataURItoBytes(uri){
-		if(!uri.startWidth("data:")){
-			throw new URIError("Invalid data URI");
-		}
-		let [hashLessDataURI, hash] = dataURI.split("#");
-		hash = hash.join("#");
-		let [mediaType, ...data] = hashLessDataURI.split(",");
-		// unescape is marked as depreciated, but could be used (retro compatibility)
-		//let unescape = (str) => str.replace(/%([0-9A-F]{2})/g, (match, code) => String.fromCharCode('0x' + code));
-		data = unescape(data.join(","));
-		mediaType = mediaType.substr(5) || "text/plain";
-		let [mediaTypeParametersLess, ...mediaTypeParameters] = mediaType.split(";");
-		let encoding = mediaTypeParameters.length >= 1 && mediaTypeParameters[mediaTypeParameters.length - 1] == "base64" ? mediaTypeParameters.pop() : "none";
-		
-		if(encoding == "base64"){
-			return base64ToBytes(data);
-		}
-		else if(encoding == "none"){
-			//let charset = mediaTypeParameters.find(param => param.startsWith("encoding=")).substr(9) || "US-ASCII";
-			let bytes = new Uint8Array(data.length);
-			for (let i = 0, l = bytes.length; i < l; i++) {
-				bytes[i] = data.charCodeAt(i);// ASCII chars
-			}
-			
-			return bytes.buffer;
-		}
-		
-		throw new Error(`Unknown encoding "${encoding}"`);
+```js
+// https://github.com/graingert/datauritoblob/blob/master/dataURItoBlob.js
+// https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
+// https://stackoverflow.com/questions/10412299/whats-the-difference-between-blobbuilder-and-the-new-blob-constructor
+// https://stackoverflow.com/questions/5729842/what-parameters-are-possible-in-a-data-uris-mediatype
+// https://tools.ietf.org/html/rfc2397
+function dataURItoBytes(uri){
+	if(!uri.startWidth("data:")){
+		throw new URIError("Invalid data URI");
 	}
+	let [hashLessDataURI, hash] = dataURI.split("#");
+	hash = hash.join("#");
+	let [mediaType, ...data] = hashLessDataURI.split(",");
+	// unescape is marked as depreciated, but could be used (retro compatibility)
+	//let unescape = (str) => str.replace(/%([0-9A-F]{2})/g, (match, code) => String.fromCharCode('0x' + code));
+	data = unescape(data.join(","));
+	mediaType = mediaType.substr(5) || "text/plain";
+	let [mediaTypeParametersLess, ...mediaTypeParameters] = mediaType.split(";");
+	let encoding = mediaTypeParameters.length >= 1 && mediaTypeParameters[mediaTypeParameters.length - 1] == "base64" ? mediaTypeParameters.pop() : "none";
+
+	if(encoding == "base64"){
+		return base64ToBytes(data);
+	}
+	else if(encoding == "none"){
+		//let charset = mediaTypeParameters.find(param => param.startsWith("encoding=")).substr(9) || "US-ASCII";
+		let bytes = new Uint8Array(data.length);
+		for (let i = 0, l = bytes.length; i < l; i++) {
+			bytes[i] = data.charCodeAt(i);// ASCII chars
+		}
+
+		return bytes.buffer;
+	}
+
+	throw new Error(`Unknown encoding "${encoding}"`);
+}
+```
 
 #### Store bytes in JS source as ArrayBuffer
 
 Note: store the number array in a string that could be parsed as JSON. [It’s much faster, especially for cold loads!](https://twitter.com/mathias/status/1143551692732030979?s=12), see also [The cost of JavaScript in 2019 · V8](https://v8.dev/blog/cost-of-javascript-2019#json)
 
-The compress ratio is between 1 : 2 to 11 : 4
+The compress ratio is between 1:2 to 11:4
 
-	let buffer = Uint32Array.from([0, 1, 2, ...]).buffer.slice(0);// not accurate, see below
+```js
+let buffer = Uint32Array.from([0, 1, 2, ...]).buffer.slice(0);// not accurate, see below
+```
 
 To generate the corresponding code:
 
@@ -5895,7 +5903,7 @@ To generate the corresponding code:
 
 ### Decompress GZIP
 
-**Not work with raw deflate, because it's don't provide uncompressed length info. You need to read all compressed blocks**
+**Not work with raw deflate, because it's don't provide uncompressed length info. You need to read all compressed blocks first**
 
 It's still could be a improvement if the data is only readed, but decompressed by the native PNG reader
 
@@ -5915,43 +5923,51 @@ As image
 - http://www.forensicswiki.org/wiki/Gzip
 - https://stackoverflow.com/questions/24082305/how-is-png-crc-calculated-exactly
  
-	let deflateBytes = new Uint8Array();
-	// let blockType = deflateBytes[0] >> 5 & 0b00000011;
-	// // https://tools.ietf.org/html/rfc1951#section-3.2.4
-	// if(blockType == 0b00){
-	// 	let length = deflateBytes[1] << 8 | deflateBytes[2];
-	// 	let nlength = deflateBytes[3] << 8 | deflateBytes[4];
-	// 	if((length & ~nlen) != len) throw "Invalid block type 0 length";
-	// 	return new Uint8Array()
-	// }
-	compressedBytes.length / 4;
-	let canvas = document.createElement("canvas");
-	canvas.width = compressedBytes.length / 4
-	canvas.height = 1;
-	let context = canvas.getContext("2d");
-	let bytes = context.getImageData(0, 0, canvas.width, canvas.height).data;
+ ```js
+let deflateBytes = new Uint8Array();
+// let blockType = deflateBytes[0] >> 5 & 0b00000011;
+// // https://tools.ietf.org/html/rfc1951#section-3.2.4
+// if(blockType == 0b00){
+// 	let length = deflateBytes[1] << 8 | deflateBytes[2];
+// 	let nlength = deflateBytes[3] << 8 | deflateBytes[4];
+// 	if((length & ~nlen) != len) throw "Invalid block type 0 length";
+// 	return new Uint8Array()
+// }
+compressedBytes.length / 4;
+let canvas = document.createElement("canvas");
+canvas.width = compressedBytes.length / 4
+canvas.height = 1;
+let context = canvas.getContext("2d");
+let bytes = context.getImageData(0, 0, canvas.width, canvas.height).data;
+```
 
 ### Read a blob
 
 Create a blob from bytes:
 
-	let blob = new Blob([bytes], {type: mediaType});
+```js
+let blob = new Blob([bytes], {type: mediaType});
+```
 
 Read the blob with FileReader:
 
-	let reader = new FileReader();
-	reader.addEventListener("loadend", () => console.log(reader.result, blob.type, blob.size));
-	reader.readAsArrayBuffer(blob);
+```js
+let reader = new FileReader();
+reader.addEventListener("loadend", () => console.log(reader.result, blob.type, blob.size));
+reader.readAsArrayBuffer(blob);
+```
 
 Or with XHR:
 
-	let url = URL.createObjectURL(blob);
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", url, true);
-	xhr.responseType = "arraybuffer";
-	xhr.addEventListener("error", event => console.log(event));
-	xhr.addEventListener("load", event => URL.revokeObjectURL(url), console.log(event.target.response, blob.type, event.target.getResponseHeader("Content-Type"), blob.size, event.target.getResponseHeader("Content-Length")));
-	xhr.send(null);
+```js
+let url = URL.createObjectURL(blob);
+let xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.responseType = "arraybuffer";
+xhr.addEventListener("error", event => console.log(event));
+xhr.addEventListener("load", event => URL.revokeObjectURL(url), console.log(event.target.response, blob.type, event.target.getResponseHeader("Content-Type"), blob.size, event.target.getResponseHeader("Content-Length")));
+xhr.send(null);
+```
 
 Note: `XMLHttpRequest` can't be used in synchronous mode because we can't change the `responseType`.
 
@@ -7036,3 +7052,53 @@ Must be called in event listener only from user-initiated (at least click).
 
 	// snakeToCamelCase
 	name => name.replace(/_([a-z])/g, match => match.charAt(1).toUpperCase());
+
+## Data URI function
+
+```js
+// can throw error because it contains invalid escaped sequences
+/*
+getDataURIJavaScript("data:application/javascript;charset=UTF-8,'%E2%9C%93%20%C3%A0%20la%20mode'")// > function(){'✓ à la mode'}
+getDataURIJavaScript("data:application/javascript;charset=US-ASCII,'la%20mode'")// > function(){'la mode'}
+getDataURIJavaScript("data:application/javascript;charset=UTF-8;base64,J+KckyDDoCBsYSBtb2RlJw==")// > function(){'✓ à la mode'}
+getDataURIJavaScript("data:application/javascript;charset=US-ASCII;base64,J2xhIG1vZGUn")// > function(){'la mode'}
+ */
+function getDataURIJavaScript(uri){
+  const parseResult = /^data:(?:application|text)\/javascript(?:\s*;\s*charset=(UTF-8|US-ASCII))?(?:\s*;\s*(base64)\s*)?,(.*)$/.exec(uri);
+  if(!parseResult){
+    throw new TypeError(`Invalid or unsupported JavaScript data URI "${uri}"`);
+  }
+
+  const [, charset, encoding, precentEncodedData] = parseResult;
+
+  let code;
+  if(encoding === "base64"){
+    const precentDecodedData = unescape(precentEncodedData);
+    // Handle UTF-8 decoding
+    // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/btoa#Unicode_strings
+    switch(charset){
+      case "UTF-8":
+        code = decodeURIComponent(escape(atob(precentDecodedData)));
+        break;
+      case "US-ASCII":
+      default:
+        code = atob(precentDecodedData);
+        break;
+    }
+  }else if(!encoding){
+    switch(charset){
+      case "UTF-8":
+        code = decodeURIComponent(precentEncodedData);
+        break;
+      case "US-ASCII":
+      default:
+        code = unescape(precentEncodedData);
+        break;
+    }
+  }else{
+    throw new Error(`Unknown encoding "${encoding}"`);
+  }
+
+  return new Function(code);
+}
+```
