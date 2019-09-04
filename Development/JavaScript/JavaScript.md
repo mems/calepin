@@ -4873,7 +4873,7 @@ instead of:
 
 ## Global error handler
 
-Catch error, then send beacon
+Catch error, then send [beacon](#beacon)
 
 	window.addEventListener("error", event => {
 		//ErrorEvent
@@ -4916,10 +4916,11 @@ See also [Tracking scripts errors](Web#tracking-scripts-errors)
 - [GlobalEventHandlers.onerror - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror)
 - [Javascript global error handling - Stack Overflow](https://stackoverflow.com/questions/951791/javascript-global-error-handling/10556743#10556743)
 - [Debug Rendering Problems | Search | Google Developers](https://developers.google.com/search/docs/guides/debug-rendering)
-- [Beacon](https://w3c.github.io/beacon/#dom-navigator-sendbeacon)
 - [Sentry | Error Tracking Software — JavaScript, Python, PHP, Ruby, more](https://sentry.io/welcome/)
 
 ## Global resource error handler
+
+Catch error, then send [beacon](#beacon)
 
 	document.documentElement.addEventListener(
 		"error",
@@ -4950,13 +4951,13 @@ Some browsers (Chrome) don't dispatch load event for iframe contains attachment 
 > 1. Generate a random unique token.
 > 2. Submit the download request, and include the token in a GET/POST field.
 > 3. Show the "waiting" indicator.
-> 4. Start a timer, and every second or so, look for a cookie named "fileDownloadToken" (or whatever you decide).
-> 5. If the cookie exists, and its value matches the token, hide the "waiting" indicator.
+> 4. Start a timer, and every second or so, look for a cookie named "filedl_" + token (or whatever you decide).
+> 5. If the cookie exists, and its value matches the token, hide the "waiting" indicator and delete the cookie.
 > 
 > The server algorithm:
 > 
 > 1. Look for the GET/POST field in the request.
-> 2. If it has a non-empty value, drop a cookie (e.g. "fileDownloadToken"), and set its value to the token's value.
+> 2. If it has a non-empty value, drop a cookie (e.g. "filedl_" + token), and set its value to anything (like "1").
 — https://stackoverflow.com/a/4168965/470117
 
 Use `Transfer-Encoding: chunked` to serve the file and set cookie in trailer. **Shouldn't work because `Set-Cookie` is forbidden in trailer (and because some client don't read trailers)**. https://en.wikipedia.org/wiki/Chunked_transfer_encoding#Applicability.
@@ -5481,23 +5482,15 @@ See [Obfuscation (code)](Security#obfuscation-code))
 	window.addEventListener("beforeunload", event => console.log(event));// dispatched when the user request a page navigation (link, history, form, etc.)
 	window.addEventListener("unload", event => console.log(event));// dispatched when the document is unloaded juste before the new one appears
 
-`setTimeout` for 100ms after `beforeunload` to be sure the user doesn't cancel the unload. **TODO** to make a POC
+`setTimeout` for 100ms after `beforeunload` to be sure the user doesn't cancel the unload. **TODO** make a POC
 
 Use `event.returnValue = "some message"` (1024 chars max) or `event.preventDefault()` in `beforeunload` handler to allow the user to cancel the page navigation. Usefull if a input state or any other data has not been saved.
 
 Sometimes, force repaint can be necessary (`document.body.offsetWidth;`) if classes changes are not visible after clicking on a link
 
-XMLHttpRequest can't be send in `unload` event because it's asynchronous. But a synchronous request can be made (**not recommanded, use `navigator.sendBeacon()` instead**, delay document unloading):
-
-	window.addEventListener("unload", () => {
-		var client = new XMLHttpRequest();
-		client.open("POST", "/log", false); // third parameter indicates sync xhr
-		client.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-		client.send(analyticsData);
-	}, false);
+You can use a [beacon](#beacon) to log it.
 
 - [HTML Standard](https://html.spec.whatwg.org/#prompt-to-unload-a-document)
-- [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)
 
 ## Bytes
 
@@ -5984,7 +5977,13 @@ Note: `XMLHttpRequest` can't be used in synchronous mode because we can't change
 
 ### Beacon
 
-Could be used to send data and ignore the answer like `fetch("url").catch(reason => null)`
+Equivalent APIs to use as beacon:
+
+- `fetch("http://example.com", {keepalive: true, mode: "no-cors"})`
+- `navigator.sendBeacon("http://example.com");`
+- `new Image().src="http://example.com"`
+
+`XMLHttpRequest` can't be really compared to APIs listed above, because it require CORS for cross-origin request and can't be used in `unload` event unless it use [synchronous flag](https://xhr.spec.whatwg.org/#synchronous-flag), **which is not recommended** (it's depreciated and some platforms has removed it support).
 
 For the given data:
 
@@ -6019,8 +6018,10 @@ Send as JSON (doesn't work in Chrome 64, throw an [error](https://bugs.chromium.
 Note: send a TypedArray will not send `Content-Type` header
 Note: it is better that the server return a response with the code [`204 No Content`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
 
+- [Beacon](https://w3c.github.io/beacon/#dom-navigator-sendbeacon)
 - [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)
-- [Fetch Standard](https://fetch.spec.whatwg.org/#bodyinit)
+- [Fetch keep alive flag](https://fetch.spec.whatwg.org/#request-keepalive-flag) - "allow the request to outlive the environment settings object, e.g., `navigator.sendBeacon` and the HTML `img` element set this flag"
+- [WindowOrWorkerGlobalScope.fetch() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters) - "Fetch with the `keepalive` flag is a replacement for the `Navigator.sendBeacon()` API"
 
 ### Send request without CORS
 
