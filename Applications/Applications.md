@@ -256,6 +256,10 @@ Redirect UDP 28960
 ## Chrome
 
 - [List of Chromium Command Line Switches « Peter Beverloo](https://peter.sh/experiments/chromium-command-line-switches/)
+- [Version Selection - ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/downloads/version-selection)
+- [Index of chromium-browser-snapshots/](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html)
+- [Download Chromium - The Chromium Projects](https://www.chromium.org/getting-involved/download-chromium)
+- [Version Numbers - The Chromium Projects](https://www.chromium.org/developers/version-numbers)
 
 ### Source code
 
