@@ -2253,16 +2253,17 @@ For images (works better with progressive images), in Edge Workers (Service Work
 
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
 - [Modern Asynchronous CSS Loading | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/async-css.html)
+- [The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.](https://www.filamentgroup.com/lab/load-css-simpler/)
 
 An other solution:
 
-	<link rel="stylesheet" href="styles/fonts.css" media="only x" onload="media!='all'&&media='all'">
+	<link rel="stylesheet" href="styles/fonts.css" media="print" onload="media!='all'&&media='all'">
 	<noscript><link rel="stylesheet" href="styles/fonts.css"></noscript>
 
 But this still blocking DOM parser on few browsers (IE11, Firefox 36). See https://github.com/scottjehl/css-inapplicable-load#the-bad
 Can be use to load fonts (inlined in CSS). Or use preload font
 
-Note: `media!='all'&&...` is required as a workaround for infinite event loop on Firefox, where change media dispatch a load event.
+Note: `media!='all'&&...` is required as a workaround for infinite event loop on Firefox, where change media dispatch a new load event.
 
 - [Loading CSS without blocking render by Keith Clark](http://keithclark.co.uk/articles/loading-css-without-blocking-render/)
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
