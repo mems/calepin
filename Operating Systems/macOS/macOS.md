@@ -2170,6 +2170,16 @@ FileVault:                 No (Encrypted at rest)
 
 ## Applications
 
+### Self-signed application
+
+Create a self signed certificate `MyCertificateName` with Keychain and trust it for all the system
+
+```sh
+sudo codesign -s MyCertificateName -f /path/to/MyAppName.app --deep
+```
+
+That fix the issue with macOS open the alert popup "Do you want to the application MyAppName.app to accept incoming network connections?"
+
 ### Define `PATH` globaly
 
 Set `export PATH=/my/path:$PATH` in `~/.profile` for command line, but not used by launched application (by spotlight, dock, finder, start restored windows)
