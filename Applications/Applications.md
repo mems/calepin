@@ -260,12 +260,15 @@ Redirect UDP 28960
 - [Index of chromium-browser-snapshots/](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html)
 - [Download Chromium - The Chromium Projects](https://www.chromium.org/getting-involved/download-chromium)
 - [Version Numbers - The Chromium Projects](https://www.chromium.org/developers/version-numbers)
+- [OmahaProxy - Google Chrome](https://omahaproxy.appspot.com/) - Look up information about a given Chrome release
+- `https://crrev.com/<branch_position|commit>`
+- `https://storage.googleapis.com/chromium-find-releases-static/d4a.html#<commit>`
+- `https://omahaproxy.appspot.com/deps.json?version=<version>` (`Major.Minor.Branch.Patch`)
 
 ### Source code
 
 - [ChromeDevTools](https://github.com/ChromeDevTools)
 - [Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/)
-- [OmahaProxy - Google Chrome](http://omahaproxy.appspot.com/) - Look up information about a given Chrome release
 - [chromium Git repositories - Git at Google](https://chromium.googlesource.com/)
 - [Code Search](https://cs.chromium.org/)
 
