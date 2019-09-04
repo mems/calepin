@@ -31,6 +31,17 @@ News
 Note: don't name your local server `*.local`. See [Local TLD](macOS#local-tld)
 Note: `Range` header could be ignore if the content need to be gzipped (It's the case with nginx)
 
+FQDN:
+	[fully qualified domain name](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), with the trailing dot (root zone)
+TLD:
+	[top level domain](https://en.wikipedia.org/wiki/Top-level_domain) (e.g. .com, .net, .bmw, .us). See the [list of TLDs](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+eTLD:
+	effective top level domain (e.g. .com, .co.uk and .pvt.k12.wy.us). See the [public suffix list](https://publicsuffix.org/)
+eTLD+1:
+	effective top level domain plus one level (e.g. example.com, example.co.uk)
+SLD:
+	second level domain (e.g. co is the SLD of www.example.co.uk)
+
 See also:
 
 - [We Suck at HTTP](http://gadgetopia.com/post/9236?retitle)
