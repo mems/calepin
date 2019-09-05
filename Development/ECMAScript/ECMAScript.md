@@ -188,6 +188,31 @@ export function inc(){counter++}
 
 - [This or that? Component Names: index.js or Component.js | Brad Frost](http://bradfrost.com/blog/post/this-or-that-component-names-index-js-or-component-js/)
 
+## Proxy
+
+```js
+const catcher = new Proxy(global, {
+    // always pretend the property exists
+    has(target, key){
+        return true;
+    },
+    
+    get(target, name){
+        if(name in target){
+            // return original value if exists
+            return Reflect.get(...arguments);
+        }
+        // otherwise turn it into a string
+        return `My name is ${String(name)}!`;
+    }
+});
+
+with (catcher) {
+  console.log(nobody);
+  // > "My name is nobody!"
+}
+```
+
 ## Floating point numbers
 
 Use a libs like https://github.com/dtrebbien/BigDecimal.js, https://github.com/MikeMcl/bignumber.js, https://github.com/MikeMcl/decimal.js or https://github.com/MikeMcl/big.js. See [What is the difference between big.js, bignumber.js and decimal.js?](https://github.com/MikeMcl/big.js/wiki)

@@ -1932,6 +1932,40 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		Use `["10", "10", "10"].map(value => parseInt(value))` instead
 	* ECMAScript: `Array.prototype.push("test"); let empty = []; empty.length === 0; empty[0] === "test"; Array.prototype[0] === "test"` `Array.isArray(Array.prototype))` same as `Object.prototype.foo = "bar"; let empty = {}; empty.foo === "bar"`
 	* ECMAScript proxy: https://github.com/mathiasbynens/tpyo `const array = tpyo(['a', 'b', 'c']);array.lnegth;array.tosTr1ng();`
+    - ECMAScript proxy:
+        ```js
+        with (MëtalÜmlauts()) {
+            consöle.ërror('Mëtal');
+            alërt('Ümlauts');
+        }
+        
+        function MëtalÜmlauts(){
+            const handler = {
+                // always pretend the property exists
+                has(){
+                    return true;
+                },
+                
+                // remplace umlauts in properties
+                get(target, name){
+                    const ascii = String(name).normalize("NFKD").replace(/[\u0300-\u036F]/g, "");
+                    const property = Reflect.get(target, ascii);
+                    switch(typeof property){
+                        case "object":
+                            return new Proxy(property, handler);
+                            break;
+                        case "function":
+                            return property.bind(target);
+                            break;
+                        default:
+                            return property;
+                    }
+                }
+            };
+            
+            return new Proxy(window, handler);
+        }
+        ```
 	* ECMAScript regexp previous match:
 	
 			"abc".match(/b/);

@@ -6,3 +6,4 @@
 - [html5lib](https://github.com/html5lib/)
 - [mathiasbynens/he: A robust HTML entity encoder/decoder written in JavaScript.](https://github.com/mathiasbynens/he) - HTML entities
 - [jsdom/jsdom: A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js](https://github.com/jsdom/jsdom)
+- [Optional HTML: Everything You Need to Know · Jens Oliver Meiert](https://meiert.com/en/blog/optional-html/)
