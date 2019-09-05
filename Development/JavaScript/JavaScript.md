@@ -4851,14 +4851,14 @@ Boolean(element.ownerDocument.compareDocumentPosition(element) & Node.DOCUMENT_P
 
 - [In the DOM, no one will hear you scream](https://slideshare.net/x00mario/in-the-dom-no-one-will-hear-you-scream/20)
 
-Get document URL:
+## Get document URL
 
-- window.location
-- document.URL
-- document.createElement("a").href
+- `window.location`
+- `document.URL`
+- `document.createElement("a").href`
 - ...
 
-### Eval stack name
+## Eval stack name
 
 > script-eval.js:W:Z
 
