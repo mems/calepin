@@ -706,9 +706,16 @@ Hide element to reduce rendering flicker (initial state to complete state) for f
 
 ### Document location
 
-Aka `window.location`, `document.location`, `window.location.href`, `document.URL` and `node.baseURI`
+- `String(window.location)`
+- `String(document.location)`
+- `window.location.href`
+- `document.URL`
+- `node.baseURI`
+- `document.createElement("a").href`
 
-	window.location === document.location;//true
+```js
+window.location === document.location;//true
+```
 
 To only read the document's location, use `document.URL`.
 If you need to interact with location, use `window.location`. Because the API is related to the browsing context not the document itself.
@@ -4850,13 +4857,6 @@ Boolean(element.ownerDocument.compareDocumentPosition(element) & Node.DOCUMENT_P
 (works where?) `location(x)`, `Location#protocol=x`, `elm.movie=x`, `elm.value=x`, `elm.values=x`
 
 - [In the DOM, no one will hear you scream](https://slideshare.net/x00mario/in-the-dom-no-one-will-hear-you-scream/20)
-
-## Get document URL
-
-- `window.location`
-- `document.URL`
-- `document.createElement("a").href`
-- ...
 
 ## Eval stack name
 
