@@ -294,3 +294,24 @@ cost config = fs.readFileSync('./config.json', 'utf-8');
 // It can be stripped by `.trim()`:
 JSON.parse(config.trim());
 ```
+
+## Require a virtual file
+
+```js
+const fs = require("fs");
+const path = require("path");
+const filename = require.resolve("chrome-devtools-frontend/front_end/sdk/CookieParser.js");
+// See https://github.com/ChromeDevTools/devtools-frontend/blob/4c46d0969f10f460f2a27116f4896f20f65d0989/front_end/sdk/CookieParser.js
+let content = "const SDK = module.exports = {};\n" + fs.readFileSync(filename, "utf8");
+const Module = require("module");// same as module.constructor
+const m = new Module(filename, module/*or module.parent*/);
+m._compile(content, filename);
+m.filename = filename;
+m.paths = Module._nodeModulePaths(path.dirname(filename));
+m.loaded = true;
+module.exports = m.exports;
+```
+
+- [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L781-L816)
+- [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L945-L948)
+- [Load node.js module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory/17585470#17585470)
