@@ -456,6 +456,12 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 - [okonet/lint-staged: 🚫💩 — Run linters on git staged files](https://github.com/okonet/lint-staged)
 - [Introducing a fully extendable eslint plugin for JSON i18n translation files — GoDaddy Engineering Blog](https://godaddy.github.io/2018/04/02/introducing-eslint-plugin-i18n-json/)
 
+## Team work
+
+- [How to do a code review | eng-practices](https://google.github.io/eng-practices/review/reviewer/)
+- lint
+- CI
+
 ## Source code organisation
 
 	/build (bin|export) - a (pre-)compiled version of your library/app 
