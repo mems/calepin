@@ -170,24 +170,6 @@ Use values from MariaDB 10 application
 Support `.m3u` (but not `.m3u8`)
 Support only relative paths (start with `./` or `../`, not `/volumeX/`)
 
-### Printer server CUPS
-
-CUPS WebInterface is not available (files in `/usr/lib/cups/cgi-bin/`, `/usr/share/cups/doc-root/`, `/usr/share/cups/templates/`, etc. doesn't exist)
-
-Access control is not configured as [it should be](https://github.com/apple/cups/blob/5048d3ba8d38b2bc9c3cf33af043fbccebf90ea2/conf/cupsd.conf.in#L30-L47) (if the web interface is enabled, see also [How can I enable remote access to the Admin page in CUPS - Server Fault](https://serverfault.com/questions/836266/how-can-i-enable-remote-access-to-the-admin-page-in-cups))
-
-Enable `WebInterface=yes` take to "Not Found" error
-
-```sh
-cat /etc/cups/cupsd.conf
-synoservice --restart cupsd
-```
-
-- [Setting up a CUPS server with Docker on a Synology NAS for my Brother printer](http://www.theghostbit.com/2016/10/setting-up-cups-server-with-docker-on.html) - see [RoryQ/Docker-CUPS-for-Synology: Scripts for setting up CUPS server in Docker running on Synology Diskstation for Brother HL-1110](https://github.com/RoryQ/Docker-CUPS-for-Synology)
-- [maxandersen/aircups: Cups print server with airprint enabled, works well with Synology](https://github.com/maxandersen/aircups)
-	Based on [quadportnick/docker-cups-airprint: Docker image for CUPS intended as an AirPrint relay on Synology DSM](https://github.com/quadportnick/docker-cups-airprint)
-- [mnbf9rca/cups-google-print: a CUPS printer with Google Cloud Print enabled](https://github.com/mnbf9rca/cups-google-print)
-
 ### Restart service / daemon
 
 ```sh
@@ -505,8 +487,10 @@ Check Backup integrity:
 - [How to backup files directly between Synology DiskStation and Apple AirPort Time Capsule? | iknowsomething.com](http://iknowsomething.com/how-to-backup-files-directly-between-synology-diskstation-and-apple-airport-time-capsule/)
 - `sudo /var/packages/HyperBackup/target/bin/synoimgbkptool --help`
 - ?? `/var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_synology.coene_AKIAII7X3LHP5R4HOUNA.Hkx7Wx -t ds414_1.hbk -S bkp -E /tmp/scoped_temp_file.XeMJPp`
- 
-	sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp'
+
+```sh
+sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp'
+```
 
 #### Format and storage
 
@@ -788,7 +772,14 @@ Advanced Settings:
 - [SMB | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_winmacnfs_win)
 - `smbutil statshares -a` if share mounted has `SIGNING_ON	TRUE`
 
-## USB Scanner
+## Printers and scanners
+
+```sh
+sudo cat /var/log/messages | grep 'cupsd\|synoprint\|udev_printer\|synoscgi_SYNO.Core.ExternalDevice.Printer'
+sudo tail -f /var/log/messages | grep --line-buffered 'cupsd\|synoprint\|udev_printer\|synoscgi_SYNO.Core.ExternalDevice.Printer'
+```
+
+### USB Scanner
 
 With MFP (USB connected multi-function printer) you can use the scanner from Windows clients. On network scanner you can "upload" scans on SMB shares.
 But for USB connected scanner only or MFP for non Windows clients, you need a server software like [SANE](http://www.sane-project.org/) to allow clients to use it.
@@ -802,4 +793,22 @@ But for USB connected scanner only or MFP for non Windows clients, you need a se
 - [ScanningHowTo - Community Help Wiki](https://help.ubuntu.com/community/ScanningHowTo)
 - [Installer un serveur de numérisation, SANE](https://artisan.karma-lab.net/installer-serveur-numerisation-sane)
 
-See also [macOS Scanning](macOS.md#scanning)
+See also [macOS Scanning](../macOSmacOS.md#scanning)
+
+### Printer server CUPS
+
+CUPS WebInterface is not available (files in `/usr/lib/cups/cgi-bin/`, `/usr/share/cups/doc-root/`, `/usr/share/cups/templates/`, etc. doesn't exist)
+
+Access control is not configured as [it should be](https://github.com/apple/cups/blob/5048d3ba8d38b2bc9c3cf33af043fbccebf90ea2/conf/cupsd.conf.in#L30-L47) (if the web interface is enabled, see also [How can I enable remote access to the Admin page in CUPS - Server Fault](https://serverfault.com/questions/836266/how-can-i-enable-remote-access-to-the-admin-page-in-cups))
+
+Enable `WebInterface=yes` take to "Not Found" error
+
+```sh
+cat /etc/cups/cupsd.conf
+synoservice --restart cupsd
+```
+
+- [Setting up a CUPS server with Docker on a Synology NAS for my Brother printer](http://www.theghostbit.com/2016/10/setting-up-cups-server-with-docker-on.html) - see [RoryQ/Docker-CUPS-for-Synology: Scripts for setting up CUPS server in Docker running on Synology Diskstation for Brother HL-1110](https://github.com/RoryQ/Docker-CUPS-for-Synology)
+- [maxandersen/aircups: Cups print server with airprint enabled, works well with Synology](https://github.com/maxandersen/aircups)
+	Based on [quadportnick/docker-cups-airprint: Docker image for CUPS intended as an AirPrint relay on Synology DSM](https://github.com/quadportnick/docker-cups-airprint)
+- [mnbf9rca/cups-google-print: a CUPS printer with Google Cloud Print enabled](https://github.com/mnbf9rca/cups-google-print)
