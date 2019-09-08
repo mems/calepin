@@ -78,7 +78,7 @@ Lorsqu’on travaille sur un projet, il faut le faire tester le plus tôt possib
 
 Aka efficiency
 
-See [Counterproductive rules](Conception#counterproductive-rules)
+See [Counterproductive rules](../Conception/Conception.md#counterproductive-rules)
 
 Give better/efficient tools.
 
@@ -228,7 +228,94 @@ Régie / prix unitaire / à débours (direct labour hours, timework, sous-traita
 
 Aka Chiffrage
 
-See [Time estimation](Conception#time-estimation)
+<video src="Estimating software projects.mp4"></video>
+
+> Fact: it takes 2 days to hack an idea. 2 weeks to prove it works. 2 months to make it production ready. And 2 years to see it succeed.
+— [Inigo Quilez](https://twitter.com/iquilezles/status/716475533836455936)
+
+> f(nombre de codeurs) = Temps pour coder le projet
+— http://www.commitstrip.com/fr/2016/06/17/fnumber-of-coders-time-to-code-project/
+
+> nine women can't make a baby in one month
+— Brooks’ law — https://en.wikipedia.org/wiki/Brooks%E2%80%99_law https://fr.wikipedia.org/wiki/Le_Mythe_du_mois-homme
+
+10x engineer myth:
+> 10x Engineer: a developer who incurs technical debt so fast he appears more productive than the 10 developers tasked w/ cleaning his mess up
+— [Sam Bhagwat](https://twitter.com/calcsam/status/652360672827674624)
+
+- [The mythical 10x programmer - \<antirez\>](http://antirez.com/news/112)
+
+> Can you give me an estimate on how long it will take you to fix this bug? That's like asking how long it will take to find my keys.
+— https://twitter.com/_honza/status/758328245355962372
+
+- [development process - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
+- [debugging - Time estimating of a complex bug investigation (not a straight-forward one) - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/285592/time-estimating-of-a-complex-bug-investigation-not-a-straight-forward-one)
+
+> How long will it take to fix that bug?" "Probably as long as it takes to change one char. But it may take hours to figure out which one.
+> Can you give me an estimate on how long it will take you to fix this bug?" "That's like asking how long it will take to find my keys.
+
+- [Combien de temps vous faut-il pour changer un « s » ? – HTeuMeuLeu](http://www.hteumeuleu.fr/combien-de-temps-vous-faut-il-pour-changer-un-s/)
+- [How many Microsoft employees does it take to change a lightbulb? – Fabulous Adventures In Coding](https://blogs.msdn.microsoft.com/ericlippert/2003/10/28/how-many-microsoft-employees-does-it-take-to-change-a-lightbulb/)
+
+> Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
+> — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
+
+> Making artwork, on its own, is challenging. If you want to develop the business side of that, it's a whole other thing. You need to be prepared to dedicate time to things like:
+> 
+> - Building a website
+> - Ordering prints
+> - Buying shipping materials
+> - Packaging art for shipping
+> - Going to the post office, filling out customs forms
+> - Posting your artwork online on various platforms
+> - Connecting with other artists, supporting them, and learning from them
+> - Doing taxes
+> - Responding to loads of random emails
+> - Photographing your work
+> - Editing photographs of your work
+> - Keeping your work organized, accessible, and backed up
+> - Framing your work (buying materials, cutting mats, etc)
+> - Hanging your work for shows
+> - Talking with folks who enjoy your work during opening receptions, studio tours, interviews, etc.
+> - Sending invoices
+> - Negotiating commissions and licensing deals
+> - Speaking about your work at events
+> - Delivering your work in person
+> - Reading about all the things you don't know about running a business, like marketing, accounting, and sales
+> - Writing about your work, including about a dozen variations of an artist's statement, which is possibly the least fun thing to write
+> 
+> This adds up to a large percentage of your time, often more time than you get to spend creating artwork.
+> — [Reflections on Five Years of Making Art Through Programming — TYLER HOBBS](https://tylerxhobbs.com/essays/2019/reflections-on-five-years-of-making-art-through-programming)
+
+See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
+
+- [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
+
+### Evidence based scheduling
+
+> The estimation system takes 100 velocities calculated from the developers history. Each velocity is the ratio between estimated time and actual time for a given task.
+> [...]
+> It just means that because the interruption affects the velocity for a certain percentage of the tasks, the interruption will be appropriately represented in estimates that are based on 100 random velocities from the developers history.
+— [Misunderstanding about "Evidence Based Scheduling" in estimation tasks - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/291553/misunderstanding-about-evidence-based-scheduling-in-estimation-tasks)
+
+> Break down the milestones as much as possible
+— [project management - Evidence-Based-Scheduling - are estimations only as accurate as the work-plan they're based on? - Stack Overflow](https://stackoverflow.com/questions/540816/evidence-based-scheduling-are-estimations-only-as-accurate-as-the-work-plan-th)
+
+- [Evidence Based Scheduling - Joel on Software](http://www.joelonsoftware.com/items/2007/10/26.html)
+- [What do you mean ‘we need more time’?? | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2015/10/what-do-you-mean-you-need-more-time/)
+- [How One Startup's Engineering Team Cut their Engineering Release Times in Half](http://tomtunguz.com/engineering-predictability/)
+- [Excel spreadsheets for Evidence Based Scheduling as described by Joel Spolsky](https://github.com/mjwade/spolsky-sheets)
+- [Feature #3595: Evidence Based Scheduling - Redmine](http://www.redmine.org/issues/3595)
+- [Evidence-based Scheduling - evidence-based_scheduling.pdf](https://www.csie.ntu.edu.tw/~hsinmu/courses/_media/ada_11fall/evidence-based_scheduling.pdf)
+
+### Difficulty time estimation
+
+> I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs".
+> 
+> > This was a 30 tab problem. I had to go in deep.
+> 
+> > I solved that one with only 1 tab.
+> – [Uncle Cal on Twitter: "I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs". "This was a 30 tab problem. I had to go in deep." "I solved that one with only 1 tab. " :)"](https://twitter.com/calevans/status/1024371268118872070?s=12)
 
 ## Stagiaire
 
@@ -255,7 +342,9 @@ See [Time estimation](Conception#time-estimation)
 
 ## Management
 
-Hire, recruitment, etc.
+### Recruitment
+
+Aka hire
 
 Developers don't remember all APIs details, algorithms, they use online docs. Ex: `"abcdef".substring(0, 3) === "abcdef".substr(0, 3) === "abcdef".slice(0, 3)`
 
@@ -278,7 +367,9 @@ Ask them about concept, not details by heart
 - [What if companies interviewed translators the way they interview coders?](https://medium.freecodecamp.com/welcome-to-the-software-interview-ee673bc5ef6)
 - [If companies interviewed tech recruiters the way they interview programmers](https://medium.com/@NTDF9/if-companies-interviewed-tech-recruiters-the-way-they-interview-programmers-f18e1a980cdd)
 
-## Travailleurs indépendants / Freelances / Independents
+## Travailleurs indépendants
+
+Aka freelances, independents
 
 > toute personne morale qui est responsable de 80% de la rémunération de quelqu’un ou qui reçoit de ce travailleur au moins 20% de ses gains doit être considéré comme l’employeur du travailleur
 
@@ -325,6 +416,15 @@ Not for team or at least without expertise requirements
 >
 > If you are another web developer that has been paid to change this then make sure you get paid up front, trust nobody.
 
+## Prioritization
+
+![Bi Dimensional Priority Matrix](bi-dimensional%20Priority%20Matrix.png)
+
+- [Prioritization - Wikipedia](https://en.wikipedia.org/wiki/Prioritization)
+- [test management - How to categorize defects? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/7530/how-to-categorize-defects)
+- [agile testing - Does anyone know of a good bug matrix or defect management process? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/17386/does-anyone-know-of-a-good-bug-matrix-or-defect-management-process)
+- [manageevents - risk](https://manageevents.wikispaces.com/risk)
+
 ## Stupidity
 
 - [Clients From Hell](http://clientsfromhell.net/)
@@ -334,6 +434,59 @@ Not for team or at least without expertise requirements
 
 ## Documentation
 
-Write all, make reports
+Write all, make reports, about choice has been mades
+
+API references, guides, tutorials, and blog posts
+
+- don't use words like “easy,” “simple,” “trivial,” and “not hard”
+- when communicating on a project, use clear and accessible language for people who didn’t grow up speaking English, or read less-than-fluently.
+- avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”
+
+> After you do something dozens of times, it is understandable that something is “easy” to you. However, what about someone who’s never seen the UI or feature before?
+> [...]
+> Encourage people who are newer to the project to contribute to or address documentation that doesn’t make sense to them
 
 - [Bus factor — Wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
+- [Release note](../Development/Development.md#release-note)
+- [API](../Conception/Conception.md#api)
+- [Technical writing — Wikipedia](https://en.wikipedia.org/wiki/Technical_writing)
+
+## Burn-out
+
+6 pratiques saines de management pour mieux accompagner :
+
+1. la reconnaissance : source renouvelable de mobilisation et de cohésion d'équipe pour le manager qui l'utilise avec bienveillance, sincérité et réactivité.
+2. le soutien à l'autonomie : l'art délicat de solliciter les idées, les initiatives, l'ingéniosité de l'équipe, et la sagesse de miser sur la confiance et l'enrichissement du travail.
+3. la prise en compte des émotions : il s'agit de gérer des émotions, de ne pas les nier, d'adopter des attitudes d'empathie.
+4. le dialogue sur le travail : la définition d'un travail bien fait, le partage sur le sens et le vécu du travail, la prise en compte des émotions, l'équilibre de vie, tout cela se partage.
+5. la convivialité : loin d'être un accessoire, il s'agit d'un élément central dont on découvre seulement les bénéfices opérationnels.
+6. la valorisation des la coopération : de la mise en avant des individus qui mettent du liant à la promotion des réalisations collectives, la coopération s'illustre au quotidien
+
+6 catégories de facteurs de risques psychosociaux (ou RPS) :
+
+1. l'intensité du travail :
+    - importante quantité de travail, travail dans l'urgence, objectifs élevés à atteindre.
+    - tâches complexes, forte concentration et gravité des erreurs.
+    - déséquilibre entre vie professionnelle et personnelle.
+2. les exigences émotionnelles
+    - contact avec des personnes en difficulté ou en souffrance.
+    - nécessité de masquer ses émotions, impossibilité de les exprimer.
+    - travailler avec « la peur au ventre ».
+3. l’autonomie au travail
+    - nombreuses procédures à respecter, peu de marges de manœuvre et de créativité.
+    - tâches répétitives et monotones, ennuyeuses (risque de « bore-out »).
+    - manque de formation et de compétences pour ressentir une maîtrise de son activité
+4. les relations humaines
+    - exposition à de l’incivilité, à du manque de respect, à de l’agressivité ou à de la violence.
+    - faible soutien ou de reconnaissance, injustice, ambiance de compétition.
+    - présence de dénigrement, de discrimination ou de harcèlement.
+5. les conflits de valeur
+    - peu ou absence de sens du travail, conflit éthique.
+    - impression de travail bâclé, de « qualité empêchée ».
+    - sentiment d’inutilité du travail réalisé.
+6. l’insécurité du travail
+    - menace sur son poste, son activité, son emploi.
+    - perception d’un travail non soutenable dans le temps.
+    - nombreux changements organisationnels, stratégiques ou technologiques.
+
+- [AACC - Guide du Burn-out](https://fr.calameo.com/read/0059701334db6d52c45ee) - [les Agences membres de l'AACC](http://www.aacc.fr/articles/burn-out)

@@ -623,7 +623,9 @@ For replay, be sure:
 
 ## API
 
-Simplicity Matters, KISS
+Aka application programming interfaces
+
+Simplicity Matters, [KISS](../Conception/Conception.md#kiss)
 
 [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 
@@ -636,7 +638,26 @@ Simplicity Matters, KISS
 
 - [How to design a REST API | OCTO Talks !](https://blog.octo.com/en/design-a-rest-api/)
 
-See also [API](Web#api)
+See also [API](Web#api) and [Documentations](../Work/Work.md#documentation)
+
+### Error messages
+
+> Error messages as a form of documentation:
+> 
+> - Humble: "An unknown error occured (-50)" -> "Sorry, we could not reach the Netflix service. Please check Network Settings to connect to an available network and use Netflix (15001)"
+> - Human: "Exception has been thrown by the target of an invocation" -> "There was a problem: Your password is incorrect"; "Your AccountSid or AuthToken was incorrect. [More info](https://www.twilio.com/docs/errors/20003)"
+> - Helpful: "404. That's an error. The requested URL |url| was not found on this server. That's all we know" -> "That's very nice photo, but it's a bit too big. Try one that's smaller than 4000px tall by 4000px wide. Cancel - Try a different image"
+> - Humor: "|illustration of beasts eating computers| We'll be back shortly. We may have forgotten to feed the wild Tumbeasts that roam our datacenter, resulting in gnawing and/or mutiny. Animal control has been alerted.", "Something went and got goofed. Retry"
+
+- [Error Messages: Being Humble, Human, and Helpful will make users Happy — Write the Docs](https://www.writethedocs.org/videos/na/2017/error-messages-being-humble-human-and-helpful-will-make-users-happy-kate-voss/)
+
+> Just like any other form of documentation, put the relevant information first. This can be done by having the object first and the action second. The user is looking for the result, not how to get there. This is helpful when users quickly scan your error messages.
+> "Press the back button to return to the previous page." -> "To return to the previous page, use the back button."
+
+Errors in docs, allows you to expand on the error message without increasing it in length, while still trying to help the user understand why they are getting the error.
+For one error (ex: 401 status code error "Permission Denied"), there are a lot of possible causes which they clearly lay out in Error and Warning Directory.
+
+- [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Corner](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/)
 
 ## MVC
 

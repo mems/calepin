@@ -61,7 +61,7 @@ Mitsubishi Pajero (ex: masturbator, wanker)
 
 ## Counterproductive rules
 
-See [Productiveness](Work#productiveness)
+See [Productiveness](../Work/Work.md#productiveness)
 
 > Et si la rémunération à la performance nuisait à la performance ?
 > 
@@ -69,6 +69,7 @@ See [Productiveness](Work#productiveness)
 > [...]
 > « Un club de football met à l’amende un de ses joueurs au motif qu’il rend trop souvent la balle à l’adversaire. Résultat : il ne la passe plus à personne. Un patron décide d’organiser la compétition permanente entre ses salariés. Résultat : une partie d’entre eux commence à saboter le travail de leurs collègues. »
 > [...]
+> Une crèche israélienne souhaitant réduire le retard des parents, met en place une sanction financière.
 > « Que se passe-t-il ? Après l’introduction de l’amende, le nombre de parents arrivant en retard a… augmenté, et ce de manière régulière ».
 
 - ["Les stratégies absurdes" Maya Beauvallet. |](http://www.verbiage.fr/les-strategies-absurdes-maya-beauvallet/)
@@ -115,7 +116,9 @@ Or in search engine autocomplete:
 - [Copyright — Wikipedia](https://en.wikipedia.org/wiki/Copyright)
 - [Sin — Wikipedia](https://en.wikipedia.org/wiki/Sin)
 
-## KISS (Keep It Simple, Stupid)
+## KISS
+
+Aka Keep It Simple, Stupid
 
 - [KISS principle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/KISS_principle)
 - [The Kiss Principle](http://people.apache.org/~fhanik/kiss.html)
@@ -210,106 +213,6 @@ Could also be a prototype
 — [Matt Haughey‏](https://twitter.com/mathowie/status/837735473745289218)
 
 It's like unsolicited "redesign" website or app (without real constraints). See [Wikipedia:Unsolicited redesigns — Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Unsolicited_redesigns#Why_unsolicited_redesigns_can_be_problematic)
-
-## Prioritization
-
-![Bi Dimensional Priority Matrix](bi-dimensional%20Priority%20Matrix.png)
-
-- [Prioritization - Wikipedia](https://en.wikipedia.org/wiki/Prioritization)
-- [test management - How to categorize defects? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/7530/how-to-categorize-defects)
-- [agile testing - Does anyone know of a good bug matrix or defect management process? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/17386/does-anyone-know-of-a-good-bug-matrix-or-defect-management-process)
-- [manageevents - risk](https://manageevents.wikispaces.com/risk)
-
-## Time estimation
-
-<video src="Estimating software projects.mp4"></video>
-
-> Fact: it takes 2 days to hack an idea. 2 weeks to prove it works. 2 months to make it production ready. And 2 years to see it succeed.
-— [Inigo Quilez](https://twitter.com/iquilezles/status/716475533836455936)
-
-> f(nombre de codeurs) = Temps pour coder le projet
-— http://www.commitstrip.com/fr/2016/06/17/fnumber-of-coders-time-to-code-project/
-
-> nine women can't make a baby in one month
-— Brooks’ law — https://en.wikipedia.org/wiki/Brooks%E2%80%99_law https://fr.wikipedia.org/wiki/Le_Mythe_du_mois-homme
-
-10x engineer myth:
-> 10x Engineer: a developer who incurs technical debt so fast he appears more productive than the 10 developers tasked w/ cleaning his mess up
-— [Sam Bhagwat](https://twitter.com/calcsam/status/652360672827674624)
-
-- [The mythical 10x programmer - \<antirez\>](http://antirez.com/news/112)
-
-> Can you give me an estimate on how long it will take you to fix this bug? That's like asking how long it will take to find my keys.
-— https://twitter.com/_honza/status/758328245355962372
-
-- [development process - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
-- [debugging - Time estimating of a complex bug investigation (not a straight-forward one) - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/285592/time-estimating-of-a-complex-bug-investigation-not-a-straight-forward-one)
-
-> How long will it take to fix that bug?" "Probably as long as it takes to change one char. But it may take hours to figure out which one.
-> Can you give me an estimate on how long it will take you to fix this bug?" "That's like asking how long it will take to find my keys.
-
-- [Combien de temps vous faut-il pour changer un « s » ? – HTeuMeuLeu](http://www.hteumeuleu.fr/combien-de-temps-vous-faut-il-pour-changer-un-s/)
-- [How many Microsoft employees does it take to change a lightbulb? – Fabulous Adventures In Coding](https://blogs.msdn.microsoft.com/ericlippert/2003/10/28/how-many-microsoft-employees-does-it-take-to-change-a-lightbulb/)
-
-> Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
-> — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
-
-> Making artwork, on its own, is challenging. If you want to develop the business side of that, it's a whole other thing. You need to be prepared to dedicate time to things like:
-> 
-> - Building a website
-> - Ordering prints
-> - Buying shipping materials
-> - Packaging art for shipping
-> - Going to the post office, filling out customs forms
-> - Posting your artwork online on various platforms
-> - Connecting with other artists, supporting them, and learning from them
-> - Doing taxes
-> - Responding to loads of random emails
-> - Photographing your work
-> - Editing photographs of your work
-> - Keeping your work organized, accessible, and backed up
-> - Framing your work (buying materials, cutting mats, etc)
-> - Hanging your work for shows
-> - Talking with folks who enjoy your work during opening receptions, studio tours, interviews, etc.
-> - Sending invoices
-> - Negotiating commissions and licensing deals
-> - Speaking about your work at events
-> - Delivering your work in person
-> - Reading about all the things you don't know about running a business, like marketing, accounting, and sales
-> - Writing about your work, including about a dozen variations of an artist's statement, which is possibly the least fun thing to write
-> 
-> This adds up to a large percentage of your time, often more time than you get to spend creating artwork.
-> — [Reflections on Five Years of Making Art Through Programming — TYLER HOBBS](https://tylerxhobbs.com/essays/2019/reflections-on-five-years-of-making-art-through-programming)
-
-See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
-
-- [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
-
-### Evidence based scheduling
-
-> The estimation system takes 100 velocities calculated from the developers history. Each velocity is the ratio between estimated time and actual time for a given task.
-> [...]
-> It just means that because the interruption affects the velocity for a certain percentage of the tasks, the interruption will be appropriately represented in estimates that are based on 100 random velocities from the developers history.
-— [Misunderstanding about "Evidence Based Scheduling" in estimation tasks - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/291553/misunderstanding-about-evidence-based-scheduling-in-estimation-tasks)
-
-> Break down the milestones as much as possible
-— [project management - Evidence-Based-Scheduling - are estimations only as accurate as the work-plan they're based on? - Stack Overflow](https://stackoverflow.com/questions/540816/evidence-based-scheduling-are-estimations-only-as-accurate-as-the-work-plan-th)
-
-- [Evidence Based Scheduling - Joel on Software](http://www.joelonsoftware.com/items/2007/10/26.html)
-- [What do you mean ‘we need more time’?? | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2015/10/what-do-you-mean-you-need-more-time/)
-- [How One Startup's Engineering Team Cut their Engineering Release Times in Half](http://tomtunguz.com/engineering-predictability/)
-- [Excel spreadsheets for Evidence Based Scheduling as described by Joel Spolsky](https://github.com/mjwade/spolsky-sheets)
-- [Feature #3595: Evidence Based Scheduling - Redmine](http://www.redmine.org/issues/3595)
-- [Evidence-based Scheduling - evidence-based_scheduling.pdf](https://www.csie.ntu.edu.tw/~hsinmu/courses/_media/ada_11fall/evidence-based_scheduling.pdf)
-
-### Difficulty time estimation
-
-> I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs".
-> 
-> > This was a 30 tab problem. I had to go in deep.
-> 
-> > I solved that one with only 1 tab.
-> – [Uncle Cal on Twitter: "I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs". "This was a 30 tab problem. I had to go in deep." "I solved that one with only 1 tab. " :)"](https://twitter.com/calevans/status/1024371268118872070?s=12)
 
 ## A/B test
 
