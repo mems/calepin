@@ -1582,11 +1582,21 @@ Or use `overflow-wrap: break-word` or `white-space: pre-wrap` to break long line
 
 `<wbr>` and `<br>` can be styled to disable it (ex: with class): `br{content: ""} br::before{content: " "}` (or `br{display: none}`). See also `br{content: ""} br::before{content: "\A\A\A"; white-space: pre}`
 
+```css
+@media(min-wdith: 500px){
+	br{
+		display: none;
+	}
+}
+/* you can also use classes: <br class="br-smallscreen"> <br class="br-largescreen">*/
+```
+
 See also 
 
 > _The Yahoo Style Guide_ recommends **breaking a URL _before_ punctuation**, to avoid leaving a punctuation mark at the end of the line, which the reader might mistake for the end of the URL.
 — [\<wbr\> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr#Example)
 
+- [Šime Vidas on Twitter: "😳 You can conditionally disable \<br\> line breaks via CSS media queries:… "](https://twitter.com/simevidas/status/1170834814259347456?s=12)
 - [My takeaways from Florian Rivoal’s “Line breaking” talk# | Web Platform News](https://webplatform.news/issues/2019-04-01#my-takeaways-from-florian-rivoal-s-line-breaking-talk)
 - [Injecting a Line Break | CSS-Tricks](https://css-tricks.com/injecting-line-break/)
 - [Wrap at sibling's width](http://codepen.io/simurai/pen/evgVvm/) - Wrap text automatically at a sibling element's width
