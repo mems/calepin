@@ -974,8 +974,6 @@ Others (doc, about, etc.):
 - [Accessibility - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility)
 - http://www.nczonline.net/blog/tag/accessibility/
 - [Introduction to Web Accessibility - Course](https://webaccessibility.withgoogle.com/course)
-- "Prefer make website accessible rather than a full support of IE8" https://twitter.com/rikschennink/status/520521059884617728 https://twitter.com/rikschennink/status/521718069052596224
-- http://alistapart.com/article/accessibility-the-missing-ingredient
 - https://www.ssbbartgroup.com/blog/2014/06/05/how-not-to-misuse-aria-states-properties-and-roles/
 - http://rawgithub.com/w3c/aria-in-html/master/index.html
 - http://www.w3.org/TR/html5/dom.html#index-aria-global
