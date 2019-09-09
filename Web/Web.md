@@ -6389,6 +6389,8 @@ Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-in
 
 ## Accessibility
 
+Permanant, 
+
 See [Accessibility](../Development/HTML/HTML.md#accessibility)
 
 - EU: [ETSI EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf "ETSI EN 301 549 – Accessibility requirements for ICT products and services"), require WCAG 2.1 Level AA
@@ -6407,10 +6409,24 @@ See also:
 - [Loi n° 2005-102 du 11 février 2005 pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647&dateTexte=)
 - [Décret n° 2019-768 du 24 juillet 2019 relatif à l'accessibilité aux personnes handicapées des services de communication au public en ligne | Legifrance](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000038811937&categorieLien=id)
 - [Accessibility Law: International Accessibility Regulations – Introduction to Web Accessibility](https://pressbooks.library.ryerson.ca/iwacc/chapter/international-accessibility-regulations-2/)
-- [ARC Toolkit | The Paciello Group (TPG) – Digital Accessibility Solutions](https://www.paciellogroup.com/toolkit/) - Accessibility tool to evaluate screens for accessibility and uncover issues related to the WCAG 2.1 Level A/AA
+
+About support of old browser vs accessibiliy:
+
+- [Support for old browsers — is it necessary? | Bartosz Mikulski](https://www.mikulskibartosz.name/support-for-old-browsers-is-it-necessary/#a-better-challenge)
+- [They are your users • Rik Schennink](http://rikschennink.nl/thoughts/they-are-your-users/)
+- [Rik Schennink on Twitter: "There’s more users with disabilities than people using IE8. Still, we tend to drop accessibility in favour of IE8 support. #fronteers14"](https://twitter.com/rikschennink/status/520521059884617728)
+- "Prefer make website accessible rather than a full support of IE8"
+
+Stats:
+
+- [User Statistics – People with Disabilities | Unrepentant](http://john.foliot.ca/user-statistics-people-with-disabilities/)
+- [Les chiffres-clés du handicap en France | OCIRP](https://www.ocirp.fr/actualites/les-chiffres-cles-du-handicap-en-france)
+- [Personnes handicapées − Tableaux de l'économie française | Insee](https://www.insee.fr/fr/statistiques/2569386?sommaire=2587886#consulter)
+- [Disability facts and figures - GOV.UK](https://www.gov.uk/government/statistics/disability-facts-and-figures)
 
 Tools:
 
+- [ARC Toolkit | The Paciello Group (TPG) – Digital Accessibility Solutions](https://www.paciellogroup.com/toolkit/) - Accessibility tool to evaluate screens for accessibility and uncover issues related to the WCAG 2.1 Level A/AA
 - [AccessiWeb - Accueil](http://www.accessiweb.org/)
 - [The W3C Markup Validation Service](http://validator.w3.org/)
 - [ChromeLens](http://chromelens.xyz/)
@@ -6438,6 +6454,10 @@ Tools:
 - [Css Accessibility Validator](http://elad2412.github.io/css-accessibility-validator/)
 - [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
 - [WAVE Web Accessibility Tool](http://wave.webaim.org/)
+
+Other:
+
+- [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
 
 ## Screensaver
 
