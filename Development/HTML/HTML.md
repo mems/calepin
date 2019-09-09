@@ -265,13 +265,23 @@ See also [Development](Development#naming)
 
 ### IDs for robots
 
-IDs could be used, but (could be) often changed by frontend developers. Instead use a dedicated data attribute, like `<button data-test-role="delete-comment" type="button">Delete comment</button>`
+IDs could be used, but (could be) often changed by frontend developers. Instead use a dedicated data attribute like `data-test-id="20160501013618045733253"` or:
 
+```html
+<article>
+	<p>My comment</p>
+	<button type="button" data-automation-id="comment_a521ef5ce09.delete">Delete comment</button>
+</article>
+```
+
+- E2E, automation tools
 - [Software Testing Article - Data-QA Attribute! A better way to select elements for UI test automation](https://www.utest.com/articles/data-qa-attribute-a-better-way-to-select-elements-for-ui-test-automation)
 - [Best Practices | Cypress Documentation](https://docs.cypress.io/guides/references/best-practices.html#Selecting-Elements)
 - [selenium - Test automation html element selectors. Element ID or DataAttribute - Stack Overflow](https://stackoverflow.com/questions/37492803/test-automation-html-element-selectors-element-id-or-dataattribute)
 - [Using "data-test" in Tests](http://blog.rstankov.com/using-rel-in-testing/)
 - [Making your UI tests resilient to change – kentcdodds](https://blog.kentcdodds.com/making-your-ui-tests-resilient-to-change-d37a6ee37269)
+- [View · React Native](https://facebook.github.io/react-native/docs/view.html#testid) - "`testID`: Used to locate this view in end-to-end tests."
+- [Configuration · Testing Library](https://testing-library.com/docs/dom-testing-library/api-configuration#configuration) - "`testIdAttribute`: [...] Defaults to `data-testid`"
 
 ### Validity of CSS class names and ids
 
