@@ -554,6 +554,11 @@ Use case: person should confirm that he or she is 18+ to proceed to the flow
 
 ### Form validation
 
+> Don’t disable buttons. If a user makes a mistake it won’t be clear what they’ve done wrong.
+> 
+> Always let users click the button, and show an error message if you need to.
+> - [Adam Silver on Twitter: "Don’t disable buttons…" https://t.co/i5nU1LbU1o"](https://twitter.com/adambsilver/status/1170954800374173696?s=12)
+
 **Avoid message under fields.** See [Avoid Messages Under Fields | Adrian Roselli](http://adrianroselli.com/2017/01/avoid-messages-under-fields.html)
 
 Show validation error(s) only after the user enter input (after focus blur), update it then remove it when the error(s) is fixed:
