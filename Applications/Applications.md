@@ -16,6 +16,7 @@ Awesome bar:
 
 ### Source code
 
+- [Phabricator](https://phabricator.services.mozilla.com/)
 - [Viewing and searching Mozilla source code online - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Viewing_and_searching_Mozilla_source_code_online)
 - [mozilla-central - DXR](https://dxr.mozilla.org/mozilla-central/source/)
 - [Firefox DevTools](https://github.com/firefox-devtools)
