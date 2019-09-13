@@ -1823,6 +1823,7 @@ To control static resource version, **use checksum instead of build number**. Wh
 
 Use forever cache (cache immutable) for static resources.
 
+- [HTTP Heuristic Caching (Missing Cache-Control and Expires Headers) Explained – Paul Calvano](https://paulcalvano.com/index.php/2018/03/14/http-heuristic-caching-missing-cache-control-and-expires-headers-explained/)
 - [Un tutoriel de la mise en cache pour les auteurs Web et les webmestres](https://www.mnot.net/cache_docs/)
 - [Increasing Application Performance with HTTP Cache Headers | Heroku Dev Center](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
 - https://restpatterns.mindtouch.us/Articles/Caching_Matters
