@@ -703,6 +703,7 @@ See also [API](../Development/Development.md#api)
 
 Infos and docs:
 
+- [How to design a REST API | OCTO Talks !](https://blog.octo.com/en/design-a-rest-api/)
 - [Web API - Wikipedia](https://en.wikipedia.org/wiki/Web_API)
 - [API designs for low-connectivity | OCTO Talks !](https://blog.octo.com/en/api-designs-for-low-connectivity/) - How to handle API calls when the network fail
 - [How To Design Better JavaScript APIs – Smashing Magazine](https://www.smashingmagazine.com/2012/10/designing-javascript-apis-usability/)
