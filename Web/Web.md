@@ -1452,6 +1452,10 @@ Tools (audit, checklist, benchmark, best practices, etc.):
 
 ### Reduce bytes
 
+> http://www.haratetsuo.com/wp-content/themes/haratetsuo2018_cms_v2/images/ico/arrow.svg
+> The 30MB SVG image is a simple arrow! It's served uncompressed (gzipped would be 24MB and brotli would be 3.8MB). It contains 82 base64 encoded JPG images (one per image size). There are only 10 unique base64 images encoded in the file, so a lot of repetition...  
+> [Paul Calvano on Twitter: "Exactly! The 30MB SVG image is a simple arrow!… https://t.co/ci2hz7WpLI"](https://twitter.com/paulcalvano/status/1164466648260198400)
+
 > The fastest byte is a byte not sent.
 — Ilya Grigorik http://chimera.labs.oreilly.com/books/1230000000545
 
