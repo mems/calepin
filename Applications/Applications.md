@@ -21,6 +21,12 @@ Awesome bar:
 - [mozilla-central - DXR](https://dxr.mozilla.org/mozilla-central/source/)
 - [Firefox DevTools](https://github.com/firefox-devtools)
 
+### Dev tools
+
+- [client · mozilla-central](https://phabricator.services.mozilla.com/source/mozilla-central/browse/default/devtools/client/;4e6dd979ed238a6c0be55ecfb8a42d6ca417d865)
+- [protocol.md - mozsearch](https://searchfox.org/mozilla-central/source/devtools/docs/backend/protocol.md)
+- [Remote Debugging Protocol · GitBook](https://docs.firefox-dev.tools/backend/protocol.html)
+
 ### Network debug
 
 - [HTTP logging - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/HTTP_logging)
@@ -63,6 +69,16 @@ For the list of trusted URIs, see:
 - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains`
 - [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users)
 - [How to configuring IE Site Zone mapping using group policy without locking out the user](http://www.grouppolicy.biz/2012/07/how-to-configuring-ie-site-zone-mapping-using-group-policy-without-locking-out-the-user/)
+
+## Safari
+
+### Source code
+
+- [trunk dans webkit. – WebKit](http://trac.webkit.org/browser/webkit/trunk)
+
+### Dev tools
+
+- [WebInspectorUI dans webkit/trunk/Source. – WebKit](http://trac.webkit.org/browser/trunk/Source/WebInspectorUI)
 
 ## Thunderbird
 
@@ -268,10 +284,14 @@ Redirect UDP 28960
 
 ### Source code
 
-- [ChromeDevTools](https://github.com/ChromeDevTools)
-- [Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/)
 - [chromium Git repositories - Git at Google](https://chromium.googlesource.com/)
 - [Code Search](https://cs.chromium.org/)
+
+### Dev tools
+
+- [ChromeDevTools](https://github.com/ChromeDevTools)
+- [Chrome DevTools Protocol Viewer - latest (tip-of-tree)](https://chromedevtools.github.io/devtools-protocol/tot/)
+- [GoogleChrome/puppeteer: Headless Chrome Node.js API](https://github.com/GoogleChrome/puppeteer)
 
 ### Network debug
 
