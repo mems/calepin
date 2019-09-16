@@ -2749,6 +2749,8 @@ Others links:
 - [Third-Party Script Prevalence on Alexa Top 50 | Trent Walton](http://trentwalton.com/notes/2018/01/23/third-party-script-prevalence-on-alexa-top-50.html)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/)
 - [Performance Calendar » Reducing Single Point of Failure using Service Workers](https://calendar.perfplanet.com/2015/reducing-single-point-of-failure-using-service-workers/) - Block slow third-party with service worker
+- [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5) - "delete old third party scripts and see if anyone complains"
+- [After GDPR, The New York Times cut off ad exchanges in Europe - and kept growing ad revenue - Digiday](https://digiday.com/media/gumgumtest-new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/) - "serving regular, un-targeted ads could actually increase revenue"
 
 ## Detection
 
