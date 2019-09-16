@@ -3096,12 +3096,15 @@ Software and hardware:
 	* [Samy Kamkar - evercookie - virtually irrevocable persistent cookies](http://samy.pl/evercookie/) and [samyk/evercookie: Produce persistent, respawning "super" cookie in a browser, abusing over a dozen techniques. It goal i to identify user after they've removed standard cookie and other privacy data such a Flash cookie (LSOs), HTML5 storage, SilverLight storage, and others.](https://github.com/samyk/evercookie)
 - Mouse move and mouse wheel deltas
 - History via
-	* CSS `:visited` selector (before March 2010) https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector [Jeremiah Grossman: I know where you've been](http://blog.jeremiahgrossman.com/2006/08/i-know-where-youve-been.html)
-	* HSTS (detect to detect history of HTTPS visited websites using HSTS)
+	- CSS `:visited` selector (before March 2010) https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector [Jeremiah Grossman: I know where you've been](http://blog.jeremiahgrossman.com/2006/08/i-know-where-youve-been.html)
+	- HSTS (detect to detect history of HTTPS visited websites using HSTS)
 		- [Sniffy](https://zyan.scripts.mit.edu/sniffly/) and https://github.com/diracdeltas/sniffly
 		- [RadicalResearch HSTS Super Cookies](http://www.radicalresearch.co.uk/lab/hstssupercookies)
-	* cache systems (ServiceWorkers, HTTP headers ETags, etc.)
-	* cross domain cookies
+		- [Anatomy of a browser dilemma – how HSTS ‘supercookies’ make you choose between privacy or security – Naked Security](https://nakedsecurity.sophos.com/2015/02/02/anatomy-of-a-browser-dilemma-how-hsts-supercookies-make-you-choose-between-privacy-or-security/)
+		- [Protecting Against HSTS Abuse | WebKit](https://webkit.org/blog/8146/protecting-against-hsts-abuse/)
+		- [Criteo’s Shares Plummet on Revenue Forecast - WSJ](https://www.wsj.com/articles/criteos-shares-plummet-on-revenue-forecast-1513279308) - "using HTTP Strict Transport Security Protocol, usually used to secure web connections, allowed it to create a user ID without cookies"
+	- cache systems (ServiceWorkers, HTTP headers ETags, etc.)
+	- cross domain cookies
 - system/browser files (load with iframe src, etc.): `res://C:\\Program Files\\Fiddler2\\Fiddler.exe/#3/#32512`, `chrome://ghostery/content/options.html`, `resource:///defaults/preferences/firefox.js`
 	* [863246 – resource:// URIs leak information](https://bugzilla.mozilla.org/show_bug.cgi?id=863246)
 	* https://github.com/beefproject/beef/wiki/Module:-browser-fingerprint
@@ -3123,7 +3126,6 @@ Software and hardware:
 
 	- use [`SameSite`](https://www.owasp.org/index.php/SameSite) cookies
 	- [Your Social Media Fingerprint](https://robinlinus.github.io/socialmedia-leak/)
-- HTTP Strict Transport Security Protocol allowed to create a user ID without cookies: [Protecting Against HSTS Abuse | WebKit](https://webkit.org/blog/8146/protecting-against-hsts-abuse/), [Criteo’s Shares Plummet on Revenue Forecast - WSJ](https://www.wsj.com/articles/criteos-shares-plummet-on-revenue-forecast-1513279308)
 - The feature, font used in a document can used to detect the original creation date / year
 	- [Les polices de caractères incorporées dans des outils comme Office pourraient servir d'indicateurs, pour détecter les fraudeurs](https://www.developpez.com/actu/149640/Les-polices-de-caracteres-incorporees-dans-des-outils-comme-Office-pourraient-servir-d-indicateurs-pour-detecter-les-fraudeurs/)
 	- [Dani Rodrik's weblog: Did Microsoft steal its fonts from the Turkish army?](http://rodrik.typepad.com/dani_rodriks_weblog/2012/10/did-microsoft-steal-its-fonts-from-the-turkish-army.html)
