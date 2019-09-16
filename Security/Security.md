@@ -3117,9 +3117,13 @@ Software and hardware:
 - third party autentification
 	Use login auth mecanisms to detect if the user is logged in:
 	
-		<img onload="alert('logged in to Facebook')" onerror="alert('not logged in to Facebook')" src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">
+	```html
+	<img onload="alert('logged in to Facebook')" onerror="alert('not logged in to Facebook')" src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">
+	```
 
-	* [Your Social Media Fingerprint](https://robinlinus.github.io/socialmedia-leak/)
+	- use [`SameSite`](https://www.owasp.org/index.php/SameSite) cookies
+	- [Your Social Media Fingerprint](https://robinlinus.github.io/socialmedia-leak/)
+- HTTP Strict Transport Security Protocol allowed to create a user ID without cookies: [Protecting Against HSTS Abuse | WebKit](https://webkit.org/blog/8146/protecting-against-hsts-abuse/), [Criteo’s Shares Plummet on Revenue Forecast - WSJ](https://www.wsj.com/articles/criteos-shares-plummet-on-revenue-forecast-1513279308)
 - The feature, font used in a document can used to detect the original creation date / year
 	- [Les polices de caractères incorporées dans des outils comme Office pourraient servir d'indicateurs, pour détecter les fraudeurs](https://www.developpez.com/actu/149640/Les-polices-de-caracteres-incorporees-dans-des-outils-comme-Office-pourraient-servir-d-indicateurs-pour-detecter-les-fraudeurs/)
 	- [Dani Rodrik's weblog: Did Microsoft steal its fonts from the Turkish army?](http://rodrik.typepad.com/dani_rodriks_weblog/2012/10/did-microsoft-steal-its-fonts-from-the-turkish-army.html)
