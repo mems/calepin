@@ -36,6 +36,13 @@ RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](Command 
 
 - [Hardening access to your Synology Diskstation, be prepared – Q&D](https://www.wijngaard.org/hardening-access-to-your-synology-diskstation-and-prepare/)
 
+### TLS Certificates
+
+- `/usr/syno/sbin/syno-letsencrypt-vv renew-all` `/usr/syno/etc/certificate/_archive/sP0YM1/cert.pem`
+- [Certificate | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/connection_certificate)
+- [Challenge Types - Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/docs/challenge-types/)
+- [Reparlons de Let’s Encrypt - LinuxFr.org](https://linuxfr.org/news/reparlons-de-let-s-encrypt#lauthentification-http-01)
+
 ## SSH
 
 root is the admin user

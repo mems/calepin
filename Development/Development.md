@@ -71,14 +71,16 @@ See also:
 
 ## Reasons why code breaks
 
-- Code is Untested: Back your code with **automated tests**!
-- Code Does Not Report Errors: Use **exception reporting** mechanisms like services that collect live crash reports
-- Code Remains Isolated too Long: Integrate often! Make **continuous integration** part of your development workflow.
-- Code is Developed in Isolation: Consider **pair programming** and/or regular **code reviews** to share "code ownership".
-- Code Solves Problems That Aren't There: Make sure you **don't overengineer**. Keep things as simple as possible.
-- Code Reinvents the Wheel: Keep your eyes open for good **third-party libraries** that have stood the test in other projects already.
-- Code Depends on too Many External Pieces: Use **third-party libraries** only when you're convinced that they are of high quality - and you really need them.
-- Code is Not Actively Maintained: Schedule time for regular **refactorings**.
+> QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.
+
+- code is untested: back your code with **automated tests**!
+- code does not report errors: use **exception reporting** mechanisms like services that collect live crash reports
+- code remains isolated too long: integrate often! Make **continuous integration** part of your development workflow.
+- code is developed in isolation: consider **pair programming** and/or regular **code reviews** to share "code ownership".
+- code solves problems that aren't there: make sure you **don't overengineer**. Keep things as simple as possible.
+- code reinvents the wheel: keep your eyes open for good **third-party libraries** that have stood the test in other projects already.
+- code depends on too many external pieces: use **third-party libraries** only when you're convinced that they are of high quality - and you really need them.
+- code is not actively maintained: schedule time for regular **refactorings**.
 
 > Arriving at stable, secure code is mostly a question of discipline. Professional tools and workflows can help a lot in avoiding the most common problems (and catastrophes).
 
@@ -86,8 +88,9 @@ See also:
 
 ### Mysterous reasons
 
-- [You can't enter text in the body of email messages in Outlook on the web in Internet Explorer](https://support.microsoft.com/en-us/kb/2935743) You can't type emails. It might be the antivirus, needed to be disabled.
+- [You can't enter text in the body of email messages in Outlook on the web in Internet Explorer](https://support.microsoft.com/en-us/kb/2935743) - You can't type emails. It might be the antivirus, needed to be disabled.
 - [Software Folklore ― Andreas Zwinkau](http://beza1e1.tuxen.de/lore/)
+- [The Order of the JSON – Dion Almaer](https://blog.almaer.com/the-order-of-the-json/) - JSON keys almost cost a project millions of dollars and months of time
 
 ## Latency numbers
 

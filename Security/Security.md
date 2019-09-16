@@ -922,7 +922,10 @@ TLS JavaScript Implementation
 
 Note: Root certificate can be compromises (by a malware, by the manufacturer, etc.) on the client machine.
 
-- [Still think you don't need HTTPS?](https://scotthelme.co.uk/still-think-you-dont-need-https/)
+- [SSL Server Test (Powered by Qualys SSL Labs)](https://www.ssllabs.com/ssltest/)
+- [HTTPS encryption on the web – Google Transparency Report](https://transparencyreport.google.com/https/certificates?cert_search_auth=&cert_search_cert=&cert_search=include_expired:true;include_subdomains:false&lu=cert_search)
+- [Reparlons de Let’s Encrypt - LinuxFr.org](https://linuxfr.org/news/reparlons-de-let-s-encrypt#lauthentification-http-01)
+- [Challenge Types - Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/docs/challenge-types/)
 - [Transport Layer Security — Wikipedia](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 - [Public key cryptography - Diffie-Hellman Key Exchange](Public%20key%20cryptography%20-%20Diffie-Hellman%20Key%20Exchange%20%28full%20version%29%20%28480p%29.mp4)
 - [PinPatrol :: Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/pinpatrol/) shows HSTS and HPKP domains stored by the browser
@@ -939,6 +942,7 @@ Note: Root certificate can be compromises (by a malware, by the manufacturer, et
 - [HTTPS : de SSL à TLS 1.3 | Openweb.eu.org](https://openweb.eu.org/articles/https-de-ssl-a-tls-1-3)
 - [How to Use SSL/TLS with Node.js — SitePoint](https://www.sitepoint.com/how-to-use-ssltls-with-node-js/)
 - [Understanding the Limitations of HTTPS | text/plain](https://textslashplain.com/2018/02/14/understanding-the-limitations-of-https/)
+- [Still think you don't need HTTPS?](https://scotthelme.co.uk/still-think-you-dont-need-https/)
 - [Why do we need HTTPS? - How HTTPS works](https://howhttps.works/why-do-we-need-https/)
 
 ###### Self-signed certificate
