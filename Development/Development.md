@@ -115,7 +115,9 @@ Aka multiplayer game, streaming, RTS game
 > The more things you have to special case, the worse your code is
 — [Lea Verou](https://twitter.com/LeaVerou/status/816271623619825664)
 
-Magic = complexity. With react, jsx is magic
+Magic = complexity. With react, JSX is magic
+
+- [Pourquoi les développeurs détestent-ils le low-code ? - Le Monde Informatique](https://www.lemondeinformatique.fr/actualites/lire-pourquoi-les-developpeurs-detestent-ils-le-low-code-76497.html)
 
 ## The wrong way
 
