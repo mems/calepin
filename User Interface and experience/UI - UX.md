@@ -325,6 +325,8 @@ See [Buttons vs links](HTML#buttons-vs-links)
 
 - [Tips for Using Icons in Your App](https://uxplanet.org/tips-for-using-icons-in-your-app-541a6728e7d4#)
 - [How to Conduct Icon Usability Testing (and Do Icons Even Improve Usability?)](https://conversionxl.com/icon-usability-testing/?ref=quuu&utm_content=buffer182c0&utm_medium=social&utm_source=plus.google.com&utm_campaign=buffer)
+- [UX Considerations for Web Sharing | CSS-Tricks](https://css-tricks.com/ux-considerations-for-web-sharing/#article-header-id-2)
+- [The Iconography of Sharing - Microsoft Design - Medium](https://medium.com/microsoft-design/the-iconography-of-sharing-183a1ad9c6f1)
 
 ## Font size
 
