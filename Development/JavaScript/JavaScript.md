@@ -7037,6 +7037,10 @@ Older version:
 
 - https://github.com/dirkbonhomme/infinite-timeout
 
+## Time precision
+
+- [Metronomes in JavaScript – Monica Dinculescu](https://meowni.ca/posts/metronomes/)
+
 ## Popup
 
 > browsers allow web pages to open popups in response to a particular set of events: for example, click, mouseup, submit.

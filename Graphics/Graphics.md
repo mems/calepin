@@ -334,6 +334,10 @@ Example, Live2D Euclid (use multiple layers and project it using [Orthographic p
 - [Gamasutra - Dynamic 2D Imposters: A Simple, Efficient DirectX 9 Implementation](http://www.gamasutra.com/view/feature/130911/dynamic_2d_imposters_a_simple_.php)
 - [Simsville buildings - YouTube](https://www.youtube.com/watch?v=mtzz9FQ583A) - see [Decorating buildings in SimCity4](http://oceanquigley.blogspot.fr/2010/03/decorating-buildings-in-simcity4.html)
 
+## Trail
+
+- [Crafting Stylised Mouse Trails With OGL | Codrops](https://tympanus.net/codrops/2019/09/24/crafting-stylised-mouse-trails-with-ogl/)
+
 ## Glass
 
 - [Thick Glass with Floating-Point Textures at The Little Grasshopper](http://prideout.net/blog/?p=51)

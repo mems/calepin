@@ -253,28 +253,32 @@ Use both `max-[width|height]` and `max-device-[width|height]`. Or `max-[width|he
 
 - "Device pixel ratio" or "Device pixel density" or resolution
 - "Physical pixel" or "Native pixel"
- 
-	logical pixel x device pixel ratio = physical pixel
 
-	/* 2 or more physical pixel per logical px */
-	@media (-webkit-min-device-pixel-ratio: 2)/* Webkit */,
-		(min-resolution: 192dpi),/* IE, Safari */
-		(min-resolution: 2dppx)/* Everyone else */{
-		selector{
-			background-image: url("image_2x.png");
-			/* or image.2x.png image-2x.png image@2x.png */
-		}
+```
+logical pixel x device pixel ratio = physical pixel
+```
+
+```css
+/* 2 or more physical pixel per logical px */
+@media (-webkit-min-device-pixel-ratio: 2)/* Webkit */,
+	(min-resolution: 192dpi),/* IE, Safari */
+	(min-resolution: 2dppx)/* Everyone else */{
+	selector{
+		background-image: url("image_2x.png");
+		/* or image.2x.png image-2x.png image@2x.png */
 	}
-	
-	/* A better rule: 1.25 physical pixel per logical px */
-	/* remove rules when dppx is supported by all major browsers */
-	@media (-webkit-min-device-pixel-ratio: 1.25),/* Webkit */
-		(min-resolution: 120dpi),/* IE, Safari */
-		(min-resolution: 1.25dppx)/* Everyone else */{ 
-		selector{
-			background-image: url("image.png");
-		}
+}
+
+/* A better rule: 1.25 physical pixel per logical px */
+/* remove rules when dppx is supported by all major browsers */
+@media (-webkit-min-device-pixel-ratio: 1.25),/* Webkit */
+	(min-resolution: 120dpi),/* IE, Safari */
+	(min-resolution: 1.25dppx)/* Everyone else */{ 
+	selector{
+		background-image: url("image.png");
 	}
+}
+```
 
 Use `dppx` instead of `dpi`, but it's not currently supported everywhere
 
@@ -869,6 +873,7 @@ Can be required for IE for inline SVG too.
 
 Use `flex-direction: column;` on `tr`. But don't handle well cell with different height.
 
+- [Designing Complex Responsive Tables In WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/09/designing-complex-responsive-tables-wordpress/)
 - [Flexible data tables with CSS Grid](https://adamlynch.com/flexible-data-tables-with-css-grid/)
 - [CSS only Responsive Tables](http://codepen.io/dbushell/pen/wGaamR)
 - [CSS only Responsive Tables – David Bushell – Web Design & Front-end Development (based in Manchester, UK)](http://dbushell.com/2016/03/04/css-only-responsive-tables/)
@@ -3109,21 +3114,24 @@ For colors, use explicit named color name `--light-blue` (`$light-blue`). **Don'
 If you need to use an other color globally, rename the variable to match to the new color name. Otherwise (the color is needed locally), create a new variable an use it.
 Note: some keywords already exist: `white`, `black`, etc. See [color keywords](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords)
 
-	<button type="button" onclick="click()">Click me</button>
-	<style>
-	:root{
-		--cond: root.style.background = x ? "rebeccapurple" : "oldenrod";
+```html
+<button type="button" onclick="click()">Click me</button>
+<style>
+:root{
+	--cond: root.style.background = x ? "rebeccapurple" : "oldenrod";
+}
+</style>
+<script>
+	let x = false;
+	let condSrc = getComputedStyle(document.querySelector(":root")).getPropertyValue('--cond');
+	function click(){
+		x = !x;
+		eval(condSrc);
 	}
-	</style>
-	<script>
-		let x = false;
-		let condSrc = getComputedStyle(document.querySelector(":root")).getPropertyValue('--cond');
-		function click(){
-			x = !x;
-			eval(condSrc);
-		}
-	</script>
+</script>
+```
 
+- [Logical Operations with CSS Variables | CSS-Tricks](https://css-tricks.com/logical-operations-with-css-variables/)
 - [pixelass/hphn: A collection of intersing concepts using css variables.](https://github.com/pixelass/hphn)
 - [CSS custom properties (native variables) In-Depth](https://blog.hospodarets.com/css_properties_in_depth)
 - [Variables: The Backbone Of CSS Architecture – Smashing Magazine](https://www.smashingmagazine.com/2016/01/variables-in-css-architecture/)

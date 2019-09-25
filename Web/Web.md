@@ -1467,6 +1467,8 @@ Reduce page weight can give a (wrong) feedback about the page load time increase
 Blocking deliberately or unintentionally device or connection capacities (browser version) will give wrong feedback about "users don't use old browser" (because they can't) or "users don't have slow connection" (because page can't load in decent time)
 See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matters).
 
+- [Speeding up the web with the Save-Data header - Frontend Web Developer, Oxfordshire, UK - Matt Hobbs](https://nooshu.github.io/blog/2019/09/01/speeding-up-the-web-with-save-data-header/)
+
 **Always reduce before encrypt** (aka always compress before encode), not the inverse:
 
 - [Appcanary: Should you encrypt or compress first?](http://blog.appcanary.com/2016/encrypt-or-compress.html)
