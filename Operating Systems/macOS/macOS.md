@@ -2425,6 +2425,7 @@ Add to `/System/Library/Spotlight/RichText.mdimporter/Contents/info.plist` (get 
 Will ask username / password for shared printer, use Windows auth credentials or `guest` for the **username and password**. If not asked, delete the entry of password in keychain app
 
 - [On Hold - Authentication Error - Printing in OS... | Apple Support Communities](https://discussions.apple.com/message/16442328#16442328)
+- [macos - How to add a network printer on mac that requires authentication - Ask Different](https://apple.stackexchange.com/questions/312882/how-to-add-a-network-printer-on-mac-that-requires-authentication/312886#312886) - Add advanced network printer via smb://someaddress/Some%20printer%20name URLs
 
 ## Calendar and contact accounts
 
