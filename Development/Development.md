@@ -236,6 +236,10 @@ Notes:
 - Java: underscores to dashes, reorder script to be at the end, `iw` to `he`, `in` to `id`, `hi` has no language-only variant, only `hi-IN`
 - ICU, Java and .Net don't use exact same locale IDs [Complete List](http://www.localeplanet.com/compare/all.html). See also [Compare Locale Data Sources](http://www.localeplanet.com/compare/index.html)
 
+## Snippet
+
+- [Programming Idioms](https://www.programming-idioms.org/)
+
 ## Slugify
 
 Normalize first ("NFD"), remove all non A-Za-z chars
