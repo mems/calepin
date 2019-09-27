@@ -6331,9 +6331,9 @@ If your JS need a resource but it's disallow but the third party (does not allow
 
 ## Server logging
 
-	X-ChromeLogger-Data: jsonbase64data
-
-- [Chrome Logger - Server side application debugging](https://craig.is/writing/chrome-logger)
+- [Chrome Logger - Server side application debugging](https://craig.is/writing/chrome-logger) - use `X-ChromeLogger-Data: jsonbase64data`
+- [eshengsky/ServerLog: A simple, practical, and innovative Node.js log library that enables you to view logs in Chrome dev tools.](https://github.com/eshengsky/ServerLog) - use `X-Server-Log-Data`
+- [Server Side Event](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 
 ## Server timing
 
