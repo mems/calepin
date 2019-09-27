@@ -469,7 +469,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 
 ## Source code organisation
 
-	/build (bin|export) - a (pre-)compiled version of your library/app 
+	/build (bin|export|dist) - a (pre-)compiled version of your library/app 
 	/docs (documentation) - possibly in .md .html or .txt so no compiling is needed in order to read them
 		/{ISO 639-1 code} - if localized docs
 	/examples - demos of your library or sample files
