@@ -295,16 +295,20 @@ See [Responsive typography](#responsive-typography)
 
 ### Reduced motion
 
-	@media (prefers-reduced-motion){
-		/* *{transition: none !important; animation: none !important;} */
-	}
+```css
+@media (prefers-reduced-motion){
+	/* *{transition: none !important; animation: none !important;} */
+}
+```
 
 ## `orientation` change when an input is focused
 
-	/* landscape (but with a minimum aspect ratio 3/2) to not show it on Android portrait when the keyboard is open */
-	@media (min-aspect-ratio: 3/2) {
-		
-	}
+```css
+/* landscape (but with a minimum aspect ratio 3/2) to not show it on Android portrait when the keyboard is open */
+@media (min-aspect-ratio: 3/2) {
+	
+}
+```
 
 Can test `screen.orientation`
 
@@ -3365,6 +3369,11 @@ See [detect touch device](JS#detect-touch-device)
 - [The Good & Bad of Level 4 Media Queries | Blog | Stu Cox](http://www.stucox.com/blog/the-good-and-bad-of-level-4-media-queries/)
 - [Media Query Level 4 Specs](http://drafts.csswg.org/mediaqueries/#hover)
 - [Touch Devices Should Not Be Judged By Their Size | CSS-Tricks](https://css-tricks.com/touch-devices-not-judged-size/)
+
+## Full element clickable
+
+- [Block level link](../HTML/HTML.md#Block%20level%20link)
+- [Create a semantic “breakout” button to make an entire element clickable - Andy Bell](https://hankchizljaw.com/wrote/create-a-semantic-breakout-button-to-make-an-entire-element-clickable/)
 
 ## Don't reveal element with hover
 

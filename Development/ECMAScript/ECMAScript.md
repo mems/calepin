@@ -2379,11 +2379,34 @@ Compare a date with an invalid one is always falsy: `new Date() => new Date("")`
 
 Aka clean
 
-	[0, 1, undefined, , 2, NaN, 3, null].filter(value => typeof value == "number" && value === value);// -> [0, 1, 2, 3] keep only (real) numbers
+```js
+[0, 1, undefined, , 2, NaN, 3, null].filter(value => typeof value == "number" && value === value);// -> [0, 1, 2, 3] keep only (real) numbers
+```
 
-	[0, 1, undefined, , 2, NaN, 3, null].filter(Boolean); //-> [1, 2, 3]
+```js
+[0, 1, undefined, , 2, NaN, 3, null].filter(Boolean); //-> [1, 2, 3]
+```
 
-	[false, 0, null, undefined, ,].filter(value => !Number.isNaN(value) && value !== null && value !== undefined && value !== "");// -> [false, 0]
+```js
+[false, 0, null, undefined, ,].filter(value => !Number.isNaN(value) && value !== null && value !== undefined && value !== "");// -> [false, 0]
+```
+
+## Filter and map at the same time
+
+```js
+const persons = [
+  {name: 'John', age: 73}, 
+  {name: 'Alex', age: 3},
+  {name: 'Jane', age: 22}, 
+];
+const adultNames = persons.flatMap(p => p.age >= 18 ? p.name : []);
+// same as:
+// persons.filter(p => p.age >= 18).map(p => p.name);
+```
+
+Note: `flatMap()` expects to see non-array entries as well as array entries
+
+- [Arrays (`Array`) • JavaScript for impatient programmers](https://exploringjs.com/impatient-js/ch_arrays.html#flatmap-mapping-to-zero-or-more-values)
 
 ## Thousands separators
 

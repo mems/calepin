@@ -15,6 +15,11 @@ Pixel aligned on H.264/AVC which use 16×16 macroblocks (partition size predicti
 - [Video Optimization – A matter of Adaptivity | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2016/05/04/video-optimization-a-matter-of-adaptivity/)
 - [Smart content encoding at VEVO](http://blog.vevo.com/smart-content-encoding-at-vevo/) - How to choose video size + bitrate: make stats
 
+### GPU texture codec
+
+- [Texture format](../Texture%20format/Texture%20format.md)
+- [BinomialLLC/basis_universal: Basis Universal GPU Texture Codec](https://github.com/BinomialLLC/basis_universal)
+
 ## Frame types
 
 [APNG](PNG#apng) use one one I-Frame + P‑frame (base on the I-Frame only) with blend mode

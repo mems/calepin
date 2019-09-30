@@ -5,6 +5,7 @@
 - [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
 - [Moving to HTTPS on WordPress | CSS-Tricks](https://css-tricks.com/moving-to-https-on-wordpress/)
 - [Editing wp-config.php « WordPress Codex](https://codex.wordpress.org/Editing_wp-config.php)
+- [WordPress Developer Resources | Official WordPress Developer Resources](https://developer.wordpress.org/)
 
 ## Composer
 

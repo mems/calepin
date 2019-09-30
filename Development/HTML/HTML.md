@@ -1151,7 +1151,7 @@ If list of slides are visible:
 	<!-- aria-valuenow should not defined if the progress is undetermined -->
 	<p id="indicatorID" aria-busy="true" role="progressbar or status">status message</p>
 	
-	<!-- aria-busy should be true until load complete (or error). For load error, set aria-invalid=true -->
+	<!-- aria-busy should be true until load complete (or error). For load error, set aria-invalid=true --></
 	<div id="contentID" aria-describedby="indicatorID" aria-live="polite" aria-busy="true">content will be updated</div>
 
 - http://www.w3.org/TR/wai-aria/roles#progressbar
@@ -2719,7 +2719,9 @@ Some peoples use only a series of links in a paragraph ([in a previous - draft v
 		</nav>
 	</body>
 
-## Block level links (anchors, `a`, block link)
+## Block level link
+
+Aka anchors, `a`, block link
 
 HTML5 allow to wrap multiple elements with a link
 
@@ -2757,6 +2759,13 @@ Link as wrapper / block-level link:
 	</article>
 
 - [“Block-level” links in HTML5 | HTML5 Doctor](http://html5doctor.com/block-level-links-in-html-5/)
+- [Full element clickable](../CSS/CSS.md#Full%20element%20clickable)
+
+### Nested link
+
+- [Nested Links | CSS-Tricks](https://css-tricks.com/nested-links/)
+- [Nested Links Without Nesting Links — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/nested-links/)
+- [Nested Links](https://www.kizu.ru/nested-links/) (depreciated solution)
 
 ## `figure` element
 

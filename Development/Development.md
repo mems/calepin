@@ -527,7 +527,10 @@ See [Check hash and keys leak or reversed (hashes)](Security#hash-and-keys)
 
 ### Monorepo
 
+> Most developers can view and propose changes to files anywhere across the entire codebase, with only a few exceptions
+
 - [Don't ask if a monorepo is good for you – ask if you're good enough for a monorepo](https://yosefk.com/blog/dont-ask-if-a-monorepo-is-good-for-you-ask-if-youre-good-enough-for-a-monorepo.html) - [Monorepo is great if you're really good | Hacker News](https://news.ycombinator.com/item?id=20565017)
+- [Why Google Stores Billions of Lines of Code in a Single Repository | July 2016 | Communications of the ACM](https://cacm.acm.org/magazines/2016/7/204032-why-google-stores-billions-of-lines-of-code-in-a-single-repository/fulltext) - [Why Google Stores Billions of Lines of Code in a Single Repository – Google AI](https://ai.google/research/pubs/pub45424)
 
 ### Version message
 
@@ -679,6 +682,10 @@ Aka model, storage
 - [NoSQL Data Modeling Techniques – Highly Scalable Blog](https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/)
 
 See also [CMS](Web#cms)
+
+## Coding font
+
+- [microsoft/cascadia-code: This is a fun, new monospaced font that includes programming ligatures and is designed to enhance the modern look and feel of the Windows Terminal.](https://github.com/microsoft/cascadia-code)
 
 ## Outline
 
