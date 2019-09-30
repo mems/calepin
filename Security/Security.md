@@ -972,55 +972,55 @@ Self-signed CA vs self-signed certificate:
 Note: Android require Basic constraints extension ("CA flag") to be set to `TRUE`.
 Note: Chrome 58 and Firefox 48 require Subject Alternative Name (SAN) (`subjectAltName`) for the domain(s) name(s), to define all domains used by this certificate
 
-<detail>
+<details>
 <summary>
-Create a trusted certificate on Windows
+How to create a trusted certificate on Windows
 </summary>
 	
 Create a trusted certificate:
 
-    open "Microsoft Management Console (MMC)" (Run/Win+R "mmc", then OK)
-    if required:
-        click "File > Add/Remove Snap-in"
-        select "Certificats", click "Add >"
-        select "Computer Account"
-        click "Next" then "Finish" then "OK"
-    expand "Certificates (Local Computer) > Personal > Certificates" and right click on it, then "All Tasks > Advanced Operations > Create Custom Request..."
-    click "Next"
-    select "Proceed without enrollment policy", click "Next"
-    click "Next" (keep default: template "(No template) CNG Key", and request format "PCKS #10")
-    click "Details", "Properties"
-    set "Friendly name", like your computer name or "sgewXXXX.hq.fr.fnac.group"
-    in "Subject" tab:
-        in subject name, select "Common name" and set the value to sgewXXXX.hq.fr.fnac.group, then click "Add >"
-        in alternative name, select "DNS" ans set the value to sgewXXXX.hq.fr.fnac.group, then click "Add >"
-        in alternative name, select "DNS" ans set the value to *.fnac.fd-dev.net, then click "Add >"
-    in "Extensions" tab:
-        in "Extended Key Usage (application policies)" section, select "Server Authentification", then click "Add >"
-        in "Basic Constraints" section, check "Enable this extension"
-    in "Private Key" tab:
-        in "Key options" section, check "Make private key exportable"
-        in "Select Hash Algorithm" section, choose a "Hash Algorithm" (use SHA-2: sha256, sha384 or sha512)
-    click "OK", "Next"
-    browser and set a file name
-    in "Certificate Enrollment Requests > Certificats", select the created certificate and cut
-    past it in "Personnal > Certificates" and copy + past it in "Trusted Root Certification Authorities > Certificates"
+1. open "Microsoft Management Console (MMC)" (Run/Win+R "mmc", then OK)
+2. if required:
+	1. click "File > Add/Remove Snap-in"
+	2. select "Certificats", click "Add >"
+	3. select "Computer Account"
+	4. click "Next" then "Finish" then "OK"
+3. expand "Certificates (Local Computer) > Personal > Certificates" and right click on it, then "All Tasks > Advanced Operations > Create Custom Request..."
+4. click "Next"
+5. select "Proceed without enrollment policy", click "Next"
+6. click "Next" (keep default: template "(No template) CNG Key", and request format "PCKS #10")
+7. click "Details", "Properties"
+8. set "Friendly name", like your computer name or "sgewXXXX.hq.fr.fnac.group"
+9. in "Subject" tab:
+	1. in subject name, select "Common name" and set the value to `sgewXXXX.hq.fr.fnac.group`, then click "Add >"
+	2. in alternative name, select "DNS" ans set the value to `sgewXXXX.hq.fr.fnac.group`, then click "Add >"
+	3. in alternative name, select "DNS" ans set the value to `*.fnac.fd-dev.net`, then click "Add >"
+10. in "Extensions" tab:
+	1. in "Extended Key Usage (application policies)" section, select "Server Authentification", then click "Add >"
+	2. in "Basic Constraints" section, check "Enable this extension"
+11. in "Private Key" tab:
+	1. in "Key options" section, check "Make private key exportable"
+	2. in "Select Hash Algorithm" section, choose a "Hash Algorithm" (use SHA-2: sha256, sha384 or sha512)
+12. click "OK", "Next"
+13. browser and set a file name
+14. in "Certificate Enrollment Requests > Certificats", select the created certificate and cut
+15. past it in "Personnal > Certificates" and copy + past it in "Trusted Root Certification Authorities > Certificates"
 
 If you want to trust that certificate on other machine, on the server machine:
 
-    open MMC
-    in "Personnal > Certificates", select the certificate and open it
-    in "Details" tab, click "Copy to File", "Next", "Next", select the right format
+1. open MMC
+2. in "Personnal > Certificates", select the certificate and open it
+3. in "Details" tab, click "Copy to File", "Next", "Next", select the right format
 
 On each client machine:
 
-    open MMC
-    in "Trusted Root Certification Authorities > Certificates", "Other actions > All tasks > Import..."
-    click "Next", select the certificate file
-    click "Next", check is the certificate store is "Trusted Root Certification Authorities"
-    click "Finish"
+1. open MMC
+2. in "Trusted Root Certification Authorities > Certificates", "Other actions > All tasks > Import..."
+3. click "Next", select the certificate file
+4. click "Next", check is the certificate store is "Trusted Root Certification Authorities"
+5. click "Finish"
 
-</detail>
+</details>
 
 - mkcert:
     - [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
