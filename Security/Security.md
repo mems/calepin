@@ -733,13 +733,15 @@ See also
 	- [How nginx processes a request](http://nginx.org/en/docs/http/request_processing.html#how_to_prevent_undefined_server_names)
 	- [server-configs-nginx/no-default at master · h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx/blob/master/sites-available/no-default)
 	 
-		# Ngnix
-		# no default server
-		# prevent host header attacks, or other potential problems when an unknown servername is used in a request, drop the request
-		server {
-			listen 80 default_server;
-			return 444;
-		}
+	 ```
+	# Ngnix
+	# no default server
+	# prevent host header attacks, or other potential problems when an unknown servername is used in a request, drop the request
+	server {
+		listen 80 default_server;
+		return 444;
+	}
+	```
 - HTTP Cache poisoning using Host header: `Host: evilsite.com#`
 	* [15KB Of Fame: HTTP Cache Poisoning via Host Header Injection](http://carlos.bueno.org/2008/06/host-header-injection.html)
 	* [Skeleton Scribe: Practical HTTP Host header attacks](http://www.skeletonscribe.net/2013/05/practical-http-host-header-attacks.html)
@@ -970,6 +972,56 @@ Self-signed CA vs self-signed certificate:
 Note: Android require Basic constraints extension ("CA flag") to be set to `TRUE`.
 Note: Chrome 58 and Firefox 48 require Subject Alternative Name (SAN) (`subjectAltName`) for the domain(s) name(s), to define all domains used by this certificate
 
+<detail>
+<summary>
+Create a trusted certificate on Windows
+</summary>
+	
+Create a trusted certificate:
+
+    open "Microsoft Management Console (MMC)" (Run/Win+R "mmc", then OK)
+    if required:
+        click "File > Add/Remove Snap-in"
+        select "Certificats", click "Add >"
+        select "Computer Account"
+        click "Next" then "Finish" then "OK"
+    expand "Certificates (Local Computer) > Personal > Certificates" and right click on it, then "All Tasks > Advanced Operations > Create Custom Request..."
+    click "Next"
+    select "Proceed without enrollment policy", click "Next"
+    click "Next" (keep default: template "(No template) CNG Key", and request format "PCKS #10")
+    click "Details", "Properties"
+    set "Friendly name", like your computer name or "sgewXXXX.hq.fr.fnac.group"
+    in "Subject" tab:
+        in subject name, select "Common name" and set the value to sgewXXXX.hq.fr.fnac.group, then click "Add >"
+        in alternative name, select "DNS" ans set the value to sgewXXXX.hq.fr.fnac.group, then click "Add >"
+        in alternative name, select "DNS" ans set the value to *.fnac.fd-dev.net, then click "Add >"
+    in "Extensions" tab:
+        in "Extended Key Usage (application policies)" section, select "Server Authentification", then click "Add >"
+        in "Basic Constraints" section, check "Enable this extension"
+    in "Private Key" tab:
+        in "Key options" section, check "Make private key exportable"
+        in "Select Hash Algorithm" section, choose a "Hash Algorithm" (use SHA-2: sha256, sha384 or sha512)
+    click "OK", "Next"
+    browser and set a file name
+    in "Certificate Enrollment Requests > Certificats", select the created certificate and cut
+    past it in "Personnal > Certificates" and copy + past it in "Trusted Root Certification Authorities > Certificates"
+
+If you want to trust that certificate on other machine, on the server machine:
+
+    open MMC
+    in "Personnal > Certificates", select the certificate and open it
+    in "Details" tab, click "Copy to File", "Next", "Next", select the right format
+
+On each client machine:
+
+    open MMC
+    in "Trusted Root Certification Authorities > Certificates", "Other actions > All tasks > Import..."
+    click "Next", select the certificate file
+    click "Next", check is the certificate store is "Trusted Root Certification Authorities"
+    click "Finish"
+
+</detail>
+
 - mkcert:
     - [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
     - [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
@@ -989,6 +1041,7 @@ Note: Chrome 58 and Firefox 48 require Subject Alternative Name (SAN) (`subjectA
 - [CertSimple | Never see localhost HTTPS warnings again](https://certsimple.com/blog/localhost-ssl-fix)
 - [How to Setup HTTPS Locally Without Getting Annoying Browser Privacy Errors](https://deliciousbrains.com/https-locally-without-browser-privacy-errors/)
 - [How to get HTTPS working on your local development environment in 5 minutes](https://medium.freecodecamp.org/how-to-get-https-working-on-your-local-development-environment-in-5-minutes-7af615770eec)
+- [SHA-256 Self Signed Certificate for Windows Server 2012 R2 – Mayur's Blog](https://blogs.msdn.microsoft.com/mayurpatankar/2017/09/01/sha-256-self-signed-certificate-for-windows-server-2012-r2/)
 
 ###### HTTP Strict Transport Security
 
