@@ -2098,15 +2098,12 @@ Aka Lazyload, LOD, defered loading
 
 Use `<noscript>` tags, or handle it with Service Worker (replace all `<img>` by a placeholder). See [`<noscript>` and search engines](#noscript-and-search-engines)
 
-- [Dominant Colors for Lazy-Loading Images | manu.ninja](https://manu.ninja/dominant-colors-for-lazy-loading-images)
 - [`<noscript>` and search engines](#noscript-and-search-engines)
 - [Image lazyload](#image-lazyload) and [Non-blocking stylesheets](#non-blocking-stylesheet)
 - [Extensible Web Resource Loading Manifesto - igvita.com](https://www.igvita.com/2014/10/02/extensible-web-resource-loading-manifesto/)
 - [google - Is this a good approach to image Lazy Loading for SEO? - Webmasters Stack Exchange](http://webmasters.stackexchange.com/questions/26190/is-this-a-good-approach-to-image-lazy-loading-for-seo)
 - [Redefining Lazy Loading With Lazy Load XT - Smashing Magazine](http://www.smashingmagazine.com/2015/02/03/redefining-lazy-loading-with-lazy-load-xt/)
 - [Lazy loading and the SEO problem, solved! | Idea R Blog](https://www.idea-r.it/blog/110/en/lazy-loading-seo-problem#blogimage=5)
-- [Progressivement en ‹img /› - da scritch net works](https://dascritch.net/post/2014/06/10/Progressivement-en-img#lazyloading)
-- [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes)
 - [Make sure Google can see lazy-loaded content  |  Search  |  Google Developers](https://developers.google.com/search/docs/guides/lazy-loading)
 
 Live streaming, or start play video when the file is not completely generated:
@@ -2224,13 +2221,19 @@ If the IntersectionObserver API is not supported:
 - or fallback to scroll listener, `setInterval()` with a not too small delay and `getClientBoundingRect()`
 - or load all lazyloaded images, it's the default behavior before lazyload has been implemented
 
-See [`<noscript>` and search engines](#noscript-and-search-engines)
-See [Partial/Progressive load](#progressive-load)
+See also:
+
+- [`<noscript>` and search engines](#noscript-and-search-engines)
+- [Progressive load](#progressive-load)
+- [Progressivement en ‹img /› - da scritch net works](https://dascritch.net/post/2014/06/10/Progressivement-en-img#lazyloading)
+- [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes)
 
 #### Progressive load
 
 Or partial load
 
+- load a thumbnail, then load the full image: [Faster Image Loading With Embedded Image Previews — Smashing Magazine](https://www.smashingmagazine.com/2019/08/faster-image-loading-embedded-previews/)
+- [Dominant Colors for Lazy-Loading Images | manu.ninja](https://manu.ninja/dominant-colors-for-lazy-loading-images)
 - [Progressive image](https://github.com/bompo/streamingtextures/)
 - [WebGL — Progressive loading](http://www.khronos.org/webgl/public-mailing-list/archives/1104/msg00056.html)
 - [Performance Calendar » Progressive jpegs: a new best practice](https://calendar.perfplanet.com/2012/progressive-jpegs-a-new-best-practice/)
