@@ -81,3 +81,9 @@ Install the Media Feature Pack:
 - [Download Media Feature Pack for N and KN versions of Windows 10 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=48231)
 - [Download Windows 10 Media Feature Pack](https://www.microsoft.com/en-us/software-download/mediafeaturepack)
 - [Media Feature Pack list for Windows N editions](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)
+
+## Create a dot file
+
+Or rename, write `.gitignore.` or `.htaccess.` (with both dots). The trailing dot will be removed.
+
+- [How do I manually create a file with a . (dot) prefix in Windows? For example, .htaccess - Stack Overflow](https://stackoverflow.com/questions/5004633/how-do-i-manually-create-a-file-with-a-dot-prefix-in-windows-for-example/38425947#38425947)
