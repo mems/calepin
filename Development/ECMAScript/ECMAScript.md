@@ -1157,7 +1157,11 @@ Where `x` is an unsigned interger and `numBits` is value of bits need to extract
 
 Use async/await with destructuring
 
-	const [user, image] = await Promise.all([fetch("/user"), fetch("/image.jpg")]);
+Note: until the first `await` is met, the begining of an async function body is sync. [javascript - Does async make everything inside it asynchronous? - Stack Overflow](https://stackoverflow.com/questions/51201786/does-async-make-everything-inside-it-asynchronous/51201849#51201849)
+
+```js
+const [user, image] = await Promise.all([fetch("/user"), fetch("/image.jpg")]);
+```
 
 ```js
 async function isPromiseResolved(promise){
