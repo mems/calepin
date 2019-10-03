@@ -4,8 +4,12 @@
 
 ## Libraries
 
-- [NaturalIntelligence/fast-xml-parser: Validate XML, Parse XML to JS/JSON and vise versa, or parse XML to Nimn rapidly without C/C++ based libraries and no callback](https://github.com/NaturalIntelligence/fast-xml-parser) - Read and write XML with a DOM (pure JS)
-	It's an alternative to [jindw/xmldom: A PURE JS W3C Standard based(XML DOM Level2 CORE) DOMParser and XMLSerializer.](https://github.com/jindw/xmldom)
+- [NaturalIntelligence/fast-xml-parser: Validate XML, Parse XML to JS/JSON and vise versa, or parse XML to Nimn rapidly without C/C++ based libraries and no callback](https://github.com/NaturalIntelligence/fast-xml-parser) - Read and write XML with a DOM (pure JS), an alternative to jindw/xmldom
+- [jindw/xmldom: A PURE JS W3C Standard based(XML DOM Level2 CORE) DOMParser and XMLSerializer.](https://github.com/jindw/xmldom) - **dead project**
+- [fb55/htmlparser2: Forgiving html and xml parser](https://github.com/fb55/htmlparser2/)
+- [inikulin/parse5: HTML parsing/serialization toolset for Node.js. WHATWG HTML Living Standard (aka HTML5)-compliant.](https://github.com/inikulin/parse5)
+- [jsdom/jsdom: A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js](https://github.com/jsdom/jsdom) - use parse5 and saxes
+- [lddubeau/saxes: An evented streaming XML parser in JavaScript](https://github.com/lddubeau/saxes) - used by jsdom
 - [libxmljs/libxmljs: libxml bindings for v8 javascript engine](https://github.com/libxmljs/libxmljs) - Read and write XML (native)
 - [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip) - Read and write ZIP asynchronously
 - [csstree/csstree: Fast detailed CSS parser with syntax validation](https://github.com/csstree/csstree) - Read and write CSS
