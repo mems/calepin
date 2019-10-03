@@ -9,6 +9,7 @@
 - [fb55/htmlparser2: Forgiving html and xml parser](https://github.com/fb55/htmlparser2/)
 - [inikulin/parse5: HTML parsing/serialization toolset for Node.js. WHATWG HTML Living Standard (aka HTML5)-compliant.](https://github.com/inikulin/parse5)
 - [jsdom/jsdom: A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js](https://github.com/jsdom/jsdom) - use parse5 and saxes
+- [tildeio/simple-html-tokenizer: A lightweight JavaScript library for tokenizing non-`\<script\>` HTML expected to be found in the `\<body\>` of a document](https://github.com/tildeio/simple-html-tokenizer)
 - [lddubeau/saxes: An evented streaming XML parser in JavaScript](https://github.com/lddubeau/saxes) - used by jsdom
 - [libxmljs/libxmljs: libxml bindings for v8 javascript engine](https://github.com/libxmljs/libxmljs) - Read and write XML (native)
 - [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip) - Read and write ZIP asynchronously
