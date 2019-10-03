@@ -2,11 +2,62 @@
 
 ## Debug
 
-- [RemoteDebug/remotedebug-ios-webkit-adapter: Debug Safari and WebViews on iOS from tools like VS Code, Chrome DevTools, Mozilla Debugger.html](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter)
-- [google/ios-webkit-debug-proxy: A DevTools proxy (Chrome Remote Debugging Protocol) for iOS devices (Safari Remote Web Inspector).](https://github.com/google/ios-webkit-debug-proxy)
 - [Debugging Node.js with Chrome DevTools – Medium](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27) - `node --inspect index.js` then open the provieded URL (start with `chrome-devtools://`)
 - [RemoteDebug, an initiative to unify remote debugging across browsers.](http://remotedebug.org/)
 - [google/tamperchrome: Tamper Chrome is a Chrome extension that allows you to modify HTTP requests on the fly and aid on web security testing. Tamper Chrome works across all operating systems (including Chrome OS).](https://github.com/google/tamperchrome)
+- [RemoteDebug Protocol Compatibility Tables](https://compatibility.remotedebug.org/)
+- [RemoteDebug, an initiative to unify remote debugging across browsers.](https://remotedebug.org/adaptors/)
+- [WICG/devtools-protocol: DevTools Protocol](https://github.com/WICG/devtools-protocol)
+- [ChromeDevTools/awesome-chrome-devtools: Awesome tooling and resources in the Chrome DevTools & DevTools Protocol ecosystem](https://github.com/ChromeDevTools/awesome-chrome-devtools#browser-adapters)
+- [Microsoft/edge-diagnostics-adapter: Microsoft Edge Diagnostics Adapter is a protocol adapter that enables tools to debug Microsoft Edge using the Chrome DevTools Protocol.](https://github.com/Microsoft/edge-diagnostics-adapter)
+- [Microsoft Edge DevTools Protocol - Microsoft Edge Development | Microsoft Docs](https://docs.microsoft.com/en-us/microsoft-edge/devtools-protocol/)
+
+### Debug webpage on remote iOS Safari
+
+Only for Safari, or webview in application developper version only
+
+At least works with iOS 11.4:
+
+1. install iTunes, because usbmuxd can't configure correcly USB devices on Windows: [ios - Why are Windows binaries of libimobiledevice dependent on iTunes? - Stack Overflow](https://stackoverflow.com/questions/48851719/why-are-windows-binaries-of-libimobiledevice-dependent-on-itunes)
+2. install `ios-webkit-debug-proxy` (win64 release comes with libimobiledevice) [Releases · google/ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy/releases)
+3. start `ios_webkit_debug_proxy.exe`
+4. open chrome://inspect/#devices in Chrome
+
+- [How to build libimobiledevice on Windows? · Issue #582 · libimobiledevice/libimobiledevice](https://github.com/libimobiledevice/libimobiledevice/issues/582)
+- [libimobiledevice-win32/libimobiledevice: A cross-platform protocol library to communicate with iOS devices](https://github.com/libimobiledevice-win32/libimobiledevice)
+- [google/ios-webkit-debug-proxy: A DevTools proxy (Chrome Remote Debugging Protocol) for iOS devices (Safari Remote Web Inspector).](https://github.com/google/ios-webkit-debug-proxy#installation)
+- [RemoteDebug/remotedebug-ios-webkit-adapter: Debug Safari and WebViews on iOS from tools like VS Code, Chrome DevTools, Mozilla Debugger.html](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) - Not required if you use ios-webkit-debug-proxy and Chrome
+- [Install Quamotion iMobileDevice for Windows — Quamotion WebDriver 0.1 documentation](http://docs.quamotion.mobi/en/latest/imobiledevice/install.html)
+
+Install a Fiddler proxy certificate:
+
+1. [Configure Fiddler for iOS | Progress Telerik Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS)
+2. go to http://ipv4.fiddler:8888/ (update the right port Fiddler use) and click _FiddlerRoot certificate_ and install
+3. **Important** Settings > General > About > Certificate Trust Settings and trust the installed root certificate (for the option : Fiddler > Tools > Options... > HTTPS > Capture HTTPS CONNECTs > Decrypt HTTPS traffic)
+
+### Debug webpage on remote Android device
+
+1. install Android SDK (could be [command line tools only](https://developer.android.com/studio/#command-tools)). Exemple in `%PROGRAMFILES(X86)%\Google\Android SDK`
+2. install plaform tools `.\tools\bin\sdkmanager.bat "platform-tools"`. Note: if you install in "Program Files" folder, you need adminstrative rights to execute this commande, overwise you will get an error "Failed to read or create install properties file" or "Warning: File C:\Users\XXXXX\.android\repositories.cfg could not be loaded."
+3. enable USB Debugging on the smartphone
+4. `.\platform-tools\adb devices`
+5. if needed, install USB drivers
+6. open `chrome://inspect/` with Chrome (or in DevTools > Menu "Customize and Control DevTools" > More Tools > Remove devices)
+
+- [Chrome DevTools Devices does not detect device when plugged in - Stack Overflow](https://stackoverflow.com/questions/21925992/chrome-devtools-devices-does-not-detect-device-when-plugged-in/22028058#22028058)
+- [sdkmanager  |  Android Developers](https://developer.android.com/studio/command-line/sdkmanager)
+- [Get Started with Remote Debugging Android Devices  |  Tools for Web Developers  |  Google Developers](https://developers.google.com/web/tools/chrome-devtools/remote-debugging/)
+- [Start the emulator from the command line  |  Android Developers](https://developer.android.com/studio/run/emulator-commandline)
+- [How can I install the GUI android SDK manager without installing Android Studio - Stack Overflow](https://stackoverflow.com/questions/43685301/how-can-i-install-the-gui-android-sdk-manager-without-installing-android-studio/51429889#51429889)
+- [Is GUI for Android SDK manager gone? - Stack Overflow](https://stackoverflow.com/questions/41407396/is-gui-for-android-sdk-manager-gone)
+- [WebView docs (go/webview-docs) - Net debugging in WebView](https://chromium.googlesource.com/chromium/src/+/HEAD/android_webview/docs/net-debugging.md)
+
+Android Emulator:
+
+- [Releases · intel/haxm](https://github.com/intel/haxm/releases)
+- [Paste text on Android Emulator - Stack Overflow](https://stackoverflow.com/questions/3391160/paste-text-on-android-emulator/16618811#16618811)
+- [Use modified hosts file on Android Emulator – Code, Procedure and Rants – Medium](https://medium.com/code-procedure-and-rants/use-modified-hosts-file-on-android-emulator-4f29f5d12ac1)
+- [android - Why is the intel x86 emulator accelerator (HAXM installer) is showing not compatible with windows? - Stack Overflow](https://stackoverflow.com/questions/41408552/why-is-the-intel-x86-emulator-accelerator-haxm-installer-is-showing-not-compat/43656782#43656782) (activate virtualization - Intel® VT-x - in the BIOS then install HAXM)
 
 ## Tools & Workflow
 
