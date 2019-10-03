@@ -778,7 +778,7 @@ Sass:
 - [Responsive Web Design Patterns | This Is Responsive](http://bradfrost.github.io/this-is-responsive/patterns.html)
 - [Responsive Logos](http://www.responsivelogos.co.uk/)
 - [Sizzy](https://sizzy.co/) - Tool display side by side differents screen resolutions of a website (use iframes). See [kitze/sizzy: A tool for developing responsive websites crazy-fast](https://github.com/kitze/sizzy)
-- [The Flexbox Holy Albatross | HeydonWorks](http://www.heydonworks.com/article/the-flexbox-holy-albatross) - Kind of container query (configuration switch), based on `flex-basis`
+- [The Flexbox Holy Albatross | HeydonWorks](http://www.heydonworks.com/article/the-flexbox-holy-albatross) and [The Flexbox Holy Albatross Reincarnated | HeydonWorks](https://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated) - Kind of container query (configuration switch), based on `flex-basis`
 
 See [Responsive typography](#responsive-typography)
 
