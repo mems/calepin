@@ -1087,7 +1087,7 @@ Don't use the `title` attribute (see [`title` attribute is not accessible](#titl
 ## Update content (script, AJAX)
 
 - [AJAX progress/loader](#ajax-progressloader)
-- `output` element
+- [`output` element](#output-element)
 - [Accessible forms with ARIA live regions – Tink](http://tink.uk/accessible-forms-with-aria-live-regions/)
 - [Using the ARIA application role – Tink](http://tink.uk/using-the-aria-application-role/)
 
@@ -1736,7 +1736,7 @@ Also because with this technique, the input can have only have one associated la
 	</form>
 
 - [Accessible form](#accessible-form)
-- http://html5doctor.com/the-output-element/#comment-47159 Use `output` element as error message for input
+- http://html5doctor.com/the-output-element/#comment-47159 Use [`output` element](#output-element) as error message for input
 - https://stackoverflow.com/questions/4707936/error-message-span-vs-label
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role
 
@@ -2066,8 +2066,12 @@ Country division selector
 	<input id="in">
 	<output for="in"></output>
 
+> represents the result of a calculation or user action. It can have a label
+> paired with role="status", `<output>` can be “particularly useful as HTML’s native solution for ARIA’s live regions.”
+
 - [HTML/Elements/output - W3C Wiki](https://www.w3.org/wiki/HTML/Elements/output)
 - [The output element | HTML5 Doctor](http://html5doctor.com/the-output-element/)
+- [output: HTML's native live region element | scottohara.me](https://www.scottohara.me/blog/2019/07/10/the-output-element.html) - `output` as a live region (with `role="status"`) for message/notification/alert (one `output` for all pop-up messaging). See [(1) Scott O'Bother... on Twitter: "Building off from thoughts of burnt bread, a dive into HTML's output element... the live region you may not have known HTML already had: https://t.co/wH3WKf9eZb" / Twitter](https://mobile.twitter.com/scottohara/status/1148945898929577985)
 
 ### Tri state of checkbox
 
@@ -2860,7 +2864,9 @@ Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data type
 
 ### `article` element
 
-All things need a inclusion? (a product, a blog post, a comment, a part of other document, a forum post, a magazine or newspaper article)
+All things need a inclusion: a product (article of clothing), a blog post, a comment, a video with a description, a part of other document, a forum post, a magazine or newspaper article.
+
+It’s for discrete self-contained things
 
 The teaser should also be an `article` – the teaser `article` and the fulltext `article` are different `article`s, although they refer to the same entity.
 

@@ -538,6 +538,7 @@ Usefull for sliders, etc. see [Slider](#slider)
 - [Visual CSS flexbox builder | Webflow](https://flexbox.webflow.com/)
 - [Flexbox Patterns](http://www.flexboxpatterns.com/home)
 - [CSS Flexbox Is Entirely Logical (Almost) / Paul Robert Lloyd](https://paulrobertlloyd.com/2016/03/logical_flexbox)
+- [The Flexbox Holy Albatross | HeydonWorks](http://www.heydonworks.com/article/the-flexbox-holy-albatross) and [The Flexbox Holy Albatross Reincarnated | HeydonWorks](https://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated) - Kind of container query (configuration switch), based on `flex-basis`
 - Change layout of lastest elements with [`nth-child()`](#range-selector) [Quantity queries and Flexbox part 2 | Charlotte Jackson, Front-end developer](http://www.lottejackson.com/learning/quantity-queries-and-flexbox-part-2)
 - [Quick Tip: How z-index and Auto Margins Work in Flexbox](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
 
@@ -778,70 +779,8 @@ Sass:
 - [Responsive Web Design Patterns | This Is Responsive](http://bradfrost.github.io/this-is-responsive/patterns.html)
 - [Responsive Logos](http://www.responsivelogos.co.uk/)
 - [Sizzy](https://sizzy.co/) - Tool display side by side differents screen resolutions of a website (use iframes). See [kitze/sizzy: A tool for developing responsive websites crazy-fast](https://github.com/kitze/sizzy)
-- [The Flexbox Holy Albatross | HeydonWorks](http://www.heydonworks.com/article/the-flexbox-holy-albatross) and [The Flexbox Holy Albatross Reincarnated | HeydonWorks](https://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated) - Kind of container query (configuration switch), based on `flex-basis`
 
 See [Responsive typography](#responsive-typography)
-
-#### Clamp values
-
-Aka CSS locks, or min and max
-
-	element { font-size: 1rem;  /* default below 600px */ }
-	@media (min-width: 600px){
-		element {
-			font-size: calc(1rem * 3vw);
-		}
-	}
-
-For font size lock
-
-	/*========*\
-	* Settings *
-	\*========*/
-	
-	// What's your idea of a minimum readable font-size for body text?
-	$base-font-size: (14px / 16px) * 1rem; // converts 14px to rems
-	
-	// How many units of the above do you want before your layout begins to grow?
-	// These dementions will be used to determine your prefered aspect-ratio.
-	// You will need to use integers in order for it to be considered a valid aspect ratio
-	$base-layout-width: 60;
-	$base-layout-height: 40;
-	
-	// On a scale from 0 to 1 how strong should the growth effect be?
-	// (anything less that 1 will allow cmd+ & cmd- to work again)
-	$growth-scalar: .5;
-	
-	
-	/*===================*\
-	* The Important Stuff *
-	\*===================*/
-	
-	$aspect-ratio: "#{$base-layout-width}/#{$base-layout-height}";
-	$min-growth-width: $base-font-size * $base-layout-width;
-	$min-growth-height: $base-font-size * $base-layout-height;
-	
-	:root {
-	  font-size: $base-font-size;
-	
-	  @media (min-width: $min-growth-width) and (min-height: $min-growth-height) {
-		@media (max-aspect-ratio: $aspect-ratio) {
-		  font-size: calc(#{$base-font-size} + ((#{100vw/$base-layout-width} - #{$base-font-size}) * #{$growth-scalar}));
-		}
-		@media (min-aspect-ratio: $aspect-ratio) {
-		  font-size: calc(#{$base-font-size} + ((#{100vh/$base-layout-height} - #{$base-font-size}) * #{$growth-scalar}));
-		}
-	  }
-	}
-
-- [The math of CSS locks](https://fvsch.com/code/css-locks/)
-- [Responsive typography](#responsive-typography)
-- [Truly Fluid Typography With vh And vw Units – Smashing Magazine](https://www.smashingmagazine.com/2016/05/fluid-typography/#controlling-viewport-units-to-get-minimum-and-maximum-font-sizes)
-- [Precise control over responsive typography · MadebyMike](http://madebymike.com.au/writing/precise-control-responsive-typography/)
-- viewport units and aspect ratio http://codepen.io/webdesserts/pen/zqMZGo
-- [Molten Leading in CSS | CSS-Tricks](https://css-tricks.com/molten-leading-css/)
-- [The math of CSS locks](https://fvsch.com/code/css-locks/)
-- [The Typekit Blog | Flexible typography with CSS locks](https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/)
 
 #### Responsive iframe
 
@@ -1388,7 +1327,7 @@ See `font-display` property.
 
 Use `font-size: 100%` (or `1em` / `1rem`) on root for `~16px`
 
-**You should'nt use absolute values (like `pt`, `px`, `vw`). Let the UA respect the user's font settings.** See [@heydon@mastodon.social on Twitter: "Periodic reminder: don't set your font sizes in `px`. At all. Ever. It still suppresses the ability to resize text in browser settings. #a11y https://t.co/uhQUm3P9aJ" / Twitter](https://twitter.com/heydonworks/status/1151443153657958405?s=12)
+**You should'nt use absolute values (like `pt`, `px`, `vw`). Let the UA respect the user's font settings.** See [@heydon@mastodon.social on Twitter: "Periodic reminder: don't set your font sizes in `px`. At all. Ever. It still suppresses the ability to resize text in browser settings. #a11y https://t.co/uhQUm3P9aJ" / Twitter](https://twitter.com/heydonworks/status/1151443153657958405?s=12) and [(1) hey don't on Twitter: "@JamieKnight @hhg2288 @StuRobson @micmath I just tested in Chrome. https://t.co/zWPFlPzl3E" / Twitter](https://twitter.com/heydonworks/status/1151442769648455680)
 
 It's why we use `calc()` function.
 
@@ -1429,12 +1368,73 @@ element{
 }
 ```
 
+CSS locks, or min and max:
+
+```css
+element { font-size: 1rem;  /* default below 600px */ }
+@media (min-width: 600px){
+	element {
+		font-size: calc(1rem * 3vw);
+	}
+}
+```
+
+For font size lock
+
+```scss
+/*========*\
+* Settings *
+\*========*/
+
+// What's your idea of a minimum readable font-size for body text?
+$base-font-size: (14px / 16px) * 1rem; // converts 14px to rems
+
+// How many units of the above do you want before your layout begins to grow?
+// These dementions will be used to determine your prefered aspect-ratio.
+// You will need to use integers in order for it to be considered a valid aspect ratio
+$base-layout-width: 60;
+$base-layout-height: 40;
+
+// On a scale from 0 to 1 how strong should the growth effect be?
+// (anything less that 1 will allow cmd+ & cmd- to work again)
+$growth-scalar: .5;
+
+
+/*===================*\
+* The Important Stuff *
+\*===================*/
+
+$aspect-ratio: "#{$base-layout-width}/#{$base-layout-height}";
+$min-growth-width: $base-font-size * $base-layout-width;
+$min-growth-height: $base-font-size * $base-layout-height;
+
+:root {
+  font-size: $base-font-size;
+
+  @media (min-width: $min-growth-width) and (min-height: $min-growth-height) {
+	@media (max-aspect-ratio: $aspect-ratio) {
+	  font-size: calc(#{$base-font-size} + ((#{100vw/$base-layout-width} - #{$base-font-size}) * #{$growth-scalar}));
+	}
+	@media (min-aspect-ratio: $aspect-ratio) {
+	  font-size: calc(#{$base-font-size} + ((#{100vh/$base-layout-height} - #{$base-font-size}) * #{$growth-scalar}));
+	}
+  }
+}
+```
+
 - [Font size](#font-size)
-- [Clamp values](#clamp-values)
 - [Variable font](OpenType#variable-font)
 - [Truly Fluid Typography With vh And vw Units – Smashing Magazine](https://www.smashingmagazine.com/2016/05/fluid-typography/)
 - [The Typekit Blog | Flexible typography with CSS locks](https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/)
 - [Fluid Responsive Typography With CSS Poly Fluid Sizing – Smashing Magazine](https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/)
+- [The math of CSS locks](https://fvsch.com/code/css-locks/)
+- [Responsive typography](#responsive-typography)
+- [Truly Fluid Typography With vh And vw Units – Smashing Magazine](https://www.smashingmagazine.com/2016/05/fluid-typography/#controlling-viewport-units-to-get-minimum-and-maximum-font-sizes)
+- [Precise control over responsive typography · MadebyMike](http://madebymike.com.au/writing/precise-control-responsive-typography/)
+- viewport units and aspect ratio http://codepen.io/webdesserts/pen/zqMZGo
+- [Molten Leading in CSS | CSS-Tricks](https://css-tricks.com/molten-leading-css/)
+- [The math of CSS locks](https://fvsch.com/code/css-locks/)
+- [The Typekit Blog | Flexible typography with CSS locks](https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/)
 
 ### Font metrics
 
@@ -2047,13 +2047,14 @@ Note: Declarations in a keyframe that are qualified with `!important` are ignore
 For accessibility, disable animations / transitions with:
 
 ```css
-/* Can break scripts using events like animationend, transitionstart, etc. */
 @media (prefers-reduced-motion: reduce){
 	* {
-		animation-duration: 0;
-		animation-delay: 0;
-		transition-duration: 0;
-		transition-delay: 0;
+		animation-duration: 0.01ms !important;/* keep animation dispatch event like animationend*/
+		animation-iteration-count: 1 !important;
+		animation-delay: 0 !important;
+		transition-duration: 0.01ms !important;/* keep transition dispatch event like transitionend*/
+		transition-delay: 0 !important;
+		scroll-behavior: auto !important;
 	}
 }
 ```

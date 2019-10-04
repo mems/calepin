@@ -2257,7 +2257,20 @@ Script app (bash script) can't start anymore with OSX 10.10: "Can’t open the a
 sudo spctl --master-disable
 ```
 
+```sh
+# allow apps you trust without turning off code signing entirely
+sudo spctl --add --label "It's OK, they're with me" /path/to/My.app
+```
+
+```sh
+xattr -dr http://com.apple.quarantine /path/to/My.app
+```
+
+Crtl + Click on the App > click on "Open" button to add the app to the approved list
+Right click > Open
+
 - [How to Allow Apps from Anywhere in macOS Sierra Gatekeeper](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/)
+- [Quick Tip: Override Gatekeeper with one click - Six Colors](https://sixcolors.com/post/2016/02/override-gatekeeper-with-one-click/)
 
 ### Build-in Apache
 

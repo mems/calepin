@@ -1303,6 +1303,8 @@ See [How ECMAScript engine works](ECMAScript#how-engine-works) (event loop, etc.
 - [Call stack from a URL typed by a user to the HTTP request](https://gist.github.com/mildred/1c12cd7b4af6f24c145b)
 - [Design Elements](https://github.com/v8/v8/wiki/Design%20Elements) - About V8, ECMAScript engine used in Chromium and NodeJS
 - [requestAnimationFrame Scheduling For Nerds – Paul Irish – Medium](https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4)
+- HTML parser
+	- [Idiosyncrasies of the HTML parser - The HTML Parser Book](https://htmlparser.info/)
 - How JavaScript works
 	- [How JavaScript works: the rendering engine and tip to optimize it performance](https://blog.sessionstack.com/how-javascript-works-the-rendering-engine-and-tips-to-optimize-its-performance-7b95553baeda?gi=f9dbf39c03c1)
 	- [How JavaScript works: tracking change in the DOM using MutationObserver](https://blog.sessionstack.com/how-javascript-works-tracking-changes-in-the-dom-using-mutationobserver-86adc7446401)
