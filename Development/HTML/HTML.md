@@ -2658,6 +2658,8 @@ Aka fil d'ariane (FR)
 
 > Note: The use of the right angle bracket symbol ">" to indicate path direction is discouraged as its meaning, in the context used, is not clearly conveyed to all users.
 
+Use the attribute `aria-current="location"` to represents the current item.
+
 Use the `→` char instead.
 
 	<nav>
@@ -2702,26 +2704,29 @@ Some peoples use only a series of links in a paragraph ([in a previous - draft v
 		</ul>
 	</nav>
 
+```html
+<body itemscope itemtype="http://schema.org/WebPage">
+	<nav itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+		<ul>
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a class="belm-bcrumb__link" href="" itemprop="item"><span itemprop="name" rel="index">Accueil</span></a>
+				<span class="belm-bcrumb__sep"> →</span>
+				<meta itemprop="position" content="1">
+			</li>
+			<li class="belm-bcrumb__item" itemprop="itemListElement" itemscope
+				itemtype="http://schema.org/ListItem">
+				<a class="belm-bcrumb__link" href="" rel="self" itemprop="item"><span itemprop="name">My account</span></a>
+				<meta itemprop="position" content="2">
+			</li>
+		</ul>
+	</nav>
+</body>
+```
+
 - [Exploring Markup for Breadcrumbs | CSS-Tricks](https://css-tricks.com/markup-for-breadcrumbs/)
 - [Breadcrumbs   |   Structured Data   |   Google Developers](https://developers.google.com/structured-data/breadcrumbs)
 - [BreadcrumbList - schema.org](http://schema.org/BreadcrumbList)
- 
-	<body itemscope itemtype="http://schema.org/WebPage">
-		<nav itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-			<ul>
-				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-					<a class="belm-bcrumb__link" href="" itemprop="item"><span itemprop="name" rel="index">Accueil</span></a>
-					<span class="belm-bcrumb__sep"> →</span>
-					<meta itemprop="position" content="1">
-				</li>
-				<li class="belm-bcrumb__item" itemprop="itemListElement" itemscope
-					itemtype="http://schema.org/ListItem">
-					<a class="belm-bcrumb__link" href="" rel="self" itemprop="item"><span itemprop="name">My account</span></a>
-					<meta itemprop="position" content="2">
-				</li>
-			</ul>
-		</nav>
-	</body>
+- [Using the aria-current attribute – Tink](https://tink.uk/using-the-aria-current-attribute/)
 
 ## Block level link
 
@@ -3588,6 +3593,7 @@ Similar to breadcrumb (but not the same).
 		</ol>
 	</nav>
 
+- [Using the aria-current attribute – Tink](https://tink.uk/using-the-aria-current-attribute/)
 - [Progress Trackers in Web Design: Examples and Best Practices – Smashing Magazine](http://www.smashingmagazine.com/2010/01/progress-trackers-in-web-design-examples-and-best-design-practices/)
 - [How do you indicate progress to users in a multi-step form? - User Experience Stack Exchange](http://ux.stackexchange.com/questions/3454/how-do-you-indicate-progress-to-users-in-a-multi-step-form)
 
@@ -3764,76 +3770,80 @@ See [Date picker](JavaScript#date-picker)
 
 For input use `<input type="date">`
 
-- [Making input type=date complicated – Samsung Internet Developers – Medium](https://medium.com/samsung-internet-dev/making-input-type-date-complicated-a544fd27c45a#.rmrxvno0y)
- 
-	<table>
-		<caption>July 2016</caption>
-		<tr>
-			<th>Mon</th>
-			<th>Tue</th>
-			<th>Wed</th>
-			<th>Thu</th>
-			<th>Fri</th>
-			<th>Sat</th>
-			<th>Sun</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>1</td>
-			<td>2</td>
-			<td>3</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>5</td>
-			<td>6</td>
-			<td>7</td>
-			<td>8</td>
-			<td>9</td>
-			<td>10</td>
-		</tr>
-		<tr>
-			<td>11</td>
-			<td>12</td>
-			<td>13</td>
-			<td>14</td>
-			<td>15</td>
-			<td aria-current="date"><!-- today, not the date selected -->16</td>
-			<td>17</td>
-		</tr>
-		<tr>
-			<td>18</td>
-			<td>19</td>
-			<td>20</td>
-			<td>21</td>
-			<td>21</td>
-			<td>22</td>
-			<td>23</td>
-		</tr>
-		<tr>
-			<td>24</td>
-			<td>25</td>
-			<td>26</td>
-			<td>27</td>
-			<td>28</td>
-			<td>29</td>
-			<td>30</td>
-		</tr>
-		<tr>
-			<td>31</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</table>
+- [Making input type=date complicated – Samsung Internet Developers – Medium](https://medium.com/samsung-internet-dev/making-input-type-date-complicated-a544fd27c45a)
+
+```html
+<table>
+	<caption>July 2016</caption>
+	<tr>
+		<th>Mon</th>
+		<th>Tue</th>
+		<th>Wed</th>
+		<th>Thu</th>
+		<th>Fri</th>
+		<th>Sat</th>
+		<th>Sun</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>12</td>
+		<td>13</td>
+		<td>14</td>
+		<td>15</td>
+		<td aria-current="date"><!-- today, not the date selected -->16</td>
+		<td>17</td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td>19</td>
+		<td>20</td>
+		<td>21</td>
+		<td>21</td>
+		<td>22</td>
+		<td>23</td>
+	</tr>
+	<tr>
+		<td>24</td>
+		<td>25</td>
+		<td>26</td>
+		<td>27</td>
+		<td>28</td>
+		<td>29</td>
+		<td>30</td>
+	</tr>
+	<tr>
+		<td>31</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+```
 
 Note: `<time datetime="2016-07-12">12</time>` can be used to add semantic for dates
+
+- [Using the aria-current attribute – Tink](https://tink.uk/using-the-aria-current-attribute/)
 
 ## Time schedule
 

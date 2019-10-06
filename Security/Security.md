@@ -118,9 +118,18 @@ https://kev.inburke.com/kevin/invalid-username-or-password-useless/
 
 Be carefull with renew password links send by email. See [Password-less login problems](#password-less-login).
 
-Use password manager
+Use a password manager:
+
+- [Password Manager for Families, Businesses, Teams | 1Password](https://1password.com/)
+- [Open Source Password Management Solutions | Bitwarden](https://bitwarden.com/)
+
+More informations about password managers:
 
 - [Switching from 1Password to Bitwarden | joshua stein](https://jcs.org/2017/11/17/bitwarden)
+- [rubywarden/API.md at master · jcs/rubywarden](https://github.com/jcs/rubywarden/blob/master/API.md)
+- [jcs/rubywarden: An unofficial, mostly Bitwarden-compatible API server written in Ruby (Sinatra and ActiveRecord)](https://github.com/jcs/rubywarden)
+- [vvondra/bitwarden-serverless: Implementation of the Bitwarden API using an AWS serverless stack](https://github.com/vvondra/bitwarden-serverless)
+- [rubywarden/1password_import.rb at master · jcs/rubywarden](https://github.com/jcs/rubywarden/blob/master/tools/1password_import.rb)
 
 #### Password reuse
 
