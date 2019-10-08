@@ -3661,37 +3661,75 @@ Where `startTimer` is value of `Date.now()` defined at begin of the media loadin
 		}
 	}
 
-## Int to hexa
+## Integer to hexadecimal
 
-	// From https://github.com/mikechambers/as3corelib/blob/master/src/com/adobe/utils/IntUtil.as
-	/** String for quick lookup of a hex character based on index */
-	var hexChars:String = "0123456789abcdef";
-	
-	/**
-	 * Outputs the hex value of a int, allowing the developer to specify
-	 * the endinaness in the process.  Hex output is lowercase.
-	 *
-	 * @param n The int value to output as hex
-	 * @param bigEndian Flag to output the int as big or little endian
-	 * @return A string of length 8 corresponding to the hex representation of n ( minus the leading "0x" )
-	 */
-	function toHex( n, bigEndian = false ) {
-		var s = "";
-		
-		if ( bigEndian ) {
-			for ( var i:int = 0; i < 4; i++ ) {
-				s += hexChars.charAt( ( n >> ( ( 3 - i ) * 8 + 4 ) ) & 0xF ) 
-					+ hexChars.charAt( ( n >> ( ( 3 - i ) * 8 ) ) & 0xF );
-			}
-		} else {
-			for ( var x:int = 0; x < 4; x++ ) {
-				s += hexChars.charAt( ( n >> ( x * 8 + 4 ) ) & 0xF )
-					+ hexChars.charAt( ( n >> ( x * 8 ) ) & 0xF );
-			}
+```js
+// From https://github.com/mikechambers/as3corelib/blob/master/src/com/adobe/utils/IntUtil.as
+/** String for quick lookup of a hex character based on index */
+var hexChars = "0123456789abcdef";
+
+/**
+ * Outputs the hex value of a int, allowing the developer to specify
+ * the endinaness in the process.  Hex output is lowercase.
+ *
+ * @param n The int value to output as hex
+ * @param bigEndian Flag to output the int as big or little endian
+ * @return A string of length 8 corresponding to the hex representation of n ( minus the leading "0x" )
+ * 
+ * @example toHex(3, false) === "03000000"
+ * @example toHex(3, true) === "00000003"
+ */
+function toHex( n, bigEndian = false ) {
+	var s = "";
+
+	if ( bigEndian ) {
+		for ( var i = 0; i < 4; i++ ) {
+			s += hexChars.charAt( ( n >> ( ( 3 - i ) * 8 + 4 ) ) & 0xF ) 
+				+ hexChars.charAt( ( n >> ( ( 3 - i ) * 8 ) ) & 0xF );
 		}
-		
-		return s;
+	} else {
+		for ( var x = 0; x < 4; x++ ) {
+			s += hexChars.charAt( ( n >> ( x * 8 + 4 ) ) & 0xF )
+				+ hexChars.charAt( ( n >> ( x * 8 ) ) & 0xF );
+		}
 	}
+
+	return s;
+}
+```
+
+## Stringify a number with a custom base
+
+```js
+/**
+ * Encode a number to string with a custom charset. Don't confuse with binary encoding (like base64)
+ * @param {number} value
+ * @param {string} chars Each chars must be unique
+ * @return {string}
+ *
+ * @example numberToString(31415926535, "0123456789") === "31415926535"//base 10
+ * @example numberToString(31415926535, String.fromCharCode(...new Array(0x7E-0x20+1).fill(0).map((c,i)=>0x20+i))) === "$%b~(R"//base 95
+ * @example numberToString(0xDEADBEEF, "0123456789abcdef") === "deadbeef"//base 16
+ * @example numberToString(0b10101010, "01") === "10101010"//base 2
+ * @example numberToString(0o51, "01234567") === "51"//base 8
+ *
+ * @see https://github.com/aseemk/bases.js
+*/
+function numberToString(value, chars){
+  let result = "";
+  const base = chars.length;
+
+  // execute at least once for the "zero"
+  do{
+    result = chars.charAt(value % base) + result;
+    value = Math.floor(value / base);
+  }while(value > 0);
+
+  return result;
+}
+```
+
+See also [Integer to hexadecimal](#integer-to-hexadecimal)
 
 ## Walk through object path
 
