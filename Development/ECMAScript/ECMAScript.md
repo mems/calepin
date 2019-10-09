@@ -3704,24 +3704,24 @@ function toHex( n, bigEndian = false ) {
 /**
  * Encode a number to string with a custom charset. Don't confuse with binary encoding (like base64)
  * @param {number} value
- * @param {string} chars Each chars must be unique
+ * @param {string} charset Each chars must be unique
  * @return {string}
  *
- * @example numberToString(31415926535, "0123456789") === "31415926535"//base 10
- * @example numberToString(31415926535, String.fromCharCode(...new Array(0x7E-0x20+1).fill(0).map((c,i)=>0x20+i))) === "$%b~(R"//base 95
- * @example numberToString(0xDEADBEEF, "0123456789abcdef") === "deadbeef"//base 16
- * @example numberToString(0b10101010, "01") === "10101010"//base 2
- * @example numberToString(0o51, "01234567") === "51"//base 8
+ * @example toBase(31415926535, "0123456789") === "31415926535"//base 10
+ * @example toBase(31415926535, String.fromCharCode(...new Array(0x7E-0x20+1).fill(0).map((c,i)=>0x20+i))) === "$%b~(R"//base 95
+ * @example toBase(0xDEADBEEF, "0123456789abcdef") === "deadbeef"//base 16
+ * @example toBase(0b10101010, "01") === "10101010"//base 2
+ * @example toBase(0o51, "01234567") === "51"//base 8
  *
  * @see https://github.com/aseemk/bases.js
-*/
-function numberToString(value, chars){
+ */
+function toBase(value, charset){
   let result = "";
-  const base = chars.length;
+  const base = charset.length;
 
   // execute at least once for the "zero"
   do{
-    result = chars.charAt(value % base) + result;
+    result = charset.charAt(value % base) + result;
     value = Math.floor(value / base);
   }while(value > 0);
 
