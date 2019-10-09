@@ -36,8 +36,8 @@ Usefull for enclosed match (attribute value, text in quotes)
 
 Assert but doesn't match: _zero-width assertion_.
 
-- lookbehind `(?<=a)bc`
-- lookahead `ab(?=c)`
+- lookbehind `(?<=a)bc`, `(?<!a)bc`
+- lookahead `ab(?=c)`, `ab(?!c)`
 
 - [ES2018: RegExp lookbehind assertions](http://2ality.com/2017/05/regexp-lookbehind-assertions.html)
 
@@ -69,3 +69,29 @@ See [Catastrophic Backtracking ‒ When Regular Expressions Explode on Vimeo](ht
 - [Simple Regex Engine in JavaScript (Backtracking Algorithm)](https://github.com/richardartoul/regex-engine)
 - [Catastrophic Backtracking—Exponential Matches—ReDos](http://www.rexegg.com/regex-explosive-quantifiers.html)
 - [Runaway Regular Expressions: Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
+
+## Comments
+
+With the `x` flag.
+
+```regexp
+^(?:(?!ab).)+$
+```
+
+```regexp
+(?x)    # enable regex comment mode
+^       # match start of line/string
+(?:     # begin non-capturing group
+  (?!   # begin negative lookahead
+    ab  # literal text sequence ab
+  )     # end negative lookahead
+  .     # any single character
+)       # end non-capturing group
++       # repeat previous match one or more times
+$       # match end of line/string
+```
+
+- [DmitrySoshnikov/babel-plugin-transform-modern-regexp: Babel plugin for modern RegExp features in JavaScript](https://github.com/DmitrySoshnikov/babel-plugin-transform-modern-regexp#extended-x-flag)
+- [New flags :: XRegExp](http://xregexp.com/flags/)
+- [javascript - Commenting Regular Expressions - Stack Overflow](https://stackoverflow.com/questions/15463257/commenting-regular-expressions)
+- [RegExp `x` flag](https://esdiscuss.org/topic/regexp-x-flag)
