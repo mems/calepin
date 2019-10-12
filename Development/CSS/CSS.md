@@ -2544,7 +2544,27 @@ or
 
 ### Labels and placeholders
 
+```html
+<style>
+	input:placeholder-shown + button {
+		opacity: 0.5;
+	}
+	/*
+	button should always be visible or at least visible when focused:
+	input:placeholder-shown + button:not(:focus) {
+		opacity: 0.5;
+	}
+	*/
+</style>
+<form>
+	<input placeholder="Search...">
+	<button>Search!</button>
+</form>
+```
+
 See [User Interface and experience/Floating label]()
+
+- [The "display: none;" style on the button is just a possibility: it may have b... — DEV](https://dev.to/xtrp/comment/g4a0)
 
 Never use placeholder as a label! [Remi Grumeau on Twitter: http://t.co/OJ9yUo3dN9](https://twitter.com/remi_grumeau/status/573410750674423808/photo/1) (the placeholder is truncated inside the input where the label is not)
 

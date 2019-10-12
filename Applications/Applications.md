@@ -1491,3 +1491,13 @@ If the device is not detected, may it's because it's pluged to a USB hub. Try to
 ## Wireshark
 
 - [srozzo/wireshark-uninstall-osx: Wireshark uninstall script for OS X](https://github.com/srozzo/wireshark-uninstall-osx)
+
+## Cisco AnyConnect
+
+```sh
+shasum -a 512 /path/to/file.pkg
+```
+
+- [Software Download - Cisco Systems](https://software.cisco.com/download/home/283000185) - AnyConnect Secure Mobility Client
+- `anyconnect-macos-Y.X.ZZZZZ-predeploy-k9.dmg` > open `AnyConnect.pkg` to install both AnyConnect Secure Mobility Client and AnyConnect Secure DART
+- `anyconnect-macos-Y.X.ZZZZZ-webdeploy-k9.pkg` > open as zip > mount `(zip root)/binaries/anyconnect-macos-Y.X.ZZZZZ-core-vpn-webdeploy-k9.dmg` > open `anyconnect-macos-X.Y.ZZZZZ-core-vpn-webdeploy-k9.pkg`

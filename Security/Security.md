@@ -741,8 +741,8 @@ See also
 	- [CommonMisconfigurations - Httpd Wiki](https://wiki.apache.org/httpd/CommonMisconfigurations#Not_setting_a_ServerName_in_a_virtual_host.)
 	- [How nginx processes a request](http://nginx.org/en/docs/http/request_processing.html#how_to_prevent_undefined_server_names)
 	- [server-configs-nginx/no-default at master · h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx/blob/master/sites-available/no-default)
-	 
-	 ```
+	
+	```
 	# Ngnix
 	# no default server
 	# prevent host header attacks, or other potential problems when an unknown servername is used in a request, drop the request
@@ -1191,7 +1191,7 @@ See also as example GitHub ultra strict CSP.
 
 Exception of inline script and style can be made with `script-src` and `style-src` by using a checksum/hash of source code of inlined script. Note: nonce can also be used, but not recommended. See [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/#script-src-hash-usage)
 
-- [Subresource checksum](Web#subresource-checksum)
+- [Subresource checksum](../Web/Web.md#subresource-checksum)
 - [Content-Security-Policy - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 - [Making CSP great again! - Michele Spagnuolo and Lukas Weichselbaum // Speaker Deck](https://speakerdeck.com/mikispag/making-csp-great-again-michele-spagnuolo-and-lukas-weichselbaum)
 - [GitHub’s CSP journey - GitHub Engineering](https://githubengineering.com/githubs-csp-journey/)
