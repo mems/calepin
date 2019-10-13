@@ -855,6 +855,8 @@ Use bitmap data:
 - https://github.com/eventbrite/cartogram/blob/master/src/scripts/fnt_to_json_readme.md and https://github.com/eventbrite/cartogram/blob/master/src/shapes/text_sdf.js
 - https://mapbox.s3.amazonaws.com/kkaefer/sdf/index.html
 - [Distance field fonts · libgdx/libgdx Wiki](https://github.com/libgdx/libgdx/wiki/Distance-field-fonts)
+- [Create Text in Three.js with Three-bmfont-text | Codrops](https://tympanus.net/codrops/2019/10/10/create-text-in-three-js-with-three-bmfont-text/)
+- [Jam3/msdf-bmfont: Generate BMFont texture and spec using msdfgen](https://github.com/Jam3/msdf-bmfont)
 - [renders BMFont files in ThreeJS with word-wrapping](https://github.com/Jam3/three-bmfont-text)
 - [Using better looking bitmap fonts (SDF Fonts) - Community Answers](https://answers.madewithmarmalade.com/questions/19455/using-better-looking-bitmap-fonts-sdf-fonts.html)
 - Text rendering with vector textures

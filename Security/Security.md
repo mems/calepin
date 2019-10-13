@@ -862,6 +862,17 @@ Check hash and keys leak or reversed (hashes):
 - [Collection of github dorks and helper tool to automate the process of checking dorks](https://github.com/techgaun/github-dorks) (search for sensitive data on the repositories)
 - [Detect secret leaks in Android Apps](https://android.fallible.co/)
 
+Data checksum:
+
+```sh
+# SHA512
+shasum -a 512 /path/to/file
+openssl sha512 /path/to/file
+# MD5
+md5 /path/to/file
+openssl md5 /path/to/file
+```
+
 Hash collision:
 
 ![PDF Sha1 Collision](Prevent%20violation/Hash%20and%20keys/PDF%20sha1%20collision.jpg)

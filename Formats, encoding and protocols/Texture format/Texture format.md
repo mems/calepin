@@ -959,6 +959,7 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 - Skia lib write/read https://skia.googlesource.com/skia and https://github.com/google/skia PKM, ARTC, KTX, LATC, R11_EAC, ETC1
 - ImageMagick module [Texture compress modules for ImageMagick](https://github.com/Perlmint/MagickCompress) PKM, ETC1, pvrtc-4bpp-rgb, pvrtc-4bpp-rgba
 - [PVRTexTool - Imagination Community](https://community.imgtec.com/developers/powervr/tools/pvrtextool/) PVR (v3, v2 with `-pvrlegacy`); PVRTC, ETC1-2, EAC, ASTC, DXT 
+	- [Download the PowerVR Tools and SDK - Imagination](https://www.imgtec.com/developers/powervr-sdk-tools/installers/)
 	https://community.imgtec.com/developers/powervr/offline-installers/
 	http://cdn.imgtec.com/sdk/PVRTexTool.xml
 	Old version of SDK 2.X can generate DXT included in IGEP DSP GST Framework: https://www.isee.biz/support/downloads/item/igep-dsp-gst-framework http://downloads.isee.biz/pub/files/igep-dsp-gst-framework-3_40_00/Graphics_SDK_4_05_00_03/GFX_Linux_SDK/OVG/SDKPackage/Utilities/PVRTexTool/

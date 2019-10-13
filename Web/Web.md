@@ -734,6 +734,7 @@ Examples:
 - [Flickr Services](https://www.flickr.com/services/api/)
 - [Google Universal Analytics for AS3](https://github.com/zwetan/as3-universal-analytics)
 - [guidelines/DINA-Web-API-Guidelines.md at master · DINA-Web/guidelines](https://github.com/DINA-Web/guidelines/blob/master/DINA-Web-API-Guidelines.md)
+- [LiveDNS API](https://doc.livedns.gandi.net/#reference)
 
 Paging:
 

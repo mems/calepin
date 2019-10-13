@@ -836,9 +836,13 @@ On an HFS+ (Journaled) formatted USB drive
 	${DSCL} -q . -create "/Users/${RUNUSR}" NFSHomeDirectory "${PREFIX}/var/macports/home"
 	${DSCL} -q . -create "/Users/${RUNUSR}" UserShell /usr/bin/false
 	```
-	
+
+	- see [Non interactive user](#non-interactive-user)
+	- if FileVault is enabled after macports has been installed (check it with `sudo fdesetup list | grep macports`), it could be necessary to disallow the user to decrypt the disk. Else it's visible on FileVault login window (even if it's a non interactive user). To disallow it: `sudo fdesetup remove -user macports`
 	- [#30168 (adduser results in macports users appearing as interactive users) – MacPorts](https://trac.macports.org/ticket/30168#comment:16)
 	- [Transferring from Time Machine shows "MacPorts". What is this and should I transfer it? - Ask Different](https://apple.stackexchange.com/questions/275708/transferring-from-time-machine-shows-macports-what-is-this-and-should-i-trans)
+	- `dscacheutil -q user -a name macports`
+	- [macos - How to delete MacPorts user after using the Migration Assistant - Ask Different](https://apple.stackexchange.com/questions/317576/how-to-delete-macports-user-after-using-the-migration-assistant)
 	
 	For Wireshark, see:
 	
@@ -1853,6 +1857,8 @@ killall Dock
 - disk path: `/dev/diskX` where X is a number (start with 1)
 - mounted in `/Volumes/XXXX`
 
+See [FileVault](#filevault)
+
 ### Icons and Cursors
 
 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/Resources/cursors
@@ -2147,6 +2153,10 @@ Delete Known Government-Linked Certificate Authorities: https://github.com/sammc
 
 ### FileVault
 
+FileVault display a loginwindow at startup hask the user to decrypt the disk with its password.
+
+FileVault is not allowed for all users
+
 ```sh
 diskutil cs list | grep "Conversion Progress"
 diskutil apfs list | grep "FileVault"
@@ -2160,6 +2170,16 @@ FileVault:                 Yes (Unlocked)
 FileVault:                 No (Encrypted at rest)
 ```
 
+- To select which user can decrypt FileVault disk:
+	1. login as admin local account
+	2. open System Preferences
+	3. open Security & Privacy
+	4. select FileVault
+	5. click on "Allow Users" (bottom of the window)
+- `sudo fdesetup list`
+- [Users not showing at login screen with MacOS FileVault Enabled - Stack Overflow](https://stackoverflow.com/questions/53586815/users-not-showing-at-login-screen-with-macos-filevault-enabled)
+- `sudo sysadminctl -adminUser <adminUser> -adminPassword <adminPassword> -secureTokenOn <managementToken> -password <managmentPassword>`
+- `sudo fdesetup add -usertoadd <username> -keychain`
 - [How to View FileVault Progress When Encrypting a Mac Disk](http://osxdaily.com/2017/02/08/view-filevault-progress-mac/)
 - [Secure Enclave, Mac SSD hardware encryption and the future of FileVault | Der Flounder](https://derflounder.wordpress.com/2018/01/08/secure-enclave-mac-ssd-hardware-encryption-and-the-future-of-filevault/)
 - [Set a FileVault recovery key for computers in your institution - Apple Support](https://support.apple.com/en-us/HT202385) - Use same master key
@@ -2167,6 +2187,55 @@ FileVault:                 No (Encrypted at rest)
 ### Firmware password
 
 - [How to set a firmware password on your Mac - Apple Support](https://support.apple.com/en-us/HT204455)
+
+### Users
+
+Handled by OpenDirectory
+
+> UIDs < 500 are reserved.
+
+- auto login user `defaults read /Library/Preferences/com.apple.loginwindow | grep autoLoginUser | awk '{ print $3 }' | sed 's/;//'`
+- `dscl . -read /Users/<username>`
+- `dscl . list /Users | grep -v '_'` (prefixed user are daemons, etc.)
+- `dscacheutil -q user`
+- `/var/db/dslocal/nodes/Default/users/*.plist` data of OpenDirectory
+- `sudo dscl . create /Users/<username> IsHidden 1`, hide user on loginwindow and fast user switching: [Hide a user account in macOS - Apple Support](https://support.apple.com/en-us/HT203998)
+- disable guest user: 
+	1. ppen System Preferences
+	2. go to "Users & Groups" and click the unlock icon
+	3. click on “Guest User”
+	4. uncheck the box for "Allow guests to log in to this computer"
+- hide a user from login screen: `sudo defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add <username>`, to remove that config: `sudo defaults delete /Library/Preferences/com.apple.loginwindow HiddenUsersList`
+
+#### Non interactive user
+
+> loginwindow UI will consider a user as one that can't be logged in if the following occur
+> 
+> the shell is /usr/bin/false
+> 
+> or
+> 
+> the AuthAuthority has ;disableduser; in it.
+> 
+> or
+> 
+> the AuthAuthority doesn't exist or contains ;basic; and the password is missing or is a single asterisk.
+> 
+> or
+> 
+> the record name is missing or blank \[RealName?\]
+> 
+> or
+> 
+> the uid is missing
+> 
+> loginwindow UI doesn't care about the UIDs number.
+
+
+But the user still appears in System Preferences > Sharing > File Sharing | Screen Sharing | etc. > Add User dialog.
+
+- [#30168 (adduser results in macports users appearing as interactive users) – MacPorts](https://trac.macports.org/ticket/30168#comment:16)
+- [macports-base/portutil.tcl at 1d1bcde3157908ef4ee58e72425f42d2265cdff3 · macports/macports-base](https://github.com/macports/macports-base/blob/1d1bcde3157908ef4ee58e72425f42d2265cdff3/src/port1.0/portutil.tcl#L2332-L2347) - How macports in `adduser` function set the user as non interactive user
 
 ## Applications
 
@@ -2288,6 +2357,202 @@ or
 
 ```sh
 sudo apachectl -k restart
+```
+
+### FileMerge
+
+- [lion - Where can I download Filemerge - the app for comparing two tools and merging them? - Ask Different](https://apple.stackexchange.com/questions/42345/where-can-i-download-filemerge-the-app-for-comparing-two-tools-and-merging-the/42346#42346)
+### Xcode
+
+"Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo."
+
+Accept for this account:
+
+```sh
+xcodebuild -license
+```
+
+Accept for all accounts:
+
+```sh
+sudo xcodebuild -license
+```
+
+Install Xcode Command Line Tools:
+
+```sh
+xcode-select --install
+```
+
+### Macports
+
+Why use Macports instead of Homebrew: [El Capitan and Homebrew | Hacker News](https://news.ycombinator.com/item?id=10309576)
+TLDR: because it place packages in `/opt/local` and require `sudo`
+
+Macports install in `/opt/local` where Homebrew install in `/usr/local`.
+
+- [directory structure - What is the difference between /opt and /usr/local? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/11544/what-is-the-difference-between-opt-and-usr-local/11552#11552)
+
+> `/usr/local`, for self, inhouse, compiled and maintained software.
+> `/opt` is for non-self, external, prepackaged binary/application bundle installation area
+
+- https://guide.macports.org/chunked/installing.macports.uninstalling.html
+- http://trac.macports.org/wiki/Migration
+- https://www.macports.org/install.php
+
+> Macports is installed as root and uses its own account macports for some things.
+
+Update and upgrade ports:
+
+```sh
+sudo port selfupdate && sudo port upgrade outdated
+# later to remove old version
+sudo port uninstall inactive
+```
+
+- [MacPorts Guide](https://guide.macports.org/#using.port.upgrade)
+
+- [How to remove unused MacPorts packages? - Ask Different](https://apple.stackexchange.com/questions/10149/how-to-remove-unused-macports-packages)
+
+Install ports:
+
+```
+# 1. Install Xcode Command Line Tools: `xcode-select --install`
+# 2. Accept Xcode licence: `sudo xcodebuild -license`
+# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, etc.) 
+
+sudo port install\
+	wget rsync\
+	bash bash-completion\
+	coreutils diffutils findutils gsed gawk gpatch\
+	watch\
+	p5-file-rename\
+	openssl\
+	gzip gnutar\
+	git\
+	curl\
+	gettext\
+	ffmpeg\
+	ImageMagick +rsvg\
+	p5-image-exiftool\
+	cmake\
+	apache-ant\
+	httrack\
+	xorg-server\
+	twain-sane
+
+# Start D-Bus
+sudo port install dbus
+sudo port load dbus
+#sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
+#launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
+	
+# Create the missing symlink to exiftool when install p5-image-exiftool until https://trac.macports.org/ticket/45312 is resolved (check exiftool version)
+cd /opt/local/bin/ && sudo ln -s exiftool-5.26 exiftool
+
+# Add `/opt/local/libexec/gnubin` to PATH
+if ! grep -q "export PATH=/opt/local/libexec/gnubin:" ~/.profile
+then
+	echo "" >> ~/.profile
+	echo "# Use GNU coreutils by default (installed with macport)" >> ~/.profile
+	echo "export PATH=/opt/local/libexec/gnubin:\$PATH" >> ~/.profile
+fi
+
+# To use bash_completion, add the following lines at the end of your .bash_profile:
+if ! grep -q "/opt/local/etc/profile.d/bash_completion.sh" ~/.bash_profile
+then
+	echo "" >> ~/.bash_profile
+	echo "# Enable bash-completion" >> ~/.bash_profile
+	echo "if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then" >> ~/.bash_profile
+	echo "        . /opt/local/etc/profile.d/bash_completion.sh" >> ~/.bash_profile
+	echo "fi" >> ~/.bash_profile
+fi
+
+# NodeJS
+# Note: nodejs and npm without version specified are not the lastest available
+# sudo port install nodejs npm
+sudo port install nodejs11 npm6
+# Add to profile node config
+if ! grep -q "export NODE_PATH=" ~/.profile
+then
+	echo "" >> ~/.profile
+	echo "# Use global node modules (installed with macport)" >> ~/.profile
+	echo "export NODE_PATH=/opt/local/lib/node_modules:\$NODE_PATH" >> ~/.profile
+fi
+# NPM can be updated with:
+# sudo npm install -g npm@latest
+
+# Install globally some tools
+# use --python=python2.7 if required
+#npm install -g sqlite3
+
+# Note: never install globaly/system-wide npm packages (via `-g`). Install in ./node_module instead
+# Clean cache: `sudo npm cache clean`
+# If so packages are in /opt/local/lib/node_modules/ and remains even if npm is uninstalled or deactivate via macport
+# To see outdated packages, use `npm outdated -g --depth=0`
+# To update global packages, use `npm update -g`
+
+# Install PHP and composer (PHP package manager)
+sudo port install php php73-intl php73-openssl
+#sudo port install php71 php71-intl php71-openssl
+#sudo port select --set php php71
+# Create PHP config (dev only)
+sudo cp /opt/local/etc/php73/php.ini-development /opt/local/etc/php73/php.ini
+
+# [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
+sudo port install php73-iconv php73-mbstring
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/opt/local/bin
+sudo ln -s composer.phar /opt/local/bin/composer
+# Or use in each project's folder `php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar install`
+# Will install packages in ./vendor
+
+# Install python and pip (Python package manager)
+sudo port install python37 py37-pip
+#sudo port install python27 py27-pip
+sudo port select --set python python37
+sudo port select --set python3 python37
+sudo port select --set pip pip37
+# Or for OSX's default python come with easy_install
+#sudo easy_install pip
+#pip install --user package
+# or
+#python -m pip install --user package
+# will install package in ~/Library/Python/X.Y/lib/python/site-packages
+# could also be in ~/.local/lib/pythonX.Y/site-packages
+# See
+# - https://pip.pypa.io/en/latest/user_guide/#user-installs
+# - https://www.python.org/dev/peps/pep-0370/
+# - https://stackoverflow.com/questions/15912804/easy-install-or-pip-as-a-limited-user
+
+# Install Python BeautifulSoup
+pip install --user beautifulsoup4
+# or with macports (system-wide):
+#sudo port install py35-beautifulsoup4
+# Then check
+#python -c "help('modules')" | grep bs4
+
+# Note: never install python packages system-wide http://scicomp.stackexchange.com/a/2988 (use always `--user`)
+
+# Install ntfs-3g https://trac.macports.org/wiki/howto/Ntfs3gFinder (need to disable SIP)
+sudo port install ntfs-3g
+# TODO. See link
+
+# TestDisk and photorec
+sudo port install testdisk
+
+# Ruby and gems (Ruby package manager)
+sudo port install ruby25 rb-rubygems
+sudo port select --set ruby ruby25
+
+# Add to profile user's gems folder
+if ! grep -q "export GEM_HOME=" ~/.profile
+then
+	echo "" >> ~/.profile
+	echo "# Use user gems (rb-rubygems installed with macport)" >> ~/.profile
+	echo "export PATH=~/.gem/bin:\$PATH" >> ~/.profile
+	echo "export GEM_HOME=~/.gem" >> ~/.profile
+	echo "export GEM_PATH=~/.gem:\$GEM_PATH" >> ~/.profile
+fi
 ```
 
 ## Preference pane
@@ -2522,199 +2787,6 @@ Only deletes core files older than 24 hours.
 Use cron or launchd
 
 - [Remove hidden core dump files to restore drive space - Mac OS X Hints](http://hints.macworld.com/article.php?story=20031001203255412)
-
-## Xcode
-
-"Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo."
-
-Accept for this account:
-
-```sh
-xcodebuild -license
-```
-
-Accept for all accounts:
-
-```sh
-sudo xcodebuild -license
-```
-
-Install Xcode Command Line Tools:
-
-```sh
-xcode-select --install
-```
-
-## Macports
-
-Why use Macports instead of Homebrew: [El Capitan and Homebrew | Hacker News](https://news.ycombinator.com/item?id=10309576)
-TLDR: because it place packages in `/opt/local` and require `sudo`
-
-Macports install in `/opt/local` where Homebrew install in `/usr/local`.
-
-- [directory structure - What is the difference between /opt and /usr/local? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/11544/what-is-the-difference-between-opt-and-usr-local/11552#11552)
-
-> `/usr/local`, for self, inhouse, compiled and maintained software.
-> `/opt` is for non-self, external, prepackaged binary/application bundle installation area
-
-- https://guide.macports.org/chunked/installing.macports.uninstalling.html
-- http://trac.macports.org/wiki/Migration
-- https://www.macports.org/install.php
-
-> Macports is installed as root and uses its own account macports for some things.
-
-Update and upgrade ports:
-
-```sh
-sudo port selfupdate && sudo port upgrade outdated
-# later to remove old version
-sudo port uninstall inactive
-```
-
-- [MacPorts Guide](https://guide.macports.org/#using.port.upgrade)
-
-- [How to remove unused MacPorts packages? - Ask Different](https://apple.stackexchange.com/questions/10149/how-to-remove-unused-macports-packages)
-
-Install ports:
-
-```
-# 1. Install Xcode Command Line Tools: `xcode-select --install`
-# 2. Accept Xcode licence: `sudo xcodebuild -license`
-# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, etc.) 
-
-sudo port install\
-	wget rsync\
-	bash bash-completion\
-	coreutils diffutils findutils gsed gawk gpatch\
-	watch\
-	p5-file-rename\
-	openssl\
-	gzip gnutar\
-	git\
-	curl\
-	gettext\
-	ffmpeg\
-	ImageMagick +rsvg\
-	p5-image-exiftool\
-	cmake\
-	apache-ant\
-	httrack\
-	xorg-server\
-	twain-sane
-
-# Start D-Bus
-sudo port install dbus
-sudo port load dbus
-#sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
-#launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
-	
-# Create the missing symlink to exiftool when install p5-image-exiftool until https://trac.macports.org/ticket/45312 is resolved (check exiftool version)
-cd /opt/local/bin/ && sudo ln -s exiftool-5.26 exiftool
-
-# Add `/opt/local/libexec/gnubin` to PATH
-if ! grep -q "export PATH=/opt/local/libexec/gnubin:" ~/.profile
-then
-	echo "" >> ~/.profile
-	echo "# Use GNU coreutils by default (installed with macport)" >> ~/.profile
-	echo "export PATH=/opt/local/libexec/gnubin:\$PATH" >> ~/.profile
-fi
-
-# To use bash_completion, add the following lines at the end of your .bash_profile:
-if ! grep -q "/opt/local/etc/profile.d/bash_completion.sh" ~/.bash_profile
-then
-	echo "" >> ~/.bash_profile
-	echo "# Enable bash-completion" >> ~/.bash_profile
-	echo "if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then" >> ~/.bash_profile
-	echo "        . /opt/local/etc/profile.d/bash_completion.sh" >> ~/.bash_profile
-	echo "fi" >> ~/.bash_profile
-fi
-
-# NodeJS
-# Note: nodejs and npm without version specified are not the lastest available
-# sudo port install nodejs npm
-sudo port install nodejs11 npm6
-# Add to profile node config
-if ! grep -q "export NODE_PATH=" ~/.profile
-then
-	echo "" >> ~/.profile
-	echo "# Use global node modules (installed with macport)" >> ~/.profile
-	echo "export NODE_PATH=/opt/local/lib/node_modules:\$NODE_PATH" >> ~/.profile
-fi
-# NPM can be updated with:
-# sudo npm install -g npm@latest
-
-# Install globally some tools
-# use --python=python2.7 if required
-#npm install -g sqlite3
-
-# Note: never install globaly/system-wide npm packages (via `-g`). Install in ./node_module instead
-# Clean cache: `sudo npm cache clean`
-# If so packages are in /opt/local/lib/node_modules/ and remains even if npm is uninstalled or deactivate via macport
-# To see outdated packages, use `npm outdated -g --depth=0`
-# To update global packages, use `npm update -g`
-
-# Install PHP and composer (PHP package manager)
-sudo port install php php73-intl php73-openssl
-#sudo port install php71 php71-intl php71-openssl
-#sudo port select --set php php71
-# Create PHP config (dev only)
-sudo cp /opt/local/etc/php73/php.ini-development /opt/local/etc/php73/php.ini
-
-# [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
-sudo port install php73-iconv php73-mbstring
-curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/opt/local/bin
-sudo ln -s composer.phar /opt/local/bin/composer
-# Or use in each project's folder `php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar install`
-# Will install packages in ./vendor
-
-# Install python and pip (Python package manager)
-sudo port install python37 py37-pip
-#sudo port install python27 py27-pip
-sudo port select --set python python37
-sudo port select --set python3 python37
-sudo port select --set pip pip37
-# Or for OSX's default python come with easy_install
-#sudo easy_install pip
-#pip install --user package
-# or
-#python -m pip install --user package
-# will install package in ~/Library/Python/X.Y/lib/python/site-packages
-# could also be in ~/.local/lib/pythonX.Y/site-packages
-# See
-# - https://pip.pypa.io/en/latest/user_guide/#user-installs
-# - https://www.python.org/dev/peps/pep-0370/
-# - https://stackoverflow.com/questions/15912804/easy-install-or-pip-as-a-limited-user
-
-# Install Python BeautifulSoup
-pip install --user beautifulsoup4
-# or with macports (system-wide):
-#sudo port install py35-beautifulsoup4
-# Then check
-#python -c "help('modules')" | grep bs4
-
-# Note: never install python packages system-wide http://scicomp.stackexchange.com/a/2988 (use always `--user`)
-
-# Install ntfs-3g https://trac.macports.org/wiki/howto/Ntfs3gFinder (need to disable SIP)
-sudo port install ntfs-3g
-# TODO. See link
-
-# TestDisk and photorec
-sudo port install testdisk
-
-# Ruby and gems (Ruby package manager)
-sudo port install ruby25 rb-rubygems
-sudo port select --set ruby ruby25
-
-# Add to profile user's gems folder
-if ! grep -q "export GEM_HOME=" ~/.profile
-then
-	echo "" >> ~/.profile
-	echo "# Use user gems (rb-rubygems installed with macport)" >> ~/.profile
-	echo "export PATH=~/.gem/bin:\$PATH" >> ~/.profile
-	echo "export GEM_HOME=~/.gem" >> ~/.profile
-	echo "export GEM_PATH=~/.gem:\$GEM_PATH" >> ~/.profile
-fi
-```
 
 ## Custom screen resolution or HiDPI
 

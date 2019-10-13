@@ -649,7 +649,7 @@ Simplicity Matters, [KISS](../Conception/Conception.md#kiss)
 > - Can an idiot make something quickly without a tutorial?
 — https://twitter.com/elsassph/status/557866984705380352
 
-See also [API](Web#api) and [Documentations](../Work/Work.md#documentation)
+See also [API](../Web/Web.md#api) and [Documentations](../Work/Work.md#documentation)
 
 ### Error messages
 

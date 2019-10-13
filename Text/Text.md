@@ -7,8 +7,13 @@
 - [The PHP Typography library by KINGdesk](https://github.com/debach/php-typography) [PHP Typography 1.21 • KINGdesk](http://kingdesk.com/projects/php-typography/)
 - [Web typography prettifyier tools derived from the original SmartyPants.pl by John Gruber](https://github.com/michelf/php-smartypants) [PHP SmartyPants](https://michelf.ca/projets/php-smartypants/)
 - [Quotes and Accents](http://quotesandaccents.com/)
+- [UW-Madison Writer’s Handbook – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/) - How to write scientific papers
+- [Writing Guides](https://writing.colostate.edu/guides/) [Writing Resources](https://writing.colostate.edu/learn.cfm) - How to write scientific papers
+- [English Grammar Rules & Usage](https://grammar.yourdictionary.com/)
 
 ## Typography rules
+
+- [Grammar and Punctuation – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/grammarpunct/)
 
 ### Capitalization
 
@@ -656,3 +661,13 @@ Y 💖 💘
 ```
 
 ![Facebook Emoticons](Facebook-Emoticons.jpg)
+
+## Quoting
+
+...and paraphrasing
+
+> Within quotations, use square brackets \[ \] (not parentheses) to add your own clarification, comment, or correction.
+> — [Quoting and Paraphrasing – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/assignments/quotingsources/)
+
+- [Inserting Editorial Comments into a Quote](https://writing.colostate.edu/guides/page.cfm?pageid=274&guideid=16)
+- [Sic — Wikipedia](https://en.wikipedia.org/wiki/Sic)
