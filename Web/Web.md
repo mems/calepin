@@ -6568,8 +6568,7 @@ Safe Browsing (UrlSubresourceFilter, BetterAds)
 - [Bloqueur de publicités de Chrome : EasyList utilisé pour le blocage, de nouveaux détails](https://www.nextinpact.com/news/106147-bloqueur-publicites-chrome-easylist-utilise-pour-blocage-nouveaux-details.htm)
 - [Here’s how Google Chrome’s new ad blocker works – Ctrl blog](https://www.ctrl.blog/entry/chrome-adblocker)
 - [Should web browsers adopt Google’s new selective ad blocking tech? – Ctrl blog](https://www.ctrl.blog/entry/google-adblocking-competition)
-- [Security/Safe Browsing/Chromium Implementation Overview - MozillaWiki](https://wiki.mozilla.org/Security/Safe_Browsing/Chromium_Implementation_Overview)
-- `chrome://safe-browsing/` and `chrome://components/`
+- `chrome://components/`
 
 - [Intelligent Tracking Prevention 2.0 | WebKit](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) - ITP (Intelligent Tracking Prevention), third party cookies isolation
 - [Chromium Blog: Under the hood: How Chrome' ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
@@ -6583,6 +6582,43 @@ See also:
 
 - [Troubleshooting](#troubleshooting)
 - [Advertising](#advertising)
+
+### Safe browsing
+
+- `chrome://safe-browsing/`
+- [Security/Safe Browsing/Chromium Implementation Overview - MozillaWiki](https://wiki.mozilla.org/Security/Safe_Browsing/Chromium_Implementation_Overview)
+- Google Safe Browsing
+	- https://google.com/safebrowsing/diagnostic?tpl={safari|mozilla|}&site={host}&hl=en-US
+	- https://www.google.com/safebrowsing/report_error/?tpl={safari}
+	- [Safe Browsing Update API (v4)  |  Safe Browsing APIs (v4)](https://developers.google.com/safe-browsing/v4/update-api)
+	- [Safe Browsing: malware and phishing – Google Transparency Report](https://transparencyreport.google.com/safe-browsing/search?hl=en) - Check site status
+	- [Prevent & report phishing attacks - Google Search Help](https://support.google.com/websearch/answer/106318?hl=en)
+	- [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity) of the API:
+		- Google first computes the SHA256 hash of each unsafe URL in its database, and truncates each hash down to a 32-bit prefix to save space.
+		- Google sends the database of truncated hashes down to your browser.
+		- Each time you visit a URL, your browser hashes it and checks if its 32-bit prefix is contained in your local database.
+		- If the prefix is found in the browser’s local copy, your browser now sends the prefix to Google’s servers, which ship back a list of all full 256-bit hashes of the matching  URLs, so your browser can check for an exact match.
+- Tencent Safe Browsing, Safe Browsing API is a drop-in replacement of Google's API
+	- https://www.urlsec.qq.com/check.html?tpl={safari|}&site={host}
+	- https://urlsec.qq.com/check.html?url={url|domain}
+	- https://urlsec.qq.com/report.html?url={url} reportAnError
+	- https://urlsec.qq.com/complain.html
+	- https://safebrowsing.urlsec.qq.com
+	- https://www.urlsec.qq.com/standard/s1.html Learn more
+- [Firefox Website Warning | StopBadware](https://www.stopbadware.org/firefox)
+- [(Safe) Safe Browsing Testing Links](https://testsafebrowsing.appspot.com/)
+
+[Phishing facts](https://www.itgovernance.co.uk/blog/4-eye-opening-facts-about-phishing):
+
+- phishing sites have a lifecycle of about 15 hours
+- most malicious links are hidden within benign domains
+- about 400,000 phishing sites are created each month
+
+Code:
+
+- [safe_browsing/ - Code Search](https://cs.chromium.org/chromium/src/chrome/browser/safe_browsing/?q=chrome/browser/safe_browsing/&sq=package:chromium&dr)
+- [SafeBrowsingWarningCocoa.mm dans webkit/trunk/Source/WebKit/UIProcess/Cocoa. – WebKit](http://trac.webkit.org/browser/webkit/trunk/Source/WebKit/UIProcess/Cocoa/SafeBrowsingWarningCocoa.mm?rev=239408) - Safe Browsing
+- /System/Library/PrivateFrameworks/SafariSafeBrowsing.framework
 
 ## Datasets
 
