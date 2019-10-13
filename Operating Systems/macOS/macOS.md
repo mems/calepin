@@ -2698,7 +2698,14 @@ Add to `/System/Library/Spotlight/RichText.mdimporter/Contents/info.plist` (get 
 - [Spotlight tips](http://www.thexlab.com/faqs/stopspotlightindex.html)
 - [osx - Is there a way to show Spotlight indexing status/progress in Yosemite? - Ask Different](http://apple.stackexchange.com/questions/155479/is-there-a-way-to-show-spotlight-indexing-status-progress-in-yosemite)
 
-## Print on Windows shared printer
+## Printer & scanner
+
+Most post 2013 printers implement [IPP Everywhere](https://www.pwg.org/ipp/everywhere.html). AirPrint is based on IPP
+
+- [VueScan Scanner Software for Windows, macOS Catalina and Linux](https://www.hamrick.com/) - scanner application support old scanners
+- [Printer and scanner drivers for Mac - Apple Support](https://support.apple.com/en-us/HT201465) - list of old devices that don't implement IPP that macOS can auto install required drivers
+
+### Print on Windows shared printer
 
 Will ask username / password for shared printer, use Windows auth credentials or `guest` for the **username and password**. If not asked, delete the entry of password in keychain app
 

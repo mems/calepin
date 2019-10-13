@@ -15,6 +15,7 @@
 - `cat /etc/resolv.conf`
 - [Non-responsive DNS server or invalid DNS configuration can cause long delay before webpages load - Apple Support](https://support.apple.com/en-au/HT203244)
 - [domain name system - dig works but ping does not resolve host - Server Fault](https://serverfault.com/questions/813158/dig-works-but-ping-does-not-resolve-host)
+- [DNS Lecture Notes: contents](http://www-inf.int-evry.fr/~hennequi/CoursDNS/NOTES-COURS_eng/)
 
 ### DNS Record
 

@@ -1010,11 +1010,11 @@ Create a trusted certificate:
 5. select "Proceed without enrollment policy", click "Next"
 6. click "Next" (keep default: template "(No template) CNG Key", and request format "PCKS #10")
 7. click "Details", "Properties"
-8. set "Friendly name", like your computer name or "sgewXXXX.hq.fr.fnac.group"
+8. set "Friendly name", like your computer name or `mydevice.local`
 9. in "Subject" tab:
-	1. in subject name, select "Common name" and set the value to `sgewXXXX.hq.fr.fnac.group`, then click "Add >"
-	2. in alternative name, select "DNS" ans set the value to `sgewXXXX.hq.fr.fnac.group`, then click "Add >"
-	3. in alternative name, select "DNS" ans set the value to `*.fnac.fd-dev.net`, then click "Add >"
+	1. in subject name, select "Common name" and set the value to `mydevice.local`, then click "Add >"
+	2. in alternative name, select "DNS" ans set the value to `mydevice.local`, then click "Add >"
+	3. in alternative name, select "DNS" ans set the value to `*.example.com`, then click "Add >"
 10. in "Extensions" tab:
 	1. in "Extended Key Usage (application policies)" section, select "Server Authentification", then click "Add >"
 	2. in "Basic Constraints" section, check "Enable this extension"
