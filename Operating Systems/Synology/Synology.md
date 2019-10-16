@@ -25,6 +25,7 @@ RAID mirror disks: remove a disk and rebuild volume
 
 RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](Command line (Unix)#clone-disk)
 
+- [Replace Drives to Expand Storage Capacity | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk)
 - [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
 - [Adding a new disk drive to a Synology 2-bay drive - Super User](https://superuser.com/questions/575408/adding-a-new-disk-drive-to-a-synology-2-bay-drive)
 - [Upgrading disks in a RAID1 Synology 2-bay drive - Super User](https://superuser.com/questions/469325/upgrading-disks-in-a-raid1-synology-2-bay-drive)

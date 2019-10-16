@@ -1852,6 +1852,13 @@ defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-ty
 killall Dock
 ```
 
+###
+
+- [KDE Connect is Now Available for macOS (Updated) - OMG! Ubuntu!](https://www.omgubuntu.co.uk/2019/07/kde-connect-mac-os-integrate-android)
+- [KDE Connect macOS Release | Inoki in KDE](https://kde.inoki.cc/2019/09/01/KDE-Connect-macOS-GSoC-Final-Release/)
+- [Release GSoC Release · Inokinoki/kde-blog](https://github.com/Inokinoki/kde-blog/releases/tag/20190901)
+- [KDE Connect - Apps on Google Play](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp)
+
 ## Disk, file system and paths
 
 - disk path: `/dev/diskX` where X is a number (start with 1)
