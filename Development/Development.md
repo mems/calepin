@@ -93,6 +93,26 @@ See also:
 - [Software Folklore ― Andreas Zwinkau](http://beza1e1.tuxen.de/lore/)
 - [The Order of the JSON – Dion Almaer](https://blog.almaer.com/the-order-of-the-json/) - JSON keys almost cost a project millions of dollars and months of time
 
+## Technical dept
+
+> ## Non breacking release of Webpack 4
+> 
+> - **4.0.0**, 4.0.1, **4.1.0**, 4.1.1, **4.2.0**, **4.3.0**, **4.4.0**, 4.4.1, [...]
+> - 33 **minor** releases
+> - 43 patch releases
+> - but: **technical debt** pills up...
+> 
+> ## Strategy to prevent major releases
+> 
+> - hacks, and add **TODOs** to the source code
+> - opt-in flags
+> - **plan** ahead of **future features**
+> 	- make necessary **preparations** in major releases
+> - restrict API to be able to do changes in **non-breacking way**
+> 	- very difficult, because of the **large plugin API surface**
+> 
+> — [slides/webpack-5-why-breaking-changes.pdf at master · sokra/slides](https://github.com/sokra/slides/blob/master/data/webpack-5-why-breaking-changes.pdf)
+
 ## Latency numbers
 
 - [The Infinite Space Between Words](https://blog.codinghorror.com/the-infinite-space-between-words/)
