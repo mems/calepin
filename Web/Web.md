@@ -2747,9 +2747,9 @@ Others links:
 - [Adactio: Journal—AMPstinction](https://adactio.com/journal/13964)
 - [Google AMP lowered our page speed, and there's no choice but to use it - unlike kinds](https://unlikekinds.com/amp/article/google-amp-page-speed)
 
-### Third parties
+### Third parties webperf
 
-> Don't trust your third parties
+See also See also [Third parties](#third-parties)
 
 - [Hard Costs of Third-Party Scripts - daverupert.com](https://daverupert.com/2018/10/hard-costs-of-third-party-scripts/)
 - [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5)
@@ -6005,10 +6005,29 @@ Ex: https://safari-extensions.apple.com/details/?id=com.diigo.safari.awesomescre
 
 ## Third parties
 
+> Don't trust your third parties
+
+See also [Third parties webperf](#third-parties-webperf)
+
 Comments services alternatives:
 
 - [Replacing Disqus with Github Comments · Gazoo.vrv](http://donw.io/post/github-comments/)
 - [Comments - Social Plugins](https://developers.facebook.com/docs/plugins/comments/)
+
+### Website plugins
+
+To isolate a third party script (or DOM access, geolocation, modal APIs, etc.), use:
+
+- iframe with a cross origin (third party origin or null), ex: iframe with sandbox attribute but without `allow-same-origin`
+- a virutal machine like [QuickJS](https://bellard.org/quickjs/) or [Duktape](https://github.com/svaarala/duktape) or [any other JS engine](https://github.com/GoogleChromeLabs/jsvu#supported-engines-per-os) (that could be cross-compiled to WebAssembly)
+- use the [Realm API](https://www.npmjs.com/package/realms-shim) (similar to `with(proxy){}`)
+
+See also:
+
+- [How to build a plugin system on the web and also sleep well at night](https://www.figma.com/blog/how-we-built-the-figma-plugin-system/)
+- [An update on plugin security](https://www.figma.com/blog/an-update-on-plugin-security/)
+- [Realms-shim Security Updates - Agoric](https://agoric.com/realms-shim-security-updates/)
+- [Play safely in sandboxed IFrames - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
 
 ## Firefox Reader view
 
