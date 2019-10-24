@@ -205,14 +205,20 @@ Continuous integration
 
 #### Bash script
 
-	#!/bin/sh
-	while true ; do make ; sleep 1 ; done
+```sh
+#!/bin/sh
+while true ; do make ; sleep 1 ; done
+```
 
 #### watch command
 
-	watch make
+```sh
+watch make
+```
 
-	watch -n 0.5 "make 2>&1"
+```sh
+watch -n 0.5 "make 2>&1"
+```
 
 - [coderwall.com : establishing geek cred since 1305712800](https://coderwall.com/p/e0kj9w/watch-for-changes-and-then-rebuild-source-code-using-make)
 
@@ -220,17 +226,25 @@ Continuous integration
 
 https://github.com/facebook/watchman
 
-	brew install watchman
+```sh
+brew install watchman
+```
 
-	sudo port install watchman
+```sh
+sudo port install watchman
+```
 
 #### fswatch
 
 https://github.com/alandipert/fswatch
 
-	brew install fswatch
+```sh
+brew install fswatch
+```
 
-	cd /tmp && git clone https://github.com/alandipert/fswatch && cd fswatch/ && make && cp fswatch /usr/local/bin/fswatch
+```sh
+cd /tmp && git clone https://github.com/alandipert/fswatch && cd fswatch/ && make && cp fswatch /usr/local/bin/fswatch
+```
 
 #### inotifywait
 
@@ -256,21 +270,21 @@ Make generaly don't handle filename with space (spaces used as separators)
 
 ### Dependencies
 
-### Others
+## Others
 
 - https://github.com/ai/autoprefixer/tree/master/lib/hacks
 - http://www.phpied.com/diy-source-maps/
 - http://www.phpied.com/css-diff/
 
-#### Java
+### Java
 
 http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk
 
-#### Google Closure Compiler
+### Google Closure Compiler
 
 /usr/share/java/closure-compiler.jar
 
-##### `git && ant`
+#### `git && ant`
 
 	#!/bin/bash
 	mkdir closure-compiler
@@ -281,7 +295,7 @@ http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#ja
 	cd ..
 	rm -rf closure-compiler
 
-##### Download
+#### Download
 
 	#!/bin/bash
 	wget -qO- -O compiler-latest.zip http://dl.google.com/closure-compiler/compiler-latest.zip
@@ -301,7 +315,7 @@ Debian
 https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=705565
 https://packages.debian.org/source/sid/closure-compiler
 
-#### Nailgun
+### Nailgun
 
 Nailgun (for java)
 http://www.martiansoftware.com/nailgun/
@@ -322,4 +336,31 @@ https://github.com/sethp-jive/homebrew/blob/0f0a86819d8f5bd53251f263a26ae8119f88
 
 Exist as a variant of jruby: https://trac.macports.org/ticket/20552
 
-#### Maven
+## Webpack
+
+- [How webpack works - sokra](https://github.com/sokra/slides/blob/master/data/how-webpack-works.pdf)
+
+Webpack use enhanced-resolve
+
+- [enhanced-resolve/ResolverFactory.js at 5c1495a947060cf11106abc325b8adf1a0eff9b1 · webpack/enhanced-resolve](https://github.com/webpack/enhanced-resolve/blob/5c1495a947060cf11106abc325b8adf1a0eff9b1/lib/ResolverFactory.js#L160-L173)
+- [API - Document When a Plugin Should Call `doResolve()` · Issue #1458 · webpack/webpack.js.org](https://github.com/webpack/webpack.js.org/issues/1458) - webpack resolver waterfall/sequential of resolution
+- [rename-loader - npm](https://www.npmjs.com/package/rename-loader)
+- [shaketbaby/directory-named-webpack-plugin: A Webpack plugin that treats a file with the name of directory as the index file](https://github.com/shaketbaby/directory-named-webpack-plugin)
+
+Import a file that is not in the filesystem:
+
+- [Is it possible to load a non-existent file? · Issue #3633 · webpack/webpack](https://github.com/webpack/webpack/issues/3633)
+- [rmarscher/virtual-module-webpack-plugin: Adds the contents of a virtual file to webpack's cached file system without writing it to disk](https://github.com/rmarscher/virtual-module-webpack-plugin)
+- [renanhangai/virtual-file-loader: Virtual file loader for webpack](https://github.com/renanhangai/virtual-file-loader)
+- [egoist/import-http: Import modules from URL instead of local node_modules](https://github.com/egoist/import-http/)
+
+Loaders:
+
+- Loader rule/condition: `resourceQuery` (match the resource query string), `issuer` (parent resource)
+- [Loaders | webpack](https://webpack.js.org/loaders/) and [list of loaders · webpack/docs Wiki](https://github.com/webpack/docs/wiki/list-of-loaders)
+
+Other:
+
+- [javascript - How to import library which is not module in webpack - Stack Overflow](https://stackoverflow.com/questions/50176740/how-to-import-library-which-is-not-module-in-webpack/51360811#51360811)
+- [Plugins | webpack](https://webpack.js.org/plugins/) and [list of plugins · webpack/docs Wiki](https://github.com/webpack/docs/wiki/list-of-plugins)
+- [scinos/webpack-plugin-hash-output: Plugin to replace webpack chunkhash with an md5 hash of the final file conent.](https://github.com/scinos/webpack-plugin-hash-output)
