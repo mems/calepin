@@ -123,6 +123,7 @@ See also:
 
 Aka multiplayer game, streaming, RTS game
 
+- [How Figma’s multiplayer technology works](https://www.figma.com/blog/how-figmas-multiplayer-technology-works/)
 - [Gamasutra - 1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond](http://www.gamasutra.com/view/feature/131503/1500_archers_on_a_288_network_.php)
 - [Gamasutra - Opinion: Synchronous RTS Engines And A Tale of Desyncs](http://www.gamasutra.com/view/news/126022/Opinion_Synchronous_RTS_Engines_And_A_Tale_of_Desyncs.php)
 - [A Beginner's Guide to Scaling to 11 Million+ Users on Amazon's AWS - High Scalability -](http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html) http://wayback.archive.org/web/20160304044912/http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html
