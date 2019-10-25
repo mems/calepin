@@ -63,8 +63,35 @@ Games:
 	> | ColorTransform (optional) | CXFORM       | Color transform data     |
 	> 
 	> — [SWF File Format Specification](https://www.adobe.com/content/dam/acom/en/devnet/pdf/swf-file-format-spec.pdf)
-- [struct (C programming language) - Wikipedia](https://en.wikipedia.org/wiki/Struct_%28C_programming_language%29)
+- [struct (C programming language) - Wikipedia](https://en.wikipedia.org/wiki/Struct_%28C_programming_language%29):
+	> ```c
+	> uint32 constant00;
+	> uint32 numBones;
+	> struct Bone {
+	> 	float[16] Matrix4X4;
+	> }
+	> uint32 numVerts
+	> struct Vert {
+	> 	float[3] CoordXYZ;
+	> 	float Weight;
+	> 	byte BoneID01;
+	> 	byte BoneID02;
+	> 	byte NULL1;
+	> 	byte NULL2;
+	> 	float[3] NormalXYZ;
+	> 	float[2] TexCoordUV;
+	> }
+	> 
+	> uint32 numFaces;
+	> numFaces Face {
+	> 	uint16[3] v1, v2, v3;
+	> }
 - [Kaitai Struct: declarative binary format parsing language](http://kaitai.io/index.html)
+
+See also
+
+- [FlatBuffers: Writing a schema](https://google.github.io/flatbuffers/md__schemas.html)
+- [Protocol Buffers  |  Google Developers](https://developers.google.com/protocol-buffers/)
 
 ## File signature
 
