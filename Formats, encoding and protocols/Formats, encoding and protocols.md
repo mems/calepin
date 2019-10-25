@@ -11,7 +11,6 @@ Infos, tools and code for some formats / protocols / encodings
 - [ForensicsWiki](http://www.forensicswiki.org/wiki/Main_Page)
 - [www.FOURCC.org - Video Codecs and Pixel Formats](http://fourcc.org/)
 - [File Formats - Just Solve the File Format Problem](http://fileformats.archiveteam.org/wiki/File_Formats)
-- [Kaitai Struct: declarative binary format parsing language](http://kaitai.io/index.html)
 - [MediaInfo / Code / \[r6865\] /MediaInfoLib/trunk/Source/MediaInfo](https://sourceforge.net/p/mediainfo/code/HEAD/tree/MediaInfoLib/trunk/Source/MediaInfo/)
 - [MultimediaWiki](https://wiki.multimedia.cx/index.php/Main_Page)
 - [XentaxWiki - Game File Format Central](http://wiki.xentax.com/index.php/Game_File_Format_Central)
@@ -41,6 +40,30 @@ Games:
 
 - [Game Extractor download | SourceForge.net](https://sourceforge.net/projects/gameextractor/)
 - Cities XL [MCPKUtil](https://sourceforge.net/p/mcpkutil/wiki/Home/) [Cities XL PakUnPak](http://wayback.archive.org/web/20141219223446/http://www.generation-city.com/citiesxl/pakunpak/Download.php) http://xlnation.city/resources/pakunpak-for-cities-x-xl.1900/ (need .NET Framework 4.0, can be decompiled, works with wine + winetrick dotnet40)
+
+## Describe binary format
+
+- tables likes :
+	
+	> | RECORDHEADER (long) |      |                                                                 |
+	> |---------------------|------|-----------------------------------------------------------------|
+	> | Field               | Type | Comment                                                         |
+	> | TagCodeAndLength    | UI16 | Tag type and length of 0x3F Packed together as in short  header |
+	> | Length              | UI32 | Length of tag                                                   |
+	> 
+	> [...]
+	> 
+	> | Field                     | Type         | Comment                  |
+	> |---------------------------|--------------|--------------------------|
+	> | Header                    | RECORDHEADER | Tag type = 4             |
+	> | CharacterId               | UI16         | ID of character to place |
+	> | Depth                     | UI16         | Depth of character       |
+	> | Matrix                    | MATRIX       | Transform matrix data    |
+	> | ColorTransform (optional) | CXFORM       | Color transform data     |
+	> 
+	> — [SWF File Format Specification](https://www.adobe.com/content/dam/acom/en/devnet/pdf/swf-file-format-spec.pdf)
+- [struct (C programming language) - Wikipedia](https://en.wikipedia.org/wiki/Struct_%28C_programming_language%29)
+- [Kaitai Struct: declarative binary format parsing language](http://kaitai.io/index.html)
 
 ## File signature
 
