@@ -45,9 +45,10 @@ Games:
 
 - tables likes :
 	
-	> | RECORDHEADER (long) |      |                                                                 |
-	> |---------------------|------|-----------------------------------------------------------------|
+	> RECORDHEADER (long):
+	> 
 	> | Field               | Type | Comment                                                         |
+	> |---------------------|------|-----------------------------------------------------------------|
 	> | TagCodeAndLength    | UI16 | Tag type and length of 0x3F Packed together as in short  header |
 	> | Length              | UI32 | Length of tag                                                   |
 	> 
