@@ -427,6 +427,13 @@ https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
 ~/Library/Application Support/Google/Chrome/Default/Preferences
 JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
 
+### Enable Chrome developer tools experiments
+
+1. chrome://flags/#enable-devtools-experiments
+2. webdev tools "Settings"
+3. webdev tools "Experiment" tab
+4. press "Shift" 6 times to show more experiments
+
 ## Handbrake Protected DVD
 
 Use VideoLAN's libdvdcss
