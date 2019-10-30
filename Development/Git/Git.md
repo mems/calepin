@@ -250,3 +250,52 @@ git bisect run <yourtest.sh>
 ## Tools
 
 - [samkelleher/conventional-github-releaser: Node utility to auto generate GitHub Release Notes from git commits using latest ECMAScript](https://github.com/samkelleher/conventional-github-releaser)
+
+## Export changed files
+
+```sh
+git archive -o patch.zip $COMMIT_HASH $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $COMMIT_HASH)
+git archive -o patch.zip $COMMIT_TO_HASH $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $COMMIT_FROM_HASH^ $COMMIT_TO_HASH)
+```
+
+rollback
+
+```sh
+git archive -o patch.zip $COMMIT_HASH^ $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $COMMIT_HASH)
+git archive -o patch.zip $COMMIT_FROM_HASH^ $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $COMMIT_TO_HASH $COMMIT_FROM_HASH^)
+```
+	
+- [git diff - Export only modified and added file with folder structure in Git - Stack Overflow](https://stackoverflow.com/questions/4541300/export-only-modified-and-added-files-with-folder-structure-in-git)
+
+## Git on Windows
+
+See also [Bash shell on Windows](../../Operating%20Systems/Windows/Windows.md#bash-shell-on-windows)
+
+### Credentials helper
+
+Use the native Windows credentials manager (saved as generic credentials like "git:https://mygitrepo"):
+
+```sh
+git config --global credential.helper manager
+```
+
+- [Accessing Credential Manager](https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager) - In control panel
+- [windows - Remove credentials from Git - Stack Overflow](https://stackoverflow.com/questions/15381198/remove-credentials-from-git/15382950#15382950)
+
+## Implement a custom remote
+
+For storage or transmition protocol
+
+- https://github.com/git/git/blob/master/git-remote-testgit.sh https://github.com/git/git/blob/master/Documentation/git-remote-testgit.txt
+- [Git - git-remote-helper Documentation](https://git-scm.com/docs/git-remote-helpers)
+- [pull-git-remote-helper](https://www.npmjs.com/package/pull-git-remote-helper) and [clehner/abstract-pull-git-repo: abstract interface for git repo using pull streams](https://github.com/clehner/abstract-pull-git-repo)
+- [peritus/git-remote-couch: a git-remote-helper that allow you to push source code into a CouchDB](https://github.com/peritus/git-remote-couch)
+- [glandium/git-cinnabar: git remote helper to interact with mercurial repositories](https://github.com/glandium/git-cinnabar)
+- [anishathalye/git-remote-dropbox: A transparent bridge between Git and Dropbox - use a Dropbox (shared) folder a a Git remote!](https://github.com/anishathalye/git-remote-dropbox)
+	- [Dropbox a a True Git Server · cat /var/log/life](https://www.anishathalye.com/2016/04/25/dropbox-as-a-true-git-server/)
+	- [git-remote-dropbox · cat /var/log/life](https://www.anishathalye.com/2015/08/19/git-remote-dropbox/)
+	- [git-remote-dropbox/DESIGN.rst at master · anishathalye/git-remote-dropbox](https://github.com/anishathalye/git-remote-dropbox/blob/master/DESIGN.rst)
+- [felipec/git-remote-bzr: Transparent bidirectional bridge between Git and Bazaar for Git](https://github.com/felipec/git-remote-bzr)
+- `git remote -v`
+
+- [Extend Git with Custom Command (Example)](https://coderwall.com/p/bt93ia/extend-git-with-custom-commands)
