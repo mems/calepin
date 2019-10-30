@@ -642,6 +642,8 @@ Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by 
 - Support ANSI sequences in Run tool (use terminal for NodeJS registry key, at least in PhpStorm 2018.3 and WebStorm 2018.2): [Console output manipulation is not supported when using WebStorm Run : IDEA-154313](https://youtrack.jetbrains.com/issue/IDEA-154313#focus=streamItem-27-2842206.0-0)
 - Help > Find Action > Check "UML support" on, right click on file or folder > Diagram. [Module Dependency Diagrams - Help | PhpStorm](https://www.jetbrains.com/help/phpstorm/module-dependency-diagram.html)
 
+To add options in vmoption: [Help > Edit Custom VM Options...](https://intellij-support.jetbrains.com/hc/en-us/articles/206544869)
+
 List of files in search:
 
 ```js
@@ -674,6 +676,87 @@ document.addEventListener("paste", function(event) {
 	}, []).reduce((list, {path, files}) => list.concat(files.map(file => path + "\\" + file)), []).join("\n"))
 });
 ```
+
+### Scope
+
+Settings > Appearance & Behavior > Scopes
+
+`file[group:Libraries]:*/||file[Fnaccom-18.1-FR-BE-CH]:*/`
+	
+### Subprojects
+
+Aka modules, WebStorm
+
+Créer dans le dossier du sous projet :
+le dossier .idea
+le fichier .idea/MODULE_NAME.iml ou MODULE_NAME peut être n'importe quel nom (peut contenir des espaces. il sera prefixé par le nom du dossier du sous projet "nom-du-dossier [nom-du-sous-projet]" dans l'IDE) :
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+	<component name="NewModuleRootManager">
+		<content url="file://$MODULE_DIR$">
+			<!--<excludeFolder url="file://$MODULE_DIR$/Src/www/Assets/dist" />-->
+		</content>
+		<orderEntry type="inheritedJdk" />
+		<orderEntry type="sourceFolder" forTests="false" />
+	</component>
+</module>
+```
+
+Then open the project in "This Window":
+
+https://www.jetbrains.com/help/webstorm/opening-multiple-projects.html
+
+Will open add a module line in the root project .idea/modules.xml:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+	<component name="ProjectModuleManager">
+		<modules>
+			<module fileurl="file://$PROJECT_DIR$/path/to/module/.idea/MODULE_NAME.iml" filepath="$PROJECT_DIR$/path/to/module/.idea/MODULE_NAME.iml" />
+		</modules>
+	</component>
+</project>
+```
+	
+You can use a subproject folder with the attribute `group` (can contains `/` for multiple subfolder)
+
+Modules order can't be changed: [How to order modules in intellij-idea? - Stack Overflow](https://stackoverflow.com/questions/31245847/how-to-order-modules-in-intellij-idea)
+
+You can change in the root project .idea/PROJECT_NAME.iml to define module order (and hide files/folders of the root project by remove `<content...`)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+	<component name="NewModuleRootManager">
+		<orderEntry type="module" module-name="MODULE1_NAME" />
+		<orderEntry type="module" module-name="MODULE2_NAME" />
+	</component>
+</module>
+```
+
+- [Managing Project under Version Control - Help | IntelliJ IDEA](https://www.jetbrains.com/help/idea/managing-projects-under-version-control.html)
+- [Configuring project - Help | IntelliJ IDEA](https://www.jetbrains.com/help/idea/configuring-projects.html)
+
+### External Tool
+
+Aka Run/Debug Configuration for command line
+
+There is not way to add a command line command or a process directly with Run/Debug. But you can choose the "interpreter" (ex: "Node interpreter" for a Node task) or use "External Tool" (Settings > Tools > External Tool)
+
+`cmd.exe` with parameters `/C "echo test"`
+
+To start powershell as admin (as regular user):
+
+```
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Process powershell \"-ExecutionPolicy Bypass -NoProfile -NoExit -Command `\"cd \`\"$ProjectFileDir$\10-Front\Tools\Scripts\Dev\Dev-Front\Src\`\"`\"\" -Verb RunAs"
+```
+
+- [Can I run a batch file (.bat) from within the IDE? – IDE Support (IntelliJ Platform) | JetBrains](https://intellij-support.jetbrains.com/hc/en-us/community/posts/207057025-Can-I-run-a-batch-file-bat-from-within-the-IDE-)
+- [BashSupport - Bash plugin for IntelliJ / WebStorm / PyCharm | IntelliJ plugin development - www.plugin-dev.com](https://www.plugin-dev.com/project/bashsupport/)
+- [PowerShell: Running a command a Administrator - Stack Overflow](https://stackoverflow.com/questions/7690994/powershell-running-a-command-as-administrator/39838527#39838527)
 
 ## Adobe
 
