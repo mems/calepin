@@ -87,3 +87,54 @@ Install the Media Feature Pack:
 Or rename, write `.gitignore.` or `.htaccess.` (with both dots). The trailing dot will be removed.
 
 - [How do I manually create a file with a . (dot) prefix in Windows? For example, .htaccess - Stack Overflow](https://stackoverflow.com/questions/5004633/how-do-i-manually-create-a-file-with-a-dot-prefix-in-windows-for-example/38425947#38425947)
+
+## Bash shell on Windows
+
+On Windows 10, [Install the Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+Or on Windows 8 install [MSYS2](http://www.msys2.org/) (install in the default folder) (check or update env var `PATH` `C:\msys64\usr\bin`)
+
+cmd.exe
+> bash
+
+Or open command line (in Start > All programms > MSYS2 64bit > MSYS2 MSYS): `C:\msys64\msys2_shell.cmd -msys`
+Or:`cmd /c set HOME=%USERPROFILE% & set MSYSTEM=MINGW64 & bash.exe --login -i` where `MSYSTEM` can be `MINGW64`, `MINGW32` or `MSYS`
+
+Alternatively you can use also:
+- Git for Windows comes with MinGW64 (`%GIT_INSTALL_PATH%/usr/bin`, `%GIT_INSTALL_PATH%/bin`, `%GIT_INSTALL_PATH%/mingw64/bin`)
+	- [Git for Windows](https://gitforwindows.org/)
+	- [The difference between MINGW and MSYS2 · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/The-difference-between-MINGW-and-MSYS2)
+	- [What is Git Bash for Windows anyway? - Super User](https://superuser.com/questions/1053633/what-is-git-bash-for-windows-anyway/1053657#1053657)
+	
+	In `C:\Program Files\Git`:
+	> `/bin/bash.exe` refers to a redirector that sets up some environment variables and then hands off to `/usr/bin/bash.exe`. This redirector was only invented for backwards compatibility, but apparently is needed for eternity.
+	> 
+	> To sum it up: `/bin/bash.exe` is not the Bash, but relies on `/usr/bin/bash.exe` to do the hard lifting.
+	> [...]
+	> Use `git-bash.exe` and just use the mintty that comes with Git for Windows
+	> - [CTRL -C event is closing the ConsoleZ window instead of returning to a prompt · Issue #262 · cbucher/console](https://github.com/cbucher/console/issues/262#issuecomment-183875609)
+	
+	To start bash, in different terminal emulators:
+	
+	- [Mintty](https://github.com/mintty/mintty) (that comes with Git for Windows): `C:\Program Files\Git\git-bash.exe`. See [windows - How can I find out the command line options for git-bash.exe? - Super User](https://superuser.com/questions/1104567/how-can-i-find-out-the-command-line-options-for-git-bash-exe)
+		[CTRL + C & CTRL + V copy paste · Issue #602 · mintty/mintty](https://github.com/mintty/mintty/issues/602)
+	- Windows CMD: `C:\Windows\System32\cmd.exe /c "C:\Program Files\Git\usr\bin\bash.exe" --login -i`
+	- PowerShell: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Set-Location -Path (Get-Location); & \"C:\\Program Files\\Git\\usr\\bin\\bash.exe\" --login -i"`
+	
+	See also:
+	
+	- [batch file - How to start MingW Console (GitBash) from Command Line on Windows? - Stack Overflow](https://stackoverflow.com/questions/34252265/how-to-start-mingw-console-gitbash-from-command-line-on-windows)
+	- [windows 7 - Git: Open Git-Bash in specific directory - Super User](https://superuser.com/questions/1310814/git-open-git-bash-in-specific-directory)
+	- [FAQ · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/FAQ#what-is-the-relationship-between-git-for-windows-and-msysgit)
+	- [git-for-windows/build-extra: Additional files and scripts to help build Git for Windows on MSYS2.](https://github.com/git-for-windows/build-extra#msys2)
+- MinGW64 http://mingw-w64.org/doku.php/start
+- MinGW "MSYS" package https://sourceforge.net/projects/mingw/
+- GnuWin https://sourceforge.net/projects/gnuwin32/
+- Unxutils (check or update env var PATH for both `%WHERE_UNXUTILS_IS%\bin` and `%WHERE_UNXUTILS_IS%\usr\local\wbin`) http://unxutils.sourceforge.net/ `C:\Program Files (x86)\UnxUtils`
+	Not updated since 2003
+	But sh (zsh) doesn't work propely
+
+For write to clipboard:
+
+`clip` (from `C:\Windows\system32\clip.exe`)
+
+- [Little-known command line utility: clip – The Old New Thing](https://blogs.msdn.microsoft.com/oldnewthing/20091110-00/?p=16093)
