@@ -4154,3 +4154,17 @@ Inline reader:
 Inline reader pure JS: [PDF.js](https://mozilla.github.io/pdf.js/) (same reader used by Firefox)
 
 - [Parameters for Opening PDF Files - pdf_open_parameters_v9.pdf](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/pdf_open_parameters_v9.pdf)
+
+## ETAGO
+
+Aka the end-tag open
+
+Encode:
+- `<!--` as `<\!--`
+- (in script tag) `<script` as `<\script` and `</script` as `<\/script` if it's in literal (strings, regular expressions, or comments), else 
+- (in style tag) `<style` as `<\style` and `</style` as `<\/style`
+
+- [The end-tag open (ETAGO) delimiter · Mathias Bynens](https://mathiasbynens.be/notes/etago)
+- [mathiasbynens/jsesc: Given some data, jsesc returns the shortest possible stringified & ASCII-safe representation of that data.](https://github.com/mathiasbynens/jsesc#isscriptcontext)
+- [add jsesc options support by vincentdchan · Pull Request #8143 · babel/babel](https://github.com/babel/babel/pull/8143)
+- [How to safely escape user data in a script tag - man42 blog](https://www.man42.net/blog/2016/12/safely-escape-user-data-in-a-script-tag/#solution)
