@@ -4164,6 +4164,8 @@ Encode:
 - (in script tag) `<script` as `<\script` and `</script` as `<\/script` if it's in literal (strings, regular expressions, or comments), else 
 - (in style tag) `<style` as `<\style` and `</style` as `<\/style`
 
+See also:
+
 - [The end-tag open (ETAGO) delimiter · Mathias Bynens](https://mathiasbynens.be/notes/etago)
 - [mathiasbynens/jsesc: Given some data, jsesc returns the shortest possible stringified & ASCII-safe representation of that data.](https://github.com/mathiasbynens/jsesc#isscriptcontext)
 - [add jsesc options support by vincentdchan · Pull Request #8143 · babel/babel](https://github.com/babel/babel/pull/8143)
