@@ -2577,6 +2577,7 @@ Aka `<select>`
 		display: none;
 	}
 
+- [The Current State of Styling Selects in 2019 | CSS-Tricks](https://css-tricks.com/the-current-state-of-styling-selects-in-2019/)
 - [Select styles with CSS only](https://github.com/filamentgroup/select-css)
 - [::-ms-expand pseudo-element - Windows app development](https://msdn.microsoft.com/en-us/library/windows/apps/hh465742.aspx)
 

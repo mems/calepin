@@ -2130,6 +2130,12 @@ Some specific softwares require to disable it
 - [About System Integrity Protection on your Mac - Apple Support](https://support.apple.com/en-us/HT204899)
 - [high sierra - Is /dev protected by SIP? - Ask Different](https://apple.stackexchange.com/questions/304591/is-dev-protected-by-sip?noredirect=1&lq=1)
 
+#### Terminal access error
+
+If a command return an error like `Operation not permitted`, or `cat: ~/Library/path/to/file: Operation not permitted`, a SIP protected file is read.
+
+Lift the restriction for Terminal: [Operation not permitted - Mojave security?](https://apple.stackexchange.com/questions/339862/ls-operation-not-permitted-mojave-security/345142#345142)
+
 ### App Sandbox
 
 	~/Library/Containers

@@ -514,7 +514,7 @@ Aka dropdown
 
 It's hard to use the keyboard with it.
 
-Don't use select if you have less than 5 choices or more than 15 choices. Use instead:
+Don't use select if you have less than 5 choices or more than 15 choices or choice label is more that 30 chars. Use instead:
 
 - stepper (number input) for small adjustments (like number of passengers for flight booking)
 - radio groups or segmented controls for all in one place (like class of travel) or few quantities (filter: any, 1+, 2+, 3+, 4+, 5+)
@@ -522,6 +522,7 @@ Don't use select if you have less than 5 choices or more than 15 choices. Use in
 - date input for dates / years
 - autocomplete (if too many choices)
 
+- [The problem with dropdown fields (and what you should use instead) | Design Smarts](https://designsmarts.co/the-problem-with-dropdowns/)
 - [Dropdown alternatives for better (mobile) forms – Zoltan Kollin – Medium](https://medium.com/@kollinz/dropdown-alternatives-for-better-mobile-forms-53e40d641b53)
 - [UX Design: Drop-Downs in Forms](http://babich.biz/ux-design-drop-downs-in-forms/#selectmenuandanumberofoptions)
 - [Redesigning The Country Selector – Smashing Magazine](https://www.smashingmagazine.com/2011/11/redesigning-the-country-selector/)
