@@ -1125,6 +1125,7 @@ Highlight occurances of regular expression in dictionary
 Search for empty files and folder (or file with only whitespaces)
 
 - [command line - How to find all empty files and folders in a specific directory including files which just look empty but are not? - Ask Ubuntu](https://askubuntu.com/questions/719912/how-to-find-all-empty-files-and-folders-in-a-specific-directory-including-files)
+- [unix - Appending new lines to multiple files - Super User](https://superuser.com/questions/1327969/appending-new-lines-to-multiple-files/1327980#1327980) - How to use `echo "test" >> {}` within find exec
 
 ### Create archive from file list
 
