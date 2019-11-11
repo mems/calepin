@@ -1,3 +1,5 @@
+`.sparsebundle` to `.backupbundle` (for TimeMachine macOS 10.15)
+
 > While both sparse images and sparse bundles contain a file system, a sparse bundle is bundle-backed, meaning that it employs a specialized, hierarchical directory structure for grouping related resources. Within a sparse bundle, the bands subdirectory contains the actual data saved within the disk image. 
 
 - [SparseBundle.c](http://opensource.apple.com//source/hfs/hfs-305.10.1/CopyHFSMeta/SparseBundle.c)

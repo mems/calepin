@@ -1,11 +1,5 @@
 Aka JavaScript
 
-- [UglifyJS](https://github.com/mishoo/UglifyJS)
-- [JSMin](http://www.crockford.com/javascript/jsmin.html)
-- [Google Closure Compiler](https://developers.google.com/closure/compiler/)
-- [Extreme Javascript Minimization](http://mainroach.blogspot.fr/2013/09/extreme-javascript-minimization.html)
-- [ESTree](https://github.com/estree/estree) - ESTree Spec. Common format for ECMAScript tokens
-
 - http://msdn.microsoft.com/en-us/library/ie/121hztk3%28v=vs.94%29.aspx
 - http://wiki.ecmascript.org/doku.php?id=resources:resources&s=conditional+compilation#microsoft_drafts
 
@@ -33,6 +27,18 @@ Aka JavaScript
 - http://mainroach.blogspot.fr/2013/09/extreme-javascript-minimization.html
 - http://www.2ality.com/2011/01/what-is-javascript-equivalent-of-java.html
 - http://www.2ality.com/2012/01/bytecode-myth.html
+
+## Parsers
+
+- [UglifyJS](https://github.com/mishoo/UglifyJS)
+- [JSMin](http://www.crockford.com/javascript/jsmin.html)
+- [Google Closure Compiler](https://developers.google.com/closure/compiler/)
+- [Extreme Javascript Minimization](http://mainroach.blogspot.fr/2013/09/extreme-javascript-minimization.html)
+- [ESTree](https://github.com/estree/estree) - ESTree Spec. Common format for ECMAScript tokens
+- [pvdz/tenko: An 100% spec compliant ES2020 JavaScript parser written in JS](https://github.com/pvdz/tenko)
+- [Esprima](http://esprima.org/) - ECMAScript parser written in ECMAScript. See https://github.com/jquery/esprima
+- [acornjs/acorn: A small, fast, JavaScript-based JavaScript parser](https://github.com/acornjs/acorn)
+- [babel/packages/babel-parser at master · babel/babel](https://github.com/babel/babel/tree/master/packages/babel-parser) - Babel JS parser (previously Babylon), [@babel/parser · Babel](https://babeljs.io/docs/en/babel-parser)
 
 ## Engines
 

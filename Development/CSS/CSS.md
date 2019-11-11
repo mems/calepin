@@ -391,6 +391,7 @@ For selectors supports, all rules with one unsupport selector are ignored (from 
 
 - [How browser position float – Monica Dinculescu](https://meowni.ca/posts/float-layout/)
 - [Understanding CSS Layout And The Block Formatting Context — Smashing Magazine](https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/)
+- [Float Element in the Middle of a Paragraph | CSS-Tricks](https://css-tricks.com/float-element-in-the-middle-of-a-paragraph/)
 
 ### Margin collapse
 
@@ -589,36 +590,78 @@ Override default `align-items: stretch` with `align-self: center` on `img` or `a
 
 See [Alignment](#alignment)
 
+#### End-side padding ignored
+
+> If you use CSS Flexbox Layout to implement a page component with horizontal scrolling, be aware that browsers ignore the end-side padding (in this case, padding-right) of the flex container.
+> [...]
+> You can emulate the missing padding by spacing the flex items via margin-right and adding a very narrow ::after flex item to the container.
+> [...]
+
+```
+<style>
+	/* flex container */
+	ul {
+	  display: flex;
+	  padding: 1em; /* browsers ignore the padding-right component */
+	  overflow-x: scroll;
+	}
+
+	/* flex item */
+	li {
+	  margin-right: 1em;
+	}
+
+	/* the hack */ 
+	ul::after {
+	  content: "";
+	  padding-right: 0.02px; /* smallest size that is cross browser */
+	}
+</style>
+
+<ul>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+	<li>item</li>
+</ul>
+```
+
+- [Flexbox and padding](https://www.chenhuijing.com/blog/flexbox-and-padding/)
+- [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/mocohik/edit?css,output)
+
 #### Nav bar
 
-	<ul class="toc">
-		<li class="toc-item"><a class="toc-item-link" href="">Link 1</a></li>
-		<li class="toc-item"><a class="toc-item-link" href="">Link with long label 2</a></li>
-		<li class="toc-item"><a class="toc-item-link" href="">Link 3</a></li>
-		<li class="toc-item"><a class="toc-item-link" href="">Link 4</a></li>
-		<li class="toc-item"><a class="toc-item-link" href="">Link with very long long label label label 5</a></li>
-		<li class="toc-item"><a class="toc-item-link" href="">Link 6</a></li>
-	</ul>
-	<style>
-	.toc{
-		display: flex;
-		align-items: stretch;
-	}
-	
-	.toc-item{
-		flex-grow: 1;
-		width: 100px;
-		display: flex;
-	}
-	
-	.toc-item-link{
-		flex-grow: 1;
-		padding: 16px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	</style>
+```html
+<ul class="toc">
+	<li class="toc-item"><a class="toc-item-link" href="">Link 1</a></li>
+	<li class="toc-item"><a class="toc-item-link" href="">Link with long label 2</a></li>
+	<li class="toc-item"><a class="toc-item-link" href="">Link 3</a></li>
+	<li class="toc-item"><a class="toc-item-link" href="">Link 4</a></li>
+	<li class="toc-item"><a class="toc-item-link" href="">Link with very long long label label label 5</a></li>
+	<li class="toc-item"><a class="toc-item-link" href="">Link 6</a></li>
+</ul>
+<style>
+.toc{
+	display: flex;
+	align-items: stretch;
+}
+
+.toc-item{
+	flex-grow: 1;
+	width: 100px;
+	display: flex;
+}
+
+.toc-item-link{
+	flex-grow: 1;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+</style>
+```
 
 #### Order
 

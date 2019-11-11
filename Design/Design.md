@@ -111,6 +111,7 @@ Aka dataviz
 - https://www.scmp.com/sites/default/files/2015/11/25/languageshqscmp.png - [INFOGRAPHIC: A world of languages - and how many speak them | South China Morning Post](http://www.scmp.com/infographics/article/1810040/infographic-world-languages?page=all) [Mother tongues - www.lucasinfografia.com](http://www.lucasinfografia.com/Mother-tongues)
 - [Mapping the Shadows of New York City: Every Building, Every Block - The New York Times](https://www.nytimes.com/interactive/2016/12/21/upshot/Mapping-the-Shadows-of-New-York-City.html)
 - [Engineering Uber's Self-Driving Car Visualization Platform for the Web](https://eng.uber.com/atg-dataviz/)
+- [A father knitted his baby’s first year of sleep pattern data into a blanket - The Verge](https://www.theverge.com/2019/7/21/20699484/sleep-blanket-data-visualisation-seung-lee) - [Seung Lee on Twitter: "The Sleep Blanket A visualization of my son's sleep pattern from birth to his first birthday. Crochet border surrounding a double knit body. Each row represents a single day. Each stitch represents 6 minutes of time spent awake or asleep #knitting #crochet #datavisualization https://t.co/xwBh7vIilJ" / Twitter](https://twitter.com/Lagomorpho/status/1149754592579600384)
 
 ![How To Make Your Graphs Less Terrible](Data%20visualisation/How%20to%20make%20your%20graphs%20less%20terrible.gif)
 ![How To Make Your Tables Less Terrible](Data%20visualisation/How%20to%20make%20your%20tables%20less%20terrible.gif)

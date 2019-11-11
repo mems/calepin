@@ -72,6 +72,7 @@ Examples:
 - [Super-fast Java JSON parser](https://github.com/mitchhentges/json-parse/blob/master/src/main/java/ca/fuzzlesoft/JsonParse.java)
 - [MBED3 port of Lightweight Embedded JSON Parser](https://github.com/warmcat/lejp/blob/master/source/lejp.c) 
 - [A fast and small JSON parser and writer for Java](https://github.com/ralfstx/minimal-json/blob/master/com.eclipsesource.json/src/main/java/com/eclipsesource/json/JsonParser.java)
+- [pvdz/tenko: An 100% spec compliant ES2020 JavaScript parser written in JS](https://github.com/pvdz/tenko)
 
 Use `goto`s, "This is called computed (or assigned) goto and is a GCC extension"
 - https://github.com/quartzjer/js0n/blob/master/src/js0n.c 

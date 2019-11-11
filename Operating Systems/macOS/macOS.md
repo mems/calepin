@@ -26,9 +26,9 @@ purge
 - [Time Machine (OS X) — Wikipedia](https://en.wikipedia.org/wiki/Time_Machine_(OS_X)#How_it_works)
 - [Time Machine Information | The Matrix Data Bank](http://www.schollnick.net/wordpress/macintosh-related/time-machine-information/)
 - [Apple  OSX  and  Time  Machine  Tips](http://pondini.org/TM/Home.html) [Apple  OSX  and  Time  Machine  Tips](https://web.archive.org/web/20171011022033/http://pondini.org/TM/Home.html)
-- (association between sparsebundle and the machine via UUID) [Snow Leopard Time Machine Tweaks | Missives](https://porkrind.org/missives/snow-leopard-time-machine-tweaks/)
+- (association between backupbundle and the machine via UUID) [Snow Leopard Time Machine Tweaks | Missives](https://porkrind.org/missives/snow-leopard-time-machine-tweaks/)
 - [Dissecting Time Machine & Replacing It With rsync | Mr. Backup Blog](http://www.backupcentral.com/mr-backup-blog-mainmenu-47/13-mr-backup-blog/282-time-machine-rsync.html)
-- [Format SparseBundle](Format/SparseBundle)
+- [Format SparseBundle](../../Formats,%20encoding%20and%20protocols/Sparse%20bundle/Sparse%20bundle.md)
 - [An Easier Way to Set Up Time Machine to Back Up to a Networked Windows Computer](http://lifehacker.com/5691649/an-easier-way-to-set-up-time-machine-to-back-up-to-a-networked-windows-computer)
 
 - [I learned all about Time (Machine) so you don't have to | The Occasional Blog](http://mike.peay.us/blog/archives/248)
@@ -39,6 +39,7 @@ purge
 - ignore disk to be a TM target: `touch ".com.apple.timemachine.donotpresent"` in the root of the disk
 - `.com.apple.timemachine.supported` if the folder must be backup by Time Machine
 - current files used by Time Machine `sudo fs_usage -w -f filesys backupd`
+- [The ins and outs of using tmutil to backup, restore, and review Time Machine backups - krypted](https://krypted.com/mac-os-x/ins-outs-using-tmutil-backup-restore-review-time-machine-backups/)
 
 Time Machine backup fiability:
 
@@ -396,9 +397,9 @@ In `my.cnf`
 
 ### Explore sparsebundle
 
-Mount `*.sparsebundle` first
+Mount `*.sparsebundle` / `*.backupbundle` first: `hdiutil attach My.sparsebundle`
 
-- `tmutil` (with `compare`, `uniquesize` or `calculatedrift`): `tmutil compare 2016-02-18-090818 2016-02-18-102050` (in `Backups.backupdb/%COMPUTE_NAME%/` of mounted sparse bundle)
+- `tmutil` (with `compare`, `uniquesize` or `calculatedrift`): `tmutil compare /Volumes/MyBackupVolume/Backups.backupdb/$COMPUTE_NAME%/2016-02-18-090818 /Volumes/MyBackupVolume/Backups.backupdb/$COMPUTE_NAME/2016-02-18-102050`. `+` added file, `-` removed file, `!` changed file
 - [BackupLoupe](http://www.soma-zone.com/BackupLoupe/) - Explore version (compare changes, size)
 - [tms](https://github.com/toy/tms)
 - [TimeTracker by CharlesSoft](http://www.charlessoft.com/) - Not work well with network drives

@@ -2255,6 +2255,7 @@ See [Prevent violation](#prevent-violation)
 - [A collection of resources for linux reverse engineering](https://github.com/michalmalik/linux-re-101)
 - [How to Crack Just About Any Mac App (and How to Prevent It)](http://lifehacker.com/5736101/how-to-crack-just-about-any-mac-app-and-how-to-prevent-it)
 - [Hopper](https://www.hopperapp.com/)
+- [Ghidra](https://ghidra-sre.org/) - [Ghidra.app launcher for OSX](https://gist.github.com/yifanlu/e9965cdb148b550335e57899f790cad2)
 - [Mobile Security Wiki](https://mobilesecuritywiki.com/) - see https://github.com/exploitprotocol/mobile-security-wiki
 - [Reverse engineering](http://en.wikipedia.org/wiki/Reverse_engineering)
 - [Programming Linux Anti-Reversing Techniques by Jacob Baines \[PDF/iPad/Kindle\]](https://leanpub.com/anti-reverse-engineering-linux) (see [the PDF](anti-reverse-engineering-linux.pdf)) https://github.com/antire-book/dont_panic
