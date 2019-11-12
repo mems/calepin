@@ -2424,10 +2424,16 @@ window.hasOwnProperty("myId")   // true
 An implicit id can't have the same name as a protected JS keyword and can't overload a native global var, such as `window.screen`:
 
 ```html
-<div id=function></div>
-<script>alert(function) // SyntaxError: Unexpected token</script>
+<div id="function"></div>
+<script>console.log(function) // SyntaxError: Unexpected token</script>
 ```
 
+```html
+<p id="alert">Some message</p>
+<script>console.log(alert)// ƒ alert() { [native code] }</script>
+```
+
+- [Named access on the Window object - HTML Standard](https://html.spec.whatwg.org/multipage/window-object.html#named-access-on-the-window-object)
 - [DOM clobbering](http://www.thespanner.co.uk/2013/05/16/dom-clobbering/)
 - [In the DOM, no one will hear you scream](https://www.slideshare.net/x00mario/in-the-dom-no-one-will-hear-you-scream)
 - [cure53/DOMPurify: DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify works with a secure default, but offers a lot of configurability and hooks. Demo:](https://github.com/cure53/DOMPurify)
@@ -2436,6 +2442,8 @@ An implicit id can't have the same name as a protected JS keyword and can't over
 - [JavaScript variable names you shouldn’t use - NCZOnline](https://www.nczonline.net/blog/2007/06/03/javascript-variable-names-you-shouldn-t-use/)
 - [Unsafe Names for HTML Form Controls](http://www.jibbering.com/faq/names/)
 - [Implicit getElementById's](https://xem.github.io/articles/getelementbyid.html)
+- [Clobbering the clobbered — Advanced DOM Clobbering - terjanq - Medium](https://medium.com/@terjanq/dom-clobbering-techniques-8443547ebe94)
+- [JSLR](http://www.thespanner.co.uk/2012/06/05/jslr/)
 
 #### Clickjacking
 
