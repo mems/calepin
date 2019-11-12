@@ -2392,37 +2392,41 @@ Look like phishing / spoofing trusted UI
 
 **Don't name your inputs or buttons `submit`, `action`, `method`, `style`, `dataset`, `id`, `attributes`, `children`, etc.**
 
-	<form id="form" action="somewhere" method="post">
-		<input type="text" name="action" value="pay">
-		<input type="text" name="method" value="credit-card">
-		<input type="text" name="attributes" value="something">
-		<button name="submit">Send</button>
-	<form>
-	<script>
-		let form = document.getElementById("form");
-		form === window.form
-		form.action// HTMLInputElement instead of String "somewhere"
-		form.method// HTMLInputElement instead of String "post"
-		form.submit// HTMLButtonElement instead of Function
-		form.attributes// HTMLInputElement instead of NamedNodeMap
-	</script>
+```html
+<form id="form" action="somewhere" method="post">
+	<input type="text" name="action" value="pay">
+	<input type="text" name="method" value="credit-card">
+	<input type="text" name="attributes" value="something">
+	<button name="submit">Send</button>
+<form>
+<script>
+	let form = document.getElementById("form");
+	form === window.form
+	form.action// HTMLInputElement instead of String "somewhere"
+	form.method// HTMLInputElement instead of String "post"
+	form.submit// HTMLButtonElement instead of Function
+	form.attributes// HTMLInputElement instead of NamedNodeMap
+</script>
 
-	<div id="myId"></div>
-	<script>
-	myId                            // [object HTMLDivElement]
-	myId.id                         // "myId"
-	window.myId.id                  // "myId"
-	this.myId.id                    // "myId"
-	self.myId.id                    // "myId"
-	top.myId.id                     // "myId"
-	"myId" in window                // true
-	window.hasOwnProperty("myId")   // true
-	</script>
+<div id="myId"></div>
+<script>
+myId                            // [object HTMLDivElement]
+myId.id                         // "myId"
+window.myId.id                  // "myId"
+this.myId.id                    // "myId"
+self.myId.id                    // "myId"
+top.myId.id                     // "myId"
+"myId" in window                // true
+window.hasOwnProperty("myId")   // true
+</script>
+```
 
 An implicit id can't have the same name as a protected JS keyword and can't overload a native global var, such as `window.screen`:
 
-	<div id=function></div>
-	<script>alert(function) // SyntaxError: Unexpected token )</script>
+```html
+<div id=function></div>
+<script>alert(function) // SyntaxError: Unexpected token</script>
+```
 
 - [DOM clobbering](http://www.thespanner.co.uk/2013/05/16/dom-clobbering/)
 - [In the DOM, no one will hear you scream](https://www.slideshare.net/x00mario/in-the-dom-no-one-will-hear-you-scream)
@@ -2431,16 +2435,16 @@ An implicit id can't have the same name as a protected JS keyword and can't over
 - [Microsoft/JSanity: A secure-by-default, performance, cross-browser client-side HTML sanitization library](https://github.com/Microsoft/JSanity)
 - [JavaScript variable names you shouldn’t use - NCZOnline](https://www.nczonline.net/blog/2007/06/03/javascript-variable-names-you-shouldn-t-use/)
 - [Unsafe Names for HTML Form Controls](http://www.jibbering.com/faq/names/)
-- [Implicit getElementById's](http://xem.github.io/articles/#implicitgetelementbyid_en)
+- [Implicit getElementById's](https://xem.github.io/articles/getelementbyid.html)
 
 #### Clickjacking
 
-	<script>
-		if (self !== top) {
-			document.body.style.display = "none";
-			top.location = self.location;
-		}
-	</script>
+```js
+if (self !== top) {
+	document.body.style.display = "none";
+	top.location = self.location;
+}
+```
 
 Use header `Content-Security-Policy: frame-ancestors 'self'` (or the depreciated `X-Frame-Options: SAMEORIGIN`)
 
