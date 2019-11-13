@@ -165,6 +165,34 @@ class SubSub extends
 console.log(new SubSub())// {isBase: true, isSub: true, isSubSub: true}
 ```
 
+### Async instanciation
+
+Use static factory method:
+
+```
+class DataContainer {
+	#data;
+	static async create() {
+		const data = await Promise.resolve('downloaded');
+		return new this(data);
+	}
+	constructor(data) {
+		this.#data = data;
+	}
+	get data() {
+		return 'DATA: '+this.#data;
+	}
+}
+
+const {data} = await DataContainer.create();
+console.log(data);
+```
+
+> an important thing to note is that with the async constructor, you prevent exposing instances that are not completely initialized, not true with an async static helper unless you lock down the constructor so it cannot be used normally. subclassing gets weird in both
+
+- [Techniques for instantiating classes](https://2ality.com/2019/11/creating-class-instances.html)
+- [(2) Axel Rauschmayer on Twitter: "Asynchronously created instances. This is probably a better choice: class VM { static async create() { const data = await 'downloaded'; return new VM(data); } constructor(data) { this .data = data; } } VM.create().then(vm =&gt; console.log(vm .data));" / Twitter](https://twitter.com/rauschma/status/1192142696007241728?s=12)
+
 ## Modules
 
 ```js
