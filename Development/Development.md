@@ -174,6 +174,13 @@ If so **add comments** to explain the choice.
 
 - [The Fallacy of Premature Optimization](http://ubiquity.acm.org/article.cfm?id=1513451)
 
+## Feature flag
+
+- [To cut down on bugs, Apple is changing how it develops its software | Ars Technica](https://arstechnica.com/gadgets/2019/11/to-cut-down-on-bugs-apple-is-changing-how-it-develops-its-software/)
+- [Feature Policy | WebKit](https://webkit.org/feature-policy/)
+- [ExposureGuidelines - MozillaWiki](https://wiki.mozilla.org/ExposureGuidelines)
+- [Adding a new feature flag in chrome://flags](https://chromium.googlesource.com/chromium/src.git/+/master/docs/how_to_add_your_feature_flag.md)
+
 ## Localization
 
 See [Localization](Conception#localization), [Locale](Locale)
