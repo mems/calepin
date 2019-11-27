@@ -2749,7 +2749,7 @@ Others links:
 
 ### Third parties webperf
 
-See also See also [Third parties](#third-parties)
+See also [Third parties](#third-parties)
 
 - [Hard Costs of Third-Party Scripts - daverupert.com](https://daverupert.com/2018/10/hard-costs-of-third-party-scripts/)
 - [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5)
@@ -2759,6 +2759,8 @@ See also See also [Third parties](#third-parties)
 - [Performance Calendar » Reducing Single Point of Failure using Service Workers](https://calendar.perfplanet.com/2015/reducing-single-point-of-failure-using-service-workers/) - Block slow third-party with service worker
 - [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5) - "delete old third party scripts and see if anyone complains"
 - [After GDPR, The New York Times cut off ad exchanges in Europe - and kept growing ad revenue - Digiday](https://digiday.com/media/gumgumtest-new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/) - "serving regular, un-targeted ads could actually increase revenue" (remove cookie syncing and retargeting, that generate large amount of requests)
+- [Andy Davies sur Twitter : "Only load what’s needed to display the initial button and then lazy-load the rest is an approach every live chat, feed widget etc should take. Currently they typically have a 500KB to 1MB bundle which just displays a button unless someone interacts with it!… https://t.co/ZNblwfAVwJ"](https://twitter.com/andydavies/status/1199236204723613696?s=12)
+- [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/#lazy-load_third_party_resources) - "Lazy-load Third Party Resources"
 
 ## Detection
 
@@ -6014,7 +6016,7 @@ Comments services alternatives:
 - [Replacing Disqus with Github Comments · Gazoo.vrv](http://donw.io/post/github-comments/)
 - [Comments - Social Plugins](https://developers.facebook.com/docs/plugins/comments/)
 
-### Website plugins
+### Website JS plugins
 
 To isolate a third party script (or DOM access, geolocation, modal APIs, etc.), use:
 
@@ -6028,6 +6030,14 @@ See also:
 - [An update on plugin security](https://www.figma.com/blog/an-update-on-plugin-security/)
 - [Realms-shim Security Updates - Agoric](https://agoric.com/realms-shim-security-updates/)
 - [Play safely in sandboxed IFrames - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
+
+### oEmbed
+
+- [oEmbed](https://oembed.com/)
+- [oEmbed - Wikipedia](https://en.wikipedia.org/wiki/OEmbed)
+- [Programmatically Discovering Sharing Code With oEmbed — Smashing Magazine](https://www.smashingmagazine.com/2019/11/programmatically-discovering-sharing-code-oembed/)
+- [How To Build an oEmbed Integration for Your Startup, and Why It’s Necessary](https://blog.ycombinator.com/how-to-build-an-oembed-integration-for-your-startup-and-why-its-necessary/)
+- [oEmbed Provider API | Developer Resources](https://developer.wordpress.com/docs/oembed-provider-api/)
 
 ## Firefox Reader view
 
