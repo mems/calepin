@@ -43,6 +43,7 @@ Examples:
 - [Dissecting the GZIP format](http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art001)
 - [madler/infgen: Deflate disassember to convert a deflate, zlib, or gzip stream into a readable form.](https://github.com/madler/infgen) - `gcc infgen.c -o infgen && ./infgen -h`
 - [java - How to find a good/optimal dictionary for zlib 'setDictionary' when processing a given set of data? - Stack Overflow](https://stackoverflow.com/questions/2011653/how-to-find-a-good-optimal-dictionary-for-zlib-setdictionary-when-processing-a)
+- [A Completely Dissected GZIP File](https://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art053)
 
 ## Decompression Bomb
 
