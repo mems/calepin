@@ -1,6 +1,6 @@
 It's impossible to know the uncompressed size without read all data.
 
-gzip is file format used to compress. It use deflate compression algorithm
+gzip is file format used to compress. It use [deflate](../Deflate/Deflate.md) compression algorithm
 
 gzip is GZIP headers, DEFLATE data (compressed data), and a checksum
 
