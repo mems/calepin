@@ -23,7 +23,7 @@ Examples:
 - `printf "\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\x00" | cat - zlib-raw.bin | gzip -dc` zlib raw inflate
 - `openssl zlib -d < zlib.bin`
 - [DEFLATE — Wikipedia](https://en.wikipedia.org/wiki/DEFLATE)
-- [defluff - a deflate huffman optimizer](http://encode.ru/threads/1214-defluff-a-deflate-huffman-optimizer)
+- [defluff - a deflate huffman optimizer](https://encode.su/threads/1214-defluff-a-deflate-huffman-optimizer)
 - [Simple compliant DEFLATE decompressor in Java](https://github.com/nayuki/Simple-DEFLATE-decompressor) and [Simple DEFLATE decompressor](https://www.nayuki.io/page/simple-deflate-decompressor)
 - [Binary Formats in JavaScript: Base64, Deflate, and UTF8 - CodeProject](https://www.codeproject.com/Articles/26980/Binary-Formats-in-JavaScript-Base-Deflate-and-UT)
 - https://github.com/dankogai/js-deflate and https://github.com/beatgammit/deflate-js
