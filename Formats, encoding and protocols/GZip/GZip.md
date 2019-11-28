@@ -22,6 +22,7 @@ Compress gzip without save filename and timestamp `gzip -9 -n -k -f file`
 - [gzthermal: pseudo thermal view of Gzip/Deflate compression efficiency](https://encode.su/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency)
 - [Huffmix: a PNGOUT -r catalyst](https://encode.su/threads/1313-Huffmix-a-PNGOUT-r-catalyst)
 - [defdb a tool to dump the deflate stream from .gz and .png files](https://encode.su/threads/1428-defdb-a-tool-to-dump-the-deflate-stream-from-gz-and-png-files)
+- [SharpZipLib/src/ICSharpCode.SharpZipLib/GZip at master · icsharpcode/SharpZipLib](https://github.com/icsharpcode/SharpZipLib/tree/master/src/ICSharpCode.SharpZipLib/GZip)
 
 ## Concatenation
 
