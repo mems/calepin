@@ -94,21 +94,21 @@ Tools and infos:
 - [PNG Compression : 5 simple improvements](http://mainroach.blogspot.fr/2013/09/png-compression-5-simple-improvements.html)
 - [PNG Bloat in Android Games](http://mainroach.blogspot.fr/2014/03/png-bloat-in-android-games.html)
 - [PNGGauntlet](http://pnggauntlet.com/) use PNGOut, OptiPNG, and DeflOpt
-- [Huffmix](http://frdx.free.fr/huffmix/) use PNGOut with random modes (see also [the Thread about it on encode.ru](http://encode.ru/threads/1313-Huffmix-a-PNGOUT-r-catalyst))
-- [PNGWolf](https://github.com/hoehrmann/pngwolf) (see also [the Thread about it on encode.ru](http://encode.ru/threads/1262-pngwolf))
+- [Huffmix](http://frdx.free.fr/huffmix/) use PNGOut with random modes (see also [the Thread about it on encode.su](https://encode.su/threads/1313-Huffmix-a-PNGOUT-r-catalyst))
+- [PNGWolf](https://github.com/hoehrmann/pngwolf) (see also [the Thread about it on encode.su](https://encode.su/threads/1262-pngwolf))
 - [TruePNG](http://x128.ho.ua/pngutils.html) (see also [TruePNG tutorial](http://css-ig.net/articles/truepng)) right ColorType chooser, palette optimizer (ordering) and clear full transparent RGB data
 - [PNGKT](http://x128.ho.ua/pngutils.html) (older version of TruePNG)
 - [Median Cut Posterizer](https://github.com/pornel/mediancut-posterizer)
-- [CryoPNG](http://frdx.free.fr/cryopng/) (see also [the Thread about it on encode.ru](http://encode.ru/threads/1260-CryoPNG-short-introduction)) clear full transparent RGB data
+- [CryoPNG](http://frdx.free.fr/cryopng/) (see also [the Thread about it on encode.su](https://encode.su/threads/1260-CryoPNG-short-introduction)) clear full transparent RGB data
 - [PunyPNG](http://www.punypng.com/) (online tool) clear full transparent RGB data
 - [PNG Optimizer](http://psydk.org/PngOptimizer) (Win)
 - [PNG rewrite](http://entropymine.com/jason/pngrewrite/) (Win)
 - [PNGnq-s9](http://sourceforge.net/projects/pngnqs9/) (modified version of Pngnq)
 - [PNG Tools Overview](http://css-ig.net/png-tools-overview)
 - [Comparison of lossless PNG compression tools](http://www.olegkikin.com/png_optimizers/)
-- [PNGOut vs PNGWolf+zopfli](http://encode.ru/threads/1703-pngout-vs-pngwolf-zopfli) https://github.com/MrKrzYch00/zopfli
+- [PNGOut vs PNGWolf+zopfli](https://encode.su/threads/1703-pngout-vs-pngwolf-zopfli) https://github.com/MrKrzYch00/zopfli
 - [Test d'organisation de palette pour les PNG8](http://css-ig.net/articles/test-organisation-palette-png8)
-- [pngthermal](http://frdx.free.fr/png.htm) use to view compression efficiency (similar too gzthermal) (see also [the Thread about it on encode.ru](http://encode.ru/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency))
+- [pngthermal](http://frdx.free.fr/png.htm) use to view compression efficiency (similar too gzthermal) (see also [the Thread about it on encode.su](https://encode.su/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency))
 - [Impact of palette order](http://css-ig.net/articles/outil-couleurs-palette)
 - [Reduce PNG32 weight](http://css-ig.net/articles/diminuer-poids-png32)
 - [PNG can be a lossy format](http://pngmini.com/lossypng.html)
@@ -123,12 +123,12 @@ Tools and infos:
 
 zlib-compatible (gzip, deflate):
 
-- [Zopfli](https://github.com/google/zopfli) and [PNGZopfli (deficated tool for PNG)](https://github.com/google/zopfli/blob/master/README.zopflipng) (see also [the Thread about it on encode.ru](http://encode.ru/threads/1689-Google-Compress-Data-More-Densely-with-Zopfli) and [another one for ZopfliPNG](http://encode.ru/threads/1717-ZopfliPNG))
+- [Zopfli](https://github.com/google/zopfli) and [PNGZopfli (deficated tool for PNG)](https://github.com/google/zopfli/blob/master/README.zopflipng) (see also [the Thread about it on encode.su](https://encode.su/threads/1689-Google-Compress-Data-More-Densely-with-Zopfli) and [another one for ZopfliPNG](https://encode.su/threads/1717-ZopfliPNG))
 - [AdvDef / AdvanceCOMP (for PNG, MNG, GZ, TGZ and SVGZ)](http://advancemame.sourceforge.net/doc-advdef.html) and [AdvPNG (decidated tool for PNG)](http://advancemame.sourceforge.net/doc-advpng.html)
-- [DeflOpt](http://www.walbeehm.com/download/) (Win, Unix?) support GZIP, PNG and ZIP files (see also [the Thread about it on encode.ru](http://encode.ru/threads/455-Ben-Jos-Walbeehm-s-DeflOpt-what-does-it-actually-do))
-- [Defluff](http://encode.ru/tags.php?tag=defluff)
+- [DeflOpt](http://www.walbeehm.com/download/) (Win, Unix?) support GZIP, PNG and ZIP files (see also [the Thread about it on encode.su](https://encode.su/threads/455-Ben-Jos-Walbeehm-s-DeflOpt-what-does-it-actually-do))
+- [Defluff](https://encode.su/tags.php?tag=defluff)
 - [ScriptGZIP](http://css-ig.net/scriptgzip) (Win CMD)
-- [gzthermal](http://frdx.free.fr/def.htm) use to view compression efficiency (see also [the Thread about it on encode.ru](http://encode.ru/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency))
+- [gzthermal](http://frdx.free.fr/def.htm) use to view compression efficiency (see also [the Thread about it on encode.su](https://encode.su/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency))
 
 ## Deflate
 
