@@ -9,10 +9,10 @@ zlib is the most common library to handle gzip file format
 Compress gzip without save filename and timestamp `gzip -9 -n -k -f file`
 
 - [Zopfli](http://code.google.com/p/zopfli/) (see also [the Thread about it on encode.ru](http://encode.ru/threads/1689-Google-Compress-Data-More-Densely-with-Zopfli))
-- [DeflOpt](http://www.walbeehm.com/download/) (Win, Unix?) support GZIP, PNG and ZIP files (see also [the Thread about it on encode.ru](http://encode.ru/threads/455-Ben-Jos-Walbeehm-s-DeflOpt-what-does-it-actually-do))
-- [Defluff](http://encode.ru/tags.php?tag=defluff)
+- [DeflOpt](http://www.walbeehm.com/download/) (Win, Unix?) support GZIP, PNG and ZIP files (see also [the Thread about it on encode.ru](https://encode.su/threads/455-Ben-Jos-Walbeehm-s-DeflOpt-what-does-it-actually-do))
+- [Defluff](https://encode.su/tags.php?tag=defluff)
 - [ScriptGZIP](http://css-ig.net/scriptgzip) (Win CMD)
-- [gzthermal](http://frdx.free.fr/def.htm) use to view compression efficiency (see also [the Thread about it on encode.ru](http://encode.ru/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency))
+- [gzthermal](http://frdx.free.fr/def.htm) use to view compression efficiency (see also [the Thread about it on encode.ru](https://encode.su/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency))
 
 - [zlib Technical Details](http://www.zlib.net/zlib_tech.html)
 
@@ -20,8 +20,8 @@ Compress gzip without save filename and timestamp `gzip -9 -n -k -f file`
 
 - [Gzip - ForensicsWiki](http://www.forensicswiki.org/wiki/Gzip)
 - [gzthermal: pseudo thermal view of Gzip/Deflate compression efficiency](http://encode.ru/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency)
-- [Huffmix: a PNGOUT -r catalyst](http://encode.ru/threads/1313-Huffmix-a-PNGOUT-r-catalyst)
-- [defdb a tool to dump the deflate stream from .gz and .png files](http://encode.ru/threads/1428-defdb-a-tool-to-dump-the-deflate-stream-from-gz-and-png-files)
+- [Huffmix: a PNGOUT -r catalyst](https://encode.su/threads/1313-Huffmix-a-PNGOUT-r-catalyst)
+- [defdb a tool to dump the deflate stream from .gz and .png files](https://encode.su/threads/1428-defdb-a-tool-to-dump-the-deflate-stream-from-gz-and-png-files)
 
 ## Concatenation
 
