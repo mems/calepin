@@ -149,14 +149,14 @@ Via quantization tables.
 - [png and jpg size optimization scripts](https://github.com/clyfish/pngopt)
 - [jpegtran](http://jpegclub.org/jpegtran/)
 - [JPEGrescan](https://github.com/kud/jpegrescan) (use jpegtran to trial many progressive configurations)
-- [mozjpeg](https://github.com/mozilla/mozjpeg) (see also [the Thread about it on encode.ru](http://encode.ru/threads/1892-mozjpeg))
+- [mozjpeg](https://github.com/mozilla/mozjpeg) (see also [the Thread about it on encode.su](https://encode.su/threads/1892-mozjpeg))
 - [pingo, a fast image optimizer](http://css-ig.net/pingo)
 - [adept-jpg-compressor](https://github.com/technopagan/adept-jpg-compressor) (equivalent to [JPEGMini](http://www.jpegmini.com/))
 - https://github.com/danielgtaylor/jpeg-archive (JPEGmini like) using perceived visual quality
-- [About jpegmini and similar compressors](http://encode.ru/threads/1470-jpegmini-com)
+- [About jpegmini and similar compressors](https://encode.su/threads/1470-jpegmini-com)
 - [imgmin](https://github.com/rflynn/imgmin) (could also compress PNG with supported tools like Pngnq, PNGCrush and PNGQuant)
 - [JPGCrush](http://akuvian.org/src/jpgcrush.tar.gz) is a perl script written by Loren Merritt use jpegtran with differents options (see also [author's post on ExifTool Forum](http://u88.n24.queensu.ca/exiftool/forum/index.php?topic=3610.0) and [thread on Programmer's Town Forum](http://www.progtown.com/topic1198280-jpgcrush.html))
-- [JSK -JPEG Scan Killer- progressive JPEG explained in slowmo](http://encode.ru/threads/1800-JSK-JPEG-Scan-Killer-progressive-JPEG-explained-in-slowmo)
+- [JSK -JPEG Scan Killer- progressive JPEG explained in slowmo](https://encode.su/threads/1800-JSK-JPEG-Scan-Killer-progressive-JPEG-explained-in-slowmo)
 - [Clever JPEG Optimization Techniques](http://www.smashingmagazine.com/2009/07/01/clever-jpeg-optimization-techniques/)
 - [JPEG Archive / JPEGmini like : compress JPEG by keeping perceived visual quality](https://github.com/danielgtaylor/jpeg-archive)
 - [Comparison of jpeg optimisation tools | ImageOptim-CLI](http://jamiemason.github.io/ImageOptim-CLI/comparison/jpeg/photoshop/desc/)
@@ -215,7 +215,7 @@ Via quantization tables.
 		</quantization-tables>
 
 - [JPEG — Wikipedia](https://en.wikipedia.org/wiki/JPEG#Lossless_further_compression) - Lossless further compression
-- [packJPG | packJPG](http://packjpg.encode.ru/?page_id=17) - see [packjpg/packJPG: A compression program for further compressing JPEG image files](https://github.com/packjpg/packJPG)
+- [packJPG | packJPG](https://web.archive.org/web/20180913135729/http://packjpg.encode.ru/?page_id=17) - see [packjpg/packJPG: A compression program for further compressing JPEG image files](https://github.com/packjpg/packJPG)
 
 ### Lossely compression
 
