@@ -2,6 +2,13 @@ It's compression algorithm
 
 window size (32K sliding window): 32KB bytes
 
+
+> The maximum compression ratio of the deflate format is 1032:1. This is because the longest run that can be encoded is 258 bytes. At least two bits are required for each such run (one bit for the length code and one bit for the distance code), hence 4*258 = 1032 uncompressed bytes can be encoded per one compressed byte.
+> 
+> You can get more compression by gzipping the result of gzip. Normally that doesn't improve compression, but for very long runs it can.
+> 
+> — [gzip compression ratio for zeros - Stack Overflow](https://stackoverflow.com/questions/16792189/gzip-compression-ratio-for-zeros/16794960#16794960)
+
 Ther is no official extension, but `.z` (or `.zz`) is usually used. See [List of archive formats — Wikipedia](https://en.wikipedia.org/wiki/List_of_archive_formats) and [java - Is there an official (or common) file extention or suffix for deflated files? - Stack Overflow](https://stackoverflow.com/questions/9806175/is-there-an-official-or-common-file-extention-or-suffix-for-deflated-files)
 
 ## zlib header
