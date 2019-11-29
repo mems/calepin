@@ -6499,6 +6499,8 @@ Tools:
 - [Css Accessibility Validator](http://elad2412.github.io/css-accessibility-validator/)
 - [tota11y – an a11y visualization toolkit](http://khan.github.io/tota11y/)
 - [WAVE Web Accessibility Tool](http://wave.webaim.org/)
+- [Accessibility Reference  |  Tools for Web Developers  |  Google Developers](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference)
+- [axe - Web Accessibility Testing - Chrome Web Store](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd)
 
 Other:
 
