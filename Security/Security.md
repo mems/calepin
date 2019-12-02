@@ -1607,7 +1607,10 @@ Note: ZIP (APK, ODT, DOCX, JAR…), 7z, RAR, HTML, PDF (header must be in the fi
 	PNG:
 	- [Encoding Web Shells in PNG IDAT chunks | Application Security](https://www.idontplaydarts.com/2012/06/encoding-web-shells-in-png-idat-chunks/)
 	GIF:
-	- [Exploiting PHP-GD imagecreatefromgif() function](https://github.com/fakhrizulkifli/Defeating-PHP-GD-imagecreatefromgif) - Proof-of-concept to exploit the flaw in the PHP-GD built-in function, imagecreatefromgif() 
+	- [Exploiting PHP-GD imagecreatefromgif() function](https://github.com/fakhrizulkifli/Defeating-PHP-GD-imagecreatefromgif) - Proof-of-concept to exploit the flaw in the PHP-GD built-in function, `imagecreatefromgif()` 
+- [pocorgtfo/README.md at master · angea/pocorgtfo](https://github.com/angea/pocorgtfo/blob/master/writeups/19/README.md#rename-extension) - HTML parser can be stopped by `<script>document.documentElement.innerHTML = document.getElementById("mypage").innerHTML;</script>`: "The page payload escapes out of the whole file so that the browser stops loading the whole file (which is 64 Mb)."
+- [pocorgtfo/README.md at master · angea/pocorgtfo](https://github.com/angea/pocorgtfo/blob/master/writeups/19/README.md#write-up) - Polyglot PDF - ZIP - HTML file
+- [How to create polyglot HTML/JS/Wasm module | WebAssembly Security](https://webassembly-security.com/polyglot-webassembly-module-html-js-wasm/)
 
 ###### Polyglot JPEG - ZIP file
 
@@ -1628,16 +1631,20 @@ Use ICC profiles, ICC profile chunk size limits (65376 for the first file, else 
 - [JPEG image of Shakespeare which is also a zip file containing his complete works | Hacker News](https://news.ycombinator.com/item?id=18342042)
 - [Command-line Options @ ImageMagick](http://www.imagemagick.org/script/command-line-options.php#profile)
 
-		curl 'https://pbs.twimg.com/media/DqteCf6WsAAhqwV.jpg' > tmp.zip  && unzip tmp.zip && unrar e shakespeare.part001.rar
-		curl 'https://pbs.twimg.com/media/Dq1iEpfXgAADZRg.jpg' > tmp.pdf  && unzip tmp.pdf
+	```sh
+	curl 'https://pbs.twimg.com/media/DqteCf6WsAAhqwV.jpg' > tmp.zip  && unzip tmp.zip && unrar e shakespeare.part001.rar
+	curl 'https://pbs.twimg.com/media/Dq1iEpfXgAADZRg.jpg' > tmp.pdf  && unzip tmp.pdf
+	```
 	
-		binwalk DqteCf6WsAAhqwV.jpg
-		DECIMAL       HEXADECIMAL     DESCRIPTION
-		--------------------------------------------------------------------------------
-		0             0x0             JPEG image data, JFIF standard 1.01
-		182           0xB6            Zip archive data, at least v1.0 to extract, ..., name: shakespeare.part001.rar
-		...
-		1971177       0x1E13E9        End of Zip archive
+	```
+	binwalk DqteCf6WsAAhqwV.jpg
+	DECIMAL       HEXADECIMAL     DESCRIPTION
+	--------------------------------------------------------------------------------
+	0             0x0             JPEG image data, JFIF standard 1.01
+	182           0xB6            Zip archive data, at least v1.0 to extract, ..., name: shakespeare.part001.rar
+	...
+	1971177       0x1E13E9        End of Zip archive
+	```
 
 ###### Polyglot JPEG - HTML file
 
