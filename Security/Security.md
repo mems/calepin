@@ -1135,6 +1135,13 @@ For HTML, use:
 - [Cookies for Comments — WordPress Plugins](https://wordpress.org/plugins/cookies-for-comments/)
 - (require cookies) add unique image/js/css resource (`<script src="script.php?UNIQ_ID"></script>`), when this resource is called add a cookie. When the form is POST, check if the cookie exist
 
+About XSS and service workers:
+
+- [XSS with ServiceWorkers · Learning Man](https://blog.sari3l.com/posts/a62f29f1/)
+- [RootkitXSS之ServiceWorker - 先知社区](https://xz.aliyun.com/t/3228)
+- [ServiceWorker is dangerous](https://alf.nu/ServiceWorker)
+- [Frederik Braun : Challenge Write-up: Subresource Integrity in Service Workers](https://frederik-braun.com/sw-sri-challenge.html)
+
 For JSON, use (affect only old browsers):
 
 - proper headers: `Content-Type: application/json` and `x-content-type-options: nosniff`
