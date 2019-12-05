@@ -1179,7 +1179,7 @@ Aka `/.well-known/`
 Site-wide metadata files
 
 - [Well-Known URIs](https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml)
-- `www.mysite.com/robots.txt` symlink to `www.mysite.com/.well-known/robots.txt`
+- `www.mysite.com/robots.txt` symlink to `www.mysite.com/.well-known/robots.txt` (only 301 redirection are recommended, see [robots.txt](#robots-txt))
 - [App Search Programming Guide: Support Universal Links](https://developer.apple.com/library/content/documentation/General/Conceptual/AppSearch/UniversalLinks.html) - `/.well-known/apple-app-site-association`
 - [Getting Started | Google Digital Asset Links | Google Developers](https://developers.google.com/digital-asset-links/v1/getting-started) - `/.well-known/assetlinks.json`
 - [WebFinger](https://webfinger.net/) - `https://<domain>/.well-known/webfinger?resource=<resource>` (where resource value - URI encoded - is `acct:<email-address>`)
@@ -3259,11 +3259,23 @@ Don't have a real impact: [15 SEO Best Practices for Structuring URLs - Moz](htt
 
 ### `robots.txt`
 
-	# www.robotstxt.org/
-	
-	# Allow crawling of all content
-	User-agent: *
-	Disallow:
+```
+# www.robotstxt.org/
+
+# Allow crawling of all content
+User-agent: *
+Disallow:
+```
+
+Redirect `/robots.txt` to `/.well-known/robots.txt` is supported (not recommended), but with only 301 status code
+
+- [google search console - Can Googlebot handle robots.txt with a 302 redirect? - Webmasters Stack Exchange](https://webmasters.stackexchange.com/questions/55324/can-googlebot-handle-robots-txt-with-a-302-redirect)
+- [seo - Redirecting robots.txt when moving to a new domain - Webmasters Stack Exchange](https://webmasters.stackexchange.com/questions/106943/redirecting-robots-txt-when-moving-to-a-new-domain)
+- [redirect - Google robots.txt for http site after redirection to https - Stack Overflow](https://stackoverflow.com/questions/47162841/google-robots-txt-for-http-site-after-redirection-to-https)
+- [Test your robots.txt with the robots.txt Tester - Search Console Help](https://support.google.com/webmasters/answer/6062598?hl=en)
+- [Planning on moving to HTTPS? Here are 13 FAQs! What's missing? Let me know in...](https://web.archive.org/web/20190130051831/https://plus.google.com/+JohnMueller/posts/PY1xCWbeDVC)
+- [Create a robots.txt file - Search Console Help](https://support.google.com/webmasters/answer/6062596?hl=en)
+- [web crawlers - Can robots.txt be in a server's sub-directory? - Webmasters Stack Exchange](https://webmasters.stackexchange.com/questions/89395/can-robots-txt-be-in-a-servers-sub-directory/125858#125858)
 
 **Don't block web crawler for public content**:
 
