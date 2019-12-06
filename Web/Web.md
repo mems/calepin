@@ -2951,22 +2951,29 @@ Social interactions:
 
 #### Google Tag Manager
 
-Handle inclusion of libraries (third party services)
+Aka GTM
+
+Handle inclusion of libraries (third party services).
+
+See also: [Third parties](#third-parties)
 
 Allow predefined set of events (category + action + label + value, etc.) with macros, conditions, etc.
 
-Aka GTM
-
-	<script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':new Date().getTime(),event:'gtm.js'});)</script>
-	<script src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXX" async></script>
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
+```html
+<script>(window.dataLayer=window.dataLayer||[]).push({'gtm.start':new Date().getTime(),event:'gtm.js'});)</script>
+<script src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXX" async></script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+document.addEventListener("someevent", () => {
 	window.dataLayer = window.dataLayer || [];
-	
+
 	dataLayer.push({
-		event: "custom event name",
-		customData: "custome value"
+		event: "some event name",
+		customData: "some value"
 	})
+});
+</script>
+```
 
 - [Quick Start Guide  |  Google Tag Manager for Web Tracking  |  Google Developers](https://developers.google.com/tag-manager/quickstart)
 - [Developer Guide  |  Google Tag Manager for Web Tracking  |  Google Developers](https://developers.google.com/tag-manager/devguide)
@@ -2976,19 +2983,21 @@ Aka GTM
 
 **Use "do not track" feature [`navigator.doNotTrack`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/doNotTrack)**
 
-	var trackOutboundLink = function(url) {
-		// check if the GA object exists and that it has initialized
-		if(window.ga && ga.loaded && navigator.doNotTrack == "1") {
-			// if yes, rely on GA to follow link
-			ga('send', 'event', 'outbound', 'click', url, {
-				'transport': 'beacon',
-				'hitCallback': function(){document.location = url;}
-			});
-		} else {
-			// if not, follow link ourselves
-			document.location = url;
-		}
+```js
+function trackOutboundLink(url) {
+	// check if the GA object exists and that it has initialized
+	if(window.ga && ga.loaded && navigator.doNotTrack == "1") {
+		// if yes, rely on GA to follow link
+		ga('send', 'event', 'outbound', 'click', url, {
+			'transport': 'beacon',
+			'hitCallback': function(){document.location = url;}
+		});
+	} else {
+		// if not, follow link ourselves
+		document.location = url;
 	}
+}
+```
 
 - [Track outbound links - Analytics Help](https://support.google.com/analytics/answer/1136920?hl=en)
 
@@ -6042,6 +6051,7 @@ See also:
 - [An update on plugin security](https://www.figma.com/blog/an-update-on-plugin-security/)
 - [Realms-shim Security Updates - Agoric](https://agoric.com/realms-shim-security-updates/)
 - [Play safely in sandboxed IFrames - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
+- [Sandboxing JavaScript - Zendesk Engineering - Medium](https://medium.com/zendesk-engineering/sandboxing-javascript-e4def55e855e)
 
 ### oEmbed
 
