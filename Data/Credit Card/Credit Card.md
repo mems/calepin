@@ -217,17 +217,23 @@ Visa: 4916 6293 0528 7782 (CVV 933)
 	  return 0;
 	}
 
+Test payment cards:
+
 - [drmonkeyninja/test-payment-cards: Cheatsheet of test payment cards for various payment gateways](https://github.com/drmonkeyninja/test-payment-cards)
 - [Testing](https://stripe.com/docs/testing)
-- [Credit Card Number Generator & Validator - FreeFormatter.com](http://www.freeformatter.com/credit-card-number-generator-validator.html)
+- [Test Payflow Transactions - PayPal Developer](https://developer.paypal.com/docs/classic/payflow/payflow-pro/payflow-pro-testing/#credit-card-numbers-for-testing)
+- [Números de tarjeta de crédito de pruebas | Módulos y pasarelas de pago](https://modulosdepago.es/blog/numeros-de-tarjeta-de-credito-de-pruebas/)
 - [Credit Card Numbers Generator | Get Fake Credit Card Numbers for Testing Purposes](http://www.getcreditcardnumbers.com/)
-- [Check Credit Card Numbers | Validate your credit card number with our free online checker](http://www.validcreditcardnumber.com/)
 - [Credit Card Numbers Generator | Get Fake Credit Card Numbers for Testing Purposes](http://www.getcreditcardnumbers.com/cvv-numbers-credit-card)
 - [Credit Card Numbers Generator | Get Fake Credit Card Numbers for Testing Purposes](http://www.getcreditcardnumbers.com/credit-card-generator)
-- [Test Credit Card Account Numbers](http://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm)
-- [Online Credit Card Generator](https://names.igopaygo.com/credit-card)
 - [Graham King » Credit card generator](https://www.darkcoding.net/credit-card-generator/) - [grahamking/darkcoding-credit-card: Credit card generators from darkcoding.net](https://github.com/grahamking/darkcoding-credit-card)
 - [Credit Card Numbers Generator | Get Fake Credit Card Numbers for Testing Purposes](http://www.getcreditcardnumbers.com/)
+- [Online Credit Card Generator](https://names.igopaygo.com/credit-card)
+
+Validation:
+
+- [Credit Card Number Generator & Validator - FreeFormatter.com](http://www.freeformatter.com/credit-card-number-generator-validator.html)
+- [Check Credit Card Numbers | Validate your credit card number with our free online checker](http://www.validcreditcardnumber.com/)
 - [Check Credit Card Numbers | Validate your credit card number with our free online checker](http://www.validcreditcardnumber.com/)
 - [Graham King » CVV numbers](https://www.darkcoding.net/credit-card/cvv-numbers/)
 - [Graham King » Luhn formula](https://www.darkcoding.net/credit-card/luhn-formula/)
@@ -237,16 +243,15 @@ Visa: 4916 6293 0528 7782 (CVV 933)
 - [Credit Card Validation, Step 1: Confirming the pattern | Ascad Networks](http://web.archive.org/web/20151012122918/http://www.ascadnetworks.com/Guides-and-Tips/Credit-Card-Validation,-Step-1:-Confirming-the-pattern)
 - [Credit Card Validation, Step 2: The Luhn Algorithm | Ascad Networks](http://web.archive.org/web/20151021075528/http://www.ascadnetworks.com/Guides-and-Tips/Credit-Card-Validation,-Step-2:-The-Luhn-Algorithm)
 - [Anatomy of Credit Card Numbers](http://web.archive.org/web/20120614072656/http://www.merriampark.com/anatomycc.htm)
-- [Porteurs | Cartes Bancaires](http://www.cartes-bancaires.com/fr)
-
-- [The anatomy of a credit card form](https://uxdesign.cc/the-anatomy-of-a-credit-card-payment-form-32ec0e5708bb)
-
+- [Cartes Bancaires | Intégrateur d'innovation - Groupement des Cartes Bancaires CB](https://www.cartes-bancaires.com/)
 - [List of Issuer Identification Numbers - Wikipedia, the free encyclopedia](https://web.archive.org/web/20130827121726/http://en.wikipedia.org/wiki/List_of_Bank_Identification_Numbers)
 - [BIN Database - Search card issuing bank name and country](https://www.bindb.com/bin-database.html)
 - [binlist/data: binlist.net data repo](https://github.com/binlist/data)
 - [banks-db/banks at master · ramoona/banks-db](https://github.com/ramoona/banks-db/tree/master/banks)
-
 - https://github.com/stripe/jquery.payment
 - https://github.com/inacho/php-credit-card-validator
 
+UI/UX:
+
+- [The anatomy of a credit card form](https://uxdesign.cc/the-anatomy-of-a-credit-card-payment-form-32ec0e5708bb)
 - [billing - Why do credit card forms ask for Visa, MasterCard, etc.? - User Experience Stack Exchange](http://ux.stackexchange.com/questions/51346/why-do-credit-card-forms-ask-for-visa-mastercard-etc) - [Why do credit card forms ask for Visa, Mastercard, etc.? | Hacker News](https://news.ycombinator.com/item?id=7158626)
