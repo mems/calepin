@@ -6052,6 +6052,7 @@ See also:
 - [Realms-shim Security Updates - Agoric](https://agoric.com/realms-shim-security-updates/)
 - [Play safely in sandboxed IFrames - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
 - [Sandboxing JavaScript - Zendesk Engineering - Medium](https://medium.com/zendesk-engineering/sandboxing-javascript-e4def55e855e)
+- [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript#avoid_scripts_that_pollute_the_global_scope) - "Be sure to conduct careful audits of the third-party scripts you load to ensure they’re being good actors."
 
 ### oEmbed
 
