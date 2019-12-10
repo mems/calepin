@@ -11,8 +11,8 @@
 
 See also
 
-- [Headless browser](../Web/Web.md#headless-browser)
-- [Data scraping](../Security/Security.md#data-scraping)
+- [Headless browser](../../Web/Web.md#headless-browser)
+- [Data scraping](../../Security/Security.md#data-scraping)
 
 ## Simple way (declarative)
 
