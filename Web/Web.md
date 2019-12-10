@@ -1344,6 +1344,7 @@ See [How ECMAScript engine works](ECMAScript#how-engine-works) (event loop, etc.
 - [Headless browser — Wikipedia](https://en.wikipedia.org/wiki/Headless_browser)
 - Puppeteer: Node API for [Headless Chrome](https://github.com/GoogleChrome/puppeteer) and [Headless Firefox](https://github.com/GoogleChrome/puppeteer/tree/master/experimental/puppeteer-firefox) - [Puppeteer API](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md)
 - [Headless web browsers](https://gist.github.com/evandrix/3694955)
+- [puppeteer-extra/packages/puppeteer-extra-plugin-stealth at master · berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) - Puppeteer plugin to prevent detection
 - [PhantomJS | PhantomJS](http://phantomjs.org/)
 - [Nightmare](http://www.nightmarejs.org/)
 - [selenium - Headless Browser and scraping - solutions - Stack Overflow](https://stackoverflow.com/questions/18539491/headless-browser-and-scraping-solutions)
@@ -1354,7 +1355,7 @@ See [How ECMAScript engine works](ECMAScript#how-engine-works) (event loop, etc.
 - https://developer.mozilla.org/en-US/Firefox/Headless_mode
 - Chrome: `--user-agent="..."`, could require `--single-process`. See also `--use-mobile-user-agent`
 
-See [Data - Web scrapping](Web scrapping)
+See [Data - Web scrapping](../Data/Web%20scrapping/Web%20scrapping.md)
 
 ### Headless browser detection
 
