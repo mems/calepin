@@ -647,6 +647,8 @@ For replay, be sure:
 - consider all external values that could modify states
 - record input and all values (objects position, states)
 
+- [Game Programming Patterns](http://gameprogrammingpatterns.com/) - [munificent/game-programming-patterns: Source repo for the book](https://github.com/munificent/game-programming-patterns)
+
 # Concepts and Methodology
 
 > Just because you can't see it, doesn't mean it isn't there.

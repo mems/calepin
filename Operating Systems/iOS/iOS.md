@@ -23,6 +23,30 @@ Download native application IPA
 - [Download iPhone Software (IPSW firmware files)](http://www.iphonehacks.com/download-iphone-ios-firmware)
 - [Firmware - The iPhone Wiki](https://www.theiphonewiki.com/wiki/Firmware)
 
+## Screen record
+
+1. quit QuickTime on your Mac if it is open
+2. connect your device to your Mac via a cable
+3. open QuickTime on your Mac, and select File > New Movie Recording
+4. a window will appear
+5. click the arrow next to the record button, and select your device from the dropdown menu that appears
+6. the window will show a live preview of you device screen
+
+If you want to record:
+
+1. click the record button and go about your business on your iPhone
+2. once you're done, click the stop button and save the video
+
+- [macos - How do I AirPlay mirror my iPhone screen to my MacBook Pro? - Ask Different](https://apple.stackexchange.com/questions/139989/how-do-i-airplay-mirror-my-iphone-screen-to-my-macbook-pro)
+
+## Screen mirror
+
+You can use:
+
+- AirPlay
+- Quicktime on a connected Mac, see [Record screen](#Screen-record)
+- third party app like AirServer or Reflector
+
 ## Record phone call
 
 Works better with visual voicemail

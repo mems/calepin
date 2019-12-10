@@ -22,6 +22,11 @@ About parsing and transpiling:
 - [CmSc 315 Programming Languages](http://faculty.simpson.edu/lydia.sinapova/www/cmsc315/LN315_Pratt/ContentsLN315.htm)
 - [Peachpie – The open-source PHP compiler to .NET](http://www.peachpie.io/)
 - [niklasvh/php.js: PHP to JavaScript converter and VM written in JavaScript](https://github.com/niklasvh/php.js)
+- [Crafting Interpreters](https://craftinginterpreters.com/) - [munificent/craftinginterpreters: Repository for the book "Crafting Interpreters"](https://github.com/munificent/craftinginterpreters)
+- [Building a Scanner – Chelsea Troy](https://chelseatroy.com/2019/10/24/building-a-scanner/)
+- [Building a Parser – Chelsea Troy](https://chelseatroy.com/2019/11/11/building-a-parser/)
+- [Drawings of How Compilers Work – Chelsea Troy](https://chelseatroy.com/2019/10/17/drawings-of-how-compilers-work/)
+- [Stuff I Wrote About Programming Languages – journal.stuffwithstuff.com](http://journal.stuffwithstuff.com/category/language/)
 
 Concepts:
 
