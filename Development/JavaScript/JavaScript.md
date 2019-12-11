@@ -5362,7 +5362,7 @@ Aka save file
 	let bytes = new Uint8Array(dataBytes);
 	let data = bytes.reduce((chars, byte) => (chars += String.fromCharCode(byte), chars), "");// as raw string
 
-Not supported everywhere. Also blob URI not work on iOS, use data URI. Or use service worker.
+Not supported everywhere. Also blob URI not work on iOS, use data URI. Or use [service worker](#service-worker).
  
 	let uri = "data:application/octet-stream;base64," + dataBase64;// could be a blob URI
 	let filename = "data.bin";
@@ -6286,6 +6286,7 @@ See also cache API:
 
 ### Service Worker
 
+- [service worker receive fragment identifier (hash) in requests and can use fragment identifier in responses](https://github.com/w3c/ServiceWorker/issues/854), see also [Fetch API: Request#url includes the URL fragment - Chrome Platform Status](https://www.chromestatus.com/feature/4753419730419712)
 - clone requests before reuse it: `self.addEventListener("fetch", event => event.respondWith(fetch(event.request.clone()))`, or it will throw `Cannot construct a Request with a Request object that has already been used.`
 - you can't install service worker from data URI (`data:application/javascript,console.log('hello')`), but `importScripts` can (with Chrome, but not with Firefox "NetworkError: Failed to load worker script at data:...")
 - "the scope determines which pages are controlled by the service worker. Once a page is controlled by a service worker, all HTTP requests originating from the page [...] will trigger the service worker's `fetch` event": [javascript - Understanding Service Worker scope - Stack Overflow](https://stackoverflow.com/questions/35780397/understanding-service-worker-scope#comment59275020_35780776)
@@ -6307,6 +6308,21 @@ See also cache API:
 - [javascript - What limitations apply to opaque responses? - Stack Overflow](https://stackoverflow.com/questions/39109789/what-limitations-apply-to-opaque-responses/39109790#39109790)
 - [Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/) - A framework to handle cache in service worker
 - [javascript - Understanding Service Worker scope - Stack Overflow](https://stackoverflow.com/questions/35780397/understanding-service-worker-scope) - `Service-Worker-Allowed` HTTP header to define the max scope
+
+Avoid changing the URL of service worker script:
+
+> If you've read [my post on caching best practices](https://jakearchibald.com/2016/caching-best-practices/), you may consider giving each version of your service worker a unique URL.
+> **Don't do this!** This is usually bad practice for service workers, just update the script at its current location.
+> 
+> It can land you with a problem like this:
+> 
+> 1. `index.html` registers `sw-v1.js` as a service worker.
+> 2. `sw-v1.js` caches and serves `index.html` so it works offline-first.
+> 3. You update `index.html` so it registers your new and shiny `sw-v2.js`.
+> 
+> If you do the above, the user never gets `sw-v2.js`, because `sw-v1.js` is serving the old version of `index.html` from its cache. You've put yourself in a position where you need to update your service worker in order to update your service worker.
+> 
+> — [The Service Worker Lifecycle  |  Web Fundamentals  |  Google Developers](https://github.com/google/WebFundamentals/blob/72658bac3b48b9a57033e35fe9d585252daeaeb0/src/content/en/fundamentals/primers/service-workers/lifecycle.md)
 
 Handle too long response (force third parties SLA)
 
