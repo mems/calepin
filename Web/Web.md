@@ -6455,6 +6455,8 @@ Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-in
 	copy("javascript:" + prompt().replace(/[\s%]/g, match => `%${match.charCodeAt(0).toString(16).padStart(2, "0")}`))
 
 - [Bookmarkleter](http://chriszarate.github.io/bookmarkleter/)
+- [Installing Bookmarklets](https://mreidsma.github.io/bookmarklets/installing.html)
+- [Bookmarklet - Wikipedia](https://en.wikipedia.org/wiki/Bookmarklet)
 
 ## Accessibility
 
