@@ -133,14 +133,16 @@ Examples:
 - https://github.com/es-shims/es-shim-api/blob/master/Makefile
 - https://github.com/const-io/numeric-constants/blob/master/Makefile
  
-	# scripts and map
-	scripts.js scripts.js.map: js-and-map
-	# And
-	js-and-map: scripts.js
-		touch scripts.js
-		touch scripts.js.map
-	
-	.INTERMEDIATE: js-and-map
+ ```make
+# scripts and map
+scripts.js scripts.js.map: js-and-map
+# And
+js-and-map: scripts.js
+	touch scripts.js
+	touch scripts.js.map
+
+.INTERMEDIATE: js-and-map
+```
 
 Few notes:
 
@@ -163,11 +165,15 @@ Use make
 
 Escape some chars:
 
-	VAR="Hello $USER! This symbole '#' is a hash."
+```sh
+VAR="Hello $USER! This symbole '#' is a hash."
+```
 
 Must be escaped as:
 
-	VAR="Hello $$USER! This symbole '\#' is a hash"
+```sh
+VAR="Hello $$USER! This symbole '\#' is a hash"
+```
 
 To not be considered as a comment
 
@@ -176,15 +182,21 @@ To not be considered as a comment
 
 ### Steps `./configure && make && make install`
 
-	./configure
+```sh
+./configure
+```
 
 tells you whether are quite ready to build the application. It will check if you have everything needed to build the application, and, if it sees any critical errors it will inform you.
 
-	make
+```sh
+make
+```
 
 builds (compiles) the source code. Compiler compiles the code, but, most of the times, the code cannot stand alone, it requires external libraries (usually provided by ubuntu packages) to be installed. After this step the executable(s) of this specific application you are trying to install will be created.
 
-	sudo make install
+```sh
+sudo make install
+```
 
 moves all the needed for the application files to the appropriate system directories. This has to be done after make because the executables of the application have been created and can be moved to the appropriate system directory (e.g. /usr/bin/) for later use.
 
@@ -364,3 +376,108 @@ Other:
 - [javascript - How to import library which is not module in webpack - Stack Overflow](https://stackoverflow.com/questions/50176740/how-to-import-library-which-is-not-module-in-webpack/51360811#51360811)
 - [Plugins | webpack](https://webpack.js.org/plugins/) and [list of plugins · webpack/docs Wiki](https://github.com/webpack/docs/wiki/list-of-plugins)
 - [scinos/webpack-plugin-hash-output: Plugin to replace webpack chunkhash with an md5 hash of the final file conent.](https://github.com/scinos/webpack-plugin-hash-output)
+
+## Puppeteer
+
+- [puppeteer/examples at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/tree/master/examples)
+
+### Update DOM objects
+
+```js
+page.evaluateOnNewDocument(() => {
+	// Return fake languages preferences
+	Object.defineProperty(navigator, "languages", {
+	  get: function() {
+		return ["en-US", "en", "bn"];
+	  }
+	});
+```
+	
+```js
+page.evaluateOnNewDocument(() => {
+	// Return fake list of plugins
+	const mimetype = Object.create(MimeType.prototype, {
+		description: {value: "Portable Document Format"},
+		suffixes: {value: "pdf"},
+		type: {value: "application/x-google-chrome-pdf"},
+	});
+	const plugin = Object.create(Plugin.prototype, {
+		description: {value: "Portable Document Format"},
+		filename: {value: "internal-pdf-viewer"},
+		length: {value: 1},
+		name: {value: "Chrome PDF Plugin"},
+		[mimetype.type]: {value: mimetype},
+		0: {value: mimetype},
+	});
+	Object.defineProperty(mimetype, "enabledPlugin", {value: plugin});
+	
+	const pluginsArray = Object.create(PluginArray.prototype, {
+		0: {value: plugin},
+		[plugin.name]: {value: plugin},
+		length: {value: 1},
+	});
+	
+	// Fix item/namedItem listing
+	for(const [{prototype}, type] of [[PluginArray, Plugin], [Plugin, MimeType]]){
+		Object.defineProperties(prototype, {
+			item: {value: function item(index){
+				index = parseInt(index);
+				return !isNaN(index) && this[index] instanceof type ? this[index] : null;
+			}},
+			namedItem: {value: function namedItem(name){
+				return this[name] instanceof type ? this[name] : null;
+			}},
+		});
+	}
+	
+	// TODO:
+	// - implement iterator protocol on plugin array
+	// - set correctly object properties descriptions (enumerable, configurable)
+	// - set correctly function toString() -> "function namedItem() { [native code] }"
+	Object.defineProperty(navigator, "plugins", {
+		configurable: true,
+		enumerable: true,
+		get: function plugins() {
+			return pluginsArray;
+		}
+	});
+});
+```
+
+- [puppeteer/api.md at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageevaluateonnewdocumentpagefunction-args)
+
+### Get page metrics
+
+```js
+await page.goto(url, {waitUntil: 'load'});
+const performance = JSON.parse(await page.evaluate(() => performance.toJSON()));
+```
+
+```js
+await this._client.send('Performance.enable');
+const metrics = await page._client.send('Performance.getMetrics');
+```
+
+- [How can we get response time? Page metrics doesn't have it. · Issue #1368 · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/issues/1368#issuecomment-343866624)
+- [puppeteer/api.md at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagemetrics)
+
+### Get cookies
+
+Get only first party cookies (see https://stackoverflow.com/questions/50252943/puppeteer-get-3rd-party-cookies):
+
+```js
+const cookies = await page.cookies();// gives only first party cookies
+```
+
+To get all (first and third) parties cookies, we need to use Dev Tools protocol (low level)
+
+```js
+const {cookies} = await page._client.send('Network.getAllCookies');
+```
+
+### Listen page events
+
+Use an exposed function ([`Page.exposeFunction()`](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageexposefunctionname-puppeteerfunction))
+
+- [javascript - Puppeteer: How to listen to object events - Stack Overflow](https://stackoverflow.com/questions/47107465/puppeteer-how-to-listen-to-object-events/56173142#56173142)
+- [puppeteer/custom-event.js at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/blob/master/examples/custom-event.js)
