@@ -25,6 +25,34 @@ News
 ## DNS
 
 - [How DNS works](https://howdns.works/)
+- [linux - Force dig to resolve without using cache - Server Fault](https://serverfault.com/questions/372066/force-dig-to-resolve-without-using-cache/372071#372071)
+
+### DNS records
+
+DNS records
+
+Names (exemples for `example.com`):
+
+- `@` naked name (`example.com`), the domain itself
+- `*` fallback subdomain (`*.example.com`, but doesn't match `*.test.example.com` if `test.example.com` is declared)
+- `www` subdomain (`www.example.com`)
+- `test.www` subsubdomain (`test.www.example.com`)
+- `*.www` fallback subsubdomain (`*.www.example.com`)
+
+`* CNAME @` is not possible with all DNS servers, and not recommanded (need 2 DNS requests to resolve subdomain)
+
+```
+@ IN A 192.0.2.1
+@ IN TXT "some text"
+```
+
+```
+# dig www.example without DNS cache
+dig @$(dig example.com NS +short | head -n1) www.example.com ANY +noall +answer
+```
+
+- [List of DNS record types - Wikipedia](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+- [Domain Name System - Wikipedia](https://en.wikipedia.org/wiki/Domain_Name_System#Resource_records)
 
 ## HTTP
 
@@ -829,6 +857,14 @@ And generators
 
 - [Home · wordnik/swagger-core Wiki](https://github.com/wordnik/swagger-core/wiki)
 
+Hypermedia and 
+
+- [The Hypertext Application Language](http://stateless.co/hal_specification.html)
+- [JSON:API — A specification for building APIs in JSON](https://jsonapi.org/)
+- [kevinswiber/siren: Structured Interface for Representing Entities, super-rad hypermedia](https://github.com/kevinswiber/siren)
+- [RFC 8288 - Web Linking](https://tools.ietf.org/html/rfc8288)
+- HTML5 links
+
 #### API examples
 
 `http://lifeforms.org/<alias>` redirect to (305) `http://lifeforms.org/<Kingdom>/<Phylum>/<Class>/<Order>/<Family>/<Genus>/<Species>`
@@ -862,6 +898,7 @@ There is no session
 - [Homepage - Silex - The PHP micro-framework based on Symfony2 Components](http://silex.sensiolabs.org/)
 - [Slim Framework - Slim Framework](http://www.slimframework.com/)
 - [Apigility](https://www.apigility.org/)
+- [badgateway/ketting: Ketting is a Hypermedia client for javascript](https://github.com/badgateway/ketting)
 
 - [Create a REST API with PHP « Gen X Design | Ian Selby](http://wayback.archive.org/web/20150428075600/http://www.gen-x-design.com/archives/create-a-rest-api-with-php/)
 - [Building A RESTful PHP Server: Understanding the Request - LornaJaneLornaJane](http://www.lornajane.net/posts/2012/building-a-restful-php-server-understanding-the-request)

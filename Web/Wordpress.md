@@ -20,49 +20,71 @@
 			"app/themes/{$name}/": ["type:wordpress-theme"]
 		}
 	}
-	
-	
+
 	/** Absolute path to the WordPress directory. */
 	if ( !defined('ABSPATH') )
 		define('ABSPATH', dirname(__FILE__) . '/wordpress/');
 	
 	/** Absolute path to the WordPress wp-content directory, which holds your themes, plugins, and uploads */
 	//define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
-	
-	//--------
-	
-	/**
-	* Automatic Url + Content Dir/Url Detection for Wordpress
-	*/
-	$document_root = rtrim(str_replace(array('/', '\\'), '/', $_SERVER['DOCUMENT_ROOT']), '/');
-	
-	$root_dir = str_replace(array('/', '\\'), '/', __DIR__);
-	$wp_dir = str_replace(array('/', '\\'), '/', __DIR__ . '/wp');
-	$wp_content_dir = str_replace(array('/', '\\'), '/', __DIR__ . '/wp-content');
-	
-	$root_url = substr_replace($root_dir, '', stripos($root_dir, $document_root), strlen($document_root));
-	$wp_url = substr_replace($wp_dir, '', stripos($wp_dir, $document_root), strlen($document_root));
-	$wp_content_url = substr_replace($wp_content_dir, '', stripos($wp_content_dir, $document_root), strlen($document_root));
-	
-	$scheme = (isset($_SERVER['HTTPS']) AND $_SERVER['HTTPS'] != 'off' AND !$_SERVER['HTTPS']) ? 'https://' : 'http://';
-	$host = rtrim($_SERVER['SERVER_NAME'], '/');
-	$port = (isset($_SERVER['SERVER_PORT']) AND $_SERVER['SERVER_PORT'] != '80' AND $_SERVER['SERVER_PORT'] != '443') ? ':' . $_SERVER['SERVER_PORT'] : '';
-	
-	$root_url = $scheme . $host . $port . $root_url;
-	$wp_url = $scheme . $host . $port . $wp_url;
-	$wp_content_url = $scheme . $host . $port . $wp_content_url;
-	
-	define('WP_HOME', $root_url); //url to index.php
-	define('WP_SITEURL', $wp_url); //url to wordpress installation
-	define('WP_CONTENT_DIR', $wp_content_dir); //wp-content dir
-	define('WP_CONTENT_URL', $wp_content_url); //wp-content url
-	
-	//-------
-	
+
 	include_once './vendor/autoload.php';
 	require( './wordpress/wp-blog-header.php' );
 
-- http://matgargano.com/modern-wordpress-development-composer/
+## Config
+
+```php
+/*
+Automatic Url + Content Dir/Url Detection for Wordpress
+Based on https://gist.github.com/CMCDragonkai/7578784 and https://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
+*/
+// Use realpath to resolve symlinks (like /homez.xxx/ to /home/)
+$document_root = rtrim(str_replace(array('/', '\\'), '/', realpath($_SERVER['DOCUMENT_ROOT'])), '/');
+
+$root_dir = str_replace(array('/', '\\'), '/', __DIR__);
+$wp_dir = str_replace(array('/', '\\'), '/', __DIR__ . '/wp');
+$wp_content_dir = str_replace(array('/', '\\'), '/', __DIR__ . '/wp-content');
+
+$root_url = substr_replace($root_dir, '', stripos($root_dir, $document_root), strlen($document_root));
+$wp_url = substr_replace($wp_dir, '', stripos($wp_dir, $document_root), strlen($document_root));
+$wp_content_url = substr_replace($wp_content_dir, '', stripos($wp_content_dir, $document_root), strlen($document_root));
+
+$scheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' || isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443 || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') ? 'https://' : 'http://';
+$host = rtrim($_SERVER['SERVER_NAME'], '/');
+$port = (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80' && $_SERVER['SERVER_PORT'] != '443') ? ':' . $_SERVER['SERVER_PORT'] : '';
+
+$root_url = $scheme . $host . $port . $root_url;
+$wp_url = $scheme . $host . $port . $wp_url;
+$wp_content_url = $scheme . $host . $port . $wp_content_url;
+
+define('WP_HOME', $root_url); //url to index.php
+define('WP_SITEURL', $wp_url); //url to wordpress installation
+define('WP_CONTENT_DIR', $wp_content_dir); //wp-content dir
+define('WP_CONTENT_URL', $wp_content_url); //wp-content url
+```
+
+## Update URL
+
+```sql
+SET @current = '';
+SET @next = '';
+UPDATE wp_options SET option_value = replace(option_value, @curent, @next) WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET post_content = replace(post_content, @curent, @next);
+UPDATE wp_postmeta SET meta_value = replace(meta_value,@curent,@next);
+UPDATE wp_usermeta SET meta_value = replace(meta_value, @curent,@next);
+UPDATE wp_links SET link_url = replace(link_url, @curent,@next);
+UPDATE wp_comments SET comment_content = replace(comment_content , @curent,@next);
+# For images inside posts 
+UPDATE wp_posts SET post_content = replace(post_content, @curent, @next);
+# For images linked in old link manager
+UPDATE wp_links SET link_image = replace(link_image, @curent, @next);
+# For images linked as attachments
+UPDATE wp_posts SET guid = replace(guid, @curent, @next);
+# Serialized data via serialize() or json_encode() aren't touched, see https://deliciousbrains.com/wp-migrate-db-pro/doc/serialized-data/
+```
+
+- [WP Migrate DB – WordPress plugin | WordPress.org](https://wordpress.org/plugins/wp-migrate-db/) - Free version handle metadata PHP serialization trouble
+- [Changing The Site URL | WordPress.org](https://wordpress.org/support/article/changing-the-site-url/)
 
 ## Rest API
 

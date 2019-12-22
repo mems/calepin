@@ -290,6 +290,7 @@ Aka Chiffrage
 See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
 
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
+- [Ton estimation de temps est une blague - Je suis un dev](https://www.jesuisundev.com/ton-estimation-de-temps-est-une-blague/) - "Donne toujours une fourchette de temps [...] D’avoir une vue sur les risques de ta tâche [...] toujours donner une mise à jour en temps réel sur ton estimation"
 
 ### Evidence based scheduling
 
@@ -342,6 +343,23 @@ See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicit
 
 ## Management
 
+> ## The Joel Test
+> 
+> - Do you use source control?
+> - Can you make a build in one step?
+> - Do you make daily builds?
+> - Do you have a bug database?
+> - Do you fix bugs before writing new code?
+> - Do you have an up-to-date schedule?
+> - Do you have a spec?
+> - Do programmers have quiet working conditions?
+> - Do you use the best tools money can buy?
+> - Do you have testers?
+> - Do new candidates write code during their interview?
+> - Do you do hallway usability testing?
+> 
+> — [The Joel Test: 12 Steps to Better Code – Joel on Software](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/)
+
 ### Recruitment
 
 Aka hire
@@ -350,6 +368,7 @@ Developers don't remember all APIs details, algorithms, they use online docs. Ex
 
 Ask them about concept, not details by heart
 
+- [The Guerrilla Guide to Interviewing – Joel on Software](https://www.joelonsoftware.com/2000/03/23/the-guerrilla-guide-to-interviewing/)
 - [If Your Boss Could Do Your Job, You’re More Likely to Be Happy at Work](https://hbr.org/2016/12/if-your-boss-could-do-your-job-youre-more-likely-to-be-happy-at-work?utm_campaign=harvardbiz&utm_source=twitter&utm_medium=social)
 - [21 management things I learned at Imgur — Medium](https://medium.com/@gerstenzang/21-management-things-i-learned-at-imgur-7abb72bdf8bf)
 - [Creating Great Developers: Introduction - gskinner blog](http://blog.gskinner.com/archives/2010/09/creating_great.html)

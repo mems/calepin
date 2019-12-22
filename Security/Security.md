@@ -707,6 +707,7 @@ See also
 
 - `http://evil.com/@good.com` the domain is not `good.com`
 - `http://good.com%2f@evil.com/` the domain is not `good.com`
+- `file://my.domain/tmp/example.html` the domain is `my.domain`, but often ignored
 - `https://accounts.youtube.com/accounts/SetSID?continue=https://www.google.com/amp/s/evil.com/evil.swf` (redirect to `evil.swf`) redirection (account login, etc.) don't know if the trusted target, has been compromized (or allow this kind of redirection)
 - `http://good.com%0a%0a%0aTrust%20me.%20It%27s%20totally%20legit.%09%09%09%09%09%0a%0a%0a%0a%0a%0a%0a%0a@evil.com/` is a valid URL, but could be displayed in browser URL bar (or link hover) as `http://good.com`
 - `http://x%0aContent-Length%3a99%0a%0a.victim.website/1` and `http://victim.website%00.attacker.website/evil.html` (null char wrongly used to break the domain as `victim.website`). See [Webkit URLs](https://alf.nu/WebkitURLs)
@@ -1220,6 +1221,26 @@ Exception of inline script and style can be made with `script-src` and `style-sr
 - [Content Security Policy — Wikipedia](https://en.wikipedia.org/wiki/Content_Security_Policy)
 - [Implementing Content Security Policy ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2016/02/implementing-content-security-policy/)
 - [Content Security Policy CSP Reference & Examples](https://content-security-policy.com/)
+
+#### SPF
+
+Aka Sender Policy Framework, email authentication
+
+Example:
+
+```
+@ IN TXT "v=spf1 a include:_spf.google.com ~all
+```
+
+where:
+
+- `a`: authorizes the host(s) identified in the domain's `A` record(s) to send e-mail
+- `include:`: authorizes mail to be sent on behalf of the domain from `google.com`
+- `~all`: denotes that this list is all inclusive, and no other servers are allowed to send e-mail
+
+- [Sender Policy Framework - Wikipedia](https://en.wikipedia.org/wiki/Sender_Policy_Framework)
+- [How To use an SPF Record to Prevent Spoofing &amp; Improve E-mail Reliability | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-an-spf-record-to-prevent-spoofing-improve-e-mail-reliability)
+- [RFC 4408 - Sender Policy Framework (SPF) for Authorizing Use of Domains in E-Mail, Version 1](https://tools.ietf.org/html/rfc4408)
 
 #### JSONP
 
@@ -3277,6 +3298,7 @@ A targeted fishing after a smartphone has been stolen, to get unlock the protect
 - [Warning: beware of fake TibiaMaps.io copies! · TibiaMaps.io](https://tibiamaps.io/blog/phishing) - Phishers copy site, add malware, & buy Google ads to make them appear above the original website in search results
 - [Phishing — Wikipedia](https://en.wikipedia.org/wiki/Phishing)
 - [Email spoofing — Wikipedia](https://en.wikipedia.org/wiki/Email_spoofing)
+- authenticate your email domain with [SPF](#spf)
 
 ### Report
 

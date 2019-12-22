@@ -141,6 +141,7 @@ Aka multiplayer game, streaming, RTS game
 Magic = complexity. With react, JSX is magic
 
 - [Pourquoi les développeurs détestent-ils le low-code ? - Le Monde Informatique](https://www.lemondeinformatique.fr/actualites/lire-pourquoi-les-developpeurs-detestent-ils-le-low-code-76497.html)
+- [Le monde du logiciel est en train de se détruire... Manifeste pour un développement plus durable - GREENSPECTOR®](https://greenspector.com/fr/articles/2018-12-11-manifeste-developpement-plus-durable/)
 
 ## The wrong way
 
@@ -333,6 +334,66 @@ See also [Case styles](#case-styles)
 	
 - [Glossary](http://catb.org/jargon/html/go01.html)
 - [Find Similar or Opposite words at WordHippo](http://www.wordhippo.com/)
+
+> \#python tip: Avoid property() setters when the effect of the setting isn't obvious:
+> 
+> 	bill.price = 1.15
+> 	bill.quantity = 20
+> 	bill.total = 19.50  # What changes, the price or quantity?
+> 
+> Better:
+> 
+> 	bill.adjust_price_giving_total(19.50)
+> [...]
+> 
+> 	t = Temperature(celsius=17)
+> 	t.fahrenheit *= 1.10  # updates the celsius attribute
+> 	print(t.celsius)          # regular attribute
+> 	print(t.farhenheit)    # computed field
+> 
+> [...]
+> 
+> Solution:  Make the computed field read-only and move the update feature to a well-named method.
+
+> don't try and name a function by looking at its implementation as you'll only come up with a name that reflects how it works. Instead look at the call sites and see what they want to know or do.
+> — [Chris Oldwood](https://twitter.com/chrisoldwood/status/1026914381613985792)
+
+> Alternatives for get: create, build, make, acquire, allocate, find, locate, fetch, request, retrieve, pull, derive, calculate, format, ...
+> — [Chris Oldwood](https://twitter.com/chrisoldwood/status/693398223705260033)
+See also read, inspect,...
+
+> There are only two hard things in Computer Science: cache invalidation and naming things.
+> — Phil Karlton
+
+> - use meaningful function names
+> - describe **what** it does, **not how** it does it
+> - i.e. do not expose the implementation details in the name
+
+Use more appropriate terms. Exemple, instead of "master and slave", use "primary and secondary" or "initiator and responder" (based on the context). For "whitelist and blacklist", use "safelist" and "blocklist".
+
+- [Paul Vixie sur Twitter : "as the originator of the terms, i have to say, "master and slave" describe protocol roles not data mod](https://mobile.twitter.com/paulvixie/status/942849555111874560)
+- [Kelly Ellis sur Twitter : "The notion that the terms "master" and "slave" have no historical context is false. Otherwise they wo](https://mobile.twitter.com/justkelly_ok/status/933460605813641216)
+- [Amy Gebhardt on Twitter: "Huh! Just noticed that @travisci doesn't use whitelist/blacklist terminology. Instead, they choose "safelist" and "blocklist" in their documentation 💯 There. Now you have alternatives too. Let's stop using problematic phrases, yeah? Language matters. And it's not that hard." / Twitter](https://twitter.com/amlyhamm/status/1202684742069604353)
+
+See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
+
+- [Naming is a process, not a single step « Arlo Being Bloody Stupid](http://arlobelshee.com/good-naming-is-a-process-not-a-single-step/) - Blog posts serie
+
+### Naming convention
+
+Aka case style, casing
+
+- [`camelCase` `PascalCase`](https://en.wikipedia.org/wiki/Camel_case)
+- [`underscore_case` (`snake_case`)](https://en.wikipedia.org/wiki/Snake_case)
+- [`hyphen-case` (`kebab-case`)](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
+- [`StUdLyCaPs`](https://en.wikipedia.org/wiki/Studly_caps)
+- [`Capitalize`](https://en.wikipedia.org/wiki/Capitalization) (CSS, uppercase first letters of all words): "February 4th, 2015" (not "February 4Th, 2015")
+- [`Title Case`](https://en.wikipedia.org/wiki/Letter_case#Initial-caps) (used in titles of books, movies, songs, and poems, where articles are lowercase). ex: "Raiders of the Lost Ark". See https://github.com/gouch/to-title-case (for english only)
+- [`caps-for-acronyms`](https://en.wikipedia.org/wiki/Acronym#Small-caps_variant)
+
+- [Naming convention (programming) — Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Multiple-word_identifiers)
+- [Letter case — Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
+- [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)
 
 ## Comments
 
@@ -1049,39 +1110,3 @@ Or simply:
 	}
 
 ### Observer
-
-## Naming
-
-> don't try and name a function by looking at its implementation as you'll only come up with a name that reflects how it works. Instead look at the call sites and see what they want to know or do.
-> — [Chris Oldwood](https://twitter.com/chrisoldwood/status/1026914381613985792)
-
-> Alternatives for get: create, build, make, acquire, allocate, find, locate, fetch, request, retrieve, pull, derive, calculate, format, ...
-> — [Chris Oldwood](https://twitter.com/chrisoldwood/status/693398223705260033)
-See also read, inspect,...
-
-> There are only two hard things in Computer Science: cache invalidation and naming things.
-> — Phil Karlton
-
-> - use meaningful function names
-> - describe **what** it does, **not how** it does it
-> - i.e. do not expose the implementation details in the name
-
-See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
-
-- [Naming is a process, not a single step « Arlo Being Bloody Stupid](http://arlobelshee.com/good-naming-is-a-process-not-a-single-step/) - Blog posts serie
-
-### Naming convention
-
-Aka case style, casing
-
-- [`camelCase` `PascalCase`](https://en.wikipedia.org/wiki/Camel_case)
-- [`underscore_case` (`snake_case`)](https://en.wikipedia.org/wiki/Snake_case)
-- [`hyphen-case` (`kebab-case`)](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
-- [`StUdLyCaPs`](https://en.wikipedia.org/wiki/Studly_caps)
-- [`Capitalize`](https://en.wikipedia.org/wiki/Capitalization) (CSS, uppercase first letters of all words): "February 4th, 2015" (not "February 4Th, 2015")
-- [`Title Case`](https://en.wikipedia.org/wiki/Letter_case#Initial-caps) (used in titles of books, movies, songs, and poems, where articles are lowercase). ex: "Raiders of the Lost Ark". See https://github.com/gouch/to-title-case (for english only)
-- [`caps-for-acronyms`](https://en.wikipedia.org/wiki/Acronym#Small-caps_variant)
-
-- [Naming convention (programming) — Wikipedia](https://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Multiple-word_identifiers)
-- [Letter case — Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
-- [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)

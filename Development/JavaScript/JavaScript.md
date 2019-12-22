@@ -3862,6 +3862,7 @@ See also:
 - [javascript - querySelector search immediate children - Stack Overflow](https://stackoverflow.com/questions/6481612/queryselector-search-immediate-children/18607777#18607777) - `element.querySelector(":scope > children")`
 - [Why is getElementsByTagName() faster than querySelectorAll()? - Human Who Codes](https://humanwhocodes.com/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall/)
 - [TreeWalker performance](https://codepen.io/mmems/pen/dwWyxv) - Performance of differents APIs
+- [dom - Is it possible to get reference to comment element/block by JavaScript? - Stack Overflow](https://stackoverflow.com/questions/6027830/is-it-possible-to-get-reference-to-comment-element-block-by-javascript/42652191#42652191)
 
 ### Find an element / text
 
@@ -4220,7 +4221,8 @@ Document access to iframes with Data URI, can fail on some browsers for [securit
 ##### As replacement of an existing document
 
 	document.open();
-	document.write(htmlString);
+	document.write(htmlChunk);
+	document.write(htmlChunk2);
 	document.close();
 
 Note: It create a new history entry (navigated to `wyciwyg://0/DOCUMENT_URL`) if the document have a browsing context (cancel the current navigation if any). To not an history entry, use `document.open("text/html", "replace")` instead.
@@ -4282,10 +4284,13 @@ Note: `document.adoptNode()` and `document.importNode()` are not supported by IE
 	// or with doc.….insertAdjacentHTML("beforeend", htmlString)
 	// write():
 	// 	doc.open();
-	// 	doc.write(htmlString);
+	// 	// Can use HTML chunks, like: "<span", ">test</s", "pan>"
+	// 	doc.write(htmlChunk);
+	// 	doc.write(htmlChunk2);
 	// 	doc.close();
 
 - [`wysiwyg://ID/http://...`](http://www.xav.com/scripts/axs/help/1510.html)
+- https://github.com/jakearchibald/streaming-include/blob/master/polyfill/index.js#L42 - stream HTML into an element, that handle templates node too
 
 ##### As a document without browsing context with `DOMParser`
 
@@ -6626,6 +6631,23 @@ or
 
 - [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
 - [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
+
+Usage examples:
+
+- compression
+- games
+- video editing
+- text editors
+- data visualisation
+- deep learning
+- stream processing
+- data validation
+- cryptography
+- path finding
+- encoding and decoding
+- parallelisation
+- transcoding
+- custom file formats
 
 ### asm.js
 

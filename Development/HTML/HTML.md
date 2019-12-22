@@ -2179,6 +2179,18 @@ Note: according to step 3 of “[General Principles of Landmark Design](https://
 
 - [WAI-ARIA Authoring Practices 1.1](https://w3c.github.io/aria-practices/#aria_lh_search) - Search landmarks
 
+### Combo box
+
+Aka select
+
+Used to enter a value (input). Don't use it for navigation.
+
+Use `<select>`. If you want to use a custom widget use `aria-activedescendant` if collapsible.
+
+- [\<select\> your poison - 24 Accessibility](https://www.24a11y.com/2019/select-your-poison/)
+- [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/)
+- [Combo box — Wikipedia](https://en.wikipedia.org/wiki/Combo_box)
+
 ## `a` element
 
 > When you link to something, make sure the group of words you link to work as a standalone thing. [...] If you remove the words around the link, someone should be able to predict the type of content they’re going to get
@@ -3979,15 +3991,6 @@ List of commands and is an interactive element and more likely to be used exclus
 
 http://html5doctor.com/element-index/#menu
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
-
-## Combo box
-
-Used to enter a value (input). Don't use it for navigation.
-
-Use `<select>`. If you want to use a custom widget use `aria-activedescendant` if collapsible.
-
-- [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/)
-- [Combo box — Wikipedia](https://en.wikipedia.org/wiki/Combo_box)
 
 ## Underline
 

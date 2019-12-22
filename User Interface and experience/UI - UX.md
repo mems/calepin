@@ -678,6 +678,10 @@ Chars pattern can changes based on locale, country, (card) type, etc. Ex: YYYY-D
 - [The 'Credit Card Number' Field Must Allow and Auto-Format Spaces (80% Don't) - Articles - Baymard Institute](http://baymard.com/blog/credit-card-field-auto-format-spaces)
 - [Credit Card IIN Ranges and Spacing Patterns - Checkout Usability - Baymard Institute](http://baymard.com/checkout-usability/credit-card-patterns)
 
+### WYSIWYG
+
+- [Yoshiki 義樹 on Twitter: "WYSIWYG document editors hide the structure underlying your content from you in order to show you what the result looks like, but along the way valuable cues for editing are lost. I've been thinking what the spectrum between "just structure" and "just the result" looks like. https://t.co/Ol5NwBC5d8" / Twitter](https://twitter.com/yoshikischmitz/status/1198096409087463424)
+
 ## Step progress tracker
 
 - [Progress Trackers in UX Design](http://babich.biz/progress-trackers-in-ux-design/)

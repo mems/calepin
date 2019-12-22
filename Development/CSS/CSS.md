@@ -1539,6 +1539,7 @@ Or text overflow and "..."/"…"
 
 but can't be multilines (but workaround exist, see below)
 
+- [line-clamp (with fallback)](https://codepen.io/vincent-valentin/pen/mddzByB?editors=1100)
 - [text-overflow - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
 - [CSS text-overflow: ellipsis; not working? - Stack Overflow](https://stackoverflow.com/questions/17779293/css-text-overflow-ellipsis-not-working/17783233#17783233)
 - [CSS Ellipsis: How to Manage Multi-Line Ellipsis in Pure CSS | Mobify](http://dev.mobify.com/blog/multiline-ellipsis-in-pure-css/)

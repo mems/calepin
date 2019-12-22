@@ -153,6 +153,7 @@ See also [Rendering text](#rendering-text), [Bezier](Bezier)
 - [Mesh Transforms - Bartosz Ciechanowski](http://ciechanowski.me/blog/2014/05/14/mesh-transforms/)
 - [Paper.js](https://github.com/paperjs/paper.js) - Vector Graphics Scripting – Scriptographer ported to JavaScript
 - [veltman/flubber: Tools for smoother shape animations.](https://github.com/veltman/flubber) - shape transition
+- [Flow uses specialist GPU rendering to get excellent graphics performance](https://www.ekioh.com/devblog/gpu-filling-vector-paths/)
 
 ### Vectorization
 

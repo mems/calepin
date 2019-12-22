@@ -128,7 +128,9 @@ And LibreOffice
 **LibreOffice use `;` as values separator in formulas.** And base on language/locale used, the decimal separator could be `.` or `,`
 
 Conditional Formatting
-Formula: Cell coords like `F6` are relative and `$F$6` is absolute. Relative cells coords are resolved during the formula evaluation, relative to the first one in range, then apply the relative coords to others.
+Formula: Cell coords like `F6` are relative and `$F$6` is absolute (`F$6` or `$F6` are also possible). Relative cells coords are resolved during the formula evaluation, relative to the first one in range, then apply the relative coords to others.
+
+- [You Suck at Excel with Joel Spolsky - YouTube](https://www.youtube.com/watch?v=0nbkaYsR94c)
 
 ### Median formula
 
