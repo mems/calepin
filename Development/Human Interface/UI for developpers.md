@@ -64,6 +64,13 @@ node-based VPL
 - [Visual programming language — Wikipedia](https://en.wikipedia.org/wiki/Visual_programming_language)
 - [Visual Programming Languages - Snapshots](http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/)
 
+- [cables](https://cables.gl/)
+- [vvvv - a multipurpose toolkit | vvvv](https://vvvv.org/)
+- [Cycling '74](https://cycling74.com/)
+- [NoFlo | Flow-Based Programming for JavaScript](https://noflojs.org/)
+- [Houdini - 3D modeling, animation, VFX, look development, lighting and rendering | SideFX](https://www.sidefx.com/)
+- [kousun12/eternal: 👾~ music, eternal ~ 👾](https://github.com/kousun12/eternal)
+
 ## Rich shell
 
 TermKit (node + webkit):

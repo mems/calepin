@@ -685,49 +685,71 @@ function fancyCount2(str){
 
 ## Destructuring
 
-	[a, b] = [b, a];
+```js
+[a, b] = [b, a];
+```
 
-	let a = 1;
-	({a} = {a: 2});// a === 2
+```js
+let a = 1;
+({a} = {a: 2});// a === 2
+```
 
-	const a = {
-		b: 1
-	}
-	
-	const {
-		b,
-		c = 2
-	} = a;
-	
-	// c == 2
+```js
+const a = {
+	b: 1
+}
 
-	let {options: {value1, value2}} = param;// same as let value1 = param.options.value1, value2 = param.options.value2;
+const {
+	b,
+	c = 2
+} = a;
 
-	let [x=5] = [b]; // x=5 if b=undefined (but not if b=null)
+// c == 2
+```
 
-	function f(...[a, b, c]) {
-		return a + b + c;
-	}
-	/*
-	f(1)          // NaN (b and c are undefined)
-	f(1, 2, 3)    // 6
-	f(1, 2, 3, 4) // 6 (the fourth parameter is not destructured)
-	*/
+```js
+// Get both a and a.b
+const {a, a: {b}} = {a: {b: "hi"}};
+// const {a, a: a1} = {a: "hi"};
+```
 
-	function f([a, b, c]){
-		return a + b + c;
-	}
-	/*
-	f([1, 2, 3])// 6
-	*/
+```js
+let {options: {value1, value2}} = param;// same as let value1 = param.options.value1, value2 = param.options.value2;
+```
 
-	const obj = {
-		...condition && { prop: value },
-	};
-	
-	const arr = [
-		...condition && ["a"] || [],// need a default value or it will throw a type error: boolean false is not iterable
-	];
+```js
+let [x=5] = [b]; // x=5 if b=undefined (but not if b=null)
+```
+
+```js
+function f(...[a, b, c]) {
+	return a + b + c;
+}
+/*
+f(1)          // NaN (b and c are undefined)
+f(1, 2, 3)    // 6
+f(1, 2, 3, 4) // 6 (the fourth parameter is not destructured)
+*/
+```
+
+```js
+function f([a, b, c]){
+	return a + b + c;
+}
+/*
+f([1, 2, 3])// 6
+*/
+```
+
+```js
+const obj = {
+	...condition && { prop: value },
+};
+
+const arr = [
+	...condition && ["a"] || [],// need a default value or it will throw a type error: boolean false is not iterable
+];
+```
 
 - [10. Destructuring](http://exploringjs.com/es6/ch_destructuring.html)
 - [Destructuring assignment - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Swapping_variables) - use destructuring to swap variables
@@ -736,9 +758,11 @@ function fancyCount2(str){
 
 ## Default parameters
 
-	function({a = "foo", b = "bar"} = {}){
-		console.log(a, b);
-	}
+```js
+function({a = "foo", b = "bar"} = {}){
+	console.log(a, b);
+}
+```
 
 ## Default value
 
