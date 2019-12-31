@@ -1664,26 +1664,28 @@ See also https://github.com/leebyron/async-to-gen/issues/25#issuecomment-2518911
 - `WeakMap`
 - [Expando](https://developer.mozilla.org/en-US/docs/Glossary/Expando) on [HTMLCollection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection):
 
-		function makeWeakRef(obj) {
-			const key = "weakref-" + (makeWeakRef.count = (makeWeakRef.count || 0) + 1);// non existing element, use a different key each call
-			let collection = document.getElementsByTagName(key);// HTMLCollection (live)
-			collection.expando = obj;
-			collection = null;// unreference the collection to discard it in returned functions closures
-			
-			return {
-				get() {
-					return document.getElementsByTagName(key).expando;
-				}
-			};
+```js
+function makeWeakRef(obj) {
+	const key = "#weakref-" + (makeWeakRef.count = (makeWeakRef.count || 0) + 1);// non existing element, use a different key each call
+	let collection = document.getElementsByTagName(key);// HTMLCollection (live)
+	collection.expando = obj;
+	collection = null;// unreference the collection to discard it in returned functions closures
+
+	return {
+		get() {
+			return document.getElementsByTagName(key).expando;
 		}
-		
-		let obj = { foo: 'bar' };
-		const wr = makeWeakRef(obj);
-		console.log('before', wr.get());
-		obj = null;
-		
-		// ... later
-		console.log('later', wr.get());// could return object or undefined
+	};
+}
+
+let obj = { foo: 'bar' };
+const wr = makeWeakRef(obj);
+console.log('before', wr.get());
+obj = null;
+
+// ... later
+console.log('later', wr.get());// could return object or undefined
+```
 
 - [tc39/proposal-weakrefs: WeakRefs](https://github.com/tc39/proposal-weakrefs)
 - [Domenic Denicola on Twitter: "Weak reference polyfill, works in at least some browsers today: https://t.co/IU4nJkX6yi Who knew!!"](https://twitter.com/domenic/status/1052940242381103104?s=12)
