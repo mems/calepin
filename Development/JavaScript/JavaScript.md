@@ -275,6 +275,7 @@ See also [`contentEditable`](#contenteditable)
 > A polyfill …, is a piece of code or plugin that provides the technology that you, the developer, expect the browser to provide natively. Flattening the API landscape if you will.
 — [What is a Polyfill?](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 
+- [Loading Polyfills Only When Needed — Philip Walton](https://philipwalton.com/articles/loading-polyfills-only-when-needed/) - [blog/loading-polyfills-only-when-needed.md at master · philipwalton/blog](https://github.com/philipwalton/blog/blob/master/articles/loading-polyfills-only-when-needed.md)
 - [Polyfills and the evolution of the Web](https://www.w3.org/2001/tag/doc/polyfills/)
 - [inexorabletash/polyfill](https://github.com/inexorabletash/polyfill)
 - https://github.com/inexorabletash/polyfill#readme
