@@ -144,6 +144,10 @@ At app level or a parent route level, register the error handler (a middleware w
 
 - [Express error handling](https://expressjs.com/en/guide/error-handling.html)
 
+Examples:
+
+- [OpenUserJS/OpenUserJS.org: The home of FOSS user scripts.](https://github.com/OpenUserJS/OpenUserJS.org)
+
 ### Express libraries
 
 - [expressjs/compression: Node.j compression middleware](https://github.com/expressjs/compression) - http compression for express (Note: doesn't compress small responses, see [expressjs/compression: Node.j compression middleware](https://github.com/expressjs/compression#threshold))

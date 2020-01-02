@@ -6474,6 +6474,21 @@ JSON Schema + form:
 - [Use Google Spreadsheets as a CMS | Hacker News](https://news.ycombinator.com/item?id=7965652)
 - [Use Google Sheets for Multilingual Chat - Talk in any Language](https://www.labnol.org/internet/multilingual-chat-in-google-sheets/28698/)
 
+## User script
+
+openuserjs: 
+
+- it's possible to import Script from GitHub, and use a webhook to sync with the source repo
+- don't forget to allow Github auth (Authorized OAuth Apps), and add a [licence field](https://openuserjs.org/user/add/scripts#user-block-copyright)
+
+- [New Script | OpenUserJS](https://openuserjs.org/user/add/scripts)
+- [Userscript Beginners HOWTO | About | OpenUserJS](https://openuserjs.org/about/Userscript-Beginners-HOWTO)
+
+- [WebExtensions/UserScripts - MozillaWiki](https://wiki.mozilla.org/WebExtensions/UserScripts)
+- [User Script Hosting - GreaseSpot Wiki](https://wiki.greasespot.net/User_Script_Hosting)
+- [Greasemonkey – Get this Extension for 🦊 Firefox (en-US)](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
+- [Tampermonkey - Chrome Web Store](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
+
 ## Bookmarklet
 
 See [Bookmarklet](JavaScript#bookmarklet)
