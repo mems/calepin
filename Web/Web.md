@@ -688,6 +688,8 @@ Aka ICAP
 
 ### HTTP/2.0
 
+- [Performance testing HTTP/1.1 vs HTTP/2 vs HTTP/2 + Server Push for REST APIs](https://evertpot.com/h2-parallelism/)
+
 #### Header compression
 
 Aka HPACK
