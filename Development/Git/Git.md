@@ -267,6 +267,26 @@ git archive -o patch.zip $COMMIT_FROM_HASH^ $(git diff-tree -r --no-commit-id --
 	
 - [git diff - Export only modified and added file with folder structure in Git - Stack Overflow](https://stackoverflow.com/questions/4541300/export-only-modified-and-added-files-with-folder-structure-in-git)
 
+## Git light local copy
+
+```sh
+git clone --depth 1 http://DOMAIN\USERNAME@host/path.git
+```
+
+Then when sync:
+
+```sh
+# Force to refresh origin remote URL of include the current user
+#git remote set-url origin "http://DOMAIN\$($env:USERNAME)@host/path.git"
+# Fetch with no history
+# use fetch insteaf of pull because pull do fetch and merge (that don't work because it try to merge unrelated histories)
+git fetch --depth=1
+# Reset the local repo (shouldn't have any changes for tracked files)
+git reset --hard origin/master
+```
+
+- [How to keep the prod cloned repo naked/bare when updating it from the dev repo? : git](https://www.reddit.com/r/git/comments/9rlyhk/how_to_keep_the_prod_cloned_repo_nakedbare_when/)
+
 ## Git on Windows
 
 See also [Bash shell on Windows](../../Operating%20Systems/Windows/Windows.md#bash-shell-on-windows)
