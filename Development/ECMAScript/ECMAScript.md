@@ -1906,6 +1906,11 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 
 ## Engines
 
+- [cesanta/mjs: Embedded JavaScript engine for C/C++](https://github.com/cesanta/mjs)
+- [XS7 @ TC-39](https://www.moddable.com/XS7-TC-39.php)
+- [QuickJS Javascript Engine](https://bellard.org/quickjs/)
+- [List of ECMAScript engines - Wikipedia](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+
 - [Test262 Report](https://test262.report/)
 
 ### How engine works
