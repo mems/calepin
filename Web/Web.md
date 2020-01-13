@@ -1626,6 +1626,10 @@ Use CDN
 
 - [Optimizing HTTP/2 prioritization with BBR and tcp_notsent_lowat](https://blog.cloudflare.com/http-2-prioritization-with-nginx/)
 
+Use a popular TLD do use DNS resolver cache:
+
+- [Is your fancy new domain hurting your performance? Benchmarking the top-level domain names - BunnyCDN Blog](https://bunnycdn.com/blog/is-your-fancy-new-domain-hurting-your-performance-gtld-benchmark/)
+
 #### First packet size
 
 - [wifi - What is the total length of pure TCP Ack sent over ethernet? - Stack Overflow](https://stackoverflow.com/questions/5543326/what-is-the-total-length-of-pure-tcp-ack-sent-over-ethernet)
