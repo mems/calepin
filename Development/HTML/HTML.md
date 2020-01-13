@@ -3404,6 +3404,8 @@ See also [forum post](#forum-post)
 	</details>
 
 - [How do you mark up an accordion? — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/accordion-markup/)
+- [Details / Summary Are Not \[insert control here\] | Adrian Roselli](https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html)
+- [Why \<details\> is Not an Accordion - daverupert.com](https://daverupert.com/2019/12/why-details-is-not-an-accordion/)
 
 ## Forum post
 
