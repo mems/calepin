@@ -848,6 +848,8 @@ Text erodes, fades, glows, drips, glistens, absorbs...
 
 ### Signed Distance Fields
 
+Aka SDF
+
 Use bitmap data:
 
 - [Text rendering in OpenGL – hack.chrons](http://hack.chrons.me/opengl-text-rendering/)
@@ -864,6 +866,7 @@ Use bitmap data:
 	- [War and Peace and WebGL · Will Dobbie](http://wdobbie.com/post/war-and-peace-and-webgl/) and https://disqus.com/embed/comments/?base=default&version=62cc70f7a67f1caa78581a1ef0bdf448&f=wdobbie&t_u=http%3A%2F%2Fwdobbie.com%2Fpost%2Fwar-and-peace-and-webgl%2F&t_d=War%20and%20Peace%20and%20WebGL&t_t=War%20and%20Peace%20and%20WebGL&s_o=default
 	- [GPU text rendering with vector textures · Will Dobbie](http://wdobbie.com/post/gpu-text-rendering-with-vector-textures/) and https://disqus.com/embed/comments/?base=default&version=62cc70f7a67f1caa78581a1ef0bdf448&f=wdobbie&t_u=http%3A%2F%2Fwdobbie.com%2Fpost%2Fgpu-text-rendering-with-vector-textures%2F&t_d=GPU%20text%20rendering%20with%20vector%20textures&t_t=GPU%20text%20rendering%20with%20vector%20textures&s_o=default
 - https://github.com/mattdesl/gl-sprite-text
+- [Deriving the SDF of a Line Segment - YouTube](https://www.youtube.com/watch?v=PMltMdi1Wzg)
 
 Use vector data:
 

@@ -2878,6 +2878,7 @@ Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data type
 - [Navigation](#navigation)
 - [Secondary content, side comments](#secondary-content-side-comments)
 - [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/#article-header-id-7) - "Article is like "Block"; Section is like "Element""
+- [Why You Should Choose HTML5 \<article\> Over \<section\> — Smashing Magazine](https://www.smashingmagazine.com/2020/01/html5-article-section/)
 
 ### `article` element
 

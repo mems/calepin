@@ -6089,6 +6089,7 @@ To isolate a third party script (or DOM access, geolocation, modal APIs, etc.), 
 
 - iframe with a cross origin (third party origin or null), ex: iframe with sandbox attribute but without `allow-same-origin`
 - a virutal machine like [QuickJS](https://bellard.org/quickjs/) or [Duktape](https://github.com/svaarala/duktape) or [any other JS engine](https://github.com/GoogleChromeLabs/jsvu#supported-engines-per-os) (that could be cross-compiled to WebAssembly)
+    - [maple3142/wasm-jseval: A safe eval library based on WebAssembly and Duktape/QuickJS.](https://github.com/maple3142/wasm-jseval)
 - use the [Realm API](https://www.npmjs.com/package/realms-shim) (similar to `with(proxy){}`)
 
 See also:
@@ -6108,15 +6109,27 @@ See also:
 - [How To Build an oEmbed Integration for Your Startup, and Why It’s Necessary](https://blog.ycombinator.com/how-to-build-an-oembed-integration-for-your-startup-and-why-its-necessary/)
 - [oEmbed Provider API | Developer Resources](https://developer.wordpress.com/docs/oembed-provider-api/)
 
-## Firefox Reader view
+## Reader view
 
-Based on Readability
+Firefox Reader view, based on Readability:
 
 - [QA/Reader view - MozillaWiki](https://wiki.mozilla.org/QA/Reader_view)
 - https://github.com/mozilla/readability/blob/c3c91a739beab6fd067404cd7610f6d64f53ad5a/Readability.js#L1721
 - [javascript - How Does Firefox Reader View Operate (FF version 38.0.5) - Stack Overflow](https://stackoverflow.com/questions/30661650/how-does-firefox-reader-view-operate-ff-version-38-0-5/)
 - [mozilla-release mozilla/toolkit/components/reader/ReaderMode.jsm](https://mxr.mozilla.org/mozilla-release/source/toolkit/components/reader/ReaderMode.jsm)
 - [How to disable firefox's reader view from my website? - Stack Overflow](https://stackoverflow.com/questions/30615447/how-to-disable-firefoxs-reader-view-from-my-website)
+- [Reader View - Chrome Web Store](https://chrome.google.com/webstore/detail/reader-view/ecabifbgmdmgdllomnfinbmaellmclnh) - [rNeomy/reader-view: Access Firefox's built in reader view from right click context menu](https://github.com/rNeomy/reader-view),
+
+Safari reader mode, based on Readability:
+
+- [Masquer les publicités et les distractions dans Safari sur l’iPhone - Assistance Apple](https://support.apple.com/fr-fr/guide/iphone/iphdc30e3b86/ios)
+- `/Applications/Safari/Contents/Resources` (`Reader.html`, `ReaderThumb.png`, `ReaderTrack.png`, `ReaderBg.png`, `ScratchBg.png`)
+- [Thoughts on Safari Reader’s generated HTML · Mathias Bynens](https://mathiasbynens.be/notes/safari-reader-html)
+- [How to enable Safari Reader on your site? · Mathias Bynens](https://mathiasbynens.be/notes/safari-reader)
+
+Other:
+
+- [Mercury by Postlight](https://mercury.postlight.com/) - [postlight/mercury-parser: 📜 Extract meaningful content from the chaos of a web page](https://github.com/postlight/mercury-parser)
 
 ## "Request Desktop Site"
 

@@ -932,6 +932,10 @@ Is the same as use `transform-origin: bottom center;`
 - [Sticky headers — Medium](https://medium.com/@adactio/sticky-headers-fe9537519c83)
 - [Autoscroll to anchors](JavaScript#autoscroll-to-anchors)
 
+### Size
+
+- [Min and Max Width/Height in CSS](https://ishadeed.com/article/min-max-css/)
+
 ### Full width content
 
 Aka banner, hero, bust-outs, takeover, full bleed
@@ -1763,6 +1767,7 @@ Aka `font-smooth`, font smoothing
 
 ## Hide element
 
+- [Hiding Elements On The Web](https://ishadeed.com/article/hiding-web/)
 - [CSS Image Replacement](https://css-tricks.com/examples/ImageReplacement/)
 - [Hiding DOM elements - ally.js](http://allyjs.io/tutorials/hiding-elements.html)
 - [Image Replacement Techniques in the Modern Age](https://www.sitepoint.com/image-replacement-techniques-in-the-modern-age/)
@@ -1931,7 +1936,7 @@ That means you can't resize it or use srcset
 
 ### Compression
 
-See [reduce bytes](Web#reduce-bytes)
+See [reduce bytes](../Web/Web.md#reduce-bytes)
 
 ### Sprites vs Data URI
 
