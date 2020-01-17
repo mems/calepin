@@ -2,10 +2,10 @@
 - [When Information Design is a Matter of Life or Death « Boxes and Arrows](http://boxesandarrows.com/when-information-design-is-a-matter-of-life-or-death/)
 
 - ![Calculate Transparency From Multiple Non Transparent Samples](Calculate%20transparency%20from%20multiple%20non-transparent%20samples.png) [Can image transparency be calculated automatically from multiple non-transparent samples? - Graphic Design Stack Exchange](http://graphicdesign.stackexchange.com/questions/31337/can-image-transparency-be-calculated-automatically-from-multiple-non-transparent)
-- [Design for developers.pdf](Design for developers.pdf)
+- [Design for developers.pdf](Design%20for%20developers.pdf)
 - [DesigningMeaning.pdf](DesigningMeaning.pdf)
-- [Pixel Perfect Precision™.pdf](Pixel Perfect Precision™.pdf)
-- [Responsive Design Workflow.pdf](Responsive Design Workflow.pdf)
+- [Pixel Perfect Precision™.pdf](Pixel%20Perfect%20Precision™.pdf)
+- [Responsive Design Workflow.pdf](Responsive%20Design%20Workflow.pdf)
 - [LukeW | Multi-Device Layout Patterns](http://www.lukew.com/ff/entry.asp?1514)
 - [The-Design-of-Everyday-Things-Revised-and-Expanded-Edition.pdf](The-Design-of-Everyday-Things-Revised-and-Expanded-Edition.pdf)
 - [Design Elements and Principles - Tips and Inspiration By Canva](https://www.canva.com/learn/design-elements-principles/)
