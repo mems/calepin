@@ -40,6 +40,7 @@ Sticky blocks / smart folding (context, label, compound):
 
 Use font size, style and weight to make differences and differents glyphs for better reading
 
+- [JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams](https://www.jetbrains.com/lp/mono/)
 - [tonsky/FiraCode: Monospaced font with programming ligatures](https://github.com/tonsky/FiraCode)
 - [Typography of Code at Adobe Max - YouTube](https://www.youtube.com/watch?v=r2JePjrDggE)
 - [i-tu/Hasklig: Hasklig - a code font with monospaced ligatures](https://github.com/i-tu/Hasklig/)
