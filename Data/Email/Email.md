@@ -81,3 +81,38 @@ Trace roote or GeoIP last IP address (between bracets) of "Received: from" field
 ### Send a confirmation email
 
 A test.
+
+## Copy an account to an other
+
+```sh
+# require php imap and php mbstring
+php ./src/cli/imapcopy.php config.json -test
+php ./src/cli/imapcopy.php config.json
+```
+
+```json
+{
+    "src": {
+        "hostname": "imap.example.com",
+        "port": 993,
+        "username": "test@example.com",
+        "password": "password1",
+        "ssl": true,
+        "sslNovalidateCert": false,
+        "readOnly": true,
+        "flags": true
+    },
+    "dst": {
+        "hostname": "imap.example.com",
+        "port": 993,
+        "username": "test2@example.com",
+        "password": "password2",
+        "ssl": true,
+        "sslNovalidateCert": false,
+        "readOnly": false,
+        "flags": true
+    }
+}
+```
+
+- [wrzlbrmft/imapcopy: Recursively copy all e-mail messages and folders from one IMAP account to another.](https://github.com/wrzlbrmft/imapcopy)

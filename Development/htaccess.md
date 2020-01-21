@@ -238,22 +238,59 @@ You should add a mecanism to redirect HTTP to HTTPS too. It's adviced to **use [
 
 ## Rewrite / redirect
 
-	<IfModule mod_rewrite.c>
-		RewriteEngine on
-		
-		# Determine the RewriteBase automatically and set it as environment variable.
-		# If you are using Apache aliases to do mass virtual hosting or installed the
-		# project in a subdirectory, the base path will be prepended to allow proper
-		# resolution of the files and to redirect to the correct URI. It will
-		# work in environments without path prefix as well, providing a safe, one-size
-		# fits all solution. But as you do not need it in this case, you can comment
-		# the following 2 lines to eliminate the overhead.
-		RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
-		RewriteRule ^(.*) - [E=BASE:%1]
-		
-		RewriteCond %{REQUEST_URI} !^%{ENV:BASE}/subfolder/
-		RewriteRule ^(.*)$ %{ENV:BASE}/subfolder/$1 [L]
-	</IfModule>
+```sh
+curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
+```
+
+```
+# Redirect to naked domain: www.example.com to example.com
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	RewriteCond %{HTTP_HOST} ^(.*\.)?www\.(.*)(:\d+)?$ [NC]
+	RewriteRule ^ https://%2%{REQUEST_URI} [QSA,R=301,L]
+</IfModule>
+```
+
+```
+# Redirect to HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} ^off$ [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,R=301,L]
+</IfModule>
+```
+
+- [.htaccess - htaccess https off condition - Stack Overflow](https://stackoverflow.com/questions/15010874/htaccess-https-off-condition)
+
+```
+# Redirect example.com to https://www.example.com
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+```
+
+- [Redirect non-www to www in .htaccess - Stack Overflow](https://stackoverflow.com/questions/12050590/redirect-non-www-to-www-in-htaccess)
+
+```
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	
+	# Determine the RewriteBase automatically and set it as environment variable.
+	# If you are using Apache aliases to do mass virtual hosting or installed the
+	# project in a subdirectory, the base path will be prepended to allow proper
+	# resolution of the files and to redirect to the correct URI. It will
+	# work in environments without path prefix as well, providing a safe, one-size
+	# fits all solution. But as you do not need it in this case, you can comment
+	# the following 2 lines to eliminate the overhead.
+	RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+	RewriteRule ^(.*) - [E=BASE:%1]
+	
+	RewriteCond %{REQUEST_URI} !^%{ENV:BASE}/subfolder/
+	RewriteRule ^(.*)$ %{ENV:BASE}/subfolder/$1 [L]
+</IfModule>
+```
 
 http://httpd.apache.org/docs/current/mod/mod_rewrite.html
 http://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#logging Debug `LogLevel rewrite:trace8` (>= Apache 2.3.6, else use [`RewriteLog "/path/to/rewrite.log"` and `RewriteLogLevel 3`](http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html#rewritelog) or more)
@@ -280,7 +317,7 @@ http://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#logging Debug `LogL
 		RewriteRule...
 	</IfModule>
 
-From Symfony https://github.com/symfony/symfony-standard/blob/master/web/.htaccess
+From Symfony https://github.com/symfony/symfony-standard/blob/master/web/.htaccess, see also [.htaccess - What Double Colon does in RewriteCond? - Stack Overflow](https://stackoverflow.com/questions/37605218/what-double-colon-does-in-rewritecond):
 
 	# Use the front controller as index file. It serves as a fallback solution when
 	# every other rewrite/redirect fails (e.g. in an aliased environment without
@@ -424,6 +461,8 @@ and use [Base](PHP#base)
 	RewriteCond %{QUERY_STRING} ^feed [NC]
 	RewriteCond %{HTTP_USER_AGENT} !^(FeedBurner|FeedValidator|talkr) [NC]
 	RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
+
+- [mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html)
 
 ## Cookies
 
