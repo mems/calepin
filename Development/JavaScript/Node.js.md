@@ -326,3 +326,28 @@ module.exports = m.exports;
 - [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L781-L816)
 - [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L945-L948)
 - [Load node.js module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory/17585470#17585470)
+
+## Warning
+
+```js
+// Log stack trace of warning like depreciation https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code
+process.on("warning", warning => console.warn(warning.stack));
+```
+
+- [Process | Node.js v13.6.0 Documentation](https://nodejs.org/api/process.html#process_event_warning)
+
+## Depreciation
+
+```sh
+node --trace-warnings --trace-deprecation index.js
+```
+
+```js
+const util = require('util');
+module.exports.someDepreciatedFunction = util.deprecate(() => {
+	// Do something here.
+}, "someDepreciatedFunction() is deprecated. Use someOtherFunction() instead.", "DEP_SOME_FUNCTION");
+```
+
+- [Command Line Options | Node.js v13.6.0 Documentation](https://nodejs.org/api/cli.html#cli_trace_deprecation)
+- [Util | Node.js v13.6.0 Documentation](https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code)
