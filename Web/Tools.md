@@ -379,6 +379,8 @@ Other:
 
 ## Puppeteer
 
+See also [microsoft/playwright: Node library to automate Chromium, Firefox and WebKit browsers](https://github.com/microsoft/playwright)
+
 - [puppeteer/examples at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/tree/master/examples)
 
 ### Update DOM objects
