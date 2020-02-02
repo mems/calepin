@@ -138,3 +138,18 @@ For write to clipboard:
 `clip` (from `C:\Windows\system32\clip.exe`)
 
 - [Little-known command line utility: clip – The Old New Thing](https://blogs.msdn.microsoft.com/oldnewthing/20091110-00/?p=16093)
+
+## Network
+
+> Run it as administrator, crank up the connection to 100, select the network adapter you're using, choose "Optimal" and hit Save.
+
+> Pro tip: run TCP Analyser (link on homepage) first.
+> The MTU and RWIN are the things that get tweaked.
+
+> main win here was actually switching the congestion protocol.
+
+> Most internet connections are PPPoE also, so afterwards select "custom" and click the checkbox. That way correct fragment size is sent to your router and he doesn't have to do splitting (= reduced overhead). Test with "MTU/Latency"
+
+- [SpeedGuide.net :: TCP Optimizer / Downloads](https://www.speedguide.net/downloads.php)
+- [35. What are the best TCP Optimizer settings for gaming ? :: SG FAQ](https://www.speedguide.net/faq/35-what-are-the-best-tcp-optimizer-settings-for-474)
+- [Secret Tricks To Fix Lag? MTU, TCP Optimizer, Leatrix Lag Fix - YouTube](https://www.youtube.com/watch?v=9J3xZ6hpTXk)

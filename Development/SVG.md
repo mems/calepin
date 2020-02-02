@@ -562,6 +562,7 @@ Use HTML+CSS hardware acceleration (split SVG and wrap in HTML elements differen
 - Some well compressed PNG are smaller than the SVG version (often small icons) and the rendering time is the best by far
 - [High Performance SVGs | CSS-Tricks](https://css-tricks.com/high-performance-svgs/)
 - [shape-rendering - SVG | MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shape-rendering)
+- [Improving SVG Runtime Performance by Taylor Hunt on CodePen](https://codepen.io/tigt/post/improving-svg-rendering-performance)
 
 Inlined or as separate document vs CSS background image (data URI or separate document) impact rendering time and memory usage:
 

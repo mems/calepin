@@ -710,6 +710,15 @@ For replay, be sure:
 
 - [Game Programming Patterns](http://gameprogrammingpatterns.com/) - [munificent/game-programming-patterns: Source repo for the book](https://github.com/munificent/game-programming-patterns)
 
+## License
+
+> This file incorporates work covered by the following copyright and permission notice:” followed by the original copyright and license copied in
+
+- [Choose an open source license | Choose a License](https://choosealicense.com/)
+- [The Legal Side of Open Source | Open Source Guides](https://opensource.guide/legal/)
+- [Permissive software license - Wikipedia](https://en.wikipedia.org/wiki/Permissive_software_license)
+- [License compatibility - Wikipedia](https://en.wikipedia.org/wiki/License_compatibility)
+
 # Concepts and Methodology
 
 > Just because you can't see it, doesn't mean it isn't there.

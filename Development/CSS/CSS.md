@@ -568,21 +568,45 @@ Don't forget to use `table-layout: fixed`
 - https://stackoverflow.com/questions/18419082/flexbox-vs-tables-why-do-we-need-flexbox
 - http://benfrain.com/css-performance-test-flexbox-v-css-table-fight/
 
+#### Responsive flexbox
+
+```css
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    flex: 1 1 10ch;
+    margin: .5rem;
+}
+
+input[type="email"] {
+    flex: 3 1 30ch;
+}
+```
+
+- [Adam Argyle on Twitter: "4 layouts for the price of 1, thanks flex 👍 css` form { display: flex; flex-wrap: wrap; &amp; &gt; input { flex: 1 1 10ch; margin: .5rem; &amp;\[type="email"\] { flex: 3 1 30ch; } } } ` view source on Codepen 👇 https://t.co/Q8H5ly2ZIe https://t.co/y6HqxClILZ" / Twitter](https://twitter.com/argyleink/status/1217213431947747328?s=12)
+- [Flexbox Responsive Form](https://codepen.io/argyleink/pen/LYEegOO)
+
 #### Flex image stretch
 
 Larger image will stretch to it's natural height regardless of CSS width
 
-	<style>
-		.flex-container{
-			width: 50px
-		}
-		.flex-item{
-			width: 50px;
-		}
-	</style>
-	<div class="flex-container">
-		<img class="flex-item" src="image.jpg"><!-- natural width and height: 300px -->
-	</div>
+
+```html
+<style>
+	.flex-container{
+		width: 50px
+	}
+	.flex-item{
+		width: 50px;
+	}
+</style>
+<div class="flex-container">
+	<img class="flex-item" src="image.jpg"><!-- natural width and height: 300px -->
+</div>
+```
 
 Override default `align-items: stretch` with `align-self: center` on `img` or `align-items: center` on flex container
 
@@ -705,6 +729,18 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
  
 - [`flex-grow` is weird. Or is it? | CSS-Tricks](https://css-tricks.com/flex-grow-is-weird/)
 
+### Table
+
+#### Responsive table
+
+Use `flex-direction: column;` on `tr`. But don't handle well cell with different height.
+
+- [Designing Complex Responsive Tables In WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/09/designing-complex-responsive-tables-wordpress/)
+- [Flexible data tables with CSS Grid](https://adamlynch.com/flexible-data-tables-with-css-grid/)
+- [CSS only Responsive Tables](http://codepen.io/dbushell/pen/wGaamR)
+- [CSS only Responsive Tables – David Bushell – Web Design & Front-end Development (based in Manchester, UK)](http://dbushell.com/2016/03/04/css-only-responsive-tables/)
+- [Responsive Tables - a Collection by Chris Coyier on CodePen](http://codepen.io/collection/AdGVYP/)
+
 ### Inline list
 
 - [Accessible inline list with bullets between items — Artem Sapegin’s Blog](https://blog.sapegin.me/all/accessible-inline-list/)
@@ -819,11 +855,12 @@ Sass:
 
 ### Responsive
 
+- [Responsive typography](#responsive-typography)
+- [Responsive flexbox](#responsive-flexbox)
+- [Responsive table](#responsive-table)
 - [Responsive Web Design Patterns | This Is Responsive](http://bradfrost.github.io/this-is-responsive/patterns.html)
 - [Responsive Logos](http://www.responsivelogos.co.uk/)
 - [Sizzy](https://sizzy.co/) - Tool display side by side differents screen resolutions of a website (use iframes). See [kitze/sizzy: A tool for developing responsive websites crazy-fast](https://github.com/kitze/sizzy)
-
-See [Responsive typography](#responsive-typography)
 
 #### Responsive iframe
 
@@ -854,16 +891,6 @@ Can be required for IE for inline SVG too.
 - http://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
 - [Creating Intrinsic Ratios for Video · An A List Apart Article](http://alistapart.com/article/creating-intrinsic-ratios-for-video)/
 - http://cjwainwright.co.uk/webdev/aspectratio/
-
-#### Responsive table
-
-Use `flex-direction: column;` on `tr`. But don't handle well cell with different height.
-
-- [Designing Complex Responsive Tables In WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/09/designing-complex-responsive-tables-wordpress/)
-- [Flexible data tables with CSS Grid](https://adamlynch.com/flexible-data-tables-with-css-grid/)
-- [CSS only Responsive Tables](http://codepen.io/dbushell/pen/wGaamR)
-- [CSS only Responsive Tables – David Bushell – Web Design & Front-end Development (based in Manchester, UK)](http://dbushell.com/2016/03/04/css-only-responsive-tables/)
-- [Responsive Tables - a Collection by Chris Coyier on CodePen](http://codepen.io/collection/AdGVYP/)
 
 ### Relative positioning in table not work everywhere
 
@@ -2409,6 +2436,7 @@ Note: `!important` can take the precedence, but for some CSS engines animation/t
 
 `element:not(#id)`, have higher specificity than `element` (because `#id` = 10)
 
+- [The CSS Cascade](https://wattenberger.com/blog/css-cascade)
 - [Specificity Visualizer](https://isellsoap.github.io/specificity-visualizer/)
 - [More important than !important – The Sea of Ideas](https://paulbakaus.com/2017/07/27/more-important-than-important/)
 - [KISS principle - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/KISS_principle)
@@ -2425,14 +2453,18 @@ Note: `!important` can take the precedence, but for some CSS engines animation/t
 
 ### Selector based on language
 
-	html:lang(fr) blockquote {
-		/* you can use html[lang=fr] for compatibility */
-		quotes: "«\00A0" "\00A0»";
-	}
+```css
+html:lang(fr) blockquote {
+	/* you can use html[lang=fr] for compatibility */
+	quotes: "«\00A0" "\00A0»";
+}
+```
 
-	a[hreflang|="en"]::after {
-		content: "\0000a0" url(/flag-uk.png);
-	}
+```css
+a[hreflang|="en"]::after {
+	content: "\0000a0" url(/flag-uk.png);
+}
+```
 
 - http://sergeylukin.com/2013/styling-html-elements-based-on-locale/
 
@@ -2466,16 +2498,18 @@ Note: `!important` can take the precedence, but for some CSS engines animation/t
 
 ### Link to a specific website
 
-	[href*="://itunes.apple.com/"]{
-	}
-	[href*="://twitter.com/"]{
-	}
-	[href*="://plus.google.com/"]{
-	}
-	[href*="://www.facebook.com/"]{
-	}
-	[href*="://www.linkedin.com/"]{
-	}
+```css
+[href*="://itunes.apple.com/"]{
+}
+[href*="://twitter.com/"]{
+}
+[href*="://plus.google.com/"]{
+}
+[href*="://www.facebook.com/"]{
+}
+[href*="://www.linkedin.com/"]{
+}
+```
 
 Note: To support protocol relative links, use `[href*="//itunes.apple.com/"]` instead. But it's not adviced to use it (protocol relative links, use always HTTPS when it's possible).
 

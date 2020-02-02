@@ -1631,21 +1631,28 @@ Fake DNS records
 
 Require root access to update the content:
 
-	sudo vi /etc/hosts
+
+```sh
+sudo vi /etc/hosts
+```
 
 - [The Mac Hosts File: How to Modify /etc/hosts in OS X with TextEdit](http://osxdaily.com/2016/02/29/modify-hosts-mac-os-x-textedit/)
 - [specialunderwear/Hosts.prefpane: a Cocoa GUI for /etc/hosts](https://github.com/specialunderwear/Hosts.prefpane)
 
 ### Create link to Network Utility
 
-	cd /Applications/Utilities/
-	ln -s /System/Library/CoreServices/Applications/Network\ Utility.app Network\ Utility.app
+```sh
+cd /Applications/Utilities/
+ln -s /System/Library/CoreServices/Applications/Network\ Utility.app Network\ Utility.app
+```
 
 Moved in CoreServices in 10.9
 
 ### Flush DNS cache
 
-	sudo killall -HUP mDNSResponder
+```sh
+sudo killall -HUP mDNSResponder
+```
 
 - [Reset the DNS cache in OS X - Apple Support](https://support.apple.com/en-us/HT202516)
 
@@ -2018,6 +2025,17 @@ hdiutil segment -segmentSize 1G -o "disk-1G-parts.dmg" "/path/to/disk.dmg"
 ```
 
 Will generate files `*.XXX.dmgpart` and `*.dmg`
+
+### Folder action
+
+See [Automator](#automator)
+
+- [Mac Automation Scripting Guide: Watching Folders](https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/WatchFolders.html)
+- [Folder Actions Reference](https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_folder_actions.html)
+- [DouglasUrner/OS-X-Folder-Actions: Mac OS X folder action dispatcher and sample scripts.](https://github.com/DouglasUrner/OS-X-Folder-Actions)
+- [macos - OSX: Execute bash script when file appears in folder - Stack Overflow](https://stackoverflow.com/questions/21385105/osx-execute-bash-script-when-file-appears-in-folder)
+- [macos - How do I use OSX's Folder Actions to execute a command in Terminal when a file is added to a folder? - Stack Overflow](https://stackoverflow.com/questions/52770684/how-do-i-use-osxs-folder-actions-to-execute-a-command-in-terminal-when-a-file-i)
+- [bash - Folder action not triggering shell script - Stack Overflow](https://stackoverflow.com/questions/38665137/folder-action-not-triggering-shell-script)
 
 ## Startup and login
 

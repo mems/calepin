@@ -802,6 +802,7 @@ See also [spline rasterization](Spline#rasterization)
 > Microsoft did patent the Loop-Blinn curve-filling technique, but a quick read makes it look like it only applies to outlines defined in part by cubic Bezier curves (http://www.google.com/patents/US20070097123).
 
 - [Text Rendering Hates You](https://gankra.github.io/blah/text-hates-you/)
+- [Web Assembly port · Issue #155 · servo/pathfinder](https://github.com/servo/pathfinder/issues/155#issuecomment-578706840) - About WebGL port for GPU rasterizer for fonts and vector graphics written in Rust
 - [It’s 2015 and drawing text is still hard (WebGL, ThreeJS) | Engineering Blog](https://www.eventbrite.com/engineering/its-2015-and-drawing-text-is-still-hard-webgl-threejs/) see also [Signed Distance Fields](#signed-distance-fields)
 - [Theta](http://thetamath.com/app/) - This is a simple web app that graphs an equation. See https://github.com/evanw/theta and [Easy Scalable Text Rendering on the GPU – Medium](https://medium.com/@evanwallace/easy-scalable-text-rendering-on-the-gpu-c3f4d782c5ac)
 - [GPU Font Rendering](https://github.com/ds-hwang/wiki/wiki/GPU-Font-Rendering) - reference list about text rendering on GPU
@@ -1033,6 +1034,7 @@ Aka PBR
 - [WebGL Deferred Irradiance Volumes - Codeflow](http://codeflow.org/entries/2012/aug/25/webgl-deferred-irradiance-volumes/)
 - [Testing](https://emackey.github.io/testing-pbr/) and [emackey/testing-pbr: Various tests of Physically-Based Rendering via Three.js](https://github.com/emackey/testing-pbr)
 - [WebGL PBR Implementation « The blog at the bottom of the sea](https://blog.demofox.org/2017/07/10/webgl-pbr-implementation/)
+- [Physically Based Rendering in Filament](https://google.github.io/filament/Filament.html)
 
 ### Tile rendering
 

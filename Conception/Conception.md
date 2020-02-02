@@ -132,14 +132,18 @@ See [Design](Design)
 
 ## Open source
 
-- [A handy guide to financial support for open source](https://github.com/nayafia/lemonade-stand/blob/master/README.md)
-- [Philippe Elsass on Twitter: "Popular JS projects have to manage huge communities, and the suspicion of strategic manoeuvres in a very competitive ecosystem https://t.co/uwGCB3RmXR"](https://twitter.com/elsassph/status/879424075252289536) - quoting Sebastian McKenzie (author of babeljs): "Hard to stay motivated when people are yelling at you to justify every little thing you do and take your actions as attacks."
-
 - don't create a new project instead of contributing to an already existing one -- how many framework/lib for doing X do we have out there?
 - don't go private and don't be scared to share unfinished work, read [Programmer Insecurity @ iBanjo](http://blog.red-bean.com/sussman/?p=96)
 - don't use your own custom/funky open source license, avoid license proliferation go read [Open Source Licenses by Category | Open Source Initiative](https://opensource.org/licenses/category)
 - don't release your open source project only on your blog or forum, for dev sake pick one of the forge [Comparison of source code hosting facilities — Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_source_code_hosting_facilities)
 - don't release a compiled version with no sources - if you call your project open source go read what it is [The Open Source Definition | Open Source Initiative](https://opensource.org/docs/osd)
+
+See also:
+
+- [License - Development](../Development/Development.md#License)
+- [A handy guide to financial support for open source](https://github.com/nayafia/lemonade-stand/blob/master/README.md)
+- [Philippe Elsass on Twitter: "Popular JS projects have to manage huge communities, and the suspicion of strategic manoeuvres in a very competitive ecosystem https://t.co/uwGCB3RmXR"](https://twitter.com/elsassph/status/879424075252289536) - quoting Sebastian McKenzie (author of babeljs): "Hard to stay motivated when people are yelling at you to justify every little thing you do and take your actions as attacks."
+- [Open Source Guides | Learn how to launch and grow your project.](https://opensource.guide/)
 
 ## Native App vs Progressive Web App
 

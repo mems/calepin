@@ -1248,6 +1248,7 @@ function promiseTimeout(ms, promise) {
 }
 ```
 
+- [Betamark - Mistakes we make using JavaScript Promises](https://www.betamark.com/blog/mistakes-using-javascript-promises/)
 - [Understanding JQuery.Deferred and Promise](http://joseoncode.com/2011/09/26/a-walkthrough-jquery-deferred-and-promise/)
 - [javascript - Promise - is it possible to force cancel a promise - Stack Overflow](https://stackoverflow.com/questions/30233302/promise-is-it-possible-to-force-cancel-a-promise)
 

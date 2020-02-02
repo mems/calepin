@@ -2,6 +2,9 @@
 
 ## DMCA
 
+"removal of online materials"
+
+- [Lumen](https://www.lumendatabase.org/)
 - [DMCA Takedown Policy - User Documentation](https://help.github.com/articles/dmca-takedown-policy/)
 - [Guide to Submitting a DMCA Takedown Notice - User Documentation](https://help.github.com/articles/guide-to-submitting-a-dmca-takedown-notice/)
 - "Designation of agent to receive notification of claimed infringement." [U.S. Copyright Office - Regulations: Part 201 Section 38](https://www.copyright.gov/title37/201/37cfr201-38.html)
