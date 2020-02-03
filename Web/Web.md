@@ -6181,9 +6181,11 @@ On mobile browsers
 - [Devices — Facebook Design Resources](http://facebook.github.io/design/devices.html)
 - [The Ultimate Guide To iPhone Resolutions](http://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions)
 
-## Law and privacy legislations
+## Privacy
 
-Aka GDPR or EU Cookie Law
+Aka GDPR or EU Cookie Law, law and privacy legislations
+
+See also [Cookies](#cookies)
 
 See Do Not Track https://www.eff.org/dnt-policy [`navigator.doNotTrack`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/doNotTrack) https://en.wikipedia.org/wiki/Do_Not_Track
 
@@ -6191,6 +6193,12 @@ See Do Not Track https://www.eff.org/dnt-policy [`navigator.doNotTrack`](https:/
 - [Cookies - European commission](http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm)
 - [5 steps to make sure you are compliant with the EU Cookie Directive | Reason Digital](http://reasondigital.com/advice-and-training/5-steps-to-make-sure-you-are-compliant-with-the-eu-cookie-directive/)
 - [Europe is planning to finally scrap those annoying cookie pop-ups on websites](http://www.businessinsider.fr/us/europe-plans-remove-cookie-pop-ups-banners-websites-leaked-law-draft-consent-2016-12/)
+
+## Cookies
+
+See also [Privacy](#privacy)
+
+- [Cookie Status :: Current Status Of Browser Tracking Prevention | cookiestatus.com](https://www.cookiestatus.com/)
 
 ## App Download Interstitials 
 
