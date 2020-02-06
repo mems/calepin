@@ -1046,6 +1046,7 @@ On each client machine:
 - mkcert:
     - [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
     - [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
+- [Certificates for localhost - Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/docs/certificates-for-localhost/#making-and-trusting-your-own-certificates)
 - [ssl - Difference between self-signed CA and self-signed certificate - Stack Overflow](https://stackoverflow.com/questions/4024393/difference-between-self-signed-ca-and-self-signed-certificate)
 - [Self-signed SSL certificates, CA flagged true, for Android and OS X | Best Mac Tips](http://best-mac-tips.com/2015/05/28/self-signed-ssl-certificates-ca-true-android-os-x/)
 - [Des certificats signés par votre autorité de certification avec OpenSSL - Jeyg.info](http://jeyg.info/des-certificats-signes-par-votre-autorite-de-certification-avec-openssl/)
