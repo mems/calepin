@@ -853,6 +853,11 @@ Sass:
 - [Vertical Percentages in CSS](https://www.impressivewebs.com/vertical-percentages-css/)
 - [Creating Intrinsic Ratios for Video · An A List Apart Article](http://alistapart.com/article/creating-intrinsic-ratios-for-video)
 
+### Intrinsic sizing
+
+- [Vertical percentages](#vertical-percentages)
+- [Intrinsic Sizing In CSS](https://ishadeed.com/article/intrinsic-sizing-in-css/)
+
 ### Responsive
 
 - [Responsive typography](#responsive-typography)
