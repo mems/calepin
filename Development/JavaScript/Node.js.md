@@ -29,28 +29,44 @@
 
 ## Relative path
 
-	path.join(__dirname, "views");
-	path.resolve(".")// > /path/to/dir
+```js
+path.join(__dirname, "views");
+path.resolve(".")// > /path/to/dir
+```
+
+## Is parent path
+
+Aka is subdir
+
+```js
+const path = require('path');
+const relative = path.relative(parent, dir);
+const isSubdir = !!relative && relative.split(path.sep)[0] !== ".." && !path.isAbsolute(relative);
+```
+
+- [javascript - Determine if a path is subdirectory of another in Node.js - Stack Overflow](https://stackoverflow.com/questions/37521893/determine-if-a-path-is-subdirectory-of-another-in-node-js/45242825#comment81433484_45242825)
 
 ## List files recursively
 
-	const path = require("path");
-	const {promisify} = require("util");
-	const fs = require("fs");
-	const lstat = promisify(fs.lstat);
-	const readdir = promisify(fs.readdir);
-	// Walk directories
-	const getFiles = async entry => {
-		if((await lstat(entry)).isDirectory()){
-			return entry;
-		}
-	
-		const files = [];
-		for(const subEntry of await readdir(entry)){
-			files.push(...await getFiles(path.join(entry, subEntry)));
-		}
-		return files;
-	};
+```js
+const path = require("path");
+const {promisify} = require("util");
+const fs = require("fs");
+const lstat = promisify(fs.lstat);
+const readdir = promisify(fs.readdir);
+// Walk directories
+const getFiles = async entry => {
+	if((await lstat(entry)).isDirectory()){
+		return entry;
+	}
+
+	const files = [];
+	for(const subEntry of await readdir(entry)){
+		files.push(...await getFiles(path.join(entry, subEntry)));
+	}
+	return files;
+};
+```
 
 TODO use generator function
 
