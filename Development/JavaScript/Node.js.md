@@ -380,6 +380,7 @@ echo module.exports = class{get __filename(){return __filename}} > Class.js
 mkdir example
 echo module.exports = new (require("../Class")) > example/instance.js
 :: Create a junction ./junction/* <==> ./example/*
+:: Note: the junction store the case used when created ("mklink /j junction .\example" vs "mklink /j junction .\Example")
 mklink /j junction .\example
 ::dir /AL /S .
 :: Main script
