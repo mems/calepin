@@ -368,3 +368,54 @@ module.exports.someDepreciatedFunction = util.deprecate(() => {
 
 - [Command Line Options | Node.js v13.6.0 Documentation](https://nodejs.org/api/cli.html#cli_trace_deprecation)
 - [Util | Node.js v13.6.0 Documentation](https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code)
+
+## Path case sensitivity on Windows
+
+Node handle well case of insensitity on Windows. But if a module use a [symbolic link or a junction](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946) and the working directory doesn't match the case of that path (`d:\mydir` instead of `D:\MyDir`) Node load the same module twice, for each path case. Note: NPM use junction for [local path modules](https://docs.npmjs.com/files/package.json#local-paths).
+
+See an example:
+
+```cmd
+echo module.exports = class{get __filename(){return __filename}} > Class.js
+mkdir example
+echo module.exports = new (require("../Class")) > example/instance.js
+:: Create a junction ./junction/* <==> ./example/*
+mklink /j junction .\example
+::dir /AL /S .
+:: Main script
+echo const a = require("./junction/instance"); > index.js
+echo const b = require("./example/instance"); >> index.js
+echo const c = require("./class"); >> index.js
+echo console.log("process.cwd() =", process.cwd()); >> index.js
+echo console.log("junction/instance = a"); >> index.js
+echo console.log("example/instance = b"); >> index.js
+echo console.log("a instanceof c =", a instanceof c); >> index.js
+echo console.log("b instanceof c =", b instanceof c); >> index.js
+echo console.log("a super.__filename =", a.__filename); >> index.js
+echo console.log("b super.__filename =", b.__filename); >> index.js
+:: Enable node module debug (request, looking and load)
+::set "NODE_DEBUG=module"
+:: Use powsershell to start a process with the current working directory with lowercase as working directory
+powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait -WorkingDirectory $(Get-Location).ToString().ToLower()"
+
+:: Will log:
+:: 
+:: ```
+:: process.cwd() = D:\somepath\test
+:: junction/instance = a
+:: example/instance = b
+:: a === b = false
+:: a instanceof c = false
+:: b instanceof c = true
+:: a super.__filename = D:\SomePath\Test\Class.js
+:: b super.__filename = D:\somepath\test\Class.js
+:: ```
+:: 
+:: Note the difference of path case between constructors of a and b
+:: A and b should be the same object, have the same constructor from ./Class.js
+:: It's because the case of the instance is not the same: != path case -> != modules
+:: Compare without "-WorkingDirectory $(Get-Loca..."
+```
+
+- [windows - What is the difference between NTFS Junction Points and Symbolic Links? - Stack Overflow](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946)
+- [Hard Links and Junctions - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions)
