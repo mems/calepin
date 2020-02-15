@@ -414,3 +414,12 @@ For older version (but require copy other files):
 	/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot <=> Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
 
 - [iOS 8: Building custom simulators — Erica Sadun](http://ericasadun.com/2014/06/18/ios-8-building-custom-simulators/)
+
+## iOS manager
+
+- iTunes / Finder (10.15+) - iPhone manager
+- [Use Quick Start to transfer data from your previous iOS device to your new iPhone, iPad, or iPod touch - Apple Support](https://support.apple.com/en-us/HT210216#migration) - iPhone Migration Utility
+- [iMazing | iPhone, iPad & iPod Manager for Mac & PC](https://imazing.com/)
+- [\[Official\] iMobie AnyTrans®, PhoneRescue®, PhoneClean®, MacClean](https://www.imobie.com/) - AnyTrans
+- [iPhone Transfer Software · Macroplant](https://macroplant.com/) - iExplorer
+- [\[Official\]dr.fone - Mobile Solutions for All iOS & Android Users](https://drfone.wondershare.com/)

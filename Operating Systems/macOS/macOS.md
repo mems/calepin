@@ -2037,6 +2037,12 @@ See [Automator](#automator)
 - [macos - How do I use OSX's Folder Actions to execute a command in Terminal when a file is added to a folder? - Stack Overflow](https://stackoverflow.com/questions/52770684/how-do-i-use-osxs-folder-actions-to-execute-a-command-in-terminal-when-a-file-i)
 - [bash - Folder action not triggering shell script - Stack Overflow](https://stackoverflow.com/questions/38665137/folder-action-not-triggering-shell-script)
 
+### Relocate iOS backup directory
+
+```
+ln -s /Volumes/Backups/MobileSync ~/Library/Application\ Support/MobileSync/Backup
+```
+
 ## Startup and login
 
 ### Startup chime
