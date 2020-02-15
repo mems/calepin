@@ -21,9 +21,11 @@
 
 ### Replace disk
 
+Aka repair disk
+
 RAID mirror disks: remove a disk and rebuild volume
 
-RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](Command line (Unix)#clone-disk)
+RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Command%20line/Command%20line%20(Unix).md#clone-disk)
 
 - [Replace Drives to Expand Storage Capacity | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk)
 - [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
@@ -32,6 +34,7 @@ RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](Command 
 - [How to upgrade HDD for one bay model - SynologyWiki](https://web.archive.org/web/20160304194224/http://forum.synology.com/wiki/index.php/How_to_upgrade_HDD_for_one_bay_model)
 - [Synology two-bay NAS with existing data? - Super User](https://superuser.com/questions/1060602/synology-two-bay-nas-with-existing-data)
 - [Etendre Une Partition Sur Un Nouveau Disque Dur (Non Raid) - Installation, Démarrage et Configuration - NAS-Forum](http://www.nas-forum.com/forum/topic/44795-etendre-une-partition-sur-un-nouveau-disque-dur-non-raid/)
+- [How can I recover data on my Synology NAS using a PC? | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/How_can_I_recover_data_from_my_DiskStation_using_a_PC)
 
 ## Security
 
