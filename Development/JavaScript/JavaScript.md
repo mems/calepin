@@ -4145,7 +4145,7 @@ See jQuery [`$.parseHTML()`](https://github.com/jquery/jquery/blob/master/src/co
 
 #### As nodes of the current document
 
-**Content will be automatically loaded**: img, scripts, styles, etc. but not iframes
+**Content will be automatically loaded**: img and styles but not scripts nor iframes
 
 ##### A (detached) root node
 
@@ -4160,7 +4160,7 @@ See jQuery [`$.parseHTML()`](https://github.com/jquery/jquery/blob/master/src/co
 ##### As a sibling nodes
 
 ```js
-element.insertAdjacentHTML("afterend", htmlString);// after element
+element.insertAdjacentHTML("beforeend", htmlString);// at the end of element
 ```
 
 **Note: injected HTML is parsed with the [scripting flag](https://html.spec.whatwg.org/#scripting-flag) disabled, that means like `.innerHTML` script elements are not executed**
@@ -4178,9 +4178,11 @@ Note: Scripts elements (inline or external) will not be executed.
 
 Note: Scripts elements will be executed, only after been appended (like `document.createElement("script").textContent = "alert('inline script')"`). Images start loading immediatly (like `(new Image()).src = "image.png"`)
 
-	let range = document.createRange();
-	range.selectNode(parent);// set the context element for the parser not required, by default it's will be document.body
-	let nodes = range.createContextualFragment(htmlString);
+```js
+let range = document.createRange();
+range.selectNode(parent);// set the context element for the parser not required, by default it's will be document.body
+let nodes = range.createContextualFragment(htmlString);
+```
 
 - https://developer.mozilla.org/en-US/docs/Web/API/range.createContextualFragment
 - [javascript - Inserting arbitrary HTML into a DocumentFragment - Stack Overflow](https://stackoverflow.com/questions/9284117/inserting-arbitrary-html-into-a-documentfragment/25225983#25225983)
