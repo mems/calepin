@@ -232,6 +232,17 @@ RESTful routing (resource, facet):
 - [node.js - npm install vs. update - what' the difference? - Stack Overflow](https://stackoverflow.com/questions/12478679/npm-install-vs-update-whats-the-difference)
 - [npm/node-semver: The semver parser for node (the one npm uses)](https://github.com/npm/node-semver#ranges)
 
+### Scopes packages
+
+Aka monorepos and multi packages
+
+`@babel/*`, `@angular/*`, etc.
+
+- [About scopes | npm Documentation](https://docs.npmjs.com/about-scopes)
+- [npm-scope | npm Documentation](https://docs.npmjs.com/misc/scope)
+- [The npm Blog — Monorepos and npm](https://blog.npmjs.org/post/186494959890/monorepos-and-npm)
+- [babel/monorepo.md at master · babel/babel](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
+
 ## Promisify
 
 	import util from 'util';
