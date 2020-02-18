@@ -13,12 +13,16 @@
 
 ## Specification
 
+Aka write documentation
+
 > Never use "SHOULD" in official guidance. Do the hard work to make it simple: "MUST" when people must do it, "MAY" when there's a choice.
 — [Caroline Jarrett](https://twitter.com/cjforms/status/808333086563897345)
 
 > "must" when people must do it, "may" when there's a choice.
 
 > must = duty, may = power
+
+- [w3ctag.github.io/explainers.md at master · w3ctag/w3ctag.github.io](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md) - explainer as living document that describes a (proposed) feature (for web platform)
 
 ## Some possible issues
 

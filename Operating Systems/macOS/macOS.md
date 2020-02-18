@@ -427,6 +427,13 @@ Or use an app:
 	
 	* [How can I execute sudo commands as a cron job? - Ask Different](http://apple.stackexchange.com/questions/27181/how-can-i-execute-sudo-commands-as-a-cron-job)
 
+### Reduce size
+
+- [Shrink Your Time Machine Backups and Free Disk Space - DZone Performance](https://dzone.com/articles/shrink-your-time-machine)
+- [Create or resize sparsebundle](#create-or-resize-sparsebundle)
+- `tmutil listbackups`, `sudo tmutil delete '/Volumes/Time Machine Backups/Backups.backupdb/.../2018-'*`, `sudo hdiutil compact '/Volumes/....sparsebundle'`
+- [If the Time Machine backup disk for your Mac is full - Apple Support](https://support.apple.com/guide/mac-help/if-the-time-machine-backup-disk-is-full-mh15137/mac)
+
 ### Restore from a Time Machine backup
 
 > You can't restore this backup because it was created by a different model of Mac
