@@ -423,3 +423,14 @@ For older version (but require copy other files):
 - [\[Official\] iMobie AnyTrans®, PhoneRescue®, PhoneClean®, MacClean](https://www.imobie.com/) - AnyTrans
 - [iPhone Transfer Software · Macroplant](https://macroplant.com/) - iExplorer
 - [\[Official\]dr.fone - Mobile Solutions for All iOS & Android Users](https://drfone.wondershare.com/)
+
+### Relocate iOS backup directory
+
+```
+# Require to give "Full Disk Access" for Terminal (system preferences > security & privacy > privacy > full disk access > unlock lock to make changes > add terminal app)
+# else it will give an error "Operation not permitted"
+ln -s /Volumes/Backups/MobileSync ~/Library/Application\ Support/MobileSync/Backup
+```
+
+- [How to change the location of your iPhone backup and iTunes MobileSync Backup folder - Scott Hanselman](https://www.hanselman.com/blog/HowToChangeTheLocationOfYourIPhoneBackupAndITunesMobileSyncBackupFolder.aspx)
+- [How to change the iTunes backup location](https://reincubate.com/support/how-to/change-itunes-backup-location/)
