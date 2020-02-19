@@ -650,6 +650,11 @@ Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by 
 
 To add options in vmoption: [Help > Edit Custom VM Options...](https://intellij-support.jetbrains.com/hc/en-us/articles/206544869)
 
+Plugins:
+
+- [Implementing a Parser and PSI / IntelliJ Platform SDK DevGuide](https://www.jetbrains.org/intellij/sdk/docs/reference_guide/custom_language_support/implementing_parser_and_psi.html)
+- [intellij-plugins/AngularJS/src/org/angularjs/lang at master · JetBrains/intellij-plugins](https://github.com/JetBrains/intellij-plugins/tree/master/AngularJS/src/org/angularjs/lang)
+
 List of files in search:
 
 ```js
