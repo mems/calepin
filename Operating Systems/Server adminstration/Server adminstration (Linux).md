@@ -85,13 +85,21 @@ Exemple, pour la limite de mémoire de PHP (directive `PHP_INI_SYSTEM`):
 - http://php.net/manual/en/configuration.changes.php
 - http://www.php.net/manual/en/ini.list.php
 
-## MySQL (sql server)
+## MySQL (SQL server)
 
 ### Backup entière des bases :
 
 	mysqldump -u root -p --all-databases | /bin/gzip > mysql_backup.sql.gz
 
 	mysqldump -h localhost -u root -p'password%$' --all-databases > /srv/data/tmp/mysql_backup/`date '+%F'`.databases.sql ; rm /srv/data/tmp/mysql_backup/`date '+%F' --date '1 weeks ago'`.databases.sql
+
+Cron dump:
+
+```
+# MySQL dump all databases and auto delete older than 1 week backups
+# --skip-extended-insert can be used to add INSERT statement for each row
+1@daily 0 mysql_backup mkdir -p /srv/data/tmp/mysql_backup ; mysqldump -h localhost -u root -p'password' --all-databases --events --ignore-table=mysql.event | gzip > /srv/data/tmp/mysql_backup/`date '+%F'`.databases.sql.gz ; rm -f /srv/data/tmp/mysql_backup/`date '+%F' --date '1 weeks ago'`.databases.sql.gz
+```
 
 ### Fichiers de configuration
 
