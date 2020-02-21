@@ -586,35 +586,28 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 
 Aka VCS
 
-**Store only sources:**
+See also [Git](./Git/Git.md)
 
-Store only sources, not anything can be computed / recreated. If you need it, use submodules.
-Store only data is part of the software. If it's content like blog content (mysql dump) store it with an other way or with a submodule.
-The question is: resource that belong to the project or are projects them-selves? Store it in the same VCS or as dependency (submodule) or with another solution (see below with "cron dump")
-
-Ex: App Code + precompiled lib/binaries submodule (will be used to include thrid party code)
-
-If images are part of the software:
-App Code + (exported) PNGs or AppCode + design (PSD) submodule (will be used to generate icons, etc.)
-
-- https://stackoverflow.com/questions/540535/managing-large-binary-files-with-git
-- http://programmers.stackexchange.com/questions/80962/should-images-be-stored-in-a-git-repository
-- https://help.github.com/articles/what-is-my-disk-quota/#large-media-files
-- http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules (add `ignore = dirty` for each submodule in `.gitmodules`)
-
-Cron dump:
-
-	# MySQL dump all databases and auto delete older than 1 week backups
-	# --skip-extended-insert can be used to add INSERT statement for each row
-	1@daily 0 mysql_backup mkdir -p /srv/data/tmp/mysql_backup ; mysqldump -h localhost -u root -p'password' --all-databases --events --ignore-table=mysql.event | gzip > /srv/data/tmp/mysql_backup/`date '+%F'`.databases.sql.gz ; rm -f /srv/data/tmp/mysql_backup/`date '+%F' --date '1 weeks ago'`.databases.sql.gz
-
-See also [Git](Git)
+### Store only sources without configuration
 
 **Don't store configuration files, especially if contains password, private keys, etc.** Ignore configuration files, but provide an configuration example file
 
 - [StackExchange/blackbox: Safely store secrets in Git/Mercurial/Subversion](https://github.com/StackExchange/blackbox)
+- [Check hash and keys leak or reversed (hashes)](../Security/Security.md#hash-and-keys)
 
-See [Check hash and keys leak or reversed (hashes)](Security#hash-and-keys)
+**Store only sources**, nothing else can be computed / recreated. If you need it, use submodules or a [package manager](https://en.wikipedia.org/wiki/Package_manager).
+Store only data is part of the software. If it's content like blog content (mysql dump) store it with an other way or with a submodule.
+The question is: resource that belong to the project or are projects them-selves? Store it in the same VCS or as dependency (submodule) or with another solution (like SQL dump)
+
+Ex: App Code + precompiled lib/binaries submodule (will be used to include thrid party code)
+
+If images are part of the software:
+App Code + (exported) PNGs or AppCode + design (PSD) submodule (will be used to generate icons automatically, etc.)
+
+- [version control - Managing large binary files with Git - Stack Overflow](https://stackoverflow.com/questions/540535/managing-large-binary-files-with-git)
+- [version control - Should images be stored in a git repository? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/80962/should-images-be-stored-in-a-git-repository)
+- [Working with large files - GitHub Help](https://help.github.com/en/github/managing-large-files/working-with-large-files)
+- [How to ignore changes in git submodules | /bb|\[ˆb\]{2}/](http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules) (add `ignore = dirty` for each submodule in `.gitmodules`)
 
 ### Monorepo
 
@@ -641,6 +634,7 @@ Use verbes:
 - Optimize: Refactor of performance, e.g. speed up code
 - Document: Refactor of documentation, e.g. help files
 
+- [How to write the perfect pull request - The GitHub Blog](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/)
 - [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
 - [joelparkerhenderson/git_commit_message: Git commit message: how to write a good git commit message](https://github.com/joelparkerhenderson/git_commit_message)
 - [Bug Prediction at Google](https://google-engtools.blogspot.fr/2011/12/bug-prediction-at-google.html) - Use Git version message to predict spot bugs
