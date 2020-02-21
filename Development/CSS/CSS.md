@@ -3326,49 +3326,54 @@ https://github.com/necolas/normalize.css/blob/master/normalize.css
 
 ## Reset
 
-	/* Button as DIV */
-	button{
-		font: inherit;
-		/* ? line-height: inherit;*/
-		display: block;
-		padding: 0;
-		border: 0;
-		border-radius: 0;/*iOS*/
-		color: inherit;
-		text-align: inherit;
-		box-sizing: content-box;
-		background: none;
-		overflow: visible;/*IE*/
-		width: inherit;/*100% ?*/
-	}
-	
-	/* input */
-	input{
-		font: inherit;
-		color: inherit;
-		box-sizing: content-box;
-		border: 0;
-		background: none;
-		width: 100%;/*required for auto width*/
-	}
+```css
+/* Button as DIV */
+button{
+	font: inherit;
+	/* ? line-height: inherit;*/
+	display: block;
+	padding: 0;
+	border: 0;
+	border-radius: 0;/*iOS*/
+	color: inherit;
+	text-align: inherit;
+	box-sizing: content-box;
+	background: none;
+	overflow: visible;/*IE*/
+	width: inherit;/*100% ?*/
+}
 
-	/* https://www.impressivewebs.com/fixing-styles-on-code-tags-nested-inside-links/ */
-	code {
-		/* some styles */
-	}
-	a code {
-		background: inherit;
-		color: inherit;
-		padding: inherit;
-	}	
+/* input */
+input{
+	font: inherit;
+	color: inherit;
+	box-sizing: content-box;
+	border: 0;
+	background: none;
+	width: 100%;/*required for auto width*/
+}
+
+/* https://www.impressivewebs.com/fixing-styles-on-code-tags-nested-inside-links/ */
+code {
+	/* some styles */
+}
+a code {
+	background: inherit;
+	color: inherit;
+	padding: inherit;
+}	
+```
 
 - [Basic styling of `button` elements – tests](http://fvsch.com/code/button-css/test.html)
+- [Styling The Good Ol' Button Element](https://ishadeed.com/article/styling-the-good-old-button/)
 
 May be necessary:
 
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
+```css
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+```
 
 - appearance dropped from CSS3: [css4-ui features list [CSS Working Group Wiki]](https://wiki.csswg.org/spec/css4-ui#dropped-css3-features)
 
