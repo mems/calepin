@@ -4083,11 +4083,17 @@ Special subtags:
 - [RFC 3066 - Tags for the Identification of Languages](https://tools.ietf.org/html/rfc3066)
 - [Why use the language attribute?](https://www.w3.org/International/questions/qa-lang-why.en)
 
-## LTR and RTL
+## Bidirectionality
+
+Aka LTR, RTL
 
 Can be done in inline text with unicode special char like "RIGHT-TO-LEFT EMBEDDING" (U+202B). Usefull for attribute where tag are not allowed: `<input name=t1 type=tel placeholder="&#x202B; رقم الهاتف 1 &#x202E;">`
 
 - [How to use Unicode controls for bidi text](https://www.w3.org/International/questions/qa-bidi-unicode-controls)
+- [List of articles - Text direction](https://www.w3.org/International/articlelist#direction)
+- [Authoring HTML & CSS](https://www.w3.org/International/techniques/authoring-html#direction)
+- [Authoring HTML: Handling Right-to-left Scripts](https://www.w3.org/TR/i18n-html-tech-bidi/)
+- [RTL rendering of LTR scripts](https://www.w3.org/International/questions/qa-ltr-scripts-in-rtl) - [RTL rendering of LTR scripts](https://w3c.github.io/i18n-drafts/questions/qa-ltr-scripts-in-rtl.en.html)
 
 ## Disable style
 
