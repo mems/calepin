@@ -2471,7 +2471,7 @@ a[hreflang|="en"]::after {
 }
 ```
 
-- http://sergeylukin.com/2013/styling-html-elements-based-on-locale/
+- [Styling HTML elements based on locale](https://sergeylukin.com/2013/styling-html-elements-based-on-locale/)
 
 ### Range selector
 
@@ -3993,3 +3993,12 @@ use `:target` `:checked`
 - [Pure CSS / CSS3 Fullscreen Navigation with Hamburger Toggle - CSS Script](https://www.cssscript.com/pure-css-css3-fullscreen-navigation-with-hamburger-toggle/)
 - [You can get pretty far in making a slider with just HTML and CSS | CSS-Tricks](https://css-tricks.com/can-get-pretty-far-making-slider-just-html-css/)
 - [Stuff you can do with the "Checkbox Hack" | CSS-Tricks](https://css-tricks.com/the-checkbox-hack/)
+
+## Bidirectionality
+
+Aka RTL, LTR
+
+- [Bidirectionality](../HTML/HTML.md#bidirectionality)
+- [Right-to-left - Wikipedia](https://en.wikipedia.org/wiki/Right-to-left)
+- [Right-to-left Styling](https://www.rtlstyling.com/)
+- [Bidirectionality - Material Design](https://material.io/design/usability/bidirectionality.html#mirroring-elements)
