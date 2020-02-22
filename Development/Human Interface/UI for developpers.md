@@ -1,4 +1,5 @@
 - [traceglMPL/tracegl: TraceGL MPL release](https://github.com/traceglMPL/tracegl) and [Issues · codegl/tracegl](https://github.com/codegl/tracegl/issues)
+- [TEXTREME by Ash K, Maxim Loboda](https://le-von.itch.io/textreme) - Code editor with graphical Fx, [memetrooper/TEXTREME](https://github.com/memetrooper/TEXTREME) [Ludipe on Twitter: "I love when I come up with a game concept and I find out it already exists and it looks more awesome than it did in my head. TEXTREME is the text editor you didn't know you needed. https://t.co/FFn3I1K7oz https://t.co/8f12oxq79c" / Twitter](https://twitter.com/ludipe/status/1055434835743948800?lang=en)
 
 ## Live coding
 

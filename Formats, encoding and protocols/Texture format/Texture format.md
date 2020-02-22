@@ -655,9 +655,125 @@ Qualcomm adapted version of ATC used by Manila/Mode9
 
 ### ASTC
 
-KTX can contains ASTC data
+KTX can contains ASTC data1
 
 Adopted by official extension for both OpenGL 3.0
+
+1:1 S3TC/DXT1->ASTC bitwise mapping possible
+
+```js
+// See https://wolfwings.us/webgl/ WebGL Book Viewer
+
+// Conversion from S3TC->ASTC weighting:
+// 0 -> 0 ->  0/63 ->  0/64
+// 1 -> 7 -> 63/63 -> 64/64
+// 2 -> 5 -> 45/63 -> 46/64
+// 3 -> 2 -> 18/63 -> 18/64
+//
+// This is due to ASTC specifying that
+// weighting is always expanded to six
+// bits, then greater than 31 gets one
+// added, so it becomes 0-64/64 scale.
+//
+// Also ASTC specifies bits in reverse
+// order of S3TC for the weight map so
+// this is reversing the S3TC value as
+// part of the table lookup for free.
+
+// w5w5w6w6w6w7w7w7
+const astc_weight_map_0 = [
+0b11111111,0b00111111,0b01111111,0b10111111,0b11000111,0b00000111,0b01000111,0b10000111,
+0b11101111,0b00101111,0b01101111,0b10101111,0b11010111,0b00010111,0b01010111,0b10010111,
+0b11111000,0b00111000,0b01111000,0b10111000,0b11000000,0b00000000,0b01000000,0b10000000,
+0b11101000,0b00101000,0b01101000,0b10101000,0b11010000,0b00010000,0b01010000,0b10010000,
+0b11111101,0b00111101,0b01111101,0b10111101,0b11000101,0b00000101,0b01000101,0b10000101,
+0b11101101,0b00101101,0b01101101,0b10101101,0b11010101,0b00010101,0b01010101,0b10010101,
+0b11111010,0b00111010,0b01111010,0b10111010,0b11000010,0b00000010,0b01000010,0b10000010,
+0b11101010,0b00101010,0b01101010,0b10101010,0b11010010,0b00010010,0b01010010,0b10010010];
+
+// ........w4w4w4w5
+const astc_weight_map_1 = [
+0b00001111,0b00000001,0b00001011,0b00000101,0b00001110,0b00000000,0b00001010,0b00000100];
+
+// w2w3w3w3........
+const astc_weight_map_2 = [
+0b11110000,0b01110000,0b11110000,0b01110000,0b10000000,0b00000000,0b10000000,0b00000000,
+0b11010000,0b01010000,0b11010000,0b01010000,0b10100000,0b00100000,0b10100000,0b00100000];
+
+// w0w0w0w1w1w1w2w2
+const astc_weight_map_3 = [
+0b11111111,0b00011111,0b10111111,0b01011111,0b11100011,0b00000011,0b10100011,0b01000011,
+0b11110111,0b00010111,0b10110111,0b01010111,0b11101011,0b00001011,0b10101011,0b01001011,
+0b11111100,0b00011100,0b10111100,0b01011100,0b11100000,0b00000000,0b10100000,0b01000000,
+0b11110100,0b00010100,0b10110100,0b01010100,0b11101000,0b00001000,0b10101000,0b01001000,
+0b11111110,0b00011110,0b10111110,0b01011110,0b11100010,0b00000010,0b10100010,0b01000010,
+0b11110110,0b00010110,0b10110110,0b01010110,0b11101010,0b00001010,0b10101010,0b01001010,
+0b11111101,0b00011101,0b10111101,0b01011101,0b11100001,0b00000001,0b10100001,0b01000001,
+0b11110101,0b00010101,0b10110101,0b01010101,0b11101001,0b00001001,0b10101001,0b01001001];
+
+// Standard 5-bit to 8-bit color expansion
+const astc_color_map_5 = Array.from( Array( 32 ).keys() ).map( ( v, i ) => Math.floor( i * 8.25 ) ); // * 33 / 4
+
+// Standard 6-bit to 8-bit color expansion
+const astc_color_map_6 = Array.from( Array( 64 ).keys() ).map( ( v, i ) => Math.floor( i * 4.0625 ) ); // * 65 / 16
+
+function convert_astc( data ) {
+	var buffer = new ArrayBuffer( data.byteLength * 2 );
+	var large = new Uint8Array( buffer );
+	var small = new Uint8Array( data );
+	for ( var p = 0; p < data.byteLength; p += 8 ) {
+		var c0 = ( small[p + 1] << 8 ) + small[p   ];
+		var b0 = astc_color_map_5[   c0         & 31 ];
+		var g0 = astc_color_map_6[ ( c0 >>  5 ) & 63 ];
+		var r0 = astc_color_map_5[   c0 >> 11        ];
+
+		var c1 = ( small[p + 3] << 8 ) + small[p + 2];
+		var b1 = astc_color_map_5[   c1         & 31 ];
+		var g1 = astc_color_map_6[ ( c1 >>  5 ) & 63 ];
+		var r1 = astc_color_map_5[   c1 >> 11        ];
+
+		if ( ( r0 + g0 + b0 ) < ( r1 + g1 + b1 ) ) {
+			[r0, r1] = [r1, r0];
+			[g0, g1] = [g1, g0];
+			[b0, b1] = [b1, b0];
+			small[p + 4] ^= 0x55;
+			small[p + 5] ^= 0x55;
+			small[p + 6] ^= 0x55;
+			small[p + 7] ^= 0x55;
+		}
+
+		large[p + p     ] = 0x53;
+		large[p + p +  1] = 0x00;
+		large[p + p +  2] =           1 | ( r1 << 1 );
+		large[p + p +  3] = ( r1 >> 7 ) | ( r0 << 1 );
+		large[p + p +  4] = ( r0 >> 7 ) | ( g1 << 1 );
+		large[p + p +  5] = ( g1 >> 7 ) | ( g0 << 1 );
+		large[p + p +  6] = ( g0 >> 7 ) | ( b1 << 1 );
+		large[p + p +  7] = ( b1 >> 7 ) | ( b0 << 1 );
+		large[p + p +  8] = ( b0 >> 7 );
+		large[p + p +  9] = 0;
+		large[p + p + 10] = astc_weight_map_0[small[p + 7] >> 2];
+		large[p + p + 11] = astc_weight_map_1[small[p + 7] &  7] | astc_weight_map_2[small[p + 6] >> 4];
+		large[p + p + 12] =                                        astc_weight_map_3[small[p + 6] & 63];
+		large[p + p + 13] = astc_weight_map_0[small[p + 5] >> 2];
+		large[p + p + 14] = astc_weight_map_1[small[p + 5] &  7] | astc_weight_map_2[small[p + 4] >> 4];
+		large[p + p + 15] =                                        astc_weight_map_3[small[p + 4] & 63];
+	}
+	return buffer;
+}
+
+// For S3TC with an image with exact dimensions,
+// byteLength = (width / 4) * (height / 4) * 8
+// byteLength = width * 0.25 * height * 0.25 * 8
+// byteLength = width * height * 0.5
+// byteLength / 0.5 = width * height
+// byteLength * 2 = width * height
+// (byteLength * 2) / height = width
+// ...with a fixed height of 1080...
+// (byteLength * 2) / 1080 = width
+// byteLength / 540 = width
+```
+
 
 Adaptive Scalable Texture Compression (ASTC)
 
@@ -809,6 +925,10 @@ https://www.scientiamobile.com/page/movr-mobile-overview-report
 - [CPU-Z | Softwares | CPUID](http://www.cpuid.com/softwares/cpu-z.html)
 - `adb shell dumpsys | grep GLES` -> `GLES: Qualcomm, Adreno (TM) 330, OpenGL ES 3.0 V@53.0 AU@ (CL@)`
 - (Java Android) `String renderer = GLES20.glGetString(GLES20.GL_RENDERER);` `GL10.GL_VENDOR` `GL10.GL_VERSION` `GL10.GL_EXTENSIONS`
+
+> All Apple devices with A8 or later CPUs, and more than 90%
+> of Android devices support ASTC on mobile, with S3TC being
+> supported on 100% of PC platforms since the late 90's.
 
 Get list and market share:
 

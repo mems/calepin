@@ -35,6 +35,7 @@ Aka Read–eval–print loop
 Aka prejudice and falsehoods about things
 
 - [mr-mig/every-programmer-should-know: A collection of (mostly) technical things every software developer should know](https://github.com/mr-mig/every-programmer-should-know)
+- [Curated list of falsehoods programmers believe in](https://github.com/kdeldycke/awesome-falsehood)
 - [Things you should test: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25230828820/things-you-should-test)
 - [Falsehoods Programmers Believe About Names | Kalzumeus Software](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
 - [Falsehoods programmers believe about time: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)
@@ -60,9 +61,9 @@ Common preconception / belief
 
 See also:
 
-- [Person](Data/Person)
-- [Date & Time](Data/Date & Time)
-- [Postal address](Data/Postal address)
+- [Person](../Data/Person.md)
+- [Date & Time](../Data/Date%20&%20Time.md)
+- [Postal address](../Data/Postal%20address.md)
 
 ## Development skill
 
@@ -147,11 +148,10 @@ Magic = complexity. With react, JSX is magic
 
 Often due to [complexity](#complexity) or [misconceptions and falsehoods](#falsehoods)
 
-> It’s harder to read code than to write it.
-> — Joel Spolsky
-
-> when you start from scratch there is **absolutely no reason** to believe that you are going to do a better job than you did the first time
-> — Joel Spolsky
+> Apparently, when they didn't have the right data for a vehicle, a privately operated citation processing center used the word NULL in the license plate field for many tickets. Since that just happens to be Droogie's license plate, he got all of them. 
+> Droogie contacted the DMV who told him to change his plate. He refused because he didn't do anything wrong. While they wiped the fines off his record, unfortunately for him, they didn't fix the problem in the system so once again, Droogie has accrued another $6,000 in tickets that he had nothing to do with. He says he won't be paying those either. 
+> 
+> — [!FALSE 😜 on Twitter: "Vanity license plate "NULL" goes horribly wrong https://t.co/yyz13fyODV via @JohnMu https://t.co/okznfwSQhV" / Twitter](https://twitter.com/mahemoff/status/1160989395043934208?s=12)
 
 - [The Daily WTF: Curious Perversions in Information Technology](http://thedailywtf.com/)
 - [The Inner JSON Effect - The Daily WTF](http://thedailywtf.com/articles/the-inner-json-effect) A story about some weird enterprise framework "JDSL" using SVN revisions to do store code fragments, and reference it later by the revision ID.
@@ -395,7 +395,27 @@ Aka case style, casing
 - [Letter case — Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 - [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)
 
-## Comments
+## Write readable code
+
+See also [complexity](#complexity).
+
+> It’s harder to read code than to write it.
+> — Joel Spolsky
+
+> when you start from scratch there is **absolutely no reason** to believe that you are going to do a better job than you did the first time
+> — Joel Spolsky
+
+> Writing code that others will read (including your future self) is about making yourself easy to understand.
+> 
+> It's not about:
+> - being clever
+> - showing how much you know
+> - using this new thing you just learned about
+> - typing the fewest characters possible
+> 
+> — [Brian Hilson on Twitter: "Writing code that others will read (including your future self) is about making yourself easy to understand. It's not about: - being clever - showing how much you know - using this new thing you just learned about - typing the fewest characters possible https://t.co/ythAeaw1XJ" / Twitter](https://twitter.com/brianhilson/status/1220296329517322240?s=12)
+
+### Comments
 
 > The proper use of comments is to compensate for our failure to express ourselves in code.
 — Robert C. Martin

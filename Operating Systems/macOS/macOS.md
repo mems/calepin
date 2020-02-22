@@ -1601,6 +1601,7 @@ or:
 - [Install Windows 10 on your Mac with Boot Camp Assistant - Apple Support](https://support.apple.com/en-us/HT201468)
 - [Launching your Boot Camp partition in VMware Fusion (1014618)](https://kb.vmware.com/s/article/1014618)
 - [How to Free Resize Bootcamp Partition without Deleting Windows](https://www.partitionwizard.com/partitionmagic/reszie-boot-camp-partition.html)
+- [windows - Bootcamp Not enough space but nothing helps! - Ask Different](https://apple.stackexchange.com/questions/335076/bootcamp-not-enough-space-but-nothing-helps)
 
 ## Network
 

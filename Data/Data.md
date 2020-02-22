@@ -23,4 +23,4 @@ Other:
 
 - [OSINT Search Tool by IntelTechnique | Open Source Intelligence](https://inteltechniques.com/menu.html)
 - [Michael Bazzell' Blog  » Blog Archive   » Updated OSINT Flowcharts](https://inteltechniques.com/blog/2018/03/06/updated-osint-flowcharts/)
-- Person
+- [Person](./Person/Person.md)

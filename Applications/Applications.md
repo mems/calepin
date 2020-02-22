@@ -543,8 +543,9 @@ With Winebottler, create Application bundle from the zip version:
 3. Installation mode:
 	WineBottler 1.8rc4 the following not work properly:
 	> copy file (Program) and all files in the folder to the App Bundle
-4. System: `XP`
+4. System: `XP` or `7`
 5. don't include Mono and Gecko
+6. check "Prepare for Distribution / Remove Users" and "Remove installers"
 6. DLL Override: `mscoree=n,b;mshtml=n,b` (see [Wine DLL overrides](#wine-dll-overrides))
 6. Winetricks: `dotnet40` (or `dotnet45` for v3). Recommanded, but not required: `flash`, `gdiplus`, `ie8`
 7. App Bundle:
@@ -554,6 +555,7 @@ With Winebottler, create Application bundle from the zip version:
 	Category Type: `Video`
 8. Click on Install
 9. Save as `Captvty.app` (**but not in the folder of the .exe**)
+10. "Wine can't found wine-mono required for .Net application to work correctly": Cancel
 10. (.Net Framework 4 Client Installer) Install (restart later)
 11. (Flash Installer) Install (without updates)
 12. (IE8 Install) Install, (Without updates: Microsoft Update, Malware remover, etc.), restart later
@@ -1154,7 +1156,7 @@ Some interesting files:
 
 If winetrick don't install (error log contains `pathchk: illegal option -- P`) get `https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks` and replace content of `~/Library/Application Support/Wine/winetricks`
 
-`Wine.app` start `winetrick` with a `$PATH` as it's original value (for any spawned process), it's why you need when debug a wine app on macOS, always start with **absolute path** in Terminal: `/Applications/MyApp.app/Contents/MacOS/startwine`. See [Define PATH globaly](macOS#define-path-globaly)
+`Wine.app` start `winetrick` with a `$PATH` as it's original value (for any spawned process), it's why you need when debug a wine app on macOS, always start with **absolute path** in Terminal: `/Applications/MyApp.app/Contents/MacOS/startwine.sh`. See [Define PATH globaly](macOS#define-path-globaly)
 
 > With the introduction of SIP, all environment variables matching DYLD_* will be stripped before executing a restricted binary.
 
@@ -1183,7 +1185,7 @@ Error:
 Open the Wine app and select (change) the app Template prefix (to edit).
 Configuration > Libraries > Edit "DLL Overrides" to remove `mscoree` and `mshtml`:
 See also remove in Control Panel > Add / remove Apps /Application > Update / Delete
-Or edit `*.app/Contents/Resources/wineprefix/user.reg` and remove lines `"mscoree"=""` and `"mshtml"=""` (or set value as `n,b`) in section `[Software\\Wine\\DllOverrides]`.
+Or edit `*.app/Contents/Resources/wineprefix/user.reg` and remove lines `"mscoree"=""` and `"mshtml"=""` and maybe `"*mscoree"="native"` (or set value as `n,b`) in section `[Software\\Wine\\DllOverrides]`.
 **Before restart the application, the prefix created by the app `~/Application Support/*_xxxxxxxxxxxx` need to be removed.**
 See also the field "Dll Override" in WineBottler. `mscoree,mshtml=n,b`, `mscoree=n,b;mshtml=n,b`. But [`bottler.sh` `winebottlerOverride`](https://bitbucket.org/winebottler/winebottler/src/master/WBottler/Resources/bottler.sh) ← [`default.sh`](https://bitbucket.org/winebottler/winebottler/src/master/WBottler/Resources/default.sh) ← [`WBottler`](https://bitbucket.org/winebottler/winebottler/src/master/WBottler/WBottler.m) ← [`WCustomController`](https://bitbucket.org/winebottler/winebottler/src/master/WineBottler/WCustomController.m) doesn't work as expected (`winebottlerWinetricks` where some dlls override are applied as builtin is right before `winebottlerInstall`)?
 

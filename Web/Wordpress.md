@@ -1,14 +1,15 @@
-- http://roots.io/using-composer-with-wordpress/
-- [roots/sage: WordPress starter theme with a modern development workflow](https://github.com/roots/sage)
-- https://github.com/markjaquith/WordPress-Skeleton
 - [How To Make WordPress Hard For Clients To Mess Up – Smashing Magazine](https://www.smashingmagazine.com/2016/07/how-to-make-wordpress-hard-for-clients-to-mess-up/)
-- [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
-- [Moving to HTTPS on WordPress | CSS-Tricks](https://css-tricks.com/moving-to-https-on-wordpress/)
-- [Editing wp-config.php « WordPress Codex](https://codex.wordpress.org/Editing_wp-config.php)
 - [WordPress Developer Resources | Official WordPress Developer Resources](https://developer.wordpress.org/)
 
-## Composer
+## Install and maintain
 
+- [Command line interface for WordPress | WP-CLI](https://wp-cli.org/)
+- [markjaquith/WordPress-Skeleton: Basic layout of a WordPress Git repository. I use this as a base when creating a new repo.](https://github.com/markjaquith/WordPress-Skeleton)
+- [Moving to HTTPS on WordPress | CSS-Tricks](https://css-tricks.com/moving-to-https-on-wordpress/)
+
+### Composer
+
+- [Using Composer with WordPress | Roots](https://roots.io/using-composer-with-wordpress/)
 - [Using Composer With WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/03/composer-wordpress/)
  
 	"extra": {
@@ -31,7 +32,7 @@
 	include_once './vendor/autoload.php';
 	require( './wordpress/wp-blog-header.php' );
 
-## Config
+### Config
 
 ```php
 /*
@@ -63,7 +64,9 @@ define('WP_CONTENT_DIR', $wp_content_dir); //wp-content dir
 define('WP_CONTENT_URL', $wp_content_url); //wp-content url
 ```
 
-## Update URL
+- [Editing wp-config.php « WordPress Codex](https://codex.wordpress.org/Editing_wp-config.php)
+
+### Update site URL
 
 ```sql
 SET @current = '';
@@ -88,9 +91,10 @@ UPDATE wp_posts SET guid = replace(guid, @curent, @next);
 
 ## Rest API
 
+- [Reference | REST API Handbook | WordPress Developer Resources](https://developer.wordpress.org/rest-api/reference/)
 - [Headless WordPress: The Ups And Downs Of Creating A Decoupled WordPress — Smashing Magazine](https://www.smashingmagazine.com/2018/10/headless-wordpress-decoupled/)
 
-## WP Theme
+## Themes
 
 Simple/cleared theme: [BlankSlate — Free WordPress Themes](https://wordpress.org/themes/blankslate/)
 
@@ -103,10 +107,10 @@ Simple/cleared theme: [BlankSlate — Free WordPress Themes](https://wordpress.o
 	add_filter('json_enabled', '__return_false');
 	add_filter('json_jsonp_enabled', '__return_false');
 
-- https://github.com/WordPress/WordPress/
-- http://wordpress.org/
-- http://codex.wordpress.org/Theme_Development
-- https://github.com/roots/roots
+- [WordPress/WordPress: WordPress, Git-ified. Synced via SVN every 15 minutes, including branches and tags! This repository is just a mirror of the WordPress subversion repository. Please do not send pull requests. Submit patches to https://core.trac.wordpress.org/ instead.](https://github.com/WordPress/WordPress/)
+- [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
+- [roots/sage: WordPress starter theme with a modern development workflow](https://github.com/roots/sage)
+- [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
 
 ## Performance / optimisation
 
@@ -147,6 +151,11 @@ Some:
 
 - [Regenerate Thumbnails — WordPress Plugins](https://wordpress.org/plugins/regenerate-thumbnails/)
 - [Force Regenerate Thumbnails — WordPress Plugins](https://wordpress.org/plugins/force-regenerate-thumbnails/)
+
+## Responsive images
+
+- [Responsive Images in WordPress 4.4 – Make WordPress Core](https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/)
+- [Responsive Images Now Landed In WordPress Core — Smashing Magazine](https://www.smashingmagazine.com/2015/12/responsive-images-in-wordpress-core/)
 
 ## AJAX
 
@@ -213,8 +222,8 @@ Note: Has a performance impact
 
 ## Localization
 
-- http://wordpress.org/plugins/codestyling-localization/screenshots/
-- http://wordpress.org/plugins/easy-translator-lite/screenshots/
+- [Codestyling Localization – WordPress plugin | WordPress.org](https://wordpress.org/plugins/codestyling-localization/#screenshots)
+- [Easy Translator – WordPress plugin | WordPress.org](https://wordpress.org/plugins/easy-translator-lite/#screenshots)
 
 ## SVG
 
@@ -225,7 +234,7 @@ Note: Has a performance impact
 
 ## Security
 
-See [Wordpress](Security#wordpress)
+See [Wordpress](../Security/Security.md#wordpress)
 
 ## File permissions for automatic update
 
@@ -273,3 +282,55 @@ Ex: FTP: user 522/538; Apache/PHP: 48/48 (www-data)
 
 - [We Tested 3 WordPress Minify Plugins: Our Results](https://themeisle.com/blog/wordpress-minify-plugins/)
 - [Plugins categorized as minify | WordPress.org](https://wordpress.org/plugins/tags/minify/)
+
+## Test
+
+From [`westonruter/amp-wp-theme-compat-analysis/start.sh`](https://github.com/westonruter/amp-wp-theme-compat-analysis/blob/master/start.sh):
+
+```sh
+#!/bin/bash
+
+set -x
+set -e
+lando start
+
+if [ ! -e public ]; then
+  mkdir public
+fi
+
+if [ ! -e public/index.php ]; then
+  lando wp core download
+fi
+
+if ! lando wp core is-installed; then
+  lando wp core install --url="https://amp-wp-theme-compat-analysis.lndo.site/" --title="AMP WP Theme Compatibility Analysis" --admin_user=admin --admin_password=password --admin_email=nobody@example.com
+fi
+
+lando wp plugin install --activate amp
+lando wp option update --json amp-options '{"theme_support":"standard"}'
+
+lando wp plugin install --activate wordpress-importer
+lando wp plugin install --activate block-unit-test
+#lando wp plugin install --activate coblocks
+
+if [ ! -e themeunittestdata.wordpress.xml ]; then
+  wget https://raw.githubusercontent.com/WPTRT/theme-unit-test/master/themeunittestdata.wordpress.xml
+fi
+if [[ 0 == $(lando wp menu list --format=count) ]]; then
+  lando wp import --authors=create themeunittestdata.wordpress.xml
+fi
+
+if [[ 0 == $(lando wp post list --post_type=attachment --post_name=accelerated-mobile-pages-is-now-just-amp --format=count) ]]; then
+  wget https://blog.amp.dev/wp-content/uploads/2019/04/only_amp.mp4
+  lando wp media import --title="Accelerated Mobile Pages is now just AMP" only_amp.mp4
+  rm only_amp.mp4
+fi
+
+lando wp create-monster-post
+lando wp populate-initial-widgets
+
+bash check-wporg-themes.sh 100
+```
+
+- [Theme Unit Test « WordPress Codex](https://codex.wordpress.org/Theme_Unit_Test)
+- [WordPress | Lando](https://docs.lando.dev/config/wordpress.html)
