@@ -184,7 +184,7 @@ If so **add comments** to explain the choice.
 
 ## Localization
 
-See [Localization](Conception#localization), [Locale](Locale)
+See [Localization](../Conception/Conception.md#localization), [Locale](../Data/Locale/Locale.md)
 
 - [A Programmer’s Introduction to Unicode – Nathan Reed’s coding blog](http://reedbeta.com/blog/programmers-intro-to-unicode/)
 - [UTF-8](UTF-8)
@@ -418,10 +418,12 @@ See also [complexity](#complexity).
 ### Comments
 
 > The proper use of comments is to compensate for our failure to express ourselves in code.
-— Robert C. Martin
+> 
+> — Robert C. Martin
 
 > Every comment represents a failure to make the code self explanatory
-— Robert C. Martin
+> 
+> — Robert C. Martin
 
 	// Check to see if the employee is eligible for full benefits
 	if ((employee.flags & HOURLY_FLAG) && (employee.age > 65)) {
@@ -443,7 +445,8 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 > Documentation is for every possible user
 > [...]
 > Saying that variable names are the only documentation needed means that only people who read your code can use it
-— [“My Code is Self-Documenting” — Eric Holscher - Surfing in Kansas](http://ericholscher.com/blog/2017/jan/27/code-is-self-documenting/)
+> 
+> — [“My Code is Self-Documenting” — Eric Holscher - Surfing in Kansas](http://ericholscher.com/blog/2017/jan/27/code-is-self-documenting/)
 
 - [Code Tells You How, Comments Tell You Why](https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
 - [Thoughts on Self-Documenting CSS](http://keithjgrant.com/posts/2017/06/self-documenting-css/)
@@ -697,7 +700,7 @@ Aka Spaces vs tabs
 
 ## Release note
 
-- [As a Designer I want better Release Notes](https://uxdesign.cc/design-better-release-notes-3e8c8c785231)
+See [Release note](../Documentation/Documentation.md#release-note)
 
 ## Game dev
 
@@ -764,26 +767,11 @@ Simplicity Matters, [KISS](../Conception/Conception.md#kiss)
 > - Can an idiot make something quickly without a tutorial?
 — https://twitter.com/elsassph/status/557866984705380352
 
-See also [API](../Web/Web.md#api) and [Documentations](../Work/Work.md#documentation)
+See also:
 
-### Error messages
-
-> Error messages as a form of documentation:
-> 
-> - Humble: "An unknown error occured (-50)" -> "Sorry, we could not reach the Netflix service. Please check Network Settings to connect to an available network and use Netflix (15001)"
-> - Human: "Exception has been thrown by the target of an invocation" -> "There was a problem: Your password is incorrect"; "Your AccountSid or AuthToken was incorrect. [More info](https://www.twilio.com/docs/errors/20003)"
-> - Helpful: "404. That's an error. The requested URL |url| was not found on this server. That's all we know" -> "That's very nice photo, but it's a bit too big. Try one that's smaller than 4000px tall by 4000px wide. Cancel - Try a different image"
-> - Humor: "|illustration of beasts eating computers| We'll be back shortly. We may have forgotten to feed the wild Tumbeasts that roam our datacenter, resulting in gnawing and/or mutiny. Animal control has been alerted.", "Something went and got goofed. Retry"
-
-- [Error Messages: Being Humble, Human, and Helpful will make users Happy — Write the Docs](https://www.writethedocs.org/videos/na/2017/error-messages-being-humble-human-and-helpful-will-make-users-happy-kate-voss/)
-
-> Just like any other form of documentation, put the relevant information first. This can be done by having the object first and the action second. The user is looking for the result, not how to get there. This is helpful when users quickly scan your error messages.
-> "Press the back button to return to the previous page." -> "To return to the previous page, use the back button."
-
-Errors in docs, allows you to expand on the error message without increasing it in length, while still trying to help the user understand why they are getting the error.
-For one error (ex: 401 status code error "Permission Denied"), there are a lot of possible causes which they clearly lay out in Error and Warning Directory.
-
-- [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Corner](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/)
+- [Web API](../Web/Web.md#api)
+- [API documentation](../Documentation/Documentation.md#api)
+- [Error messages documentation](../Documentation/Documentation.md#error-messages)
 
 ## MVC
 

@@ -11,6 +11,9 @@ Aka diff
 	- [The Myers diff algorithm: part 1 – The If Works](https://blog.jcoglan.com/2017/02/12/the-myers-diff-algorithm-part-1/)
 	- [The Myers diff algorithm: part 2 – The If Works](https://blog.jcoglan.com/2017/02/15/the-myers-diff-algorithm-part-2/)
 	- [The Myers diff algorithm: part 3 – The If Works](https://blog.jcoglan.com/2017/02/17/the-myers-diff-algorithm-part-3/)
+- [Git - git-diff Documentation](https://git-scm.com/docs/git-diff)
+- [patch (Unix) - Wikipedia](https://en.wikipedia.org/wiki/Patch_%28Unix%29) and [diff - Wikipedia](https://en.wikipedia.org/wiki/Diff)
+- [File comparison - Wikipedia](https://en.wikipedia.org/wiki/File_comparison)
 
 ## Compare image
 
@@ -34,6 +37,7 @@ Perceptual Evaluation of Quality
 - [How to compare images fairly](https://kornel.ski/en/faircomparison)
 - [pHash.org: Home of pHash, the open source perceptual hash library](http://www.phash.org/)
 - [How does tineye work? : programming](https://www.reddit.com/r/programming/comments/bvmln/how_does_tineye_work/)
+- [idealo/imagededup: 😎 Finding duplicate images made easy!](https://github.com/idealo/imagededup)
 
 - ImageMagick generate pixel hash [Comparing -- IM v6 Examples](http://www.imagemagick.org/Usage/compare/#doubles)
 - [Near-Duplicate Image Detection - Stack Overflow](https://stackoverflow.com/questions/1034900/near-duplicate-image-detection)

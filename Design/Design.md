@@ -139,6 +139,7 @@ Aka dataviz
 Palette
 Use Viridis or Parula colormap for heatmap (accessible to colorblind users)
 
+- [Accessibility](#accessibility)
 - [How to Choose Colours Procedurally (Algorithms) | Dev.Mag](http://devmag.org.za/2012/07/29/how-to-choose-colours-procedurally-algorithms/)
 - [A Better Default Colormap for Matplotlib | SciPy 2015 | Nathaniel Smith and Stéfan van der Walt - YouTube](https://www.youtube.com/watch?v=xAoljeRJ3lU)
 - [Gnuplotting/gnuplot-palettes: Color palettes for gnuplot](https://github.com/Gnuplotting/gnuplot-palettes)
@@ -149,3 +150,7 @@ Use Viridis or Parula colormap for heatmap (accessible to colorblind users)
 ## Design System
 
 - [Design System Checklist](https://designsystemchecklist.com/)
+
+## Accessibility
+
+- [ACCÉSCIBLE: Un guide pratique sur l’accessibilité en graphisme](https://www.ico-d.org/database/files/library/2010_Accessibility_Handbook_French_FINAL_s.pdf)

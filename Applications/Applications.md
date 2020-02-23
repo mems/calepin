@@ -14,6 +14,11 @@ Awesome bar:
 
 - Open Tabs to the right of the current tab: `about:config?filter=browser.tabs.insertAfterCurrent`, https://addons.mozilla.org/en-US/firefox/addon/always-right/
 
+Kisok mode:
+
+- `firefox --kiosk`
+- [158968 - command line option for kiosk mode](https://bugzilla.mozilla.org/show_bug.cgi?id=158968)
+
 ### Source code
 
 - [Phabricator](https://phabricator.services.mozilla.com/)
@@ -288,6 +293,11 @@ Redirect UDP 28960
 - `https://crrev.com/<branch_position|commit>`
 - `https://storage.googleapis.com/chromium-find-releases-static/d4a.html#<commit>`
 - `https://omahaproxy.appspot.com/deps.json?version=<version>` (`Major.Minor.Branch.Patch`)
+
+Kosik mode:
+
+- `chrome --kiosk "https://example.com"`, see also `--kiosk-printing` and `--chrome-frame`
+- [Running latest Chrome for Windows in kiosk mode - Super User](https://superuser.com/questions/716426/running-latest-chrome-for-windows-in-kiosk-mode)
 
 ### Source code
 

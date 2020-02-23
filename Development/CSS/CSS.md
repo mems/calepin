@@ -11,7 +11,12 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 > To change the mouse pointer with CSS, use "cursor"
 > To set it to a pointer, use "default"
 > To set it to a hand, use "pointer"
-— [Jake Archibald](https://twitter.com/jaffathecake/status/832228132446990339)
+> 
+> — [Jake Archibald](https://twitter.com/jaffathecake/status/832228132446990339)
+
+> [CSS is] declarative language: describe _intent_ rather than specific steps
+> 
+> — [Why Is CSS So Weird? - YouTube](https://www.youtube.com/watch?v=aHUtMbJw8iA)
 
 ## "HTML once, redesign CSS"
 

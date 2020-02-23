@@ -50,6 +50,18 @@ Lorsqu’on travaille sur un projet, il faut le faire tester le plus tôt possib
 
 - [Google Glass : le patron du laboratoire secret de Google reconnaît des erreurs](http://www.lemonde.fr/pixels/article/2015/03/18/google-glass-le-patron-du-laboratoire-secret-de-google-reconnait-des-erreurs_4595780_4408996.html)
 
+## Career advancement
+
+Aka career path
+
+> Passer de développeur à chef de projet n'est pas une évolution mais une reconversion.
+> 
+> — [BOUDOUX Aurélien on Twitter: "Passer de développeur à chef de projet n'est pas une évolution mais une reconversion." / Twitter](https://twitter.com/AurelienBoudoux/status/1224724331906859008)
+
+- [Les développeurs ne veulent pas tous devenir des managers, soutient l'ingénieure logiciel Meriam Kharbat qui encourage les entreprises à mieux définir les profils de carrière pour retenir les talents](https://www.developpez.com/actu/294226/Les-developpeurs-ne-veulent-pas-tous-devenir-des-managers-soutient-l-ingenieure-logiciel-Meriam-Kharbat-qui-encourage-les-entreprises-a-mieux-definir-les-profils-de-carriere-pour-retenir-les-talents/)
+- [Not Every Developer Wants to Become a Manager — And That’s Okay](https://medium.com/better-programming/not-every-developer-wants-to-become-a-manager-and-thats-okay-e7d76b3efd0e)
+- [L'évolution d'une carrière de développeur - devcast](https://www.devcast.tech/levolution-dune-carriere-de-developpeur/)
+
 ## Meaningless Job
 
 > Donner plus de sens à un emploi : contribuer à la société
@@ -450,25 +462,6 @@ Not for team or at least without expertise requirements
 - [Mon maçon était illustrateur.](http://monmacon.tumblr.com/)
 - [WebAgencyFail › Anecdotes authentiques de web agency, de boîtes de com’ et de travailleurs du web en général](http://www.webagencyfail.com/)
 - ![Pour les petits cabochons, il nous les faudrait en A3 — Mon maçon était illustrateur](Pour%20les%20petits%20cabochons,%20il%20nous%20les%20faudrait%20en%20A3%20—%20Mon%20maçon%20était%20illustrateur.jpg)
-
-## Documentation
-
-Write all, make reports, about choice has been mades
-
-API references, guides, tutorials, and blog posts
-
-- don't use words like “easy,” “simple,” “trivial,” and “not hard”
-- when communicating on a project, use clear and accessible language for people who didn’t grow up speaking English, or read less-than-fluently.
-- avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”
-
-> After you do something dozens of times, it is understandable that something is “easy” to you. However, what about someone who’s never seen the UI or feature before?
-> [...]
-> Encourage people who are newer to the project to contribute to or address documentation that doesn’t make sense to them
-
-- [Bus factor — Wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
-- [Release note](../Development/Development.md#release-note)
-- [API](../Conception/Conception.md#api)
-- [Technical writing — Wikipedia](https://en.wikipedia.org/wiki/Technical_writing)
 
 ## Burn-out
 

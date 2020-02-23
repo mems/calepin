@@ -13,16 +13,7 @@
 
 ## Specification
 
-Aka write documentation
-
-> Never use "SHOULD" in official guidance. Do the hard work to make it simple: "MUST" when people must do it, "MAY" when there's a choice.
-— [Caroline Jarrett](https://twitter.com/cjforms/status/808333086563897345)
-
-> "must" when people must do it, "may" when there's a choice.
-
-> must = duty, may = power
-
-- [w3ctag.github.io/explainers.md at master · w3ctag/w3ctag.github.io](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md) - explainer as living document that describes a (proposed) feature (for web platform)
+See [Specification](../Documentation/Documentation.md#specification)
 
 ## Some possible issues
 
@@ -297,7 +288,7 @@ See [Stars and Stripes and ISO Codes · An A List Apart Column](http://alistapar
 
 ### Localization
 
-See [localization](Development#localization)
+See [localization](../Development/Development.md#localization)
 
 - [L’internationalisation, c’est long et dur (et ça racle le fond) | Sam & Max](http://sametmax.com/linternationalisation-cest-long-et-dur-et-ca-racle-le-fond/)
 - [Localizing PHP Applications "The Right Way" — SitePoint](https://www.sitepoint.com/series/localizing-php-applications-the-right-way/)
@@ -368,7 +359,7 @@ See also:
 
 ### Market
 
-Market (marché nord américain, européen, indien, etc.): [territory, languages](#locale)
+Market (marché nord américain, européen, indien, etc.): [territory, languages](../Data/Locale/Locale.md)
 
 See locale's region
 
@@ -380,7 +371,7 @@ See locale's region
 
 Keywords: locale, language, region, territory
 
-Need to define [locales](Locale)
+Need to define [locales](../Data/Locale/Locale.md)
 
 - [Localization Guide — Localization Guide 0.9.0 documentation](http://docs.translatehouse.org/projects/localization-guide/en/latest/index.html)
 
