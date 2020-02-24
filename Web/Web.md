@@ -29,8 +29,6 @@ News
 
 ### DNS records
 
-DNS records
-
 Names (exemples for `example.com`):
 
 - `@` naked name (`example.com`), the domain itself
@@ -41,7 +39,7 @@ Names (exemples for `example.com`):
 
 `* CNAME @` is not possible with all DNS servers, and not recommanded (need 2 DNS requests to resolve subdomain)
 
-```dns zone
+```dns-zone
 @ IN A 192.0.2.1
 @ IN TXT "some text"
 ```
