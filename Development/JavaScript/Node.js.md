@@ -87,7 +87,9 @@ In all `node_modules` directory on an hard drive.
 
 ## Turn off Spotflight indexation of dependencies
 
-	find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;
+```sh
+find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;
+```
 
 ## Debug
 
@@ -114,13 +116,17 @@ Cluster is `child_process` in a more convenient way to listen the same port by a
 
 ## Standart input / output
 
-	const data = require("fs").readFileSync(0, {encoding: "utf-8"});// file 0 is stdin
+```js
+const data = require("fs").readFileSync(0, {encoding: "utf-8"});// file 0 is stdin
+```
 
 ## Command line
 
 Shebang:
 
-	#!/usr/bin/env node
+```sh
+#!/usr/bin/env node
+```
 
 ## Express
 
@@ -128,33 +134,37 @@ Test server capacity with [mcollina/autocannon: fast HTTP/1.1 benchmarking tool 
 
 **Order route registration from most specific to less specific: `/foo/bar`, `/foo`, `/`**
 
-	import express from "express";
-	
-	const app = express();
-	const port = process.env.PORT || 3000;
-	
-	app.get('/posts/:id', async (req, res, next) => {
-		try {
-			const id = req.params.id;
-			const value = await getPostById(id);
-			res.render("posts", {id, value});
-		}
-		catch (error) {
-			next(error);
-		}
-	});
-	
-	app.listen(port);
+```js
+import express from "express";
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/posts/:id', async (req, res, next) => {
+	try {
+		const id = req.params.id;
+		const value = await getPostById(id);
+		res.render("posts", {id, value});
+	}
+	catch (error) {
+		next(error);
+	}
+});
+
+app.listen(port);
+```
 
 Internal redirect, aka reroute: [node.js - Forward request to alternate request handler instead of redirect - Stack Overflow](https://stackoverflow.com/questions/18136323/forward-request-to-alternate-request-handler-instead-of-redirect/22081112#22081112). See [Express 4.x - API Reference](http://expressjs.com/en/4x/api.html#app.METHOD)
 
 Reroute:
 
-	app.get("someroute", (req, res, next) => {
-		// Reroute to index.html (could be handled by statics)
-		req.url = "index.html";
-		next("route");
-	});
+```js
+app.get("someroute", (req, res, next) => {
+	// Reroute to index.html (could be handled by statics)
+	req.url = "index.html";
+	next("route");
+});
+```
 
 Global error handling
 
@@ -183,7 +193,9 @@ RESTful routing (resource, facet):
 
 ### Get client IP with Express
 
-	req.ip
+```js
+req.ip
+```
 
 - `app.set('trust proxy', 'loopback')`
 - [Expres 4.x - API Reference](http://expressjs.com/en/4x/api.html#app.settings.table) and [Expres 4.x - API Reference](http://expressjs.com/en/4x/api.html#trust.proxy.options.table)
@@ -198,24 +210,43 @@ RESTful routing (resource, facet):
 - `NODE_OPTIONS=--max-old-space-size=4096 npm run myscript`, see [Best way to set --max-old-space-size when running npm? · Issue #12238 · npm/npm](https://github.com/npm/npm/issues/12238)
 - sort `package.json` with `npx sort-package-json` - [npm - Is there a way to alphabetize package.json without installing a package? - Stack Overflow](https://stackoverflow.com/questions/34438465/is-there-a-way-to-alphabetize-package-json-without-installing-a-package/51773989#51773989)
 
+Updates:
+
+```sh
+npm outdated --parseable | cut -d ':' -f 4 | xargs npm i
+# or
+npx npm-check-updates -u && npm i
+# see also
+npm-check -u
+# and
+npm update --latest
+```
+
+- `yarn upgrade-interactive --latest`
+- [npm-upgrade - npm](https://www.npmjs.com/package/npm-upgrade)
+
 ### Package variables
 
-	{
-		...
-		"main": "server/index.js",
-		"scripts": {
-			"start": "node $npm_package_main",
-			"start-dev": "NODE_ENV=dev node $npm_package_main"
-		},
-		...
-		"engines": {
-			"node": ">=9.0"
-		}
+```json
+{
+	...
+	"main": "server/index.js",
+	"scripts": {
+		"start": "node $npm_package_main",
+		"start-dev": "NODE_ENV=dev node $npm_package_main"
+	},
+	...
+	"engines": {
+		"node": ">=9.0"
 	}
+}
+```
 
 ### Install for continuous integration
 
-	npm ci
+```sh
+npm ci
+```
 
 - [npm-ci Install a project with a clean slate](https://docs.npmjs.com/cli/ci)
 - [The npm Blog — Introducing `npm ci` for faster, more reliable...](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)
@@ -245,25 +276,29 @@ Aka monorepos and multi packages
 
 ## Promisify
 
-	import util from 'util';
-	const result;
-	try{
-		result = await util.promisify(obj.method.bind(obj))("value1", "value2");
-		console.log(result);
-	}catch(error){
-		console.error(error);
-	}
+```js
+import util from 'util';
+const result;
+try{
+	result = await util.promisify(obj.method.bind(obj))("value1", "value2");
+	console.log(result);
+}catch(error){
+	console.error(error);
+}
+```
 
 Instead of:
 
-	obj.method("value1", "value2", (error, result) => {
-		if(error){
-			console.error(error);
-			return;
-		}
-		
-		console.log(result);
-	})
+```js
+obj.method("value1", "value2", (error, result) => {
+	if(error){
+		console.error(error);
+		return;
+	}
+
+	console.log(result);
+})
+```
 
 - [Util | Node.js v8.9.4 Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)
 
@@ -277,13 +312,17 @@ Instead of:
 
 First: Just **don't install packages globally**
 
-	npm install -g packagename
+```sh
+npm install -g packagename
+```
 
 Install global with node-gyp can output errors:
 
-	gyp WARN EACCES user "root" does not have permission to access the dev dir "/Users/username/.node-gyp/0.0.0"
-	gyp WARN EACCES attempting to reinstall using temporary dev dir "/opt/local/lib/node_modules/packagename/.node-gyp"
-	gyp WARN EACCES user "root" does not have permission to access the dev dir "/opt/local/lib/node_modules/packagename/.node-gyp/0.0.0"
+```
+gyp WARN EACCES user "root" does not have permission to access the dev dir "/Users/username/.node-gyp/0.0.0"
+gyp WARN EACCES attempting to reinstall using temporary dev dir "/opt/local/lib/node_modules/packagename/.node-gyp"
+gyp WARN EACCES user "root" does not have permission to access the dev dir "/opt/local/lib/node_modules/packagename/.node-gyp/0.0.0"
+```
 
 Use `--unsafe-perm` paramter for `npm` to fix the issue, or update the `NODE_PATH` env var.
 
