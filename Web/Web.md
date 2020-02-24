@@ -2240,10 +2240,10 @@ Live streaming, or start play video when the file is not completely generated:
 
 ```html
 <video>
-	<source src="video.m3u8" type="application/x-mpegURL"><!-- HTTP Live Streaming, required by Safari in that case: if the media size is not known -→
-	<source src="video.mpd" type="application/dash+xml"><!-- MPEG-DASH -→
-	<source src="video.mp4" type="video/mp4"><!-- Use chunk encoding -→
-	<!-- Or use JS to use MSE API for streaming protocols like DASH -→
+	<source src="video.m3u8" type="application/x-mpegURL"><!-- HTTP Live Streaming, required by Safari in that case: if the media size is not known -->
+	<source src="video.mpd" type="application/dash+xml"><!-- MPEG-DASH -->
+	<source src="video.mp4" type="video/mp4"><!-- Use chunk encoding -->
+	<!-- Or use JS to use MSE API for streaming protocols like DASH -->
 </video>
 ```
 
@@ -3057,27 +3057,27 @@ ga("send", "event", category, action, label/*optional*/, value/*integer, optiona
 ```
 
 ```html
-<!-- Google Analytics -→
+<!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga("create", "UA-XXXXX-Y", "auto");
 ga("send", "pageview");
 </script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -→
+<!-- End Google Analytics -->
 ```
 
 For a custom function name: (ex: `__gaTracker`)
 
 ```html
-<!-- Google Analytics -→
+<!-- Google Analytics -->
 <script>
 (function(w,n){w.GoogleAnalyticsObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};w[n].l=+new Date;})(window,"__gaTracker");
 __gaTracker("create", "UA-XXXXX-Y", "auto");
 __gaTracker("send", "pageview");
 </script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
-<!-- End Google Analytics -→
+<!-- End Google Analytics -->
 ```
 
 GoogleAnalyticsObject
@@ -5620,19 +5620,19 @@ Note: does the size provided (`og:video:width` and `og:video:height`) have any i
 <meta property="og:type" content="video">
 <meta property="og:image" content="poster.jpg">
 
-<!-- direct asset ref: -→
+<!-- direct asset ref: -->
 <meta property="og:video" content="http://example.com/video.mp4">
 <meta property="og:video:type" content="video/mp4">
 <meta property="og:video:width" content="500">
 <meta property="og:video:height" content="400">
 
-<!-- Facebook iframe embed  -→
+<!-- Facebook iframe embed  -->
 <meta property="og:video:url" content="http://example.com/video.html">
 <meta property="og:video:type" content="text/html">
 <meta property="og:video:width" content="500">
 <meta property="og:video:height" content="400">
 
-<!--  legacy swf embed:  -→
+<!--  legacy swf embed:  -->
 <meta property="og:video:url" content="http://example.com/animation.swf">
 <meta property="og:video:type" content="application/x-shockwave-flash">
 <meta property="og:video:height" content="500">
@@ -5814,7 +5814,7 @@ GIF or Video
 Note: you need to request approval to allow your domain to be allowed to use twitter card player. See [twitter card validator](https://dev.twitter.com/cards/types/player)
 
 ```html
-<!-- page URL: http://gifboom.com/x/771600be -→
+<!-- page URL: http://gifboom.com/x/771600be -->
 <meta name="twitter:card"       content="player">
 <meta name="twitter:player"     content="https://gifboom.com/p/771600be">
 <meta name="twitter:player:width" content="480">
