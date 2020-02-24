@@ -672,31 +672,55 @@ List of files in search:
 ```js
 // In a webpage, add the following code in dev tools console, then past in the page the copied content of "Export to text file" of the Find Window
 document.addEventListener("paste", function(event) {
-	console.log(event.clipboardData.getData("Text").split(/\r?\n/).reduce((list, rawLine) => {
-		const [, prefix = "", line = rawLine] = rawLine.match(/^((?: {4})*)(.*)$/) || [];
-		
-		switch(prefix){
-			// indent 3, path + usage count
-			case "            ":
-				list.push({
-					path: (line.match(/^(.*?)(\s*\(.*?\))?$/) || [])[1] || line,
-					files: []
-				});
-				break;
-			// indent 4, filename + usage count
-			case "                ":
-				list[list.length - 1].files.push((line.match(/^(.*?)(\s*\(.*?\))?$/) || [])[1] || line)
-				break;
-			// indent 5, line match + extract
-			case "                    ":
-			// others
-			default:
-				// ignore
-				break;
-		}
-		
-		return list;
-	}, []).reduce((list, {path, files}) => list.concat(files.map(file => path + "\\" + file)), []).join("\n"))
+  const lines = event.clipboardData.getData("Text").split(/\r?\n/);
+  const PATH_PREFIX = " ".repeat(4 * 3);
+  const FILE_PREFIX = " ".repeat(4 * 4);
+  const USAGE_PREFIX = " ".repeat(4 * 5);
+  const pathSep = "\\";
+  const usages = [];
+  let path = "";
+  let file = "";
+
+  for(const rawLine of lines){
+    const [, prefix = "", line = rawLine] = rawLine.match(/^((?: {4})*)(.*)$/) || [];
+
+    switch(prefix){
+      // indent 3, path + usage count
+      case PATH_PREFIX:
+        path = line.match(/^(.*?)(\s*\(.*?\))?$/)[1];
+        continue;
+      // indent 4, filename + usage count
+      case FILE_PREFIX:
+        file = line.match(/^(.*?)(\s*\(.*?\))?$/)[1];
+        continue;
+      // indent 5, line usage + extract (always one line)
+      case USAGE_PREFIX:
+        const [, lineNum, extract] = line.match(/^(\d+)\s+(.*)$/);
+        usages.push({file: `${path}${pathSep}${file}`, line: lineNum, extract});
+    }
+  }
+
+  // https://stackoverflow.com/questions/6020714/escape-html-using-jquery/6020820#6020820
+  function e(value){
+    const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      '/': '&#x2F;'
+    };
+
+    return value.replace(/[&<>"'\/]/g, c => map[c]);
+  }
+
+  // const result = [...new Set(usages.map(({file}) => file))];
+  // document.body.innerHTML = `<table>${result.map(item => `<tr><td>${e(item)}</td></tr>`).join("")}</table>`;
+
+  const regexp = /<script.*?src=["']((?:@|https?:|<%=).*?)["'].*?>/;
+  const result = usages.map(({file, line, extract}) => ({file: `${file}:${line}`, extract: regexp.exec(extract)[1]}));
+  const indexes = ["file", "extract"];
+  document.body.innerHTML = `<table>${result.map(item => `<tr>${indexes.map(index => `<td>${e(item[index] || "").join("")}</td>`)}</tr>`).join("")}</table>`;
 });
 ```
 
