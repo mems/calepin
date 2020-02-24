@@ -720,7 +720,7 @@ document.addEventListener("paste", function(event) {
   const regexp = /<script.*?src=["']((?:@|https?:|<%=).*?)["'].*?>/;
   const result = usages.map(({file, line, extract}) => ({file: `${file}:${line}`, extract: regexp.exec(extract)[1]}));
   const indexes = ["file", "extract"];
-  document.body.innerHTML = `<table>${result.map(item => `<tr>${indexes.map(index => `<td>${e(item[index] || "").join("")}</td>`)}</tr>`).join("")}</table>`;
+  document.body.innerHTML = `<table><tr>${indexes.map(index => `<td>${e(index).join("")}</td>`)}</tr>${result.map(item => `<tr>${indexes.map(index => `<td>${e(item[index] || "").join("")}</td>`)}</tr>`).join("")}</table>`;
 });
 ```
 
