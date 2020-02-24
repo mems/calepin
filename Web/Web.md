@@ -1467,7 +1467,7 @@ It's a [cat-and-mouse game](https://en.wikipedia.org/wiki/Cat_and_mouse)
 
 ## Optimizations and performances
 
-Aka WebPerfs
+Aka WebPerfs, Web Perf
 
 > respecting the medium
 
@@ -1476,7 +1476,14 @@ Aka WebPerfs
 Loading, parsing, rendering, etc.
 
 > We don't want humans waiting on computers. We want computers waiting on humans.
-— Gregory Szorc
+> 
+> — Gregory Szorc
+
+> Monitoring is your bank telling you you're overdrawn.
+> 
+> Observability is the ability to tell you're running out of money because you're spending too much money on chocolates, cakes and sweets because you've recorded data on what you spent your money on throughout the month.
+> 
+> — [Liz Fong-Jones (方禮真) sur Twitter : "Monitoring is your bank telling you you're overdrawn. Observability is the ability to tell you're running out of money because you're spending too much money on chocolates, cakes and sweets because you've recorded data on what you spent your money on throughout the month. https://t.co/kQcvlUWqqV" / Twitter](https://twitter.com/lizthegrey/status/1230979460708499456?s=12)
 
 - [The Impact of Web Performance | Simplified.](https://simplified.dev/performance/impact-of-web-performance)
 - [SpeedCurve on Twitter: "200ms start render = 16% bounce rate 1.8s start render = 49% bounce rate See how user engagement charts show you correlations between #webperf and #UX: https://t.co/Nz6ilYOuaA… https://t.co/fIPquBIH2P"](https://twitter.com/SpeedCurve/status/938877356386611201)
