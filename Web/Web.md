@@ -41,12 +41,12 @@ Names (exemples for `example.com`):
 
 `* CNAME @` is not possible with all DNS servers, and not recommanded (need 2 DNS requests to resolve subdomain)
 
-```
+```dns zone
 @ IN A 192.0.2.1
 @ IN TXT "some text"
 ```
 
-```
+```sh
 # dig www.example without DNS cache
 dig @$(dig example.com NS +short | head -n1) www.example.com ANY +noall +answer
 ```
@@ -103,8 +103,10 @@ See also:
 
 ...or any other method other than `GET`.
 
-	23:50:52:658: Network: POST http://host/folder [HTTP/1.1 301 Moved Permanently 947ms]
-	23:50:53:614: Network: GET http://host/folder/ [HTTP/1.1 200 OK 400ms]
+```
+23:50:52:658: Network: POST http://host/folder [HTTP/1.1 301 Moved Permanently 947ms]
+23:50:53:614: Network: GET http://host/folder/ [HTTP/1.1 200 OK 400ms]
+```
 
 > When you use a 301 or 302 redirect, the browser will change the method on the redirect to be a GET request, even if the original method was a POST request.
 
@@ -115,7 +117,9 @@ See also:
 
 ### Define generated filename
 
-	Content-Disposition: "attachment; filename=generated_filename.ext"
+```http
+Content-Disposition: "attachment; filename=generated_filename.ext"
+```
 
 `filename*0=""`
 
@@ -189,36 +193,38 @@ For Ngnix:
 
 Example of Ngnix-as-proxy configuration:
 
-	http {
-		map $http_upgrade $connection_upgrade {
-			default upgrade;
-			'' close;
+```
+http {
+	map $http_upgrade $connection_upgrade {
+		default upgrade;
+		'' close;
+	}
+
+	upstream ws_server {
+		server localhost:9000;
+	}
+
+	server {
+		ssl on;
+		ssl_certificate /path/to/crt;
+		ssl_certificate_key /path/to/key;
+
+		root /data/www/public;
+
+		location / {
 		}
-		
-		upstream ws_server {
-			server localhost:9000;
-		}
-		
-		server {
-			ssl on;
-			ssl_certificate /path/to/crt;
-			ssl_certificate_key /path/to/key;
-			
-			root /data/www/public;
-				
-			location / {
-			}
-		
-			location /app {
-				proxy_pass http://ws_server;
-				proxy_http_version 1.1;
-				proxy_set_header Upgrade $http_upgrade;
-				proxy_set_header Connection $connection_upgrade;
-				proxy_set_header Host $host;
-				proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-			}
+
+		location /app {
+			proxy_pass http://ws_server;
+			proxy_http_version 1.1;
+			proxy_set_header Upgrade $http_upgrade;
+			proxy_set_header Connection $connection_upgrade;
+			proxy_set_header Host $host;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		}
 	}
+}
+```
 
 - [Using NGINX as a WebSocket Proxy](https://www.nginx.com/blog/websocket-nginx/)
 - [Websockets SSL/TLS Termination Using NGINX Proxy · Pankaj Malhotra](http://pankajmalhotra.com/Websockets-SSL-TLS-Termination-Using-NGINX-Proxy/)
@@ -227,12 +233,14 @@ For Apache:
 
 Example of Apache-as-proxy configuration (require `mod_proxy` and `mod_proxy_wstunnel` - require httpd 2.4.5)
 
-	# Reverse proxy to nodejs
-	<Location /ws-service>
-		Require all granted
-		ProxyPass ws://localhost:9000
-		ProxyPassReverse ws://localhost:9000
-	</Location>
+```apache
+# Reverse proxy to nodejs
+<Location /ws-service>
+	Require all granted
+	ProxyPass ws://localhost:9000
+	ProxyPassReverse ws://localhost:9000
+</Location>
+```
 
 - https://stackoverflow.com/questions/30443999/how-to-add-mod-proxy-wstunnel-to-apache2-2-2-on-raspberry-pi-backport-mod-proxy
 
@@ -275,16 +283,20 @@ Browsers often implent HTTP/2.0 only over TLS
 - Likely Next Pages: the page that a user is likely to load (e.g., the link they’re hovering over), make it look like it loads instantaneously
 - Redirects
  
-	<Location /index.html>
-		Header add Link "</css/site.css>;rel=preload;as=style"
-		Header add Link "</images/logo.jpg>;rel=preload;as=image"
-	</Location>
+ ```apache
+<Location /index.html>
+	Header add Link "</css/site.css>;rel=preload;as=style"
+	Header add Link "</images/logo.jpg>;rel=preload;as=image"
+</Location>
+```
 
 Inline `Link: </css/my.css>;rel=preload;as=style, </js/jquery.js>;rel=preload;as=script` works too
 
 Or define it via PHP:
 
-	header('Link: </css/my.css>;rel=preload;as=style', false);
+```php
+header('Link: </css/my.css>;rel=preload;as=style', false);
+```
 
 Note: I you don't want the server push the resource (preload only) with Link header, use `nopush` as: `Link: </css/image.webp>;rel=preload;as=image;type=image/webp;nopush` Use this if the header `Save-Data: on`
 It's usefull in case the resource format is not widely supported
@@ -300,47 +312,49 @@ It's usefull in case the resource format is not widely supported
 
 #### Cache-aware server push
 
-	// https://css-tricks.com/cache-aware-server-push/
-	function pushAssets() {
-		$pushes = array(
-			'/css/styles.css' => substr(md5_file('/var/www/css/styles.css'), 0, 8),
-			'/js/scripts.js' => substr(md5_file('/var/www/js/scripts.js'), 0, 8)
-		);
-	
-		if (!isset($_COOKIE['h2pushes'])) {
-			$pushString = buildPushString($pushes);
+```php
+// https://css-tricks.com/cache-aware-server-push/
+function pushAssets() {
+	$pushes = array(
+		'/css/styles.css' => substr(md5_file('/var/www/css/styles.css'), 0, 8),
+		'/js/scripts.js' => substr(md5_file('/var/www/js/scripts.js'), 0, 8)
+	);
+
+	if (!isset($_COOKIE['h2pushes'])) {
+		$pushString = buildPushString($pushes);
+		header($pushString);
+		setcookie('h2pushes', json_encode($pushes), 0, 2592000, '', '.myradwebsite.com', true);
+	} else {
+		$serializedPushes = json_encode($pushes);
+
+		if ($serializedPushes !== $_COOKIE['h2pushes']) {
+			$oldPushes = json_decode($_COOKIE['h2pushes'], true);
+			$diff = array_diff_assoc($pushes, $oldPushes);
+			$pushString = buildPushString($diff);
 			header($pushString);
 			setcookie('h2pushes', json_encode($pushes), 0, 2592000, '', '.myradwebsite.com', true);
-		} else {
-			$serializedPushes = json_encode($pushes);
-	
-			if ($serializedPushes !== $_COOKIE['h2pushes']) {
-				$oldPushes = json_decode($_COOKIE['h2pushes'], true);
-				$diff = array_diff_assoc($pushes, $oldPushes);
-				$pushString = buildPushString($diff);
-				header($pushString);
-				setcookie('h2pushes', json_encode($pushes), 0, 2592000, '', '.myradwebsite.com', true);
-			}
 		}
 	}
-	
-	function buildPushString($pushes) {
-		$pushString = 'Link: ';
-	
-		foreach($pushes as $asset => $version) {
-			// TODO add "as" parameter (style, script, etc.)
-			$pushString .= '<' . $asset . '>; rel=preload';
-	
-			if ($asset !== end($pushes)) {
-				$pushString .= ',';
-			}
+}
+
+function buildPushString($pushes) {
+	$pushString = 'Link: ';
+
+	foreach($pushes as $asset => $version) {
+		// TODO add "as" parameter (style, script, etc.)
+		$pushString .= '<' . $asset . '>; rel=preload';
+
+		if ($asset !== end($pushes)) {
+			$pushString .= ',';
 		}
-	
-		return $pushString;
 	}
-	
-	// Push those assets!
-	pushAssets();
+
+	return $pushString;
+}
+
+// Push those assets!
+pushAssets();
+```
 
 - [HTTP/2 push is tougher than I thought - JakeArchibald.com](https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/)
 - [Creating a Cache-aware HTTP/2 Server Push Mechanism | CSS-Tricks](https://css-tricks.com/cache-aware-server-push/)
@@ -350,13 +364,19 @@ It's usefull in case the resource format is not widely supported
 
 ### Force download
 
-	Content-Disposition: attachment;filename=file.ext
+```http
+Content-Disposition: attachment;filename=file.ext
+```
 
 You can use also:
 
-	Content-Type: application/octet-stream
+```http
+Content-Type: application/octet-stream
+```
 
-	X-Download-Options: noopen
+```http
+X-Download-Options: noopen
+```
 
 ### Referer
 
@@ -473,47 +493,51 @@ Or proxy's IP
 
 - [X-Forwarded-For — Wikipedia](https://en.wikipedia.org/wiki/X-Forwarded-For)
  
-	// Note: X-Forwarded-For contains a list of IP address, where the first one is the client's IP
-	if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
-		$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-	} else if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)) {
-		$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-	} else if (array_key_exists('HTTP_X_FORWARDED', $_SERVER)) {
-		$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-	} else if (array_key_exists('HTTP_FORWARDED_FOR', $_SERVER)) {
-		$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-	} else if (array_key_exists('HTTP_FORWARDED', $_SERVER)) {
-		$ipaddress = $_SERVER['HTTP_FORWARDED'];
-	} else if (array_key_exists('REMOTE_ADDR', $_SERVER)) {
-		$ipaddress = $_SERVER['REMOTE_ADDR'];
-	} else {
-		$ipaddress = null;// not known
-	}
+ ```php
+// Note: X-Forwarded-For contains a list of IP address, where the first one is the client's IP
+if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
+	$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+} else if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)) {
+	$ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else if (array_key_exists('HTTP_X_FORWARDED', $_SERVER)) {
+	$ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+} else if (array_key_exists('HTTP_FORWARDED_FOR', $_SERVER)) {
+	$ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+} else if (array_key_exists('HTTP_FORWARDED', $_SERVER)) {
+	$ipaddress = $_SERVER['HTTP_FORWARDED'];
+} else if (array_key_exists('REMOTE_ADDR', $_SERVER)) {
+	$ipaddress = $_SERVER['REMOTE_ADDR'];
+} else {
+	$ipaddress = null;// not known
+}
 
-	$_SERVER['HTTP_X_REAL_IP'];
+$_SERVER['HTTP_X_REAL_IP'];
 
-	$iptype = 'unknown';
-	if(!empty($iptype)){
-		if(preg_match("/^[0-9a-f]{1,4}:([0-9a-f]{0,4}:){1,6}[0-9a-f]{1,4}$/", $ip) != 0){
-			$iptype = 'IPv6';
-		}else if(preg_match("/^([0-9]{1,3}\.){3}[0-9]{1,3}$/", $ip) != 0){
-			$iptype = 'IPv4';
-		}
+$iptype = 'unknown';
+if(!empty($iptype)){
+	if(preg_match("/^[0-9a-f]{1,4}:([0-9a-f]{0,4}:){1,6}[0-9a-f]{1,4}$/", $ip) != 0){
+		$iptype = 'IPv6';
+	}else if(preg_match("/^([0-9]{1,3}\.){3}[0-9]{1,3}$/", $ip) != 0){
+		$iptype = 'IPv4';
 	}
+}
+```
 
 IPv4 to number & number to IPv4:
 
-	function ipv4ToNumberumber($ip) { 
-		list($a, $b, $c, $d) = explode('.', $ip); 
-		return (double) ($a*16777216)+($b*65536)+($c*256)+($d);
-	}
-	function numberToIPv4($number) { 
-		$a = ($number/16777216)%256; 
-		$b = ($number/65536)%256; 
-		$c = ($number/256)%256; 
-		$d = ($number)%256; 
-		return $a.'.'.$b.'.'.$c.'.'.$d;
-	} 
+```php
+function ipv4ToNumberumber($ip) { 
+	list($a, $b, $c, $d) = explode('.', $ip); 
+	return (double) ($a*16777216)+($b*65536)+($c*256)+($d);
+}
+function numberToIPv4($number) { 
+	$a = ($number/16777216)%256; 
+	$b = ($number/65536)%256; 
+	$c = ($number/256)%256; 
+	$d = ($number)%256; 
+	return $a.'.'.$b.'.'.$c.'.'.$d;
+}
+```
 
 - [apache - How to set REMOTE_ADDR to HTTP_X_REAL_IP? - Stack Overflow](https://stackoverflow.com/questions/27329499/how-to-set-remote-addr-to-http-x-real-ip/27340127#27340127)
 
@@ -543,13 +567,17 @@ Can transform content: remove comments (HTML, JS, CSS), recompress (reduce JPEG 
 
 To prevent proxys from modifying the website's content, serve the content with this HTTP header:
 
-	Cache-Control: no-transform
+```http
+Cache-Control: no-transform
+```
 
 Apache config (ex.: in `.htaccess`):
 
-	<IfModule headers_module>
-		Header set Cache-Control no-transform
-	</IfModule>
+```apache
+<IfModule headers_module>
+	Header set Cache-Control no-transform
+</IfModule>
+```
 
 Serve HTTPS can't always resolve issues.
 
@@ -582,96 +610,102 @@ Some browsers map internaly `localhost` without proxy. To skip that, add the FQD
 
 `proxy.conf`:
 
-	# Forward proxy server
-	<VirtualHost *:8080>
-		ProxyRequests On
-		ProxyVia On
-	
-		<Proxy *>
-			Order deny,allow
-			Deny from all
-			Allow from 127.0.0.1
-			Allow from 192.168
-		
-			RewriteEngine on
-			RewriteCond %{REQUEST_URI} !/pac.php
-			RewriteRule ^ /endpoint.php [L]
-		</Proxy>
-	</VirtualHost>
+```apache
+# Forward proxy server
+<VirtualHost *:8080>
+	ProxyRequests On
+	ProxyVia On
+
+	<Proxy *>
+		Order deny,allow
+		Deny from all
+		Allow from 127.0.0.1
+		Allow from 192.168
+
+		RewriteEngine on
+		RewriteCond %{REQUEST_URI} !/pac.php
+		RewriteRule ^ /endpoint.php [L]
+	</Proxy>
+</VirtualHost>
+```
 
 `endpoint.php`:
 
-	<?php
-	// Don't handle domain existance
-	$url = $_SERVER['REQUEST_URI'];
-	$url_parts = parse_url($url);
-	// Some security checks (no local file...)
-	if(false === $url_parts || empty($url_parts['scheme']) || !in_array($url_parts['scheme'], array('http', 'https'))){
-		die();
-	}
-	
-	$headers_raw = '';
-	foreach ($_SERVER as $name => $value)
+```php
+<?php
+// Don't handle domain existance
+$url = $_SERVER['REQUEST_URI'];
+$url_parts = parse_url($url);
+// Some security checks (no local file...)
+if(false === $url_parts || empty($url_parts['scheme']) || !in_array($url_parts['scheme'], array('http', 'https'))){
+	die();
+}
+
+$headers_raw = '';
+foreach ($_SERVER as $name => $value)
+{
+	if (substr($name, 0, 5) == 'HTTP_')
 	{
-		if (substr($name, 0, 5) == 'HTTP_')
-		{
-			$name = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))));
-			$headers_raw .= $name . ': ' . $value . "\r\n";
-		} else if ($name == "CONTENT_TYPE") {
-			$headers_raw .= 'Content-Type: ' . $value . "\r\n";
-		} else if ($name == "CONTENT_LENGTH") {
-			$headers_raw .= 'Content-Length: ' . $value . "\r\n";
-		}
+		$name = str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))));
+		$headers_raw .= $name . ': ' . $value . "\r\n";
+	} else if ($name == "CONTENT_TYPE") {
+		$headers_raw .= 'Content-Type: ' . $value . "\r\n";
+	} else if ($name == "CONTENT_LENGTH") {
+		$headers_raw .= 'Content-Length: ' . $value . "\r\n";
 	}
-	
-	// http://php.net/manual/en/context.http.php
-	$context = stream_context_create(array(
-		'http' => array(
-			'method' => $_SERVER['REQUEST_METHOD'],
-			'header' => $headers_raw,
-			'ignore_errors' => true,
-			'content' => file_get_contents('php://input')
-		)
-	));
-	$content = file_get_contents($url, false, $context);
-	
-	$content_type = 'application/octet-stream';// "text/html"
-	$content_type_raw = $content_type;// "text/html; charset=UTF-8"
-	foreach($http_response_header as $response_header){
-		if('Content-Type:' == substr($response_header, 0, 13)){
-			$content_type_raw = substr($response_header, 14);
-			$content_type = strstr($content_type_raw, ';', true);
-			header($response_header);
-		}
-		elseif('Content-Encoding:' == substr($response_header, 0, 17) && 'gzip' == substr($response_header, 18, 4))
-		{
-			//Now lets uncompress the compressed data
-			$content = gzinflate(substr($content, 10, -8));
-		}
-		elseif('Content-Length:' == substr($response_header, 0, 15))
-		{
-			//Skip it
-		}
-		else{
-			header($response_header);
-		}
+}
+
+// http://php.net/manual/en/context.http.php
+$context = stream_context_create(array(
+	'http' => array(
+		'method' => $_SERVER['REQUEST_METHOD'],
+		'header' => $headers_raw,
+		'ignore_errors' => true,
+		'content' => file_get_contents('php://input')
+	)
+));
+$content = file_get_contents($url, false, $context);
+
+$content_type = 'application/octet-stream';// "text/html"
+$content_type_raw = $content_type;// "text/html; charset=UTF-8"
+foreach($http_response_header as $response_header){
+	if('Content-Type:' == substr($response_header, 0, 13)){
+		$content_type_raw = substr($response_header, 14);
+		$content_type = strstr($content_type_raw, ';', true);
+		header($response_header);
 	}
-	
-	// Content transforms
-	//var_dump($url_parts);exit();
-	if('text/html' == $content_type){
-		echo str_replace('cat', 'dog', $content);
-	}else{
-		echo $content;
+	elseif('Content-Encoding:' == substr($response_header, 0, 17) && 'gzip' == substr($response_header, 18, 4))
+	{
+		//Now lets uncompress the compressed data
+		$content = gzinflate(substr($content, 10, -8));
 	}
+	elseif('Content-Length:' == substr($response_header, 0, 15))
+	{
+		//Skip it
+	}
+	else{
+		header($response_header);
+	}
+}
+
+// Content transforms
+//var_dump($url_parts);exit();
+if('text/html' == $content_type){
+	echo str_replace('cat', 'dog', $content);
+}else{
+	echo $content;
+}
+```
 
 `pac.php`:
 
-	<?php header('Content-Type: application/x-javascript-config') ?>
-	function FindProxyForURL(url, host)
-	{ 
-		 return "PROXY <?php echo $_SERVER['SERVER_ADDR'] ?>:<?php echo $_SERVER['SERVER_PORT'] ?>; DIRECT";
-	}
+```php
+<?php header('Content-Type: application/x-javascript-config') ?>
+function FindProxyForURL(url, host)
+{ 
+	 return "PROXY <?php echo $_SERVER['SERVER_ADDR'] ?>:<?php echo $_SERVER['SERVER_PORT'] ?>; DIRECT";
+}
+```
 
 - [Proxy auto-config - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Proxy_auto-config)
 - [PHP+Apache as forward/reverse proxy: ¿how to process client requests and server responses in PHP? - Server Fault](http://serverfault.com/questions/222823/phpapache-as-forward-reverse-proxy-how-to-process-client-requests-and-server)
@@ -1085,9 +1119,13 @@ More infos:
 
 On some browser, data URI are considered from different domain. See [javascript - Programmatically accessing an iframe that uses a data URI as a source - Stack Overflow](https://stackoverflow.com/questions/14149523/programmatically-accessing-an-iframe-that-uses-a-data-uri-as-a-source/14149618#14149618).
 
-	application/font-woff
+```
+application/font-woff
+```
 
-	data:application/pdf;name=document.pdf;base64,BASE64_DATA_ENCODED
+```
+data:application/pdf;name=document.pdf;base64,BASE64_DATA_ENCODED
+```
 
 - Firefox require hash to be encoded/escaped
 - IE require more chars to be encoded/escaped
@@ -1107,7 +1145,9 @@ See [Base64](Base64)
 
 Works with IE 9+ and others browsers
 
-	background: red url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48cmVjdCBmaWxsPSdncmVlbicgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnLz48L3N2Zz4=");
+```css
+background: red url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48cmVjdCBmaWxsPSdncmVlbicgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnLz48L3N2Zz4=");
+```
 
 - [Base64 Encoding & Performance, Part 1: What’s Up with Base64? – CSS Wizardry – CSS Architecture, Web Performance Optimisation, and more, by Harry Roberts](https://csswizardry.com/2017/02/base64-encoding-and-performance/)
 - [Base64 Encoding & Performance, Part 2: Gathering Data – CSS Wizardry – CSS Architecture, Web Performance Optimisation, and more, by Harry Roberts](https://csswizardry.com/2017/02/base64-encoding-and-performance-part-2/)
@@ -1160,30 +1200,32 @@ Multipart document
 
 IE?-8 only
 
-	/*
-	Content-Type: multipart/related; boundary="_ANY_STRING_WILL_DO_AS_A_SEPARATOR"
-	
-	--_ANY_STRING_WILL_DO_AS_A_SEPARATOR
-	Content-Location:locoloco
-	Content-Transfer-Encoding:base64
-	
-	iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAGElEQVQIW2P4DwcMDAxAfBvMAhEQMYgcACEHG8ELxtbPAAAAAElFTkSuQmCC
-	--_ANY_STRING_WILL_DO_AS_A_SEPARATOR
-	Content-Location:polloloco
-	Content-Transfer-Encoding:base64
-	
-	iVBORw0KGgoAAAANSUhEUgAAABkAAAAUBAMAAACKWYuOAAAAMFBMVEX///92dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnYvD4PNAAAAD3RSTlMAACTkfhvbh3iEewTtxBIFliR3AAAAUklEQVQY02NgIBMwijgKCgrAef5fkHnz/y9E4kn+/4XEE6z/34jEE///A4knev7zAwQv7L8RQk40/7MiggeUQpjJff+zIpINykbIbhFSROIRDQAWUhW2oXLWAQAAAABJRU5ErkJggg==
-	*/
-	
-	#test1 {
-		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAGElEQVQIW2P4DwcMDAxAfBvMAhEQMYgcACEHG8ELxtbPAAAAAElFTkSuQmCC"); /* normal */
-		*background-image: url(mhtml:http://phpied.com/files/mhtml/mhtml.css!locoloco); /* IE < 8 */
-	}
-	
-	#test2 {
-		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUBAMAAACKWYuOAAAAMFBMVEX///92dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnYvD4PNAAAAD3RSTlMAACTkfhvbh3iEewTtxBIFliR3AAAAUklEQVQY02NgIBMwijgKCgrAef5fkHnz/y9E4kn+/4XEE6z/34jEE///A4knev7zAwQv7L8RQk40/7MiggeUQpjJff+zIpINykbIbhFSROIRDQAWUhW2oXLWAQAAAABJRU5ErkJggg=="); /* normal */
-		*background-image: url(mhtml:http://phpied.com/files/mhtml/mhtml.css!polloloco); /* IE < 8 */
-	}
+```css
+/*
+Content-Type: multipart/related; boundary="_ANY_STRING_WILL_DO_AS_A_SEPARATOR"
+
+--_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+Content-Location:locoloco
+Content-Transfer-Encoding:base64
+
+iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAGElEQVQIW2P4DwcMDAxAfBvMAhEQMYgcACEHG8ELxtbPAAAAAElFTkSuQmCC
+--_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+Content-Location:polloloco
+Content-Transfer-Encoding:base64
+
+iVBORw0KGgoAAAANSUhEUgAAABkAAAAUBAMAAACKWYuOAAAAMFBMVEX///92dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnYvD4PNAAAAD3RSTlMAACTkfhvbh3iEewTtxBIFliR3AAAAUklEQVQY02NgIBMwijgKCgrAef5fkHnz/y9E4kn+/4XEE6z/34jEE///A4knev7zAwQv7L8RQk40/7MiggeUQpjJff+zIpINykbIbhFSROIRDQAWUhW2oXLWAQAAAABJRU5ErkJggg==
+*/
+
+#test1 {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAIAAAA7ljmRAAAAGElEQVQIW2P4DwcMDAxAfBvMAhEQMYgcACEHG8ELxtbPAAAAAElFTkSuQmCC"); /* normal */
+	*background-image: url(mhtml:http://phpied.com/files/mhtml/mhtml.css!locoloco); /* IE < 8 */
+}
+
+#test2 {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUBAMAAACKWYuOAAAAMFBMVEX///92dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnYvD4PNAAAAD3RSTlMAACTkfhvbh3iEewTtxBIFliR3AAAAUklEQVQY02NgIBMwijgKCgrAef5fkHnz/y9E4kn+/4XEE6z/34jEE///A4knev7zAwQv7L8RQk40/7MiggeUQpjJff+zIpINykbIbhFSROIRDQAWUhW2oXLWAQAAAABJRU5ErkJggg=="); /* normal */
+	*background-image: url(mhtml:http://phpied.com/files/mhtml/mhtml.css!polloloco); /* IE < 8 */
+}
+```
 
 - [MHTML — Wikipedia](https://en.wikipedia.org/wiki/MHTML)
 - [MHTML – when you need data: URIs in IE7 and under / Stoyan's phpied.com](http://www.phpied.com/mhtml-when-you-need-data-uris-in-ie7-and-under/)
@@ -1263,39 +1305,42 @@ Note: `utf-8` or `UTF-8`? (**Don't use `UTF8` nor `utf8`**). Prefer [`UTF-8`](ht
 
 Works only for images (used by MJPEG images):
 
-	Content-Type: multipart/x-mixed-replace;boundary=xxboundaryxx
-	
-	--xxboundaryxx
-	
-	Content-Type: image/jpeg
-	Content-Length: 1000
-	
-	JIFFdata..frame1.1000
-	
-	--xxboundaryxx
-	
-	Content-Type: image/jpeg
-	Content-Length: 1000
-	
-	JIFFdata..frame2.1000
-	
-	--xxboundaryxx
-	
+```http
+Content-Type: multipart/x-mixed-replace;boundary=xxboundaryxx
+
+--xxboundaryxx
+
+Content-Type: image/jpeg
+Content-Length: 1000
+
+JIFFdata..frame1.1000
+
+--xxboundaryxx
+
+Content-Type: image/jpeg
+Content-Length: 1000
+
+JIFFdata..frame2.1000
+
+--xxboundaryxx
+```
 
 It's used also for form upload with `multipart/form-data` used only by HTTP requests
 
 ### Multiple Choices
 
-	HTTP/1.1 300 Multiple Choices
-	Link: <http://example.org/books/1234>; rel="alternate"; type="application/hal+json", <http://example.org/books/1234>; rel="alternate"; type="application/hal+xml", <http://example.org/books/1234>; rel="alternate"; type="application/atom+xml;type=entry"
+```http
+HTTP/1.1 300 Multiple Choices
+Link: <http://example.org/books/1234>; rel="alternate"; type="application/hal+json", <http://example.org/books/1234>; rel="alternate"; type="application/hal+xml", <http://example.org/books/1234>; rel="alternate"; type="application/atom+xml;type=entry"
 
-	HTTP/1.1 300 Multiple Choices
-	Content-type: text/uri-list
-	
-	# metadata
-	URI1
-	# metadata
-	URI2
+HTTP/1.1 300 Multiple Choices
+Content-type: text/uri-list
+
+# metadata
+URI1
+# metadata
+URI2
+```
 
 - [RFC 2483 - URI Resolution Services Necessary for URN Resolution # The `text/uri-list` Internet Media Type](http://tools.ietf.org/html/rfc2483#section-5)
 
@@ -1305,9 +1350,13 @@ Note: It's used by emails
 
 Set `Content-Type` to:
 
-	message/external-body; access-type=URL; URL="http://www.foo.com/file"
+```http
+message/external-body; access-type=URL; URL="http://www.foo.com/file"
+```
 
-	message/external-body; access-type=local-file; name="file:/local/path/file.html"
+```http
+message/external-body; access-type=local-file; name="file:/local/path/file.html"
+```
 
 - [RFC 2017 - Definition of the URL MIME External-Body Access-Type](https://tools.ietf.org/html/rfc2017)
 
@@ -1537,12 +1586,16 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 - split commbined HTTP headers values: to use HPACK (HTTP/2.0)
 	Instead of:
 	
-		set-cookie: key1=value1; key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	```http
+	set-cookie: key1=value1; key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	```
 	
 	Use:
 	
-		set-cookie: key1=value1; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
-		set-cookie: key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	```http
+	set-cookie: key1=value1; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	set-cookie: key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
+	```
 	
 	- [mnot’s blog: Designing Headers for HTTP Compression](https://www.mnot.net/blog/2018/11/27/header_compression)
 	- [Headers](#headers)
@@ -1554,10 +1607,12 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	- transparent image: instead of PNG use WebP (or JPEG-XR) or combined formats. See [Alpha compression](Image#Alpha compression)
 	- animated image: use APNG or Animated WebP or looped video instead of GIF
 	
-			<video autoplay loop muted playsinline poster="original.jpg">
-				<source type="video/webm" src="original.webm">
-				<img src="original.gif">
-			</video>
+		```html
+		<video autoplay loop muted playsinline poster="original.jpg">
+			<source type="video/webm" src="original.webm">
+			<img src="original.gif">
+		</video>
+		```
 		
 		See [Animated image](Image#Animated image). See also [Image sequence](#image-sequence)
 	- Use a video with only 1 frame as image (ex: WebP), could done with H.264/H.265, see [Use video codec](Image#Use video codec)
@@ -1667,9 +1722,11 @@ Congestion window: initial cwnd size is 10; 14.6KB = 10 packets of 1460 Bytes.
 
 Use Keep-Alive connection (more useful for HTTP/1.X connection than HTTP/2):
 
-	<IfModule mod_headers.c> 
-		Header set Connection keep-alive 
-	</IfModule>
+```apache
+<IfModule mod_headers.c> 
+	Header set Connection keep-alive 
+</IfModule>
+```
 
 - [HTTP persistent connection — Wikipedia](https://en.wikipedia.org/wiki/HTTP_persistent_connection)
 
@@ -1747,81 +1804,85 @@ With nginx: http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#examp
 
 With Apache:
  
-	# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
-	# http://developer.yahoo.com/performance/rules.html#gzip
-	<IfModule mod_rewrite.c>
-		# If the browser accepts gzip and the requested file exists under
-		# pre-encoded version, then rewrite to that version.
-		# Requires both mod_rewrite and mod_headers to be enabled.
-		<IfModule mod_headers.c>
-			RewriteEngine on
-			
-			# *.br
-			# Serve gzip compressed CSS files if they exist and the client accepts brotli.
-			RewriteCond %{HTTP:Accept-Encoding} \bbr\b
-			RewriteCond %{REQUEST_FILENAME}.br -s
-			RewriteRule (.*) $1.br [QSA]
-			
-			# *.gz
-			# Serve gzip compressed CSS files if they exist and the client accepts gzip.
-			RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
-			RewriteCond %{REQUEST_FILENAME}.gz -s
-			RewriteRule (.*) $1.gz [QSA]
-			
-			# *.svg to *.svgz
-			RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
-			RewriteCond %{REQUEST_FILENAME} .svg$
-			RewriteCond %{REQUEST_FILENAME}z -s
-			RewriteRule (.*) $1z [QSA]
-			
-			<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.(gz|br)|svgz)$">
-				# Tell caching proxy servers to cache the file based on encoding
-				# Apache should add it automatically: http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
-				Header append Vary Accept-Encoding
-				# Do this to set proper ETags for server clusters
-				FileETag MTime Size
-			</FilesMatch>
-			
-			<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.gz|svgz)$">
-				# Prevent double compression
-				SetEnv no-gzip 1
-				# We serve a gzipped stream
-				Header set Content-Encoding br
-			</FilesMatch>
-			
-			<FilesMatch "\.(js|css|html|xml|svg|json|tar)\.br$">
-				# Prevent double compression
-				SetEnv no-brotli 1
-				# We serve a gzipped stream
-				Header set Content-Encoding gzip
-			</FilesMatch>
-			
-			# And set proper media type:
-			RewriteRule \.js\.(gz|br)$ - [T=application/javascript]
-			RewriteRule \.css\.(gz|br)$ - [T=text/css]
-			RewriteRule \.svg(z|\.gz|br)$ - [T=image/svg+xml]
-			RewriteRule \.html\.(gz|br)$ - [T=text/html]
-			RewriteRule \.xml\.(gz|br)$ - [T=text/xml]
-			RewriteRule \.json\.(gz|br)$ - [T=application/json]
-			# Allow for example JS to access tar data already ungzipped (done by the browser, instead using JS to decode)
-			#RewriteRule \.tar\.(gz|br)$ - [T=application/x-tar]
-			# For browsers compatibility we can't use the right media type but:
-			RewriteRule \.tar\.(gz|br)$ - [T=application/octet-stream]
-		</IfModule>
-	</IfModule>
+ ```apache
+# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
+# http://developer.yahoo.com/performance/rules.html#gzip
+<IfModule mod_rewrite.c>
+	# If the browser accepts gzip and the requested file exists under
+	# pre-encoded version, then rewrite to that version.
+	# Requires both mod_rewrite and mod_headers to be enabled.
+	<IfModule mod_headers.c>
+		RewriteEngine on
 
-	RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javascript]
+		# *.br
+		# Serve gzip compressed CSS files if they exist and the client accepts brotli.
+		RewriteCond %{HTTP:Accept-Encoding} \bbr\b
+		RewriteCond %{REQUEST_FILENAME}.br -s
+		RewriteRule (.*) $1.br [QSA]
+
+		# *.gz
+		# Serve gzip compressed CSS files if they exist and the client accepts gzip.
+		RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
+		RewriteCond %{REQUEST_FILENAME}.gz -s
+		RewriteRule (.*) $1.gz [QSA]
+
+		# *.svg to *.svgz
+		RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
+		RewriteCond %{REQUEST_FILENAME} .svg$
+		RewriteCond %{REQUEST_FILENAME}z -s
+		RewriteRule (.*) $1z [QSA]
+
+		<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.(gz|br)|svgz)$">
+			# Tell caching proxy servers to cache the file based on encoding
+			# Apache should add it automatically: http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
+			Header append Vary Accept-Encoding
+			# Do this to set proper ETags for server clusters
+			FileETag MTime Size
+		</FilesMatch>
+
+		<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.gz|svgz)$">
+			# Prevent double compression
+			SetEnv no-gzip 1
+			# We serve a gzipped stream
+			Header set Content-Encoding br
+		</FilesMatch>
+
+		<FilesMatch "\.(js|css|html|xml|svg|json|tar)\.br$">
+			# Prevent double compression
+			SetEnv no-brotli 1
+			# We serve a gzipped stream
+			Header set Content-Encoding gzip
+		</FilesMatch>
+
+		# And set proper media type:
+		RewriteRule \.js\.(gz|br)$ - [T=application/javascript]
+		RewriteRule \.css\.(gz|br)$ - [T=text/css]
+		RewriteRule \.svg(z|\.gz|br)$ - [T=image/svg+xml]
+		RewriteRule \.html\.(gz|br)$ - [T=text/html]
+		RewriteRule \.xml\.(gz|br)$ - [T=text/xml]
+		RewriteRule \.json\.(gz|br)$ - [T=application/json]
+		# Allow for example JS to access tar data already ungzipped (done by the browser, instead using JS to decode)
+		#RewriteRule \.tar\.(gz|br)$ - [T=application/x-tar]
+		# For browsers compatibility we can't use the right media type but:
+		RewriteRule \.tar\.(gz|br)$ - [T=application/octet-stream]
+	</IfModule>
+</IfModule>
+
+RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javascript]
+```
 
 An other way (**need to test**: content not double encoded, `.gz.html` output). It is use [content negotiation](http://httpd.apache.org/docs/2.4/en/content-negotiation.html):
 
-	# Activate Content Negotiation
-	Options +MultiViews
-	RemoveType .gz
-	AddEncoding gzip .gz
-	RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
-	RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
-	RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
-	# By using content negociation, Apache will add Content-Encoding to Vary header
+```apache
+# Activate Content Negotiation
+Options +MultiViews
+RemoveType .gz
+AddEncoding gzip .gz
+RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
+RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
+RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
+# By using content negociation, Apache will add Content-Encoding to Vary header
+```
 
 Or:
 
@@ -1888,71 +1949,77 @@ max-age or expires headers, `Header append Cache-Control "public"`, `Header appe
 
 `.htaccess`: 
 
-	# Requires mod_expires to be enabled.
-	<IfModule mod_expires.c>
-		# Enable expirations.
-		ExpiresActive On
-		
-		# Cache all files for 2 weeks after access (A).
-		ExpiresDefault A1209600
-		
-		<FilesMatch \.php$>
-		  # Do not allow PHP scripts to be cached unless they explicitly send cache
-		  # headers themselves. Otherwise all scripts would have to overwrite the
-		  # headers set by mod_expires if they want another caching behavior. This may
-		  # fail if an error occurs early in the bootstrap process.
-		  ExpiresActive Off
-		</FilesMatch>
-	</IfModule>
+```apache
+# Requires mod_expires to be enabled.
+<IfModule mod_expires.c>
+	# Enable expirations.
+	ExpiresActive On
+
+	# Cache all files for 2 weeks after access (A).
+	ExpiresDefault A1209600
+
+	<FilesMatch \.php$>
+	  # Do not allow PHP scripts to be cached unless they explicitly send cache
+	  # headers themselves. Otherwise all scripts would have to overwrite the
+	  # headers set by mod_expires if they want another caching behavior. This may
+	  # fail if an error occurs early in the bootstrap process.
+	  ExpiresActive Off
+	</FilesMatch>
+</IfModule>
+```
 
 PHP:
 
-	header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 12)));// 2 weeks
+```php
+header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 12)));// 2 weeks
+```
 
 Varnish script to Handle `Vary: User-Agent` to create classes to reduce variations.
 
-	# recv
-	if (req.http.host ~ "^example.com$") {
-		if (req.http.User-Agent ~ "MSIE\s[1-10]\." || req.http.User-Agent ~ "Edge\/[1-10]\." || req.http.User-Agent ~ "Trident\/.*rv:[1-10]\." || req.http.User-Agent ~ "Firefox\/[1-41]\." || req.http.User-Agent ~ "Safari\/[1-8]\." || req.http.User-Agent ~ "Version\/[1-8]\.")
-		{
-			# Set header for "old browser"
-			set req.http.X-UA-Device = "old";
-		}
-		elsif (req.http.User-Agent ~ "facebookexternalhit\/" || req.http.User-Agent ~ "Facebot" || req.http.User-Agent ~ "Pinterest\/")
-		{
-			# Set header for "bot"
-			set req.http.X-UA-Device = "bot";
-		}
-		else
-		{
-			# Set header for "recent browser"
-			set req.http.X-UA-Device = "new";
+```vcl
+# recv
+if (req.http.host ~ "^example.com$") {
+	if (req.http.User-Agent ~ "MSIE\s[1-10]\." || req.http.User-Agent ~ "Edge\/[1-10]\." || req.http.User-Agent ~ "Trident\/.*rv:[1-10]\." || req.http.User-Agent ~ "Firefox\/[1-41]\." || req.http.User-Agent ~ "Safari\/[1-8]\." || req.http.User-Agent ~ "Version\/[1-8]\.")
+	{
+		# Set header for "old browser"
+		set req.http.X-UA-Device = "old";
+	}
+	elsif (req.http.User-Agent ~ "facebookexternalhit\/" || req.http.User-Agent ~ "Facebot" || req.http.User-Agent ~ "Pinterest\/")
+	{
+		# Set header for "bot"
+		set req.http.X-UA-Device = "bot";
+	}
+	else
+	{
+		# Set header for "recent browser"
+		set req.http.X-UA-Device = "new";
+	}
+}
+
+# Fetch
+if (req.http.host ~ "^example.com$") {
+	set beresp.http.X-UA-Device = req.http.X-UA-Device;
+
+	# Vary by X-UA-Device, so varnish will keep distinct object copies by X-UA-Device value
+	if (beresp.http.Vary)
+	{
+		set beresp.http.Vary = beresp.http.Vary + ",X-UA-Device";
+	}
+	else
+	{
+		set beresp.http.Vary = "X-UA-Device";
+	}
+
+	# Remove User-Agent from Vary (provide by App)
+	if (beresp.http.Vary ~ "User-Agent") {
+		set beresp.http.Vary = regsub(beresp.http.Vary, ",? *User-Agent *", "");
+		set beresp.http.Vary = regsub(beresp.http.Vary, "^, *", "");
+		if (beresp.http.Vary == "") {
+			unset beresp.http.Vary;
 		}
 	}
-	
-	# Fetch
-	if (req.http.host ~ "^example.com$") {
-		set beresp.http.X-UA-Device = req.http.X-UA-Device;
-		
-		# Vary by X-UA-Device, so varnish will keep distinct object copies by X-UA-Device value
-		if (beresp.http.Vary)
-		{
-			set beresp.http.Vary = beresp.http.Vary + ",X-UA-Device";
-		}
-		else
-		{
-			set beresp.http.Vary = "X-UA-Device";
-		}
-		
-		# Remove User-Agent from Vary (provide by App)
-		if (beresp.http.Vary ~ "User-Agent") {
-			set beresp.http.Vary = regsub(beresp.http.Vary, ",? *User-Agent *", "");
-			set beresp.http.Vary = regsub(beresp.http.Vary, "^, *", "");
-			if (beresp.http.Vary == "") {
-				unset beresp.http.Vary;
-			}
-		}
-	}
+}
+```
 
 - [Device detection — Varnish version trunk documentation](https://www.varnish-cache.org/docs/trunk/users-guide/devicedetection.html)
 - [Achieving a high hitrate — Varnish version trunk documentation](https://www.varnish-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#http-vary)
@@ -1968,18 +2035,24 @@ Varnish script to Handle `Vary: User-Agent` to create classes to reduce variatio
 
 Prevent back button to show cache page (ex.: after logout)
 
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache, no-store, must-revalidate
-	Expires: 0
+```http
+HTTP/1.1 200 OK
+Cache-Control: no-cache, no-store, must-revalidate
+Expires: 0
+```
 
-	HTTP/1.0 200 OK
-	Pragma: no-cache
-	Cache-Control: max-age=0
+```http
+HTTP/1.0 200 OK
+Pragma: no-cache
+Cache-Control: max-age=0
+```
 
 Note: `Cache-Control: no-cache` is for HTTP/1.1 where `Pragma: no-cache` is for HTTP/1.0. See [http - Difference between Pragma and Cache-control headers? - Stack Overflow](https://stackoverflow.com/questions/10314174/difference-between-pragma-and-cache-control-headers/15050018#15050018)
 
-	header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
-	//header('ETag: "' . sha1(time()) . '"');
+```php
+header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
+//header('ETag: "' . sha1(time()) . '"');
+```
 
 - [http - Making sure a web page is not cached, across all browsers - Stack Overflow](https://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers)
 
@@ -2049,8 +2122,10 @@ See also dns-prefetch, preconnect, prerender
 
 See [Server Push](#server-push)
 
-	<link rel="preload" as="style" href="style.css">
-	<link rel="prefetch" href="style.css">
+```html
+<link rel="preload" as="style" href="style.css">
+<link rel="prefetch" href="style.css">
+```
 
 Preload: load this resource (high priority to low priority based on the value of `as` attribute)
 Prefetch: load this resource after all other resources (very low priority), will prefetched the resource when the browser is idle for future navigation
@@ -2061,21 +2136,29 @@ Preload will be started immediately and prefetch will be started only after the 
 
 Don't use both preload and prefetch in same time: `<link rel="preload prefetch" as="style" href="style.css">` because they don't have the same purpose. This create potentially 2 requests.
 
-	Link: </styles/style.css>; rel=preload; as=style
+```http
+Link: </styles/style.css>; rel=preload; as=style
+```
 
-	<link rel="preload" as="style" href="style.css">
+```html
+<link rel="preload" as="style" href="style.css">
+```
 
-	<meta http-equiv="Link" content="</styles/style.css>; rel=preload; as=style">
+```html
+<meta http-equiv="Link" content="</styles/style.css>; rel=preload; as=style">
+```
 
 Using JavaScript, but prefer the link / header version:
 
-	<script>
-	var res = document.createElement("link");
-	res.rel = "preload";
-	res.as = "style";
-	res.href = "styles/other.css";
-	document.head.appendChild(res);
-	</script>
+```html
+<script>
+var res = document.createElement("link");
+res.rel = "preload";
+res.as = "style";
+res.href = "styles/other.css";
+document.head.appendChild(res);
+</script>
+```
 
 Use [`<link rel="preload" href="styles.css" as="style">`](https://www.w3.org/TR/preload/), work for `fetch`, `audio`, `font`, `image`, `script`, `style`, `track`, `video` and `image`. See [Fetch Standard](https://fetch.spec.whatwg.org/#concept-request-destination)
 
@@ -2089,21 +2172,23 @@ Note about mandatory `as` attribute and valid value:
 
 Reactive prefetch: [Google mobile search is getting faster - to be exact, 100-150 milliseconds fa...](https://plus.google.com/+IlyaGrigorik/posts/ahSpGgohSDo)
 
-	// <a href="https://example.com/">Example</a>
-	// Will start to load the following resource even if the browser didn't start loading the main resource
-	// It's like Link preload header but before the browser start the connection to the host
-	myExampleLink.addEventListener("click", event => {
-		for(const src of [
-			"https://example.com/style.css",
-			"https://example.com/script.js",
-			"https://example.com/image.jpg",
-		]){
-			const hint = document.createElement("link");
-			hint.rel = "prefetch";
-			hint.href = url;
-			document.head.appendChild(hint);
-		}
-	});
+```js
+// <a href="https://example.com/">Example</a>
+// Will start to load the following resource even if the browser didn't start loading the main resource
+// It's like Link preload header but before the browser start the connection to the host
+myExampleLink.addEventListener("click", event => {
+	for(const src of [
+		"https://example.com/style.css",
+		"https://example.com/script.js",
+		"https://example.com/image.jpg",
+	]){
+		const hint = document.createElement("link");
+		hint.rel = "prefetch";
+		hint.href = url;
+		document.head.appendChild(hint);
+	}
+});
+```
 
 - [Preload - Use cases](https://w3c.github.io/preload/#use-cases)
 - [Preload](https://www.w3.org/TR/preload/#h-attributes)
@@ -2155,12 +2240,14 @@ Use `<noscript>` tags, or handle it with Service Worker (replace all `<img>` by 
 
 Live streaming, or start play video when the file is not completely generated:
 
-	<video>
-		<source src="video.m3u8" type="application/x-mpegURL"><!-- HTTP Live Streaming, required by Safari in that case: if the media size is not known -→
-		<source src="video.mpd" type="application/dash+xml"><!-- MPEG-DASH -→
-		<source src="video.mp4" type="video/mp4"><!-- Use chunk encoding -→
-		<!-- Or use JS to use MSE API for streaming protocols like DASH -→
-	</video>
+```html
+<video>
+	<source src="video.m3u8" type="application/x-mpegURL"><!-- HTTP Live Streaming, required by Safari in that case: if the media size is not known -→
+	<source src="video.mpd" type="application/dash+xml"><!-- MPEG-DASH -→
+	<source src="video.mp4" type="video/mp4"><!-- Use chunk encoding -→
+	<!-- Or use JS to use MSE API for streaming protocols like DASH -→
+</video>
+```
 
 - [MPEG-DASH](MPEG-DASH)
 - [Live streaming web audio and video - App Center | MDN](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Live_streaming_web_audio_and_video)
@@ -2175,68 +2262,70 @@ Live streaming, or start play video when the file is not completely generated:
 	
 TODO: support all replaced elements: video, audio and iframe. Use a weakmap or additional property to store the replacement fragment (parse noscript HTML only one time)
  
-	<style>
-	.img,
-	.img-placeholder{
-		display: block;
-		/* height style of 69.44% is the equivalent for 16/9 of the width. See CSS#Vertical%20percentages */
-		padding-top: 69.44%;
-		background: grey;
-		position: relative;
-	}
-	/* image fallback text (alt attribute) */
-	.img::before{
-		display: flex;
-		position: absolute;
-		top: 0;
-		left: 25%;
-		height: 100%;
-		width: 50%;
-		align-items: center;
-		justify-content: center;
-	}
-	</style>
-	<!--
-	Don't display placeholders if script is disabled
-	Can be a declared in linked (external) stylesheet but it's not recommended
-	-->
-	<style id="noscript-style">.img-placeholder{display: none;}</style>
-	
-	<script>
-	document.getElementById("noscript-style").remove();
-	document.addEventListener("DOMContentLoaded", event => {
-		// documents without browsing context don't load resources (images will not be loaded)
-		const doc = document.implementation.createHTMLDocument("");
-		// Note: longdesc couldn't be direclty replaced by aria-describedby or aria-details
-		const filterOutAttrs = "alt class crossorigin ismap longdesc referrerpolicy sizes src srcset usemap".split(" ");
-		// Upgrade placeholder with all required attributes (role=img and aria-label) and remove noscript tags
-		document.querySelectorAll(".img-placeholder").forEach(placeholder => {
-			const noscript = placeholder.firstElementChild;
-			doc.body.innerHTML = noscript.textContent;
-			const img = doc.querySelector("img");
-			// Copy all attributes from noscript tag to the placeholder
-			Array.from(img.attributes).filter(attr => !filterOutAttrs.includes(attr.name)).forEach(attr => placeholder.setAttribute(attr.name, attr.value));
-			// We don't need XML namespace here (HTML5 don't support it). Else use placeholder.setAttributeNS(attr.namespace, attr.localName, attr.value)
-			placeholder.setAttribute("role", "img");
-			placeholder.setAttribute("aria-label", img.alt);
-			placeholder.dataset.srcdoc = noscript.textContent;// store raw HTML for later use
-			// Remove the noscript tag
-			noscript.remove()
-		})
-	});
-	</script>
-	
-	<span class="img-placeholder" style="background: grey;"></span>
-	<noscript><img class="img" src="cat.jpg" alt="A photography of a cat"></noscript>
-	
-	<figure>
-		<span class="img-placeholder" style="background: brown;"></span>
-		<noscript><img class="img" srcset="dog_2x.jpg 2x" src="dog.jpg" alt="A photography of a dog"></noscript>
-		<figcaption>Fig1. A dog</figcaption>
-	</figure>
+ ```html
+<style>
+.img,
+.img-placeholder{
+	display: block;
+	/* height style of 69.44% is the equivalent for 16/9 of the width. See CSS#Vertical%20percentages */
+	padding-top: 69.44%;
+	background: grey;
+	position: relative;
+}
+/* image fallback text (alt attribute) */
+.img::before{
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 25%;
+	height: 100%;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+}
+</style>
+<!--
+Don't display placeholders if script is disabled
+Can be a declared in linked (external) stylesheet but it's not recommended
+-->
+<style id="noscript-style">.img-placeholder{display: none;}</style>
 
-	<span class="media-placeholder" style="background: red;"></span>
-	<noscript><video class="media" src="fish.mp4">A video of a fish</video></noscript>
+<script>
+document.getElementById("noscript-style").remove();
+document.addEventListener("DOMContentLoaded", event => {
+	// documents without browsing context don't load resources (images will not be loaded)
+	const doc = document.implementation.createHTMLDocument("");
+	// Note: longdesc couldn't be direclty replaced by aria-describedby or aria-details
+	const filterOutAttrs = "alt class crossorigin ismap longdesc referrerpolicy sizes src srcset usemap".split(" ");
+	// Upgrade placeholder with all required attributes (role=img and aria-label) and remove noscript tags
+	document.querySelectorAll(".img-placeholder").forEach(placeholder => {
+		const noscript = placeholder.firstElementChild;
+		doc.body.innerHTML = noscript.textContent;
+		const img = doc.querySelector("img");
+		// Copy all attributes from noscript tag to the placeholder
+		Array.from(img.attributes).filter(attr => !filterOutAttrs.includes(attr.name)).forEach(attr => placeholder.setAttribute(attr.name, attr.value));
+		// We don't need XML namespace here (HTML5 don't support it). Else use placeholder.setAttributeNS(attr.namespace, attr.localName, attr.value)
+		placeholder.setAttribute("role", "img");
+		placeholder.setAttribute("aria-label", img.alt);
+		placeholder.dataset.srcdoc = noscript.textContent;// store raw HTML for later use
+		// Remove the noscript tag
+		noscript.remove()
+	})
+});
+</script>
+
+<span class="img-placeholder" style="background: grey;"></span>
+<noscript><img class="img" src="cat.jpg" alt="A photography of a cat"></noscript>
+
+<figure>
+	<span class="img-placeholder" style="background: brown;"></span>
+	<noscript><img class="img" srcset="dog_2x.jpg 2x" src="dog.jpg" alt="A photography of a dog"></noscript>
+	<figcaption>Fig1. A dog</figcaption>
+</figure>
+
+<span class="media-placeholder" style="background: red;"></span>
+<noscript><video class="media" src="fish.mp4">A video of a fish</video></noscript>
+```
 
 After a user action or intersection observation (scroll → visible in the viewport), replace the placeholder by the final HTML:
 
@@ -2246,21 +2335,25 @@ After a user action or intersection observation (scroll → visible in the viewp
 4. Use MutationObserver to handle DOM modifications (to observe later attached placeholders or disconnect detached placeholders). See [DOM mutation](../Development/JavaScript/Javascript.md#dom-mutation)
 5. Use matchMedia API to match print media (to load all images)
 
-		const mediaQuery = window.matchMedia("print");
-		function mediaQueryChange(){
-			if(!mediaQuery.matches){
-				return;
-			}
-			mediaQuery.removeListener("change", mediaQueryChange);
-			/*replace placeholder*/
+	```js
+	const mediaQuery = window.matchMedia("print");
+	function mediaQueryChange(){
+		if(!mediaQuery.matches){
+			return;
 		}
-		mediaQueryChange();
-		mediaQuery.addListener("change", mediaQueryChange);
+		mediaQuery.removeListener("change", mediaQueryChange);
+		/*replace placeholder*/
+	}
+	mediaQueryChange();
+	mediaQuery.addListener("change", mediaQueryChange);
+	```
 6. Replace placeholders: `placeholder.replaceWith(document.createRange().createContextualFragment(placeholder.dataset.srcdoc));`
 
-		const range = document.createRange();
-		range.selectNode(placeholder.parentNode);
-		placeholder.replaceWith(range.createContextualFragment(placeholder.dataset.srcdoc));// Note: createContextualFragment() is supported by IE11+
+	```js
+	const range = document.createRange();
+	range.selectNode(placeholder.parentNode);
+	placeholder.replaceWith(range.createContextualFragment(placeholder.dataset.srcdoc));// Note: createContextualFragment() is supported by IE11+
+	```
 
 If the IntersectionObserver API is not supported:
 
@@ -2315,8 +2408,10 @@ For images (works better with progressive images), in Edge Workers (Service Work
 
 An other solution:
 
-	<link rel="stylesheet" href="styles/fonts.css" media="print" onload="media!='all'&&media='all'">
-	<noscript><link rel="stylesheet" href="styles/fonts.css"></noscript>
+```html
+<link rel="stylesheet" href="styles/fonts.css" media="print" onload="media!='all'&&media='all'">
+<noscript><link rel="stylesheet" href="styles/fonts.css"></noscript>
+```
 
 But this still blocking DOM parser on few browsers (IE11, Firefox 36). See https://github.com/scottjehl/css-inapplicable-load#the-bad
 Can be use to load fonts (inlined in CSS). Or use preload font
@@ -2326,7 +2421,6 @@ Note: `media!='all'&&...` is required as a workaround for infinite event loop on
 - [Loading CSS without blocking render by Keith Clark](http://keithclark.co.uk/articles/loading-css-without-blocking-render/)
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
 - [Fonts and FOXX](CSS#fonts-and-foxx)
-
 
 See [`<noscript>` and search engines](#noscript-and-search-engines)
 
@@ -2523,139 +2617,143 @@ JavaScript (client side) can be used to enhance experience (loading, UI elements
 
 Anatomy/wireframe of a webpage:
 
-	<!--
-	HTTP header `Link` dns-prefetch, preconnect and preload for critical style, script and content
-	Critical styles and scripts should be in the [Initial TCP window](#initial-tcp-window)
-	Inlined scripts below, can be files if pushed with HTTP/2 server push before the HTML document
-	-->
-	<!DOCTYPE html>
-	<html lang="en">
-		<head>
-			<!--
-			Page format
-			Before any other resource and content
-			-->
-			<meta charset="utf-8"><!-- First, must be within the first 1024 bytes. Required or use a BOM or charset parameter in Content-Type header -->
-			<meta http-equiv="..." content="...">
-			<base ...><!-- if base is used, not adviced -->
-			
-			<!--
-			Meta viewport and title
-			On top
-			-->
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>...</title><!-- Limited to 80 chars max -->
-			
-			<!--
-			Prerequises scripts
-			Device detection (mediaqueries, etc.) or page location redirection that not require to display anything
-			-->
-			<script>/*inlined script*/</script>
-			
-			<!--
-			Critical styles
-			Style for critical content: above floating line (main nav, header, hero image, article) or show a loader, while the rest is loading.
-			Shouldn't be used to display aside content: comments, commercial components/ads, popular content, related content, sharing widgets, etc.
-			See [Critical rendering path](#critical-rendering-path)
-			-->
-			<style>/*inlined style*/</style>
-			<link rel="stylesheet" href="..."><!-- Only if pushed with HTTP/2 server push -->
-			<style>.icon{width:1em;height:1em}</style><!-- Use to prevent inlined SVG icons be unscaled -->
-			
-			<!--
-			Critical script
-			Script for critical content: display a loader, handle critical content interaction/layout while the non critical content is loading.
-			See [Critical rendering path](#critical-rendering-path)
-			-->
-			<script>/*inlined script*/</script>
-			<script src="..."></script><!-- Only if pushed with HTTP/2.0 server push before the HTML document -->
-			
-			<!--
-			Resources hint (dns-prefetch, preconnect and preload)
-			Can be set as Link header
-			-->
-			<link rel="preconnect dns-prefetch" href="..."><!-- more than one relationship can be used, here dns-prefetch is used as a fallback. Note: this can create multiple network call -->
-			<!-- Preload only if the resources must be start loading before the critical content, like the hero image. See "For non critical content" section -->
+```html
+<!--
+HTTP header `Link` dns-prefetch, preconnect and preload for critical style, script and content
+Critical styles and scripts should be in the [Initial TCP window](#initial-tcp-window)
+Inlined scripts below, can be files if pushed with HTTP/2 server push before the HTML document
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--
+		Page format
+		Before any other resource and content
+		-->
+		<meta charset="utf-8"><!-- First, must be within the first 1024 bytes. Required or use a BOM or charset parameter in Content-Type header -->
+		<meta http-equiv="..." content="...">
+		<base ...><!-- if base is used, not adviced -->
+
+		<!--
+		Meta viewport and title
+		On top
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>...</title><!-- Limited to 80 chars max -->
+
+		<!--
+		Prerequises scripts
+		Device detection (mediaqueries, etc.) or page location redirection that not require to display anything
+		-->
+		<script>/*inlined script*/</script>
+
+		<!--
+		Critical styles
+		Style for critical content: above floating line (main nav, header, hero image, article) or show a loader, while the rest is loading.
+		Shouldn't be used to display aside content: comments, commercial components/ads, popular content, related content, sharing widgets, etc.
+		See [Critical rendering path](#critical-rendering-path)
+		-->
+		<style>/*inlined style*/</style>
+		<link rel="stylesheet" href="..."><!-- Only if pushed with HTTP/2 server push -->
+		<style>.icon{width:1em;height:1em}</style><!-- Use to prevent inlined SVG icons be unscaled -->
+
+		<!--
+		Critical script
+		Script for critical content: display a loader, handle critical content interaction/layout while the non critical content is loading.
+		See [Critical rendering path](#critical-rendering-path)
+		-->
+		<script>/*inlined script*/</script>
+		<script src="..."></script><!-- Only if pushed with HTTP/2.0 server push before the HTML document -->
+
+		<!--
+		Resources hint (dns-prefetch, preconnect and preload)
+		Can be set as Link header
+		-->
+		<link rel="preconnect dns-prefetch" href="..."><!-- more than one relationship can be used, here dns-prefetch is used as a fallback. Note: this can create multiple network call -->
+		<!-- Preload only if the resources must be start loading before the critical content, like the hero image. See "For non critical content" section -->
+		<link rel="preload" href="..." as="style"><!-- for images, fonts, etc. Attributes type="" and media="" can also be used -->
+		<!-- Examples: -->
+		<link rel="preload" href="font.woff" as="font" type="font/woff" media="min-width: 768px" crossorigin>
+		<link rel="preload" href="font.woff2" as="font" type="font/woff2" media="min-width: 768px" crossorigin>
+
+		<!--
+		For non critical content
+		Non blocking resource (styles and scripts)
+		See also [Non-blocking stylesheet](#non-blocking-stylesheet) and [Blocking resources](#blocking-resources)
+		-->
+		<noscript>
+			<link rel="stylesheet" href="styles.css">
+			<!-- script that inject other SVGs icons (symbols) -->
+			<script src="..."></script><!-- other scripts -->
 			<link rel="preload" href="..." as="style"><!-- for images, fonts, etc. Attributes type="" and media="" can also be used -->
-			<!-- Examples: -->
-			<link rel="preload" href="font.woff" as="font" type="font/woff" media="min-width: 768px" crossorigin>
-			<link rel="preload" href="font.woff2" as="font" type="font/woff2" media="min-width: 768px" crossorigin>
-			
-			<!--
-			For non critical content
-			Non blocking resource (styles and scripts)
-			See also [Non-blocking stylesheet](#non-blocking-stylesheet) and [Blocking resources](#blocking-resources)
-			-->
-			<noscript>
-				<link rel="stylesheet" href="styles.css">
-				<!-- script that inject other SVGs icons (symbols) -->
-				<script src="..."></script><!-- other scripts -->
-				<link rel="preload" href="..." as="style"><!-- for images, fonts, etc. Attributes type="" and media="" can also be used -->
-			</noscript>
-			<script>/*script that listen DOMContentLoaded then inject the content of the noscript (resource are inserted as non blocking)*/</script>
-			
-			<!--
-			Metadata, manifest, document relationship, future navigation hint (prefetch, next, prerender), etc.
-			Others things that should be in the header
-			See https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
-			See https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
-			-->
-			<meta name="..." content="...">
-			<meta property="..." content="...">
-			<link rel="alternate" type="application/rss+xml" title="..." href="..."><!-- RSS -->
-			<link rel="alternate" type="application/json" title="..." href="...">
-			<link rel="canonical" href="...">
-			<script type="application/json">...</script><!-- store data for machines, will be fetched by JavaScript after defer or DOMContentLoaded events -->
-			<script type="application/ld+json">...</script>
-			<link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg"><!-- Favicon, prefer SVG and fallback to PNG. See https://realfavicongenerator.net/faq -->
-		</head>
-		<body>
-			<!--
-			Critical content
-			-->
-			<img src="..." alt="">
-			<svg><symbol>...</symbol></svg><!-- inlined SVGs icons (symbols) required by critical content. Note: HTML5 spec doesn't allow `svg` element to be in `head` -->
-			
-			<!--
-			Non critical content
-			See [Image lazyload](#image-lazyload)
-			-->
-			<link rel="stylesheet" href="..."><!-- only if use HTTP/2.0 (allowed in body) https://html.spec.whatwg.org/multipage/links.html#body-ok https://jakearchibald.com/2016/link-in-body/#a-simpler-better-way -->
-			<style id="noscript-style">.media-placeholder{display: none;}</style><!-- can be placed anywhere before in the body or the header. ("[can be used] in the body, where flow content is expected.") https://www.w3.org/TR/html52/document-metadata.html#the-style-element
-			<script>/*progressive enhancement of media placeholder script*/</script><!-- can be in the footer -->
-			<span class="media-placeholder" style="background: grey;"></span><noscript><img class="media" src="cat.jpg" alt="A photography of a cat"></noscript>
-			<span class="media-placeholder" style="background: black;"></span><noscript><video class="media" src="dog.mp4">A video of a dog play with a ball</video></noscript>
-			<p>...</p>
-			
-			<!--
-			Non critical scripts and styles
-			For tracking, ads, etc..
-			See [Blocking resources](#blocking-resources)
-			Could be in the section "For non critical content" inside noscript in the header
-			-->
-			<script src="" defer></script>
-			<!-- No inlined scripts here or only if not big and support async API, something like: `window.cmd=window.cmd||[];cmd.push(() => console.log("do something"))` -->
-		</body>
-	</html>
+		</noscript>
+		<script>/*script that listen DOMContentLoaded then inject the content of the noscript (resource are inserted as non blocking)*/</script>
+
+		<!--
+		Metadata, manifest, document relationship, future navigation hint (prefetch, next, prerender), etc.
+		Others things that should be in the header
+		See https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+		See https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+		-->
+		<meta name="..." content="...">
+		<meta property="..." content="...">
+		<link rel="alternate" type="application/rss+xml" title="..." href="..."><!-- RSS -->
+		<link rel="alternate" type="application/json" title="..." href="...">
+		<link rel="canonical" href="...">
+		<script type="application/json">...</script><!-- store data for machines, will be fetched by JavaScript after defer or DOMContentLoaded events -->
+		<script type="application/ld+json">...</script>
+		<link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg"><!-- Favicon, prefer SVG and fallback to PNG. See https://realfavicongenerator.net/faq -->
+	</head>
+	<body>
+		<!--
+		Critical content
+		-->
+		<img src="..." alt="">
+		<svg><symbol>...</symbol></svg><!-- inlined SVGs icons (symbols) required by critical content. Note: HTML5 spec doesn't allow `svg` element to be in `head` -->
+
+		<!--
+		Non critical content
+		See [Image lazyload](#image-lazyload)
+		-->
+		<link rel="stylesheet" href="..."><!-- only if use HTTP/2.0 (allowed in body) https://html.spec.whatwg.org/multipage/links.html#body-ok https://jakearchibald.com/2016/link-in-body/#a-simpler-better-way -->
+		<style id="noscript-style">.media-placeholder{display: none;}</style><!-- can be placed anywhere before in the body or the header. ("[can be used] in the body, where flow content is expected.") https://www.w3.org/TR/html52/document-metadata.html#the-style-element
+		<script>/*progressive enhancement of media placeholder script*/</script><!-- can be in the footer -->
+		<span class="media-placeholder" style="background: grey;"></span><noscript><img class="media" src="cat.jpg" alt="A photography of a cat"></noscript>
+		<span class="media-placeholder" style="background: black;"></span><noscript><video class="media" src="dog.mp4">A video of a dog play with a ball</video></noscript>
+		<p>...</p>
+
+		<!--
+		Non critical scripts and styles
+		For tracking, ads, etc..
+		See [Blocking resources](#blocking-resources)
+		Could be in the section "For non critical content" inside noscript in the header
+		-->
+		<script src="" defer></script>
+		<!-- No inlined scripts here or only if not big and support async API, something like: `window.cmd=window.cmd||[];cmd.push(() => console.log("do something"))` -->
+	</body>
+</html>
+```
 
 See also [Critical rendering path](#critical-rendering-path) and [Blocking resources](#blocking-resources)
 
 Use HTTP2:
 
-	<?php
-	// Is HTTP/2.X
-	if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
-		header('Link: </styles/critical.css>; rel=preload; as=style');
-		echo '<link href="/styles/critical.css" rel="stylesheet">';
-		// script 1, script 2, script 3...
-	}else{
-		echo '<style>';
-		include('styles/critical.css');
-		echo '</style>';
-		// script bundle
-	}
-	// then the method used to load async /styles/content.css
-	?>
+```php
+<?php
+// Is HTTP/2.X
+if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
+	header('Link: </styles/critical.css>; rel=preload; as=style');
+	echo '<link href="/styles/critical.css" rel="stylesheet">';
+	// script 1, script 2, script 3...
+}else{
+	echo '<style>';
+	include('styles/critical.css');
+	echo '</style>';
+	// script bundle
+}
+// then the method used to load async /styles/content.css
+?>
+```
 
 - [Understanding Critical CSS – Smashing Magazine](https://www.smashingmagazine.com/2015/08/understanding-critical-css/)
 - https://github.com/bocoup/critical-css-boilerplate
@@ -2708,8 +2806,10 @@ At the bottom: Use the script as blocking script. Should be executed after all p
 
 ###### Non-blocking stylesheet
 
-	<link rel="preload" href="styles.css" as="style" onload="rel='stylesheet';onload=0">
-	<noscript><link rel="stylesheet" href="styles.css"></noscript>
+```html
+<link rel="preload" href="styles.css" as="style" onload="rel='stylesheet';onload=0">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
+```
 
 ### Reduce media memory usage
 
@@ -2835,51 +2935,53 @@ See also [Third parties](#third-parties)
 - [serbanghita/Mobile-Detect: Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets). It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.](https://github.com/serbanghita/Mobile-Detect) - Can also detect crawler / bots
 - [Adapting for the Times // Speaker Deck](https://speakerdeck.com/steveworkman/adapting-for-the-times?slide=22)
  
-	# From https://speakerd.s3.amazonaws.com/presentations/0c3a0cee177346fcb5acbe81a440377d/slide_21.jpg?1476842385
-	<IfModule mod_rewrite.c>
-		RewriteEngine on
-		
-		# See https://github.com/serbanghita/Mobile-Detect
-		
-		# Check for mobile
-		# Android is only being used below 2.3 and "Mobile" above to ignore android tablets
-		RewriteCond %{HTTP_USER_AGENT} "iPhone|Android|BlackBerry|Windows CE|IEMobile|Alcatel-OT|Opera Mobi|Opera Mini|DoCoMo.*N905i|DoCoMo.*P900i|Obigo|Wapsilon|WinCE|YourWap|Motorola|Samsung-|SAMSUNG-|portalmm|Telit_Mobile_Terminals|MobilePhone|SIE-|SCH-|GoodAccess|NEC-|Mitsu|Ericsson|AUDIOVOX-|LGE-|Sanyo-|Nokia|Alcatel-B|KDDI-|WAPman|WapTunner|WinWAP|ACS-NF\/3.0 NEC-|Vodafone|ZTE-|LG-|Sendo|SHARP-|TSM-|SAGEM-|MOT-|WIG Browser|Amoi|Symbian|J2ME|HTC|SPV|MOTO|Moto|SEC-SGH|Xda|XDA|iPAQ|MDA-vario|MDA Vario|MDA Touch|MDA_Vario|MDA_compact|MDA compact|MDA_Touch|MDA_vario|Novarra|webOS"
-		RewriteRule .* - [E=device:simplephone]
-		
-		# Check for smartphones
-		# WebKit: iPhone 4+ (& iPod), Android 2.3+, Blackberry 6+
-		RewriteCond %{HTTP_USER_AGENT} "((iPhone(.* )OS( +)(([4-9])|([0-9]+[0-9]))[^0-9])|(Android( *)((2[^0-9][1-9])|([4-9][^0-9])|([0-9]+[0-9][^0-9])))|(BlackBerry( *)(([6-9])|([0-9]+[0-9]))[^8-9]))(.*)AppleWebKit"
-		RewriteRule .* - [E=device:smartphone]
-		
-		# Check for devices that look like phones but are really tablets
-		# That's Android 3.x - all of which are tablets
-		RewriteCond %{HTTP_USER_AGENT} "Android( ?)3\."
-		RewriteRule .* - [E=device:default]
-		
-		# Override settings by cookie for device switchers
-		RewriteCond %{HTTP_COOKIE} device=([^;]+) [NC]
-		RewriteRule .* - [E=device:%1]
-		
-		# Override setting with query string for testing
-		RewriteCond %{QUERY_STRING} "^(.+&)?device=([^&]+)(&.+)?"
-		RewriteRule .* - [E=device:%2]
-		
-		# Set environment variable mobile=1 in case smart of simple phone
-		# Se query string fragment: qs4device in case smart or simple phone
-		RewriteCond %{ENV:device} ^(.*phone)$
-		RewriteRule .* - [E=mobile:1,E=qs4device:device\=%1]
-		
-		# Otherwise it's desktop
-		RewriteCond %{ENV:device} "^(default)?$"
-		RewriteRule .* - [E=device:default,E=qs4device:layout=desktop]
-		</ifModule>
-		
-		# Setting the Vary: User-Agent
-		# Make sure proxies and google crawl the pages with different UserAgents
-		# See also: https://developers.google.com/webmasters/smartphone-sites/details
-	<ifModule mod_headers.c>
-		Header set Vary "User-Agent"
+ ```apache
+# From https://speakerd.s3.amazonaws.com/presentations/0c3a0cee177346fcb5acbe81a440377d/slide_21.jpg?1476842385
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	# See https://github.com/serbanghita/Mobile-Detect
+
+	# Check for mobile
+	# Android is only being used below 2.3 and "Mobile" above to ignore android tablets
+	RewriteCond %{HTTP_USER_AGENT} "iPhone|Android|BlackBerry|Windows CE|IEMobile|Alcatel-OT|Opera Mobi|Opera Mini|DoCoMo.*N905i|DoCoMo.*P900i|Obigo|Wapsilon|WinCE|YourWap|Motorola|Samsung-|SAMSUNG-|portalmm|Telit_Mobile_Terminals|MobilePhone|SIE-|SCH-|GoodAccess|NEC-|Mitsu|Ericsson|AUDIOVOX-|LGE-|Sanyo-|Nokia|Alcatel-B|KDDI-|WAPman|WapTunner|WinWAP|ACS-NF\/3.0 NEC-|Vodafone|ZTE-|LG-|Sendo|SHARP-|TSM-|SAGEM-|MOT-|WIG Browser|Amoi|Symbian|J2ME|HTC|SPV|MOTO|Moto|SEC-SGH|Xda|XDA|iPAQ|MDA-vario|MDA Vario|MDA Touch|MDA_Vario|MDA_compact|MDA compact|MDA_Touch|MDA_vario|Novarra|webOS"
+	RewriteRule .* - [E=device:simplephone]
+
+	# Check for smartphones
+	# WebKit: iPhone 4+ (& iPod), Android 2.3+, Blackberry 6+
+	RewriteCond %{HTTP_USER_AGENT} "((iPhone(.* )OS( +)(([4-9])|([0-9]+[0-9]))[^0-9])|(Android( *)((2[^0-9][1-9])|([4-9][^0-9])|([0-9]+[0-9][^0-9])))|(BlackBerry( *)(([6-9])|([0-9]+[0-9]))[^8-9]))(.*)AppleWebKit"
+	RewriteRule .* - [E=device:smartphone]
+
+	# Check for devices that look like phones but are really tablets
+	# That's Android 3.x - all of which are tablets
+	RewriteCond %{HTTP_USER_AGENT} "Android( ?)3\."
+	RewriteRule .* - [E=device:default]
+
+	# Override settings by cookie for device switchers
+	RewriteCond %{HTTP_COOKIE} device=([^;]+) [NC]
+	RewriteRule .* - [E=device:%1]
+
+	# Override setting with query string for testing
+	RewriteCond %{QUERY_STRING} "^(.+&)?device=([^&]+)(&.+)?"
+	RewriteRule .* - [E=device:%2]
+
+	# Set environment variable mobile=1 in case smart of simple phone
+	# Se query string fragment: qs4device in case smart or simple phone
+	RewriteCond %{ENV:device} ^(.*phone)$
+	RewriteRule .* - [E=mobile:1,E=qs4device:device\=%1]
+
+	# Otherwise it's desktop
+	RewriteCond %{ENV:device} "^(default)?$"
+	RewriteRule .* - [E=device:default,E=qs4device:layout=desktop]
 	</ifModule>
+
+	# Setting the Vary: User-Agent
+	# Make sure proxies and google crawl the pages with different UserAgents
+	# See also: https://developers.google.com/webmasters/smartphone-sites/details
+<ifModule mod_headers.c>
+	Header set Vary "User-Agent"
+</ifModule>
+```
 
 ## Analytics
 
@@ -2892,11 +2994,15 @@ Use [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-U
 - page view
 - printing
 
-		<link rel="stylesheet" href="track_printing.css" media="print" type="text/css" />
+	```html
+	<link rel="stylesheet" href="track_printing.css" media="print" type="text/css" />
+	```
 
 	`track_printing.css` (should be served with header that disable cache): 
 
-		body { background: url("http://path.to/tracker_script"); }
+	```css
+	body { background: url("http://path.to/tracker_script"); }
+	```
 - default font size (use blank iframe)
 - default zoom level
 - screen size
@@ -2924,15 +3030,19 @@ Aka `ga.js`
 
 **Use async, via `_gaq.push()`**
 
-	<script type="text/javascript">
-		(window._gaq = _gaq || []).push(
-			["_setAccount", "UA-XXXXX-X"],
-			["_trackPageview"]
-		);
-		(function(d,t,s,l) {s=d.createElement(t),l=d.getElementsByTagName(t)[0];s.async=true;s.src="http"+("https:"==document.location.protocol?"s://ssl":"://www")+".google-analytics.com/ga.js";l.parentNode.insertBefore(s,l);})(document, "script");
-	</script>
+```html
+<script type="text/javascript">
+	(window._gaq = _gaq || []).push(
+		["_setAccount", "UA-XXXXX-X"],
+		["_trackPageview"]
+	);
+	(function(d,t,s,l) {s=d.createElement(t),l=d.getElementsByTagName(t)[0];s.async=true;s.src="http"+("https:"==document.location.protocol?"s://ssl":"://www")+".google-analytics.com/ga.js";l.parentNode.insertBefore(s,l);})(document, "script");
+</script>
+```
 
-	_gaq.push(["_trackEvent", category, action, label/*optional*/, value/*integer, optional*/, opt_noninteraction/*boolean, optional*/]);
+```js
+_gaq.push(["_trackEvent", category, action, label/*optional*/, value/*integer, optional*/, opt_noninteraction/*boolean, optional*/]);
+```
 
 - [Introduction to ga.js (Legacy)  |  Analytics for Web (ga.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/gajs/)
 - [Google Analytics Tracking Code  |  Analytics for Web (ga.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/gajs/methods/)
@@ -2943,51 +3053,61 @@ Aka `analytics.js`
 
 [Universal Analytics tracking library (analytics.js)](https://developers.google.com/analytics/devguides/collection/analyticsjs/):
  
-	ga("send", "event", category, action, label/*optional*/, value/*integer, optional*/, noninteraction/*boolean, optional*/);
-	ga("send", "event", category, action, label/*optional*/, value/*integer, optional*/, {nonInteraction: noninteraction}/*boolean, optional*/);
+ ```js
+ga("send", "event", category, action, label/*optional*/, value/*integer, optional*/, noninteraction/*boolean, optional*/);
+ga("send", "event", category, action, label/*optional*/, value/*integer, optional*/, {nonInteraction: noninteraction}/*boolean, optional*/);
+```
 
-	<!-- Google Analytics -→
-	<script>
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga("create", "UA-XXXXX-Y", "auto");
-	ga("send", "pageview");
-	</script>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<!-- End Google Analytics -→
+```html
+<!-- Google Analytics -→
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga("create", "UA-XXXXX-Y", "auto");
+ga("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -→
+```
 
 For a custom function name: (ex: `__gaTracker`)
 
-	<!-- Google Analytics -→
-	<script>
-	(function(w,n){w.GoogleAnalyticsObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};w[n].l=+new Date;})(window,"__gaTracker");
-	__gaTracker("create", "UA-XXXXX-Y", "auto");
-	__gaTracker("send", "pageview");
-	</script>
-	<script async src="https://www.google-analytics.com/analytics.js"></script>
-	<!-- End Google Analytics -→
+```html
+<!-- Google Analytics -→
+<script>
+(function(w,n){w.GoogleAnalyticsObject=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)};w[n].l=+new Date;})(window,"__gaTracker");
+__gaTracker("create", "UA-XXXXX-Y", "auto");
+__gaTracker("send", "pageview");
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -→
+```
 
-	GoogleAnalyticsObject
+GoogleAnalyticsObject
 
-	ga("send", "event", {
-		eventCategory: "Category",
-		eventAction: "Action",
-		eventLabel: "Label"/*optional*/,
-		eventValue: 55/*integer, optional*/,
-		eventNonInteraction: 55/*integer, optional*/
-	});
+```js
+ga("send", "event", {
+	eventCategory: "Category",
+	eventAction: "Action",
+	eventLabel: "Label"/*optional*/,
+	eventValue: 55/*integer, optional*/,
+	eventNonInteraction: 55/*integer, optional*/
+});
 
-	ga("send", {
-		hitType: "event",
-		eventCategory: "Category",//ex: Videos
-		eventAction: "Action",//ex: play
-		eventLabel: ""//ex: video title
-	});
+ga("send", {
+	hitType: "event",
+	eventCategory: "Category",//ex: Videos
+	eventAction: "Action",//ex: play
+	eventLabel: ""//ex: video title
+});
+```
 
 - [Adding analytics.js to Your Site  |  Analytics for Web (analytics.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 - [The ga Command Queue Reference  |  Analytics for Web (analytics.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference)
  
-	// Use beacon or fallback to xhr (instead of image)
-	ga("set", "transport", navigator.sendBeacon ? "beacon" : "xhr");
+ ```js
+// Use beacon or fallback to xhr (instead of image)
+ga("set", "transport", navigator.sendBeacon ? "beacon" : "xhr");
+```
 
 - [Sending Data to Google Analytics  |  Analytics for Web (analytics.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/analyticsjs/sending-hits#specifying_different_transport_mechanisms)
 
@@ -3051,10 +3171,12 @@ function trackOutboundLink(url) {
 
 Ex: Ajax pages of Single Page Application (SPA)
 
-	_gaq.push(['_trackPageview', path/*optional*/]);
+```js
+_gaq.push(['_trackPageview', path/*optional*/]);
 
-	ga("set", {page: path, title: title});/*optional, if need to defined a different location and title than the current document location
-	ga("send", "pageview");
+ga("set", {page: path, title: title});/*optional, if need to defined a different location and title than the current document location
+ga("send", "pageview");
+```
 
 - [Single Page Application Tracking  |  Analytics for Web (analytics.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/analyticsjs/single-page-applications)
 
@@ -3062,28 +3184,30 @@ Ex: Ajax pages of Single Page Application (SPA)
 
 Track errors, like front end (`window.onerror`) or backend errors with https://developers.google.com/analytics/devguides/collection/analyticsjs/exceptions
 
-	function trackJavaScriptError(event) {
-		//ga("send", "event", "JavaScript Error", event.message, `${event.filename}:${event.lineno}:${event.colno}`, {nonInteraction: 1 });
-		
-		ga("send", "exception", {
-			exDescription: `${event.message} ${event.filename}:${event.lineno}:${event.colno}`,
-			exFatal: true,
-			appName: APP_NAME,
-			appVersion: APP_VERSION
-		});
-		/*
-		ga("send", {
-			hitType: "exception",
-			page: "/current-url",
-			exDescription: `${event.message} ${event.filename}:${event.lineno}:${event.colno}`,
-			exFatal: true,
-			appName: APP_NAME,
-			appVersion: APP_VERSION
-		});
-		*/
-	}
-	
-	window.addEventListener("error", trackJavaScriptError, false);
+```js
+function trackJavaScriptError(event) {
+	//ga("send", "event", "JavaScript Error", event.message, `${event.filename}:${event.lineno}:${event.colno}`, {nonInteraction: 1 });
+
+	ga("send", "exception", {
+		exDescription: `${event.message} ${event.filename}:${event.lineno}:${event.colno}`,
+		exFatal: true,
+		appName: APP_NAME,
+		appVersion: APP_VERSION
+	});
+	/*
+	ga("send", {
+		hitType: "exception",
+		page: "/current-url",
+		exDescription: `${event.message} ${event.filename}:${event.lineno}:${event.colno}`,
+		exFatal: true,
+		appName: APP_NAME,
+		appVersion: APP_VERSION
+	});
+	*/
+}
+
+window.addEventListener("error", trackJavaScriptError, false);
+```
 
 - [Website Exception Monitoring Template](https://www.google.com/analytics/web/template?uid=dPxbEfBpSOWlNBQvG_l85g)
 - https://stackoverflow.com/questions/21718481/report-for-exceptions-from-google-analytics-analytics-js-exception-tracking
@@ -3334,27 +3458,35 @@ Redirect `/robots.txt` to `/.well-known/robots.txt` is supported (not recommende
 
 **Don't block web crawler for public content**:
 
-	# Don't do it!
-	User-agent: *
-	Disallow: /
+```
+# Don't do it!
+User-agent: *
+Disallow: /
+```
 
 But:
 
-	User-agent: *
-	Crawl-delay: 3600
+```
+User-agent: *
+Crawl-delay: 3600
+```
 
 Or
 
-	User-agent: *
-	Disallow: /user/private_page
+```
+User-agent: *
+Disallow: /user/private_page
+```
 
 To exclude folder but not sub part (files or directory) (Only with non standard `Allow` directive):
 
-	# Allow first then disallow
-	User-agent: *
-	Allow: /folder/archive/
-	Allow: /folder/lsic/
-	Disallow: /folder/
+```
+# Allow first then disallow
+User-agent: *
+Allow: /folder/archive/
+Allow: /folder/lsic/
+Disallow: /folder/
+```
 
 - Si une URL a déjà été indexée par Google, alors la bloquer dans le robots.txt ne changera rien : en tout cas l'URL restera indexée. En effet, Google n'ayant plus l'autorisation de crawler la page, celle-ci ne sera plus crawlée et restera dans l'index telle quelle. Pour désindexer une URL, il faut autoriser son crawl et utiliser une balise meta robots noindex ou un entête HTTP `X-Robots-Tag: noindex` (ou bien, exception, aller faire une demande de suppression d'URL dans Google Webmaster Tools).
 - Ne bloquez pas le crawl des URL qui se font rediriger, sinon les moteurs ne pourront pas se rendre compte de cette redirection
@@ -3378,7 +3510,9 @@ To exclude folder but not sub part (files or directory) (Only with non standard 
 
 If redirect base on User-Agent header, use:
 
-	Vary: User-Agent
+```http
+Vary: User-Agent
+```
 
 - [Separate URLs  |  Mobile Friendly Websites  |  Google Developers](https://developers.google.com/webmasters/mobile-sites/mobile-seo/separate-urls)
 
@@ -3401,12 +3535,14 @@ What about Google with websites desktop + mobile / desktop + AMP / desktop + mob
 
 ## in frame blocking
 
-	<script>
-		if (self !== top) {
-			document.body.style.display = "none";
-			top.location = self.location;
-		}
-	</script>
+```js
+<script>
+	if (self !== top) {
+		document.body.style.display = "none";
+		top.location = self.location;
+	}
+</script>
+```
 
 Use header `Content-Security-Policy: frame-ancestors 'self'` (or the depreciated `X-Frame-Options: SAMEORIGIN`)
 
@@ -4137,28 +4273,30 @@ Unshorten:
 
 - `https://unshorten.me/s/%s`
 - `http://www.linkexpander.com/?url=%s`
- 
-	function unshorten_url($url) {
-		// Don't use this in production: need to limit API access, need a resolved URL cache, have security issues (SSRF), etc.
-		// Filter in Location localhost domains. See http://php.net/manual/en/function.curl-setopt.php#116223
-		$ch = curl_init($url);
-		curl_setopt_array($ch, array(
-			
-			CURLOPT_RETURNTRANSFER => true,     // don't output response
-			CURLOPT_HEADER         => false,    // do not return headers
-			CURLOPT_FOLLOWLOCATION => true,     // follow redirects. Note: CURLOPT_FOLLOWLOCATION cannot be activated when safe_mode is enabled or an open_basedir is set in. See http://php.net/manual/en/function.curl-setopt.php#113682
-			CURLOPT_USERAGENT      => $_SERVER['HTTP_USER_AGENT'],
-			CURLOPT_AUTOREFERER    => true,     // set referer on redirect
-			CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
-			CURLOPT_TIMEOUT        => 120,      // timeout on response
-			CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
-			CURLOPT_PROTOCOLS      =>  CURLPROTO_HTTP || CURLPROTO_HTTPS // limit to HTTP and HTTPS protocols
-		));
-		curl_exec($ch);
-		$url = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-		curl_close($ch);
-		return $url;
-	}
+
+```js
+function unshorten_url($url) {
+	// Don't use this in production: need to limit API access, need a resolved URL cache, have security issues (SSRF), etc.
+	// Filter in Location localhost domains. See http://php.net/manual/en/function.curl-setopt.php#116223
+	$ch = curl_init($url);
+	curl_setopt_array($ch, array(
+
+		CURLOPT_RETURNTRANSFER => true,     // don't output response
+		CURLOPT_HEADER         => false,    // do not return headers
+		CURLOPT_FOLLOWLOCATION => true,     // follow redirects. Note: CURLOPT_FOLLOWLOCATION cannot be activated when safe_mode is enabled or an open_basedir is set in. See http://php.net/manual/en/function.curl-setopt.php#113682
+		CURLOPT_USERAGENT      => $_SERVER['HTTP_USER_AGENT'],
+		CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+		CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+		CURLOPT_TIMEOUT        => 120,      // timeout on response
+		CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+		CURLOPT_PROTOCOLS      =>  CURLPROTO_HTTP || CURLPROTO_HTTPS // limit to HTTP and HTTPS protocols
+	));
+	curl_exec($ch);
+	$url = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+	curl_close($ch);
+	return $url;
+}
+```
 
 ### Youtube
 
@@ -4183,10 +4321,12 @@ Require embed src with param `enablejsapi=1`
 
 Add it in with wordpress:
 
-	/* add post message api mode for youtube embeds */
-	add_filter('oembed_result' , function($html){
-		return preg_replace_callback( '/(?<=")(https?:\/\/www.youtube.com\/embed\/[^"]+)/', function($matches){return add_query_arg('enablejsapi', '1', $matches[1]);}, $html);
-	});
+```php
+/* add post message api mode for youtube embeds */
+add_filter('oembed_result' , function($html){
+	return preg_replace_callback( '/(?<=")(https?:\/\/www.youtube.com\/embed\/[^"]+)/', function($matches){return add_query_arg('enablejsapi', '1', $matches[1]);}, $html);
+});
+```
 
 - [YouTube Player API Reference for iframe Embeds  |  YouTube IFrame Player API  |  Google Developers](https://developers.google.com/youtube/iframe_api_reference?hl=en)
 - [YouTube Embedded Players and Player Parameters  |  YouTube IFrame Player API  |  Google Developers](https://developers.google.com/youtube/player_parameters?hl=en#Parameters)
@@ -4194,18 +4334,24 @@ Add it in with wordpress:
 
 ##### Stop video
 
-	iframe.contentWindow.postMessage("{"\"event/":\"command\",\"func\":\"stopVideo\",\"args\":\"\"}", "*");
+```js
+iframe.contentWindow.postMessage("{"\"event/":\"command\",\"func\":\"stopVideo\",\"args\":\"\"}", "*");
+```
 
 ##### Listen events
 
 `event.data` is a serialized JSON object
 
-	window.addEventListener("message", function(event){JSON.parse(event.data).event});
-	iframe.contentWindow.postMessage("{\"event\":\"listening\"}", "*");
+```js
+window.addEventListener("message", function(event){JSON.parse(event.data).event});
+iframe.contentWindow.postMessage("{\"event\":\"listening\"}", "*");
+```
 
 #### Watch video in full HD
 
-	http://www.youtube.com/watch_popup?v=VIDEO_ID&vq=hd1080
+```
+http://www.youtube.com/watch_popup?v=VIDEO_ID&vq=hd1080
+```
 
 #### Video formats
 
@@ -4220,20 +4366,26 @@ Require embed src with param `api=postMessage`.
 
 Add it in with wordpress:
 
-	/* add post message api mode for dailymotion embeds */
-	add_filter('oembed_result' , function($html){
-		return preg_replace_callback( '/(?<=")(https?:\/\/www.dailymotion.com\/embed\/[^"]+)/', function($matches){return add_query_arg('api', 'postMessage', $matches[1]);}, $html);
-	});
+```php
+/* add post message api mode for dailymotion embeds */
+add_filter('oembed_result' , function($html){
+	return preg_replace_callback( '/(?<=")(https?:\/\/www.dailymotion.com\/embed\/[^"]+)/', function($matches){return add_query_arg('api', 'postMessage', $matches[1]);}, $html);
+});
+```
 
 - [Video Player Documentation - Dailymotion Developer Area](https://developer.dailymotion.com/player)
 
 ##### Pause video
 
-	iframe.contentWindow.postMessage("{\"command\":\"pause\",\"parameters\":[]}", "*");
+```js
+iframe.contentWindow.postMessage("{\"command\":\"pause\",\"parameters\":[]}", "*");
+```
 
 Previously?:
 
-	iframe.contentWindow.postMessage("pause", "*");
+```js
+iframe.contentWindow.postMessage("pause", "*");
+```
 
 - [javascript - Dailymotion stop video from iframe - Stack Overflow](https://stackoverflow.com/questions/26174793/dailymotion-stop-video-from-iframe)
 
@@ -4241,7 +4393,9 @@ Previously?:
 
 `event.data` is a query string
 
-	window.addEventListener("message", function(event){new URLSearchParams(event.data).get("event")});
+```js
+window.addEventListener("message", function(event){new URLSearchParams(event.data).get("event")});
+```
 
 ### Google Maps
 
@@ -4280,165 +4434,169 @@ Only for embeded maps
 - [Styling Wizard: Google Maps APIs](https://mapstyle.withgoogle.com/)
 - [Start Styling your Map | Google Maps JavaScript API | Google Developers](https://developers.google.com/maps/documentation/javascript/styling)
  
-	[
-		{
-			"elementType": "labels",
-			"stylers": [
-				{
-					"visibility": "off"
-				}
-			]
-		},
-		{
-			"featureType": "administrative.land_parcel",
-			"stylers": [
-				{
-					"visibility": "off"
-				}
-			]
-		},
-		{
-			"featureType": "administrative.neighborhood",
-			"stylers": [
-				{
-					"visibility": "off"
-				}
-			]
-		}
-	]
+ ```json
+[
+	{
+		"elementType": "labels",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "administrative.land_parcel",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	},
+	{
+		"featureType": "administrative.neighborhood",
+		"stylers": [
+			{
+				"visibility": "off"
+			}
+		]
+	}
+]
+```
 
 #### API
 
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>PlaceID finder</title>
-			<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-			<meta charset="utf-8">
-			<style>
-				html, body {
-					height: 100%;
-					margin: 0;
-					padding: 0;
-				}
-				#map {
-					height: 100%;
-				}
-				.controls {
-					background-color: #fff;
-					border-radius: 2px;
-					border: 1px solid transparent;
-					box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-					box-sizing: border-box;
-					font-family: Roboto;
-					font-size: 15px;
-					font-weight: 300;
-					height: 29px;
-					margin-left: 17px;
-					margin-top: 10px;
-					outline: none;
-					padding: 0 11px 0 13px;
-					text-overflow: ellipsis;
-					width: 400px;
-				}
-	
-				.controls:focus {
-					border-color: #4d90fe;
-				}
-	
-			</style>
-		</head>
-		<body>
-			<input id="pac-input" class="controls" type="text"
-					placeholder="Enter a location">
-			<div id="map"></div>
-	
-			<script>
-	// This sample uses the Place Autocomplete widget to allow the user to search
-	// for and select a place. The sample then displays an info window containing
-	// the place ID and other information about the place that the user has
-	// selected.
-	
-	function initMap() {
-		var map = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: -33.8688, lng: 151.2195},
-			zoom: 13
-		});
-	
-		var input = document.getElementById('pac-input');
-	
-		var autocomplete = new google.maps.places.Autocomplete(input);
-		autocomplete.bindTo('bounds', map);
-	
-		map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-	
-		var infowindow = new google.maps.InfoWindow();
-		var marker = new google.maps.Marker({
-			map: map
-		});
-		marker.addListener('click', function() {
-			infowindow.open(map, marker);
-		});
-	
-		autocomplete.addListener('place_changed', function() {
-			infowindow.close();
-			var place = autocomplete.getPlace();
-			if (!place.geometry) {
-				return;
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PlaceID finder</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
 			}
-	
-			if (place.geometry.viewport) {
-				map.fitBounds(place.geometry.viewport);
-			} else {
-				map.setCenter(place.geometry.location);
-				map.setZoom(17);
+			#map {
+				height: 100%;
 			}
-	
-			// Set the position of the marker using the place ID and location.
-			marker.setPlace({
-				placeId: place.place_id,
-				location: place.geometry.location
+			.controls {
+				background-color: #fff;
+				border-radius: 2px;
+				border: 1px solid transparent;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+				box-sizing: border-box;
+				font-family: Roboto;
+				font-size: 15px;
+				font-weight: 300;
+				height: 29px;
+				margin-left: 17px;
+				margin-top: 10px;
+				outline: none;
+				padding: 0 11px 0 13px;
+				text-overflow: ellipsis;
+				width: 400px;
+			}
+
+			.controls:focus {
+				border-color: #4d90fe;
+			}
+
+		</style>
+	</head>
+	<body>
+		<input id="pac-input" class="controls" type="text"
+				placeholder="Enter a location">
+		<div id="map"></div>
+
+		<script>
+// This sample uses the Place Autocomplete widget to allow the user to search
+// for and select a place. The sample then displays an info window containing
+// the place ID and other information about the place that the user has
+// selected.
+
+function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: -33.8688, lng: 151.2195},
+		zoom: 13
+	});
+
+	var input = document.getElementById('pac-input');
+
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	autocomplete.bindTo('bounds', map);
+
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+	var infowindow = new google.maps.InfoWindow();
+	var marker = new google.maps.Marker({
+		map: map
+	});
+	marker.addListener('click', function() {
+		infowindow.open(map, marker);
+	});
+
+	autocomplete.addListener('place_changed', function() {
+		infowindow.close();
+		var place = autocomplete.getPlace();
+		if (!place.geometry) {
+			return;
+		}
+
+		if (place.geometry.viewport) {
+			map.fitBounds(place.geometry.viewport);
+		} else {
+			map.setCenter(place.geometry.location);
+			map.setZoom(17);
+		}
+
+		// Set the position of the marker using the place ID and location.
+		marker.setPlace({
+			placeId: place.place_id,
+			location: place.geometry.location
+		});
+		marker.setVisible(true);
+
+		infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+				'Place ID: ' + place.place_id + '<br>' +
+				'Place loc: ' + place.geometry.location.lat() + "," + place.geometry.location.lng() + '<br>' +
+				place.formatted_address);
+		infowindow.open(map, marker);
+	});
+
+	// Get the placeID of point of interest ("poi", always visible on the map)
+	var placesService = new google.maps.places.PlacesService(map);
+	map.addListener('click', function(event){
+		if (event.placeId) {
+			// Calling e.stop() on the event prevents the default info window from
+			// showing.
+			// If you call stop here when there is no placeId you will prevent some
+			// other map click event handlers from receiving the event.
+			event.stop();
+
+			placesService.getDetails({placeId: event.placeId}, function(place, status) {
+				if (status === 'OK') {
+					infowindow.close();
+					infowindow.setPosition(place.geometry.location);
+					// place.icon;
+					infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+							'Place ID: ' + place.place_id + '<br>' +
+							'Place loc: ' + place.geometry.location.lat() + "," + place.geometry.location.lng() + '<br>' +
+							place.formatted_address);
+					infowindow.open(map);
+				}
 			});
-			marker.setVisible(true);
-	
-			infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-					'Place ID: ' + place.place_id + '<br>' +
-					'Place loc: ' + place.geometry.location.lat() + "," + place.geometry.location.lng() + '<br>' +
-					place.formatted_address);
-			infowindow.open(map, marker);
-		});
-		
-		// Get the placeID of point of interest ("poi", always visible on the map)
-		var placesService = new google.maps.places.PlacesService(map);
-		map.addListener('click', function(event){
-			if (event.placeId) {
-				// Calling e.stop() on the event prevents the default info window from
-				// showing.
-				// If you call stop here when there is no placeId you will prevent some
-				// other map click event handlers from receiving the event.
-				event.stop();
-				
-				placesService.getDetails({placeId: event.placeId}, function(place, status) {
-					if (status === 'OK') {
-						infowindow.close();
-						infowindow.setPosition(place.geometry.location);
-						// place.icon;
-						infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-								'Place ID: ' + place.place_id + '<br>' +
-								'Place loc: ' + place.geometry.location.lat() + "," + place.geometry.location.lng() + '<br>' +
-								place.formatted_address);
-						infowindow.open(map);
-					}
-				});
-			}
-			
-		});
-	}
-	
-			</script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
-		</body>
-	</html>
+		}
+
+	});
+}
+
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+	</body>
+</html>
+```
 
 - `https://maps.googleapis.com/maps/api/place/details/json?key=YOURAPIKEY&placeid=THEPLACEID` -> `json["result"]["url"]` `PLACE_ID` start with `ChIJ...`
 - [google maps - How do I remove default markers? - Stack Overflow](https://stackoverflow.com/questions/7538444/how-do-i-remove-default-markers) - How to remove Points of Interest (colored marker for commercial places, monuments, etc.), use [style feature type `poi`](https://developers.google.com/maps/documentation/javascript/style-reference)
@@ -4448,19 +4606,23 @@ Only for embeded maps
 
 Center to all markers
 
-	var markers = [];//some array
-	var bounds = new google.maps.LatLngBounds();
-	for (var i = 0; i < markers.length; i++) {
-	 bounds.extend(markers[i].place.location);
-	}
-	
-	map.fitBounds(bounds);
+```js
+var markers = [];//some array
+var bounds = new google.maps.LatLngBounds();
+for (var i = 0; i < markers.length; i++) {
+	bounds.extend(markers[i].place.location);
+}
+
+map.fitBounds(bounds);
+```
 
 - [javascript - Center/Set Zoom of Map to cover all visible Markers? - Stack Overflow](https://stackoverflow.com/questions/19304574/center-set-zoom-of-map-to-cover-all-visible-markers)
 
 #### Icons
 
-	https://mt.google.com/vt/icon/... = https://mt0.google.com/vt/icon/... = https://mt.google.com/vt/icon?... = https://www.google.com/maps/vt/icon/....
+```
+https://mt.google.com/vt/icon/... = https://mt0.google.com/vt/icon/... = https://mt.google.com/vt/icon?... = https://www.google.com/maps/vt/icon/....
+```
 
 `https://www.google.com/maps/vt/icon/name=...&scale=...` or `https://www.google.com/maps/vt/icon?...=...&...=...` or `https://www.google.com/maps/vt/icon/...=...&...=...?...=...&...=...`
 
@@ -4480,12 +4642,14 @@ Center to all markers
 
 List of available resources (protocol buffer encoded data): https://www.gstatic.com/maps/res/CompactLegend-Roadmap-cbc3edfa467314789e34bc25eaddcfe2 (to get the last version, `view-source:https://www.google.com/maps/search/` and search `gstatic.com/maps/res/CompactLegend`)
 
-	9 {
-	  1: "bank_dollar-1-small"// name without full path and extension .png
-	  2: 4//
-	  5: 0// type/collection 0 poi assets/icons/poi/quantum/*, 9 assets/icons/poi/quantum/container*, 12 London related, 17 Sydney related see "transit/localizations/.../..."
-	  6: 0×00ffffff// color. See highlight
-	}
+```
+9 {
+	1: "bank_dollar-1-small"// name without full path and extension .png
+	2: 4//
+	5: 0// type/collection 0 poi assets/icons/poi/quantum/*, 9 assets/icons/poi/quantum/container*, 12 London related, 17 Sydney related see "transit/localizations/.../..."
+	6: 0×00ffffff// color. See highlight
+}
+```
 
 0×6d7be3, 0×8d6e63, 0xf57f17
 
@@ -4585,7 +4749,9 @@ List of available resources (protocol buffer encoded data): https://www.gstatic.
 
 #### Static image with hdpi resolution
 
-	http://maps.googleapis.com/maps/api/staticmap?center=41.015408,28.970194&scale=2&zoom=15&size=470×250&sensor=false
+```
+http://maps.googleapis.com/maps/api/staticmap?center=41.015408,28.970194&scale=2&zoom=15&size=470×250&sensor=false
+```
 
 See `scale=2` parameter, `scale=4` only available with key for "Google Maps API for Work"
 Sizes are limited too.
@@ -4598,7 +4764,9 @@ Grayscale : `...&style=feature:all|element:all|saturation:-100`
 
 Google maps provide a depth image in a base64 encoded + zlib compressed format (inside XML) for streetview
 
-	http://maps.google.com/cbk?output=xml&cb_client=maps_sv&v=4&dm=1&hl=en&panoid=4WGyVODT4of8gbmA48XKmw
+```
+http://maps.google.com/cbk?output=xml&cb_client=maps_sv&v=4&dm=1&hl=en&panoid=4WGyVODT4of8gbmA48XKmw
+```
 
 - https://github.com/proog128/GSVPanoDepth.js/tree/master
 
@@ -4608,49 +4776,51 @@ Ignore country, go to http://www.google.com/ncr (No Country Redirect), to disabl
 
 Search for specific country: http://www.google.com/search?hl=en&q=sample+query&gl=uk use `hl` for language and `gl` (for Geographic Location)
 
-	/*
-	Get Google search result as text
-	But give not exacly the same as Google Search Page
-	*/
-	var urls = [], start = 0, rsz = 8;
-	var site = "example.com";
-	function xhrLoadHandler(event){
-		var xhr = event.currentTarget;
-		xhr.removeEventListener("load", xhrLoadHandler);
-		xhr.removeEventListener("error", xhrErrorHandler);
-		// should be a json
-		var results;
-		try {
-			results = xhr.response["responseData"]["results"];
-		}catch(error){
-			console.log("Error at page " + start / rsz + ": " + error.message);
-			console.log(urls.join("\n"));
-			return;
-		}
-		
-		for(var i = 0, l = results.length; i < l; i++){
-			urls.push(results[i].url);
-		}
-	
-		start += rsz;
-		getNextPage();
-	}
-	function xhrErrorHandler(event){
-		var xhr = event.currentTarget;
-		xhr.removeEventListener("load", xhrLoadHandler);
-		xhr.removeEventListener("error", xhrErrorHandler);
-		console.log("Error at page " + start / rsz);
+```js
+/*
+Get Google search result as text
+But give not exacly the same as Google Search Page
+*/
+var urls = [], start = 0, rsz = 8;
+var site = "example.com";
+function xhrLoadHandler(event){
+	var xhr = event.currentTarget;
+	xhr.removeEventListener("load", xhrLoadHandler);
+	xhr.removeEventListener("error", xhrErrorHandler);
+	// should be a json
+	var results;
+	try {
+		results = xhr.response["responseData"]["results"];
+	}catch(error){
+		console.log("Error at page " + start / rsz + ": " + error.message);
 		console.log(urls.join("\n"));
+		return;
 	}
-	function getNextPage(){
-		var xhr = new XMLHttpRequest();
-		xhr.addEventListener("load", xhrLoadHandler);
-		xhr.addEventListener("error", xhrErrorHandler);
-		xhr.open("GET", "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=site:" + site + "&rsz=" + rsz + "&start=" + start);
-		xhr.responseType = "json";
-		xhr.send();
+
+	for(var i = 0, l = results.length; i < l; i++){
+		urls.push(results[i].url);
 	}
+
+	start += rsz;
 	getNextPage();
+}
+function xhrErrorHandler(event){
+	var xhr = event.currentTarget;
+	xhr.removeEventListener("load", xhrLoadHandler);
+	xhr.removeEventListener("error", xhrErrorHandler);
+	console.log("Error at page " + start / rsz);
+	console.log(urls.join("\n"));
+}
+function getNextPage(){
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("load", xhrLoadHandler);
+	xhr.addEventListener("error", xhrErrorHandler);
+	xhr.open("GET", "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=site:" + site + "&rsz=" + rsz + "&start=" + start);
+	xhr.responseType = "json";
+	xhr.send();
+}
+getNextPage();
+```
 
 ### Chrome Web Store
 
@@ -4660,12 +4830,14 @@ Search for specific country: http://www.google.com/search?hl=en&q=sample+query&g
 2. Paste this URL into your browser: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc` replacing `{EXT_ID}` with the extension ID.
 3. You’ll be prompted to save a CRX file. Drag this file to a Chrome window and proceed with installation
  
-	version = 10000 | 32.0
-	os = mac | win | android | cros | openbsd | Linux
-	product_channel = unknown
-	product_id = chromecrx | chromiumcrx
-	nacl_arch = arch = arm | x86-64 | x86-32
-	https://clients2.google.com/service/update2/crx?response=redirect&os={os}&arch={arch}&nacl_arch={nacl_arch}&prod={product_id}&prodchannel={product_channel}&prodversion={version}&x=id%3D{EXT_ID}%26uc
+ ```
+version = 10000 | 32.0
+os = mac | win | android | cros | openbsd | Linux
+product_channel = unknown
+product_id = chromecrx | chromiumcrx
+nacl_arch = arch = arm | x86-64 | x86-32
+https://clients2.google.com/service/update2/crx?response=redirect&os={os}&arch={arch}&nacl_arch={nacl_arch}&prod={product_id}&prodchannel={product_channel}&prodversion={version}&x=id%3D{EXT_ID}%26uc
+```
 
 Or:
 
@@ -4679,22 +4851,23 @@ See [CRX / NEX (Opera)](#crx--nex-opera)
 
 Find "PK" and remove all bytes before
 
-	typedef struct {
-	    SetBackColor(0xd8e5ed);
-	    char magicNumber[4];
-	    SetBackColor(0xd8edd8);
-	    uint32 version;
-	    SetBackColor(0xd8e5ed);
-	    uint32 pkLength;
-	    SetBackColor(0xd8edd8);
-	    uint32 sigLength;
-	    SetBackColor(0xf7d6c3);
-	    byte pubKey[pkLength];
-	    SetBackColor(0xd8edd8);    
-	    byte sig[sigLength];
-		byte zipData[];
-	} CRX;
-	
+```c
+typedef struct {
+	SetBackColor(0xd8e5ed);
+	char magicNumber[4];
+	SetBackColor(0xd8edd8);
+	uint32 version;
+	SetBackColor(0xd8e5ed);
+	uint32 pkLength;
+	SetBackColor(0xd8edd8);
+	uint32 sigLength;
+	SetBackColor(0xf7d6c3);
+	byte pubKey[pkLength];
+	SetBackColor(0xd8edd8);    
+	byte sig[sigLength];
+	byte zipData[];
+} CRX;
+```
 
 - [CRX Package Format - Google Chrome](https://developer.chrome.com/extensions/crx)
 
@@ -4719,26 +4892,34 @@ Require embed src with param `api=1` (only for listening messages, not required 
 
 Add it in with wordpress:
 
-	/* add post message api mode for vimeo embeds */
-	add_filter('oembed_result' , function($html){
-		return preg_replace_callback( '/(?<=")(https?:\/\/player.vimeo.com\/video/\/[^"]+)/', function($matches){return add_query_arg('api', '1', $matches[1]);}, $html);
-	});
+```php
+/* add post message api mode for vimeo embeds */
+add_filter('oembed_result' , function($html){
+	return preg_replace_callback( '/(?<=")(https?:\/\/player.vimeo.com\/video/\/[^"]+)/', function($matches){return add_query_arg('api', '1', $matches[1]);}, $html);
+});
+```
 
 ##### Pause video
 
-	iframe.contentWindow.postMessage("{\"method\":\"pause\"}", "*");
+```js
+iframe.contentWindow.postMessage("{\"method\":\"pause\"}", "*");
+```
 
 ##### Seek video
 
-	iframe.contentWindow.postMessage("{\"method\":\"seekTo\", \"value\":0}", "*");// in seconds
+```js
+iframe.contentWindow.postMessage("{\"method\":\"seekTo\", \"value\":0}", "*");// in seconds
+```
 
 ##### Listen events
 
 `event.data` is a serialized JSON object
 
-	// register all event subscriptions you want: `pause`, `play`, `finish` or `playProgress`. `ready` don't need subscription, it's dispatched automatically
-	iframe.contentWindow.postMessage("{\"method\":\"addEventListener\",\"value\":\"pause\"}", "*");
-	window.addEventListener("message", function(event){JSON.parse(event.data).event});
+```js
+// register all event subscriptions you want: `pause`, `play`, `finish` or `playProgress`. `ready` don't need subscription, it's dispatched automatically
+iframe.contentWindow.postMessage("{\"method\":\"addEventListener\",\"value\":\"pause\"}", "*");
+window.addEventListener("message", function(event){JSON.parse(event.data).event});
+```
 
 ### Digital Distribution Platforms
 
@@ -4756,26 +4937,32 @@ See also [Data/iTunes tips]()
 
 App infos
 
-	http://itunes.apple.com/lookup?id=%%&country=%REGION%&lang=%LANG%
-	// Where %REGION% language ID like "us", "fr", "ca" (optional)
-	// Where %LANG% language ID like "en", "fr", "es" (optional)
-	// Return JSON with array (zero, one or more items, see `json.resultCount` field)
+```
+http://itunes.apple.com/lookup?id=%%&country=%REGION%&lang=%LANG%
+// Where %REGION% language ID like "us", "fr", "ca" (optional)
+// Where %LANG% language ID like "en", "fr", "es" (optional)
+// Return JSON with array (zero, one or more items, see `json.resultCount` field)
+```
 
 Artist or developper URL
 
-	https://itunes.apple.com/artist/id%ARTIST_ID%
+```
+https://itunes.apple.com/artist/id%ARTIST_ID%
 
-	https://itunes.apple.com/%REGION%/artist/id%ARTIST_ID%?l=%LANG%
-	// Where %REGION% language ID like "us", "uk", "fr", "ca". But there are redirections like "us" → "en", "uk" → "gb"
-	// Where %LANG% language ID like "en", "fr", "es"
+https://itunes.apple.com/%REGION%/artist/id%ARTIST_ID%?l=%LANG%
+// Where %REGION% language ID like "us", "uk", "fr", "ca". But there are redirections like "us" → "en", "uk" → "gb"
+// Where %LANG% language ID like "en", "fr", "es"
+```
 
 App URL
 
-	https://itunes.apple.com/app/id%APP_ID%
+```
+https://itunes.apple.com/app/id%APP_ID%
 
-	https://itunes.apple.com/%REGION%/app/id%APP_ID%?l=%LANG%
-	// Where %REGION% language ID like "us", "uk", "fr", "ca". But there are redirections like "us" → "en", "uk" → "gb"
-	// Where %LANG% language ID like "en", "fr", "es"
+https://itunes.apple.com/%REGION%/app/id%APP_ID%?l=%LANG%
+// Where %REGION% language ID like "us", "uk", "fr", "ca". But there are redirections like "us" → "en", "uk" → "gb"
+// Where %LANG% language ID like "en", "fr", "es"
+```
 
 #### Google Play
 
@@ -4786,13 +4973,15 @@ Badge:
 
 App info
 
-	https://play.google.com/store/xhr/getdoc
-	// POST ids=%APP_ID%&hl=%LANG% (application/x-www-form-urlencoded)
-	// Where %LANG% language ID like "en-us", "en_us" or "en"
-	// Remove first 6 chars (JSONP XSS protection)
-	// Replace "[," to "[null,", ",," to ",null," and ",]" to ",null]". You should use lookbehind and lookahead regexp
-	// Parse it as JSON
-	// `json[0][2][0]`: APP_ID is [0], APP_NAME is [8], user average rate is [16], user num reviews is [17], URL is [6]
+```
+https://play.google.com/store/xhr/getdoc
+// POST ids=%APP_ID%&hl=%LANG% (application/x-www-form-urlencoded)
+// Where %LANG% language ID like "en-us", "en_us" or "en"
+// Remove first 6 chars (JSONP XSS protection)
+// Replace "[," to "[null,", ",," to ",null," and ",]" to ",null]". You should use lookbehind and lookahead regexp
+// Parse it as JSON
+// `json[0][2][0]`: APP_ID is [0], APP_NAME is [8], user average rate is [16], user num reviews is [17], URL is [6]
+```
 
 - https://stackoverflow.com/questions/22134494/formatting-json-data-using-php
 
@@ -4810,44 +4999,61 @@ Or use an unofficial API
 
 Developper URL
 
-	https://play.google.com/store/apps/developer?id=%DEV_ID%
+```
+https://play.google.com/store/apps/developer?id=%DEV_ID%
+```
 
-	https://play.google.com/store/apps/developer?id=%DEV_ID%&hl=%LANG%
-	// Where %LANG% language ID like "en-us", "en_us" or "en"
+```
+https://play.google.com/store/apps/developer?id=%DEV_ID%&hl=%LANG%
+// Where %LANG% language ID like "en-us", "en_us" or "en"
+```
 
 App URL
 
-	https://play.google.com/store/apps/details?id=%APP_ID%
+```
+https://play.google.com/store/apps/details?id=%APP_ID%
+```
 
-	https://play.google.com/store/apps/details?id=%APP_ID%&hl=%LANG%
-	// Where %LANG% language ID like "en-us", "en_us" or "en"
-	
+```
+https://play.google.com/store/apps/details?id=%APP_ID%&hl=%LANG%
+// Where %LANG% language ID like "en-us", "en_us" or "en"
+```
 
 Other
 
 Open an app
 
-	<a href="intent://<anything>/#Intent;scheme=<scheme_name>;package=<must.open.this.p‌​ackage>;end">Force open by package_name app</a>
+```html
+<a href="intent://<anything>/#Intent;scheme=<scheme_name>;package=<must.open.this.p‌​ackage>;end">Force open by package_name app</a>
+```
 
 #### Windows Phone
 
 App infos
 
-	http://marketplaceedgeservice.windowsphone.com/v3.2/%LANG%/apps/%APP_ID%/
-	// Where %LANG% language ID like "en-us"
-	// Parse it as XML
+```
+http://marketplaceedgeservice.windowsphone.com/v3.2/%LANG%/apps/%APP_ID%/
+// Where %LANG% language ID like "en-us"
+// Parse it as XML
+```
 
 Developper URL
 
-	https://www.windowsphone.com/%LANG%/store/publishers?publisherId=%DEV_ID%
-	// Where %LANG% language ID like "en-us"
+```
+https://www.windowsphone.com/%LANG%/store/publishers?publisherId=%DEV_ID%
+// Where %LANG% language ID like "en-us"
+```
 
 App URL
 
-	https://www.windowsphone.com/%LANG%/apps/%APP_ID%
-	// Where %LANG% language ID like "en-us"
+```
+https://www.windowsphone.com/%LANG%/apps/%APP_ID%
+// Where %LANG% language ID like "en-us"
+```
 
-	http://windowsphone.com/s?appId=%APP_ID%
+```
+http://windowsphone.com/s?appId=%APP_ID%
+```
 
 - `http://catalog.zune.net/v3.2/en-US/apps/APP_ID/?version=latest&clientType=CLIENT_TYPE&store=Zest`, where `APP_ID`, `CLIENT_TYPE` (optional) is `Zune+3.0` (Zune HD applications) or `WinMobile+7.1` (Windows Phone applications)
 - [Windows Store app marketing guidelines - UWP app developer | Microsoft Docs](https://docs.microsoft.com/en-us/windows/uwp/publish/app-marketing-guidelines)
@@ -4860,9 +5066,11 @@ App URL
 https://developer.amazon.com/appsandservices/resources/marketing-tools/using-badges
 https://developer.amazon.com/announcements/tradebrand-guidelines.html
 
-	http://www.amazon.com/gp/product/%ASIN%/
+```
+http://www.amazon.com/gp/product/%ASIN%/
 
-	http://www.amazon.com/gp/product/%ASIN%/ref=mas_pm_%APP_NAME%
+http://www.amazon.com/gp/product/%ASIN%/ref=mas_pm_%APP_NAME%
+```
 
 ### Facebook
 
@@ -4870,15 +5078,17 @@ Fakes likes, it's harmful: [Facebook Fraud - YouTube](https://www.youtube.com/wa
 
 How stories are ranked: see [Rank content](Algorithms/Rank content)
 
-	<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-	…
-	<meta property="og:title" content="…">
-	<meta property="og:image" content="…">
-	<meta property="og:site_name" content="…">
-	<meta property="og:description" content="…">
-	<meta property="og:url" content="…">
-	<meta property="og:type" content="…">
-	<meta property="fb:app_id" content="00000000000">
+```html
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<!-- … -->
+<meta property="og:title" content="…">
+<meta property="og:image" content="…">
+<meta property="og:site_name" content="…">
+<meta property="og:description" content="…">
+<meta property="og:url" content="…">
+<meta property="og:type" content="…">
+<meta property="fb:app_id" content="00000000000">
+```
 
 Supported locales: https://www.facebook.com/translations/FacebookLocales.xml
 
@@ -4929,7 +5139,9 @@ Or use `document.createElement("script"); ... window.fbAsyncInit = function(){FB
 - [Login Status - Web SDKs](https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus/)
 - HTTPS is required, but `localhost` is allowed (but not `0.0.0.0`) [Requiring HTTPS for Facebook Login - Facebook for Developers](https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/) [Login Security - Facebook Login](https://developers.facebook.com/docs/facebook-login/security/#https)
  
-	FB.login(..., {scope: "..."});
+ ```js
+FB.login(..., {scope: "..."});
+```
 
 - [Reference - Facebook Login](https://developers.facebook.com/docs/facebook-login/permissions/v3.2)
 
@@ -4941,36 +5153,38 @@ For App ID, check it with `http://graph.facebook.com/00000000000`. For pages (TL
 
 #### Facebook login
 
-	function doSomethingWithFBLoginStatus(response, state){
-		// The user doesn't allow the app, even after rerequest
-		// The user cancel relogin
-		// Other reason...
-		if(state !== "getstatus" && response.status !== "connected"){
-			// Should display something to the user
-			console.assert(false, "Something wrong with get FB login status", state);
-			return;
-		}
-		
-		switch(response.status){
-			case "connected":
-				doSomethingWithFB(response.authResponse.accessToken);
-				break;
-			case "not_authorized":
-				// Request FB user to authorize the FBApp
-				// https://developers.facebook.com/docs/reference/javascript/FB.login/v2.12 auth_type
-				FB.login(response => doSomethingWithFBLoginStatus(response, "rerequest"), {scope: "permission1,permission2,permission3", auth_type: "rerequest"});
-				break;
-			case "unknown":
-				// Request FB user to (re)login
-				FB.login(response => doSomethingWithFBLoginStatus(response, "relogin"));
-				break;
-			default:
-				console.assert(false, "Facebook status invalid", response.status);
-		}
+```js
+function doSomethingWithFBLoginStatus(response, state){
+	// The user doesn't allow the app, even after rerequest
+	// The user cancel relogin
+	// Other reason...
+	if(state !== "getstatus" && response.status !== "connected"){
+		// Should display something to the user
+		console.assert(false, "Something wrong with get FB login status", state);
+		return;
 	}
-	
-	// https://developers.facebook.com/docs/facebook-login/web#checklogin
-	FB.getLoginStatus(response => doSomethingWithFBLoginStatus(response, "getstatus"));
+
+	switch(response.status){
+		case "connected":
+			doSomethingWithFB(response.authResponse.accessToken);
+			break;
+		case "not_authorized":
+			// Request FB user to authorize the FBApp
+			// https://developers.facebook.com/docs/reference/javascript/FB.login/v2.12 auth_type
+			FB.login(response => doSomethingWithFBLoginStatus(response, "rerequest"), {scope: "permission1,permission2,permission3", auth_type: "rerequest"});
+			break;
+		case "unknown":
+			// Request FB user to (re)login
+			FB.login(response => doSomethingWithFBLoginStatus(response, "relogin"));
+			break;
+		default:
+			console.assert(false, "Facebook status invalid", response.status);
+	}
+}
+
+// https://developers.facebook.com/docs/facebook-login/web#checklogin
+FB.getLoginStatus(response => doSomethingWithFBLoginStatus(response, "getstatus"));
+```
 
 #### Facebook shares and likes count
 
@@ -4993,27 +5207,33 @@ Following methods require an Facebook App ID:
 - [Facebook Share button](https://stackoverflow.com/questions/6145489/is-the-facebook-share-button-being-deprecated/) (still works, but depreciated)
 - Feed Dialog or Share Dialog URL:
 
-		https://www.facebook.com/dialog/share?
-		  app_id=145634995501895
-		  &display=popup
-		  &quote=An%20example%20quote
-		  &href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
+	```
+	https://www.facebook.com/dialog/share?
+	  app_id=145634995501895
+	  &display=popup
+	  &quote=An%20example%20quote
+	  &href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
+	```
 
 	Note: share popup with `quote` text and URL of animated gif file as `href` will not displayed exactly the same as shared animated gif URL (as `href`). The playback (play/pause) of the gif is not available (Facebook bug): click open URL. If the gif is not autoplayed (see "Auto-Play Videos" https://www.facebook.com/settings?tab=videos). On mobile the gif is display as standard link.
 
-		https://www.facebook.com/dialog/feed?
-		  app_id=145634995501895
-		  &display=popup
-		  &caption=An%20example%20caption
-		  &link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
+	```
+	https://www.facebook.com/dialog/feed?
+	  app_id=145634995501895
+	  &display=popup
+	  &caption=An%20example%20caption
+	  &link=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
+	```
 - Feed Dialog or Share Dialog from SDK. SDK need to be included, see [Setup Facebook Website Application](#setup-facebook-website-application).
 
-		var dialog = FB.ui({
-			method: "share",
-			href: url,
-			quote: message
-		});
-		// FB.UIServer._triggerDefault(dialog.id);// if need to close the dialog
+	```js
+	var dialog = FB.ui({
+		method: "share",
+		href: url,
+		quote: message
+	});
+	// FB.UIServer._triggerDefault(dialog.id);// if need to close the dialog
+	```
 
 > Share dialog, which gives people the most flexibility. They can choose where they want to share, including in groups and private messages on Messenger
 > If you want to let someone post a plain text status update without a link attachment, you should use the Feed dialog. If you're sharing photos or videos rather than links, you will need to create a custom interface that lets people post to their own timeline, which requires implementing [Facebook Login](https://developers.facebook.com/docs/facebook-login/login-flow-for-web/) and requesting the [`publish_actions` permission](https://developers.facebook.com/docs/facebook-login/permissions/#reference-publish_actions)
@@ -5034,24 +5254,28 @@ Metadata:
 - [Platform Update: Facebook Removes Pre-Filled Stream Stories, Like Box Configurator Gets Border Color | SocialTimes](http://www.adweek.com/socialtimes/pre-filled-stream-stories-like-box-border-color/263479?red=if)
 - [Platform Policy 2.3](https://developers.facebook.com/docs/apps/review/prefill)
  
-	<iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL" scrolling="no" style="border:none; width:450px; height:80px"></iframe>
+ ```html
+<iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL" scrolling="no" style="border:none; width:450px; height:80px"></iframe>
+```
 
-	https://www.facebook.com/plugins/like.php?
-		href			URL
-		layout			button_count
-		width			75
-		show_faces		true
-		action			like
-		colorscheme		light
-		font			arial or lucida%20grande
-		height			30
-		app_id			120295828008556
-		channel			...url
-		container_width	0
-		locale			en_US
-		sdk				joey
-		send			true
-		share			false
+```
+https://www.facebook.com/plugins/like.php?
+	href			URL
+	layout			button_count
+	width			75
+	show_faces		true
+	action			like
+	colorscheme		light
+	font			arial or lucida%20grande
+	height			30
+	app_id			120295828008556
+	channel			...url
+	container_width	0
+	locale			en_US
+	sdk				joey
+	send			true
+	share			false
+```
 
 - [Like Button - Social Plugins](https://developers.facebook.com/docs/plugins/like-button)
 - [Social Plugins](https://developers.facebook.com/docs/plugins)
@@ -5103,25 +5327,29 @@ Common parameters:
 
 Error codes: [Using the Graph API](https://developers.facebook.com/docs/graph-api/using-graph-api/#errors)
 
-	{
-		"error": {
-			"message": "Error validating access token: The user is enrolled in a blocking, logged-in checkpoint",
-			"type": "OAuthException",
-			"code": 190,
-			"error_subcode": 490,
-			"error_data": "{\"checkpoint_flow_id\":\"207799259245384\",\"checkpoint_content_id\":\"0\",\"show_native_checkpoints\":\"\"}",
-			"fbtrace_id": "Dmruy525PeA"
-		}
+```json
+{
+	"error": {
+		"message": "Error validating access token: The user is enrolled in a blocking, logged-in checkpoint",
+		"type": "OAuthException",
+		"code": 190,
+		"error_subcode": 490,
+		"error_data": "{\"checkpoint_flow_id\":\"207799259245384\",\"checkpoint_content_id\":\"0\",\"show_native_checkpoints\":\"\"}",
+		"fbtrace_id": "Dmruy525PeA"
 	}
+}
+```
 
-	{
-		"error": {
-			"message": "Invalid OAuth access token.",
-			"type": "OAuthException",
-			"code": 190,
-			"fbtrace_id": "F32VcO27MO3"
-		}
+```json
+{
+	"error": {
+		"message": "Invalid OAuth access token.",
+		"type": "OAuthException",
+		"code": 190,
+		"fbtrace_id": "F32VcO27MO3"
 	}
+}
+```
 
 Get infos about a page:
 
@@ -5131,200 +5359,204 @@ Get infos about a page:
 
 To get page categories (paged):
 
-	/search?type=placetopic&topic_filter=all&limit=5000&locale=fr_FR
+```
+/search?type=placetopic&topic_filter=all&limit=5000&locale=fr_FR
+```
 
 - https://gist.github.com/bloudermilk/2173940
 - [Facebook Pages — Authoritative List of Categories - Stack Overflow](https://stackoverflow.com/questions/4216648/facebook-pages-authoritative-list-of-categories/)
 
 Get count of posts, friends, likes and uploaded medias. Use jQuery Deferred (es2016 `Promise` like):
 
-	<!DOCTYPE html PUBLIC>
-	<html>
-		<head>
-			<title>Facebook stats</title>
-			<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-			<script src="//connect.facebook.net/fr_FR/sdk.js#appId=1509340019322396&version=v2.8&status=1" async></script>
-		</head>
-		<body>
-			
-			<button id="fb_start">Get my Facebook stats</button>
-			<pre id="output"></pre>
-			
-			<script>
-			var fbSDKInit = $.Deferred();
-			// Facebook SDK init listener
-			window.fbAsyncInit = () => fbSDKInit.resolve("FBSDKInit");
-			
-			function mergeObjects(obj1, obj2){
-				// Both are arrays
-				if(Array.isArray(obj1) && Array.isArray(obj2)){
-					return obj1.concat(obj2);
+```html
+<!DOCTYPE html PUBLIC>
+<html>
+	<head>
+		<title>Facebook stats</title>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="//connect.facebook.net/fr_FR/sdk.js#appId=1509340019322396&version=v2.8&status=1" async></script>
+	</head>
+	<body>
+
+		<button id="fb_start">Get my Facebook stats</button>
+		<pre id="output"></pre>
+
+		<script>
+		var fbSDKInit = $.Deferred();
+		// Facebook SDK init listener
+		window.fbAsyncInit = () => fbSDKInit.resolve("FBSDKInit");
+
+		function mergeObjects(obj1, obj2){
+			// Both are arrays
+			if(Array.isArray(obj1) && Array.isArray(obj2)){
+				return obj1.concat(obj2);
+			}
+
+			return Object.assign({}, obj1, obj2);
+		}
+
+		// Doesn't support Multiple Requests https://developers.facebook.com/docs/graph-api/using-graph-api#multirequests nor batch requests https://developers.facebook.com/docs/graph-api/making-multiple-requests
+		function getFBGraphAllData(graphURL){
+			return getFBGraphResponse(graphURL).pipe(response => {
+				// Paging https://developers.facebook.com/docs/graph-api/using-graph-api#paging
+				// paging.next is available if next page exist (but could be empty)
+				if(response.paging && response.paging.next){
+					return getFBGraphAllData(response.paging.next).pipe(data => mergeObjects(response.data, data));
 				}
-				
-				return Object.assign({}, obj1, obj2);
+
+				return response.data || response;// some edges return the field data as object  (`{}`, ex. `/user/picture/`) and no `paging` field
+			});
+		}
+
+		// Get Facebook Graph API data as promise
+		function getFBGraphResponse(relativeURL){
+			var d = $.Deferred();
+			FB.api(relativeURL, (response) => d[response && !response.error ? "resolve" : "reject"](response));
+			return d.promise();
+		}
+
+		function loginFB(permissions, rerequest = false){
+			var options = {
+				scope: permissions.join(","),
+				return_scopes: true
+			};
+			if(rerequest){
+				options.auth_type = "rerequest";
 			}
-			
-			// Doesn't support Multiple Requests https://developers.facebook.com/docs/graph-api/using-graph-api#multirequests nor batch requests https://developers.facebook.com/docs/graph-api/making-multiple-requests
-			function getFBGraphAllData(graphURL){
-				return getFBGraphResponse(graphURL).pipe(response => {
-					// Paging https://developers.facebook.com/docs/graph-api/using-graph-api#paging
-					// paging.next is available if next page exist (but could be empty)
-					if(response.paging && response.paging.next){
-						return getFBGraphAllData(response.paging.next).pipe(data => mergeObjects(response.data, data));
-					}
-		
-					return response.data || response;// some edges return the field data as object  (`{}`, ex. `/user/picture/`) and no `paging` field
-				});
-			}
-			
-			// Get Facebook Graph API data as promise
-			function getFBGraphResponse(relativeURL){
-				var d = $.Deferred();
-				FB.api(relativeURL, (response) => d[response && !response.error ? "resolve" : "reject"](response));
-				return d.promise();
-			}
-			
-			function loginFB(permissions, rerequest = false){
-				var options = {
-					scope: permissions.join(","),
-					return_scopes: true
-				};
-				if(rerequest){
-					options.auth_type = "rerequest";
-				}
-				
-				var d = $.Deferred();
-				// reject: The user user cancelled login or did not fully authorize.
-				FB.login((response) => d[response.authResponse ? "resolve" : "reject"](response), options);
-				
-				return d.promise();
-			}
-			
-			function checkFBStatus(){
-				var d = $.Deferred();
-				FB.getLoginStatus(response => d.resolve(response));
-				return d.promise();
-			}
-			
-			// Check if all values in array are in sourceArray
-			function arrayMatchAll(array, sourceArray){
-				return array.every(value => sourceArray.indexOf(value) >= 0)
-			}
-			
-			// Log the user if not and check permissions
-			// permissions called also scope/scopes
-			// https://developers.facebook.com/docs/facebook-login/permissions
-			function loginAndGrantPermissionsFB(requiredPermissions){
+
+			var d = $.Deferred();
+			// reject: The user user cancelled login or did not fully authorize.
+			FB.login((response) => d[response.authResponse ? "resolve" : "reject"](response), options);
+
+			return d.promise();
+		}
+
+		function checkFBStatus(){
+			var d = $.Deferred();
+			FB.getLoginStatus(response => d.resolve(response));
+			return d.promise();
+		}
+
+		// Check if all values in array are in sourceArray
+		function arrayMatchAll(array, sourceArray){
+			return array.every(value => sourceArray.indexOf(value) >= 0)
+		}
+
+		// Log the user if not and check permissions
+		// permissions called also scope/scopes
+		// https://developers.facebook.com/docs/facebook-login/permissions
+		function loginAndGrantPermissionsFB(requiredPermissions){
+			return checkFBStatus().pipe(function(response){
 				return checkFBStatus().pipe(function(response){
-					return checkFBStatus().pipe(function(response){
-						var status = response.status;
-						var promise;
-						if(status === "connected"){
-							promise = getFBGraphAllData("/me/permissions")
-								.pipe(data => data.filter(permission => permission.status == "granted").map(permission => permission.permission))
-								.pipe(grantedPermissions => {
-									if(arrayMatchAll(requiredPermissions, grantedPermissions)){
-										return grantedPermissions;
-									}
-				
-									// Special case: add an oportunity to the user to grant permissions again
-									return loginFB(requiredPermissions, true)
-										.pipe(response => response.authResponse.grantedScopes.split(","));
-								});
-						}else{
-							promise = loginFB(requiredPermissions, status === "not_authorized")
-								.pipe(response => response.authResponse.grantedScopes.split(","));
+					var status = response.status;
+					var promise;
+					if(status === "connected"){
+						promise = getFBGraphAllData("/me/permissions")
+							.pipe(data => data.filter(permission => permission.status == "granted").map(permission => permission.permission))
+							.pipe(grantedPermissions => {
+								if(arrayMatchAll(requiredPermissions, grantedPermissions)){
+									return grantedPermissions;
+								}
+
+								// Special case: add an oportunity to the user to grant permissions again
+								return loginFB(requiredPermissions, true)
+									.pipe(response => response.authResponse.grantedScopes.split(","));
+							});
+					}else{
+						promise = loginFB(requiredPermissions, status === "not_authorized")
+							.pipe(response => response.authResponse.grantedScopes.split(","));
+					}
+
+					return promise.pipe(grantedPermissions => {
+						// If all requested permissions are granted
+						if(arrayMatchAll(requiredPermissions, grantedPermissions)){
+							return $.Deferred().resolve(grantedPermissions);
 						}
-						
-						return promise.pipe(grantedPermissions => {
-							// If all requested permissions are granted
-							if(arrayMatchAll(requiredPermissions, grantedPermissions)){
-								return $.Deferred().resolve(grantedPermissions);
-							}
-							
-							return $.Deferred().reject({error: {message: "All required permissions are not granted."}});
-						});
+
+						return $.Deferred().reject({error: {message: "All required permissions are not granted."}});
 					});
 				});
-			}
-			
-			function addCount(target, field, count){
-				target[field] += count;
-				return target;
-			}
-			function getLength(items){
-				return items.length;
-			}
-			function getSummaryCount(result){
-				return result.summary.total_count;
-			}
-			
-			function getFBData(){
-				var result = {
-					name: null,
-					picture: null,
-					posts: 0,
-					friends: 0,
-					likes: 0,
-					medias: 0
-				};
-				
-				var addLikesCount = addCount.bind(null, result, "likes");
-				var addMediaCount = addCount.bind(null, result, "medias");
-				var lastYear = Math.floor(Date.now() / 1000 - 365*24*60*60);//timestamp in seconds
-				
-				return fbSDKInit
-					
-					.pipe(loginAndGrantPermissionsFB.bind(null, [
-						// https://developers.facebook.com/docs/facebook-login/permissions
-						// This permissions are approved by default
-						"email", "public_profile", "user_friends",
-						// Additional permissions
-						"user_posts", "user_likes", "user_photos", "user_videos"
-					]))
-					.pipe(function(){
-						return $.when(
-							// Indentity
-							getFBGraphResponse("/me?fields=name,picture.type(large)").pipe(response => {
-								result.name = response.name;
-								result.picture = response.picture.data.is_silhouette ? null : response.picture.data.url;
-								return result;
-							}),
-				
-							// Posts
-							//getFBGraphAllData("/me/posts?fields=id&limit=500").pipe(getLength).pipe(addCount.bind(null, result, "posts")),
-							getFBGraphAllData(`/me/posts?since=${lastYear}&fields=id&limit=500`).pipe(getLength).pipe(addCount.bind(null, result, "posts")),// posts over one year
-				
-							// Friends
-							getFBGraphResponse("/me/friends?limit=0").pipe(getSummaryCount).pipe(addCount.bind(null, result, "friends")),
-				
-							// Likes
-							getFBGraphResponse("/me/likes?limit=0&summary=true").pipe(getSummaryCount).pipe(addLikesCount),
-							getFBGraphAllData("/me/games?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
-							getFBGraphAllData("/me/books?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
-							getFBGraphAllData("/me/movies?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
-							getFBGraphAllData("/me/music?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
-							getFBGraphAllData("/me/television?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
-							getFBGraphAllData("/me/og.likes?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
-		
-							// Medias
-							getFBGraphAllData("/me/albums?fields=count&limit=100", true).pipe(function(data){
-								return data.reduce((total, album) => total + album.count, 0);
-							}).pipe(addMediaCount),
-							getFBGraphAllData("/me/videos?type=uploaded&fields=id", true).pipe(getLength).pipe(addMediaCount)
-						);
-					}).pipe(() => result);
-			}
-			
-			document.getElementById("fb_start").addEventListener("click", function(){
-				var start = Date.now();
-				document.getElementById("output").textContent = "Getting Facebook stats...";
-				getFBData().always(data => document.getElementById("output").textContent = `Facebook stats (duration: ${Date.now() - start}ms):\n\n${JSON.stringify(data, null, '\t')}`);
-				// response.error.type == "OAuthException");// response.error.code https://developers.facebook.com/docs/graph-api/using-graph-api#errors
 			});
-			</script>
-		</body>
-	</html>
+		}
+
+		function addCount(target, field, count){
+			target[field] += count;
+			return target;
+		}
+		function getLength(items){
+			return items.length;
+		}
+		function getSummaryCount(result){
+			return result.summary.total_count;
+		}
+
+		function getFBData(){
+			var result = {
+				name: null,
+				picture: null,
+				posts: 0,
+				friends: 0,
+				likes: 0,
+				medias: 0
+			};
+
+			var addLikesCount = addCount.bind(null, result, "likes");
+			var addMediaCount = addCount.bind(null, result, "medias");
+			var lastYear = Math.floor(Date.now() / 1000 - 365*24*60*60);//timestamp in seconds
+
+			return fbSDKInit
+
+				.pipe(loginAndGrantPermissionsFB.bind(null, [
+					// https://developers.facebook.com/docs/facebook-login/permissions
+					// This permissions are approved by default
+					"email", "public_profile", "user_friends",
+					// Additional permissions
+					"user_posts", "user_likes", "user_photos", "user_videos"
+				]))
+				.pipe(function(){
+					return $.when(
+						// Indentity
+						getFBGraphResponse("/me?fields=name,picture.type(large)").pipe(response => {
+							result.name = response.name;
+							result.picture = response.picture.data.is_silhouette ? null : response.picture.data.url;
+							return result;
+						}),
+
+						// Posts
+						//getFBGraphAllData("/me/posts?fields=id&limit=500").pipe(getLength).pipe(addCount.bind(null, result, "posts")),
+						getFBGraphAllData(`/me/posts?since=${lastYear}&fields=id&limit=500`).pipe(getLength).pipe(addCount.bind(null, result, "posts")),// posts over one year
+
+						// Friends
+						getFBGraphResponse("/me/friends?limit=0").pipe(getSummaryCount).pipe(addCount.bind(null, result, "friends")),
+
+						// Likes
+						getFBGraphResponse("/me/likes?limit=0&summary=true").pipe(getSummaryCount).pipe(addLikesCount),
+						getFBGraphAllData("/me/games?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
+						getFBGraphAllData("/me/books?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
+						getFBGraphAllData("/me/movies?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
+						getFBGraphAllData("/me/music?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
+						getFBGraphAllData("/me/television?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
+						getFBGraphAllData("/me/og.likes?fields=id&limit=500", true).pipe(getLength).pipe(addLikesCount),
+
+						// Medias
+						getFBGraphAllData("/me/albums?fields=count&limit=100", true).pipe(function(data){
+							return data.reduce((total, album) => total + album.count, 0);
+						}).pipe(addMediaCount),
+						getFBGraphAllData("/me/videos?type=uploaded&fields=id", true).pipe(getLength).pipe(addMediaCount)
+					);
+				}).pipe(() => result);
+		}
+
+		document.getElementById("fb_start").addEventListener("click", function(){
+			var start = Date.now();
+			document.getElementById("output").textContent = "Getting Facebook stats...";
+			getFBData().always(data => document.getElementById("output").textContent = `Facebook stats (duration: ${Date.now() - start}ms):\n\n${JSON.stringify(data, null, '\t')}`);
+			// response.error.type == "OAuthException");// response.error.code https://developers.facebook.com/docs/graph-api/using-graph-api#errors
+		});
+		</script>
+	</body>
+</html>
+```
 
 About getting the registration date:
 
@@ -5335,35 +5567,36 @@ Note: It's possible to back dating content with `backdated_time`: https://develo
 
 ##### Get age from Facebook user's birthdate
 
-	// facebook-user-age.js
-	/**
-	 * Get Facebook user age from given birthdate
-	 * Can be MM/DD/YYYY or MM/DD or YYYY
-	 * @param {String} birthdate
-	 * @returns {Number}
-	 * @see https://developers.facebook.com/docs/graph-api/reference/user/
-	 */
-	module.exports = birthdate => {
-		const currentYear = new Date().getFullYear();
-		// Convert to UTC ISO-8601 date
-	
-		// MM/DD/YYYY
-		if(birthdate.length === 10){
-			const [month, day, year] = birthdate.split("/");
-			return currentYear - new Date(`${year}-${month}-${day}`).getFullYear() - 1;
-		}
-	
-		// YYYY
-		if(birthdate.length === 4){
-			const year = birthdate;
-			return currentYear - parseInt(year, 10) - 1;
-		}
-	
-		// MM/DD
-	
-		return NaN;
-	};
-	
+```js
+// facebook-user-age.js
+/**
+ * Get Facebook user age from given birthdate
+ * Can be MM/DD/YYYY or MM/DD or YYYY
+ * @param {String} birthdate
+ * @returns {Number}
+ * @see https://developers.facebook.com/docs/graph-api/reference/user/
+ */
+module.exports = birthdate => {
+	const currentYear = new Date().getFullYear();
+	// Convert to UTC ISO-8601 date
+
+	// MM/DD/YYYY
+	if(birthdate.length === 10){
+		const [month, day, year] = birthdate.split("/");
+		return currentYear - new Date(`${year}-${month}-${day}`).getFullYear() - 1;
+	}
+
+	// YYYY
+	if(birthdate.length === 4){
+		const year = birthdate;
+		return currentYear - parseInt(year, 10) - 1;
+	}
+
+	// MM/DD
+
+	return NaN;
+};
+```	
 
 #### Share an external Animation
 
@@ -5385,26 +5618,28 @@ Note: a div with `me-cannotplay` class with a link "Download File" as child
 Note: based on `og:image` file dimensions if width <= ~400 the image is squared and take 1/3 of the post width. Where the title and description take 2/3. If width > ~400 the image will take all the width and only the title and origin are visible (no description)
 Note: does the size provided (`og:video:width` and `og:video:height`) have any impact? 
 
-	<meta property="og:type" content="video">
-	<meta property="og:image" content="poster.jpg">
-	
-	<!-- direct asset ref: -→
-	<meta property="og:video" content="http://example.com/video.mp4">
-	<meta property="og:video:type" content="video/mp4">
-	<meta property="og:video:width" content="500">
-	<meta property="og:video:height" content="400">
-	
-	<!-- Facebook iframe embed  -→
-	<meta property="og:video:url" content="http://example.com/video.html">
-	<meta property="og:video:type" content="text/html">
-	<meta property="og:video:width" content="500">
-	<meta property="og:video:height" content="400">
-	
-	<!--  legacy swf embed:  -→
-	<meta property="og:video:url" content="http://example.com/animation.swf">
-	<meta property="og:video:type" content="application/x-shockwave-flash">
-	<meta property="og:video:height" content="500">
-	<meta property="og:video:width" content="400">
+```html
+<meta property="og:type" content="video">
+<meta property="og:image" content="poster.jpg">
+
+<!-- direct asset ref: -→
+<meta property="og:video" content="http://example.com/video.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="500">
+<meta property="og:video:height" content="400">
+
+<!-- Facebook iframe embed  -→
+<meta property="og:video:url" content="http://example.com/video.html">
+<meta property="og:video:type" content="text/html">
+<meta property="og:video:width" content="500">
+<meta property="og:video:height" content="400">
+
+<!--  legacy swf embed:  -→
+<meta property="og:video:url" content="http://example.com/animation.swf">
+<meta property="og:video:type" content="application/x-shockwave-flash">
+<meta property="og:video:height" content="500">
+<meta property="og:video:width" content="400">
+```
 
 2016/12/09: only MP4 and SWF served via HTTPS works. In user feed (desktop), MP4 will be played in native HTML5 player and SWF will be placed in object inside an isolated iframe. On mobile (native app) it's a simple link (not interaction)
 
@@ -5444,56 +5679,64 @@ Note: GIF will be cached and converted as MP4
 
 Works ? Else detect the crawler and output the gif instead:
 
-	header('Content-Length: ' . filesize($gif));
-	header('Content-Type: ' . mime_content_type($gif));
-	readfile($gif);
-	exit();
+```php
+header('Content-Length: ' . filesize($gif));
+header('Content-Type: ' . mime_content_type($gif));
+readfile($gif);
+exit();
+```
 
-	<meta property="og:site_name"   content="Site Name">
-	<meta property="og:url"         content="url to GIF on web">
-	<meta property="og:title"       content="Title of GIF page">
-	<meta property="og:description" content="Some description">
-	<meta property="og:type"        content="video.other">
-	<meta property="og:image"       content="Same as og:url above">
-	<meta property="og:image:width"  content="800">
-	<meta property="og:image:height" content="400">
+```html
+<meta property="og:site_name"   content="Site Name">
+<meta property="og:url"         content="url to GIF on web">
+<meta property="og:title"       content="Title of GIF page">
+<meta property="og:description" content="Some description">
+<meta property="og:type"        content="video.other">
+<meta property="og:image"       content="Same as og:url above">
+<meta property="og:image:width"  content="800">
+<meta property="og:image:height" content="400">
+```
 
 - [opengraph - How does Giphy share gifs to facebook? (2015, NOT FLASH ANYMORE) - Stack Overflow](https://stackoverflow.com/questions/31216481/how-does-giphy-share-gifs-to-facebook-2015-not-flash-anymore/35999163#35999163)
 
 For `http://giphy.com/gifs/hot-funny-cartoon-fBEDuhnVCiP16`:
 
-	<meta property="og:url" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy.gif">
-	<meta property="og:title" content="The Simpsons GIF - Find &amp; Share on GIPHY">
-	<meta property="og:description" content="Discover &amp; Share this The Simpsons GIF with everyone you know. GIPHY is how you search, share, discover, and create GIFs.">
-	<meta property="og:type" content="video.other">
-	<meta property="og:image" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy.gif">
-	<meta property="og:image:width" content="500">
-	<meta property="og:image:height" content="376">
-	<meta property="og:type" content="video">
-	<meta property="og:image" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg">
-	<meta property="og:image:width" content="480">
-	<meta property="og:image:height" content="270">
-	<meta property="og:type" content="video">
-    <meta property="og:image" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg">
-    <meta property="og:image:width" content="480">
-    <meta property="og:image:height" content="270">
-    <meta property="og:video" content="https://giphygifs.s3.amazonaws.com/swiphy20141103.swf?api_hostname=&gif_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.gif&giphy_height=376&video_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.mp4&giphyWidth=500&path=%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&destination_url=http%3A%2F%2Fgiphy.com%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&giphyHeight=376&gif_id=fBEDuhnVCiP16&mode=embed&giphy_width=500">
-    <meta property="og:video:secure_url" content="https://giphygifs.s3.amazonaws.com/swiphy20141103.swf?api_hostname=&gif_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.gif&giphy_height=376&video_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.mp4&giphyWidth=500&path=%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&destination_url=http%3A%2F%2Fgiphy.com%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&giphyHeight=376&gif_id=fBEDuhnVCiP16&mode=embed&giphy_width=500">
-    <meta property="og:video:type" content="application/x-shockwave-flash">
-    <meta property="og:video:width" content="470">
-    <meta property="og:video:height" content="353">
+```html
+<meta property="og:url" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy.gif">
+<meta property="og:title" content="The Simpsons GIF - Find &amp; Share on GIPHY">
+<meta property="og:description" content="Discover &amp; Share this The Simpsons GIF with everyone you know. GIPHY is how you search, share, discover, and create GIFs.">
+<meta property="og:type" content="video.other">
+<meta property="og:image" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy.gif">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="376">
+<meta property="og:type" content="video">
+<meta property="og:image" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg">
+<meta property="og:image:width" content="480">
+<meta property="og:image:height" content="270">
+<meta property="og:type" content="video">
+<meta property="og:image" content="https://media.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg">
+<meta property="og:image:width" content="480">
+<meta property="og:image:height" content="270">
+<meta property="og:video" content="https://giphygifs.s3.amazonaws.com/swiphy20141103.swf?api_hostname=&gif_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.gif&giphy_height=376&video_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.mp4&giphyWidth=500&path=%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&destination_url=http%3A%2F%2Fgiphy.com%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&giphyHeight=376&gif_id=fBEDuhnVCiP16&mode=embed&giphy_width=500">
+<meta property="og:video:secure_url" content="https://giphygifs.s3.amazonaws.com/swiphy20141103.swf?api_hostname=&gif_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.gif&giphy_height=376&video_url=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FfBEDuhnVCiP16%2Fgiphy.mp4&giphyWidth=500&path=%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&destination_url=http%3A%2F%2Fgiphy.com%2Fgifs%2Fhot-funny-cartoon-fBEDuhnVCiP16&giphyHeight=376&gif_id=fBEDuhnVCiP16&mode=embed&giphy_width=500">
+<meta property="og:video:type" content="application/x-shockwave-flash">
+<meta property="og:video:width" content="470">
+<meta property="og:video:height" content="353">
+```
 
 #### Detect Facebook crawler
 
-	if (
-		strpos($_SERVER["HTTP_USER_AGENT"], 'facebookexternalhit/') !== false ||
-		strpos($_SERVER["HTTP_USER_AGENT"], 'Facebot') !== false
-	) {
-		// it is probably Facebook's bot
-	}
-	else {
-		// probably not
-	}
+```php
+if (
+	strpos($_SERVER["HTTP_USER_AGENT"], 'facebookexternalhit/') !== false ||
+	strpos($_SERVER["HTTP_USER_AGENT"], 'Facebot') !== false
+) {
+	// it is probably Facebook's bot
+}
+else {
+	// probably not
+}
+```
 
 - [Facebook Crawler - Sharing](https://developers.facebook.com/docs/sharing/webmasters/crawler)
 
@@ -5523,14 +5766,21 @@ Note: For Summary card with large image, the aspect ratio is 2:1. See [Advertise
 Tweets: `https://twitter.com/i/profiles/show/{user}/timeline/tweets?include_available_features=1&include_entities=1&include_new_items_bar=true`
 	max_position={last_tweet_id}
 Headers:
+
+```http
 	Accept: application/json, text/javascript, */*; q=0.01
 	Referer: https://twitter.com/{user}
 	User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8
 	X-Twitter-Active-User: yes
 	X-Requested-With: XMLHttpRequest
+```
+
 Response:
-	"items_html"
-	https://github.com/kennethreitz/twitter-scraper/blob/master/twitter_scraper.py
+
+```
+"items_html"
+https://github.com/kennethreitz/twitter-scraper/blob/master/twitter_scraper.py
+```
 
 Media video:
 
@@ -5565,26 +5815,28 @@ GIF or Video
 
 Note: you need to request approval to allow your domain to be allowed to use twitter card player. See [twitter card validator](https://dev.twitter.com/cards/types/player)
 
-	<!-- page URL: http://gifboom.com/x/771600be -→
-	<meta name="twitter:card"       content="player">
-	<meta name="twitter:player"     content="https://gifboom.com/p/771600be">
-	<meta name="twitter:player:width" content="480">
-	<meta name="twitter:player:height" content="270">
-	<meta name="twitter:player:stream" content="https://medias.gifboom.com/medias/0928a540746501330b2e723c91561e03.mp4">
-	<meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+```html
+<!-- page URL: http://gifboom.com/x/771600be -→
+<meta name="twitter:card"       content="player">
+<meta name="twitter:player"     content="https://gifboom.com/p/771600be">
+<meta name="twitter:player:width" content="480">
+<meta name="twitter:player:height" content="270">
+<meta name="twitter:player:stream" content="https://medias.gifboom.com/medias/0928a540746501330b2e723c91561e03.mp4">
+<meta name="twitter:player:stream:content_type" content="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
 
-	<meta name="twitter:account_id" content="1020383864" />
-	<meta name="twitter:card" content="player">
-	<meta name="twitter:title" content="The Simpsons GIF - Find &amp; Share on GIPHY">
-	<meta name="twitter:creator" content="@giphy">
-	<meta name="twitter:site" content="@giphy">
-	<meta name="twitter:description" content="Discover &amp; Share this The Simpsons GIF with everyone you know. GIPHY is how you search, share, discover, and create GIFs.">
-	<meta name="twitter:image:src" content="https://media3.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg?t=1">
-	<meta name="twitter:image" content="https://media3.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg?t=1">
-	<meta name="twitter:domain" content="giphy.com">
-	<meta name="twitter:player" content="https://giphy.com/embed/fBEDuhnVCiP16/twitter/iframe">
-	<meta name="twitter:player:width" content="435">
-	<meta name="twitter:player:height" content="327">
+<meta name="twitter:account_id" content="1020383864" />
+<meta name="twitter:card" content="player">
+<meta name="twitter:title" content="The Simpsons GIF - Find &amp; Share on GIPHY">
+<meta name="twitter:creator" content="@giphy">
+<meta name="twitter:site" content="@giphy">
+<meta name="twitter:description" content="Discover &amp; Share this The Simpsons GIF with everyone you know. GIPHY is how you search, share, discover, and create GIFs.">
+<meta name="twitter:image:src" content="https://media3.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg?t=1">
+<meta name="twitter:image" content="https://media3.giphy.com/media/fBEDuhnVCiP16/giphy-facebook_s.jpg?t=1">
+<meta name="twitter:domain" content="giphy.com">
+<meta name="twitter:player" content="https://giphy.com/embed/fBEDuhnVCiP16/twitter/iframe">
+<meta name="twitter:player:width" content="435">
+<meta name="twitter:player:height" content="327">
+```
 
 - https://github.com/twitterdev/cards-player-samples
 - [Player Card validator — Twitter Developers](https://dev.twitter.com/cards/types/player)
@@ -5605,15 +5857,17 @@ Note: you need to request approval to allow your domain to be allowed to use twi
 
 #### Stream
 
-	https://syndication.twitter.com/timeline/likes?callback=console.log&dnt=false&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
-	https://syndication.twitter.com/timeline/profile?callback=console.log&dnt=false&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
-	https://syndication.twitter.com/timeline/list?callback=console.log&dnt=false&list_slug=%{user-list-id}&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
+```
+https://syndication.twitter.com/timeline/likes?callback=console.log&dnt=false&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
+https://syndication.twitter.com/timeline/profile?callback=console.log&dnt=false&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
+https://syndication.twitter.com/timeline/list?callback=console.log&dnt=false&list_slug=%{user-list-id}&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
 
-	See https://twitter.com/settings/widgets/new/search?query=
-	https://cdn.syndication.twimg.com/widgets/timelines/%{widget-id}?&callback=console.log&suppress_response_codes=true&lang=fr
+See https://twitter.com/settings/widgets/new/search?query=
+https://cdn.syndication.twimg.com/widgets/timelines/%{widget-id}?&callback=console.log&suppress_response_codes=true&lang=fr
 
-	https://twitter.com/i/profiles/popup?screen_name=%{user-name}&wants_hovercard=true&lang=fr
-	https://twitter.com/i/profiles/popup?user_id=%{user-id}&wants_hovercard=true&lang=fr
+https://twitter.com/i/profiles/popup?screen_name=%{user-name}&wants_hovercard=true&lang=fr
+https://twitter.com/i/profiles/popup?user_id=%{user-id}&wants_hovercard=true&lang=fr
+```
 
 - [Reference Documentation — Twitter Developers](https://dev.twitter.com/rest/reference)
 - (JS) https://github.com/jasonmayes/Twitter-Post-Fetcher
@@ -5623,55 +5877,57 @@ Note: you need to request approval to allow your domain to be allowed to use twi
 - https://mikerogers.io/2013/02/25/how-use-twitter-oauth-1-1-javascriptjquery.html
 - https://umerpasha.wordpress.com/2013/06/13/c-code-to-get-latest-tweets-using-twitter-api-1-1/
  
-	<?php
-	$username = isset($_GET['screen_name']) ? $_GET['screen_name'] : 'twitter';// 'privateaccount'
-	$page_content = @file_get_contents('https://twitter.com/' . urlencode($username) . '?lang=en');
-	
-	if(preg_match('/<input type="hidden" id="init-data" class="json-data" value="([^"]+)/', $page_content, $matches)){
-		$data = json_decode(html_entity_decode($matches[1]), true);
-		$profile_data = json_encode($data['profile_user']);
-		header('Content-Type: application/json');
-		echo $profile_data;
-	}
+ ```php
+<?php
+$username = isset($_GET['screen_name']) ? $_GET['screen_name'] : 'twitter';// 'privateaccount'
+$page_content = @file_get_contents('https://twitter.com/' . urlencode($username) . '?lang=en');
 
-	<?php
-	
-	define('TWITTER_PROFILE_VALUES', 6);
-	$username = isset($_GET['screen_name']) ? $_GET['screen_name'] : 'twitter';
-	$page_content = file_get_contents('https://twitter.com/' . urlencode($username) . '?lang=en');
-	$profileKeys = array('tweets', 'following', 'followers', 'likes', 'lists', 'moments');
-	$profileValues = array();
-	$matchOffset = 80000;//skip first 80kB
-	while(preg_match('/<span class="ProfileNav-value"[^>]*>([^<]+)/', $page_content, $matches, PREG_OFFSET_CAPTURE, $matchOffset) && count($profileValues) < TWITTER_PROFILE_VALUES){
-		$fullPatternMatch = $matches[0];
-		$matchOffset = $fullPatternMatch[1] + strlen($fullPatternMatch[0]);
-		$firstCapGroupMatch = $matches[1];
-		$value = $firstCapGroupMatch[0];
-		$value = str_replace(',', '', $value);
-		$lastChar = strtoupper($value[strlen($value) - 1]);// abbreviation
-		$value = floatval($value);
-		switch($lastChar) {
-			case 'T':// Trillion, Tera-
-				$value *= 1000;
-			case 'B':// Billion
-			case 'G':// Giga-
-				$value *= 1000;
-			case 'M':// Million, Mega-
-				$value *= 1000;
-			case 'K':// Kilo-
-				$value *= 1000;
-		}
-		array_push($profileValues, $value);
+if(preg_match('/<input type="hidden" id="init-data" class="json-data" value="([^"]+)/', $page_content, $matches)){
+	$data = json_decode(html_entity_decode($matches[1]), true);
+	$profile_data = json_encode($data['profile_user']);
+	header('Content-Type: application/json');
+	echo $profile_data;
+}
+
+<?php
+
+define('TWITTER_PROFILE_VALUES', 6);
+$username = isset($_GET['screen_name']) ? $_GET['screen_name'] : 'twitter';
+$page_content = file_get_contents('https://twitter.com/' . urlencode($username) . '?lang=en');
+$profileKeys = array('tweets', 'following', 'followers', 'likes', 'lists', 'moments');
+$profileValues = array();
+$matchOffset = 80000;//skip first 80kB
+while(preg_match('/<span class="ProfileNav-value"[^>]*>([^<]+)/', $page_content, $matches, PREG_OFFSET_CAPTURE, $matchOffset) && count($profileValues) < TWITTER_PROFILE_VALUES){
+	$fullPatternMatch = $matches[0];
+	$matchOffset = $fullPatternMatch[1] + strlen($fullPatternMatch[0]);
+	$firstCapGroupMatch = $matches[1];
+	$value = $firstCapGroupMatch[0];
+	$value = str_replace(',', '', $value);
+	$lastChar = strtoupper($value[strlen($value) - 1]);// abbreviation
+	$value = floatval($value);
+	switch($lastChar) {
+		case 'T':// Trillion, Tera-
+			$value *= 1000;
+		case 'B':// Billion
+		case 'G':// Giga-
+			$value *= 1000;
+		case 'M':// Million, Mega-
+			$value *= 1000;
+		case 'K':// Kilo-
+			$value *= 1000;
 	}
-	
-	$data = array(
-		'screenName' => '',
-		'fullName' => ''
-	);
-	$data += array_combine($profileKeys, $profileValues);
-	echo '<pre>';
-	echo json_encode($data);
-	echo '</pre>';
+	array_push($profileValues, $value);
+}
+
+$data = array(
+	'screenName' => '',
+	'fullName' => ''
+);
+$data += array_combine($profileKeys, $profileValues);
+echo '<pre>';
+echo json_encode($data);
+echo '</pre>';
+```
 
 #### GIF
 
@@ -5679,14 +5935,16 @@ Twitter has a limit of max 15 MB
 
 #### Detect Twitter crawler
 
-	if (
-		strpos($_SERVER["HTTP_USER_AGENT"], 'Twitterbot/') !== false
-	) {
-		// it is probably Twitter's bot
-	}
-	else {
-		// probably not
-	}
+```php
+if (
+	strpos($_SERVER["HTTP_USER_AGENT"], 'Twitterbot/') !== false
+) {
+	// it is probably Twitter's bot
+}
+else {
+	// probably not
+}
+```
 
 - [Getting Started Guide | Twitter Developers](https://dev.twitter.com/cards/getting-started#crawling)
 
@@ -5712,14 +5970,16 @@ To add a text replacement for add a line break you need macOS synchronized with 
 
 #### Detect Pinterest crawler
 
-	if (
-		strpos($_SERVER["HTTP_USER_AGENT"], 'Pinterest/') !== false
-	) {
-		// it is probably Twitter's bot
-	}
-	else {
-		// probably not
-	}
+```php
+if (
+	strpos($_SERVER["HTTP_USER_AGENT"], 'Pinterest/') !== false
+) {
+	// it is probably Twitter's bot
+}
+else {
+	// probably not
+}
+```
 
 ### LinkedIn
 
@@ -5767,32 +6027,34 @@ For other page `https://github.com/msndevs/protocol-docs/wiki/Authentication` go
 
 `https://api.github.com/repos/${USER}/${REPO}/commits/${BRANCH}`
 
-	const REGEX_GIST_URL     = /^https?:\/\/gist\.github\.com\/.+?\/([0-9a-f]+)(?:\/([0-9a-f]+))?/i;
-	const REGEX_RAW_GIST_URL = /^https?:\/\/gist\.githubusercontent\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+\..+)$/i;
-	
-	/**
-	Matches a GitHub raw URL.
-	
-	Captures:
-	
-	1.  Username
-	2.  Repo
-	3.  Ref
-	4.  File path
-	**/
-	const REGEX_RAW_REPO_URL = /^https?:\/\/raw\.github(?:usercontent)?\.com\/(.+?)\/(.+?)\/(.+?)\/(.+)/i;
-	
-	/**
-	Matches a GitHub repo URL.
-	
-	Captures:
-	
-	1.  Username
-	2.  Repo
-	3.  Ref
-	4.  File path
-	**/
-	const REGEX_REPO_URL = /^https?:\/\/github\.com\/(.+?)\/(.+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?)\/(.+)/i;
+```js
+const REGEX_GIST_URL     = /^https?:\/\/gist\.github\.com\/.+?\/([0-9a-f]+)(?:\/([0-9a-f]+))?/i;
+const REGEX_RAW_GIST_URL = /^https?:\/\/gist\.githubusercontent\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+\..+)$/i;
+
+/**
+Matches a GitHub raw URL.
+
+Captures:
+
+1.  Username
+2.  Repo
+3.  Ref
+4.  File path
+**/
+const REGEX_RAW_REPO_URL = /^https?:\/\/raw\.github(?:usercontent)?\.com\/(.+?)\/(.+?)\/(.+?)\/(.+)/i;
+
+/**
+Matches a GitHub repo URL.
+
+Captures:
+
+1.  Username
+2.  Repo
+3.  Ref
+4.  File path
+**/
+const REGEX_REPO_URL = /^https?:\/\/github\.com\/(.+?)\/(.+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?)\/(.+)/i;
+```
 
 #### Gist
 
@@ -5809,8 +6071,10 @@ Aka Stackoverflow, etc.
 
 Short URLs:
 
-	https://*.stackexchange.com/q/QUESTION_ID
-	https://*.stackexchange.com/a/ANSWER_ID
+```
+https://*.stackexchange.com/q/QUESTION_ID
+https://*.stackexchange.com/a/ANSWER_ID
+```
 
 ### Voyage SNCF
 
@@ -5830,9 +6094,11 @@ Example:
 
 ### Scribd
 
-	?start_page=n
-	#page=n
-	#full
+```
+?start_page=n
+#page=n
+#full
+```
 
 ### Wikipedia
 
@@ -5863,7 +6129,9 @@ Show all fullres images (without watermark, + inaccessible ones) of a Fashion An
 
 Filename pattern `%designer_name% %collection% %year% %image_number%.jpg`
 
-	javascript:var t=document.title.split(/\s+\|\s+/).slice(1).join(" ");$("head").append("<style>.pictures{margin:0px calc((100vw - 993px) / -2);padding:10px;display:flex;flex-wrap:wrap;}.picture-wrap{width:400px;flex-grow:1;box-sizing:border-box;padding:10px;}.picture{width: 100%;}</style>");var p=$(".bigphoto");var s=p.find("img").prop("src").replace(/\d{3}_m.jpg/, "");p.remove();var r=$("<div class='pictures'/>");var e=function(){$(this).parent().remove()};for(var i=1;i<=999;i++){var a=s+("000"+i).slice(-3)+".jpg";r.append($("<a class='picture-wrap'/>").attr("download", t+" "+i+".jpg").prop("href", a).append($("<img class='picture' src='#'>").error(e).prop("src", a)))};$(".allphotos").replaceWith(r);void(0);
+```
+javascript:var t=document.title.split(/\s+\|\s+/).slice(1).join(" ");$("head").append("<style>.pictures{margin:0px calc((100vw - 993px) / -2);padding:10px;display:flex;flex-wrap:wrap;}.picture-wrap{width:400px;flex-grow:1;box-sizing:border-box;padding:10px;}.picture{width: 100%;}</style>");var p=$(".bigphoto");var s=p.find("img").prop("src").replace(/\d{3}_m.jpg/, "");p.remove();var r=$("<div class='pictures'/>");var e=function(){$(this).parent().remove()};for(var i=1;i<=999;i++){var a=s+("000"+i).slice(-3)+".jpg";r.append($("<a class='picture-wrap'/>").attr("download", t+" "+i+".jpg").prop("href", a).append($("<img class='picture' src='#'>").error(e).prop("src", a)))};$(".allphotos").replaceWith(r);void(0);
+```
 
 - https://gist.github.com/mems/5a87941e00c8c15954ce
 
@@ -5894,61 +6162,63 @@ Previous Apple's website:
 
 Add support of load an image in http://www.rw-designer.com/online-cursor-editor tool (Make CUR file) 
 
-	/*
-	Make CUR file using online editor, with basic support of load an image
-	http://www.rw-designer.com/online-cursor-editor
-	
-	Require image file to base64 string convertion tool like:
-	http://www.motobit.com/util/base64-decoder-encoder.asp
-	*/
-	
-	//------------
-	
-	// Define draw position
-	var × = 0;
-	var y = 0;
-	
-	// Define canvas size 32 × 32
-	var canvasWidth = 32;
-	var canvasHeight = 32;
-	
-	var format = "image/png";
-	// Define image base64
-	var data = //"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAOeC3b8h2EGQmBU8ajioawYKLgJWQEevAmkWAGIvxJQCJJXgJleSUBxJbJTWIH4Gg6F14GYDd3tDkD8D00hiO+IKyQWoylegi/YxIH4PVQhiJYgFM5ZUMVZxEQKMxBPB9HocgARnh3leFIWmgAAAABJRU5ErkJggg=="
-	//"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAN6rVb/YZiBEBhVPKp4KCsGCm5CVoAHbwIpVgDirwQUguQVYKZXElBciewUViC+hkPhdSBmQ3e7AxD/Q1MI4jviConFaIqX4As2cSB+D1UIoiUIhXMWVHEWMZHCDMTTQTS6HABLqs2uDLgrlgAAAABJRU5ErkJggg=="
-	//"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAOv0zj+wzADITCqeFTxUFYMFNyErAAP3gRSrADEXwkoBMkrwEyvJKC4EtkprEB8DYfC60DMhu52ByD+h6YQxHfEFRKL0RQvwRds4kD8HqoQREsQCucsqOIsYiKFGYing2h0OQAUJ/3GEXDEHgAAAABJRU5ErkJggg=="
-	"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAP9Zi//wzADITCqeFTxUFYMFNyErAAP3gRSrADEXwkoBMkrwEyvJKC4EtkprEB8DYfC60DMhu52ByD+h6YQxHfEFRKL0RQvwRds4kD8HqoQREsQCucsqOIsYiKFGYing2h0OQA5PiOv+GamsAAAAABJRU5ErkJggg=="
-	//"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAOH12r/h2EGQmBU8ajioawYKLgJWQEevAmkWAGIvxJQCJJXgJleSUBxJbJTWIH4Gg6F14GYDd3tDkD8D00hiO+IKyQWoylegi/YxIH4PVQhiJYgFM5ZUMVZxEQKMxBPB9HocgBlExs5LfZeRAAAAABJRU5ErkJggg=="
-	
-	
-	//------------
-	//------------
-	
-	var img = document.createElement("img");
-	img.src = "data:" + format + ";base64," + data;
-	
-	var canvas = document.createElement("canvas");
-	canvas.width = canvasWidth;
-	canvas.height = canvasHeight;
-	
-	var ctx = canvas.getContext("2d");
-	
-	ctx.drawImage(img, x, y);
-	
-	var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	var imageWidth = imageData.width;
-	var imageHeight = imageData.height;
-	var rawPixels = imageData.data;
-	var numPixels = imageWidth * imageHeight;
-	var argb;
-	for(var i = 0; i < numPixels; i++){
-		//32bits RGBA to ARGB
-		argb = rawPixels[i * 4] << 16;//R
-		argb |= rawPixels[i * 4 + 1] << 8;//G
-		argb |= rawPixels[i * 4 + 2];//B
-		argb |= rawPixels[i * 4 + 3] << 24;//A
-		OCE_replacepixel(i, argb);
-	}
+```js
+/*
+Make CUR file using online editor, with basic support of load an image
+http://www.rw-designer.com/online-cursor-editor
+
+Require image file to base64 string convertion tool like:
+http://www.motobit.com/util/base64-decoder-encoder.asp
+*/
+
+//------------
+
+// Define draw position
+var × = 0;
+var y = 0;
+
+// Define canvas size 32 × 32
+var canvasWidth = 32;
+var canvasHeight = 32;
+
+var format = "image/png";
+// Define image base64
+var data = //"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAOeC3b8h2EGQmBU8ajioawYKLgJWQEevAmkWAGIvxJQCJJXgJleSUBxJbJTWIH4Gg6F14GYDd3tDkD8D00hiO+IKyQWoylegi/YxIH4PVQhiJYgFM5ZUMVZxEQKMxBPB9HocgARnh3leFIWmgAAAABJRU5ErkJggg=="
+//"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAN6rVb/YZiBEBhVPKp4KCsGCm5CVoAHbwIpVgDirwQUguQVYKZXElBciewUViC+hkPhdSBmQ3e7AxD/Q1MI4jviConFaIqX4As2cSB+D1UIoiUIhXMWVHEWMZHCDMTTQTS6HABLqs2uDLgrlgAAAABJRU5ErkJggg=="
+//"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAOv0zj+wzADITCqeFTxUFYMFNyErAAP3gRSrADEXwkoBMkrwEyvJKC4EtkprEB8DYfC60DMhu52ByD+h6YQxHfEFRKL0RQvwRds4kD8HqoQREsQCucsqOIsYiKFGYing2h0OQAUJ/3GEXDEHgAAAABJRU5ErkJggg=="
+"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAP9Zi//wzADITCqeFTxUFYMFNyErAAP3gRSrADEXwkoBMkrwEyvJKC4EtkprEB8DYfC60DMhu52ByD+h6YQxHfEFRKL0RQvwRds4kD8HqoQREsQCucsqOIsYiKFGYing2h0OQA5PiOv+GamsAAAAABJRU5ErkJggg=="
+//"iVBORw0KGgoAAAANSUhEUgAAAAsAAAAaCAYAAABhJqYYAAAAbUlEQVR42mNgQAOH12r/h2EGQmBU8ajioawYKLgJWQEevAmkWAGIvxJQCJJXgJleSUBxJbJTWIH4Gg6F14GYDd3tDkD8D00hiO+IKyQWoylegi/YxIH4PVQhiJYgFM5ZUMVZxEQKMxBPB9HocgBlExs5LfZeRAAAAABJRU5ErkJggg=="
+
+
+//------------
+//------------
+
+var img = document.createElement("img");
+img.src = "data:" + format + ";base64," + data;
+
+var canvas = document.createElement("canvas");
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
+
+var ctx = canvas.getContext("2d");
+
+ctx.drawImage(img, x, y);
+
+var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+var imageWidth = imageData.width;
+var imageHeight = imageData.height;
+var rawPixels = imageData.data;
+var numPixels = imageWidth * imageHeight;
+var argb;
+for(var i = 0; i < numPixels; i++){
+	//32bits RGBA to ARGB
+	argb = rawPixels[i * 4] << 16;//R
+	argb |= rawPixels[i * 4 + 1] << 8;//G
+	argb |= rawPixels[i * 4 + 2];//B
+	argb |= rawPixels[i * 4 + 3] << 24;//A
+	OCE_replacepixel(i, argb);
+}
+```
 
 - https://gist.github.com/mems/5338017
 
@@ -5960,47 +6230,49 @@ First exec this in WebDev console for each page, copy in clipboard the iframes s
 
 Go to https://videos.sproutvideo.com/embed/189bdbb01e1ce7c790/98b77e706be88310, open WebDev console and exec:
 
-	var videos = [
-		/*PAST HERE the content of all pages*/
-	];
-	var output = "";
-	// Decode function using XOR with key `t`
-	function d(e, t) {
-		var i, n, s, r, o, a, l, u;
-		for (o = [], i = '', n = 0, u = s = 1; 255 >= s; u = s += 1) o[String.fromCharCode(u)] = u;
-		for (l = r = 0, a = e.length - 1; a >= r; l = r += 1) i += String.fromCharCode(o[e.substr(l, 1)] ^ o[t.substr(n, 1)]),
-		n = n < t.length ? n + 1 : 0;
-		return i.replace(/[^\x20-\x7E]+/g, '')
-	}
-	var count = 0;
-	var total = videos.length;
-	for(let i = 0; i < total; i++){
-		let video = videos[i];
-		let xhr = new XMLHttpRequest();
-		xhr.addEventListener("load", event => {
-			let data = event.target.response.querySelector("script").textContent.slice(11, -2)
-			let config = JSON.parse(atob(data));
-			let url = d(unescape(config.hdvu), config.host);
-			output += `		<file name="${video[1]}">
-				<resources>
-					<url type="http">${url}</url>
-				</resources>
-			</file>";
-		
-			if(++count >= total){
-				copy(`<?xml version="1.0" encoding="UTF-8"?>
-				<metalink version="3.0" xmlns="http://www.metalinker.org/">
-					<files>
-						${ouput}
-					</files>
-				</metalink>`);
-				alert("You can now past clipboard content in a new file.")
-			}
-		})
-		xhr.responseType = "document"
-		xhr.open("GET", video[0])
-		xhr.send()
-	}
+```js
+var videos = [
+	/*PAST HERE the content of all pages*/
+];
+var output = "";
+// Decode function using XOR with key `t`
+function d(e, t) {
+	var i, n, s, r, o, a, l, u;
+	for (o = [], i = '', n = 0, u = s = 1; 255 >= s; u = s += 1) o[String.fromCharCode(u)] = u;
+	for (l = r = 0, a = e.length - 1; a >= r; l = r += 1) i += String.fromCharCode(o[e.substr(l, 1)] ^ o[t.substr(n, 1)]),
+	n = n < t.length ? n + 1 : 0;
+	return i.replace(/[^\x20-\x7E]+/g, '')
+}
+var count = 0;
+var total = videos.length;
+for(let i = 0; i < total; i++){
+	let video = videos[i];
+	let xhr = new XMLHttpRequest();
+	xhr.addEventListener("load", event => {
+		let data = event.target.response.querySelector("script").textContent.slice(11, -2)
+		let config = JSON.parse(atob(data));
+		let url = d(unescape(config.hdvu), config.host);
+		output += `		<file name="${video[1]}">
+			<resources>
+				<url type="http">${url}</url>
+			</resources>
+		</file>";
+
+		if(++count >= total){
+			copy(`<?xml version="1.0" encoding="UTF-8"?>
+			<metalink version="3.0" xmlns="http://www.metalinker.org/">
+				<files>
+					${ouput}
+				</files>
+			</metalink>`);
+			alert("You can now past clipboard content in a new file.")
+		}
+	})
+	xhr.responseType = "document"
+	xhr.open("GET", video[0])
+	xhr.send()
+}
+```
 
 - [Download all videos from http://www.appanimations.com/](https://gist.github.com/mems/7e00ba82012d668d0164)
 
@@ -6008,7 +6280,9 @@ Go to https://videos.sproutvideo.com/embed/189bdbb01e1ce7c790/98b77e706be88310, 
 
 [ccMixter](http://ccmixter.org/)
 
-	copy(Array.from(document.querySelectorAll(".upload_info[about]")).map(info => info.getAttribute("about").trim()).join("\n"))
+```js
+copy(Array.from(document.querySelectorAll(".upload_info[about]")).map(info => info.getAttribute("about").trim()).join("\n"))
+```
 
 ### Wayback Machine
 
@@ -6066,11 +6340,15 @@ Depreciated by Safari 12
 
 Use [xar](https://en.wikipedia.org/wiki/Xar_%28archiver%29)
 
-	xar -x -f XXXXX.safariextz
+```sh
+xar -x -f XXXXX.safariextz
+```
 
 Ex: https://safari-extensions.apple.com/details/?id=com.diigo.safari.awesomescreenshot-5DXNM3K2CT
 
-	(new URL(window.ex.render.install_link(window.ex.data.getItemByID((new URL(location)).searchParams.get("id"))), document.baseURI)).href
+```js
+(new URL(window.ex.render.install_link(window.ex.data.getItemByID((new URL(location)).searchParams.get("id"))), document.baseURI)).href
+```
 
 ## Third parties
 
@@ -6209,19 +6487,23 @@ See also [Privacy](#privacy)
 
 ### App Install Banner
 
-	<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+```html
+<meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
 
-	<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest.json">
+```
 
-	{
-		"prefer_related_applications": true,
-		"related_applications": [
-			{
-				"platform": "play",
-				"id": "com.google.samples.apps.iosched"
-			}
-		]
-	}
+```json
+{
+	"prefer_related_applications": true,
+	"related_applications": [
+		{
+			"platform": "play",
+			"id": "com.google.samples.apps.iosched"
+		}
+	]
+}
+```
 
 - [Promoting Apps with Smart App Banners](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html)
 - [Increasing Engagement with Web App Install Banners  |  Web  |  Google Developers](https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android#native)
@@ -6260,23 +6542,29 @@ See [Sample files](Sample files)
 
 16/9 image:
 
-	data:image/svg+xml,%3Csvg xmlns='w3.org/2000/svg' viewBox='0 0 16 9' width='16' height='9'%3E%3C/svg%3E
+```
+data:image/svg+xml,%3Csvg xmlns='w3.org/2000/svg' viewBox='0 0 16 9' width='16' height='9'%3E%3C/svg%3E
+```
  
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-		<g stroke="purple" stroke-width="2">
-			<line x1="0" y1="0" x2="100%" y2="100%"/>
-			<line x1="100%" y1="0" x2="0" y2="100%"/>
-			<rect x="0" y="0" width="100%" height="100%" fill="none" stroke-width="4" />
-		</g>
-	</svg>
+ ```svg
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<g stroke="purple" stroke-width="2">
+		<line x1="0" y1="0" x2="100%" y2="100%"/>
+		<line x1="100%" y1="0" x2="0" y2="100%"/>
+		<rect x="0" y="0" width="100%" height="100%" fill="none" stroke-width="4" />
+	</g>
+</svg>
+```
 
-	<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-		<g stroke="purple" stroke-width="2">
-			<line x1="14.64%" y1="14.64%" x2="85.36%" y2="85.36%"/>
-			<line x1="85.36%" y1="14.64%" x2="14.64%" y2="85.36%"/>
-			<ellipse cx="50%" cy="50%" rx="50%" ry="50%" fill="none" stroke-width="4"/>
-		</g>
-	</svg>
+```svg
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<g stroke="purple" stroke-width="2">
+		<line x1="14.64%" y1="14.64%" x2="85.36%" y2="85.36%"/>
+		<line x1="85.36%" y1="14.64%" x2="14.64%" y2="85.36%"/>
+		<ellipse cx="50%" cy="50%" rx="50%" ry="50%" fill="none" stroke-width="4"/>
+	</g>
+</svg>
+```
 
 ## Web fonts
 
@@ -6288,7 +6576,7 @@ For icons, use a large one 180×180 icon for iOS and Android
 
 Some browsers usally try to get the following resource: `/favicon.ico`
 
-- 	convert favicon.png -background none -resize 256×256 -define icon:auto-resize="256,128,96,64,48,32,16" favicon.ico
+- `convert favicon.png -background none -resize 256×256 -define icon:auto-resize="256,128,96,64,48,32,16" favicon.ico`
 - [Thumbnails -- IM v6 Examples](http://www.imagemagick.org/Usage/thumbnails/#favicon)
 - [audreyr/favicon-cheat-sheet: Obsessive cheat sheet to favicon sizes/types. Please contribute! (Note: this may be in flux as I learn new things about favicon best practices.)](https://github.com/audreyr/favicon-cheat-sheet)
 - [FavIcon from Pics -- free favicon.ico for your website (animated, static, text, iPod icons)](http://favicon.htmlkit.com/favicon/)
@@ -6331,19 +6619,27 @@ For languages alternate, each canonicalized document must include the list of al
 
 On desktop:
 
-	<link rel="alternate" media="only screen and (max-width: 640px)" hreflang="en-gb" href="http://m.example.com/page">
+```html
+<link rel="alternate" media="only screen and (max-width: 640px)" hreflang="en-gb" href="http://m.example.com/page">
+```
 
 or via http header:
 
-	Link: <http://m.example.com/page>; rel="alternate"; hreflang="en-gb"; media="only screen and (max-width: 640px)"
+```http
+Link: <http://m.example.com/page>; rel="alternate"; hreflang="en-gb"; media="only screen and (max-width: 640px)"
+```
 
 And on mobile:
 
-	<link rel="canonical" href="http://www.example.com/page">
+```html
+<link rel="canonical" href="http://www.example.com/page">
+```
 
 For HTTPS page (on `http://www.example.com/page`):
 
-	<link rel="canonical" href="https://www.example.com/page">
+```html
+<link rel="canonical" href="https://www.example.com/page">
+```
 
 - `x-default`
 - [Use canonical URLs - Search Console Help](https://support.google.com/webmasters/answer/139066)
@@ -6359,14 +6655,20 @@ For HTTPS page (on `http://www.example.com/page`):
 
 use ISO 8601 in JSON
 
-	Date#toJSON()
+```
+Date#toJSON()
+```
 
-	date('c', time());
-	$date→format(DateTime::ATOM/*use it instead of ISO8601*/);
+```php
+date('c', time());
+$date->format(DateTime::ATOM/*use it instead of ISO8601*/);
+```
 
-	$date = new DateTime("2010-07-05T06:00:00Z");
-	// To offset with a timezone:
-	$date→setTimeZone(new DateTimeZone("Europe/Amsterdam");
+```php
+$date = new DateTime("2010-07-05T06:00:00Z");
+// To offset with a timezone:
+$date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
+```
 
 - [javascript - The "right" JSON date format - Stack Overflow](https://stackoverflow.com/questions/10286204/the-right-json-date-format/15952652#15952652)
 - [ISO 8601 - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/ISO_8601)
@@ -6408,34 +6710,40 @@ See [XSS and injection](Security#xss-and-injection)
 
 JavaScript:
 
-	let source = 'alert("Hello, world.");';//string
-	let algo = "sha256";//"sha256" / "sha384" / "sha512"
-	const utf8Encoder = new TextEncoder();
-	let sourceBytes = utf8Encoder.encode(source);
-	const algos = {
-		sha256: "SHA-256",
-		sha384: "SHA-384",
-		sha512: "SHA-512"
-	};
-	crypto.subtle.digest(algos[algo], sourceBytes).then(valueBuffer => {
-		let hashBytes = new Uint8Array(valueBuffer);
-		let valueChars = hashBytes.reduce((chars, byte) => (chars += String.fromCharCode(byte), chars), "");// to UTF-8
-		let base64Value = btoa(valueChars);
-		return "'" + algo + "-" + base64Value + "'";// "'" hash-algo "-" base64-value "'"
-	}).then(checksum => console.log(checksum))
+```js
+let source = 'alert("Hello, world.");';//string
+let algo = "sha256";//"sha256" / "sha384" / "sha512"
+const utf8Encoder = new TextEncoder();
+let sourceBytes = utf8Encoder.encode(source);
+const algos = {
+	sha256: "SHA-256",
+	sha384: "SHA-384",
+	sha512: "SHA-512"
+};
+crypto.subtle.digest(algos[algo], sourceBytes).then(valueBuffer => {
+	let hashBytes = new Uint8Array(valueBuffer);
+	let valueChars = hashBytes.reduce((chars, byte) => (chars += String.fromCharCode(byte), chars), "");// to UTF-8
+	let base64Value = btoa(valueChars);
+	return "'" + algo + "-" + base64Value + "'";// "'" hash-algo "-" base64-value "'"
+}).then(checksum => console.log(checksum))
+```
 
 PHP:
 
-	<?php
-	$script = 'alert("Hello, world.");';
-	$algo = 'sha256';// 'sha384' // 'sha512'
-	$script_hash = base64_encode(hash($algo, $script, true));
-	header('Content-Security-Policy: default-src \'self\'; script-src \'self\' \''.$algo.'-'.$script_hash.'\'');// sha256-qznLcsROx4GACP2dm0UCKCzCG+HiZ1guq6ZZDob/Tng= or sha512-YWIzOWNiNzJjNDRlYzc4MTgwMDhmZDlkOWI0NTAyMjgyY2MyMWJlMWUyNjc1ODJlYWJhNjU5MGU4NmZmNGU3OAo=
-	echo '<script>'.$script.'</script>';
+```php
+<?php
+$script = 'alert("Hello, world.");';
+$algo = 'sha256';// 'sha384' // 'sha512'
+$script_hash = base64_encode(hash($algo, $script, true));
+header('Content-Security-Policy: default-src \'self\'; script-src \'self\' \''.$algo.'-'.$script_hash.'\'');// sha256-qznLcsROx4GACP2dm0UCKCzCG+HiZ1guq6ZZDob/Tng= or sha512-YWIzOWNiNzJjNDRlYzc4MTgwMDhmZDlkOWI0NTAyMjgyY2MyMWJlMWUyNjc1ODJlYWJhNjU5MGU4NmZmNGU3OAo=
+echo '<script>'.$script.'</script>';
+```
 
 Command line (sh, openSSL):
 
-	echo sha256-$(echo -n 'alert("Hello, world.");' | openssl dgst -sha256 -binary | openssl enc -base64 | tr -d '\n')
+```sh
+echo sha256-$(echo -n 'alert("Hello, world.");' | openssl dgst -sha256 -binary | openssl enc -base64 | tr -d '\n')
+```
 
 **Be carefull of (significant) spaces, quotes, etc. The hash could be different.**
 
@@ -6464,7 +6772,9 @@ If your JS need a resource but it's disallow but the third party (does not allow
 
 Aka Server Timing API
 
-	Server-Timing: cache;desc="Cache Read";dur=23.2,fs;dur=600;desc="File System",cpu;dur=1230;desc="Total CPU"
+```http
+Server-Timing: cache;desc="Cache Read";dur=23.2,fs;dur=600;desc="File System",cpu;dur=1230;desc="Total CPU"
+```
 
 - [Server Timing](https://w3c.github.io/server-timing/)
 
@@ -6522,18 +6832,20 @@ See [Bookmarklet](JavaScript#bookmarklet)
 
 Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-inline` script
 
-	// http://www.squarefree.com/2005/05/16/bookmarklets-to-user-scripts/
-	let userScriptURI = "data:text/javascript;charset=utf-8,"
-	           + "// ==UserScript==%0A"
-	           + "// @namespace http://www.squarefree.com/bookmarklets-to-user-scripts%0A"
-	           + "// @name " + bookmarkletName + "%0A"
-	           + "// @description Runs the " + bookmarkletName + " bookmarklet from " + location.href + "%0A"
-	           + "// ==/UserScript==%0A"
-	           + "%0A"
-	           + encodeURIComponent(decodeURIComponent(bookmarklet.href))
-	           + "%0A//.user.js"
+```js
+// http://www.squarefree.com/2005/05/16/bookmarklets-to-user-scripts/
+let userScriptURI = "data:text/javascript;charset=utf-8,"
+	   + "// ==UserScript==%0A"
+	   + "// @namespace http://www.squarefree.com/bookmarklets-to-user-scripts%0A"
+	   + "// @name " + bookmarkletName + "%0A"
+	   + "// @description Runs the " + bookmarkletName + " bookmarklet from " + location.href + "%0A"
+	   + "// ==/UserScript==%0A"
+	   + "%0A"
+	   + encodeURIComponent(decodeURIComponent(bookmarklet.href))
+	   + "%0A//.user.js"
 
-	copy("javascript:" + prompt().replace(/[\s%]/g, match => `%${match.charCodeAt(0).toString(16).padStart(2, "0")}`))
+copy("javascript:" + prompt().replace(/[\s%]/g, match => `%${match.charCodeAt(0).toString(16).padStart(2, "0")}`))
+```
 
 - [Bookmarkleter](http://chriszarate.github.io/bookmarkleter/)
 - [Installing Bookmarklets](https://mreidsma.github.io/bookmarklets/installing.html)
