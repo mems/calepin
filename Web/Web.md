@@ -1330,7 +1330,9 @@ It's used also for form upload with `multipart/form-data` used only by HTTP requ
 ```http
 HTTP/1.1 300 Multiple Choices
 Link: <http://example.org/books/1234>; rel="alternate"; type="application/hal+json", <http://example.org/books/1234>; rel="alternate"; type="application/hal+xml", <http://example.org/books/1234>; rel="alternate"; type="application/atom+xml;type=entry"
+```
 
+```http
 HTTP/1.1 300 Multiple Choices
 Content-type: text/uri-list
 
@@ -1476,6 +1478,7 @@ Loading, parsing, rendering, etc.
 > We don't want humans waiting on computers. We want computers waiting on humans.
 — Gregory Szorc
 
+- [The Impact of Web Performance | Simplified.](https://simplified.dev/performance/impact-of-web-performance)
 - [SpeedCurve on Twitter: "200ms start render = 16% bounce rate 1.8s start render = 49% bounce rate See how user engagement charts show you correlations between #webperf and #UX: https://t.co/Nz6ilYOuaA… https://t.co/fIPquBIH2P"](https://twitter.com/SpeedCurve/status/938877356386611201)
 - [High Performance Browser Networking (O'Reilly)](https://hpbn.co/)
 - [Front-End Performance Checklist 2019 \[PDF, Apple Pages, MS Word\] — Smashing Magazine](https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/)
