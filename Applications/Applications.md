@@ -677,6 +677,7 @@ document.addEventListener("paste", function(event) {
   const FILE_PREFIX = " ".repeat(4 * 4);
   const USAGE_PREFIX = " ".repeat(4 * 5);
   const pathSep = "\\";
+  const regexp = /<script.*?src=["']((?:@|https?:|<%=).*?)["'].*?>/i;// TODO retrive it autmatically "new RegExp(parsedSearch)" (but can't be detected if it's a regexp or not
   const usages = [];
   let path = "";
   let file = "";
@@ -717,7 +718,6 @@ document.addEventListener("paste", function(event) {
   // const result = [...new Set(usages.map(({file}) => file))];
   // document.body.innerHTML = `<table>${result.map(item => `<tr><td>${e(item)}</td></tr>`).join("")}</table>`;
 
-  const regexp = /<script.*?src=["']((?:@|https?:|<%=).*?)["'].*?>/;
   const result = usages.map(({file, line, extract}) => ({file: `${file}:${line}`, extract: regexp.exec(extract)[1]}));
   const indexes = ["file", "extract"];
   document.body.innerHTML = `<table><tr>${indexes.map(index => `<td>${e(index).join("")}</td>`)}</tr>${result.map(item => `<tr>${indexes.map(index => `<td>${e(item[index] || "").join("")}</td>`)}</tr>`).join("")}</table>`;
