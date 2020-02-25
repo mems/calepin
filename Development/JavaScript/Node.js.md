@@ -106,6 +106,7 @@ find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" 
 
 ## Debug
 
+- [evanw/node-source-map-support: Adds source map support to node.js (for stack traces)](https://github.com/evanw/node-source-map-support)
 - [Remote Debugging Node.js in Docker – SENSEI Developer Blog – Medium](https://medium.com/sensei-developer-blog/remote-debugging-node-js-in-docker-1936eb4ef522)
 - [The Definitive Guide for Monitoring Node.js Applications | @RisingStack](https://blog.risingstack.com/monitoring-nodejs-applications-nodejs-at-scale/)
 
