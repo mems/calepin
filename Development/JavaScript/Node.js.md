@@ -91,11 +91,23 @@ In all `node_modules` directory on an hard drive.
 find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;
 ```
 
+## Performances
+
+- [The drastic effects of omitting NODE_ENV in your Express.js applications | Dynatrace blog](https://www.dynatrace.com/news/blog/the-drastic-effects-of-omitting-node-env-in-your-express-js-applications/)
+- [Keeping Node.js Fast: Tools, Techniques, And Tips For Making High-Performance Node.js Servers — Smashing Magazine](https://www.smashingmagazine.com/2018/06/nodejs-tools-techniques-performance-servers/)
+
+### Load balancer and reverse proxy
+
+`process.env.IN_PASSENGER === "1"` `typeof PhusionPassenger !== "undefined"`
+
+- [Passenger Library](https://www.phusionpassenger.com/library/) - Module for ngnix or Apache to handle configuration, deployment, reload, etc. of Node.js, Ruby, Python
+- [Performance Best Practice Using Expres in Production](http://expressjs.com/en/advanced/best-practice-performance.html#use-a-reverse-proxy)
+- [Understanding Passenger - Passenger + Node.j basic - Passenger Library](https://www.phusionpassenger.com/library/walkthroughs/basics/nodejs/fundamental_concepts.html)
+
 ## Debug
 
 - [Remote Debugging Node.js in Docker – SENSEI Developer Blog – Medium](https://medium.com/sensei-developer-blog/remote-debugging-node-js-in-docker-1936eb4ef522)
 - [The Definitive Guide for Monitoring Node.js Applications | @RisingStack](https://blog.risingstack.com/monitoring-nodejs-applications-nodejs-at-scale/)
-- [Keeping Node.js Fast: Tools, Techniques, And Tip For Making High-Performance Node.j Server — Smashing Magazine](https://www.smashingmagazine.com/2018/06/nodejs-tools-techniques-performance-servers/)
 
 ### Send log infos client side
 
@@ -338,14 +350,6 @@ See [Warning "root" does not have permission to access the dev dir · Issue #454
 ## Global error handling
 
 - `process.setUncaughtExceptionCaptureCallback`
-
-## Load balancer and reverse proxy
-
-`process.env.IN_PASSENGER === "1"` `typeof PhusionPassenger !== "undefined"`
-
-- [Passenger Library](https://www.phusionpassenger.com/library/) - Module for ngnix or Apache to handle configuration, deployment, reload, etc. of Node.js, Ruby, Python
-- [Performance Best Practice Using Expres in Production](http://expressjs.com/en/advanced/best-practice-performance.html#use-a-reverse-proxy)
-- [Understanding Passenger - Passenger + Node.j basic - Passenger Library](https://www.phusionpassenger.com/library/walkthroughs/basics/nodejs/fundamental_concepts.html)
 
 ## Node sources
 
