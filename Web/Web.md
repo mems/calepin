@@ -7111,6 +7111,7 @@ For CSS and JavaScript
 - [Yet another explanation on sourcemap - NGUYEN Trung - Medium](https://medium.com/@trungutt/yet-another-explanation-on-sourcemap-669797e418ce)
 - [SourceMap - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/SourceMap)
 - [Rich-Harris/sourcemap-codec: Encode/decode sourcemap mappings](https://github.com/Rich-Harris/sourcemap-codec)
+- [source-map-visualization](https://sokra.github.io/source-map-visualization/)
 
 ## PWA
 
