@@ -7096,15 +7096,21 @@ Datasets:
 
 ## Sourcemap
 
-Aka source map
+Aka source map, VLQ, variable-length quantity
 
 For CSS and JavaScript
 
 - [DIY source maps / Stoyan's phpied.com](https://www.phpied.com/diy-source-maps/)
 - [Source Mapper](https://sourcemaps.info/)
+- [Source Map Revision 3 Proposal](https://sourcemaps.info/spec.html)
 - [mozilla/source-map: Consume and generate source maps.](https://github.com/mozilla/source-map)
 - [Introduction to JavaScript Source Maps - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/)
 - [Source maps: languages, tools and other info · ryanseddon/source-map Wiki](https://github.com/ryanseddon/source-map/wiki/Source-maps%3A-languages%2C-tools-and-other-info)
+- [Anatomy of source maps | Bugsnag Blog](https://www.bugsnag.com/blog/source-maps)
+- [Decoding and Encoding Base64 VLQs in Source Maps - Lucidchart](https://www.lucidchart.com/techblog/2019/08/22/decode-encoding-base64-vlqs-source-maps/)
+- [Yet another explanation on sourcemap - NGUYEN Trung - Medium](https://medium.com/@trungutt/yet-another-explanation-on-sourcemap-669797e418ce)
+- [SourceMap - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/SourceMap)
+- [Rich-Harris/sourcemap-codec: Encode/decode sourcemap mappings](https://github.com/Rich-Harris/sourcemap-codec)
 
 ## PWA
 
