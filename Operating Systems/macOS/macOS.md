@@ -434,6 +434,15 @@ Or use an app:
 - `tmutil listbackups`, `sudo tmutil delete '/Volumes/Time Machine Backups/Backups.backupdb/.../2018-'*`, `sudo hdiutil compact '/Volumes/....sparsebundle'`
 - [If the Time Machine backup disk for your Mac is full - Apple Support](https://support.apple.com/guide/mac-help/if-the-time-machine-backup-disk-is-full-mh15137/mac)
 
+#### Remove specific file from Time Machine backup
+
+- `cd "/Volumes/Time Machine Backups/Backups.backupdb/<machinename>"`
+- `ls -li *"/<drivename>/<path>/"*`, `sudo bypass rm -rf *"/<drivename>/<path>/"*`
+- `ls -li *"/<drivename>/<file>"`, `sudo bypass rm -f *"/<drivename>/<path>/<file>"`
+- [time machine - Delete all backups of specific file/folder with tmutil - Ask Different](https://apple.stackexchange.com/questions/333767/delete-all-backups-of-specific-file-folder-with-tmutil/357119#357119)
+- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/912432#912432)
+- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/557425#557425)
+
 ### Restore from a Time Machine backup
 
 > You can't restore this backup because it was created by a different model of Mac

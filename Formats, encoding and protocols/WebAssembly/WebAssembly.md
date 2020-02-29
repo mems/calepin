@@ -1,1 +1,9 @@
 - [WebAssembly Explorer](http://mbebenita.github.io/WasmExplorer/) - see https://github.com/mbebenita/WasmExplorer/
+- [Writing WebAssembly By Hand](https://blog.scottlogic.com/2018/04/26/webassembly-by-hand.html)
+- [rhmoller/wasm-by-hand: Small cookbook examples of writing WebAssembly by hand in .wast format](https://github.com/rhmoller/wasm-by-hand#references)
+- [Wasm By Example](https://wasmbyexample.dev/)
+- [WebAssembly | MDN](https://developer.mozilla.org/en-US/docs/WebAssembly)
+- [WebAssembly](https://webassembly.org/)
+- [ewasm/wasm-json-toolkit: \[ORPHANED\] A small toolkit for converting wasm binaries into json and back.](https://github.com/ewasm/wasm-json-toolkit)
+- [The anatomy of WebAssembly: Writing your first WebAssembly module using C (C++)](https://itnext.io/the-anatomy-of-webassembly-writing-your-first-webassembly-module-using-c-c-d9ee18f7ac9b)
+- [Decoding WebAssembly](https://jarombek.com/blog/jan-7-2019-web-assembly)

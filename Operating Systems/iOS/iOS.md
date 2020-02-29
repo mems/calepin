@@ -426,7 +426,7 @@ For older version (but require copy other files):
 
 ### Relocate iOS backup directory
 
-```
+```sh
 # Require to give "Full Disk Access" for Terminal (system preferences > security & privacy > privacy > full disk access > unlock lock to make changes > add terminal app)
 # else it will give an error "Operation not permitted"
 ln -s /Volumes/Backups/MobileSync ~/Library/Application\ Support/MobileSync/Backup
@@ -434,3 +434,12 @@ ln -s /Volumes/Backups/MobileSync ~/Library/Application\ Support/MobileSync/Back
 
 - [How to change the location of your iPhone backup and iTunes MobileSync Backup folder - Scott Hanselman](https://www.hanselman.com/blog/HowToChangeTheLocationOfYourIPhoneBackupAndITunesMobileSyncBackupFolder.aspx)
 - [How to change the iTunes backup location](https://reincubate.com/support/how-to/change-itunes-backup-location/)
+
+Remove that backup from TimeMachine:
+
+```sh
+cd "/Volumes/mytimemachinedrive/Backups.backupdb/<machinename>/"
+sudo /System/Library/Extensions/TMSafetyNet.kext/Contents/Helpers/bypass rm -rf *"/<drivename>/Users/<username>/Library/Application Support/MobileSync/Backup/"*
+```
+
+See [Remove specific file from Time Machine backup](../macOS/macOS.md#remove-specific-file-from-time-machine-backup)

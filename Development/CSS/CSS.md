@@ -736,10 +736,13 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 
 ### Table
 
+- [Tables, CSS Display Properties, and ARIA | Adrian Roselli](https://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html)
+
 #### Responsive table
 
 Use `flex-direction: column;` on `tr`. But don't handle well cell with different height.
 
+- [Making Tables Responsive With Minimal CSS · Ugly Duck](https://uglyduck.ca/responsive-tables.html) - [CSS-Tricks on Twitter: "Responsive tables... When you need to compare data up and down columns, it's probably best to largely leave the table structure alone and allow scrolling. If each row can be broken apart and still be useful, collapsing them to avoid scrolling is nice. https://t.co/zeMFdrwU1M https://t.co/3z8hQDvNAZ" / Twitter](https://twitter.com/css/status/1182715016820199427?s=12)
 - [Designing Complex Responsive Tables In WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/09/designing-complex-responsive-tables-wordpress/)
 - [Flexible data tables with CSS Grid](https://adamlynch.com/flexible-data-tables-with-css-grid/)
 - [CSS only Responsive Tables](http://codepen.io/dbushell/pen/wGaamR)
