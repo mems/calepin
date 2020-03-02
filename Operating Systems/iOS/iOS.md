@@ -38,6 +38,7 @@ If you want to record:
 2. once you're done, click the stop button and save the video
 
 - [macos - How do I AirPlay mirror my iPhone screen to my MacBook Pro? - Ask Different](https://apple.stackexchange.com/questions/139989/how-do-i-airplay-mirror-my-iphone-screen-to-my-macbook-pro)
+- [quicktime - Enable touch indicator for iOS app demo video recording - Ask Different](https://apple.stackexchange.com/questions/203044/enable-touch-indicator-for-ios-app-demo-video-recording/250290#250290)
 
 ## Screen mirror
 
