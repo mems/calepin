@@ -853,10 +853,15 @@ See [User name](Data/User/Nodes.md)
 
 ## Mega menu
 
-Or menu with sub menus
+Aka menu with sub menus, hit area
 
+![Dynamic hit area](https://res.cloudinary.com/css-tricks/image/upload/v1561132003/dynamic-hit-area_tcvac3.png)
+
+- [Menus with “Dynamic Hit Areas” | 67nj](https://www.67nj.org/menus-with-dynamic-hit-areas/) - [Menus with "Dynamic Hit Areas" | CSS-Tricks](https://css-tricks.com/menus-with-dynamic-hit-areas/)
+- [Slides](https://slides.com/wireframe?debug=2#menu) - Interactive example
 - [Ben Kamens, Breaking down Amazon's mega dropdown](http://bjk5.com/post/44698559168/breaking-down-amazons-mega-dropdown)
 - [Dropdown Menus with More Forgiving Mouse Movement Paths | CSS-Tricks](https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/)
+- [kamens/jQuery-menu-aim: jQuery plugin to fire events when user's cursor aims at particular dropdown menu items. For making responsive mega dropdowns like Amazon's.](https://github.com/kamens/jQuery-menu-aim)
 - [Menu (computing) — Wikipedia](https://en.wikipedia.org/wiki/Menu_(computing)#Sub-menus)
 
 ## Table
