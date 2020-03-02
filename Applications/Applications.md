@@ -126,7 +126,12 @@ The workaround is get the file [`movemail.rdf`](https://github.com/mozilla/relea
 
 For `Mail.app`, follow these intructions: [Access local mail via Mail.app - Mac OS X Hints](http://hints.macworld.com/article.php?story=20040313194905606)
 
-## Excel
+
+## Office
+
+- [Office 2016 Volume Installer findings | Jamf Nation](https://www.jamf.com/jamf-nation/discussions/16761/office-2016-volume-installer-findings)
+
+### Excel
 
 And LibreOffice
 
@@ -141,7 +146,7 @@ Formula: Cell coords like `F6` are relative and `$F$6` is absolute (`F$6` or `$F
 
 - [You Suck at Excel with Joel Spolsky - YouTube](https://www.youtube.com/watch?v=0nbkaYsR94c)
 
-### Median formula
+#### Median formula
 
 | Price ($)		| Quantity (unit)	|
 |---------------|-------------------|
@@ -161,7 +166,7 @@ Formula:
 - [Weight Median Help Requested (Part Quantity and Part Weight) : excel](https://www.reddit.com/r/excel/comments/2nadqs/weight_median_help_requested_part_quantity_and/)
 - [Median with Quantity Column - ExcelBanter](https://www.excelbanter.com/excel-worksheet-functions/231843-median-quantity-column.html)
 
-### Average formula
+#### Average formula
 
 | Price ($)		| Quantity (unit)	|
 |---------------|-------------------|
@@ -176,7 +181,7 @@ Formula:
 
 - [Calculate the average of a group of numbers - Excel](https://support.office.com/en-us/article/calculate-the-average-of-a-group-of-numbers-e158ef61-421c-4839-8290-34d7b1e68283)
 
-### Excel seconds to dates
+#### Excel seconds to dates
 
 Divide the number of seconds by 86400 (the number of seconds in a day: 24 * 60 * 60):
 
@@ -807,14 +812,189 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Proces
 
 ## Adobe
 
+- [Download Adobe Creative Cloud apps | Free Adobe Creative Cloud trial](https://www.adobe.com/creativecloud/desktop-app.html)
+- [Adobe Zii Universal Patcher – Adobe Zii](https://www.adobezii.com/universal-patcher/)
+- `sudo xattr -cr "MyApp.app"`
+
+```js
+// Open in a browser https://prod-rel-ffc-ccm.oobesaas.adobe.com/ then execute that script in Console
+// SAP Code https://helpx.adobe.com/enterprise/package/help/apps-deployed-without-their-base-versions.html
+/*
+Camera Raw                  ACR
+CCX Process                 CCXP
+STI_ColorCommonSet_CMYK_HD  COCM
+STI_Color_Photoshop_HD      COPS
+STI_Color_HD                CORE
+STI_ColorCommonSet_RGB_HD   CORG
+*/
+async function search({sapCode, version, type = "Desktop", platformID}){
+    //const base = new URL("https://cdn-ffc.oobesaas.adobe.com/");
+    const base = new URL("https://prod-rel-ffc-ccm.oobesaas.adobe.com/");
+    const productsURL = new URL("/adobe-ffc-external/core/v4/products/all?payload=true&_type=json", base);
+    for(const [name, value] of [
+        // API support multiple values as platform=win64&platform=win32 and platform=win64,win32
+        ["channel", ["ccm", "sti"]],
+        //["platform", ["win32", "win64", "osx10", "osx10-64"]],
+        ["platform", platformID],
+        ["productType", type],
+    ]){
+        productsURL.searchParams.append(name, value);
+    }
+
+    // curl -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: AUSST_4_0' 'https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v4/products/all?&channel=ccm&channel=sti&platform=osx10&platform=osx10-64&payload=true&productType=Desktop&_type=json'
+    const channels = await (await fetch(productsURL, {
+        headers: {
+          "user-agent": "Creative Cloud",// optional
+          "x-adobe-app-id": "AUSST_4_0",
+        },
+    })).json();
+
+    let product = null;
+    let platform = null;
+    let application = null;
+    const availableVersions = new Set();
+    mainLoop: for(const {products} of channels.channel){
+        for(const productEntry of products.product){
+            // -> type === productEntry.type
+            if(productEntry.id !== sapCode){
+                continue;
+            }
+        
+            for(const platformEntry of productEntry.platforms.platform){
+                // -> platformEntry.id === platformID
+                for(const applicationEntry of platformEntry.languageSet){
+                    const {productVersion} = applicationEntry;
+                    availableVersions.add(productVersion)
+                    if(productVersion !== version){
+                        continue;
+                    }
+                
+                    product = productEntry;
+                    platform = platformEntry;
+                    application = applicationEntry;
+                    break mainLoop;
+                }
+            }
+        }
+    }
+
+    if(!application){
+        throw new Error(
+            availableVersions.size
+            ? `Version ${version} not found. Versions found:${[...availableVersions].sort().reverse(). map(v => `\n- ${v}`)}}`
+            : "No application match"
+        );
+    }
+
+    // Not all params are required and could be ignored
+    // curl -vs -H 'x-adobe-build-guid: 99170da3-16fc-423d-99c8-4dc267bd7d23' -H 'x-api-key: CreativeCloud_v5_0' -H 'x-adobe-app-id: accc-hdcore-desktop' 'https://prod-rel-ffc-ccm.oobesaas.adobe.com/core/v3/applications?name=ILST&version=24.0.3&platform=osx10-64&build=24.0.3.375'
+    const applicationURL = new URL("/core/v3/applications", base);
+    for(const [name, value] of [
+        ["name", product.id],
+        // ["version", application.baseVersion],
+        ["platform", platform.id],
+        ["build", application.productVersion],
+    ]){
+        applicationURL.searchParams.append(name, value);
+    }
+
+    const headers = {
+        "x-adobe-build-guid": application.buildGuid,// required
+        "x-api-key": "CreativeCloud_v5_0",
+        "User-Agent": "CreativeCloud/5.0.0.354/Mac-10.14",// optional
+        "x-adobe-app-id": "accc-hdcore-desktop",
+    };
+    const applicationDetails = await (await fetch(applicationURL, {headers})).json();
+
+    let scriptSrc = `#!/bin/sh`;
+
+    scriptSrc += `
+# ${product.displayName} (${product.id}) ${application.productVersion} (${application.baseVersion}) ${platform.id}
+mkdir -p "${product.id}"
+curl${Object.entries(headers).map(([name, value]) => ` -H '${name}: ${value}'`).join("")} '${applicationURL}' -o "${product.id}/Application.json"
+${applicationDetails.Packages.Package.map(package => {
+    const filename = package.Path.split("/").slice(-1);
+    const url = new URL(package.Path, "https://ccmdls.adobe.com/");
+    return `curl -H 'x-api-key: CreativeCloud_v5_0' -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: accc-hdcore-desktop' '${url}' -o "${product.id}/${filename}"`;
+}).join("\n")}`;
+
+    console.log(scriptSrc);
+
+    for(const {sapCode, baseVersion} of application.dependencies.dependency){
+        console.warn(`Require ${sapCode} ${baseVersion}`);
+    }
+
+    // TODO generate within an com.adobe.acc.installer.v2
+    // PPRO_14.0.1.71/1/support/common/AMT/application.xml -> /Library/Application Support/Adobe/Premiere Pro/14.0/AMT/application.xml
+}
+
+await search({
+    sapCode: "PHSP",
+    version: "21.0.3.91",
+    platformID: "osx10-64",
+});
+```
+
+- [autopkg/adobe-ccp-recipes: Autopkg recipes for Creative Cloud Packager workflows](https://github.com/autopkg/adobe-ccp-recipes/blob/master/Adobe/CreativeCloudFeed.py) - See also [mosen/ccp-recipes](https://github.com/mosen/ccp-recipes)
+- [timsutton/adobe-ccp-automation: Experimenting with automating CCP](https://github.com/timsutton/adobe-ccp-automation)
+- https://github.com/Homebrew/homebrew-cask/blob/master/Casks/adobe-creative-cloud.rb
+- https://github.com/PayalAwasthi/PythonApplication7/blob/master/config.py
+
+- [How to download the Creative Cloud desktop app](https://helpx.adobe.com/download-install/kb/creative-cloud-desktop-app-download.html?red=a#ProblemsinstallingTryalternativedownloadlinks) + install apps trial version (but don't need to start evaluation)
+- `sudo find /private/tmp/ \( -iname "*.dmg" -or -iname "*.pkg" \)` - Temp dir used by Creative Cloud app before install it
+- `~/Library/Logs/CreativeCloud/ACC/AdobeDownload/HDInstaller.log`
+- [Adobe Software Full Version Archives » Adobe Download](https://adobedownload.org/adobe-series/)
+- [All the New Adobe CC 2019 Direct Download Links, Now Available! | ProDesignTools](https://prodesigntools.com/adobe-cc-2019-direct-download-links.html)
+- [corbindavenport/creative-cloud-linux: PlayOnLinux install script for Adobe Creative Cloud](https://github.com/corbindavenport/creative-cloud-linux)
+
+```sh
+sudo killall ACCFinderSync "Core Sync" AdobeCRDaemon "Adobe Creative" AdobeIPCBroker node "Adobe Desktop Service" "Adobe Crash Reporter"
+sudo rm -rf "/Library/Application Support/Adobe/SLCache/" "/Library/Application Support/Adobe/SLStore/" "/Library/Caches/."* "/private/tmp/zx"* "~/Library/Preferences/Adobe/."*
+```
+
+See also [How do I stop the Adobe Creative Cloud app from auto-launching on login? - Ask Different](https://apple.stackexchange.com/questions/138941/how-do-i-stop-the-adobe-creative-cloud-app-from-auto-launching-on-login/356217#356217)
+
+- [AMTEmu Download | Adobe Universal Patcher](https://official-amtemu.com/)
+
+```
+# https://adobehostpatch.blogspot.com/
+# https://superuser.com/a/1345088
+0.0.0.0 activate.adobe.com
+0.0.0.0 practivate.adobe.com
+0.0.0.0 ereg.adobe.com
+0.0.0.0 wip3.adobe.com
+0.0.0.0 activate.wip3.adobe.com
+0.0.0.0 3dns-3.adobe.com
+0.0.0.0 3dns-2.adobe.com
+0.0.0.0 adobe-dns.adobe.com
+0.0.0.0 adobe-dns-2.adobe.com
+0.0.0.0 adobe-dns-3.adobe.com
+0.0.0.0 ereg.wip3.adobe.com
+0.0.0.0 activate-sea.adobe.com
+0.0.0.0 wwis-dubc1-vip60.adobe.com
+0.0.0.0 activate-sjc0.adobe.com
+0.0.0.0 hl2rcv.adobe.com
+0.0.0.0 lm.licenses.adobe.com
+0.0.0.0 na2m-pr.licenses.adobe.com
+0.0.0.0 lmlicenses.wip4.adobe.com
+0.0.0.0 lm.licenses.adobe.com
+0.0.0.0 na1r.services.adobe.com
+0.0.0.0 hlrcv.stage.adobe.com
+```
+
 ### Uninstall Adobe
 
-	/Library/Application Support/Adobe
-	~/Library/Application Support/Adobe
+    ~/Library/Application Support/Adobe/*
+    ~/Library/Preferences/Adobe/*
+    ~/Documents/Adobe/*
+	/Library/Application Support/Adobe/*
+
 	/Applications/Utilities/Adobe Application Manager
 	/Applications/Utilities/Adobe Installers
 
 See if hosts files doesn't contains blocked domains
+
+- [Use the Creative Cloud Cleaner Tool to solve installation problems](https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html)
 
 ### Adobe Illustrator
 

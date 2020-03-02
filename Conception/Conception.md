@@ -133,12 +133,40 @@ See [Design](Design)
 - don't release your open source project only on your blog or forum, for dev sake pick one of the forge [Comparison of source code hosting facilities — Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_source_code_hosting_facilities)
 - don't release a compiled version with no sources - if you call your project open source go read what it is [The Open Source Definition | Open Source Initiative](https://opensource.org/docs/osd)
 
+> [Suzana Ilić](https://twitter.com/suzatweet/status/1143425542122856448): Folks who manage/lead open source projects: Do you have any advice or lessons learned for someone who has no idea what she's doing?
+> 
+> [Daniel Stenberg](https://twitter.com/bagder/status/1143773910124703744): Patience. Enable contributors. Listen to your community. Prepare for cultural differences and blunt language. Be patient. Thank your contributors. Release often. Prioritize docs. Let things take time. You compete for contributors' time with everyone else.
+> 
+> [Spider](https://twitter.com/spidler/status/1144214905291182080): Also. Prioritize backwards compatibility. Make upgrades painless for users .  Diligence with releases pay off long term. 
+> Keep a list of security issues/fixes. 
+> Keep your defaults secure. 
+> Options are a plague on testing.  Options to disable stupid default is worse.
+> 
+> [Mark Mandel](https://twitter.com/Neurotic/status/1143657776943472641): I'll try and hit some ones others haven't:
+> - Have a code of conduct and enforce it
+> - Document everything. From how to use it to how to develop it, to how decisions get made
+> - Automate everything you can. Toil is demotivating.
+> - Set healthy boundaries. Stick to them.
+> - Make your contributor experience buttery smooth.
+> - Giving attention to your community helps it grow, so be as attentive as you can (but realise this is a trap, so see point about healthy boundaries).
+> - Enjoy it when inevitably someone does something awesome w/ your project
+> 
+> [Morten @ home](https://twitter.com/mor10/status/1143725473609818112): Create a clear governance model early on. It'll save you endless frustration down the road if the project is successful. One good example can be found here: [browser-compat-data/GOVERNANCE.md](https://github.com/mdn/browser-compat-data/blob/master/GOVERNANCE.md)
+
+> [418 — I'm a teapot](https://twitter.com/mazunki1/status/1143792135524749312): any advice on how to make a living with open-sourcing?
+> 
+> [Anca Mosoiu](https://twitter.com/anca/status/1144033462879260672): Sell services that go along with the software, like installation, implementation in an organization, support.
+> 
+> [Daniel Stenberg](https://twitter.com/bagder/status/1143793181433180162) That's harder than "just" succeeding with your project The less hard way to do that is to get a job at a company already doing a lot of open source. To make living on your own project you need to find a business case for it. Not easy.
+
 See also:
 
 - [License - Development](../Development/Development.md#License)
 - [A handy guide to financial support for open source](https://github.com/nayafia/lemonade-stand/blob/master/README.md)
 - [Philippe Elsass on Twitter: "Popular JS projects have to manage huge communities, and the suspicion of strategic manoeuvres in a very competitive ecosystem https://t.co/uwGCB3RmXR"](https://twitter.com/elsassph/status/879424075252289536) - quoting Sebastian McKenzie (author of babeljs): "Hard to stay motivated when people are yelling at you to justify every little thing you do and take your actions as attacks."
 - [Open Source Guides | Learn how to launch and grow your project.](https://opensource.guide/)
+- [TODO guides // TODO: Talk openly, develop openly](https://todogroup.org/guides/)
+- [The cost of an open source contribution](https://rgommers.github.io/2019/06/the-cost-of-an-open-source-contribution/)
 
 ## Native App vs Progressive Web App
 

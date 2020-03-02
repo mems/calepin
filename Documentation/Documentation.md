@@ -29,6 +29,10 @@ API references, guides, tutorials, and blog posts
 
 - [w3ctag.github.io/explainers.md at master · w3ctag/w3ctag.github.io](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md) - explainer as living document that describes a (proposed) feature (for web platform)
 
+## Checklist
+
+- [The Simple Genius of Checklists, from B-17 to the Apollo Missions | Inside Nuclino](https://blog.nuclino.com/the-simple-genius-of-checklists-from-b-17-to-the-apollo-missions)
+
 ## Release note
 
 - [As a Designer I want better Release Notes](https://uxdesign.cc/design-better-release-notes-3e8c8c785231)

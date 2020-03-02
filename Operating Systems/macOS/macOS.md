@@ -40,6 +40,7 @@ purge
 - `.com.apple.timemachine.supported` if the folder must be backup by Time Machine
 - current files used by Time Machine `sudo fs_usage -w -f filesys backupd`
 - [The ins and outs of using tmutil to backup, restore, and review Time Machine backups - krypted](https://krypted.com/mac-os-x/ins-outs-using-tmutil-backup-restore-review-time-machine-backups/)
+- [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/)
 
 Time Machine backup fiability:
 
@@ -1890,6 +1891,14 @@ killall Dock
 - mounted in `/Volumes/XXXX`
 
 See [FileVault](#filevault)
+
+### Extended attribute
+
+Aka quarantine, icons, thumbnail
+
+- [xattred, Sandstrip & xattr tools – The Eclectic Light Company](https://eclecticlight.co/xattred-sandstrip-xattr-tools/)
+- [An introduction to extended attributes, xattrs – The Eclectic Light Company](https://eclecticlight.co/2017/12/11/an-introduction-to-extended-attributes-xattrs/)
+- [How to preserve metadata stored in a custom extended attribute – The Eclectic Light Company](https://eclecticlight.co/2019/10/01/how-to-preserve-metadata-stored-in-a-custom-extended-attribute/)
 
 ### Icons and Cursors
 

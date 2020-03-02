@@ -2,6 +2,7 @@
 - [Channing Walton's answer to How do I explain to non-programmers how complex, time-consuming, and error-prone software development is? - Quora](https://www.quora.com/How-do-I-explain-to-non-programmers-how-complex-time-consuming-and-error-prone-software-development-is/answer/Channing-Walton-1)
 - [Category Category](http://wiki.c2.com/?CategoryCategory) - Software Development & Programming General
 - [Rosetta Code](http://rosettacode.org/wiki/Rosetta_Code)
+- [xkcd: Good Code](https://xkcd.com/844/)
 
 - [Simplified Wrapper and Interface Generator](http://www.swig.org/) connects programs written in C and C++ with a variety of high-level programming languages (Javascript, PHP, Python, C#, Java, etc.)
 - [repl.it - Infinite Loops](https://repl.it/site/blog/infinite-loops) How to handle infinite loops in REPL
