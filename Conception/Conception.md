@@ -420,7 +420,7 @@ Target user:
 	
 - technical abilities (usage of new technologies or tools)
 - social position
-- accessibility, deficiencies : Color blindness, Blindness, muscular or neurology disease...
+- disability (temporarily or permanently), accessibility issues: color blindness, blindness, muscular or neurology disease, immobilization...
 - age
 - gender
 - defined options
