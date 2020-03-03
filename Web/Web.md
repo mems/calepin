@@ -6931,7 +6931,12 @@ Tools:
 
 Other:
 
+- tools for browser for users or authors: zoom and font size settings, [reduce motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion), [custom font](https://www.dyslexiefont.com/en/chrome-extension/), screen reader, [colors inversion](http://adrianroselli.com/2017/11/os-high-contrast-versus-inverted-colors.html), video sub titles, keyboard navigation, [etc.](https://chrome.google.com/webstore/category/collection/accessibility))
+- [Les outils de surcouche d’accessibilité web : mensonges et boules de gommes - Le Lutin du Web](https://www.lelutinduweb.fr/surcouche-accessibilite-web-mensonges-boules-gommes/) - About the problem with add-on accessibility / plug and play solutions
+- [Be Wary of Add-on Accessibility | Adrian Roselli](https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
+- [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
 - [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
+- [thetuttingtutor/accessibility-disability-justice: Accessibility and disability justice resources](https://github.com/thetuttingtutor/accessibility-disability-justice)
 
 ## Screensaver
 
