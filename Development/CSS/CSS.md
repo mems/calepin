@@ -1805,6 +1805,12 @@ Aka `font-smooth`, font smoothing
 
 - [Laissez-faire Font Smoothing and Anti-aliasing—zachleat.com](https://www.zachleat.com/web/font-smooth/)
 
+### Text divider
+
+Use pseudo element and flex box.
+
+- [CodyHouse on Twitter: "💡 Use Flexbox to create a text divider with a single &lt;div&gt;. #codyhousenugget https://t.co/yiaL9XJTFL" / Twitter](https://twitter.com/CodyWebHouse/status/1233058458297143296)
+
 ## Hide element
 
 - [Hiding Elements On The Web](https://ishadeed.com/article/hiding-web/)
