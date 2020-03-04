@@ -96,6 +96,25 @@ See also:
 - [Software Folklore ― Andreas Zwinkau](http://beza1e1.tuxen.de/lore/)
 - [The Order of the JSON – Dion Almaer](https://blog.almaer.com/the-order-of-the-json/) - JSON keys almost cost a project millions of dollars and months of time
 
+## Logging
+
+Syslog Severity Levels (importance or severity, from high to low):
+
+- Emergency (0) aka panic, emerg: "Your application is completely broken. If you sleep, you must wake up and begin to repair your application.". Ex: crashes, stopped processes
+- Alert (1): "Your application does not work. If you going to go to bed, you should not do it, you must begin to repair your application.". Ex: platform errors
+- Critical (2) aka crit: "Your application is running, but can be broken soon. If you eat, you should do it quickly and begin to repair your application.". Ex: hardware issues, port security, STP
+- Error (3), aka err: "Your application is running, but something bad happened. You must add the task "fix the bug" to your to-do list.". Ex: ACL issues, TCAM issues, PAgP problems, ethernet controller, interface up/down
+- Warning (4), aka warn: "Your application is running, but soon you may see error messages. You should add the task "fix the bug" to your to-do list.". Ex: DHCP snooping
+- Notifications (5) aka notice: "Your application is running, but something unusual happened. You have to think about it in your spare time.". Ex: 802.1X, DTP, EtherChannel, inline power, STP, interface line protocol
+- Information (6), aka info: "Your application works fine. These messages show how well.". Ex: stack events, port security, dynamic ARP inspection, VTP, UDLD, STP, hardware diagnostics
+- Debug (7): "You can use it during development. And do not use in production environment.". Ex: debug output
+
+Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will consume unnecessary resources.
+
+- [syslog - Wikipedia](https://en.wikipedia.org/wiki/Syslog#Severity_level)
+- [System Message Logging - Cisco](https://www.cisco.com/c/en/us/td/docs/routers/access/wireless/software/guide/SysMsgLogging.html#wp1054858)
+- [Syslog severity levels](https://support.solarwinds.com/SuccessCenter/s/article/Syslog-Severity-levels)
+
 ## Technical dept
 
 > ## Non breacking release of Webpack 4
