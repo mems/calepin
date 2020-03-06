@@ -604,6 +604,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 - [How to do a code review | eng-practices](https://google.github.io/eng-practices/review/reviewer/)
 - lint
 - CI
+- [bradfrost/frontend-guidelines-questionnaire: A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.](https://github.com/bradfrost/frontend-guidelines-questionnaire)
 
 ## Source code organisation
 
