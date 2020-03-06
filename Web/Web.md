@@ -2479,6 +2479,7 @@ Example: the hero image
 	- load start by preload scanner
 	- blocked by the network
 	- if async or synchronous, ran after downloaded
+		- [with the exception of WebKit that "defer execution of async scripts until until the document is loaded by default to reduce time to first paint."](https://trac.webkit.org/changeset/256808/webkit/)
 	- if defer, ran in order after HTML parser complete
 	- if synchronous, ran only after CSSOM of previous (synchronous) stylesheets
 		- https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/09/blocking-bold@2x-1.png
