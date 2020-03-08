@@ -3007,6 +3007,7 @@ Example of leak:
 
 See also
 
+- [Fingerprinting Protections · brave/brave-browser Wiki](https://github.com/brave/brave-browser/wiki/Fingerprinting-Protections)
 - [Temporary user tracking in major browsers and Cross-domain information leakage and attacks](https://web.archive.org/web/20141214141849/http://landing2.trusteer.com/sites/default/files/Temporary_User_Tracking_in_Major_Browsers.pdf)
 - [p0f v3](http://lcamtuf.coredump.cx/p0f3/) - P0f is a tool that utilizes an array of sophisticated, purely passive traffic fingerprinting mechanisms to identify the players behind any incidental TCP/IP communications
 - [Now sites can fingerprint you online even when you use multiple browsers | Ars Technica UK](https://arstechnica.co.uk/security/2017/02/now-sites-can-fingerprint-you-online-even-when-you-use-multiple-browsers/) - Use WebGL capabilities. See [crossbrowsertracking_NDSS17.pdf](http://yinzhicao.org/TrackingFree/crossbrowsertracking_NDSS17.pdf)

@@ -252,6 +252,7 @@ Optimal could be ([`cjpeg`](https://linux.die.net/man/1/cjpeg) scans script file
 	1:		1-63,	0,	0; # All remaining color channels.
 	0:		28-63,	0,	0; # All remaining Y coefficients and half of brighter channel
 
+- [Chris Hodapp's Blog - Obscure features of JPEG](https://hodapple.com/blag/posts/2011-11-24-obscure-features-of-jpeg.html)
 - http://libjpeg.cvs.sourceforge.net/viewvc/libjpeg/libjpeg/wizard.doc?content-type=text%2Fplain
 - [Tobias Baldauf — Your Hero Images Need You! Save the Day with HTTP2 Image Loading on Vimeo](https://vimeo.com/163113212#t=16m3s)
 - [Your Hero Images Need You: Save the Day with HTTP/2 Image Loading - YouTube](https://www.youtube.com/watch?v=66JINbkBYqw)

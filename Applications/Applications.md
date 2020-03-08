@@ -1528,6 +1528,22 @@ Unsaved files:
 
 ## TextMate
 
+1. open the bundle editor `⌃⌥⌘B` (Bundles → Bundle Editor → Show Bundle Editor…)
+2. create a personal bundle `⌘N`
+3. create a new command `⌘N`
+4. set "Name" to "Copy Path to Current Document"
+5. set "Input" to "Nothing"
+6. set "Output" to "Show in Tool Tip"
+7. write in editor area:
+    ```
+    #!/bin/bash
+    echo -n "$TM_FILEPATH" | pbcopy
+    ```
+8. save `⌘S`
+
+- [Ciarán Walsh’s Blog » TextMate Tip – Where Am I?](http://ciaranwal.sh/2007/11/27/textmate-tip-where-am-i)
+- [Bundles — TextMate Manual](https://macromates.com/textmate/manual/bundles#bundle-editor)
+
 Unsaved files:
 
 	~/Library/Application Support/TextMate/Session

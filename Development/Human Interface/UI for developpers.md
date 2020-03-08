@@ -76,20 +76,35 @@ node-based VPL
 
 ## Rich shell
 
+Aka CLUI (command line user interface), beagle (wrong keyword)
+
 TermKit (node + webkit):
 
-- [unconed/TermKit: Experimental Terminal platform built on WebKit + node.js. Currently only for Mac and Windows, though the prototype works 90% in any WebKit browser.](https://github.com/unconed/TermKit)
+- [unconed/TermKit: Experimental Terminal platform built on WebKit + node.js. Currently only for Mac and Windows, though the prototype works 90% in any WebKit browser.](https://github.com/unconed/TermKit/)
 - [On TermKit — Acko.net](http://acko.net/blog/on-termkit/)
+- [18 months ago, TermKit, a next-generation terminal, was revealed to the world. It got 977 upvotes here and over 3,500 stars on GitHub. Yet the last activity was over a year ago. Is the project dead? Why? : programming](https://www.reddit.com/r/programming/comments/137kd9/18_months_ago_termkit_a_nextgeneration_terminal/c71iiec/)
 - [TermKit + HTTP - YouTube](https://www.youtube.com/watch?v=dAeZTgRuWsU)
 
 Hotwire Shell (python):
 
-- [Album - Google+](https://plus.google.com/photos/103473397858137795977/albums/5158158102810106481) - Hotwire captures
 - [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/hotwire-shell/)
 - [desirable-objects/hotwire-shell: Ressurecting hotwire shell!](https://github.com/desirable-objects/hotwire-shell)
 - [Hotwire Shell — Ubuntu Apps Directory](https://apps.ubuntu.com/cat/applications/lucid/hotwire/)
 - [Hotwire, hybrid text/graphical shell - YouTube](https://www.youtube.com/watch?v=xpsZcC5Gb7o)
 - [hotwire 0.721 : Python Package Index](https://pypi.python.org/pypi/hotwire/0.721)
+
+Other:
+
+- [Repl.it - CLUI: Building a Graphical Command Line](https://blog.repl.it/clui)
+- [｡ﾟ･\\m\\(＞Д＜＃)/m/･ﾟ｡🏳️‍🌈 on Twitter: "Cool functionality in Apple A/UX 3.0.1 (a Unix OS from 1991): opening a Unix command/script from the Finder opens an interactive dialog (like 'adduser' in this case). It writes out a terminal command based on the input you give. This is perfect if you're new to Unix. https://t.co/WTBoEj7MoE" / Twitter](https://twitter.com/dada78641/status/1228438627807571974?s=12)
+- [command line - How do I make my terminal display graphical pictures? - Ask Ubuntu](https://askubuntu.com/questions/97542/how-do-i-make-my-terminal-display-graphical-pictures)
+
+Shell autocompletion:
+
+- [Programmable bash completions](../../Applications/Applications.md#programmable-bash-completions)
+- [hchbaw/auto-fu.zsh: #zsh automatic complete-word and list-choices. Originally incr-0.2.zsh by y.fujii \<y-fujii at mimosa-pudica.net\>](https://github.com/hchbaw/auto-fu.zsh)
+- [junegunn/fzf: A command-line fuzzy finder](https://github.com/junegunn/fzf)
+- [Aloxaf/fzf-tab: Replace zsh's default completion selection menu with fzf!](https://github.com/Aloxaf/fzf-tab)
 
 ## Notebook
 

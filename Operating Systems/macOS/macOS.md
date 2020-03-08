@@ -401,6 +401,7 @@ In `my.cnf`
 Mount `*.sparsebundle` / `*.backupbundle` first: `hdiutil attach My.sparsebundle`
 
 - `tmutil` (with `compare`, `uniquesize` or `calculatedrift`): `tmutil compare /Volumes/MyBackupVolume/Backups.backupdb/$COMPUTE_NAME%/2016-02-18-090818 /Volumes/MyBackupVolume/Backups.backupdb/$COMPUTE_NAME/2016-02-18-102050`. `+` added file, `-` removed file, `!` changed file
+- `diskutil umount force /Volumes/com.apple.TimeMachine.TM_Prime-DA16D91F-3320-4834-91ED-2902CE57E46D`
 - [BackupLoupe](http://www.soma-zone.com/BackupLoupe/) - Explore version (compare changes, size)
 - [tms](https://github.com/toy/tms)
 - [TimeTracker by CharlesSoft](http://www.charlessoft.com/) - Not work well with network drives

@@ -1,5 +1,15 @@
 - [UNIX Tutorial for Beginners](http://wayback.archive.org/web/20150218174409/http://acad.coloradocollege.edu/dept/pc/SciCompLab/UnixTutorial/)
 - [BashFAQ - Greg's Wiki](http://mywiki.wooledge.org/BashFAQ)
+- [jlevy/the-art-of-command-line: Master the command line, in one page](https://github.com/jlevy/the-art-of-command-line)
+- [The Bash Hackers Wiki \[Bash Hackers Wiki\]](https://wiki.bash-hackers.org/start)
+- [Code Snippet - Snipplr Social Repository](https://snipplr.com/all?language=Bash)
+- [BashGuide - Greg's Wiki](http://mywiki.wooledge.org/BashGuide)
+- [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
+- [Bash scripting Tutorial - LinuxConfig.org](https://linuxconfig.org/bash-scripting-tutorial)
+
+- [GNU/Linux Command-Line Tools Summary](https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/GNU-Linux-Tools-Summary.html)
+- [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html)
+- [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/abs-guide.html)
 
 ![bash tips](https://pbs.twimg.com/media/C75R5xUVsAEwlwf.jpg:large)
 
@@ -266,6 +276,8 @@ Nom de la machine:
 	hostname
 
 `/etc/hostname` `/etc/hosts`
+
+- [Configurer une passerelle réseau — Korben Wiki](https://wiki.korben.info/Configurer_une_passerelle_r%C3%A9seau)
 
 ## Math
 
@@ -693,6 +705,7 @@ ou
 By convention, the prompt ends with `$` for users and by `#` for root
 
 - [Bash prompt basics](http://linuxconfig.org/Bash_prompt_basics)
+- [Shell startup scripts — flowblok’s blog](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html)
 
 ### Programmable bash completions
 
@@ -770,6 +783,8 @@ To known color config:
 	}   
 	
 	cyan_red_prompt
+
+- [TIL: Moving the terminal cursor](https://ddfreyne.github.io/til/2016/12-03-terminal-cursor-movement/)
 
 ### Command alias
 

@@ -114,7 +114,7 @@ Export, Packing, Application packer (simple app/site vs. complexe app/site)
 ## Build with `make`
 
 - [.mobo — Se passer de Grunt/Gulp/Brunch/Broccoli/Mimosa/Jake grâce à Make](http://dotmobo.github.io/makefile-frontend.html)
-- http://www.gnu.org/software/make/manual/make.html
+- [GNU make](https://www.gnu.org/software/make/manual/make.html)
 - https://algorithms.rdio.com/post/make/
 - http://www.vittoriozaccaria.net/wmake/#make https://github.com/vzaccaria/make4web/blob/master/makefile.mk
 - https://stackoverflow.com/questions/8385359/compile-all-less-file-using-a-makefile

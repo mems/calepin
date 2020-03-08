@@ -1070,6 +1070,19 @@ See [RESTful](Development#restful) and [API](Development#api)
 - [URLs are UI - Scott Hanselman](https://www.hanselman.com/blog/URLsAreUI.aspx)
 - https://restpatterns.mindtouch.us/Articles/Designing_URIs
 
+### URI template
+
+```
+https://example.com/{file}
+https://example.com/search{?q*,lang}
+```
+
+- [RFC 6570 - URI Template](https://tools.ietf.org/html/rfc6570)
+- [hannesg/uri_template: A URI template library for ruby.](https://github.com/hannesg/uri_template)
+- [medialize/URI.js: Javascript URL mutation library](https://github.com/medialize/URI.js)
+- [grncdr/uri-template: CoffeeScript/Javascript implementation of RFC 6570 for URI-templates](https://github.com/grncdr/uri-template)
+- [geraintluff/uri-templates: JavaScript utility for RFC 6570: URI Templates](https://github.com/geraintluff/uri-templates)
+
 ## Subordinate resource
 
 Aka subresource, hash, fragment identifier

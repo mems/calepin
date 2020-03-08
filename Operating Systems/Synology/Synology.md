@@ -1,5 +1,6 @@
 - [Cross-compilation pour Synology - Blog Benjamin BALET](http://benjamin-balet.info/multimedia/synology/cross-compilation-pour-synology/)
 - `inotify` [HOWTO: Show me the Latest Files - Synology Forum](https://forum.synology.com/enu/viewtopic.php?t=56439)
+- [Les serveurs NAS Synology - /!\\ Lire page 1 SVP /!\\ \[Topic R+\] - Réseaux - Réseaux grand public / SoHo - FORUM HardWare.fr](https://forum.hardware.fr/hfr/reseauxpersosoho/Reseaux/serveurs-synology-page-sujet_5497_1.htm)
 
 ## Hardware
 
@@ -81,6 +82,8 @@ Inspiration of OSX: [OS X Yosemite: Share files with others who use your Mac](ht
 
 - package files (installed) `/var/packages/$APP_NAME/etc -> /usr/syno/etc/packages/$APP_NAME`
 - app files (config, etc.) `/var/packages/$APP_NAME/target -> /volumeX/@appstore/$APP_NAME` and `/var/services/web/$APP_NAME`
+
+- [Synology - Move Application Between Volumes - McLean IT Consulting](https://www.mcleanit.ca/blog/synology-move-application-volumes/)
 
 ### Download Station
 
@@ -486,7 +489,7 @@ You can create a version of backup on an USB drive before relink once it's uploa
 - [Create Backup Tasks | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/HyperBackup/data_backup_create)
 
 Rotation advice for "Smart Recycle" (1 version per hour for last 24h, 1 per day for last 30 days, 1 per month for last year): with 66 (24+30+12, for the last year) version. Use 74 versions.
-For 90 retention days, use (90+12+4) 106
+For 90 retention days, use (90+12+4) 106 (1 version per day for 3 months, 1 per month for 1 year, 1 year for 4 years)
 
 Check Backup integrity:
 > "Check backup integrity: Perform integrity check on backup data to know if the related backup task can proceed and if the backup data can be successfully restored."
@@ -500,7 +503,7 @@ Check Backup integrity:
 - ?? `/var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_synology.coene_AKIAII7X3LHP5R4HOUNA.Hkx7Wx -t ds414_1.hbk -S bkp -E /tmp/scoped_temp_file.XeMJPp`
 
 ```sh
-sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp'
+sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp\|synoimgbkptool'
 ```
 
 #### Format and storage
@@ -547,16 +550,28 @@ The Hyper Backup package can use (client side) encryption:
 
 #### Local cache space
 
-Before: 170GB
-After: 75GB
-Remove local cache directory broke the local index ("Local index broken"), need to relink the target (redownload some parts from cloud)
+Or move location of `@img_bkp_cache` (`/usr/syno/etc/synobackup.conf`)
 
+    # Remove local cache directory broke the local index ("Local index broken"), need to relink the target (redownload some parts from cloud)
+    # Before: 170GB (for ~3TB)
+    # After: 98GB ... 169GB ... no effect
 	rm -rf /volume1/@img_bkp_cache/aws_s3_synology.coene_AKIAII7X3LHP5R4HOUNA.Hkx7Wx
+    # Then relink the target (via HyperBackup UI)
 
 	#vacuum cand-chunk db
 	# For /volume1/@img_bkp_cache/aws_s3_horseradish-backups_ELPZYDFL16BE6BASQ3ZM.aGexMW/Armadillo.hbk
 	du -h -d0 /volume1/@img_bkp_cache/aws_s3_horseradish-backups_ELPZYDFL16BE6BASQ3ZM.aGexMW
-	/var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_horseradish-backups_ELPZYDFL16BE6BASQ3ZM.aGexMW -t Armadillo.hbk -V cand
+    # sudo /var/packages/HyperBackup/target/bin/synoimgbkptool -h
+    # [...]
+    # -e, --clear-cache-tmp        clear temp folders in all cloud caches
+    # -p, --space-local            compute the local space usage for a target
+    # -r, --repository             indicate the objective repository
+    # -t, --target                 indicate the objective target
+    # -V, --vacuum                 vacuum DB; cand: cand-chunk DB, ver: version-list DB
+	sudo /var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_horseradish-backups_ELPZYDFL16BE6BASQ3ZM.aGexMW -t Armadillo.hbk -p
+	sudo /var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_horseradish-backups_ELPZYDFL16BE6BASQ3ZM.aGexMW -t Armadillo.hbk -V cand
+	sudo /var/packages/HyperBackup/target/bin/synoimgbkptool -r /volume1/@img_bkp_cache/aws_s3_horseradish-backups_ELPZYDFL16BE6BASQ3ZM.aGexMW -t Armadillo.hbk -V ver
+    sudo /var/packages/HyperBackup/target/bin/synoimgbkptool -e
 
 - [HyperBackup: Amazon cloud, local cache | Synology Community](https://community.synology.com/forum/17/post/102580)
 - [@img_bkp_cache directory for HyperBackup | Synology Community](https://community.synology.com/forum/17/post/99706)
