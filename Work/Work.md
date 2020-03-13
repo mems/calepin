@@ -502,3 +502,10 @@ Not for team or at least without expertise requirements
     - nombreux changements organisationnels, stratégiques ou technologiques.
 
 - [AACC - Guide du Burn-out](https://fr.calameo.com/read/0059701334db6d52c45ee) - [les Agences membres de l'AACC](http://www.aacc.fr/articles/burn-out)
+
+## Remote work
+
+- [Guide for starting a remote job | GitLab](https://about.gitlab.com/company/culture/all-remote/getting-started/)
+- [Remote-work resources | GitLab](https://about.gitlab.com/company/culture/all-remote/resources/)
+- [GitLab's Guide to All-Remote | GitLab](https://about.gitlab.com/company/culture/all-remote/guide/)
+- [How to build a remote team | GitLab](https://about.gitlab.com/company/culture/all-remote/tips/)
