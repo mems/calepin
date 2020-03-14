@@ -666,8 +666,23 @@ Y 💖 💘
 
 ...and paraphrasing
 
+`―` (Horizontal Bar, U+2015)
+
 > Within quotations, use square brackets \[ \] (not parentheses) to add your own clarification, comment, or correction.
 > — [Quoting and Paraphrasing – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/assignments/quotingsources/)
 
+> Signatures, preceded by an em dash, are sometimes run in with the last line of text.
+> — [U.S. Government Publishing Office Style Manual - 16.17. Signatures](https://www.govinfo.gov/content/pkg/GPO-STYLEMANUAL-2016/pdf/GPO-STYLEMANUAL-2016.pdf#page=327)
+
+- [punctuation - When should I use an em-dash, an en-dash, and a hyphen? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/2116/when-should-i-use-an-em-dash-an-en-dash-and-a-hyphen)
+- [Quotation mark - Wikipedia](https://en.wikipedia.org/wiki/Quotation_mark#Quotation_dash) - Quotation dash
+- [Dash - Wikipedia](https://en.wikipedia.org/wiki/Dash#Horizontal_bar) - Horizontal bar
+- [punctuation - Appropriate dash to use when attributing a quotation? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/28601/appropriate-dash-to-use-when-attributing-a-quotation)
 - [Inserting Editorial Comments into a Quote](https://writing.colostate.edu/guides/page.cfm?pageid=274&guideid=16)
 - [Sic — Wikipedia](https://en.wikipedia.org/wiki/Sic)
+- [Block quotation - Wikipedia](https://en.wikipedia.org/wiki/Block_quotation)
+- [\<blockquote\>: The Block Quotation element - HTML: Hypertext Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
+- [HTML Standard](https://html.spec.whatwg.org/multipage/grouping-content.html#the-blockquote-element)
+- [In Text Citations & Quotations - Cite APA Style 6 - LibGuides at COM Library](https://libguides.com.edu/c.php?g=649092&p=4553341)
+- [In Text Citations & Quotations - Cite MLA Style - LibGuides at COM Library](https://libguides.com.edu/c.php?g=649870&p=4556417)
+- [Word Play: The Case for the Em Dash—Seriously - Quietly Blog](https://blog.quiet.ly/community/word-play-the-case-for-the-em-dash-seriously/)

@@ -1291,6 +1291,8 @@ See also `diff -q --binary` or `cmp -s $1 $2 && echo "identical" || echo "differ
 	Replace the use of md5sum with `diff` or `cmp`: [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
 - [dupe-krill/README.md at master · kornelski/dupe-krill](https://github.com/kornelski/dupe-krill/blob/master/README.md)
 - [idealo/imagededup: 😎 Finding duplicate images made easy!](https://github.com/idealo/imagededup)
+- [birkenfeld/fddf: Fast data dupe finder](https://github.com/birkenfeld/fddf)
+- [haibison / scan4df — Bitbucket](https://bitbucket.org/haibison/scan4df/src/master/)
 
 Then replace files by hardlink:
 

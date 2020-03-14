@@ -10,6 +10,7 @@
 
 About parsing and transpiling:
 
+- [jamiebuilds/the-super-tiny-compiler: Possibly the smallest compiler ever](https://github.com/jamiebuilds/the-super-tiny-compiler)
 - [Compiling Java and C# to SWF – blog.joa-ebert.com - Blog of Joa Ebert](https://blog.joa-ebert.com/2009/09/28/compiling-java-and-c-to-swf/)
 - [How to be* a compiler — make a compiler with JavaScript – Medium](https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4#.4mds8vf0s)
 - [Easy Parsing with Parser Combinators](http://www.lihaoyi.com/post/EasyParsingwithParserCombinators.html)

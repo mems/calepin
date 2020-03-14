@@ -134,10 +134,11 @@ Luxury:
 
 How much:
 
-- http://www.portageo.fr/blog/newsletters-portageo/freelances-quels-tarifs-pratiquer-pour-vos-missions/
+- [Freelances, portés, quels tarifs (TJM) pour vos missions ?](https://web.archive.org/web/20181012083814/http://www.portageo.fr/blog/newsletters-portageo/freelances-quels-tarifs-pratiquer-pour-vos-missions/)
 - [Comment négocier le prix de votre mission ? - conseil 2/3 | ACPI](http://www.acpi.fr/actualites-portage/3-conseils-pour-bien-negocier-votre-mission-en-portage-salarial-23.html)
-- http://tarifs.freelance-info.fr/
-- [Tarifs et prestations de graphiste, photographe, designer, styliste](http://www.kob-one.com/tarifs)
+- [Tarifs jour de facturation des freelances informatique TJM - Freelance-info.fr](https://www.freelance-info.fr/tarifs/)
+- [Simulation ‟salaire” freelance : calculez votre TJM, taux journalier moyen et CA](https://kob-one.com/calcul-salaire-freelance/)
+- [Tarif graphiste freelance, webdesigner indépendant, designer, motion](https://www.kob-one.com/tarifs)
 - [How to calculate your freelance rate | Web design | Creative Bloq](http://www.creativebloq.com/web-design/how-calculate-your-freelance-rate-61515318)
 - [Web Development Project Estimator](http://astuteo.com/estimator/)
 - [Dis tonton, pourquoi est-ce si cher un indépendant ? | Carnet de notes](https://n.survol.fr/n/dis-tonton-pourquoi-est-ce-si-cher-un-independant)

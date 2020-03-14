@@ -1049,7 +1049,7 @@ Others (doc, about, etc.):
 		... Dialog contents
 	</div>
 
-Avoid the title attribute. Because touch can't handle it on link, abbr, images, etc. Some screen reader ignore it too.
+Note: the [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 Don't use `aria-describedby` for that. It's describe the element "provides more information that the user might need".
 
@@ -1076,7 +1076,6 @@ Don't use the `title` attribute (see [`title` attribute is not accessible](#titl
 - [html5 - Accessibility: recommended alt-text convention for SVG and MathML? - Stack Overflow](https://stackoverflow.com/questions/4697100/accessibility-recommended-alt-text-convention-for-svg-and-mathml)
 - [I thought title text improved accessibility. I was wrong. | Silktide blog](http://blog.silktide.com/2013/01/i-thought-title-text-improved-accessibility-i-was-wrong/)
 - [C7: Using CSS to hide a portion of the link text | Techniques for WCAG 2.0](http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C7)
-- [3 Semantics, structure, and APIs of HTML documents — The title attribute | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/dom.html#the-title-attribute)
 - [L’attribut title : à consommer avec modération – 24 jours de web](http://www.24joursdeweb.fr/2013/attribut-title-avec-moderation/)
 - [Utilisabilité des <abbr> (tactile et vocale) (avec tweets) · tetue · Storify](https://storify.com/tetue/utilisabilite-des-abbr-tactile-et-vocale)
 - [`abbr` element]()
@@ -1350,10 +1349,13 @@ See [Spelling is important](Text#spelling-is-important)
 ## `title` attribute is not accessible
 
 Accessible to user with AT but for touch device users too.
+Because touch can't handle it on link, abbr, images, etc. Some screen reader ignore it too.
 
 See [Labelling](#labelling)
 
 - [Using the HTML title attribute – Updated Dec 2012 | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
+- [3 Semantics, structure, and APIs of HTML documents — The title attribute | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/dom.html#the-title-attribute)
+- [Using the HTML title attribute – Updated March 2020 | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
 
 ## Tooltip
 
