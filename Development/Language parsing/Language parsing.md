@@ -28,6 +28,7 @@ About parsing and transpiling:
 - [Building a Parser – Chelsea Troy](https://chelseatroy.com/2019/11/11/building-a-parser/)
 - [Drawings of How Compilers Work – Chelsea Troy](https://chelseatroy.com/2019/10/17/drawings-of-how-compilers-work/)
 - [Stuff I Wrote About Programming Languages – journal.stuffwithstuff.com](http://journal.stuffwithstuff.com/category/language/)
+- [JSON Parser with JavaScript | Tan Li Hau](https://lihautan.com/json-parser-with-javascript/) - [Write a parser with JavaScript | Hacker News](https://news.ycombinator.com/item?id=21772336)
 
 Concepts:
 

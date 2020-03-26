@@ -3996,3 +3996,9 @@ function isEmpty(o) {
 	return JSON.stringify(o) === JSON.stringify({});
 }
 ```
+
+## Function source
+
+```js
+String(function(){console.log("Hello")}).slice(11, -1);// console.log("Hello")
+```

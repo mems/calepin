@@ -20,6 +20,7 @@ Bank details statement (Relevé d'identité bancaire):
 - [SWIFTRef - The global reference data utility](https://www.swiftrefdata.com/) - SWIFT/BIC codes database (not free, for subscribers only with a fee)
 - [Get BIC for an IBAN account · Issue #55 · globalcitizen/php-iban](https://github.com/globalcitizen/php-iban/issues/55)
 - [An introduction to the SWIFT society - Speaker Deck](https://speakerdeck.com/openswiftcodes/an-introduction-to-the-swift-society)
+- [IBAN, CCC, Tarjetas de crédito](https://generadordni.es/#iban) - Generator
 
 Country							Country Code	IBAN format					IBAN length		IBAN example
 Albania							AL				AL2!n8!n16!c				28				AL47212110090000000235698741

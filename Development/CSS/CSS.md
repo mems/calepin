@@ -2501,6 +2501,12 @@ a[hreflang|="en"]::after {
 `:not(:first-child)` == `:nth-child(n+2)`
 `:nth-last-child(n+3)`
 
+`:nth-of-class` doesn't exist, but `:nth-child(2n+1 of .my-class)` does (but not wel supported). It's possible do achieve something similair with other range selectors:
+
+- [Simulating nth-of-class CSS selector | Bright Inventions](https://brightinventions.pl/blog/nth-of-class/)
+
+See also:
+
 - [CSS Mod Queries and Range Selectors](http://www.modqueries.com/)
 - [Mastering the :nth-child | CSS3 pseudo classes and :nth-child ranges](http://nthmaster.com/)
 - [QQ - Quantity Queries Builder](http://quantityqueries.com/)

@@ -2246,6 +2246,11 @@ http://forum.processing.org/one/topic/calculate-image-contrast-using-root-mean-s
 
 - [Quick Game Art Tips - Unity World Position Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-19355776) - See ![World Position Shader](Pixel%20Shader/World%20Position%20Shader/World%20Position%20Shader.gif)
 
+## Effects
+
+- [#VFX - Twitter Search / Twitter](https://twitter.com/hashtag/VFX)
+- [#VFX #gamedev - Twitter Search / Twitter](https://twitter.com/search?q=%23VFX%20%23gamedev)
+
 ## Optical adjustment
 
 Aka visually centered, physics center, optical alignement, compositional balance

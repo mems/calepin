@@ -30,6 +30,40 @@ Aka address
 	* Two-Letter State and Possession Abbreviations [Publication 28 - Postal Addressing Standards - pub28.pdf](http://pe.usps.com/cpim/ftp/pubs/Pub28/pub28.pdf#G6.19308)
 	* [C2 Secondary Unit Designators | Postal Explorer](http://pe.usps.com/text/pub28/28apc_003.htm)
 
+[Indice de répétition](https://www.sirene.fr/sirene/public/variable/indrep):
+
+- (sans)
+- BIS
+- TER
+- QUATER
+- QUINQUIES
+- A
+- B
+- C
+- D
+- E
+- F
+- G
+- H
+- I
+- J
+- K
+- L
+- M
+- N
+- O
+- P
+- Q
+- R
+- S
+- T
+- U
+- V
+- W
+- X
+- Y
+- Z
+
 - [plus+codes: Personal Postcodes](https://plus.codes/)
 - without formal addressing systems (South Africa and parts of Kenya)
 - [Locale (geographic) — Wikipedia](https://en.wikipedia.org/wiki/Locale_%28geographic%29)

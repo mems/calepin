@@ -147,9 +147,10 @@ Use Viridis or Parula colormap for heatmap (accessible to colorblind users)
 - [politiken-journalism/scale-color-perceptual: Javascript exports of matplotlib's new default color scales; magma, inferno, plasma and viridis. Works with browserify and D3.js](https://github.com/politiken-journalism/scale-color-perceptual)
 - [bpostlethwaite/colormap: output rgb or hex colormaps](https://github.com/bpostlethwaite/colormap)
 
-## Design System
+## Design system
 
 - [Design System Checklist](https://designsystemchecklist.com/)
+- [Design Systems articles on building and maintaining design systems](https://www.designsystems.com/#design-systems-repo) - List of design system repositories
 
 ## Accessibility
 

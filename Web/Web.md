@@ -6598,6 +6598,12 @@ For icons, use a large one 180×180 icon for iOS and Android
 
 Some browsers usally try to get the following resource: `/favicon.ico`
 
+```svg
+<svg xmlns="http://w3.org/2000/svg" viewBox="0 0 100 100">
+    <text y=".9em" font-size="90">📦</text>
+</svg>
+```
+
 - `convert favicon.png -background none -resize 256×256 -define icon:auto-resize="256,128,96,64,48,32,16" favicon.ico`
 - [Thumbnails -- IM v6 Examples](http://www.imagemagick.org/Usage/thumbnails/#favicon)
 - [audreyr/favicon-cheat-sheet: Obsessive cheat sheet to favicon sizes/types. Please contribute! (Note: this may be in flux as I learn new things about favicon best practices.)](https://github.com/audreyr/favicon-cheat-sheet)
@@ -6608,6 +6614,7 @@ Some browsers usally try to get the following resource: `/favicon.ico`
 - https://github.com/RealFaviconGenerator/realfavicongenerator/issues/211
 - https://github.com/GoogleChrome/lighthouse/issues/291#issuecomment-219074630
 - [Favicon — Wikipedia](https://en.wikipedia.org/wiki/Favicon)
+- [(1) Lea Verou on Twitter: "Now that all modern browsers support SVG favicons, here's how to turn any emoji into a favicon.svg: &lt;svg xmlns="https://t.co/TJalgdayix" viewBox="0 0 100 100"&gt; &lt;text y=".9em" font-size="90"&gt;💩&lt;/text&gt; &lt;/svg&gt; Useful for quick apps when you can't be bothered to design a favicon! https://t.co/S2F8IQXaZU" / Twitter](https://twitter.com/LeaVerou/status/1241619866475474946)
 
 ## Browsers version fragmentation
 

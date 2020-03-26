@@ -1608,6 +1608,9 @@ or:
 
 - Windows: Configuration pannel > System & Security > Power management > Choose when the screen close (works only in native, not in a VM)
 - Windows: `Compact.exe /CompactOS:always` to compact (`Compact.exe /CompactOS:never` to restore); `powercfg /h /type reduced` to reduce hibernation file size (`powercfg /h /size 100` to restore)
+- Keyboard with Mac layout: Settings > Time & language > Region & language > select current language > Options > Add keyboard > select the same language layout but with "(Apple)" > optionaly you can remove the previous layout or a keyboard layout selector in taskbar will appears
+    - [Change the Windows regional settings to modify the appearance of some data types - Access](https://support.office.com/en-us/article/change-the-windows-regional-settings-to-modify-the-appearance-of-some-data-types-edf41006-f6e2-4360-bc1b-30e9e8a54989)
+    - [The Microsoft Keyboard Layout Creator](https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator)
 - macOS: Sytem preferences > Startup > Choose the disk you want to use at each startup (you still can use opt key to Start up to [Startup Manager](https://support.apple.com/en-us/HT202796))
 - [Install Windows 10 on your Mac with Boot Camp Assistant - Apple Support](https://support.apple.com/en-us/HT201468)
 - [Launching your Boot Camp partition in VMware Fusion (1014618)](https://kb.vmware.com/s/article/1014618)

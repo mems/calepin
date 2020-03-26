@@ -4448,6 +4448,13 @@ All mutation happend even for disconnected nodes. Mutation happend on newly crea
 
 Note: It's impossible to observe only namespaced attributes like `xlink:href`, because it's not supported: [javascript - Why does MutationObserver not recognize the xlink:href attribute in the attributeFilter array? - Stack Overflow](https://stackoverflow.com/questions/39047902/why-does-mutationobserver-not-recognize-the-xlinkhref-attribute-in-the-attribut). The spec exclude nodes when ["`attributeFilter` does not contain name or namespace is non-null"](https://dom.spec.whatwg.org/#queueing-a-mutation-record).
 
+Note, contenteditable elements do not trigger MutationObserver:
+
+> Using the MutationObserver polyfill, it isn't possible to monitor mutations of an element marked `contenteditable`.
+> See [the mailing list](https://groups.google.com/forum/#!msg/polymer-dev/LHdtRVXXVsA/v1sGoiTYWUkJ)
+
+You need to listen some events like `input` or `DOMSubtreeModified` (depreciated): [javascript - contenteditable change events - Stack Overflow](https://stackoverflow.com/questions/1391278/contenteditable-change-events)
+
 - use `MutationObserver` or use Live Collections with `requestAnimationFrame` (or `setInterval`)
 - [Three Real-World Uses for Mutation Observer - Eager Blog](https://eager.io/blog/three-real-world-use-cases-for-mutation-observer/)
 - [javascript - Performance of MutationObserver to detect nodes in entire DOM - Stack Overflow](https://stackoverflow.com/questions/31659567/performance-of-mutationobserver-to-detect-nodes-in-entire-dom/39332340#39332340) - Tips about observing node in the whole document

@@ -510,3 +510,4 @@ Not for team or at least without expertise requirements
 - [Remote-work resources | GitLab](https://about.gitlab.com/company/culture/all-remote/resources/)
 - [GitLab's Guide to All-Remote | GitLab](https://about.gitlab.com/company/culture/all-remote/guide/)
 - [How to build a remote team | GitLab](https://about.gitlab.com/company/culture/all-remote/tips/)
+- [Working remotely: the good, the bad, and the unexpected | Webflow Blog](https://webflow.com/blog/working-remotely)

@@ -204,3 +204,10 @@ Aka gender
 - [Gender / plurial combined form](Text#gender202f20plurial20combined20form)
 - [gender formats · Microformats Wiki](http://microformats.org/wiki/gender-formats)
 - [Sex and gender distinction — Wikipedia](https://en.wikipedia.org/wiki/Sex_and_gender_distinction)
+
+## Identifier
+
+- [Social Security number - Wikipedia](https://en.wikipedia.org/wiki/Social_Security_number)
+- [National identification number - Wikipedia](https://en.wikipedia.org/wiki/National_identification_number)
+- [Numéro d'immatriculation fiscale — Wikipédia](https://fr.wikipedia.org/wiki/Num%C3%A9ro_d%27immatriculation_fiscale)
+- [NIF, NIE, CIF](https://generadordni.es/#dni)
