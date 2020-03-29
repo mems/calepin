@@ -97,6 +97,7 @@ Time Machine backup fiability:
 - [Backing Up Your Mac: The Online Appendixes](https://joeontech.net/extras/buym/)
 - [iBackup](http://grapefruit.ch/iBackup/)
 - [rsnapshot | rsnapshot](http://rsnapshot.org/)
+- [Cronopete](https://rastersoft.com/programas/cronopete.html)
 
 GUI for rsync
 

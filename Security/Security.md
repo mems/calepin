@@ -1171,7 +1171,8 @@ See also
 - [Same-origin policy — Wikipedia](https://en.wikipedia.org/wiki/Same-origin_policy)
 - [Same-origin policy - Web security | MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
 - [Cross-Site Request Forgery is dead!](https://scotthelme.co.uk/csrf-is-dead/)
-- [s0md3v/XSStrike: Most advanced XSS detection suite.](https://github.com/s0md3v/XSStrike)
+- [s0md3v/XSStrike: Most advanced XSS detection suite.](https://github.com/s0md3v/XSStrike)1
+- [The British Airways Breach: How Magecart Claimed 380,000 Victims](https://www.riskiq.com/blog/labs/magecart-british-airways-breach/) - [Card-stealing code that pwned British Airways, Ticketmaster pops up on more sites via hacked JS • The Register](https://www.theregister.co.uk/2018/09/12/feedify_magecart_javascript_library_hacked/), [Magecart – Darknet Diaries](https://darknetdiaries.com/episode/52/)
 
 ##### Subresource Integrity
 

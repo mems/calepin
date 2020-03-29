@@ -2504,6 +2504,7 @@ a[hreflang|="en"]::after {
 `:nth-of-class` doesn't exist, but `:nth-child(2n+1 of .my-class)` does (but not wel supported). It's possible do achieve something similair with other range selectors:
 
 - [Simulating nth-of-class CSS selector | Bright Inventions](https://brightinventions.pl/blog/nth-of-class/)
+- [CSS :nth-of-class selector – Bram.us](https://www.bram.us/2020/03/16/css-nth-of-class-selector/)
 
 See also:
 

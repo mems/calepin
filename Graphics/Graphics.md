@@ -137,6 +137,11 @@ Draw 3D model from 2D sketch:
 ## Sketch rendering
 
 - [Implementing a "sketch" style of rendering in WebGL — Floored](http://wayback.archive.org/web/20141224123751/http://www.floored.com/blog/2014/sketch-rendering)
+- [Here Dragons Abound: This Is Where I Draw the Line](https://heredragonsabound.blogspot.com/2016/11/this-is-where-i-draw-line.html)
+- [Here Dragons Abound: Creating a Pencil Effect in SVG](https://heredragonsabound.blogspot.com/2020/02/creating-pencil-effect-in-svg.html) - [Pencil Effect Filters / Matthew Turk / Observable](https://observablehq.com/@matthewturk/pencil-effect-filters)
+- [SVG Pencil Filter #1](https://codepen.io/srt19170/pen/oNNQmRw)
+- [SVG Pencil Filter #2](https://codepen.io/srt19170/pen/XWWopOg)
+- [Hand-Drawn Lines Code (Javascript)](https://gist.github.com/srt19170/06a032e541cb4208a3e47a64f7b4687c)
 
 ## 3D scan
 

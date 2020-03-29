@@ -630,7 +630,6 @@ Some browsers map internaly `localhost` without proxy. To skip that, add the FQD
 `endpoint.php`:
 
 ```php
-<?php
 // Don't handle domain existance
 $url = $_SERVER['REQUEST_URI'];
 $url_parts = parse_url($url);
@@ -2920,8 +2919,8 @@ Others links:
 See also [Third parties](#third-parties)
 
 - [Hard Costs of Third-Party Scripts - daverupert.com](https://daverupert.com/2018/10/hard-costs-of-third-party-scripts/)
+- [How website trackers affect the performance of the world's top news sites](https://royal.pingdom.com/trackers-impact-performance/)
 - [Improving third-party web performance at The Telegraph](https://medium.com/the-telegraph-engineering/improving-third-party-web-performance-at-the-telegraph-a0a1000be5)
-- [Smashing Magazine sur Twitter : "⌘ Taking control over third-party content to maintain performance. https://t.co/YzjrLvVc3y http](https://mobile.twitter.com/smashingmag/status/944920025823174657)
 - [Third-Party Script Prevalence on Alexa Top 50 | Trent Walton](http://trentwalton.com/notes/2018/01/23/third-party-script-prevalence-on-alexa-top-50.html)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/)
 - [Performance Calendar » Reducing Single Point of Failure using Service Workers](https://calendar.perfplanet.com/2015/reducing-single-point-of-failure-using-service-workers/) - Block slow third-party with service worker
@@ -2929,6 +2928,16 @@ See also [Third parties](#third-parties)
 - [After GDPR, The New York Times cut off ad exchanges in Europe - and kept growing ad revenue - Digiday](https://digiday.com/media/gumgumtest-new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/) - "serving regular, un-targeted ads could actually increase revenue" (remove cookie syncing and retargeting, that generate large amount of requests)
 - [Andy Davies sur Twitter : "Only load what’s needed to display the initial button and then lazy-load the rest is an approach every live chat, feed widget etc should take. Currently they typically have a 500KB to 1MB bundle which just displays a button unless someone interacts with it!… https://t.co/ZNblwfAVwJ"](https://twitter.com/andydavies/status/1199236204723613696?s=12)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/#lazy-load_third_party_resources) - "Lazy-load Third Party Resources"
+- [How 3rd Party Scripts can be performant citizens on the web](https://www.twnsnd.com/posts/performant_third_party_scripts.html)
+- [Taking Back Control Over Third Party Content – Conffab](https://conffab.com/video/taking-back-control-over-third-party-content/) - Slides: [Taking back control over 3rd party content](https://yoavweiss.github.io/taking_back_control_velocity_16/)
+- [Web Performance Calendar » Self-hosting third-party resources: the good, the bad and the ugly](https://calendar.perfplanet.com/2019/self-hosting-third-party-resources-the-good-the-bad-and-the-ugly/)
+- [How Third-Party Tags and Trackers Impact Site Performance](https://wp-rocket.me/blog/how-third-party-tags-and-trackers-impact-website-performance/)
+- [Third party tags: their impact on web performance - Fasterize](https://www.fasterize.com/en/blog/third-parties-tags-impact-performance/)
+- [Third Parties | 2019 | The Web Almanac by HTTP Archive](https://almanac.httparchive.org/en/2019/third-parties)
+- [Simon Hearne | Deep dive into third-party performance | performance.now() 2019 - YouTube](https://www.youtube.com/watch?v=uXv9JFvrnwo)
+- [Data | Third-Party Web](https://www.thirdpartyweb.today/) - [patrickhulce/third-party-web: Data on third party entities and their impact on the web.](https://github.com/patrickhulce/third-party-web)
+- [Analyzing 3rd Party Performance via HTTP Archive + CrUX - Analysis - HTTP Archive](https://discuss.httparchive.org/t/analyzing-3rd-party-performance-via-http-archive-crux/1359)
+- [Performance and Resilience: Stress-Testing Third Parties – CSS Wizardry – Web Performance Optimisation](https://csswizardry.com/2017/07/performance-and-resilience-stress-testing-third-parties/#request-blocking)
 
 ## Detection
 
@@ -3302,6 +3311,10 @@ Tools, audit, checklist, etc.:
 - http://ahrefs.com
 - http://nibbler.silktide.com
 - http://feedthebot.com
+
+- [SpeedCurve: Monitor front-end performance](https://speedcurve.com/)
+- [Analyse de site Web, Test de Performance et Audit qualité | Dareboost](https://www.dareboost.com/fr)
+- [Rigor | The Leader in Digital Performance Management](https://rigor.com/)
 
 ### Rank factors
 
@@ -5898,9 +5911,8 @@ https://twitter.com/i/profiles/popup?user_id=%{user-id}&wants_hovercard=true&lan
 - https://dev.twitter.com/resources/twitter-libraries
 - https://mikerogers.io/2013/02/25/how-use-twitter-oauth-1-1-javascriptjquery.html
 - https://umerpasha.wordpress.com/2013/06/13/c-code-to-get-latest-tweets-using-twitter-api-1-1/
- 
- ```php
-<?php
+
+```php
 $username = isset($_GET['screen_name']) ? $_GET['screen_name'] : 'twitter';// 'privateaccount'
 $page_content = @file_get_contents('https://twitter.com/' . urlencode($username) . '?lang=en');
 
@@ -5910,9 +5922,9 @@ if(preg_match('/<input type="hidden" id="init-data" class="json-data" value="([^
 	header('Content-Type: application/json');
 	echo $profile_data;
 }
+```
 
-<?php
-
+```php
 define('TWITTER_PROFILE_VALUES', 6);
 $username = isset($_GET['screen_name']) ? $_GET['screen_name'] : 'twitter';
 $page_content = file_get_contents('https://twitter.com/' . urlencode($username) . '?lang=en');
@@ -6278,7 +6290,7 @@ for(let i = 0; i < total; i++){
 			<resources>
 				<url type="http">${url}</url>
 			</resources>
-		</file>";
+		</file>`;
 
 		if(++count >= total){
 			copy(`<?xml version="1.0" encoding="UTF-8"?>
@@ -6760,7 +6772,6 @@ crypto.subtle.digest(algos[algo], sourceBytes).then(valueBuffer => {
 PHP:
 
 ```php
-<?php
 $script = 'alert("Hello, world.");';
 $algo = 'sha256';// 'sha384' // 'sha512'
 $script_hash = base64_encode(hash($algo, $script, true));
@@ -7042,6 +7053,13 @@ See also:
 - [The Initial Better Ad Standard - Coalition for Better Ads](https://www.betterads.org/standards/) - Coalition for Better Ads
 - [Web Tools - Web Tools](https://www.google.com/webmasters/tools/ad-experience-unverified?pli=1) - [About the Ad Experience Report - Web Tool Help](https://support.google.com/webtools/topic/7073612?ref_topic=7566613)
 
+## A/B testing
+
+![Lifecycle of client-side vs server-side experimentations](https://blog.optimizely.com/wp-content/uploads/2017/05/fullstackblog3.png)
+
+- [Why Experiment Server-Side? - DZone Web Dev](https://dzone.com/articles/why-experiment-server-side)
+- [A/B testing - Wikipedia](https://en.wikipedia.org/wiki/A/B_testing)
+
 ## Content blocking
 
 Safe Browsing (UrlSubresourceFilter, BetterAds)
@@ -7053,6 +7071,8 @@ Safe Browsing (UrlSubresourceFilter, BetterAds)
 - [Here’s how Google Chrome’s new ad blocker works – Ctrl blog](https://www.ctrl.blog/entry/chrome-adblocker)
 - [Should web browsers adopt Google’s new selective ad blocking tech? – Ctrl blog](https://www.ctrl.blog/entry/google-adblocking-competition)
 - `chrome://components/`
+- [Blockthrough/PageFair Adblock Reports | Blockthrough](https://blockthrough.com/pagefair-annual-adblock-reports/)
+- [2019 US ad-blocking usage report – eyeo GmbH](https://eyeo.com/2019-us-ad-blocking-usage-report/)
 
 - [Intelligent Tracking Prevention 2.0 | WebKit](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) - ITP (Intelligent Tracking Prevention), third party cookies isolation
 - [Chromium Blog: Under the hood: How Chrome' ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)

@@ -22,13 +22,17 @@ HTML is case insensitive for tag name, but lowercase is easier to read.
 
 Prefer closing tags, HTML5 support enclosing unclosed tags, but it's harder to read. Use
 
-	<p>Some text...</p>
-	<p>Some text...</p>
+```html
+<p>Some text...</p>
+<p>Some text...</p>
+```
 
 Instead of
 
-	<p>Some text...
-	<p>Some text...
+```html
+<p>Some text...
+<p>Some text...
+```
 
 ## Choose the right tag and attribute
 
@@ -45,15 +49,19 @@ See [Accessibility](#accessibility) and [Patterns, markup, semantics and snippet
 
 **Interactive buttons should be injected by JS and not available without JS**
 
-	<button type="button">Action 1</button>
+```html
+<button type="button">Action 1</button>
+```
 
 instead of
 
-	<a href="#">Action 1</a>
-	<a>Action 2</a>
-	<a href="javascript:;">Action 3</a>
-	<span>Action 3</span>
-	<span role="button">Action 4</span>
+```html
+<a href="#">Action 1</a>
+<a>Action 2</a>
+<a href="javascript:;">Action 3</a>
+<span>Action 3</span>
+<span role="button">Action 4</span>
+```
 
 Remplace all links for tabbed interfaces, collabsibles, modal openers by a button (with JS)
 
@@ -112,16 +120,24 @@ Acts similar to `about:blank`.
 When `src` is omitted, `iframe.src` is empty.
 When `src` is present but empty, `iframe.src` is parent url...
 
-	<script>function doThings(){}</script>
-	<iframe src="javascript:parent.doThings();'<a href=&quot;http://example.com?a=1&amp;b=2&quot;>Some HTML text</a>'"></iframe>
+```html
+<script>function doThings(){}</script>
+<iframe src="javascript:parent.doThings();'<a href=&quot;http://example.com?a=1&amp;b=2&quot;>Some HTML text</a>'"></iframe>
+```
 
-	<iframe src="javascript:'<a href=&quot;http://example.com?a=1&amp;amp;b=2&quot;>Some HTML text</a>'"></iframe>
-	<!-- &, etc. need to be double encode as entity -->
-	<!-- iframe.src == "about:srcdoc" -->
+```html
+<iframe src="javascript:'<a href=&quot;http://example.com?a=1&amp;amp;b=2&quot;>Some HTML text</a>'"></iframe>
+<!-- &, etc. need to be double encode as entity -->
+<!-- iframe.src == "about:srcdoc" -->
+```
 
 Is same as
 
-	<iframe srcdoc="<p>Some HTML text</p>"></iframe>
+```html
+<iframe srcdoc="<p>Some HTML text</p>"></iframe>
+```
+
+**To improve accessibility, add a title attribute to iframe tag.** Eg. for Youtube iframe add title to "<video title> (video)". See [Why videos on GOV.UK use the YouTube video player - Accessibility in government](https://accessibility.blog.gov.uk/2020/03/16/why-videos-on-gov-uk-use-the-youtube-video-player/) "Making the YouTube player more accessible".
 
 - https://github.com/qfox/htmlday16/blob/master/htmlday2016.final.pdf
 
@@ -131,20 +147,28 @@ Aka mistakes
 
 Wrong:
 
-	<meta http-equiv="refresh" content="0;http://foo.com">
+```html
+<meta http-equiv="refresh" content="0;http://foo.com">
+```
 
 Correct:
 
-	<meta http-equiv="refresh" content="0;url=http://foo.com">
+```html
+<meta http-equiv="refresh" content="0;url=http://foo.com">
+```
 
 Wrong:
 
-	<meta charset="utf8">
+```html
+<meta charset="utf8">
+```
 
 Correct:
 
-	<meta charset="UTF-8">
-	<meta charset="utf-8">
+```html
+<meta charset="UTF-8">
+<meta charset="utf-8">
+```
 
 `UTF-8` is prefered, but `utf-8` works too. See [Media type - Charset case](Web#charset-case)
 
@@ -161,24 +185,28 @@ Implicit `role=""`: [3 Semantics, structure, and APIs of HTML documents — HTML
 
 ## Favicon
 
-	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="manifest" href="/manifest.json">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="theme-color" content="#ffffff">
+```html
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+```
 
 See [Web](../../Web/Web.md#favicon)
 
 ## (depreciated) Conditional comment for IE
 
-	<!--[if !IE]><!-->
-	This is hidden from Internet Explorer.
-	<!--<![endif]-->
-	
-	<!--[if IE 6]>
-	Special instructions for IE 6 here
-	<![endif]-->
+```html
+<!--[if !IE]><!-->
+This is hidden from Internet Explorer.
+<!--<![endif]-->
+
+<!--[if IE 6]>
+Special instructions for IE 6 here
+<![endif]-->
+```
 
 http://www.quirksmode.org/css/condcom.html
 
@@ -243,15 +271,25 @@ Alt is not only for accessibility purpose, but also for SEO: [HTeuMeuLeu on Twit
 
 ### Quotes
 
-	<div class='container'></div>
+```html
+<div class='container'></div>
+```
 
-	<div class=container></div>
+```html
+<div class=container></div>
+```
 
-	<div class="container"></div>
+```html
+<div class="container"></div>
+```
 
-	<input type="checkox" checked>
+```html
+<input type="checkox" checked>
+```
 
-	<input type="checkox" checked="checked">
+```html
+<input type="checkox" checked="checked">
+```
 
 Should use double quotes.
 
@@ -317,13 +355,17 @@ IDs could be used, but (could be) often changed by frontend developers. Instead 
 
 Who never saw that?
 
-	.homepage-promos .grid-50 {width: 100%}
-	.homepage-promos .grid-33 {width: 100%}
-	.homepage-promos .grid-34 {width: 100%}
-	#seo-container {display: none;}
-	.cover.black {background-color: white;}
-	<a class="padding-left-20 red" href="#"></a>
-	<a class="P(20px)" href="#"></a>
+```html
+<style>
+.homepage-promos .grid-50 {width: 100%}
+.homepage-promos .grid-33 {width: 100%}
+.homepage-promos .grid-34 {width: 100%}
+#seo-container {display: none;}
+.cover.black {background-color: white;}
+</style>
+<a class="padding-left-20 red" href="#"></a>
+<a class="P(20px)" href="#"></a>
+```
 
 > Name something based on what it is, not how it looks
 > [..]
@@ -332,15 +374,17 @@ Who never saw that?
 > If you’re going to do `<div class="red">` you may as well do `<div style="color: red">`
 — [MaintainableCSS - an approach to writing modular, scalable and maintainable CSS | By Adam Silver](http://maintainablecss.com/)
 
-	<div class="stream">
-	  <div class="streamItem">
-	    <article class="postArticle">
-	      <div class="postArticle-content">
-	        <!-- content -->
-	      </div>
-	    </article>
-	  </div>
-	</div>
+```html
+<div class="stream">
+  <div class="streamItem">
+    <article class="postArticle">
+      <div class="postArticle-content">
+        <!-- content -->
+      </div>
+    </article>
+  </div>
+</div>
+```
 
 Component/template/object-oriented class name could be ideal, but semantic don't change over responsive where the presentation does. Ex.: a desktop carrousel, displayed as a list of images on smallscreens
 
@@ -1032,22 +1076,28 @@ Others (doc, about, etc.):
 > The `aria-label` attribute is used to define a string that labels the current element. Use it in cases where a text label is not visible on the screen. If there is visible text labeling the element, use `aria-labelledby instead.
 — [Using the aria-label attribute - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
 
-	<a href="" aria-label="Learn more about opening an online store with Shopify">Learn more</a>
+```html
+<a href="" aria-label="Learn more about opening an online store with Shopify">Learn more</a>
+```
 
 `aria-label`:
 
-	<ul aria-label="Vehicle Models Available:"> 
-		<li>Dodge Shadow</li>
-		<li>Ford Focus</li>
-		<li>Chevy Lumina</li>
-	</ul>
+```html
+<ul aria-label="Vehicle Models Available:"> 
+	<li>Dodge Shadow</li>
+	<li>Ford Focus</li>
+	<li>Chevy Lumina</li>
+</ul>
+```
 
 `aria-labelledby`:
 
-	<div role="dialog" aria-labelledby="dialogheader">
-		<h2 id="dialogheader">Choose a File</h2>
-		... Dialog contents
-	</div>
+```html
+<div role="dialog" aria-labelledby="dialogheader">
+	<h2 id="dialogheader">Choose a File</h2>
+	... Dialog contents
+</div>
+```
 
 Note: the [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
@@ -1055,19 +1105,23 @@ Don't use `aria-describedby` for that. It's describe the element "provides more 
 
 Don't use the `title` attribute (see [`title` attribute is not accessible](#title-attribute-is-not-accessible)), but a graphical hidden span to explain the linked document:
 
-	<p>
-		Washington has announced plans to stimulate economic growth.
-		<a href="#"> <span>Washington stimulates economic growth </span> Full Story</a>
-	</p>
+```html
+<p>
+	Washington has announced plans to stimulate economic growth.
+	<a href="#"> <span>Washington stimulates economic growth </span> Full Story</a>
+</p>
+```
 
-	<dl>
-		<dt>Winnie the Pooh </dt>
-			<dd><a href="winnie_the_pooh.html">
-				<span>Winnie the Pooh </span>HTML</a></dd>
-			<dd><a href="winnie_the_pooh.pdf">
-				<span>Winnie the Pooh </span>PDF</a></dd>
-		...
-	</dl>
+```html
+<dl>
+	<dt>Winnie the Pooh </dt>
+		<dd><a href="winnie_the_pooh.html">
+			<span>Winnie the Pooh </span>HTML</a></dd>
+		<dd><a href="winnie_the_pooh.pdf">
+			<span>Winnie the Pooh </span>PDF</a></dd>
+	...
+</dl>
+```
 
 - Image alt attribute: [HTML5: Techniques for providing useful text alternatives](http://dev.w3.org/html5/alt-techniques/)
 - [4.7 Embedded content — HTML5](https://www.w3.org/TR/html5/embedded-content-0.html#alt)
@@ -1096,36 +1150,40 @@ Use this syntax for slideshow/carousel too.
 
 If list of slides are visible:
 
-	<ul aria-label="Elements" role="tablist"><!-- before augment to slideshow with JS the role should be role="directory" -->
-		<li><a href="#element-1" role="tab" aria-selected="true">Element 1</a></li>
-		<li><a href="#element-2" role="tab" aria-selected="false">Element 2</a></li>
-		<li><a href="#element-3" role="tab" aria-selected="false">Element 3</a></li>
-		<li><a href="#element-4" role="tab" aria-selected="false">Element 4</a></li>
+```html
+<ul aria-label="Elements" role="tablist"><!-- before augment to slideshow with JS the role should be role="directory" -->
+	<li><a href="#element-1" role="tab" aria-selected="true">Element 1</a></li>
+	<li><a href="#element-2" role="tab" aria-selected="false">Element 2</a></li>
+	<li><a href="#element-3" role="tab" aria-selected="false">Element 3</a></li>
+	<li><a href="#element-4" role="tab" aria-selected="false">Element 4</a></li>
+</ul>
+<div role="tabpanel" id="element-1" aria-hidden="false">
+	<h2>Tab 1</h2>
+</div>
+<div role="tabpanel" id="element-2" aria-hidden="true">
+	<h2>Tab 2</h2>
+</div>
+...
+```
+
+```html
+<!-- Not really recommanded -->
+<fieldset aria-controls="elements">
+	<ul>
+		<li><button type="button">Previous</button></li>
+		<li><button type="button">Next</button></li>
 	</ul>
-	<div role="tabpanel" id="element-1" aria-hidden="false">
+</fieldset>
+<div id="elements" aria-live="polite">
+	<div aria-hidden="true">
 		<h2>Tab 1</h2>
 	</div>
-	<div role="tabpanel" id="element-2" aria-hidden="true">
+	<div aria-hidden="false">
 		<h2>Tab 2</h2>
 	</div>
 	...
-
-	<!-- Not really recommanded -->
-	<fieldset aria-controls="elements">
-		<ul>
-			<li><button type="button">Previous</button></li>
-			<li><button type="button">Next</button></li>
-		</ul>
-	</fieldset>
-	<div id="elements" aria-live="polite">
-		<div aria-hidden="true">
-			<h2>Tab 1</h2>
-		</div>
-		<div aria-hidden="false">
-			<h2>Tab 2</h2>
-		</div>
-		...
-	</div>
+</div>
+```
 
 - [How Tabs Should Work ◆ 24 ways](https://24ways.org/2015/how-tabs-should-work/)
 - https://github.com/nico3333fr/jquery-accessible-tabs-aria
@@ -1145,13 +1203,15 @@ If list of slides are visible:
 
 ## AJAX progress/loader
 
-	<!-- add aria-valuemin, aria-valuemax, and aria-valuenow if a progress value is known -->
-	<!-- aria-valuetext could be used to give humand version of aria-valuenow -->
-	<!-- aria-valuenow should not defined if the progress is undetermined -->
-	<p id="indicatorID" aria-busy="true" role="progressbar or status">status message</p>
-	
-	<!-- aria-busy should be true until load complete (or error). For load error, set aria-invalid=true --></
-	<div id="contentID" aria-describedby="indicatorID" aria-live="polite" aria-busy="true">content will be updated</div>
+```html
+<!-- add aria-valuemin, aria-valuemax, and aria-valuenow if a progress value is known -->
+<!-- aria-valuetext could be used to give humand version of aria-valuenow -->
+<!-- aria-valuenow should not defined if the progress is undetermined -->
+<p id="indicatorID" aria-busy="true" role="progressbar or status">status message</p>
+
+<!-- aria-busy should be true until load complete (or error). For load error, set aria-invalid=true --></
+<div id="contentID" aria-describedby="indicatorID" aria-live="polite" aria-busy="true">content will be updated</div>
+```
 
 - http://www.w3.org/TR/wai-aria/roles#progressbar
 
@@ -1180,84 +1240,86 @@ Note: Ideally, expandable items should be following the item that expands and co
 
 ## Modal
 
-	<style>
-	.box-hidden {
-		display: none;
-		position: absolute;
-		top: 19em; left:15em; width:20em; height:5em;
-		border: 2px solid black;
-		padding:0 1em 1em 1em;
-		background-color: #eee;
-		z-index:1002;
-		overflow: auto;
-	}		
-	</style>
+```html
+<style>
+.box-hidden {
+	display: none;
+	position: absolute;
+	top: 19em; left:15em; width:20em; height:5em;
+	border: 2px solid black;
+	padding:0 1em 1em 1em;
+	background-color: #eee;
+	z-index:1002;
+	overflow: auto;
+}		
+</style>
+
+<script>
+var dialogOpen = false, lastFocus, dialog, okbutton, pagebackground;
+
+function showDialog(el) {
+	lastFocus = el || document.activeElement;
+	toggleDialog('show');
+}
+function hideDialog(el) {
+	toggleDialog('hide');
+}
+
+function toggleDialog(sh) {
+	dialog = document.getElementById("box");
+	okbutton = document.getElementById("ok");
+	pagebackground = document.getElementById("content");
+
+	if (sh == "show") {
+		dialogOpen = true;
+
+		// show the dialog 
+		dialog.style.display = 'block';
 	
-	<script>
-	var dialogOpen = false, lastFocus, dialog, okbutton, pagebackground;
+		// after displaying the dialog, focus an element inside it
+		okbutton.focus();// be carefull, if you have animations and overflow: hidden, you shoud do elementWithOverflowHidden.scroll[Left|Top] = 0
 	
-	function showDialog(el) {
-		lastFocus = el || document.activeElement;
-		toggleDialog('show');
+		// only hide the background *after* you've moved focus out of the content that will be "hidden"
+		pagebackground.setAttribute("aria-hidden","true");
+	
+	} else {
+		dialogOpen = false;
+		dialog.style.display = 'none';
+		pagebackground.setAttribute("aria-hidden","false");
+		lastFocus.focus(); 
 	}
-	function hideDialog(el) {
+}
+
+// Focus trap
+document.addEventListener("focus", function(event) {
+	var d = document.getElementById("box");
+
+	if (dialogOpen && !d.contains(event.target)) {
+		event.stopPropagation();
+		d.focus();
+	}
+}, true);
+
+document.addEventListener("keydown", function(event) {
+	if (dialogOpen && event.keyCode == 27) {
 		toggleDialog('hide');
 	}
-	
-	function toggleDialog(sh) {
-		dialog = document.getElementById("box");
-		okbutton = document.getElementById("ok");
-		pagebackground = document.getElementById("content");
-	
-		if (sh == "show") {
-			dialogOpen = true;
-	
-			// show the dialog 
-			dialog.style.display = 'block';
-		
-			// after displaying the dialog, focus an element inside it
-			okbutton.focus();// be carefull, if you have animations and overflow: hidden, you shoud do elementWithOverflowHidden.scroll[Left|Top] = 0
-		
-			// only hide the background *after* you've moved focus out of the content that will be "hidden"
-			pagebackground.setAttribute("aria-hidden","true");
-		
-		} else {
-			dialogOpen = false;
-			dialog.style.display = 'none';
-			pagebackground.setAttribute("aria-hidden","false");
-			lastFocus.focus(); 
-		}
-	}
-	
-	// Focus trap
-	document.addEventListener("focus", function(event) {
-		var d = document.getElementById("box");
-	
-		if (dialogOpen && !d.contains(event.target)) {
-			event.stopPropagation();
-			d.focus();
-		}
-	}, true);
-	
-	document.addEventListener("keydown", function(event) {
-		if (dialogOpen && event.keyCode == 27) {
-			toggleDialog('hide');
-		}
-	}, true);
-	
-	</script>
-	
-	<div id="content">
-	<!--[...]-->
-	<p><a onclick="showDialog(this); return false;" href="#box" role="button">Display a dialog</a></p>
-	<!--[...]-->
-	</div>
-	
-	<div role="dialog" aria-labelledby="myDialog" id="box" class="box-hidden" tabindex="-1">
-		<h3 id="myDialog">Just an example.</h3>
-		<button id="ok" onclick="hideDialog(this);" class="close-button">OK</button>
-		<button onclick="hideDialog(this);" class="close-button">Cancel</button>		
-	</div>
+}, true);
+
+</script>
+
+<div id="content">
+<!--[...]-->
+<p><a onclick="showDialog(this); return false;" href="#box" role="button">Display a dialog</a></p>
+<!--[...]-->
+</div>
+
+<div role="dialog" aria-labelledby="myDialog" id="box" class="box-hidden" tabindex="-1">
+	<h3 id="myDialog">Just an example.</h3>
+	<button id="ok" onclick="hideDialog(this);" class="close-button">OK</button>
+	<button onclick="hideDialog(this);" class="close-button">Cancel</button>		
+</div>
+```
 
 Specific case for the "orientation lock" alert:
 
@@ -1290,28 +1352,32 @@ Specific case for the "orientation lock" alert:
 
 If it's a simple scene, use alt text:
 
-	<canvas role="img" aria-label="This would be the alt text."></canvas>
+```html
+<canvas role="img" aria-label="This would be the alt text."></canvas>
+```
 
 Or use a shadow DOM/subdom:
 
-	<canvas>
-		<button type="button"></button>
-	</canvas>
-	<script>
-		var canvas = document.getElementsByTagName("canvas")[0];
-		var button = canvas.firstElementChild;
-		var ctx = canvas.getContext("2d");
-		button.focus();
-		function draw(){
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			ctx.beginPath();
-			ctx.rect(10, 10, 30, 30);
-			ctx.drawFocusIfNeeded(button);// will draw if button is focused (on Chrome it's draw system focus ring)
-			requestAnimationFrame(draw);
-		}
-		draw();
-	</script>
-	<p>Use tab key to focus the button</p>
+```html
+<canvas>
+	<button type="button"></button>
+</canvas>
+<script>
+	var canvas = document.getElementsByTagName("canvas")[0];
+	var button = canvas.firstElementChild;
+	var ctx = canvas.getContext("2d");
+	button.focus();
+	function draw(){
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.beginPath();
+		ctx.rect(10, 10, 30, 30);
+		ctx.drawFocusIfNeeded(button);// will draw if button is focused (on Chrome it's draw system focus ring)
+		requestAnimationFrame(draw);
+	}
+	draw();
+</script>
+<p>Use tab key to focus the button</p>
+```
 
 - [HTML5 canvas sub DOM | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/02/html5-canvas-sub-dom/)
 - [Flipboard – React Canvas Accessibility | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/02/flipboard-react-canvas-accessibility/)
@@ -1373,22 +1439,30 @@ For Text Alternative Computation
 
 Use `aria-label` (better):
 
-	<h2 aria-label="The Lord of the Rings: The Two Towers">The Lord of the Rings <span class="sub">The Two Towers</span></h2>
+```html
+<h2 aria-label="The Lord of the Rings: The Two Towers">The Lord of the Rings <span class="sub">The Two Towers</span></h2>
+```
 
-	<a href="" aria-label="Learn more about opening an online store with Shopify">Learn more</a>
+```html
+<a href="" aria-label="Learn more about opening an online store with Shopify">Learn more</a>
+```
 
-	<a href="" arial-label="En savoir plus">En savoir +</a>
+```html
+<a href="" arial-label="En savoir plus">En savoir +</a>
+```
 
 Or use CSS with extra elements:
 
-	<style>
-	.sep, .extra {display: block; position: absolute; overflow: hidden;width:1px; height: 0px; padding-top: 1px}/*See [Hide graphicaly an element](CSS#Hide graphicaly an element)*/
-	.sub {display:block; font-style:italic;}
-	</style>
+```html
+<style>
+.sep, .extra {display: block; position: absolute; overflow: hidden;width:1px; height: 0px; padding-top: 1px}/*See [Hide graphicaly an element](CSS#Hide graphicaly an element)*/
+.sub {display:block; font-style:italic;}
+</style>
 
-	<h2>The Lord of the Rings<span class="sep">: <span><span class="sub">The Two Towers</span></h2>
+<h2>The Lord of the Rings<span class="sep">: <span><span class="sub">The Two Towers</span></h2>
 
-	<a href="">Learn more<span class="extra"> about Victorian Room</span></a>
+<a href="">Learn more<span class="extra"> about Victorian Room</span></a>
+```
 
 - `<span role="img" aria-label="peach or bum">🍑</span>` [Accessible Emoji, Tweaked | Adrian Roselli](http://adrianroselli.com/2016/12/accessible-emoji-tweaked.html)
 - [Tagline & subheader](#tagline--subheader)
@@ -1506,13 +1580,17 @@ Can contains title, subtitles, tagline, strapline, aside, introduction, navigati
 
 `h1` should reflect content of the page/document
 
-	<p><!--logo-->Bob's Chunky Bacon Store</p>
-	<h1>Smoked Bacon</h1>
-	<p>Bacon bacon bacon bacon etc...</p>
+```html
+<p><!--logo-->Bob's Chunky Bacon Store</p>
+<h1>Smoked Bacon</h1>
+<p>Bacon bacon bacon bacon etc...</p>
+```
 
-	<p><!--logo-->Bob's Chunky Bacon Store</p>
-	<h1>About Bob's Chunky Bacon Store</h1>
-	<p>About the store etc...</p>
+```html
+<p><!--logo-->Bob's Chunky Bacon Store</p>
+<h1>About Bob's Chunky Bacon Store</h1>
+<p>About the store etc...</p>
+```
 
 - See [Tagline & subheader](#tagline--subheader)
 
@@ -1527,15 +1605,17 @@ Aka document outline
 
 The heading level (h1, h2, h3, etc.) should reflect deepth of the container (by default the owner page - as root document title / page title, else `section` or `article`, `nav`, `aside`)
 
-	<body>
-		<h1>top level heading</h1>
+```html
+<body>
+	<h1>top level heading</h1>
+	<section>
+		<h2>(intended) 2nd level heading</h2>
 		<section>
-			<h2>(intended) 2nd level heading</h2>
-			<section>
-				<h3>(intended) 3nd level heading</h3>
-			</section>
+			<h3>(intended) 3nd level heading</h3>
 		</section>
 	</section>
+</body>
+```
 
 - [Computer says NO to HTML5 document outline | HTML5 Doctor](http://html5doctor.com/computer-says-no-to-html5-document-outline/)
 - [HTML/Usage/Headings/h1only - W3C Wiki](https://www.w3.org/wiki/HTML/Usage/Headings/h1only)
@@ -1559,8 +1639,10 @@ It's no more true with HTML 5.1
 
 `img[alt]:not([alt=""])` element vs. `img[alt=""]` or CSS `background-image`
 
-	<span style="background: url(image.jpg)" role="img" aria-label="[place alt text here]"></span>
-	<!-- the background style could be defined for the parent element instead -->
+```html
+<span style="background: url(image.jpg)" role="img" aria-label="[place alt text here]"></span>
+<!-- the background style could be defined for the parent element instead -->
+```
 
 - If you remove the image (ex. image load error) (or remove all CSS), does the content still have a meaning? Yes: CSS or `img[alt=""]`, No: img
 - If the element is interactive and you remove the CSS or the bg not load, does it still comprehensible (not a fully transparent area)?
@@ -1635,26 +1717,28 @@ Note: Use SVG if srcset not supported
 
 Empty `action` attribute: [web standards - Is it a good practice to use an empty URL for a HTML form's action attribute? (action="") - Stack Overflow](https://stackoverflow.com/questions/1131781/is-it-a-good-practice-to-use-an-empty-url-for-a-html-forms-action-attribute-a)
 
-	<div role="alert">
-		<p>There were errors with your form submission:</p>
-		<ol>
-			<li><a href="#message">Message</a> is a required field</li>
-			<li><a href="#name">Name</a> is a required field</li>
-			<li><a href="#email">Email</a> is a required field</li>
-		</ol>
-	</div>
-	
-	<p>
-		<label for="email">Your Email</label>
-		<input type="email" id="email" name="email" required aria-describedby="email-note email-error">
-		<em id="email-note">We will only use your email address to respond to your message.</em>
-		<strong id="email-error">Your email address is required</strong>
-	</p>
-	
-	<p>
-		<label for="preferred_phone">Preferred Phone <abbr title="required">*</abbr></label>
-		<input type="tel" id="preferred_phone" name="preferred_phone" placeholder="ex. 123-456-7890">
-	</p>
+```html
+<div role="alert">
+	<p>There were errors with your form submission:</p>
+	<ol>
+		<li><a href="#message">Message</a> is a required field</li>
+		<li><a href="#name">Name</a> is a required field</li>
+		<li><a href="#email">Email</a> is a required field</li>
+	</ol>
+</div>
+
+<p>
+	<label for="email">Your Email</label>
+	<input type="email" id="email" name="email" required aria-describedby="email-note email-error">
+	<em id="email-note">We will only use your email address to respond to your message.</em>
+	<strong id="email-error">Your email address is required</strong>
+</p>
+
+<p>
+	<label for="preferred_phone">Preferred Phone <abbr title="required">*</abbr></label>
+	<input type="tel" id="preferred_phone" name="preferred_phone" placeholder="ex. 123-456-7890">
+</p>
+```
 
 When a form is submitted, and the result is the same page (with error message, etc.) by default take the focus of the same form (or the error message or the faulty input, etc.)
 
@@ -1711,10 +1795,12 @@ See also:
 
 **Don't:**
 
-	<label>
-		<input type="text" name="lastname">
-		Last Name
-	</label>
+```html
+<label>
+	<input type="text" name="lastname">
+	Last Name
+</label>
+```
 
 > Nest the `<input>` within the `<label>` tag, is semantically incorrect since the input is not a part of the label, being only its counterpart
 
@@ -1725,17 +1811,19 @@ Also because with this technique, the input can have only have one associated la
 
 ### Error message
 
-	<form>
-		<p>
-			<label for="username">Username</label>
-			<input type="text" id="username" name="username" required inputmode="verbatim" aria-describedby="username-error">
-		</p>
-		<!--
-			Could add the "hidden" attribute in case of JS will use that message later (front end custom validation)
-			or use style display:none by default, and remove it when used
-		-->
-		<p id="username-error" role="alert">Username is already taken</p>
-	</form>
+```html
+<form>
+	<p>
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username" required inputmode="verbatim" aria-describedby="username-error">
+	</p>
+	<!--
+		Could add the "hidden" attribute in case of JS will use that message later (front end custom validation)
+		or use style display:none by default, and remove it when used
+	-->
+	<p id="username-error" role="alert">Username is already taken</p>
+</form>
+```
 
 - [Accessible form](#accessible-form)
 - http://html5doctor.com/the-output-element/#comment-47159 Use [`output` element](#output-element) as error message for input
@@ -1744,13 +1832,15 @@ Also because with this technique, the input can have only have one associated la
 
 ### Input format
 
-	<form>
-		<p>
-			<label for="birthday">Date of birth</label>
-			<input type="text" id="birthday" name="birthday" aria-describedby="birthday-format">
-		</p>
-		<p id="birthday-format">Date must be DD/MM/YYYY</p>
-	</form>
+```html
+<form>
+	<p>
+		<label for="birthday">Date of birth</label>
+		<input type="text" id="birthday" name="birthday" aria-describedby="birthday-format">
+	</p>
+	<p id="birthday-format">Date must be DD/MM/YYYY</p>
+</form>
+```
 
 - [Adactio: Journal—Marking up help text in forms](https://adactio.com/journal/11109)
 
@@ -1762,19 +1852,23 @@ Also because with this technique, the input can have only have one associated la
 
 Without (valid) selection
 
-	<select>
-		<option value="1900">1900</option>
-		<option value="1901">1901</option>
-		<!--...-->
-		<!-- Define label as "Undefined" or (&ndash;) "–" or (&horbar;) "―" or (math) "{}", "∅", and " ∅ " or "  ⃠ " -->
-		<option selected value="">No selection</option>
-		<!-- Or use the label attribute with space or other non empty value the user can't select -->
-		<option disabled selected value="" label=" "></option>
-	</select>
+```html
+<select>
+	<option value="1900">1900</option>
+	<option value="1901">1901</option>
+	<!--...-->
+	<!-- Define label as "Undefined" or (&ndash;) "–" or (&horbar;) "―" or (math) "{}", "∅", and " ∅ " or "  ⃠ " -->
+	<option selected value="">No selection</option>
+	<!-- Or use the label attribute with space or other non empty value the user can't select -->
+	<option disabled selected value="" label=" "></option>
+</select>
+```
 
 You can also use JS, it's but not the best solution:
 
-	document.getElementById("myDropdown").selectedIndex = -1;
+```js
+document.getElementById("myDropdown").selectedIndex = -1;
+```
 
 - [html - default select option as blank - Stack Overflow](https://stackoverflow.com/questions/8605516/default-select-option-as-blank)
 
@@ -1815,38 +1909,40 @@ The Read Only Attribute:
 
 Use list for radios, with a fieldset:
 
-	<form action="">
-		<fieldset>
-			<legend>Shipping method:</legend>
-			<ul>
-				<li>
-					<input id="overnight" type="radio" name="shipping" value="overnight">
-					<label for="overnight">Overnight</label>
-				</li>
-				<li>
-					<input id="twoday" type="radio" name="shipping" value="twoday">
-					<label for="twoday">Two day</label>
-				<li>
-				</li>
-					<input id="ground" type="radio" name="shipping" value="ground">
-					<label for="ground">Ground</label>
-				</li>
-			</ul>
-		</fieldset>
-		<!-- equivalent of:
-		<p>
-			<label for="shipping">Shipping method</label>
-			<select id="shipping" name="shipping">
-				<option value="overnight">Overnight</option>
-				<option value="twoday">Two day</option>
-				<option value="ground">Ground</option>
-			</select>
-		</p>
-		-->
-		
-		<button>Submit</button>
-	</form>
-	<!-- [WebAIM: Creating Accessible Forms - Accessible Form Controls](http://webaim.org/techniques/forms/controls#radio) -->
+```html
+<form action="">
+	<fieldset>
+		<legend>Shipping method:</legend>
+		<ul>
+			<li>
+				<input id="overnight" type="radio" name="shipping" value="overnight">
+				<label for="overnight">Overnight</label>
+			</li>
+			<li>
+				<input id="twoday" type="radio" name="shipping" value="twoday">
+				<label for="twoday">Two day</label>
+			<li>
+			</li>
+				<input id="ground" type="radio" name="shipping" value="ground">
+				<label for="ground">Ground</label>
+			</li>
+		</ul>
+	</fieldset>
+	<!-- equivalent of:
+	<p>
+		<label for="shipping">Shipping method</label>
+		<select id="shipping" name="shipping">
+			<option value="overnight">Overnight</option>
+			<option value="twoday">Two day</option>
+			<option value="ground">Ground</option>
+		</select>
+	</p>
+	-->
+	
+	<button>Submit</button>
+</form>
+<!-- [WebAIM: Creating Accessible Forms - Accessible Form Controls](http://webaim.org/techniques/forms/controls#radio) -->
+```
 
 Note: the fieldset's legend [can contains a checkbox](https://www.w3.org/wiki/HTML/Elements/fieldset#Example_B) [to controls the content](https://www.w3.org/TR/html5/forms.html#the-fieldset-element)
 
@@ -1860,20 +1956,22 @@ Don't use fieldset when you have a single form field that asks for a single piec
 
 And for self explanatory choices (radios, like gender), without fieldset:
 
-	<form action="">
-		<ul>
-			<li>
-				<label for="male">Male</label>
-				<input name="gender" value="male" id="male" type="radio">
-			</li>
-			<li>
-				<label for="female">Female</label>
-				<input name="gender" value="female" id="female" type="radio">
-			</li>
-		</ul>
-		
-		<button>Submit</button>
-	</form>
+```html
+<form action="">
+	<ul>
+		<li>
+			<label for="male">Male</label>
+			<input name="gender" value="male" id="male" type="radio">
+		</li>
+		<li>
+			<label for="female">Female</label>
+			<input name="gender" value="female" id="female" type="radio">
+		</li>
+	</ul>
+	
+	<button>Submit</button>
+</form>
+```
 
 Use paragraphs for others
 
@@ -1882,29 +1980,33 @@ But **always use a label**:
 > Web Content Accessibility Guidelines (WCAG) 2.0, Level AA: 1.4.5 Images of Text
 > A paragraph was found without text in it. While this tends to have a low severity, it does create an unnecessary nuisance for users of screen readers who are likely to hear the announcement of the empty paragraph as they navigate through content. If this empty paragraph exists to behave as margin, use CSS for this purpose instead.
 
-	<form action="">
-		<p>
-			<label for="some-input">Some input</label>
-			<input id="some-input">
-		</p>
-		<p>
-			<label for="other-input">Other input</label>
-			<select id="other-input"></select>
-		</p>
-		<p>
-			<label for="other-input2">Other input 2</label>
-			<input id="other-input2" type="checkbox">
-		</p>
-		
-		<button type="submit">Submit</button>
-	</form>
+```html
+<form action="">
+	<p>
+		<label for="some-input">Some input</label>
+		<input id="some-input">
+	</p>
+	<p>
+		<label for="other-input">Other input</label>
+		<select id="other-input"></select>
+	</p>
+	<p>
+		<label for="other-input2">Other input 2</label>
+		<input id="other-input2" type="checkbox">
+	</p>
+	
+	<button type="submit">Submit</button>
+</form>
+```
 
 mad-libs script like / natural language form interface:
 
-	<form action="">
-		<p>Hello. My <label for="name">name</label> is <input id="name">!</p>
-		<p>I, <input id="name"><label for="name">(name)</label> of; <input id="city"><label>(Residence City or State)</label>...
-	</form>
+```html
+<form action="">
+	<p>Hello. My <label for="name">name</label> is <input id="name">!</p>
+	<p>I, <input id="name"><label for="name">(name)</label> of; <input id="city"><label>(Residence City or State)</label>...
+</form>
+```
 
 - http://www.w3.org/TR/html5/forms.html#forms and http://www.w3.org/TR/html5/grouping-content.html#the-p-element use `<p>` and `input` inside `label`.
 - http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#writing-a-form%27s-user-interface
@@ -1931,10 +2033,12 @@ Examples:
 
 Instead use date input:
 
-	<!-- format: yyyy-mm-dd -->
-	<!-- native widget mostly supported by mobile browsers but not desktop browser other than Chrome (2015 q3) -->
-	<!-- max="2014-01-01" can be added, but not work on all browsers (2015 q3) -->
-	<label for="bday">Birthday</label><input id="bday" type="date" autocomplete="bday">
+```html
+<!-- format: yyyy-mm-dd -->
+<!-- native widget mostly supported by mobile browsers but not desktop browser other than Chrome (2015 q3) -->
+<!-- max="2014-01-01" can be added, but not work on all browsers (2015 q3) -->
+<label for="bday">Birthday</label><input id="bday" type="date" autocomplete="bday">
+```
 
 - [Accessible Date Input (and more) Using aria-labelledby | NC State University IT Accessibility Blog](http://accessibility.oit.ncsu.edu/blog/2011/06/22/accessible-date-input-and-more-using-aria-labelledby/)
 - [Accessible Form Elements with Multiple Inputs Using aria-labelledby](http://accessibility.oit.ncsu.edu/training/forms/multiple-inputs.html)
@@ -2006,21 +2110,23 @@ See also [Multiselect component](#multiselect-component) and [`autocomplete` att
 
 `datalist` element
 
-	<label>Object:</label>
-	<datalist id="object-list">
-		<!--
-		The backend should handle FormData with 2 values with same field name:
-		`...&object=Apple&object=` or `...&object=&object=Apple`
-		Depending datalist support. One for the select and the other for the input
-		-->
-		<select name="object">
-			<option>Apple</option>
-			<option>Bananna</option>
-			<option>Cat</option>
-		</select>
-		<label>Or specify:</label>
-	</datalist>
-	<input list="object-list" name="object">
+```html
+<label>Object:</label>
+<datalist id="object-list">
+	<!--
+	The backend should handle FormData with 2 values with same field name:
+	`...&object=Apple&object=` or `...&object=&object=Apple`
+	Depending datalist support. One for the select and the other for the input
+	-->
+	<select name="object">
+		<option>Apple</option>
+		<option>Bananna</option>
+		<option>Cat</option>
+	</select>
+	<label>Or specify:</label>
+</datalist>
+<input list="object-list" name="object">
+```
 
 - [HTML 5 DataList Element with Fallback option for Old Browsers](http://www.devcurry.com/2011/08/html-5-datalist-element-with-fallback.html)
 - [Adactio: Journal—The design of datalist](https://adactio.com/journal/4272/)
@@ -2031,42 +2137,46 @@ See also [Multiselect component](#multiselect-component) and [`autocomplete` att
 
 Country division selector
 
-	<p>
-		<label for="country">Country:</label>
-		<select id="country" aria-controls="division postal-code">
-			<option>Country 1</option>
-			<option>Country 2</option>
-		</select>
-	</p>
-	
-	<p>
-		<!-- Postal code could be cleared by country change -->
-		<!-- Postal code could control division with its value (parser depends on selected country) -->
-		<label for="postal-code">Postal code:</label>
-		<input id="postal-code">
-	</p>
-	
-	<p>
-		<!-- administrative/political division: State (US, Mexico, Australia), Province (Canada), Region (Japan, France) -->
-		<label for="division">Division:</label>
-		<select id="division" aria-live="polite" aria-atomic="true">
-			<!-- Options will be added later, dynamically with JS. -->
-			<!-- Don't forget to set "aria-busy" attribute: `aria-busy=true` when loading and `aria-busy=false` when it's complete -->
-			<!-- and aria-invalid=true if an error -->
-			<!--
-			<option>Division 1</option>
-			<option>Division 2</option>
-			-->
-		</select>
-	</p>
+```html
+<p>
+	<label for="country">Country:</label>
+	<select id="country" aria-controls="division postal-code">
+		<option>Country 1</option>
+		<option>Country 2</option>
+	</select>
+</p>
+
+<p>
+	<!-- Postal code could be cleared by country change -->
+	<!-- Postal code could control division with its value (parser depends on selected country) -->
+	<label for="postal-code">Postal code:</label>
+	<input id="postal-code">
+</p>
+
+<p>
+	<!-- administrative/political division: State (US, Mexico, Australia), Province (Canada), Region (Japan, France) -->
+	<label for="division">Division:</label>
+	<select id="division" aria-live="polite" aria-atomic="true">
+		<!-- Options will be added later, dynamically with JS. -->
+		<!-- Don't forget to set "aria-busy" attribute: `aria-busy=true` when loading and `aria-busy=false` when it's complete -->
+		<!-- and aria-invalid=true if an error -->
+		<!--
+		<option>Division 1</option>
+		<option>Division 2</option>
+		-->
+	</select>
+</p>
+```
 
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions (interactive, AJAX, live content)
 - [Redesigning The Country Selector - Smashing Magazine](http://www.smashingmagazine.com/2011/11/10/redesigning-the-country-selector/)
 
 ### `output` element
 
-	<input id="in">
-	<output for="in"></output>
+```html
+<input id="in">
+<output for="in"></output>
+```
 
 > represents the result of a calculation or user action. It can have a label
 > paired with role="status", `<output>` can be “particularly useful as HTML’s native solution for ARIA’s live regions.”
@@ -2079,9 +2189,13 @@ Country division selector
 
 Require script to define it
 
-	checkbox.indeterminate = true;
+```js
+checkbox.indeterminate = true;
+```
 
-	input[type=checkbox]:indeterminate
+```css
+input[type=checkbox]:indeterminate{}
+```
 
 - [:indeterminate - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate)
 - [<input type="checkbox"> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox)
@@ -2090,9 +2204,11 @@ Require script to define it
 
 Aka open POST in a new tab.
 
-	<form action="http://othersite.com" method="post" target="_blank">
-		<input type="submit">
-	</form>
+```html
+<form action="http://othersite.com" method="post" target="_blank">
+	<input type="submit">
+</form>
+```
 
 ### Disable autofill
 
@@ -2109,21 +2225,22 @@ Some workarounds:
 - Use a delayed script (timeout) and after page load to clear data (revert value to defaultValue)
 - Use a script after page load to select all auto filled fields (webkit only: `input:-webkit-autofill`) and revert value to default
 
-		// https://stackoverflow.com/a/41530164/470117
-		const style = document.createElement("style");
-		style.textContent = "@keyframes autofillstart{from{}to{}}@keyframes autofillend{from{}to{}}input:-webkit-autofill{animation-name: autofillstart}input:not(:-webkit-autofill){animation-name: autofillend}";
-		document.body.addEventListener("animationstart", function(event){
-			if(event.animationName !== "autofillstart" && event.animationName !== "autofillend") return;
-			var autofill = event.animationName === "autofillstart";
-			// do something: event.target.value = event.target.defaultValue;
-			/*
-			var changeEvent = document.createEvent('Event');
-			changeEvent.initEvent('change', true, false);
-			event.target.dispatchEvent(changeEvent);
-			*/
-		});
-		document.body.appendChild(style);
-		
+    ```js
+	// https://stackoverflow.com/a/41530164/470117
+	const style = document.createElement("style");
+	style.textContent = "@keyframes autofillstart{from{}to{}}@keyframes autofillend{from{}to{}}input:-webkit-autofill{animation-name: autofillstart}input:not(:-webkit-autofill){animation-name: autofillend}";
+	document.body.addEventListener("animationstart", function(event){
+		if(event.animationName !== "autofillstart" && event.animationName !== "autofillend") return;
+		var autofill = event.animationName === "autofillstart";
+		// do something: event.target.value = event.target.defaultValue;
+		/*
+		var changeEvent = document.createEvent('Event');
+		changeEvent.initEvent('change', true, false);
+		event.target.dispatchEvent(changeEvent);
+		*/
+	});
+	document.body.appendChild(style);
+    ```
 - Use an honey pot: Add dummy a text and a password field (given name doesn't matter) before any other fields. These fields should be hidden: `style="display:none"`
 - Some people use readonly/disable attr (and update when focus), create fields onfly
 
@@ -2149,7 +2266,9 @@ Note: color input can have datalist for color palette
 
 Input date value use [RFC 3339](http://tools.ietf.org/html/rfc3339) format. YYYY-MM-DD **with 0 padded numbers**.
 
-	<input type="date" value="<?php echo date("Y-m-d");?>">
+```php
+<input type="date" value="<?php echo date("Y-m-d");?>">
+```
 
 #### Input mode
 
@@ -2172,10 +2291,12 @@ Use radios in a fieldset
 
 ### Search form
 
-	<form role="search">
-		<input type="search" aria-label="search text" size="20">
-		<input type="submit" value="Search"">
-	</form>
+```html
+<form role="search">
+	<input type="search" aria-label="search text" size="20">
+	<input type="submit" value="Search"">
+</form>
+```
 
 Note: according to step 3 of “[General Principles of Landmark Design](https://w3c.github.io/aria-practices/#general-principles-of-landmark-design),” if there are multiple search landmarks on the same page, each one should have a unique label—provided via the `aria-label` attribute, or by referencing the landmark’s heading via the `aria-labelledby` attribute.
 
@@ -2200,12 +2321,14 @@ Use `<select>`. If you want to use a custom widget use `aria-activedescendant` i
 
 ## `i` vs `em` vs `b` vs `cite` vs `strong`
 
-	Our favorite cruise was on the <i>Explorer of the Seas</i><!-- italicize the name of a ship -->,
-	which we read about in <cite>Cruising</cite><!-- reference the name of a publication --> magazine,
-	and we <em>loved</em><!-- emphasize a feeling --> it.
-	
-	(<b>Note:</b><!-- start a note with bolded text --> This was before everyone got all sick
-	and was throwing up <strong>everywhere</strong><!-- make a strong statement -->.)
+```html
+Our favorite cruise was on the <i>Explorer of the Seas</i><!-- italicize the name of a ship -->,
+which we read about in <cite>Cruising</cite><!-- reference the name of a publication --> magazine,
+and we <em>loved</em><!-- emphasize a feeling --> it.
+
+(<b>Note:</b><!-- start a note with bolded text --> This was before everyone got all sick
+and was throwing up <strong>everywhere</strong><!-- make a strong statement -->.)
+```
 
 ## `i` element
 
@@ -2239,7 +2362,9 @@ http://html5doctor.com/element-index/#em
 Strongly emphasized text
 Represents strong importance for its contents
 
-	<strong>Warning</strong>. This dungeon is dangerous. <strong>Avoid the ducks.</strong> Take any gold you find.
+```html
+<strong>Warning</strong>. This dungeon is dangerous. <strong>Avoid the ducks.</strong> Take any gold you find.
+```
 
 http://html5doctor.com/element-index/#strong
 
@@ -2247,9 +2372,11 @@ Use `mark` element for [quotation emphasis](#mark-element)
 
 ## `s` element
 
-	<p>Sale on now!</p>
-	<p><s>Get up to 25% off</s></p>
-	<p><strong>Now down to 50% off</strong></p>
+```html
+<p>Sale on now!</p>
+<p><s>Get up to 25% off</s></p>
+<p><strong>Now down to 50% off</strong></p>
+```
 
 > The `s` element represents contents that are no longer accurate or no longer relevant.
 
@@ -2339,19 +2466,21 @@ Glossary, description list, metadata, **key-value pairs: keyword(s) / name(s)** 
 
 ### `dl` element (definition list)
 
-	<dl>		 
-		<dt>Name: </dt>
-		<dd>John Don</dd>
+```html
+<dl>		 
+	<dt>Name: </dt>
+	<dd>John Don</dd>
+		 
+	<dt>Age: </dt>
+	<dd>23</dd>
 			 
-		<dt>Age: </dt>
-		<dd>23</dd>
-				 
-		<dt>Gender: </dt>
-		<dd>Male</dd>
-				 
-		<dt>Day of Birth:</dt>
-		<dd>12th May 1986</dd>
-	</dl>
+	<dt>Gender: </dt>
+	<dd>Male</dd>
+			 
+	<dt>Day of Birth:</dt>
+	<dd>12th May 1986</dd>
+</dl>
+```
 
 Pro.: multiple keys or multiple values.
 Pro.: wrapper (`<div>`) can be used to group multiple elements (`dt`s and `dd`s). See [Allow \<div\> around each \<dt\>\<dd\> group in \<dl\> (#1945) · whatwg/html@5454d70](https://github.com/whatwg/html/commit/5454d702e0262749aba55576dda32c48e0e498f0)
@@ -2361,44 +2490,50 @@ Key-value can be on same line (using `float: left` and `clear: left;` for dt) an
 Don't use it for [Conversations](#conversations), use `p` instead.
 
 ### `p` element
-   
-	<p>Name: John Don</p>
-	<p>Age: 23</p>
-	<p>Gender: Male</p>
-	<p>Day of Birth: 12th May 1986</p>
+
+```html
+<p>Name: John Don</p>
+<p>Age: 23</p>
+<p>Gender: Male</p>
+<p>Day of Birth: 12th May 1986</p>
+```
 
 ### `table` element
 
-	<table>
-		<tr>
-			<th scope="row">Name: </th>
-			<td>John Don</td>
-		</tr>
-		<tr>
-			<th scope="row">Age: </th>
-			<td>23</td>
-		</tr>
-		<tr>
-			<th scope="row">Gender: </th>
-			<td>Male</td>
-		</tr>	
-		<tr>
-			<th scope="row">Day of Birth:</th>
-			<td>12th May 1986</td>
-		</tr>
-	</table>
+```html
+<table>
+	<tr>
+		<th scope="row">Name: </th>
+		<td>John Don</td>
+	</tr>
+	<tr>
+		<th scope="row">Age: </th>
+		<td>23</td>
+	</tr>
+	<tr>
+		<th scope="row">Gender: </th>
+		<td>Male</td>
+	</tr>	
+	<tr>
+		<th scope="row">Day of Birth:</th>
+		<td>12th May 1986</td>
+	</tr>
+</table>
+```
 
 Pro.: May be less adapted semantically. Can be used for complex styles (horizontal list, where `th` is upper `td`).
 Con.: wrapp each pairs, but no multiple keys or values
 
 ### `ul` element (unordered list)
 
-	<ul>
-		<li>Phone: 613-000-1111</li>
-		<li>Fax: 613-000-1112</li>
-		<li>E-mail: me@somewhere.com</li>
-		<li>Website: www.mysite.com</li>
-	</ul>
+```html
+<ul>
+	<li>Phone: 613-000-1111</li>
+	<li>Fax: 613-000-1112</li>
+	<li>E-mail: me@somewhere.com</li>
+	<li>Website: www.mysite.com</li>
+</ul>
+```
 
 Pro.: Simple.
 Con.: Semantically correct, but maybe too general, no mutliple keys or values
@@ -2409,12 +2544,14 @@ Can use the table layout by adding a wrapper for each keys and values.
 
 For the last example could be simplified to:
 
-	<p>
-		613-000-1111<br>
-		613-000-1112 (Fax)<br>
-		me@somewhere.com<br>
-		www.mysite.com
-	</p>
+```html
+<p>
+	613-000-1111<br>
+	613-000-1112 (Fax)<br>
+	me@somewhere.com<br>
+	www.mysite.com
+</p>
+```
 
 Since the value format decribe itself (you can easily identify a phone number, an email address, a website address, a postal address, etc.).
 
@@ -2423,25 +2560,27 @@ Since the value format decribe itself (you can easily identify a phone number, a
 - https://stackoverflow.com/questions/3247370/semantic-html-markup-for-complex-tables
 - http://webaim.org/techniques/tables/data
 - http://www.w3.org/TR/html51/tabular-data.html#table-examples
- 
-	<table>
-		<thead>
-			<tr>
-				<th>Col 1</th>
-				<th>Col 2</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Data 1</td>
-				<td>Data 2</td>
-			</tr>
-			<tr>
-				<td>Data 3</td>
-				<td>Data 4</td>
-			</tr>
-		</tbody>
-	</table>
+
+```html
+<table>
+	<thead>
+		<tr>
+			<th>Col 1</th>
+			<th>Col 2</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Data 1</td>
+			<td>Data 2</td>
+		</tr>
+		<tr>
+			<td>Data 3</td>
+			<td>Data 4</td>
+		</tr>
+	</tbody>
+</table>
+```
 
 ### `tfoot` element
 
@@ -2506,7 +2645,9 @@ But (could be) required for:
 
 It's could be required to duplicate it with an HTML comment (for compatibility reason with IE7-8).
 
-	<noscript><img src="image.jpg"></noscript>
+```html
+<noscript><img src="image.jpg"></noscript>
+```
 
 - [`<noscript>` and search engines](Web#noscript-and-search-engines)
 - [Lazyload and async load stylesheets and imgs](JavaScript#lazyload-and-async-load-stylesheets-and-imgs)
@@ -2519,56 +2660,66 @@ TODO: How to markup a picture of the author before the blockquote?
 
 Recommended by WHATWG:
 
-	<blockquote>
-	 <p>I contend that we are both atheists. I just believe in one fewer
-	 god than you do. When you understand why you dismiss all the other
-	 possible gods, you will understand why I dismiss yours.</p>
-	</blockquote>
-	<p>— Stephen Roberts</p>
+```html
+<blockquote>
+ <p>I contend that we are both atheists. I just believe in one fewer
+ god than you do. When you understand why you dismiss all the other
+ possible gods, you will understand why I dismiss yours.</p>
+</blockquote>
+<p>— Stephen Roberts</p>
+```
 
-	<figure>
-	  <blockquote>
-		<p>For writing maintainable and scalable HTML documents.</p>
-	  </blockquote>
-	  
-	  <figcaption>— HTML Best Practices</figcaption>
-	</figure>
+```html
+<figure>
+  <blockquote>
+	<p>For writing maintainable and scalable HTML documents.</p>
+  </blockquote>
+  
+  <figcaption>— HTML Best Practices</figcaption>
+</figure>
+```
 
-	<figure>
-	 <blockquote>
-	  <p>The truth may be puzzling. It may take some work to grapple with.
-	  It may be counterintuitive. It may contradict deeply held
-	  prejudices. It may not be consonant with what we desperately want to
-	  be true. But our preferences do not determine what's true. We have a
-	  method, and that method helps us to reach not absolute truth, only
-	  asymptotic approaches to the truth — never there, just closer
-	  and closer, always finding vast new oceans of undiscovered
-	  possibilities. Cleverly designed experiments are the key.</p>
-	 </blockquote>
-	 <figcaption>Carl Sagan, in "<cite>Wonder and Skepticism</cite>", from
-	 the <cite>Skeptical Inquirer</cite> Volume 19, Issue 1 (January-February
-	 1995)</figcaption>
-	</figure>
+```html
+<figure>
+ <blockquote>
+  <p>The truth may be puzzling. It may take some work to grapple with.
+  It may be counterintuitive. It may contradict deeply held
+  prejudices. It may not be consonant with what we desperately want to
+  be true. But our preferences do not determine what's true. We have a
+  method, and that method helps us to reach not absolute truth, only
+  asymptotic approaches to the truth — never there, just closer
+  and closer, always finding vast new oceans of undiscovered
+  possibilities. Cleverly designed experiments are the key.</p>
+ </blockquote>
+ <figcaption>Carl Sagan, in "<cite>Wonder and Skepticism</cite>", from
+ the <cite>Skeptical Inquirer</cite> Volume 19, Issue 1 (January-February
+ 1995)</figcaption>
+</figure>
+```
 
-	<p>He began his list of "lessons" with the following:</p>
-	<blockquote>One should never assume that his side of
-	the issue will be recognized, let alone that it will
-	be conceded to have merits.</blockquote>
-	<p>He continued with a number of similar points, ending with:</p>
-	<blockquote>Finally, one should be prepared for the threat
-	of breakdown in negotiations at any given moment and not
-	be cowed by the possibility.</blockquote>
-	<p>We shall now discuss these points...	
+```html
+<p>He began his list of "lessons" with the following:</p>
+<blockquote>One should never assume that his side of
+the issue will be recognized, let alone that it will
+be conceded to have merits.</blockquote>
+<p>He continued with a number of similar points, ending with:</p>
+<blockquote>Finally, one should be prepared for the threat
+of breakdown in negotiations at any given moment and not
+be cowed by the possibility.</blockquote>
+<p>We shall now discuss these points...	
+```
 
 - [HTML Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
 
 Recommended by W3C:
 
-	<blockquote class="twitter-tweet">
-		<p>♥ Bukowski in <a href="https://twitter.com/search?q=%23HTML5&src=hash">#HTML5</a> spec examples
-		<a href="http://t.co/0FIEiYN1pC">http://t.co/0FIEiYN1pC</a></p><cite>— karl dubost (@karlpro) 
-		<a href="https://twitter.com/karlpro/statuses/370905307293442048">August 23, 2013</a></cite>
-	</blockquote>
+```html
+<blockquote class="twitter-tweet">
+	<p>♥ Bukowski in <a href="https://twitter.com/search?q=%23HTML5&src=hash">#HTML5</a> spec examples
+	<a href="http://t.co/0FIEiYN1pC">http://t.co/0FIEiYN1pC</a></p><cite>— karl dubost (@karlpro) 
+	<a href="https://twitter.com/karlpro/statuses/370905307293442048">August 23, 2013</a></cite>
+</blockquote>
+```
 
 - [4.4 Grouping content — HTML5](https://www.w3.org/TR/html5/grouping-content.html#the-blockquote-element)
 - [4.5 Text-level semantics — HTML5](https://www.w3.org/TR/html5/text-level-semantics.html#the-cite-element)
@@ -2576,10 +2727,12 @@ Recommended by W3C:
 
 Other:
 
-	<blockquote>
-		<p>The small element represents so-called “small print” such as legal disclaimers and caveats.</p>
-		<footer><cite><a href="http://dev.w3.org/html5/markup/small.html" title="HTML5: small – small print (CHANGED)">W3C specification</a></cite></footer>
-	</blockquote>
+```html
+<blockquote>
+	<p>The small element represents so-called “small print” such as legal disclaimers and caveats.</p>
+	<footer><cite><a href="http://dev.w3.org/html5/markup/small.html" title="HTML5: small – small print (CHANGED)">W3C specification</a></cite></footer>
+</blockquote>
+```
 
 - [Quoting and citing with <blockquote>, <q>, <cite>, and the cite attribute | HTML5 Doctor](http://html5doctor.com/blockquote-q-cite/)
 
@@ -2591,13 +2744,17 @@ Element		Purpose 			Example
 `samp`		Computer output		`The computer said <samp>Unknown error -3</samp>.`
 `kbd`		User input			`Hit <kbd>F1</kbd> to continue.`
 
-	<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>
+```html
+<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>
+```
 
-	<pre><samp>mike:mysite mike$ <kbd>git status</kbd>
-	
-	# On branch master
-	nothing to commit (working directory clean)
-	mike:mysite mike$</samp></pre>
+```html
+<pre><samp>mike:mysite mike$ <kbd>git status</kbd>
+
+# On branch master
+nothing to commit (working directory clean)
+mike:mysite mike$</samp></pre>
+```
 
 > `<var>` is not suitable for (non-dynamic) prices
 
@@ -2631,35 +2788,43 @@ Or subheading, subtitle, alternative title, sub header, sub title
 
 > In the following example the subtitle of a book is on the same line as the title separated by a colon
 
-	<h1>The Lord of the Rings: The Two Towers</h1>
+```html
+<h1>The Lord of the Rings: The Two Towers</h1>
+```
 
 > In the following example part of an album title is included in a `span` element, allowing it to be styled differently from the rest of the title.
 
-	<style>
-		.sub {display:block; font-style:italic;}
-	</style>
-	
-	<h1>
-		The Mothers 
-		<span class="sub">Fillmore East - June 1971</span> 
-	</h1>
+```html
+<style>
+	.sub {display:block; font-style:italic;}
+</style>
+
+<h1>
+	The Mothers 
+	<span class="sub">Fillmore East - June 1971</span> 
+</h1>
+```
 
 > In the following example the title and strapline for a news article are grouped using a `header` element. The title is marked up using a `h2` element and the strapline is in a `p` element.
 
-	<header>
-		<p>Magazine of the Decade</p>
-		<h1>THE MONTH</h1>
-		<p>The Best of UK and Foreign Media</p>
-	</header>
+```html
+<header>
+	<p>Magazine of the Decade</p>
+	<h1>THE MONTH</h1>
+	<p>The Best of UK and Foreign Media</p>
+</header>
+```
 
 - [4 The elements of HTML | HTML 5.1](http://www.w3.org/TR/html51/semantics.html#sub-head)
- 
-	<style>
-		.sep {display: block; position: absolute; overflow: hidden;width:1px; height: 0px; padding-top: 1px}/*See [Hide graphicaly an element](CSS#Hide graphicaly an element)*/
-		.sub {display:block; font-style:italic;}
-	</style>
-	
-	<h2>The Lord of the Rings<span class="sep">: <span><span class="sub">The Two Towers</span></h2>
+
+```html
+<style>
+	.sep {display: block; position: absolute; overflow: hidden;width:1px; height: 0px; padding-top: 1px}/*See [Hide graphicaly an element](CSS#Hide graphicaly an element)*/
+	.sub {display:block; font-style:italic;}
+</style>
+
+<h2>The Lord of the Rings<span class="sep">: <span><span class="sub">The Two Towers</span></h2>
+```
 
 See [`h1`-`h6`](#h1-h6) and [`header` element](#header-element)
 
@@ -2676,47 +2841,53 @@ Use the attribute `aria-current="location"` to represents the current item.
 
 Use the `→` char instead.
 
-	<nav>
-		<ul>
-			<li><a href="/">Main</a> →</li> 
-			<li><a href="/products/">Products</a> →</li> 
-			<li><a href="/products/dishwashers/">Dishwashers</a> →</li> 
-			<li><a aria-current="location">Second hand</a></li>
-		</ul>
-	</nav>
+```html
+<nav>
+	<ul>
+		<li><a href="/">Main</a> →</li> 
+		<li><a href="/products/">Products</a> →</li> 
+		<li><a href="/products/dishwashers/">Dishwashers</a> →</li> 
+		<li><a aria-current="location">Second hand</a></li>
+	</ul>
+</nav>
+```
 
 Some peoples use only a series of links in a paragraph ([in a previous - draft version of HTML5.1](http://dev.w3.org/html5/spec-author-view/common-idioms-without-dedicated-elements.html#rel-up)):
 
-	<nav>
-		<p>
-			<a href="/">Main</a> &gt;
-			<a href="/second-hand/">Second hand</a> &gt;
-			<a aria-current="location">Dishwashers</a>
-		</p>
-	</nav>
+```html
+<nav>
+	<p>
+		<a href="/">Main</a> &gt;
+		<a href="/second-hand/">Second hand</a> &gt;
+		<a aria-current="location">Dishwashers</a>
+	</p>
+</nav>
+```
 
 ... or with hierachical lists:
 
-	<nav>
-		<ul>
-			<li>
-				<a href="#">Top Level</a>
-				<ul>
-					<li>
-						<a href="#">Second Level</a>
-						<ul>
-							<li>
-								<a href="#">Third Level</a>
-								<ul>
-									<li><a aria-current="location">Current Item</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</nav>
+```html
+<nav>
+	<ul>
+		<li>
+			<a href="#">Top Level</a>
+			<ul>
+				<li>
+					<a href="#">Second Level</a>
+					<ul>
+						<li>
+							<a href="#">Third Level</a>
+							<ul>
+								<li><a aria-current="location">Current Item</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+```
 
 ```html
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -2773,13 +2944,15 @@ http://wiki.whatwg.org/wiki/FAQ#HTML_should_support_href_on_any_element.21
 
 Link as wrapper / block-level link:
 
-	<article>
-		<a href="story1.html">
-			<h3>Bruce Lawson voted sexiest man on Earth</h3>
-			<p><img src="bruce.jpg" alt="gorgeous lovebundle. ">A congress representing all the planet's women unanimously voted Bruce Lawson as sexiest man alive.</p>
-			<p>Read more</p>
-		</a>
-	</article>
+```html
+<article>
+	<a href="story1.html">
+		<h3>Bruce Lawson voted sexiest man on Earth</h3>
+		<p><img src="bruce.jpg" alt="gorgeous lovebundle. ">A congress representing all the planet's women unanimously voted Bruce Lawson as sexiest man alive.</p>
+		<p>Read more</p>
+	</a>
+</article>
+```
 
 - [“Block-level” links in HTML5 | HTML5 Doctor](http://html5doctor.com/block-level-links-in-html-5/)
 - [Full element clickable](../CSS/CSS.md#Full%20element%20clickable)
@@ -2792,46 +2965,53 @@ Link as wrapper / block-level link:
 
 ## `figure` element
 
-	<figure>
-		<img src="juliana.jpg" alt="Juliana Bicycles">
-		<figcaption>Juliana Bicycles treats content chunks more visually.</figcaption>
-	</figure>
+```html
+<figure>
+	<img src="juliana.jpg" alt="Juliana Bicycles">
+	<figcaption>Juliana Bicycles treats content chunks more visually.</figcaption>
+</figure>
+```
 
+```html
+<figure class="code" id="figure1">
+	<pre><code class="language-markup">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
+&lt;input type="text" id="firstname"&gt;
+&lt;label for="lastname"&gt;Last name:&lt;/label&gt;
+&lt;input type="text" id="lastname"&gt;</code></pre>
+	<figcaption><b>Figure 5.1:</b> Labels are visually associated by proximity with text input fields. In code, labels are programmatically connected using the <code>&lt;label&gt;</code> element, the <code>“for”</code> attribute, and the input field’s <code>“id”</code> attribute making the connection.</figcaption>
+</figure>
+```
 
-	<figure class="code" id="figure1">
-		<pre><code class="language-markup">&lt;label for="firstname"&gt;First name:&lt;/label&gt;
-	&lt;input type="text" id="firstname"&gt;
-	&lt;label for="lastname"&gt;Last name:&lt;/label&gt;
-	&lt;input type="text" id="lastname"&gt;</code></pre>
-		<figcaption><b>Figure 5.1:</b> Labels are visually associated by proximity with text input fields. In code, labels are programmatically connected using the <code>&lt;label&gt;</code> element, the <code>“for”</code> attribute, and the input field’s <code>“id”</code> attribute making the connection.</figcaption>
-	</figure>
-
-	<figure class="quote" id="figure6">
-		<blockquote>
-			<p><b>User:</b> I’d like to place an order. Here’s all my information.</p>
-			<p><b>Your site:</b> Thanks. Got it. We’ll send this to you within three days.</p>
-		</blockquote>
-	</figure>
+```html
+<figure class="quote" id="figure6">
+	<blockquote>
+		<p><b>User:</b> I’d like to place an order. Here’s all my information.</p>
+		<p><b>Your site:</b> Thanks. Got it. We’ll send this to you within three days.</p>
+	</blockquote>
+</figure>
+```
 
 Image-map style annotated image (flickr like picture annotations):
 
-	<figure>
-		<img src="bike.jpg" alt="Photograph of me on my bike">
+```html
+<figure>
+	<img src="bike.jpg" alt="Photograph of me on my bike">
+	
+	<figcaption>
+		<b>Things to note:</b>
+	
+		<ul>
+			<!-- Positions of the list-items. These need defining inline. -->
+			<li style="top:255px; left:150px;">Helmet.</li>
+			<li style="top:420px; left:140px;">Ruptured ligaments in my ankle.</li>
+			<li style="top:480px; left:130px;">Low pressures.</li>
+			<li style="top:390px; left:325px;">The trailer I just jumped from.</li>
+		</ul>
 		
-		<figcaption>
-			<b>Things to note:</b>
-		
-			<ul>
-				<!-- Positions of the list-items. These need defining inline. -->
-				<li style="top:255px; left:150px;">Helmet.</li>
-				<li style="top:420px; left:140px;">Ruptured ligaments in my ankle.</li>
-				<li style="top:480px; left:130px;">Low pressures.</li>
-				<li style="top:390px; left:325px;">The trailer I just jumped from.</li>
-			</ul>
-			
-			<i>Photo by Suzanna Haworth</i>
-		</figcaption>
-	</figure>
+		<i>Photo by Suzanna Haworth</i>
+	</figcaption>
+</figure>
+```
 
 For infographic: bullet point lists are a good way, alternative way to sum up the information conveyed in an infographic
 
@@ -2839,7 +3019,9 @@ For infographic: bullet point lists are a good way, alternative way to sum up th
 
 Always use alt attribute (at least empty value)
 
-	<p><img src="about:blank" alt=""></p>
+```html
+<p><img src="about:blank" alt=""></p>
+```
 
 Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data types (common microsyntaxes) - HTML5](http://w3c.github.io/html-reference/datatypes.html#common.data.uri.non-empty), but will create a network request).
 
@@ -3030,22 +3212,28 @@ When used inside the content of the `aside` element must be relevant to the `art
 
 Use `small` for short runs of text.
 
-	<dl>
-		<dt>Single room
-		<!-- price and disclaimer -->
-		<dd>199 € <small>breakfast included, VAT not included</small>
-		<dt>Double room
-		<dd>239 € <small>breakfast included, VAT not included</small>
-	</dl>
+```html
+<dl>
+	<dt>Single room
+	<!-- price and disclaimer -->
+	<dd>199 € <small>breakfast included, VAT not included</small>
+	<dt>Double room
+	<dd>239 € <small>breakfast included, VAT not included</small>
+</dl>
+```
 
-	<p>Example Corp today announced record profits for the
-	second quarter <small>(Full Disclosure: Foo News is a subsidiary of
-	Example Corp)</small>, leading to speculation about a third quarter
-	merger with Demo Group.</p>
+```html
+<p>Example Corp today announced record profits for the
+second quarter <small>(Full Disclosure: Foo News is a subsidiary of
+Example Corp)</small>, leading to speculation about a third quarter
+merger with Demo Group.</p>
+```
 
 The `small` element is marked as being important small print.
 
-	<p><strong><small>Continued use of this service will result in a kiss.</small></strong></p>
+```html
+<p><strong><small>Continued use of this service will result in a kiss.</small></strong></p>
+```
 
 - http://html5doctor.com/small-hr-element/
 - See also [Secondary content, side comments]()
@@ -3060,65 +3248,71 @@ Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 > In this example, a footnote in the dialogue links to a paragraph below the dialogue. The paragraph then reciprocally links back to the dialogue, allowing the user to return to the location of the footnote.
 
-	<p> Announcer: Number 16: The <i>hand</i>.
-	<p> Interviewer: Good evening. I have with me in the studio tonight
-	Mr Norman St John Polevaulter, who for the past few years has been
-	contradicting people. Mr Polevaulter, why <em>do</em> you
-	contradict people?
-	<p> Norman: I don't. <sup><a href="#fn1" id="r1">[1]</a></sup>
-	<p> Interviewer: You told me you did!
-	...
-	<section>
-	 <p id="fn1"><a href="#r1">[1]</a> This is, naturally, a lie,
-	 but paradoxically if it were true he could not say so without
-	 contradicting the interviewer and thus making it false.</p>
-	</section>
+```html
+<p> Announcer: Number 16: The <i>hand</i>.
+<p> Interviewer: Good evening. I have with me in the studio tonight
+Mr Norman St John Polevaulter, who for the past few years has been
+contradicting people. Mr Polevaulter, why <em>do</em> you
+contradict people?
+<p> Norman: I don't. <sup><a href="#fn1" id="r1">[1]</a></sup>
+<p> Interviewer: You told me you did!
+...
+<section>
+ <p id="fn1"><a href="#r1">[1]</a> This is, naturally, a lie,
+ but paradoxically if it were true he could not say so without
+ contradicting the interviewer and thus making it false.</p>
+</section>
+```
 
 > For side notes, longer annotations that apply to entire sections of the text rather than just specific words or sentences, the `aside` element should be used.
 
 > In this example, a sidebar is given after a dialogue, giving it some context.
 
-	<p> <span class="speaker">Customer</span>: I will not buy this record, it is scratched.
-	<p> <span class="speaker">Shopkeeper</span>: I'm sorry?
-	<p> <span class="speaker">Customer</span>: I will not buy this record, it is scratched.
-	<p> <span class="speaker">Shopkeeper</span>: No no no, this's'a tobacconist's.
-	<aside>
-	 <p>In 1970, the British Empire lay in ruins, and foreign
-	 nationalists frequented the streets — many of them Hungarians
-	 (not the streets — the foreign nationals). Sadly, Alexander
-	 Yalt has been publishing incompetently-written phrase books.
-	</aside>
+```html
+<p> <span class="speaker">Customer</span>: I will not buy this record, it is scratched.
+<p> <span class="speaker">Shopkeeper</span>: I'm sorry?
+<p> <span class="speaker">Customer</span>: I will not buy this record, it is scratched.
+<p> <span class="speaker">Shopkeeper</span>: No no no, this's'a tobacconist's.
+<aside>
+ <p>In 1970, the British Empire lay in ruins, and foreign
+ nationalists frequented the streets — many of them Hungarians
+ (not the streets — the foreign nationals). Sadly, Alexander
+ Yalt has been publishing incompetently-written phrase books.
+</aside>
+```
 
 > For figures or tables, footnotes can be included in the relevant `figcaption` or `caption` element, or in surrounding prose.
 .. or [`tfoot` element](#tfoot-element)
 
 > In this example, a table has cells with footnotes that are given in prose. A `figure` element is used to give a single legend to the combination of the table and its footnotes.
 
-	<figure>
-	 <figcaption>Table 1. Alternative activities for knights.</figcaption>
-	 <table>
-	  <tr>
-	   <th> Activity
-	   <th> Location
-	   <th> Cost
-	  <tr>
-	   <td> Dance
-	   <td> Wherever possible
-	   <td> £0<sup><a href="#fn1">1</a></sup>
-	  <tr>
-	   <td> Routines, chorus scenes<sup><a href="#fn2">2</a></sup>
-	   <td> Undisclosed
-	   <td> Undisclosed
-	  <tr>
-	   <td> Dining<sup><a href="#fn3">3</a></sup>
-	   <td> Camelot
-	   <td> Cost of ham, jam, and spam<sup><a href="#fn4">4</a></sup>
-	 </table>
-	 <p id="fn1">1. Assumed.</p>
-	 <p id="fn2">2. Footwork impeccable.</p>
-	 <p id="fn3">3. Quality described as "well".</p>
-	 <p id="fn4">4. A lot.</p>
-	</figure>
+```html
+<figure>
+ <figcaption>Table 1. Alternative activities for knights.</figcaption>
+ <table>
+  <tr>
+   <th> Activity
+   <th> Location
+   <th> Cost
+  <tr>
+   <td> Dance
+   <td> Wherever possible
+   <td> £0<sup><a href="#fn1">1</a></sup>
+  <tr>
+   <td> Routines, chorus scenes<sup><a href="#fn2">2</a></sup>
+   <td> Undisclosed
+   <td> Undisclosed
+  <tr>
+   <td> Dining<sup><a href="#fn3">3</a></sup>
+   <td> Camelot
+   <td> Cost of ham, jam, and spam<sup><a href="#fn4">4</a></sup>
+ </table>
+ <p id="fn1">1. Assumed.</p>
+ <p id="fn2">2. Footwork impeccable.</p>
+ <p id="fn3">3. Quality described as "well".</p>
+ <p id="fn4">4. A lot.</p>
+</figure>
+```
 
 - [4 The elements of HTML | HTML 5.1](http://www.w3.org/TR/html51/semantics.html#footnotes)
 - [Accessible Footnotes with CSS](http://www.sitepoint.com/accessible-footnotes-css/)
@@ -3131,13 +3325,15 @@ Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 > In this example the footer contains contact information and a copyright notice.
 
-	<footer>
-	 <address>
-	  For more details, contact
-	  <a href="mailto:js@example.com">John Smith</a>.
-	 </address>
-	 <p><small>© copyright 2038 Example Corp.</small></p>
-	</footer>
+```html
+<footer>
+ <address>
+  For more details, contact
+  <a href="mailto:js@example.com">John Smith</a>.
+ </address>
+ <p><small>© copyright 2038 Example Corp.</small></p>
+</footer>
+```
 
 - [HTML 5.2: 4.4. Grouping content](https://w3c.github.io/html/grouping-content.html#the-address-element)
 - http://html5doctor.com/the-address-element/
@@ -3163,87 +3359,93 @@ By default its `role` is `contentinfo`
 
 > Here is a page with two footers, one at the top and one at the bottom, with the same content:
 
-	<body>
-	 <footer><a href="../">Back to index...</a></footer>
-	  <h1>Lorem ipsum</h1>
-	  <h2>The ipsum of all lorems</h2>
-	 <p>A dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-	 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-	 ea commodo consequat. Duis aute irure dolor in reprehenderit in
-	 voluptate velit esse cillum dolore eu fugiat nulla
-	 pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-	 culpa qui officia deserunt mollit anim id est laborum.</p>
-	 <footer><a href="../">Back to index...</a></footer>
-	</body>
+```html
+<body>
+ <footer><a href="../">Back to index...</a></footer>
+  <h1>Lorem ipsum</h1>
+  <h2>The ipsum of all lorems</h2>
+ <p>A dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+ veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+ ea commodo consequat. Duis aute irure dolor in reprehenderit in
+ voluptate velit esse cillum dolore eu fugiat nulla
+ pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+ culpa qui officia deserunt mollit anim id est laborum.</p>
+ <footer><a href="../">Back to index...</a></footer>
+</body>
+```
 
 > Here is an example which shows the footer element being used both for a site-wide footer and for a section footer.
 
-	<!DOCTYPE HTML>
-	<HTML><HEAD>
-	<TITLE>The Ramblings of a Scientist</TITLE>
-	<BODY>
-	<H1>The Ramblings of a Scientist</H1>
-	<ARTICLE>
-	 <H1>Episode 15</H1>
-	 <VIDEO SRC="/fm/015.ogv" CONTROLS PRELOAD>
-	  <P><A HREF="/fm/015.ogv">Download video</A>.</P>
-	 </VIDEO>
-	 <FOOTER> <!-- footer for article -->
-	  <P>Published <TIME DATETIME="2009-10-21T18:26-07:00">on 2009/10/21 at 6:26pm</TIME></P>
-	 </FOOTER>
-	</ARTICLE>
-	<ARTICLE>
-	 <H1>My Favorite Trains</H1>
-	 <P>I love my trains. My favorite train of all time is a Köf.</P>
-	 <P>It is fun to see them pull some coal cars because they look so
-	 dwarfed in comparison.</P>
-	 <FOOTER> <!-- footer for article -->
-	  <P>Published <TIME DATETIME="2009-09-15T14:54-07:00">on 2009/09/15 at 2:54pm</TIME></P>
-	 </FOOTER>
-	</ARTICLE>
-	<FOOTER> <!-- site wide footer -->
-	 <NAV>
-	  <P><A HREF="/credits.html">Credits</A> —
-		 <A HREF="/tos.html">Terms of Service</A> —
-		 <A HREF="/index.html">Blog Index</A></P>
-	 </NAV>
-	 <P>Copyright © 2009 Gordon Freeman</P>
-	</FOOTER>
-	</BODY>
-	</HTML>
+```html
+<!DOCTYPE HTML>
+<HTML><HEAD>
+<TITLE>The Ramblings of a Scientist</TITLE>
+<BODY>
+<H1>The Ramblings of a Scientist</H1>
+<ARTICLE>
+ <H1>Episode 15</H1>
+ <VIDEO SRC="/fm/015.ogv" CONTROLS PRELOAD>
+  <P><A HREF="/fm/015.ogv">Download video</A>.</P>
+ </VIDEO>
+ <FOOTER> <!-- footer for article -->
+  <P>Published <TIME DATETIME="2009-10-21T18:26-07:00">on 2009/10/21 at 6:26pm</TIME></P>
+ </FOOTER>
+</ARTICLE>
+<ARTICLE>
+ <H1>My Favorite Trains</H1>
+ <P>I love my trains. My favorite train of all time is a Köf.</P>
+ <P>It is fun to see them pull some coal cars because they look so
+ dwarfed in comparison.</P>
+ <FOOTER> <!-- footer for article -->
+  <P>Published <TIME DATETIME="2009-09-15T14:54-07:00">on 2009/09/15 at 2:54pm</TIME></P>
+ </FOOTER>
+</ARTICLE>
+<FOOTER> <!-- site wide footer -->
+ <NAV>
+  <P><A HREF="/credits.html">Credits</A> —
+	 <A HREF="/tos.html">Terms of Service</A> —
+	 <A HREF="/index.html">Blog Index</A></P>
+ </NAV>
+ <P>Copyright © 2009 Gordon Freeman</P>
+</FOOTER>
+</BODY>
+</HTML>
+```
 
 > Some site designs have what is sometimes referred to as "fat footers" — footers that contain a lot of material, including images, links to other articles, links to pages for sending feedback, special offers... in some ways, a whole "front page" in the footer.
 > 
 > This fragment shows the bottom of a page on a site with a "fat footer":
 
-	...
-	 <footer>
-	  <nav>
-	   <section>
-		<h2>Articles</h2>
-		<p><img src="images/somersaults.jpeg" alt=""> Go to the gym with
-		our somersaults class! Our teacher Jim takes you through the paces
-		in this two-part article. <a href="articles/somersaults/1">Part
-		1</a> · <a href="articles/somersaults/2">Part 2</a></p>
-		<p><img src="images/kindplus.jpeg"> Tired of walking on the edge of
-		a clif<!-- sic -->? Our guest writer Lara shows you how to bumble
-		your way through the bars. <a href="articles/kindplus/1">Read
-		more...</a></p>
-		<p><img src="images/crisps.jpeg"> The chips are down, now all
-		that's left is a potato. What can you do with it? <a
-		href="articles/crisps/1">Read more...</a></p>
-	   </section>
-	   <ul>
-		<li> <a href="/about">About us...</a>
-		<li> <a href="/feedback">Send feedback!</a>
-		<li> <a href="/sitemap">Sitemap</a>
-	   </ul>
-	  </nav>
-	  <p><small>Copyright © 2015 The Snacker —
-	  <a href="/tos">Terms of Service</a></small></p>
-	 </footer>
-	</body>
+```html
+...
+ <footer>
+  <nav>
+   <section>
+	<h2>Articles</h2>
+	<p><img src="images/somersaults.jpeg" alt=""> Go to the gym with
+	our somersaults class! Our teacher Jim takes you through the paces
+	in this two-part article. <a href="articles/somersaults/1">Part
+	1</a> · <a href="articles/somersaults/2">Part 2</a></p>
+	<p><img src="images/kindplus.jpeg"> Tired of walking on the edge of
+	a clif<!-- sic -->? Our guest writer Lara shows you how to bumble
+	your way through the bars. <a href="articles/kindplus/1">Read
+	more...</a></p>
+	<p><img src="images/crisps.jpeg"> The chips are down, now all
+	that's left is a potato. What can you do with it? <a
+	href="articles/crisps/1">Read more...</a></p>
+   </section>
+   <ul>
+	<li> <a href="/about">About us...</a>
+	<li> <a href="/feedback">Send feedback!</a>
+	<li> <a href="/sitemap">Sitemap</a>
+   </ul>
+  </nav>
+  <p><small>Copyright © 2015 The Snacker —
+  <a href="/tos">Terms of Service</a></small></p>
+ </footer>
+</body>
+```
 
 http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element
 
@@ -3251,24 +3453,26 @@ http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-fo
 
 > In general, authors are encouraged to either mark up such lists using `ul` elements with explicit inline counts that are then hidden and turned into a presentational effect using a style sheet, or to use SVG.
 
-	<style>
-	@media screen, print, handheld, tv {
-		/* should be ignored by non-visual browsers */
-		.tag-cloud > li > span { display: none; }
-		.tag-cloud > li { display: inline; }
-		.tag-cloud-1 { font-size: 0.7em; }
-		.tag-cloud-2 { font-size: 0.9em; }
-		.tag-cloud-3 { font-size: 1.1em; }
-		.tag-cloud-4 { font-size: 1.3em; }
-		.tag-cloud-5 { font-size: 1.5em; }
-	}
-	</style>
-	<!-- ... -->
-	<ul class="tag-cloud">
-		<li class="tag-cloud-4"><a title="28 instances" href="/t/apple">apple</a> <span>(popular)</span>
-		<li class="tag-cloud-2"><a title="6 instances"  href="/t/kiwi">kiwi</a> <span>(rare)</span>
-		<li class="tag-cloud-5"><a title="41 instances" href="/t/pear">pear</a> <span>(very popular)</span>
-	</ul>
+```html
+<style>
+@media screen, print, handheld, tv {
+	/* should be ignored by non-visual browsers */
+	.tag-cloud > li > span { display: none; }
+	.tag-cloud > li { display: inline; }
+	.tag-cloud-1 { font-size: 0.7em; }
+	.tag-cloud-2 { font-size: 0.9em; }
+	.tag-cloud-3 { font-size: 1.1em; }
+	.tag-cloud-4 { font-size: 1.3em; }
+	.tag-cloud-5 { font-size: 1.5em; }
+}
+</style>
+<!-- ... -->
+<ul class="tag-cloud">
+	<li class="tag-cloud-4"><a title="28 instances" href="/t/apple">apple</a> <span>(popular)</span>
+	<li class="tag-cloud-2"><a title="6 instances"  href="/t/kiwi">kiwi</a> <span>(rare)</span>
+	<li class="tag-cloud-5"><a title="41 instances" href="/t/pear">pear</a> <span>(very popular)</span>
+</ul>
+```
 
 > The actual frequency of each tag is given using the `title` attribute. A CSS style sheet is provided to convert the markup into a cloud of differently-sized words, but for user agents that do not support CSS or are not visual, the markup contains annotations like "(popular)" or "(rare)" to categorize the various tags by frequency, thus enabling all users to benefit from the information.
 
@@ -3290,121 +3494,131 @@ See also [forum post](#forum-post)
 
 > This example demonstrates this using an extract from Abbot and Costello's famous sketch, _Who's on first_:
 
-	<p>Costello: Look, you gotta first baseman?</p>
-	<p>Abbott: Certainly.</p>
-	<p>Costello: Who's playing first?</p>
-	<p>Abbott: That's right.</p>
-	<p>Costello becomes exasperated.</p>
-	<p>Costello: When you pay off the first baseman every month, who gets the money?</p>
-	<p>Abbott: Every dollar of it.</p>
+```html
+<p>Costello: Look, you gotta first baseman?</p>
+<p>Abbott: Certainly.</p>
+<p>Costello: Who's playing first?</p>
+<p>Abbott: That's right.</p>
+<p>Costello becomes exasperated.</p>
+<p>Costello: When you pay off the first baseman every month, who gets the money?</p>
+<p>Abbott: Every dollar of it.</p>
+```
 
 > The following extract shows how an IM conversation log could be marked up, using the `data` element to provide Unix timestamps for each line. Note that the timestamps are provided in a format that the `time` element does not support, so the `data` element is used instead (namely, Unix `time_t` timestamps). Had the author wished to mark up the data using one of the date and time formats supported by the `time` element, that element could have been used instead of `data`. This could be advantageous as it would allow data analysis tools to detect the timestamps unambiguously, without coordination with the page author.
 
-	<!-- datetime attribute can be used on <time> -->
-	<p><time>14:22</time> <b>egof</b> I'm not that nerdy, I've only seen 30% of the star trek episodes</p>
-	<p><time>14:23</time> <b>kaj</b> if you know what percentage of the star trek episodes you have seen, you are inarguably nerdy</p>
-	<p><time>14:23</time> <b>egof</b> it's unarguably</p>
-	<p><time>14:23</time> <i>* kaj blinks</i></p>
-	<p><time>14:24</time> <b>kaj</b> you are not helping your case</p>
+```html
+<!-- datetime attribute can be used on <time> -->
+<p><time>14:22</time> <b>egof</b> I'm not that nerdy, I've only seen 30% of the star trek episodes</p>
+<p><time>14:23</time> <b>kaj</b> if you know what percentage of the star trek episodes you have seen, you are inarguably nerdy</p>
+<p><time>14:23</time> <b>egof</b> it's unarguably</p>
+<p><time>14:23</time> <i>* kaj blinks</i></p>
+<p><time>14:24</time> <b>kaj</b> you are not helping your case</p>
+```
 
 > HTML does not have a good way to mark up graphs, so descriptions of interactive conversations from games are more difficult to mark up. This example shows one possible convention using `dl` elements to list the possible responses at each point in the conversation. Another option to consider is describing the conversation in the form of a DOT file, and outputting the result as an SVG image to place in the document. http://www.graphviz.org/content/dot-language
 
-	<p> Next, you meet a fisherman. You can say one of several greetings:
+```html
+<p> Next, you meet a fisherman. You can say one of several greetings:
+<dl>
+ <dt> "Hello there!"
+ <dd>
+  <p> He responds with "Hello, how may I help you?"; you can respond with:
+  <dl>
+   <dt> "I would like to buy a fish."
+   <dd> <p> He sells you a fish and the conversation finishes.
+   <dt> "Can I borrow your boat?"
+   <dd>
+	<p> He is surprised and asks "What are you offering in return?".
 	<dl>
-	 <dt> "Hello there!"
-	 <dd>
-	  <p> He responds with "Hello, how may I help you?"; you can respond with:
-	  <dl>
-	   <dt> "I would like to buy a fish."
-	   <dd> <p> He sells you a fish and the conversation finishes.
-	   <dt> "Can I borrow your boat?"
-	   <dd>
-		<p> He is surprised and asks "What are you offering in return?".
-		<dl>
-		 <dt> "Five gold." (if you have enough)
-		 <dt> "Ten gold." (if you have enough)
-		 <dt> "Fifteen gold." (if you have enough)
-		 <dd> <p> He lends you his boat. The conversation ends.
-		 <dt> "A fish." (if you have one)
-		 <dt> "A newspaper." (if you have one)
-		 <dt> "A pebble." (if you have one)
-		 <dd> <p> "No thanks", he replies. Your conversation options		
-		 at this point are the same as they were after asking to borrow
-		 his boat, minus any options you've suggested before.
-		</dl>
-	   </dd>
-	  </dl>
-	 </dd>
-	 <dt> "Vote for me in the next election!"
-	 <dd> <p> He turns away. The conversation finishes.
-	 <dt> "Sir, are you aware that your fish are running away?"
-	 <dd>
-	  <p> He looks at you skeptically and says "Fish cannot run, sir".
-	  <dl>
-	   <dt> "You got me!"
-	   <dd> <p> The fisherman sighs and the conversation ends.
-	   <dt> "Only kidding."
-	   <dd> <p> "Good one!" he retorts. Your conversation options at this
-	   point are the same as those following "Hello there!" above.
-	   <dt> "Oh, then what are they doing?"
-	   <dd> <p> He looks at his fish, giving you an opportunity to steal
-	   his boat, which you do. The conversation ends.
-	  </dl>
-	 </dd>
-	</ul>
+	 <dt> "Five gold." (if you have enough)
+	 <dt> "Ten gold." (if you have enough)
+	 <dt> "Fifteen gold." (if you have enough)
+	 <dd> <p> He lends you his boat. The conversation ends.
+	 <dt> "A fish." (if you have one)
+	 <dt> "A newspaper." (if you have one)
+	 <dt> "A pebble." (if you have one)
+	 <dd> <p> "No thanks", he replies. Your conversation options		
+	 at this point are the same as they were after asking to borrow
+	 his boat, minus any options you've suggested before.
+	</dl>
+   </dd>
+  </dl>
+ </dd>
+ <dt> "Vote for me in the next election!"
+ <dd> <p> He turns away. The conversation finishes.
+ <dt> "Sir, are you aware that your fish are running away?"
+ <dd>
+  <p> He looks at you skeptically and says "Fish cannot run, sir".
+  <dl>
+   <dt> "You got me!"
+   <dd> <p> The fisherman sighs and the conversation ends.
+   <dt> "Only kidding."
+   <dd> <p> "Good one!" he retorts. Your conversation options at this
+   point are the same as those following "Hello there!" above.
+   <dt> "Oh, then what are they doing?"
+   <dd> <p> He looks at his fish, giving you an opportunity to steal
+   his boat, which you do. The conversation ends.
+  </dl>
+ </dd>
+</ul>
+```
 
 > In some games, conversations are simpler: each character merely has a fixed set of lines that they say. In this example, a game FAQ/walkthrough lists some of the known possible responses for each character:
 
-	<section>
-	 <h2>Dialogue</h2>
-	 <p><small>Some characters repeat their lines in order each time you interact
-	 with them, others randomly pick from amongst their lines. Those who respond in
-	 order have numbered entries in the lists below.</small>
-	 <h3>The Shopkeeper</h3>
-	 <ul>
-	  <li>How may I help you?
-	  <li>Fresh apples!
-	  <li>A loaf of bread for madam?
-	 </ul>
-	 <h3>The pilot</h3>
-	 <p>Before the accident:
-	 <ul>
-	  </li>I'm about to fly out, sorry!
-	  </li>Sorry, I'm just waiting for flight clearance and then I'll be off!
-	 </ul>
-	 <p>After the accident:
-	 <ol>
-	  <li>I'm about to fly out, sorry!
-	  <li>Ok, I'm not leaving right now, my plane is being cleaned.
-	  <li>Ok, it's not being cleaned, it needs a minor repair first.
-	  <li>Ok, ok, stop bothering me! Truth is, I had a crash.
-	 </ol>
-	 <h3>Clan Leader</h3>
-	 <p>During the first clan meeting:
-	 <ul>
-	  <li>Hey, have you seen my daughter? I bet she's up to something nefarious again...
-	  <li>Nice weather we're having today, eh?
-	  <li>The name is Bailey, Jeff Bailey. How can I help you today?
-	  <li>A glass of water? Fresh from the well!
-	 </ul>
-	 <p>After the earthquake:
-	 <ol>
-	  <li>Everyone is safe in the shelter, we just have to put out the fire!
-	  <li>I'll go and tell the fire brigade, you keep hosing it down!
-	 </ol>
-	</section>
+```html
+<section>
+ <h2>Dialogue</h2>
+ <p><small>Some characters repeat their lines in order each time you interact
+ with them, others randomly pick from amongst their lines. Those who respond in
+ order have numbered entries in the lists below.</small>
+ <h3>The Shopkeeper</h3>
+ <ul>
+  <li>How may I help you?
+  <li>Fresh apples!
+  <li>A loaf of bread for madam?
+ </ul>
+ <h3>The pilot</h3>
+ <p>Before the accident:
+ <ul>
+  </li>I'm about to fly out, sorry!
+  </li>Sorry, I'm just waiting for flight clearance and then I'll be off!
+ </ul>
+ <p>After the accident:
+ <ol>
+  <li>I'm about to fly out, sorry!
+  <li>Ok, I'm not leaving right now, my plane is being cleaned.
+  <li>Ok, it's not being cleaned, it needs a minor repair first.
+  <li>Ok, ok, stop bothering me! Truth is, I had a crash.
+ </ol>
+ <h3>Clan Leader</h3>
+ <p>During the first clan meeting:
+ <ul>
+  <li>Hey, have you seen my daughter? I bet she's up to something nefarious again...
+  <li>Nice weather we're having today, eh?
+  <li>The name is Bailey, Jeff Bailey. How can I help you today?
+  <li>A glass of water? Fresh from the well!
+ </ul>
+ <p>After the earthquake:
+ <ol>
+  <li>Everyone is safe in the shelter, we just have to put out the fire!
+  <li>I'll go and tell the fire brigade, you keep hosing it down!
+ </ol>
+</section>
+```
 
 ## Details and summary
 
-	<details>
-		<summary>W Group Site Navigation</summary>
-		<ul>
-			<li><a href="#">Aeronautics</a></li>
-			<li><a href="#">Pharma</a></li>
-			<li><a href="#">Railways</a></li>
-			<li><a href="#">Shipping</a></li>
-		</ul>
-	</details>
+```html
+<details>
+	<summary>W Group Site Navigation</summary>
+	<ul>
+		<li><a href="#">Aeronautics</a></li>
+		<li><a href="#">Pharma</a></li>
+		<li><a href="#">Railways</a></li>
+		<li><a href="#">Shipping</a></li>
+	</ul>
+</details>
+```
 
 - [How do you mark up an accordion? — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/accordion-markup/)
 - [Details / Summary Are Not \[insert control here\] | Adrian Roselli](https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html)
@@ -3414,98 +3628,108 @@ See also [forum post](#forum-post)
 
 Note: you can use `<time>` tag:
 
+```html
+<article>
+ <h1><a href="http://bacon.example.com/?blog=109431">Bacon on a crowbar</a></h1>
+ <article>
+  <header><strong>t3yw</strong> 12 points 1 hour ago</header>
+  <p>I bet a narwhal would love that.</p>
+  <footer><a href="?pid=29578">permalink</a></footer>
+  <article>
+   <header><strong>greg</strong> 8 points 1 hour ago</header>
+   <blockquote><p>I bet a narwhal would love that.</p></blockquote>
+   <p>Dude narwhals don't eat bacon.</p>
+   <footer><a href="?pid=29579">permalink</a></footer>
+   <article>
+	<header><strong>t3yw</strong> 15 points 1 hour ago</header>
+	<blockquote>
+	 <blockquote><p>I bet a narwhal would love that.</p></blockquote>
+	 <p>Dude narwhals don't eat bacon.</p>
+	</blockquote>
+	<p>Next thing you'll be saying they don't get capes and wizard
+	hats either!</p>
+	<footer><a href="?pid=29580">permalink</a></footer>
 	<article>
-	 <h1><a href="http://bacon.example.com/?blog=109431">Bacon on a crowbar</a></h1>
 	 <article>
-	  <header><strong>t3yw</strong> 12 points 1 hour ago</header>
-	  <p>I bet a narwhal would love that.</p>
-	  <footer><a href="?pid=29578">permalink</a></footer>
-	  <article>
-	   <header><strong>greg</strong> 8 points 1 hour ago</header>
-	   <blockquote><p>I bet a narwhal would love that.</p></blockquote>
-	   <p>Dude narwhals don't eat bacon.</p>
-	   <footer><a href="?pid=29579">permalink</a></footer>
-	   <article>
-		<header><strong>t3yw</strong> 15 points 1 hour ago</header>
-		<blockquote>
-		 <blockquote><p>I bet a narwhal would love that.</p></blockquote>
-		 <p>Dude narwhals don't eat bacon.</p>
-		</blockquote>
-		<p>Next thing you'll be saying they don't get capes and wizard
-		hats either!</p>
-		<footer><a href="?pid=29580">permalink</a></footer>
-		<article>
-		 <article>
-		  <header><strong>boing</strong> -5 points 1 hour ago</header>
-		  <p>narwhals are worse than ceiling cat</p>
-		  <footer><a href="?pid=29581">permalink</a></footer>
-		 </article>
-		</article>
-	   </article>
-	  </article>
-	  <article>
-	   <header><strong>fred</strong> 1 points 23 minutes ago</header>
-	   <blockquote><p>I bet a narwhal would love that.</p></blockquote>
-	   <p>I bet they'd love to peel a banana too.</p>
-	   <footer><a href="?pid=29582">permalink</a></footer>
-	  </article>
+	  <header><strong>boing</strong> -5 points 1 hour ago</header>
+	  <p>narwhals are worse than ceiling cat</p>
+	  <footer><a href="?pid=29581">permalink</a></footer>
 	 </article>
 	</article>
+   </article>
+  </article>
+  <article>
+   <header><strong>fred</strong> 1 points 23 minutes ago</header>
+   <blockquote><p>I bet a narwhal would love that.</p></blockquote>
+   <p>I bet they'd love to peel a banana too.</p>
+   <footer><a href="?pid=29582">permalink</a></footer>
+  </article>
+ </article>
+</article>
+```
 
 - http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-blockquote-element-2
 - [HTML Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
 
 ## Pictures media
 
-	<picture>
-		<source srcset="image.png" media="(max-height: 1000px)">
-		<source srcset="image_small.png" media="(max-height: 700px)">
-		<source srcset="image_big.png" media="(min-height: 1000px)">
-		<img src="image_big.png" alt="">
-	</picture>
+```html
+<picture>
+	<source srcset="image.png" media="(max-height: 1000px)">
+	<source srcset="image_small.png" media="(max-height: 700px)">
+	<source srcset="image_big.png" media="(min-height: 1000px)">
+	<img src="image_big.png" alt="">
+</picture>
+```
 
-	<picture>
-		<source srcset="image.png" type="image/x-apng">
-		<source srcset="image.gif" type="image/gif">
-		<img src="image.gif" alt="">
-	</picture>
+```html
+<picture>
+	<source srcset="image.png" type="image/x-apng">
+	<source srcset="image.gif" type="image/gif">
+	<img src="image.gif" alt="">
+</picture>
+```
 
-	<object role="img" data="image.svg" type="image/svg+xml" title="Description of image"></object>
+```html
+<object role="img" data="image.svg" type="image/svg+xml" title="Description of image"></object>
+```
 
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" preserveAspectRatio="xMidYMid meet">
-		<title>Description of image</title>
+```html
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" preserveAspectRatio="xMidYMid meet">
+	<title>Description of image</title>
+	
+	<style>
+		svg {
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
 		
-		<style>
+		@media screen and (max-width: 400px) {
 			svg {
-				background-size: 100% 100%;
-				background-repeat: no-repeat;
+				background-image: url("small.png");
 			}
-			
-			@media screen and (max-width: 400px) {
-				svg {
-					background-image: url("small.png");
-				}
+		}
+		
+		@media screen and (min-width: 401px) and (max-width: 700px) {
+			svg {
+				background-image: url("medium.png");
 			}
-			
-			@media screen and (min-width: 401px) and (max-width: 700px) {
-				svg {
-					background-image: url("medium.png");
-				}
+		}
+		
+		@media screen and (min-width: 701px) and (max-width: 1000px) {
+			svg {
+				background-image: url("big.png");
 			}
-			
-			@media screen and (min-width: 701px) and (max-width: 1000px) {
-				svg {
-					background-image: url("big.png");
-				}
+		}
+		
+		@media screen and (min-width: 1001px) {
+			svg {
+				background-image: url("huge.png");
 			}
-			
-			@media screen and (min-width: 1001px) {
-				svg {
-					background-image: url("huge.png");
-				}
-			}
-		</style>
-	</svg>
+		}
+	</style>
+</svg>
+```
 
 See [Responsive image](#responsive-image)
 
@@ -3532,25 +3756,29 @@ Note: if it's live use `aria-live="polite" aria-relevant="additions"`. If live w
 
 With DL,DT+DD:
 
-	<dl role="log">
-		<dt><time datetime="2001-05-15 19:00">3 hours ago</time></dt>
-		<dd>Event log 1 content</dd>
-		<dt><time datetime="2001-05-15 20:00">2 hours ago</time></dt>
-		<dd>Event log 2 content</dd>
-		<dt><time datetime="2001-05-15 21:00">1 hours ago</time></dt>
-		<dd>Event log 3 content</dd>
-		<dt><time datetime="2001-05-15 22:00">Just happend</time></dt>
-		<dd>Event log 4 content</dd>
-	</dl>
+```html
+<dl role="log">
+	<dt><time datetime="2001-05-15 19:00">3 hours ago</time></dt>
+	<dd>Event log 1 content</dd>
+	<dt><time datetime="2001-05-15 20:00">2 hours ago</time></dt>
+	<dd>Event log 2 content</dd>
+	<dt><time datetime="2001-05-15 21:00">1 hours ago</time></dt>
+	<dd>Event log 3 content</dd>
+	<dt><time datetime="2001-05-15 22:00">Just happend</time></dt>
+	<dd>Event log 4 content</dd>
+</dl>
+```
 
 Or with P:
 
-	<div role="log">
-		<p><time datetime="2001-05-15 19:00">3 hours ago</time>: Event log 1 content</p>
-		<p><time datetime="2001-05-15 20:00">2 hours ago</time>: Event log 2 content</p>
-		<p><time datetime="2001-05-15 21:00">1 hours ago</time>: Event log 3 content</p>
-		<p><time datetime="2001-05-15 22:00">Just happend</time>: Event log 4 content</p>
-	</div>
+```html
+<div role="log">
+	<p><time datetime="2001-05-15 19:00">3 hours ago</time>: Event log 1 content</p>
+	<p><time datetime="2001-05-15 20:00">2 hours ago</time>: Event log 2 content</p>
+	<p><time datetime="2001-05-15 21:00">1 hours ago</time>: Event log 3 content</p>
+	<p><time datetime="2001-05-15 22:00">Just happend</time>: Event log 4 content</p>
+</div>
+```
 
 If log data has more than few fields (id, time, location, context, tags, etc.) it's preferable to use an `<article>` instead or a table
 
@@ -3560,29 +3788,31 @@ Use progressive enhancement for:
 
 - Basic: CSS styles
 - Datavis : SVG timeline with unobtrusive JavaScript
- 
-	<dl class="timeline">
-		<dt>1969</dt><dd>UNICS</dd>
-		<dt>1971</dt><dd>UNIX Time-Sharing System</dd>
-		<dt>1978</dt><dd>BSD</dd>
-		<dt>1980</dt><dd>XENIX OS</dd>
-		<dt>1981</dt><dd>UNIX System III</dd>
-		<dt>1982</dt><dd>SunOS</dd>
-		<dt>1983</dt><dd>UNIX System V</dd>
-		<dt>1986</dt>
-			<dd>GNU (Trix)</dd>
-			<dd>HP-UX</dd>
-		<dt>1987</dt><dd>Minix</dd>
-		<dt>1989</dt>
-			<dd>NeXTSTEP</dd>
-			<dd>SCO UNIX</dd>
-		<dt>1990</dt><dd>Solaris</dd>
-		<dt>1991</dt><dd>Linux</dd>
-		<dt>1993</dt><dd>FreeBSD</dd>
-		<dt>1995</dt><dd>OpenBSD</dd>
-		<dt>1999</dt><dd>Mac OS X</dd>
-		<!-- use aria-current="true" for the current item -->
-	</dl>
+
+```html
+<dl class="timeline">
+	<dt>1969</dt><dd>UNICS</dd>
+	<dt>1971</dt><dd>UNIX Time-Sharing System</dd>
+	<dt>1978</dt><dd>BSD</dd>
+	<dt>1980</dt><dd>XENIX OS</dd>
+	<dt>1981</dt><dd>UNIX System III</dd>
+	<dt>1982</dt><dd>SunOS</dd>
+	<dt>1983</dt><dd>UNIX System V</dd>
+	<dt>1986</dt>
+		<dd>GNU (Trix)</dd>
+		<dd>HP-UX</dd>
+	<dt>1987</dt><dd>Minix</dd>
+	<dt>1989</dt>
+		<dd>NeXTSTEP</dd>
+		<dd>SCO UNIX</dd>
+	<dt>1990</dt><dd>Solaris</dd>
+	<dt>1991</dt><dd>Linux</dd>
+	<dt>1993</dt><dd>FreeBSD</dd>
+	<dt>1995</dt><dd>OpenBSD</dd>
+	<dt>1999</dt><dd>Mac OS X</dd>
+	<!-- use aria-current="true" for the current item -->
+</dl>
+```
 
 - [Progressive Enhancement and Data Visualizations | CSS-Tricks](http://css-tricks.com/progressive-enhancement-data-visualizations/)
 
@@ -3602,13 +3832,15 @@ or progress indicator or stepper or multi-step progress. Number of steps in orde
 
 Similar to breadcrumb (but not the same).
 
-	<nav>
-		<ol>
-			<li><a href="order/1">shipping</a></li>
-			<li><a href="order/2">billing</a></li>
-			<li><a aria-current="step">confirm order</a></li>
-		</ol>
-	</nav>
+```html
+<nav>
+	<ol>
+		<li><a href="order/1">shipping</a></li>
+		<li><a href="order/2">billing</a></li>
+		<li><a aria-current="step">confirm order</a></li>
+	</ol>
+</nav>
+```
 
 - [Using the aria-current attribute – Tink](https://tink.uk/using-the-aria-current-attribute/)
 - [Progress Trackers in Web Design: Examples and Best Practices – Smashing Magazine](http://www.smashingmagazine.com/2010/01/progress-trackers-in-web-design-examples-and-best-design-practices/)
@@ -3616,77 +3848,79 @@ Similar to breadcrumb (but not the same).
 
 ## Comic markup
 
-	<article class="comic" lang="en-us">
-	  <header>
-	    <h1>Frantic Stein</h1>
-	    <address>by <a href="/george-mercer" rel="author">George Mercer</a></address>
-	    <time datetime="2010-01-15">January 15th, 2010</time>
-	  </header>
-	  <svg role="list">
-	    <g class="panel" role="listitem">
-	        <text class="caption">F.B.I. Headquarters...</text>
+```html
+<article class="comic" lang="en-us">
+  <header>
+    <h1>Frantic Stein</h1>
+    <address>by <a href="/george-mercer" rel="author">George Mercer</a></address>
+    <time datetime="2010-01-15">January 15th, 2010</time>
+  </header>
+  <svg role="list">
+    <g class="panel" role="listitem">
+        <text class="caption">F.B.I. Headquarters...</text>
 
-	      <image xlink:href="panel-1.png">
-	        <title>Frantic Stein's boss addresses him within his office.</title>
-	        <desc>The boss sits behind his desk, with his policeman's cap on the desktop. He's striking a very odd pose.</desc>
-	      </image>
+      <image xlink:href="panel-1.png">
+        <title>Frantic Stein's boss addresses him within his office.</title>
+        <desc>The boss sits behind his desk, with his policeman's cap on the desktop. He's striking a very odd pose.</desc>
+      </image>
 
-	      <g class="speech-balloon">
-	        <title>Stein's boss growls:</title>
-	        <text>We've received a tip to the effect that there will be an attempt to harm the steamer <tspan class="u">Atlantis</tspan> on its good-will voyage to Europe! I want you to foil any such attempt!</text>
-	      </g>
-	    </g>
+      <g class="speech-balloon">
+        <title>Stein's boss growls:</title>
+        <text>We've received a tip to the effect that there will be an attempt to harm the steamer <tspan class="u">Atlantis</tspan> on its good-will voyage to Europe! I want you to foil any such attempt!</text>
+      </g>
+    </g>
 
-	    <g class="panel" role="listitem">
-	      <image xlink:href="panel-2.png">
-	        <title>Frantic realizes the gravity of the situation.</title>
-	        <desc>We close in on Frantic's face. He looks very serious.</desc>
-	      </image>
+    <g class="panel" role="listitem">
+      <image xlink:href="panel-2.png">
+        <title>Frantic realizes the gravity of the situation.</title>
+        <desc>We close in on Frantic's face. He looks very serious.</desc>
+      </image>
 
-	      <g class="speech-balloon">
-	        <title>Stein says:</title>
-	        <text>So I board the steamer to Europe! Sounds interesting!</text>
-	      </g>
+      <g class="speech-balloon">
+        <title>Stein says:</title>
+        <text>So I board the steamer to Europe! Sounds interesting!</text>
+      </g>
 
-	      <text class="caption">Next day Frantic Stein is aboard The Atlantis as it sets out to sea--and an indeterminable fate!</text>
-	    </g>
+      <text class="caption">Next day Frantic Stein is aboard The Atlantis as it sets out to sea--and an indeterminable fate!</text>
+    </g>
 
-	    <g class="panel" role="listitem">
-	      <image xlink:href="panel-3.png">
-	        <title>The Atlantis, a large steamer ship, cruises the open sea.</title>
-	        <desc>The weather is clear, with the sea wavy but calm. The Atlantis cuts swiftly through the waves. It has 3 smokestacks and 2 radio masts.</desc>
-	      </image>
+    <g class="panel" role="listitem">
+      <image xlink:href="panel-3.png">
+        <title>The Atlantis, a large steamer ship, cruises the open sea.</title>
+        <desc>The weather is clear, with the sea wavy but calm. The Atlantis cuts swiftly through the waves. It has 3 smokestacks and 2 radio masts.</desc>
+      </image>
 
-	      <g class="speech-balloon">
-	        <title>Stein's voice rings out from the ship:</title>
-	        <text>Saw only one suspicious character... but he turned out to be the captain of the ship!</text>
-	      </g>
-	    </g>
+      <g class="speech-balloon">
+        <title>Stein's voice rings out from the ship:</title>
+        <text>Saw only one suspicious character... but he turned out to be the captain of the ship!</text>
+      </g>
+    </g>
 
-	    <g class="panel" role="listitem">
-	      <image xlink:href="panel-4.png">
-	        <title>From their backs, we see Frantic and an unknown woman look out over the ocean.</title>
-	        <desc>They are gazing over the ship's railing. Frantic is smoking, wearing a fedora and trenchcoat, and is gripping the railing with one hand. The woman clasps her hands behind her back, and is wearing a dress, fitted jacket, and sun hat with a long, flowing ribbon.</desc>
-	      </image>
+    <g class="panel" role="listitem">
+      <image xlink:href="panel-4.png">
+        <title>From their backs, we see Frantic and an unknown woman look out over the ocean.</title>
+        <desc>They are gazing over the ship's railing. Frantic is smoking, wearing a fedora and trenchcoat, and is gripping the railing with one hand. The woman clasps her hands behind her back, and is wearing a dress, fitted jacket, and sun hat with a long, flowing ribbon.</desc>
+      </image>
 
-	      <g class="speech-balloon">
-	        <title>The woman says:</title>
-	        <text>Surprise!</text>
-	      </g>
+      <g class="speech-balloon">
+        <title>The woman says:</title>
+        <text>Surprise!</text>
+      </g>
 
-	      <g class="speech-balloon">
-	        <title>Frantic shouts:</title>
-	        <text><tspan="strong">Darwyn!</tspan></text>
-	      </g>
+      <g class="speech-balloon">
+        <title>Frantic shouts:</title>
+        <text><tspan="strong">Darwyn!</tspan></text>
+      </g>
 
-	      <text class="caption">Continued...</text>
-	    </g>
-	  </svg>
-	  
-	  <footer>
-	    <small><a href="http://copyright.gov/title17/" rel="license">© 2010</a></small>
-	  </footer>
-	</article>
+      <text class="caption">Continued...</text>
+    </g>
+  </svg>
+  
+  <footer>
+    <small><a href="http://copyright.gov/title17/" rel="license">© 2010</a></small>
+  </footer>
+</article>
+```
 
 You can use `<figure>` with `<figcaption>`
 
@@ -3700,12 +3934,16 @@ To store IDs, UPC codes, ISBN or other reference numbers, date, time, etc.
 
 Use `<data>` or `<time>` (if it's time related)
 
-	<data value="1">One</data>
-	<data value="UPC:022014640201">North Coast Organic Apple Cider</data>
+```html
+<data value="1">One</data>
+<data value="UPC:022014640201">North Coast Organic Apple Cider</data>
+```
 
 `data-*` attribute can also be used, but it's more script oriented
 
-	<a href="tel:+33612345678">+33 6 12 34 56 78</a>
+```html
+<a href="tel:+33612345678">+33 6 12 34 56 78</a>
+```
 
 CSS can also be use to add spaces, slashes, etc. but require to add a locale aware parser for the markup ([North American group phone numbers by 3+4](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#United_States.2C_Canada.2C_and_other_NANP_countries), where [French group by 5*2](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#France))
 
@@ -3714,10 +3952,13 @@ CSS can also be use to add spaces, slashes, etc. but require to add a locale awa
 
 ### Date or time
 
-	<time datetime="2011-11-12">November 12th</time>
+```html
+<time datetime="2011-11-12">November 12th</time>
+```
 
-	 <?php
-	 echo '<time datetime="'.date('c').'">'.date('Y - m - d').'</time>';
+```php
+echo '<time datetime="'.date('c').'">'.date('Y - m - d').'</time>';
+```
 
 ## Products comparaison table
 
@@ -3725,45 +3966,47 @@ Can be also in an offer page: pricing plan, princing table or roadmap / planning
 
 Use a table or articles. But not list and list-items
 
-	<article>
-		<h2>Starter</h2>
-		<p>£9/mo</p>
-		<ul>
-			<li>Shared</li>
-			<li>512mb ram</li>
-			<li>20gb HDD</li>
-			<li>200gb bandwidth</li>
-			<li><s>Choice of OS</s></li>
-			<li><s>Host multiple sites</s></li>
-		</ul>
-		<a href="#">Order starter</a>
-	</article>
-	<article>
-		<h2>Developer</h2>
-		<p>£18/mo</p>
-		<ul>
-			<li>VPS</li>
-			<li>4gb ram</li>
-			<li>40gb SSD</li>
-			<li>1tb bandwidth</li>
-			<li>Choice of OS</li>
-			<li>Host multiple sites</li>
-		</ul>
-		<a href="#">Order developer</article>
-	</article>
-	<article>
-		<h2>Business</h2>
-		<p>£36/mo</p>
-		<ul>
-			<li>Dedicated</li>
-			<li>12gb ram</li>
-			<li>120gb SSD</li>
-			<li>1tb bandwidth</li>
-			<li>Choice of OS</li>
-			<li>Host multiple sites</li>
-		</ul>
-		<a href="#">Order business</a>
-	</article>
+```html
+<article>
+	<h2>Starter</h2>
+	<p>£9/mo</p>
+	<ul>
+		<li>Shared</li>
+		<li>512mb ram</li>
+		<li>20gb HDD</li>
+		<li>200gb bandwidth</li>
+		<li><s>Choice of OS</s></li>
+		<li><s>Host multiple sites</s></li>
+	</ul>
+	<a href="#">Order starter</a>
+</article>
+<article>
+	<h2>Developer</h2>
+	<p>£18/mo</p>
+	<ul>
+		<li>VPS</li>
+		<li>4gb ram</li>
+		<li>40gb SSD</li>
+		<li>1tb bandwidth</li>
+		<li>Choice of OS</li>
+		<li>Host multiple sites</li>
+	</ul>
+	<a href="#">Order developer</article>
+</article>
+<article>
+	<h2>Business</h2>
+	<p>£36/mo</p>
+	<ul>
+		<li>Dedicated</li>
+		<li>12gb ram</li>
+		<li>120gb SSD</li>
+		<li>1tb bandwidth</li>
+		<li>Choice of OS</li>
+		<li>Host multiple sites</li>
+	</ul>
+	<a href="#">Order business</a>
+</article>
+```
 
 - [Products Comparison Table | CodyHouse](https://codyhouse.co/demo/products-comparison-table/index.html)
 - Example for CSS, but not for semantic: [Pricing table](https://codepen.io/stevemckinney/pen/rLJNYV)
@@ -3774,8 +4017,10 @@ Use a table or articles. But not list and list-items
 
 ## Popup menu
 
-	<button aria-haspopup="true">Account</button>
-	<div></div>
+```html
+<button aria-haspopup="true">Account</button>
+<div></div>
+```
 
 ## Gender / plurial combined form
 
@@ -3985,12 +4230,14 @@ Application menu (not links)
 
 List of commands and is an interactive element and more likely to be used exclusively in Web Applications
 
-	<menu type="toolbar">
-	  <li class="new">New</li>
-	  <li class="open">Open</li>
-	  <li class="save">Save</li>
-	  <li class="quit">Quit</li>
-	</menu>
+```html
+<menu type="toolbar">
+  <li class="new">New</li>
+  <li class="open">Open</li>
+  <li class="save">Save</li>
+  <li class="quit">Quit</li>
+</menu>
+```
 
 `type` (attribute) as toolbar or popup
 
@@ -4053,11 +4300,17 @@ As an example, [interactive elements](https://html.spec.whatwg.org/multipage/for
 
 ## HTTP hearder tag equivalent
 
-	Link: </images/big.jpeg>; rel=prefetch
+```http
+Link: </images/big.jpeg>; rel=prefetch
+```
 
-	<meta http-equiv="Link" content="</images/big.jpeg>; rel=prefetch">
+```html
+<meta http-equiv="Link" content="</images/big.jpeg>; rel=prefetch">
+```
 
-	<link rel="prefetch" href="/images/big.jpeg">
+```html
+<link rel="prefetch" href="/images/big.jpeg">
+```
 
 ## HTML entities
 
@@ -4138,15 +4391,19 @@ A workaround is to use domain less URL or absolute URL, but not work on IE
 
 `<textarea>`, `<input>`, `contentEditable`
 
-	<textarea spellcheck="false"></textarea>
+```html
+<textarea spellcheck="false"></textarea>
+```
 
 But you shouldn't disable spell check juste because it's underlined misspelled words. But use correct attributes. Ex. `lang`:
 
-	<!-- Klingon: -->
-	<div contentEditable="true" lang="tlh">tlhIngan Hol</div>
-	<!-- No linguistic content: -->
-	<textarea lang="zxx">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</textarea>
-	<label for="isbn">ISBN:</label><input id="isbn" lang="zxx" type="text" value="978-3-16-148410-0">
+```html
+<!-- Klingon: -->
+<div contentEditable="true" lang="tlh">tlhIngan Hol</div>
+<!-- No linguistic content: -->
+<textarea lang="zxx">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</textarea>
+<label for="isbn">ISBN:</label><input id="isbn" lang="zxx" type="text" value="978-3-16-148410-0">
+```
 
 See [Language attribute](#language-attribute) and [Field type](#field-type)
 
@@ -4157,13 +4414,17 @@ See [Language attribute](#language-attribute) and [Field type](#field-type)
 
 Inline reader with a fallback (download)
 
-	<object type="application/pdf" data="yii.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;view=FitH">
-		<a href="yii.pdf" target="_blank">Download yii.pdf</a>
-	</object>
+```html
+<object type="application/pdf" data="yii.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;view=FitH">
+	<a href="yii.pdf" target="_blank">Download yii.pdf</a>
+</object>
+```
 
 Inline reader:
 
-	<iframe src="yii.pdf"></iframe>
+```html
+<iframe src="yii.pdf" title="YII document"></iframe>
+```
 
 Inline reader pure JS: [PDF.js](https://mozilla.github.io/pdf.js/) (same reader used by Firefox)
 
