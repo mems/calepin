@@ -1,3 +1,5 @@
+Aka documentation style guide
+
 Write all, make reports, about choice has been mades
 
 API references, guides, tutorials, and blog posts
@@ -17,6 +19,7 @@ API references, guides, tutorials, and blog posts
 - [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Intersection](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/)
 - [Why You Shouldn't Ignore Internal API Documentation | Stoplight API Intersection](https://stoplight.io/blog/internal-api-documentation/)
 - [Where the Wild Docs Are | Stoplight API Intersection](https://stoplight.io/blog/open-source-documentation/)
+- [Google developer documentation style guide  |  Google Developers](https://developers.google.com/style)
 
 ## Specification
 
@@ -60,3 +63,20 @@ Errors in docs, allows you to expand on the error message without increasing it 
 For one error (ex: 401 status code error "Permission Denied"), there are a lot of possible causes which they clearly lay out in Error and Warning Directory.
 
 - [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Corner](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/)
+
+## Personal pronoun
+
+> In my writing, I’ve almost completely switched from “you” to “we”—I find it more engaging.
+> 
+> Example:
+> - Before: “If a property can be omitted, you put a question mark after its name.”
+> - After: “If a property can be omitted, we put a question mark after its name.”
+> 
+> — [Axel Rauschmayer on Twitter: "In my writing, I’ve almost completely switched from “you” to “we”—I find it more engaging. Example: – Before: “If a property can be omitted, you put a question mark after its name.” – After: “If a property can be omitted, we put a question mark after its name.”" / Twitter](https://twitter.com/rauschma/status/1235980161939619840)
+
+> 'they' often helps avoid the 'he/she' issue in written English.
+> — [Johnny D on Twitter: "@rauschma This is good. Also 'they' often helps avoid the 'he/she' issue in written English." / Twitter](https://twitter.com/JD_Rodger/status/1236376868410011648)
+
+- [Personal pronoun - Wikipedia](https://en.wikipedia.org/wiki/Personal_pronoun)
+- [T–V distinction](../Text/Text.md#t–v-distinction)
+- [Second person and first person](https://developers.google.com/style/person)

@@ -991,6 +991,7 @@ Examples (pattern, components):
 - [Shopify Polaris](https://polaris.shopify.com/components/get-started)
 - [Category:ARIA Techniques - WCAG WG](https://www.w3.org/WAI/GL/wiki/Category:ARIA_Techniques)
 - [Enter The Dragon (Drop): Accessible List Reordering — Smashing Magazine](https://www.smashingmagazine.com/2018/01/dragon-drop-accessible-list-reordering/)
+- [Files within /patterns/](https://www.aditus.io/patterns/)
 
 Others (doc, about, etc.):
 
@@ -2254,11 +2255,26 @@ Some workarounds:
 
 Don't use number type thing that use digit like identifier (credit card number, CCV, ISBN, barcode, activation/product key, etc.), postcode, date, phone number, social security number, etc.
 
+> ## `<input type=number>` is only intended for amounts
+> 
+> If your web form includes a field that accepts a number, make sure that this field is not implemented as an `<input type=number>` element unless its value represents a quantity or amount (e.g., a price or a number of items).
+> 
+> Use the regular `<input type=text>` element for codes, PINs, account numbers, identification numbers, and any other **numeric value that doesn’t represent an amount**.
+> 
+> In the following code example, the inputmode attribute selects the [suitable virtual keyboard in mobile browsers](https://webplatform.news/issues/2019-05-06) (the pattern value is a fallback for iOS versions prior to 12.2).
+> 
+> `<input type="text" pattern="[0-9]*" inputmode="numeric">`
+> 
+> If you do have a form field whose value represents an amount and decide to use `type=number`, be aware that this input type is not well supported in some assistive technology software (NVDA, Dragon Naturally Speaking).
+> 
+> — [\<input type=number\> is only intended for amounts - Web Platform News](https://webplatform.news/issues/2020-03-06)
+
 Instead use `type="tel"`, `type="email"`, `type="url"`. If no type match, use `type="text"` with `pattern` attribute and `inputmode` attribute if needed (`numeric`).
 
 - [I Wanted To Type a Number | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/type-number.html)
 - [Payment card number — Wikipedia](https://en.wikipedia.org/wiki/Payment_card_number)
 - [Identifier — Wikipedia](https://en.wikipedia.org/wiki/Identifier)
+- [Why the GOV.UK Design System team changed the input type for numbers - Technology in government](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/)
 
 Note: Maybe you can use `<input type="number" value="0.00">` to show the user he could use floating point number
 

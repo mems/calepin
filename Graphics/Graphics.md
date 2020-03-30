@@ -115,34 +115,6 @@ See also [draw & paint](#draw--paint)
 - [layer | PROJECTS](http://www.jst.go.jp/erato/igarashi/en/projects/layer/) - Apparent Layer Operations for the Manipulation of Deformable Objects See https://www.youtube.com/watch?v=9qyUjYG_khg
 - [Bubble Clusters: An Interface for Manipulating Spatial Aggregation of Graphical Objects](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/research/bubble/index.html)
 
-## Draw & paint
-
-See also [interaction](#interaction)
-
-Aka pen, pencil, paintbrush, brush effects
-
-- [Fluid Paint](http://david.li/paint/) - see [Fluid Paint](https://github.com/dli/paint)
-- https://github.com/pfnet/PaintsChainer - line drawing colorization using Neural network. See [PaintsChainer - A Neural network that automatically colors in line art](http://www.creativeai.net/posts/XBjgPDuH9K8Zq6gpi/paintschainer-a-neural-network-that-automatically-colors-in)
-
-Draw 3D model from 2D sketch:
-
-- [Takeo Igarashi](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/teddy/teddy.htm) - Teddy: A Sketching Interface for 3D Freeform Design
-- [Takeo Igarashi](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/java/smoothteddy/index.html) - SmoothTeddy: Quick 3D Modeling and Painting
-- [Takeo Igarashi](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/chateau/chateau.htm) - Chateau : A Suggestive Interface for 3D Drawing
-- [Smooth Meshes for Sketch-based Freeform Modeling](http://wayback.archive.org/web/20160616201745/http://www-ui.is.s.u-tokyo.ac.jp/~takeo/papers/i3dg2003.pdf)
-- [Adaptive Unwrapping for Interactive Texture Painting](http://wayback.archive.org/web/20160616203050/http://www-ui.is.s.u-tokyo.ac.jp/%7Etakeo/papers/i3dg2001.pdf) - A Sketching Interface for 3D Freeform Design
-- [Plushie:An Interactive Design System for Plush Toys](http://www.geocities.jp/igarashi_lab/plushie/index-e.html)
-- [Quasimondo - Mario Klingemann's Flash Blog: Flash BitmapExporter: Compress and Save Images](http://www.quasimondo.com/archives/000572.php) - draw lines (three constants r1, r2 and r3 are called f1, f2 and f3)
-
-## Sketch rendering
-
-- [Implementing a "sketch" style of rendering in WebGL — Floored](http://wayback.archive.org/web/20141224123751/http://www.floored.com/blog/2014/sketch-rendering)
-- [Here Dragons Abound: This Is Where I Draw the Line](https://heredragonsabound.blogspot.com/2016/11/this-is-where-i-draw-line.html)
-- [Here Dragons Abound: Creating a Pencil Effect in SVG](https://heredragonsabound.blogspot.com/2020/02/creating-pencil-effect-in-svg.html) - [Pencil Effect Filters / Matthew Turk / Observable](https://observablehq.com/@matthewturk/pencil-effect-filters)
-- [SVG Pencil Filter #1](https://codepen.io/srt19170/pen/oNNQmRw)
-- [SVG Pencil Filter #2](https://codepen.io/srt19170/pen/XWWopOg)
-- [Hand-Drawn Lines Code (Javascript)](https://gist.github.com/srt19170/06a032e541cb4208a3e47a64f7b4687c)
-
 ## 3D scan
 
 - [Agisoft PhotoScan](http://www.agisoft.com/) - processing of digital images and generates 3D spatial data
@@ -343,74 +315,6 @@ Example, Live2D Euclid (use multiple layers and project it using [Orthographic p
 ## Trail
 
 - [Crafting Stylised Mouse Trails With OGL | Codrops](https://tympanus.net/codrops/2019/09/24/crafting-stylised-mouse-trails-with-ogl/)
-
-## Glass
-
-- [Thick Glass with Floating-Point Textures at The Little Grasshopper](http://prideout.net/blog/?p=51)
-- [FresnelGlass Recipe](http://prideout.net/recipes/FresnelGlass.html)
-
-## Grass
-
-- [Some grass experiment](https://www.interascope.com/experiments/grass/) - Grass with wind effect. WebGL. Can be use for trees. Use simple meshes (triangles)
-- [GRASS](https://codepen.io/al-ro/details/jJJygQ)
-
-## Fog
-
-- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=70) - Volumetric Fogging 2
-- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=21) - Shadows in fog
-- [Miles Macklin » Blog Archive » In-Scattering Demo](http://blog.mmacklin.com/2010/05/29/in-scattering-demo/)
-- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/fog/fog.htm) - better fog
-- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/spheredensity/spheredensity.htm) - sphere density
-
-## Sand
-
-Aka sand dune
-
-See [Water](#water)
-
-- [Nighttime Sand Dunes](https://www.shadertoy.com/view/XtySRm)
-
-## Water
-
-- [No particles. Gerstner Wave shader + analytical splashes - YouTube](https://www.youtube.com/watch?v=OQ3D0Q5BlOs) - gerstner wave shader, utilizing distance fields for analytical splashes. All splashes are a single mesh here, using a masked flipbook texture. Splash flipbook texture. https://twitter.com/ShaderBits/status/827969354121805824
-- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=42)
-- [WebGL Water](http://madebyevan.com/webgl-water/) - see https://github.com/evanw/webgl-water
-- [Rendering Water with WebGL](https://29a.ch/slides/2012/webglwater/)
-- [Realistic water shader for Three.js](https://github.com/jbouny/ocean) - see [Ocean - Jérémy BOUNY](http://jeremybouny.fr/ocean/demo/))
-- [Seascape](https://www.shadertoy.com/view/Ms2SD1) - see `Seascape.glsl`
-- [Tileable Water Caustic](https://www.shadertoy.com/view/MdlXz8)
-- [Stylized Waterfall](http://sketches.vlucendo.com/waterfall/)
-
-### Wave
-
-	amplitude * Math.sin(((2 * Math.PI) / wavelength) * position - (frequency * time) + phase) + offset;
-
-* `amplitude`: Deviation from center (aka. height of the wave)
-* `frequency`: Radians per second (aka. speed of the wave)
-* `offset`: Shifting the wave’s position from center (usually a y-offset)
-* `phase`: Shifting the wave by time
-* `wavelength`: Distance between waves
-* `position`: Position at which to calculate the state of the wave (usually an x-position)
-* `time`: A point of time at which to calculate the wave
-
-- [Ocean Wave Simulation](http://david.li/waves/) - see https://github.com/dli/waves
-- [Water ripple FX with Canvas and Javascript](http://code.almeros.com/water-ripple-canvas-and-javascript) - see [Water canvas by Almer Thie](http://code.almeros.com/code-examples/water-effect-canvas/)
-- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/simplewater/simplewater.htm) - water
-
-## Wind
-
-Aka flag effect
-
-- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=46)
-- [Noise](Noise) + displacement map (baseX=width, baseY=200, numOctaves=1, randomSeed=500, stitch=false, fractalNoise=true, colored, +perlinOffset)
-
-## Distortion
-
-Aka flame, heat, heat haze, water reflection
-
-- [=^.^=](https://yomotsu.neocities.org/1/) - ESO inspired heathaze effect in #threejs w/o post-processing. See "Akihiro Oyamada Demo"
-- [Heat Distortion Effect | Demo 1: Desert Heat](https://tympanus.net/Tutorials/HeatDistortionEffect/) - see [Animated Heat Distortion Effects with WebGL | Codrops](https://tympanus.net/codrops/2016/05/03/animated-heat-distortion-effects-webgl/)
-
 ## Planet
 
 See also [volumetric light](#volumetric-light) (for eclipse effect) and [projection](Projection)
@@ -1179,90 +1083,6 @@ Aka path tracing, ray marching, raytracing, pathtracing
 - [Bresenham's line algorithm — Wikipedia](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm#The_algorithm)
 - [Xiaolin Wu's line algorithm — Wikipedia](https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm)
 
-## Motion effect
-
-Aka movement interpolation, animation smears, smears frames
-
-For wheels use spiral blur / radial blur cage: you can mix/swap between a plan with 2D pre-blured texture (or a dedicated 3D model) and the base 3D model and change opacity, or instantiate multiple time the same mesh
-
-See also "wagon wheel effect"
-
-Use a vertex shader to compute motion (velocity texture). [Motion blur](Blur#motion-blur) shader can be used too
-
-	using UnityEngine;
-	
-	[ExecuteInEditMode]
-	public class DynamicScale : MonoBehaviour
-	{
-		Vector3 lastPosition;
-		
-		void Start()
-		{
-			lastPosition = transform.position;
-		}
-		
-		void LateUpdate()
-		{
-			Vector3 delta = transform.position - lastPosition;
-			transform.localRotation = Quaternion.LookRotation(delta + Vector3.forward * 0.001f);
-			float l = 1f + delta.magnitude;
-			float wh = Mathf.Sqrt(1f / l);
-			transform.localScale = new Vector3(wh, wh, l);
-			
-			lastPosition = transform.position;
-		}
-	}
-
-For cube:
-
-	volume of a cube; V=h×w×L
-	you know h=w though and assume volume is 1, so:
-	1=w×w×L
-	1=w²×L
-	1/L=w²
-	√(1/L)=w
-
-For general case (volumes other than 1):
-
-	w_new = w_old*√(L_old/L_new)
-
-> You can move wheel rotation to vertex shader, instead of doing it as an object. That adds certain difficulties, such as complications with normal maps and added shader costs, however it also opens you a way to precisely control how much rotational blur you get independently from rotation speed using previous frame switch.
-> — [Wheels, motion blur and motion vector - Unreal Engine Forums](https://forums.unrealengine.com/development-discussion/rendering/121459-wheels-motion-blur-and-motion-vectors/page2)
-
-> simulating motion blur of fast-moving objects using multi-pass rendering. In the first pass, the fast-moving geometry is rendered unblurred into a framebuffer object. In the second pass, a special vertex shader stretches the geometry between the previous and current vertex position based on the normal at the vertex and apparent shutter duration (stretch length), and the fragment shader applies supersampling to the first pass results to generate a blurred visual.
-> — [Motion Blur ES2 Sample](https://docs.nvidia.com/gameworks/content/gameworkslibrary/graphicssamples/opengl_samples/motionblures2sample.htm)
-
-> This sample shows a filtering method for simulating motion blur of fast-moving objects. The method used is a 2D full-screen post-process that works on a normal framebuffer augmented with a screen-space velocity buffer; thus, filtering performance is not dependent on scene geometric complexity.
-> — [Motion Blur GL4/GLES3 Advanced Sample](https://docs.nvidia.com/gameworks/content/gameworkslibrary/graphicssamples/opengl_samples/motionblurgl4gles3advancedsample.htm)
-
-> per-object motion blur
-
-> We conclude that motion blur effects, while useful for reducing artifacts and achieving a realistic ‘look’, do not significantly enhance the player experience.
-> – [farpeek - Simulated Motion Blur doe not improve player experience in Racing Game in Proceeding of Motion in Games](http://farpeek.com/index.php/pubs/9-mstudy) by Lavanya Sharan, Neo Zhe Han, Kenny Mitchell, Jessica Hodgins
-
-- [The Illusion of Motion – The Sea of Ideas](https://paulbakaus.com/tutorials/performance/the-illusion-of-motion/)
-- [CodePen - 3D motion smear](http://codepen.io/zadvorsky/full/NAgGZX/) [3d-motion-smear.zip](3d-motion-smear.zip)
-- [THREE.JS Buffer Animation System](https://github.com/zadvorsky/three.bas)
-- [pikopik on Twitter: "I made it look more mathy than it is, its really simple! code if you can't figure it out: https://t.co/EvuZEZLvF7 #unitytips I guess https://t.co/yHCK8hDxQj"](https://twitter.com/_pikopik/status/882346033656844288)
-- [LuggLD/SmearFrame: Unreal Engine 4 smear frame material effect](https://github.com/LuggLD/SmearFrame)
-- [Cartridge Game on Twitter: "The game seem to use smear frame (?) which i actually pretty good. Really fluid and cartoon-y animation. Not very common… https://t.co/Ibjn8j6Pr1"](https://twitter.com/cartridgegames/status/874391704484413440)
-- [terminology - What i "radial blur"? - Arqade](https://gaming.stackexchange.com/questions/306721/what-is-radial-blur) - motion blur for rotation objects
-- [keijiro/KinoMotion: Motion blur post-processing effect for Unity](https://github.com/keijiro/KinoMotion)
-- [Radial Blur Shader - Texture - Unity Forum](https://forum.unity.com/threads/radial-blur-shader-texture.406804/)
-- [Radial Blur Shader «  Unity Coding – Unity3D](http://unitycoder.com/blog/2012/10/06/radial-blur-shader/)
-- [UFO Test: Multiple Framerates](https://www.testufo.com/)
-- [About Thi Site | Blur Busters](https://www.blurbusters.com/about/site/)
-- [GPU Gem | NVIDIA Developer](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch27.html)
-- [john-chapman-graphics: Per-Object Motion Blur](http://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html)
-- [A Reconstruction Filter for Plausible Motion Blur](http://casual-effects.com/research/McGuire2012Blur/index.html) - "Plausible Motion Blur"
-- [Unity - Manual:  Motion Blur](https://docs.unity3d.com/Manual/PostProcessing-MotionBlur.html) - Unity Standard Assets Motion Blur
-- [Unity - Manual: Camera Motion Blur](https://docs.unity3d.com/550/Documentation/Manual/script-CameraMotionBlur.html) - Unity Standard Assets Camera Motion Blur (removed in Unity 5.6)
-- [3d Max Help: Object Motion Blur](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-22748E7B-6C68-4437-922D-AF2309855C8A.htm,topicNumber=d30e607691)
-- [3d Max Help: Image Motion Blur](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-CDD7A087-F914-4B53-8DFC-1E406F8DC881.htm,topicNumber=d30e604841)
-- [3d Max Help: Scene Motion Blur](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-65BE9F44-FB64-4282-B7AB-BC26C31115A6.htm,topicNumber=d30e610199)
-- [keijiro/KinoVision: Frame visualization utility for Unity](https://github.com/keijiro/KinoVision)
-- [[WIP] Spinning Wheel Effect - Unity Forum](https://forum.unity.com/threads/wip-spinning-wheel-effect.413186/)
-
 ## Raymarching Distance Fields
 
 Infinite effect, use raymarcher
@@ -1606,54 +1426,9 @@ Aka image enhancement (scan)
 
 - [Adaptive Thresholding using Integral Image \[source\] | astatic notes](http://wayback.archive.org/web/20121223171256/http://blog.inspirit.ru/?p=322#more-322)
 
-### Glow
-
-- [WebGL) Animated selective glow in Three.js - Blog - (BKcore) Thibaut Despoulain](#httpbkcorecomblog3dwebgl-three-js-animated-selective-glowhtml)
-- [CodePen - Thank You.](https://codepen.io/shubniggurath/full/GGXKJe/)
-
 ### Specular
 
 - [Quick Game Art Tips - Toon Metal | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-21398935) - Specular Toon Metal. See ![Toonmetal Tip](Pixel%20Shader/Specular%20-%20Toon%20Metal/ToonmetalTip.gif)
-
-### Flame
-
-Aka fire
-
-- [ciaccodavide evaporating shader tutorial](https://static.ciaccodavi.de/old/games/shader-test/tutorial/) - See ![Evaporating sharder](Pixel Shader/Flame/Evaporating sharder.mp4)
-- [Quick Game Art Tips - Unity Fire Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-17021975)
-- [How DOOM fire was done](http://fabiensanglard.net/doom_fire_psx/)
-- See "The VFX of Diablo" at 28:26 and 30:45
-
-### Sparkle shader
-
-Aka sparly shader, twinkling
-
-- ![Sparkle shader](Pixel Shader/Sparkle shader/Sparkle shader.mp4)
-- ![Sparkle shader 2](Pixel Shader/Sparkle shader 2/Sparkle shader 2.mp4) (normalize the direction vector, make sure you normalize the direction vector), could use using the camera direction vector
-
-```
-// From https://www.shadertoy.com/view/tdsXRX
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
-{
-	// Normalized pixel coordinates (from 0 to 1)
-	vec2 uv = fragCoord/iResolution.xy;
-	
-	vec2 light = vec2(cos(iTime*.5), sin(iTime*.5));
-	
-	vec2 direction = normalize(texture(iChannel0,uv).xy - .5);
-	float sparkle = dot(direction, light);
-	
-	sparkle = step(.999,sparkle);
-	// Output to screen
-	fragColor = vec4(sparkle);
-}
-```
-
-- [°.☀️ ｡rob｡☀️.° i love my girlfriend sur Twitter : "got a lot of people asking how i do my sparkly effects and i love the shader tutorials by @minionsart so i got inspired to make my own!! gonna go more in-depth in the replies #gamedev #madewithunity https://t.co/yfKO93yRq7"](https://mobile.twitter.com/bobacupcake/status/957777266959794176)
-- [Shader Breakdown #1 | Rob Fichman on Patreon](https://www.patreon.com/posts/shader-breakdown-21471588)
-- [rob @ i ✨💖✨ my girlfriend on Twitter: "someone was asking about the concepts behind my sparly shader so i made a little gif, maybe it will be helpful to you too!!… https://t.co/HsETCTGpjV"](https://twitter.com/bobacupcake/status/1102631340774694912?s=12)
-- [Sparkles effect](https://www.shadertoy.com/view/tdsXRX)
-- [Shooting Star](https://codepen.io/ko-yelie/pen/LqXWWx?editors=0010)
 
 ### Filter
 
@@ -2255,51 +2030,125 @@ http://forum.processing.org/one/topic/calculate-image-contrast-using-root-mean-s
 
 - [#VFX - Twitter Search / Twitter](https://twitter.com/hashtag/VFX)
 - [#VFX #gamedev - Twitter Search / Twitter](https://twitter.com/search?q=%23VFX%20%23gamedev)
+- [Video game explosions are actually a lie - YouTube](https://www.youtube.com/watch?v=WYNdZO_LuYA)
 
-## Optical adjustment
+### Glow
 
-Aka visually centered, physics center, optical alignement, compositional balance
+- [WebGL) Animated selective glow in Three.js - Blog - (BKcore) Thibaut Despoulain](#httpbkcorecomblog3dwebgl-three-js-animated-selective-glowhtml)
+- [CodePen - Thank You.](https://codepen.io/shubniggurath/full/GGXKJe/)
 
-Use center of mass" / centroid, logarithmic weight
+### Flame
 
-Color adjustment (of text where: logo + text) using darker color (adjust brightness) based on the size of the element (number of pixels used)
+Aka fire
 
-- [Optical alignement](Design#optical-alignement)
-- [Visual Center](http://javier.xyz/visual-center/) - Use the square root of the difference between the pixel and the background color. See https://github.com/javierbyte/visual-center and [visualCenter.js](visualCenter.js)
-- [Center of mass — Wikipedia](https://en.wikipedia.org/wiki/Center_of_mass)
-- [Centroid — Wikipedia](https://en.wikipedia.org/wiki/Centroid)
-- [Triangle Centroid -- from Wolfram MathWorld](http://mathworld.wolfram.com/TriangleCentroid.html)
-- [Golden ratio — Wikipedia](https://en.wikipedia.org/wiki/Golden_ratio)
-- [G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text | Techniques for WCAG 2.0](https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/G18)
+- [ciaccodavide evaporating shader tutorial](https://static.ciaccodavi.de/old/games/shader-test/tutorial/) - See ![Evaporating sharder](Pixel Shader/Flame/Evaporating sharder.mp4)
+- [Quick Game Art Tips - Unity Fire Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-17021975)
+- [How DOOM fire was done](http://fabiensanglard.net/doom_fire_psx/)
+- See "The VFX of Diablo" at 28:26 and 30:45
 
-## Displacement map
+### Explosion
 
-Aka vector field (2D)
+- [Video game explosions are actually a lie - YouTube](https://www.youtube.com/watch?v=WYNdZO_LuYA&feature=emb_title)
 
-- [Vector field — Wikipedia](https://en.wikipedia.org/wiki/Vector_field)
-- [Displacement mapping — Wikipedia](https://en.wikipedia.org/wiki/Displacement_mapping)
-- [Vector Field with source code – Simon Heys – Freelance iPad / iPhone / iOS app developer in London](https://www.simonheys.com/2007/05/12/vector-field-with-source-code/)
+### Glass
 
-## Fractal
+- [Thick Glass with Floating-Point Textures at The Little Grasshopper](http://prideout.net/blog/?p=51)
+- [FresnelGlass Recipe](http://prideout.net/recipes/FresnelGlass.html)
 
-Aka Mandelbrot, Julia
+### Grass
 
-- [Understanding Julia and Mandelbrot Sets](http://www.karlsims.com/julia.html)
-- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/index.htm) - "fractals rendering algorithms" and "fractals/complex dynamics"
+- [Some grass experiment](https://www.interascope.com/experiments/grass/) - Grass with wind effect. WebGL. Can be use for trees. Use simple meshes (triangles)
+- [GRASS](https://codepen.io/al-ro/details/jJJygQ)
 
-## Cel shading
+### Fog
 
-- [Cel shading — Wikipedia](https://en.wikipedia.org/wiki/Cel_shading)
-- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=58) - Cel-shading
-- [Silhouette Extraction at The Little Grasshopper](http://prideout.net/blog/?p=54)
-- [Single Pass Cel Shading – Jean-Marc Le Roux](https://blogs.aerys.in/jeanmarc-leroux/2012/01/23/single-pass-cel-shading/)
+- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=70) - Volumetric Fogging 2
+- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=21) - Shadows in fog
+- [Miles Macklin » Blog Archive » In-Scattering Demo](http://blog.mmacklin.com/2010/05/29/in-scattering-demo/)
+- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/fog/fog.htm) - better fog
+- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/spheredensity/spheredensity.htm) - sphere density
 
-## Depth of field
+### Sand
 
-- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=56) - Depth of field
-- [Quasimondo - Mario Klingemann's Flash Blog: Flash 8: Depth Of Field Simulation](http://www.quasimondo.com/archives/000564.php) - Apply Depth Of Field to 2D image
+Aka sand dune
 
-## Particles
+See [Water](#water)
+
+- [Nighttime Sand Dunes](https://www.shadertoy.com/view/XtySRm)
+
+### Water
+
+- [No particles. Gerstner Wave shader + analytical splashes - YouTube](https://www.youtube.com/watch?v=OQ3D0Q5BlOs) - gerstner wave shader, utilizing distance fields for analytical splashes. All splashes are a single mesh here, using a masked flipbook texture. Splash flipbook texture. https://twitter.com/ShaderBits/status/827969354121805824
+- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=42)
+- [WebGL Water](http://madebyevan.com/webgl-water/) - see https://github.com/evanw/webgl-water
+- [Rendering Water with WebGL](https://29a.ch/slides/2012/webglwater/)
+- [Realistic water shader for Three.js](https://github.com/jbouny/ocean) - see [Ocean - Jérémy BOUNY](http://jeremybouny.fr/ocean/demo/))
+- [Seascape](https://www.shadertoy.com/view/Ms2SD1) - see `Seascape.glsl`
+- [Tileable Water Caustic](https://www.shadertoy.com/view/MdlXz8)
+- [Stylized Waterfall](http://sketches.vlucendo.com/waterfall/)
+
+#### Wave
+
+	amplitude * Math.sin(((2 * Math.PI) / wavelength) * position - (frequency * time) + phase) + offset;
+
+* `amplitude`: Deviation from center (aka. height of the wave)
+* `frequency`: Radians per second (aka. speed of the wave)
+* `offset`: Shifting the wave’s position from center (usually a y-offset)
+* `phase`: Shifting the wave by time
+* `wavelength`: Distance between waves
+* `position`: Position at which to calculate the state of the wave (usually an x-position)
+* `time`: A point of time at which to calculate the wave
+
+- [Ocean Wave Simulation](http://david.li/waves/) - see https://github.com/dli/waves
+- [Water ripple FX with Canvas and Javascript](http://code.almeros.com/water-ripple-canvas-and-javascript) - see [Water canvas by Almer Thie](http://code.almeros.com/code-examples/water-effect-canvas/)
+- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/simplewater/simplewater.htm) - water
+
+### Wind
+
+Aka flag effect
+
+- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=46)
+- [Noise](Noise) + displacement map (baseX=width, baseY=200, numOctaves=1, randomSeed=500, stitch=false, fractalNoise=true, colored, +perlinOffset)
+
+### Distortion
+
+Aka flame, heat, heat haze, water reflection
+
+- [=^.^=](https://yomotsu.neocities.org/1/) - ESO inspired heathaze effect in #threejs w/o post-processing. See "Akihiro Oyamada Demo"
+- [Heat Distortion Effect | Demo 1: Desert Heat](https://tympanus.net/Tutorials/HeatDistortionEffect/) - see [Animated Heat Distortion Effects with WebGL | Codrops](https://tympanus.net/codrops/2016/05/03/animated-heat-distortion-effects-webgl/)
+
+### Sparkle shader
+
+Aka sparly shader, twinkling
+
+- ![Sparkle shader](Pixel Shader/Sparkle shader/Sparkle shader.mp4)
+- ![Sparkle shader 2](Pixel Shader/Sparkle shader 2/Sparkle shader 2.mp4) (normalize the direction vector, make sure you normalize the direction vector), could use using the camera direction vector
+
+```
+// From https://www.shadertoy.com/view/tdsXRX
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	// Normalized pixel coordinates (from 0 to 1)
+	vec2 uv = fragCoord/iResolution.xy;
+	
+	vec2 light = vec2(cos(iTime*.5), sin(iTime*.5));
+	
+	vec2 direction = normalize(texture(iChannel0,uv).xy - .5);
+	float sparkle = dot(direction, light);
+	
+	sparkle = step(.999,sparkle);
+	// Output to screen
+	fragColor = vec4(sparkle);
+}
+```
+
+- [°.☀️ ｡rob｡☀️.° i love my girlfriend sur Twitter : "got a lot of people asking how i do my sparkly effects and i love the shader tutorials by @minionsart so i got inspired to make my own!! gonna go more in-depth in the replies #gamedev #madewithunity https://t.co/yfKO93yRq7"](https://mobile.twitter.com/bobacupcake/status/957777266959794176)
+- [Shader Breakdown #1 | Rob Fichman on Patreon](https://www.patreon.com/posts/shader-breakdown-21471588)
+- [rob @ i ✨💖✨ my girlfriend on Twitter: "someone was asking about the concepts behind my sparly shader so i made a little gif, maybe it will be helpful to you too!!… https://t.co/HsETCTGpjV"](https://twitter.com/bobacupcake/status/1102631340774694912?s=12)
+- [Sparkles effect](https://www.shadertoy.com/view/tdsXRX)
+- [Shooting Star](https://codepen.io/ko-yelie/pen/LqXWWx?editors=0010)
+
+### Particles
 
 Aka fluid, smoke, flame, volume rendering
 
@@ -2349,6 +2198,163 @@ Volume rendering
 - [Single-Pass Raycasting at The Little Grasshopper](http://prideout.net/blog/?p=64)
 - [Production Volume Rendering](https://github.com/pvrbook/pvr) - This is the companion rendering library for the book Production Volume Rendering
 - [GPU volume rendering test on Vimeo](https://vimeo.com/16159247) - see [Miles Macklin » Blog Archive » Adventures in Fluid Simulation](http://blog.mmacklin.com/2010/11/01/adventures-in-fluid-simulation/)
+
+### Motion effect
+
+Aka movement interpolation, animation smears, smears frames
+
+For wheels use spiral blur / radial blur cage: you can mix/swap between a plan with 2D pre-blured texture (or a dedicated 3D model) and the base 3D model and change opacity, or instantiate multiple time the same mesh
+
+See also "wagon wheel effect"
+
+Use a vertex shader to compute motion (velocity texture). [Motion blur](Blur#motion-blur) shader can be used too
+
+	using UnityEngine;
+	
+	[ExecuteInEditMode]
+	public class DynamicScale : MonoBehaviour
+	{
+		Vector3 lastPosition;
+		
+		void Start()
+		{
+			lastPosition = transform.position;
+		}
+		
+		void LateUpdate()
+		{
+			Vector3 delta = transform.position - lastPosition;
+			transform.localRotation = Quaternion.LookRotation(delta + Vector3.forward * 0.001f);
+			float l = 1f + delta.magnitude;
+			float wh = Mathf.Sqrt(1f / l);
+			transform.localScale = new Vector3(wh, wh, l);
+			
+			lastPosition = transform.position;
+		}
+	}
+
+For cube:
+
+	volume of a cube; V=h×w×L
+	you know h=w though and assume volume is 1, so:
+	1=w×w×L
+	1=w²×L
+	1/L=w²
+	√(1/L)=w
+
+For general case (volumes other than 1):
+
+	w_new = w_old*√(L_old/L_new)
+
+> You can move wheel rotation to vertex shader, instead of doing it as an object. That adds certain difficulties, such as complications with normal maps and added shader costs, however it also opens you a way to precisely control how much rotational blur you get independently from rotation speed using previous frame switch.
+> — [Wheels, motion blur and motion vector - Unreal Engine Forums](https://forums.unrealengine.com/development-discussion/rendering/121459-wheels-motion-blur-and-motion-vectors/page2)
+
+> simulating motion blur of fast-moving objects using multi-pass rendering. In the first pass, the fast-moving geometry is rendered unblurred into a framebuffer object. In the second pass, a special vertex shader stretches the geometry between the previous and current vertex position based on the normal at the vertex and apparent shutter duration (stretch length), and the fragment shader applies supersampling to the first pass results to generate a blurred visual.
+> — [Motion Blur ES2 Sample](https://docs.nvidia.com/gameworks/content/gameworkslibrary/graphicssamples/opengl_samples/motionblures2sample.htm)
+
+> This sample shows a filtering method for simulating motion blur of fast-moving objects. The method used is a 2D full-screen post-process that works on a normal framebuffer augmented with a screen-space velocity buffer; thus, filtering performance is not dependent on scene geometric complexity.
+> — [Motion Blur GL4/GLES3 Advanced Sample](https://docs.nvidia.com/gameworks/content/gameworkslibrary/graphicssamples/opengl_samples/motionblurgl4gles3advancedsample.htm)
+
+> per-object motion blur
+
+> We conclude that motion blur effects, while useful for reducing artifacts and achieving a realistic ‘look’, do not significantly enhance the player experience.
+> – [farpeek - Simulated Motion Blur doe not improve player experience in Racing Game in Proceeding of Motion in Games](http://farpeek.com/index.php/pubs/9-mstudy) by Lavanya Sharan, Neo Zhe Han, Kenny Mitchell, Jessica Hodgins
+
+- [The Illusion of Motion – The Sea of Ideas](https://paulbakaus.com/tutorials/performance/the-illusion-of-motion/)
+- [CodePen - 3D motion smear](http://codepen.io/zadvorsky/full/NAgGZX/) [3d-motion-smear.zip](3d-motion-smear.zip)
+- [THREE.JS Buffer Animation System](https://github.com/zadvorsky/three.bas)
+- [pikopik on Twitter: "I made it look more mathy than it is, its really simple! code if you can't figure it out: https://t.co/EvuZEZLvF7 #unitytips I guess https://t.co/yHCK8hDxQj"](https://twitter.com/_pikopik/status/882346033656844288)
+- [LuggLD/SmearFrame: Unreal Engine 4 smear frame material effect](https://github.com/LuggLD/SmearFrame)
+- [Cartridge Game on Twitter: "The game seem to use smear frame (?) which i actually pretty good. Really fluid and cartoon-y animation. Not very common… https://t.co/Ibjn8j6Pr1"](https://twitter.com/cartridgegames/status/874391704484413440)
+- [terminology - What i "radial blur"? - Arqade](https://gaming.stackexchange.com/questions/306721/what-is-radial-blur) - motion blur for rotation objects
+- [keijiro/KinoMotion: Motion blur post-processing effect for Unity](https://github.com/keijiro/KinoMotion)
+- [Radial Blur Shader - Texture - Unity Forum](https://forum.unity.com/threads/radial-blur-shader-texture.406804/)
+- [Radial Blur Shader «  Unity Coding – Unity3D](http://unitycoder.com/blog/2012/10/06/radial-blur-shader/)
+- [UFO Test: Multiple Framerates](https://www.testufo.com/)
+- [About Thi Site | Blur Busters](https://www.blurbusters.com/about/site/)
+- [GPU Gem | NVIDIA Developer](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch27.html)
+- [john-chapman-graphics: Per-Object Motion Blur](http://john-chapman-graphics.blogspot.com/2013/01/per-object-motion-blur.html)
+- [A Reconstruction Filter for Plausible Motion Blur](http://casual-effects.com/research/McGuire2012Blur/index.html) - "Plausible Motion Blur"
+- [Unity - Manual:  Motion Blur](https://docs.unity3d.com/Manual/PostProcessing-MotionBlur.html) - Unity Standard Assets Motion Blur
+- [Unity - Manual: Camera Motion Blur](https://docs.unity3d.com/550/Documentation/Manual/script-CameraMotionBlur.html) - Unity Standard Assets Camera Motion Blur (removed in Unity 5.6)
+- [3d Max Help: Object Motion Blur](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-22748E7B-6C68-4437-922D-AF2309855C8A.htm,topicNumber=d30e607691)
+- [3d Max Help: Image Motion Blur](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-CDD7A087-F914-4B53-8DFC-1E406F8DC881.htm,topicNumber=d30e604841)
+- [3d Max Help: Scene Motion Blur](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-65BE9F44-FB64-4282-B7AB-BC26C31115A6.htm,topicNumber=d30e610199)
+- [keijiro/KinoVision: Frame visualization utility for Unity](https://github.com/keijiro/KinoVision)
+- [[WIP] Spinning Wheel Effect - Unity Forum](https://forum.unity.com/threads/wip-spinning-wheel-effect.413186/)
+
+## Optical adjustment
+
+Aka visually centered, physics center, optical alignement, compositional balance
+
+Use center of mass" / centroid, logarithmic weight
+
+Color adjustment (of text where: logo + text) using darker color (adjust brightness) based on the size of the element (number of pixels used)
+
+- [Optical alignement](Design#optical-alignement)
+- [Visual Center](http://javier.xyz/visual-center/) - Use the square root of the difference between the pixel and the background color. See https://github.com/javierbyte/visual-center and [visualCenter.js](visualCenter.js)
+- [Center of mass — Wikipedia](https://en.wikipedia.org/wiki/Center_of_mass)
+- [Centroid — Wikipedia](https://en.wikipedia.org/wiki/Centroid)
+- [Triangle Centroid -- from Wolfram MathWorld](http://mathworld.wolfram.com/TriangleCentroid.html)
+- [Golden ratio — Wikipedia](https://en.wikipedia.org/wiki/Golden_ratio)
+- [G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text | Techniques for WCAG 2.0](https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/G18)
+
+## Displacement map
+
+Aka vector field (2D)
+
+- [Vector field — Wikipedia](https://en.wikipedia.org/wiki/Vector_field)
+- [Displacement mapping — Wikipedia](https://en.wikipedia.org/wiki/Displacement_mapping)
+- [Vector Field with source code – Simon Heys – Freelance iPad / iPhone / iOS app developer in London](https://www.simonheys.com/2007/05/12/vector-field-with-source-code/)
+
+## Fractal
+
+Aka Mandelbrot, Julia
+
+- [Understanding Julia and Mandelbrot Sets](http://www.karlsims.com/julia.html)
+- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/index.htm) - "fractals rendering algorithms" and "fractals/complex dynamics"
+
+## Rendering type
+
+### Cel shading
+
+- [Cel shading — Wikipedia](https://en.wikipedia.org/wiki/Cel_shading)
+- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=58) - Cel-shading
+- [Silhouette Extraction at The Little Grasshopper](http://prideout.net/blog/?p=54)
+- [Single Pass Cel Shading – Jean-Marc Le Roux](https://blogs.aerys.in/jeanmarc-leroux/2012/01/23/single-pass-cel-shading/)
+
+### Sketch rendering
+
+- [Implementing a "sketch" style of rendering in WebGL — Floored](http://wayback.archive.org/web/20141224123751/http://www.floored.com/blog/2014/sketch-rendering)
+- [Here Dragons Abound: This Is Where I Draw the Line](https://heredragonsabound.blogspot.com/2016/11/this-is-where-i-draw-line.html)
+- [Here Dragons Abound: Creating a Pencil Effect in SVG](https://heredragonsabound.blogspot.com/2020/02/creating-pencil-effect-in-svg.html) - [Pencil Effect Filters / Matthew Turk / Observable](https://observablehq.com/@matthewturk/pencil-effect-filters)
+- [SVG Pencil Filter #1](https://codepen.io/srt19170/pen/oNNQmRw)
+- [SVG Pencil Filter #2](https://codepen.io/srt19170/pen/XWWopOg)
+- [Hand-Drawn Lines Code (Javascript)](https://gist.github.com/srt19170/06a032e541cb4208a3e47a64f7b4687c)
+
+### Draw & paint
+
+See also [interaction](#interaction)
+
+Aka pen, pencil, paintbrush, brush effects
+
+- [Fluid Paint](http://david.li/paint/) - see [Fluid Paint](https://github.com/dli/paint)
+- https://github.com/pfnet/PaintsChainer - line drawing colorization using Neural network. See [PaintsChainer - A Neural network that automatically colors in line art](http://www.creativeai.net/posts/XBjgPDuH9K8Zq6gpi/paintschainer-a-neural-network-that-automatically-colors-in)
+
+Draw 3D model from 2D sketch:
+
+- [Takeo Igarashi](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/teddy/teddy.htm) - Teddy: A Sketching Interface for 3D Freeform Design
+- [Takeo Igarashi](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/java/smoothteddy/index.html) - SmoothTeddy: Quick 3D Modeling and Painting
+- [Takeo Igarashi](http://www-ui.is.s.u-tokyo.ac.jp/~takeo/chateau/chateau.htm) - Chateau : A Suggestive Interface for 3D Drawing
+- [Smooth Meshes for Sketch-based Freeform Modeling](http://wayback.archive.org/web/20160616201745/http://www-ui.is.s.u-tokyo.ac.jp/~takeo/papers/i3dg2003.pdf)
+- [Adaptive Unwrapping for Interactive Texture Painting](http://wayback.archive.org/web/20160616203050/http://www-ui.is.s.u-tokyo.ac.jp/%7Etakeo/papers/i3dg2001.pdf) - A Sketching Interface for 3D Freeform Design
+- [Plushie:An Interactive Design System for Plush Toys](http://www.geocities.jp/igarashi_lab/plushie/index-e.html)
+- [Quasimondo - Mario Klingemann's Flash Blog: Flash BitmapExporter: Compress and Save Images](http://www.quasimondo.com/archives/000572.php) - draw lines (three constants r1, r2 and r3 are called f1, f2 and f3)
+
+## Depth of field
+
+- [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=56) - Depth of field
+- [Quasimondo - Mario Klingemann's Flash Blog: Flash 8: Depth Of Field Simulation](http://www.quasimondo.com/archives/000564.php) - Apply Depth Of Field to 2D image
 
 ## Frustum culling
 

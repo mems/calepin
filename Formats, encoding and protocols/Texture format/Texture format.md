@@ -87,7 +87,6 @@ Codecs: S3TC/DXT (DXT1, DXT2), PVRTC, ATITC/ATC, ETC1, BPTC (BC7), ASTC, 3DC, RG
 
 Specific: Crabby, S3TC/DXT derivated (RGBV, RGBM, CRN, YCoCg DXT5)
 
-
 - KTX, an OpenGL standard, multiple mipmap levels supported with multitude of texture formats.
 - PKM, for ETC textures containing a single mipmap level.
 - DDS, for DXTC, RGTC, BPTC (BC1-7) or uncompressed textures, multiple mipmap levels supported.
@@ -423,6 +422,12 @@ Notes:
 | APC6         | APC6   | ?       | ?        | ?                   | ?             | ?     |                                                                                              |
 | UYVY         | UYVY   | ?       | UYVY     | 4:2:2               | ?             | ?     |                                                                                              |
 | YUY2         | YUY2   | ?       | YUYV     | 4:2:2               | ?             | ?     |                                                                                              |
+
+### Basis Universal
+
+> Basis Universal is a ["supercompressed"](http://gamma.cs.unc.edu/GST/gst.pdf) GPU texture compression system that outputs a highly compressed intermediate file format (.basis) that can be quickly transcoded to a [very wide variety](https://github.com/BinomialLLC/basis_universal/wiki/OpenGL-texture-format-enums-table) of GPU compressed and uncompressed pixel formats: ASTC 4x4 L/LA/RGB/RGBA, PVRTC1 4bpp RGB/RGBA, PVRTC2 RGB/RGBA, BC7 mode 6 RGB, BC7 mode 5 RGB/RGBA, BC1-5 RGB/RGBA/X/XY, ETC1 RGB, ETC2 RGBA, ATC RGB/RGBA, ETC2 EAC R11 and RG11, FXT1 RGB, and uncompressed raster image formats 8888/565/4444.
+
+- [BinomialLLC/basis_universal: Basis Universal GPU Texture Codec](https://github.com/BinomialLLC/basis_universal)
 
 ### KTX
 

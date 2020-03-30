@@ -814,7 +814,12 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Proces
 
 - [Download Adobe Creative Cloud apps | Free Adobe Creative Cloud trial](https://www.adobe.com/creativecloud/desktop-app.html)
 - [Adobe Zii Universal Patcher – Adobe Zii](https://www.adobezii.com/universal-patcher/)
+- [CCMaker Download Version 1.3.7 For Windows & Mac \[2020\]](https://official-ccmaker.com/)
 - `sudo xattr -cr "MyApp.app"`
+
+### Offline packages
+
+See first [Adobe Offline Package Generator v0.1.1 (macOS only)](https://gist.github.com/ayyybe/a5f01c6f40020f9a7bc4939beeb2df1d) (see [Download CC 2020 (+ old versions) directly from Adobe : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/fmv3sm/download_cc_2020_old_versions_directly_from_adobe/))
 
 ```js
 // Open in a browser https://prod-rel-ffc-ccm.oobesaas.adobe.com/ then execute that script in Console
@@ -1626,8 +1631,6 @@ On Android:
 If display "Add-on migration in progress - please wait", remove (or rename) the folder `$SYSTEMDATA/addons`
 
 Remove control with [Web interface](https://kodi.wiki/view/Web_interface): use a port like 9080 (default could be already used or blocked)
-
-
 
 ### Set up centralized database in Kodi
 

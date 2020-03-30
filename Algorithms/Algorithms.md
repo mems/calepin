@@ -121,8 +121,39 @@ uint32_t hash(uint32_t v)
 }
 ```
 
+```c
+uint wang_hash(uint seed)
+{
+	seed = (seed ^ 61) ^ (seed >> 16);
+	seed *= 9;
+	seed = seed ^ (seed >> 4);
+	seed *= 0x27d4eb2d;
+	seed = seed ^ (seed >> 15);
+	return seed;
+}
+```
+
+```glsl
+// float hash
+hash(float x) 
+{ 
+	const float e = 1234.5678;
+	return frac(frac(x*e)-x*e);
+}
+
+hash(vec2 xy) 
+{
+	return hash(hash(xy.x)+xy.y);
+}
+```
+
 - [c++ - knuth multiplicative hash - Stack Overflow](https://stackoverflow.com/questions/11871245/knuth-multiplicative-hash)
 - [Hash table — Wikipedia](https://en.wikipedia.org/wiki/Hash_table#Choosing_a_good_hash_function) - Choosing a good hash function
+- [Quick And Easy GPU Random Numbers In D3D11 – Nathan Reed’s coding blog](http://www.reedbeta.com/blog/quick-and-easy-gpu-random-numbers-in-d3d11/)
+- [Comments on the Avalanche Effect](https://marc-b-reynolds.github.io/math/2019/08/10/Avalanche.html)
+- [Can an involution be a competitive bit finalizer?](https://marc-b-reynolds.github.io/math/2019/08/20/InvFinalizer.html)
+- [shader - Random / noise functions for GLSL - Stack Overflow](https://stackoverflow.com/questions/4200224/random-noise-functions-for-glsl/17479300#17479300)
+- ["Best" Integer Hash](https://www.shadertoy.com/view/WttXWX)
 
 ## Inverse kinematics
 

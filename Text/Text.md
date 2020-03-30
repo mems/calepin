@@ -550,7 +550,7 @@ See also
 
 ## T–V distinction
 
-Aka "Tu vous"
+Aka "Tu vous", [social distance](https://en.wikipedia.org/wiki/Social_distance) and [majestic plural](https://en.wikipedia.org/wiki/Royal_we)
 
 "Inscrivez-vous ci-dessous" vs "Inscris-toi ci-dessous" vs "S'inscrire ci-dessous"
 
@@ -558,6 +558,8 @@ Aka "Tu vous"
 
 ![Tu vous logic](t-v.svg)
 
+- [Nosism - Wikipedia](https://en.wikipedia.org/wiki/Nosism)
+- [Singular they - Wikipedia](https://en.wikipedia.org/wiki/Singular_they)
 - infinitif ("Prendre la crème et la rajouter au fromage") vs [Impératif (grammaire) — Wikipédia](https://fr.wikipedia.org/wiki/Imp%C3%A9ratif_%28grammaire%29) ("Prendrez la crème et rajoutez la au fromage")
 - [Banque de dépannage linguistique - Impératif et infinitif](http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?t1=1&id=4208)
 - [T–V distinction — Wikipedia](https://en.wikipedia.org/wiki/T%E2%80%93V_distinction) and [Tutoiement et vouvoiement — Wikipédia](https://fr.wikipedia.org/wiki/Tutoiement_et_vouvoiement)

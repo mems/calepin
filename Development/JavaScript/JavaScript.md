@@ -4872,6 +4872,31 @@ Boolean(element.ownerDocument.compareDocumentPosition(element) & Node.DOCUMENT_P
 
 (works where?) `location(x)`, `Location#protocol=x`, `elm.movie=x`, `elm.value=x`, `elm.values=x`
 
+```js
+// https://source.chromium.org/chromium/_/chromium/devtools/devtools-frontend/+/dbebc4acd3b6d8c31615823c97e5f79c26984657:front_end/object_ui/JavaScriptREPL.js;l=20;drc=d99073444212bb89db6b2e763672c17e3e8f093f
+function wrapObjectLiteral(code) {
+    // Only parenthesize what appears to be an object literal.
+    if (!(/^\s*\{/.test(code) && /\}\s*$/.test(code))) {
+      return code;
+    }
+
+    const parse = (async () => 0).constructor;
+    try {
+      // Check if the code can be interpreted as an expression.
+      parse('return ' + code + ';');
+
+      // No syntax error! Does it work parenthesized?
+      const wrappedCode = '(' + code + ')';
+      parse(wrappedCode);
+
+      return wrappedCode;
+    } catch (e) {
+      return code;
+    }
+  }
+
+```
+
 - [In the DOM, no one will hear you scream](https://slideshare.net/x00mario/in-the-dom-no-one-will-hear-you-scream/20)
 
 ## Eval stack name

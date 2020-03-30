@@ -4,6 +4,7 @@
 
 ## JSON Schema
 
+- [JSON Schema Store](http://schemastore.org/json/)
 - [JSON Schema](http://json-schema.org/)
 - [jdorn/json-editor: JSON Schema Based Editor](https://github.com/jdorn/json-editor)
 - [Understanding JSON Schema — Understanding JSON Schema 1.0 documentation](https://spacetelescope.github.io/understanding-json-schema/)

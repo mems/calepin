@@ -1,3 +1,7 @@
+Aka conception
+
+## Quotes
+
 > A successful software tool is one that was used to do something undreamed of by its author.
 — Stephen C. Johnson
 
@@ -53,6 +57,22 @@ Mitsubishi Pajero (ex: masturbator, wanker)
 [le nouveau logo du CNRS - Etienne Mineur archives](http://www.my-os.net/blog/index.php?2008/11/17/1161-le-logo-du-cnrs)
 
 - [11 brand name that sound really wrong in foreign language - Blog about marketing failure - Marketing Shmarketing](http://marketingshmarketing.net/post/116199876011/11-brand-names-that-sound-really-wrong-in-foreign)
+
+## Lifetime
+
+> Plus longtemps vous travaillez sur un produit, moins vous avez envie d’entendre ce que les gens en pensent.
+> — Astro Teller, SXSW 2015
+
+Lorsqu’on travaille sur un projet, il faut le faire tester le plus tôt possible, condition sine qua non du succès
+
+- [Google Glass : le patron du laboratoire secret de Google reconnaît des erreurs](http://www.lemonde.fr/pixels/article/2015/03/18/google-glass-le-patron-du-laboratoire-secret-de-google-reconnait-des-erreurs_4595780_4408996.html)
+
+## Retrospective
+
+- pas avant la fin de la crise
+- orienté compréhension et solutions
+- pointer le quoi plutôt que le qui
+- évaluer les décisions en fonction des informations et risques du moment, pas en fonction de ce qui s'est révélé par la suite et qu'on sait après coup
 
 ## Counterproductive rules
 
@@ -263,11 +283,11 @@ Aka gamification
 - [Extra Credits - YouTube](https://www.youtube.com/channel/UCCODtTcd5M1JavPCOr_Uydg) - Videos about games: how they are made, what they mean, and how we can make them better. For entertainment, education, etc. Rules, UX, business, etc.
 - [Visual Guide: Multiplayer Level Design — Level Art+Design Portfolio](http://bobbyross.com/library/mpleveldesign)
 
-## Reporting Issues
+## Report issues
 
 - [45 Github Issues Dos and Don'ts](https://davidwalsh.name/45-github-issues-dos-donts)
 
-## Anticipate
+## Anticipante
 
 - [10 ways to avoid CDN issues at peak](https://blog.peer5.com/avoid-cdn-issues-at-peak/)
 

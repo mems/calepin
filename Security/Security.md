@@ -2321,6 +2321,7 @@ See [Prevent violation](#prevent-violation)
 - [w0lfschild/macOS_headers: A consistently maintained dump of most macOS Headers](https://github.com/w0lfschild/macOS_headers)
 - [RE for Beginners | Reverse Engineering](https://www.begin.re/)
 - [Reverse Engineering Stickies.app - Low Level Bits](https://lowlevelbits.org/reverse-engineering-stickies.app/)
+- [Nightmare - Nightmare](https://guyinatuxedo.github.io/) - "Nightmare is an intro to binary exploitation / reverse engineering course based around ctf challenges."
 
 #### Alternative data storage
 
