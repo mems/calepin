@@ -16,26 +16,26 @@ To visit a node for a finite tree
  ```json
  [
 	{
-		name: "1",
-		childNodes: [
+		"name": "1",
+		"childNodes": [
 			{
-				name: "1-1",
-				childNodes: [
+				"name": "1-1",
+				"childNodes": [
 					{
-						name: "1-1-1",
-						childNodes: []
+						"name": "1-1-1",
+						"childNodes": []
 					}
 				]
 			},
 			{
-				name: "1-2",
-				childNodes: []
+				"name": "1-2",
+				"childNodes": []
 			}
 		]
 	},
 	{
-		name: "2",
-		childNodes: []
+		"name": "2",
+		"childNodes": []
 	}
 ]
 ```
