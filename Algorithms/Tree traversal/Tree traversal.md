@@ -13,7 +13,8 @@ Aka tree walking, path finding, pathfinding
 
 To visit a node for a finite tree
  
-	/*
+ ```json
+ [
 	{
 		name: "1",
 		childNodes: [
@@ -36,7 +37,8 @@ To visit a node for a finite tree
 		name: "2",
 		childNodes: []
 	}
-	*/
+]
+```
 
 Should be easier if node API implement pointers like: childNodes, parentNode, nextSibling, previousSibiling, firstChild, etc.
 
