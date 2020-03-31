@@ -4480,7 +4480,7 @@ Or to link to a file:
 
 ### Iterate over stylesheet
 
-See [Tree iteration](Tree traversal#tree-iteration)
+See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md#stack)
 
 **The loop does not support modifications (insert/delete)**
 
@@ -4634,6 +4634,54 @@ Remove all `:hover` and `:active` rules:
 		}
 	}
 </details>
+
+```js
+// Note: if you just want to remove some selector / rules, use:
+// style.textContent = style.textContent.replace(/(.some-selector)(:|\s|,|{)/g, "$1__disabled__$2");
+// Update style as raw CSS instead of use CSSOM is ~110x quicker (ex: 0.2ms vs 23.7ms)
+
+var style = document.getElementById("onetrust-style");
+// CSSStyleSheet and CSSGroupingRule (CSSMediaRule, CSSSupportsRule, CSSDocumentRule, CSSPageRule)
+function removeSelector(rulesSet, filter){
+  var cssRules = rulesSet.cssRules;
+  for(var i = 0; i < cssRules.length;){
+    var rule = cssRules[i];
+    var keep = true;
+    switch(rule.type){
+      case 1://CSSRule.STYLE_RULE:
+        // /!\ "," can be ecaped, see https://mathiasbynens.be/notes/css-escapes
+        // should be selectorText.split(/(?<=[^\\](?:\\\\)*),/)
+        // but look behind is not well supported, simplify by hope escaped "," is not used by this stylesheet
+        var selector = rule.selectorText = rule.selectorText.trim().split(/\s*,\s*/).filter(filter).join(", ");
+        keep = selector.length > 0;
+        break;
+      // rules group CSSGroupingRule
+      case 4://CSSRule.MEDIA_RULE:
+      case 12://CSSRule.SUPPORTS_RULE:
+      case 13://CSSRule.DOCUMENT_RULE:
+      case 6://CSSRule.PAGE_RULE:
+        keep = removeSelector(rule, filter);
+        break;
+      case 3://CSSRule.IMPORT_RULE:
+        keep = removeSelector(rule.styleSheet, filter);// /!\ "null if the style sheet has not yet been loaded or if the style sheet was not loaded because, for example, the media type did not apply."
+        break;
+    }
+
+    if(keep){
+      i++;
+      continue;
+    }
+
+    rulesSet.deleteRule(i);
+  }
+
+  return cssRules.length > 0;
+}
+
+removeSelector(style.sheet, function(selector){
+  return true;
+});
+```
 
 ### Remove all children
 
