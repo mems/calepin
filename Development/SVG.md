@@ -30,7 +30,7 @@ Only `img`, `iframe` and `object` can provide alternative content. `img` only pr
 
 - [Making SVG accessible](http://ljwatson.github.io/decks/2017/lws/index.html)
 - [demosthenes.info – Making SVG Accessible](http://demosthenes.info/blog/1026/Making-SVG-Accessible)
-- http://www.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/
+- [Using ARIA to enhance SVG accessibility | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/2013/12/using-aria-enhance-svg-accessibility/)
 - http://www.sitepoint.com/tips-accessible-svg/
 - https://github.com/SVG-access-W3CG
 - [Making composed-tree.svg more accessible](http://svg-access-w3cg.github.io/use-case-examples/composed-tree-notes.html)

@@ -2905,3 +2905,11 @@ Icon can be change be changed in `/System/Library/Displays/Overrides/Icons.plist
 - `log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h`
 - [MacBook Pro's shutting down in sleep | Discussion | Jamf Nation](https://www.jamf.com/jamf-nation/discussions/24990/macbook-pro-s-shutting-down-in-sleep)
 - [How Power Nap works on your Mac - Apple Support](https://support.apple.com/en-us/HT204032)
+
+## DSLR as a webcam
+
+Aka camera as webcam
+
+- [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
+- [How to use your DSLR as a Webcam | Crowdcast Docs](https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-as-a-webcam)
+- [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)

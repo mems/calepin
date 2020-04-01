@@ -959,7 +959,7 @@ Aka a11y
 > build a ramp instead of a staircase
 — [The Veil of Ignorance](http://mrmrs.io/writing/2016/03/23/the-veil-of-ignorance/)
 
-See [Color contrast](UI - UX#color-contrast)
+See [Color contrast](../../User%20Interface%20and%20experience/UI%20-%20UX.md#color-contrast)
 
 Examples (pattern, components):
 
@@ -996,7 +996,7 @@ Examples (pattern, components):
 Others (doc, about, etc.):
 
 - See also [Input-Controlled Web Design](#input-controlled-web-design)
-- See also [SVG](SVG#accessibility)
+- See also [SVG](../SVG/SVG.md#accessibility)
 
 - [Tips for making accessibility a core design principle](https://pixelpioneers.co/blog/2017/13-expert-tips-accessibility)
 - [Notes on ARIA by Taylor Hunt on CodePen](https://codepen.io/tigt/post/notes-on-aria)
