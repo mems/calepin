@@ -218,6 +218,7 @@ req.ip
 
 ## NPM
 
+- [how to set shell for npm run-scripts in windows - Stack Overflow](https://stackoverflow.com/questions/23243353/how-to-set-shell-for-npm-run-scripts-in-windows) - NPM can use bash as shell on Windows (require [git for Windows](https://git-scm.com/download/win))
 - [node.js - Difference between npm install and npm run build - Stack Overflow](https://stackoverflow.com/questions/43664200/difference-between-npm-install-and-npm-run-build)
 - [`npm install` modifies `package-lock`! (changes resolved url protocol!) · Issue #20106 · npm/npm](https://github.com/npm/npm/issues/20106) - npm install issue that update `package-lock.json` by changing `https://` to `http://`. To fix it, use `rm -rf node_modules/ && npm cache clean --force && npm i`. See also [Some packages have dist.tarball as http and not https - 🐞 bugs - npm forum](https://npm.community/t/some-packages-have-dist-tarball-as-http-and-not-https/285/15)
 - `NODE_OPTIONS=--max-old-space-size=4096 npm run myscript`, see [Best way to set --max-old-space-size when running npm? · Issue #12238 · npm/npm](https://github.com/npm/npm/issues/12238)
