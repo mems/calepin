@@ -1,8 +1,8 @@
 > When the point of contact between the product and the people becomes a point of friction, then the industrial designer has failed. On the other hand if people are made safer, more comfortable, more eager to purchase, more efficient – or just plain happier -by contact with the product, then the designer has succeeded.
-— Henry Dreyfuss in Designing for People
+> — Henry Dreyfuss in Designing for People
 
 > "Done" is not when you ship, but when a person uses it successfully.
-— Adam Silver
+> — Adam Silver
 
 > Does the product intuitively help me achieve a task, quickly, when I’m up against a deadline?
 
@@ -138,7 +138,7 @@ Patterns:
 - [Golden Rules of User Interface Design](http://babich.biz/golden-rules-of-user-interface-design/)
 
 > Too Many Messages Equals No Message
-— Peep Laja
+> — Peep Laja
 
 ## Majority of users are not high end user
 
@@ -222,12 +222,12 @@ TL;DR: **Don't do that!**
 > - Don’t interrupt someone’s experience.
 > - Don’t ask for an app rating after your app has crashed. That’s just stupid.
 > - Do delay asking for a rating until there’s a likely moment of constructive feedback (as you’ll read later), or a positive rating.
-— https://medium.com/circa/the-right-way-to-ask-users-to-review-your-app-9a32fd604fca
+> — https://medium.com/circa/the-right-way-to-ask-users-to-review-your-app-9a32fd604fca
 
 ## A good UI don't need a tutorial
 
 > A user interface is like a joke. If you have to explain it, it’s not that good.
-— Martin LeBlanc
+> — Martin LeBlanc
 
 > If you have to draw me a picture to "show" me how to use your UI, you're doing it wrong
 
@@ -270,7 +270,7 @@ Use a meaning label instead of "OK" ex: "Save" / "Save the file", "Print", "Open
 ### Buttons shouldn't have a hand cursor
 
 > `pointer`: The cursor is a pointer that indicates a link
-— https://www.w3.org/TR/css-ui-3/#propdef-cursor
+> — https://www.w3.org/TR/css-ui-3/#propdef-cursor
 
 - [Buttons shouldn’t have a hand cursor — Simple = Human — Medium](https://medium.com/simple-human/buttons-shouldnt-have-a-hand-cursor-b11e99ca374b)
 - [Bootstrap 4 removes hand cursor on buttons](https://github.com/twbs/bootstrap/commit/232e86d0b4e1a4ff0dc3aa4e6d75c14a54fa8ac8), [Remove `cursor: pointer;`](https://github.com/twbs/bootstrap/pull/21812) and [Bootstrap 4 removes hand cursor on buttons : webdev](https://www.reddit.com/r/webdev/comments/5qx6zd/bootstrap_4_removes_hand_cursor_on_buttons/)
@@ -284,7 +284,7 @@ See [Buttons vs links](HTML#buttons-vs-links)
 > Apple recommends a minimum target size of 44 pixels wide 44 pixels tall. Since physical pixel size can vary by screen density, Apple’s pixel specifications apply best to the iPhone’s 320 by 480 pixel, 3.5 inch display.
 > Google has following recommendations for touch targets — they should be at least 48 x 48dp. In most cases, they should be separated by 8dp of space or more to ensure balanced information density and usability. A touch target of 48 x 48dp results in a physical size of about 9mm, regardless of screen size. Touch targets include the area that responds to user input. Touch targets extend beyond the visual bounds of an element: an element like an icon may appear to be 24 x 24dp but the padding surrounding it comprises the full 48 x 48dp touch target.
 > Sufficient spacing between touch targets. The main reason to have a minimum distance between touch targets is to prevent users from touching and invoking the incorrect action. This becomes extremely important in scenarios where you have icons like “Save” and “Cancel” right next to each other. Using at least 2 mm of padding between targets is extremely important in this case.
-— [Tips for Using Icons in Your App](https://uxplanet.org/tips-for-using-icons-in-your-app-541a6728e7d4#)
+> — [Tips for Using Icons in Your App](https://uxplanet.org/tips-for-using-icons-in-your-app-541a6728e7d4#)
 
 - http://ux.stackexchange.com/questions/39023/what-is-the-optimum-button-size-of-touch-screen-applications
 - http://ux.stackexchange.com/questions/1226/smallest-button-size-and-spacing-for-a-touchscreen
@@ -318,7 +318,7 @@ See [Buttons vs links](HTML#buttons-vs-links)
 ## Icon
 
 > The best icon is a text label
-— [Thomas Byttebier - The best icon is a text label](http://thomasbyttebier.be/blog/the-best-icon-is-a-text-label)
+> — [Thomas Byttebier - The best icon is a text label](http://thomasbyttebier.be/blog/the-best-icon-is-a-text-label)
 
 > Don’t Carry Over Platform-specific Icons
 – [Tips for Using Icons in Your App](https://uxplanet.org/tips-for-using-icons-in-your-app-541a6728e7d4#8d52)
@@ -389,7 +389,7 @@ No content to display, empty list, offline mode, etc.
 Hamburger menu, Kebab menu, Döner menu, Bento menu, Metballs menu
 
 > The mystery meat of mobile navigation
-— Luke Wroblewski
+> — Luke Wroblewski
 
 - [The best icon is a text label](#icon)
 - [The Hamburger Menu Doesn't Work - Deep Design](http://deep.design/the-hamburger-menu/)
@@ -408,7 +408,7 @@ Aka carrousel (FR)
 
 Alternative Idea: Complex Grids
 > Scrolling has become a dominant feature of website navigation, especially on mobile where to click/tap interactions aren’t as reliable. Grids allow the user to scroll and scan through content quickly while being subjected to a mixture of text and images. Our brains tend to feel more familiar with this type of concept because we navigate our social media feeds in the same way. 
-— [5 Fancy (But Useless) Web Components You Should Avoid](http://www.sitepoint.com/5-fancy-useless-web-components-avoid/#alternative-idea:-complex-grids)
+> — [5 Fancy (But Useless) Web Components You Should Avoid](http://www.sitepoint.com/5-fancy-useless-web-components-avoid/#alternative-idea:-complex-grids)
 
 - [Should I Use A Carousel?](http://shouldiuseacarousel.com/)
 - [Why you shouldn't use a slideshow on your website](http://www.fldtrace.com/why-you-shouldnt-use-a-slideshow-on-your-website)
@@ -522,6 +522,8 @@ Don't use select if you have less than 5 choices or more than 15 choices or choi
 - date input for dates / years
 - autocomplete (if too many choices)
 
+- [Stop Using ‘Drop-down’ | Adrian Roselli](https://adrianroselli.com/2020/03/stop-using-drop-down.html)
+- [SXSW Keynote - "You Know What? Fuck Dropdowns." - YouTube](https://www.youtube.com/watch?v=hcYAHix-riY)
 - [The problem with dropdown fields (and what you should use instead) | Design Smarts](https://designsmarts.co/the-problem-with-dropdowns/)
 - [Dropdown alternatives for better (mobile) forms – Zoltan Kollin – Medium](https://medium.com/@kollinz/dropdown-alternatives-for-better-mobile-forms-53e40d641b53)
 - [UX Design: Drop-Downs in Forms](http://babich.biz/ux-design-drop-downs-in-forms/#selectmenuandanumberofoptions)
@@ -586,7 +588,7 @@ Show validation error(s) only after the user enter input (after focus blur), upd
 > The user does not need to know about the state of her value every step along the way; one crisp, clear message when she’s finished is quite enough.
 > [...]
 > Telling the users they’ve made a mistake before they even had a chance to interact with the form is bad UX.
-– [Native form validation — part 1 – Samsung Internet Developers – Medium](https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f1d)
+> — [Native form validation — part 1 – Samsung Internet Developers – Medium](https://medium.com/samsung-internet-dev/native-form-validation-part-1-bf8e35099f1d)
 
 See also [Error messages](#error-messages)
 
@@ -743,7 +745,7 @@ Scroll native behaviors:
 - subcontent scroll (html: textarea, iframe, select)
 
 > In Safari, Mail, Contacts, and many other apps, tap the status bar at the top of the screen — which displays the network information, time, and battery level — to scroll quickly to the top.
-— [Apple - iPhone - Tips and Tricks](http://web.archive.org/web/20110328034937/http://www.apple.com/iphone/tips/)
+> — [Apple - iPhone - Tips and Tricks](http://web.archive.org/web/20110328034937/http://www.apple.com/iphone/tips/)
 
 - https://en.wikipedia.org/wiki/Scrollbar
 - http://ux.stackexchange.com/questions/79862/jump-to-parts-of-file-in-scrollbar
@@ -784,7 +786,7 @@ Video player controls:
 ## Scroll and zoom
 
 > It's not OK to change scroll dynamics, the same way it's not OK to change mouse dynamics.
-– [Scrolljacking is interfacejacking](http://codepen.io/gunderson/pen/GJJPpV)
+> – [Scrolljacking is interfacejacking](http://codepen.io/gunderson/pen/GJJPpV)
 
 > Overriding the browser’s default scrolling behavior introduces a whole lot of complexity, and that has implications.
 
@@ -799,7 +801,7 @@ See also
 Scrolls and zoom is an option:
 
 > Unfortunately, it’s a common mistake to purposefully design a website in a way to avoid scrolling
-- [Your Body Text Is Too Small – Medium](https://medium.com/@xtianmiller/your-body-text-is-too-small-5e02d36dc902#b90d)
+> — [Your Body Text Is Too Small – Medium](https://medium.com/@xtianmiller/your-body-text-is-too-small-5e02d36dc902#b90d)
 
 - [Everybody Scrolls.](http://www.hugeinc.com/ideas/perspective/everybody-scrolls)
 - [Your Body Text Is Too Small – Medium](https://medium.com/@xtianmiller/your-body-text-is-too-small-5e02d36dc902#0def)
@@ -827,7 +829,7 @@ Use "Load more" button, and a transient message "Loading more posts"
 Aka simplicity
 
 > single escalators have a higher capacity than double escalators, because passengers don’t dither trying to work out which escalator to take
-— Jack May [If we want to increase escalator capacity, why don’t we just run the things faster? | CityMetric](http://www.citymetric.com/horizons/if-we-want-increase-escalator-capacity-why-don-t-we-just-run-things-faster-1844)
+> — Jack May [If we want to increase escalator capacity, why don’t we just run the things faster? | CityMetric](http://www.citymetric.com/horizons/if-we-want-increase-escalator-capacity-why-don-t-we-just-run-things-faster-1844)
 
 - [When Simplicity Is the Solution - WSJ](http://www.wsj.com/news/articles/SB10001424127887324000704578386652879032748)
 - [Sentence length: why 25 words is our limit | Inside GOV.UK](https://insidegovuk.blog.gov.uk/2014/08/04/sentence-length-why-25-words-is-our-limit/)
@@ -925,7 +927,7 @@ See (Inspector improvements) [Developer Edition 48 – Firebug features, editabl
 - more characters
 
 > Use an Ellipsis When More Input Is Required
-– [OS X Human Interface Guidelines: Terminology and Wording](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/TerminologyWording.html#//apple_ref/doc/uid/20000957-CH15-SW3)
+> – [OS X Human Interface Guidelines: Terminology and Wording](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/TerminologyWording.html#//apple_ref/doc/uid/20000957-CH15-SW3)
 
 - [The Mighty Ellipsis – Medium](https://medium.com/@jsaito/the-mighty-ellipsis-6c2c00ddc864#)
 
@@ -945,7 +947,7 @@ Aka performance preception, perceived performance, speed
 > * 300-1000ms: Machine is working
 > * 1000ms+: Likely mental context switch
 > * 10000ms+: Task is abandoned
-— High Performance Browser Networking by Ilya Grigorik
+> — High Performance Browser Networking by Ilya Grigorik
 
 - 0.1s: system is reacting instantaneously
 - 1.0s: the limit for the user's flow of thought to stay uninterrupted

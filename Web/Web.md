@@ -6736,6 +6736,35 @@ $date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
 - scripts or content not executed/loaded because CSP don't allow it
 - [Redirects can break `POST`](#redirects-can-break-post)
 
+> 1. open Chrome
+> 2. open a white page:
+>     1. open a new tag
+>     2. write this URL in address bar + enter : about:blank
+> 3. open developement tools:  
+>     - Crtl+Maj+I
+>     - or Menu at the top right (< ⁝ >), then "More tools", then "Developement tools"
+>     - or right clic on page, then "Inspect"
+> 4. enable history logs perservation:
+>     1. open "Console" tab
+>     2. open the menu "Console settings" (< ⚙️ >)
+>     3. check "Preserve log"
+> 5. enable requests history perservation:  
+>     1. open "Network" tab
+>     2. check "Preserve log"
+> 6. follow your scenario: **keep developement tools opened in background**  
+>     1. open the first page (in the browser tab by write/pasting it URL in the address bar + enter)
+>     2. the follow the rest of the scenario
+> 7. once the scenario is complete, **without closing the browser tab**, show the developement tools window
+> 8. save console logs:
+>     1. go to "Console" tab
+>     2. right click on the main area (where you see yellow, red and white entries)
+>     3. choose "Save as..."
+> 9. save requests hisoty:
+>     1. go to "Network" tab
+>     2. right click on the main area (where you see all logged entries)
+>     3. choose "Save all as HAR with content"
+> 10. send us both saved files
+
 ## Cross domain & integrity
 
 - `integrity` `<script>` and `<link>` attribute
