@@ -13,7 +13,6 @@ purge
 - [A practical guide to securing macOS](https://github.com/drduh/macOS-Security-and-Privacy-Guide)
 - Self-hosting Apple Software Updates https://github.com/wdas/reposado
 - [Startup key combinations for Mac - Apple Support](https://support.apple.com/en-us/HT201255)
-- [Download Java for OS X 2015-001](https://support.apple.com/kb/dl1572?locale=en_US)
 - [Macs – The Eclectic Light Company](https://eclecticlight.co/category/macs/)
 - [Mac OS X - ForensicsWiki](http://www.forensicswiki.org/wiki/Mac_OS_X)
 
@@ -2913,3 +2912,34 @@ Aka camera as webcam
 - [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
 - [How to use your DSLR as a Webcam | Crowdcast Docs](https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-as-a-webcam)
 - [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)
+
+## Java
+
+- Java 8 is the only supported version which runs applets
+- `/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java` is Apple's Java version. Keep it. (`/usr/libexec/java_home` and `/usr/bin/java` point to it). See ["**Do NOT remove any content** in the JavaVM.framework"](https://superuser.com/questions/564687/how-do-i-uninstall-java6-from-mac-os-x/712783#712783)
+- `/System/Library/Java/JavaVirtualMachines/` is JDK location where Apple's Java 6 is installed (still the case?)
+- `/Library/Java/JavaVirtualMachines/`  default location of JDK installs
+- `/usr/libexec/java_home -V` get list of installed installed JVMs
+
+Install JDK with `sudo port install openjdk14` or download it from [JDK Builds from Oracle](https://jdk.java.net/). See also:
+
+- [Installation of the JDK and the JRE on macOS](https://docs.oracle.com/javase/10/install/installation-jdk-and-jre-macos.htm#JSJIG-GUID-2FE451B0-9572-4E38-A1A5-568B77B146DE)
+- [Java SE - Downloads | Oracle Technology Network | Oracle](https://www.oracle.com/java/technologies/javase-downloads.html)
+
+Uninstall Oracle Java by deleting the plug-in file (JRE, for applets):
+
+```sh
+sudo rm -rf "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin"
+sudo rm -rf "/Library/PreferencePanes/JavaControlPanel.prefpane"
+sudo rm -fr "~/Library/Application Support/Oracle/Java"
+```
+
+Uninstall Oracle Java JDK:
+
+```sh
+sudo rm -rf "/Library/Java/JavaVirtualMachines/jdk-interim.update.patch.jdk"
+```
+
+- [java - What is the difference between JDK and JRE? - Stack Overflow](https://stackoverflow.com/questions/1906445/what-is-the-difference-between-jdk-and-jre/34510731#34510731) - JRE vs JDK
+- [Download Java for OS X 2015-001](https://support.apple.com/kb/dl1572?locale=en_US)
+- [How do I uninstall Java on my Mac?](https://www.java.com/en/download/help/mac_uninstall_java.xml)

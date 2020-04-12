@@ -20,6 +20,7 @@ Start with `bplist00` (binary plists)
 ## Tools and libraries
 
 - libplist
+- [`/usr/libexec/PlistBuddy`](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/PlistBuddy.8.html)
 - [plutil(1) Mac OS X Manual Page](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/plutil.1.html)
 - [Converting Binary Plists - ForensicsWiki](http://www.forensicswiki.org/wiki/Converting_Binary_Plists)
 - [3breadt/dd-plist: A java library providing support for ASCII, XML and binary property lists.](https://github.com/3breadt/dd-plist)

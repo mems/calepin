@@ -18,6 +18,45 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 > 
 > — [Why Is CSS So Weird? - YouTube](https://www.youtube.com/watch?v=aHUtMbJw8iA)
 
+> Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread 
+> - tu as testé en dark mode ?
+> - en "light" mode ?
+> - avec un fort zoom ?
+> - avec un fort zoom texte ?
+> - avec une combinaison des précédents ?
+> - si ton viewport est petit ?
+> - si ton viewport est immense ?
+> - si ton viewport est large mais très peu haut ? (mortel celui-là)
+> - si ton viewport est étroit mais haut ?
+> - sur tous les navigateurs ?
+> - sur tous les systèmes ?
+> - sur Safari Mobile ?
+> - sur Android ?
+> - avec des contenus générés improbables ?
+> - si la structure change ou est reprise ailleurs, ça pète ?
+> - si les effets de bords de ta modif font des dégâts ?
+> - à propos, c'est scopé correctement ?
+> - si ça passe au print ?
+> - si en high contrast mode ça déconne pas ?
+> - si ton composant se retrouve dans n'importe quel contexte ?
+> - si ton composant se retrouve imbriqué dans un autre ?
+> - et au fait, le code CSS il est léger ?
+> - et maintenable ?
+> - et ça déclenche pas trop de reflow au fait ?
+> - et bien sûr, les contenus cachés sont plus focusables ?
+> - les anims sont fluides ?
+> - les transitions aussi ?
+> - et les contenus cachés par transitions/animations ne sont plus focusables ?
+> - et si on désactive les animations, ça le prend en compte ?
+> - et c'est skinnable si jamais ?
+> - et le(s) fichier(s) générés ils sont légers et rapides ?
+> - et ça matche avec les directives CSP ?
+> - Au fait, en RTL, ça passe ?
+> - et ton interface passe bien quand il y a tous les composants dans le pire des cas ? Et quand il y a rien ?
+> - et ton interface avec beaucoup de contenus/très peu de contenus, ça roule ?
+> 
+> — [Nicolas Hoffmann on Twitter: "Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread - tu as testé en dark mode ? - en "light" mode ? - avec un fort zoom ? - avec un fort zoom texte ? - avec une combinaison des précédents ? - si ton viewport est petit ?" / Twitter](https://twitter.com/Nico3333fr/status/1245641136011538437)
+
 ## "HTML once, redesign CSS"
 
 It's an utopy saying that when you change website design, you just need to change the CSS.
@@ -2401,6 +2440,7 @@ Unsuall selector: `.foo:not(:hover) > .bar:hover` ("The parent of an element tha
 
 See [JavaScript selectors](HTML#javascript-selectors)
 
+- [Selectors Explained](https://hugogiraudel.github.io/selectors-explained/)
 - [CSS4-Selectors | All selectors from CSS4 to CSS1](https://css4-selectors.com/selectors/)
 - [Splicing HTML’s DNA With CSS Attribute Selectors — Smashing Magazine](https://www.smashingmagazine.com/2018/10/attribute-selectors-splicing-html-dna-css/)
 - [Label-to-Input States](http://kizu.ru/en/blog/label-to-input/)
@@ -2737,6 +2777,8 @@ Chrome is better to animate (or make a transition using transform) a large conta
 
 **It's a hack and maybe not work in the future!** Force layer creation using `translate3d()` instead of `translate()` or use `transform: translateZ(0)`. Maybe usefull to use in conjunction with `backface-visibility: hidden;`
 
+- use image instead of box shadow or filter
+    - [CSS Findings From The New Facebook Design](https://ishadeed.com/article/new-facebook-css/#using-an-image-for-the-shadow) - [Royi Hagigi on Twitter: "@codervandal @rauchg It's for performance. A box shadow on the floating header like that was killing scroll perf in browsers" / Twitter](https://twitter.com/rhagigi/status/1245877168661344256)
 - CSS3 Gradients vs Image Gradients:
 	- [CSS gradients are faster than SVG backgrounds | Lea Verou](http://lea.verou.me/2011/08/css-gradients-are-much-faster-than-svg/)
 	- [CSS linear gradient that kills firefox's performance :'(](https://gist.github.com/foca/3888302)

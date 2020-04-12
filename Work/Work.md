@@ -76,6 +76,7 @@ Not for team or at least without expertise requirements
 - [Ingénieur Full Stack : mythe ou réalité aujourd'hui ? Peut-on vraiment avoir un haut niveau d'expertise du back-end au front-end ?](https://www.developpez.com/actu/212916/Ingenieur-Full-Stack-mythe-ou-realite-aujourd-hui-Peut-on-vraiment-avoir-un-haut-niveau-d-expertise-du-back-end-au-front-end/)
 - [I Don’t Believe in Full-Stack Engineering • Robin Rendle](https://robinrendle.com/notes/i-dont-believe-in-full-stack-engineering/)
 - [Développeur full stack — Wikipédia](https://fr.wikipedia.org/wiki/D%C3%A9veloppeur_full_stack)
+- [CSS](../Development/CSS/CSS.md) - "faire de l'UI c'est facile, c'est même pas un vrai métier"
 
 ## Management
 

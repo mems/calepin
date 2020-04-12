@@ -1808,85 +1808,126 @@ Aka stream editor
 
 Note: sed uses stdin and stdout. Newer versions support inplace editing with the -i option
 
+Remove multiline comment:
+
+```sh
+# Remove in place all multiline comments
+# Note: see also m regex flag
+sed -Ei -e '1h;2,$H;$!d;g' -e 's|/\*.*?\*/||g' file.ext
+
+# Single line only (sed match by default on line basis)
+sed -i '/<!--.*-->/ d' file
+
+# Note: the , implied the multiple lines.
+sed -i '/<!--/,/-->/ d' file
+```
+
+See also:
+
+- [regular expression - How can I use sed to replace a multi-line string? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string/235016#235016)
+- [sed - Remove multi-line comments - Stack Overflow](https://stackoverflow.com/questions/13061785/remove-multi-line-comments)
+- [Multiline techniques (sed, a stream editor)](https://www.gnu.org/software/sed/manual/html_node/Multiline-techniques.html)
+
+Search an replace in files
+
+```sh
+#/bin/bash
+
+# Search files that match some pre conditions then apply remplacements
+# find . -type f -iname "*.aspx" -exec grep -q -i -E "Page Language=\"VB\"" {} \; -exec grep -q -i -E "<Fnac:HtmlFooter" {} \; -exec ./substitute.sh {} \; -exec unix2dos -q {} \; -print
+
+REGEXP='<Fnac:HtmlFooter\s+ID="HtmlFooter"\s+runat="server"(\s+Omniture="Default")?\s+OmnitureEVar2="([^"]*)"(\s+OmniturePageName="([^"]*)")?(\s+TagCommander="Default")?\s+TagCommanderIdentifier="1"\s+TagCommanderTemplateType="([^"]*)"\s+TagCommanderTemplateName="([^"]*)"\s+/>'
+
+# All chars must be escaped, only newlines are kept for readability
+REPLACEMENT=$(cat <<EOF | sed ':a;N;$!ba;s/\n/\\n/g'
+<%
+' Html.SetTrackingValues(Tracker.Omniture, new {...});
+TrackingHelpers.SetTrackingValues(Tracker.TagCommander, New With
+{
+  Key .template_type = "\6",
+  Key .template_name = "\7"
+})
+TrackingHelpers.SetTrackingValues(Tracker.Omniture, New With
+{
+  Key .eVar2 = "\2",
+  Key .pageName = "\4"
+})
+%>
+<%=WebFormsMvcUtilities.Partial("~/Shared/_Tracking.cshtml", New List(Of Tracker)({ Tracker.TagCommander, Tracker.Omniture }))%>
+</body>
+</html>
+EOF
+)
+
+sed -Ei 's|<%@ Register TagPrefix="fnac" TagName="HtmlFooter" Src="~/Nav/Core/Common/HtmlControls/HtmlFooter.ascx" %>||' "$@"
+sed -Ei -e '1h;2,$H;$!d;g' -e "s|$REGEXP|$REPLACEMENT|" "$@"
+```
+
 Replace string1 with string2
 
 	sed 's/string1/string2/g'
-
 
 Modify anystring1 to anystring2
 
 	sed 's/\(.*\)1/\12/g'
 
-
 Remove comments and blank lines
 
 	sed '/^ *#/d; /^ *$/d'
-
 
 Concatenate lines with trailing \
 
 	sed ':a; /\\$/N; s/\\\n//; ta'
 
-
 Remove trailing spaces from lines
 
 	sed 's/[ \t]*$//'
-
 
 Escape shell metacharacters active within double quotes
 
 	sed 's/\([`"$\]\)/\\\1/g'
 
-
 Right align numbers
 
 	seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"
-
 
 Duplicate a column
 
 	seq 10 | sed p | paste - -
 
-
 Print 1000th line
 
 	sed -n '1000{p;q}'
-
 
 Print lines 10 to 20
 
 	sed -n '10,20p;20q'
 
-
 Extract title from HTML web page
 
 	sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q'
-
 
 Delete a particular line
 
 	sed -i 42d ~/.ssh/known_hosts
 
+### Other text operations
 
 Sort IPV4 ip addresses
 
 	sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
 
-
 Case conversion
 
 	echo 'Test' | tr '[:lower:]' '[:upper:]'
-
 
 Filter non printable characters
 
 	tr -dc '[:print:]' < /dev/urandom
 
-
 cut fields separated by blanks
 
 	tr -s '[:blank:]' '\t' </proc/diskstats | cut -f4
-
 
 Count lines
 

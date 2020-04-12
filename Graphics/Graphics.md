@@ -1455,45 +1455,47 @@ Do
 
 	y += 5 * (1.0 - abs(sign(x)));
 
-	vec4 when_eq(vec4 x, vec4 y) {
-		return 1.0 - abs(sign(x - y));
-	}
-	
-	vec4 when_neq(vec4 x, vec4 y) {
-		return abs(sign(x - y));
-	}
-	
-	vec4 when_gt(vec4 x, vec4 y) {
-		return max(sign(x - y), 0.0);
-	}
-	
-	vec4 when_lt(vec4 x, vec4 y) {
-		return max(sign(y - x), 0.0);
-	}
-	
-	vec4 when_ge(vec4 x, vec4 y) {
-		return 1.0 - when_lt(x, y);
-	}
-	
-	vec4 when_le(vec4 x, vec4 y) {
-		return 1.0 - when_gt(x, y);
-	}
-	
-	vec4 and(vec4 a, vec4 b) {
-		return a * b;
-	}
-	
-	vec4 or(vec4 a, vec4 b) {
-		return min(a + b, 1.0);
-	}
-	
-	vec4 xor(vec4 a, vec4 b) {
-		return (a + b) % 2.0;
-	}
-	
-	vec4 not(vec4 a) {
-		return 1.0 - a;
-	}
+```glsl
+vec4 when_eq(vec4 x, vec4 y) {
+	return 1.0 - abs(sign(x - y));
+}
+
+vec4 when_neq(vec4 x, vec4 y) {
+	return abs(sign(x - y));
+}
+
+vec4 when_gt(vec4 x, vec4 y) {
+	return max(sign(x - y), 0.0);
+}
+
+vec4 when_lt(vec4 x, vec4 y) {
+	return max(sign(y - x), 0.0);
+}
+
+vec4 when_ge(vec4 x, vec4 y) {
+	return 1.0 - when_lt(x, y);
+}
+
+vec4 when_le(vec4 x, vec4 y) {
+	return 1.0 - when_gt(x, y);
+}
+
+vec4 and(vec4 a, vec4 b) {
+	return a * b;
+}
+
+vec4 or(vec4 a, vec4 b) {
+	return min(a + b, 1.0);
+}
+
+vec4 xor(vec4 a, vec4 b) {
+	return (a + b) % 2.0;
+}
+
+vec4 not(vec4 a) {
+	return 1.0 - a;
+}
+```
 
 - [Avoiding Shader Conditionals](http://theorangeduck.com/page/avoiding-shader-conditionals)
 
@@ -1501,213 +1503,217 @@ Do
 
 From https://github.com/devongovett/glsl.js/blob/master/stdlib.glsl
 
-	// Angle and Trigonometry
-	const float PI = 3.141592653589793;
-	
-	float radians(float degrees) {
-		return PI / 180.0 * degrees;
-	}
-	
-	float degrees(float radians) {
-		return 180.0 / PI * radians;
-	}
-	
-	float sin(float x);
-	float cos(float x);
-	float tan(float x);
-	float asin(float x);
-	float acos(float x);
-	float atan(float x);
-	
-	// sin, cos, tan, asin, acos, atan, atan
-	
-	// Exponential Functions
-	// pow, exp, log, exp2, log2, sqrt, inversesqrt
-	float sqrt(float x) {
-		return 0.0; // use JS sqrt
-	}
-	
-	// Common Functions
-	float abs(float x) {
-		return x >= 0.0 ? x : -x;
-	}
-	
-	float sign(float x) {
-		return x > 0.0 ? 1.0 : x == 0.0 ? 0.0 : -1.0;
-	}
-	
-	float floor(float x) {
-		return float(int(x));
-	}
-	
-	// ceil
-	
-	float fract(float x) {
-		return x - floor(x);
-	}
-	
-	float mod(float x, float y) {
-		return x - y * floor(x / y); // TODO: use JS mod directly??
-	}
-	
-	// mod2
-	
-	float min(float x, float y) {
-		return y < x ? y : x;
-	}
-	
-	// min2
-	
-	float max(float x, float y) {
-		return x < y ? y : x;
-	}
-	
-	// max2
-	
-	float clamp(float x, float min, float max) {
-		return min(max(x, min), max);
-	}
-	
-	float mix(float x, float y, float a) {
-		return x * (1.0 - a) + y * a;
-	}
-	
-	// mix2
-	
-	float step(float edge, float x) {
-		return x < edge ? 0.0 : 1.0;
-	}
-	
-	// step2
-	
-	float smoothstep(float edge0, float edge1, float x) {
-		float t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
-		return t * t * (3.0 - 2.0 * t);
-	}
-	
-	// Geometric Functions
-	float length(vec2 x) {
-		return sqrt(x.x * x.x + x.y * x.y);
-	}
-	
-	float distance(vec2 p0, vec2 p1) {
-		return length(p0 - p1);
-	}
-	
-	// dopt, cross, normalize, faceforward, reflect, refract
-	
-	// Matrix functions
-	// matrixCompMult, 
-	
-	// Vector Relational Functions
-	bvec2 lessThan(vec2 x, vec2 y) {
-		return bvec2(x.x < y.x, x.y < y.y);
-	}
-	
-	bvec2 lessThanEqual(vec2 x, vec2 y) {
-		return bvec2(x.x <= y.x, x.y <= y.y);
-	}
-	
-	bvec2 greaterThan(vec2 x, vec2 y) {
-		return bvec2(x.x > y.x, x.y > y.y);
-	}
-	
-	bvec2 greaterThanEqual(vec2 x, vec2 y) {
-		return bvec2(x.x >= y.x, x.y >= y.y);
-	}
-	
-	bvec2 equal(vec2 x, vec2 y) {
-		return bvec2(x.x == y.x, x.y == y.y);
-	}
-	
-	bvec2 notEqual(vec2 x, vec2 y) {
-		return bvec2(x.x != y.x, x.y != y.y);
-	}
-	
-	bool any(bvec2 x) {
-		return x.x || x.y;
-	}
-	
-	bool all(bvec2 x) {
-		return x.x && x.y;
-	}
-	
-	bvec2 not(bvec2 x) {
-		return bvec2(!x.x, !x.y);
-	}
-	
-	// Texture Lookup Functions
-	// texture2D, texture2DProj, texture2DProgLod, textureCube, textureCubeLod
+```glsl
+// Angle and Trigonometry
+const float PI = 3.141592653589793;
+
+float radians(float degrees) {
+	return PI / 180.0 * degrees;
+}
+
+float degrees(float radians) {
+	return 180.0 / PI * radians;
+}
+
+float sin(float x);
+float cos(float x);
+float tan(float x);
+float asin(float x);
+float acos(float x);
+float atan(float x);
+
+// sin, cos, tan, asin, acos, atan, atan
+
+// Exponential Functions
+// pow, exp, log, exp2, log2, sqrt, inversesqrt
+float sqrt(float x) {
+	return 0.0; // use JS sqrt
+}
+
+// Common Functions
+float abs(float x) {
+	return x >= 0.0 ? x : -x;
+}
+
+float sign(float x) {
+	return x > 0.0 ? 1.0 : x == 0.0 ? 0.0 : -1.0;
+}
+
+float floor(float x) {
+	return float(int(x));
+}
+
+// ceil
+
+float fract(float x) {
+	return x - floor(x);
+}
+
+float mod(float x, float y) {
+	return x - y * floor(x / y); // TODO: use JS mod directly??
+}
+
+// mod2
+
+float min(float x, float y) {
+	return y < x ? y : x;
+}
+
+// min2
+
+float max(float x, float y) {
+	return x < y ? y : x;
+}
+
+// max2
+
+float clamp(float x, float min, float max) {
+	return min(max(x, min), max);
+}
+
+float mix(float x, float y, float a) {
+	return x * (1.0 - a) + y * a;
+}
+
+// mix2
+
+float step(float edge, float x) {
+	return x < edge ? 0.0 : 1.0;
+}
+
+// step2
+
+float smoothstep(float edge0, float edge1, float x) {
+	float t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+	return t * t * (3.0 - 2.0 * t);
+}
+
+// Geometric Functions
+float length(vec2 x) {
+	return sqrt(x.x * x.x + x.y * x.y);
+}
+
+float distance(vec2 p0, vec2 p1) {
+	return length(p0 - p1);
+}
+
+// dopt, cross, normalize, faceforward, reflect, refract
+
+// Matrix functions
+// matrixCompMult, 
+
+// Vector Relational Functions
+bvec2 lessThan(vec2 x, vec2 y) {
+	return bvec2(x.x < y.x, x.y < y.y);
+}
+
+bvec2 lessThanEqual(vec2 x, vec2 y) {
+	return bvec2(x.x <= y.x, x.y <= y.y);
+}
+
+bvec2 greaterThan(vec2 x, vec2 y) {
+	return bvec2(x.x > y.x, x.y > y.y);
+}
+
+bvec2 greaterThanEqual(vec2 x, vec2 y) {
+	return bvec2(x.x >= y.x, x.y >= y.y);
+}
+
+bvec2 equal(vec2 x, vec2 y) {
+	return bvec2(x.x == y.x, x.y == y.y);
+}
+
+bvec2 notEqual(vec2 x, vec2 y) {
+	return bvec2(x.x != y.x, x.y != y.y);
+}
+
+bool any(bvec2 x) {
+	return x.x || x.y;
+}
+
+bool all(bvec2 x) {
+	return x.x && x.y;
+}
+
+bvec2 not(bvec2 x) {
+	return bvec2(!x.x, !x.y);
+}
+
+// Texture Lookup Functions
+// texture2D, texture2DProj, texture2DProgLod, textureCube, textureCubeLod
+```
 
 ### Colorblind filter
 
-	// https://github.com/PlanetCentauri/ColorblindFilter
-	// https://www.reddit.com/r/gamedev/comments/2i9edg/code_to_create_filters_for_colorblind/
-	// MIT
-	uniform sampler2D tex;
-	uniform int index = 0;
-	void main(void) { vec4 c = texture2D(tex, gl_TexCoord[0].st);
-	mat3 m[9] = 
-	{
-		// normal
-		mat3(
-			1.0    , 0.0    , 0.0  ,
-			0.0    , 1.0    , 0.0  ,
-			0.0    , 0.0    , 1.0
-		),
-		// protanopia
-		mat3(
-			0.56667, 0.43333, 0.0    ,
-			0.55833, 0.44167, 0.0    ,
-			0.0    , 0.24167, 0.75833
-		),
-		// protanomaly
-		mat3(
-			0.81667, 0.18333, 0.0    ,
-			0.33333, 0.66667, 0.0    ,
-			0.0    , 0.125  , 0.875
-		),
-		// deuteranopia
-		mat3(
-			0.625  , 0.375  , 0.0    ,
-			0.7    , 0.3    , 0.0    ,
-			0.0    , 0.3    , 0.7
-		),
-		// deuteranomaly
-		mat3(
-			0.8    , 0.2    , 0.0    ,
-			0.25833, 0.74167, 0.0    ,
-			0.0    , 0.14167, 0.85833
-		),
-		// tritanopia
-		mat3(
-			0.95   , 0.05   , 0.0    ,
-			0.0    , 0.43333, 0.56667,
-			0.0    , 0.475  , 0.525
-		),
-		// tritanomaly
-		mat3(
-			0.96667, 0.03333, 0.0    ,
-			0.0    , 0.73333, 0.26667,
-			0.0    , 0.18333, 0.81667
-		),
-		// achromatopsia
-		mat3(
-			0.299  , 0.587  , 0.114  ,
-			0.299  , 0.587  , 0.114  ,
-			0.299  , 0.587  , 0.114
-		),
-		// achromatomaly
-		mat3(
-			0.618  , 0.320  , 0.062  ,
-			0.163  , 0.775  , 0.062  ,
-			0.163  , 0.320  , 0.516
-		)
-	};
-	vec3 c2 = {c.r, c.g, c.b};
-	c2 *= m[index];
-	gl_FragColor = vec4( c2.x , c2.y, c2.z, 1.0 );
-	}
+```glsl
+// https://github.com/PlanetCentauri/ColorblindFilter
+// https://www.reddit.com/r/gamedev/comments/2i9edg/code_to_create_filters_for_colorblind/
+// MIT
+uniform sampler2D tex;
+uniform int index = 0;
+void main(void) { vec4 c = texture2D(tex, gl_TexCoord[0].st);
+mat3 m[9] = 
+{
+	// normal
+	mat3(
+		1.0    , 0.0    , 0.0  ,
+		0.0    , 1.0    , 0.0  ,
+		0.0    , 0.0    , 1.0
+	),
+	// protanopia
+	mat3(
+		0.56667, 0.43333, 0.0    ,
+		0.55833, 0.44167, 0.0    ,
+		0.0    , 0.24167, 0.75833
+	),
+	// protanomaly
+	mat3(
+		0.81667, 0.18333, 0.0    ,
+		0.33333, 0.66667, 0.0    ,
+		0.0    , 0.125  , 0.875
+	),
+	// deuteranopia
+	mat3(
+		0.625  , 0.375  , 0.0    ,
+		0.7    , 0.3    , 0.0    ,
+		0.0    , 0.3    , 0.7
+	),
+	// deuteranomaly
+	mat3(
+		0.8    , 0.2    , 0.0    ,
+		0.25833, 0.74167, 0.0    ,
+		0.0    , 0.14167, 0.85833
+	),
+	// tritanopia
+	mat3(
+		0.95   , 0.05   , 0.0    ,
+		0.0    , 0.43333, 0.56667,
+		0.0    , 0.475  , 0.525
+	),
+	// tritanomaly
+	mat3(
+		0.96667, 0.03333, 0.0    ,
+		0.0    , 0.73333, 0.26667,
+		0.0    , 0.18333, 0.81667
+	),
+	// achromatopsia
+	mat3(
+		0.299  , 0.587  , 0.114  ,
+		0.299  , 0.587  , 0.114  ,
+		0.299  , 0.587  , 0.114
+	),
+	// achromatomaly
+	mat3(
+		0.618  , 0.320  , 0.062  ,
+		0.163  , 0.775  , 0.062  ,
+		0.163  , 0.320  , 0.516
+	)
+};
+vec3 c2 = {c.r, c.g, c.b};
+c2 *= m[index];
+gl_FragColor = vec4( c2.x , c2.y, c2.z, 1.0 );
+}
+```
 
 - Trichromatic view: Normal
 - Anomalous Trichromacy:
@@ -1740,287 +1746,293 @@ Using root mean square (RMS)
 
 http://forum.processing.org/one/topic/calculate-image-contrast-using-root-mean-square-rms.html
 
-	float getContrast() {
-		float maxLum = 0;
-		float minLum = 10000;
-		for (int i=0; i<img.pixels.length; i++) {
-		  float r = img.pixels[i] >> 16 & 0xFF;
-		  float g = img.pixels[i] >> 8 & 0xFF;
-		  float b = img.pixels[i] & 0xFF;
-		  float brightness = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
-		  if (brightness > maxLum) maxLum = brightness;
-		  if (brightness < minLum) minLum = brightness;
-		}
-		return (maxLum - minLum)/(maxLum + minLum);
-	  }
+```as3
+float getContrast() {
+	float maxLum = 0;
+	float minLum = 10000;
+	for (int i=0; i<img.pixels.length; i++) {
+	  float r = img.pixels[i] >> 16 & 0xFF;
+	  float g = img.pixels[i] >> 8 & 0xFF;
+	  float b = img.pixels[i] & 0xFF;
+	  float brightness = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+	  if (brightness > maxLum) maxLum = brightness;
+	  if (brightness < minLum) minLum = brightness;
+	}
+	return (maxLum - minLum)/(maxLum + minLum);
+  }
 
-	  /*
-	  https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/MeasureImageBrightnessAndContrast/MeasureImageBrightnessAndContrast.pde
-	  MEASURE IMAGE BRIGHTNESS AND CONTRAST
-	  Jeff Thompson | 2013 | www.jeffreythompson.org
+  /*
+  https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/MeasureImageBrightnessAndContrast/MeasureImageBrightnessAndContrast.pde
+  MEASURE IMAGE BRIGHTNESS AND CONTRAST
+  Jeff Thompson | 2013 | www.jeffreythompson.org
+  
+  Measures the overall brightness and contrast in an image.
+  
+  NOTE: this is average for both measures, meaning localized areas of 
+  extreme brightness/contrast may throw off the measurements.
+  
+  Contrast based on this formula:
+  http://en.wikipedia.org/wiki/Contrast_%28vision%29#RMS_contrast
+  
+  Thanks to Amnon Owed for helping figure out the contrast/RMS algorithm!
+  https://forum.processing.org/topic/calculate-image-contrast-using-root-mean-square-rms#25080000001971367
+  */
+  
+  // file to load (gray, mountain, truck)
+  String filename = "truck.jpg";
+  
+  boolean normalizeRange = true;	// normalize results to range of 0-1
+  PImage img;
+  float brightness = 0;
+  float contrast = 0;
+  
+  void setup() {
 	  
-	  Measures the overall brightness and contrast in an image.
-	  
-	  NOTE: this is average for both measures, meaning localized areas of 
-	  extreme brightness/contrast may throw off the measurements.
-	  
-	  Contrast based on this formula:
-	  http://en.wikipedia.org/wiki/Contrast_%28vision%29#RMS_contrast
-	  
-	  Thanks to Amnon Owed for helping figure out the contrast/RMS algorithm!
-	  https://forum.processing.org/topic/calculate-image-contrast-using-root-mean-square-rms#25080000001971367
-	  */
-	  
-	  // file to load (gray, mountain, truck)
-	  String filename = "truck.jpg";
-	  
-	  boolean normalizeRange = true;	// normalize results to range of 0-1
-	  PImage img;
-	  float brightness = 0;
-	  float contrast = 0;
-	  
-	  void setup() {
-		  
-		img = loadImage(filename);
-		size(img.width, img.height);
-		image(img, 0,0);
-		loadPixels();				   // load pixels into array, iterate!
-		
-		// find average brightness across image
-		for (color c : pixels) {
-		  float r = c >> 16 & 0xFF;												 // extract RGB values quickly (better than red(), etc)
-		  float g = c >> 8 & 0xFF;
-		  float b = c & 0xFF;
-		  brightness += (0.2126 * r) + (0.7152 * g) + (0.0722 * b);				 // scales RGB to perceived brightness
-		  if (normalizeRange) {
-			brightness /= 255.0;													// normalize to 0-1
-		  }
-		}
-		brightness /= pixels.length;												// average result
-		println("Average brightness: " + brightness);
-		
-		// find contrast by comparing average brightness with current value
-		for (color c : pixels) {
-		  float r = c >> 16 & 0xFF;
-		  float g = c >> 8 & 0xFF;
-		  float b = c & 0xFF;
-		  float pxIntensity = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
-		  if (normalizeRange) {
-			   pxIntensity /= 255.0;												// normalizes to range 0-1
-		  }
-		  contrast += pow((brightness - pxIntensity), 2);
-		}
-		contrast /= pixels.length;
-		println("Average contrast:   " + contrast);
+	img = loadImage(filename);
+	size(img.width, img.height);
+	image(img, 0,0);
+	loadPixels();				   // load pixels into array, iterate!
+	
+	// find average brightness across image
+	for (color c : pixels) {
+	  float r = c >> 16 & 0xFF;												 // extract RGB values quickly (better than red(), etc)
+	  float g = c >> 8 & 0xFF;
+	  float b = c & 0xFF;
+	  brightness += (0.2126 * r) + (0.7152 * g) + (0.0722 * b);				 // scales RGB to perceived brightness
+	  if (normalizeRange) {
+		brightness /= 255.0;													// normalize to 0-1
 	  }
+	}
+	brightness /= pixels.length;												// average result
+	println("Average brightness: " + brightness);
+	
+	// find contrast by comparing average brightness with current value
+	for (color c : pixels) {
+	  float r = c >> 16 & 0xFF;
+	  float g = c >> 8 & 0xFF;
+	  float b = c & 0xFF;
+	  float pxIntensity = (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+	  if (normalizeRange) {
+		   pxIntensity /= 255.0;												// normalizes to range 0-1
+	  }
+	  contrast += pow((brightness - pxIntensity), 2);
+	}
+	contrast /= pixels.length;
+	println("Average contrast:   " + contrast);
+  }
+```
 
 ### Contrast adjustment
 
-	/*
-	https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/ContrastAdjustment/ContrastAdjustment.pde
-	CONTRAST ADJUSTMENT
-	 Jeff Thompson | 2012 | www.jeffreythompson.org
-	 
-	 A simple algorithm to adjust image contrast.
-	 */
-	 
-	float increment = 0.5;	// amount to adjust contrast each time the arrow keys are hit
-	float contrast = 127;	 // 0 - 255
-	PImage source, copy;
+```as3
+/*
+https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/ContrastAdjustment/ContrastAdjustment.pde
+CONTRAST ADJUSTMENT
+ Jeff Thompson | 2012 | www.jeffreythompson.org
+ 
+ A simple algorithm to adjust image contrast.
+ */
+ 
+float increment = 0.5;	// amount to adjust contrast each time the arrow keys are hit
+float contrast = 127;	 // 0 - 255
+PImage source, copy;
+
+void setup() {
+  source = loadImage("cat.jpg");
+  copy = loadImage("cat.jpg");		  // a copy to store the unaltered pixels (ie: non-destructive editing)
+  size(source.width, source.height);
+}
+
+void draw() {
+  image(source, 0, 0);
+}
+
+PImage adjustContrast(PImage img, float contrast) {
 	
-	void setup() {
-	  source = loadImage("cat.jpg");
-	  copy = loadImage("cat.jpg");		  // a copy to store the unaltered pixels (ie: non-destructive editing)
-	  size(source.width, source.height);
+  // ensure our contrast is in a legal range of 0-255
+  contrast = constrain(contrast, 0.0, 255.0);
+  
+  // find difference from center (127), equal to the adjustment we make to the image!
+  float adjustment = map(contrast, 0, 255, -127, 127);
+  println(adjustment);
+  
+  img.loadPixels();
+  for (int i=0; i<img.pixels.length; i++) {
+	  
+	// get RGB values from the pixels and adjust
+	float r = img.pixels[i] >> 16 & 0xFF;	// faster equivelant to red() command
+	float g = img.pixels[i] >> 8 & 0xFF;	 // ditto green
+	float b = img.pixels[i] & 0xFF;		  // and blue! 
+	
+	// decrease contrast by moving into center (easier)
+	if (adjustment < 0) {
+	  r = map(r, 0, 255, adjustment, 255-adjustment);
+	  g = map(g, 0, 255, adjustment, 255-adjustment);
+	  b = map(b, 0, 255, adjustment, 255-adjustment);
 	}
-	
-	void draw() {
-	  image(source, 0, 0);
-	}
-	
-	PImage adjustContrast(PImage img, float contrast) {
-		
-	  // ensure our contrast is in a legal range of 0-255
-	  contrast = constrain(contrast, 0.0, 255.0);
-	  
-	  // find difference from center (127), equal to the adjustment we make to the image!
-	  float adjustment = map(contrast, 0, 255, -127, 127);
-	  println(adjustment);
-	  
-	  img.loadPixels();
-	  for (int i=0; i<img.pixels.length; i++) {
-		  
-		// get RGB values from the pixels and adjust
-		float r = img.pixels[i] >> 16 & 0xFF;	// faster equivelant to red() command
-		float g = img.pixels[i] >> 8 & 0xFF;	 // ditto green
-		float b = img.pixels[i] & 0xFF;		  // and blue! 
-		
-		// decrease contrast by moving into center (easier)
-		if (adjustment < 0) {
-		  r = map(r, 0, 255, adjustment, 255-adjustment);
-		  g = map(g, 0, 255, adjustment, 255-adjustment);
-		  b = map(b, 0, 255, adjustment, 255-adjustment);
-		}
-		// increase contrast by moving away from center (a bit more complicated
-		else {
-		  if (r > 127) {
-			r = map(r, 0, 255, 127+adjustment, 255);
-		  }
-		  else {
-			r = map(r, 0, 255, 0, 127-adjustment);
-		  }
-	  
-		  if (g > 127) {
-			g = map(g, 0, 255, 127+adjustment, 255);
-		  }
-		  else {
-			g = map(g, 0, 255, 0, 127-adjustment);
-		  }
-	  
-		  if (b > 127) {
-			b = map(b, 0, 255, 127+adjustment, 255);
-		  }
-		  else {
-			b = map(b, 0, 255, 0, 127-adjustment);
-		  }
-		}
-		
-		img.pixels[i] = color(r, g, b);
-		// println(r + ", " + g + ", " + b);
+	// increase contrast by moving away from center (a bit more complicated
+	else {
+	  if (r > 127) {
+		r = map(r, 0, 255, 127+adjustment, 255);
 	  }
-	  img.updatePixels();
-	  return img;
-	}
-	
-	void keyPressed() {
-	  if (key == CODED) {
-		if (keyCode == UP) {
-		  contrast += increment;
-		  source = adjustContrast(copy, contrast);
-		}
-		else if (keyCode == DOWN) {
-		  contrast -= increment;
-		  source = adjustContrast(copy, contrast);
-		}
+	  else {
+		r = map(r, 0, 255, 0, 127-adjustment);
 	  }
-	  else if (key == 32) {
-		setup();
+  
+	  if (g > 127) {
+		g = map(g, 0, 255, 127+adjustment, 255);
+	  }
+	  else {
+		g = map(g, 0, 255, 0, 127-adjustment);
+	  }
+  
+	  if (b > 127) {
+		b = map(b, 0, 255, 127+adjustment, 255);
+	  }
+	  else {
+		b = map(b, 0, 255, 0, 127-adjustment);
 	  }
 	}
+	
+	img.pixels[i] = color(r, g, b);
+	// println(r + ", " + g + ", " + b);
+  }
+  img.updatePixels();
+  return img;
+}
+
+void keyPressed() {
+  if (key == CODED) {
+	if (keyCode == UP) {
+	  contrast += increment;
+	  source = adjustContrast(copy, contrast);
+	}
+	else if (keyCode == DOWN) {
+	  contrast -= increment;
+	  source = adjustContrast(copy, contrast);
+	}
+  }
+  else if (key == 32) {
+	setup();
+  }
+}
+```
 
 ### Find the darkest points
 
-	/*
-	https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/FindDarkestPointsByNeighborhood/FindDarkestPointsByNeighborhood.pde
-	FIND DARKEST POINTS BY NEIGHBORHOOD/DISTANCE
-	 Jeff Thompson | 2013 | www.jeffreythompson.org
+```as3
+    	/*
+    	https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/FindDarkestPointsByNeighborhood/FindDarkestPointsByNeighborhood.pde
+    	FIND DARKEST POINTS BY NEIGHBORHOOD/DISTANCE
+    	 Jeff Thompson | 2013 | www.jeffreythompson.org
 	 
-	 An algorithm to find the darkest points in an image. 
+    	 An algorithm to find the darkest points in an image. 
 	 
-	 While a true centroid algorithm would likely be better, and is possible in Processing
-	 (and likely easiest using OpenCV), this is either computationally expensive (ie: slow)
-	 and/or requires external libraries and methods.
-	 
-	 Instead, this is a much lighter-weight example for finding the darkest single-pixel 
-	 points within blocks of the image, then compares those results to neighbors, removing
-	 ones that are too close to each other.
-	 
-	 OTHER RESOURCES
-	 + Fancier 'clustering algorithms':
-	 http://home.dei.polimi.it/matteucc/Clustering/tutorial_html/index.html
-	 + A few other ideas (including a Processing sketch that crashed for me) at StackOverflow:
-	 https://stackoverflow.com/questions/356035/algorithm-for-detecting-clusters-of-dots
-	 + A faster blurring method for Processing, which can be used in conjunction with the
-	 above examples:
-	 https://forum.processing.org/topic/fast-blurring
-	 
-	 */
-	 
-	float storeThresh = 30;		 // points' color must be this dark to be stored (0-255)
-	float distThresh = 50;		  // if too close to another point, don't store
-	int sampleSize = 20;			// divide image into square of this size (px)
-	PImage source, test;			// image objects to load, convert for testing
+ While a true centroid algorithm would likely be better, and is possible in Processing
+ (and likely easiest using OpenCV), this is either computationally expensive (ie: slow)
+ and/or requires external libraries and methods.
+
+ Instead, this is a much lighter-weight example for finding the darkest single-pixel 
+ points within blocks of the image, then compares those results to neighbors, removing
+ ones that are too close to each other.
+
+ OTHER RESOURCES
+ + Fancier 'clustering algorithms':
+ http://home.dei.polimi.it/matteucc/Clustering/tutorial_html/index.html
+ + A few other ideas (including a Processing sketch that crashed for me) at StackOverflow:
+ https://stackoverflow.com/questions/356035/algorithm-for-detecting-clusters-of-dots
+ + A faster blurring method for Processing, which can be used in conjunction with the
+ above examples:
+ https://forum.processing.org/topic/fast-blurring
+
+ */
+
+float storeThresh = 30;		 // points' color must be this dark to be stored (0-255)
+float distThresh = 50;		  // if too close to another point, don't store
+int sampleSize = 20;			// divide image into square of this size (px)
+PImage source, test;			// image objects to load, convert for testing
+
+// resulting pointss (ArrayList for flexibility)
+ArrayList<Integer> darkest = new ArrayList<Integer>();
+
+
+void setup() {
+
+  // load image (here from URL for tidiness) and other setup stuff
+  source = loadImage("http://www.seriouseats.com/recipes/images/20120216-193359-dinner-tonight-steak-taco-salad-primary.jpg");
+  size(source.width, source.height);
+  smooth();
+  noStroke();
+
+  // copy pixels to another PImage for processing
+  test = createImage(width, height, RGB);
+  test.copy(source, 0, 0, width, height, 0, 0, width, height);
+  test.filter(GRAY);  
+
+  // go through image block-by-block, finding the darkest pixel and, if it
+  // falls within 'storeThresh', store it to the ArrayList - this helps keep
+  // our computation down, as we don't have to compare EVERY pixel with EVERY OTHER pixel!
+  test.loadPixels();
+  for (int x=0; x < width-sampleSize; x += sampleSize) {				  // go through in blocks
+	for (int y=0; y < height-sampleSize; y += sampleSize) {
 	
-	// resulting pointss (ArrayList for flexibility)
-	ArrayList<Integer> darkest = new ArrayList<Integer>();
-	
-	
-	void setup() {
-		
-	  // load image (here from URL for tidiness) and other setup stuff
-	  source = loadImage("http://www.seriouseats.com/recipes/images/20120216-193359-dinner-tonight-steak-taco-salad-primary.jpg");
-	  size(source.width, source.height);
-	  smooth();
-	  noStroke();
-	  
-	  // copy pixels to another PImage for processing
-	  test = createImage(width, height, RGB);
-	  test.copy(source, 0, 0, width, height, 0, 0, width, height);
-	  test.filter(GRAY);  
-	  
-	  // go through image block-by-block, finding the darkest pixel and, if it
-	  // falls within 'storeThresh', store it to the ArrayList - this helps keep
-	  // our computation down, as we don't have to compare EVERY pixel with EVERY OTHER pixel!
-	  test.loadPixels();
-	  for (int x=0; x < width-sampleSize; x += sampleSize) {				  // go through in blocks
-		for (int y=0; y < height-sampleSize; y += sampleSize) {
-			
-		  // within each sample square, get the darkest pixel
-		  // if that pixel is dark enough, add it to the darkest!
-		  int darkX = 0;													  // variables for the darkest px's location
-		  int darkY = 0;
-		  float darkestValue = 255;										   // set a 'world record' of 255 as a starting value
-		  for (int sx = x; sx < x+sampleSize; sx++) {						 // iterate through px block
-			for (int sy = y; sy < y+sampleSize; sy++) {
-			  float currentDark = test.pixels[sy * width + sx] >> 16 & 0xFF;  // red value fine, since we're grayscale only
-			  if (currentDark < darkestValue) {							   // if darker than previously stored
-				darkestValue = currentDark;								   // store it's value and location
-				darkX = sx;
-				darkY = sy;
-			  }
-			}
-		  }
-		  
-		  // if the result is dark enough, store it to the ArrayList! 
-		  if (darkestValue <= storeThresh) {
-			darkest.add((darkY*width + darkX));	// store location as int in the centroid ArrayList
+	  // within each sample square, get the darkest pixel
+	  // if that pixel is dark enough, add it to the darkest!
+	  int darkX = 0;													  // variables for the darkest px's location
+	  int darkY = 0;
+	  float darkestValue = 255;										   // set a 'world record' of 255 as a starting value
+	  for (int sx = x; sx < x+sampleSize; sx++) {						 // iterate through px block
+		for (int sy = y; sy < y+sampleSize; sy++) {
+		  float currentDark = test.pixels[sy * width + sx] >> 16 & 0xFF;  // red value fine, since we're grayscale only
+		  if (currentDark < darkestValue) {							   // if darker than previously stored
+			darkestValue = currentDark;								   // store it's value and location
+			darkX = sx;
+			darkY = sy;
 		  }
 		}
 	  }
-	  println("Found " + darkest.size() + " darkest");
-	  
-	  // cull the list, looking for pixels that are too close - if they are, delete the current
-	  // great solution mostly via: https://stackoverflow.com/a/14389321/1167783
-	  println("Culling darkest for proximity...");
-	  ArrayList<Integer> results = new ArrayList<Integer>();	// create new ArrayList to store pixels that aren't too close
-	all: 
-	  for (Integer current : darkest) {						 // label 'all' allows us to continue to outer for loop
-		int cx = current % width;							   // get x/y coords of current point
-		int cy = current / width;
-		for (Integer other : results) {						 // iterate all other points (note this includes the current)
-		  int ox = other % width;							   // get x/y of other point
-		  int oy = other / width;
-		  float d = dist(cx, cy, ox, oy);					   // find distance between the two
-		  if (d > 0 && d < distThresh) {						// first tests for the current point, the second if we're far enough away
-			continue all;									   // break out and add
-		  }
-		}
-		results.add(current);								   // we made it! add to the results list
-	  }
-	  darkest = results;										// set to original ArrayList for code-clarity
-	  println("Reduced list to " + darkest.size() + " darkest");
-	  
-	  // display darkest points on top of dimmed image (to more easily see)
-	  image(source, 0, 0);
-	  fill(255, 100);
-	  rect(0, 0, width, height);
-	  
-	  // draw the darkest points as dots
-	  fill(0);
-	  for (Integer c : darkest) {
-		ellipse(c % width, c/width, 4, 4);
+  
+	  // if the result is dark enough, store it to the ArrayList! 
+	  if (darkestValue <= storeThresh) {
+		darkest.add((darkY*width + darkX));	// store location as int in the centroid ArrayList
 	  }
 	}
+  }
+  println("Found " + darkest.size() + " darkest");
+
+  // cull the list, looking for pixels that are too close - if they are, delete the current
+  // great solution mostly via: https://stackoverflow.com/a/14389321/1167783
+  println("Culling darkest for proximity...");
+  ArrayList<Integer> results = new ArrayList<Integer>();	// create new ArrayList to store pixels that aren't too close
+all: 
+  for (Integer current : darkest) {						 // label 'all' allows us to continue to outer for loop
+	int cx = current % width;							   // get x/y coords of current point
+	int cy = current / width;
+	for (Integer other : results) {						 // iterate all other points (note this includes the current)
+	  int ox = other % width;							   // get x/y of other point
+	  int oy = other / width;
+	  float d = dist(cx, cy, ox, oy);					   // find distance between the two
+	  if (d > 0 && d < distThresh) {						// first tests for the current point, the second if we're far enough away
+		continue all;									   // break out and add
+	  }
+	}
+	results.add(current);								   // we made it! add to the results list
+  }
+  darkest = results;										// set to original ArrayList for code-clarity
+  println("Reduced list to " + darkest.size() + " darkest");
+
+  // display darkest points on top of dimmed image (to more easily see)
+  image(source, 0, 0);
+  fill(255, 100);
+  rect(0, 0, width, height);
+
+  // draw the darkest points as dots
+  fill(0);
+  for (Integer c : darkest) {
+	ellipse(c % width, c/width, 4, 4);
+  }
+}
+```
 
 ### World Position Shader
 
@@ -2350,6 +2362,25 @@ Draw 3D model from 2D sketch:
 - [Adaptive Unwrapping for Interactive Texture Painting](http://wayback.archive.org/web/20160616203050/http://www-ui.is.s.u-tokyo.ac.jp/%7Etakeo/papers/i3dg2001.pdf) - A Sketching Interface for 3D Freeform Design
 - [Plushie:An Interactive Design System for Plush Toys](http://www.geocities.jp/igarashi_lab/plushie/index-e.html)
 - [Quasimondo - Mario Klingemann's Flash Blog: Flash BitmapExporter: Compress and Save Images](http://www.quasimondo.com/archives/000572.php) - draw lines (three constants r1, r2 and r3 are called f1, f2 and f3)
+
+### Toon Shader
+
+- [Toon Shader Tutorial - Part 1 - How to Have Multiple Light Sources (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=TpWI2rU8iF0)
+- [Toon Shader Tutorial - Part 2 - How to Make Dynamic Outlines (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=hp4V-9oFmnM)
+- [Toon Shader Tutorial - Part 3 - How to Make a Metallic Material (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=VmyMbgMh-eQ)
+- [Toon Shader Tutorial - Part 4 - How to Make Anisotropic Hair (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=kxWWBmIUxbc)
+
+## Parallax
+
+Aka 3D photography, stereoscopic images
+
+- [Stereo photography techniques - Wikipedia](https://en.wikipedia.org/wiki/Stereo_photography_techniques)
+- [3D Stereoscopic Photography : 5 Steps - Instructables](https://www.instructables.com/id/3D-Stereoscopic-Photography/)
+
+Context-aware layered depth inpainting to fill holes:
+
+- [3D Photography using Context-aware Layered Depth Inpainting](https://shihmengli.github.io/3D-Photo-Inpainting/)
+- [vt-vl-lab/3d-photo-inpainting: \[CVPR 2020\] 3D Photography using Context-aware Layered Depth Inpainting](https://github.com/vt-vl-lab/3d-photo-inpainting)
 
 ## Depth of field
 

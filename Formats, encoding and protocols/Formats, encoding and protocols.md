@@ -43,55 +43,103 @@ Games:
 
 ## Describe binary format
 
-- tables likes :
+Tables likes:
 	
-	> RECORDHEADER (long):
-	> 
-	> | Field               | Type | Comment                                                         |
-	> |---------------------|------|-----------------------------------------------------------------|
-	> | TagCodeAndLength    | UI16 | Tag type and length of 0x3F Packed together as in short  header |
-	> | Length              | UI32 | Length of tag                                                   |
-	> 
-	> [...]
-	> 
-	> | Field                     | Type         | Comment                  |
-	> |---------------------------|--------------|--------------------------|
-	> | Header                    | RECORDHEADER | Tag type = 4             |
-	> | CharacterId               | UI16         | ID of character to place |
-	> | Depth                     | UI16         | Depth of character       |
-	> | Matrix                    | MATRIX       | Transform matrix data    |
-	> | ColorTransform (optional) | CXFORM       | Color transform data     |
-	> 
-	> — [SWF File Format Specification](https://www.adobe.com/content/dam/acom/en/devnet/pdf/swf-file-format-spec.pdf)
-- [struct (C programming language) - Wikipedia](https://en.wikipedia.org/wiki/Struct_%28C_programming_language%29):
-	> ```c
-	> uint32 constant00;
-	> uint32 numBones;
-	> struct Bone {
-	> 	float[16] Matrix4X4;
-	> }
-	> uint32 numVerts
-	> struct Vert {
-	> 	float[3] CoordXYZ;
-	> 	float Weight;
-	> 	byte BoneID01;
-	> 	byte BoneID02;
-	> 	byte NULL1;
-	> 	byte NULL2;
-	> 	float[3] NormalXYZ;
-	> 	float[2] TexCoordUV;
-	> }
-	> 
-	> uint32 numFaces;
-	> numFaces Face {
-	> 	uint16[3] v1, v2, v3;
-	> }
-- [Kaitai Struct: declarative binary format parsing language](http://kaitai.io/index.html)
+> RECORDHEADER (long):
+> 
+> | Field               | Type | Comment                                                         |
+> |---------------------|------|-----------------------------------------------------------------|
+> | TagCodeAndLength    | UI16 | Tag type and length of 0x3F Packed together as in short  header |
+> | Length              | UI32 | Length of tag                                                   |
+> 
+> [...]
+> 
+> | Field                     | Type         | Comment                  |
+> |---------------------------|--------------|--------------------------|
+> | Header                    | RECORDHEADER | Tag type = 4             |
+> | CharacterId               | UI16         | ID of character to place |
+> | Depth                     | UI16         | Depth of character       |
+> | Matrix                    | MATRIX       | Transform matrix data    |
+> | ColorTransform (optional) | CXFORM       | Color transform data     |
+> 
+> — [SWF File Format Specification](https://www.adobe.com/content/dam/acom/en/devnet/pdf/swf-file-format-spec.pdf)
+
+[struct (C)](https://en.wikipedia.org/wiki/Struct_%28C_programming_language%29):
+
+```c
+uint32 constant00;
+uint32 numBones;
+struct Bone {
+	float[16] Matrix4X4;
+}
+uint32 numVerts
+struct Vert {
+	float[3] CoordXYZ;
+	float Weight;
+	byte BoneID01;
+	byte BoneID02;
+	byte NULL1;
+	byte NULL2;
+	float[3] NormalXYZ;
+	float[2] TexCoordUV;
+}
+
+uint32 numFaces;
+numFaces Face {
+	uint16[3] v1, v2, v3;
+}
+```
+
+[Kaitai Struct](http://kaitai.io/):
+
+```
+meta:
+  id: gif
+  file-extension: gif
+  endian: le
+seq:
+  - id: header
+    type: header
+  - id: logical_screen
+    type: logical_screen
+types:
+  header:
+    seq:
+      - id: magic
+        contents: 'GIF'
+      - id: version
+        size: 3
+  logical_screen:
+    seq:
+      - id: image_width
+        type: u2
+      - id: image_height
+        type: u2
+      - id: flags
+        type: u1
+      - id: bg_color_index
+        type: u1
+      - id: pixel_aspect_ratio
+        type: u1
+```
+
+- [File Format Gallery for Kaitai Struct](http://formats.kaitai.io/)
+- [kaitai-io/kaitai_struct_formats: Kaitai Struct: library of binary file formats (.ksy)](https://github.com/kaitai-io/kaitai_struct_formats)
+- [KOLANICH/synalysis2kaitai: Work in progress, it's not finished.](https://github.com/KOLANICH/synalysis2kaitai)
+
+Synalyze It Grammar:
+
+- [The Grammar Page of Synalyze It!](https://www.synalysis.net/formats.xml)
+- [synalysis/Grammars: Grammars for Synalyze It! and Hexinator](https://github.com/synalysis/Grammars/)
 
 See also
 
+- [BFF: A grammar for Binary File Formats](http://www.iwriteiam.nl/Ha_BFF.html)
+- [Binary Format — WebAssembly 1.0](https://webassembly.github.io/spec/core/binary/index.html)
 - [FlatBuffers: Writing a schema](https://google.github.io/flatbuffers/md__schemas.html)
 - [Protocol Buffers  |  Google Developers](https://developers.google.com/protocol-buffers/)
+- [Parsing Binary Files - antlr/antlr4](https://github.com/antlr/antlr4/blob/master/doc/parsing-binary-files.md)
+- [General binary file parser — bin-parser latest documentation](https://bin-parser.readthedocs.io/en/latest/index.html)
 
 ## File signature
 
@@ -121,10 +169,6 @@ Magic File:
 - [file(1): determine file type - Linux man page](https://linuxdienet/man/1/file) 
 - [mod_mime_magic - Apache HTTP Server Version 24](https://httpdapacheorg/docs/24/en/mod/mod_mime_magichtml#format)
 - [net/base/mime_sniffer.cc - chromium/src.git - Git at Google](https://chromium.googlesource.com/chromium/src.git/+/master/net/base/mime_sniffer.cc)
-
-### Synalyze It Grammar
-
-- [The Grammar Page of Synalyze It!](https://www.synalysis.net/formats.xml) and [synalysis/Grammars: Grammars for Synalyze It! and Hexinator](https://github.com/synalysis/Grammars)
 
 ## Media type
 

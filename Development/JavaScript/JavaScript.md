@@ -3,6 +3,8 @@
 
 See also [ECMAScript](../ECMAScript/ECMAScript.md)
 
+- [HTML DOM - Common tasks of managing HTML DOM with vanilla JavaScript](https://htmldom.dev/)
+
 # Best pratices — Coding conventions
 
 Style guide, code conventions:
@@ -128,13 +130,16 @@ Note: in the example above, the attribute `onerror` will not work with CSP that 
 
 And Virtual DOM
 
+- [The Web smallest DOM diffing library - Andrea Giammarchi - Medium](https://medium.com/@WebReflection/the-web-smallest-dom-diffing-library-5b69ac4d1f4d)
 - [Polymer/lit-html: HTML template literals in JavaScript](https://github.com/Polymer/lit-html)
 - [WebReflection/hyperHTML: A Fast & Light Virtual DOM Alternative](https://github.com/WebReflection/hyperHTML) - Use compile an object based on [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) [hyperHTML: A Virtual DOM Alternative – Medium](https://medium.com/@WebReflection/hyperhtml-a-virtual-dom-alternative-279db455ee0e)
-
-		let render = (strings, ...args) => console.log(strings, ...args);
-		render`a${1}b${2}`;//["a", "b", "", raw: Array(3)], 1, 2
-		render`a${3}b${4}`;//["a", "b", "", raw: Array(3)], 3, 4
-		// each times, strings argument (the first one) is the same reference: call2Strings === call1Strings; callNStrings === call1Strings
+	```js
+	let render = (strings, ...args) => console.log(strings, ...args);
+	render`a${1}b${2}`;//["a", "b", "", raw: Array(3)], 1, 2
+	render`a${3}b${4}`;//["a", "b", "", raw: Array(3)], 3, 4
+	// each times, strings argument (the first one) is the same reference: call2Strings === call1Strings; callNStrings === call1Strings
+	// this how string template works
+	```
 - [Reactive UI's with VanillaJS - Part 2: Class Based Components | CSS-Tricks](https://css-tricks.com/reactive-uis-vanillajs-part-2-class-based-components/)
 - [Building a React-esque component using vanilla javascript.](https://medium.com/@bluepnume/building-a-react-esque-component-using-vanilla-javascript-ddc99e76b867)
 - [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
@@ -142,7 +147,6 @@ And Virtual DOM
 - [A Virtual DOM and diffing algorithm](https://github.com/Matt-Esch/virtual-dom)
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
 - [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](http://webreflection.blogspot.fr/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
-- [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
 - [JSX + jQuery = jreact](https://glitch.com/~jquery-jsx-pragma) - Custom JSX renderer based on jQuery (no react)
 
 ### Date and time
@@ -3805,22 +3809,24 @@ or
 
 **Don't name your inputs or buttons `submit`, `action`, `method`, `style`, `dataset`, `id`, `attributes`, `children`, etc.**
 
-	<form id="form" action="somewhere" method="post">
-		<input type="text" name="action" value="pay">
-		<input type="text" name="method" value="credit-card">
-		<input type="text" name="attributes" value="something">
-		<button name="submit">Send</button>
-	<form>
-	<script>
-		let form = document.getElementById("form");
-		form === window.form
-		form.action// HTMLInputElement instead of String "somewhere"
-		form.method// HTMLInputElement instead of String "post"
-		form.submit// HTMLButtonElement instead of Function
-		form.attributes// HTMLInputElement instead of NamedNodeMap
-	</script>
+```html
+<form id="form" action="somewhere" method="post">
+	<input type="text" name="action" value="pay">
+	<input type="text" name="method" value="credit-card">
+	<input type="text" name="attributes" value="something">
+	<button name="submit">Send</button>
+<form>
+<script>
+	let form = document.getElementById("form");
+	form === window.form
+	form.action// HTMLInputElement instead of String "somewhere"
+	form.method// HTMLInputElement instead of String "post"
+	form.submit// HTMLButtonElement instead of Function
+	form.attributes// HTMLInputElement instead of NamedNodeMap
+</script>
+```
 
-See [DOM clobbering](Security#dom-clobbering)
+See [DOM clobbering](../../Security/Security.md#dom-clobbering)
 
 ### Clear all child nodes
 
@@ -3929,12 +3935,26 @@ for(var path = '', elt = ...; elt && elt.nodeType == 1; elt = elt.parentNode){
 Test:
 - https://www.metafilter.com/175389/None-Dare-Call-It-Treason
 
+- [WICG/ScrollToTextFragment: Proposal to allow specifying a text snippet in a URL fragment](https://github.com/WICG/ScrollToTextFragment)
+- [Chrome deploys deep-linking tech in latest browser build despite privacy concerns • The Register](https://www.theregister.co.uk/2020/02/20/chrome_deploys_deeplinking/)
+- [Scroll To Text Fragment · Issue #194 · mozilla/standards-positions](https://github.com/mozilla/standards-positions/issues/194)
 - [Pinpointer – Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/pinpointer/) - [Pinpointer/pinpointer.js at master · Rumperuu/Pinpointer](https://github.com/Rumperuu/Pinpointer/blob/master/content_scripts/pinpointer.js)
 - [ericclemmons/unique-selector: Given a DOM node, return a unique CSS selector matching only that element](https://github.com/ericclemmons/unique-selector) - used by Cypress
 - [Show HN: Pinpointer – A Firefox extension to share links to page elements | Hacker News](https://news.ycombinator.com/item?id=17556805)
 - [pinpoint/end.js at 4b2ec192c0400f26d7ff80ec3a652e467d5ee563 · karanlyons/pinpoint](https://github.com/karanlyons/pinpoint/blob/4b2ec192c0400f26d7ff80ec3a652e467d5ee563/Pinpoint.safariextension/end.js#L98)
 - [Shorter link that still works with your addon: https://en.wikipedia.org/wiki/Nel... | Hacker News](https://news.ycombinator.com/item?id=17557686)
 - [Comparison of CSS Selectors and XPath - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors/Comparison_with_XPath)
+
+### Iterate with XPath
+
+```js
+XPathResult.prototype[Symbol.iterator] = function*(){for(let node; node = this.iterateNext();){yield node}}
+
+let toc = [...document.evaluate("/html/body//h2", document, null, XPathResult.ANY_TYPE, null)].map(h2 => h2.textContent.trim());
+console.log(toc.join("\n"));
+```
+
+- [Document.evaluate() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate)
 
 ### Find all links in DOM
 
