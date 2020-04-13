@@ -959,3 +959,16 @@ const SVG_DOCTYPE = `<?xml version="1.0" standalone="no"?>
 ```
 
 - [Character entity references in HTML 4](https://www.w3.org/TR/html4/sgml/entities.html)
+
+## Data attributes
+
+```xml
+<whatever xmlns:data="https://html.spec.whatwg.org/#attr-data-*"><!-- Ths XML namespace value can be anything -->
+    <url data:post-type="quote">
+        <loc>https://example.com/3</loc>
+        <lastmod>1998-08-19</lastmod>
+    </url>
+</whatever>
+```
+
+- [Arbitrary `data` attributes in XML by Taylor Hunt on CodePen](https://codepen.io/tigt/post/arbitrary-data-attributes-in-xml)

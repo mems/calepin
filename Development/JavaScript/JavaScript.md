@@ -1627,11 +1627,25 @@ See [Premultiplied alpha](Blend modes#premultiplied-alpha)
 
 > indicates if a context will be created if the system performance is low
 
-	canvas.getContext("3d", {failIfMajorPerformanceCaveat: true});
+```js
+canvas.getContext("3d", {failIfMajorPerformanceCaveat: true});
+```
 
 - http://blog.tojicode.com/2013/12/failifmajorperformancecaveat-with-great.html
 
-### Replace DOM by Canvas
+### SVG filter in canvas
+
+```html
+<svg height="0"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".01 .01" numOctaves="5"/></filter></svg>
+<canvas></canvas>
+<script>
+const context = document.querySelector("canvas").getContext("2d");
+context.filter = "url(#n)";
+context.fillRect(0, 0, 1, 1);
+</script>
+```
+
+### Replace DOM by canvas
 
 Replace all DOM by Canvas.
 
@@ -1643,22 +1657,24 @@ Maybe it's not the right solution
 
 Usefull for detect low-end devices or old tablets/smartphones 
 
-	var canvas = document.createElement("canvas");
-	canvas.width = canvas.height = 1000;
-	var context = canvas.getContext("2d");
-	var t0 = performance.now();
-	// first call drawImage twice. Required by Chrome, Opera, IE and Safari Mobile: it take time at cold start, not in next reloads
-	context.drawImage(canvas, 0, 0, 1, 1);
-	context.drawImage(canvas, 0, 0, 1, 1);
-	var t1 = performance.now();
-	for(var iter = 0; iter < 50; iter++){
-		context.translate(-10, -10);
-		context.rotate(Math.PI/2);
-		context.translate(10, 10);
-		context.drawImage(canvas, 0, 0, 20, 20, 0, 0, 19, 19);
-	}
-	var t2 = performance.now();
-	document.body.textContent = "\ncanvas stress test: "+(t2 - t1).toFixed(4)+"ms (init: "+(t1 - t0).toFixed(4)+"ms)";
+```js
+var canvas = document.createElement("canvas");
+canvas.width = canvas.height = 1000;
+var context = canvas.getContext("2d");
+var t0 = performance.now();
+// first call drawImage twice. Required by Chrome, Opera, IE and Safari Mobile: it take time at cold start, not in next reloads
+context.drawImage(canvas, 0, 0, 1, 1);
+context.drawImage(canvas, 0, 0, 1, 1);
+var t1 = performance.now();
+for(var iter = 0; iter < 50; iter++){
+	context.translate(-10, -10);
+	context.rotate(Math.PI/2);
+	context.translate(10, 10);
+	context.drawImage(canvas, 0, 0, 20, 20, 0, 0, 19, 19);
+}
+var t2 = performance.now();
+document.body.textContent = "\ncanvas stress test: "+(t2 - t1).toFixed(4)+"ms (init: "+(t1 - t0).toFixed(4)+"ms)";
+```
 
 - https://gist.github.com/mems/39831f33d2a3372af1ff
 
@@ -1666,166 +1682,167 @@ Usefull for detect low-end devices or old tablets/smartphones
 
 <details>
 	<summary>2D WeBGL shader</summary>
-	
-	<!--
-	Chromatic aberration effect
-	From https://codepen.io/robin-dela/pen/oMOeGg/
-	-->
-	<style>
-	body {
-		margin: 0;
-	
+```html
+<!--
+Chromatic aberration effect
+From https://codepen.io/robin-dela/pen/oMOeGg/
+-->
+<style>
+body {
+	margin: 0;
+
+}
+
+#bg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 0;
+}
+
+canvas {
+	width: calc(80vh * 1.5);
+	height: 80vh;/*calc(80vw / 1.5);*/
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 7px solid rgba(255, 255, 255, .1);
+	box-shadow: 0px 0px 10px #00000038;
+	z-index: 1;
+}
+</style>
+<canvas id="canvas"></canvas>
+<img src="https://robindelaporte.fr/codepen/background.jpg" id="bg" alt="">
+
+<!-- vertex shader -->
+<script id="vs" type="f">
+	attribute vec2 position;
+	attribute vec2 texcoord;
+
+	uniform mat3 u_matrix;
+
+	varying vec2 v_texcoord;
+
+	void main() {
+		 gl_Position = vec4(u_matrix * vec3(position, 1), 1);
+		 v_texcoord = texcoord;
 	}
+</script>
+
+<!-- fragment shader -->
+<script id="fs" type="f">
+	precision mediump float;
+
+	uniform vec2 u_mouse;
+
+	uniform sampler2D u_originalImage;
+
+	varying vec2 v_texcoord;
+
+	void main() {
+		 vec4 originalR = texture2D(u_originalImage, (v_texcoord + (u_mouse * 1.0)));
+		 vec4 originalG = texture2D(u_originalImage, (v_texcoord + (u_mouse * 0.6)));
+		 vec4 originalB = texture2D(u_originalImage, (v_texcoord + (u_mouse * 0.2)));
+	 
+		 vec4 red = vec4(originalR.r, 0.0, 0.0, 1.0);
+		 vec4 green = vec4(0.0, originalG.g, 0.0, 1.0);
+		 vec4 blue = vec4(0.0, 0.0, originalB.b, 1.0);
 	
-	#bg {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		min-width: 100%;
-		min-height: 100%;
-		z-index: 0;
+		 gl_FragColor = blue + red + green;
 	}
-	
-	canvas {
-		width: calc(80vh * 1.5);
-		height: 80vh;/*calc(80vw / 1.5);*/
-		display: block;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		border: 7px solid rgba(255, 255, 255, .1);
-		box-shadow: 0px 0px 10px #00000038;
-		z-index: 1;
+</script>
+<script>
+function main() {
+	// Get A WebGL context
+	/** @type {HTMLCanvasElement} */
+	const canvas = document.getElementById("canvas");
+	const gl = canvas.getContext("webgl");
+	if (!gl) {
+		return;
 	}
-	</style>
-	<canvas id="canvas"></canvas>
-	<img src="https://robindelaporte.fr/codepen/background.jpg" id="bg" alt="">
+
+	let originalImage = { width: 1, height: 1 }; // replaced after loading
+	const originalTexture = twgl.createTexture(gl, {
+		src: "https://robindelaporte.fr/codepen/marie.jpg", 
+		crossOrigin: '',
+	}, (err, texture, source) => {
+		originalImage = source;
+	});
+
+	// compile shaders, link program, lookup location
+	const programInfo = twgl.createProgramInfo(gl, ["vs", "fs"]);
+
+	// calls gl.createBuffer, gl.bindBuffer, gl.bufferData for a quad
+	const bufferInfo = twgl.primitives.createXYQuadBufferInfo(gl);
+
+	const mouse = [0, 0];
+	canvas.addEventListener('mousemove', (event) => {
+		mouse[0] = (event.clientX / gl.canvas.clientWidth  * 2 - 1) * -0.025;
+		mouse[1] = (event.clientY / gl.canvas.clientHeight * 2 - 1) * -0.025;
+	});
+
+	canvas.addEventListener('mouseout', (event) => {
+		mouse[0] = 0;
+		mouse[1] = 0;
+	});
+
+	canvas.addEventListener('touchmove', (event) => {
+		mouse[0] = (event.touches[0].clientX / gl.canvas.clientWidth  * 2 - 1) * -0.02;
+		mouse[1] = (event.touches[0].clientY / gl.canvas.clientHeight * 2 - 1) * -0.02;
+	});
+
+	canvas.addEventListener('touchend', (event) => {
+		mouse[0] = 0;
+		mouse[1] = 0;
+	});
+
+	var nMouse = [0, 0];
+	var oMouse = [0, 0];
+
+	requestAnimationFrame(render);
+
+	function render() {
+		twgl.resizeCanvasToDisplaySize(gl.canvas);
+
+		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+		gl.clearColor(0, 0, 0, 0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+		gl.useProgram(programInfo.program);
+
+		// calls gl.bindBuffer, gl.enableVertexAttribArray, gl.vertexAttribPointer
+		twgl.setBuffersAndAttributes(gl, programInfo, bufferInfo);
+
+		const canvasAspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+		const imageAspect = originalImage.width / originalImage.height;
+		const mat = m3.scaling(imageAspect / canvasAspect, -1);
 	
-	<!-- vertex shader -->
-	<script id="vs" type="f">
-		attribute vec2 position;
-		attribute vec2 texcoord;
-	
-		uniform mat3 u_matrix;
-	
-		varying vec2 v_texcoord;
-	
-		void main() {
-			 gl_Position = vec4(u_matrix * vec3(position, 1), 1);
-			 v_texcoord = texcoord;
-		}
-	</script>
-	
-	<!-- fragment shader -->
-	<script id="fs" type="f">
-		precision mediump float;
-	
-		uniform vec2 u_mouse;
-	
-		uniform sampler2D u_originalImage;
-	
-		varying vec2 v_texcoord;
-	
-		void main() {
-			 vec4 originalR = texture2D(u_originalImage, (v_texcoord + (u_mouse * 1.0)));
-			 vec4 originalG = texture2D(u_originalImage, (v_texcoord + (u_mouse * 0.6)));
-			 vec4 originalB = texture2D(u_originalImage, (v_texcoord + (u_mouse * 0.2)));
-		 
-			 vec4 red = vec4(originalR.r, 0.0, 0.0, 1.0);
-			 vec4 green = vec4(0.0, originalG.g, 0.0, 1.0);
-			 vec4 blue = vec4(0.0, 0.0, originalB.b, 1.0);
+		nMouse[0] += (mouse[0] - nMouse[0]) * 0.05;
+		nMouse[1] += (mouse[1] - nMouse[1]) * 0.05;
 		
-			 gl_FragColor = blue + red + green;
-		}
-	</script>
-	<script>
-	function main() {
-		// Get A WebGL context
-		/** @type {HTMLCanvasElement} */
-		const canvas = document.getElementById("canvas");
-		const gl = canvas.getContext("webgl");
-		if (!gl) {
-			return;
-		}
-	
-		let originalImage = { width: 1, height: 1 }; // replaced after loading
-		const originalTexture = twgl.createTexture(gl, {
-			src: "https://robindelaporte.fr/codepen/marie.jpg", 
-			crossOrigin: '',
-		}, (err, texture, source) => {
-			originalImage = source;
+		// calls gl.activeTexture, gl.bindTexture, gl.uniformXXX
+		twgl.setUniforms(programInfo, {
+			u_matrix: mat,
+			u_originalImage: originalTexture,
+			u_mouse: nMouse,
 		});
 	
-		// compile shaders, link program, lookup location
-		const programInfo = twgl.createProgramInfo(gl, ["vs", "fs"]);
-	
-		// calls gl.createBuffer, gl.bindBuffer, gl.bufferData for a quad
-		const bufferInfo = twgl.primitives.createXYQuadBufferInfo(gl);
-	
-		const mouse = [0, 0];
-		canvas.addEventListener('mousemove', (event) => {
-			mouse[0] = (event.clientX / gl.canvas.clientWidth  * 2 - 1) * -0.025;
-			mouse[1] = (event.clientY / gl.canvas.clientHeight * 2 - 1) * -0.025;
-		});
-	
-		canvas.addEventListener('mouseout', (event) => {
-			mouse[0] = 0;
-			mouse[1] = 0;
-		});
-	
-		canvas.addEventListener('touchmove', (event) => {
-			mouse[0] = (event.touches[0].clientX / gl.canvas.clientWidth  * 2 - 1) * -0.02;
-			mouse[1] = (event.touches[0].clientY / gl.canvas.clientHeight * 2 - 1) * -0.02;
-		});
-	
-		canvas.addEventListener('touchend', (event) => {
-			mouse[0] = 0;
-			mouse[1] = 0;
-		});
-	
-		var nMouse = [0, 0];
-		var oMouse = [0, 0];
-	
+		// calls gl.drawArrays or gl.drawElements
+		twgl.drawBufferInfo(gl, bufferInfo);
+
 		requestAnimationFrame(render);
-	
-		function render() {
-			twgl.resizeCanvasToDisplaySize(gl.canvas);
-	
-			gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-	
-			gl.clearColor(0, 0, 0, 0);
-			gl.clear(gl.COLOR_BUFFER_BIT);
-	
-			gl.useProgram(programInfo.program);
-	
-			// calls gl.bindBuffer, gl.enableVertexAttribArray, gl.vertexAttribPointer
-			twgl.setBuffersAndAttributes(gl, programInfo, bufferInfo);
-	
-			const canvasAspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
-			const imageAspect = originalImage.width / originalImage.height;
-			const mat = m3.scaling(imageAspect / canvasAspect, -1);
-		
-			nMouse[0] += (mouse[0] - nMouse[0]) * 0.05;
-			nMouse[1] += (mouse[1] - nMouse[1]) * 0.05;
-			
-			// calls gl.activeTexture, gl.bindTexture, gl.uniformXXX
-			twgl.setUniforms(programInfo, {
-				u_matrix: mat,
-				u_originalImage: originalTexture,
-				u_mouse: nMouse,
-			});
-		
-			// calls gl.drawArrays or gl.drawElements
-			twgl.drawBufferInfo(gl, bufferInfo);
-	
-			requestAnimationFrame(render);
-		}
 	}
-	
-	main();
-	</script>
+}
+
+main();
+</script>
+```
 </details>
 
 ### WebGL shader performance

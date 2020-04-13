@@ -1,4 +1,21 @@
-## Virtual machine
+## Android SDK
+
+- [How to install Android SDK and setup AVD Emulator without Android Studio](https://medium.com/michael-wallace/how-to-install-android-sdk-and-setup-avd-emulator-without-android-studio-aeb55c014264)
+- [Start the emulator from the command line  |  Développeurs Android](https://developer.android.com/studio/run/emulator-commandline)
+
+### Emulator
+
+Start `./android`, then tools > Mangage AVDs...
+
+```sh
+cd ~/Android/sdk/tools/bin && ./avdmanager list avd
+```
+
+- [Run Apps on the Android Emulator | Android Studio](https://developer.android.com/studio/run/emulator.html)
+- [Control the Emulator from the Command Line | Android Studio](https://developer.android.com/studio/run/emulator-commandline.html)
+- [Android* - Intel® Hardware Accelerated Execution Manager (Intel® HAXM) | Intel® Software](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager)
+
+### Virtual machine
 
 - [how to change the resolution of android x86 to 1080p - YouTube](https://www.youtube.com/watch?v=JoMs-4bsygs)
 - [Android 4.3 running on VMWare and resolution change to 1080p - YouTube](https://www.youtube.com/watch?v=62bMiL-o_OU)
@@ -13,14 +30,6 @@ Setup Proxy (when using Emulator, or not) http://www.techverse.net/how-to-setup-
 
 - [Kiosk Mode - Android 5.0 (Lollipop) or Higher | QuickTapSurvey : Help Center](http://support.quicktapsurvey.com/support/solutions/articles/208386-kiosk-mode-android-5-0-lollipop-or-higher)
 - [Kiosk Mode - Android | QuickTapSurvey : Help Center](http://support.quicktapsurvey.com/support/solutions/articles/197934-kiosk-mode-android)
-
-## Emulator
-
-Start `./android`, then tools > Mangage AVDs...
-
-- [Run Apps on the Android Emulator | Android Studio](https://developer.android.com/studio/run/emulator.html)
-- [Control the Emulator from the Command Line | Android Studio](https://developer.android.com/studio/run/emulator-commandline.html)
-- [Android* - Intel® Hardware Accelerated Execution Manager (Intel® HAXM) | Intel® Software](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager)
 
 ## Reverse tethering
 

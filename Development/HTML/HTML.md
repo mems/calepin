@@ -388,13 +388,14 @@ Who never saw that?
 
 Component/template/object-oriented class name could be ideal, but semantic don't change over responsive where the presentation does. Ex.: a desktop carrousel, displayed as a list of images on smallscreens
 
+- [BEM Naming Cheat Sheet by 9elements](https://9elements.com/bem-cheat-sheet/) - Some BEM examples
 - [MaintainableCSS - an approach to writing modular, scalable and maintainable CSS | By Adam Silver](http://maintainablecss.com/) and the joke https://github.com/marmelab/universal.css
 - [Thoughts on semantic HTML class names and maintainability – Brett Jankord – Front-End Software Engineer](http://brettjankord.com/2013/02/09/thoughts-on-semantic-html-class-names-and-maintainability/)
 - [More thoughts on HTML class naming conventions. – Brett Jankord – Front-End Software Engineer](http://brettjankord.com/2013/03/06/more-thoughts-on-html-class-naming-conventions/)
 - [About HTML semantics and front-end architecture – Nicolas Gallagher](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 - [bjankord/CSS-Components-Modifiers-And-Subcomponents-Collection](https://github.com/bjankord/CSS-Components-Modifiers-And-Subcomponents-Collection)
 - [MindBEMding – getting your head ’round BEM syntax – CSS Wizardry – CSS, OOCSS, front-end architecture, performance and more, by Harry Roberts](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
-- https://github.com/sturobson/BEM-resources
+- [sturobson/BEM-resources: Just a repo full of BEM resources](https://github.com/sturobson/BEM-resources)
 - [Question about naming items with BEM and CSS : Frontend](https://www.reddit.com/r/Frontend/comments/2z437s/question_about_naming_items_with_bem_and_css/)
 - [BEM — FAQ](http://getbem.com/faq/)
 - [Semantic HTML — Wikipedia](https://en.wikipedia.org/wiki/Semantic_HTML#Considerations)
@@ -1697,15 +1698,18 @@ See also [CSS - Image](CSS#image)
 
 ## Responsive image
 
-Aka Adaptive image
+Aka adaptive image
 
 - `srcset` = what you got
 - `sizes` = how big it gonna be
 
 Note: Use SVG if srcset not supported
- 
-	<img src="kirkjufell.jpg" srcset="kirkjufell_2x.jpg 2x" alt="Photograph of a blurred waterfall in Iceland with a conical mountain behind it">
 
+```html
+<img src="kirkjufell.jpg" srcset="kirkjufell_2x.jpg 2x" alt="Photograph of a blurred waterfall in Iceland with a conical mountain behind it">
+```
+
+- [Responsive Images the Simple Way - Cloud Four](https://cloudfour.com/thinks/responsive-images-the-simple-way/)
 - [When Responsive Images Get Ugly by Taylor Hunt on CodePen](https://codepen.io/tigt/blog/when-responsive-images-get-ugly)
 - [4 The elements of HTML | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/semantics.html#attr-img-srcset)
 - [RespImageLint](https://ausi.github.io/respimagelint/) - Lint image element to check against a list of common mistakes and best practises. See https://github.com/ausi/RespImageLint

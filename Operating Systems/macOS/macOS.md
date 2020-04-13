@@ -319,7 +319,7 @@ VMware, Parallels, VirtualBox, etc.
 
 - `Virtual Machines.localized` VMware Fusion
 - `/Library/Developer/CoreSimulator/Profiles/Runtimes` iOS simulator
-- `/Developer/SDKs/android-sdk/system-images` Android SDK (depends installed location)
+- `/Library/Android/sdk/system-images` Android SDK (depends installed location)
 
 If possible, enable option to split vitual machine hard disk into small chunks. (VMWare Player: New Virtual Machine Wizard > Specify Disk Capacity > Split virtual disk into multiple files)
 
@@ -2481,36 +2481,32 @@ Install ports:
 ```
 # 1. Install Xcode Command Line Tools: `xcode-select --install`
 # 2. Accept Xcode licence: `sudo xcodebuild -license`
-# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, etc.) 
+# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, JDK, etc.) 
 
-sudo port install\
-	wget rsync\
-	bash bash-completion\
-	coreutils diffutils findutils gsed gawk gpatch\
-	watch\
-	p5-file-rename\
-	openssl\
-	gzip gnutar\
-	git\
-	curl\
-	gettext\
-	ffmpeg\
-	ImageMagick +rsvg\
-	p5-image-exiftool\
-	cmake\
-	apache-ant\
-	httrack\
-	xorg-server\
-	twain-sane
+sudo port install \
+wget rsync \
+bash bash-completion \
+coreutils diffutils findutils gsed gawk gpatch \
+watch \
+p5-file-rename \
+openssl \
+gzip gnutar \
+git \
+curl \
+gettext \
+ffmpeg \
+ImageMagick +rsvg \
+p5-image-exiftool \
+cmake \
+apache-ant \
+httrack \
+xorg-server
 
 # Start D-Bus
 sudo port install dbus
 sudo port load dbus
 #sudo launchctl load -w /Library/LaunchDaemons/org.freedesktop.dbus-system.plist
 #launchctl load -w /Library/LaunchAgents/org.freedesktop.dbus-session.plist
-	
-# Create the missing symlink to exiftool when install p5-image-exiftool until https://trac.macports.org/ticket/45312 is resolved (check exiftool version)
-cd /opt/local/bin/ && sudo ln -s exiftool-5.26 exiftool
 
 # Add `/opt/local/libexec/gnubin` to PATH
 if ! grep -q "export PATH=/opt/local/libexec/gnubin:" ~/.profile
@@ -2533,7 +2529,7 @@ fi
 # NodeJS
 # Note: nodejs and npm without version specified are not the lastest available
 # sudo port install nodejs npm
-sudo port install nodejs11 npm6
+sudo port install nodejs13 npm6
 # Add to profile node config
 if ! grep -q "export NODE_PATH=" ~/.profile
 then
@@ -2555,25 +2551,23 @@ fi
 # To update global packages, use `npm update -g`
 
 # Install PHP and composer (PHP package manager)
-sudo port install php php73-intl php73-openssl
-#sudo port install php71 php71-intl php71-openssl
-#sudo port select --set php php71
+sudo port install php php74-intl php74-openssl
+#sudo port select --set php php74
 # Create PHP config (dev only)
-sudo cp /opt/local/etc/php73/php.ini-development /opt/local/etc/php73/php.ini
+sudo cp /opt/local/etc/php74/php.ini-development /opt/local/etc/php74/php.ini
 
 # [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
-sudo port install php73-iconv php73-mbstring
+sudo port install php74-iconv php74-mbstring
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/opt/local/bin
 sudo ln -s composer.phar /opt/local/bin/composer
 # Or use in each project's folder `php -r "readfile('https://getcomposer.org/installer');" | php && php composer.phar install`
 # Will install packages in ./vendor
 
 # Install python and pip (Python package manager)
-sudo port install python37 py37-pip
-#sudo port install python27 py27-pip
-sudo port select --set python python37
-sudo port select --set python3 python37
-sudo port select --set pip pip37
+sudo port install python38 py38-pip
+sudo port select --set python python38
+sudo port select --set python3 python38
+sudo port select --set pip pip38
 # Or for OSX's default python come with easy_install
 #sudo easy_install pip
 #pip install --user package
@@ -2589,7 +2583,7 @@ sudo port select --set pip pip37
 # Install Python BeautifulSoup
 pip install --user beautifulsoup4
 # or with macports (system-wide):
-#sudo port install py35-beautifulsoup4
+#sudo port install py38-beautifulsoup4
 # Then check
 #python -c "help('modules')" | grep bs4
 
@@ -2603,8 +2597,8 @@ sudo port install ntfs-3g
 sudo port install testdisk
 
 # Ruby and gems (Ruby package manager)
-sudo port install ruby25 rb-rubygems
-sudo port select --set ruby ruby25
+sudo port install ruby27 rb-rubygems
+sudo port select --set ruby ruby27
 
 # Add to profile user's gems folder
 if ! grep -q "export GEM_HOME=" ~/.profile
@@ -2615,6 +2609,9 @@ then
 	echo "export GEM_HOME=~/.gem" >> ~/.profile
 	echo "export GEM_PATH=~/.gem:\$GEM_PATH" >> ~/.profile
 fi
+
+# Java / Open JDK
+sudo port install openjdk14
 ```
 
 ## Preference pane
@@ -2628,7 +2625,8 @@ Right click to remove prefpane
 - [MySQL :: MySQL 5.7 Reference Manual :: 2.4.4 Installing and Using the MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.7/en/osx-installation-prefpane.html) - MySQL Preference Pane
 - [hschmidt/EnvPane: EnvPane - An OS X preference pane for environment variables](https://github.com/hschmidt/EnvPane) - Change environment variables
 - [specialunderwear/Hosts.prefpane: a Cocoa GUI for /etc/hosts](https://github.com/specialunderwear/Hosts.prefpane) - Change hosts files (works with SIP enabled)
-- [Rubicode - RCDefaultApp](http://www.rubicode.com/Software/RCDefaultApp/)  - "allows a user to set the default application used for various URL schemes, file extensions, file types, MIME types, and Uniform Type Identifiers / UTIs"
+- [Lord-Kamina/SwiftDefaultApps: Replacement for RCDefaultApps, written in Swift.](https://github.com/Lord-Kamina/SwiftDefaultApps)
+- (old) [Rubicode - RCDefaultApp](http://www.rubicode.com/Software/RCDefaultApp/)  - "allows a user to set the default application used for various URL schemes, file extensions, file types, MIME types, and Uniform Type Identifiers / UTIs"
 - [Arcana Research - StartupSound.prefPane](http://www5e.biglobe.ne.jp/~arcana/StartupSound/index.en.html) - "controls the volume of the startup sound of your Macintosh computer"
 - `/System/Library/CoreServices/Archive Utility.app/Contents/Resources/Archives.prefPane`
 

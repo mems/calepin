@@ -251,11 +251,16 @@ Examples: OAuth, Google, Facebook, Twitter, LinkedIn, Github, etc.
 
 ### Password-less login
 
+Use an access token or a public-private key (ex: SSH key)
+
 > provide only your email address and a link is sent to that email address. You click the link, which contains a special login code, and the website logs you in and deactivates the code so it can no longer be used. Subsequent visits to that URL just give a 403. In other words, every login is treated like a password reset. For many use cases, this could be a real pain, but for the case of, say, a site where a handful of internal users need access to an admin panel, it’s really nice to not have to deal with one more password.
-— http://jon.smajda.com/2014/10/20/mailbox-and-facebook-app-links/
+> — http://jon.smajda.com/2014/10/20/mailbox-and-facebook-app-links/
 
 **[But use POST not GET!](http://blog.teamtreehouse.com/the-definitive-guide-to-get-vs-post)** 15min lifetime, 1 usage, only sent by a user request (from the app/website)
 
+- [Passwordless SSH using public-private key pairs | Enable Sysadmin](https://www.redhat.com/sysadmin/passwordless-ssh)
+- [Understanding SSH Key Pairs :: WinSCP](https://winscp.net/eng/docs/ssh_keys)
+- [Generating a new SSH key and adding it to the ssh-agent - GitHub Help](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [Suppression des mots de passe : des paroles de Google aux actes de Medium - Next INpact](http://www.nextinpact.com/news/95657-supprimer-mots-passe-google-en-parle-medium-propose-alternative.htm)
 - [Le mot de passe, espèce en voie de disparition](http://www.lemonde.fr/pixels/article/2015/03/19/le-mot-de-passe-espece-en-voie-de-disparition_4596536_4408996.html)
 
@@ -405,22 +410,53 @@ See also [cryptography - Pre-hash password before applying bcrypt to avoid restr
 
 Like cron tasks
 
-Executed commands appears in `ps` or in system log (could be transmited by email, etc.)
+Executed commands or env vars appears in `ps` or in system log (could be transmited by email, etc.)
 
 Commands often support external config file (curl: `.netrc`, mysql: `.my.cnf`, wget: `.wgetrc`, etc.). Use it with a restricted read access (only 400 or 600 mode for the specific user `chmod u=wr,g=,o= config`).
 Alternatively, you can set the password in env vars `MYSQL_PWD="foo" mysqldump -ubackup --all-databases > dump.sql`
 
-Some commands support [`.netrc` file](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html) password file. Use as follow:
+Some commands (ssh, sftp, scp, git, rsync, and any other commands that use SSH) support [SSH server](https://www.jveweb.net/en/archives/2010/08/defining-ssh-servers.html) (`man ssh_config`) and SSH keys:
 
-	machine ftp.cyberciti.biz
-	login myusername
-	password mypassword
+```sh
+host="theservername"
+hostname="subdomain.domain.tld"
+user="username"
+port=34567
 
-	chmod u=wr,g=,o= .netrc
-	# if used as root:
-	#sudo chown root .netrc
+cat << EOF >> ~/.ssh/config
 
+Host $host
+HostName $hostname
+User $username
+Port $port
+IdentityFile ~/.ssh/${user}@${hostname}_key
+EOF
+
+ssh-keygen -t rsa -b 4096 -C "$user" -f "~/.ssh/${user}@${hostname}_key" -N "" -q
+# instead of "ssh -p 34567 username@subdomain.domain.tld" you can now use "ssh theservername""
+```
+
+Some other commands (curl, wget, rexec, ftp) support [`.netrc` file](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html) password file. Use as follow:
+
+```
+machine ftp.cyberciti.biz
+login myusername
+password mypassword
+```
+
+```sh
+chmod u=wr,g=,o= .netrc
+# if used as root:
+#sudo chown root .netrc
+```
+
+See also [.netrc - Everything curl](https://ec.haxx.se/usingcurl/usingcurl-netrc)
+
+You can also use a SFTP batch file (`-d`) and all similar mecanisms
+
+- [Password-less login](#password-less-login)
 - SSH: use `ssh-keygen` (see `ssh-copy-id`) `ssh-keygen -t rsa -f keyfile -N ""` (create keyfile without passphrase)
+- [BashFAQ/069 - Greg's Wiki](http://mywiki.wooledge.org/BashFAQ/069) - "I want to automate an ssh (or scp, or sftp) connection, but I don't know how to send the password...."
 - [how to pass a password with a cron job safely? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/176747/how-to-pass-a-password-with-a-cron-job-safely)
 - [script - Where to store security credentials (aka passwords) for special cron jobs? - Super User](http://superuser.com/questions/420033/where-to-store-security-credentials-aka-passwords-for-special-cron-jobs)
 - [mysql - Mysqldump launched by cron and password security - Stack Overflow](https://stackoverflow.com/questions/6861355/mysqldump-launched-by-cron-and-password-security)

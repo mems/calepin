@@ -59,6 +59,32 @@ Super admin access in DSM6: log with an admin user, then use `sudo su` or `sudo 
 - [Synology DSM root password for ssh | Primal Cortex's Weblog](https://primalcortex.wordpress.com/2012/08/25/synology-dsm-root-password-for-ssh/)
 - [Howto: (re-)Enable SCP/SSH Login on Synology DSM 6.0 for non admin users [UPDATE] « Beyond Technology](http://andidittrich.de/2016/03/howto-re-enable-scpssh-login-on-synology-dsm-6-0-for-non-admin-users.html)
 
+### Password less login
+
+Client side:
+
+```sh
+# Generate you public key if not already exist
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Server side (NAS):
+
+```sh
+mkdir ~/.ssh
+touch ~/.ssh/authorized_keys
+# copy content of your public key (client: ~/.ssh/id_rsa.pub)
+# Fix permission on home directory (remove group and everyone write permission)
+chmod 755 ~
+# Fix permission of authorized keys file and parent directory
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+```
+
+- [Configure Synology NAS SSH Key-based authentication](https://blog.aaronlenoir.com/2018/05/06/ssh-into-synology-nas-with-ssh-key/)
+- [Adding public key to ~/.ssh/authorized_keys does not log me in automatically - Stack Overflow](https://stackoverflow.com/questions/6377009/adding-public-key-to-ssh-authorized-keys-does-not-log-me-in-automatically/6377073#6377073)
+- [How to access files on Synology NAS via FTP | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/File_Sharing/How_to_access_files_on_Synology_NAS_via_FTP#t2_5) - "SFTP offers secure file transfer to DSM users without the need of passwords, and reduces the leakage risk of user credentials"
+
 ## TimeMachine
 
 Create a shared folder, with permissions, `Control Panel > File Services > Mac File Service > Time Machine`. This folder will be available in TimeMachine backup disks

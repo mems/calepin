@@ -1504,29 +1504,32 @@ Create a large test file (taking no space):
 
 ### Copy with rsync
 
-Network efficient file copier: Use the --dry-run option for testing
+Network efficient file copier
+
+- [Handling renamed files or directories in rsync - Server Fault](https://serverfault.com/questions/489289/handling-renamed-files-or-directories-in-rsync/596707#596707)
+
+Use the `--dry-run` option for testing
 
 	rsync -r -t -v /path/srcdir /path/destdir
+	rsync -r -t -v /path/srcdir remote:~/My\ documents
+	# Escape spaces, and keep special char interpreted at the destination. See "How to rsync over ssh when directory names have spaces - Unix & Linux Stack Exchange" https://unix.stackexchange.com/questions/104618/how-to-rsync-over-ssh-when-directory-names-have-spaces
+	DEST="~/My\ documents"; rsync -r -t -v /path/srcdir "remote:${DEST// /\\ }"
 
 Only get diffs. Do multiple times for troublesome downloads
 
 	rsync -P rsync://rsync.server.com/path/to/file file
 
-
 Locally copy with rate limit. It's like nice for I/O
 
 	rsync --bwlimit=1000 fromfile tofile
-
 
 Mirror web site (using compression and encryption)
 
 	rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'
 
-
 Synchronize current directory with remote one
 
 	rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/
-
 
 	date=$(date +%Y%m%d-%H%M)
 	
@@ -1547,78 +1550,80 @@ Copy folder to folder (if mounted)
 
 Use list `--exclude-from=LIST`:
 
-	# https://alexkaloostian.com/2015/01/22/what-are-all-these-hidden-items-on-my-mac-part-1/
-	# http://superuser.com/questions/180582/what-are-desktop-db-or-desktop-df-files-on-external-hd
-	# http://forum.mac4ever.com/pourquoi-t73534.html#p997828
-	# http://netatalk.sourceforge.net/wiki/index.php/Special_Files_and_Folders
-	# Apple OS
-	.AppleDouble
-	.com.apple.timemachine.donotpresent
-	.com.apple.timemachine.supported
-	.Spotlight-V100
-	.DocumentRevisions-V100
-	.DS_Store
-	.Trash
-	.Trashes
-	.VolumeIcon.icns
-	._.Trashes
-	.fseventsd
-	.dbfseventsd
-	.metadata_never_index
-	.LSOverride
-	.MobileBackups
-	.TemporaryItems
-	.file
-	.hotfiles.btree
-	.quota.ops.user
-	.quota.user
-	.quota.ops.group
-	.quota.group
-	.vol
-	.PKInstallSandboxManager
-	.PKInstallSandboxManager-SystemSoftware
-	# Max OS6-9
-	Desktop DB
-	Desktop DF
-	# AFP
-	.AppleDB
-	.AppleDesktop
-	Temporary Items
-	Network Trash Folder
-	.apdisk
-	# Sherlock files Mac OS 8.5 to OSX 10.3
-	TheFindByContentFolder
-	TheVolumeSettingsFolder
-	.FBCIndex
-	.FBCSemaphoreFile
-	.FBCLockFolder
-	# http://apple.stackexchange.com/questions/14980/why-are-dot-underscore-files-created-and-how-can-i-avoid-them
-	# https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats
-	# See also dot_clean command
-	#._*
-	
-	# Linux
-	lost+found
-	
-	# Windows
-	$RECYCLE.BIN
-	$Recycle.Bin
-	Thumbs.db
-	ehthumbs.db
-	ehthumbs_vista.db
-	pagefile.sys
-	hiberfil.sys
-	desktop.ini
-	Recycled
-	RECYCLER
-	System Volume Information
-	
-	# Other
-	.SymAV*
-	.symSchedScanLockxz
-	
-	# Package manager cache
-	node_modules
+```
+# https://alexkaloostian.com/2015/01/22/what-are-all-these-hidden-items-on-my-mac-part-1/
+# http://superuser.com/questions/180582/what-are-desktop-db-or-desktop-df-files-on-external-hd
+# http://forum.mac4ever.com/pourquoi-t73534.html#p997828
+# http://netatalk.sourceforge.net/wiki/index.php/Special_Files_and_Folders
+# Apple OS
+.AppleDouble
+.com.apple.timemachine.donotpresent
+.com.apple.timemachine.supported
+.Spotlight-V100
+.DocumentRevisions-V100
+.DS_Store
+.Trash
+.Trashes
+.VolumeIcon.icns
+._.Trashes
+.fseventsd
+.dbfseventsd
+.metadata_never_index
+.LSOverride
+.MobileBackups
+.TemporaryItems
+.file
+.hotfiles.btree
+.quota.ops.user
+.quota.user
+.quota.ops.group
+.quota.group
+.vol
+.PKInstallSandboxManager
+.PKInstallSandboxManager-SystemSoftware
+# Max OS6-9
+Desktop DB
+Desktop DF
+# AFP
+.AppleDB
+.AppleDesktop
+Temporary Items
+Network Trash Folder
+.apdisk
+# Sherlock files Mac OS 8.5 to OSX 10.3
+TheFindByContentFolder
+TheVolumeSettingsFolder
+.FBCIndex
+.FBCSemaphoreFile
+.FBCLockFolder
+# http://apple.stackexchange.com/questions/14980/why-are-dot-underscore-files-created-and-how-can-i-avoid-them
+# https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats
+# See also dot_clean command
+#._*
+
+# Linux
+lost+found
+
+# Windows
+$RECYCLE.BIN
+$Recycle.Bin
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+pagefile.sys
+hiberfil.sys
+desktop.ini
+Recycled
+RECYCLER
+System Volume Information
+
+# Other
+.SymAV*
+.symSchedScanLockxz
+
+# Package manager cache
+node_modules
+```
 
 Resources for exclude metadata and system files:
 
