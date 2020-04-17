@@ -56,6 +56,30 @@ API references, guides, tutorials, and blog posts
 > 
 > — [Error Messages: Being Humble, Human, and Helpful will make users Happy — Write the Docs](https://www.writethedocs.org/videos/na/2017/error-messages-being-humble-human-and-helpful-will-make-users-happy-kate-voss/)
 
+> Apex crash - Out of memory
+> 
+> Apex crashed because it ran out of memory.
+> 
+> The most common causes of this are:
+> 
+> * "Texture Streaming Budget" is too high in your video settings. Lowering this can help.
+> * All other programs plus Apex combine to use too much memory. Quitting other programs can help.
+> * Your Windows page file is set too small. Increasing the page file size can help. (The page file lets Windows move less important memory to disk until it's needed again.)
+> 
+> TECHNICAL INFORMATION:
+> 
+> * Apex was using 2.3 GB of physical memory.
+> * Apex was using 7.3 GB of virtual memory.
+> * Apex failed to allocate 1.0 MB of memory.
+> 
+> * Your PC has 32.0 GB of memory physically installed.
+> * Your PC has 128.0 TB of virtual memory (with the page file).
+> * After Apex exited, your PC memory load is about 84%.
+> 
+> Ctrl+C in this window will copy this message so you can paste it as text.
+> 
+> — [ralph waldo cybersyn on Twitter: "this is the most helpful crash message i've ever seen https://t.co/JCy4iDPrFt" / Twitter](https://twitter.com/atomicthumbs/status/1250265618500091906?s=12)
+
 > Just like any other form of documentation, put the relevant information first. This can be done by having the object first and the action second. The user is looking for the result, not how to get there. This is helpful when users quickly scan your error messages.
 > "Press the back button to return to the previous page." -> "To return to the previous page, use the back button."
 

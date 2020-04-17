@@ -1,4 +1,4 @@
-## Optimizations and performances
+# Optimizations and performances
 
 Aka WebPerfs, Web Perf
 
@@ -71,11 +71,11 @@ Tools (audit, checklist, benchmark, best practices, etc.):
 - [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
 - [Website speed test](https://tools.pingdom.com/)
 
-### Control your content
+## Control your content
 
 - [The Washington Post cuts off ad tech vendors slowing its site - Digiday](https://digiday.com/media/washington-post-vendors/)
 
-### Mobile
+## Mobile
 
 - [Mobile-Friendly Test - Google Search Console](https://search.google.com/search-console/mobile-friendly)
 - https://www.google.com/webmasters/tools/mobile-friendly/
@@ -83,7 +83,7 @@ Tools (audit, checklist, benchmark, best practices, etc.):
 - https://www.bing.com/webmaster/tools/mobile-friendliness
 - [Mobile Web Application Best Practices](http://www.w3.org/TR/mwabp/)
 
-### Reduce bytes
+## Reduce bytes
 
 > http://www.haratetsuo.com/wp-content/themes/haratetsuo2018_cms_v2/images/ico/arrow.svg
 > The 30MB SVG image is a simple arrow! It's served uncompressed (gzipped would be 24MB and brotli would be 3.8MB). It contains 82 base64 encoded JPG images (one per image size). There are only 10 unique base64 images encoded in the file, so a lot of repetition...  
@@ -203,7 +203,7 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 		That group similar files together, allow compression from redundancy across files similar files. (due to limited window size to 32K)
 	- remove optional filename and timestamp from gzipped stream (option `-n`): `gzip -9 -n -k file`
 
-### Reduce requests
+## Reduce requests
 
 - embed images in CSS using data URI, encoded with URI encoding or base64 (could have a negative impact on low end devices)
 - JS, CSS in HTML in tags `<script>` and `<style>`
@@ -216,7 +216,7 @@ Note: HTTP/2 [multiplex](#multiplexed--pipelining) and [push](#server-push) are 
 
 - [The Best Request Is No Request, Revisited · An A List Apart Article](https://alistapart.com/article/the-best-request-is-no-request-revisited) - Unbundle resources with HTTP/2.0 but be carefull
 
-### Reduce latency
+## Reduce latency
 
 Mesure latency:
 
@@ -232,11 +232,11 @@ Use a popular TLD do use DNS resolver cache:
 
 - [Is your fancy new domain hurting your performance? Benchmarking the top-level domain names - BunnyCDN Blog](https://bunnycdn.com/blog/is-your-fancy-new-domain-hurting-your-performance-gtld-benchmark/)
 
-#### First packet size
+### First packet size
 
 - [wifi - What is the total length of pure TCP Ack sent over ethernet? - Stack Overflow](https://stackoverflow.com/questions/5543326/what-is-the-total-length-of-pure-tcp-ack-sent-over-ethernet)
 
-##### Initial TCP window
+#### Initial TCP window
 
 > Minimize ATF (above-the-fold) content size: The first TCP connection isn’t able to fully utilize a connection’s bandwidth on the first roundtrip, which means the number of packets it can send is very limited. In order to render your ATF content it needs to be 148 kb or less
 — [5 SEO Guidelines for Web Developers](https://www.sitepoint.com/5-seo-guidelines-for-web-developers/)
@@ -255,7 +255,7 @@ Congestion window: initial cwnd size is 10; 14.6KB = 10 packets of 1460 Bytes.
 - [Increasing tcp slow start Initial Window in linux 3.0 kernel - Server Fault](http://serverfault.com/questions/365614/increasing-tcp-slow-start-initial-window-in-linux-3-0-kernel)
 - [Is it possible to configure the initial window size for tcp slow start on Windows? - Server Fault](http://serverfault.com/questions/160690/is-it-possible-to-configure-the-initial-window-size-for-tcp-slow-start-on-window)
 
-#### Fast Open
+### Fast Open
 
 - [TCP Fast Open - Wikipedia](https://en.wikipedia.org/wiki/TCP_Fast_Open)
 - [Blog Stéphane Bortzmeyer: Commencer les sessions TCP plus vite ?](http://www.bortzmeyer.org/tcp-ouverture-rapide.html)
@@ -265,7 +265,7 @@ Congestion window: initial cwnd size is 10; 14.6KB = 10 packets of 1460 Bytes.
 - [TCP Fast Open - KeyCDN Support](https://www.keycdn.com/support/tcp-fast-open/)
 - [1188435 - Support TCP fastopen](https://bugzilla.mozilla.org/show_bug.cgi?id=1188435)
 
-#### Keep-Alive
+### Keep-Alive
 
 Use Keep-Alive connection (more useful for HTTP/1.X connection than HTTP/2):
 
@@ -277,7 +277,7 @@ Use Keep-Alive connection (more useful for HTTP/1.X connection than HTTP/2):
 
 - [HTTP persistent connection — Wikipedia](https://en.wikipedia.org/wiki/HTTP_persistent_connection)
 
-#### Preload ASAP
+### Preload ASAP
 
 As soon as possible, use UDP Priming (pre request like HEAD) to let the server prepare response
 
@@ -285,13 +285,13 @@ Load list by fragments 1+1+X (better than × or 3+7+X) like streaming
 
 - [Optimizing Facebook for iOS start time | Engineering Blog | Facebook Code](https://code.facebook.com/posts/1675399786008080/optimizing-facebook-for-ios-start-time/)
 
-#### IPv6
+### IPv6
 
 - [98.01% of sites on Cloudflare now use IPv6](https://blog.cloudflare.com/98-percent-ipv6/)
 - [IPv6 measurements | Zaid Ali Kahn | Pulse | LinkedIn](https://www.linkedin.com/pulse/ipv6-measurements-zaid-ali-kahn)
 - [IPv6: It's time to get on board | Engineering Blog | Facebook Code](https://code.facebook.com/posts/1192894270727351/ipv6-it-s-time-to-get-on-board/)
 
-#### Edge side includes
+### Edge side includes
 
 CDN or cache proxy agregade differents resource fragments with cache
 
@@ -300,7 +300,7 @@ CDN or cache proxy agregade differents resource fragments with cache
 - [Server Side Includes - Wikipedia](https://en.wikipedia.org/wiki/Server_Side_Includes)
 - [EdgeSuite 4.2 ESI Examples](http://esi-examples.akamai.com/)
 
-#### Dedicated domains cookies less
+### Dedicated domains cookies less
 
 Reduce latency server side.
 
@@ -308,7 +308,7 @@ For statics resources (don't require cookies), use a dedicated domain.
 
 With HTTP/2.0 it's no more useful, with [header compression](#header-compression).
 
-#### Multiple domains for static resources
+### Multiple domains for static resources
 
 Aka domain sharding, domain sharing
 
@@ -321,7 +321,7 @@ Ex: `static1.example.com` and `static2.example.com`
 - [Connection management in HTTP/1.x - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x#Domain_sharding)
 - [Performance Calendar » Reducing Domain Sharding](https://calendar.perfplanet.com/2013/reducing-domain-sharding/)
 
-#### Serve progressive HTML document
+### Serve progressive HTML document
 
 Serve the document using chunk encoding.
 
@@ -335,7 +335,7 @@ Note: browser often have a buffer of 4096 bytes
 6. send chunk `<style>.progress{display: none}</style>`
 5. send the remains HTML document part
 
-#### Precompress
+### Precompress
 
 See [Content encoding](#content-encoding)
 
@@ -352,8 +352,8 @@ With nginx: http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#examp
 With Apache:
  
  ```apache
-# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
-# http://developer.yahoo.com/performance/rules.html#gzip
+ If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
+ http://developer.yahoo.com/performance/rules.html#gzip
 <IfModule mod_rewrite.c>
 	# If the browser accepts gzip and the requested file exists under
 	# pre-encoded version, then rewrite to that version.
@@ -421,14 +421,14 @@ RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javas
 An other way (**need to test**: content not double encoded, `.gz.html` output). It is use [content negotiation](http://httpd.apache.org/docs/2.4/en/content-negotiation.html):
 
 ```apache
-# Activate Content Negotiation
+ Activate Content Negotiation
 Options +MultiViews
 RemoveType .gz
 AddEncoding gzip .gz
 RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
 RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
 RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
-# By using content negociation, Apache will add Content-Encoding to Vary header
+ By using content negociation, Apache will add Content-Encoding to Vary header
 ```
 
 Or:
@@ -449,7 +449,7 @@ Or:
 - [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-Simple-gzip-Support-for-Apache-with-mod_rewrite.html)
 - [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x)
 
-#### Multiplexed / Pipelining
+### Multiplexed / Pipelining
 
 HTTP/1.1 has pipelining, but not well supported (by proxies, etc.)
 HTTP/2 is multiplexed
@@ -457,7 +457,7 @@ HTTP/2 is multiplexed
 - [HTTP/2 Frequently Asked Questions](https://http2.github.io/faq/#why-is-http2-multiplexed)
 - [Connection management in HTTP/1.x - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x#HTTP_pipelining)
 
-#### TLS
+### TLS
 
 - avoiding full TLS handshakes
 - TLS resumption
@@ -473,13 +473,13 @@ HTTP/2 is multiplexed
 - [Enabling HTTPS Without Sacrificing Your Web Performance - Moz](https://moz.com/blog/enabling-https-without-sacrificing-web-performance)
 - [SSL/TLS Performance Diary #3: Optimizing Data Encryption - Zoompf Web Performance](https://zoompf.com/blog/2014/11/ssl-performance-diary-3-optimizing-data-encryption) - (old)
 
-#### Use dedicated servers
+### Use dedicated servers
 
 Load balancer, localized CDN, etc.
 
 - [How We Knew It Was Time to Leave the Cloud | GitLab](https://about.gitlab.com/2016/11/10/why-choose-bare-metal/)
 
-#### Cache
+### Cache
 
 To control static resource version, **use checksum instead of build number**. Which means you only download a new copy _when it actually changes_ (see ETag).
 
@@ -490,14 +490,14 @@ Use forever cache (cache immutable) for static resources.
 - [Increasing Application Performance with HTTP Cache Headers | Heroku Dev Center](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
 - https://restpatterns.mindtouch.us/Articles/Caching_Matters
 
-##### Cached
+#### Cached
 
 max-age or expires headers, `Header append Cache-Control "public"`, `Header append Cache-Control "immutable"` avoid check of 304s
 
 `.htaccess`: 
 
 ```apache
-# Requires mod_expires to be enabled.
+ Requires mod_expires to be enabled.
 <IfModule mod_expires.c>
 	# Enable expirations.
 	ExpiresActive On
@@ -524,7 +524,7 @@ header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + (60 * 60 * 24 * 12))
 Varnish script to Handle `Vary: User-Agent` to create classes to reduce variations.
 
 ```vcl
-# recv
+ recv
 if (req.http.host ~ "^example.com$") {
 	if (req.http.User-Agent ~ "MSIE\s[1-10]\." || req.http.User-Agent ~ "Edge\/[1-10]\." || req.http.User-Agent ~ "Trident\/.*rv:[1-10]\." || req.http.User-Agent ~ "Firefox\/[1-41]\." || req.http.User-Agent ~ "Safari\/[1-8]\." || req.http.User-Agent ~ "Version\/[1-8]\.")
 	{
@@ -543,7 +543,7 @@ if (req.http.host ~ "^example.com$") {
 	}
 }
 
-# Fetch
+ Fetch
 if (req.http.host ~ "^example.com$") {
 	set beresp.http.X-UA-Device = req.http.X-UA-Device;
 
@@ -578,7 +578,7 @@ if (req.http.host ~ "^example.com$") {
 
 - [RFC 7234 in JavaScript. Parses HTTP headers to correctly compute cacheability of responses, even in complex cases ](https://github.com/pornel/http-cache-semantics)
 
-##### Not cached
+#### Not cached
 
 Prevent back button to show cache page (ex.: after logout)
 
@@ -603,7 +603,7 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
 
 - [http - Making sure a web page is not cached, across all browsers - Stack Overflow](https://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers)
 
-#### Reduce processing
+### Reduce processing
 
 - [JavaScript Start-up Performance – reloading – Medium](https://medium.com/reloading/javascript-start-up-performance-69200f43b201)
 - [Time spent in JS parse & eval for average JS - Google Sheets](https://docs.google.com/spreadsheets/d/1wHcNNQea28LhwQ_amFamT33d5woVrJfJy53Z1k6V090/edit) - Parse times for a 1MB bundle of JavaScript across desktop & mobile devices of differing classes
@@ -616,11 +616,11 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
 	- [Glimmer's Optimizing Compiler](https://www.linkedin.com/pulse/glimmers-optimizing-compiler-chad-hietala?articleId=6321437215352242176)
 - [JSON.parse() vs eval() - corrected · jsPerf](https://web.archive.org/web/20171119085518/https://jsperf.com/json-parse-vs-eval-corrected/1)
 
-#### Relayout, repaint, reflow
+### Relayout, repaint, reflow
 
 See [Relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
-### Reduce CPU/GPU
+## Reduce CPU/GPU
 
 Code markup:
 
@@ -629,7 +629,7 @@ Server side: Serve HTML (gzipped, a tiny tiny bit more) + CSS
 
 - [Jake Archibald on Twitter: "I took the code examples from https://t.co/Oyiax6163l and compared with highlighting markup, and without (https://t.co/oIYkvupr2D). After gzip: With highlighting markup: 900b. Without highlighting markup: 723b. PrismJS: 5.2k.… https://t.co/0xcp53jdrB"](https://twitter.com/jaffathecake/status/1113017397655547905)
 
-### Control loading
+## Control loading
 
 Load based on the device or network capabilities:
 
@@ -657,13 +657,13 @@ Use [cache](#cache)
 > - preload: when you use on the **same** page
 > - prefetch: for future use (**next** page)
 
-#### Buffering
+### Buffering
 
 Aka dynamic buffering
 
 - [Dynamic Buffering revamping | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2006/04/10/dynamic-buffering-revamping/) and [A Dynamic Buffering strategy | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2005/12/03/241/) - prebuffer time (used to compute real required buffer size) + buffer to fill 80% at the current speed
 
-#### Resource hint
+### Resource hint
 
 See also dns-prefetch, preconnect, prerender
 
@@ -750,7 +750,7 @@ myExampleLink.addEventListener("click", event => {
 - [GoogleChromeLabs/quicklink: ⚡️Faster subsequent page-loads by prefetching in-viewport links during idle time](https://github.com/GoogleChromeLabs/quicklink)
 - [instant.page](https://instant.page/) - Prefetch pages under pointer before the user click (~300ms with cursor, ~90ms with touch) [Technical details — instant.page](https://instant.page/tech) [instantpage/instant.page: Make your site’s pages instant in 1 minute and improve your conversion rate by 1%](https://github.com/instantpage/instant.page)
 
-#### Download priority
+### Download priority
 
 - HTML (highest)
 - CSS (highest)
@@ -771,7 +771,7 @@ myExampleLink.addEventListener("click", event => {
 - [Image Inconsistencies: How and When Browsers Download Images – CSS Wizardry – CSS Architecture, Web Performance Optimisation, and more, by Harry Roberts](https://csswizardry.com/2018/06/image-inconsistencies-how-and-when-browsers-download-images/)
 - [Deep dive into the murky waters of script loading - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/script-loading/)
 
-#### On demand
+### On demand
 
 Aka Lazyload, LOD, defered loading
 
@@ -799,7 +799,7 @@ Live streaming, or start play video when the file is not completely generated:
 - [MPEG-DASH](MPEG-DASH)
 - [Live streaming web audio and video - App Center | MDN](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Live_streaming_web_audio_and_video)
 
-##### Image lazyload
+#### Image lazyload
 
 **Use a placeholder element, or at least [use a SVG in data URI for the `src` attribute](https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/#article-header-id-5) to prevent reflow**
 
@@ -915,7 +915,7 @@ See also:
 - [Progressivement en ‹img /› - da scritch net works](https://dascritch.net/post/2014/06/10/Progressivement-en-img#lazyloading)
 - [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes)
 
-#### Progressive load
+### Progressive load
 
 Or partial load
 
@@ -971,7 +971,7 @@ Note: `media!='all'&&...` is required as a workaround for infinite event loop on
 
 See [`<noscript>` and search engines](#noscript-and-search-engines)
 
-#### Critical path
+### Critical path
 
 Aka blocking dependencies, critical resources
 
@@ -1154,7 +1154,7 @@ Which metric is best?
 - [SpeedCurve | Evaluating rendering metrics](https://speedcurve.com/blog/rendering-metrics/)
 - [Picker - Rendering Metrics](http://lab.speedcurve.com/rendering/picker.php)
 
-##### Anatomy of a webpage
+#### Anatomy of a webpage
 
 Aka wireframe of a webpage
 
@@ -1313,7 +1313,7 @@ if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
 - [Faster Pageloads: Effectively using HTTP Caching, Cache Busting, and a CDN - FoxyCart](http://www.foxycart.com/blog/caching-and-cdn#.VPZa0xfHNE4)
 - [Your Hero Images Need You: Save the Day with HTTP/2 Image Loading - YouTube](https://www.youtube.com/watch?v=66JINbkBYqw)
 
-##### Blocking resources
+#### Blocking resources
 
 > Browser requests the HTML document Begins parsing and constructing DOM Discovers CSS/JS Waits for CSS response Constructs CSSOM Combines CSSOM and DOM intro render tree Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.
 > — Slide 16 of [To push, or not to push?!](https://noti.st/patrickhamann/ocAYxy/to-push-or-not-to-push) by Patrick Hamann
@@ -1352,14 +1352,14 @@ At the bottom: Use the script as blocking script. Should be executed after all p
 - [Download priority](#download-priority)
 - [Load external script](Javascript.md#load-external-script)
 
-###### Non-blocking stylesheet
+##### Non-blocking stylesheet
 
 ```html
 <link rel="preload" href="styles.css" as="style" onload="rel='stylesheet';onload=0">
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
 ```
 
-### Reduce media memory usage
+## Reduce media memory usage
 
 For images and videos
 
@@ -1367,7 +1367,7 @@ By drawing downscaled images when smaller image are required.
 
 - https://github.com/PixelsCommander/CanvasImage
 
-#### Compressed textures
+### Compressed textures
 
 Use compressed textures and/or less bytes per channels (require canvas).
 
@@ -1406,7 +1406,7 @@ RGBA4444 = 16bit **but not related to paletted**, use `context.texImage2D(contex
 
 Note: In WebGL 2, `PALETTE8_RGBA8_OES` can be used with `compressedTexImage2D()` to upload paletted colors (like from PNG8): https://www.opengl.org/registry/specs/OES/OES_compressed_paletted_texture.txt
 
-### Performance reporting
+## Performance reporting
 
 Aka client timing
 
@@ -1416,7 +1416,7 @@ See JavaScript [Performance API](https://developer.mozilla.org/en-US/docs/Web/AP
 
 - [SpeedCurve | Synthetic: WebPageTest](https://speedcurve.com/features/synthetic/)
 
-### AMP
+## AMP
 
 > CSS is limited to 50KB and only inline, custom JS is not allowed (other than via an iframe method), and all images are guaranteed to be lazy loading.
 > [...]
@@ -1441,7 +1441,7 @@ Others links:
 - [Adactio: Journal—AMPstinction](https://adactio.com/journal/13964)
 - [Google AMP lowered our page speed, and there's no choice but to use it - unlike kinds](https://unlikekinds.com/amp/article/google-amp-page-speed)
 
-### Third parties webperf
+## Third parties webperf
 
 See also [Third parties](#third-parties)
 
