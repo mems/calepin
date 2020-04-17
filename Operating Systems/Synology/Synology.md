@@ -535,10 +535,12 @@ sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp\|synoimg
 #### Format and storage
 
 Note: Hyper Backup use block-level incremental backups
+Note: Hyper Backup doesn't seem to de-dupe (use the knowledge that some files are hardlink) on the initial backup. See [Hyper backup - is it backing up all hardlinks? | Synology Community](https://community.synology.com/enu/forum/9/post/125874)
 Note: **If backup fail, try to backup smaller data set** (Backup task settings > Folders : check less folders), and incrementally add more folders
 Note: `.hbk` hyperbackup image folder package (contains a empty file `SynologyHyperBackup.bkpi`) can be mount (with right click with File Station) and explored via a standard file protocol (e.g. AFP or SMB). Can be open with [HyperBackupExplorer](https://www.synology.com/en-global/knowledgebase/DSM/help/HyperBackupExplorer/hyperbackupexplorer). See [How to retrieve backup files with Hyper Backup Explorer](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Backup_Restore/How_to_retrieve_backup_files_with_Hyper_Backup_Explorer)
 Note: If the backup fail `Error: DB (/XX/XX.hbk/Config/candidate_chunk.db) has tmp-file (/XX/XX.hbk/Config/candidate_chunk.db-shm) in version-complete`. It's due to the size of `candidate_chunk.db` should exceed the file system max file size limit (for FAT32, the file max size is 4GB). Use an other file system (ext4 or exFAT)
 
+- 
 - [DiskStation Manager - Knowledge Base | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Storage/How_can_I_recover_data_from_my_DiskStation_using_a_PC)
 - [Create Backup Tasks | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/HyperBackup/data_backup_create)
 
@@ -651,6 +653,10 @@ The default Openstack container is `default`. For other container: `https://hubi
 - [Synchronise Synology NAS with Object Storage using DiskStation Manager 6.0 - OVH](https://www.ovh.com/us/g2090.synchronise_synology_nas_with_object_storage_using_diskstation_manager_60)
 - [OVH Public Cloud: Our Cloud Computing solutions - OVH](https://www.ovh.com/us/cloud/storage/)
 - [OVH Public Cloud Object Storage et API OpenStack Swift](https://gist.github.com/BaptisteDixneuf/85dc4419a0398446d2d3)
+
+### Rsync
+
+- [How to back up Linux computer to Synology NAS | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Backup/How_to_back_up_Linux_computer_to_Synology_NAS)
 
 ## Time Machine
 

@@ -558,7 +558,7 @@ With Winebottler, create Application bundle from the zip version:
 3. Installation mode:
 	WineBottler 1.8rc4 the following not work properly:
 	> copy file (Program) and all files in the folder to the App Bundle
-4. System: `XP` or `7`
+4. System: `XP 64bit` or `7 64bit`
 5. don't include Mono and Gecko
 6. check "Prepare for Distribution / Remove Users" and "Remove installers"
 6. DLL Override: `mscoree=n,b;mshtml=n,b` (see [Wine DLL overrides](#wine-dll-overrides))
@@ -580,6 +580,7 @@ With Winebottler, create Application bundle from the zip version:
 
 Note: Version 3 can show an error but works. "Direct" not work
 
+- [CaptvtyV3.sh · master · Paul WOISARD / Captvty script installateur pour Ubuntu · GitLab](https://framagit.org/Paullux/captvty-script-installateur-pour-ubuntu/blob/master/CaptvtyV3.sh) and [Problem with Captvty a french software to see TV - WineHQ Forums](https://forum.winehq.org/viewtopic.php?t=31778)
 - [Foire aux question | Captvty](http://captvty.fr/faq#linux)
 
 ## Filebot
@@ -1351,7 +1352,7 @@ Then restart.
 
 See also Wineskin
 
-macOS Wine: `Wine.app`
+macOS Wine: `Wine.app` and [WineBottler](https://winebottler.kronenberg.org/) (see [winebottler sources on Bitbucket](https://bitbucket.org/winebottler/winebottler/src/master/))
 
 Install winetrick in current prefix: Wine menu > Wintricks
 
@@ -1474,6 +1475,17 @@ It's could needed to change the lib lookup location:
 To debug dylib loaded, edit bash script `MyWineApp.app/Contents/MacOS/startwine` of the bottled Wine app, prefix `"$WINEUSRPATH/bin/wine"....` with `DYLD_PRINT_LIBRARIES=1 `: `DYLD_PRINT_LIBRARIES=1 "$WINEUSRPATH/bin/wine...`
 
 	otool -L /Applications/Wine.app/Contents/Resources/lib/libfreetype.6.dylib
+
+### Wine 64bit
+
+Fix WineBottle 4.0.1.1 to support macOS Catalina (10.15) 64 bit only:
+
+- in `WineBottler.app/Contents/Frameworks/WBottler.framework/Resources/bottler.sh` and `Wine.app/Contents/Frameworks/WBottler.framework/Resources/bottler.sh`:
+    - replace `export WINE="$WINEPATH/wine"` with `export WINE="$WINEPATH/wine64"`
+    - replace `WINE_VERSION=$("$WINEPATH/wine" --version |sed 's/wine-//')` with `WINE_VERSION=$("$WINEPATH/wine64" --version |sed 's/wine-//')`
+- in `WineBottler.app/Contents/Frameworks/WBottler.framework/Resources/startwine.sh` and `Wine.app/Contents/Frameworks/WBottler.framework/Resources/startwine.sh`:
+    - replace `export WINEARCH=win32` with `export WINEARCH=win64`
+    - replace all `/bin/wine` with `/bin/wine64`
 
 ## TexturePacker
 

@@ -14,7 +14,7 @@
 
 ### Debug webpage on remote iOS Safari
 
-Only for Safari, or webview in application developper version only
+Only for Safari, or webview in application **developper version only** (installed via XCode or App for [iOS simulator](../Operating%20Systems/iOS/iOS.md#test-application))
 
 At least works with iOS 11.4:
 
@@ -54,6 +54,8 @@ Install a Fiddler proxy certificate:
 
 Android Emulator:
 
+- [Download Android Studio and SDK tools  |  Android Developers](https://developer.android.com/studio#cmdline-tools) - "Command line tools only"
+- [How to update Android emulator without Android Studio? - Stack Overflow](https://stackoverflow.com/questions/43147699/how-to-update-android-emulator-without-android-studio/43148199#43148199)
 - [Releases · intel/haxm](https://github.com/intel/haxm/releases)
 - [Paste text on Android Emulator - Stack Overflow](https://stackoverflow.com/questions/3391160/paste-text-on-android-emulator/16618811#16618811)
 - [Use modified hosts file on Android Emulator – Code, Procedure and Rants – Medium](https://medium.com/code-procedure-and-rants/use-modified-hosts-file-on-android-emulator-4f29f5d12ac1)

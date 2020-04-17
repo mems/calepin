@@ -8,9 +8,15 @@
 Start `./android`, then tools > Mangage AVDs...
 
 ```sh
-cd ~/Android/sdk/tools/bin && ./avdmanager list avd
+cd ~/Library/Android/sdk/tools/bin && ./avdmanager list avd
 ```
 
+- HAXM `sudo kextload /Library/Extensions/intelhaxm.kext` (Need to allow it: Settings > Security & Privacy)
+- `kextstat | grep intel`, `ls /dev/HAX`
+- `sudo /Library/Extensions/intelhaxm.kext/Contents/Resources/uninstall.sh`
+- `sudo /Library/Android/sdk/tools/bin/sdkmanager --update --sdk_root=/Library/Android/sdk`
+- [gitlab ci - Android Command line tools sdkmanager always shows: Warning: Could not create settings - Stack Overflow](https://stackoverflow.com/questions/60440509/android-command-line-tools-sdkmanager-always-shows-warning-could-not-create-se)
+- [Installation Instructions on macOS · intel/haxm Wiki](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS)
 - [Run Apps on the Android Emulator | Android Studio](https://developer.android.com/studio/run/emulator.html)
 - [Control the Emulator from the Command Line | Android Studio](https://developer.android.com/studio/run/emulator-commandline.html)
 - [Android* - Intel® Hardware Accelerated Execution Manager (Intel® HAXM) | Intel® Software](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager)
@@ -25,6 +31,13 @@ cd ~/Android/sdk/tools/bin && ./avdmanager list avd
 Setup Proxy (when using Emulator, or not) http://www.techverse.net/how-to-setup-proxy-server-3g-4g-data-connection-android-phone/
 
 `UVESA_MODE=1336x768 DPI=96` `UVESA_MODE=1920x1080 DPI=340`
+
+## APK
+
+APK is a ZIP
+
+- [processor - How to tell what architecture an APK is intended for? - Android Enthusiasts Stack Exchange](https://android.stackexchange.com/questions/168302/how-to-tell-what-architecture-an-apk-is-intended-for)
+- [How do you install an APK file in the Android emulator? - Stack Overflow](https://stackoverflow.com/questions/3480201/how-do-you-install-an-apk-file-in-the-android-emulator/3480235#3480235)
 
 ## Kiosk mode
 

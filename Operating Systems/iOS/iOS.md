@@ -375,6 +375,10 @@ You can also (only for pictures) use `xcrun simctl addphoto`
 xcrun simctl delete unavailable
 ```
 
+### Test application
+
+- [Install App On iOS Simulator | Anexinet](https://www.anexinet.com/blog/install-app-ios-simulator/)
+
 ### Create link to iOS Simulator app
 
 Require Xcode installed.

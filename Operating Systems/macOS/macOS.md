@@ -82,6 +82,7 @@ Time Machine backup fiability:
 	
 	See also [Easy Automated Snapshot-Style Backups with Rsync](http://www.mikerubel.org/computers/rsync_snapshots/)
 - [osx - Using rsync to backup - Ask Different](http://apple.stackexchange.com/questions/224747/using-rsync-to-backup)
+- [How to install & compile rsync on Mac OSX](https://gist.github.com/Sounds-of-Science/7561838) - Install rsync 3.x on macOS without macport or brew
 - In Win 8+ use [File History](http://windows.microsoft.com/en-us/windows-8/how-use-file-history). It use Shadow Copy Service and backupd to VHD format. See also [Backup and Restore](https://en.wikipedia.org/wiki/Backup_and_Restore) and [File History](https://en.wikipedia.org/wiki/Features_new_to_Windows_8#File_History)
 - [backup - Does an equivalent of Time Machine exist for Windows? - Super User](http://superuser.com/questions/7423/does-an-equivalent-of-time-machine-exist-for-windows)
 - [duplicity: Main](http://duplicity.nongnu.org/)
