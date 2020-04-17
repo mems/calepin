@@ -40,6 +40,10 @@ The protection resistance is matter of time, money or opportunities. Anything is
 - [The Open Web Application Security Project - OWASP](https://www.owasp.org/index.php/Main_Page)
 - [Everything you need to know about HTTP security headers - Appcanary](https://blog.appcanary.com/2017/http-security-headers.html)
 
+## Data access and integrity
+
+See [Data access and integrity](./Data%20access%20and%20integrity/Data%20access%20and%20integrity.md)
+
 ## Malware
 
 Types: ransomware, etc.
