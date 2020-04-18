@@ -5,7 +5,7 @@
 Against attacks, read/write access or modifications
 
 - [Public-key cryptography — Wikipedia](https://en.wikipedia.org/wiki/Public-key_cryptography)
-- [RSA (cryptosystem) — Wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+- [RSA \(cryptosystem\) — Wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 - [Portail:Cryptologie — Wikipédia](https://fr.wikipedia.org/wiki/Portail:Cryptologie)
 - [Portail:Sécurité informatique — Wikipédia](https://fr.wikipedia.org/wiki/Portail:S%C3%A9curit%C3%A9_informatique)
 - [59Hardware - Dossier : La cryptographie](http://wayback.archive.org/web/20090227061422/http://59hardware.net/Tests/Jeux_Videos_et_Logiciels/Dossier_:_La_cryptographie.html)
