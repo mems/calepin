@@ -1443,7 +1443,7 @@ Others links:
 
 ## Third parties webperf
 
-See also [Third parties](#third-parties)
+See also [Third parties](../Web.md#third-parties)
 
 - [Hard Costs of Third-Party Scripts - daverupert.com](https://daverupert.com/2018/10/hard-costs-of-third-party-scripts/)
 - [How website trackers affect the performance of the world's top news sites](https://royal.pingdom.com/trackers-impact-performance/)

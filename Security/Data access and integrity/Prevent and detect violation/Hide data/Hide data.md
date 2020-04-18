@@ -10,20 +10,20 @@ The reader / browser / VM must be able to read your files and since it has no id
 - isolate code/class definition/context and checking for existing definition
 - Memory Hacking Prevention, String & Binary Obfuscation, binary level obfuscation, key encrypting
 - use different radix, etc.:
-    
-    ```
-	"A" == "1000001" == "	     	"
-    ```
-    
-    ```js
+	
+	```
+	"A" == "1000001" == "		 	"
+	```
+	
+	```js
 	// ascii string to whitespaces
 	"Hello"
 		.replace(/./g, function(w){return w.charCodeAt(0).toString(2).padStart(7, "0").replace(/0/g, ' ').replace(/1/g, "	")})
 	// whitespaces to ascii string
 	"	  	   		  	 			 		  		 		  		 				"
 		.replace(/.{7}/g, function(w){return String.fromCharCode(parseInt(w.replace(/ /g, "0").replace(/	/g, "1"), 2))})
-    ```
-    
+	```
+	
 	See [javascript - Detect when "Inspect Element" is open - Stack Overflow](https://stackoverflow.com/questions/42193700/detect-when-inspect-element-is-open/42194142#comment71551031_42194142)
 
 ```as3
@@ -46,7 +46,7 @@ Hidden text part can be recovered if short parts missing:
 
 ## Steganography
 
-See also [Alternative data storage](#alternative-data-storage)
+See also [Alternative data storage](../../Data%20access%20and%20integrity.md#alternative-data-storage)
 
 Hide data in data or metadata in a carrier format (image, video, etc.)
 
@@ -81,7 +81,7 @@ Hide data in data or metadata in a carrier format (image, video, etc.)
 	- [MP3 for Image Compression (2006) | Hacker News](https://news.ycombinator.com/item?id=14133221)
 	- [Avian’s Blog: Lossy compression](https://www.tablix.org/~avian/blog/archives/2006/01/lossy_compression/)
 	
-    ```sh
+	```sh
 	sox mo.wav -e unsigned -b 8 -c 1 -r 48k mo.raw
 	bytes=`stat -f %z mo.raw`
 	width=`echo sqrt\($bytes\) | bc`
@@ -90,7 +90,7 @@ Hide data in data or metadata in a carrier format (image, video, etc.)
 	gm convert -depth 8 -size ${width}x${width} gray:mo_square.raw -quality 50 mo_square.jpg
 	gm convert mo_square.jpg gray:mo_square_jpg.raw
 	sox -e unsigned -b 8 -c 1 -r 48k -t raw mo_square_jpg.raw mo_jpg.wav
-    ```
+	```
 
 - [Windowlicker — Wikipedia](https://en.wikipedia.org/wiki/Windowlicker)
 - [wbStego Steganography Tool](http://wbstego.wbailer.com/)
@@ -124,54 +124,58 @@ In document, user's comment, chat message, source code / script, source code's c
 	- http://www.unicode.org/Public/security/latest/confusables.txt see [UTS #39: Unicode Security Mechanisms](http://www.unicode.org/reports/tr39/#confusables)
 	- [vhf/confusable_homoglyphs: ϲοｎｆｕѕаｂｌе＿һοｍоɡｌｙｐｈｓ](https://github.com/vhf/confusable_homoglyphs)
 	- replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" -> "асеіјорѕху"), or Roman Numerals ("ⅰⅴⅹⅼⅽⅾⅿ" -> "ivxlcdm"):
-        - [(1) Martin Kleppe on Twitter: "Evil note: In JavaScript you can replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" =&gt; "асеіјорѕху") to use reserved words as your variable names such as: var vаr = function functіon(functіon){ cаtch = "me"; іf \[you = "can"\]; } vаr (breаk = true);" / Twitter](https://twitter.com/aemkei/status/1146884713371578369?s=12)
-        
-        ```js
-        var vаr = function functіon(functіon){
-          cаtch = "me"; 
-          іf [you = "can"];
-        }
+		- [(1) Martin Kleppe on Twitter: "Evil note: In JavaScript you can replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" =&gt; "асеіјорѕху") to use reserved words as your variable names such as: var vаr = function functіon(functіon){ cаtch = "me"; іf \[you = "can"\]; } vаr (breаk = true);" / Twitter](https://twitter.com/aemkei/status/1146884713371578369?s=12)
+		
+		```js
+		var vаr = function functіon(functіon){
+		  cаtch = "me"; 
+		  іf [you = "can"];
+		}
 
-        vаr (breаk = true);
-        ```
-        
-        ```js
-        dо='',vаr=!dо+dо,breаk=!vаr+dо,cаtch=dо+{},іf=vаr[dо++],ѕwitch=vаr[іn=dо],thiѕ=++іn+dо,cоnst=cаtch[іn+thiѕ],vаr[cоnst+=cаtch[dо]+(vаr.breаk+cаtch)[dо]+breаk[thiѕ]+іf+ѕwitch+vаr[іn]+cоnst+іf+cаtch[dо]+ѕwitch][cоnst](breаk[dо]+breаk[іn]+vаr[thiѕ]+ѕwitch+іf+"(dо)")()
-        ```
-        
-        ```js
-        [breаk,caѕe,cаtch,contіnue,dеbugger,defаult,dеlete,dо,elѕe,fіnally,fоr,functіon,іf,іn,inѕtanceof,nеw,rеturn,ѕwitch,thiѕ,thrоw,trу,typeоf,vаr,voіd,whіle,wіth] = "cyrillic doppelgänger of reserved words";
-        ```
-        
-        ```js
-        var сonst = "W";
-        let vаr = "T";
-        const lеt = "F";
-        сonst + vаr + lеt // WTF
-        ```
-        
-        ```js
-        ([cοnst,cοnst,сοnst,сοnst,сοnst,сοnst]=[]+{},[сonst,cоnst,conѕt,соnst,сonѕt,сonѕt,cоnѕt,соnѕt,сοnѕt,сοnѕt,cοnѕt]=[!!cοnst]+!cοnst+cοnst.cοnst)[сοnst+=cοnst+cοnѕt+соnѕt+сonst+cоnst+conѕt+сοnst+сonst+cοnst+cоnst][сοnst](сonѕt+cоnѕt+соnst+cоnst+сonst+'("const")')()
-        ```
+		vаr (breаk = true);
+		```
+		
+		```js
+		dо='',vаr=!dо+dо,breаk=!vаr+dо,cаtch=dо+{},іf=vаr[dо++],ѕwitch=vаr[іn=dо],thiѕ=++іn+dо,cоnst=cаtch[іn+thiѕ],vаr[cоnst+=cаtch[dо]+(vаr.breаk+cаtch)[dо]+breаk[thiѕ]+іf+ѕwitch+vаr[іn]+cоnst+іf+cаtch[dо]+ѕwitch][cоnst](breаk[dо]+breаk[іn]+vаr[thiѕ]+ѕwitch+іf+"(dо)")()
+		```
+		
+		```js
+		[breаk,caѕe,cаtch,contіnue,dеbugger,defаult,dеlete,dо,elѕe,fіnally,fоr,functіon,іf,іn,inѕtanceof,nеw,rеturn,ѕwitch,thiѕ,thrоw,trу,typeоf,vаr,voіd,whіle,wіth] = "cyrillic doppelgänger of reserved words";
+		```
+		
+		```js
+		var сonst = "W";
+		let vаr = "T";
+		const lеt = "F";
+		сonst + vаr + lеt // WTF
+		```
+		
+		```js
+		([cοnst,cοnst,сοnst,сοnst,сοnst,сοnst]=[]+{},[сonst,cоnst,conѕt,соnst,сonѕt,сonѕt,cоnѕt,соnѕt,сοnѕt,сοnѕt,cοnѕt]=[!!cοnst]+!cοnst+cοnst.cοnst)[сοnst+=cοnst+cοnѕt+соnѕt+сonst+cоnst+conѕt+сοnst+сonst+cοnst+cоnst][сοnst](сonѕt+cоnѕt+соnst+cоnst+сonst+'("const")')()
+		```
 - Zero width chars:
-
-		<!-- [SmallestJS](http://schierlm.users.sourceforge.net/smallestjs.html) -->
-		<!-- Use zero-width (invisible as text) chars: U+200D, U+FEFF, U+200C, U+200B -->
-		<meta charset="UTF-8"><script>q="﻿‌‍​﻿‌​​﻿‌​‌﻿​‍​﻿​﻿‍﻿​‍‌﻿​﻿﻿﻿‌‍​﻿​﻿‍﻿‌​​﻿​‍‌﻿﻿​​‍​​﻿‍‌﻿​‍‍﻿﻿﻿﻿﻿​‍​​﻿﻿﻿​‍‍‌﻿​‍​​‍﻿‌​﻿﻿‍​‍﻿‌‍﻿‍﻿​​‍‍﻿​﻿‍​﻿﻿‌﻿‌‍‌​﻿‍​‌‍﻿​​​‍​​‍‍﻿﻿​﻿​‍﻿‍‍﻿​‍‌‍​‍‌‍‌‍​‌​﻿‌​‍‍​​﻿﻿​‍﻿‍‍‌​‍​‌​﻿​‍​‍‍﻿​﻿​​‍‍﻿‍‌﻿﻿‍﻿﻿‌​‍‍​‌​﻿‌‌﻿‍‌‌​‍​​﻿‍​﻿‍‍‌‌﻿‍﻿‍‍﻿​‌​﻿​﻿​‍‍﻿​‍﻿‍‌‍‍​‌﻿​﻿​‍‌‌​‍​​﻿‍‌‌‍﻿​‍﻿﻿‍﻿​‍‌‌​﻿‌‌‌‍‌‌﻿‍‌‌‌‍​﻿﻿‍‌​​‍​‍‌‍‌‌﻿‍‌﻿‌‍​‍​﻿​​﻿‍​‌​﻿​‍﻿‍‌‌​‍‍﻿‌‍﻿‍‍﻿​‍‍﻿‍‌​﻿​‍​﻿‌﻿﻿﻿‍‌﻿‍‌﻿‍‍‌‌‍﻿​﻿​‍‌​‍‍​﻿‍‍‌‌﻿‍‌‌﻿﻿​​﻿‍​‌​﻿‌‍​‍​​﻿﻿﻿‍‌‍‌​‍﻿‌​‍‍‌‌​‍​‍﻿‍​‍﻿‍﻿﻿‌﻿‌‍​﻿﻿‌​﻿‌‍​﻿﻿​﻿﻿﻿‌​﻿‌‍​﻿﻿​﻿‍‌‌‍﻿﻿‍‌‍‌‌​‍​‍﻿‍​‍﻿‍‌‌﻿‍‌‌﻿‍‌‌‍‍﻿﻿‌‍‌‍‍‍‌​​‍‌​​‍‌‍‍﻿‌‍‌﻿​‌﻿‍‌‍‍﻿‍‍‍‍﻿‍​‍‍​​‍﻿﻿​﻿﻿​‍‍‌﻿​‍​‌​‍‍﻿﻿﻿‌‍​‍‍﻿‍‍​​﻿﻿‌﻿‌﻿​﻿﻿﻿‌​‌﻿‌‍​﻿​﻿‍﻿‌‌﻿﻿﻿‍‍‍‌‌‍‍‌‌﻿‍‌‍‍﻿​‌​‍‍﻿﻿‍﻿​﻿﻿​‍‌‍‍﻿​﻿‌‍​﻿﻿‍‍‍﻿​﻿﻿​‍‌﻿​﻿﻿﻿‌‍​﻿​﻿‍﻿‌​​﻿​‍‌‍‌‍‌‍‌‌​‍‍‍‌‍﻿​‌‍‍‌‍‍​​​‍﻿‌﻿‍​‌​‍‍﻿﻿﻿‌​﻿﻿‌‍﻿﻿​‍‍‍‍﻿‌﻿﻿​​‍​﻿﻿‍‌​‍‍​﻿‌‍​﻿﻿‍​‍‌‍​﻿​‍​‌﻿‍‌​‍﻿﻿​​‍​﻿‍‍‌​‍﻿﻿​​‍​‍​‍﻿﻿‌‍‍﻿﻿‍﻿‍﻿‍‍﻿​‍﻿‍‌‍‍﻿﻿﻿﻿‍﻿‍﻿​﻿﻿​‍‌‍‍‌​‍​‌​﻿‌‌﻿‍‌‌​‍‌‌​‍‌‌﻿﻿​‌​‍‍﻿﻿﻿‌‍‌‍‍﻿​‍​‍‍‍​‍‍‍​‍‍‍​‍‍‍‌‍‌‍‌‌​‍﻿​﻿﻿​‍‌﻿‍﻿​‍‌‌﻿‍‌​‌﻿​﻿‍﻿‌​​﻿﻿‍​‍‍‌﻿‍‌‌‍‍​﻿‍‍﻿﻿‌‍﻿‍﻿‍‌‌​‍​​﻿﻿‌‍‌‍‌​‌﻿​​‍‍‌‌‍﻿‌‍‌‍‍‌​‍‌​﻿‍​﻿‍‍﻿﻿‌﻿​​﻿﻿‌‍‍‍‌‌‍‍‍﻿﻿‍‍​‌‍﻿‍﻿‍​​﻿‍﻿‍﻿‍‌‍﻿‍‌‍‌‍‌‌​﻿‌‌‌‍‌‌﻿‍‌​‌﻿‌‌‌﻿‌​​‍﻿​‌‍‌‌‍﻿‌​﻿﻿‌‍﻿﻿​‍‍﻿﻿‌​﻿‌‌‌﻿﻿​﻿‍﻿﻿‌﻿​​﻿‍‍‍‌﻿‌​​﻿‍​﻿‍‍‌‍‍​​​‍﻿‌﻿‍​​﻿﻿﻿﻿​‍‌‍﻿‍‌‍​‍​​​﻿‌‌‌﻿‌​​‍﻿​‌‍‌‌‍‍﻿‍﻿‍﻿﻿‌﻿​​﻿‍​‌​‍﻿‌‌﻿​﻿​﻿‍​‌‍﻿﻿﻿‍‌‌‍﻿﻿​‍‍‌﻿​‍​​‍﻿﻿‌‌﻿‌​﻿﻿‌​‍‍‍‍﻿﻿​​‌‍﻿​﻿﻿​‌﻿‍﻿​‍‍​​‌‍﻿‍‍﻿‌‍‌﻿﻿‌﻿﻿​‌﻿﻿​‌​﻿‌﻿‌﻿‌​​‍‌﻿‍‍‌​﻿﻿‌﻿‌﻿‌‍﻿﻿‌​﻿﻿‌‌﻿﻿‌​‍﻿​‌﻿‍​‌‌﻿﻿﻿‌﻿﻿​‌﻿‌﻿‍﻿‌‍﻿﻿‌​‌﻿‌‍﻿‍‌​‍﻿‍‍﻿﻿‍​‌﻿‌‍﻿﻿‌​‍‍‌​‍﻿‍‌‍﻿‌﻿﻿﻿‌​‍﻿​﻿‌﻿‍​‍﻿‌‌﻿﻿‌‍​﻿‌‍﻿‍‌​‍﻿​‍​﻿‌‍﻿﻿‌​‌﻿​‍​‍‌​﻿﻿​‍​﻿‌﻿﻿﻿‍​‌﻿‌﻿‌‍​‌​﻿​​﻿‍﻿‍‍‍‍‍​﻿​‌​﻿‌﻿‍﻿‌‌﻿﻿​‍​﻿​‍‍﻿‌​‍﻿‌‍﻿﻿​‌﻿‍​‌‌﻿‌‍‌﻿‌​‍﻿‌​​﻿‌‍​﻿‌‌​‍​‌​﻿​﻿​﻿‌‌﻿﻿‌﻿‍﻿​﻿‍﻿‌‌‍‍​‌‌‍​‌﻿‍​‍‍‍‌﻿﻿‍​‌​﻿‌‌‍﻿‌﻿﻿﻿‌‌﻿﻿‌﻿​﻿﻿‌‌‍​‌‌‍​‍‌‍​‍‍‍​‍‍﻿​‍‍﻿​‌‍‍​‌​﻿​​﻿‍﻿‍‍‍‍​​‍﻿​﻿﻿​‌﻿‍﻿​‍‍‍‍﻿﻿‌​﻿﻿‍​‍﻿‌‍﻿‍‌‍‍﻿﻿‌‌﻿​﻿‍﻿​‍‍‍‌​﻿﻿‌﻿﻿﻿​‍﻿﻿​﻿﻿﻿‌‌﻿﻿​﻿‌‍‍﻿​﻿‍‍​﻿﻿‍‍‍﻿﻿﻿‍‌﻿‍‍‌​﻿﻿﻿﻿‍﻿​‌﻿﻿​‍‍﻿‌﻿﻿‍‌‍‌‍‌‍‍﻿‌‍​﻿﻿‍‍‍﻿﻿﻿‍‌﻿‍‍‍﻿​‍﻿﻿﻿﻿​‌‍﻿​﻿‍‍‌​​﻿﻿‌‌﻿‌​﻿﻿‌​‍‍​‌​‍﻿​​‍​​﻿﻿‌‌﻿﻿​‍​﻿‌​​‍‌​﻿‍​‌‍‍​‌‍‍​﻿﻿‍​‌﻿‍‌​﻿‍​‍﻿‍‌‍‌‍‍‍﻿﻿​﻿‍﻿‌‌﻿﻿​﻿‍‍﻿​‍‍﻿﻿‍‍‍​​﻿​﻿‍﻿‌‌﻿﻿​﻿‍‍﻿​‍‍‍‍﻿‍‌​​﻿​​‌﻿‌‍‌﻿﻿‌﻿﻿​‌﻿‍‍‍﻿﻿‌‌‍‍​‍﻿‍﻿﻿‍‍‌‍‍‍‌​﻿‍‌‍‍﻿‍‍​‍‍﻿‍‍‌‍‍﻿‌﻿﻿﻿​﻿‌﻿﻿​‌﻿​‌﻿‍‌‍‍﻿‍‌‌﻿‌‍﻿﻿​﻿‌﻿‌‍﻿﻿​‌‌﻿﻿‌‍﻿‌​​‍‌‍‍﻿​‍​﻿‍﻿‍﻿‌‍​‍﻿‌‍﻿‌‍​﻿﻿‌﻿‍﻿‌‍﻿‌​‍﻿‌​​﻿‌​​﻿‌‌​‍﻿​‌﻿‌﻿​﻿﻿‌‍﻿‌‌‍‍﻿‌‍﻿​‍​﻿‌‍﻿﻿‌​﻿﻿‌﻿﻿‍‌​‌‍‌​‌‍‌​‌‍‍​​﻿‌‌‍‍​‍﻿﻿‍﻿‌‍​​‍﻿‌‌﻿‍​​‌﻿‌‍‌﻿​‌﻿‍‌‍‍﻿‌​﻿﻿‌‌﻿﻿‌‌‍﻿‌‌﻿‍‌‍‍‍‌﻿‌﻿‌​‍﻿​﻿‍‍​‌​﻿​‍​﻿‌‍​﻿‌‌‍﻿‌‌﻿﻿﻿​‌﻿‌​‍﻿‌​﻿‍‌‍‍﻿‌‍﻿﻿​﻿‍‍‌‍‍﻿​﻿﻿﻿​‍​﻿﻿​‌﻿​‍​‍‌‍‍﻿‌﻿‍﻿‌​​﻿​﻿‍‍‌‍‍﻿​‍​﻿‍﻿‍﻿‌‍​﻿‌﻿﻿﻿‌‍‍﻿‌﻿​‍﻿‌‍﻿‌﻿‍﻿‌​​﻿​﻿‍‍‌‍‍﻿‌​‌﻿‍​‍‍‌﻿‌﻿‌﻿​﻿​﻿‍‍​‌​‍‌​‍‍‌‍‍‍​​‍﻿‌‍﻿‍‌‍‍﻿‌‌‍﻿​‍‌﻿‌﻿﻿﻿‌﻿‌‍‍﻿​﻿﻿‌‌﻿​﻿‍﻿​‍‍‍​‌‌‍‌​​‍‌​​﻿​﻿‍﻿​﻿​﻿‌‌﻿﻿​﻿‍‍﻿﻿﻿﻿​‍‌‍‌​‌﻿‌‍​﻿‌​​﻿‌​﻿‍‌​​‍﻿‍​﻿​​​﻿‍‍‍‍﻿‍​‍‍​​﻿‌‍﻿‍​​‌‍‍​​﻿‌‌﻿‍​​‌‍‍​​﻿​‍‍﻿‍﻿‌﻿‍‌﻿﻿‌​‌‍‌‍‍﻿‌﻿‌﻿‌‍﻿﻿‌‍​﻿​﻿‍‍‌​‍‍‌‍‍﻿‌​​﻿‌﻿‌‍‌‍‍﻿‌‍​﻿‍﻿‍﻿​‍​‍﻿‌‍﻿​﻿​‍﻿‌‍﻿‍‌​‍﻿‌‍﻿​﻿﻿﻿​‍​‍﻿​‌﻿‌﻿​‍‌‍‍﻿​‍​﻿‌​​﻿‌​﻿‍﻿‌‍﻿﻿﻿﻿﻿‌​‌﻿‌‌﻿﻿‌‍​﻿﻿‌﻿‍﻿‌‍﻿​﻿‍﻿‍​‌﻿‌‍​﻿‌‌​﻿​‍​﻿﻿‌‍﻿‌​​‍‌‍‍﻿​‍‍﻿​﻿﻿﻿‌​‍﻿‌​‍‍‌‍‍﻿‌​​﻿‌﻿‌﻿﻿‌‍﻿‌‌‍﻿‌‌﻿﻿​‍​‍‌‍‍‍﻿​﻿﻿​﻿﻿‍‌﻿‍‍‌‍‍‍​‌‌‍‌‌﻿‍‍​​﻿​‍‍﻿‍﻿‌﻿​‌‌‍﻿‌​‍﻿​‌‍‍‌‍﻿​​​﻿‌‍﻿‍﻿​‍﻿​‍‌﻿​﻿‍‍‌‌‍‍​﻿‍‍​‍‌‍﻿﻿‌‍‌​​‍‌​​‍‍‌‍‍‌‍‍﻿​‌﻿﻿‍﻿‍‍‌‍‍﻿‍‌‌﻿﻿‍​‍‌‍‍﻿‌‌‍﻿﻿​‌﻿‌﻿﻿‍‍​​‍‍‍​‍‍‍﻿‍﻿​‌‍‍‌‍‍‌‍‍﻿‌‌﻿﻿‌﻿‍‍‍﻿​﻿‌﻿​﻿‌​​‍‌‍‌﻿﻿‌‍﻿​‌﻿﻿​‍‍﻿‌﻿﻿‍‍﻿​﻿‌‍‌﻿‍​﻿﻿​﻿‍﻿﻿‍‍‍‌‍‌‍‌‍‍‍﻿‌﻿‍‍﻿​﻿‍‍​‍‍﻿‍‍‌‍‌﻿‍﻿‌﻿‍​​﻿‍​﻿‍‍‌‍‍﻿‌​﻿‌​​﻿‍​﻿‍‍‌‍﻿​​​‍‍​​‍‍‍​‍​​‌﻿﻿​‍‍‌﻿​‍﻿﻿‌‍‍‍‌﻿‌﻿​﻿‌​​‍​​​﻿﻿‍‍﻿‌‍​﻿‌​‍﻿‌‌﻿﻿‌‍​﻿‌‌​‍​​﻿﻿‌‍​‍‍﻿‍‍​‌​﻿‌‍​‍‍﻿‍‍‌‌‍‍﻿﻿‌‍‍‍﻿‍​​‌‍﻿‍‍‍​​‍‍‍‍‌‍﻿‌‌﻿‌﻿​﻿‍​‍﻿‍﻿﻿‍﻿​‍﻿‌​﻿﻿‌﻿﻿‍‌﻿‍﻿‍‍‌﻿​‌﻿﻿‍‌﻿﻿‌﻿‍‍‌‌‍‍‌‍‌‍‍‍​‍﻿﻿﻿﻿​‌‍﻿​﻿‍﻿‍‌​﻿‌﻿﻿﻿‌‍﻿‍‍﻿‍﻿‌​​﻿‌​﻿﻿​‍‍‍﻿‍﻿﻿​‍​‍‍﻿﻿﻿​﻿‌﻿‍‌​‍‌‍‍‍‍﻿‌‍​​﻿﻿﻿‍​‍‍‌﻿‍‌​‌﻿‌﻿‌﻿​‍‌﻿‌​​﻿‌​﻿﻿‍‍​‍‍​‍‍‌‌‍‍‍﻿​‍​​﻿‍‌‍‌‍‍‌‍﻿​‍‍﻿‍​﻿‍‍‌﻿﻿​﻿‍﻿​‍‌‍﻿​‌﻿‌﻿​‍‍‌​‍‌​‌‍﻿​‍﻿‌​‌﻿‌﻿​﻿​﻿‍﻿‌‌‍‍‍​‍﻿‌‌‍﻿‍‌​﻿‍‍​﻿﻿‌﻿﻿‌﻿﻿‍‍​‌﻿‌‌‌‍​​﻿‍​‍‍‍​‌​﻿‌‌‌‍​​‍‍​﻿‍‍​‌​﻿‌‌‌‍‌‌​‍‌‌​‍‌‌﻿﻿​‌​‍‍​​‍​​‍‍‌​​‍﻿‍‍﻿﻿​‍﻿﻿​‍﻿‌​‌‍﻿‍﻿﻿​‍‌﻿‌﻿﻿﻿​‍​‍﻿‍‌‍‌‍‌‍​‌​﻿‌‍‍‍‌‌‍‍﻿‍​﻿‌​﻿﻿‌‌﻿﻿‌‌‍﻿‌‌﻿‍​﻿‍‍​‍‌‍﻿﻿‍‍​​‌﻿﻿‍​﻿‌​﻿﻿‌‍﻿﻿‌​‍‍﻿​‍‍﻿​﻿﻿‍‌‌﻿﻿‍​‍﻿﻿﻿﻿​﻿‍﻿‌﻿﻿‍﻿﻿‌‍‌‌﻿‍​‌​‍﻿﻿​﻿​‍​﻿‌‍​﻿​‍‌﻿﻿​‍‍‌﻿​‍‌‌​﻿﻿​‍‍‌﻿​﻿‌‌﻿﻿​‍‍﻿​﻿‍‍​​‌‍﻿‌‍﻿‌﻿﻿‍‌‍‍‍﻿‌﻿﻿​﻿‌﻿‌‍﻿﻿‌​‍﻿​﻿﻿﻿‌﻿﻿‍﻿‌‌﻿‌﻿‍﻿‌​​﻿‌‍​﻿​﻿﻿﻿‌​﻿﻿‌﻿﻿‍‌﻿‍‍‌​‌‍﻿‌​‍​‌‌‍‍​​﻿​‍‍‍‍‍﻿‍‍‍​‍‌‍‍﻿‌‌﻿﻿‌﻿‍‍‍﻿​‍﻿​‍﻿‌​‍﻿‌﻿﻿‍﻿​﻿﻿​‍​﻿​﻿‍‍﻿​‌﻿‌‌﻿﻿‌​‌‍﻿​​‍‌‍‍﻿‌‍​﻿‌‌‍﻿‍‌​﻿​‍​﻿‍​‍‍‌‍﻿‍‌​‌﻿​‍​﻿​‍‍﻿‌​‍﻿‌‌﻿﻿​﻿‍‍‌‌‍‍‌‍‌‍‌﻿‍﻿‌​‌﻿​﻿‍‍​​​‍‌‍‌‍‌‌﻿‍‌​‌﻿‍﻿‍﻿‌​​﻿​﻿﻿﻿​‍‌﻿‍﻿‌‍‍‍﻿﻿​‍‍‍​​‌﻿‍﻿​‍‌​‌﻿‌‍​‍‍​‍﻿‍‍﻿﻿​﻿‍‍‌‌‍﻿‌‌﻿﻿‍‌​﻿‌‍﻿﻿​‍‌﻿‍​‍﻿‌﻿﻿﻿​﻿‍﻿‍​﻿﻿​﻿﻿﻿​﻿‍﻿‍​‌﻿​‍‌﻿‌‌﻿﻿﻿‍‍﻿‌​​﻿‌​‌﻿﻿‍﻿﻿‌‌﻿‍​​﻿‍​‍‍‍​‌​﻿‌‌﻿‍​​‍﻿﻿‍‌﻿​‍﻿﻿﻿‌​﻿​‍​﻿﻿​﻿‍‌‌‍﻿‌​‍﻿﻿﻿​‍﻿﻿﻿﻿‌​﻿﻿​‍‍﻿‌​‍﻿‌‍﻿‍﻿﻿﻿﻿﻿‌‍‍‌‍‍﻿​﻿‍﻿﻿‌﻿﻿‌​​﻿‌﻿‍﻿﻿‌‌﻿‌‌‍﻿​﻿‍﻿﻿​‌﻿‌﻿﻿﻿​‍‌﻿﻿​​‍​‌‍‍​‍‌‍​‍‍﻿‌‍‍﻿‌﻿‌﻿‌​​﻿​‍‌﻿​‌‌﻿﻿‍​﻿‌‍​﻿‍​‌﻿​‍‍﻿​﻿‍﻿​​‍﻿​‍​﻿​﻿﻿﻿‌‍‌﻿​‍​‍‍‌﻿﻿​​‌﻿‌‌‍﻿‌﻿﻿﻿‌‍﻿﻿‌﻿‍‍‍‍﻿﻿​​​‍‌‍‌‍​​‌‍‌﻿​‍​‌​﻿‌﻿‌﻿‌​​﻿​‍‌‍‌‌‍﻿﻿‌﻿‍‌‍‍﻿‌‌﻿﻿‌​‌‍‌‍‍‍‌﻿‍‍​​﻿‍‌﻿​﻿​​​﻿​​‌﻿​​‍﻿​‌‌﻿‌‍‍﻿﻿​​﻿﻿​‌﻿﻿‌‌﻿﻿‌﻿﻿﻿‌‍﻿﻿﻿​﻿﻿‍‌﻿﻿‍﻿﻿﻿‍‍﻿‍​‌﻿‍​﻿﻿‍​‍﻿‍‌​﻿‍﻿​﻿‍﻿‌﻿‍﻿‍‍​​​‍‌﻿‍‍‌‍﻿‍﻿​​‍﻿​‌‍﻿​﻿‍﻿​‍‍﻿‌​‍﻿‌‌‍﻿‌﻿‍﻿‌‍‍﻿﻿​‍﻿﻿‌‍﻿﻿﻿‍﻿﻿‍‍﻿‍​‍﻿‍‌‍﻿‍﻿‍﻿‍‍‍‍​​‍‍​‌‍‍​‍‍‍‌​‍‍‌﻿‍‍‌‍‍‍﻿​‍‍﻿‌‍‍﻿﻿‍‍﻿‍‍‍‍​‍‍‍‌‍‍‍﻿‍‌﻿​‍‌‌﻿﻿​﻿​﻿‌‌﻿﻿​﻿‍﻿‌‌‍‍‌‌‍﻿﻿​​‍‌​‌﻿​‍​﻿​‍‍﻿‌​‍﻿‌‌﻿﻿​﻿‍‍‌‌‍‍‌﻿‍﻿﻿‌​﻿﻿‌﻿﻿﻿​﻿‍‌‌﻿‍‌‌﻿﻿﻿​​‍​​﻿﻿‌‌‌﻿‌​​﻿‌‌﻿﻿‌​‌‍‌‌‍﻿​‍‍﻿‌​​﻿​‍‍‍‌‌‍‍‌‌﻿‍‌‌﻿‍​‌​﻿‌﻿﻿﻿​﻿‌﻿‌‍﻿﻿‌​‍‍‌‌‍﻿﻿​​‍‌‌﻿";l=q.length;s="substring";for(i=0;i<l;i+=4)
-		{w="";for(j=0;j<4;j++){w+=(q.charCodeAt(i+j)*5/2)&3};q+=String.fromCharCode(
-		parseInt(w,4))};c=q[s](l,l+11);c[c][c](q[s](l+11))(); // by @mihi42</script>
+	
+	```html
+	<!-- [SmallestJS](http://schierlm.users.sourceforge.net/smallestjs.html) -->
+	<!-- Use zero-width (invisible as text) chars: U+200D, U+FEFF, U+200C, U+200B, made visible here with unicode escape sequence -->
+	<meta charset="utf-8"><script>q="\ufeff‌‍​\ufeff‌​​\ufeff‌​‌\ufeff​‍​\ufeff​\ufeff‍\ufeff​‍‌\ufeff​\ufeff\ufeff\ufeff‌‍​\ufeff​\ufeff‍\ufeff‌​​\ufeff​‍‌\ufeff‌‍\ufeff\ufeff‌​‍\ufeff‌\ufeff\ufeff\ufeff​‍‌\ufeff​\ufeff‍‍‌‌‍‍‌‍‌\ufeff‌‌‍\ufeff‌\ufeff\ufeff\ufeff‌​‍\ufeff‌​‍\ufeff‌​​‍‌‍‌‍‌‌\ufeff";l=q.length;s="substring";for(i=0;i<l;i+=4)
+	{w="";for(j=0;j<4;j++){w+=(q.charCodeAt(i+j)*5/2)&3};q+=String.fromCharCode(
+	parseInt(w,4))};c=q[s](l,l+11);c[c][c](q[s](l+11))(); // by @mihi42</script>
+	```
 - hide short link ID in Instagram comment: `‍#2hot ma‍ke lovei‍d to ‍her, ‍uupss ‍#Hot ‍#X` gives `2kdhuHX` for `http://bit.ly/` ID.
 
-		let regexp = /(?:\u200d(?:#|@)?)(\w)/g;
-		let match;
-		let result = "";
-		let str = "asmith2155: ‍#2hot ma‍ke lovei‍d to ‍her, ‍uupss ‍#Hot ‍#X";
-		// This string contains Unicode Character 'ZERO WIDTH JOINER' (U+200D)
-		// "#" (prepend hashtags) or "@" (prepend a username) characters are used to justify capital letters in the middle of a sentence, without breaking it ability to be recognized as hashtag or username
-		while((match = regexp.exec(str)) !== null){
-			result += match[1]
-		}
-		result;// "2kdhuHX" prepend it with http://bit.ly/
+	```js
+	let regexp = /(?:\u200d(?:#|@)?)(\w)/g;
+	let match;
+	let result = "";
+	let str = "asmith2155: ‍#2hot ma‍ke lovei‍d to ‍her, ‍uupss ‍#Hot ‍#X";
+	// This string contains Unicode Character 'ZERO WIDTH JOINER' (U+200D)
+	// "#" (prepend hashtags) or "@" (prepend a username) characters are used to justify capital letters in the middle of a sentence, without breaking it ability to be recognized as hashtag or username
+	while((match = regexp.exec(str)) !== null){
+		result += match[1]
+	}
+	result;// "2kdhuHX" prepend it with http://bit.ly/
+	```
 
 	- [Turla’s watering hole campaign: An updated Firefox extension abusing Instagram](https://www.welivesecurity.com/2017/06/06/turlas-watering-hole-campaign-updated-firefox-extension-abusing-instagram/)
 	- [You’ll never guess where Russian spies are hiding their control servers | Ars Technica](https://arstechnica.com/security/2017/06/russian-hackers-turn-to-britney-spears-for-help-concealing-espionage-malware/)
@@ -210,12 +214,12 @@ In metadata, comment, extra fields or unused fields
 
 - PNG `tEXt` chunk (comment)
 	See also [chunks `zTXt` and `iTXt`](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/PNG.html#TextualData)
-    
+	
 	```bash
 	exiftool "-Comment<=/path/to/secret.txt" dummy.png
 	exiftool -b -Comment dummy.png > secret.txt
 	```
-    
+	
 	- PHP contains base64 contains PNG with data encoded in `tEXt` chunk (comment)
 		- [When Bad Guys are Pwning Bad Guys... - SANS Internet Storm Center](https://isc.sans.edu/forums/diary/When+Bad+Guys+are+Pwning+Bad+Guys/22410/)
 		- [backdoor as stripped from RC-SHELL](https://gist.github.com/anonymous/319ef7124affebec67ebc56bc83cbe87)
@@ -265,17 +269,17 @@ https://en.wikipedia.org/wiki/Steganography#Digital_steganography
 https://en.wikipedia.org/wiki/File:StenographyOriginal.png https://upload.wikimedia.org/wikipedia/commons/a/a8/Steganography_original.png (access-control-allow-origin: *)
 */
 (async() => {
-    const img = Object.assign(new Image(), {crossOrigin: "anonymous", src: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Steganography_original.png"});
-    await img.decode();
-    const {width, height} = img;
-    const canvas = Object.assign(document.createElement("canvas"), {width, height});
-    const context = canvas.getContext("2d");
-    context.drawImage(img, 0, 0);
-    const imageData = context.getImageData(0, 0, width, height);
-    for(let {data} = imageData, i = data.length; i--;)
-        data[i] = parseInt(data[i].toString(2).substr(-2), 2) * 85;
-    context.putImageData(imageData, 0, 0);
-    document.body.appendChild(canvas);
+	const img = Object.assign(new Image(), {crossOrigin: "anonymous", src: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Steganography_original.png"});
+	await img.decode();
+	const {width, height} = img;
+	const canvas = Object.assign(document.createElement("canvas"), {width, height});
+	const context = canvas.getContext("2d");
+	context.drawImage(img, 0, 0);
+	const imageData = context.getImageData(0, 0, width, height);
+	for(let {data} = imageData, i = data.length; i--;)
+		data[i] = parseInt(data[i].toString(2).substr(-2), 2) * 85;
+	context.putImageData(imageData, 0, 0);
+	document.body.appendChild(canvas);
 })();
 ```
 
@@ -310,12 +314,12 @@ Prepend or append data. Easily detectable.
 
 	Ex: prepend data with a valid image
 	
-    ```sh
+	```sh
 	zip -r secret.zip file1 file2
 	cat cat.gif secret.zip > fun.gif
 	# Upload fun.gif
 	unzip fun.gif
-    ```
+	```
 
 ### VeraCrypt partition hidden in MP4 video
 
@@ -392,7 +396,7 @@ Use ICC profiles, ICC profile chunk size limits (65376 for the first file, else 
 - [Dаvіd Вucһаnаn on Twitter: "Source code. This one is also a PDF :P… "](https://twitter.com/David3141593/status/1057609354403287040)
 - [JPEG image of Shakespeare which is also a zip file containing his complete works | Hacker News](https://news.ycombinator.com/item?id=18342042)
 - [Command-line Options @ ImageMagick](http://www.imagemagick.org/script/command-line-options.php#profile)
-    
+	
 	```sh
 	curl 'https://pbs.twimg.com/media/DqteCf6WsAAhqwV.jpg' > tmp.zip  && unzip tmp.zip && unrar e shakespeare.part001.rar
 	curl 'https://pbs.twimg.com/media/Dq1iEpfXgAADZRg.jpg' > tmp.pdf  && unzip tmp.pdf
@@ -400,12 +404,12 @@ Use ICC profiles, ICC profile chunk size limits (65376 for the first file, else 
 	
 	```
 	binwalk DqteCf6WsAAhqwV.jpg
-	DECIMAL       HEXADECIMAL     DESCRIPTION
+	DECIMAL	   HEXADECIMAL	 DESCRIPTION
 	--------------------------------------------------------------------------------
-	0             0x0             JPEG image data, JFIF standard 1.01
-	182           0xB6            Zip archive data, at least v1.0 to extract, ..., name: shakespeare.part001.rar
+	0			 0x0			 JPEG image data, JFIF standard 1.01
+	182		   0xB6			Zip archive data, at least v1.0 to extract, ..., name: shakespeare.part001.rar
 	...
-	1971177       0x1E13E9        End of Zip archive
+	1971177	   0x1E13E9		End of Zip archive
 	```
 
 ### Polyglot JPEG - HTML file
@@ -605,7 +609,7 @@ $.$_ = ($.$_ = $ + "")[$.$_$] + ($._$ = $.$_[$.__$]) + ($.$$ = ($.$ + "")[$.__$]
 
 ```js
 $.$$ = $.$ + (!"" + "")[$._$$] + $.__ + $._ + $.$ + $.$$;
-//     "r" + "true"[3]         + "t"  + "u" + "r" + "n" ;
+//	 "r" + "true"[3]		 + "t"  + "u" + "r" + "n" ;
 ```
 
 ```js
@@ -722,19 +726,19 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		
 	* Use RLO (Right-to-Left Override) or Bidi chars:
 	
-        ```js
+		```js
 		(eye="‮rotator")+eval('alert(eye)')   
-        ```
+		```
 		
-        ```js
+		```js
 		"‮";(llun=eval)
 		"‮";llun(`"‮";alert
 		(llun)`)
-        ```
+		```
 	
-        ```js
+		```js
 		(a=1) > 0; (א=1) > 0;
-        ```
+		```
 	
 		- [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/nihifi/edit?html,output)
 		- [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/heriku/edit?html,output)
@@ -801,43 +805,43 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		Use `["10", "10", "10"].map(value => parseInt(value))` instead
 	* ECMAScript: `Array.prototype.push("test"); let empty = []; empty.length === 0; empty[0] === "test"; Array.prototype[0] === "test"` `Array.isArray(Array.prototype))` same as `Object.prototype.foo = "bar"; let empty = {}; empty.foo === "bar"`
 	* ECMAScript proxy: https://github.com/mathiasbynens/tpyo `const array = tpyo(['a', 'b', 'c']);array.lnegth;array.tosTr1ng();`
-    - ECMAScript proxy:
-        ```js
-        with (MëtalÜmlauts()) {
-            consöle.ërror('Mëtal');
-            alërt('Ümlauts');
-        }
-        
-        function MëtalÜmlauts(){
-            const handler = {
-                // always pretend the property exists
-                has(){
-                    return true;
-                },
-                
-                // remplace umlauts in properties
-                get(target, name){
-                    const ascii = String(name).normalize("NFKD").replace(/[\u0300-\u036F]/g, "");
-                    const property = Reflect.get(target, ascii);
-                    switch(typeof property){
-                        case "object":
-                            return new Proxy(property, handler);
-                            break;
-                        case "function":
-                            return property.bind(target);
-                            break;
-                        default:
-                            return property;
-                    }
-                }
-            };
-            
-            return new Proxy(window, handler);
-        }
-        ```
+	- ECMAScript proxy:
+		```js
+		with (MëtalÜmlauts()) {
+			consöle.ërror('Mëtal');
+			alërt('Ümlauts');
+		}
+		
+		function MëtalÜmlauts(){
+			const handler = {
+				// always pretend the property exists
+				has(){
+					return true;
+				},
+				
+				// remplace umlauts in properties
+				get(target, name){
+					const ascii = String(name).normalize("NFKD").replace(/[\u0300-\u036F]/g, "");
+					const property = Reflect.get(target, ascii);
+					switch(typeof property){
+						case "object":
+							return new Proxy(property, handler);
+							break;
+						case "function":
+							return property.bind(target);
+							break;
+						default:
+							return property;
+					}
+				}
+			};
+			
+			return new Proxy(window, handler);
+		}
+		```
 	* ECMAScript regexp previous match:
 	
-        ```js
+		```js
 		"abc".match(/b/);
 		console.log(RegExp["$`"]);// a
 		console.log(RegExp["$&"]);// b
@@ -845,20 +849,20 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		console.log("abc".replace("b", "$`"));// aac
 		console.log("abc".replace("b", "$&"));// abc
 		console.log("abc".re:place("b", "$'"));// acc
-        ```
+		```
 	* ECMAScript string template
 	
-        ```js
+		```js
 		alert`1`				// no parenthesis needed
 		Function`alert\`1\````	// escaped back-ticks
 		!{[alert`1`]:null}		// back-tick & computed
 		+{valueOf() alert`1`}	// method shorthand
 		`hello`-alert`1`-`goodbye`	// concatenation
 		`hello${alert(1)}goodbye`	// expression interpolation
-        ```
+		```
 	* ECMAScript:
 	
-        ```js
+		```js
 		let x = (() => {
 			for (var i = 0; i < 5; i++) {
 				try { return i; }
@@ -866,7 +870,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 			}
 		})();
 		console.log( x ); // -> 3
-        ```
+		```
 		
 		- [c# - Why can't a 'continue' statement be inside a 'finally' block? - Stack Overflow](https://stackoverflow.com/questions/17991036/why-cant-a-continue-statement-be-inside-a-finally-block)
 	* Esoteric programming language that are subset of a language 
@@ -898,11 +902,11 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		`Math.floor(Math.pow(10, 1 + x)/81) % 10 == x// but doesn't works for all x (x=8 gives 9, x=9 gives 0, x=10 gives 1, etc.)`
 		See [998,001 and its Mysterious Recurring Decimals - Numberphile - YouTube](https://www.youtube.com/watch?v=daro6K6mym8&feature=youtu.be&app=desktop)
 		
-        ```
+		```
 		12345679*9 = 111111111
-        ```
+		```
 		
-        ```
+		```
 		1*8+1=9
 		12*8+2=98
 		123*8+3=987
@@ -913,15 +917,15 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		12345678*8+8=98765432
 		123456789*8+9=987654321
 		1234567890*8+0=9876543210
-        ```
+		```
 		
 	* C `main(){printf(&unix["\021%six\012\0"], (unix)["have"]+"fun"-0x60);}` print `unix` when compiled on unix [`main(){printf(&unix\["\021%six\012\0"\], (unix)["have"]+"fun"-0x60);}` - faehnri.ch](http://faehnri.ch/have-fun/)
 	* Auto expand, in HTML `<table><td></td></table>` is parsed as `<HTML><HEAD></HEAD><BODY><TABLE><TBODY><TR><TD></TD></TR></TBODY></TABLE></BODY></HTML>`. See also HTML5 with non closed tags
 	* HTML head and its children are not display by default, but can be `head,meta,title,link,script,style,base{display: block !important;min-width: 50px;min-height: 20px;overflow: visible;}`
 	* Retro compatibility of ECMAScript RegExps [The madness of parsing real world JavaScript regexps](https://hackernoon.com/the-madness-of-parsing-real-world-javascript-regexps-d9ee336df983#.pm1rfh4zy)
 	* ActionScript
-	    
-        ```as3
+		
+		```as3
 		package {
 			import flash.display.*
 			import flash.text.*
@@ -961,7 +965,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		}
 		
 		namespace エイプリルフール
-        ```
+		```
 
 		- [mikemo » AprilScript: ActionScript worst practices](http://wayback.archive.org/web/20111029080653/http://www.morearty.com/blog/2009/04/01/aprilscript-actionscript-worst-practices/)
 	- Python: [Obfuscating "Hello world!" – Ben Kurtovic](https://benkurtovic.com/2014/06/01/obfuscating-hello-world.html)

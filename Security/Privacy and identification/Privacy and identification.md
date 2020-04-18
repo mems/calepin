@@ -1,5 +1,3 @@
-# Privacy and identification
-
 - Hidden input allow the webpage get more infos than the user want to share (with autocomplete)
 	* [Oversharing with the browser’s autofill / Stoyan's phpied.com](http://www.phpied.com/oversharing-with-the-browsers-autofill/)
 	* https://twitter.com/anttiviljami/status/816585860661518336
