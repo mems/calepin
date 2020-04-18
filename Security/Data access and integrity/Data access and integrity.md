@@ -1016,7 +1016,7 @@ if(!empty($_SERVER['HTTP_USER_AGENT']) && preg_match('/Wget/', $_SERVER['HTTP_US
 
 ## Hacking
 
-See [Prevent violation](#prevent-violation)
+See [Prevent and detect violation](#prevent-and-detect-violation)
 
 ```sh
 # mach injection hack
