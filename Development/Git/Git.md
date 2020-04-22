@@ -133,21 +133,6 @@ For pushed commit, **this change the history**
 
 - [Git - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#_removing_file_every_commit)
 
-## How git works
-
-- [git - Rebase local repo with remote whose history ha changed - Stack Overflow](https://stackoverflow.com/questions/42267566/rebase-local-repo-with-remote-whose-history-has-changed/42281702#42281702)
-- [Git from the inside out](https://maryrosecook.com/blog/post/git-from-the-inside-out)
-- [Git de l'intérieur](https://alm.developpez.com/tutoriel/fonctionnement-interne-de-git/)
-- [The Architecture of Open Source Applications (Volume 2): Git](http://aosabook.org/en/git.html)
-- [blob - How to DEFLATE with a command line tool to extract a git object? - Stack Overflow](https://stackoverflow.com/questions/3178566/how-to-deflate-with-a-command-line-tool-to-extract-a-git-object)
-
-### Hash of a file
-
-Content of `blob FILE_SIZE\0FILE_CONTENT`
-
-- [Git - finding the SHA1 of an individual file in the index - Stack Overflow](https://stackoverflow.com/questions/460297/git-finding-the-sha1-of-an-individual-file-in-the-index/24283352#24283352)
-- [How is the git hash calculated? - Stack Overflow](https://stackoverflow.com/questions/35430584/how-is-the-git-hash-calculated)
-
 ## Ignore file in folder
 
 `*`, `[`, `]`, space, `\` need to be escaped with `\`
@@ -308,21 +293,3 @@ About Explorer CLSIDs:
 - [CLSID Key (GUID) Shortcuts List for Windows 10 | Tutorials](https://www.tenforums.com/tutorials/3123-clsid-key-guid-shortcuts-list-windows-10-a.html)
 - [Control Panel (Windows) - Wikipedia](https://en.wikipedia.org/wiki/Control_Panel_%28Windows%29)
 - [List of Control Panel Command Line Commands](https://www.lifewire.com/command-line-commands-for-control-panel-applets-2626060)
-
-## Implement a custom remote
-
-For storage or transmition protocol
-
-- https://github.com/git/git/blob/master/git-remote-testgit.sh https://github.com/git/git/blob/master/Documentation/git-remote-testgit.txt
-- [Git - git-remote-helper Documentation](https://git-scm.com/docs/git-remote-helpers)
-- [pull-git-remote-helper](https://www.npmjs.com/package/pull-git-remote-helper) and [clehner/abstract-pull-git-repo: abstract interface for git repo using pull streams](https://github.com/clehner/abstract-pull-git-repo)
-- [peritus/git-remote-couch: a git-remote-helper that allow you to push source code into a CouchDB](https://github.com/peritus/git-remote-couch)
-- [glandium/git-cinnabar: git remote helper to interact with mercurial repositories](https://github.com/glandium/git-cinnabar)
-- [anishathalye/git-remote-dropbox: A transparent bridge between Git and Dropbox - use a Dropbox (shared) folder a a Git remote!](https://github.com/anishathalye/git-remote-dropbox)
-	- [Dropbox a a True Git Server · cat /var/log/life](https://www.anishathalye.com/2016/04/25/dropbox-as-a-true-git-server/)
-	- [git-remote-dropbox · cat /var/log/life](https://www.anishathalye.com/2015/08/19/git-remote-dropbox/)
-	- [git-remote-dropbox/DESIGN.rst at master · anishathalye/git-remote-dropbox](https://github.com/anishathalye/git-remote-dropbox/blob/master/DESIGN.rst)
-- [felipec/git-remote-bzr: Transparent bidirectional bridge between Git and Bazaar for Git](https://github.com/felipec/git-remote-bzr)
-- `git remote -v`
-
-- [Extend Git with Custom Command (Example)](https://coderwall.com/p/bt93ia/extend-git-with-custom-commands)

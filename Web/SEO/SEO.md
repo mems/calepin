@@ -69,6 +69,18 @@ Tools, audit, checklist, etc.:
 - [Analyse de site Web, Test de Performance et Audit qualité | Dareboost](https://www.dareboost.com/fr)
 - [Rigor | The Leader in Digital Performance Management](https://rigor.com/)
 
+## Common errors
+
+Often related to:
+
+- duplicate content (missing rel canonical meta, 301 redirect)
+- HTTP status and server issues (4xx errors, permanent redirects, broken links, temporary redirects, pages not crawled, broken internal images)
+- duplicate or missing meta tags (title, descriptions, h1) or attributes (alt, hreflang, lang) attributes, duplicate content in h1 and title, short or long title element
+- HTTP links for HTTPS site
+- slow page (HTML) load speed, uncached or unminified resources (JS, CSS), mixed content
+
+- [27 of the Biggest SEO Mistakes Damaging Websites in 2020](https://www.semrush.com/blog/biggest-seo-mistakes/)
+
 ## Rank factors
 
 1. Content

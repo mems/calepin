@@ -165,6 +165,35 @@ Re check torrents, aka resume torrent:
 
 ### Move applications
 
+```sh
+# Stop the app
+sudo "/var/packages/[app_name]/scripts/start-stop-status" stop
+# or synopkgctl stop [app_name]
+# then at the end synopkgctl start [app_name]
+
+# Move the app files from the old volume to the desired one.
+sudo mv "/volume1/@appstore/[app_name]" "/volume3/@appstore/"
+
+# Delete the obsolete Symlink pointing at the old app path
+sudo rm -fv "/var/packages/[app_name]/target"
+
+# Create a new Sim link pointing at the new, correct app path.
+sudo ln -s "/volume3/@appstore/[app_name]" "/var/packages/[app_name]/target"
+
+sudo rm -fv "/usr/local/[app_name]"
+sudo ln -s "/volume3/@appstore/[app_name]" "/usr/local/[app_name]"
+
+# If it's hyperbackup
+# sudo mv "/volume1/@img_bkp_cache" "/volume3/@img_bkp_cache"
+# sudo vi /usr/syno/etc/synobackup.conf -c ':%s/volume1/volume2/g' -c ':wq'
+# /var/services/... to /volume1/@surveillance
+# /var/services/download to /volume1/@download
+# /var/services/pgsql to /volume1/@database/pgsql
+# /var/services/printer to /volume1/@spool
+# /var/services/tmp to /volume1/@tmp
+# find . -lname '/volume1/*' -printf '%l\0%p\0' | sed -z 's|^/volume1|/volume2|;n' | xargs -r0n2 ln -sfT
+```
+
 - [Synology - Move Application Between Volumes - McLean IT Consulting](http://www.mcleanit.ca/blog/synology-move-application-volumes/)
 - [Script for moving packages on a synology disk station from one volume to another - EXPERIMENTAL!](https://gist.github.com/nobodypb/fc3e70b535bcd95b5de7659d6fbda434)
 

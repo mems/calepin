@@ -197,7 +197,9 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 - [Hide data](#hide-data)
 - encrypted files (code) use param provided by the preloader. If the default value is used instead, the app run in a standalone mode: someone try to hack it (track IP + all infos)
 - Always force a fresh download of preloaders (dynamically generated?)
-- no hard code keys, tokens and IDs in source code
+- no hard coded keys, tokens and IDs in source code
+    - `/admin/.git/config`, `/backup20200227.zip`, etc.
+    - [Bots also regularly check for .git in common folders: 404 - GET /admin/.git/con... | Hacker News](https://news.ycombinator.com/item?id=22431627)
 - remove debug symbols
 - save value snapshots at random time interval
 - check memory alteration. Never store a numeric or a string of the result / score. Use pointer, etc.
@@ -363,7 +365,8 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 - clipboard data
 	* [Copy & Pest - A case-study on the clipboard, blind trust and invisibl…](http://www.slideshare.net/x00mario/copypest)
 - CSS
-	* [Scriptless Attacks - Stealing the Pie without touching the Sill](http://www.slideshare.net/x00mario/stealing-the-pie/)
+	- [A timing attack with CSS selectors and Javascript](https://blog.sheddow.xyz/css-timing-attack/) - `document.querySelector(location.hash)`
+	- [Scriptless Attacks - Stealing the Pie without touching the Sill](http://www.slideshare.net/x00mario/stealing-the-pie/)
 - [JavaScript - Unsafe HTML](JavaScript#unsafe-html)
 
 Always store data from third party in an external folder, outside root of the web server, and use `open_basedir` to protect against local inclusion
@@ -401,6 +404,7 @@ See also
 
 #### Unsafe URI
 
+- `http://example.com` and `http://example.com.` are the same, but could treated differently (ex: cookies). See [Why does putting a dot after the URL remove login information?](https://superuser.com/questions/1467958/why-does-putting-a-dot-after-the-url-remove-login-information/1468139#1468139)
 - `http://evil.com/@good.com` the domain is not `good.com`
 - `http://good.com%2f@evil.com/` the domain is not `good.com`
 - `file://my.domain/tmp/example.html` the domain is `my.domain`, but often ignored

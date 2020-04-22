@@ -111,11 +111,11 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 
 - [RFC 2017 - Definition of the URL MIME External-Body Access-Type](https://tools.ietf.org/html/rfc2017)
 
-## Server environments
+## Server environnements
 
 1. local
 2. development (or testing, integration) (could have a dedicated env. for Quality Assurance and User acceptance Testing)
-3. staging (preprod)
+3. staging, uat, preprod
 4. production
 
 - [Deployment environment — Wikipedia](https://en.wikipedia.org/wiki/Deployment_environment)
@@ -881,8 +881,12 @@ Ex: https://safari-extensions.apple.com/details/?id=com.diigo.safari.awesomescre
 ### Kiosk mode
 
 - Chrome: `chrome --chrome --fullscreen --kiosk URI`
+    - `chrome --kiosk "https://example.com"`, see also `--kiosk-printing` and `--chrome-frame`
+    - [Running latest Chrome for Windows in kiosk mode - Super User](https://superuser.com/questions/716426/running-latest-chrome-for-windows-in-kiosk-mode)
 - Opera: `opera -kioskmode -noexit URI`
 - Firefox: `firefox --headless URI`
+    - `firefox --kiosk`
+    - [158968 - command line option for kiosk mode](https://bugzilla.mozilla.org/show_bug.cgi?id=158968)
 - IE: `iexplore -k URI`
 
 - `Windows + Shift + Enter` (fullscreen mode), like `F11`
@@ -899,6 +903,252 @@ See also:
 - [Windows](Windows#kiosk-mode)
 - [macOS](macOS#kiosk-mode)
 
+## Firefox
+
+Awesome bar:
+
+> - Add `^` to search for matches in your browsing history.
+> - Add `*` to search for matches in your bookmarks.
+> - Add `+` to search for matches in pages you've tagged.
+> - Add `%` to search for matches in your currently open tabs.
+> - Add `~` to search for matches in pages you've typed.
+> - Add `#` to search for matches in page titles.
+> - Add `@` to search for matches in web addresses (URLs).
+> - Add `$` to search for matches in suggestions.
+– [Awesome Bar - Search your Firefox bookmarks, history and tabs from the address bar | Firefox Help](https://support.mozilla.org/en-US/kb/awesome-bar-search-firefox-bookmarks-history-tabs#w_changing-results-on-the-fly_2)
+
+- Open Tabs to the right of the current tab: `about:config?filter=browser.tabs.insertAfterCurrent`, https://addons.mozilla.org/en-US/firefox/addon/always-right/
+
+Source code:
+
+- [Phabricator](https://phabricator.services.mozilla.com/)
+- [Viewing and searching Mozilla source code online - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Viewing_and_searching_Mozilla_source_code_online)
+- [mozilla-central - DXR](https://dxr.mozilla.org/mozilla-central/source/)
+- [Firefox DevTools](https://github.com/firefox-devtools)
+
+Dev tools:
+
+- [client · mozilla-central](https://phabricator.services.mozilla.com/source/mozilla-central/browse/default/devtools/client/;4e6dd979ed238a6c0be55ecfb8a42d6ca417d865)
+- [protocol.md - mozsearch](https://searchfox.org/mozilla-central/source/devtools/docs/backend/protocol.md)
+- [Remote Debugging Protocol · GitBook](https://docs.firefox-dev.tools/backend/protocol.html)
+
+#### Network debug
+
+- [HTTP logging - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/HTTP_logging)
+
+#### Session / tabs
+
+1. open `about:support` (profile directory)
+2. open the directory
+3. open the sub directory `sessionstore-backups`
+
+Files in this directory:
+
+- `previous.jsonlz4`: cleanBackup: copy of sessionstore.js from previous session that was loaded successfully
+- `recovery.jsonlz4`: latest version of the sessionstore written during runtime
+- `recovery.baklz4`: previous version of the sessionstore written during runtime
+- `upgrade.jsonlz4-<build_id>`: backup created during an upgrade of Firefox
+
+See also:
+
+- [Session History Scrounger for Firefox (with lz4 support) — Fx File Utilities](https://www.jeffersonscher.com/ffu/scrounger.html) - read file format in `sessionstore-backups` directory
+
+#### Integrated authentication
+
+Aka silent authentication
+
+> authenticate the user to an Intranet server or proxy without prompting the user for a username or password
+
+- [HTTP authentication - The Chromium Projects](https://www.chromium.org/developers/design-documents/http-authentication)
+- [microHOWTO: Configure Firefox to authenticate using SPNEGO and Kerberos](http://www.microhowto.info/howto/configure_firefox_to_authenticate_using_spnego_and_kerberos.html)
+- [Integrated Authentication - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Integrated_authentication)
+- [header - Authentication issues with WWW-Authenticate: Negotiate - Stack Overflow](https://stackoverflow.com/questions/4265975/authentication-issues-with-www-authenticate-negotiate)
+
+1. go to `about:config`
+2. accept harmful consequences warning
+3. search `network.negotiate-auth.trusted-uris` and update with value `.example.com` to allow auto login on that domains
+4. if required, search `network.negotiate-auth.allow-non-fqdn` and set to `true` to allow non fully qualified domain names in the previous given list
+
+For the list of trusted URIs, see:
+
+- `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains`
+- [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users)
+- [How to configuring IE Site Zone mapping using group policy without locking out the user](http://www.grouppolicy.biz/2012/07/how-to-configuring-ie-site-zone-mapping-using-group-policy-without-locking-out-the-user/)
+
+## Safari
+
+Source code:
+
+- [trunk dans webkit. – WebKit](http://trac.webkit.org/browser/webkit/trunk)
+- https://sourcegraph.com/search?q=repo%3Awebkit%2Fwebkit+%s
+
+Dev tools:
+
+- [WebInspectorUI dans webkit/trunk/Source. – WebKit](http://trac.webkit.org/browser/trunk/Source/WebInspectorUI)
+
+### Chrome
+
+- [List of Chromium Command Line Switches « Peter Beverloo](https://peter.sh/experiments/chromium-command-line-switches/)
+- [Version Selection - ChromeDriver - WebDriver for Chrome](https://chromedriver.chromium.org/downloads/version-selection)
+- [Index of chromium-browser-snapshots/](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html)
+- [Download Chromium - The Chromium Projects](https://www.chromium.org/getting-involved/download-chromium)
+- [Version Numbers - The Chromium Projects](https://www.chromium.org/developers/version-numbers)
+- [OmahaProxy - Google Chrome](https://omahaproxy.appspot.com/) - Look up information about a given Chrome release
+- `https://crrev.com/<branch_position|commit>`
+- `https://storage.googleapis.com/chromium-find-releases-static/d4a.html#<commit>`
+- `https://omahaproxy.appspot.com/deps.json?version=<version>` (`Major.Minor.Branch.Patch`)
+
+Source code:
+
+- [chromium Git repositories - Git at Google](https://chromium.googlesource.com/)
+- [Code Search](https://cs.chromium.org/)
+
+Dev tools:
+
+- [ChromeDevTools](https://github.com/ChromeDevTools)
+- [Chrome DevTools Protocol Viewer - latest (tip-of-tree)](https://chromedevtools.github.io/devtools-protocol/tot/)
+- [GoogleChrome/puppeteer: Headless Chrome Node.js API](https://github.com/GoogleChrome/puppeteer)
+
+#### Network debug
+
+NetLog log:
+
+- queueing delay to schedule DNS resolves to threads
+- stalls due to exceeding socket pool limits
+- attempts to do a TCP connect to an IP address
+- speculative DNS resolves
+- proxy resolution
+- cache hits for DNS resolves
+- reads/writes from disk cache
+- network change events
+- proxy configuration change events
+- stalls due to chrome extensions pausing requests
+- errors
+- cookie store
+
+> Features needing reliable network information should never be built on top of NetLog
+> - [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
+
+- chrome://net-export/#
+- [List of event types](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/net/log/net_log_event_type_list.h)
+- [How to capture a NetLog dump - The Chromium Projects](https://www.chromium.org/for-testers/providing-network-details)
+- `--net-log-capture-mode=IncludeCookiesAndCredentials` or `IncludeSocketBytes` `--log-net-log=/path/to/file` (ex: `netlog.json` or `net-export/chrome-net-export-log.json`)
+- [NetLog viewer](https://netlog-viewer.appspot.com/#events)
+- [chromium tools - chrome_proxy/webdriver/common.py](https://chromium.googlesource.com/chromium/src/tools/+/6dd06e1a895bd96e385f3bacd13d2c7a84a69915/chrome_proxy/webdriver/common.py#668) and [chromium catapult - netlog_viewer/netlog_viewer/log_util.js](https://chromium.googlesource.com/catapult/+/refs/heads/master/netlog_viewer/netlog_viewer/log_util.js#250) - About the invalidity of NetLog output when used with `--log-net-log` and a workaround
+- [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
+- [Life of a URLRequest](https://chromium.googlesource.com/chromium/src/+/master/net/docs/life-of-a-url-request.md)
+- [NetLog viewer sources](https://chromium.googlesource.com/catapult/+/master/netlog_viewer/)
+- [Importateurs de violoneux](https://blog.arcoptimizer.com/importateurs-de-violoneux)
+- [ericlaw1979/FiddlerImportNetlog: Fiddler Importer for Chromium NetLog .json files](https://github.com/ericlaw1979/FiddlerImportNetlog)
+- Event time: `new Date(data.constants.timeTickOffset + parseInt(event.time))`
+- [Network Traffic Annotations](https://chromium.googlesource.com/chromium/src/+/master/docs/network_traffic_annotations.md) and [tools/traffic_annotation - chromium/src](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/tools/traffic_annotation/) - "What is the intent behind each network request". See also `DefineNetworkTrafficAnnotation`
+
+To know what extension handle requests (marked as `307 Internal Redirect`, see `delegate_info`, `CHROME_EXTENSION_REDIRECTED_REQUEST`, `URL_REQUEST_FAKE_RESPONSE_HEADERS_CREATED`)
+
+```js
+const readline = require("readline");
+const {createReadStream} = require("fs");
+
+async function readNetLogFile(file, eventFilter = null){
+  const readlineIterable = readline.createInterface({
+    input: createReadStream(file),
+    crlfDelay: Infinity,
+  });
+
+  let result = null;
+
+  const useEventFilter = typeof eventFilter === "function";
+
+  let parent = null;
+  lineLoop: for await(const line of readlineIterable){
+    switch(true){
+      // header
+      case line.startsWith("{\"constants\":"):{
+        result = {
+          ...JSON.parse(line.slice(0, -1) + "}"),
+          events: [],
+          polledData: null,
+        };// remove trailing comma and add the closing parenthese
+        break;
+      }
+      // start events section
+      case line.startsWith("\"events\":"):
+        parent = "events";
+        break;
+      // event
+      case parent === "events":{
+        const eof = line.endsWith("]}");
+        const isLastEvent = eof || line.endsWith("],");
+        // If it's the last event, before next section
+        // then skip the events array close braket and trailing comma
+        // else skip the trailing comma
+        const rawData = line.slice(0, isLastEvent ? -2 : -1);
+        const event = JSON.parse(rawData);
+
+        // Filter events
+        if(!useEventFilter || eventFilter(event, result)){
+          result.events.push(event);
+        }
+
+        if(eof){
+          parent = null;
+          break lineLoop;
+        }
+
+        if(isLastEvent){
+          parent = null;
+        }
+        break;
+      }
+      // footer
+      case line.startsWith("\"polledData\":"):
+        // TODO
+        break;
+      // EOF
+      case line === "}":
+        parent = null;
+        break lineLoop;
+      default:
+    }
+  }
+
+  return result;
+}
+```
+
+#### Custom device with higher granularity
+
+https://developer.chrome.com/devtools/docs/device-mode#custom-devices
+
+
+trunk/Source/devtools/front_end/emulation/EmulatedDevices.js
+
+
+WebInspector.settings.createSetting("customEmulatedDeviceList", [])
+
+in customEmulatedDeviceList each entry:
+.capabilities = [];//["touch","mobile"]
+.type = "notebook";//"phone"//"tablet"//"unknown"
+For default value: 0 or ""
+
+WebInspector.EmulatedDevicesList.dispatchEventToListeners(WebInspector.EmulatedDevicesList.Events.CustomDevicesUpdated); 
+
+
+chrome.experimental.devtools.* 
+
+https://api.github.com/repos/GoogleChrome/devtools-device-data/contents/devices.json?ref=release
+https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
+
+~/Library/Application Support/Google/Chrome/Default/Preferences
+JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
+
+#### Enable Chrome developer tools experiments
+
+1. chrome://flags/#enable-devtools-experiments
+2. webdev tools "Settings"
+3. webdev tools "Experiment" tab
+4. press "Shift" 6 times to show more experiments
+
 ### How a web browser works
 
 inter-frame, event loop
@@ -910,6 +1160,7 @@ Caches: ( Application DNS cache) → ( libc DNS cache ) → ( gateway DNS cache 
 
 See [How ECMAScript engine works](ECMAScript#how-engine-works) (event loop, etc.)
 
+- [Demystifying Browsers | text/plain](https://textslashplain.com/2020/02/09/demystifying-browsers/)
 - [Design Documents - The Chromium Projects](http://www.chromium.org/developers/design-documents)
 - [How Web Works](https://github.com/vasanthk/how-web-works)
 - [How Browsers Work: Behind the scenes of modern web browsers - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)

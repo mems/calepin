@@ -5,11 +5,12 @@
 > 2. For each story, predict the probability the user will take that action
 > 3. Compute expected value
 > 
-> | Event            | Probability | Points
-> | Long video watch | 45%         | 2
-> | Click            | 11%         | 1
-> | Like             | 2.2%        | 5
-> | Comment          | 0.41%       | 20
-> | Share            | 0.054%      | 40
-> | Hide             | 0.099%      | -100
-> | Total            | -           | 1.1246
+> | Event            | Probability | Points |
+> |------------------|-------------|--------|
+> | Long video watch | 45%         | 2      |
+> | Click            | 11%         | 1      |
+> | Like             | 2.2%        | 5      |
+> | Comment          | 0.41%       | 20     |
+> | Share            | 0.054%      | 40     |
+> | Hide             | 0.099%      | -100   |
+> | Total            | -           | 1.1246 |

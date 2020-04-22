@@ -277,3 +277,7 @@ Retirer le poulet de la mixture et le recouvrir des épices sur tous les côtés
 Pendant ce temps, faire chauffer 7 centimètres d'huile dans un grand fait-tout à 170 degrés celsius. Quand la température est atteinte, laisser la casserole à feu doux pour maintenir la température. Faire frire 3 ou 4 morceaux de poulet à la fois. Laisser le poulet frire jusqu'à ce qu'il-prenne une couleur dorée (15 à 18 minutes), penser à retourner les morceaux une fois. Déposer le poulet sur un plat recouvert de papier absorbant. S'assurer que l'huile retourne à la bonne température avant de frire les morceaux suivants.
 
 http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-planteur
+
+## Pizza
+
+- [Pâte à pizza fine : Recette de Pâte à pizza fine - Marmiton](https://www.marmiton.org/recettes/recette_pate-a-pizza-fine_29544.aspx)

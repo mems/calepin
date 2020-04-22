@@ -188,21 +188,23 @@ Examples: OAuth, Google, Facebook, Twitter, LinkedIn, Github, etc.
 
 ### Fcrack zip
 
-	sudo port install fcrackzip
+```
+-l (#-#): specify the minimum and maximum length of passwords to check
+-b : use brute force to crack the password
+-c (charset): specify the character set to use
+-u : unzip / filter incorrect passwords
+```
 
-
-	-l (#-#): specify the minimum and maximum length of passwords to check
-	-b : use brute force to crack the password
-	-c (charset): specify the character set to use
-	-u : unzip / filter incorrect passwords
+- [fcrackzip- Port | MacPorts](https://ports.macports.org/port/fcrackzip/summary)
 
 ### John the ripper
 
-	sudo port install john-jumbo
+```sh
+zip2john /path/to/file.zip > zip_hash.txt
+john –wordlist=/path/to/wordlist.txt zip_hash.txt
+```
 
-	zip2john /path/to/file.zip > zip_hash.txt
-	john –wordlist=/path/to/wordlist.txt zip_hash.txt
-
+- [john-jumbo- Port | MacPorts](https://ports.macports.org/port/john-jumbo/summary)
 - [RaiderSec: Cracking Unix Password Hashes with John the Ripper (JTR)](http://raidersec.blogspot.fr/2013/01/cracking-unix-passwords-with-john.html)
 
 ## Password-less login

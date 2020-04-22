@@ -28,3 +28,7 @@ http://www.people.fas.harvard.edu/~rrussell/FacialContrastSexDifference.pdf
 - [Anti-surveillance clothing aims to hide wearers from facial recognition | Hyperface project involves printing patterns on to clothing or textiles that computers interpret as a face, in fightback against intrusive technology : worldnews](https://www.reddit.com/r/worldnews/comments/5lye20/antisurveillance_clothing_aims_to_hide_wearers/)
 - [Retail Surveillance / Retail Countersurveillance \[33c3\] - YouTube](https://www.youtube.com/watch?v=NqSomhNuBAI)
 - [ＭＩＭＩ ＣＨＯＩ (@mimles) • Instagram photos and videos](https://www.instagram.com/mimles/) - Optical Illusions by Makeup Artist Mimi Choi
+
+## DeepFake
+
+- [Real-Time WebCam Avatar DeepFake Tutorial - YouTube](https://www.youtube.com/watch?v=i0XBGXnyejg)

@@ -5,6 +5,7 @@ See also [ECMAScript](../../Formats,%20encoding%20and%20protocols/ECMAScript%20-
 ## Documentation
 
 - [Understanding the ECMAScript spec, part 1 · V8](https://v8.dev/blog/understanding-ecmascript-part-1)
+- [Understanding the ECMAScript spec, part 2 · V8](https://v8.dev/blog/understanding-ecmascript-part-2)
 
 Properties notation: `Object#toString()` (for `Object.prototype.toString()`) vs static: `Object.create()`
 

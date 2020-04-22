@@ -239,6 +239,7 @@ Aka career path
 > les ont sauvés de la dette. Quand on voit les effets directs de notre travail 
 > sur les autres, on trouve un sens à notre activité
 
+- [What is one way to showcase that every employee is unique and adds value to the company in a different way? I thought that creating a logo for each employee helped capture the sentiment. —  Brett Miller at Kodiak Cakes](https://www.linkedin.com/posts/brettpmiller_kodiakcakes-activity-6653487570430885888-VpST/)
 - [De l'importance d'un emploi ayant du sens | Adam Grant](http://www.huffingtonpost.fr/adam-grant/importance-d-un-emploi-ayant-du-sens_b_4720657.html)
 - [The #1 Feature of a Meaningless Job](http://www.huffingtonpost.com/adam-grant/the-1-feature-of-a-meanin_b_4691464.html)
 - ["J'ai un job à la con" : neuf salariés racontent leur boulot vide de sens - 18 avril 2016 - L'Obs](http://tempsreel.nouvelobs.com/politique/reforme-code-travail-el-khomri/20160418.OBS8721/j-ai-un-job-a-la-con-neuf-salaries-racontent-leur-boulot-vide-de-sens.html)

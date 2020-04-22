@@ -135,10 +135,19 @@ const data = require("fs").readFileSync(0, {encoding: "utf-8"});// file 0 is std
 
 ## Command line
 
+Aka CLI
+
 Shebang:
 
 ```sh
 #!/usr/bin/env node
+```
+
+Syntax check without executing:
+
+```sh
+# https://nodejs.org/api/cli.html#cli_c_check
+node --check file.js
 ```
 
 ## Express

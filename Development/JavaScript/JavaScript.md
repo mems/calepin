@@ -6751,6 +6751,7 @@ or
 
 - [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
 - [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
+- [Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
 
 Usage examples:
 
@@ -6769,26 +6770,56 @@ Usage examples:
 - transcoding
 - custom file formats
 
+### Shared memory can be used by pure JavaScript
+
+Note: "When memory block is reallocated, the old ArrayBuffer gets invalidated, because the memory block it was pointing to might be no longer valid.". "the .grow doesn't invalidate old data, it just reallocates it to fit a new size."
+
+```js
+// Create a Worker we want to share memory with:
+let w = new Worker(`data:text/javascript,
+onmessage = ({data: memory}) => {
+  // Got WebAssembly.Memory once, log same instance forever with no further postMessages:
+  setInterval(() => console.log('Current buffer in worker:', memory.buffer), 5_000);
+}
+`);
+// Create a shared growable memory:
+let m = new WebAssembly.Memory({ initial:1, maximum: 65536, shared: true });
+// Send memory to the worker:
+w.postMessage(m);
+
+// ... within 5 seconds you should see SharedArrayBuffer(65536) in the console, coming from the Worker
+
+// Now, let's grow memory by one page from the main thread:
+m.grow(1);
+
+// ... within 5 seconds you should see SharedArrayBuffer(131072) in the console
+// This demonstrates that the previously shared memory object auto-updates on growth.
+```
+
 ### asm.js
 
 Note: asm.js is replaced by WebAssembly
 
-	a = x + y | 0// integer arithmetic x: int32, y: int32
-	a = +(x + y)// double arithmetic x: float64, y: float64
-	(a >>> 0) < (b >>> 0) // unsigned comparison
+```js
+a = x + y | 0// integer arithmetic x: int32, y: int32
+a = +(x + y)// double arithmetic x: float64, y: float64
+(a >>> 0) < (b >>> 0) // unsigned comparison
+```
 
-	var buffer = new ArrayBuffer(16 * 1024 * 1024);
-	function module(buffer, stdlib) {
-	  “use asm”;
-	  var heap8 = new Int8Array(buffer);
-	  function foo(a) {
-		a = a | 0;
-		return heap8[a] + 1 | 0;
-	  }
-	  return {foo: foo}
-	}
-	var mod = module(buffer, {print: print});
-	mod.foo(100);
+```js
+var buffer = new ArrayBuffer(16 * 1024 * 1024);
+function module(buffer, stdlib) {
+  “use asm”;
+  var heap8 = new Int8Array(buffer);
+  function foo(a) {
+	a = a | 0;
+	return heap8[a] + 1 | 0;
+  }
+  return {foo: foo}
+}
+var mod = module(buffer, {print: print});
+mod.foo(100);
+```
 
 ## Passive Event Listeners
 
