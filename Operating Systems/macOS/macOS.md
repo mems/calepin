@@ -40,6 +40,7 @@ purge
 - current files used by Time Machine `sudo fs_usage -w -f filesys backupd`
 - [The ins and outs of using tmutil to backup, restore, and review Time Machine backups - krypted](https://krypted.com/mac-os-x/ins-outs-using-tmutil-backup-restore-review-time-machine-backups/)
 - [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/)
+- [TM-Utilities  - Arthur Rosel, Ltd.](http://7clinton.com/TM-UtilitiesHelp.html)
 
 Time Machine backup fiability:
 

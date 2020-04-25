@@ -687,6 +687,7 @@ See [resample](Resample)
 
 See [Random, noise and dithering - Procedural](Random, noise and dithering#procedural)
 
+- [mike🌵black on Twitter: "oh, and btw the textures we use as thresholds for the road are fun as heck to make - seamless tiles that are layers upon layers of similar textures we multiply this noise tex by the per-channel gradient texture then threshold it https://t.co/9YBp8YJR2u" / Twitter](https://twitter.com/kurtruslfanclub/status/1156929244263436293) - base texture variation based on world location (road dirty)
 - [TexGen - AngelCode.com](http://www.angelcode.com/texgen/)
 - [blogorrhea: Procedural Textures in HTML5 Canvas](http://asserttrue.blogspot.fr/2012/01/procedural-textures-in-html5-canvas.html) - see [Procedural Textures](Procedural Textures.html)
 - [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse) - Bitmap & tilemap generation from a single example with the help of ideas from quantum mechanics
@@ -1445,15 +1446,21 @@ Aka projection, normal mapping
 
 ### Condition optimizations
 
+**Always write with confition first, then check compiled result.** Ex: `val = mix(a, b, step(0.5, x));` is 4 instructions `ge, add, add, mad`, `val = (x >= 0.5) ? b : a;` is 2 instructions `ge, mov`
+
 Instead of
 
-	if (x == 0) {
-		y += 5;
-	}
+```glsl
+if (x == 0) {
+	y += 5;
+}
+```
 
 Do
 
-	y += 5 * (1.0 - abs(sign(x)));
+```glsl
+y += 5 * (1.0 - abs(sign(x)));
+```
 
 ```glsl
 vec4 when_eq(vec4 x, vec4 y) {
@@ -1498,6 +1505,7 @@ vec4 not(vec4 a) {
 ```
 
 - [Avoiding Shader Conditionals](http://theorangeduck.com/page/avoiding-shader-conditionals)
+- [Ben Golus on Twitter: "The common wisdom of "don't use conditionals in shaders" is one of my biggest frustrations with how shaders are taught. step(y, x) _is_ a conditional! It compiles to identical code as: float val = (x &gt;= y ? 1.0 : 0.0) or float val = 0.0; if (x &gt;= y) val = 1.0; https://t.co/agcoDOhyGm" / Twitter](https://twitter.com/bgolus/status/1235254923819802626)
 
 ### Lib
 
@@ -2663,5 +2671,7 @@ Grid (9 slice scaling):
 ## Optical illusion
 
 - [Optical illusion — Wikipedia](https://en.wikipedia.org/wiki/Optical_illusion)
+- [Missing square puzzle - Wikipedia](https://en.wikipedia.org/wiki/Missing_square_puzzle)
 - [Catalogue of illusions](http://www.psy.ritsumei.ac.jp/~akitaoka/cataloge.html)
 - [Akiyoshi's illusion pages](http://www.psy.ritsumei.ac.jp/~akitaoka/index-e.html)
+- [David Novick's Color Illusions Page](http://www.engineering.utep.edu/novick/colors/)

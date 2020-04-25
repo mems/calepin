@@ -893,6 +893,15 @@ Use `integrity` attribute for `<script>` and `<link>`
 
 Aka CORS
 
+> It's safe to put `Access-Control-Allow-Origin: *` on any response, *unless* that response's data is 'secured' by something other than cookies, basic auth, or TLS client certificates.
+> Exception: Content that's 'protected' by the requester's IP. Eg geo-locked data, or extra debug data that might appear if the request is from an 'internal' IP.
+> Exception: Content that's 'protected' by being on an internal network. Eg intranets, iot devices, local servers (although these should all be secured another way).
+> These are exceptions because they would allow an attacker who was outside the internal network, or didn't have the correct IP, to use an 'inside' user as a proxy.
+> [...]
+> > Exception: fetch with credentials doesn’t allow wildcards, for whatever reason.
+> That's why it's safe to add to all resources
+> — [Jake Archibald on Twitter: "PSA: It's safe to put "Access-Control-Allow-Origin: *" on any response, *unless* that response's data is 'secured' by something other than cookies, basic auth, or TLS client certificates." / Twitter](https://twitter.com/jaffathecake/status/1222071269962715141)
+
 Note: Be carefull and don't mix `Access-Control-Allow-Origin: *` and `Access-Control-Allow-Credentials: true` without know what your are doing
 
 `Access-Control-Allow-Origin: *` means [“anonymous requests only”](https://w3c.github.io/webappsec-cors-for-developers/#anonymous-requests-or-access-control-allow-origin)

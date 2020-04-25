@@ -37,3 +37,40 @@ For storage or transmition protocol
 - `git remote -v`
 
 - [Extend Git with Custom Command (Example)](https://coderwall.com/p/bt93ia/extend-git-with-custom-commands)
+
+## Diff format
+
+```diff
+diff --git a/path/file-old.ext b/path/file.ext
+similarity index 100%
+rename from path/file-old.ext
+rename to path/file.ext
+
+```
+
+```c
+// https://github.com/git/git/blob/3bab5d56259722843359702bc27111475437ad2a/apply.c#L1329-L1345
+optable[] = {
+	{ "@@ -", gitdiff_hdrend },
+	{ "--- ", gitdiff_oldname },
+	{ "+++ ", gitdiff_newname },
+	{ "old mode ", gitdiff_oldmode },
+	{ "new mode ", gitdiff_newmode },
+	{ "deleted file mode ", gitdiff_delete },
+	{ "new file mode ", gitdiff_newfile },
+	{ "copy from ", gitdiff_copysrc },
+	{ "copy to ", gitdiff_copydst },
+	{ "rename old ", gitdiff_renamesrc },
+	{ "rename new ", gitdiff_renamedst },
+	{ "rename from ", gitdiff_renamesrc },
+	{ "rename to ", gitdiff_renamedst },
+	{ "similarity index ", gitdiff_similarity },
+	{ "dissimilarity index ", gitdiff_dissimilarity },
+	{ "index ", gitdiff_index },
+	{ "", gitdiff_unrecognized },
+};
+```
+
+- [Git - diff-format Documentation](https://git-scm.com/docs/diff-format#_generating_patch_text_with_p)
+- [`git-am` internaly use `git-apply`](https://github.com/git/git/blob/bbcefff/git-am.sh#L151)
+- [patch - What is the difference between git am and git apply? - Stack Overflow](https://stackoverflow.com/questions/12240154/what-is-the-difference-between-git-am-and-git-apply)

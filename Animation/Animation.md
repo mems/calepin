@@ -176,6 +176,7 @@ See also [Catmull–Rom spline](Spline) and [Gradient](Gradient)
 - ... (see links above)
 - `cos(pi*x) / (-LN2*x)`
 - `sqrt(1-x^2)` Semi arc (* -1 to get negative)
+- `1-pow(x*2-1, 6)` smooth in-out, use power of 2, 4, 6, etc. to make the transition sharper
 
 
 - Linear (Power0)

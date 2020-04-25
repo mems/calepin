@@ -280,4 +280,15 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 
 ## Pizza
 
+1% levure
+15 min à 200°C
+
 - [Pâte à pizza fine : Recette de Pâte à pizza fine - Marmiton](https://www.marmiton.org/recettes/recette_pate-a-pizza-fine_29544.aspx)
+
+## Far breton
+
+## Muhammara
+
+Aka crème de poivrons à la grenade
+
+- [Muhammara, crème de poivrons à la grenade - Un déjeuner de soleil](https://www.undejeunerdesoleil.com/2014/05/muhammara-creme-poivrons-noix-grenade.html)

@@ -1,8 +1,9 @@
 Convert all PNG to JPEG with quality 90: `mogrify -verbose -format jpg -quality 90 *.png`
 
 Lightroom infos:
+
 > “0 quality” is not zero \[...\] “0-100” is really “0-12” \[eg. 13 grades\]
-[Jeffrey Friedl's Blog » An Analysis of Lightroom JPEG Export Quality Settings](http://regex.info/blog/lightroom-goodies/jpeg-quality#surprise)
+> — [Jeffrey Friedl's Blog » An Analysis of Lightroom JPEG Export Quality Settings](http://regex.info/blog/lightroom-goodies/jpeg-quality#surprise)
 
 ## Format
 
@@ -16,6 +17,7 @@ Lightroom infos:
 - [Jpeg Compression method](http://www.robertstocker.co.uk/jpeg/jpeg_new_7.htm)
 - [Luma Chroma both - Chrominance — Wikipedia](https://en.wikipedia.org/wiki/Chrominance#mediaviewer/File:Luma_Chroma_both.png)
 - [JPEG for the horseshoe crabs - JPEG_for_the_horseshoe_crabs.pdf](http://frdx.free.fr/JPEG_for_the_horseshoe_crabs.pdf)
+- [ilyakurdyukov/jpeg-quantsmooth: JPEG artifacts removal based on quantization coefficients.](https://github.com/ilyakurdyukov/jpeg-quantsmooth) - "recreate lost precision of DCT coefficients based on quantization table from jpeg image. Output saved as jpeg image with quantization set to 1 (like jpeg saved with 100% quality)"
 - [PDF Reader in JavaScript](https://github.com/mozilla/pdf.js) - read JPEG and JPEG 2000
 - [JPEG/DCT data decoder](https://github.com/notmasteryet/jpgjs) - read JPEG. share the same code from PDF.js
 - https://github.com/HaxeFoundation/format/tree/master/format/jpg - write
@@ -59,61 +61,63 @@ Note a dedicated format exist: 12-bit JPEG format, but this format is not as wid
 
 For grayscale JPEG, chroma components will be gray (50%)
 
-	// Test grayscale image impact on luma (same as RGB source), chroma blue and chroma red (still grey)
-	// That means for grayscale images chroma could be ignored or at least use the lower level of subsampling
-	let canvas = document.createElement("canvas");
-	canvas.width = 800;
-	canvas.height = 400;
-	let context = canvas.getContext("2d");
-	var gradient = context.createRadialGradient(100, 100, 100, 100, 100, 80);
-	gradient.addColorStop(0, 'black');
-	gradient.addColorStop(1, 'white');
-	context.fillStyle = gradient;
-	context.fillRect(0, 0, 200, 200);
-	let srcImageDataRaw = context.getImageData(0, 0, 200, 200).data;
-	
-	let lumaImageData = context.createImageData(200, 200);
-	let lumaImageDataRaw = lumaImageData.data;
-	let chromaBlueImageData = context.createImageData(200, 200);
-	let chromaBlueImageDataRaw = chromaBlueImageData.data;
-	let chromaRedImageData = context.createImageData(200, 200);
-	let chromaRedImageDataRaw = chromaRedImageData.data;
-	let testImageData = context.createImageData(200, 200);
-	let testImageDataRaw = testImageData.data;
-	// Separate each RGB pixels to YCbCr space (show side each channels)
-	// https://en.wikipedia.org/wiki/YCbCr#JPEG_conversion
-	for(let i = 0; i < srcImageDataRaw.length; i += 4/*RGBA*/){
-		let srcRed = srcImageDataRaw[i];
-		let srcGreen = srcImageDataRaw[i + 1];
-		let srcBlue = srcImageDataRaw[i + 2];
-	
-		let luma = 0.299 * srcRed + 0.587 * srcGreen + 0.114 * srcBlue;
-		lumaImageDataRaw[i] = lumaImageDataRaw[i + 1] = lumaImageDataRaw[i + 2] = Math.round(luma);
-		lumaImageDataRaw[i + 3] = 0xFF;
-	
-		let chromaBlue = 0x80 - 0.168736 * srcRed - 0.331264 * srcGreen + 0.5 * srcBlue;
-		chromaBlueImageDataRaw[i] = chromaBlueImageDataRaw[i + 1] = chromaBlueImageDataRaw[i + 2] = Math.round(chromaBlue);
-		chromaBlueImageDataRaw[i + 3] = 0xFF;
-	
-		let chromaRed = 0x80 + 0.5 * srcRed - 0.418688 * srcGreen - 0.081312 * srcBlue;
-		chromaRedImageDataRaw[i] = chromaRedImageDataRaw[i + 1] = chromaRedImageDataRaw[i + 2] = Math.round(chromaRed);
-		chromaRedImageDataRaw[i + 3] = 0xFF;
-	
-		// Then revert YCbCr to RGB (to test it the computation is correct)
-		let testRed = luma + 1.402 * (chromaRed  - 0x80);
-		let testGreen = luma - 0.344136 * (chromaBlue - 0x80) - 0.714136 * (chromaRed  - 0x80);
-		let testBlue = luma + 1.772 * (chromaBlue - 0x80);
-		testImageDataRaw[i] = Math.round(testRed);
-		testImageDataRaw[i + 1] = Math.round(testGreen);
-		testImageDataRaw[i + 2] = Math.round(testBlue);
-		testImageDataRaw[i + 3] = 0xFF;// alpha
-	}
-	
-	context.putImageData(lumaImageData, 200, 0);
-	context.putImageData(chromaBlueImageData, 400, 0);
-	context.putImageData(chromaRedImageData, 600, 0);
-	context.putImageData(testImageData, 0, 200);
-	document.body.appendChild(canvas);
+```js
+// Test grayscale image impact on luma (same as RGB source), chroma blue and chroma red (still grey)
+// That means for grayscale images chroma could be ignored or at least use the lower level of subsampling
+let canvas = document.createElement("canvas");
+canvas.width = 800;
+canvas.height = 400;
+let context = canvas.getContext("2d");
+var gradient = context.createRadialGradient(100, 100, 100, 100, 100, 80);
+gradient.addColorStop(0, 'black');
+gradient.addColorStop(1, 'white');
+context.fillStyle = gradient;
+context.fillRect(0, 0, 200, 200);
+let srcImageDataRaw = context.getImageData(0, 0, 200, 200).data;
+
+let lumaImageData = context.createImageData(200, 200);
+let lumaImageDataRaw = lumaImageData.data;
+let chromaBlueImageData = context.createImageData(200, 200);
+let chromaBlueImageDataRaw = chromaBlueImageData.data;
+let chromaRedImageData = context.createImageData(200, 200);
+let chromaRedImageDataRaw = chromaRedImageData.data;
+let testImageData = context.createImageData(200, 200);
+let testImageDataRaw = testImageData.data;
+// Separate each RGB pixels to YCbCr space (show side each channels)
+// https://en.wikipedia.org/wiki/YCbCr#JPEG_conversion
+for(let i = 0; i < srcImageDataRaw.length; i += 4/*RGBA*/){
+	let srcRed = srcImageDataRaw[i];
+	let srcGreen = srcImageDataRaw[i + 1];
+	let srcBlue = srcImageDataRaw[i + 2];
+
+	let luma = 0.299 * srcRed + 0.587 * srcGreen + 0.114 * srcBlue;
+	lumaImageDataRaw[i] = lumaImageDataRaw[i + 1] = lumaImageDataRaw[i + 2] = Math.round(luma);
+	lumaImageDataRaw[i + 3] = 0xFF;
+
+	let chromaBlue = 0x80 - 0.168736 * srcRed - 0.331264 * srcGreen + 0.5 * srcBlue;
+	chromaBlueImageDataRaw[i] = chromaBlueImageDataRaw[i + 1] = chromaBlueImageDataRaw[i + 2] = Math.round(chromaBlue);
+	chromaBlueImageDataRaw[i + 3] = 0xFF;
+
+	let chromaRed = 0x80 + 0.5 * srcRed - 0.418688 * srcGreen - 0.081312 * srcBlue;
+	chromaRedImageDataRaw[i] = chromaRedImageDataRaw[i + 1] = chromaRedImageDataRaw[i + 2] = Math.round(chromaRed);
+	chromaRedImageDataRaw[i + 3] = 0xFF;
+
+	// Then revert YCbCr to RGB (to test it the computation is correct)
+	let testRed = luma + 1.402 * (chromaRed  - 0x80);
+	let testGreen = luma - 0.344136 * (chromaBlue - 0x80) - 0.714136 * (chromaRed  - 0x80);
+	let testBlue = luma + 1.772 * (chromaBlue - 0x80);
+	testImageDataRaw[i] = Math.round(testRed);
+	testImageDataRaw[i + 1] = Math.round(testGreen);
+	testImageDataRaw[i + 2] = Math.round(testBlue);
+	testImageDataRaw[i + 3] = 0xFF;// alpha
+}
+
+context.putImageData(lumaImageData, 200, 0);
+context.putImageData(chromaBlueImageData, 400, 0);
+context.putImageData(chromaRedImageData, 600, 0);
+context.putImageData(testImageData, 0, 200);
+document.body.appendChild(canvas);
+```
 
 ## Estimate quality
 
@@ -170,49 +174,51 @@ Via quantization tables.
 
 `convert -define jpeg:q-table=quantization-table.xml rgb_image.png image.jpg`, see [JPEG quantization tables and progressive scan scripts - ImageMagick](http://www.imagemagick.org/discourse-server/viewtopic.php?f=2&t=20414&sid=8a1c6da472fcf63d7f0676b2a6b53db5)
 
-		<?xml version="1.0" encoding="ISO-8859-1"?>
-		<!DOCTYPE quantization-tables [
-		<!ELEMENT quantization-tables (table)+>
-		<!ELEMENT table (description , levels)>
-		<!ELEMENT description (CDATA)>
-		<!ELEMENT levels (CDATA)>
-		<!ATTLIST table slot ID #REQUIRED>
-		<!ATTLIST levels width CDATA #REQUIRED>
-		<!ATTLIST levels height CDATA #REQUIRED>
-		<!ATTLIST levels divisor CDATA #REQUIRED>
-		]>
-		<!--
-		  JPEG quantization tables.
-		-->
-		<quantization-tables>
-			<table slot="0" alias="luminance">
-				<description>Luminance Quantization Table</description>
-				<levels width="8" height="8" divisor="1">
-					16, 12, 14, 17, 22, 30, 45, 72,
-					12, 13, 14, 17, 22, 31, 46, 74,
-					14, 14, 16, 19, 25, 35, 52, 83,
-					17, 17, 19, 23, 30, 41, 62, 100,
-					22, 22, 25, 30, 39, 54, 80, 129,
-					30, 31, 35, 41, 54, 74, 111, 178,
-					45, 46, 52, 62, 80, 111, 166, 267,
-					72, 74, 83, 100, 129, 178, 267, 428
-				</levels>
-			</table>
-		
-			<table slot="1" alias="chrominance">
-				<description>Chrominance Quantization Table</description>
-				<levels width="8" height="8" divisor="1">
-					17,  18,  22,  31,  50,  92,   193,  465,
-					18,  19,  24,  33,  54,  98,   207,  498,
-					22,  24,  29,  41,  66,  120,  253,  609,
-					31,  33,  41,  57,  92,  169,  355,  854,
-					50,  54,  66,  92,  148, 271,  570,  1370,
-					92,  98,  120, 169, 271, 498,  1046, 2516,
-					193, 207, 253, 355, 570, 1046, 2198, 5289,
-					465, 498, 609, 854, 1370,2516, 5289, 12725
-				</levels>
-			</table>
-		</quantization-tables>
+```xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE quantization-tables [
+<!ELEMENT quantization-tables (table)+>
+<!ELEMENT table (description , levels)>
+<!ELEMENT description (CDATA)>
+<!ELEMENT levels (CDATA)>
+<!ATTLIST table slot ID #REQUIRED>
+<!ATTLIST levels width CDATA #REQUIRED>
+<!ATTLIST levels height CDATA #REQUIRED>
+<!ATTLIST levels divisor CDATA #REQUIRED>
+]>
+<!--
+  JPEG quantization tables.
+-->
+<quantization-tables>
+	<table slot="0" alias="luminance">
+		<description>Luminance Quantization Table</description>
+		<levels width="8" height="8" divisor="1">
+			16, 12, 14, 17, 22, 30, 45, 72,
+			12, 13, 14, 17, 22, 31, 46, 74,
+			14, 14, 16, 19, 25, 35, 52, 83,
+			17, 17, 19, 23, 30, 41, 62, 100,
+			22, 22, 25, 30, 39, 54, 80, 129,
+			30, 31, 35, 41, 54, 74, 111, 178,
+			45, 46, 52, 62, 80, 111, 166, 267,
+			72, 74, 83, 100, 129, 178, 267, 428
+		</levels>
+	</table>
+
+	<table slot="1" alias="chrominance">
+		<description>Chrominance Quantization Table</description>
+		<levels width="8" height="8" divisor="1">
+			17,  18,  22,  31,  50,  92,   193,  465,
+			18,  19,  24,  33,  54,  98,   207,  498,
+			22,  24,  29,  41,  66,  120,  253,  609,
+			31,  33,  41,  57,  92,  169,  355,  854,
+			50,  54,  66,  92,  148, 271,  570,  1370,
+			92,  98,  120, 169, 271, 498,  1046, 2516,
+			193, 207, 253, 355, 570, 1046, 2198, 5289,
+			465, 498, 609, 854, 1370,2516, 5289, 12725
+		</levels>
+	</table>
+</quantization-tables>
+```
 
 - [JPEG — Wikipedia](https://en.wikipedia.org/wiki/JPEG#Lossless_further_compression) - Lossless further compression
 - [packJPG | packJPG](https://web.archive.org/web/20180913135729/http://packjpg.encode.ru/?page_id=17) - see [packjpg/packJPG: A compression program for further compressing JPEG image files](https://github.com/packjpg/packJPG)
@@ -238,19 +244,23 @@ Edit to blur the background to reduce weight: [Reducing image sizes — Responsi
 
 To check if it's progressive: `identify -verbose file.jpg | grep Interlace` should return `Interlace: JPEG`
 
-	convert -interlace Plane source.jpg result.jpg
+```sh
+convert -interlace Plane source.jpg result.jpg
+```
 
 Number of scan and there configuration can be tweak/optimized
 
 Optimal could be ([`cjpeg`](https://linux.die.net/man/1/cjpeg) scans script file, see `-scans`):
 
-	# Initial DC for all channels (Y, Cb, Cr). Interleaved
-	0,12:	0-0,	0,	1;
-	# AC Scan
-	0:		1-27,	0,	0; # Half of all brighter values.
-	2:		1-63,	0,	0; # All remaining color channels.
-	1:		1-63,	0,	0; # All remaining color channels.
-	0:		28-63,	0,	0; # All remaining Y coefficients and half of brighter channel
+```
+# Initial DC for all channels (Y, Cb, Cr). Interleaved
+0,12:	0-0,	0,	1;
+# AC Scan
+0:		1-27,	0,	0; # Half of all brighter values.
+2:		1-63,	0,	0; # All remaining color channels.
+1:		1-63,	0,	0; # All remaining color channels.
+0:		28-63,	0,	0; # All remaining Y coefficients and half of brighter channel
+```
 
 - [Chris Hodapp's Blog - Obscure features of JPEG](https://hodapple.com/blag/posts/2011-11-24-obscure-features-of-jpeg.html)
 - http://libjpeg.cvs.sourceforge.net/viewvc/libjpeg/libjpeg/wizard.doc?content-type=text%2Fplain
@@ -268,7 +278,9 @@ Optimal could be ([`cjpeg`](https://linux.die.net/man/1/cjpeg) scans script file
 
 Photoshop: Window > Paths
 
-	identify -format '%[8BIM:1999,2998:#1]' <myimage>
+```sh
+identify -format '%[8BIM:1999,2998:#1]' <myimage>
+```
 
 - https://stackoverflow.com/questions/3030577/is-it-possible-to-read-path-in-jpeg-image-with-python
 

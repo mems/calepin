@@ -564,7 +564,18 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Proces
 
 ### Offline packages
 
-See first [Adobe Offline Package Generator v0.1.1 (macOS only)](https://gist.github.com/ayyybe/a5f01c6f40020f9a7bc4939beeb2df1d) (see [Download CC 2020 (+ old versions) directly from Adobe : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/fmv3sm/download_cc_2020_old_versions_directly_from_adobe/))
+See first [Adobe Offline Package Generator v0.1.1 (macOS only)](https://gist.github.com/ayyybe/a5f01c6f40020f9a7bc4939beeb2df1d) (from [Download CC 2020 (+ old versions) directly from Adobe : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/fmv3sm/download_cc_2020_old_versions_directly_from_adobe/))
+Require Adobe Desktop Common (ADC) HDBox from Creative Cloud https://creativecloud.adobe.com/apps/all/desktop?action=install&source=apps&productId=creative-cloud
+
+Get HDBox bins:
+
+```
+https://cdn-ffc.oobesaas.adobe.com/core/v1/applications?name=CreativeCloud&name=KCCC or https://cdn-ffc.oobesaas.adobe.com/core/v1/applications?name=CreativeCloud&name=KCCC&osVersion=10.12.4&platform=osx10
+Find packageset "ADC", package "HDBox", and concat manifestUrl with https://ccmdls.adobe.com
+curl -H 'x-api-key: CreativeCloud_v5_0' -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: accc-hdcore-desktop' 'https://ccmdls.adobe.com/AdobeProducts/KCCC/1/osx10/packages/ACCC_5_1_0_HDBox_407/manifest.xml'
+download the url manifest/asset_list/asset[0]/asset_path
+read it as zip, insde /packages/HDBox/HDBox.pima, read it as zip, inside you find all tools
+```
 
 ```js
 // Open in a browser https://prod-rel-ffc-ccm.oobesaas.adobe.com/ then execute that script in Console
@@ -576,6 +587,7 @@ STI_ColorCommonSet_CMYK_HD  COCM
 STI_Color_Photoshop_HD      COPS
 STI_Color_HD                CORE
 STI_ColorCommonSet_RGB_HD   CORG
+Adobe Could Installer       KCCC https://cdn-ffc.oobesaas.adobe.com/core/v1/applications?name=CreativeCloud&name=KCCC https://ccmdls.adobe.com/*
 */
 async function search({sapCode, version, type = "Desktop", platformID}){
     //const base = new URL("https://cdn-ffc.oobesaas.adobe.com/");
@@ -583,7 +595,7 @@ async function search({sapCode, version, type = "Desktop", platformID}){
     const productsURL = new URL("/adobe-ffc-external/core/v4/products/all?payload=true&_type=json", base);
     for(const [name, value] of [
         // API support multiple values as platform=win64&platform=win32 and platform=win64,win32
-        ["channel", ["ccm", "sti"]],
+    ["channel", ["ccm", "sti", "ccp_hd_2", "services", "nocc", "mobileApps"]],// var a = Array.from({length: 26}, (_, i) => String.fromCharCode("a".charCodeAt(0) + i)); Array.from({length: 100000}, (_, i) => i.toString(26).replace(/*/, char => )).join(","); Array.from({length: 100000}, (_, i) => i.toString(10+26)).join(",")
         //["platform", ["win32", "win64", "osx10", "osx10-64"]],
         ["platform", platformID],
         ["productType", type],
@@ -591,7 +603,7 @@ async function search({sapCode, version, type = "Desktop", platformID}){
         productsURL.searchParams.append(name, value);
     }
 
-    // curl -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: AUSST_4_0' 'https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v4/products/all?&channel=ccm&channel=sti&platform=osx10&platform=osx10-64&payload=true&productType=Desktop&_type=json'
+    // curl -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: AUSST_4_0' 'https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v4/products/all?channel=ccm&channel=sti&platform=osx10&platform=osx10-64&payload=true&productType=Desktop&_type=json'
     const channels = await (await fetch(productsURL, {
         headers: {
           "user-agent": "Creative Cloud",// optional
@@ -679,7 +691,7 @@ ${applicationDetails.Packages.Package.map(package => {
 }
 
 await search({
-    sapCode: "PHSP",
+    sapCode: "KCCC",
     version: "21.0.3.91",
     platformID: "osx10-64",
 });
@@ -734,13 +746,17 @@ See also [How do I stop the Adobe Creative Cloud app from auto-launching on logi
 
 ### Uninstall Adobe
 
-    ~/Library/Application Support/Adobe/*
-    ~/Library/Preferences/Adobe/*
-    ~/Documents/Adobe/*
-	/Library/Application Support/Adobe/*
+```
+~/Library/Application Support/Adobe/*
+~/Library/Preferences/Adobe/*
+~/Documents/Adobe/*
+/Library/Application Support/Adobe/*
+```
 
-	/Applications/Utilities/Adobe Application Manager
-	/Applications/Utilities/Adobe Installers
+```
+/Applications/Utilities/Adobe Application Manager
+/Applications/Utilities/Adobe Installers
+```
 
 See if hosts files doesn't contains blocked domains
 

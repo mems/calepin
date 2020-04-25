@@ -16,6 +16,15 @@
 - [git merge v git rebase: Avoiding Rebase Hell - Jarrod Spillers](http://www.jarrodspillers.com/git/2009/08/19/git-merge-vs-git-rebase-avoiding-rebase-hell.html)
 - [Why you should stop using Git rebase – Fredrik V. Mørken – Medium](https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1)
 
+## Reset
+
+```sh
+# Reset tracked files and remove untracked files
+git reset --hard origin/master && git clean -f -d
+```
+
+- [git reset --hard HEAD leaves untracked files behind - Stack Overflow](https://stackoverflow.com/questions/4327708/git-reset-hard-head-leaves-untracked-files-behind/4327720#4327720)
+
 ## Hooks
 
 - [Meta Magic: Git Hooks](http://benjamin-meyer.blogspot.fr/2008/10/git-hooks.html)
@@ -293,3 +302,28 @@ About Explorer CLSIDs:
 - [CLSID Key (GUID) Shortcuts List for Windows 10 | Tutorials](https://www.tenforums.com/tutorials/3123-clsid-key-guid-shortcuts-list-windows-10-a.html)
 - [Control Panel (Windows) - Wikipedia](https://en.wikipedia.org/wiki/Control_Panel_%28Windows%29)
 - [List of Control Panel Command Line Commands](https://www.lifewire.com/command-line-commands-for-control-panel-applets-2626060)
+
+## Diff and merge tools
+
+For Windows, in `%USERPROFILE%.git_config`:
+
+```
+[diff]
+	tool = bc4
+[difftool "bc4"]
+	cmd = \"C:\\Program Files\\Beyond Compare 4\\BComp.exe\" \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = bc4
+[mergetool "bc4"]
+	cmd = \"C:\\Program Files\\Beyond Compare 4\\BComp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+```
+
+```sh
+git difftool --no-prompt FILEPATH FILEPATH
+git mergetool --no-prompt FILEPATH
+```
+
+- [Git - git-mergetool Documentation](https://git-scm.com/docs/git-mergetool)
+- [Git - git-difftool Documentation](https://git-scm.com/docs/git-difftool)
+- [Beyond Compare Technical Support](http://www.scootersoftware.com/support.php?zz=kb_vcs)

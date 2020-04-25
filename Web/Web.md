@@ -127,6 +127,7 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 > `var webkit = !document.uniqueID && !window.opera && !window.globalStorage`: old code that evaluates to true in IE, Opera + Firefox today.
 — [Mike Taylor on Twitter](https://twitter.com/miketaylr/status/598211928272437248)
 
+- [Browserhacks](http://browserhacks.com/)
 - [User Agent String](#user-agent-string)
 - [Detect touch device](JavaScript#detect-touch-device)
 - [peter.michaux.ca - Feature Detection: State of the Art Browser Scripting](http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting)
@@ -146,8 +147,8 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 - [WhichBrowser/Parser: Browser sniffing gone too far — A useragent parser library for PHP](https://github.com/WhichBrowser/Parser)
 - [serbanghita/Mobile-Detect: Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets). It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.](https://github.com/serbanghita/Mobile-Detect) - Can also detect crawler / bots
 - [Adapting for the Times // Speaker Deck](https://speakerdeck.com/steveworkman/adapting-for-the-times?slide=22)
- 
- ```apache
+
+```apache
 # From https://speakerd.s3.amazonaws.com/presentations/0c3a0cee177346fcb5acbe81a440377d/slide_21.jpg?1476842385
 <IfModule mod_rewrite.c>
 	RewriteEngine on
@@ -1009,6 +1010,13 @@ Dev tools:
 - [Chrome DevTools Protocol Viewer - latest (tip-of-tree)](https://chromedevtools.github.io/devtools-protocol/tot/)
 - [GoogleChrome/puppeteer: Headless Chrome Node.js API](https://github.com/GoogleChrome/puppeteer)
 
+Enable Chrome developer tools experiments:
+
+1. chrome://flags/#enable-devtools-experiments
+2. webdev tools "Settings"
+3. webdev tools "Experiment" tab
+4. press "Shift" 6 times to show more experiments
+
 #### Network debug
 
 NetLog log:
@@ -1120,7 +1128,7 @@ async function readNetLogFile(file, eventFilter = null){
 
 https://developer.chrome.com/devtools/docs/device-mode#custom-devices
 
-
+```
 trunk/Source/devtools/front_end/emulation/EmulatedDevices.js
 
 
@@ -1141,13 +1149,7 @@ https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
 
 ~/Library/Application Support/Google/Chrome/Default/Preferences
 JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
-
-#### Enable Chrome developer tools experiments
-
-1. chrome://flags/#enable-devtools-experiments
-2. webdev tools "Settings"
-3. webdev tools "Experiment" tab
-4. press "Shift" 6 times to show more experiments
+```
 
 ### How a web browser works
 

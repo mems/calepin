@@ -3779,12 +3779,14 @@ function toHex( n, bigEndian = false ) {
  * @example toBase(0xDEADBEEF, "0123456789abcdef") === "deadbeef"//base 16
  * @example toBase(0b10101010, "01") === "10101010"//base 2
  * @example toBase(0o51, "01234567") === "51"//base 8
+ * @example toBase(3, "abcd") === "d" && toBase(4, "abcd") === "ba"
  *
  * @see https://github.com/aseemk/bases.js
  */
 function toBase(value, charset){
   let result = "";
   const base = charset.length;
+  value = Math.abs(value);
 
   // execute at least once for the "zero"
   do{

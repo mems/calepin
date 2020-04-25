@@ -352,6 +352,10 @@ Content-Type: application/octet-stream
 X-Download-Options: noopen
 ```
 
+### Access
+
+- [XSS and injection prevention](../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#xss-and-injection-prevention) - CORS, CSP, SI, etc.
+
 ### Referer
 
 See [Security](Security#http-referer)
