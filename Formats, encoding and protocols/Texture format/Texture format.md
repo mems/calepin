@@ -1,19 +1,9 @@
 Infos:
 
 - [OpenGL ES | Android Developers](https://developer.android.com/guide/topics/graphics/opengl.html#textures)
-- [MOTODEV \> Documentation & Tools > Android Technical Library > Understanding Texture Compression](http://wayback.archive.org/web/20110214195728/http://developer.motorola.com/docstools/library/understanding-texture-compression/)
 - [OpenGL® Registry](https://www.opengl.org/registry/)
-- [Image Format - OpenGL.org](https://www.opengl.org/wiki/Image_Format#Compressed_formats)
-- [Android* Texture Compression - a comparison study with code sample | Intel® Software](https://software.intel.com/en-us/articles/android-texture-compression-a-comparison-study-with-code-sample)
 - [\<supports-gl-texture\> | Android Developers](https://developer.android.com/guide/topics/manifest/supports-gl-texture-element.html)
-- [Understanding BCn Texture Compression Formats – Nathan Reed’s coding blog](http://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/)
-- [Texture compression — Wikipedia](https://en.wikipedia.org/wiki/Texture_compression)
-- [FourCC — Wikipedia](https://en.wikipedia.org/wiki/FourCC)
-- [Gamasutra: Alexandru Voica's Blog - Why efficiency is key in texture compression standards for mobile graphics](http://www.gamasutra.com/blogs/AlexandruVoica/20130419/190833/Why_efficiency_is_key_in_texture_compression_standards_for_mobile_graphics.php)
 - [Best Practices for Working with Texture Data](https://developer.apple.com/library/content/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/TechniquesForWorkingWithTextureData/TechniquesForWorkingWithTextureData.html#//apple_ref/doc/uid/TP40008793-CH104-SW1)
-- [Patent US5585944 - Method for compressing and decompressing images by subdividing pixel color ... - Google Patents](https://www.google.com/patents/US5585944)
-
-![Textures types](http://gamma.cs.unc.edu/GST/images/teaser.png)
 
 Aditional compression can be applied:
 
@@ -130,6 +120,15 @@ Block Compression:
 - [Red Green Texture Compression - OpenGL.org](https://www.opengl.org/wiki/Red_Green_Texture_Compression)
 - [3Dc — Wikipedia](https://en.wikipedia.org/wiki/3Dc)
 - [Legacy:Texture Format - Unreal Wiki](https://wiki.beyondunreal.com/Legacy:Texture_Format)
+
+- [Gamasutra: Alexandru Voica's Blog - Why efficiency is key in texture compression standards for mobile graphics](http://www.gamasutra.com/blogs/AlexandruVoica/20130419/190833/Why_efficiency_is_key_in_texture_compression_standards_for_mobile_graphics.php)
+- [Patent US5585944 - Method for compressing and decompressing images by subdividing pixel color ... - Google Patents](https://www.google.com/patents/US5585944)
+- [MOTODEV \> Documentation & Tools > Android Technical Library > Understanding Texture Compression](http://wayback.archive.org/web/20110214195728/http://developer.motorola.com/docstools/library/understanding-texture-compression/)
+- [Image Format - OpenGL.org](https://www.opengl.org/wiki/Image_Format#Compressed_formats)
+- [Android* Texture Compression - a comparison study with code sample | Intel® Software](https://software.intel.com/en-us/articles/android-texture-compression-a-comparison-study-with-code-sample)
+- [Understanding BCn Texture Compression Formats – Nathan Reed’s coding blog](http://www.reedbeta.com/blog/understanding-bcn-texture-compression-formats/)
+- [Texture compression — Wikipedia](https://en.wikipedia.org/wiki/Texture_compression)
+- [FourCC — Wikipedia](https://en.wikipedia.org/wiki/FourCC)
 
 > - Vulkan is based on Mantle and usable on "OpenGL 4.x / OpenGL ES3.1" compatible hardware.
 > - Mantle 1.0 has in core[^1] : BC1/DXT1, BC2/DXT3, BC3/DXT5, BC4/ATI1/3Dc+/RGTC1, BC5/ATI2/3Dc/DXN/RGTC2, BC6 and BC7/BPTC.
@@ -428,6 +427,7 @@ Notes:
 > Basis Universal is a ["supercompressed"](http://gamma.cs.unc.edu/GST/gst.pdf) GPU texture compression system that outputs a highly compressed intermediate file format (.basis) that can be quickly transcoded to a [very wide variety](https://github.com/BinomialLLC/basis_universal/wiki/OpenGL-texture-format-enums-table) of GPU compressed and uncompressed pixel formats: ASTC 4x4 L/LA/RGB/RGBA, PVRTC1 4bpp RGB/RGBA, PVRTC2 RGB/RGBA, BC7 mode 6 RGB, BC7 mode 5 RGB/RGBA, BC1-5 RGB/RGBA/X/XY, ETC1 RGB, ETC2 RGBA, ATC RGB/RGBA, ETC2 EAC R11 and RG11, FXT1 RGB, and uncompressed raster image formats 8888/565/4444.
 
 - [BinomialLLC/basis_universal: Basis Universal GPU Texture Codec](https://github.com/BinomialLLC/basis_universal)
+- [Supercompressed texture](#supercompressed-texture)
 
 ### KTX
 
@@ -903,6 +903,10 @@ Note: RGBA4444 = 16bit **but not related to paletted**
 	```
 
 `PALETTE8_RGBA8_OES` can be used with `compressedTexImage2D()` to upload paletted colors (like from PNG8): https://www.opengl.org/registry/specs/OES/OES_compressed_paletted_texture.txt
+
+## Supercompressed texture
+
+![Textures types](http://gamma.cs.unc.edu/GST/images/teaser.png)
 
 ## Hardware
 

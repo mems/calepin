@@ -8,6 +8,7 @@
 - [How to Use Mac OS X Sparse Bundle Disk Images - Stephen Foskett, Pack Rat](http://blog.fosketts.net/2015/07/22/how-to-use-mac-os-x-sparse-bundle-disk-images/)
 - [Sparse image — Wikipedia](https://en.wikipedia.org/wiki/Sparse_image)
 - [Bundle (OS X) — Wikipedia](https://en.wikipedia.org/wiki/Bundle_(OS_X))
+- [torarnv/sparsebundlefs: FUSE filesystem for reading macOS sparse-bundle disk images](https://github.com/torarnv/sparsebundlefs)
 
 Change band size:
 

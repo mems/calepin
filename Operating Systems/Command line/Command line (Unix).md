@@ -415,11 +415,13 @@ List all packages by installed size (KBytes) on deb distros
 
 ## Monitoring / debugging
 
-	fuser
-	lsof
-	ls -l  /proc/[process id]/fd
-	ls -l  /proc/*/fd
-	for p in [0-9]*; do ls -l /proc/$p/fd ;done 
+```sh
+fuser
+lsof
+ls -l  /proc/[process id]/fd
+ls -l  /proc/*/fd
+for p in [0-9]*; do ls -l /proc/$p/fd ;done
+```
 
 strace
 auditctl
@@ -429,79 +431,65 @@ inotify
 - [How to determine which process is creating a file? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/13776/how-to-determine-which-process-is-creating-a-file)
 - [linux - how to list files that are NOT open using find command - Server Fault](http://serverfault.com/questions/359945/how-to-list-files-that-are-not-open-using-find-command)
 
-Monitor messages in a log file
+```sh
+# Monitor messages in a log file
+tail -f /var/log/messages
 
-	tail -f /var/log/messages
+# Summarise/profile system calls made by command
+strace -c ls >/dev/null
 
-Summarise/profile system calls made by command
+# Show file opens
+echo exit | strace bash -li |& grep '^open'
 
-	strace -c ls >/dev/null
+# List system calls made by command
+strace -f -e open ls >/dev/null
 
-List system calls made by command
+# Monitor what's written to stdout and stderr
+strace -f -e trace=write -e write=1,2 ls >/dev/null
 
-	strace -f -e open ls >/dev/null
+# List library calls made by command
+ltrace -f -e getenv ls >/dev/null
 
-Monitor what's written to stdout and stderr
+# List opened files and ports
+# http://en.wikipedia.org/wiki/Lsof
+lsof
 
-	strace -f -e trace=write -e write=1,2 ls >/dev/null
+# List paths that process id has open
+lsof -p $$
 
-List library calls made by command
+# List processes that have specified path open
+lsof ~
 
-	ltrace -f -e getenv ls >/dev/null
+# Show network traffic except ssh. See also tcpdump_not_me
+tcpdump not port 22
 
-List opened files and ports
+# List processes in a hierarchy
+ps -e -o pid,args --forest
 
-	lsof
+# List processes by % cpu usage
+ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
 
-- http://en.wikipedia.org/wiki/Lsof
+# List processes by mem (KB) usage. See also ps_mem.py
+ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS
 
-List paths that process id has open
+# List all threads for a particular process
+ps -C firefox-bin -L -o pid,tid,pcpu,state
 
-	lsof -p $$
+# List elapsed wall time for particular process IDs
+ps -p 1,$$ -o etime=
 
-List processes that have specified path open
+# Show system reboot history
+last reboot
 
-	lsof ~
+# Show amount of (remaining) RAM (-m displays in MB)
+free -m
 
-Show network traffic except ssh. See also tcpdump_not_me
+# Watch changeable data continuously
+watch -n.1 'cat /proc/interrupts'
 
-	tcpdump not port 22
-
-List processes in a hierarchy
-
-	ps -e -o pid,args --forest
-
-List processes by % cpu usage
-
-	ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'
-
-List processes by mem (KB) usage. See also ps_mem.py
-
-	ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS
-
-List all threads for a particular process
-
-	ps -C firefox-bin -L -o pid,tid,pcpu,state
-
-List elapsed wall time for particular process IDs
-
-	ps -p 1,$$ -o etime=
-
-Show system reboot history
-
-	last reboot
-
-Show amount of (remaining) RAM (-m displays in MB)
-
-	free -m
-
-Watch changeable data continuously
-
-	watch -n.1 'cat /proc/interrupts'
-
-Monitor udev events to help configure rules
-
-	udevadm monitor
+# Monitor udev events to help configure rules
+udevadm monitor
+```
 
 ### Active processes
 

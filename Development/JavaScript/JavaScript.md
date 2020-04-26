@@ -48,6 +48,8 @@ See also [Documentation](ECMAScript#documentation)
 - https://developers.google.com/closure/compiler/docs/api-tutorial3
 - [User Timing API - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) [`performance.measure(...)`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure)
 
+### Debug
+
 Debug with conditional breakpoint:
 
 Add conditional breakpoint to inject code to execute: `console.log("here")` (`log()` return `undefined` which is a falsy value). You can't control the flow (like if it's executed in a child function). The last statment should be a boolean indicate if the breakpoint should pause (true) the execution of the script
@@ -55,6 +57,7 @@ Add conditional breakpoint to inject code to execute: `console.log("here")` (`lo
 Or use in Chrome devtools: Sources tab > Event Listener Breakpoints > Script > Script First Statement
 
 - [Set a conditional breakpoint - Firefox Developer Tools | MDN](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_conditional_breakpoint)
+- [Fixing memory leaks in web applications | Read the Tea Leaves](https://nolanlawson.com/2020/02/19/fixing-memory-leaks-in-web-applications/)
 
 ## Libraries and frameworks
 
@@ -6564,6 +6567,7 @@ Note: **get a resource with `Range` header doesn't mean you will always get a re
 ### WebRTC
 
 - [A real world guide to WebRTC](https://deepstreamhub.com/tutorials/protocols/webrtc-intro/) - [deepstreamIO/dsh-demo-webrtc-examples](https://github.com/deepstreamIO/dsh-demo-webrtc-examples/tree/master/) and [A real world guide to WebRTC | Hacker News](https://news.ycombinator.com/item?id=14787285)
+- [How Zoom's web client avoids using WebRTC (DataChannel Update) - webrtcHacks](https://webrtchacks.com/zoom-avoids-using-webrtc/)
 
 ### Event Source
 
@@ -6751,7 +6755,7 @@ or
 
 - [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
 - [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
-- [Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
+- g[Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
 
 Usage examples:
 

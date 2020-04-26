@@ -560,6 +560,7 @@ Check hash and keys leak or reversed (hashes):
 - [CrackStation - Online Password Hash Cracking - MD5, SHA1, Linux, Rainbow Tables, etc.](https://crackstation.net/)
 - [HashKiller.co.uk, Over 1.45387 trillion decrypted hashes in total, Free Hash Cracker, Online Hash Cracker](https://hashkiller.co.uk/)
 - [Searches through git repositories for high entropy strings, digging deep into commit history](https://github.com/dxa4481/truffleHog)
+- [grep.app](https://grep.app/)
 - [Collection of github dorks and helper tool to automate the process of checking dorks](https://github.com/techgaun/github-dorks) (search for sensitive data on the repositories)
 - [Detect secret leaks in Android Apps](https://android.fallible.co/)
 

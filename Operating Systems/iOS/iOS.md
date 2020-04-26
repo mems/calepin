@@ -13,6 +13,11 @@ Download native application IPA
 - [Hollr2099.net - iOS IPA Library](https://www.hollr2099.net/ipas.html)
 - [Cracked iOS & Mac App Store Apps Free Download | AppCake](https://www.iphonecake.com/)
 
+Sideload IPA (install a third party app):
+
+- [Appdome | "Sideload" Apps Using MacOS](https://www.appdome.com/no-code-mobile-integration-knowledge-base/install-a-fused-ios-app-with-imazing/)
+- [Did you know how easy it is to sideload iOS apps to your iPhone?!](https://www.brianmadden.com/opinion/Did-you-know-how-easy-it-is-to-sideload-iOS-apps-to-your-iPhone)
+
 ## Firmware
 
 `~/Library/iTunes/iPhone Software Updates/*_Restore.ipsw`

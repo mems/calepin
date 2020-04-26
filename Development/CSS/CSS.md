@@ -3676,17 +3676,19 @@ Use SVG instead, with a `stroke-width` smaller than circle radius (to fix IE ren
 
 - https://github.com/jonathantneal/sanitize.css/issues/42#issuecomment-150272962
 
-## Odometer
+## Number alignement
 
-Aka counter effect, timer, countdown
+Aka monospaced font, fixed-width font, odometer, counter effect, timer, countdown
 
 Each number char often don't have the same width, use a monospace font or:
 
 	font-feature-settings: "tnum";
 	font-variant-numeric: tabular-nums;
 
-- https://github.com/coderitual/odoo
+- [coderitual/bounty: Javascript and SVG odometer effect library with motion blur](https://github.com/coderitual/bounty)
 - [We Bo 🔥 on Twitter: "Countdown clock kept shifting because the width of number change. Got to use thi to fix it!…](https://twitter.com/wesbos/status/932644812582522880)
+- [Robin Rendle ･ The Smallest Difference](https://www.robinrendle.com/notes/the-smallest-difference.html)
+- [Monospaced font - Wikipedia](https://en.wikipedia.org/wiki/Monospaced_font)
 
 ## Don't use `contenteditable="true"` and `text-overflow: ellipsis` in same time
 

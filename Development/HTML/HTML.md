@@ -2259,6 +2259,9 @@ Some workarounds:
 
 Don't use number type thing that use digit like identifier (credit card number, CCV, ISBN, barcode, activation/product key, etc.), postcode, date, phone number, social security number, etc.
 
+> If you can't do math on it, it's a string, not a number.
+> — [🥕 Blade Teacher on Twitter: "@antumbral @wavebeem I tell developers "If you can't do math on it, it's a string, not a number."" / Twitter](https://twitter.com/corydodt/status/1233428222454296577)
+
 > ## `<input type=number>` is only intended for amounts
 > 
 > If your web form includes a field that accepts a number, make sure that this field is not implemented as an `<input type=number>` element unless its value represents a quantity or amount (e.g., a price or a number of items).

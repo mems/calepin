@@ -120,7 +120,7 @@ uint32_t hash(uint32_t v)
 	return v * UINT32_C(2654435761);
 }
 ```
-
+con
 ```c
 uint wang_hash(uint seed)
 {
@@ -459,3 +459,28 @@ function luhnChk(luhn) {
 	return sum % 10 === 0 && sum > 0;
 }
 ```
+
+## Convex hull
+
+- [Convex hull - Wikipedia](https://en.wikipedia.org/wiki/Convex_hull)
+- [Convex hull algorithms - Wikipedia](https://en.wikipedia.org/wiki/Convex_hull_algorithms)
+
+## Point in polygon
+
+> traverse the path from the perspective of a point and add up the amount of turning along the way
+> 
+> if it made a full turn, it's inside
+> if it wound back to 0, it's outside
+> [...]
+> this is one of my favorite techniques, because it works not only for convex paths, but for concave ones too, which, is kinda rare and beautiful
+> 
+> plus it's real fast if you measure quadrant traversal rather than real angles~
+> [...]
+> for self-intersecting paths, you will alternate between inside/outside for each nested loop
+> [...]
+> it's more complicated in 3D! the surface-ray intersection method works better there
+> 
+> — [Freya Holmér on Twitter: "my favorite way to see if a point is inside or outside a path, is using its winding number🍥 traverse the path from the perspective of a point and add up the amount of turning along the way if it made a full turn, it's inside if it wound back to 0, it's outside it's so neat~💖 https://t.co/oDGxq697cI" / Twitter](https://twitter.com/FreyaHolmer/status/1232826293902888960)
+
+- [Inclusion of a Point in a Polygon](http://geomalgorithms.com/a03-_inclusion.html)
+- [Point in polygon - Wikipedia](https://en.wikipedia.org/wiki/Point_in_polygon)

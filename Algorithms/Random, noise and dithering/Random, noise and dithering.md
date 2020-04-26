@@ -306,6 +306,14 @@ See also [Noise](#noise)
 - [coverslide/node-alea: A simple copy-and-paste implementation of Johanne Baagøe' Alea PRNG](https://github.com/coverslide/node-alea)
 - [Park-Miller-Carta Pseudo-Random Number Generators](http://www.firstpr.com.au/dsp/rand31/)
 
+Random points on the sphere surface (see also [Sphere Point Picking](https://mathworld.wolfram.com/SpherePointPicking.html)):
+
+> The way to correctly generate a random point on the surface of a unit sphere is not to pick uniform distributions θ in [0,2π) and φ in [0,π), but instead choose u and v from uniform distributions on [0,1). Then
+> 
+> φ = cos⁻¹(2v-1)
+> θ = 2πu
+> — [Fermat's Library on Twitter: "The way to correctly generate a random point on the surface of a unit sphere is not to pick uniform distributions θ in \[0,2π) and φ in \[0,π), but instead choose u and v from uniform distributions on \[0,1). Then φ = cos⁻¹(2v-1) θ = 2πu https://t.co/Y6IX23ZGIv" / Twitter](https://twitter.com/fermatslibrary/status/1238088369420357633?s=12)
+
 ```js
 // Mulberry32 pseudo random number generator (same result every time)
 // example:

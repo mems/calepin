@@ -2,8 +2,10 @@
 
 Wrap lines:
 
-	mail.compose.wrap_to_window_width = true
-	mail.wrap_long_lines = false
+```
+mail.compose.wrap_to_window_width = true
+mail.wrap_long_lines = false
+```
 
 - [Autoconfiguration in Thunderbird - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Autoconfiguration) - Create config profile for Thunderbird
 - [Rebuilding the Global Database - Mozilla Support Community](https://support.mozilla.org/t5/Troubleshooting/Rebuilding-the-Global-Database/ta-p/15801)
@@ -38,7 +40,6 @@ The workaround is get the file [`movemail.rdf`](https://github.com/mozilla/relea
 
 For `Mail.app`, follow these intructions: [Access local mail via Mail.app - Mac OS X Hints](http://hints.macworld.com/article.php?story=20040313194905606)
 
-
 ## Office
 
 - [Office 2016 Volume Installer findings | Jamf Nation](https://www.jamf.com/jamf-nation/discussions/16761/office-2016-volume-installer-findings)
@@ -60,14 +61,13 @@ Formula: Cell coords like `F6` are relative and `$F$6` is absolute (`F$6` or `$F
 
 #### Median formula
 
-| Price ($)		| Quantity (unit)	|
-|---------------|-------------------|
-| 1				| 99				|
-| 2				| 20				|
-| 7				| 3					|
-| 10			| 1					|
-|---------------|-------------------|
-| Median		| 1$				|
+| Price ($) | Quantity (unit) |
+|-----------|-----------------|
+| 1         | 99              |
+| 2         | 20              |
+| 7         | 3               |
+| 10        | 1               |
+| Median    | 1$              |
 
 Formula:
 
@@ -80,14 +80,13 @@ Formula:
 
 #### Average formula
 
-| Price ($)		| Quantity (unit)	|
-|---------------|-------------------|
-| 1				| 99				|
-| 2				| 20				|
-| 7				| 3					|
-| 10			| 1					|
-|---------------|-------------------|
-| Average		| 1.3821138211$		|
+| Price ($) | Quantity (unit) |
+|-----------|-----------------|
+| 1         | 99              |
+| 2         | 20              |
+| 7         | 3               |
+| 10        | 1               |
+| Average   | 1.3821138211$   |
 
 `=SUMPRODUCT(A1:A100;B1:B100)/SUM(B1:B100)` where `A1:100` are values and `B1:B100` are quantities.
 
@@ -111,14 +110,18 @@ See also:
 
 ## MAMP
 
+**Consider using docker instead**
+
 ### Logs files
 
 Since El Capitain, symlink to a folder no longer work in Console, need to create symlink directly to the log file
 
-	cd ~/Library/Logs
-	mkdir -p MAMP
-	cd MAMP
-	ln -s /Applications/MAMP/logs/*.log .
+```sh
+cd ~/Library/Logs
+mkdir -p MAMP
+cd MAMP
+ln -s /Applications/MAMP/logs/*.log .
+```
 
 ### PHP
 
@@ -138,17 +141,19 @@ MAMP Pro, use also templates : `File > Edit Templates > PHP *.*.* php.ini` (or e
 
 #### Debugger
 
-	[xdebug]
-	
-	xdebug.default_enable=1
-	
-	xdebug.remote_enable=1
-	xdebug.remote_handler=dbgp
-	xdebug.remote_host=localhost
-	xdebug.remote_port=9000
-	xdebug.remote_autostart=1
-	
-	zend_extension="/Applications/MAMP/bin/php5/lib/php/extensions/no-debug-non-zts-xxxxxxxx/xdebug.so"
+```apache
+[xdebug]
+
+xdebug.default_enable=1
+
+xdebug.remote_enable=1
+xdebug.remote_handler=dbgp
+xdebug.remote_host=localhost
+xdebug.remote_port=9000
+xdebug.remote_autostart=1
+
+zend_extension="/Applications/MAMP/bin/php5/lib/php/extensions/no-debug-non-zts-xxxxxxxx/xdebug.so"
+```
 
 ### Apache
 
@@ -167,13 +172,17 @@ Be carefull of params in `MAMP/conf/startMysql.sh`
 
 ### PHP Intl lib
 
-	sudo port install php54-intl
+```sh
+sudo port install php54-intl
+```
 
 Copy `/opt/local/lib/php54/extensions/no-debug-non-zts-20100525/intl.so` to `/Applications/MAMP/bin/php/php5.4.10/lib/php/extensions/no-debug-non-zts-20100525/intl.so`
 
 Add in `/Applications/MAMP/bin/php/php5.4.10/conf/php.ini`:
 
-	extension=intl.so
+```apache
+extension=intl.so
+```
 
 ## 1Password
 
@@ -249,8 +258,10 @@ Create LCB XML version
 5. Compare with `diff import_CA.xml import_HSBC.xml` (not unified)
 6. Replace patch content and list:
 	
-		/([0-9a-f,]+\n<\s*<date[^<].*\n---\n>\s*<date.*)/g
-		$1\n
+    ```
+	/([0-9a-f,]+\n<\s*<date[^<].*\n---\n>\s*<date.*)/g
+	$1\n
+    ```
 7. Apply `patch import_CA.xml fix.patch`
 8. Open the result file and copy/drag&drop entries
 
@@ -261,13 +272,15 @@ Si il est impossible de "Transférer en comptabilité" une opération auxiliaire
 File > (Key Alt) Save as... > "LibéCompta XML" (see also `plutil -convert xml1 -o <output file> <input file>`)
 and remove:
 
-	<key>secur</key>
-	<dict>
-		<key>cloture</key>
-		<true/>
-		<key>clotureDate</key>
-		<date>2018-04-30T22:00:00Z</date>
-	</dict>
+```plist
+<key>secur</key>
+<dict>
+	<key>cloture</key>
+	<true/>
+	<key>clotureDate</key>
+	<date>2018-04-30T22:00:00Z</date>
+</dict>
+```
 
 ### LibeCompta Data
 
@@ -278,12 +291,14 @@ Plus de 5 CV	d x 0,518		(d x 0,067) + 1,351		d x 0,292
 
 Donne :
 
-		<array>
-			<integer>518</integer>
-			<integer>67</integer>
-			<integer>1351</integer>
-			<integer>292</integer>
-		</array>
+```plist
+<array>
+	<integer>518</integer>
+	<integer>67</integer>
+	<integer>1351</integer>
+	<integer>292</integer>
+</array>
+```
 
 Certaines sections de véhicules on été retiré en 2014
 
@@ -338,23 +353,29 @@ Note: Version 3 can show an error but works. "Direct" not work
 5. (optional) update in `appbundle-maspkg-core` `<param name="application.mode" value="Rename|Episodes|SFV|Filter|List" />` to `<param name="application.mode" value="Rename|Episodes|SFV|Filter|List|Subtitles" />`
 6. (optional) change
 
-		<target name="revision" depends="init">
-			<exec executable="git" outputproperty="revision" failonerror="true">
-				<arg line="rev-list --count master" />
-			</exec>
-			<echo>Revision: ${revision}</echo>
-		</target>
+    ```xml
+	<target name="revision" depends="init">
+		<exec executable="git" outputproperty="revision" failonerror="true">
+			<arg line="rev-list --count master" />
+		</exec>
+		<echo>Revision: ${revision}</echo>
+	</target>
+    ```
 	
 	to (number of https://github.com/filebot/filebot commits)
 	
-		<target name="revision" depends="init">
-			<echo>Revision: 4498</echo>
-		</target>
+    ```xml
+	<target name="revision" depends="init">
+		<echo>Revision: 4498</echo>
+	</target>
+    ```
 6. start `ant -lib lib/jars resolve fatjar appbundle` in the project folder
 7. could require on macOS to start following commands before get GUI works
- 
-	java -jar /Applications/FileBot.app/Contents/Java/FileBot_4.7.jar -help
-	java -jar FileBot.jar -script fn:artwork.tvdb /path/to/tvshows_dir/
+
+```sh
+java -jar /Applications/FileBot.app/Contents/Java/FileBot_4.7.jar -help
+java -jar FileBot.jar -script fn:artwork.tvdb /path/to/tvshows_dir/
+```
 
 - [How about sharing your CLI scripts? - FileBot](http://www.filebot.net/forums/viewtopic.php?f=4&t=5#p204)
 - https://github.com/filebot/filebot
@@ -386,15 +407,21 @@ How to change proxy settings:
 
 Add this shell script in `/Applications`:
 
-	#!/bin/sh
-	/Developer/SDKs/android-sdk/tools/android &
-	exit
+```sh
+#!/bin/sh
+/Developer/SDKs/android-sdk/tools/android &
+exit
+```
 
 Install an application on virtual device
 
-	adb install /path/to/app.apk
+```sh
+adb install /path/to/app.apk
+```
 
-	$ANDROID_SDK/platform-tools/adb
+```sh
+$ANDROID_SDK/platform-tools/adb
+```
 
 - https://github.com/PaulKinlan/chromium-android-installer
 - [Chrome APKs - APKMirror](http://www.apkmirror.com/apk/google-inc/chrome/)
@@ -827,15 +854,19 @@ Aka masque d'écrêtage
 ### Adobe Lightroom
 
 - [Jeffrey Friedl's Blog » Accessing Lightroom’s SQLite DB Directly](http://regex.info/blog/2006-07-29/221)
- 
-	~/Pictures/Lightroom 5 Catalog.lrcat
+
+```
+~/Pictures/Lightroom 5 Catalog.lrcat
+```
 
 To update, download Adobe DNG Converter (for [macOS](http://www.adobe.com/go/dng_converter_mac/) or [Windows](http://www.adobe.com/go/dng_converter_win/)) the open the install package (ex: with Suspicious Package)
 
 And copy cameras profiles (`CameraProfiles`) and lenses profiles (`LensProfiles`) from `/Library/Application Support/Adobe/CameraRaw` in:
 
-	/Applications/Adobe Photoshop Lightroom 5.app/Contents/Resources/*
-	~/Library/Application Support/Adobe/CameraRaw/*
+```
+/Applications/Adobe Photoshop Lightroom 5.app/Contents/Resources/*
+~/Library/Application Support/Adobe/CameraRaw/*
+```
 
 Then copy `/Library/Application Support/Adobe/CameraRaw/Settings` in `~/Library/Application Support/Adobe/CameraRaw/`
 
@@ -852,85 +883,109 @@ If ffmpeg is used in a loop, you could need to use `< /dev/null`:
 
 Make a video from image slideshow:
 
-	# KEYFRAME_INTERVAL=2
-	# http://www.ffmpeg.org/ffmpeg-all.html#Options-23
-	# https://trac.ffmpeg.org/wiki/Create%20a%20video%20slideshow%20from%20images
-	# https://trac.ffmpeg.org/wiki/vpxEncodingGuide
-	# http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles
-	#
-	# -r 1 = one frame per second. Simplify seeking
-	# http://www.webmproject.org/about/faq/#what-are-the-limits-of-vp8-in-terms-of-resolution-datarate-and-framerate
-	# -i *** = input file
-	# -c:v libvpx = video codec is VP8 video encoder (libvpx)
-	# -crf 10 = constant quality mode (CRF) (4 to 63)
-	# -b:v 1M = target variable bitrate (VBR) to 1000kBit/s
-	# -force_key_frames "expr:gte(t,n_forced*1)" = forced keyframe every frames
-	# sequence00001.jpg
-	# ffmpeg -r 1 -i "sequence_%05d.jpg" -c:v libvpx -qmin 4 -qmax 30 -crf 10 -b:v 100k -force_key_frames "expr:gte(n,n_forced*$KEYFRAME_INTERVAL)" sequence.webm
+```sh
+# KEYFRAME_INTERVAL=2
+# http://www.ffmpeg.org/ffmpeg-all.html#Options-23
+# https://trac.ffmpeg.org/wiki/Create%20a%20video%20slideshow%20from%20images
+# https://trac.ffmpeg.org/wiki/vpxEncodingGuide
+# http://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles
+#
+# -r 1 = one frame per second. Simplify seeking
+# http://www.webmproject.org/about/faq/#what-are-the-limits-of-vp8-in-terms-of-resolution-datarate-and-framerate
+# -i *** = input file
+# -c:v libvpx = video codec is VP8 video encoder (libvpx)
+# -crf 10 = constant quality mode (CRF) (4 to 63)
+# -b:v 1M = target variable bitrate (VBR) to 1000kBit/s
+# -force_key_frames "expr:gte(t,n_forced*1)" = forced keyframe every frames
+# sequence00001.jpg
+# ffmpeg -r 1 -i "sequence_%05d.jpg" -c:v libvpx -qmin 4 -qmax 30 -crf 10 -b:v 100k -force_key_frames "expr:gte(n,n_forced*$KEYFRAME_INTERVAL)" sequence.webm
+```
 
 Include subtitles in a video:
 
-	ffmpeg -i movie.mp4 -i subtitles.srt -map 0 -map 1 -c copy -c:v libx264 -crf 23 -preset veryfast output.mkv
+```sh
+ffmpeg -i movie.mp4 -i subtitles.srt -map 0 -map 1 -c copy -c:v libx264 -crf 23 -preset veryfast output.mkv
+```
 
 Offset (soft) subtitle track embeded in a video container
 
-	ffmpeg -i input.mp4 -itsoffset -0.7 -i input.mp4 -map 0:v -map 0:a -map 1:s -c copy output.mp4
+```sh
+ffmpeg -i input.mp4 -itsoffset -0.7 -i input.mp4 -map 0:v -map 0:a -map 1:s -c copy output.mp4
+```
 
 - [How can I fix delayed subtitles in videos? - Super User](https://superuser.com/questions/494841/how-can-i-fix-delayed-subtitles-in-videos/1242613#1242613)
 
 Offset subtitle track file (in seconds):
 
-	ffmpeg -itsoffset -0.7 -i input.srt -c copy output.srt
+```sh
+ffmpeg -itsoffset -0.7 -i input.srt -c copy output.srt
+```
 
 Extract audio from video:
 
-	# To 256kbps MP3
-	ffmpeg -i video.mp4 -vn -ab 256 audio.mp3
+```sh
+# To 256kbps MP3
+ffmpeg -i video.mp4 -vn -ab 256 audio.mp3
+```
 
 Mute video:
 
-	ffmpeg -i video.mp4 -an muted-video.mp4
+```sh
+ffmpeg -i video.mp4 -an muted-video.mp4
+```
 
 Merge files (works on `*.srt` too) with identical codecs.
 
 **Be careful sometimes this not work propelly**
 
-	ffmpeg -i "concat:file1.avi|file2.avi" -c copy "file.avi"
+```sh
+ffmpeg -i "concat:file1.avi|file2.avi" -c copy "file.avi"
+```
 
 Remove an audio track:
 
-	ffmpeg -i file.mp4
-	Stream #0.0: Video: [truncated]
-	Stream #0.1: Audio: [truncated]
-	Stream #0.2: Audio: [truncated]
+```sh
+ffmpeg -i file.mp4
+#Stream #0.0: Video: [truncated]
+#Stream #0.1: Audio: [truncated]
+#Stream #0.2: Audio: [truncated]
 
-	ffmpeg -i file.mp4 -map 0:0 -map 0:2 -acodec copy -vcodec copy new_file.mp4
+ffmpeg -i file.mp4 -map 0:0 -map 0:2 -acodec copy -vcodec copy new_file.mp4
+```
 
 Will copy the video and the second audio track
 
 To remove all audio tracks use `-an` or `-vn` to remove video tracks:
 
-	ffmpeg -i input_file.mp4 -vcodec copy -an output_file.mp4
+```sh
+ffmpeg -i input_file.mp4 -vcodec copy -an output_file.mp4
+```
 
 - [How to merge audio and video file in ffmpeg - Super User](http://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg/277667#277667)
 
 Convert to Apple ringstone (only the first 30 seconds will be played):
 
-	# if already AAC
-	ffmpeg -i Nuance.aac -f mp4 -c copy Nuance.m4r
-	# else
-	ffmpeg -i ringtone.mp3 -ac 1 -ab 128000 -f mp4 -acodec libvo_aacenc -y ringtone.m4r
+```sh
+# if already AAC
+ffmpeg -i Nuance.aac -f mp4 -c copy Nuance.m4r
+# else
+ffmpeg -i ringtone.mp3 -ac 1 -ab 128000 -f mp4 -acodec libvo_aacenc -y ringtone.m4r
+```
 
 Convert all WMA to MP3 (and remove it):
 
-	find . -type f -iname "*.wma" | while read file; do < /dev/null ffmpeg -i "${file}" -acodec libmp3lame -ab 192k "${file/.wma/.mp3}" && rm "${file}"; done
-	find . -type f -iname "*.wma" -exec bash -c 'ffmpeg -i "$1" -acodec libmp3lame -ab 192k "${1/.wma/.mp3}" && rm "$1"' - {} \;
+```sh
+find . -type f -iname "*.wma" | while read file; do < /dev/null ffmpeg -i "${file}" -acodec libmp3lame -ab 192k "${file/.wma/.mp3}" && rm "${file}"; done
+find . -type f -iname "*.wma" -exec bash -c 'ffmpeg -i "$1" -acodec libmp3lame -ab 192k "${1/.wma/.mp3}" && rm "$1"' - {} \;
+```
 
 Find invalid media files:
 
-	find . -type f \( -iname "*.wma" -or -iname "*.mp3" -or -iname "*.m4a" -or -iname "*.mp4" -or -iname ".wav" -or -iname "*.ogg" \) \( -exec ffmpeg -v error -xerror -i "{}" -f null - 2>/dev/null \; -or -exec echo "{}" \; \)
-	# To get the details into log file
-	find . -type f \( -iname "*.wma" -or -iname "*.mp3" -or -iname "*.m4a" -or -iname "*.mp4" -or -iname ".wav" -or -iname "*.ogg" \) -exec bash -c 'echo "$1:" >> error.log; ffmpeg -v error -xerror -i "$1" -f null - 2>>error.log && echo "OK" >> error.log; exit $?' - {} \;
+```sh
+find . -type f \( -iname "*.wma" -or -iname "*.mp3" -or -iname "*.m4a" -or -iname "*.mp4" -or -iname ".wav" -or -iname "*.ogg" \) \( -exec ffmpeg -v error -xerror -i "{}" -f null - 2>/dev/null \; -or -exec echo "{}" \; \)
+# To get the details into log file
+find . -type f \( -iname "*.wma" -or -iname "*.mp3" -or -iname "*.m4a" -or -iname "*.mp4" -or -iname ".wav" -or -iname "*.ogg" \) -exec bash -c 'echo "$1:" >> error.log; ffmpeg -v error -xerror -i "$1" -f null - 2>>error.log && echo "OK" >> error.log; exit $?' - {} \;
+```
 
 You can also detect black frame and/or slicence with [`blackdetect`](http://www.ffmpeg.org/ffmpeg-filters.html#blackdetect) and [`slicendetect`](https://ffmpeg.org/ffmpeg-filters.html#silencedetect): `-af silencedetect=d=3:n=0.0001` (you need to remove/update `-v error`, see also `-loglevel info`)
 
@@ -938,17 +993,23 @@ You can also detect black frame and/or slicence with [`blackdetect`](http://www.
 
 Download RTMP stream:
 
-	ffmpeg -i "rtmp://cp262207.edgefcs.net:80/ondemand/techchannel/10821/videos/10821_AA11149_Pair_Paradox_FL8_412x310_700K" -c copy "A Pair of Paradoxes.flv"
+```sh
+ffmpeg -i "rtmp://cp262207.edgefcs.net:80/ondemand/techchannel/10821/videos/10821_AA11149_Pair_Paradox_FL8_412x310_700K" -c copy "A Pair of Paradoxes.flv"
+```
 
 Get media metadata:
 
-	ffmpeg -i file.avi -f ffmetadata pipe:1
-	#or
-	ffmpeg -i file.avi
+```sh
+ffmpeg -i file.avi -f ffmetadata pipe:1
+#or
+ffmpeg -i file.avi
+```
 
 Concat files:
 
-	ffmpeg -f concat -safe 0 -i <(find $PWD -type f -iname *.mp4 -printf "file '%h/%f'\n") -c copy output.mp4
+```sh
+ffmpeg -f concat -safe 0 -i <(find $PWD -type f -iname *.mp4 -printf "file '%h/%f'\n") -c copy output.mp4
+```
 
 - [Concatenate – FFmpeg](https://trac.ffmpeg.org/wiki/Concatenate)
 
@@ -962,92 +1023,124 @@ Use `mogrify` or `find ./ -iname "tile_*.png" -exec bash -c 'filename="$1";echo 
 
 Get trim area:
 
-	# `-quiet` remove warnings
-	convert test.png -trim -format "%G%O\n" -quiet info:
-	convert test.png -format "%@" -quiet info:
-	# You can save result and log info
-	convert test.png -trim -format "%O\n" -quiet -write info: test_trim.png >> output.log
+```sh
+# `-quiet` remove warnings
+convert test.png -trim -format "%G%O\n" -quiet info:
+convert test.png -format "%@" -quiet info:
+# You can save result and log info
+convert test.png -trim -format "%O\n" -quiet -write info: test_trim.png >> output.log
+```
 
 Get hash of image (only pixels, not metadata):
 
-	identify -format "%#\n" image.png
+```sh
+identify -format "%#\n" image.png
+```
 
 Create a TIFF (support layers) with PNGs (from export of all layers in PS) due to strange PSD handling of ImageMagick (layers+1, cropped layers):
 
-	# (First is in foreground, last in background)
-	# convert app-decorations_0000_main.png app-decorations_0001_shadow1.png app-decorations_0002_shadow2.png app-decorations.tif
+```sh
+# (First is in foreground, last in background)
+# convert app-decorations_0000_main.png app-decorations_0001_shadow1.png app-decorations_0002_shadow2.png app-decorations.tif
+```
 
 Crop and get final filenames without creating it
 
-	# For the followin command:
-	#convert largeimage.png -crop 2048x2048 -set filename:tile "%[fx:page.x/2048+1]_%[fx:page.y/2048+1]" +repage +adjoin "tile_%[filename:tile].png"
-	convert largeimage.png -crop 2048x2048 -format "tile_%[fx:page.x/2048+1]_%[fx:page.y/2048+1].png\n" info:
-	# To get the number of file will be created, append `| wc -l`
+```sh
+# For the followin command:
+#convert largeimage.png -crop 2048x2048 -set filename:tile "%[fx:page.x/2048+1]_%[fx:page.y/2048+1]" +repage +adjoin "tile_%[filename:tile].png"
+convert largeimage.png -crop 2048x2048 -format "tile_%[fx:page.x/2048+1]_%[fx:page.y/2048+1].png\n" info:
+# To get the number of file will be created, append `| wc -l`
+```
 
 - [Fred's ImageMagick Scripts](http://www.fmwconcepts.com/imagemagick/)
 
 Extend document size
 
-	# mogrify/convert promote automatically 16 bits per channels if any pixels are modified. Need `-depth 8` to keep bit_depth=8 for PNGs
-	mogrify -background none -extent 2048x2048 -depth 8 tile_*.png
+```sh
+# mogrify/convert promote automatically 16 bits per channels if any pixels are modified. Need `-depth 8` to keep bit_depth=8 for PNGs
+mogrify -background none -extent 2048x2048 -depth 8 tile_*.png
+```
 
 Compose alpha:
 
-	convert RGB.png Alpha.png -compose Copy_Opacity -composite RGBA.png
-	convert RGBA.png -alpha off RGB.png
-	# convert RGBA.png -channel a -fx "1" RGB.png
+```sh
+convert RGB.png Alpha.png -compose Copy_Opacity -composite RGBA.png
+convert RGBA.png -alpha off RGB.png
+# convert RGBA.png -channel a -fx "1" RGB.png
+```
 
 Pre-multiply alpha (aka premultiped alpha)
 
-	convert in.png \( +clone -alpha Extract \) -channel RGB -compose Multiply -composite out.png
+```sh
+convert in.png \( +clone -alpha Extract \) -channel RGB -compose Multiply -composite out.png
+```
 
 - [\[SOLVED\] Multiplying color by alpha - ImageMagick](http://www.imagemagick.org/discourse-server/viewtopic.php?t=23463)
 
 Set color to transparent pixels
 
-	convert in.png -channel rgb -fx 'a==0?1:s' out.png
+```sh
+convert in.png -channel rgb -fx 'a==0?1:s' out.png
+```
 
 Bleed outside:
 
-	# Source image 32x32 -> 70x70
-	convert tree.gif  -set option:distort:viewport 70x70-19-19 -virtual-pixel Edge -filter point -distort SRT 0 +repage virtual_edge.gif
+```sh
+# Source image 32x32 -> 70x70
+convert tree.gif  -set option:distort:viewport 70x70-19-19 -virtual-pixel Edge -filter point -distort SRT 0 +repage virtual_edge.gif
+```
 
 Get average color of an image
 
-	convert cat.png -resize 1x1 txt:- | awk 'NR==2{print $3}'
-	# Or
-	convert cat.png -scale 1x1\! -format '%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]‌​' info:- | sed 's/,/\n/g' | xargs -L 1 printf "%x"
+```sh
+convert cat.png -resize 1x1 txt:- | awk 'NR==2{print $3}'
+# Or
+convert cat.png -scale 1x1\! -format '%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]‌​' info:- | sed 's/,/\n/g' | xargs -L 1 printf "%x"
+```
 
 Convert raw data to image
 
-	# 2 RGB pixels: 2x1
-	printf '\x00\xFF\x88\xFF\x00\xFF' | convert -depth 8 -size 2x1+0 rgb:- data.png
-	# Create Nx4 bytes to generate Nx1 RGBA PNG
-	printf '\x00\xFF\x88\xFF\xFF\x00\xFF\xFF' > data.bin; convert -depth 8 -size $(($(wc -c < data.bin)/4))x1+0 rgba:data.bin data.png
+```sh
+# 2 RGB pixels: 2x1
+printf '\x00\xFF\x88\xFF\x00\xFF' | convert -depth 8 -size 2x1+0 rgb:- data.png
+# Create Nx4 bytes to generate Nx1 RGBA PNG
+printf '\x00\xFF\x88\xFF\xFF\x00\xFF\xFF' > data.bin; convert -depth 8 -size $(($(wc -c < data.bin)/4))x1+0 rgba:data.bin data.png
+```
 
 Create image (from nothing). `xc` "X Constant Image" / Canvas: [Canvas Creation -- IM v6 Examples](http://www.imagemagick.org/Usage/canvas/)
 
-	convert -size 100x100 xc:white canvas.jpg
+```sh
+convert -size 100x100 xc:white canvas.jpg
+```
 
 Remove metadata (see also `-define` and[PNG Metadata](PNG#metadata))
 
-	convert -strip image.jpg image_slim.jpg
+```sh
+convert -strip image.jpg image_slim.jpg
+```
 
 Force PNG to be 32 bits:
 
-	mogrify -background none -define png:color-type=6 image.png
+```sh
+mogrify -background none -define png:color-type=6 image.png
+```
 
 Swap / invert / intervert channels
 
-	# Invert R with B (r=0, g=1, b=2 and a=3) and keep alpha + output always as PNG 32bit
-	convert in.png -channel rgba -alpha on -set colorspace RGB -separate -swap 0,2 -combine -define png:color-type=6 out.png
+```sh
+# Invert R with B (r=0, g=1, b=2 and a=3) and keep alpha + output always as PNG 32bit
+convert in.png -channel rgba -alpha on -set colorspace RGB -separate -swap 0,2 -combine -define png:color-type=6 out.png
+```
 
 - [swap colors/channels - ImageMagick](http://www.imagemagick.org/discourse-server/viewtopic.php?t=21846)
 
 Get metadatas:
 
-	convert image.jpg -moments infos.json
-	convert -moments - json: < image.jpg > infos.json
+```sh
+convert image.jpg -moments infos.json
+convert -moments - json: < image.jpg > infos.json
+```
 
 - [Formats @ ImageMagick](https://www.imagemagick.org/script/formats.php) - ImageMagick can write JSON format
 - [Command-line Tools: Identify @ ImageMagick](https://www.imagemagick.org/script/identify.php) - Supported options
@@ -1058,18 +1151,24 @@ Outline
 
 Generate blank image
 
-	convert -size 100x100 xc:white canvas.jpg
+```sh
+convert -size 100x100 xc:white canvas.jpg
+```
 
 ### Convert SVG
 
 [Drawing -- IM v6 Examples](http://www.imagemagick.org/Usage/draw/#svg)
 
-	convert -background none a.svg b.png
-	convert -density 150 -background none a.svg b.png
+```sh
+convert -background none a.svg b.png
+convert -density 150 -background none a.svg b.png
+```
 
 Try MSVG imagemagick's own SVG renderer
 
-	convert -background none msvg:a.svg b.png
+```sh
+convert -background none msvg:a.svg b.png
+```
 
 By default it delegate to `rsvg-convert` (`convert -list delegate | grep 'svg ='`), but could be not installed (`brew install imagemagick --use-rsvg` or `sudo port install ImageMagick +rsvg`)
 
@@ -1082,29 +1181,35 @@ Aka XQuartz, Xorg
 
 Install with [MacPorts](https://www.xquartz.org/releases/#macports):
 
-	sudo port -v install xorg-server +universal
-	# Some libs don't use the right path:
-	sudo ln -s /opt/local /usr/X11
-	# see also /usr/X11R6
+```sh
+sudo port -v install xorg-server +universal
+# Some libs don't use the right path:
+sudo ln -s /opt/local /usr/X11
+# see also /usr/X11R6
+```
 
 Uninstall XQuartz
 
-	launchctl unload /Library/LaunchAgents/org.macosforge.xquartz.startx.plist && \
-	sudo launchctl unload /Library/LaunchDaemons/org.macosforge.xquartz.privileged_startx.plist && \
-	sudo rm -rf /opt/X11* /usr/X11* /Library/Launch*/org.macosforge.xquartz.* /Applications/Utilities/XQuartz.app /etc/*paths.d/*XQuartz && \
-	sudo pkgutil --forget org.macosforge.xquartz.pkg  && \
-	rm -rf ~/.serverauth* && rm -rf ~/.Xauthorit* && rm -rf ~/.cache && rm -rf ~/.rnd && \
-	rm -rf ~/Library/Caches/org.macosforge.xquartz.X11 && rm -rf ~/Library/Logs/X11
+```sh
+launchctl unload /Library/LaunchAgents/org.macosforge.xquartz.startx.plist && \
+sudo launchctl unload /Library/LaunchDaemons/org.macosforge.xquartz.privileged_startx.plist && \
+sudo rm -rf /opt/X11* /usr/X11* /Library/Launch*/org.macosforge.xquartz.* /Applications/Utilities/XQuartz.app /etc/*paths.d/*XQuartz && \
+sudo pkgutil --forget org.macosforge.xquartz.pkg  && \
+rm -rf ~/.serverauth* && rm -rf ~/.Xauthorit* && rm -rf ~/.cache && rm -rf ~/.rnd && \
+rm -rf ~/Library/Caches/org.macosforge.xquartz.X11 && rm -rf ~/Library/Logs/X11
+```
 
 - [Uninstall XQuartz.app from OSX Yosemite/El Capitan/Sierra](https://gist.github.com/pwnsdx/d127873e24cef159d4d603accaf37ee4)
 
 Some times, after wakeup or deconnected from an external screen (clampshield), xorg don't work:
 
-	$ xorg
-	...
-	Fatal server error:
-	(EE) no screens found(EE)
-	...
+```sh
+xorg
+#...
+#Fatal server error:
+#(EE) no screens found(EE)
+#...
+```
 
 Then restart.
 
@@ -1116,21 +1221,27 @@ macOS Wine: `Wine.app` and [WineBottler](https://winebottler.kronenberg.org/) (s
 
 Install winetrick in current prefix: Wine menu > Wintricks
 
-	/Applications/Wine.app/Contents/Resources/bin/wine app.exe
-	WINEPREFIX=~/.wine /Applications/Wine.app/Contents/Resources/bin/wine app.exe
+```sh
+/Applications/Wine.app/Contents/Resources/bin/wine app.exe
+WINEPREFIX=~/.wine /Applications/Wine.app/Contents/Resources/bin/wine app.exe
+```
 
-	exec wine "~/.wine/drive_c/My/program.exe" "-my" "-arguments"
-	# The exec commands tell bash to morph into wine with the following arguments, so this is no longer bash running wine, but bash process becoming wine.
-	# The PID remains. You don't have two processes running.
+```sh
+exec wine "~/.wine/drive_c/My/program.exe" "-my" "-arguments"
+# The exec commands tell bash to morph into wine with the following arguments, so this is no longer bash running wine, but bash process becoming wine.
+# The PID remains. You don't have two processes running.
+```
 
 If error like `err:module:import_dll Library MSVCP140.dll` check if a winetrick is not required like `vcrun2015`
 
 Some interesting files:
 
-	~/Library/Application Support/Wine/winetricks
-	~/Library/Application Support/Wine/winetricks.plist
-	/Applications/Wine.app/Contents/Frameworks/WBottler.framework/Versions/A/Resources/applywinetricks.sh
-	/Applications/Wine.app/Contents/Frameworks/WBottler.framework/Versions/A/Resources/winetricksextract.sh
+```
+~/Library/Application Support/Wine/winetricks
+~/Library/Application Support/Wine/winetricks.plist
+/Applications/Wine.app/Contents/Frameworks/WBottler.framework/Versions/A/Resources/applywinetricks.sh
+/Applications/Wine.app/Contents/Frameworks/WBottler.framework/Versions/A/Resources/winetricksextract.sh
+```
 
 - [command line - Transparently run wine programs - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/70681/transparently-run-wine-programs)
 
@@ -1198,35 +1309,51 @@ See also `universal_archs` in [`macports.conf)`](https://guide.macports.org/chun
 
 Found which port build libs:
 
-	port provides <filename>
-	#see also port contents "*"
+```sh
+port provides <filename>
+#see also port contents "*"
+```
 
 See dependents and dependencies:
 
-	port dependents <portname>
-	# or port echo dependentof:<portname>
+```sh
+port dependents <portname>
+# or port echo dependentof:<portname>
+```
 
-	# See https://trac.macports.org/wiki/FAQ#alldependencies	
-	port rdeps <portname>
+```sh
+# See https://trac.macports.org/wiki/FAQ#alldependencies	
+port rdeps <portname>
+```
 
-	sudo port clean --all --archive <portname>
-	sudo port -n upgrade --force <portname> +universal
+```sh
+sudo port clean --all --archive <portname>
+sudo port -n upgrade --force <portname> +universal
+```
 
 Find lib locations:
 
-	find / \( -name "<filename>" -o -name "<filename_symlink>" \) 2>/dev/null
+```sh
+find / \( -name "<filename>" -o -name "<filename_symlink>" \) 2>/dev/null
+```
 
 Check if the lib is i386 compatible `Mach-O dynamically linked shared library i386`:
 
-	file <filename>
+```sh
+file <filename>
+```
 
 See libs dependencies:
 
-	otool -L <filename>
+```sh
+otool -L <filename>
+```
 
 It's could needed to change the lib lookup location:
 
-	install_name_tool -change /Users/mike/Documents/wine2/usr/lib/libfreetype.6.dylib /usr/lib/libfreetype.6.dylib /Applications/Wine.app/Contents/Resources/lib/libfreetype.6.dylib
+```sh
+install_name_tool -change /Users/mike/Documents/wine2/usr/lib/libfreetype.6.dylib /usr/lib/libfreetype.6.dylib /Applications/Wine.app/Contents/Resources/lib/libfreetype.6.dylib
+```
 
 - [Fun with rpath, otool, and install_name_tool – Chris Hamons – Medium](https://medium.com/@donblas/fun-with-rpath-otool-and-install-name-tool-e3e41ae86172)
 - [WINE for Darwin and Mac OS X / Re: \[Darwine\] Problem with Darwine 0.9.3DP on OSX86 10.4.1](https://sourceforge.net/p/darwine/mailman/message/6359349/)
@@ -1234,7 +1361,9 @@ It's could needed to change the lib lookup location:
 
 To debug dylib loaded, edit bash script `MyWineApp.app/Contents/MacOS/startwine` of the bottled Wine app, prefix `"$WINEUSRPATH/bin/wine"....` with `DYLD_PRINT_LIBRARIES=1 `: `DYLD_PRINT_LIBRARIES=1 "$WINEUSRPATH/bin/wine...`
 
-	otool -L /Applications/Wine.app/Contents/Resources/lib/libfreetype.6.dylib
+```sh
+otool -L /Applications/Wine.app/Contents/Resources/lib/libfreetype.6.dylib
+```
 
 ### Wine 64bit
 
@@ -1251,7 +1380,9 @@ Fix WineBottle 4.0.1.1 to support macOS Catalina (10.15) 64 bit only:
 
 http://texturepacker.software.informer.com/download/
 
-`TexturePacker --install-license <name_of_the_license_file>`
+```sh
+TexturePacker --install-license <name_of_the_license_file>
+```
 
 `~/.config/code-and-web/TexturePacker.conf`
 
@@ -1259,12 +1390,14 @@ http://texturepacker.software.informer.com/download/
 
 After the canonical 7 days of time trial, you will have extended time trial until the date you wrote
 
-	firstStart = false;
-	licensing.data.expiryDate = "2016-10-17";
-	licensing.data.freeUpdatesUntil = "2999-01-01";
-	licensing.data.licenseType = "trial";
-	licensing.data.licensee = "trial user";//"essential"
-	licensing.trialExpired = false;
+```
+firstStart = false;
+licensing.data.expiryDate = "2016-10-17";
+licensing.data.freeUpdatesUntil = "2999-01-01";
+licensing.data.licenseType = "trial";
+licensing.data.licensee = "trial user";//"essential"
+licensing.trialExpired = false;
+```
 
 If not match signature, Sprites replace with red message can appears (watermarks)
 
@@ -1272,19 +1405,27 @@ Windows: `HKEY_CURRENT_USER\Software\code-and-web.de\TexturePacker\licensing\dat
 
 Uninstall the application from your computer (using Appzapper, AppCleaner, etc. delete everything related to that App like `de.code-and-web.TexturePacker.plist`). Install TexturePacker again and try to bypass license expiration.
 
-	sudo chmod 444 /Users/youruser/Library/Preferences/de.code-and-web.TexturePacker.plist
+```sh
+sudo chmod 444 /Users/youruser/Library/Preferences/de.code-and-web.TexturePacker.plist
+```
 
 In hosts (not required):
 
-	127.0.0.1	secure.codeandweb.com
+```
+127.0.0.1	secure.codeandweb.com
+```
 
-	%licensing.data.computerId%
-	%autoUpdateCheck%
-	%date% = current timestamp in ms
-	https://www.codeandweb.com/releases/texturepacker/updatecheck.php?ex=pixijs&o=mac&ov=10.12&b=no&l=&c=%licensing.data.computerId%&v=4.2.3&lt=trial&m=%autoUpdateCheck%&bit=64&s=%date%
+```
+%licensing.data.computerId%
+%autoUpdateCheck%
+%date% = current timestamp in ms
+https://www.codeandweb.com/releases/texturepacker/updatecheck.php?ex=pixijs&o=mac&ov=10.12&b=no&l=&c=%licensing.data.computerId%&v=4.2.3&lt=trial&m=%autoUpdateCheck%&bit=64&s=%date%
+```
 
-	POST https://secure.codeandweb.com/rpc/RPC.php
-	call=getTrialLicense&computerId=%licensing.data.computerId%&osName=MacOS&osVersion=10.12&product=TexturePacker&version=4.2.3&security_request_hash=f078701acfa82bbaad363e02d93e84dd
+```http
+POST https://secure.codeandweb.com/rpc/RPC.php
+call=getTrialLicense&computerId=%licensing.data.computerId%&osName=MacOS&osVersion=10.12&product=TexturePacker&version=4.2.3&security_request_hash=f078701acfa82bbaad363e02d93e84dd
+```
 
 - [CodeAndWeb - Game Developer Tools + Activation](https://leakforums.net/thread-625920)
 
@@ -1312,7 +1453,7 @@ Unsaved files:
 5. set "Input" to "Nothing"
 6. set "Output" to "Show in Tool Tip"
 7. write in editor area:
-    ```
+    ```sh
     #!/bin/bash
     echo -n "$TM_FILEPATH" | pbcopy
     ```
@@ -1323,7 +1464,9 @@ Unsaved files:
 
 Unsaved files:
 
-	~/Library/Application Support/TextMate/Session
+```
+~/Library/Application Support/TextMate/Session
+```
 
 ## Google AppEngine
 
@@ -1331,24 +1474,26 @@ https://cloud.google.com/appengine/docs/php/download
 
 Installed files:
 
-	~/.appcfg_oauth2_tokens
-	/usr/local/bin/_php_runtime.py
-	/usr/local/bin/_python_runtime.py
-	/usr/local/bin/api_server.py
-	/usr/local/bin/appcfg.py
-	/usr/local/bin/backends_conversion.py
-	/usr/local/bin/bulkload_client.py
-	/usr/local/bin/bulkloader.py
-	/usr/local/bin/dev_appserver.py
-	/usr/local/bin/download_appstats.py
-	/usr/local/bin/endpointscfg.py
-	/usr/local/bin/gen_protorpc.py
-	/usr/local/bin/php_cli.py
-	/usr/local/bin/remote_api_shell.py
-	/usr/local/bin/run_tests.py
-	/usr/local/bin/wrapper_util.py
-	/usr/local/google_appengine
-	/usr/local/google_appengine.old
+```
+~/.appcfg_oauth2_tokens
+/usr/local/bin/_php_runtime.py
+/usr/local/bin/_python_runtime.py
+/usr/local/bin/api_server.py
+/usr/local/bin/appcfg.py
+/usr/local/bin/backends_conversion.py
+/usr/local/bin/bulkload_client.py
+/usr/local/bin/bulkloader.py
+/usr/local/bin/dev_appserver.py
+/usr/local/bin/download_appstats.py
+/usr/local/bin/endpointscfg.py
+/usr/local/bin/gen_protorpc.py
+/usr/local/bin/php_cli.py
+/usr/local/bin/remote_api_shell.py
+/usr/local/bin/run_tests.py
+/usr/local/bin/wrapper_util.py
+/usr/local/google_appengine
+/usr/local/google_appengine.old
+```
 
 ## TotalFinder
 
@@ -1381,12 +1526,14 @@ A file manager is included (to copy/past/rename/etc. files): System > File manag
 
 See also `sources.xml`. See also [Store passwords](#store-passwords)
 
-	<!-- No complete -->
-	<source>
-		<name>Movies</name>
-		<path pathversion="1">smb://user:password@192.168.3.4/Medias/Movies/</path>
-		<allowsharing>true</allowsharing>
-	</source>
+```xml
+<!-- No complete -->
+<source>
+	<name>Movies</name>
+	<path pathversion="1">smb://user:password@192.168.3.4/Medias/Movies/</path>
+	<allowsharing>true</allowsharing>
+</source>
+```
 
 - [Custom video entries - Official Kodi Wiki](http://kodi.wiki/view/Custom_video_entries)
 - [NFO files - Official Kodi Wiki](http://kodi.wiki/view/NFO_files#NFO_Examples)
@@ -1412,37 +1559,43 @@ Here prefixes `kodi_video` and `kodi_music` are defined (Ex. Kodi will create `k
 
 Initial configuration (to creating the database, can be disabled later), require all granted privileges on target database
 
-	GRANT ALL ON *.* TO 'kodi';
+```sql
+GRANT ALL ON *.* TO 'kodi';
+```
 
 After install or upgrade use:
 
-	GRANT ALL ON `MyMusic%`.* TO 'kodi';
-	GRANT ALL ON `MyVideos%`.* TO 'kodi';
+```sql
+GRANT ALL ON `MyMusic%`.* TO 'kodi';
+GRANT ALL ON `MyVideos%`.* TO 'kodi';
+```
 
 `$USERDATA/advancedsettings.xml`:
 
-	<advancedsettings>
-		<videodatabase>
-			<type>mysql</type>
-			<host>192.168.3.4</host>
-			<port>3306</port>
-			<user>kodi</user>
-			<pass>password</pass>
-			<name>kodi_video</name>
-		</videodatabase>
-		<musicdatabase>
-			<type>mysql</type>
-			<host>192.168.3.4</host>
-			<port>3306</port>
-			<user>kodi</user>
-			<pass>password</pass>
-			<name>kodi_music</name>
-		</musicdatabase>
-		<videolibrary>
-			<importwatchedstate>true</importwatchedstate>
-			<importresumepoint>true</importresumepoint>
-		</videolibrary>
-	</advancedsettings>
+```xml
+<advancedsettings>
+	<videodatabase>
+		<type>mysql</type>
+		<host>192.168.3.4</host>
+		<port>3306</port>
+		<user>kodi</user>
+		<pass>password</pass>
+		<name>kodi_video</name>
+	</videodatabase>
+	<musicdatabase>
+		<type>mysql</type>
+		<host>192.168.3.4</host>
+		<port>3306</port>
+		<user>kodi</user>
+		<pass>password</pass>
+		<name>kodi_music</name>
+	</musicdatabase>
+	<videolibrary>
+		<importwatchedstate>true</importwatchedstate>
+		<importresumepoint>true</importresumepoint>
+	</videolibrary>
+</advancedsettings>
+```
 
 - [MySQL/Setting up MySQL - Official Kodi Wiki](http://kodi.wiki/view/MySQL/Setting_up_MySQL)
 - [MySQL/Upgrading - Official Kodi Wiki](http://kodi.wiki/view/MySQL/Upgrading#Making_sure_Kodi_can_update_the_library)
@@ -1454,16 +1607,20 @@ SMB error message `operation not permitted`
 
 `$USERDATA/passwords.xml`:
 
-	<passwords>
-		<path>
-			<from pathversion="1">smb://computername_or_ipaddress/</from>
-			<to pathversion="1">smb://username:password@computername_or_ipaddress/</to>
-		</path>
-	</passwords>
+```xml
+<passwords>
+	<path>
+		<from pathversion="1">smb://computername_or_ipaddress/</from>
+		<to pathversion="1">smb://username:password@computername_or_ipaddress/</to>
+	</path>
+</passwords>
+```
 
 Or in `$USERDATA/sources.xml`:
 
-	<path>smb://domain;username:password@computername_or_ipaddress/sharename/path</path>
+```xml
+<path>smb://domain;username:password@computername_or_ipaddress/sharename/path</path>
+```
 
 - [Log file/Advanced - Official Kodi Wiki](http://kodi.wiki/view/Log_file/Advanced#Password_warning)
 - [MySQL/Setting up Kodi - Official Kodi Wiki](http://kodi.wiki/view/MySQL/Setting_up_Kodi#Make_files_accessible_over_the_network)
@@ -1488,8 +1645,10 @@ Export to XML playlist: File > Library > Export playlist
 
 Open in a browser then:
 
-	let files = Array.from(document.documentElement.querySelectorAll("plist > dict:nth-of-type(1) > dict:nth-of-type(1) > dict")).reduce((list, track) => (list[track.querySelector(":scope > integer:nth-of-type(1)").textContent] = decodeURIComponent(track.querySelector(":scope > string:nth-last-of-type(1)").textContent.substr(7)), list), {});
-	copy(Array.from(document.documentElement.querySelectorAll("plist > dict:nth-of-type(1) > array:nth-of-type(1) > dict:nth-of-type(1) > array:nth-of-type(1) > dict")).map(entry => files[entry.querySelector(":scope > integer:nth-of-type(1)").textContent]).join("\n"));
+```js
+let files = Array.from(document.documentElement.querySelectorAll("plist > dict:nth-of-type(1) > dict:nth-of-type(1) > dict")).reduce((list, track) => (list[track.querySelector(":scope > integer:nth-of-type(1)").textContent] = decodeURIComponent(track.querySelector(":scope > string:nth-last-of-type(1)").textContent.substr(7)), list), {});
+copy(Array.from(document.documentElement.querySelectorAll("plist > dict:nth-of-type(1) > array:nth-of-type(1) > dict:nth-of-type(1) > array:nth-of-type(1) > dict")).map(entry => files[entry.querySelector(":scope > integer:nth-of-type(1)").textContent]).join("\n"));
+```
 
 - [Doug's AppleScripts for iTunes - Super Remove Dead Tracks v4.7 - Official Download Site](http://dougscripts.com/itunes/scripts/ss.php?sp=removedeadsuper)
 
@@ -1591,7 +1750,9 @@ Note: Registration key for 3.1 works for 3.3 too.
 
 To force rebuild kernel and extension cache
 
-	sudo kextcache -i /
+```sh
+sudo kextcache -i /
+```
 
 If the device is not detected, may it's because it's pluged to a USB hub. Try to disconnect and connect again, or try to connect directly (without hub) first, the device should be reconnized by USB Overdrive (see Status tab), then you can connect to the hub
 

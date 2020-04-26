@@ -309,6 +309,33 @@ Aka naming things, few words
 - [Naming Things | DevIQ](http://deviq.com/naming-things/)
 - [Naming Guidelines](https://msdn.microsoft.com/en-us/library/ms229002%28v=vs.110%29.aspx)
 - [Sensible Interfaces](http://verraes.net/2013/09/sensible-interfaces/)
+- [Rob Pike: Notes on Programming in C](https://www.lysator.liu.se/c/pikestyle.html)
+
+> Local variables
+> 
+> Keep them short; long names obscure what the code does.
+> 
+> Common variable/type combinations may use really short names: 
+> Prefer i to index.
+> Prefer r to reader.
+> Prefer b to buffer.
+> Avoid redundant names, given their context:
+> 
+> Prefer count to runeCount inside a function named RuneCount.
+> Prefer ok to keyInMap in the statement 
+> [...]
+> Longer names may help in long functions, or functions with many local variables.
+> (But often this just means you should refactor.) 
+> 
+> — [What's in a name?](https://talks.golang.org/2014/names.slide#6)
+
+> Junior devs, variable naming is SO important.
+> 
+> I'm working with one of my mentees right now and I can clearly see why she's getting confused. The variable names are not representative (enough) of what they are holding.
+> 
+> When I had her rename all of her variables, she excelled.
+> 
+> — [Angie Jones on Twitter: "Junior devs, variable naming is SO important. I'm working with one of my mentees right now and I can clearly see why she's getting confused. The variable names are not representative (enough) of what they are holding. When I had her rename all of her variables, she excelled." / Twitter](https://twitter.com/techgirl1908/status/1247344099801227265)
 
 See also [Case styles](#case-styles)
 
@@ -850,9 +877,10 @@ Works easily for [declarative code](https://en.wikipedia.org/wiki/Declarative_pr
 
 - [javascript - What is the difference between Hot Reloading and Live Reloading in React Native? - Stack Overflow](https://stackoverflow.com/questions/41428954/what-is-the-difference-between-hot-reloading-and-live-reloading-in-react-native/41429055#41429055)
 
-## Continuous Integration
+## Continuous integration and continuous delivery
 
-- https://travis-ci.org/
+- [Travis CI - Test and Deploy Your Code with Confidence](https://travis-ci.org/)
+- [Deploys at Slack - Several People Are Coding](https://slack.engineering/deploys-at-slack-cd0d28c61701)
 
 ## Vagrant
 

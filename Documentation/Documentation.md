@@ -15,6 +15,7 @@ API references, guides, tutorials, and blog posts
 - [Bus factor — Wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
 - [Code comments](../Development/Development.md#comments)
 - [Technical writing — Wikipedia](https://en.wikipedia.org/wiki/Technical_writing)
+- [Technical Writing  |  Google Developers](https://developers.google.com/tech-writing)
 - [Writing Documentation When You Aren't A Technical Writer — Part One | Stoplight API Intersection](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-one-ef08a09870d1)
 - [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Intersection](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/)
 - [Why You Shouldn't Ignore Internal API Documentation | Stoplight API Intersection](https://stoplight.io/blog/internal-api-documentation/)
