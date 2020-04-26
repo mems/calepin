@@ -2390,6 +2390,12 @@ Context-aware layered depth inpainting to fill holes:
 - [3D Photography using Context-aware Layered Depth Inpainting](https://shihmengli.github.io/3D-Photo-Inpainting/)
 - [vt-vl-lab/3d-photo-inpainting: \[CVPR 2020\] 3D Photography using Context-aware Layered Depth Inpainting](https://github.com/vt-vl-lab/3d-photo-inpainting)
 
+`f(x)=1/(1+x)` where `f(0)=1`, `f(10)=0.9`, `f(1000)=0.0009~`...
+
+Multiplied to scrolling offset
+
+- [Functions similar to Log but with results between 0 and 1 - Mathematics Stack Exchange](http://math.stackexchange.com/questions/57429/functions-similar-to-log-but-with-results-between-0-and-1/57433#57433)
+
 ## Depth of field
 
 - [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=56) - Depth of field
