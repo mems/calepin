@@ -1228,6 +1228,21 @@ With a list of exceptions:
 - [unix - BASH: How to remove all files except those named in a manifest? - Stack Overflow](https://stackoverflow.com/questions/2782602/bash-how-to-remove-all-files-except-those-named-in-a-manifest)
 - [linux - find files not in a list - Stack Overflow](https://stackoverflow.com/questions/7306971/find-files-not-in-a-list)
 
+### Remove empty dir
+
+```sh
+find <path> -type d -print0 | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
+
+# or
+# handle trailing dot rmdir error: rmdir -p "./test" -> rmdir: failed to remove directory '.': Invalid argument
+find -mindepth 1 -type d -printf '%P\0' | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
+
+# find all dirs in reverse order (depth first), remove empty dir to top
+find -mindepth 1 -type d -print0 | tac -s $'\0' | xargs -0 -r rmdir --ignore-fail-on-non-empty
+```
+
+- [Unix tip: Recursively removing empty directories | Network World](https://www.networkworld.com/article/2773290/unix-tip--recursively-removing-empty-directories.html)
+
 ### Find missing files
 
 - [How do I find which files are missing from a list? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/11989/how-do-i-find-which-files-are-missing-from-a-list)
@@ -2020,9 +2035,13 @@ For supported partitions (on source drive), use Disk Utility
 
 For not supported partitions
 
-Clone exact disk (boot sector, all partitions, all data, etc.) to an other drive (to a file, use a path to a file instead of `/dev/sdX`, see [this page](https://wiki.archlinux.org/index.php/disk_cloning#Create_disk_image) for other options like split the image and `dd` man page for partial copy etc.)
+Clone exact disk (boot sector, all partitions & data, etc.) to an other drive (to a file, use a path to a file instead of `/dev/sdX`, see [this page](https://wiki.archlinux.org/index.php/disk_cloning#Create_disk_image) for other options like split the image and `dd` man page for partial copy etc.)
 
-	sudo dd if=/dev/sdX of=/dev/sdY bs=64K conv=noerror,sync status=progress
+For disk use `/dev/sdX` (or `/dev/hdX`, or BSD `/dev/diskX` or even [`/dev/rdiskX` for better speed](https://superuser.com/questions/631592/why-is-dev-rdisk-about-20-times-faster-than-dev-disk-in-mac-os-x))
+
+```sh
+sudo dd if=/dev/sdX of=/dev/sdY bs=64K conv=noerror,sync status=progress
+```
 
 Change `bs` to find the optimal value. **64K seem a good value**, but it's related to hardware and software (USB2.0 to USB2.0 RAID). Try to use the same value as the disk cache `8388608` size, or the block size `4096`.
 

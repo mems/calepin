@@ -26,7 +26,7 @@ Aka repair disk
 
 RAID mirror disks: remove a disk and rebuild volume
 
-RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Command%20line/Command%20line%20(Unix).md#clone-disk)
+RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Command%20line/Command%20line%20%28Unix%29.md#clone-disk)
 
 - [Replace Drives to Expand Storage Capacity | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk)
 - [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
@@ -208,7 +208,7 @@ Config file
 	sudo touch /var/packages/MariaDB10/etc/my.cnf
 	sudo chown mysql:mysql /var/packages/MariaDB10/etc/my.cnf
 
-By default MariaDB10 runs on port **3307**, where for MariaDB5.5 the port was 3306 (mysql default). To change the port, create a custom `my.cnf` and add: **Note: this seem not work anymore (`my.cnf` as not more effect on it)**
+By default MariaDB10 runs on port **3307**, where for MariaDB5.5 the port was 3306 (mysql default). Update the port when install the package, toTo change the port, create a custom `my.cnf` and add: **Note: this seem not work anymore (`my.cnf` as not more effect on it)**
 
 	[client]
 	port = 3306
@@ -242,13 +242,33 @@ Support only relative paths (start with `./` or `../`, not `/volumeX/`)
 ### Restart service / daemon
 
 ```sh
-synoservicectl  --restart pkgctl-MariaDB10
-```
-
-```sh
 synoservice --help
 synoservicecfg --list
+synoservicectl --restart pkgctl-MariaDB10
+
+# Samba, NFS, Rsync, etc.:
+sudo /usr/syno/etc.defaults/rc.sysv/S80samba.sh stop
+sudo /usr/syno/etc.defaults/rc.sysv/S83nfsd.sh stop
+sudo /usr/syno/etc.defaults/rc.sysv/S84rsyncd.sh stop
+
+# See also
+initctl list | grep synologand
+sudo initctl stop synoindexd
 ```
+
+### Install application
+
+```sh
+synopkg help
+sudo synopkg install <path to .spk file>
+sudo synopkg install_from_server PythonModule
+
+# to get app name see https://www.synology.com/en-global/dsm/packages ex: "PythonModule" https://www.synology.com/en-global/dsm/packages/PythonModule
+```
+
+In case of an app fait to install from package center (`failed to download`, `/var/log/messages` contains `synoscgi_SYNO.Core.Package.Installation_1_install[26887]: pkgserver.cpp:708 Failed to download package, httpResponseCode=403, url=https://global.download.synology.com/download/Package/spk/SynologyDrive/2.0.2-11076/SynologyDrive-x86_64-2.0.2-11076.spk, mode=install`, like this version is not available in all regions)
+
+- [Install or Buy Packages | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/install_buy)
 
 ### Create application
 
@@ -377,7 +397,11 @@ More ?
 
 - [Reverse Proxy sur Nas Synology et SSL - La Domotique de Sarakha63](http://sarakha63-domotique.fr/reverse-proxy-sur-nas-synology-ssl/)
 
-## `dms.dmslog` file
+## Logs
+
+`/var/log/messages`
+
+`dms.dmslog` file
 
 DLNA debug log file
 
@@ -387,11 +411,35 @@ Rename `dms.dmslog` to `dms.tar.gz`
 
 - `/var/packages/$APP_NAME`
 
+### Disk operations
+
+```sh
+df -Th
+sudo pvdisplay -m
+vgdisplay
+lvdisplay
+parted -l
+sudo fdisk -l /dev/sda
+# Physical Volume
+sudo pvs
+# Volume Group
+sudo vgs
+
+
+#...
+sudo lvextend -l +100%FREE /dev/md2
+```
+
+- [Volume Checking On DiskStation NAS - Synology Forum](https://forum.synology.com/enu/viewtopic.php?t=66550) - see also for unmount a disk
+- [Tech blog of Anton Keks: How I upgraded my Synology NAS to a bigger disk](http://blog.azib.net/2013/12/how-i-upgraded-my-synology-nas-to.html)
+
 ### List files
 
 Create a planified task
 
-	find /volume3/Media -type f ! -path '*/@eaDir/*' ! -name '*@SynoResource' ! -name '*@SynoEAStream' ! -name '.DS_Store' > /volume2/Backups/medialist.txt
+```
+find /volume3/Media -type f ! -path '*/@eaDir/*' ! -name '*@SynoResource' ! -name '*@SynoEAStream' ! -name '.DS_Store' > /volume2/Backups/medialist.txt
+```
 
 ### Special shares
 
@@ -481,6 +529,8 @@ Drives: `/dev/sda`, `/dev/sdb`, `/dev/sdc`, etc. (partitions for the first disk:
 - Volume `/volumeX`
 
 - [Synology](https://github.com/midenok/hardware/wiki/Synology)
+
+Startup scripts: `/usr/local/etc/rc.d/` (see also [Synology NAS - How to make a program run at startup](https://gist.github.com/SanCoder-Q/f3755435e6e8bd46ba95bf0ec54ae1a4))
 
 ## Media index
 
@@ -716,40 +766,71 @@ or use Download station, (support FTP) (can use RSS as source list)
 
 - [How to backup FTP to Synology Station - Evotec](https://evotec.xyz/how-to-backup-ftp-to-synology/)
 
-## ipkg
+## oPKG
+
+Aka Optware iPKG (Entware oPKG is a fork of iPKG)
+
+See also [Install on Synology NAS · Entware/Entware Wiki](https://github.com/Entware/Entware/wiki/Install-on-Synology-NAS)
+
+Optware-ng iPKG and Entware-ng oPKG can be installed with Easy Bootstrap Installer (from https://www.cphub.net)
+
+### Usage
+
+```sh
+# /opt/bin/ipkg
+opkg update && opkg upgrade
+opkg list
+opkg install <package>
+opkg remove <package>
+```
 
 ### Install
 
-Append to the end of `/root/.profile`:
+Append to the end of `/etc/profile` (`sudo vim /etc/profile` + update + esc `:x!`, then `source /etc/profile`):
 
-	PATH=/opt/bin:/opt/sbin:$PATH
+```sh
+PATH=/opt/bin:/opt/sbin:$PATH
+```
 
 Add in `/etc/rc.local`:
 
-	ln -s /volume1/@optware /opt
+```sh
+ln -s /volume1/@optware /opt
+```
 
-	ln -s /volume1/@optware/bin /opt
-	ln -s /volume1/@optware/etc /opt
-	ln -s /volume1/@optware/include /opt
-	ln -s /volume1/@optware/lib /opt
-	ln -s /volume1/@optware/man /opt
-	ln -s /volume1/@optware/opt /opt
-	ln -s /volume1/@optware/sbin /opt
-	ln -s /volume1/@optware/share /opt
-	ln -s /volume1/@optware/tmp /opt
-	ln -s /volume1/@optware/var /opt
+```sh
+ln -s /volume1/@optware/bin /opt
+ln -s /volume1/@optware/etc /opt
+ln -s /volume1/@optware/include /opt
+ln -s /volume1/@optware/lib /opt
+ln -s /volume1/@optware/man /opt
+ln -s /volume1/@optware/opt /opt
+ln -s /volume1/@optware/sbin /opt
+ln -s /volume1/@optware/share /opt
+ln -s /volume1/@optware/tmp /opt
+ln -s /volume1/@optware/var /opt
+```
 
-- [How to install IPKG on a Synology NAS](http://www.vspecialist.co.uk/2014/09/how-to-install-ipkg-on-a-synology-nas/)
+Packages:
+
+**Note: packages can be also installed via app iPKGui**
+
+```
+lsof
+psmisc (fuser killall pidof pstree)
+```
+
+- [How to install IPKG on Synology NAS | Synology Community](https://community.synology.com/enu/forum/1/post/127148)
+- [IPKG – Synology Wiki](https://www.synology-wiki.de/index.php/IPKG)
 - [Overview on modifying the Synology Server, bootstrap, ipkg etc - SynologyWiki](http://wayback.archive.org/web/20160323062956/http://forum.synology.com/wiki/index.php/Overview_on_modifying_the_Synology_Server,_bootstrap,_ipkg_etc#Installing_compiled.2Fbinary_programs_using_ipkg)
 - [ipkg package manager installation on Synology NAS - ReScene](http://rescene.wikidot.com/synology-ipkg)
 - [Installer ipkg NAS synology DS214 - Noobunbox](https://www.noobunbox.net/synology/installer-ipkg-nas-synology-ds214)
 
-### Usage
+Packages:
 
-	ipkg update && ipkg upgrade
-	ipkg list
-	ipkg install <package>
-	ipkg remove <package>
+- [OpenWrt Project: Packages](https://openwrt.org/packages/start)
+- [Packages list](http://ipkg.nslu2-linux.org/optware-ng/buildroot-armeabihf/Packages.html)
+- `opkg list | grep -e <searchterm>`
 
 ## Debian chroot
 

@@ -56,3 +56,32 @@ Use the host network
 - [\[Tutorial\] How to Modify Android TV and FireOS Apps to Work with Regular Android - WeTek Community Forum](http://www.wetekforums.com/v/index.php?p=/discussion/28075/tutorial-how-to-modify-android-tv-and-fireos-apps-to-work-with-regular-android)
 
 Regular app (mobile or table) could no work properly with a remote, and could require the use of a mouse (via USB), could also not appreas in TV launcher (can be reach via Settings > Applications > Downloaded applications)
+
+## SSH server
+
+With [SimpleSSHD](http://www.galexander.org/software/simplesshd/).
+
+Install from:
+
+- [SimpleSSHD - Apps on Google Play](https://play.google.com/store/apps/details?id=org.galexander.sshd)
+- [SimpleSSHD | F-Droid - Free and Open Source Android App Repository](https://f-droid.org/en/packages/org.galexander.sshd/)
+
+Add public auth key:
+
+```sh
+ssh -p 2222 user@<androiddeviceip>
+# use the onetime password given in the SimpleSSHD's console
+
+# Add public key for further connections
+echo "<userpublickey>" > /data/data/org.galexander.sshd/files/authorized_keys
+
+# create symlink to easy access (SFTP), for ex. to list other app data: /sdcard/Android/data/<appid>
+ln -s /sdcard /data/data/org.galexander.sshd/files/sdcard
+```
+
+Files are in:
+
+```
+/data/user/0/org.galexander.sshd/files/
+/data/data/org.galexander.sshd/files/authorized_keys
+```
