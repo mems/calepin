@@ -123,7 +123,14 @@ Style guide generators:
 
 ### Components
 
-Patterns
+Advices:
+
+> Managing the space _between_ components should be responsibility of container, not the individual components
+> using things like `.container > * + * { margin-left: 10px }` in preference to `.component:not(:first-child) { margin-left: 10px }`
+
+Use `currentColors`
+
+Patterns:
 
 - [GOV.UK elements](https://govuk-elements.herokuapp.com/)
 - [Components · Bootstrap](http://getbootstrap.com/components/)
@@ -2504,6 +2511,14 @@ See [JavaScript selectors](HTML#javascript-selectors)
 - [Label-to-Input States](http://kizu.ru/en/blog/label-to-input/)
 - [Roma Komarov on Twitter: "CSS quiz! Are there cases when this selector would make sense —`.foo:not(:hover) \> .bar:hover` ?"](https://twitter.com/kizmarh/status/869534275976167424)
 
+### Attribute selector
+
+- [Link to a specific URL](#link-to-a-specific-url)
+
+`input[value="x"]` match attribute value (`input.defaultValue`, `input.getAttribute("value")`) not property (`input.value`)
+
+- [Web IDL](https://heycam.github.io/webidl/#idl-attributes) - WebIDL attribute != Element attribute
+
 ### Invalid selector
 
 ```css
@@ -2603,6 +2618,7 @@ a[hreflang|="en"]::after {
 
 - [Simulating nth-of-class CSS selector | Bright Inventions](https://brightinventions.pl/blog/nth-of-class/)
 - [CSS :nth-of-class selector – Bram.us](https://www.bram.us/2020/03/16/css-nth-of-class-selector/)
+- [CSS Select nth element with class - Better Programming - Medium](https://medium.com/better-programming/css-select-nth-element-with-class-a313d080e2bf) - sibling combinator in CSS `~` to simulate a `:nth-child-of-class` pseudo-class
 
 See also:
 
@@ -2620,26 +2636,21 @@ See also:
 - [How CSS pseudo-classes work, explained with code and lots of diagrams](https://medium.freecodecamp.com/explained-css-pseudo-classes-cef3c3177361)
 - [Some Extremely Handy `:nth-child` Recipes as Sass Mixins | CSS-Tricks](https://css-tricks.com/extremely-handy-nth-child-recipes-sass-mixins/)
 
-### Link to a specific website
+### Link to a specific URL
 
 ```css
-[href*="://itunes.apple.com/"]{
-}
-[href*="://twitter.com/"]{
-}
-[href*="://plus.google.com/"]{
-}
-[href*="://www.facebook.com/"]{
-}
-[href*="://www.linkedin.com/"]{
-}
+[href*="://itunes.apple.com/"]{}
+[href*="://twitter.com/"]{}
+[href*="://plus.google.com/"]{}
+[href*="://www.facebook.com/"]{}
+[href*="://www.linkedin.com/"]{}
 ```
 
 Note: To support protocol relative links, use `[href*="//itunes.apple.com/"]` instead. But it's not adviced to use it (protocol relative links, use always HTTPS when it's possible).
 
 ### Efficient selectors
 
-- http://csswizardry.com/2011/09/writing-efficient-css-selectors/
+- [Writing efficient CSS selectors – CSS Wizardry – Web Performance Optimisation](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
 
 ### Non generic selectors
 
@@ -2846,13 +2857,13 @@ Chrome is better to animate (or make a transition using transform) a large conta
 	- [CSS linear gradient that kills firefox's performance :'(](https://gist.github.com/foca/3888302)
 	- [How does the performance of using background-gradients in CSS vs using images? - Stack Overflow](https://stackoverflow.com/questions/5793586/how-does-the-performance-of-using-background-gradients-in-css-vs-using-images)
 	- [Runtime Performance with CSS3 vs Images | Jacob Wright](http://jacwright.com/476/runtime-performance-with-css3-vs-images/)
+- [Efficient selectors](#efficient-selectors)
 - [Fix scrolling performance with CSS will-change property – Four Kitchens](https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property/)
 - [Smooth as Butter: Achieving 60 FPS Animations with CSS3](https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108)
 - [GPU Animation: Doing It Right – Smashing Magazine](https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/)
 - [Aerotwist - On translate3d and layer creation hacks](https://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/)
 - [Myth busting the HTML5 performance of transform:translate vs. top/left | Tumult Company Blog](http://blog.tumult.com/2013/02/28/transform-translate-vs-top-left/)
 - [High Performance Animations - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/)
-- [Relayout,  repaint, reflow](JavaScript/Relayout, repaint, reflow)
 - [Reflows & Repaints: CSS Performance making your JavaScript slow? | Stubbornella](http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/)
 - [David Baron's weblog: Running animations on the compositor thread](http://dbaron.org/log/20150916-compositor-animations)
 - [How I Destroyed my Blog's Performance with CSS Background-Blend-Modes – LearntEmail](https://learntemail.sam.today/blog/1-css-property-that-will-ruin-your-scroll-performance/)
@@ -2861,7 +2872,7 @@ Chrome is better to animate (or make a transition using transform) a large conta
 
 ### Relayout, repaint, reflow
 
-See [relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
+See [relayout, repaint, reflow](../JavaScript/JavasScript.md#Relayout,%20repaint,%20reflow)
 
 - [CSS Triggers](https://csstriggers.com/)
 - [Why moving elements with translate() is better than pos:abs top/left - Paul Irish](http://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)

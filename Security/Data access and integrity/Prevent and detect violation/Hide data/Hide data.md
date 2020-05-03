@@ -179,7 +179,8 @@ In document, user's comment, chat message, source code / script, source code's c
 
 	- [Turla’s watering hole campaign: An updated Firefox extension abusing Instagram](https://www.welivesecurity.com/2017/06/06/turlas-watering-hole-campaign-updated-firefox-extension-abusing-instagram/)
 	- [You’ll never guess where Russian spies are hiding their control servers | Ars Technica](https://arstechnica.com/security/2017/06/russian-hackers-turn-to-britney-spears-for-help-concealing-espionage-malware/)
-- `snow` append whitespaces to then end of lines
+- `snow` append whitespaces to the end of lines
+- ```` Function`$${atob`YWxlcnQoMSk`}``` /*same as: alert(1)*/ ```` - [Martin Kleppe on Twitter: "Here is a quick explanation: atob`YWxlcnQoMSk=` // decodes to string to: // "alert(1)" `$${"alert(1)"}` // results in the tag components: // \["$", ""\], "alert(1)" Function(\["$", ""\], "alert(1)") // creates an anonymous function // function($,) {alert(1)}" / Twitter](https://twitter.com/aemkei/status/1240399576487600128)
 
 ### Hide data by using permissively
 

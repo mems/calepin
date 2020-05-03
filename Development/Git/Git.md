@@ -37,6 +37,8 @@ git reset --hard origin/master && git clean -f -d
 Merge branch, not rebase
 
 - [Merge and rebase](#merge-and-rebase)
+- [Git branch naming conventions - DeepSource](https://deepsource.io/blog/git-branch-naming-conventions/)
+- [Trunk Based Development](https://trunkbaseddevelopment.com/)
 - [What are some examples of commonly used practices for naming git branches? - Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches#answer-6065944)
 
 ## Stash

@@ -3,7 +3,7 @@ Aka JavaScript
 - http://msdn.microsoft.com/en-us/library/ie/121hztk3%28v=vs.94%29.aspx
 - http://wiki.ecmascript.org/doku.php?id=resources:resources&s=conditional+compilation#microsoft_drafts
 
-- http://zaach.github.io/jison/
+- [Jison](http://zaa.ch/jison/) - "Your friendly JavaScript parser generator!"
 
 - http://en.wikipedia.org/wiki/Preprocessor
 - http://en.wikipedia.org/wiki/C_preprocessor
@@ -42,6 +42,7 @@ Aka JavaScript
 - [acornjs/acorn: A small, fast, JavaScript-based JavaScript parser](https://github.com/acornjs/acorn)
 - [engine262/engine262 at parser](https://github.com/engine262/engine262/tree/parser)
 - [webkit/Source/JavaScriptCore/parser at master · WebKit/webkit](https://github.com/WebKit/webkit/tree/master/Source/JavaScriptCore/parser)
+- [KFlash/seafox: A blazing fast 100% spec compliant, self-hosted javascript parser written in Typescript](https://github.com/KFlash/seafox)
 - [babel/packages/babel-parser at master · babel/babel](https://github.com/babel/babel/tree/master/packages/babel-parser) - Babel JS parser (previously Babylon), [@babel/parser · Babel](https://babeljs.io/docs/en/babel-parser)
 
 ## Engine

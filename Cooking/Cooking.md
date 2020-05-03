@@ -286,6 +286,7 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 15 min à 200°C
 
 - [Pâte à pizza fine : Recette de Pâte à pizza fine - Marmiton](https://www.marmiton.org/recettes/recette_pate-a-pizza-fine_29544.aspx)
+- [Comment réussir une bonne pizza](https://www.750g.com/comment-reussir-une-bonne-pizza-a13047.htm)
 
 ## Far breton
 

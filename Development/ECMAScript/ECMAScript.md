@@ -1785,20 +1785,46 @@ If possible use positive conditions
 > Stop the if ( !foo ). Stay sane and use if ( foo === false ), if ( foo === null ) or if ( foo === undefined )
 — https://twitter.com/mrdoob/status/392411230863773696
 
+### Conditional compilation
+
+```js
+// The compiler define global constant PRODUCTION as boolean
+if(!PRODUCTION){
+    console.log("debug");
+}
+```
+
+or
+
+```js
+// The compiler define special packages
+import {PRODUCTION} from "constants";
+
+if(!PRODUCTION){
+    console.log("debug");
+}
+```
+
+- [DefinePlugin | webpack](https://webpack.js.org/plugins/define-plugin/)
+- [Annotating JavaScript for the Closure Compiler · google/closure-compiler Wiki](https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#define-type-description)
+- [Conditional Compilation (Windows Scripting - JScript) | Microsoft Docs](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/121hztk3%28v%253dvs.84%29?redirectedfrom=MSDN)
+
 ### Block condition
 
 See [Return condition](#return-condition)
 
 Block statment with a label:
 
-	lotOfStatments: {
-		statment1;
-		statments;
-		if(condition){
-			break lotOfStatments;// stop any further statments of lotOfStatments
-		}
-		otherStatments;
+```js
+lotOfStatments: {
+	statment1;
+	statments;
+	if(condition){
+		break lotOfStatments;// stop any further statments of lotOfStatments
 	}
+	otherStatments;
+}
+```
 
 - https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/block
 
@@ -1808,37 +1834,43 @@ See [Block condition](#block-condition)
 
 Filter first, use less conditional blocks
 
-	function test(param = 0){
-		if(param == 0){
-			return
-		}
-		
+```js
+function test(param = 0){
+	if(param == 0){
+		return
+	}
+	
+	// do stuff
+}
+```
+
+```js
+function test(param = 0){
+	if(param != 0){
 		// do stuff
 	}
-
-	function test(param = 0){
-		if(param != 0){
-			// do stuff
-		}
-	}
+}
+```
 
 ## Getters/setters vs method
 
-	class MyClass {
-		constructor(n){
-			this._total = n;
-			this._store = [];
-		}
-		add(n) {
-			this._store.push(n); // or whatever you need to store n
-			this._total += n; // update the total sum
-		}
-		get sum() {
-			// could use return this._store.reduce((prev, cur) => prev + cur, 0)
-			return this._total;
-		}
-		// ...
+```js
+class MyClass {
+	constructor(n){
+		this._total = n;
+		this._store = [];
 	}
+	add(n) {
+		this._store.push(n); // or whatever you need to store n
+		this._total += n; // update the total sum
+	}
+	get sum() {
+		// could use return this._store.reduce((prev, cur) => prev + cur, 0)
+		return this._total;
+	}
+	// ...
+}
+```
 
 Use methods when you are doing something (verb) and use getters/setters when you are checking a property (noun.)
 
