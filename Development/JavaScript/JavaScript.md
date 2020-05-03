@@ -6755,7 +6755,8 @@ or
 
 - [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
 - [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
-- g[Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
+- [Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
+- [What’s in that .wasm? Introducing: wasm-decompile · V8](https://v8.dev/blog/wasm-decompile)
 
 Usage examples:
 

@@ -2372,13 +2372,14 @@ chmod +x firefox-bin-with-args.sh
 
 Script app (bash script) can't start anymore with OSX 10.10: "Can’t open the application %s because PowerPC applications are no longer supported."
 
-- https://mathiasbynens.be/notes/shell-script-mac-apps and https://gist.github.com/advorak/1403124 https://gist.github.com/mathiasbynens/674099/forks https://gist.github.com/advorak/1403124/forks
-- http://www.sveinbjorn.org/platypus
+- [Impedimenta/Suitcase: A flexible command line tool for instantly deploying user interfaces for simple commands and scripts.](https://github.com/Impedimenta/Suitcase)
+- [How to create simple Mac apps from shell scripts · Mathias Bynens](https://mathiasbynens.be/notes/shell-script-mac-apps) (see [forks](https://gist.github.com/mathiasbynens/674099/forks)) and [appify — create the simplest possible Mac app from a shell script (adds an application icon)](https://gist.github.com/advorak/1403124) (see [forks](https://gist.github.com/advorak/1403124/forks))
+- [Platypus - Create Mac apps from command line scripts](https://sveinbjorn.org/platypus)
 - [DropScript](http://www.wsanchez.net/software/)
-- https://stackoverflow.com/questions/281372/executing-shell-scripts-from-the-os-x-dock
+- [macos - Executing Shell Scripts from the OS X Dock? - Stack Overflow](https://stackoverflow.com/questions/281372/executing-shell-scripts-from-the-os-x-dock)
 - `xattr -d com.apple.quarantine /Applications/My\ App.app`
-- http://apple.stackexchange.com/questions/219361/how-does-os-x-detect-a-powerpc-application
-- http://superuser.com/questions/271678/how-do-i-pass-command-line-arguments-to-dock-items
+- [macos - How does OS X detect a PowerPC application? - Ask Different](https://apple.stackexchange.com/questions/219361/how-does-os-x-detect-a-powerpc-application)
+- [macos - How do I pass command line arguments to Dock items? - Super User](https://superuser.com/questions/271678/how-do-i-pass-command-line-arguments-to-dock-items)
 
 ### Allow Apps from Anywhere in Gatekeeper
 

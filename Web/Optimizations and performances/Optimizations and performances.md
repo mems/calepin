@@ -39,6 +39,7 @@ Loading, parsing, rendering, etc.
 - [WPO Stats](https://wpostats.com/)
 - [Essential Image Optimization](https://images.guide/)
 - [JavaScript Start-up Optimization | Web Fundamentals | Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/javascript-startup-optimization/)
+- [Turbocharging Walmart.com: Speed without compromise - Speaker Deck](https://speakerdeck.com/vasa/turbocharging-walmart-dot-com-speed-without-compromise)
 
 > Progressive JPEGs decode slower than Baseline ones. [..] decoding a progressive JPEG takes about 3.3× as long as a baseline one. (I would still absolutely recommend using progressive, because they feel a lot faster than their baseline counterparts.)
 

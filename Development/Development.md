@@ -472,16 +472,20 @@ See also [complexity](#complexity).
 > 
 > — Robert C. Martin
 
-	// Check to see if the employee is eligible for full benefits
-	if ((employee.flags & HOURLY_FLAG) && (employee.age > 65)) {
-		…
-	}
+```js
+// Check to see if the employee is eligible for full benefits
+if ((employee.flags & HOURLY_FLAG) && (employee.age > 65)) {
+	…
+}
+```
 
 vs.:
 
-	if (employee.isEligibleForFullBenefits()) {
-		…
-	}
+```js
+if (employee.isEligibleForFullBenefits()) {
+	…
+}
+```
 
 > Much of the time, a comment can be improved by deleting it and encapsulating meaning in well-named functions or variables
 
@@ -505,13 +509,15 @@ Time spend vs quality / technical debt
 
 Organization complexity is predictor of bugs (more preople + more departments + higer turnover = worse code): [The Influence of Organizational Structure On Software Quality: An Empirical Case Study - Microsoft Research](https://www.microsoft.com/en-us/research/publication/the-influence-of-organizational-structure-on-software-quality-an-empirical-case-study/)
 
+- [The Wall of Technical Debt](https://verraes.net/2020/01/wall-of-technical-debt/)
+- [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
+
 ### Testing
 
 Domain-Driven Design : on étudie le problème en large et en travers avant de concevoir et avant de programmer
 
 - [unit testing](https://en.wikipedia.org/wiki/Unit_testing) (individual module testing) + [integration testing](https://en.wikipedia.org/wiki/Integration_testing) (test modules all together)
 - [Code smell](https://en.wikipedia.org/wiki/Code_smell)
-- [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
 - [Slow Is Fast](http://www.programmerfu.com/2017/04/20/fast-is-slow-slow-is-smooth-smooth-is-fast.html) - [Trolldi : pourquoi coder lentement c'est coder plus vite, mais aucun développeur ne peut le faire dans la réalité](https://www.developpez.com/actu/144428/Trolldi-pourquoi-coder-lentement-c-est-coder-plus-vite-mais-aucun-developpeur-ne-peut-le-faire-dans-la-realite/)
 
 ### Linting and static analyzing

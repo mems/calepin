@@ -373,8 +373,8 @@ See [RESTful](#restful) and [API](#api)
 
 **Run in controlled environments only!**. Useful for testing purposes or for application demonstrations
 
-- [20.19. SimpleHTTPServer — Simple HTTP request handler — Python 2.7.13 documentation](https://docs.python.org/2/library/simplehttpserver.html) - `python -m SimpleHTTPServer 8000`
-- [PHP: Built-in web server - Manual](http://php.net/manual/en/features.commandline.webserver.php) - `php -S localhost:8000`
+- [http.server — HTTP servers — Python 3 documentation](https://docs.python.org/3/library/http.server.html) `python -m http.server 8000 -d /path/to/wwwroot`
+- [PHP: Built-in web server - Manual](http://php.net/manual/en/features.commandline.webserver.php) - `php -S localhost:8000 -t /path/to/wwwroot`
 - [Netcat — Wikipedia](https://en.wikipedia.org/wiki/Netcat) - `while true; do nc -l 8000 < response.http; done`. Will serve an unique stream/page. To get the raw HTTP response, use `printf "GET / HTTP/1.1\nHost:example.com\nUser-Agent:Firefox\Connection: close\n\n" | nc example.com 80 > response.http` or write/edit it with text editor
 - [A simple HTTP/2 server for development](https://github.com/GoogleChrome/simplehttp2server) - Written in Go
 - [kzahel/web-server-chrome: An HTTP Web Server for Chrome (chrome.socket API)](https://github.com/kzahel/web-server-chrome)

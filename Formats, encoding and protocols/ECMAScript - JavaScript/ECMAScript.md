@@ -28,8 +28,10 @@ Aka JavaScript
 - http://www.2ality.com/2011/01/what-is-javascript-equivalent-of-java.html
 - http://www.2ality.com/2012/01/bytecode-myth.html
 
-## Parsers
+## Parser
 
+- [jsparagus/js-quirks.md at master · mozilla-spidermonkey/jsparagus](https://github.com/mozilla-spidermonkey/jsparagus/blob/master/js-quirks.md#readme) - Why JavaScript syntax is hard to parse
+- [parsing - Source](https://source.chromium.org/chromium/chromium/src/+/master:v8/src/parsing/) - V8
 - [UglifyJS](https://github.com/mishoo/UglifyJS)
 - [JSMin](http://www.crockford.com/javascript/jsmin.html)
 - [Google Closure Compiler](https://developers.google.com/closure/compiler/)
@@ -38,9 +40,11 @@ Aka JavaScript
 - [pvdz/tenko: An 100% spec compliant ES2020 JavaScript parser written in JS](https://github.com/pvdz/tenko)
 - [Esprima](http://esprima.org/) - ECMAScript parser written in ECMAScript. See https://github.com/jquery/esprima
 - [acornjs/acorn: A small, fast, JavaScript-based JavaScript parser](https://github.com/acornjs/acorn)
+- [engine262/engine262 at parser](https://github.com/engine262/engine262/tree/parser)
+- [webkit/Source/JavaScriptCore/parser at master · WebKit/webkit](https://github.com/WebKit/webkit/tree/master/Source/JavaScriptCore/parser)
 - [babel/packages/babel-parser at master · babel/babel](https://github.com/babel/babel/tree/master/packages/babel-parser) - Babel JS parser (previously Babylon), [@babel/parser · Babel](https://babeljs.io/docs/en/babel-parser)
 
-## Engines
+## Engine
 
 - V8
 	- Node.js
@@ -50,7 +54,7 @@ Aka JavaScript
 	- [nodejs/node-chakracore: Node.js on ChakraCore](https://github.com/nodejs/node-chakracore)
 	- Microsoft Edge 
 
-## Editors
+## Editor
 
 It's will help you to found errors before you try/compile your code.
 

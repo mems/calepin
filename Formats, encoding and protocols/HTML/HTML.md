@@ -7,3 +7,14 @@
 - [mathiasbynens/he: A robust HTML entity encoder/decoder written in JavaScript.](https://github.com/mathiasbynens/he) - HTML entities
 - [jsdom/jsdom: A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js](https://github.com/jsdom/jsdom)
 - [Optional HTML: Everything You Need to Know · Jens Oliver Meiert](https://meiert.com/en/blog/optional-html/)
+
+## Parser
+
+- [Idiosyncrasies of the HTML parser - The HTML Parser Book](https://htmlparser.info/)
+- Cloudflare Workers HTMLRewriter / LOL HTML
+    - [A History of HTML Parsing at Cloudflare: Part 1](https://blog.cloudflare.com/html-parsing-1/)
+    - [Low Output Latency (LOL)HTML parser/rewriter](https://blog.cloudflare.com/html-parsing-2/)
+    - [cloudflare/lol-html: Low output latency streaming HTML parser/rewriter with CSS selector-based API](https://github.com/cloudflare/lol-html)
+    - [cloudflare/lazyhtml: HTML5-compliant parser and serializer than enables building transformation pipeline in a pluggable manner](https://github.com/cloudflare/lazyhtml)
+- [servo/html5ever: High-performance browser-grade HTML5 parser](https://github.com/servo/html5ever)
+- [selectors - crates.io: Rust Package Registry](https://crates.io/crates/selectors)

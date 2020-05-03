@@ -228,10 +228,12 @@ body.noscroll {
 
 ### Aspect ratio
 
-	@media (min-aspect-ratio: 4/5) {
-		/* and (min-height: 250px) */
-		/* rules */
-	}
+```css
+@media (min-aspect-ratio: 4/5) {
+	/* and (min-height: 250px) */
+	/* rules */
+}
+```
 
 ### Screen/viewport size, responsiveness
 
@@ -246,50 +248,67 @@ Note: don't forget `<meta name="viewport" content="width=device-width, initial-s
 
 Use both `max-[width|height]` and `max-device-[width|height]`. Or `max-[width|height]` and `<meta name="viewport" content="width=device-width, initial-scale=1">` (but it has drawbacks)
 
-	@media (width >= 64em) and (height < 48em){}/* only large screen (like desktop) */
+```css
+/* CSS4 */
+@media (width >= 64em) and (height < 48em){}/* only large screen (like desktop) */
+```
 
-	@media (min-width: 64.01em) and (min-height: 48.01em){}/* only large screen (like desktop) */
-	@media (max-width: 64em), (max-height: 48em){}/* only small screens like tablets and smaller */
-	@media (max-width: 37.5em){}/* only very small screens like smartphones, here minor fixes of previous mediaquery */
+```css
+@media (min-width: 64.01em) and (min-height: 48.01em){}/* only large screen (like desktop) */
+@media (max-width: 64em), (max-height: 48em){}/* only small screens like tablets and smaller */
+@media (max-width: 37.5em){}/* only very small screens like smartphones, here minor fixes of previous mediaquery */
+```
 
-	/* Small screen (usally mobile) */
-	@media (max-width: 420px), (max-height: 420px){
-		/*...*/
+```css
+/* Small screen (usally mobile) */
+@media (max-width: 420px), (max-height: 420px){
+	/*...*/
+}
+/* Large screen (usally desktop and tablets) */
+@media (min-width: 421px) and (min-height: 421px){
+	/*...*/
+}
+```
+
+```css
+@media screen and (min-width: 320px) {} /* Mobile */
+@media screen and (min-width: 768px) {} /* Tablets */
+@media screen and (min-width: 1024px) {} /* Ipads */
+@media screen and (min-width: 1382px) {} /* Powerbooks */
+```
+
+```css
+@media (min-width: 1025px) and (min-height: 769px){}/* only large screen (like desktop) */
+@media (max-width: 1024px), (max-height: 768px){}/* only small screens like tablets and smaller */
+@media (max-width: 600px){}/* only very small screens like smartphones, here minor fixes of previous mediaquery */
+```
+
+```css
+/* Wide screens */
+@media (min-width: 640px), (min-height: 640px){
+	/*...*/
+	
+	/* Nested rules for orientation */
+	@media (orientation: portrait) {
+		/*small screens in portrait*/
 	}
-	/* Large screen (usally desktop and tablets) */
-	@media (min-width: 421px) and (min-height: 421px){
-		/*...*/
+	@media (orientation: landscape) {
+		/*small screens in landscape*/
 	}
-
-	@media screen and (min-width: 320px) {} /* Mobile */
-	@media screen and (min-width: 768px) {} /* Tablets */
-	@media screen and (min-width: 1024px) {} /* Ipads */
-	@media screen and (min-width: 1382px) {} /* Powerbooks */
-
-	@media (min-width: 1025px) and (min-height: 769px){}/* only large screen (like desktop) */
-	@media (max-width: 1024px), (max-height: 768px){}/* only small screens like tablets and smaller */
-	@media (max-width: 600px){}/* only very small screens like smartphones, here minor fixes of previous mediaquery */
-
-	/* Wide screens */
-	@media (min-width: 640px), (min-height: 640px){
-		/*...*/
-		
-		/* Nested rules for orientation */
-		@media (orientation: portrait) {
-			/*small screens in portrait*/
-		}
-		@media (orientation: landscape) {
-			/*small screens in landscape*/
-		}
-	}
+}
+```
 
 ### Fullscreen
 
-	:root:fullscreen{
-		/* ... */
-	}
+```css
+:root:fullscreen{
+	/* ... */
+}
+```
 
-	@media (device-width: 100vw) and (device-height: 100vh) {}/*deprecated by CSS Media Queries Level 4 https://www.w3.org/TR/mediaqueries-4/#mf-deprecated */
+```css
+@media (device-width: 100vw) and (device-height: 100vh) {}/*deprecated by CSS Media Queries Level 4 https://www.w3.org/TR/mediaqueries-4/#mf-deprecated */
+```
 
 - [:fullscreen - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen)
 
@@ -365,45 +384,40 @@ Can test `screen.orientation`
 
 Use autoprefixer
 
-## Bugs
-
-	transform: translateZ(0);
-
-	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-
 ## Supports rules
 
-	video{
-		height: 100%;
-		width: 100%;
-		
-		/* Workaround for object-fit: cover works only if video element has 16/9 ratio */
-		$ratio: 16 / 9;// ex.: 1920 / 1080
-		height: 100%;
-		width: 100vh * $ratio;
-		min-width: 100%;
-		min-height: 100vw / $ratio;
-		
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
+```css
+video{
+	height: 100%;
+	width: 100%;
 	
-	/* not IE and Edge */
-	@supports (object-fit: cover){
-		video {
-			/* restore values */
-			object-fit: cover;
-			width: 100%;
-			min-width: 0;
-			min-height: 0;
-			left: auto;
-			top: auto;
-			transform: none;
-		}
+	/* Workaround for object-fit: cover works only if video element has 16/9 ratio */
+	$ratio: 16 / 9;// ex.: 1920 / 1080
+	height: 100%;
+	width: 100vh * $ratio;
+	min-width: 100%;
+	min-height: 100vw / $ratio;
+	
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* not IE and Edge */
+@supports (object-fit: cover){
+	video {
+		/* restore values */
+		object-fit: cover;
+		width: 100%;
+		min-width: 0;
+		min-height: 0;
+		left: auto;
+		top: auto;
+		transform: none;
 	}
+}
+```
 
 See [Cover and contain of replaced element](#cover-and-contain-of-replaced-element)
 
@@ -411,18 +425,20 @@ See [Cover and contain of replaced element](#cover-and-contain-of-replaced-eleme
 
 For selectors supports, all rules with one unsupport selector are ignored (from CSS1):
 
-	supports:checked, /* only if pseudo class selector is supported, the next rules will be applied */
-	input[type="checkbox"] {
-		opacity: 0;
-	}
-	
-	input[type="checkbox"]:not(:checked) + label {
-		background: url(/unchecked-box.svg);
-	}
-	
-	input[type="checkbox"]:checked + label {
-		background: url(/checked-box.svg);
-	}
+```css
+supports:checked, /* only if pseudo class selector is supported, the next rules will be applied */
+input[type="checkbox"] {
+	opacity: 0;
+}
+
+input[type="checkbox"]:not(:checked) + label {
+	background: url(/unchecked-box.svg);
+}
+
+input[type="checkbox"]:checked + label {
+	background: url(/checked-box.svg);
+}
+```
 
 - [@supports for selectors by Taylor Hunt on CodePen](http://codepen.io/tigt/post/supports-for-selectors)
 
@@ -441,17 +457,21 @@ For selectors supports, all rules with one unsupport selector are ignored (from 
 
 Set overflow other to `auto` or `scroll`:
 
-	element{
-		overflow: auto;/*suppress "Collapsing margins"*/
-	}
+```css
+element{
+	overflow: auto;/*suppress "Collapsing margins"*/
+}
+```
 
 or:
 
-	element::before,
-	element::after{
-		content: "";
-		display: table;/* used as separator */
-	}
+```css
+element::before,
+element::after{
+	content: "";
+	display: table;/* used as separator */
+}
+```
 
 - [Revisiting Margin Collapse - Pine](https://pineco.de/revisiting-margin-collapse/)
 - [Collapsing Margins - SitePoint](http://www.sitepoint.com/web-foundations/collapsing-margins/)
@@ -466,11 +486,13 @@ Or use `display: flow-root`
 
 ...but with a pseudo element.
 
-	element-with-floats::after {
-		content: "";
-		display: block;
-		clear: both;
-	}
+```css
+element-with-floats::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+```
 
 Or use `display: table;` to stop margin collapsing.
 
@@ -496,18 +518,19 @@ Use CSS grid
 - [CSS masonry with flexbox, :nth-child(), and order | Tobias Ahlin](https://tobiasahlin.com/blog/masonry-with-css/)
 - (JS) https://github.com/desandro/masonry
 - (JS), 2 cols:
-
-		for(let index = 0, stack1 = 0, stack2 = 0, num = elements.length; index < num; index++){
-			let element = elements[index];
-			let height = element.offsetHeight;
-			if(stack1 <= stack2){
-				stack1 += height;
-				list1.appendChild(element);
-			}else{
-				stack2 += height;
-				list2.appendChild(element);
-			}
+    ```js
+	for(let index = 0, stack1 = 0, stack2 = 0, num = elements.length; index < num; index++){
+		let element = elements[index];
+		let height = element.offsetHeight;
+		if(stack1 <= stack2){
+			stack1 += height;
+			list1.appendChild(element);
+		}else{
+			stack2 += height;
+			list2.appendChild(element);
 		}
+	}
+    ```
 
 ### Fixed elements
 
@@ -533,34 +556,35 @@ The grid doesn't auto size, use display flexbox or table instead
 
 See [Flexbox](#flexbox)
 
-	@supports (display: grid){
-		.container{
-			display: grid;
-			grid-gap: 20px;
-			grid-template:
-				"header header  header  header" 50px
-				"aside  image   image   image" auto
-				"aside  text    text    text" 400px
-				"footer footer  footer  footer" 80px /
-				10%     30%     30%     30%
-		}
-		header{
-			grid-area: header;
-		}
-		img{
-			grid-area: image;
-		}
-		p{
-			grid-area: text;
-		}
-		aside{
-			grid-area: aside;
-		}
-		footer{
-			grid-area: footer;
-		}
-	
+```css
+@supports (display: grid){
+	.container{
+		display: grid;
+		grid-gap: 20px;
+		grid-template:
+			"header header  header  header" 50px
+			"aside  image   image   image" auto
+			"aside  text    text    text" 400px
+			"footer footer  footer  footer" 80px /
+			10%     30%     30%     30%
 	}
+	header{
+		grid-area: header;
+	}
+	img{
+		grid-area: image;
+	}
+	p{
+		grid-area: text;
+	}
+	aside{
+		grid-area: aside;
+	}
+	footer{
+		grid-area: footer;
+	}
+}
+```
 
 - [CSS Grid Layout - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
 - [ptcrt/learn-grid: Curated list of the best resources available to learn CSS Grid Layout 🌐](https://github.com/ptcrt/learn-grid)
@@ -665,7 +689,7 @@ See [Alignment](#alignment)
 > You can emulate the missing padding by spacing the flex items via margin-right and adding a very narrow ::after flex item to the container.
 > [...]
 
-```
+```html
 <style>
 	/* flex container */
 	ul {
@@ -737,19 +761,23 @@ See [Alignment](#alignment)
 
 **Don't**, see [HTML#tabindex]
 
-	<div style="display: flex;">
-		<button style="order: 3;" tabindex="3">1</button>
-		<button style="order: 2;" tabindex="2">2</button>
-		<button style="order: 1;" tabindex="1">3</button>
-	</div>
+```html
+<div style="display: flex;">
+	<button style="order: 3;" tabindex="3">1</button>
+	<button style="order: 2;" tabindex="2">2</button>
+	<button style="order: 1;" tabindex="1">3</button>
+</div>
+```
 
 Use instead:
 
-	<div style="display: flex;">
-		<button id="b1" aria-flowto="b3" style="order: 3;">1</button>
-		<button id="b2" aria-flowto="b1" style="order: 2;">2</button>
-		<button id="b3" aria-flowto="b2" style="order: 1;">3</button>
-	</div>
+```html
+<div style="display: flex;">
+	<button id="b1" aria-flowto="b3" style="order: 3;">1</button>
+	<button id="b2" aria-flowto="b1" style="order: 2;">2</button>
+	<button id="b3" aria-flowto="b2" style="order: 1;">3</button>
+</div>
+```
 
 - http://ljwatson.github.io/decks/2016/cssday/index.html#31
 
@@ -757,20 +785,22 @@ Use instead:
 
 Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 
-	.container {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	/*will grow only if item-b below */
-	.item-a {
-		flex-grow: 1;
-	}
-	.item-b {
-		flex-grow: 9999;
-		flex-basis: 20em;
-	}
- 
+```css
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+/*will grow only if item-b below */
+.item-a {
+	flex-grow: 1;
+}
+.item-b {
+	flex-grow: 9999;
+	flex-basis: 20em;
+}
+```
+
 - [`flex-grow` is weird. Or is it? | CSS-Tricks](https://css-tricks.com/flex-grow-is-weird/)
 
 ### Table
@@ -819,13 +849,15 @@ See [Align text](SVG#align-text)
 
 #### Horizontal align based on number of lines
 
-	figure {
-		text-align: center; /* Set text align to center */
-	}
-	figcaption {
-		display: inline-block; /* Set this element to inline-block */
-		text-align: left; /* Set text align to left */
-	}
+```css
+figure {
+	text-align: center; /* Set text align to center */
+}
+figcaption {
+	display: inline-block; /* Set this element to inline-block */
+	text-align: left; /* Set text align to left */
+}
+```
 
 - [Aligning text smartly in CSS](http://nocode.in/aligning-text-smartly-in-css/)
 
@@ -839,25 +871,30 @@ Don't use `line-height: 0; display: inline-block;` because overriding `line-heig
 
 ##### Centering with grid
 
-	parent {
-		display: grid;
-		height: 400px;/* some height */
-		place-items: center center;
-	}
+```css
+parent {
+	display: grid;
+	height: 400px;/* some height */
+	place-items: center center;
+}
+```
 
 ##### Centering with flexbox
 
+```css
+.parent { display: flex; }
+.child { margin: auto; }
+```
 
-	.parent { display: flex; }
-	.child { margin: auto; }
+or
 
-or 
-
-	.parent {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+```css
+.parent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+```
 
 Note: .child can be a text node (not an element)
 
@@ -867,15 +904,19 @@ Can be done with display table too.
 
 ##### Centering with table layout
 
-	.parent {diplay: table; width: 100%;}
-	.parent-content {display: table-cell; vertical-align: center;}
-	.child {margin: 0 auto;}
+```css
+.parent {diplay: table; width: 100%;}
+.parent-content {display: table-cell; vertical-align: center;}
+.child {margin: 0 auto;}
+```
 
 ##### Centering with pseudo element
 
-	.parent {text-align: center;}
-	.parent::before { content: ""; display: block; height: 100%; vertical-align: middle;}
-	.child {display: inline-block; vertical-align: middle; text-align: left;/*restore*/}
+```css
+.parent {text-align: center;}
+.parent::before { content: ""; display: block; height: 100%; vertical-align: middle;}
+.child {display: inline-block; vertical-align: middle; text-align: left;/*restore*/}
+```
 
 The pseudo element can also use `inline-table` (`inline-block` doesn't work well in Firefox)
 
@@ -918,24 +959,26 @@ Sass:
 
 Use the padding (see [Vertical percentages](#vertical-percentages)) to autoscale iframes:
 
-	<style>
-		.iframe-container{
-			height: 0;
-			width: @width-value;
-			padding-top: @width-value / (@svg-width / @svg-height);
-			position: relative;
-		}
-		.iframe{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-	</style>
-	<div class="iframe-container">
-		<iframe class="iframe" ...
-	</div>
+```html
+<style>
+	.iframe-container{
+		height: 0;
+		width: @width-value;
+		padding-top: @width-value / (@svg-width / @svg-height);
+		position: relative;
+	}
+	.iframe{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+<div class="iframe-container">
+	<iframe class="iframe" ...
+</div>
+```
 
 Can be required for IE for inline SVG too.
 
@@ -958,32 +1001,37 @@ Use `object-fit` property
 
 Fallback with CSS:
 
-	.parent-element-to-video {
-		overflow: hidden;
-		position: relative; /* or absolute or fixed */
-	}
+```css
+.parent-element-to-video {
+	overflow: hidden;
+	position: relative; /* or absolute or fixed */
+}
+
+video {
+	/* Workaround for object-fit: cover works only if video element has 16/9 ratio */
+	/* cropping: */
+	$ratio: 16 / 9;// ex.: 1920 / 1080
+	height: 100%;
+	width: 100vh * $ratio;
+	min-width: 100%;
+	min-height: 100vw / $ratio;
 	
-	video {
-		/* Workaround for object-fit: cover works only if video element has 16/9 ratio */
-		/* cropping: */
-		$ratio: 16 / 9;// ex.: 1920 / 1080
-		height: 100%;
-		width: 100vh * $ratio;
-		min-width: 100%;
-		min-height: 100vw / $ratio;
-		
-		/* centering: */
-		position: absolute;
-		left: 50%;
-		top: 50%;/*
-		transform: translate(-50%, -50%);
-	}
+	/* centering: */
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+```
 
 Fabllback with SVG (works only for images):
 
-	<svg viewBox="0 0 1 1" width="100" height="100">
-		<image xlink:href="path/to/image.jpg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/>
-	</svg>
+
+```html
+<svg viewBox="0 0 1 1" width="100" height="100">
+	<image xlink:href="path/to/image.jpg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/>
+</svg>
+```
 
 See also [Vertical percentages](#vertical-percentages)
 
@@ -996,7 +1044,9 @@ See also [Vertical percentages](#vertical-percentages)
 
 Offset an element vertically bt its width:
 
-	transform: rotate(90deg) translateX(100%) rotate(-90deg);
+```css
+transform: rotate(90deg) translateX(100%) rotate(-90deg);
+```
 
 Is the same as use `transform-origin: bottom center;`
 
@@ -1021,32 +1071,41 @@ Aka banner, hero, bust-outs, takeover, full bleed
 
 With CSS grid:
 
-→ See links
+- [Use CSS Subgrid to layout full-width content stripes in an article template - bryanlrobinson.com](https://bryanlrobinson.com/blog/use-css-subgrid-laying-out-full-width-article-stripes/)
+- [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
 
 With `*:not()` selector:
 
-	post > *:not( img ):not( video ) {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 50rem;
-		padding-left: 5%;
-		padding-right: 5%;
-	
+```css
+post > *:not( img ):not( video ) {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 50rem;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+```
 
 Use viewport units:
 
-	.bust-out { margin: auto calc(50% - 50vw) }
+```css
+.bust-out { margin: auto calc(50% - 50vw) }
+```
 
-	.bust-out-with-margins {
-		margin-left: calc(50vw - 50% + [LEFT MARGIN HERE]);
-		margin-right: calc(50vw - 50% + [RIGHT MARGIN HERE]);
-	}
+```css
+.bust-out-with-margins {
+	margin-left: calc(50vw - 50% + [LEFT MARGIN HERE]);
+	margin-right: calc(50vw - 50% + [RIGHT MARGIN HERE]);
+}
+```
 
-	.bust-out-with-max-width {
-		margin: calc(50vw - 50%);
-		max-width: 800px;
-		transform: translateX(calc(50% - 50vw));
-	}
+```css
+.bust-out-with-max-width {
+	margin: calc(50vw - 50%);
+	max-width: 800px;
+	transform: translateX(calc(50% - 50vw));
+}
+```
 
 Note: Using 100vw will display horizontal scrollbar if the document height is higher than the viewport
 
@@ -1135,7 +1194,6 @@ Use a pseudo element. Fix issue if content larger than viewport
 </div>
 ```
 
-- [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
 - [Hassle-free Full Bleed with *:not() - daverupert.com](http://daverupert.com/2017/03/full-bleed-with-not/)
 - [Bust elements out of their containers with one line of CSS by Taylor Hunt on CodePen](https://codepen.io/tigt/post/bust-elements-out-of-containers-with-one-line-of-css)
 - [Full Width Containers in Limited Width Parents | CSS-Tricks](https://css-tricks.com/full-width-containers-limited-width-parents/)
@@ -1985,8 +2043,8 @@ Use `visibility: hidden; position: fixed;` instead of `display: none`. Else docu
 
 ## Image
 
-See [Performance impact of images](HTML#performance-impact-of-images)
-See [Content vs. decorative image](HTML#content-vs-decorative-image)
+See [Performance impact of images](../HTML/HTML.md#performance-impact-of-images)
+See [Content vs. decorative image](../HTML/HTML.md#content-vs-decorative-image)
 
 ### Broken image
 
@@ -2721,10 +2779,12 @@ Never use placeholder as a label! [Remi Grumeau on Twitter: http://t.co/OJ9yUo3d
 
 Aka `<select>`
 
-	/* IE hide select arrow IE10+ */
-	select::-ms-expand{
-		display: none;
-	}
+```css
+/* IE hide select arrow IE10+ */
+select::-ms-expand{
+	display: none;
+}
+```
 
 - [The Current State of Styling Selects in 2019 | CSS-Tricks](https://css-tricks.com/the-current-state-of-styling-selects-in-2019/)
 - [Select styles with CSS only](https://github.com/filamentgroup/select-css)
@@ -2755,8 +2815,10 @@ Actually require JS:
 
 ### Resizable textareas
 
-	resize: vertical;
-	resize: none;
+```
+resize: vertical;
+resize: none;
+```
 
 ### File input
 
@@ -2810,32 +2872,38 @@ See [relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
 Use:
 
-	will-change: opacity, transform;
+```
+will-change: opacity, transform;
+```
 
 Previously this was used:
 
-	transform: translateZ(0);
+```css
+transform: translateZ(0);
+```
 
 - [CSS Will Change Module Level 1](https://drafts.csswg.org/css-will-change/#using)
 
 ### Animate pseudo element instead of box-shadow
 
-	/* The fast way */
-	element {
-	  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-	}
-	
-	/* Pre-render the bigger shadow, but hide it */
-	element::after {
-	  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-	  opacity: 0;
-	  transition: opacity 0.3s ease-in-out:
-	}
-	
-	/* Transition to showing the bigger shadow on hover */
-	element:hover::after {
-	  opacity: 1;
-	}
+```css
+/* The fast way */
+element {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* Pre-render the bigger shadow, but hide it */
+element::after {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out:
+}
+
+/* Transition to showing the bigger shadow on hover */
+element:hover::after {
+  opacity: 1;
+}
+```
 
 - [How to animate "box-shadow" with silky smooth performance | Tobias Ahlin](http://tobiasahlin.com/blog/how-to-animate-box-shadow/)
 - http://www.sassmeister.com/gist/c0b2a8d6945a88c76bd9459a0cf1752e
@@ -2865,29 +2933,33 @@ Chrome display focus ring when button are clicked not only tabbed
 
 **Don't**:
 
-	:focus {
-		/* Webkit + IE */
-		outline: 0;
-		/* and set a custom one */
-		box-shadow: 0 0 0 3px red;
-	}
-	/* Firefox */
-	::-moz-focus-inner {border:0;}
+```css
+:focus {
+	/* Webkit + IE */
+	outline: 0;
+	/* and set a custom one */
+	box-shadow: 0 0 0 3px red;
+}
+/* Firefox */
+::-moz-focus-inner {border:0;}
+```
 
 **Use JS instead**:
 
-	// based on https://github.com/lindsayevans/outline.js and http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/
-	(function(document){
-		var element = document.createElement("style");
-		element.textContent = ":focus{outline:0}::-moz-focus-inner{border:0;}";
-		document.head.appendChild(element);
-		
-		function handleEvent(event){
-			element.disabled = event.type == "keydown";
-		}
-		document.addEventListener("mousedown", handleEvent);
-		document.addEventListener("keydown", handleEvent);
-	})(document);
+```js
+// based on https://github.com/lindsayevans/outline.js and http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/
+(function(document){
+	var element = document.createElement("style");
+	element.textContent = ":focus{outline:0}::-moz-focus-inner{border:0;}";
+	document.head.appendChild(element);
+	
+	function handleEvent(event){
+		element.disabled = event.type == "keydown";
+	}
+	document.addEventListener("mousedown", handleEvent);
+	document.addEventListener("keydown", handleEvent);
+})(document);
+```
 
 - [CSS outline property - outline: none and outline: 0](http://www.outlinenone.com/)
 - [how to remove CSS outlines in an accessible manner? | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/)
@@ -2899,7 +2971,9 @@ Chrome display focus ring when button are clicked not only tabbed
 
 ### `border-radius`
 
-	border-radius: 9999px;/*border will not overlap and will make an half circle*/
+```css
+border-radius: 9999px;/*border will not overlap and will make an half circle*/
+```
 
 - How border radius: [Boxed Into Corners: Shapes, Boxes, and Corner Radii](http://hansmuller-webkit.blogspot.fr/2014/01/boxed-into-corners-shapes-boxes-and.html)
 - Border curves overlap: [css - Border-radius in percentage (%) and pixels (px) - Stack Overflow](https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px/29966500#29966500) and [CSS Backgrounds and Borders Module Level 3](https://www.w3.org/TR/css3-border/#corner-overlap)
@@ -2916,11 +2990,13 @@ Add `1px solid transparent`
 
 Outline is squared even with `border-radius`. Use `box-shadow` to bypass that.
 
-	element {
-		box-shadow: 20px 20px 0px 20px blue,
-					-20px -20px 0px 20px red,
-					0px 0px 0px 40px gray;
-	}
+```css
+element {
+	box-shadow: 20px 20px 0px 20px blue,
+				-20px -20px 0px 20px red,
+				0px 0px 0px 40px gray;
+}
+```
 
 - https://bitsofco.de/the-box-shadow-property/
 - [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/dikita/edit?html,css,output)
@@ -2964,18 +3040,20 @@ Possible solutions:
  
 Empty arrow:
 
-	element::after {
-		content: "";
-		position: absolute;
-		right: 26px;
-		top: 50%;
-		width: 8px;
-		height: 8px;
-		margin: -4px;
-		border-bottom: solid 1px black;
-		border-right: solid 1px black;
-		transform: rotate(-45deg);
-	}
+```css
+element::after {
+	content: "";
+	position: absolute;
+	right: 26px;
+	top: 50%;
+	width: 8px;
+	height: 8px;
+	margin: -4px;
+	border-bottom: solid 1px black;
+	border-right: solid 1px black;
+	transform: rotate(-45deg);
+}
+```
 
 - [cssarrowplease](http://cssarrowplease.com/)
 - [CSS tutorial - Using borders to produce angled shapes](http://www.howtocreate.co.uk/tutorials/css/slopes)
@@ -2997,25 +3075,27 @@ Smartphone screenshot
 
 With ![](iphone6-shadow.png) and ![](iphone6.png)
 
-	img{
-		width: 230px;
-		height: 410px;
-		position: absolute;
-		border: solid transparent;
-		$border-top: (204px / 2);
-		$border-left-right: (100px / 2);
-		$border-bottom: (192px / 2);
-		$iphone-x: (-32px / 2);
-		$iphone-y: (-138px / 2);
-		$iphone-width: (524px / 2);
-		$iphone-height: (1084px / 2);
-		$shadow-x: (-66px / 2);
-		$shadow-y: (-172px / 2);
-		$shadow-width: (148px * 2);
-		$shadow-height: (288px * 2);
-		border-width: $border-top $border-left-right $border-bottom;
-		background: url("iphone6.png") $iphone-x $iphone-y / #{$iphone-width $iphone-height} no-repeat, url("iphone6-shadow.png") $shadow-x $shadow-y / #{$shadow-width $shadow-height} no-repeat;
-	}
+```sass
+img{
+	width: 230px;
+	height: 410px;
+	position: absolute;
+	border: solid transparent;
+	$border-top: (204px / 2);
+	$border-left-right: (100px / 2);
+	$border-bottom: (192px / 2);
+	$iphone-x: (-32px / 2);
+	$iphone-y: (-138px / 2);
+	$iphone-width: (524px / 2);
+	$iphone-height: (1084px / 2);
+	$shadow-x: (-66px / 2);
+	$shadow-y: (-172px / 2);
+	$shadow-width: (148px * 2);
+	$shadow-height: (288px * 2);
+	border-width: $border-top $border-left-right $border-bottom;
+	background: url("iphone6.png") $iphone-x $iphone-y / #{$iphone-width $iphone-height} no-repeat, url("iphone6-shadow.png") $shadow-x $shadow-y / #{$shadow-width $shadow-height} no-repeat;
+}
+```
 
 ### Rounded corner hexagon
 
@@ -3029,51 +3109,53 @@ Can't scale to 100% of it container, use SVG instead
 
 See [Sloppy border](#sloppy-border)
 
-	element{
-		overflow: hidden;
-		position: relative;
-		/*display: block;*/
-		
-		$height: 200px;
-		$rotate: 3deg;
-		&::before,
-		&::after{
-			content: "";
-			display: block;
-			pointer-events: none;
-			left: 0;
-			right: 0;
-			position: absolute;
-			z-index: 1;
-			background: $color;
-			height: $height;
-		}
-		&::before{
-			top: 0;
-			transform: translateY(-$height) skewY(-$rotate);// use margin-top: -$height; to simplify transform, you want animate skewY()
-			transform-origin: right bottom;
-		}
-		&::after{
-			bottom: 0;
-			transform: translateY($height) skewY($rotate);// use margin-bottom: $height; to simplify transform, you want animate skewY()
-			transform-origin: right top;
-		}
+```sass
+element{
+	overflow: hidden;
+	position: relative;
+	/*display: block;*/
+	
+	$height: 200px;
+	$rotate: 3deg;
+	&::before,
+	&::after{
+		content: "";
+		display: block;
+		pointer-events: none;
+		left: 0;
+		right: 0;
+		position: absolute;
+		z-index: 1;
+		background: $color;
+		height: $height;
 	}
+	&::before{
+		top: 0;
+		transform: translateY(-$height) skewY(-$rotate);// use margin-top: -$height; to simplify transform, you want animate skewY()
+		transform-origin: right bottom;
+	}
+	&::after{
+		bottom: 0;
+		transform: translateY($height) skewY($rotate);// use margin-bottom: $height; to simplify transform, you want animate skewY()
+		transform-origin: right top;
+	}
+}
 
-	border-style: solid;
-	border-width: 20px 40px 0 0;
-	border-color: red transparent transparent transparent;
+border-style: solid;
+border-width: 20px 40px 0 0;
+border-color: red transparent transparent transparent;
 
-	border-top: 20px solid red;
-	border-right: 40px solid transparent;
+border-top: 20px solid red;
+border-right: 40px solid transparent;
 
-	height: 40px;
-	width: 20px;
-	/*
-	Not work with Firefox:
-	background: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Cpolygon points='0,0 1,0 0,1' fill='%23ffffff'/%3E%3C/svg%3E");
-	*/
-	background: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Csvg viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Cpolygon width='100%25' height='100%25' points='0,0 1,0 0,1' fill='grey'/%3E%3C/svg%3E%3C/svg%3E");
+height: 40px;
+width: 20px;
+/*
+Not work with Firefox:
+background: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Cpolygon points='0,0 1,0 0,1' fill='%23ffffff'/%3E%3C/svg%3E");
+*/
+background: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Csvg viewBox='0 0 1 1' preserveAspectRatio='none'%3E%3Cpolygon width='100%25' height='100%25' points='0,0 1,0 0,1' fill='grey'/%3E%3C/svg%3E%3C/svg%3E");
+```
 
 - [Code a Simple Folded Corner Effect With CSS | Design Shack](https://designshack.net/articles/css/code-a-simple-folded-corner-effect-with-css/)
 
@@ -3083,7 +3165,9 @@ Aka clip
 
 and `clip-path`
 
-	mask: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);/*not work in FF38 nor IE11*/
+```css
+mask: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);/*not work in FF38 nor IE11*/
+```
 
 - [Using Masks](https://developer.apple.com/library/safari/documentation/InternetWeb/Conceptual/SafariVisualEffectsProgGuide/Masks/Masks.html)
 - [Clipping and Masking in CSS | CSS-Tricks](https://css-tricks.com/clipping-masking-css/)
@@ -3105,71 +3189,81 @@ Or use SVG with CSS animation or JS, canvas, etc.
 
 Polygon (`clip-path`) with 4 points with stagger animation (see `delay`):
 
-	let from = [
-		{x: 0, y: 0.25},//tl
-		{x: 0, y: 0.5},//tr
-		{x: 0, y: 0.5},//br
-		{x: 0, y: 0.75},//bl
-	];
+```js
+let from = [
+	{x: 0, y: 0.25},//tl
+	{x: 0, y: 0.5},//tr
+	{x: 0, y: 0.5},//br
+	{x: 0, y: 0.75},//bl
+];
+
+let to = [
+	{x: 0, y: 0},//tl
+	{x: 1, y: 0},//tr
+	{x: 1, y: 1},//br
+	{x: 0, y: 1},//bl
+];
+
+let duration = 0.5;
+let delay = 0.1;
+let staggerDuration = duration + (from.length - 1) * delay;
+let easing = k => ( k *= 2 ) < 1 ? 0.5 * k * k * k * k : - 0.5 * ( ( k -= 2 ) * k * k * k - 2 );// power 3
+let numKeyframes = 11;// for duration
+let keyframeDuration = staggerDuration / numKeyframes;
+
+let keyframes = new Array(numKeyframes);
+
+// Each keyframes
+for(let keyframeIndex = 0; keyframeIndex < keyframes.length; keyframeIndex++){
+	let time = keyframeIndex * keyframeDuration;
+	let values = keyframes[keyframeIndex] = new Array(from.length);
+
+	// Each points
+	for(let pointIndex = 0; pointIndex < values.length; pointIndex++){
+		let localTime = time - pointIndex * delay;
+		localTime = Math.min(Math.max(localTime, 0), duration);
+		let progress = easing(localTime / duration);
 	
-	let to = [
-		{x: 0, y: 0},//tl
-		{x: 1, y: 0},//tr
-		{x: 1, y: 1},//br
-		{x: 0, y: 1},//bl
-	];
-	
-	let duration = 0.5;
-	let delay = 0.1;
-	let staggerDuration = duration + (from.length - 1) * delay;
-	let easing = k => ( k *= 2 ) < 1 ? 0.5 * k * k * k * k : - 0.5 * ( ( k -= 2 ) * k * k * k - 2 );// power 3
-	let numKeyframes = 11;// for duration
-	let keyframeDuration = staggerDuration / numKeyframes;
-	
-	let keyframes = new Array(numKeyframes);
-	
-	// Each keyframes
-	for(let keyframeIndex = 0; keyframeIndex < keyframes.length; keyframeIndex++){
-		let time = keyframeIndex * keyframeDuration;
-		let values = keyframes[keyframeIndex] = new Array(from.length);
-	
-		// Each points
-		for(let pointIndex = 0; pointIndex < values.length; pointIndex++){
-			let localTime = time - pointIndex * delay;
-			localTime = Math.min(Math.max(localTime, 0), duration);
-			let progress = easing(localTime / duration);
-		
-			let pointFrom = from[pointIndex];
-			let pointTo = to[pointIndex];
-			values[pointIndex] = {
-				x: pointFrom.x + (pointTo.x - pointFrom.x) * progress,
-				y: pointFrom.y + (pointTo.y - pointFrom.y) * progress
-			};
-		}
+		let pointFrom = from[pointIndex];
+		let pointTo = to[pointIndex];
+		values[pointIndex] = {
+			x: pointFrom.x + (pointTo.x - pointFrom.x) * progress,
+			y: pointFrom.y + (pointTo.y - pointFrom.y) * progress
+		};
 	}
-	
-	let css = keyframes.reduce(
-		(result, value, index) => {
-			let points = value.map(value => `${(value.x * 100).toFixed(3)}% ${(value.y * 100).toFixed(3)}%`).join(",");
-			result += `${index * 100 / (numKeyframes - 1)}%{-webkit-clip-path: polygon(${points}); clip-path: polygon(${points})}`;
-			return result;
-		},
-		""
-	);
-	console.log(css);
+}
+
+let css = keyframes.reduce(
+	(result, value, index) => {
+		let points = value.map(value => `${(value.x * 100).toFixed(3)}% ${(value.y * 100).toFixed(3)}%`).join(",");
+		result += `${index * 100 / (numKeyframes - 1)}%{-webkit-clip-path: polygon(${points}); clip-path: polygon(${points})}`;
+		return result;
+	},
+	""
+);
+console.log(css);
+```
 
 - [Glue Cross-Browser Responsive Irregular Images with Sticky Tape | CSS-Tricks](https://css-tricks.com/glue-cross-browser-responsive-irregular-images-sticky-tape/)
 - [Clippy — CSS clip-path maker](http://bennettfeely.com/clippy/)
 
 ## Rule equivalence
 
-	width: 100%;
-	max-width: 600px;
+```css
+element {
+    width: 100%;
+    max-width: 600px;
+}
+```
 
 is the same as
 
-	width: 600px;
-	max-width: 100%;
+```css
+element {
+    width: 600px;
+    max-width: 100%;
+}
+```
 
 ## Counter
 
@@ -3181,29 +3275,33 @@ CSS counter
 
 ## Hide video controls on iOS
 
-	/*hide controls on iOS*/
-	::-webkit-media-controls{
-		display: none !important;
-	}
+```css
+/*hide controls on iOS*/
+::-webkit-media-controls{
+	display: none !important;
+}
+```
 
 or more specific
 
-	/* play button */
-	::-webkit-media-controls-start-playback-button{
-		display: none !important;
-	}
-	
-	/* text track */
-	::-webkit-media-text-track-container
-	::-webkit-media-text-track-background
-	::-webkit-media-text-track-display
-	
-	/* see more selectors:
-	- https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css
-	- [Programming Tricks: Styling HTML Media Inner Workings](http://advprog.blogspot.fr/2013/07/styling-html-media-inner-workings.html)
-	*/
-	
-	::cue
+```css
+/* play button */
+::-webkit-media-controls-start-playback-button{
+	display: none !important;
+}
+
+/* text track */
+::-webkit-media-text-track-container
+::-webkit-media-text-track-background
+::-webkit-media-text-track-display
+
+/* see more selectors:
+- https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css
+- [Programming Tricks: Styling HTML Media Inner Workings](http://advprog.blogspot.fr/2013/07/styling-html-media-inner-workings.html)
+*/
+
+::cue{}
+```
 
 - [Adding captions and subtitles to HTML5 video - App Center | MDN](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)
 - [865395 – Implement the ::cue pseudo-element](https://bugzilla.mozilla.org/show_bug.cgi?id=865395)
@@ -3232,7 +3330,11 @@ blockquote::after {
 
 ## Gradient
 
-	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+```css
+element {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+}
+```
 
 - [CSS linear-gradient helper](http://codepen.io/captainbrosset/pen/ByqRMB) and [captainbrosset/linear-gradient: A visualization tool for CSS linear-gradients](https://github.com/captainbrosset/linear-gradient)
 - [Do you really understand CSS linear-gradients? – Medium](https://medium.com/@patrickbrosset/do-you-really-understand-css-linear-gradients-631d9a895caf)
@@ -3240,8 +3342,12 @@ blockquote::after {
 
 (inline) SVG can be used as fallback:
 
+```css
+element {
 	background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%20preserveAspectRatio='none'%3E%3ClinearGradient%20id='g'%20x1='0%25'%20y1='0%25'%20x2='0%25'%20y2='100%25'%3E%3Cstop%20offset='0%25'%20stop-color='rgba(0,0,0,0)'/%3E%3Cstop%20offset='100%25'%20stop-color='rgba(0,0,0,0.4)'/%3E%3C/linearGradient%3E%3Crect%20fill='url(%23g)'%20width='1'%20height='1'/%3E%3C/svg%3E");/* IE9 SVG */
 	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+}
+```
 
 Gradient border (use SVG):
 
@@ -3253,30 +3359,38 @@ See [SVG/Gradient](SVG#gradient)
 
 Conditions:
 
-	--big: 1;/* or 0 */
-	prop: calc(25px * var(--big));/* when is big */
-	prop: calc(25px * (1 - var(--big)));/* when is not big */
+```css
+element {
+    --big: 1;/* or 0 */
+    prop: calc(25px * var(--big));/* when is big */
+    prop: calc(25px * (1 - var(--big)));/* when is not big */
+}
+```
 
-	/*
-	Possible conditions, but all can't be with CSS calc()
-	eq: 1 - abs(sign(a - b))
-	neq: abs(sign(a - b))
-	gt: max(sign(a - b), 0)
-	lt: max(sign(b - a), 0)
-	ge: 1 - lt(a, b)
-	le: 1 - gt(a, b)
-	and: a * b
-	or: min(a + b, 1)
-	xor (a + b) % 2
-	not: 1 - a
-	*/
+```css
+/*
+Possible conditions, but all can't be with CSS calc()
+eq: 1 - abs(sign(a - b))
+neq: abs(sign(a - b))
+gt: max(sign(a - b), 0)
+lt: max(sign(b - a), 0)
+ge: 1 - lt(a, b)
+le: 1 - gt(a, b)
+and: a * b
+or: min(a + b, 1)
+xor (a + b) % 2
+not: 1 - a
+*/
+```
 
-	@supports (color: var(--)) { ... }
-	/*
-	Notes:
-	- Can use any property (i.e. not color)
-	- Don't have to include an actual variable name, var(--) works
-	*/
+```css
+@supports (color: var(--)) { ... }
+/*
+Notes:
+- Can use any property (i.e. not color)
+- Don't have to include an actual variable name, var(--) works
+*/
+```
 
 Note: be carefull with the length of `calc()`:
 
@@ -3433,64 +3547,70 @@ a code {
 May be necessary:
 
 ```css
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
+element {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 ```
 
 - appearance dropped from CSS3: [css4-ui features list [CSS Working Group Wiki]](https://wiki.csswg.org/spec/css4-ui#dropped-css3-features)
 
 To reset as a interactive element, `cursor: pointer` could be required (**but you shouldn't**: [Buttons shouldn't have a hand cursor](UI - UX#buttons-shouldnt-have-a-hand-cursor)).
- 
-	/* Fieldset */
-	legend {
-		padding: 0;
-		display: table;
-	}
-	fieldset {
-		border: 0;
-		padding: 0.01em 0 0 0;
-		margin: 0;
-		min-width: 0;
-	}
-	body:not(:-moz-handler-blocked) fieldset {
-		display: table-cell;
-	}
+
+```css
+/* Fieldset */
+legend {
+	padding: 0;
+	display: table;
+}
+fieldset {
+	border: 0;
+	padding: 0.01em 0 0 0;
+	margin: 0;
+	min-width: 0;
+}
+body:not(:-moz-handler-blocked) fieldset {
+	display: table-cell;
+}
+```
 
 - http://thatemil.com/blog/2015/01/03/reset-your-fieldset/
 - [Stop Using Resets: Visual Examples of the Practical Nonsense of Resets and Normalizers · Jens Oliver Meiert](https://meiert.com/en/blog/stop-using-resets/)
 
 CSS for `<sub>` and `<sup>`:
 
-	sub,
-	sup {
-		/* Specified in % so that the sup/sup is the
-		right size relative to the surrounding text */
-		font-size: 75%;
-	
-		/* Zero out the line-height so that it doesn't
-		interfere with the positioning that follows */
-		line-height: 0;
-	
-		/* Where the magic happens: makes all browsers position
-		the sup/sup properly, relative to the surrounding text */
-		position: relative;
-	
-		/* Note that if you're using Eric Meyer's reset.css, this
-		is already set and you can remove this rule */
-		vertical-align: baseline;
-	}
-	
-	sup {
-		/* Move the superscripted text up */
-		top: -0.5em;
-	}
-	
-	sub {
-		/* Move the subscripted text down, but only
-		half as far down as the superscript moved up */
-		bottom: -0.25em;
-	}
+```css
+sub,
+sup {
+	/* Specified in % so that the sup/sup is the
+	right size relative to the surrounding text */
+	font-size: 75%;
+
+	/* Zero out the line-height so that it doesn't
+	interfere with the positioning that follows */
+	line-height: 0;
+
+	/* Where the magic happens: makes all browsers position
+	the sup/sup properly, relative to the surrounding text */
+	position: relative;
+
+	/* Note that if you're using Eric Meyer's reset.css, this
+	is already set and you can remove this rule */
+	vertical-align: baseline;
+}
+
+sup {
+	/* Move the superscripted text up */
+	top: -0.5em;
+}
+
+sub {
+	/* Move the subscripted text down, but only
+	half as far down as the superscript moved up */
+	bottom: -0.25em;
+}
+```
 
 - [CSS for `<sub>` and `<sup>`](https://gist.github.com/unruthless/413930)
 
@@ -3499,45 +3619,49 @@ CSS for `<sub>` and `<sup>`:
 > remove list element semantics when `list-style: none` is used
 > - ["Fixing" Lists | scottohara.me](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html)
 
-	.link{
-		
-	}
-	.link-list{/*or .link-ul*/
-		list-style: none;
-		padding: 0;
-		// Skip spaces
-		font-size: 0;
-		// Remove blank space
-		word-spacing: 0px;
-		text-align: center;
-	}
-	.link-li{
-		// Restore font size, defined with the previous font-size: 0; that skip spaces
-		font-size: @root-font-size;
-		// Restore value
-		word-spacing: normal;
-		display: inline-block;
-	}
-	.link-li + .link-li{/* or .link-li:not(:last-child) or .link-li:nth-last-child(n+2) */
-		margin-left: 20px;
-	}
-	/*
-	or
-	.link-li{
-		margin-left: 20px;
-	}
-	.link-li:last-child{
-		margin-left: 0;
-	}
-	*/
+```css
+.link{
+	
+}
+.link-list{/*or .link-ul*/
+	list-style: none;
+	padding: 0;
+	// Skip spaces
+	font-size: 0;
+	// Remove blank space
+	word-spacing: 0px;
+	text-align: center;
+}
+.link-li{
+	// Restore font size, defined with the previous font-size: 0; that skip spaces
+	font-size: @root-font-size;
+	// Restore value
+	word-spacing: normal;
+	display: inline-block;
+}
+.link-li + .link-li{/* or .link-li:not(:last-child) or .link-li:nth-last-child(n+2) */
+	margin-left: 20px;
+}
+/*
+or
+.link-li{
+	margin-left: 20px;
+}
+.link-li:last-child{
+	margin-left: 0;
+}
+*/
+```
 
 ## Detect touch device
 
 See [detect touch device](JS#detect-touch-device)
 
-	@media (pointer: coarse) and (hover: none) {
-		/* primary input mechanism is a touch screen, require larger interactive elements (!= small screen) */
-	}
+```css
+@media (pointer: coarse) and (hover: none) {
+	/* primary input mechanism is a touch screen, require larger interactive elements (!= small screen) */
+}
+```
 
 - [Size of touch screen button](UI - UX#size-of-touch-screen-button)
 - [Dev.Opera — Interaction Media Features and their potential (for incorrect assumptions)](https://dev.opera.com/articles/media-features/)
@@ -3573,11 +3697,13 @@ Use SVG instead, with a `stroke-width` smaller than circle radius (to fix IE ren
 
 ## Line alternation in `pre`
 
-	pre{
-		line-height: 1.5;
-		font-size: 0.75rem;
-		background: white linear-gradient(rgb(238, 238, 238) 1.5em, rgb(221, 221, 221) 1.5em) repeat center / 100% 3em;
-	}
+```css
+pre{
+	line-height: 1.5;
+	font-size: 0.75rem;
+	background: white linear-gradient(rgb(238, 238, 238) 1.5em, rgb(221, 221, 221) 1.5em) repeat center / 100% 3em;
+}
+```
 
 ## Table col/row highlight
 
@@ -3649,18 +3775,22 @@ Use SVG instead, with a `stroke-width` smaller than circle radius (to fix IE ren
 
 ## Use filter opactiy for filter fallback
 
-	element{
-		filter: opacity(0%);/*will hide element if filter is supported*/
-	}
+```css
+element{
+	filter: opacity(0%);/*will hide element if filter is supported*/
+}
+```
 
 - http://codepen.io/tigt/post/blurred-background-image-with-fallback
 
 ## Tab size for preserved whitespace sequence
 
-	pre{
-		/*implicit white-space: pre*/
-		tab-size: 2;
-	}
+```css
+pre{
+	/*implicit white-space: pre*/
+	tab-size: 2;
+}
+```
 
 - [tab-size - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/tab-size)
 - [white-space - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)
@@ -3682,8 +3812,12 @@ Aka monospaced font, fixed-width font, odometer, counter effect, timer, countdow
 
 Each number char often don't have the same width, use a monospace font or:
 
+```css
+element {
 	font-feature-settings: "tnum";
 	font-variant-numeric: tabular-nums;
+}
+```
 
 - [coderitual/bounty: Javascript and SVG odometer effect library with motion blur](https://github.com/coderitual/bounty)
 - [We Bo 🔥 on Twitter: "Countdown clock kept shifting because the width of number change. Got to use thi to fix it!…](https://twitter.com/wesbos/status/932644812582522880)
@@ -3700,9 +3834,11 @@ Or toggle `text-overflow` when field is focused.
 
 ## Newline in CSS content
 
-	element::before {
-		content: "\A";
-	}
+```css
+element::before {
+	content: "\A";
+}
+```
 
 - [css3 - How to insert a line break before an element using CSS - Stack Overflow](https://stackoverflow.com/questions/7363766/how-to-insert-a-line-break-before-an-element-using-css)
 
@@ -3712,14 +3848,16 @@ Aka slideshow, carrousel
 
 [scroll snap points](#snap-points) can be used.
 
-	.items{
-		overflow-x: auto;/*or overflow-x: hidden; allow to control scrollLeft to custom scroll*/
-		display: flex;
-	}
-	.item{
-		flex: 1 0 0;// allow to grow (>2: min-width, 2: 50% each, 1: 100%)
-		min-width: 47%;// show at least 2 + a part of an other
-	}
+```css
+.items{
+	overflow-x: auto;/*or overflow-x: hidden; allow to control scrollLeft to custom scroll*/
+	display: flex;
+}
+.item{
+	flex: 1 0 0;// allow to grow (>2: min-width, 2: 50% each, 1: 100%)
+	min-width: 47%;// show at least 2 + a part of an other
+}
+```
 
 ## Parallax effect
 
@@ -3729,76 +3867,80 @@ The effect works only if the perpective is set on a container that scroll overfl
 
 Position when rescale will be based on `transform-origin`
 
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>JS Bin</title>
-		<style>
-			html{
-				height: 100%;
-				overflow: hidden;
-			}
-			body {
-				overflow: auto;
-				height: 100%;
-				perspective: 1px;
-				transform-style: preserve-3d;
-				perspective-origin: top left;
-			}
-			
-			.parallax {
-				position: absolute;
-				top: 200px;
-				transform-origin: -250px -200px;/*based on position left and top to fix position after scale*/
-				left: 250px;
-				font-size: 24px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="test">
-			<div class="parallax" style="transform: translateZ(-1.2px) scale(2.2);">z = -1.2</div>
-			<div class="parallax" style="transform: translateZ(-1.0px) scale(2);">z = -1.0</div>
-			<div class="parallax" style="transform: translateZ(-0.8px) scale(1.8);">z = -0.8</div>
-			<div class="parallax" style="transform: translateZ(-0.6px) scale(1.6);">z = -0.6</div>
-			<div class="parallax" style="transform: translateZ(-0.4px) scale(1.4);">z = -0.4</div>
-			<div class="parallax" style="transform: translateZ(-0.2px) scale(1.2);">z = -0.2</div>
-			<div class="parallax" style="transform: translateZ(0px) scale(1);">z = 0</div>
-			<div class="parallax" style="transform: translateZ(0.2px) scale(0.8);">z = 0.2</div>
-			<div class="parallax" style="transform: translateZ(0.4px) scale(0.6);">z = 0.4</div>
-			<div class="parallax" style="transform: translateZ(0.6px) scale(0.4);">z = 0.6</div>
-			<div class="parallax" style="transform: translateZ(0.9px) scale(0.1);">z = 0.9</div>
-			<div style="height: 1000px;"></div>
-		</div>
-	</body>
-	</html>
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>JS Bin</title>
+	<style>
+		html{
+			height: 100%;
+			overflow: hidden;
+		}
+		body {
+			overflow: auto;
+			height: 100%;
+			perspective: 1px;
+			transform-style: preserve-3d;
+			perspective-origin: top left;
+		}
+		
+		.parallax {
+			position: absolute;
+			top: 200px;
+			transform-origin: -250px -200px;/*based on position left and top to fix position after scale*/
+			left: 250px;
+			font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+	<div class="test">
+		<div class="parallax" style="transform: translateZ(-1.2px) scale(2.2);">z = -1.2</div>
+		<div class="parallax" style="transform: translateZ(-1.0px) scale(2);">z = -1.0</div>
+		<div class="parallax" style="transform: translateZ(-0.8px) scale(1.8);">z = -0.8</div>
+		<div class="parallax" style="transform: translateZ(-0.6px) scale(1.6);">z = -0.6</div>
+		<div class="parallax" style="transform: translateZ(-0.4px) scale(1.4);">z = -0.4</div>
+		<div class="parallax" style="transform: translateZ(-0.2px) scale(1.2);">z = -0.2</div>
+		<div class="parallax" style="transform: translateZ(0px) scale(1);">z = 0</div>
+		<div class="parallax" style="transform: translateZ(0.2px) scale(0.8);">z = 0.2</div>
+		<div class="parallax" style="transform: translateZ(0.4px) scale(0.6);">z = 0.4</div>
+		<div class="parallax" style="transform: translateZ(0.6px) scale(0.4);">z = 0.6</div>
+		<div class="parallax" style="transform: translateZ(0.9px) scale(0.1);">z = 0.9</div>
+		<div style="height: 1000px;"></div>
+	</div>
+</body>
+</html>
+```
 
-	:root {
-		--plx-perspective: 1;
-	}
-	
-	.plx {
-		overflow-x: hidden;
-		overflow-y: scroll;
-		transform-style: preserve-3d;
-		perspective: calc(var(--plx-perspective) * 1px);
-		perspective-origin: 0 0;
-		perspective-origin-x: 100%;
-	}
-	.plx__child {
-		--plx-scale: calc(var(--plx-perspective) - var(--plx-z));
-		transform: translateZ(calc(var(--plx-z) * 1px)) translateY(calc(50% - 50vh)) scale(var(--plx-scale));
-		transform-origin: 0 0;
-		transform-origin-x: 100%;
-	}
-	.plx__child--fast {
-		--plx-z: .3;
-	}
-	.plx__child--slow {
-		--plx-z: -.3;
-	}
+```css
+:root {
+	--plx-perspective: 1;
+}
+
+.plx {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	transform-style: preserve-3d;
+	perspective: calc(var(--plx-perspective) * 1px);
+	perspective-origin: 0 0;
+	perspective-origin-x: 100%;
+}
+.plx__child {
+	--plx-scale: calc(var(--plx-perspective) - var(--plx-z));
+	transform: translateZ(calc(var(--plx-z) * 1px)) translateY(calc(50% - 50vh)) scale(var(--plx-scale));
+	transform-origin: 0 0;
+	transform-origin-x: 100%;
+}
+.plx__child--fast {
+	--plx-z: .3;
+}
+.plx__child--slow {
+	--plx-z: -.3;
+}
+```
 
 - [Css only parallax](https://codepen.io/irksum/pen/qxbarb)
 - [Pure CSS Parallax Websites by Keith Clark](http://keithclark.co.uk/articles/pure-css-parallax-websites/)
@@ -3819,41 +3961,43 @@ Position when rescale will be based on `transform-origin`
 
 ### Base print stylesheet
 
-	body {
-		width: auto !important;
-		margin: auto !important;
-		font-family: serif;
-		font-size: 12pt;
-		background-color: white !important;
-		color: black !important;
-	}
-	p, h1, h2, h3, h4, h5, h6, blockquote, ul, ol {
-		color: black !important;
-		margin: auto !important;
-	}
-	.print {
-		display: block;/* show printable elements */
-	}
-	p, blockquote {
-		orphans: 3;/* no line alone after */
-		widows: 3;/* no line alone before */
-	}
-	blockquote, ul, ol {
-		page-break-inside: avoid;/* no element cutted */
-	}
-	h1 {
-		page-break-before: always;/* each h1 start at the begining of a page */
-	}
-	h1, h2, h3, caption {
-		page-break-after: avoid;/* no page break after this elements */
-	}
-	a[href] {
-		color: blue !important;
-		text-decoration: underline !important;
-	}
-	a[href]:after {
-		content: " (" attr(href) ")";/* display link URL */
-	}
+```css
+body {
+	width: auto !important;
+	margin: auto !important;
+	font-family: serif;
+	font-size: 12pt;
+	background-color: white !important;
+	color: black !important;
+}
+p, h1, h2, h3, h4, h5, h6, blockquote, ul, ol {
+	color: black !important;
+	margin: auto !important;
+}
+.print {
+	display: block;/* show printable elements */
+}
+p, blockquote {
+	orphans: 3;/* no line alone after */
+	widows: 3;/* no line alone before */
+}
+blockquote, ul, ol {
+	page-break-inside: avoid;/* no element cutted */
+}
+h1 {
+	page-break-before: always;/* each h1 start at the begining of a page */
+}
+h1, h2, h3, caption {
+	page-break-after: avoid;/* no page break after this elements */
+}
+a[href] {
+	color: blue !important;
+	text-decoration: underline !important;
+}
+a[href]:after {
+	content: " (" attr(href) ")";/* display link URL */
+}
+```
 
 ## Complexe background
 

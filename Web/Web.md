@@ -1041,6 +1041,7 @@ NetLog log:
 - [List of event types](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/net/log/net_log_event_type_list.h)
 - [How to capture a NetLog dump - The Chromium Projects](https://www.chromium.org/for-testers/providing-network-details)
 - `--net-log-capture-mode=IncludeCookiesAndCredentials` or `IncludeSocketBytes` `--log-net-log=/path/to/file` (ex: `netlog.json` or `net-export/chrome-net-export-log.json`)
+- [Analyzing Network Traffic Logs (NetLog json) | text/plain](https://textslashplain.com/2020/04/08/analyzing-network-traffic-logs-netlog-json/)
 - [NetLog viewer](https://netlog-viewer.appspot.com/#events)
 - [chromium tools - chrome_proxy/webdriver/common.py](https://chromium.googlesource.com/chromium/src/tools/+/6dd06e1a895bd96e385f3bacd13d2c7a84a69915/chrome_proxy/webdriver/common.py#668) and [chromium catapult - netlog_viewer/netlog_viewer/log_util.js](https://chromium.googlesource.com/catapult/+/refs/heads/master/netlog_viewer/netlog_viewer/log_util.js#250) - About the invalidity of NetLog output when used with `--log-net-log` and a workaround
 - [NetLog: Chrome’s network logging system - The Chromium Projects](https://www.chromium.org/developers/design-documents/network-stack/netlog)
@@ -1184,8 +1185,6 @@ See [How ECMAScript engine works](..//Development/ECMAScript/ECMAScript.md#how-e
 - [Call stack from a URL typed by a user to the HTTP request](https://gist.github.com/mildred/1c12cd7b4af6f24c145b)
 - [Design Elements](https://github.com/v8/v8/wiki/Design%20Elements) - About V8, ECMAScript engine used in Chromium and NodeJS
 - [requestAnimationFrame Scheduling For Nerds – Paul Irish – Medium](https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4)
-- HTML parser
-	- [Idiosyncrasies of the HTML parser - The HTML Parser Book](https://htmlparser.info/)
 - How JavaScript works
 	- [How JavaScript works: the rendering engine and tip to optimize it performance](https://blog.sessionstack.com/how-javascript-works-the-rendering-engine-and-tips-to-optimize-its-performance-7b95553baeda?gi=f9dbf39c03c1)
 	- [How JavaScript works: tracking change in the DOM using MutationObserver](https://blog.sessionstack.com/how-javascript-works-tracking-changes-in-the-dom-using-mutationobserver-86adc7446401)

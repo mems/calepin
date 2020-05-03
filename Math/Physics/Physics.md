@@ -281,3 +281,17 @@ Use euler integration
 - [How a Tower of Lire works - GIF on Imgur](http://imgur.com/gallery/iBm7kXA)
 - [Book Stacking Problem -- from Wolfram MathWorld](http://mathworld.wolfram.com/BookStackingProblem.html)
 - [MathCS.org - Real Analysis: Example 4.1.10: The Leaning Tower of Lire](http://www.mathcs.org/analysis/reals/numser/answers/lire_tower.html)
+
+## Kinetic energy
+
+```
+K = (1/2) M v²
+```
+
+where `K` is the kinetic energy, `M` is the mass, and `v` is its velocity. The power
+
+```
+P = K/t
+```
+
+- [Can the teardrops that fall after reading bad science writing generate renewable electricity? Yes, they can. – The Eighteenth Elephant](https://eighteenthelephant.com/2020/02/12/can-the-teardrops-that-fall-after-reading-bad-science-writing-generate-renewable-electricity-yes-they-can/)

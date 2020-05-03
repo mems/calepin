@@ -110,7 +110,7 @@ See also:
 
 ## MAMP
 
-**Consider using docker instead**
+**Consider using docker instead:** [docker-compose with php/mysql/phpmyadmin/apache](https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b)
 
 ### Logs files
 

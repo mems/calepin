@@ -1531,6 +1531,10 @@ External body examples:
 	
 	THIS IS NOT REALLY THE BODY!
 
+URIs:
+
+- `text/uri-list`, `.uris` or `.uri`, [RFC 2483 - URI Resolution Services Necessary for URN Resolution](https://tools.ietf.org/html/rfc2483#section-5)
+
 - [MIME — Wikipedia](https://en.wikipedia.org/wiki/MIME#Multipart_subtypes)
 - [email - Mail multipart/alternative vs multipart/mixed - Stack Overflow](https://stackoverflow.com/questions/3902455/mail-multipart-alternative-vs-multipart-mixed)
 - [email - Multipart messages including multiple attachments ("attachment" and "inline") with Zend Mail – RFC-compliant? - Stack Overflow](https://stackoverflow.com/questions/19497672/multipart-messages-including-multiple-attachments-attachment-and-inline-wi)

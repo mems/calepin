@@ -3698,6 +3698,21 @@ Note: you can use `<time>` tag:
 
 ```html
 <picture>
+    <source media="(width >= 768px)" srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'/%3E">
+    <img src="image_big.png" alt="">
+</picture>
+
+<!-- vs -->
+
+<style>
+    /* this doesn't work*/
+    @media (width < 768px){.demo{display: none;}}
+</style>
+<img class="demo" src="other_image_big.png" alt="">
+```
+
+```html
+<picture>
 	<source srcset="image.png" media="(max-height: 1000px)">
 	<source srcset="image_small.png" media="(max-height: 700px)">
 	<source srcset="image_big.png" media="(min-height: 1000px)">

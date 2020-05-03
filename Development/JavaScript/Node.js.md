@@ -485,3 +485,10 @@ powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.j
 
 - [windows - What is the difference between NTFS Junction Points and Symbolic Links? - Stack Overflow](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946)
 - [Hard Links and Junctions - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions)
+
+## Inspect package
+
+```sh
+# The package doesn't need to be installed
+npm view <packagename> dist.tarball
+```

