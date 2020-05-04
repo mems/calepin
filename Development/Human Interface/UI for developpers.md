@@ -43,6 +43,7 @@ Sticky blocks / smart folding (context, label, compound):
 Use font size, style and weight to make differences and differents glyphs for better reading
 
 - [JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams](https://www.jetbrains.com/lp/mono/)
+- [microsoft/cascadia-code: This is a fun, new monospaced font that includes programming ligatures and is designed to enhance the modern look and feel of the Windows Terminal.](https://github.com/microsoft/cascadia-code)
 - [tonsky/FiraCode: Monospaced font with programming ligatures](https://github.com/tonsky/FiraCode)
 - [Typography of Code at Adobe Max - YouTube](https://www.youtube.com/watch?v=r2JePjrDggE)
 - [i-tu/Hasklig: Hasklig - a code font with monospaced ligatures](https://github.com/i-tu/Hasklig/)
@@ -118,3 +119,36 @@ two-column [Docco](http://ashkenas.com/docco/)
 - [Notebook interface - Wikipedia](https://en.wikipedia.org/wiki/Notebook_interface)
 - [CoffeeScript](http://coffeescript.org/#literate)
 - [Literate programming - Wikipedia](https://en.wikipedia.org/wiki/Literate_programming)
+
+## Outline
+
+Also called Document map.
+
+Outline important elements like :
+
+- pages
+- sections and sub-sections
+- titles and sub-titles
+- Objects : packages, classes, methods, properties, etc.
+
+## Minimap
+
+Graphical dezomed view of document like navigator panel in Photoshop
+
+
+## Code hightlighting
+
+## Code flow
+
+Save all calls, contexts (like closures), parameters, time, duration
+
+## Code reload
+
+- live reloading: reload completely, loose the app state
+- hot reloading: reload partial parts, but keep current app state
+
+Works easily for [declarative code](https://en.wikipedia.org/wiki/Declarative_programming). It's more complicated for [imperative code](https://en.wikipedia.org/wiki/Imperative_programming) (or [procedural code](https://en.wikipedia.org/wiki/Procedural_programming)), where the code controle the app state with control flow
+
+> Declarative programming contrasts with imperative and procedural programming. Declarative programming is a non-imperative style of programming in which programs describe their desired results without explicitly listing commands or steps that must be performed
+
+- [javascript - What is the difference between Hot Reloading and Live Reloading in React Native? - Stack Overflow](https://stackoverflow.com/questions/41428954/what-is-the-difference-between-hot-reloading-and-live-reloading-in-react-native/41429055#41429055)

@@ -839,49 +839,13 @@ Aka model, storage
 
 - [NoSQL Data Modeling Techniques – Highly Scalable Blog](https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/)
 
-See also [CMS](Web#cms)
-
-## Coding font
-
-- [microsoft/cascadia-code: This is a fun, new monospaced font that includes programming ligatures and is designed to enhance the modern look and feel of the Windows Terminal.](https://github.com/microsoft/cascadia-code)
-
-## Outline
-
-Also called Document map.
-
-Outline important elements like :
-
-- pages
-- sections and sub-sections
-- titles and sub-titles
-- Objects : packages, classes, methods, properties, etc.
-
-## Minimap
-
-Graphical dezomed view of document like navigator panel in Photoshop
-
-## Code hightlighting
-
-## Code flow
-
-Save all calls, contexts (like closures), parameters, time, duration
+See also [CMS](../Web/Web.md#cms)
 
 ## Unit tests
 
 Graphical test: image capture
 
 Structural test: DOM capture (CSS and HTML for each nodes and tree nodes)
-
-## Code reload
-
-- live reloading: reload completely, loose the app state
-- hot reloading: reload partial parts, but keep current app state
-
-Works easily for [declarative code](https://en.wikipedia.org/wiki/Declarative_programming). It's more complicated for [imperative code](https://en.wikipedia.org/wiki/Imperative_programming) (or [procedural code](https://en.wikipedia.org/wiki/Procedural_programming)), where the code controle the app state with control flow
-
-> Declarative programming contrasts with imperative and procedural programming. Declarative programming is a non-imperative style of programming in which programs describe their desired results without explicitly listing commands or steps that must be performed
-
-- [javascript - What is the difference between Hot Reloading and Live Reloading in React Native? - Stack Overflow](https://stackoverflow.com/questions/41428954/what-is-the-difference-between-hot-reloading-and-live-reloading-in-react-native/41429055#41429055)
 
 ## Continuous integration and continuous delivery
 
@@ -1055,124 +1019,128 @@ String data could contains injection points or processing instructions
 - receiver
 - invoker
 - client
- 
-	using System;
-	using System.Collections.Generic;
+
+```cs
+using System;
+using System.Collections.Generic;
+
+namespace CommandPattern
+{
+  public interface ICommand
+  {
+    void Execute();
+  }
+  
+  public class Switch
+  {
+    private List _commands = new List();
+    public void StoreAndExecute(ICommand command)
+    {
+      _commands.Add(command);
+      command.Execute();
+    }
+  }
+  
+  public class Light
+  {
+    public void TurnOn()
+    {
+      Console.WriteLine("The light is on");
+    }
 	
-	namespace CommandPattern
-	{
-	  public interface ICommand
-	  {
-	    void Execute();
-	  }
+    public void TurnOff()
+    {
+      Console.WriteLine("The light is off");
+    }
+  }
+  
+  public class FlipUpCommand : ICommand
+  {
+    private Light _light;
+	
+    public FlipUpCommand(Light light)
+    {
+      _light = light;
+    }
+	
+    public void Execute()
+    {
+      _light.TurnOn();
+    }
+  }
+  
+  public class FlipDownCommand : ICommand
+  {
+    private Light _light;
+	
+    public FlipDownCommand(Light light)
+    {
+      _light = light;
+    }
+	
+    public void Execute()
+    {
+      _light.TurnOff();
+    }
+  }
+  
+  internal class Program
+  {
+    public static void Main(string[] args)
+    {
+      Light lamp = new Light();
+      ICommand switchUp = new FlipUpCommand(lamp);
+      ICommand switchDown = new FlipDownCommand(lamp);
 	  
-	  public class Switch
-	  {
-	    private List _commands = new List();
-	    public void StoreAndExecute(ICommand command)
-	    {
-	      _commands.Add(command);
-	      command.Execute();
-	    }
-	  }
-	  
-	  public class Light
-	  {
-	    public void TurnOn()
-	    {
-	      Console.WriteLine("The light is on");
-	    }
-		
-	    public void TurnOff()
-	    {
-	      Console.WriteLine("The light is off");
-	    }
-	  }
-	  
-	  public class FlipUpCommand : ICommand
-	  {
-	    private Light _light;
-		
-	    public FlipUpCommand(Light light)
-	    {
-	      _light = light;
-	    }
-		
-	    public void Execute()
-	    {
-	      _light.TurnOn();
-	    }
-	  }
-	  
-	  public class FlipDownCommand : ICommand
-	  {
-	    private Light _light;
-		
-	    public FlipDownCommand(Light light)
-	    {
-	      _light = light;
-	    }
-		
-	    public void Execute()
-	    {
-	      _light.TurnOff();
-	    }
-	  }
-	  
-	  internal class Program
-	  {
-	    public static void Main(string[] args)
-	    {
-	      Light lamp = new Light();
-	      ICommand switchUp = new FlipUpCommand(lamp);
-	      ICommand switchDown = new FlipDownCommand(lamp);
-		  
-	      Switch s = new Switch();
-	      string arg = args.Length &gt; 0 ? args[0].ToUpper() : null;
-	      if (arg == "ON")
-	      {
-	        s.StoreAndExecute(switchUp);
-	      }
-	      else if (arg == "OFF")
-	      {
-	        s.StoreAndExecute(switchDown);
-	      }
-	      else
-	      {
-	        Console.WriteLine("Argument \"ON\" or \"OFF\" is required.");
-	      }
-	    }
-	  }
-	}
+      Switch s = new Switch();
+      string arg = args.Length &gt; 0 ? args[0].ToUpper() : null;
+      if (arg == "ON")
+      {
+        s.StoreAndExecute(switchUp);
+      }
+      else if (arg == "OFF")
+      {
+        s.StoreAndExecute(switchDown);
+      }
+      else
+      {
+        Console.WriteLine("Argument \"ON\" or \"OFF\" is required.");
+      }
+    }
+  }
+}
+```
 
 Or simply:
 
-	using System;
-	using System.Collections.Generic;
-	
-	namespace CommandPattern
-	{
-	  public static class Program
-	  {
-	    private static readonly Dictionary Commands =
-	      new Dictionary
-	      {
-	        { "ON", () => Console.WriteLine("The light is on") },
-	        { "OFF", () => Console.WriteLine("The light is off") }
-	      };
-		 
-	    private static void Main(string[] args)
-	    {
-	      if (args.Length == 1 && Commands.ContainsKey(args[0]))
-	      {
-	        Commands[args[0]]();
-	      }
-	      else
-	      {
-	        Console.WriteLine("Argument \"ON\" or \"OFF\" is required.");
-	      }
-	    }
-	  }
-	}
+```cs
+using System;
+using System.Collections.Generic;
+
+namespace CommandPattern
+{
+  public static class Program
+  {
+    private static readonly Dictionary Commands =
+      new Dictionary
+      {
+        { "ON", () => Console.WriteLine("The light is on") },
+        { "OFF", () => Console.WriteLine("The light is off") }
+      };
+	 
+    private static void Main(string[] args)
+    {
+      if (args.Length == 1 && Commands.ContainsKey(args[0]))
+      {
+        Commands[args[0]]();
+      }
+      else
+      {
+        Console.WriteLine("Argument \"ON\" or \"OFF\" is required.");
+      }
+    }
+  }
+}
+```
 
 ### Observer
