@@ -2205,8 +2205,8 @@ See also [RegExp](RegExp)
 
 ### Look behind and look after
 
-- https://stackoverflow.com/questions/641407/javascript-negative-lookbehind-equivalent
-- http://blog.stevenlevithan.com/archives/mimic-lookbehind-javascript
+- [regex - Javascript: negative lookbehind equivalent? - Stack Overflow](https://stackoverflow.com/questions/641407/javascript-negative-lookbehind-equivalent)
+- [Flagrant Badassery » Mimicking Lookbehind in JavaScript](http://blog.stevenlevithan.com/archives/mimic-lookbehind-javascript)
 
 ### Problems with the Flag "g"
 

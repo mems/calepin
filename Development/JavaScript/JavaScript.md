@@ -6980,12 +6980,26 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 ## Read / write cookies
 
 ```js
+// Read one cookie
+var value = (document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/) || ["", ""])[1];//es5
+const [, value = ""] = document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/];
+
+// const value = !!document.cookie.split(";").find(pair => /cookiename(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
+
 // Read cookies (returns Map)
 const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key, , ...valueChunks] = pair.trim().split(/\s*(=)\s*/); return cookies.set(key, decodeURIComponent(valueChunks.join("")))}, new Map());// cookie-pair *( ";" SP cookie-pair )
 // Read cookies (returns Object)
 const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key, , ...valueChunks] = pair.trim().split(/\s*(=)\s*/); cookies[key] = decodeURIComponent(valueChunks.join("")); return cookies}, {});// cookie-pair *( ";" SP cookie-pair )
 
-const acceptCookies = !!document.cookie.split(";").find(pair => /accept_cookies(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "accept_cookies=true"
+// erase a cookie
+document.cookie = "cookiename=;domain=example.com;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+
+// write a cookie
+const value = "value";
+const path = "/";
+const domain = location.hostname.split(".").slice(-2).join(".");
+const expires = new Date(Date.now() + 90*24*60*60*1000);// now +90 days
+document.cookie = `cookiename=${encodeURIComponent(value)};path=${encodeURIComponent(path)};domain=${domain};expires=${expires.toUTCString()}`;
 ```
 
 [Proxying of `document.cookie`](https://stackoverflow.com/questions/32410331/proxying-of-document-cookie):
