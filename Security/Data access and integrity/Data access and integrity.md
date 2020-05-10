@@ -909,9 +909,7 @@ Aka CORS
 > That's why it's safe to add to all resources
 > — [Jake Archibald on Twitter: "PSA: It's safe to put "Access-Control-Allow-Origin: *" on any response, *unless* that response's data is 'secured' by something other than cookies, basic auth, or TLS client certificates." / Twitter](https://twitter.com/jaffathecake/status/1222071269962715141)
 
-Note: Be carefull and don't mix `Access-Control-Allow-Origin: *` and `Access-Control-Allow-Credentials: true` without know what your are doing
-
-`Access-Control-Allow-Origin: *` means [“anonymous requests only”](https://w3c.github.io/webappsec-cors-for-developers/#anonymous-requests-or-access-control-allow-origin)
+Note: `Access-Control-Allow-Origin: *` can't be mixed with `Access-Control-Allow-Credentials: true`: `Access-Control-Allow-Origin: *` means [“anonymous requests only”](https://w3c.github.io/webappsec-cors-for-developers/#anonymous-requests-or-access-control-allow-origin), see [ajax - CORS: Cannot use wildcard in Access-Control-Allow-Origin when credentials flag is true - Stack Overflow](https://stackoverflow.com/questions/19743396/cors-cannot-use-wildcard-in-access-control-allow-origin-when-credentials-flag-i)
 
 - [HTTP access control (CORS) - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 - [Using CORS - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/cors/)

@@ -753,7 +753,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 - scheme-relative (or Network-path reference or protocol-relative) URL : `//domain/path/to/some/resource` https://url.spec.whatwg.org/#concept-scheme-relative-url
 	Use it but http://www.paulirish.com/2010/the-protocol-relative-url/
 - absolute-path-relative URL: `/path/to/some/resource` https://url.spec.whatwg.org/#concept-absolute-path-relative-url
-- path-relative URL: `path/to/some/resource` https://url.spec.whatwg.org/#concept-path-relative-url
+- path-relative URL: `path/to/some/resource`, `../path/to/some/resource` https://url.spec.whatwg.org/#concept-path-relative-url
 
 - origin-form: path and query string of the URI. The query string may or may not be present.
 - absolute-form: an absolute URI.

@@ -1,6 +1,6 @@
 ## Insecticide
 
-Anti-cochenille:
+Anti-cochenille, mouche blanche ([Aleurode](https://fr.wikipedia.org/wiki/Aleurode), seul le savon noir peu suffire):
 
 > Alcool médical
 

@@ -1304,6 +1304,29 @@ Then replace files by hardlink:
 - [Is there an easy way to replace duplicate files with hardlinks? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/3037/is-there-an-easy-way-to-replace-duplicate-files-with-hardlinks)
 - [hardlink - Finding files that are *not* hard links via a shell script - Stack Overflow](https://stackoverflow.com/questions/16282618/finding-files-that-are-not-hard-links-via-a-shell-script)
 
+### Find all files by content
+
+```sh
+# Find multiple exec a executed only if the previous one exit with 0 https://stackoverflow.com/questions/5119946/find-exec-with-multiple-commands#comment34296391_6043896
+find -type f -iname "*.properties" -exec grep -q -i -E '^abtest=false$' {} \; -print
+find -type f -iname "*.properties" -exec grep -q -i -E '^abtest=' {} \; -exec sed -i 's/^abtest=.*/abtest=true/i' {} \; -print
+
+# Use test to inverse the grep exit value https://stackoverflow.com/a/30495279/470117 (-v/--invert-match option is not useful for that case), for that we need also sh interpreter to use builtin test command
+# For append mode (redirection), need to use sh interpreter directly, else {} will be interpreted directly by Bash. See https://superuser.com/questions/1327969/appending-new-lines-to-multiple-files/1327980#1327980
+# -exec sh -c 'echo "command name: $0, first arg: $1"' test {} \;
+find -iname "*.properties" -exec sh -c 'grep -q -i -E "^abtest=" $1; test $? -eq 1' match {} \; -exec sh -c 'echo -e "\n\nabtest=true" >> $1' append {} \; -print
+
+find -iname "*.properties" -type f -print0 | xargs -0 grep -EHi '^abtest='
+# Same as (flexibity of find vs glob include/exclude filters):
+grep -EHir --include="*.properties" '^abtest=' /path/to/dir
+grep -ir  --include=\*.{php,js,css} "/api/v1/"
+
+# Example search in all .less files that contains `url("<url>")` or `url('<url>')` or `url(<url>)`
+find "$wd" -iname "*.less" \( -not -ipath "*/node_modules/*" \) -type f -print0 | xargs -0 grep -EliZ 'url\(('"'"'|"|)(.*?)\1\)' | xargs -0 -n1 echo "Do something with that file:"
+```
+
+- [find -exec vs find | xargs](https://www.everythingcli.org/find-exec-vs-find-xargs/)
+
 ### Rename all files to a specific extension
 
 	for j in /path/dir/*.html
@@ -1329,6 +1352,15 @@ Créer un pointeur :
 Détruire un pointeur :
 
 	unlink /etc/apache2/sites-enabled/websiteA.exemple
+
+### Read write race condition
+
+```sh
+cat tmp | head -1 >new && mv new tmp
+{ cat tmp | head -1; } >tmp
+```
+
+- [bash - How to make reading and writing the same file in the same pipeline always "fail"? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/409893/how-to-make-reading-and-writing-the-same-file-in-the-same-pipeline-always-fail/409896#409896)
 
 ### Choose incremental filename
 
