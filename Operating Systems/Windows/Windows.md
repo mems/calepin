@@ -93,13 +93,19 @@ Or rename, write `.gitignore.` or `.htaccess.` (with both dots). The trailing do
 On Windows 10, [Install the Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 Or on Windows 8 install [MSYS2](http://www.msys2.org/) (install in the default folder) (check or update env var `PATH` `C:\msys64\usr\bin`)
 
+```
 cmd.exe
 > bash
+```
 
 Or open command line (in Start > All programms > MSYS2 64bit > MSYS2 MSYS): `C:\msys64\msys2_shell.cmd -msys`
 Or:`cmd /c set HOME=%USERPROFILE% & set MSYSTEM=MINGW64 & bash.exe --login -i` where `MSYSTEM` can be `MINGW64`, `MINGW32` or `MSYS`
 
 Alternatively you can use also:
+
+- Cygwin
+    - [Cygwin Packages](https://www.cygwin.com/packages/)
+    - to choose which package to (re)install, use the setup: [Cygwin Installation](https://cygwin.com/install.html)
 - Git for Windows comes with MinGW64 (`%GIT_INSTALL_PATH%/usr/bin`, `%GIT_INSTALL_PATH%/bin`, `%GIT_INSTALL_PATH%/mingw64/bin`)
 	- [Git for Windows](https://gitforwindows.org/)
 	- [The difference between MINGW and MSYS2 · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/The-difference-between-MINGW-and-MSYS2)
@@ -113,7 +119,7 @@ Alternatively you can use also:
 	> Use `git-bash.exe` and just use the mintty that comes with Git for Windows
 	> - [CTRL -C event is closing the ConsoleZ window instead of returning to a prompt · Issue #262 · cbucher/console](https://github.com/cbucher/console/issues/262#issuecomment-183875609)
 	
-	To start bash, in different terminal emulators:
+	To start bash, in different terminal emulators (interactive shell):
 	
 	- [Mintty](https://github.com/mintty/mintty) (that comes with Git for Windows): `C:\Program Files\Git\git-bash.exe`. See [windows - How can I find out the command line options for git-bash.exe? - Super User](https://superuser.com/questions/1104567/how-can-i-find-out-the-command-line-options-for-git-bash-exe)
 		[CTRL + C & CTRL + V copy paste · Issue #602 · mintty/mintty](https://github.com/mintty/mintty/issues/602)

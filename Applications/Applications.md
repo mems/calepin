@@ -615,6 +615,15 @@ STI_Color_Photoshop_HD      COPS
 STI_Color_HD                CORE
 STI_ColorCommonSet_RGB_HD   CORG
 Adobe Could Installer       KCCC https://cdn-ffc.oobesaas.adobe.com/core/v1/applications?name=CreativeCloud&name=KCCC https://ccmdls.adobe.com/*
+After Effects               AEFT
+Audition                    AUDT
+InDesign                    IDSN
+Illustrator                 ILST
+Lightroom Classic           LTRM
+Photoshop                   PHSP
+Premier Pro                 PPRO
+# Creative Cloud ADCS ?
+# Photoshop PHXS ?
 */
 async function search({sapCode, version, type = "Desktop", platformID}){
     //const base = new URL("https://cdn-ffc.oobesaas.adobe.com/");
@@ -718,7 +727,7 @@ ${applicationDetails.Packages.Package.map(package => {
 }
 
 await search({
-    sapCode: "KCCC",
+    sapCode: "PPSH",
     version: "21.0.3.91",
     platformID: "osx10-64",
 });
@@ -738,6 +747,7 @@ await search({
 
 ```sh
 sudo killall ACCFinderSync "Core Sync" AdobeCRDaemon "Adobe Creative" AdobeIPCBroker node "Adobe Desktop Service" "Adobe Crash Reporter"
+# Clear preferences: Shft + Alt + Cmd the exec the Adobe app
 sudo rm -rf "/Library/Application Support/Adobe/SLCache/" "/Library/Application Support/Adobe/SLStore/" "/Library/Caches/."* "/private/tmp/zx"* "~/Library/Preferences/Adobe/."*
 ```
 

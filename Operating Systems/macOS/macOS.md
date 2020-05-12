@@ -1884,7 +1884,7 @@ defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-ty
 killall Dock
 ```
 
-###
+### Continuity with Android
 
 - [KDE Connect is Now Available for macOS (Updated) - OMG! Ubuntu!](https://www.omgubuntu.co.uk/2019/07/kde-connect-mac-os-integrate-android)
 - [KDE Connect macOS Release | Inoki in KDE](https://kde.inoki.cc/2019/09/01/KDE-Connect-macOS-GSoC-Final-Release/)

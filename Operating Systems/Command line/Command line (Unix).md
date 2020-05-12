@@ -421,11 +421,12 @@ lsof
 ls -l  /proc/[process id]/fd
 ls -l  /proc/*/fd
 for p in [0-9]*; do ls -l /proc/$p/fd ;done
+strace ls
+someexe > /dev/null & sudo dtruss -f -t open -p $!
+inotifywait -m -r -e OPEN /path/to/traced/directory
 ```
 
-strace
 auditctl
-inotifywait
 inotify
 - [monitoring - List the files accessed by a program - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/18844/list-the-files-accessed-by-a-program)
 - [How to determine which process is creating a file? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/13776/how-to-determine-which-process-is-creating-a-file)
@@ -857,18 +858,20 @@ Brace expansion
 
 Here-doc & here-string:
 
-	cat > /path/to/file << EOF
-	Some thing.
-	Blahblah!
-	EOF
+```sh
+cat > /path/to/file << EOF
+Some thing.
+Blahblah!
+EOF
 
-	cat > /path/to/file <<< "Some thing."
+cat > /path/to/file <<< "Some thing."
 
-	read -r -d '' VAR <<'EOF'
-	abc'asdf"
-	$(dont-execute-this)
-	foo"bar"''
-	EOF
+read -r -d '' MYVAR <<'EOF'
+abc'asdf"
+$(dont-execute-this)
+foo"bar"''
+EOF
+```
 
 - [How to assign a heredoc value to a variable in Bash? - Stack Overflow](https://stackoverflow.com/questions/1167746/how-to-assign-a-heredoc-value-to-a-variable-in-bash)
 
