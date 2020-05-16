@@ -888,19 +888,21 @@ File pointer and file redirection
 		echo $item
 	done < sql.res
 
-Create a fake tmp file:
+Bash support [process substitution](https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html#Process-Substitution):
 
-	cat <(echo "tmp file content")
+```sh
+cat <(echo "tmp file content")
+```
 
-Same as: `echo hello > file; cat file`
+Is similar to: `echo hello > file; cat file; rm file`
+
+`$(cat file)` is same as `$(< file)`
 
 ```sh
 cat <<< hello
 
 diff <(cd dir1; ls) <(cd dir2; ls)
 
-$(cat file) is same as $(< file)
-	
 (
 	echo open ip_address
 	echo user username password
@@ -1101,7 +1103,7 @@ Process each item with multiple commands (in while loop)
 	
 	# An alternative method on linux (rather than plain unix)
 	# This does not need a shell to handle the argument.
-	ls *.jpg | xargs -r -I FILE   convert FILE -thumbnail 200x90 FILE_thumb.gif
+	ls *.jpg | xargs -r -I FILE convert FILE -thumbnail 200x90 FILE_thumb.gif
 
 
 Find files not readable by all (useful for web site)
@@ -1812,6 +1814,35 @@ Copy (with permissions) copy/ dir to remote:/where/to/ dir
 Backup harddrive (raw) to remote machine
 
 	dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz'
+
+## Relative path
+
+```sh
+function relative_path_from_to() {
+    # strip trailing slashes
+    path1=${1%\/}
+    path2=${2%\/}
+    # common part of both paths
+    common=$(printf '%s\x0%s' "${path1}" "${path2}" | sed 's/\(.*\/\).*\x0\1.*/\1/')
+    # how many directories we have to go up to the common part
+    up=$(grep -o "/" <<< ${path1#$common} | wc -l)
+    # create a prefix in the form of ../../ ...
+    prefix=""; for ((i=0; i<=$up; i++)); do prefix="$prefix../"; done
+    # return prefix plus second path without common
+    printf "$prefix${2#$common}"
+}
+
+relative_path_from_to /path/test1/file /path/test2/file
+# > ../../test2/file
+```
+
+```sh
+# require the path of both file and dir to exist, resolve symlink
+realpath --relative-to=DIR FILE
+```
+
+- [command line - How to calculate a relative path from two absolute paths in Linux shell? - Super User](https://superuser.com/questions/140590/how-to-calculate-a-relative-path-from-two-absolute-paths-in-linux-shell/1268217#1268217)
+- [shell - Convert absolute path into relative path given a current directory using Bash - Stack Overflow](https://stackoverflow.com/questions/2564634/convert-absolute-path-into-relative-path-given-a-current-directory-using-bash)
 
 ## Find corrupted files
 

@@ -492,3 +492,32 @@ powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.j
 # The package doesn't need to be installed
 npm view <packagename> dist.tarball
 ```
+
+## Require specific version of NPM and node
+
+```sh
+# update your package.json to add:
+# "engines": {
+#   "npm": ">=6.6.0",
+#   "node": ">=12.0.0"
+# },
+npm config set engine-strict false --userconfig ./.npmrc
+```
+
+If the version doesn't match, `npm install`:
+
+```
+npm ERR! code ENOTSUP
+npm ERR! notsup Unsupported engine for <package>@<version>: wanted: {"npm":">=6.6.0","node":">=12.0.0"} (current: {"node":"<current-node-version>","npm":"<current-npm-version>"})
+npm ERR! notsup Not compatible with your version of node/npm: <package>@<version>
+npm ERR! notsup Required: {"npm":">=6.6.0","node":">=12.0.0"}
+npm ERR! notsup Actual:   {"npm":"<current-npm-version>","node":"<current-node-version>"}
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     <log-file-path>
+```
+
+Note: that doesn't work for [`npm ci`](https://github.com/npm/cli/issues/1219) that ignore that check
+
+- [npm-config | npm Documentation](https://docs.npmjs.com/misc/config#engine-strict)
+- [npm-package.json | npm Documentation](https://docs.npmjs.com/files/package.json#engines)
