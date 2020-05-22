@@ -519,6 +519,9 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 - [unit testing](https://en.wikipedia.org/wiki/Unit_testing) (individual module testing) + [integration testing](https://en.wikipedia.org/wiki/Integration_testing) (test modules all together)
 - [Code smell](https://en.wikipedia.org/wiki/Code_smell)
 - [Slow Is Fast](http://www.programmerfu.com/2017/04/20/fast-is-slow-slow-is-smooth-smooth-is-fast.html) - [Trolldi : pourquoi coder lentement c'est coder plus vite, mais aucun développeur ne peut le faire dans la réalité](https://www.developpez.com/actu/144428/Trolldi-pourquoi-coder-lentement-c-est-coder-plus-vite-mais-aucun-developpeur-ne-peut-le-faire-dans-la-realite/)
+- [unit testing - Test Driven Development (TDD) for User Interface (UI) with functional tests - Stack Overflow](https://stackoverflow.com/questions/4658382/test-driven-development-tdd-for-user-interface-ui-with-functional-tests/4658420#4658420)
+- [Behavior-driven development - Wikipedia](https://en.wikipedia.org/wiki/Behavior-driven_development)
+- [Gherkin Reference - Cucumber Documentation](https://cucumber.io/docs/gherkin/reference/)
 
 ### Linting and static analyzing
 

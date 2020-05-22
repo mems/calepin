@@ -1,4 +1,4 @@
-Aka diff
+Aka content diff, diff, patch, text compare
 
 - Diff, Match and Patch libraries for Plain Text by Neil Fraser. Use [Myer's diff algorithm](http://neil.fraser.name/software/diff_match_patch/myers.pdf).
 	- [google-diff-match-patch - Diff, Match and Patch libraries for Plain Text - Google Project Hosting](https://code.google.com/p/google-diff-match-patch/)
@@ -14,6 +14,7 @@ Aka diff
 - [Git - git-diff Documentation](https://git-scm.com/docs/git-diff)
 - [patch (Unix) - Wikipedia](https://en.wikipedia.org/wiki/Patch_%28Unix%29) and [diff - Wikipedia](https://en.wikipedia.org/wiki/Diff)
 - [File comparison - Wikipedia](https://en.wikipedia.org/wiki/File_comparison)
+- [benjamine/jsondiffpatch: Diff & patch JavaScript objects](https://github.com/benjamine/jsondiffpatch) - [JsonDiffPatch](https://benjamine.github.io/jsondiffpatch/demo/index.html)
 
 ## Compare image
 

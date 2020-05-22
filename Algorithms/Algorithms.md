@@ -484,3 +484,11 @@ function luhnChk(luhn) {
 
 - [Inclusion of a Point in a Polygon](http://geomalgorithms.com/a03-_inclusion.html)
 - [Point in polygon - Wikipedia](https://en.wikipedia.org/wiki/Point_in_polygon)
+
+## Text search
+
+- [Improving the performance of full-text search - Dropbox](https://dropbox.tech/infrastructure/improving-the-performance-of-full-text-search)
+
+## Compare data
+
+See [Compare data](./Compare%20data/Compare%20data.md)
