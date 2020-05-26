@@ -295,3 +295,12 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 Aka crème de poivrons à la grenade
 
 - [Muhammara, crème de poivrons à la grenade - Un déjeuner de soleil](https://www.undejeunerdesoleil.com/2014/05/muhammara-creme-poivrons-noix-grenade.html)
+
+## Extrait de vanille
+
+Laisser dans de l'alcool les gousses/restes de vanille, pas de sucre
+Alcool tirant au minimum à 40% : vodka ou alcool de fruit (goût neutre) ou du rhum agricole
+Peut être conservé plusieurs années sans problème. Les ingrédients peuvent être ajouté au fur et à mesure.
+Ex: 5 gousses de vanille pour 1L d'alcool, attendre 3 mois pour la macération
+
+- [Extrait de vanille fait maison Recette | Chocolate & Zucchini](https://cnz.to/vf/ingredients-bons-produits/extrait-de-vanille-fait-maison-recette/)

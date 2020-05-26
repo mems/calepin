@@ -61,8 +61,8 @@ Reduce artifacts
 	Add more precision to defined channels
 	
 	- https://www.opengl.org/wiki/Texture#Swizzle_mask
-	
 - [How to get the best out of PVRTC for iOS - Kruger Heavy Industries Devlog](http://www.krugerheavyindustries.com/pebble/2012/04/02/1333338720000.html)
+- [Dimensionality reduction for image and texture set compression | Bart Wronski](https://bartwronski.com/2020/05/21/dimensionality-reduction-for-image-and-texture-set-compression/) - Use multiple channels to compress PBR textures, an experiment
 
 Use [Chroma subsampling](https://en.wikipedia.org/wiki/Chroma_subsampling) like [YCbCr](https://en.wikipedia.org/wiki/YCbCr) (like JPEG) or [YCgCo](https://en.wikipedia.org/wiki/YCgCo) (like YCoCg DXT5)
 Need a custom shader

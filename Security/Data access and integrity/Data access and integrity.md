@@ -371,14 +371,17 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 
 Always store data from third party in an external folder, outside root of the web server, and use `open_basedir` to protect against local inclusion
 
-See also
+See also:
 
 - [Vulnerabilities](#vulnerabilities)
 - [Safe String Theory for the Web — Acko.net](http://acko.net/blog/safe-string-theory-for-the-web/)
 
 #### Unsafe HTML
 
-- **Do not decode with `s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#39;/g, "'").replace(/&quot;/g, '"')`** https://github.com/WebReflection/html-escaper#why https://github.com/WebReflection/html-escaper/blob/master/html.js https://github.com/mathiasbynens/he
+- **Do not decode with `s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#39;/g, "'").replace(/&quot;/g, '"')`**
+	- https://github.com/WebReflection/html-escaper#why
+	- https://github.com/WebReflection/html-escaper/blob/master/html.js
+	- [mathiasbynens/he: A robust HTML entity encoder/decoder written in JavaScript.](https://github.com/mathiasbynens/he)
 - **Note: All browsers don't support the same syntax** [HTML5 Security Cheatsheet - A collection of HTML5 related XSS attack vectors](https://github.com/cure53/H5SC) see [XSS and injection vulnerabilities](#xss-and-injection-vulnerabilities)
 - [Detergent.io](https://detergent.io/) and [codsen/detergent: The text cleaner/encoder for web and email development](https://github.com/codsen/detergent)
 - `<noscript><noscript></noscript><script>confirm(1)</script></noscript>`
@@ -387,13 +390,14 @@ See also
 	
 	- [Using PHP_SELF in the action field of a form](http://www.html-form-guide.com/php-form/php-form-action-self.html)
 - Escape JSON in HTML
-	* In element's attribute
+	- In element's attribute
 		`<div data-test="<?php echo htmlspecialchars(json_encode($data, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES)) ?>">`
-	* In `<script type="application/json">`, in `<script>` (where type will be `application/javascript`, and use `JSON_PARTIAL_OUTPUT_ON_ERROR`) or any other element
+	- In `<script type="application/json">`, in `<script>` (where type will be `application/javascript`, and use `JSON_PARTIAL_OUTPUT_ON_ERROR`) or any other element
 		`echo 'var data = ' . json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES);`
 	
-	* [php - Is json_encode Sufficient XSS Protection? - Stack Overflow](https://stackoverflow.com/questions/12062146/is-json-encode-sufficient-xss-protection)
-	* [php - Why does JSON encoder adds escaping character when encoding URLs? - Stack Overflow](https://stackoverflow.com/questions/3723243/why-does-json-encoder-adds-escaping-character-when-encoding-urls)
+	- [The end-tag open (ETAGO) delimiter · Mathias Bynens](https://mathiasbynens.be/notes/etago)
+	- [php - Is json_encode Sufficient XSS Protection? - Stack Overflow](https://stackoverflow.com/questions/12062146/is-json-encode-sufficient-xss-protection)
+	- [php - Why does JSON encoder adds escaping character when encoding URLs? - Stack Overflow](https://stackoverflow.com/questions/3723243/why-does-json-encoder-adds-escaping-character-when-encoding-urls)
 - `esc_attr($value)`
 
 #### Unsafe chars

@@ -516,6 +516,17 @@ Organization complexity is predictor of bugs (more preople + more departments + 
 
 Domain-Driven Design : on étudie le problème en large et en travers avant de concevoir et avant de programmer
 
+> QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.
+> — [Bill Sempf on Twitter: "QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv." / Twitter](https://twitter.com/sempf/status/514473420277694465)
+
+> Orders 1.33333333 beers
+> Orders NULL beers.
+> Orders a ">.
+> Orders a DROP TABLE.
+> Orders a cerveza
+> — Someone on post [Bill Sempf | On Testing](https://www.sempf.net/post/On-Testing1)
+
+- [minimaxir/big-list-of-naughty-strings: The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.](https://github.com/minimaxir/big-list-of-naughty-strings)
 - [unit testing](https://en.wikipedia.org/wiki/Unit_testing) (individual module testing) + [integration testing](https://en.wikipedia.org/wiki/Integration_testing) (test modules all together)
 - [Code smell](https://en.wikipedia.org/wiki/Code_smell)
 - [Slow Is Fast](http://www.programmerfu.com/2017/04/20/fast-is-slow-slow-is-smooth-smooth-is-fast.html) - [Trolldi : pourquoi coder lentement c'est coder plus vite, mais aucun développeur ne peut le faire dans la réalité](https://www.developpez.com/actu/144428/Trolldi-pourquoi-coder-lentement-c-est-coder-plus-vite-mais-aucun-developpeur-ne-peut-le-faire-dans-la-realite/)

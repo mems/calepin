@@ -762,6 +762,17 @@ Ex: MySql DB files. Solution: cron mysqldump hourly (or less if large DB) + exlu
 Use Option-Command (⌘)-R at startup to reinstall lastest version of the OS: [How to reinstall macOS - Apple Support](https://support.apple.com/en-us/HT204904)
 For clean install, erase the drive with Disk Utility ([macOS Recovery](https://support.apple.com/en-us/HT201314)) first
 
+Create ISO installer:
+
+```sh
+hdiutil create -o /tmp/Catalina -size 8050m -volname Catalina -layout SPUD -fs HFS+J
+hdiutil attach /tmp/Catalina.dmg -noverify -mountpoint /Volumes/Catalina
+sudo "/Applications/Install macOS Catalina.app/Contents/Resources/createinstallmedia" --volume /Volumes/Catalina --nointeraction
+hdiutil detach "/Volumes/Install macOS Catalina"
+hdiutil convert /tmp/Catalina.dmg -format UDTO -o ~/Desktop/Catalina.cdr
+mv ~/Desktop/Catalina.cdr ~/Desktop/Catalina.iso
+```
+
 - [How to reinstall macOS from macOS Recovery - Apple Support](https://support.apple.com/en-us/HT204904)
 - [osx - How can I get back a system file after deleting it from my Mac? - Ask Different](http://apple.stackexchange.com/questions/116611/how-can-i-get-back-a-system-file-after-deleting-it-from-my-mac/116612#116612)
 - [OSX on Bootable USB](#osx-on-bootable-usb)
@@ -784,6 +795,9 @@ VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Confi
 VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
 ```
 
+- [Creating a macOS Virtual Machine in Fusion](https://docs.vmware.com/en/VMware-Fusion/11/com.vmware.fusion.using.doc/GUID-474FC78E-4E77-42B7-A1C6-12C2F378C5B9.html)
+- [myspaghetti/macos-virtualbox: Push-button installer of macOS Catalina, Mojave, and High Sierra guests in Virtualbox for Windows, Linux, and macOS](https://github.com/myspaghetti/macos-virtualbox)
+- [kholia/OSX-KVM: Run macOS on QEMU/KVM. With OpenCore Now! No free support is provided at the moment.](https://github.com/kholia/OSX-KVM)
 - [jonanh/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/jonanh/osx-vm-templates) - [timsutton/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/timsutton/osx-vm-templates)
 - [Notes on getting macOS Sierra running in Virtualbox on a Windows 10 host](https://gist.github.com/rob-smallshire/0c4403afb0523dd57c9f4b3693344f14)
 - [mac - Install macOS High Sierra as VirtualBox guest (on macOS High Sierra)? - Ask Different](https://apple.stackexchange.com/questions/307099/install-macos-high-sierra-as-virtualbox-guest-on-macos-high-sierra)

@@ -110,11 +110,18 @@ Aka recognition
 
 ### Recruitment
 
-Aka hire
+Aka hire, hiring
 
 Developers don't remember all APIs details, algorithms, they use online docs. Ex: `"abcdef".substring(0, 3) === "abcdef".substr(0, 3) === "abcdef".slice(0, 3)`
 
 Ask them about concept, not details by heart
+
+Possible tests:
+
+- [bradfrost/frontend-guidelines-questionnaire: A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.](https://github.com/bradfrost/frontend-guidelines-questionnaire)
+- [C# Bad Practices: Learn How to Make Good Code by Using Examples of Bad Code - CodeProject](https://www.codeproject.com/Articles/1083348/Csharp-Bad-Practices-Learn-How-to-Make-Good-Code-b)
+
+See also:
 
 - [The Guerrilla Guide to Interviewing – Joel on Software](https://www.joelonsoftware.com/2000/03/23/the-guerrilla-guide-to-interviewing/)
 - [If Your Boss Could Do Your Job, You’re More Likely to Be Happy at Work](https://hbr.org/2016/12/if-your-boss-could-do-your-job-youre-more-likely-to-be-happy-at-work?utm_campaign=harvardbiz&utm_source=twitter&utm_medium=social)

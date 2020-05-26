@@ -4228,3 +4228,7 @@ Aka RTL, LTR
 - [Right-to-left - Wikipedia](https://en.wikipedia.org/wiki/Right-to-left)
 - [Right-to-left Styling](https://www.rtlstyling.com/)
 - [Bidirectionality - Material Design](https://material.io/design/usability/bidirectionality.html#mirroring-elements)
+
+## Test
+
+- [HTML5 Test Page](https://cbracco.github.io/html5-test-page/)
