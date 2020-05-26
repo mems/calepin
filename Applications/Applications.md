@@ -1774,15 +1774,31 @@ If the device is not detected, may it's because it's pluged to a USB hub. Try to
 
 ## Cisco AnyConnect
 
+Replace Cisco VPN
+
+About OpenConnect:
+
+- [OpenConnect VPN client.](https://www.infradead.org/openconnect/)
+- [Split Tunneling tutorial - with openconnect (tested, works with Cisco AnyConnect VPN) Source: http://lists.unix-ag.uni-kl.de/pipermail/vpnc-devel/2009-February/002990.html](https://gist.github.com/jagtesh/5531300)
+- [Split tunneling with openconnect - A guide on how to use openconnect to establish a vpn connection to an enterprise cisco anyconnect vpn endpoint with client side routing.](https://gist.github.com/stefancocora/686bbce938f27ef72649a181e7bd0158)
+- [Win10 split tunnelling (#281) · Issues · OpenConnect VPN projects / OpenConnect GUI · GitLab](https://gitlab.com/openconnect/openconnect-gui/-/issues/281)
+- [\[Win\] vpnc-script.js vs. vpnc-script-win.js (#279) · Issues · OpenConnect VPN projects / OpenConnect GUI · GitLab](https://gitlab.com/openconnect/openconnect-gui/-/issues/279)
+- [Allow specifying custom routes (#32) · Issues · OpenConnect VPN projects / OpenConnect GUI · GitLab](https://gitlab.com/openconnect/openconnect-gui/-/issues/32)
+
+About offical client:
+
 ```sh
 shasum -a 512 /path/to/file.pkg
 ```
+
+Split tunnel is configurable only by the VPN admin, not by the client only.
 
 - [Software Download - Cisco Systems](https://software.cisco.com/download/home/283000185) - AnyConnect Secure Mobility Client
 
 - [Installez le Client à mobilité sécurisé Cisco AnyConnect sur un ordinateur de MAC - Cisco](https://www.cisco.com/c/fr_ca/support/docs/smb/routers/cisco-rv-series-small-business-routers/smb5642-install-cisco-anyconnect-secure-mobility-client-on-a-mac-com.html)
 - `anyconnect-macos-Y.X.ZZZZZ-predeploy-k9.dmg` > open `AnyConnect.pkg` to install both VPN only (which are AnyConnect Secure Mobility Client and AnyConnect Secure DART, other packages aren't needed)
 - `anyconnect-macos-Y.X.ZZZZZ-webdeploy-k9.pkg` > open as zip > mount `(zip root)/binaries/anyconnect-macos-Y.X.ZZZZZ-core-vpn-webdeploy-k9.dmg` > open `anyconnect-macos-X.Y.ZZZZZ-core-vpn-webdeploy-k9.pkg`
+- [Split tunneling in Cisco VPN and AnyConnect Client – karneliuk.com](https://karneliuk.com/2016/02/split-tunneling-in-cisco-vpn-client-and-cisco-anyconnect/)
 
 ## Outlook
 
