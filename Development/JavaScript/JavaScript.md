@@ -746,6 +746,30 @@ browser’s preload scanner, create a synchronous blocking script tag when encou
 - https://github.com/WICG/interventions/issues/17
 - [If you use use document.write, you suck at JavaScript - Pomax.github.io](https://pomax.github.io/1473270609919/if-you-use-use-document-write-you-suck-at-javascript)
 
+How to reference an external script that use `document.write()` with async:
+
+```js
+// This script allow the script to use document.write() (synchronous script, append HTML chunks) in a context where it would erase the current document (async, after the document is complete)
+// "Open a document stream for writing. If a document exists in the target, this method clears it."
+var orgWriteDesc = Object.getOwnPropertyDescriptor(document, "write") || Object.getOwnPropertyDescriptor(Document.prototype, "write") || Object.getOwnPropertyDescriptor(HTMLDocument.prototype, "write");
+
+var script = document.createElement("script");
+script.src = "https://example.com/script-with-document-write.js";
+// Restore native document.write()
+script.onload = function(){
+  Object.defineProperty(document, "write", orgWriteDesc);
+};
+
+var proxyScript = document.createElement("script");
+proxyScript.src = "data:application/javascript,0";// empty script (IE need at least one statement)
+proxyScript.onload = function(){
+  Object.defineProperty(document, "write", {value: script.insertAdjacentHTML.bind(script, "afterend"), configurable: true});
+};
+
+document.body.appendChild(proxyScript);
+document.body.appendChild(script);
+```
+
 See [Load external script](#load-external-script)
 
 ### Don't put CSS and template in script
