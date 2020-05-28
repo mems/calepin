@@ -2489,19 +2489,28 @@ Glossary, description list, metadata, **key-value pairs: keyword(s) / name(s)** 
 
 ### `dl` element (definition list)
 
+[Recommended by HTML Standard for "name-value groups"](https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element).
+
 ```html
 <dl>		 
-	<dt>Name: </dt>
+	<dt>Name</dt>
 	<dd>John Don</dd>
 		 
-	<dt>Age: </dt>
+	<dt>Age</dt>
 	<dd>23</dd>
 			 
-	<dt>Gender: </dt>
+	<dt>Gender</dt>
 	<dd>Male</dd>
 			 
-	<dt>Day of Birth:</dt>
+	<dt>Day of Birth</dt>
 	<dd>12th May 1986</dd>
+	
+    <div id="devices">
+    	<dt>SmartPhone</dt>
+    	<dt>Computer</dt>
+    	<dd>iPhone X</dd>
+    	<dd>MacBookPro</dd>
+    </div>
 </dl>
 ```
 
