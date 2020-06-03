@@ -904,7 +904,7 @@ See also:
 - [Windows](Windows#kiosk-mode)
 - [macOS](macOS#kiosk-mode)
 
-## Firefox
+### Firefox
 
 Awesome bar:
 
@@ -976,7 +976,7 @@ For the list of trusted URIs, see:
 - [Internet Explorer security zones registry entries for advanced users](https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users)
 - [How to configuring IE Site Zone mapping using group policy without locking out the user](http://www.grouppolicy.biz/2012/07/how-to-configuring-ie-site-zone-mapping-using-group-policy-without-locking-out-the-user/)
 
-## Safari
+### Safari
 
 Source code:
 
@@ -1151,6 +1151,12 @@ https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
 ~/Library/Application Support/Google/Chrome/Default/Preferences
 JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
 ```
+
+#### Update loop
+
+> Nearly up to date! Relaunch Google Chrome to finish updating.
+
+- [How to fix chrome update loop "Nearly up-to-date! Relaunch Google Chrome to finish updating. Relaunch" - Tech Antidote](https://techantidote.com/fix-problem-nearly-up-to-date-relaunch-google-chrome-to-finish-updating-relaunch/)
 
 ### How a web browser works
 
