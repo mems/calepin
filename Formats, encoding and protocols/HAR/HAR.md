@@ -31,10 +31,10 @@ See also https://github.com/WPO-Foundation/webpagetest/blob/4234baa351eb1cb9d6b0
 - https://github.com/Stuk/server-replay
 - Charles
 
-- [Outil d'analyse HAR](https://toolbox.googleapps.com/apps/har_analyzer/)
-- [HAR Viewer + Analyzer | HarDiff.com](http://hardiff.com/)
-- https://github.com/ahmadnassri/har-validator
-- https://github.com/request/request#support-for-har-12
+- [HTTP Archive Viewer 2.0.17](http://www.softwareishard.com/har/viewer/)
+- [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
+- [ahmadnassri/node-har-validator: Extremely fast HTTP Archive (HAR) validator using JSON Schema](https://github.com/ahmadnassri/node-har-validator)
+- [request/request: 🏊🏾 Simplified HTTP request client.](https://github.com/request/request#support-for-har-12)
 - [Archive::Har - Provides an interface to HTTP Archive (HAR) files - metacpan.org](https://metacpan.org/pod/Archive::Har)
 - https://github.com/ahmadnassri/har
 - [HTTP Archive (HAR) format](https://w3c.github.io/web-performance/specs/HAR/Overview.html)

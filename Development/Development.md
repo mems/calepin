@@ -509,8 +509,11 @@ Time spend vs quality / technical debt
 
 Organization complexity is predictor of bugs (more preople + more departments + higer turnover = worse code): [The Influence of Organizational Structure On Software Quality: An Empirical Case Study - Microsoft Research](https://www.microsoft.com/en-us/research/publication/the-influence-of-organizational-structure-on-software-quality-an-empirical-case-study/)
 
+![How unchecked technical debt ruins codebases - Mike Carter](How%20unchecked%20technical%20debt%20ruins%20codebases%20-%20mcarterj.png)
+
 - [The Wall of Technical Debt](https://verraes.net/2020/01/wall-of-technical-debt/)
 - [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
+- [Mike Carter on Twitter: "How unchecked technical debt ruins codebases. See if any of these are familiar to you! 🎭 #webdev https://t.co/d4KteXzcoH" / Twitter](https://mobile.twitter.com/mcarterj/status/1265223134711631872)
 
 ### Testing
 
@@ -650,8 +653,12 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 
 - [How to do a code review | eng-practices](https://google.github.io/eng-practices/review/reviewer/)
 - lint
-- CI
 - [bradfrost/frontend-guidelines-questionnaire: A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.](https://github.com/bradfrost/frontend-guidelines-questionnaire)
+
+## Lifecycle
+
+- CI/CD
+- [CI/CD - Wikipedia](https://en.wikipedia.org/wiki/CI/CD)
 
 ## Source code organisation
 
@@ -737,25 +744,34 @@ Use verbes:
 
 Aka Spaces vs tabs
 
-- people can set the indentation render size to whatever they prefer in a way that doesn't affect other users (2-space indentation can be hard to read)
+- (accessibility) people can set the indentation render size (aka tab-width) to whatever they prefer in a way that doesn't affect other users (2-space indentation can be hard to read)
 - it's faster to move around only using the keyboard (IDE can handle that)
 - most IDE can swith/convert one to the other
 - tab is a character specifically meant for indentation (in fact they are meant for tabulation)
 - it's impossible to half-indent something with tabs
 - store a tab char use less space than spaces
+- alignement (with spaces) don't survive an automated refactor
 - tabs for indentation, spaces for alignment:
 	
-		[tab]void someNiceMethod(
-		[tab][space*20]int arg1
-		[tab])
+    ```
+	[tab]void someNiceMethod(
+	[tab][space*20]int arg1
+	[tab])
+    ```
 
 	Or allow only simplier indentation:
 
-		[tab]void someNiceMethod(
-		[tab][tab]int arg1
-		[tab])
+    ```
+	[tab]void someNiceMethod(
+	[tab][tab]int arg1
+	[tab])
+    ```
+
+> Tabs, when you want the reader to be in control the layout.
+> Spaces, when you want the author be in control the layout.
 
 - [Tabs versus Spaces](https://www.jwz.org/doc/tabs-vs-spaces.html)
+- [Nobody talks about the real reason to use Tabs over Spaces : javascript](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/)
 - [Why tabs are clearly superior | Lea Verou](http://lea.verou.me/2012/01/why-tabs-are-clearly-superior/) - see also links
 - [Tabs or Spaces](https://ukupat.github.io/tabs-or-spaces/)
 - [Indent style — Wikipedia](https://en.wikipedia.org/wiki/Indent_style)

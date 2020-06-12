@@ -1707,8 +1707,6 @@ document.body.textContent = "\ncanvas stress test: "+(t2 - t1).toFixed(4)+"ms (i
 
 ### 2D WebGL shader
 
-<details>
-	<summary>2D WeBGL shader</summary>
 ```html
 <!--
 Chromatic aberration effect
@@ -1870,7 +1868,6 @@ function main() {
 main();
 </script>
 ```
-</details>
 
 ### WebGL shader performance
 
@@ -1910,15 +1907,19 @@ Tips:
 
 ## Selection
 
-	input.selectionStart
-	input.setSelectionRange()
+```js
+input.selectionStart
+input.setSelectionRange()
+```
 
-	var selection = window.getSelection();
-	if(selection.rangeCount){
-		var range = selection.getRangeAt(0);
-		range.commonAncestorContainer
-		range.endOffset
-	}
+```js
+var selection = window.getSelection();
+if(selection.rangeCount){
+	var range = selection.getRangeAt(0);
+	range.commonAncestorContainer
+	range.endOffset
+}
+```
 
 - https://developer.mozilla.org/en-US/docs/Web/API/Range
 - https://stackoverflow.com/questions/17678843/cant-restore-selection-after-html-modify-even-if-its-the-same-html
@@ -1929,12 +1930,14 @@ Tips:
 
 **Note: on mobile there is a custom menu for selection (iOS).** If a menu is displayed use a delay `document.body.addEventListener("mouseup", event => setTimeout(showMenu, 100));`
 
-	var selection = window.getSelection()
-	if (selection.rangeCount > 0) {
-		selection.toString().trim(); // get the text
-		selection.anchorNode.parentNode; // get the element wrapping the text
-		selection.getRangeAt(0).getBoundingClientRect(); // get the bounding box
-	}
+```js
+var selection = window.getSelection()
+if (selection.rangeCount > 0) {
+	selection.toString().trim(); // get the text
+	selection.anchorNode.parentNode; // get the element wrapping the text
+	selection.getRangeAt(0).getBoundingClientRect(); // get the bounding box
+}
+```
 
 ## `contentEditable`
 
@@ -1959,16 +1962,18 @@ See also [text editors libraries](Text editors)
 
 If open a select box, use an hidden select and open it with (only works on Chrome ?-53 but not 53+ and Safari):
 
-	var element;
-	var eventDispatched = false;
-	if(document.createEvent) {
-		var event = new MouseEvent("mousedown");//document.createEvent("MouseEvents");
-		//event.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-		eventDispatched = element.dispatchEvent(event);
-	}
-	if(!eventDispatched) {
-		// Old browser or fail to do it
-	}
+```js
+var element;
+var eventDispatched = false;
+if(document.createEvent) {
+	var event = new MouseEvent("mousedown");//document.createEvent("MouseEvents");
+	//event.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+	eventDispatched = element.dispatchEvent(event);
+}
+if(!eventDispatched) {
+	// Old browser or fail to do it
+}
+```
 
 - 
 - [javascript - How can you programmatically tell an HTML SELECT to drop down (for example, due to mouseover)? - Stack Overflow](https://stackoverflow.com/questions/249192/how-can-you-programmatically-tell-an-html-select-to-drop-down-for-example-due/10136523#10136523)
@@ -1993,161 +1998,159 @@ Autocomplete is weird (using the [`<datalist>`](https://developer.mozilla.org/en
 
 Field mask
 
-<details>
-	<summary>Field mask snippet</summary>
+```html
+<!-- http://jsfiddle.net/Lhxpg6wb/1/ -->
+<style>
+	html{
+		font-family: sans-serif;
+	}
+	.js .extended{
+		position: absolute !important;
+		overflow: hidden;
+		clip: rect(0px, 0px, 0px, 0px);
+		width: 1px;
+		height: 1px;
+		border: none;
+		opacity: 0;
+	}
+	.extended-input, input{
+		min-height: 1em;
+		line-height: 1.4em;
+		width: 200px;
+		display: inline-block;
+
+		/* Look like input field */
+		font: 16px sans-serif;
+		padding: 0.4em;
+		background-color: white;
+		border: 1px solid #F0F0F0;
+		color: #000;
+		cursor: text;
+	}
+	.extended-input-part{
+		display: inline-block;
+	}
+	.extended-input-part + .extended-input-part::before{
+		content: " - ";
+		white-space: pre
+	}
+</style>
+<form action="" id="form" method="post">
+	<p>
+		<label for="cc-number-alt">Credit Card (Without JS):</label>
+		<input id="cc-number-alt" name="cc-number-alt" pattern="[0-9]" maxlength="16">
+	</p>
+	<p>
+		<label for="cc-number">Credit Card:</label>
+		<input id="cc-number" name="cc-number" maxlength="16">
+	</p>
+	<button>Send</button>
+</form>
+<script>
+	var html = document.documentElement;
+	html.classList.add("js");
+	var body = document.body;
+	var form = document.getElementById("form");
 	
-	<!-- http://jsfiddle.net/Lhxpg6wb/1/ -->
-	<style>
-		html{
-			font-family: sans-serif;
-		}
-		.js .extended{
-			position: absolute !important;
-			overflow: hidden;
-			clip: rect(0px, 0px, 0px, 0px);
-			width: 1px;
-			height: 1px;
-			border: none;
-			opacity: 0;
-		}
-		.extended-input, input{
-			min-height: 1em;
-			line-height: 1.4em;
-			width: 200px;
-			display: inline-block;
+	var input = document.getElementById("cc-number");
+	input.classList.add("extended");
 	
-			/* Look like input field */
-			font: 16px sans-serif;
-			padding: 0.4em;
-			background-color: white;
-			border: 1px solid #F0F0F0;
-			color: #000;
-			cursor: text;
-		}
-		.extended-input-part{
-			display: inline-block;
-		}
-		.extended-input-part + .extended-input-part::before{
-			content: " - ";
-			white-space: pre
-		}
-	</style>
-	<form action="" id="form" method="post">
-		<p>
-			<label for="cc-number-alt">Credit Card (Without JS):</label>
-			<input id="cc-number-alt" name="cc-number-alt" pattern="[0-9]" maxlength="16">
-		</p>
-		<p>
-			<label for="cc-number">Credit Card:</label>
-			<input id="cc-number" name="cc-number" maxlength="16">
-		</p>
-		<button>Send</button>
-	</form>
-	<script>
-		var html = document.documentElement;
-		html.classList.add("js");
-		var body = document.body;
-		var form = document.getElementById("form");
-		
-		var input = document.getElementById("cc-number");
-		input.classList.add("extended");
-		
-		var extendedInput = document.createElement("div");
-		extendedInput.contentEditable = true;
-		extendedInput.setAttribute("aria-controls", input.id);
-		extendedInput.classList.add("extended-input");
-		
-		extendedInput.addEventListener("input", event => {
-			var groupLength = 4;
-			var rawContent = extendedInput.textContent;
-			var content = rawContent.substr(0, input.maxLength).replace(/(?:\s|[^0-9])+/, "");
-			// TODO support insertions and maxLength
-			var numChars = content.length;
+	var extendedInput = document.createElement("div");
+	extendedInput.contentEditable = true;
+	extendedInput.setAttribute("aria-controls", input.id);
+	extendedInput.classList.add("extended-input");
 	
-			// No changes
-			if(rawContent == input.value){
-				console.log(content, rawContent);
-				return;
+	extendedInput.addEventListener("input", event => {
+		var groupLength = 4;
+		var rawContent = extendedInput.textContent;
+		var content = rawContent.substr(0, input.maxLength).replace(/(?:\s|[^0-9])+/, "");
+		// TODO support insertions and maxLength
+		var numChars = content.length;
+
+		// No changes
+		if(rawContent == input.value){
+			console.log(content, rawContent);
+			return;
+		}
+
+		// Get current caret position
+		var selection = window.getSelection();
+		var range;
+		var caretPos = -1;
+		// TODO loop through all ranges
+		if(selection.rangeCount){
+			range = selection.getRangeAt(0);
+			var node = range.endContainer;
+			if(node == extendedInput){
+				caretPos = 0;
+			}
+			// A text node outside spans
+			if(node.nodeType == Node.TEXT_NODE && node.parentNode == extendedInput){
+				caretPos = 0;
+				while( (node = node.previousSibling) != null ){
+					caretPos += node.nodeType == Node.TEXT_NODE ? node.length : /*should be a generated span*/ groupLength;
+				}
+				caretPos += range.endOffset;
+			}
+			else if (extendedInput.contains(node)) {
+				caretPos = 0;
+				// Text node (span should only contains one text node)
+				if(node.nodeType == Node.TEXT_NODE){
+					node = node.parentNode;
+				}
+				// Find the right span
+				while( (node = node.previousSibling) != null ){ caretPos += groupLength; }
+				caretPos += range.endOffset;
 			}
 	
-			// Get current caret position
-			var selection = window.getSelection();
-			var range;
-			var caretPos = -1;
-			// TODO loop through all ranges
-			if(selection.rangeCount){
-				range = selection.getRangeAt(0);
-				var node = range.endContainer;
-				if(node == extendedInput){
-					caretPos = 0;
-				}
-				// A text node outside spans
-				if(node.nodeType == Node.TEXT_NODE && node.parentNode == extendedInput){
-					caretPos = 0;
-					while( (node = node.previousSibling) != null ){
-						caretPos += node.nodeType == Node.TEXT_NODE ? node.length : /*should be a generated span*/ groupLength;
-					}
-					caretPos += range.endOffset;
-				}
-				else if (extendedInput.contains(node)) {
-					caretPos = 0;
-					// Text node (span should only contains one text node)
-					if(node.nodeType == Node.TEXT_NODE){
-						node = node.parentNode;
-					}
-					// Find the right span
-					while( (node = node.previousSibling) != null ){ caretPos += groupLength; }
-					caretPos += range.endOffset;
-				}
+			// Limit to max chars (ex.: when forbidden chars are added)
+			Math.min(caretPos, Math.max(numChars - 1, 0));
+		}
+
+		// TODO optimize it (re-use spans)
+		var index = 0;
+		var richContent = "";
+		while(index < numChars){
+			richContent += "<span class=\"extended-input-part\">" + content.substr(index, groupLength) + "</span>";
+			index += groupLength;
+		}
 		
-				// Limit to max chars (ex.: when forbidden chars are added)
-				Math.min(caretPos, Math.max(numChars - 1, 0));
-			}
-	
-			// TODO optimize it (re-use spans)
-			var index = 0;
-			var richContent = "";
-			while(index < numChars){
-				richContent += "<span class=\"extended-input-part\">" + content.substr(index, groupLength) + "</span>";
-				index += groupLength;
-			}
-			
-			// Update content
-			input.value = content;
-			extendedInput.innerHTML = richContent;
-	
-			// if caret exist and was placed after 0
-			if(caretPos > 0){
-				var range = document.createRange();
-				var spans = extendedInput.getElementsByTagName("span");
-				var selectedNode;
-				var selectionOffset;
-				if(spans.length > 0){
-					var spanIndex = caretPos / groupLength | 0;
-					// Last char of last span
-					if(spanIndex >= spans.length){
-						selectedNode = spans[spanIndex - 1].firstChild;
-						selectionOffset = groupLength;
-					}else{
-						selectedNode = spans[spanIndex].firstChild;
-						selectionOffset = caretPos % groupLength;
-					}
+		// Update content
+		input.value = content;
+		extendedInput.innerHTML = richContent;
+
+		// if caret exist and was placed after 0
+		if(caretPos > 0){
+			var range = document.createRange();
+			var spans = extendedInput.getElementsByTagName("span");
+			var selectedNode;
+			var selectionOffset;
+			if(spans.length > 0){
+				var spanIndex = caretPos / groupLength | 0;
+				// Last char of last span
+				if(spanIndex >= spans.length){
+					selectedNode = spans[spanIndex - 1].firstChild;
+					selectionOffset = groupLength;
 				}else{
-					// content.length should equals 0
-					selectedNode = extendedInput;
-					selectionOffset = 0;
+					selectedNode = spans[spanIndex].firstChild;
+					selectionOffset = caretPos % groupLength;
 				}
-		
-				range.setStart(selectedNode, selectionOffset);
-				range.setEnd(selectedNode, selectionOffset);
-				selection.removeAllRanges();
-				selection.addRange(range);
+			}else{
+				// content.length should equals 0
+				selectedNode = extendedInput;
+				selectionOffset = 0;
 			}
-		}, false);
-		
-		input.parentNode.insertBefore(extendedInput, input.nextSibling);
-	</script>
-</details>
+	
+			range.setStart(selectedNode, selectionOffset);
+			range.setEnd(selectedNode, selectionOffset);
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
+	}, false);
+	
+	input.parentNode.insertBefore(extendedInput, input.nextSibling);
+</script>
+```
 
 To go further, Input masking:
 
@@ -2180,62 +2183,66 @@ See also: `input.selectionStart`, `input.selectionEnd` and `input.selectionDirec
 
 ### Form submitter and `novalidate` for some fields
 
-	// In spec activable element will dispatch a click event
-	// works also with implicit submission (where you hit enter in a text field and it picks the default submit button)
-	// https://www.w3.org/Bugs/Public/show_bug.cgi?id=23320
-	// http://www.w3.org/TR/html5/forms.html#default-button
-	// http://www.w3.org/TR/html5/forms.html#concept-submit-button
-	// http://www.w3.org/TR/html5/forms.html#submit-button-state-%28type=submit%29
-	// http://www.w3.org/TR/html5/forms.html#image-button-state-%28type=image%29
-	// http://www.w3.org/TR/html5/forms.html#the-button-element
-	// https://stackoverflow.com/questions/2066162/how-can-i-get-the-button-that-caused-the-submit-from-the-form-submit-event
-	
-	var submitter = null;
-	var form;
-	form.addEventListener("click", click, false);
-	form.addEventListener("submit", submit, false);
-	
-	// save when click on form:
-	// Not called if the propagation stopped or the button disabled
-	function click(event){
-		// If the default action was prevented
-		if(event.defaultPrevented){
-			return;
-		}
-		
-		// Find the submitter. But not if the default action was prevented
-		var element = event.target;
-		while(element && element != this._form){
-			if(
-				element.nodeName == "INPUT" && (element.type == "submit" || element.type == "image")
-				|| element.nodeName == "BUTTON" && element.type == "submit"
-			){
-				submitter = element;
-		
-				break;
-			}
-			element = element.parentElement;
-		}
+```js
+// In spec activable element will dispatch a click event
+// works also with implicit submission (where you hit enter in a text field and it picks the default submit button)
+// https://www.w3.org/Bugs/Public/show_bug.cgi?id=23320
+// http://www.w3.org/TR/html5/forms.html#default-button
+// http://www.w3.org/TR/html5/forms.html#concept-submit-button
+// http://www.w3.org/TR/html5/forms.html#submit-button-state-%28type=submit%29
+// http://www.w3.org/TR/html5/forms.html#image-button-state-%28type=image%29
+// http://www.w3.org/TR/html5/forms.html#the-button-element
+// https://stackoverflow.com/questions/2066162/how-can-i-get-the-button-that-caused-the-submit-from-the-form-submit-event
+
+var submitter = null;
+var form;
+form.addEventListener("click", click, false);
+form.addEventListener("submit", submit, false);
+
+// save when click on form:
+// Not called if the propagation stopped or the button disabled
+function click(event){
+	// If the default action was prevented
+	if(event.defaultPrevented){
+		return;
 	}
 	
-	function submit(event){
-		submitter;
-	}
+	// Find the submitter. But not if the default action was prevented
+	var element = event.target;
+	while(element && element != this._form){
+		if(
+			element.nodeName == "INPUT" && (element.type == "submit" || element.type == "image")
+			|| element.nodeName == "BUTTON" && element.type == "submit"
+		){
+			submitter = element;
 	
-	// Should listen invalid and submit event and change based on submitter
+			break;
+		}
+		element = element.parentElement;
+	}
+}
+
+function submit(event){
+	submitter;
+}
+
+// Should listen invalid and submit event and change based on submitter
+```
 
 ### Implicit submission
 
-	var form = input.form;// Form owner (parent or defined via the attribute `form` on input tag)
-	var button = form.ownerDocument.createElement("input");
-	// Hide it (style and for ATs)
-	button.style.display = "none";
-	button.tabIndex = -1;
-	button.setAttribute("aria-hidden", "true");
-	button.setAttribute("role", "presentation");
-	button.type = "submit";
-	form.appendChild(button).click();
-	form.removeChild(button);
+```js
+var form = input.form;// Form owner (parent or defined via the attribute `form` on input tag)
+var button = form.ownerDocument.createElement("input");
+// Hide it (style and for ATs)
+button.style.display = "none";
+button.tabIndex = -1;
+button.setAttribute("aria-hidden", "true");
+button.setAttribute("role", "presentation");
+button.type = "submit";
+form.appendChild(button).click();
+form.removeChild(button);
+```
 
 - http://dabblet.com/gist/97a733d9c787dcf99cff
 - [HTML 5.1: 4.10. Forms#formsReferenced in:4.2.3. The base element10.7.1. Links, forms, and navigationElements](https://www.w3.org/TR/html51/sec-forms.html#implicit-submission)
@@ -2259,561 +2266,559 @@ See [Calendar](HTML#calendar) for valid markup / semantic
 
 From https://bugzilla.mozilla.org/show_bug.cgi?id=1069609#attach_8710338
 
-<details>
-	<summary>Date picker snippet</summary>
-	
-	<!DOCTYPE html>
-	  <head>
-		<title>Calendar</title>
-		<meta charset="UTF-8"/>
-		<style>
-		  :root {
-			--dateRangeTransformOrigin: 0 0;
-			--dateRangeTransition: 0.3s linear;
-		  }
-	
-		  #calendar {
-			position: absolute;
-			min-width: 220px;
-			box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-			border: 1px solid rgb(209, 209, 209);
-			border-radius: 4px;
-			padding: 4px;
-			font-family: Segoe UI;
-			font-size: 12px;
-			-moz-user-select: none;
-		  }
-	
-		  #options {
-			display: flex;
-			margin-bottom: 2px;
-		  }
-	
-		  button {
-			border: 1px solid rgb(209, 209, 209);
-			border-radius: 2px;
-			background-color: rgb(251, 251, 251);
-		  }
-	
-		  button:not(:last-child) {
-			margin-right: 2px;
-		  }
-	
-		  a {
-			text-decoration: none;
-			color: black;
-		  }
-	
-		  #previous,
-		  #next {
-			width: 20px;
-			padding: 0;
-			background-position: 50%;
-			background-repeat: no-repeat;
-		  }
-	
-		  #previous[disabled] {
-			background-image:  url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQffBwYJLS5L2us5AAAARklEQVQoU22PMQoAMAgDQ9/l6LPd9F8pBWnRepOSQwk44O45kQuNiICZ5QYUoYeHK0zh4XvRuYKIQFVze5QLo5RtCq8muQGeQE7l/ncOAQAAAABJRU5ErkJggg==);
-		  }
-	
-		  #previous {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wcGCS0uS9rrOQAAADdJREFUGNNj+P//PwM6ZmBgaICzsUkyMDD8x6oAJolVAbIksgImBkKAaCtwOZIFi4kNjIyMcD4ASftyG4GZFz4AAAAASUVORK5CYII=);
-		  }
-	
-		  #next {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wcGCSgVh6b2WAAAADNJREFUGNNj+P//P8P///8ZGBgYGmBsZMyApOA/NkXoCjAUYVOAooiJgRAg1Qq8jsTqTQDquIQCHxMrkAAAAABJRU5ErkJggg==);
-		  }
-	
-		  #next[disabled] {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQffBwYJLS5L2us5AAAARElEQVQoU3XPsQ0AIAhEUeJclIxNB3thMBeNoK+C8BsowMww3QaBqpK7Yzt2kF7RFaQataBqgYgQM2MrQT0u+ObzZsQEgQBO5bVjtH8AAAAASUVORK5CYII=);
-		  }
-	
-		  #current {
-			flex-grow: 1;
-		  }
-	
-		  #picker {
-			position: relative;
-			width: 220px;
-			height: 143px;
-			overflow: hidden;
-		  }
-	
-		  .days,
-		  .months {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			border: 1px solid rgb(193, 193, 193);
-			border-radius: 2px;
-			border-spacing: 0;
-			cursor: default;
-			transform-origin: var(--dateRangeTransformOrigin);
-			transition: var(--dateRangeTransition);
-		  }
-	
-		  .days.hidden {
-			transform: scaleX(0.25) scaleY(0.333333);
-			pointer-events: none;
-			opacity: 0;
-		  }
-	
-		  .days th {
-			width: 14.285714285714285714285714285714%;
-			font-weight: normal;
-			background-color: rgb(235, 235, 235);
-			color: gray;
-			border-bottom: 1px solid rgb(193, 193, 193);
-		  }
-	
-		  .days :-moz-any(th, td) {
-			height: 20px;
-		  }
-	
-		  :-moz-any(.days, .months) :-moz-any(th, td) {
-			padding: 0;
-			text-align: center;
-		  }
-	
-		  :-moz-any(.days, .months) td {
-			border-radius: 2px;
-		  }
-	
-		  :-moz-any(.days, .months) td:not(.selected):-moz-any(:hover,:focus) {
-			background-color: rgb(191, 228, 246);
-		  }
-	
-		  .previous-timespan {
-			top: -143px;
-		  }
-	
-		  .next-timespan {
-			top: 143px;
-		  }
-	
-		  .show-previous .previous-timespan {
-			top: 0;
-		  }
-	
-		  .show-previous .current-timespan {
-			top: 143px;
-		  }
-	
-		  .show-next .next-timespan {
-			top: 0;
-		  }
-	
-		  .show-next .current-timespan {
-			top: -143px;
-		  }
-	
-		  .otherMonth {
-			color: gray;
-		  }
-	
-		  .selected {
-			background-color: rgb(0, 149, 221);
-			color: white;
-		  }
-	
-		  .months {
-			pointer-events: none;
-			transform: scaleX(4.1) scaleY(3);
-			position: absolute;
-			opacity: 0;
-			transform-origin: var(--dateRangeTransformOrigin);
-			transition: var(--dateRangeTransition);
-		  }
-	
-		  .months.display {
-			transform: scale(1);
-			pointer-events: auto;
-			opacity: 1;
-		  }
-	
-		  .months td {
-			height: 47px;
-		  }
-		</style>
-		<script>
-		function selectDate(evt) {
-		  var selectedDate = document.querySelector(".selected");
-		  if (selectedDate) {
-			selectedDate.classList.remove("selected");
-		  }
-	
-		  if (evt.target.localName === "td") {
-			if (evt.target.classList.contains("otherMonth")) {
-			  var picker = document.getElementById("picker");
-			  var currentID = "";
-			  if (evt.target.textContent < 15) {
-				switchToNextDateRange();
-	
-				switch (picker.className) {
-				  case "":
-					currentID = "days-current";
-					break;
-	
-				  case "show-next":
-					currentID = "days-next";
-					break;
-				}
-			  } else {
-				switchToPreviousDateRange();
-	
-				switch (picker.className) {
-				  case "show-previous":
-					currentID = "days-previous";
-					break;
-	
-				  case "":
-					currentID = "days-current";
-					break;
-				}
-			  }
-	
-			  if (currentID !== "") {
-				var days = document.querySelectorAll("#" + currentID + " td:not(.otherMonth)");
-	
-				for (var i = 0; i < days.length; i++) {
-				  if (days[i].textContent === evt.target.textContent) {
-					var clickEvent = new MouseEvent("click", {
-					  view: window,
-					  bubbles: true,
-					  cancelable: true
-					});
-					days[i].dispatchEvent(clickEvent);
-					break;
-				  }
-				}
-			  }
-			} else {
-			  evt.target.classList.add("selected");
-			}
-		  }
-		}
-	
-		function expandDateRange() {
-		  var days = document.getElementById("days-current");
-		  days.classList.toggle("hidden");
-	
-		  var months = document.getElementById("months-current");
-		  months.style.display = "table";
-		  months.classList.toggle("display");
-	
-		  var current = document.getElementById("current");
-	
-		  current.textContent = months.classList.contains("display") ? "2016" : "January, 2016";
-		}
-	
-		function switchToPreviousDateRange() {
+```html
+<!DOCTYPE html>
+  <head>
+	<title>Calendar</title>
+	<meta charset="UTF-8"/>
+	<style>
+	  :root {
+		--dateRangeTransformOrigin: 0 0;
+		--dateRangeTransition: 0.3s linear;
+	  }
+
+	  #calendar {
+		position: absolute;
+		min-width: 220px;
+		box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		border: 1px solid rgb(209, 209, 209);
+		border-radius: 4px;
+		padding: 4px;
+		font-family: Segoe UI;
+		font-size: 12px;
+		-moz-user-select: none;
+	  }
+
+	  #options {
+		display: flex;
+		margin-bottom: 2px;
+	  }
+
+	  button {
+		border: 1px solid rgb(209, 209, 209);
+		border-radius: 2px;
+		background-color: rgb(251, 251, 251);
+	  }
+
+	  button:not(:last-child) {
+		margin-right: 2px;
+	  }
+
+	  a {
+		text-decoration: none;
+		color: black;
+	  }
+
+	  #previous,
+	  #next {
+		width: 20px;
+		padding: 0;
+		background-position: 50%;
+		background-repeat: no-repeat;
+	  }
+
+	  #previous[disabled] {
+		background-image:  url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQffBwYJLS5L2us5AAAARklEQVQoU22PMQoAMAgDQ9/l6LPd9F8pBWnRepOSQwk44O45kQuNiICZ5QYUoYeHK0zh4XvRuYKIQFVze5QLo5RtCq8muQGeQE7l/ncOAQAAAABJRU5ErkJggg==);
+	  }
+
+	  #previous {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wcGCS0uS9rrOQAAADdJREFUGNNj+P//PwM6ZmBgaICzsUkyMDD8x6oAJolVAbIksgImBkKAaCtwOZIFi4kNjIyMcD4ASftyG4GZFz4AAAAASUVORK5CYII=);
+	  }
+
+	  #next {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wcGCSgVh6b2WAAAADNJREFUGNNj+P//P8P///8ZGBgYGmBsZMyApOA/NkXoCjAUYVOAooiJgRAg1Qq8jsTqTQDquIQCHxMrkAAAAABJRU5ErkJggg==);
+	  }
+
+	  #next[disabled] {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQffBwYJLS5L2us5AAAARElEQVQoU3XPsQ0AIAhEUeJclIxNB3thMBeNoK+C8BsowMww3QaBqpK7Yzt2kF7RFaQataBqgYgQM2MrQT0u+ObzZsQEgQBO5bVjtH8AAAAASUVORK5CYII=);
+	  }
+
+	  #current {
+		flex-grow: 1;
+	  }
+
+	  #picker {
+		position: relative;
+		width: 220px;
+		height: 143px;
+		overflow: hidden;
+	  }
+
+	  .days,
+	  .months {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border: 1px solid rgb(193, 193, 193);
+		border-radius: 2px;
+		border-spacing: 0;
+		cursor: default;
+		transform-origin: var(--dateRangeTransformOrigin);
+		transition: var(--dateRangeTransition);
+	  }
+
+	  .days.hidden {
+		transform: scaleX(0.25) scaleY(0.333333);
+		pointer-events: none;
+		opacity: 0;
+	  }
+
+	  .days th {
+		width: 14.285714285714285714285714285714%;
+		font-weight: normal;
+		background-color: rgb(235, 235, 235);
+		color: gray;
+		border-bottom: 1px solid rgb(193, 193, 193);
+	  }
+
+	  .days :-moz-any(th, td) {
+		height: 20px;
+	  }
+
+	  :-moz-any(.days, .months) :-moz-any(th, td) {
+		padding: 0;
+		text-align: center;
+	  }
+
+	  :-moz-any(.days, .months) td {
+		border-radius: 2px;
+	  }
+
+	  :-moz-any(.days, .months) td:not(.selected):-moz-any(:hover,:focus) {
+		background-color: rgb(191, 228, 246);
+	  }
+
+	  .previous-timespan {
+		top: -143px;
+	  }
+
+	  .next-timespan {
+		top: 143px;
+	  }
+
+	  .show-previous .previous-timespan {
+		top: 0;
+	  }
+
+	  .show-previous .current-timespan {
+		top: 143px;
+	  }
+
+	  .show-next .next-timespan {
+		top: 0;
+	  }
+
+	  .show-next .current-timespan {
+		top: -143px;
+	  }
+
+	  .otherMonth {
+		color: gray;
+	  }
+
+	  .selected {
+		background-color: rgb(0, 149, 221);
+		color: white;
+	  }
+
+	  .months {
+		pointer-events: none;
+		transform: scaleX(4.1) scaleY(3);
+		position: absolute;
+		opacity: 0;
+		transform-origin: var(--dateRangeTransformOrigin);
+		transition: var(--dateRangeTransition);
+	  }
+
+	  .months.display {
+		transform: scale(1);
+		pointer-events: auto;
+		opacity: 1;
+	  }
+
+	  .months td {
+		height: 47px;
+	  }
+	</style>
+	<script>
+	function selectDate(evt) {
+	  var selectedDate = document.querySelector(".selected");
+	  if (selectedDate) {
+		selectedDate.classList.remove("selected");
+	  }
+
+	  if (evt.target.localName === "td") {
+		if (evt.target.classList.contains("otherMonth")) {
 		  var picker = document.getElementById("picker");
-		  var previousButton = document.getElementById("previous");
-		  var nextButton = document.getElementById("next");
-	
-		  switch (picker.className) {
-			case "":
-			  picker.className = "show-previous";
-			  current.textContent = "December, 2015";
-			  previousButton.disabled = true;
-			  break;
-	
-			case "show-next":
-			  picker.className = "";
-			  current.textContent = "January, 2016";
-			  nextButton.disabled = false;
-			  break;
-		  }
-		}
-	
-		function switchToNextDateRange() {
-		  var picker = document.getElementById("picker");
-		  var previousButton = document.getElementById("previous");
-		  var nextButton = document.getElementById("next");
-	
-		  switch (picker.className) {
-			case "":
-			  picker.className = "show-next";
-			  current.textContent = "February, 2016";
-			  nextButton.disabled = true;
-			  break;
-	
-			case "show-previous":
-			  picker.className = "";
-			  current.textContent = "January, 2016";
-			  previousButton.disabled = false;
-			  break;
-		  }
-		}
-	
-		function changeDateRange(evt) {
-		  if (evt.deltaY > 0) {
+		  var currentID = "";
+		  if (evt.target.textContent < 15) {
 			switchToNextDateRange();
+
+			switch (picker.className) {
+			  case "":
+				currentID = "days-current";
+				break;
+
+			  case "show-next":
+				currentID = "days-next";
+				break;
+			}
 		  } else {
 			switchToPreviousDateRange();
+
+			switch (picker.className) {
+			  case "show-previous":
+				currentID = "days-previous";
+				break;
+
+			  case "":
+				currentID = "days-current";
+				break;
+			}
 		  }
+
+		  if (currentID !== "") {
+			var days = document.querySelectorAll("#" + currentID + " td:not(.otherMonth)");
+
+			for (var i = 0; i < days.length; i++) {
+			  if (days[i].textContent === evt.target.textContent) {
+				var clickEvent = new MouseEvent("click", {
+				  view: window,
+				  bubbles: true,
+				  cancelable: true
+				});
+				days[i].dispatchEvent(clickEvent);
+				break;
+			  }
+			}
+		  }
+		} else {
+		  evt.target.classList.add("selected");
 		}
-	
-		window.addEventListener("load", () => {
-		  var picker = document.getElementById("picker");
-		  picker.addEventListener("click", selectDate);
-		  picker.addEventListener("wheel", changeDateRange);
-	
-		  var previousButton = document.getElementById("previous");
-		  previousButton.addEventListener("click", switchToPreviousDateRange);
-	
-		  var nextButton = document.getElementById("next");
-		  nextButton.addEventListener("click", switchToNextDateRange);
-	
-		  var month = document.getElementById("current");
-		  month.addEventListener("click", expandDateRange);
-		});
-		</script>
-	  </head>
-	  <body>
-		<div id="calendar">
-		  <div id="options">
-			<button id="previous" tabindex="1"></button>
-			<button id="current" tabindex="2">January, 2016</button>
-			<button id="next" tabindex="3"></button>
-			<button id="today" tabindex="4">today</button>
-		  </div>
-		  <div id="picker">
-			<table id="months-current" class="months">
-			  <tbody>
-				<tr>
-				  <td>Jan</td>
-				  <td>Feb</td>
-				  <td>Mar</td>
-				  <td>Apr</td>
-				</tr>
-				<tr>
-				  <td>May</td>
-				  <td>Jun</td>
-				  <td>Jul</td>
-				  <td>Aug</td>
-				</tr>
-				<tr>
-				  <td>Sep</td>
-				  <td>Oct</td>
-				  <td>Nov</td>
-				  <td>Dec</td>
-				</tr>
-			  </tbody>
-			</table>
-			<table id="days-previous" class="days previous-timespan">
-			  <thead>
-				<tr>
-				  <th>Sun</th>
-				  <th>Mon</th>
-				  <th>Tue</th>
-				  <th>Wed</th>
-				  <th>Thu</th>
-				  <th>Fri</th>
-				  <th>Sat</th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr>
-				  <td class="otherMonth">29</td>
-				  <td class="otherMonth">30</td>
-				  <td>1</td>
-				  <td>2</td>
-				  <td>3</td>
-				  <td>4</td>
-				  <td>5</td>
-				</tr>
-				<tr>
-				  <td>6</td>
-				  <td>7</td>
-				  <td>8</td>
-				  <td>9</td>
-				  <td>10</td>
-				  <td>11</td>
-				  <td>12</td>
-				</tr>
-				<tr>
-				  <td>13</td>
-				  <td>14</td>
-				  <td>15</td>
-				  <td>16</td>
-				  <td>17</td>
-				  <td>18</td>
-				  <td>19</td>
-				</tr>
-				<tr>
-				  <td>20</td>
-				  <td>21</td>
-				  <td>22</td>
-				  <td>23</td>
-				  <td>24</td>
-				  <td>25</td>
-				  <td>26</td>
-				</tr>
-				<tr>
-				  <td>27</td>
-				  <td>28</td>
-				  <td>29</td>
-				  <td>30</td>
-				  <td>31</td>
-				  <td class="otherMonth">1</td>
-				  <td class="otherMonth">2</td>
-				</tr>
-				<tr>
-				  <td class="otherMonth">3</td>
-				  <td class="otherMonth">4</td>
-				  <td class="otherMonth">5</td>
-				  <td class="otherMonth">6</td>
-				  <td class="otherMonth">7</td>
-				  <td class="otherMonth">8</td>
-				  <td class="otherMonth">9</td>
-				</tr>
-			  </tbody>
-			</table>
-			<table id="days-current" class="days current-timespan">
-			  <thead>
-				<tr>
-				  <th>Sun</th>
-				  <th>Mon</th>
-				  <th>Tue</th>
-				  <th>Wed</th>
-				  <th>Thu</th>
-				  <th>Fri</th>
-				  <th>Sat</th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr>
-				  <td class="otherMonth" tabindex="5">27</td>
-				  <td class="otherMonth" tabindex="6">28</td>
-				  <td class="otherMonth" tabindex="7">29</td>
-				  <td class="otherMonth" tabindex="8">30</td>
-				  <td class="otherMonth" tabindex="9">31</td>
-				  <td tabindex="10">1</td>
-				  <td tabindex="11">2</td>
-				</tr>
-				<tr>
-				  <td tabindex="12">3</td>
-				  <td tabindex="13">4</td>
-				  <td tabindex="14">5</td>
-				  <td tabindex="15">6</td>
-				  <td tabindex="16">7</td>
-				  <td tabindex="17">8</td>
-				  <td tabindex="18">9</td>
-				</tr>
-				<tr>
-				  <td tabindex="19">10</td>
-				  <td tabindex="20">11</td>
-				  <td tabindex="21">12</td>
-				  <td tabindex="22">13</td>
-				  <td tabindex="23">14</td>
-				  <td tabindex="24">15</td>
-				  <td tabindex="25">16</td>
-				</tr>
-				<tr>
-				  <td tabindex="26">17</td>
-				  <td tabindex="27">18</td>
-				  <td tabindex="28">19</td>
-				  <td tabindex="29">20</td>
-				  <td class="selected" tabindex="30">21</td>
-				  <td tabindex="31">22</td>
-				  <td tabindex="32">23</td>
-				</tr>
-				<tr>
-				  <td tabindex="33">24</td>
-				  <td tabindex="34">25</td>
-				  <td tabindex="35">26</td>
-				  <td tabindex="36">27</td>
-				  <td tabindex="37">28</td>
-				  <td tabindex="38">29</td>
-				  <td tabindex="39">30</td>
-				</tr>
-				<tr>
-				  <td tabindex="40">31</td>
-				  <td class="otherMonth" tabindex="41">1</td>
-				  <td class="otherMonth" tabindex="42">2</td>
-				  <td class="otherMonth" tabindex="43">3</td>
-				  <td class="otherMonth" tabindex="44">4</td>
-				  <td class="otherMonth" tabindex="45">5</td>
-				  <td class="otherMonth" tabindex="46">6</td>
-				</tr>
-			  </tbody>
-			</table>
-			<table id="days-next" class="days next-timespan">
-			  <thead>
-				<tr>
-				  <th>Sun</th>
-				  <th>Mon</th>
-				  <th>Tue</th>
-				  <th>Wed</th>
-				  <th>Thu</th>
-				  <th>Fri</th>
-				  <th>Sat</th>
-				</tr>
-			  </thead>
-			  <tbody>
-				<tr>
-				  <td class="otherMonth">31</td>
-				  <td>1</td>
-				  <td>2</td>
-				  <td>3</td>
-				  <td>4</td>
-				  <td>5</td>
-				  <td>6</td>
-				</tr>
-				<tr>
-				  <td>7</td>
-				  <td>8</td>
-				  <td>9</td>
-				  <td>10</td>
-				  <td>11</td>
-				  <td>12</td>
-				  <td>13</td>
-				</tr>
-				<tr>
-				  <td>14</td>
-				  <td>15</td>
-				  <td>16</td>
-				  <td>17</td>
-				  <td>18</td>
-				  <td>19</td>
-				  <td>20</td>
-				</tr>
-				<tr>
-				  <td>21</td>
-				  <td>22</td>
-				  <td>23</td>
-				  <td>24</td>
-				  <td>25</td>
-				  <td>26</td>
-				  <td>27</td>
-				</tr>
-				<tr>
-				  <td>28</td>
-				  <td>29</td>
-				  <td class="otherMonth">1</td>
-				  <td class="otherMonth">2</td>
-				  <td class="otherMonth">3</td>
-				  <td class="otherMonth">4</td>
-				  <td class="otherMonth">5</td>
-				</tr>
-				<tr>
-				  <td class="otherMonth">6</td>
-				  <td class="otherMonth">7</td>
-				  <td class="otherMonth">8</td>
-				  <td class="otherMonth">9</td>
-				  <td class="otherMonth">10</td>
-				  <td class="otherMonth">11</td>
-				  <td class="otherMonth">12</td>
-				</tr>
-			  </tbody>
-			</table>
-		  </div>
-		</div>
-	  </body>
-	</html>
-</details>
+	  }
+	}
+
+	function expandDateRange() {
+	  var days = document.getElementById("days-current");
+	  days.classList.toggle("hidden");
+
+	  var months = document.getElementById("months-current");
+	  months.style.display = "table";
+	  months.classList.toggle("display");
+
+	  var current = document.getElementById("current");
+
+	  current.textContent = months.classList.contains("display") ? "2016" : "January, 2016";
+	}
+
+	function switchToPreviousDateRange() {
+	  var picker = document.getElementById("picker");
+	  var previousButton = document.getElementById("previous");
+	  var nextButton = document.getElementById("next");
+
+	  switch (picker.className) {
+		case "":
+		  picker.className = "show-previous";
+		  current.textContent = "December, 2015";
+		  previousButton.disabled = true;
+		  break;
+
+		case "show-next":
+		  picker.className = "";
+		  current.textContent = "January, 2016";
+		  nextButton.disabled = false;
+		  break;
+	  }
+	}
+
+	function switchToNextDateRange() {
+	  var picker = document.getElementById("picker");
+	  var previousButton = document.getElementById("previous");
+	  var nextButton = document.getElementById("next");
+
+	  switch (picker.className) {
+		case "":
+		  picker.className = "show-next";
+		  current.textContent = "February, 2016";
+		  nextButton.disabled = true;
+		  break;
+
+		case "show-previous":
+		  picker.className = "";
+		  current.textContent = "January, 2016";
+		  previousButton.disabled = false;
+		  break;
+	  }
+	}
+
+	function changeDateRange(evt) {
+	  if (evt.deltaY > 0) {
+		switchToNextDateRange();
+	  } else {
+		switchToPreviousDateRange();
+	  }
+	}
+
+	window.addEventListener("load", () => {
+	  var picker = document.getElementById("picker");
+	  picker.addEventListener("click", selectDate);
+	  picker.addEventListener("wheel", changeDateRange);
+
+	  var previousButton = document.getElementById("previous");
+	  previousButton.addEventListener("click", switchToPreviousDateRange);
+
+	  var nextButton = document.getElementById("next");
+	  nextButton.addEventListener("click", switchToNextDateRange);
+
+	  var month = document.getElementById("current");
+	  month.addEventListener("click", expandDateRange);
+	});
+	</script>
+  </head>
+  <body>
+	<div id="calendar">
+	  <div id="options">
+		<button id="previous" tabindex="1"></button>
+		<button id="current" tabindex="2">January, 2016</button>
+		<button id="next" tabindex="3"></button>
+		<button id="today" tabindex="4">today</button>
+	  </div>
+	  <div id="picker">
+		<table id="months-current" class="months">
+		  <tbody>
+			<tr>
+			  <td>Jan</td>
+			  <td>Feb</td>
+			  <td>Mar</td>
+			  <td>Apr</td>
+			</tr>
+			<tr>
+			  <td>May</td>
+			  <td>Jun</td>
+			  <td>Jul</td>
+			  <td>Aug</td>
+			</tr>
+			<tr>
+			  <td>Sep</td>
+			  <td>Oct</td>
+			  <td>Nov</td>
+			  <td>Dec</td>
+			</tr>
+		  </tbody>
+		</table>
+		<table id="days-previous" class="days previous-timespan">
+		  <thead>
+			<tr>
+			  <th>Sun</th>
+			  <th>Mon</th>
+			  <th>Tue</th>
+			  <th>Wed</th>
+			  <th>Thu</th>
+			  <th>Fri</th>
+			  <th>Sat</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td class="otherMonth">29</td>
+			  <td class="otherMonth">30</td>
+			  <td>1</td>
+			  <td>2</td>
+			  <td>3</td>
+			  <td>4</td>
+			  <td>5</td>
+			</tr>
+			<tr>
+			  <td>6</td>
+			  <td>7</td>
+			  <td>8</td>
+			  <td>9</td>
+			  <td>10</td>
+			  <td>11</td>
+			  <td>12</td>
+			</tr>
+			<tr>
+			  <td>13</td>
+			  <td>14</td>
+			  <td>15</td>
+			  <td>16</td>
+			  <td>17</td>
+			  <td>18</td>
+			  <td>19</td>
+			</tr>
+			<tr>
+			  <td>20</td>
+			  <td>21</td>
+			  <td>22</td>
+			  <td>23</td>
+			  <td>24</td>
+			  <td>25</td>
+			  <td>26</td>
+			</tr>
+			<tr>
+			  <td>27</td>
+			  <td>28</td>
+			  <td>29</td>
+			  <td>30</td>
+			  <td>31</td>
+			  <td class="otherMonth">1</td>
+			  <td class="otherMonth">2</td>
+			</tr>
+			<tr>
+			  <td class="otherMonth">3</td>
+			  <td class="otherMonth">4</td>
+			  <td class="otherMonth">5</td>
+			  <td class="otherMonth">6</td>
+			  <td class="otherMonth">7</td>
+			  <td class="otherMonth">8</td>
+			  <td class="otherMonth">9</td>
+			</tr>
+		  </tbody>
+		</table>
+		<table id="days-current" class="days current-timespan">
+		  <thead>
+			<tr>
+			  <th>Sun</th>
+			  <th>Mon</th>
+			  <th>Tue</th>
+			  <th>Wed</th>
+			  <th>Thu</th>
+			  <th>Fri</th>
+			  <th>Sat</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td class="otherMonth" tabindex="5">27</td>
+			  <td class="otherMonth" tabindex="6">28</td>
+			  <td class="otherMonth" tabindex="7">29</td>
+			  <td class="otherMonth" tabindex="8">30</td>
+			  <td class="otherMonth" tabindex="9">31</td>
+			  <td tabindex="10">1</td>
+			  <td tabindex="11">2</td>
+			</tr>
+			<tr>
+			  <td tabindex="12">3</td>
+			  <td tabindex="13">4</td>
+			  <td tabindex="14">5</td>
+			  <td tabindex="15">6</td>
+			  <td tabindex="16">7</td>
+			  <td tabindex="17">8</td>
+			  <td tabindex="18">9</td>
+			</tr>
+			<tr>
+			  <td tabindex="19">10</td>
+			  <td tabindex="20">11</td>
+			  <td tabindex="21">12</td>
+			  <td tabindex="22">13</td>
+			  <td tabindex="23">14</td>
+			  <td tabindex="24">15</td>
+			  <td tabindex="25">16</td>
+			</tr>
+			<tr>
+			  <td tabindex="26">17</td>
+			  <td tabindex="27">18</td>
+			  <td tabindex="28">19</td>
+			  <td tabindex="29">20</td>
+			  <td class="selected" tabindex="30">21</td>
+			  <td tabindex="31">22</td>
+			  <td tabindex="32">23</td>
+			</tr>
+			<tr>
+			  <td tabindex="33">24</td>
+			  <td tabindex="34">25</td>
+			  <td tabindex="35">26</td>
+			  <td tabindex="36">27</td>
+			  <td tabindex="37">28</td>
+			  <td tabindex="38">29</td>
+			  <td tabindex="39">30</td>
+			</tr>
+			<tr>
+			  <td tabindex="40">31</td>
+			  <td class="otherMonth" tabindex="41">1</td>
+			  <td class="otherMonth" tabindex="42">2</td>
+			  <td class="otherMonth" tabindex="43">3</td>
+			  <td class="otherMonth" tabindex="44">4</td>
+			  <td class="otherMonth" tabindex="45">5</td>
+			  <td class="otherMonth" tabindex="46">6</td>
+			</tr>
+		  </tbody>
+		</table>
+		<table id="days-next" class="days next-timespan">
+		  <thead>
+			<tr>
+			  <th>Sun</th>
+			  <th>Mon</th>
+			  <th>Tue</th>
+			  <th>Wed</th>
+			  <th>Thu</th>
+			  <th>Fri</th>
+			  <th>Sat</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td class="otherMonth">31</td>
+			  <td>1</td>
+			  <td>2</td>
+			  <td>3</td>
+			  <td>4</td>
+			  <td>5</td>
+			  <td>6</td>
+			</tr>
+			<tr>
+			  <td>7</td>
+			  <td>8</td>
+			  <td>9</td>
+			  <td>10</td>
+			  <td>11</td>
+			  <td>12</td>
+			  <td>13</td>
+			</tr>
+			<tr>
+			  <td>14</td>
+			  <td>15</td>
+			  <td>16</td>
+			  <td>17</td>
+			  <td>18</td>
+			  <td>19</td>
+			  <td>20</td>
+			</tr>
+			<tr>
+			  <td>21</td>
+			  <td>22</td>
+			  <td>23</td>
+			  <td>24</td>
+			  <td>25</td>
+			  <td>26</td>
+			  <td>27</td>
+			</tr>
+			<tr>
+			  <td>28</td>
+			  <td>29</td>
+			  <td class="otherMonth">1</td>
+			  <td class="otherMonth">2</td>
+			  <td class="otherMonth">3</td>
+			  <td class="otherMonth">4</td>
+			  <td class="otherMonth">5</td>
+			</tr>
+			<tr>
+			  <td class="otherMonth">6</td>
+			  <td class="otherMonth">7</td>
+			  <td class="otherMonth">8</td>
+			  <td class="otherMonth">9</td>
+			  <td class="otherMonth">10</td>
+			  <td class="otherMonth">11</td>
+			  <td class="otherMonth">12</td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	</div>
+  </body>
+</html>
+```
 
 ### Keypad
 
@@ -2861,20 +2866,26 @@ Inside SVG doc `element.ownerDocument` and `window.parent` or `parent` equals wi
 
 Use `transform` instead of `top`/`left`/`bottom`/`right` style properties. These last ones repaint elements where the first one don't.
 
-	void(element.offsetHeight);// get the value and evaluate it (else it's will be discarded, and the reflow will not be triggered)
+```js
+element.offsetHeight;// get the value and evaluate it (else it's will be discarded, and the reflow will not be triggered)
+// or
+void(element.offsetHeight);
+```
 
 > you force a synchronous style flush any time you query for style information after the DOM has changed within the same frame tick. Depending on whether or not the style information you’re asking for has something to do with size or position, you may also cause a layout recalculation (also referred to as layout flush or reflow)
 
-	requestAnimationFrame(() => {
-		setTimeout(() => {
-			// This code will be run ASAP after Style and Layout information have
-			// been calculated and the paint has occurred. Unless something else
-			// has dirtied the DOM very early, querying for style and layout information
-			// here should be cheap.
-			
-			// Do _not_ under any circumstances write to the DOM in one of these callbacks!
-		}, 0);
-	});
+```js
+requestAnimationFrame(() => {
+	setTimeout(() => {
+		// This code will be run ASAP after Style and Layout information have
+		// been calculated and the paint has occurred. Unless something else
+		// has dirtied the DOM very early, querying for style and layout information
+		// here should be cheap.
+		
+		// Do _not_ under any circumstances write to the DOM in one of these callbacks!
+	}, 0);
+});
+```
 
 Layout triggers :
 
@@ -2962,18 +2973,20 @@ Use same rules as CSS for detection `element.match()`, `window.matchMedia`
 
 You can use intersection observers' root option to find out when an element appears/disappears:
 
-	const box = document.querySelector('.box');
-	
-	new IntersectionObserver(([entry]) => {
-		if (entry.intersectionRatio) {
-			console.log('Box rendered!');
-		}
-		else {
-			console.log('Box unrendered!');
-		}
-	}, {
-		root: document.body
-	}).observe(box);
+```js
+const box = document.querySelector('.box');
+
+new IntersectionObserver(([entry]) => {
+	if (entry.intersectionRatio) {
+		console.log('Box rendered!');
+	}
+	else {
+		console.log('Box unrendered!');
+	}
+}, {
+	root: document.body
+}).observe(box);
+```
 
 - [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/fonuma/edit?css,js,console,output)
 - [Jake Archibald on Twitter: "TIL: You can use intersection observers' root option to find out when an element appears/disappears. Demo: https://t.co/s8DP2m1iHZ https://t.co/hxfDls1SLM"](https://twitter.com/jaffathecake/status/857537625154097152)
@@ -2986,65 +2999,75 @@ Trigger a [reflow](#relayout-repaint-reflow). Or set `animation` to `none` then 
 
 Use CSS variable. You should escape with backslash `;`, `{`, `}` and `!`. "Comments" before semilicon are also included.
 
-	<style>
-	:root{
-		--data: abc\;\}\{def \!important /* included */;/* excluded */
-	}
-	</style>
-	<script>
-	window.getComputedStyle(document.documentElement).getPropertyValue("--data").trim() == "abc\\;\\}\\{def \\!important /* included */"
-	//getPropertyCSSValue("--data").primitiveType == CSSPrimitiveValue.CSS_STRING
-	</script>
+```html
+<style>
+:root{
+	--data: abc\;\}\{def \!important /* included */;/* excluded */
+}
+</style>
+<script>
+window.getComputedStyle(document.documentElement).getPropertyValue("--data").trim() == "abc\\;\\}\\{def \\!important /* included */"
+//getPropertyCSSValue("--data").primitiveType == CSSPrimitiveValue.CSS_STRING
+</script>
+```
 
 ## Detect if navigation is canceled
 
 After the user click on a link:
 
-	const beforeUnload = event => {
-		window.removeEventListener("beforeunload", beforeUnload);
-		// If the event has been prevented (by other any script)
-		if(event.defaultPrevented){
-			return;
-		}
-		clearTimeout(timeout);
-	};
-	const timeout = () => {
-		// navigation has been cancel
-		const blob = new Blob([value], {type: "text/html;charset=utf-8"});
-		// use blob instead of doc.open() write() close() which works only for HTML doc, not for XML (SVG) docs
-		window.location = URL.createObjectURL(blob);
-	};
-	
-	// listen unload event to wait a potential navigation event
-	window.addEventListener("beforeunload", beforeUnload);
-	// and set timeout to 100ms as fallback
-	// 100ms is enough to be sure the navigation event is triggered before
-	const unloadTimeoutID = setTimeout(timeout, 100);
+```js
+const beforeUnload = event => {
+	window.removeEventListener("beforeunload", beforeUnload);
+	// If the event has been prevented (by other any script)
+	if(event.defaultPrevented){
+		return;
+	}
+	clearTimeout(timeout);
+};
+const timeout = () => {
+	// navigation has been cancel
+	const blob = new Blob([value], {type: "text/html;charset=utf-8"});
+	// use blob instead of doc.open() write() close() which works only for HTML doc, not for XML (SVG) docs
+	window.location = URL.createObjectURL(blob);
+};
+
+// listen unload event to wait a potential navigation event
+window.addEventListener("beforeunload", beforeUnload);
+// and set timeout to 100ms as fallback
+// 100ms is enough to be sure the navigation event is triggered before
+const unloadTimeoutID = setTimeout(timeout, 100);
+```
 
 ## Document ready
 
-	let domContentLoaded = new Promise(resolve => {
-		if(document.readyState === "interactive" || document.readyState === "complete"){
-			resolve(true);
-			return;
-		}
-		document.addEventListener("DOMContentLoaded", event => {
-			resolve(true);
-		});
-	})
-
-	// If DOMContentLoaded is already dispatched (or will be)
-	if(document.readyState == "interactive" && document.body || document.readyState == "complete"){
-		main();
-	}else{
-		document.addEventListener("DOMContentLoaded", event => main());
+```js
+let domContentLoaded = new Promise(resolve => {
+	if(document.readyState === "interactive" || document.readyState === "complete"){
+		resolve(true);
+		return;
 	}
+	document.addEventListener("DOMContentLoaded", event => {
+		resolve(true);
+	});
+})
+```
 
-	if(document.readyState == "uninitialized" || document.readyState == "loading"){
-		document.addEventListener("DOMContentLoaded", event => main());
-	}else{
-		main();
-	}
+```js
+// If DOMContentLoaded is already dispatched (or will be)
+if(document.readyState == "interactive" && document.body || document.readyState == "complete"){
+	main();
+}else{
+	document.addEventListener("DOMContentLoaded", event => main());
+}
+```
+
+```js
+if(document.readyState == "uninitialized" || document.readyState == "loading"){
+	document.addEventListener("DOMContentLoaded", event => main());
+}else{
+	main();
+}
+```
 
 - https://stackoverflow.com/questions/9457891/how-to-detect-if-domcontentloaded-was-fired
 - [Mozilla's dev answer about `DOMContentLoaded` is the event when `document.readyState === "interactive"` (but after defered scripts)](https://stackoverflow.com/questions/3665561/document-readystate-of-interactive-vs-ondomcontentloaded/9973472#9973472)
@@ -3081,11 +3104,13 @@ Animation should be based on **elapsed time**, not on iterations (`requestAnimat
 
 Round iteration base animation:
 
-	var x = currentX + (targetX - currentX) * 0.1
-	// Round below 0.1
-	if(Math.abs(x - currentX) < 0.1){
-		x = targetX;
-	}
+```js
+var x = currentX + (targetX - currentX) * 0.1
+// Round below 0.1
+if(Math.abs(x - currentX) < 0.1){
+	x = targetX;
+}
+```
 
 If use transform, use `translate3d(X, Y, Z)` even if use want to use only one axis (with `translate(X, Y)`, `translateX(X)`, etc.), it will not benefit of hardware acceleration on some browser (Safari, for others like FF or Chrome it's OK)
 
@@ -3094,27 +3119,29 @@ If use transform, use `translate3d(X, Y, Z)` even if use want to use only one ax
 
 FLIP (First, Last, Invert, Play):
 
-	// Get the first position.
-	var first = el.getBoundingClientRect();
-	// Now set the element to the last position.
-	el.classList.add('totes-at-the-end');
-	// Read again. This forces a sync layout, so be careful.
-	var last = el.getBoundingClientRect();
-	// You can do this for other computed styles as well, if needed.
-	// Just be sure to stick to compositor-only props like transform
-	// and opacity where possible.
-	var invert = first.top - last.top;
-	// Invert.
-	el.style.transform = 'translateY(' + invert + 'px)';
-	// Wait for the next frame so we know all the style changes have taken hold.
-	requestAnimationFrame(function() {
-	  // Switch on animations.
-	  el.classList.add('animate-on-transforms');
-	  // GO GO GOOOOOO!
-	  el.style.transform = '';
-	});
-	// Capture the end with transitionend
-	el.addEventListener('transitionend', tidyUpAnimations);
+```js
+// Get the first position.
+var first = el.getBoundingClientRect();
+// Now set the element to the last position.
+el.classList.add('totes-at-the-end');
+// Read again. This forces a sync layout, so be careful.
+var last = el.getBoundingClientRect();
+// You can do this for other computed styles as well, if needed.
+// Just be sure to stick to compositor-only props like transform
+// and opacity where possible.
+var invert = first.top - last.top;
+// Invert.
+el.style.transform = 'translateY(' + invert + 'px)';
+// Wait for the next frame so we know all the style changes have taken hold.
+requestAnimationFrame(function() {
+  // Switch on animations.
+  el.classList.add('animate-on-transforms');
+  // GO GO GOOOOOO!
+  el.style.transform = '';
+});
+// Capture the end with transitionend
+el.addEventListener('transitionend', tidyUpAnimations);
+```
 
 - [Aerotwist - FLIP Your Animations](https://aerotwist.com/blog/flip-your-animations/)
 - [Animating Layouts with the FLIP Technique | CSS-Tricks](https://css-tricks.com/animating-layouts-with-the-flip-technique/)
@@ -3140,17 +3167,19 @@ See [Viewport](CSS#viewport)
 
 Aka window dimension, viewport size, window size
 
-	// visual viewport (w/ zoom) relative to document, w/ scrollbars:
-	window.innerWidth;
-	window.innerHeight;
-	// layout viewport (w/o zoom), document dimension, w/o scrollbars:
-	document.documentElement.clientWidth;
-	document.documentElement.clientHeight;
-	document.body.clientWidth;
-	document.body.clientHeight;
-	// element:
-	element.clientWidth;
-	element.clientHeight;
+```js
+// visual viewport (w/ zoom) relative to document, w/ scrollbars:
+window.innerWidth;
+window.innerHeight;
+// layout viewport (w/o zoom), document dimension, w/o scrollbars:
+document.documentElement.clientWidth;
+document.documentElement.clientHeight;
+document.body.clientWidth;
+document.body.clientHeight;
+// element:
+element.clientWidth;
+element.clientHeight;
+```
 
 But... (zoom, support of old browsers)
 
@@ -3167,8 +3196,10 @@ Because `offset[Left|Top]` is not available on SVG nodes and don't take account 
 
 ## Document dimension
 
-	document.documentElement.offsetWidth
-	document.documentElement.offsetHeight
+```js
+document.documentElement.offsetWidth
+document.documentElement.offsetHeight
+```
 
 ## Element dimension and position
 
@@ -3182,10 +3213,12 @@ Because `offset[Left|Top]` is not available on SVG nodes and don't take account 
 
 ## Interactions and animations
 
-	window.onscroll = function() {
-		var speed = 5.0;
-		document.body.style.backgroundPosition = (-window.pageXOffset/speed)+"px "+(-window.pageYOffset/speed)+"px";
-	}
+```js
+window.addEventListener("scroll", function() {
+	const speed = 5.0;
+	document.body.style.backgroundPosition = (-window.pageXOffset/speed)+"px "+(-window.pageYOffset/speed)+"px";
+})
+```
 
 - [Keyboard Event Viewer](https://w3c.github.io/uievents/tools/key-event-viewer.html)
 
@@ -3239,30 +3272,34 @@ const isTouchWithFallback = isTouchMediaMatches !== null ? isTouchMediaMatches :
 export const isTouch = isTouchWithFallback;
 ```
 
-	// Test if the browser support of `touch*` events (but there no guarantee it's a touch device)
-	"ontouchstart" in window;
-	//"onpointerdown" in document
-	// Test if the browser support mutli touch points (== 0 if no touch)
-	Boolean(navigator.msMaxTouchPoints) || Boolean(navigator.maxTouchPoints);
-	// Test if via media queries level 4, don't support hover nor have fine pointer
-	var mqList;
-	window.matchMedia && (mqList = window.matchMedia('(pointer: coarse), (hover: none)')) && (mqList.media == "not all"/*if `hover` MQ not supported*/ || mqList.matches/*supported and match*/);
-	<UIEvent>.sourceCapabilities.firesTouchEvents// non standard
+```js
+// Test if the browser support of `touch*` events (but there no guarantee it's a touch device)
+"ontouchstart" in window;
+//"onpointerdown" in document
+// Test if the browser support mutli touch points (== 0 if no touch)
+Boolean(navigator.msMaxTouchPoints) || Boolean(navigator.maxTouchPoints);
+// Test if via media queries level 4, don't support hover nor have fine pointer
+var mqList;
+window.matchMedia && (mqList = window.matchMedia('(pointer: coarse), (hover: none)')) && (mqList.media == "not all"/*if `hover` MQ not supported*/ || mqList.matches/*supported and match*/);
+<UIEvent>.sourceCapabilities.firesTouchEvents// non standard
+```
 
-	// https://github.com/GoogleChrome/lighthouse/blob/ecbbc388f87d515224484a4b978552d10d552445/lighthouse-core/lib/emulation.js#L79-L102
-	function injectedTouchEvents() {
-	    const touchEvents = ['ontouchstart', 'ontouchend', 'ontouchmove', 'ontouchcancel'];
-	    const recepients = [window.__proto__, document.__proto__];
-	    for (let i = 0; i < touchEvents.length; ++i) {
-	      for (let j = 0; j < recepients.length; ++j) {
-	        if (!(touchEvents[i] in recepients[j])) {
-	          Object.defineProperty(recepients[j], touchEvents[i], {
-	            value: null, writable: true, configurable: true, enumerable: true,
-	          });
-	        }
-	      }
-	    }
-	}
+```js
+// https://github.com/GoogleChrome/lighthouse/blob/ecbbc388f87d515224484a4b978552d10d552445/lighthouse-core/lib/emulation.js#L79-L102
+function injectedTouchEvents() {
+    const touchEvents = ['ontouchstart', 'ontouchend', 'ontouchmove', 'ontouchcancel'];
+    const recepients = [window.__proto__, document.__proto__];
+    for (let i = 0; i < touchEvents.length; ++i) {
+      for (let j = 0; j < recepients.length; ++j) {
+        if (!(touchEvents[i] in recepients[j])) {
+          Object.defineProperty(recepients[j], touchEvents[i], {
+            value: null, writable: true, configurable: true, enumerable: true,
+          });
+        }
+      }
+    }
+}
+```
 
 - [Touch Devices Should Not Be Judged By Their Size | CSS-Tricks](https://css-tricks.com/touch-devices-not-judged-size/)
 - [Modernizr/touchevents.js at master · Modernizr/Modernizr](https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js)
@@ -3288,10 +3325,8 @@ A few notes about this event:
 > …whenever a default action like scroll or zoom is triggered, you’ll get a `pointercancel` event, to let you know that the browser has taken control of the pointer. […] You can stop the browser from taking control with the CSS `touch-action` property.
 — [Pointing the Way Forward  |  Web  |  Google Developers](https://developers.google.com/web/updates/2016/10/pointer-events)
 
+"If you listen to touchend events, be sure to also listen for touchcancel":
 
-<details>
-	<summary>"If you listen to touchend events, be sure to also listen for touchcancel"</summary>
-	
 > The touchend event fires whenever a finger lifts normally from the touchscreen.  All browsers can also fire a touchcancel event (http://www.w3.org/TR/touch-events/#the-touchcancel-event) to indicate that a touch has terminated abnormally.  This can happen, for example, if focus is taken away from the page (such as by the browser's menu being activated), or for any number of other implementation-defined reasons.  The reason this is a separate event is that you may want to avoid triggering some action (eg. a tap that ends with a touchend should activate something, but one that ends in touchcancel should not).
 > 
 > I've seen many websites which listen for touchend but ignore touchcancel entirely.  This results in some subtle but nasty bugs.  For example, the app may think that a finger is stuck down when there are no fingers on the page at all.  When a new touchstart occurs, the app may get very confused - possibly thinking two fingers are now down.
@@ -3303,7 +3338,6 @@ A few notes about this event:
 > The precise behavior here is painfully specific to each browser.  I've put some details here: https://docs.google.com/a/chromium.org/document/d/12k_LL_Ot9GjF8zGWP9eI_3IMbSizD72susba0frg44Y/edit#heading=h.nxfgrfmqhzn7.  At least this is very well specified in Pointer Events (http://www.w3.org/TR/pointerevents/), and Chrome's behavior is equivalent to the Pointer Event behavior.  We're talking at the W3C at trying to improve consistency between browsers for this touch event case (see http://lists.w3.org/Archives/Public/public-webevents/2013AprJun/0040.html).
 > 
 > — [If you listen to touchend events, be sure to also listen for touchcancel The…](https://plus.google.com/+RickByers/posts/Ny6ZXuzWdN5)
-</details>
 
 - [pointercancel - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/pointercancel)
 
@@ -3317,54 +3351,56 @@ Example with iOS's Springboard (home):
 - vertical (to bottom): display Spotlight input field
 
 When scroll outside bounds (spring effect), use diffWithBound / 2
- 
-	var touchDirectionLock;
-	var touchStartX;
-	var touchStartY;
-	element.addEventListener("touchstart", touchStart);
-		
-	function touchStart(event){
-		touchDirectionLock = null;//Reset
-		var firstTouch = event.touches[0];
+
+```js
+var touchDirectionLock;
+var touchStartX;
+var touchStartY;
+element.addEventListener("touchstart", touchStart);
+	
+function touchStart(event){
+	touchDirectionLock = null;//Reset
+	var firstTouch = event.touches[0];
+	touchStartX = firstTouch.clientX;
+	touchStartY = firstTouch.clientY;
+	
+	window.addEventListener("touchmove", touchMove);
+	window.addEventListener("touchend", touchEnd);
+	window.addEventListener("touchcancel", touchEnd);
+}
+function touchMove(event){
+	var firstTouch = event.touches[0];
+	var diffX = firstTouch.clientX - touchStartX;
+	var diffY = firstTouch.clientY - touchStartY;
+	var distance = Math.sqrt(diffX * diffX + diffY * diffY);//absolute distance from touchStartX and Y
+	
+	// If the lock direction not defined yet and touch moves enough to determine it
+	// Require at least 20px distance
+	if(touchDirectionLock === null && distance >= 20){
+		touchDirectionLock = Math.abs(diffX) < Math.abs(diffY) ? "vertical" : "horizontal";
+		// reset touchStartX|Y to current pos.
 		touchStartX = firstTouch.clientX;
 		touchStartY = firstTouch.clientY;
-		
-		window.addEventListener("touchmove", touchMove);
-		window.addEventListener("touchend", touchEnd);
-		window.addEventListener("touchcancel", touchEnd);
 	}
-	function touchMove(event){
-		var firstTouch = event.touches[0];
-		var diffX = firstTouch.clientX - touchStartX;
-		var diffY = firstTouch.clientY - touchStartY;
-		var distance = Math.sqrt(diffX * diffX + diffY * diffY);//absolute distance from touchStartX and Y
-		
-		// If the lock direction not defined yet and touch moves enough to determine it
-		// Require at least 20px distance
-		if(touchDirectionLock === null && distance >= 20){
-			touchDirectionLock = Math.abs(diffX) < Math.abs(diffY) ? "vertical" : "horizontal";
-			// reset touchStartX|Y to current pos.
-			touchStartX = firstTouch.clientX;
-			touchStartY = firstTouch.clientY;
-		}
-		
-		// No direction lock determined yet
-		if(touchDirectionLock === null){
-			console.log("Touch direction lock not determined yet");
-			return;
-		}
-		
-		// Prevent event default's action here (eg. scroll by touch drag)
-		console.log("Touch direction lock", touchDirectionLock);
+	
+	// No direction lock determined yet
+	if(touchDirectionLock === null){
+		console.log("Touch direction lock not determined yet");
+		return;
 	}
-	function touchEnd(event){
-		if(touchDirectionLock === null){
-			console.log("Can't determine touch direction lock");
-			return;
-		}
-		
-		console.log("Touch direction lock", touchDirectionLock);
+	
+	// Prevent event default's action here (eg. scroll by touch drag)
+	console.log("Touch direction lock", touchDirectionLock);
+}
+function touchEnd(event){
+	if(touchDirectionLock === null){
+		console.log("Can't determine touch direction lock");
+		return;
 	}
+	
+	console.log("Touch direction lock", touchDirectionLock);
+}
+```
 
 ### Mouse and touch drag and drop
 
@@ -3392,23 +3428,25 @@ Drag and drop an interactive element, start drag & stop drag
 
 Note: listen mousemove, touchmove, mouseup, touchend, touchcancel on document or window makes no differences. Because it bubbling events.
 
-	//pointerDown:
-	let firstPointer = event.touches ? event.touches[0] : event;
-	pointerMoved = 0;// cumulative distance in px of pointer moved between down and up
-	lastPointerPosX = firstPointer.clientX;
-	lastPointerPosY = firstPointer.clientY;
-	
-	//pointerMove:
-	let firstPointer = event.touches ? event.touches[0] : event;
-	pointerMoved += Math.sqrt(Math.pow(firstPointer.clientX - lastPointerPosX, 2) + Math.pow(firstPointer.clientY - lastPointerPosY, 2));
-	
-	//pointerUp:
-	// DRAG_DISTANCE_MIN ~= 10
-	if(pointerMoved > DRAG_DISTANCE_MIN){
-		// the user drag
-	}else{
-		// the user click
-	}
+```js
+//pointerDown:
+let firstPointer = event.touches ? event.touches[0] : event;
+pointerMoved = 0;// cumulative distance in px of pointer moved between down and up
+lastPointerPosX = firstPointer.clientX;
+lastPointerPosY = firstPointer.clientY;
+
+//pointerMove:
+let firstPointer = event.touches ? event.touches[0] : event;
+pointerMoved += Math.sqrt(Math.pow(firstPointer.clientX - lastPointerPosX, 2) + Math.pow(firstPointer.clientY - lastPointerPosY, 2));
+
+//pointerUp:
+// DRAG_DISTANCE_MIN ~= 10
+if(pointerMoved > DRAG_DISTANCE_MIN){
+	// the user drag
+}else{
+	// the user click
+}
+```
 
 To prevent content selection and scrolling:
 
@@ -3445,22 +3483,24 @@ Drag image should be visible (on Chrome). Create a top level clone with a negati
 
 ### Double click/tap
 
-	var time = Number.NEGATIVE_INFINITY;
-	function click(event){
-		//TODO test if there no touchmove for touches (for tap, similar to click)
-		//TODO a click can be dispatched after touch. touchend+event.preventDefault() can resolve that?
-		var now = Date.now();
-		// between 500ms
-		if(now - time >= 500){
-			return;
-		}
-		time = now;
-		
-		//Double Click/Touch!
+```js
+var time = Number.NEGATIVE_INFINITY;
+function click(event){
+	//TODO test if there no touchmove for touches (for tap, similar to click)
+	//TODO a click can be dispatched after touch. touchend+event.preventDefault() can resolve that?
+	var now = Date.now();
+	// between 500ms
+	if(now - time >= 500){
+		return;
 	}
+	time = now;
 	
-	document.addEventListener("click", click);
-	document.addEventListener("touchend", click);
+	//Double Click/Touch!
+}
+
+document.addEventListener("click", click);
+document.addEventListener("touchend", click);
+```
 
 - [doubletap event for jquery](https://gist.github.com/asgeo1/1652946)
 - [Handling Events](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW12)
@@ -3478,16 +3518,18 @@ To prevent that, use `pointer-events: none;` on sub elements or listen `mouseup`
 
 No more right click or middle click. Only the left click (or right button of left-handed mouses).
 
-	element.addEventListener("click", linkClick.bind(this), false);
-	
-	function _linkClick(event){
-		// Only left button
-		if(event.button != 0/*event.buttons != 1*/){
-			return;
-		}
-		
-		// Do stuff
+```js
+element.addEventListener("click", linkClick.bind(this), false);
+
+function _linkClick(event){
+	// Only left button
+	if(event.button != 0/*event.buttons != 1*/){
+		return;
 	}
+	
+	// Do stuff
+}
+```
 
 See also:
 
@@ -3504,9 +3546,11 @@ See also:
 - `screenX`, `screenY`: Mouse position relative to the user's physical screen.
 - `offsetX`, `offsetY`: Mouse position relative to the target element.
 - `pageX`, `pageY`: Mouse position relative to the html document (ie. layout viewport).
- 
-	var isTouch = "touches" in event;
-	var clientX = isTouch ? event.touches[0].clientX : event.clientX;
+
+```js
+const isTouch = "touches" in event;
+const clientX = isTouch ? event.touches[0].clientX : event.clientX;
+```
 
 To compute `offsetX|Y` use: `event(.touches[0]).clientX|Y - .getBoundingClientRect().left|right`, be carefull this add the border width (`offsetX|Y` should be relative to the padding-box)
 
@@ -3516,12 +3560,14 @@ To compute `offsetX|Y` use: `event(.touches[0]).clientX|Y - .getBoundingClientRe
 
 1. start: store as _start distance_ the distance between points (`event.touches[0]` and `event.touches[1]`)
 2. move: diff _current distance_ and _start distance_
- 
-	export default function getPointerEventsDistance(point1, point2){
-		return Math.sqrt(
-			Math.pow(point1.clientX - point2.clientX, 2) + Math.pow(point1.clientY - point2.clientY, 2)
-		);
-	}
+
+```js
+export default function getPointerEventsDistance(point1, point2){
+	return Math.sqrt(
+		Math.pow(point1.clientX - point2.clientX, 2) + Math.pow(point1.clientY - point2.clientY, 2)
+	);
+}
+```
 
 ### Mouse wheel
 
@@ -3538,14 +3584,16 @@ Device orientation is absolute orientation, without any screen orientation consi
 Get value: `screen.orientation.angle`, `screen.mozOrientation.angle`, `screen.msOrientation.angle`, `window.orientation` (depreciated)
 Listen event: `window.screen.orientation.addEventListener("change", ...)`, `window.screen.addEventListener("orientationchange", ...)` (not standard), `window.addEventListener("orientationchange", ...)` (depreciated)
 
-	// <div id="test" style="background: red; width: 100px; height: 100px; margin: -50px; position: fixed; top: 50%; left: 50%;"></div>
-	window.addEventListener("deviceorientation", function(event){
-		let orientation = window.screen.orientation.angle;
-		// Fix gamma and beta with screen orientation
-		let relativeGamma = event.gamma * Math.cos(orientation * Math.PI / 180) + event.beta * Math.sin(orientation * Math.PI / 180);
-		let relativeBeta = event.beta * Math.cos(orientation * Math.PI / 180) + event.gamma * Math.sin(-orientation * Math.PI / 180);
-		test.style.transform = `translate(${relativeGamma*10}px, ${relativeBeta*10}px)`;
-	}, false);
+```js
+// <div id="test" style="background: red; width: 100px; height: 100px; margin: -50px; position: fixed; top: 50%; left: 50%;"></div>
+window.addEventListener("deviceorientation", function(event){
+	let orientation = window.screen.orientation.angle;
+	// Fix gamma and beta with screen orientation
+	let relativeGamma = event.gamma * Math.cos(orientation * Math.PI / 180) + event.beta * Math.sin(orientation * Math.PI / 180);
+	let relativeBeta = event.beta * Math.cos(orientation * Math.PI / 180) + event.gamma * Math.sin(-orientation * Math.PI / 180);
+	test.style.transform = `translate(${relativeGamma*10}px, ${relativeBeta*10}px)`;
+}, false);
+```
 
 Test it and rotate the screen (on mobile devices for example)
 
@@ -4248,7 +4296,7 @@ range.selectNode(parent);// set the context element for the parser not required,
 let nodes = range.createContextualFragment(htmlString);
 ```
 
-- https://developer.mozilla.org/en-US/docs/Web/API/range.createContextualFragment
+- [Range.createContextualFragment() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/range/createContextualFragment)
 - [javascript - Inserting arbitrary HTML into a DocumentFragment - Stack Overflow](https://stackoverflow.com/questions/9284117/inserting-arbitrary-html-into-a-documentfragment/25225983#25225983)
 
 #### As a document with browsing context
@@ -4809,39 +4857,41 @@ Also destroy content grandchild's content too (on IE)
 
 Could be used to localize. Will search and replace in all text nodes and attributes. It's adviced to do it for a document without browsing context, because it can update resources source path.
 
-	function l10nString(value){
-		return value.replace(/__MSG_(.+)__/g, (match, group1) => i18n.getMessage(group1));
-	}
+```js
+function l10nString(value){
+	return value.replace(/__MSG_(.+)__/g, (match, group1) => i18n.getMessage(group1));
+}
+
+function l10nDocument(document){
+	document.normalize();// merge all adjacent text nodes
+	let nodeIterator = document.createNodeIterator(
+		document.documentElement,
+		NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
+		node => node.nodeType == Node.ELEMENT_NODE && node.hasAttributes() || node.nodeType == Node.TEXT_NODE ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+	);
+	while(nodeIterator.nextNode()){
+		let node = nodeIterator.referenceNode;
 	
-	function l10nDocument(document){
-		document.normalize();// merge all adjacent text nodes
-		let nodeIterator = document.createNodeIterator(
-			document.documentElement,
-			NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
-			node => node.nodeType == Node.ELEMENT_NODE && node.hasAttributes() || node.nodeType == Node.TEXT_NODE ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
-		);
-		while(nodeIterator.nextNode()){
-			let node = nodeIterator.referenceNode;
-		
-			if(node.nodeType == Node.TEXT_NODE){
-				node.nodeValue = l10nString(node.nodeValue);
-				continue;
-			}
-		
-			if(node.nodeType == Node.ELEMENT_NODE){
-				Array.from(node.attributes).forEach(attr => {
-					let value = attr.value;
-					let newValue = l10nString(value);
-					if(newValue == value){
-						return;
-					}
-				
-					node.setAttribute(attr.name, newValue);// We don't need XML namespace here (HTML5 don't support it). Else use .setAttributeNS(attr.namespace, attr.localName, attr.value)
-				});
-				continue;
-			}
+		if(node.nodeType == Node.TEXT_NODE){
+			node.nodeValue = l10nString(node.nodeValue);
+			continue;
+		}
+	
+		if(node.nodeType == Node.ELEMENT_NODE){
+			Array.from(node.attributes).forEach(attr => {
+				let value = attr.value;
+				let newValue = l10nString(value);
+				if(newValue == value){
+					return;
+				}
+			
+				node.setAttribute(attr.name, newValue);// We don't need XML namespace here (HTML5 don't support it). Else use .setAttributeNS(attr.namespace, attr.localName, attr.value)
+			});
+			continue;
 		}
 	}
+}
+```
 
 ### Tables
 

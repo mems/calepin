@@ -60,9 +60,13 @@ brasage fort (résistance : 40 à 50 Kg/mm², température nécéssaire : > 450�
 
 - [MQTT — Wikipedia](https://en.wikipedia.org/wiki/MQTT) - Machine to machine protocol
 
+## USB-C
+
+- [Converting devices to USB Type-C - YouTube](https://www.youtube.com/watch?v=V-vFtiDYiIw)
+
 ## Sound absorption
 
-Use tower (multiple layers)
+Use towel (multiple layers)
 
 - [How to Make High Performance Sound Absorption Panels for $5 - YouTube](https://www.youtube.com/watch?v=pABvTWSxOes)
 

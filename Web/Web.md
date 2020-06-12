@@ -742,6 +742,10 @@ Aka Video test pattern, test image, sample image
 
 See [Sample files](../Formats,%20encoding%20and%20protocols/Sample%20files)
 
+```
+data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='450' height='300'/%3E
+```
+
 16/9 image:
 
 ```
@@ -1269,6 +1273,12 @@ Safari reader mode, based on Readability:
 - `/Applications/Safari/Contents/Resources` (`Reader.html`, `ReaderThumb.png`, `ReaderTrack.png`, `ReaderBg.png`, `ScratchBg.png`)
 - [Thoughts on Safari Reader’s generated HTML · Mathias Bynens](https://mathiasbynens.be/notes/safari-reader-html)
 - [How to enable Safari Reader on your site? · Mathias Bynens](https://mathiasbynens.be/notes/safari-reader)
+
+> 1. open safari web inspector.
+> 2. disable (pause) Javascript in the Safari console debugger
+> 3. open a web page that can be view in reader mode
+
+See also [Safari Reader Source Code](http://blog.manbolo.com/2013/03/18/safari-reader-source-code) and [anonyme.js](https://gist.github.com/euskadi31/ec3e82bf94da2ea9bd430a5f3a1042af) (`ReaderArticleFinder`)
 
 Other:
 

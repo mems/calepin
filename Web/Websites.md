@@ -2422,11 +2422,21 @@ Example:
 #full
 ```
 
-## Wikipedia
+## Wikimedia
+
+Aka Wikipedia
 
 - `http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&titles=%s&format=json&callback=%s`
 - https://www.wikidata.org/wiki/Special:ApiSandbox#action=query&format=json
 - [Wikidata Query Service](https://query.wikidata.org/)
+
+Contribute:
+
+- [Gerrit patch uploader - MediaWiki](https://www.mediawiki.org/wiki/Gerrit_patch_uploader) - Simple way to create a patch
+- [Developer account - MediaWiki](https://www.mediawiki.org/wiki/Developer_account)
+- [New Developers - MediaWiki](https://www.mediawiki.org/wiki/New_Developers)
+- [wikimedia/mediawiki: 🌻 The collaborative editing software that runs Wikipedia. This is a mirror from gerrit.wikimedia.org. See https://www.mediawiki.org/wiki/Developer_access for contributing.](https://github.com/wikimedia/mediawiki/tree/master)
+- [Gerrit/Tutorial - MediaWiki](https://www.mediawiki.org/wiki/Gerrit/Tutorial)
 
 Exemple:
 

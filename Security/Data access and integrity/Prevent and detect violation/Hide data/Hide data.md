@@ -545,6 +545,8 @@ See also [Obfuscation (code)](#obfuscation2028code29)
 - [JSFuck — Wikipedia](https://en.wikipedia.org/wiki/JSFuck)
 - [JSFuck - Write any JavaScript with 6 Characters: \[\]()!+](http://www.jsfuck.com/) - see https://github.com/aemkei/jsfuck/blob/master/jsfuck.js
 - [JSF*ck - \[\]()!+](http://utf-8.jp/public/jsfuck.html) - **Broken**
+- [Folders - Esolang](https://esolangs.org/wiki/Folders) - Encode data using folder structure
+- [Language list - Esolang](https://esolangs.org/wiki/Language_list)
 - [Brainfuck beware: JavaScript is after you! | Patricio Palladino](http://patriciopalladino.com/blog/2012/08/09/non-alphanumeric-javascript.html) and https://github.com/alcuadrado/hieroglyphy
 - [Converts javascript command into no alnum version using only []()+! characters](http://discogscounter.getfreehosting.co.uk/js-noalnum_com.php)
 - [Java/script: no alnum cheat sheets](http://wayback.archive.org/web/20150420005536/http://sla.ckers.org/forum/read.php?24,33349,33405)

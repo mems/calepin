@@ -148,5 +148,10 @@ black hat trolling, social sabotage, guerilla
 
 ## Backup
 
+> The 3-2-1 rule can aid in the backup process. It states that there should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location
+> — [Backup - Wikipedia](https://en.wikipedia.org/wiki/Backup)
+
+- [Qu'est-ce que la stratégie de sauvegarde 3-2-1 ?](https://www.nextinpact.com/news/109000-quest-ce-que-strategie-sauvegarde-3-2-1.htm)
+- [Backup Strategies: Why the 3-2-1 Backup Strategy is the Best](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/)
 - [You Need a Backup](http://nothingofvalue.org/backup.html) [AdmiralAsshat/nothing_of_value: Source for my personal website.](https://github.com/AdmiralAsshat/nothing_of_value)
 - https://infosec.uthscsa.edu/sites/default/files/documents/Backup.pdf

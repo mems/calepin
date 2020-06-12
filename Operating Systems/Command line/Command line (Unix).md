@@ -862,6 +862,7 @@ Here-doc & here-string:
 cat > /path/to/file << EOF
 Some thing.
 Blahblah!
+$somevar
 EOF
 
 cat > /path/to/file <<< "Some thing."

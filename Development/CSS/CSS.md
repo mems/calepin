@@ -1946,6 +1946,8 @@ Use `padding-top` to push down the content:
 
 #### `text-indent`
 
+**This method is not recommanded (see links below)**
+
 ```css
 *{
 	display: block;/*or any other display mode where width is not defined by the content*/
@@ -1956,8 +1958,6 @@ Use `padding-top` to push down the content:
 ```
 
 Use `px` for `text-indent` with great value instead of `%` because percentages not work correctly every times (and don't require relative computations)
-
-Some people don't recommand to use the `text-indent` techniques:
 
 - [HTML “text-indent: -9999px” and holding the line | Maile Ohye: Love & Technology](http://maileohye.com/html-text-indent-not-messing-up-your-rankings/)
 - [Disallow negative text indent · CSSLint/csslint Wiki](https://github.com/CSSLint/csslint/wiki/Disallow-negative-text-indent)
@@ -4231,4 +4231,7 @@ Aka RTL, LTR
 
 ## Test
 
+Aka custom styles vs default styles, diffing, compare changes, impact of default elements
+
 - [HTML5 Test Page](https://cbracco.github.io/html5-test-page/)
+- [dbox/html5-kitchen-sink: Sample markup containing all HTML5 elements for jumpstarting/testing css](https://github.com/dbox/html5-kitchen-sink)

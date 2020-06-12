@@ -2158,6 +2158,23 @@ Create in `/Library/LaunchDaemons` a file called like `info.mamp.start.apache.pl
 - http://en.wikipedia.org/wiki/Launchd
 - http://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
 
+### Change/fix login keyboard layout
+
+```sh
+# Check current user keyboard
+/usr/libexec/PlistBuddy -c "Print :AppleCurrentKeyboardLayoutInputSourceID" ~/Library/Preferences/com.apple.HIToolbox.plist
+# defaults -currentHost read com.apple.HIToolbox 
+# Set global/default keyboard
+sudo /usr/libexec/PlistBuddy -c "Set :AppleCurrentKeyboardLayoutInputSourceID com.apple.keylayout.French" /Library/Preferences/com.apple.HIToolbox.plist
+```
+
+See you current keyboard layout: `~/Library/Preferences/com.apple.HIToolbox.plist`
+
+- [Fix an incorrect default keyboard layout at the OS X login prompt | MacIssues](https://www.macissues.com/2015/04/16/fix-an-incorrect-default-keyboard-layout-at-the-os-x-login-prompt/)
+- [lion - How to remove or disable a default keyboard layout? - Ask Different](https://apple.stackexchange.com/questions/44921/how-to-remove-or-disable-a-default-keyboard-layout)
+- [minoki/InputSourceSelector: A utility program to manipulate Input Sources on Mac OS X.](https://github.com/minoki/InputSourceSelector)
+- [macos - Change OSX keyboard layout("input source") programmatically via terminal or AppleScript? - Stack Overflow](https://stackoverflow.com/questions/23729704/change-osx-keyboard-layoutinput-source-programmatically-via-terminal-or-appl.)
+
 ## Security
 
 ### System Integrity Protection
@@ -2927,6 +2944,11 @@ Aka camera as webcam
 - [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
 - [How to use your DSLR as a Webcam | Crowdcast Docs](https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-as-a-webcam)
 - [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)
+- [v002/v002-Camera-Live: Live Syphon Camera](https://github.com/v002/v002-Camera-Live)
+- [Using a DSLR as a Webcam - A guide & tutorial — OBS.Live | Open Broadcaster Software Streaming Knowledge Base](https://www.obs.live/articles/2019/6/7/using-a-dslr-as-a-webcam-a-guide-amp-tutorial)
+- [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
+- [works for me 1 time but then doesn't let me select the camera on zoom/others · Issue #102 · v002/v002-Camera-Live](https://github.com/v002/v002-Camera-Live/issues/102#issuecomment-618312892)
+- [Using a Canon DSLR as a webcam on macOS with Zoom – Nicholas Sherlock](https://www.nicksherlock.com/2020/04/using-a-canon-dslr-as-a-webcam-with-zoom-us/)
 
 ## Java
 

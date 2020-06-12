@@ -1803,3 +1803,7 @@ Split tunnel is configurable only by the VPN admin, not by the client only.
 ## Outlook
 
 - [How to delete Skype for Business Contacts from Outlook - Sean Wallbridge - BrainLitter](https://itgroove.net/brainlitter/2016/06/10/7835/)
+
+## Notepad++
+
+- [How to install a Notepad++ plugin offline? - Stack Overflow](https://stackoverflow.com/questions/40015350/how-to-install-a-notepad-plugin-offline/52629470#52629470)
