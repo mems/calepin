@@ -105,6 +105,7 @@ while (pass < 7)
 - [How to implement an algorithm from a scientific paper | Code Capsule](http://codecapsule.com/2012/01/18/how-to-implement-a-paper/)
 - [a cheat-sheet for mathematical notation in code form](https://github.com/Jam3/math-as-code)
 - [A paper algorithm notation](http://canonical.org/~kragen/sw/dev3/paperalgo)
+- [Jam3/math-as-code: a cheat-sheet for mathematical notation in code form](https://github.com/Jam3/math-as-code)
 - [How to Read a Paper](http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf)
 
 ## Language detection

@@ -31,6 +31,7 @@ See also https://github.com/WPO-Foundation/webpagetest/blob/4234baa351eb1cb9d6b0
 - https://github.com/Stuk/server-replay
 - Charles
 
+- [HAR Adopters | Software is hard](http://www.softwareishard.com/blog/har-adopters/)
 - [HTTP Archive Viewer 2.0.17](http://www.softwareishard.com/har/viewer/)
 - [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
 - [ahmadnassri/node-har-validator: Extremely fast HTTP Archive (HAR) validator using JSON Schema](https://github.com/ahmadnassri/node-har-validator)

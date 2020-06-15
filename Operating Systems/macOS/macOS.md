@@ -798,6 +798,7 @@ VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Confi
 - [Creating a macOS Virtual Machine in Fusion](https://docs.vmware.com/en/VMware-Fusion/11/com.vmware.fusion.using.doc/GUID-474FC78E-4E77-42B7-A1C6-12C2F378C5B9.html)
 - [myspaghetti/macos-virtualbox: Push-button installer of macOS Catalina, Mojave, and High Sierra guests in Virtualbox for Windows, Linux, and macOS](https://github.com/myspaghetti/macos-virtualbox)
 - [kholia/OSX-KVM: Run macOS on QEMU/KVM. With OpenCore Now! No free support is provided at the moment.](https://github.com/kholia/OSX-KVM)
+- [foxlet/macOS-Simple-KVM: Tools to set up a quick macOS VM in QEMU, accelerated by KVM.](https://github.com/foxlet/macOS-Simple-KVM)
 - [jonanh/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/jonanh/osx-vm-templates) - [timsutton/osx-vm-templates: macOS templates for Packer and VeeWee.](https://github.com/timsutton/osx-vm-templates)
 - [Notes on getting macOS Sierra running in Virtualbox on a Windows 10 host](https://gist.github.com/rob-smallshire/0c4403afb0523dd57c9f4b3693344f14)
 - [mac - Install macOS High Sierra as VirtualBox guest (on macOS High Sierra)? - Ask Different](https://apple.stackexchange.com/questions/307099/install-macos-high-sierra-as-virtualbox-guest-on-macos-high-sierra)
