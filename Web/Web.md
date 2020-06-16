@@ -1166,12 +1166,9 @@ JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
 
 inter-frame, event loop
 
-Event loop: frame (vsynced): input (events) → Javascript and rAF → Frame commit (style, layout, paint, compose) (→ idle callbacks?); then other frame (vsynced)
-Note: With the exception of intersection observers & element resize observers, which happen after raf.
-
 Caches: ( Application DNS cache) → ( libc DNS cache ) → ( gateway DNS cache ) → ( DNS caching resolver cache ) → ( DNS nameserver authoritative cache ) → Filesystem Cache → Hard disk Device Cache → ( JavaScript JIT cache ) → HTTP cache → HTTP push cache → HTTP Preload cache → CPU L1 → CPU L2 → (CPU L3) → ( HTTP proxy cache ) → (N hops invoking many of these steps N times) → ( HTTP router/relay cache ) → ( HTTP Reverse Proxy cache ) → HTTP Server request caching. (add also CSS cache and Image cache)
 
-See [How ECMAScript engine works](..//Development/ECMAScript/ECMAScript.md#how-engine-works) (event loop, etc.)
+See also [How ECMAScript engine works](..//Development/ECMAScript/ECMAScript.md#how-engine-works) (event loop, etc.)
 
 - [Demystifying Browsers | text/plain](https://textslashplain.com/2020/02/09/demystifying-browsers/)
 - [Design Documents - The Chromium Projects](http://www.chromium.org/developers/design-documents)
@@ -1189,7 +1186,10 @@ See [How ECMAScript engine works](..//Development/ECMAScript/ECMAScript.md#how-e
 - [Overview of Events and Handlers - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Overview_of_Events_and_Handlers)
 - [Waterfall - Firefox Developer Tools | MDN](https://developer.mozilla.org/en-US/docs/Tools/Performance/Waterfall)
 - [Chromium docs](https://github.com/ds-hwang/wiki/wiki/Chromium-docs)
-- [requestAnimationFrame Scheduling For Nerds – Medium](https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4#.4rtn8enir)
+- event loop
+    - Event loop: frame (vsynced): input (events) → Javascript and rAF → Frame commit (style, layout, paint, compose) (→ idle callbacks?); then other frame (vsynced); With the exception of intersection observers & element resize observers, which happen after raf.
+    - [requestAnimationFrame Scheduling For Nerds – Medium](https://medium.com/@paul_irish/requestanimationframe-scheduling-for-nerds-9c57f7438ef4)
+    - [atotic/event-loop: event loop docs](https://github.com/atotic/event-loop)
 - [High-performance browser-grade HTML5 parser](https://github.com/servo/html5ever)
 - [Lazy frame construction - Google Groups](https://groups.google.com/forum/#!topic/mozilla.dev.tech.layout/k_ZKKNQOpjw)
 - [Call stack from a URL typed by a user to the HTTP request](https://gist.github.com/mildred/1c12cd7b4af6f24c145b)

@@ -280,7 +280,10 @@ See also [`contentEditable`](#contenteditable)
 ### Polyfills
 
 > A polyfill …, is a piece of code or plugin that provides the technology that you, the developer, expect the browser to provide natively. Flattening the API landscape if you will.
-— [What is a Polyfill?](https://remysharp.com/2010/10/08/what-is-a-polyfill)
+> — [What is a Polyfill?](https://remysharp.com/2010/10/08/what-is-a-polyfill)
+
+> A ponyfill, in contrast, doesn't monkey patch anything, but instead exports the functionality as a normal module, so you can use it locally without affecting other code.
+> — [sindresorhus/ponyfill: 🦄 Like polyfill but with pony pureness](https://github.com/sindresorhus/ponyfill)
 
 - [Loading Polyfills Only When Needed — Philip Walton](https://philipwalton.com/articles/loading-polyfills-only-when-needed/) - [blog/loading-polyfills-only-when-needed.md at master · philipwalton/blog](https://github.com/philipwalton/blog/blob/master/articles/loading-polyfills-only-when-needed.md)
 - [Polyfills and the evolution of the Web](https://www.w3.org/2001/tag/doc/polyfills/)
@@ -318,24 +321,26 @@ Computer vision, Image, video, audio, etc. :
 
 Change gain (room effect):
 
-	if(Howler.usingWebAudio){
-		volume = Howler.masterGain;
-		lowpass = Howler.ctx.createBiquadFilter();
-		lowpass.type = "lowpass";
-		lowpass.frequency.value = 200;
-		volume.disconnect();
-		volume.connect(lowpass);
-		lowpass.connect(Howler.ctx.destination);
-		volume.gain.value = baseVolume;
-	}
-	// later
-	if(Howler.usingWebAudio){
-		TweenMax.to(lowpass.frequency, 0.3, {value: 2200});
-	}
-	// and
-	if(Howler.usingWebAudio){
-		TweenMax.to(lowpass.frequency, 0.3, {value: 200});
-	}
+```js
+if(Howler.usingWebAudio){
+	volume = Howler.masterGain;
+	lowpass = Howler.ctx.createBiquadFilter();
+	lowpass.type = "lowpass";
+	lowpass.frequency.value = 200;
+	volume.disconnect();
+	volume.connect(lowpass);
+	lowpass.connect(Howler.ctx.destination);
+	volume.gain.value = baseVolume;
+}
+// later
+if(Howler.usingWebAudio){
+	TweenMax.to(lowpass.frequency, 0.3, {value: 2200});
+}
+// and
+if(Howler.usingWebAudio){
+	TweenMax.to(lowpass.frequency, 0.3, {value: 200});
+}
+```
 
 ### Canvas 2D and 3D
 
@@ -645,19 +650,21 @@ See [feature detection](ECMAScript#feature-detection) and [detect a feature](Web
 
 In click handler (especially on links)
 
-	// Let native actions happend (download, open in new tab, etc.)
-	// Or catch only the Left button (= Right button for left-handed mouses)
-	if(
-		!event.touches && event.button != 0
-		|| event.altKey
-		|| event.ctrlKey
-		|| event.metaKey
-	){
-		return;
-	}
-	
-	// Do click action here
-	event.preventDefault();
+```js
+// Let native actions happend (download, open in new tab, etc.)
+// Or catch only the Left button (= Right button for left-handed mouses)
+if(
+	!event.touches && event.button != 0
+	|| event.altKey
+	|| event.ctrlKey
+	|| event.metaKey
+){
+	return;
+}
+
+// Do click action here
+event.preventDefault();
+```
 
 Never prevent `contextmenu` (use the [`menu` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu) instead), `copy` and `past` events
 
@@ -885,38 +892,42 @@ See [Naming convention](Development#naming-convention)
 
 Cancel promise
 
-	const controller = new AbortController();
-	
-	someAsyncFunction(signal){
-		return new Promise((resolve, reject) => {
-			if(signal.aborted){
-				reject(new AbortError())
-			}
-			
-			signal.addEventListener("abort" event => {
-				// cancel current operation
-				reject(new AbortError());
-			})
-			
-			// start async operation with some callbacks
-		});
-	}
-	
-	const promise = someAsyncFunction(controller.signal).catch(reason => console.log("promise catch", reason));
-	controller.abort();
+```js
+const controller = new AbortController();
+
+someAsyncFunction(signal){
+	return new Promise((resolve, reject) => {
+		if(signal.aborted){
+			reject(new AbortError())
+		}
+		
+		signal.addEventListener("abort" event => {
+			// cancel current operation
+			reject(new AbortError());
+		})
+		
+		// start async operation with some callbacks
+	});
+}
+
+const promise = someAsyncFunction(controller.signal).catch(reason => console.log("promise catch", reason));
+controller.abort();
+```
 
 Alternatively using iterator / generator:
 
-	async someAsyncFunction(signal){
-		//in loop over async iterator / generator
-		{
-			if(signal.aborted){
-				throw new AbortError();
-			}
-			
-			// pass the signal to sub async function and read iterator / generator (wait promise)
+```js
+async someAsyncFunction(signal){
+	//in loop over async iterator / generator
+	{
+		if(signal.aborted){
+			throw new AbortError();
 		}
+		
+		// pass the signal to sub async function and read iterator / generator (wait promise)
 	}
+}
+```
 
 - [AbortController - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 - [Async iterator and generator - JakeArchibald.com](https://jakearchibald.com/2017/async-iterators-and-generators/)
@@ -933,27 +944,29 @@ When you call `form.submit()` the listener attached to the `submit` event are no
 
 The workaround is create on-the-fly a submit button attach it to the form, click it, and finally remove it
 
-	/**
-	 * Submit the owner form (parent or defined via the attribute `form` on input tag)
-	 * @see http://dabblet.com/gist/97a733d9c787dcf99cff
-	 * @see http://www.w3.org/html/wg/drafts/html/master/forms.html#implicit-submission
-	 */
-	function submitImplicitly(input){
-		var form = input.form;
-		//TODO:
-		// find first avaialble submit button in form.elements (nodeName == "BUTTON" && type == "submit" || nodeName == "INPUT" && type == "reset" || nodeName == "INPUT" && type == "submit" || nodeName == "INPUT" && type == "image") && !nodeName.disabled
-		// see "Get the form submitter"
-		// or create a fake button (but spec say not submit when no button available):
-		var button = form.ownerDocument.createElement("input");
-		// Hide it (style and for ATs)
-		button.style.display = "none";
-		button.tabIndex = -1;
-		button.setAttribute("aria-hidden", "true");
-		button.setAttribute("role", "presentation");
-		button.type = "submit";
-		form.appendChild(button).click();
-		form.removeChild(button);
-	};
+```js
+/**
+ * Submit the owner form (parent or defined via the attribute `form` on input tag)
+ * @see http://dabblet.com/gist/97a733d9c787dcf99cff
+ * @see http://www.w3.org/html/wg/drafts/html/master/forms.html#implicit-submission
+ */
+function submitImplicitly(input){
+	var form = input.form;
+	//TODO:
+	// find first avaialble submit button in form.elements (nodeName == "BUTTON" && type == "submit" || nodeName == "INPUT" && type == "reset" || nodeName == "INPUT" && type == "submit" || nodeName == "INPUT" && type == "image") && !nodeName.disabled
+	// see "Get the form submitter"
+	// or create a fake button (but spec say not submit when no button available):
+	var button = form.ownerDocument.createElement("input");
+	// Hide it (style and for ATs)
+	button.style.display = "none";
+	button.tabIndex = -1;
+	button.setAttribute("aria-hidden", "true");
+	button.setAttribute("role", "presentation");
+	button.type = "submit";
+	form.appendChild(button).click();
+	form.removeChild(button);
+};
+```
 
 - https://stackoverflow.com/questions/645555/should-jquerys-form-submit-not-trigger-onsubmit-within-the-form-tag
 - https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement.submit
@@ -965,10 +978,12 @@ Can be:
 - non disabled button(button[type=submit]|input[type=button]|input[type=image]) with current form as owner form (inside form or with form="id-of-current-form")
 - an implicity submitter field (with type: Text, Search, URL, Telephone, E-mail, Password, Date, Time, Number) (virtually submit the first non disabled button if exist, see below).
 
-	form.addEventListener("submit", event => {
-		event.explicitOriginalTarget;//(Firefox only) form submitter: input or button
-		form.ownerDocument.activeElement;//works for user interactions, but not works for programmatically submitter (ex.: focus input and call button.click(), activeElement match input not button)
-	});
+```js
+form.addEventListener("submit", event => {
+	event.explicitOriginalTarget;//(Firefox only) form submitter: input or button
+	form.ownerDocument.activeElement;//works for user interactions, but not works for programmatically submitter (ex.: focus input and call button.click(), activeElement match input not button)
+});
+```
 
 - [javascript - Can I find out on the client which submit button was pressed when listening to the submit event? - Stack Overflow](https://stackoverflow.com/questions/29087977/can-i-find-out-on-the-client-which-submit-button-was-pressed-when-listening-to-t)
 - [Extend submit events: add the button/element, that triggered the submit - HTML - WICG](http://discourse.wicg.io/t/extend-submit-events-add-the-button-element-that-triggered-the-submit/406)
@@ -995,37 +1010,41 @@ See [Don't override native logic](#dont-override-native-logic)
 
 Use `FormData` but require to use `POST` and content type `multipart/form-data`.
 
-	var form;
-	var submitter;//non disabled button[type=submit]|input[type=button]|input[type=image]. See [get the form submitter](#get-the-form-submitter)
-	var xhr = new XMLHttpRequest();
-	var method = "POST"/*submitter.formMethod !== "" ? submitter.formMethod : form.method*/;// FormData works only with POST
-	var enctype = submitter.formEnctype !== "" ? submitter.formEnctype : form.enctype;// Use FormData overwrite content type to "multipart/form-data;boundary=RANDOM_STRING"
-	// TODO handle form.acceptCharset
-	var action = submitter.formAction !== "" ? submitter.formAction : form.action;
-	var data = new FormData(form);// FormData don't add button[type=submit]|input[type=button]
-	// Add submitter
-	if(submitter.name !== ""){
-		data.append(submitter.name, submitter.value);
-	}
-	xhr.open(method, action);
-	//xhr.setRequestHeader("Content-Type", enctype);//see enctype
-	xhr.send(data);
+```js
+var form;
+var submitter;//non disabled button[type=submit]|input[type=button]|input[type=image]. See [get the form submitter](#get-the-form-submitter)
+var xhr = new XMLHttpRequest();
+var method = "POST"/*submitter.formMethod !== "" ? submitter.formMethod : form.method*/;// FormData works only with POST
+var enctype = submitter.formEnctype !== "" ? submitter.formEnctype : form.enctype;// Use FormData overwrite content type to "multipart/form-data;boundary=RANDOM_STRING"
+// TODO handle form.acceptCharset
+var action = submitter.formAction !== "" ? submitter.formAction : form.action;
+var data = new FormData(form);// FormData don't add button[type=submit]|input[type=button]
+// Add submitter
+if(submitter.name !== ""){
+	data.append(submitter.name, submitter.value);
+}
+xhr.open(method, action);
+//xhr.setRequestHeader("Content-Type", enctype);//see enctype
+xhr.send(data);
+```
 
 Or use `FormDataReader` and `FormDataEncoder` or any other reader/encoder:
 
-	import FormDataReader from "syk/FormDataReader.js"
-	import FormDataEncoder from "syk/FormDataEncoder.js"
-	//...
-	let entries = FormDataReader.getEntries(form);
-	if(submitter.name !== ""){
-		entries.push(new FormDataEntry(submitter.name, submitter.value, "submit"));
-	}
-	var formEncoder = new FormDataEncoder();
-	//...
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-	formEncoder.encode(entries);
-	// when formEncoder.readyState == FormDataEncoder.DONE:
-	xhr.send(formEncoder.result);
+```js
+import FormDataReader from "syk/FormDataReader.js"
+import FormDataEncoder from "syk/FormDataEncoder.js"
+//...
+let entries = FormDataReader.getEntries(form);
+if(submitter.name !== ""){
+	entries.push(new FormDataEntry(submitter.name, submitter.value, "submit"));
+}
+var formEncoder = new FormDataEncoder();
+//...
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+formEncoder.encode(entries);
+// when formEncoder.readyState == FormDataEncoder.DONE:
+xhr.send(formEncoder.result);
+```
 
 ### Form validation
 
@@ -1074,11 +1093,13 @@ Or use `FormDataReader` and `FormDataEncoder` or any other reader/encoder:
 
 ### Autoresize form fields
 
-	field.style.height = "0";
-	var scrollHeight = this._element.scrollHeight;
-	var offsetHeight = this._element.offsetHeight;
-	var ctnBoxPadding = offsetHeight - this._element.clientHeight;//padding and border (if box-sizing: border-box)
-	field.style.height = Math.ceil(scrollHeight + ctnBoxPadding) + "px";
+```js
+field.style.height = "0";
+var scrollHeight = this._element.scrollHeight;
+var offsetHeight = this._element.offsetHeight;
+var ctnBoxPadding = offsetHeight - this._element.clientHeight;//padding and border (if box-sizing: border-box)
+field.style.height = Math.ceil(scrollHeight + ctnBoxPadding) + "px";
+```
 
 - [Stretchy: Form element autosizing, the way it should be.](http://leaverou.github.io/stretchy/)
 
@@ -1095,8 +1116,10 @@ It's dispatched before the change occure (cancelable event). Require a setTimeou
 
 Aka (inverse of) dirty
 
-	el.value == el.defaultvalue;
-	el.checked == el.defaultChecked;
+```js
+el.value == el.defaultvalue;
+el.checked == el.defaultChecked;
+```
 
 ## Communication between tabs and windows (same origin)
 
@@ -1137,89 +1160,93 @@ Aka (inverse of) dirty
 
 Tab 1:
 
-	function log(val) {
-	  console.log(val);
-	  var div = document.createElement('div');
-	  div.textContent = val;
-	  document.body.appendChild(div);
+```js
+function log(val) {
+  console.log(val);
+  var div = document.createElement('div');
+  div.textContent = val;
+  document.body.appendChild(div);
+}
+
+var request = indexedDB.open("upgradetest", 1);
+
+request.onupgradeneeded = function(event) {
+  log('Upgrading from version ' + event.oldVersion);
+  var db = request.result;
+  switch (event.oldVersion) {
+	case 0:
+	  var store = db.createObjectStore('keyval');
+	  store.put('world', 'hello');
+  }
+};
+
+request.onsuccess = function() {
+  log("Connected to DB");
+  var db = request.result;
+  db.onversionchange = function() {
+	log("onversionchange event, so we know there's a newer version trying to connect - press c to close db");
+  };
+  document.onkeyup = function(event) {
+	if (event.keyCode == 67) {
+	  db.close();
+	  log('Database closed - go back to the other tab');
 	}
-	
-	var request = indexedDB.open("upgradetest", 1);
-	
-	request.onupgradeneeded = function(event) {
-	  log('Upgrading from version ' + event.oldVersion);
-	  var db = request.result;
-	  switch (event.oldVersion) {
-		case 0:
-		  var store = db.createObjectStore('keyval');
-		  store.put('world', 'hello');
-	  }
-	};
-	
-	request.onsuccess = function() {
-	  log("Connected to DB");
-	  var db = request.result;
-	  db.onversionchange = function() {
-		log("onversionchange event, so we know there's a newer version trying to connect - press c to close db");
-	  };
-	  document.onkeyup = function(event) {
-		if (event.keyCode == 67) {
-		  db.close();
-		  log('Database closed - go back to the other tab');
-		}
-	  };
-	}
-	
-	request.onerror = function() {
-	  log(request.error);
-	}
+  };
+}
+
+request.onerror = function() {
+  log(request.error);
+}
+```
 
 Tab 2:
 
-	function log(val) {
-	  console.log(val);
-	  var div = document.createElement('div');
-	  div.textContent = val;
-	  document.body.appendChild(div);
-	}
-	
-	var request = indexedDB.open("upgradetest", 2);
-	
-	request.onupgradeneeded = function(event) {
-	  log('Upgrading from version ' + event.oldVersion);
-	  var db = request.result;
-	  switch (event.oldVersion) {
-		case 0:
-		  var store = db.createObjectStore('keyval');
-		  store.put('world', 'hello');
-		case 1:
-		  var store = request.transaction.objectStore('keyval');
-		  store.put('foo', 'bar');
-	  }
-	};
-	
-	request.onblocked = function(event) {
-	  log('Blocked - look in the other tab');
-	};
-	
-	request.onsuccess = function() {
-	  log("Connected to DB - you win!");
-	  log("Press d to delete db & start again")
-	  var db = request.result;
-	  document.onkeyup = function(event) {
-		if (event.keyCode == 68) {
-		  db.close();
-		  log('Deleting database');
-		  indexedDB.deleteDatabase('upgradetest').onsuccess = function() {
-			log('Database deleted');
-		  };
-		}
+```js
+function log(val) {
+  console.log(val);
+  var div = document.createElement('div');
+  div.textContent = val;
+  document.body.appendChild(div);
+}
+
+var request = indexedDB.open("upgradetest", 2);
+
+request.onupgradeneeded = function(event) {
+  log('Upgrading from version ' + event.oldVersion);
+  var db = request.result;
+  switch (event.oldVersion) {
+	case 0:
+	  var store = db.createObjectStore('keyval');
+	  store.put('world', 'hello');
+	case 1:
+	  var store = request.transaction.objectStore('keyval');
+	  store.put('foo', 'bar');
+  }
+};
+
+request.onblocked = function(event) {
+  log('Blocked - look in the other tab');
+};
+
+request.onsuccess = function() {
+  log("Connected to DB - you win!");
+  log("Press d to delete db & start again")
+  var db = request.result;
+  document.onkeyup = function(event) {
+	if (event.keyCode == 68) {
+	  db.close();
+	  log('Deleting database');
+	  indexedDB.deleteDatabase('upgradetest').onsuccess = function() {
+		log('Database deleted');
 	  };
 	}
-	
-	request.onerror = function() {
-	  log(request.error);
-	}
+  };
+}
+
+request.onerror = function() {
+  log(request.error);
+}
+```
 
 - https://jsbin.com/velolu/1/quiet
 - https://gist.github.com/jakearchibald/abf8489a93d564055244
@@ -1239,35 +1266,39 @@ Use transaction in an unload event is not guarantied to works, implementations c
 
 It's a fake problems, that must be fixed by browser makers, and don't protect data from someone with bad intentions 
 
-	(function() {
-		try {
-			var $_console$$ = console;
-				Object.defineProperty(window, "console", {
-					get: function() {
-						if ($_console$$._commandLineAPI)
-							throw "Sorry, for security reasons, the script console is deactivated on netflix.com";
-						return $_console$$
-					},
-					set: function($val$$) {
-						$_console$$ = $val$$
-					}
-				})
-		} catch ($ignore$$) {
-		}
-	})();
+```js
+(function() {
+	try {
+		var $_console$$ = console;
+			Object.defineProperty(window, "console", {
+				get: function() {
+					if ($_console$$._commandLineAPI)
+						throw "Sorry, for security reasons, the script console is deactivated on netflix.com";
+					return $_console$$
+				},
+				set: function($val$$) {
+					$_console$$ = $val$$
+				}
+			})
+	} catch ($ignore$$) {
+	}
+})();
+```
 
 This example work only on Webkit (Chrome only?) browsers
 
 Restore hosting/console functions:
 
-	console.log = Object.getPrototypeOf(console).log;
-	// or
-	delete console.log
-	// or
-	var i = document.createElement("iframe");
-	i.style = "position: absolute;visibility: hidden;";
-	document.body.appendChild(i);
-	window.console = i.contentWindow.console;
+```js
+console.log = Object.getPrototypeOf(console).log;
+// or
+delete console.log
+// or
+var i = document.createElement("iframe");
+i.style = "position: absolute;visibility: hidden;";
+document.body.appendChild(i);
+window.console = i.contentWindow.console;
+```
 
 See [javascript - Restoring console.log() - Stack Overflow](https://stackoverflow.com/questions/7089443/restoring-console-log)
 
@@ -1390,16 +1421,20 @@ Using `foreignObject` tag, but require document as XHTML not HTML
 
 Note: Safari marked as trainted canvas where SVG contains `foreignObject` elements is drawn. It's appreas to be the same for blob URI SVG.
 
-	<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
-		<foreignObject x="40" y="40" width="100" height="100" requiredExtensions="http://www.w3.org/1999/xhtml">
-			<div xmlns="http://www.w3.org/1999/xhtml">test</div>
-		</foreignObject>
-	</svg>
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+	<foreignObject x="40" y="40" width="100" height="100" requiredExtensions="http://www.w3.org/1999/xhtml">
+		<div xmlns="http://www.w3.org/1999/xhtml">test</div>
+	</foreignObject>
+</svg>
+```
 
-	var doc = document.implementation.createHTMLDocument("");
-	doc.write(html);
-	doc.documentElement.setAttribute("xmlns", doc.documentElement.namespaceURI);
-	var html = (new XMLSerializer).serializeToString(doc);
+```js
+var doc = document.implementation.createHTMLDocument("");
+doc.write(html);
+doc.documentElement.setAttribute("xmlns", doc.documentElement.namespaceURI);
+var html = (new XMLSerializer).serializeToString(doc);
+```
 
 The SVG element can be the alternative content of used canvas
 
@@ -1447,29 +1482,31 @@ Aka WebGL progressive image
 
 ### Use `Uint32Array` to speedup pixel write in Canvas2D
 
-	// **TODO: Check endianness**. Uint32Array use the CPU endianness (Intel/x86 is little endian). Use DataView instead
-	var canvas = document.getElementById('canvas');
-	var canvasWidth  = canvas.width;
-	var canvasHeight = canvas.height;
-	var ctx = canvas.getContext('2d');
-	var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-	var buf = new ArrayBuffer(imageData.data.length);
-	var data32 = new Uint32Array(buf);
-	
-	for (var y = 0; y < canvasHeight; ++y) {
-		for (var x = 0; x < canvasWidth; ++x) {
-			var value = x * y & 0xff;
-			
-			data32[y * canvasWidth + x] =
-				(255   << 24) |	// alpha
-				(value << 16) |	// blue
-				(value <<  8) |	// green
-				 value;			// red
-		}
+```js
+// **TODO: Check endianness**. Uint32Array use the CPU endianness (Intel/x86 is little endian). Use DataView instead
+var canvas = document.getElementById('canvas');
+var canvasWidth  = canvas.width;
+var canvasHeight = canvas.height;
+var ctx = canvas.getContext('2d');
+var imageData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
+var buf = new ArrayBuffer(imageData.data.length);
+var data32 = new Uint32Array(buf);
+
+for (var y = 0; y < canvasHeight; ++y) {
+	for (var x = 0; x < canvasWidth; ++x) {
+		var value = x * y & 0xff;
+		
+		data32[y * canvasWidth + x] =
+			(255   << 24) |	// alpha
+			(value << 16) |	// blue
+			(value <<  8) |	// green
+			 value;			// red
 	}
-	
-	imageData.data.set(new Uint8ClampedArray(buf));
-	ctx.putImageData(imgData, 0, 0);
+}
+
+imageData.data.set(new Uint8ClampedArray(buf));
+ctx.putImageData(imgData, 0, 0);
+```
 
 - http://jsperf.com/canvas-pixel-manipulation
 
@@ -6529,7 +6566,7 @@ Avoid changing the URL of service worker script:
 
 Handle too long response (force third parties SLA)
 
-```
+```js
 function timeout(delay){
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
@@ -6548,7 +6585,7 @@ self.adEventListener("fetch", event => {
 
 Do some tasks before complete the installation (fill cache, dynamic additional `importScripts`, dynamic event listeners, etc.):
 
-```
+```js
 addEventListener('install', event => {
   event.waitUntil(async function() {
 // additional importScripts based on config, etc.
@@ -6906,6 +6943,16 @@ mod.foo(100);
 — Paul Irish https://twitter.com/paul_irish/status/755175394140053505
 
 There no drawback when using passive even if not necessary.
+
+## Event loop
+
+```js
+const el = document.createTextNode("");
+new MutationObserver(() => console.log("Mutation observer say hello!")).observe(el, {characterData: true});
+el.textContent = "a";
+requestAnimationFrame(() => console.log("Animation frame say hello!"));
+setTimeout(() => console.log("Timeout say hello!"));
+```
 
 ## Page focus
 
