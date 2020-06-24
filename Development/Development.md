@@ -356,6 +356,7 @@ See also [Case styles](#case-styles)
 - watermark / fingerprint / hash
 - stale (original state)
 - dry run (testing process) https://en.wikipedia.org/wiki/Dry_run_(testing)
+- [hard-coded](https://en.wikipedia.org/wiki/Hard_coding) (FR "écrit en dur")
 - noop / No Operation
 - canonical
 - prefix, suffix
