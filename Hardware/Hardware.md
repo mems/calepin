@@ -70,6 +70,10 @@ Use towel (multiple layers)
 
 - [How to Make High Performance Sound Absorption Panels for $5 - YouTube](https://www.youtube.com/watch?v=pABvTWSxOes)
 
+## Sensor data
+
+- [How to monitor a sourdough starter with Grafana and Prometheus | Grafana Labs](https://grafana.com/blog/2020/06/17/how-to-monitor-a-sourdough-starter-with-grafana-and-prometheus/)
+
 ## Nettoyer de la graisse alimentaire
 
 Dépôts de graisse, boutille d'huile (avec des dépôts), etc.
@@ -79,3 +83,22 @@ Graisse animale ou végétale
 L'eau chaude et liquide vaisselle ne suffisent pas forcément
 
 Hydroxyde de sodium / Soude caustique, même produit qui est utilisé pour déboucher les tuyaux laisser quelques dizaines de minutes
+
+## Jack connector
+
+CTIA interface:
+
+1. ground
+2. microphone
+3. right side earpiece
+4. left side earpiece
+
+AHJ/OMTP interface:
+
+1. microphone
+2. ground
+3. right side earpiece
+4. left side earpiece
+
+- [Apple Headphone is Not Working On Android or Windows Phone](https://mashtips.com/apple-headphone-on-android-or-windows/)
+- [Phone connector (audio) - Wikipedia](https://en.wikipedia.org/wiki/Phone_connector_%28audio%29#TRRS_standards)

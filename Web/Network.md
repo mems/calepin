@@ -880,6 +880,11 @@ Selectors:
 - [fragmention - IndieWeb](https://indieweb.org/fragmention) - `page.html##text`
 - [NYTimes/Emphasis: Dynamic Deep-Linking and Highlighting](https://github.com/NYTimes/Emphasis) - HTML/XML `page.html#h5s1,2`
 - [bokand/ScrollToTextFragment: Proposal to allow specifying a text snippet in a URL fragment](https://github.com/bokand/ScrollToTextFragment) - `page.html#targetText=percent%20encoded`
+- [Text Fragments](https://wicg.github.io/scroll-to-text-fragment/)
+    - `page.html#:~:text=[prefix-,]textStart[,textEnd][,-suffix]`
+    - [tomayac/text-fragments-polyfill](https://github.com/tomayac/text-fragments-polyfill)
+    - [GoogleChromeLabs/link-to-text-fragment: Browser extension that allows for linking to arbitrary text fragments.](https://github.com/GoogleChromeLabs/link-to-text-fragment)
+    - [Scroll To Text Fragment · Issue #194 · mozilla/standards-positions](https://github.com/mozilla/standards-positions/issues/194)
 - [RFC 6901 - JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) - JSON: `data.json#/foo/0`
 - `jar:https://domain.com/path/to/jar.jar!/Pictures/a.jpg` (`jar:<url>!/{entry}`)
 - `zip:password@http://domain.com/path/to/file#/Pictures/a.jpg`

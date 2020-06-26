@@ -5,6 +5,7 @@
 - [Kubernetes: An Introduction to Deploying a Node.js Docker App — SitePoint](https://www.sitepoint.com/kubernetes-deploy-node-js-docker-app/)
 - [Running java on Docker images on your Mac – A getting started guide | Jeroen van Wilgenburg](https://vanwilgenburg.wordpress.com/2017/05/15/running-java-on-docker-images-on-your-mac-a-getting-started-guide/)
 - [Tutoriel pour apprendre à utilisation Docker](https://xataz.developpez.com/tutoriels/utilisation-docker/)
+- [docker-basicLearning/README.md at master · championshuttler/docker-basicLearning](https://github.com/championshuttler/docker-basicLearning/blob/master/README.md)
 
 ## Alpine
 
@@ -28,3 +29,8 @@ http://dl-cdn.alpinelinux.org/alpine/edge/community
 - [Official Alpine Linux mirrors](https://mirrors.alpinelinux.org/)
 - [Template:Mirrors - Alpine Linux](https://wiki.alpinelinux.org/wiki/Template:Mirrors)
 - https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/main/alpine-mirrors/mirrors.yaml
+
+## How docker works
+
+- [How Docker Works - Intro to Namespaces - YouTube](https://www.youtube.com/watch?v=-YnMr1lj4Z8)
+- [Introduction to Docker for CTFs - YouTube](https://www.youtube.com/watch?v=cPGZMt4cJ0I)

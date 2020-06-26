@@ -2008,6 +2008,7 @@ element:not(:active):not(:focus){
 Don't use `visibility: hidden;` (http://accessibilitytips.com/2008/03/05/avoiding-visibility-hidden/) or `display: none;` because it hide content for all users. "line feeds are not interpreted as spaces". [Beware smushed off-screen accessible text – Medium](https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe)
 **Use `white-space: nowrap;`**, else the text will be read wrongly: "showmore", without spaces
 
+- [Inclusively Hidden | scottohara.me](https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html)
 - https://github.com/h5bp/html5-boilerplate/blob/dbc3ed973573a77122f6b8a2aebd0a76a44ad6a6/src/css/main.css#L130-L141
 - [Hiding DOM elements - ally.js](https://allyjs.io/tutorials/hiding-elements.html#2017-edition-of-visuallyhidden)
 - [Clip Your Hidden Content For Better Accessibility | tenydnblog - Yahoo](https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html)
@@ -2842,6 +2843,7 @@ resize: none;
 Don't forget to style `input[type=checkbox]:indeterminate`
 
 - http://cssdeck.com/labs/css-checkbox-styles
+- [Inclusively Hiding & Styling Checkboxes and Radio Buttons — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/)
 - [Quick Tip: Easy CSS3 Checkboxes and Radio Buttons - Envato Tuts+ Web Design Article](http://webdesign.tutsplus.com/articles/quick-tip-easy-css3-checkboxes-and-radio-buttons--webdesign-8953)
 
 ## Performance

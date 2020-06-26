@@ -128,6 +128,7 @@ Alternatively you can use also:
 	
 	See also:
 	
+	- `pacman -S <package-name>`, [Package management · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/Package-management)
 	- [batch file - How to start MingW Console (GitBash) from Command Line on Windows? - Stack Overflow](https://stackoverflow.com/questions/34252265/how-to-start-mingw-console-gitbash-from-command-line-on-windows)
 	- [windows 7 - Git: Open Git-Bash in specific directory - Super User](https://superuser.com/questions/1310814/git-open-git-bash-in-specific-directory)
 	- [FAQ · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/FAQ#what-is-the-relationship-between-git-for-windows-and-msysgit)
