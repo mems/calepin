@@ -880,6 +880,7 @@ Selectors:
 - [fragmention - IndieWeb](https://indieweb.org/fragmention) - `page.html##text`
 - [NYTimes/Emphasis: Dynamic Deep-Linking and Highlighting](https://github.com/NYTimes/Emphasis) - HTML/XML `page.html#h5s1,2`
 - [bokand/ScrollToTextFragment: Proposal to allow specifying a text snippet in a URL fragment](https://github.com/bokand/ScrollToTextFragment) - `page.html#targetText=percent%20encoded`
+- [fragmention - IndieWeb](https://indieweb.org/fragmention) - `page.html##some+text+reference`
 - [Text Fragments](https://wicg.github.io/scroll-to-text-fragment/)
     - `page.html#:~:text=[prefix-,]textStart[,textEnd][,-suffix]`
     - [tomayac/text-fragments-polyfill](https://github.com/tomayac/text-fragments-polyfill)
@@ -893,6 +894,7 @@ Selectors:
 
 More infos:
 
+- [URI fragment - Wikipedia](https://en.wikipedia.org/wiki/URI_fragment#Proposals)
 - [Fragment identifier - Wikipedia](https://en.wikipedia.org/wiki/Fragment_identifier)
 - [Best Practices for Fragment Identifiers and Media Type Definitions](https://www.w3.org/TR/fragid-best-practices/)
 - [List of valid characters for the fragment identifier in an URL? - Stack Overflow](https://stackoverflow.com/questions/2849756/list-of-valid-characters-for-the-fragment-identifier-in-an-url)

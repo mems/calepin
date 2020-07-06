@@ -2562,6 +2562,8 @@ See [HTML Classname](HTML#classname)
 
 ### Selector specificity
 
+Aka priority
+
 > Never use !important to get yourself out of a problem.
 — Harry Roberts aka @csswizardry
 
@@ -2569,6 +2571,7 @@ Note: `!important` can take the precedence, but for some CSS engines animation/t
 
 `element:not(#id)`, have higher specificity than `element` (because `#id` = 10)
 
+- [Eric Meyer, CSS Nerd sur Twitter : "@chriscoyier That buries active styles for any focused link, though. LVHFA or LVFHA are what I always recommend—unless you’re using chained pseudos like :focus:active and :visited:hover, in which case the order rarely matters." / Twitter](https://twitter.com/meyerweb/status/1279053893440282625)
 - [The CSS Cascade](https://wattenberger.com/blog/css-cascade)
 - [Specificity Visualizer](https://isellsoap.github.io/specificity-visualizer/)
 - [More important than !important – The Sea of Ideas](https://paulbakaus.com/2017/07/27/more-important-than-important/)

@@ -74,14 +74,11 @@ Use towel (multiple layers)
 
 - [How to monitor a sourdough starter with Grafana and Prometheus | Grafana Labs](https://grafana.com/blog/2020/06/17/how-to-monitor-a-sourdough-starter-with-grafana-and-prometheus/)
 
-## Nettoyer de la graisse alimentaire
+## Cleaning
 
-Dépôts de graisse, boutille d'huile (avec des dépôts), etc.
+- [Use Baking Soda, Vinegar, and Other Pantry Staples to Fix and Clean Your Whole House - iFixit](https://www.ifixit.com/News/41800/use-baking-soda-vingear-and-other-pantry-staples-to-fix-and-clean-your-whole-house)
 
-Graisse animale ou végétale
-
-L'eau chaude et liquide vaisselle ne suffisent pas forcément
-
+Nettoyer de la graisse alimentaire (dépôts de graisse, bouteille d'huile avec des dépôts, graisse animale ou végétale, etc.), l'eau chaude et liquide vaisselle ne suffisent pas forcément.
 Hydroxyde de sodium / Soude caustique, même produit qui est utilisé pour déboucher les tuyaux laisser quelques dizaines de minutes
 
 ## Jack connector

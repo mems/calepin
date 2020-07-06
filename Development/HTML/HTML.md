@@ -2340,7 +2340,9 @@ Use `<select>`. If you want to use a custom widget use `aria-activedescendant` i
 ## `a` element
 
 > When you link to something, make sure the group of words you link to work as a standalone thing. [...] If you remove the words around the link, someone should be able to predict the type of content they’re going to get
-— [How to make blog posts accessible | GDS Digital Engagement](https://gdsengagement.blog.gov.uk/2016/11/28/how-to-make-blog-posts-accessible/)
+> — [How to make blog posts accessible | GDS Digital Engagement](https://gdsengagement.blog.gov.uk/2016/11/28/how-to-make-blog-posts-accessible/)
+
+In a card component that contains multiple links to the same URL (e.g., heading, thumbnail, and “Read more” link), you could add `aria-hidden="true" tabindex="-1"` to some of these links to make it easier for keyboard and screen reader users to tab through the component: [Optimizing keyboard navigation using tabindex and ARIA — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/)
 
 ## `i` vs `em` vs `b` vs `cite` vs `strong`
 
