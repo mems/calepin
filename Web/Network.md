@@ -886,7 +886,7 @@ Selectors:
     - [tomayac/text-fragments-polyfill](https://github.com/tomayac/text-fragments-polyfill)
     - [GoogleChromeLabs/link-to-text-fragment: Browser extension that allows for linking to arbitrary text fragments.](https://github.com/GoogleChromeLabs/link-to-text-fragment)
     - [Scroll To Text Fragment · Issue #194 · mozilla/standards-positions](https://github.com/mozilla/standards-positions/issues/194)
-- [RFC 6901 - JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) - JSON: `data.json#/foo/0`
+- [RFC 6901 - JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) - JSON Pointer: `data.json#/foo/0`
 - `jar:https://domain.com/path/to/jar.jar!/Pictures/a.jpg` (`jar:<url>!/{entry}`)
 - `zip:password@http://domain.com/path/to/file#/Pictures/a.jpg`
 - `swf:http://domain.com/path/to/file.swf#com.domain.ClassName` and `http://domain.com/path/to/file.swc#com.domain.ClassName`

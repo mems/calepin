@@ -41,6 +41,25 @@ Assert but doesn't match: _zero-width assertion_.
 
 - [ES2018: RegExp lookbehind assertions](http://2ality.com/2017/05/regexp-lookbehind-assertions.html)
 
+## Exclude
+
+```
+^(?!(class|image|instanceof)$).*$
+```
+
+Use lookbehind to exlude full match keywords.
+
+Will match:
+
+- `test`
+- `images`
+- `some-image`
+
+But not:
+
+- `class`
+- `image`
+
 ## Optimization
 
 Reduce backtracking to improve performance. Especially with nested quantifiers. Have an impact on performance (if not crash or throw an error)

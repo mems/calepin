@@ -31,6 +31,7 @@ API references, guides, tutorials, and blog posts
 
 > must = duty, may = power
 
+- [RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://www.rfc-editor.org/rfc/rfc2119) and [RFC 8174: Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words](https://www.rfc-editor.org/rfc/rfc8174.html)
 - [w3ctag.github.io/explainers.md at master · w3ctag/w3ctag.github.io](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md) - explainer as living document that describes a (proposed) feature (for web platform)
 
 ## Checklist

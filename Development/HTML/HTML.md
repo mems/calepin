@@ -3051,11 +3051,13 @@ For infographic: bullet point lists are a good way, alternative way to sum up th
 
 ## `img` element
 
-Always use alt attribute (at least empty value)
+Always use `alt` attribute (at least empty value)
 
 ```html
 <p><img src="about:blank" alt=""></p>
 ```
+
+Use empty `alt` if the image is not content (pure decorative) or if the image doesn't convey any additional content beyond what is already written in the surrounded text.
 
 Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data types (common microsyntaxes) - HTML5](http://w3c.github.io/html-reference/datatypes.html#common.data.uri.non-empty), but will create a network request).
 

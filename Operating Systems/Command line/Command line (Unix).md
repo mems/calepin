@@ -129,151 +129,115 @@ To remove from the startup sequence
 
 ## User administration
 
-Afficher les droits
+```sh
+# Show user rights
+ls -l
+# or, but show folders "." and ".."
+ls -all
 
-	ls -l
-	# or, but show folders "." and ".."
-	ls -all
+# User informations
+id USERNAME
 
-User informations
+# Show last logs of users
+lastlog
 
-	id USERNAME
+# Show last logged users
+last
 
-Voir le dernier log des utilisateurs
+# Show current user
+who -a
 
-	lastlog
+# Command history
+~/.bash_history
+~/.history
+# for root user
+/root/.bash_history
 
-Voir les derniers utilisateurs loggés
+# Be sure no user can hide his command history (a = append only, i = immutable)
+chattr +a /home/user/.bash_history
+chattr +i /home/user/.profile
+# See
+# http://www.akyl.net/securing-bashhistory-file-make-sure-your-linux-system-users-won%E2%80%99t-hide-or-delete-their-bashhistory
+# http://zero202.free.fr/bash/html/ar01s01.html#id336074
 
-	last
-
-Montrer qui l'utilisateur courant
-
-	who -a
-
-Historique des commandes (le nom du fichier peux se nomer `.history`)
-
-	~/.bash_history
-
-ou (pour le root)
-
-	/root/.bash_history
-
-Pour éviter qu'un utilisateur masque l'historique des ces commandes (a = append only, i = immutable)
-
-	chattr +a /home/user/.bash_history
-	chattr +i /home/user/.profile
-
-- http://www.akyl.net/securing-bashhistory-file-make-sure-your-linux-system-users-won%E2%80%99t-hide-or-delete-their-bashhistory
-- http://zero202.free.fr/bash/html/ar01s01.html#id336074
-
-	chattr
-	chwon
-	chmod
-
-- http://en.wikipedia.org/wiki/Chattr
+# http://en.wikipedia.org/wiki/Chattr
+chattr
+chwon
+chmod
+```
 
 ## Network
 
 Note: ifconfig, route, mii-tool, nslookup commands are obsolete
 
-Show status of ethernet interface eth0
+```sh
+# Show status of ethernet interface eth0
+ethtool eth0
 
-	ethtool eth0
+#Manually set ethernet interface speed
+ethtool --change eth0 autoneg off speed 100 duplex full
 
+# Show status of wireless interface eth1
+iwconfig eth1
 
-Manually set ethernet interface speed
+# Manually set wireless interface speed
+iwconfig eth1 rate 1Mb/s fixed
 
-	ethtool --change eth0 autoneg off speed 100 duplex full
+# List wireless networks in range
+iwlist scan
 
+# List network interfaces
+ip link show
 
-Show status of wireless interface eth1
+# Rename interface eth0 to wan
+ip link set dev eth0 name wan
 
-	iwconfig eth1
+# Bring interface eth0 up (or down)
+ip link set dev eth0 up
 
+# List addresses for interfaces
+ip addr show
 
-Manually set wireless interface speed
+# Add (or del) ip and mask (255.255.255.0)
+ip addr add 1.2.3.4/24 brd + dev eth0
 
-	iwconfig eth1 rate 1Mb/s fixed
+# List routing table
+ip route show
 
+# Set default gateway to 1.2.3.254
+ip route add default via 1.2.3.254
 
-List wireless networks in range
+# Lookup DNS ip address for name or vice versa
+host pixelbeat.org
 
-	iwlist scan
+# Lookup local ip address (equivalent to host `hostname`)
+hostname -i
 
+# Lookup whois info for hostname or ip address
+whois pixelbeat.org
 
-List network interfaces
+# List internet services on a system
+netstat -tupl
 
-	ip link show
+# List active connections to/from system
+netstat -tup
 
+# DNS record
+dig example.com
 
-Rename interface eth0 to wan
+# Reverse DNS
+ping -a 8.8.8.8
+nslookup -type=ptr 8.8.8.8
 
-	ip link set dev eth0 name wan
+# Machine name
+hostname
 
-
-Bring interface eth0 up (or down)
-
-	ip link set dev eth0 up
-
-
-List addresses for interfaces
-
-	ip addr show
-
-
-Add (or del) ip and mask (255.255.255.0)
-
-	ip addr add 1.2.3.4/24 brd + dev eth0
-
-
-List routing table
-
-	ip route show
-
-
-Set default gateway to 1.2.3.254
-
-	ip route add default via 1.2.3.254
-
-
-Lookup DNS ip address for name or vice versa
-
-	host pixelbeat.org
-
-
-Lookup local ip address (equivalent to host `hostname`)
-
-	hostname -i
-
-
-Lookup whois info for hostname or ip address
-
-	whois pixelbeat.org
-
-
-List internet services on a system
-
-	netstat -tupl
-
-
-List active connections to/from system
-
-	netstat -tup
-
-DNS record:
-
-	dig example.com
-
-Reverse DNS:
-
-	ping -a 8.8.8.8
-
-	nslookup -type=ptr 8.8.8.8
-
-Nom de la machine:
-
-	hostname
+# Test if remote port is open
+nc -vz example.com 80
+nmap -p 80 example.com
+telnet example.com 80
+timeout 1 bash -c "</dev/tcp/example.com/80" && echo Port open || echo Port closed
+```
 
 `/etc/hostname` `/etc/hosts`
 
@@ -281,137 +245,97 @@ Nom de la machine:
 
 ## Math
 
-Quick math (Calculate φ). See also bc
+```sh
+# Quick math (Calculate φ). See also bc
+echo '(1 + sqrt(5))/2' | bc -l
 
-	echo '(1 + sqrt(5))/2' | bc -l
+# Calculate π the unix way
+seq -f '4/%g' 1 2 99999 | paste -sd-+ | bc -l
 
+# More complex (int) e.g. This shows max FastE packet rate
+echo 'pad=20; min=64; (100*10^6)/((pad+min)*8)' | bc
 
-Calculate π the unix way
+# Python handles scientific notation
+echo 'pad=20; min=64; print (100E6)/((pad+min)*8)' | python
 
-	seq -f '4/%g' 1 2 99999 | paste -sd-+ | bc -l
+# Plot FastE packet rate vs packet size
+echo 'pad=20; plot [64:1518] (100*10**6)/((pad+x)*8)' | gnuplot -persist
 
+# Base conversion (decimal to hexadecimal)
+echo 'obase=16; ibase=10; 64206' | bc
 
-More complex (int) e.g. This shows max FastE packet rate
+# Base conversion (hex to dec) ((shell arithmetic expansion))
+echo $((0x2dec))
 
-	echo 'pad=20; min=64; (100*10^6)/((pad+min)*8)' | bc
+# Unit conversion (metric to imperial)
+units -t '100m/9.58s' 'miles/hour'
 
+# Unit conversion (SI to IEC prefixes)
+units -t '500GB' 'GiB'
 
-Python handles scientific notation
+# Definition lookup
+units -t '1 googol'
 
-	echo 'pad=20; min=64; print (100E6)/((pad+min)*8)' | python
-
-
-Plot FastE packet rate vs packet size
-
-	echo 'pad=20; plot [64:1518] (100*10**6)/((pad+x)*8)' | gnuplot -persist
-
-
-Base conversion (decimal to hexadecimal)
-
-	echo 'obase=16; ibase=10; 64206' | bc
-
-
-Base conversion (hex to dec) ((shell arithmetic expansion))
-
-	echo $((0x2dec))
-
-
-Unit conversion (metric to imperial)
-
-	units -t '100m/9.58s' 'miles/hour'
-
-
-Unit conversion (SI to IEC prefixes)
-
-	units -t '500GB' 'GiB'
-
-
-Definition lookup
-
-	units -t '1 googol'
-
-
-Add a column of numbers. See also add and funcpy
-
-	seq 100 | (tr '\n' +; echo 0) | bc
+# Add a column of numbers. See also add and funcpy
+seq 100 | (tr '\n' +; echo 0) | bc
+```
 
 ## Calendar
 
-Display a calendar
+```sh
+# Display a calendar
+cal -3
 
-	cal -3
+# Display a calendar for a particular month year
+cal 9 1752
 
+# What date is it this friday. See also day
+date -d fri
 
-Display a calendar for a particular month year
+# Exit a script unless it's the last day of the month
+[ $(date -d '12:00 +1 day' +%d) = '01' ] || exit
 
-	cal 9 1752
+# What day does xmas fall on, this year
+date --date='25 Dec' +%A
 
+# Convert seconds since the epoch (1970-01-01 UTC) to date
+date --date='@2147483647'
 
-What date is it this friday. See also day
+# What time is it on west coast of US (use tzselect to find TZ)
+TZ='America/Los_Angeles' date
 
-	date -d fri
-
-
-exit a script unless it's the last day of the month
-
-	[ $(date -d '12:00 +1 day' +%d) = '01' ] || exit
-
-
-What day does xmas fall on, this year
-
-	date --date='25 Dec' +%A
-
-
-Convert seconds since the epoch (1970-01-01 UTC) to date
-
-	date --date='@2147483647'
-
-
-What time is it on west coast of US (use tzselect to find TZ)
-
-	TZ='America/Los_Angeles' date
-
-
-What's the local time for 9AM next Friday on west coast US
-
-	date --date='TZ="America/Los_Angeles" 09:00 next Fri'
+# What's the local time for 9AM next Friday on west coast US
+date --date='TZ="America/Los_Angeles" 09:00 next Fri'
+```
 
 ## Locales
 
-Print number with thousands grouping appropriate to locale
+```sh
+# Print number with thousands grouping appropriate to locale
+printf "%'d\n" 1234
 
-	printf "%'d\n" 1234
+# Use locale thousands grouping in ls. See also l
+BLOCK_SIZE=\'1 ls -l
 
+# Extract info from locale database
+echo "I live in $(locale territory)"
 
-Use locale thousands grouping in ls. See also l
+# Lookup locale info for specific country. See also ccodes
+LANG=en_IE.utf8 locale int_prefix
 
-	BLOCK_SIZE=\'1 ls -l
-
-
-Extract info from locale database
-
-	echo "I live in $(locale territory)"
-
-
-Lookup locale info for specific country. See also ccodes
-
-	LANG=en_IE.utf8 locale int_prefix
-
-
-List fields available in locale database
-
-	locale -kc $(locale | sed -n 's/\(LC_.\{4,\}\)=.*/\1/p') | less
+# List fields available in locale database
+locale -kc $(locale | sed -n 's/\(LC_.\{4,\}\)=.*/\1/p') | less
+```
 
 ## Packages
 
-List all packages by installed size (Bytes) on rpm distros
+```sh
+# List all packages by installed size (Bytes) on rpm distros
+rpm -q -a --qf '%10{SIZE}\t%{NAME}\n' | sort -k1,1n
 
-	rpm -q -a --qf '%10{SIZE}\t%{NAME}\n' | sort -k1,1n
-
-
-List all packages by installed size (KBytes) on deb distros
-
-	dpkg-query -W -f='${Installed-Size;10}\t${Package}\n' | sort -k1,1n
+# List all packages by installed size (KBytes) on deb distros
+dpkg-query -W -f='${Installed-Size;10}\t${Package}\n' | sort -k1,1n
+```
 
 ## Monitoring / debugging
 
@@ -518,109 +442,75 @@ Où `3117` un dossier ayant comme nom le pid du processus visé.
 
 ## System information
 
-See also sysinfo. '#' means root access is required
+See also sysinfo.
 
-Show kernel version and system architecture
+```sh
+# Show kernel version and system architecture
+uname -a
 
-	uname -a
+# Show name and version of distribution
+head -n1 /etc/issue
 
+# Show all partitions registered on the system
+cat /proc/partitions
 
-Show name and version of distribution
+# Show RAM total seen by the system
+grep MemTotal /proc/meminfo
 
-	head -n1 /etc/issue
+# Show CPU(s) info
+grep "model name" /proc/cpuinfo
 
+# Show PCI info
+lspci -tv
 
-Show all partitions registered on the system
+# Show USB info
+lsusb -tv
 
-	cat /proc/partitions
+# List mounted filesystems on the system (and align output)
+mount | column -t
 
+# Show state of cells in laptop battery
+grep -F capacity: /proc/acpi/battery/BAT0/info
 
-Show RAM total seen by the system
+# Display SMBIOS/DMI information
+dmidecode -q | less
 
-	grep MemTotal /proc/meminfo
+# How long has this disk (system) been powered on in total
+smartctl -A /dev/sda | grep Power_On_Hours
 
+# Show info about disk sda
+hdparm -i /dev/sda
 
-Show CPU(s) info
+# Do a read speed test on disk sda
+hdparm -tT /dev/sda
 
-	grep "model name" /proc/cpuinfo
-
-
-Show PCI info
-
-	lspci -tv
-
-
-Show USB info
-
-	lsusb -tv
-
-
-List mounted filesystems on the system (and align output)
-
-	mount | column -t
-
-
-Show state of cells in laptop battery
-
-	grep -F capacity: /proc/acpi/battery/BAT0/info
-
-
-Display SMBIOS/DMI information
-
-	dmidecode -q | less
-
-
-How long has this disk (system) been powered on in total
-
-	smartctl -A /dev/sda | grep Power_On_Hours
-
-
-Show info about disk sda
-
-	hdparm -i /dev/sda
-
-
-Do a read speed test on disk sda
-
-	hdparm -tT /dev/sda
-
-
-Test for unreadable blocks on disk sda
-
-	badblocks -s /dev/sda
+# Test for unreadable blocks on disk sda
+badblocks -s /dev/sda
+```
 
 ## Interactive
 
 See also linux keyboard shortcuts
 
-Line editor used by bash, python, bc, gnuplot, ...
+```sh
+# Line editor used by bash, python, bc, gnuplot, ...
+readline
 
-	readline
+# Virtual terminals with detach capability, ...
+screen
 
+# Powerful file manager that can browse rpm, tar, ftp, ssh, ...
+mc
 
-Virtual terminals with detach capability, ...
+# Interactive/scriptable graphing
+gnuplot
 
-	screen
+# Web browser
+links
 
-
-Powerful file manager that can browse rpm, tar, ftp, ssh, ...
-
-	mc
-
-
-Interactive/scriptable graphing
-
-	gnuplot
-
-
-Web browser
-
-	links
-
-
-open a file or url with the registered desktop application
-
-	xdg-open .
+# open a file or url with the registered desktop application
+xdg-open .
+```
 
 - http://www.linuxguide.it/linux_commands_line_en.htm
 
@@ -1084,28 +974,29 @@ Process each item with multiple commands (in while loop)
 	find ./ -name "tile_*.png" -exec bash -c 'filename="$1";echo "${filename%.*}"' _ {} \;
 
 - [bash - Find and replace filename recursively in a directory - Stack Overflow](https://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory/9394625#9394625)
- 
-	# Use a simple shell loop, to process each of the images.
-	mkdir thumbnails
-	for f in *.jpg
-	do convert $f -thumbnail 200x90 thumbnails/$f.gif
-	done
-	
-	# Use find to substitute filenames into a 'convert' command.
-	# This also provides the ability to recurse though directories by removing
-	# the -prune option, as well as doing other file checks (like image type,
-	# or the disk space used by an image).
-	find * -prune -name '*.jpg' \
-		-exec  convert '{}' -thumbnail 200x90 thumbnails/'{}'.gif \;
-	
-	# Use xargs -- with a shell wrapper to put the argument into a variable
-	# This can be combined with either "find" or "ls" to list filenames.
-	ls *.jpg | xargs -n1 sh -c 'convert $0 -thumbnail 200x90 thumbnails/$0.gif'
-	
-	# An alternative method on linux (rather than plain unix)
-	# This does not need a shell to handle the argument.
-	ls *.jpg | xargs -r -I FILE convert FILE -thumbnail 200x90 FILE_thumb.gif
 
+```sh
+# Use a simple shell loop, to process each of the images.
+mkdir thumbnails
+for f in *.jpg
+do convert $f -thumbnail 200x90 thumbnails/$f.gif
+done
+
+# Use find to substitute filenames into a 'convert' command.
+# This also provides the ability to recurse though directories by removing
+# the -prune option, as well as doing other file checks (like image type,
+# or the disk space used by an image).
+find * -prune -name '*.jpg' \
+	-exec  convert '{}' -thumbnail 200x90 thumbnails/'{}'.gif \;
+
+# Use xargs -- with a shell wrapper to put the argument into a variable
+# This can be combined with either "find" or "ls" to list filenames.
+ls *.jpg | xargs -n1 sh -c 'convert $0 -thumbnail 200x90 thumbnails/$0.gif'
+
+# An alternative method on linux (rather than plain unix)
+# This does not need a shell to handle the argument.
+ls *.jpg | xargs -r -I FILE convert FILE -thumbnail 200x90 FILE_thumb.gif
+```
 
 Find files not readable by all (useful for web site)
 
@@ -1138,42 +1029,50 @@ Search for empty files and folder (or file with only whitespaces)
 
 ### Create archive from file list
 
-	#!/bin/bash
-	# Create temp list
-	list=$(mktemp "/tmp/archive_list.XXXXXXXXXX")
-	# Write stdin file / folder list
-	cat > "$list"
-	# Get destination folder based on first file / folder
-	first=$(head -n 1 "$list")
-	folder=$(dirname "$first")
-	# Temporary file and final file
-	final="$folder/Archive.zip"
-	file="$final.tmp"
-	# Create archive file (zip, ultra)
-	/opt/local/bin/7z a -tzip -mx=9 "$file" @"$list"
-	# Move to final destination
-	mv "$file" "$final"
-	# Remove temp list
-	rm "$list"
+```sh
+#!/bin/bash
+# Create temp list
+list=$(mktemp "/tmp/archive_list.XXXXXXXXXX")
+# Write stdin file / folder list
+cat > "$list"
+# Get destination folder based on first file / folder
+first=$(head -n 1 "$list")
+folder=$(dirname "$first")
+# Temporary file and final file
+final="$folder/Archive.zip"
+file="$final.tmp"
+# Create archive file (zip, ultra)
+/opt/local/bin/7z a -tzip -mx=9 "$file" @"$list"
+# Move to final destination
+mv "$file" "$final"
+# Remove temp list
+rm "$list"
+```
 
 ### Copy files from m3u playlist
 
-	# Extract music from m3u (ignore lines start with #, whitespace or are empty)
-	# Playlists entries could be relative
-	cd "/path/to/playlists"
-	cat "playlist1.m3u" "playlist1.m3u" "playlist3.m3u" | grep "^[^# \t]" | tr -s '\n' | while read -r line; do cp --parent -v "$line" /destination; done
+```sh
+# Extract music from m3u (ignore lines start with #, whitespace or are empty)
+# Playlists entries could be relative
+cd "/path/to/playlists"
+cat "playlist1.m3u" "playlist1.m3u" "playlist3.m3u" | grep "^[^# \t]" | tr -s '\n' | while read -r line; do cp --parent -v "$line" /destination; done
+```
 
 ### Get extensions of all files
 
-	find . -type f | while read file; do filename=$(basename "$file"); ext=$([[ "$filename" = *.* ]] && echo ".${filename##*.}" || echo ''); echo $ext; done | sort | uniq
+```sh
+find . -type f | while read file; do filename=$(basename "$file"); ext=$([[ "$filename" = *.* ]] && echo ".${filename##*.}" || echo ''); echo $ext; done | sort | uniq
+```
 
 ### File checksum
 
-	# SHA256, used in chef cookbooks
-	openssl dgst -sha256 path/to/myfile
+```sh
+# SHA256, used in chef cookbooks
+openssl dgst -sha256 path/to/myfile
 
-	# MD5
-	openssl dgst -md5 path/to/myfile
+# MD5
+openssl dgst -md5 path/to/myfile
+```
 
 ### Split files
 
@@ -1207,12 +1106,14 @@ Will rename `sprite1.png` to `sprite0.png` (if change the offset, be careful of 
 
 ### Use `rename`
 
-	# Rename *.JPG to *.jpg
-	rename 's/\.JPG/\.jpg/' *.JPG
-	# Strip spaces
-	rename 's/ //' *.jpg
-	# Lower case
-	rename 'y/A-Z/a-z/' *
+```sh
+# Rename *.JPG to *.jpg
+rename 's/\.JPG/\.jpg/' *.JPG
+# Strip spaces
+rename 's/ //' *.jpg
+# Lower case
+rename 'y/A-Z/a-z/' *
+```
 
 On OSX install it with port `port install p5-file-rename` (but should use the cmd `rename-5.22` where `22` is installed version via port instead of `rename`) or brew `brew install rename`
 
@@ -1263,20 +1164,22 @@ find -mindepth 1 -type d -print0 | tac -s $'\0' | xargs -0 -r rmdir --ignore-fai
 
 Remove duplicates
 
-	#!/bin/bash
-	gawk '
-	  {
-	    cmd="md5 -r " q FILENAME q
-	    cmd | getline cksm
-	    close(cmd)
-	    sub(/ .*$/,"",cksm)
-	    if(a[cksm]++){
-	      cmd="rm " q FILENAME q
-	      system(cmd)
-	      close(cmd)
-	    }
-	    nextfile
-	  }' q='"' *
+```sh
+#!/bin/bash
+gawk '
+  {
+    cmd="md5 -r " q FILENAME q
+    cmd | getline cksm
+    close(cmd)
+    sub(/ .*$/,"",cksm)
+    if(a[cksm]++){
+      cmd="rm " q FILENAME q
+      system(cmd)
+      close(cmd)
+    }
+    nextfile
+  }' q='"' *
+```
 
 - [bash - How to remove duplicated files in a directory? - Super User](http://superuser.com/questions/386199/how-to-remove-duplicated-files-in-a-directory/386209#386209)
 
@@ -1335,13 +1238,16 @@ find "$wd" -iname "*.less" \( -not -ipath "*/node_modules/*" \) -type f -print0 
 
 ### Rename all files to a specific extension
 
-	for j in /path/dir/*.html
-	do
-		n=${j/.html}
-		mv "$j" "$n.php"
-	done
+```sh
+for j in /path/dir/*.html
+do
+	n=${j/.html}
+	mv "$j" "$n.php"
+done
 
-	for j in *; do mv "$j" "$n.bin"; done;
+# Other way:
+for j in *; do mv "$j" "$n.bin"; done;
+```
 
 ### Hard link
 
@@ -1372,23 +1278,25 @@ cat tmp | head -1 >new && mv new tmp
 
 Test if `dirB/file.ext` exist else choose dest file name as `dirB/file-1.ext`, if already exist choose `dirB/file-2.ext` and so one
 
-	source=dirA/file.ext
-	dest_dir=dirB
-	
-	file=$(basename file.ext)
-	basename=${file%.*}
-	ext=${file##*.}
-	
-	if [[ ! -e "$dest_dir/$basename.$ext" ]]; then
-		# file does not exist in the destination directory
-		mv "$source" "$dest_dir"
-	else
-		num=2
-		while [[ -e "$dest_dir/$basename-$num.$ext" ]]; do
-			(( num++ ))
-		done
-		mv "$source" "$dest_dir/$basename-$num.$ext" 
-	fi 
+```sh
+source=dirA/file.ext
+dest_dir=dirB
+
+file=$(basename file.ext)
+basename=${file%.*}
+ext=${file##*.}
+
+if [[ ! -e "$dest_dir/$basename.$ext" ]]; then
+	# file does not exist in the destination directory
+	mv "$source" "$dest_dir"
+else
+	num=2
+	while [[ -e "$dest_dir/$basename-$num.$ext" ]]; do
+		(( num++ ))
+	done
+	mv "$source" "$dest_dir/$basename-$num.$ext" 
+fi
+```
 
 ### File type
 
@@ -1430,49 +1338,53 @@ Extension du fichier magic compilé : `*.mgc`
 
 **Note: Don't use parameter substitution, it's not work with all cases**
 
-	folder=/tmp
-	dirname "$folder"
-	# /
-	basename "$folder"
-	# tmp
-	echo "${folder%/*}"
-	# 
-	echo "${folder%/*.*}"
-	# /tmp
-	echo "${folder##*/}"
-	# tmp
-	echo "${folder##*.}"
-	# /tmp
-	
-	folder2=/tmp/folder
-	dirname "$folder2"
-	# /tmp
-	basename "$folder2"
-	# folder
-	echo "${folder2%/*}"
-	# /tmp
-	echo "${folder2%/*.*}"
-	# /tmp/folder
-	echo "${folder2##*/}"
-	# folder
-	echo "${folder2##*.}"
-	# /tmp/folder
-	
-	file=/tmp/file.png
-	dirname "$file"
-	# /tmp
-	basename "$file"
-	# file.png
-	echo "${file%/*}"
-	# /tmp
-	echo "${file%/*.*}"
-	# /tmp
-	echo "${file##*/}"
-	# file.png
-	echo "${file##*.}"
-	# png
+```sh
+folder=/tmp
+dirname "$folder"
+# /
+basename "$folder"
+# tmp
+echo "${folder%/*}"
+# 
+echo "${folder%/*.*}"
+# /tmp
+echo "${folder##*/}"
+# tmp
+echo "${folder##*.}"
+# /tmp
 
-	extension=$([[ "$file" = *.* ]] && echo "${file##*.}" || echo '')
+folder2=/tmp/folder
+dirname "$folder2"
+# /tmp
+basename "$folder2"
+# folder
+echo "${folder2%/*}"
+# /tmp
+echo "${folder2%/*.*}"
+# /tmp/folder
+echo "${folder2##*/}"
+# folder
+echo "${folder2##*.}"
+# /tmp/folder
+
+file=/tmp/file.png
+dirname "$file"
+# /tmp
+basename "$file"
+# file.png
+echo "${file%/*}"
+# /tmp
+echo "${file%/*.*}"
+# /tmp
+echo "${file##*/}"
+# file.png
+echo "${file##*.}"
+# png
+```
+
+```sh
+extension=$([[ "$file" = *.* ]] && echo "${file##*.}" || echo '')
+```
 
 - [Parameter Substitution](http://www.tldp.org/LDP/abs/html/parameter-substitution.html)
 - [Bash Reference Manual: Shell Parameter Expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html)
@@ -1680,44 +1592,31 @@ Resources for exclude metadata and system files:
 
 Note: you can export LANG=C for speed. Also these assume no duplicate lines within a file
 
-Union of unsorted files
+```sh
+# Union of unsorted files
+sort file1 file2 | uniq
 
-	sort file1 file2 | uniq
+# Intersection of unsorted files
+sort file1 file2 | uniq -d
 
+# Difference of unsorted files
+sort file1 file1 file2 | uniq -u
 
-Intersection of unsorted files
+# Symmetric Difference of unsorted files
+sort file1 file2 | uniq -u
 
-	sort file1 file2 | uniq -d
+# Union of sorted files
+join -t'\0' -a1 -a2 file1 file2
 
+# Intersection of sorted files
+join -t'\0' file1 file2
 
-Difference of unsorted files
+# Difference of sorted files
+join -t'\0' -v2 file1 file2
 
-	sort file1 file1 file2 | uniq -u
-
-
-Symmetric Difference of unsorted files
-
-	sort file1 file2 | uniq -u
-
-
-Union of sorted files
-
-	join -t'\0' -a1 -a2 file1 file2
-
-
-Intersection of sorted files
-
-	join -t'\0' file1 file2
-
-
-Difference of sorted files
-
-	join -t'\0' -v2 file1 file2
-
-
-Symmetric Difference of sorted files
-
-	join -t'\0' -v1 -v2 file1 file2
+# Symmetric Difference of sorted files
+join -t'\0' -v1 -v2 file1 file2
+```
 
 ### Use diff and patch
 
@@ -1772,49 +1671,40 @@ Le point de montage apparaitra dans le fichier `/etc/fstab` en tant `fs-type` : 
 
 ### Archives and compression
 
-Encrypt file
+```sh
+# Encrypt file
+gpg -c file
 
-	gpg -c file
+# Decrypt file
+gpg file.gpg
 
-Decrypt file
+# Make compressed archive of dir/
+tar -c dir/ | bzip2 > dir.tar.bz2
 
-	gpg file.gpg
+# Extract archive (use gzip instead of bzip2 for tar.gz files)
+bzip2 -dc dir.tar.bz2 | tar -x
 
-Make compressed archive of dir/
+# Make encrypted archive of dir/ on remote machine
+tar -c dir/ | gzip | gpg -c | ssh user@remote 'dd of=dir.tar.gz.gpg'
 
-	tar -c dir/ | bzip2 > dir.tar.bz2
+# Make archive of subset of dir/ and below
+find dir/ -name '*.txt' | tar -c --files-from=- | bzip2 > dir_txt.tar.bz2
 
-Extract archive (use gzip instead of bzip2 for tar.gz files)
+# Make copy of subset of dir/ and below
+find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents
 
-	bzip2 -dc dir.tar.bz2 | tar -x
+# Copy (with permissions) copy/ dir to /where/to/ dir
+( tar -c /dir/to/copy ) | ( cd /where/to/ && tar -x -p )
 
-Make encrypted archive of dir/ on remote machine
+# Copy (with permissions) contents of copy/ dir to /where/to/
+( cd /dir/to/copy && tar -c . ) | ( cd /where/to/ && tar -x -p )
 
-	tar -c dir/ | gzip | gpg -c | ssh user@remote 'dd of=dir.tar.gz.gpg'
+# Copy (with permissions) copy/ dir to remote:/where/to/ dir
+( tar -c /dir/to/copy ) | ssh -C user@remote 'cd /where/to/ && tar -x -p' 
 
-Make archive of subset of dir/ and below
-
-	find dir/ -name '*.txt' | tar -c --files-from=- | bzip2 > dir_txt.tar.bz2
-
-Make copy of subset of dir/ and below
-
-	find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents
-
-Copy (with permissions) copy/ dir to /where/to/ dir
-
-	( tar -c /dir/to/copy ) | ( cd /where/to/ && tar -x -p )
-
-Copy (with permissions) contents of copy/ dir to /where/to/
-
-	( cd /dir/to/copy && tar -c . ) | ( cd /where/to/ && tar -x -p )
-
-Copy (with permissions) copy/ dir to remote:/where/to/ dir
-
-	( tar -c /dir/to/copy ) | ssh -C user@remote 'cd /where/to/ && tar -x -p' 
-
-Backup harddrive (raw) to remote machine
-
-	dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz'
+# Backup harddrive (raw) to remote machine
+dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz'
+```
 
 ## Relative path
 
@@ -1938,126 +1828,101 @@ sed -Ei 's|<%@ Register TagPrefix="fnac" TagName="HtmlFooter" Src="~/Nav/Core/Co
 sed -Ei -e '1h;2,$H;$!d;g' -e "s|$REGEXP|$REPLACEMENT|" "$@"
 ```
 
-Replace string1 with string2
+```sh
+# Replace string1 with string2
+sed 's/string1/string2/g'
 
-	sed 's/string1/string2/g'
+# Modify anystring1 to anystring2
+sed 's/\(.*\)1/\12/g'
 
-Modify anystring1 to anystring2
+# Remove comments and blank lines
+sed '/^ *#/d; /^ *$/d'
 
-	sed 's/\(.*\)1/\12/g'
+# Concatenate lines with trailing \
+sed ':a; /\\$/N; s/\\\n//; ta'
 
-Remove comments and blank lines
+# Remove trailing spaces from lines
+sed 's/[ \t]*$//'
 
-	sed '/^ *#/d; /^ *$/d'
+# Escape shell metacharacters active within double quotes
+sed 's/\([`"$\]\)/\\\1/g'
 
-Concatenate lines with trailing \
+# Right align numbers
+seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"
 
-	sed ':a; /\\$/N; s/\\\n//; ta'
+# Duplicate a column
+seq 10 | sed p | paste - -
 
-Remove trailing spaces from lines
+# Print 1000th line
+sed -n '1000{p;q}'
 
-	sed 's/[ \t]*$//'
+# Print lines 10 to 20
+sed -n '10,20p;20q'
 
-Escape shell metacharacters active within double quotes
+# Extract title from HTML web page
+sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q'
 
-	sed 's/\([`"$\]\)/\\\1/g'
-
-Right align numbers
-
-	seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"
-
-Duplicate a column
-
-	seq 10 | sed p | paste - -
-
-Print 1000th line
-
-	sed -n '1000{p;q}'
-
-Print lines 10 to 20
-
-	sed -n '10,20p;20q'
-
-Extract title from HTML web page
-
-	sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q'
-
-Delete a particular line
-
-	sed -i 42d ~/.ssh/known_hosts
+# Delete a particular line
+sed -i 42d ~/.ssh/known_hosts
+```
 
 ### Other text operations
 
-Sort IPV4 ip addresses
+```sh
+# Sort IPV4 ip addresses
+sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
 
-	sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
+# Case conversion
+echo 'Test' | tr '[:lower:]' '[:upper:]'
 
-Case conversion
+# Filter non printable characters
+tr -dc '[:print:]' < /dev/urandom
 
-	echo 'Test' | tr '[:lower:]' '[:upper:]'
+# cut fields separated by blanks
+tr -s '[:blank:]' '\t' </proc/diskstats | cut -f4
 
-Filter non printable characters
-
-	tr -dc '[:print:]' < /dev/urandom
-
-cut fields separated by blanks
-
-	tr -s '[:blank:]' '\t' </proc/diskstats | cut -f4
-
-Count lines
-
-	history | wc -l
+# Count lines
+history | wc -l
+```
 
 ### Recode
 
 Obsoletes iconv, dos2unix, unix2dos
 
-Show available conversions (aliases on each line)
+```sh
+# Show available conversions (aliases on each line)
+recode -l | less
 
-	recode -l | less
+# Windows "ansi" to local charset (auto does CRLF conversion)
+recode windows-1252.. file_to_change.txt
 
-Windows "ansi" to local charset (auto does CRLF conversion)
+# Windows utf8 to local charset
+recode utf-8/CRLF.. file_to_change.txt
 
-	recode windows-1252.. file_to_change.txt
+# Latin9 (western europe) to utf8
+recode iso-8859-15..utf8 file_to_change.txt
 
-Windows utf8 to local charset
+# Base64 encode / decode (See also [Base64](Base64))
+recode ../b64 < file.png
 
-	recode utf-8/CRLF.. file_to_change.txt
+# Quoted printable decode
+recode /qp.. < file.qp > file.txt
 
-Latin9 (western europe) to utf8
+# Text to HTML
+recode ..HTML < file.txt > file.html
 
-	recode iso-8859-15..utf8 file_to_change.txt
+# Lookup table of characters
+recode -lf windows-1252 | grep euro
 
-Base64 encode / decode (See also [Base64](Base64))
+# Show what a code represents in latin-9 charmap
+echo -n 0x80 | recode latin-9/x1..dump
 
-	recode ../b64 < file.png
+# Show latin-9 encoding
+echo -n 0x20AC | recode ucs-2/x2..latin-9/x
 
-Quoted printable decode
-
-	recode /qp.. < file.qp > file.txt
-
-Text to HTML
-
-	recode ..HTML < file.txt > file.html
-
-Lookup table of characters
-
-	recode -lf windows-1252 | grep euro
-
-
-Show what a code represents in latin-9 charmap
-
-	echo -n 0x80 | recode latin-9/x1..dump
-
-
-Show latin-9 encoding
-
-	echo -n 0x20AC | recode ucs-2/x2..latin-9/x
-
-
-Show utf-8 encoding
-
-	echo -n 0x20AC | recode ucs-2/x2..utf-8/x
+# Show utf-8 encoding
+echo -n 0x20AC | recode ucs-2/x2..utf-8/x
+```
 
 ## Disk operations
 
@@ -2065,34 +1930,25 @@ Show utf-8 encoding
 
 See also FSlint
 
-Show files by size, biggest last
+```sh
+# Show files by size, biggest last
+ls -lSr
 
-	ls -lSr
+# Show top disk users in current dir. See also dutop
+du -s * | sort -k1,1rn | head
 
+# Sort paths by easy to interpret disk usage
+du -hs /home/* | sort -k1,1h
 
-Show top disk users in current dir. See also dutop
+# Show free space on mounted filesystems aks disk usage
+df -h
 
-	du -s * | sort -k1,1rn | head
+# Show free inodes on mounted filesystems
+df -i
 
-
-Sort paths by easy to interpret disk usage
-
-	du -hs /home/* | sort -k1,1h
-
-
-Show free space on mounted filesystems aks disk usage
-
-	df -h
-
-
-Show free inodes on mounted filesystems
-
-	df -i
-
-
-Show disks partitions sizes and types (run as root)
-
-	fdisk -l
+# Show disks partitions sizes and types (run as root)
+fdisk -l
+```
 
 ### Clone disk
 
@@ -2128,65 +1984,50 @@ Check disk ID (here X and Y) in XXXXX
 
 ### CDs
 
-Save copy of data cdrom
+```sh
+# Save copy of data cdrom
+gzip < /dev/cdrom > cdrom.iso.gz
 
-	gzip < /dev/cdrom > cdrom.iso.gz
+# Create cdrom image from contents of dir
+mkisofs -V LABEL -r dir | gzip > cdrom.iso.gz
 
+# Mount the cdrom image at /mnt/dir (read only)
+mount -o loop cdrom.iso /mnt/dir
 
-Create cdrom image from contents of dir
+# Clear a CDRW
+cdrecord -v dev=/dev/cdrom blank=fast
 
-	mkisofs -V LABEL -r dir | gzip > cdrom.iso.gz
+# Burn cdrom image (use dev=ATAPI -scanbus to confirm dev)
+gzip -dc cdrom.iso.gz | cdrecord -v dev=/dev/cdrom -
 
+# Rip audio tracks from CD to wav files in current dir
+cdparanoia -B
 
-Mount the cdrom image at /mnt/dir (read only)
-
-	mount -o loop cdrom.iso /mnt/dir
-
-
-Clear a CDRW
-
-	cdrecord -v dev=/dev/cdrom blank=fast
-
-
-Burn cdrom image (use dev=ATAPI -scanbus to confirm dev)
-
-	gzip -dc cdrom.iso.gz | cdrecord -v dev=/dev/cdrom -
-
-
-Rip audio tracks from CD to wav files in current dir
-
-	cdparanoia -B
-
-
-Make audio CD from all wavs in current dir (see also cdrdao)
-
-	cdrecord -v dev=/dev/cdrom -audio -pad *.wav
+# Make audio CD from all wavs in current dir (see also cdrdao)
+cdrecord -v dev=/dev/cdrom -audio -pad *.wav
+```
 
 ## Command operations
 
-Show commands pertinent to string. See also threadsafe
+```sh
+# Show commands pertinent to string. See also threadsafe
+apropos whatis
 
-	apropos whatis
+# make a pdf of a manual page
+man -t ascii | ps2pdf - > ascii.pdf
 
-make a pdf of a manual page
+# Show full path name of command
+which command
 
-	man -t ascii | ps2pdf - > ascii.pdf
+# See how long a command takes
+time command
 
-Show full path name of command
+# Start stopwatch. Ctrl-d to stop. See also sw
+time cat
 
-	which command
-
-See how long a command takes
-
-	time command
-
-Start stopwatch. Ctrl-d to stop. See also sw
-
-	time cat
-
-Find the location of a command
-
-	command -v git 2> /dev/null
+# Find the location of a command
+command -v git 2> /dev/null
+```
 
 - [shell - Why not use "which"? What to use then? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then/85250#85250)
 - [shell - `command` vs `type` - Locate program file in user's PATH - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/150512/command-vs-type-locate-program-file-in-users-path)
@@ -2353,51 +2194,35 @@ Using tar or FTP, incrementaly add/changed/delete files (list made from `cron` o
 
 Multi purpose download tool
 
-Store local browsable version of a page to the current dir
+```sh
+# Store local browsable version of a page to the current dir
+(cd dir/ && wget -nd -pHEKk http://www.pixelbeat.org/cmdline.html)
 
-	(cd dir/ && wget -nd -pHEKk http://www.pixelbeat.org/cmdline.html)
+# Continue downloading a partially downloaded file
+wget -c http://www.example.com/large.file
 
+# Download a set of files to the current directory
+wget -r -nd -np -l1 -A '*.jpg' http://www.example.com/dir/
 
-Continue downloading a partially downloaded file
+# FTP supports globbing directly
+wget ftp://remote/file[1-9].iso/
 
-	wget -c http://www.example.com/large.file
+# Process output directly
+wget -q -O- http://www.pixelbeat.org/timeline.html | grep 'a href' | head
 
+# Download url at 1AM to current dir
+echo 'wget url' | at 01:00
 
-Download a set of files to the current directory
+# Do a low priority download (limit to 20KB/s in this case)
+wget --limit-rate=20k url
 
-	wget -r -nd -np -l1 -A '*.jpg' http://www.example.com/dir/
+# Check links in a file
+wget -nv --spider --force-html -i bookmarks.html
 
-
-FTP supports globbing directly
-
-	wget ftp://remote/file[1-9].iso/
-
-
-Process output directly
-
-	wget -q -O- http://www.pixelbeat.org/timeline.html | grep 'a href' | head
-
-
-Download url at 1AM to current dir
-
-	echo 'wget url' | at 01:00
-
-
-Do a low priority download (limit to 20KB/s in this case)
-
-	wget --limit-rate=20k url
-
-
-Check links in a file
-
-	wget -nv --spider --force-html -i bookmarks.html
-
-
-Efficiently update a local copy of a site (handy from cron)
-
-	wget -m http://www.example.com/
-
-	wget -m -U "" http://example.com/path/dir
+# Efficiently update a local copy of a site (handy from cron)
+wget -m http://www.example.com/
+wget -m -U "" http://example.com/path/dir
+```
 
 ## Convert PDF 1.4
 
@@ -2409,39 +2234,28 @@ Force version
 
 Aka Secure SHell
 
-Run command on $HOST as $USER (default command=shell)
+```sh
+# Run command on $HOST as $USER (default command=shell)
+ssh $USER@$HOST command
 
-	ssh $USER@$HOST command
+# Run GUI command on $HOSTNAME as $USER
+ssh -f -Y $USER@$HOSTNAME xeyes
 
+# Copy with permissions to $USER's home directory on $HOST
+scp -p -r $USER@$HOST: file dir/
 
-Run GUI command on $HOSTNAME as $USER
+# Use faster crypto for local LAN. This might saturate GigE
+scp -c arcfour $USER@$LANHOST: bigfile
 
-	ssh -f -Y $USER@$HOSTNAME xeyes
+# Forward connections to $HOSTNAME:8080 out to $HOST:80
+ssh -g -L 8080:localhost:80 root@$HOST
 
+# Forward connections from $HOST:1434 in to imap:143
+ssh -R 1434:imap:143 root@$HOST
 
-Copy with permissions to $USER's home directory on $HOST
-
-	scp -p -r $USER@$HOST: file dir/
-
-
-Use faster crypto for local LAN. This might saturate GigE
-
-	scp -c arcfour $USER@$LANHOST: bigfile
-
-
-Forward connections to $HOSTNAME:8080 out to $HOST:80
-
-	ssh -g -L 8080:localhost:80 root@$HOST
-
-
-Forward connections from $HOST:1434 in to imap:143
-
-	ssh -R 1434:imap:143 root@$HOST
-
-
-Install public key for $USER@$HOST for password-less log in
-
-	ssh-copy-id $USER@$HOST 
+# Install public key for $USER@$HOST for password-less log in
+ssh-copy-id $USER@$HOST
+```
 
 ### SSH Disallow remote root login
 
@@ -2479,25 +2293,22 @@ http://www.cyberciti.biz/faq/set-up-ssh-tunneling-on-a-linux-unix-bsd-server-to-
 
 Note: samba is the package that provides all this windows specific networking support
 
-Find windows machines. See also findsmb
+```sh
+# Find windows machines. See also findsmb
+smbtree
 
-	smbtree
+# Find the windows (netbios) name associated with ip address
+nmblookup -A 1.2.3.4
 
-Find the windows (netbios) name associated with ip address
+# List shares on windows machine or samba server
+smbclient -L windows_box
 
-	nmblookup -A 1.2.3.4
+# Mount a windows share
+mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share
 
-List shares on windows machine or samba server
-
-	smbclient -L windows_box
-
-Mount a windows share
-
-	mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share
-
-Send popup to windows machine (off by default in XP sp2)
-
-	echo 'message' | smbclient -M windows_box
+# Send popup to windows machine (off by default in XP sp2)
+echo 'message' | smbclient -M windows_box
+```
 
 ## Write email in local spool
 
