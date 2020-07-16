@@ -152,3 +152,8 @@ function lerp (start, end, t) {
 ```
 
 - [Linear interpolation - Wikipedia](https://en.wikipedia.org/wiki/Linear_interpolation)
+
+## Percentage
+
+> X% of Y = Y% of X
+> 27% of 73 is the same as 73% of 27

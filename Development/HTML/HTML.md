@@ -69,6 +69,7 @@ Remplace all links for tabbed interfaces, collabsibles, modal openers by a butto
 - [Anchors, Buttons, and Accessibility // Formidable Labs](http://formidablelabs.com/blog/2014/05/08/anchors-buttons-and-accessibility/)
 - [Links vs. Buttons in Modern Web Applications | MarcySutton.com](https://marcysutton.com/links-vs-buttons-in-modern-web-applications/)
 - [A Bit on Buttons | CSS-Tricks](https://css-tricks.com/a-bit-on-buttons/)
+- [Navigation elements - Guides to React, Accessibility, Modern CSS, TypeScript · Components.Guide](https://components.guide/accessibility-first/navigation)
 
 Interactive elements use `button[type=button]` element or `role="button"`
 

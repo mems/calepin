@@ -278,14 +278,6 @@ Use Keep-Alive connection (more useful for HTTP/1.X connection than HTTP/2):
 
 - [HTTP persistent connection — Wikipedia](https://en.wikipedia.org/wiki/HTTP_persistent_connection)
 
-### Preload ASAP
-
-As soon as possible, use UDP Priming (pre request like HEAD) to let the server prepare response
-
-Load list by fragments 1+1+X (better than × or 3+7+X) like streaming
-
-- [Optimizing Facebook for iOS start time | Engineering Blog | Facebook Code](https://code.facebook.com/posts/1675399786008080/optimizing-facebook-for-ios-start-time/)
-
 ### IPv6
 
 - [98.01% of sites on Cloudflare now use IPv6](https://blog.cloudflare.com/98-percent-ipv6/)
@@ -751,6 +743,14 @@ myExampleLink.addEventListener("click", event => {
 - [GoogleChromeLabs/quicklink: ⚡️Faster subsequent page-loads by prefetching in-viewport links during idle time](https://github.com/GoogleChromeLabs/quicklink)
 - [instant.page](https://instant.page/) - Prefetch pages under pointer before the user click (~300ms with cursor, ~90ms with touch) [Technical details — instant.page](https://instant.page/tech) [instantpage/instant.page: Make your site’s pages instant in 1 minute and improve your conversion rate by 1%](https://github.com/instantpage/instant.page)
 
+### Preload ASAP
+
+As soon as possible, use UDP Priming (pre request like HEAD) to let the server prepare response
+
+Load list by fragments 1+1+X (better than X and 3+7+X) like streaming
+
+- [Optimizing Facebook for iOS start time | Engineering Blog | Facebook Code](https://code.facebook.com/posts/1675399786008080/optimizing-facebook-for-ios-start-time/)
+
 ### Download priority
 
 - HTML (highest)
@@ -801,6 +801,8 @@ Live streaming, or start play video when the file is not completely generated:
 - [Live streaming web audio and video - App Center | MDN](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Live_streaming_web_audio_and_video)
 
 #### Image lazyload
+
+Use [`loading="lazy"` attribute](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading#Images_and_iframes) for images (and iframes)
 
 **Use a placeholder element, or at least [use a SVG in data URI for the `src` attribute](https://css-tricks.com/preventing-content-reflow-from-lazy-loaded-images/#article-header-id-5) to prevent reflow**
 

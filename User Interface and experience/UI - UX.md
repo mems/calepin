@@ -747,8 +747,9 @@ Scroll native behaviors:
 > In Safari, Mail, Contacts, and many other apps, tap the status bar at the top of the screen — which displays the network information, time, and battery level — to scroll quickly to the top.
 > — [Apple - iPhone - Tips and Tricks](http://web.archive.org/web/20110328034937/http://www.apple.com/iphone/tips/)
 
-- https://en.wikipedia.org/wiki/Scrollbar
-- http://ux.stackexchange.com/questions/79862/jump-to-parts-of-file-in-scrollbar
+- [Scrollbar - Wikipedia](https://en.wikipedia.org/wiki/Scrollbar)
+- [Jump to parts of file in scrollbar - User Experience Stack Exchange](https://ux.stackexchange.com/questions/79862/jump-to-parts-of-file-in-scrollbar)
+- [Baseline Rules for Scrollbar Usability | Adrian Roselli](https://adrianroselli.com/2019/01/baseline-rules-for-scrollbar-usability.html)
 
 ### Focus ring
 

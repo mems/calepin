@@ -1959,6 +1959,7 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 — [How the V8 engine works?](http://thibaultlaurens.github.io/javascript/2013/04/29/how-the-v8-engine-works/)
 - [V8 JavaScript Engine: Optimizing hash tables: hiding the hash code](https://v8project.blogspot.fr/2018/01/hash-code.html)
 - [JavaScript engine fundamentals: optimizing prototypes · Mathias Bynens](https://mathiasbynens.be/notes/prototypes)
+- [Compiler Compiler: A Twitch series about working on a JavaScript engine - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2020/06/compiler-compiler-working-on-a-javascript-engine/)
 
 ### Event loop
 

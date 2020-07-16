@@ -16,4 +16,12 @@
 
 ## Optimization
 
+- with Preview and Quartz filters
+	- [Compress a PDF in Preview on Mac - Apple Support](https://support.apple.com/guide/preview/compress-a-pdf-prvw1509/mac)
+	- `/System/Library/Printers/Libraries/quartzfilter <inputfile> <filterpath.qfilter> <outputfile>`
+	- [joshcarr/Apple-Quartz-Filters](https://github.com/joshcarr/Apple-Quartz-Filters)
+	- [Shrink Preview files without ruining image quality | Macworld](https://www.macworld.com/article/1168311/shrink-preview-files-without-ruining-image-quality.html)
+	- [How to create custom PDF compression filters in OS X - CNET](https://www.cnet.com/how-to/how-to-create-custom-pdf-compression-filters-in-os-x/)
+	- [macos - How to decrease .pdf size without losing quality - Ask Different](https://apple.stackexchange.com/questions/297417/how-to-decrease-pdf-size-without-losing-quality)
+
 - [mattdesl/gsx-pdf-optimize: Optimize PDFs with Ghostscript command](https://github.com/mattdesl/gsx-pdf-optimize)
