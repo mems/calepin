@@ -2101,94 +2101,122 @@ For `24:40` (`24/40`) the greatest common factor is 8:
 
 Aka unique values
 
-	var uniq = [... new Set([1, 2, 3, 4, 5, 1, 2, 6])]
+```js
+var uniq = [... new Set([1, 2, 3, 4, 5, 1, 2, 6])]
+```
 
-	var hasDup = ![1, 2, 3, 4, 5, 1, 2, 6].every((value, index, array) => !array.includes(value, index + 1));//true
+```js
+var hasDup = ![1, 2, 3, 4, 5, 1, 2, 6].every((value, index, array) => !array.includes(value, index + 1));//true
+```
 
-	// Remove duplicate first
-	var uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => !array.includes(value, index + 1));//[3, 4, 5, 1, 2, 6]
-	// Remove duplicate after
-	var uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => index === 0 || array.lastIndexOf(value, index - 1) < 0);//[1, 2, 3, 4, 5, 6]
+```js
+// Remove duplicate first
+var uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => !array.includes(value, index + 1));//[3, 4, 5, 1, 2, 6]
+// Remove duplicate after
+var uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => index === 0 || array.lastIndexOf(value, index - 1) < 0);//[1, 2, 3, 4, 5, 6]
+```
 
-	let uniqueValues = values.reduce((dest, search) => {
-		if (dest.indexOf(search) < 0){
-			dest.push(search);
-		}
-		return dest;
-	}, []);
+```js
+let uniqueValues = values.reduce((dest, search) => {
+	if (dest.indexOf(search) < 0){
+		dest.push(search);
+	}
+	return dest;
+}, []);
+```
+
+## Store data as stringified JSON
+
+Store object, array stringified JSON that could be parsed at execution, faster than JS.
+
+- [Mathias Bynens on Twitter: "🚀 Perf tip: if your web app ships large JSON-like configuration as JavaScript object literals, consider using JSON.parse instead. It’s much faster, especially for cold loads! https://t.co/C0oQ4BLnfz https://t.co/p0WICUm7zx" / Twitter](https://twitter.com/mathias/status/1143551692732030979?s=12)
+- [The cost of JavaScript in 2019 · V8](https://v8.dev/blog/cost-of-javascript-2019#json)
+- [Faster apps with JSON.parse (Chrome Dev Summit 2019) - YouTube](https://www.youtube.com/watch?v=ff4fgQxPaO0)
 
 ## Relative index offset
 
 Support forced direction
 
-	var toIndex;// start
-	var fromIndex;// end
-	var forcedDirection;// -1, 0, +1
-	var count;// num elements
-	var offset = 0;
-	if(toIndex > fromIndex){
-		offset = this._transitionDirection < 0 || toIndex - fromIndex > count / 2 ? count + fromIndex - toIndex : fromIndex - toIndex;
-	}else{
-		offset = this._transitionDirection > 0 || fromIndex - toIndex > count / 2 ? count + toIndex - fromIndex : toIndex - fromIndex;
-	}
+```js
+var toIndex;// start
+var fromIndex;// end
+var forcedDirection;// -1, 0, +1
+var count;// num elements
+var offset = 0;
+if(toIndex > fromIndex){
+	offset = this._transitionDirection < 0 || toIndex - fromIndex > count / 2 ? count + fromIndex - toIndex : fromIndex - toIndex;
+}else{
+	offset = this._transitionDirection > 0 || fromIndex - toIndex > count / 2 ? count + toIndex - fromIndex : toIndex - fromIndex;
+}
+```
 
 For infinite loop
 
-	var index = fromIndex + offset;//offset = relative index
-	var absIndex = (count + index % count) % count;// real index (support negative index)
+```js
+var index = fromIndex + offset;//offset = relative index
+var absIndex = (count + index % count) % count;// real index (support negative index)
+```
 
 ## Inside rect
 
-	function inside (x, y, box){
-		return x > box.l && y > box.t && x < box.r && y < box.b;
-	}
+```js
+function inside (x, y, box){
+	return x > box.l && y > box.t && x < box.r && y < box.b;
+}
+```
 
 ## Days in month
 
-	function daysInMonth ( y, m ) {
-		return ( new Date( y, m, 0 ) ) .getDate();
-	}
-	daysInMonth( 2015, 2 ); //28
-	daysInMonth( 2016, 2 ); //29
+```js
+function daysInMonth ( y, m ) {
+	return ( new Date( y, m, 0 ) ) .getDate();
+}
+daysInMonth( 2015, 2 ); //28
+daysInMonth( 2016, 2 ); //29
+```
 
 ## Progress
 
-	var progress = (now - start) / duration % 1;// 0->1 cycles
-	progress = (progress < 0.5) ? progress * 2 : 1 - (progress - 0.5) * 2;// 0->1->0 cycles
+```js
+let progress = (now - start) / duration % 1;// 0->1 cycles
+progress = (progress < 0.5) ? progress * 2 : 1 - (progress - 0.5) * 2;// 0->1->0 cycles
+```
 
 ### In time
 
-	let filesize = ...;
-	let lastpercent = 0;
-	let starttime = Date.time();
-	function human(size){
-		let units = ['B','KiB','MiB','GiB','TiB','PiB', 'EiB', 'ZiB', 'YiB'];
-		let unitIndex = 0;
-		while(size > 1024 && unitIndex < units.length){
-			size /= 1024;
-			unitIndex++;
-		}
-		
-		return ((size * 10) / 10) + units[unitIndex];// round to ###.##
+```js
+let filesize = ...;
+let lastpercent = 0;
+let starttime = Date.time();
+function human(size){
+	let units = ['B','KiB','MiB','GiB','TiB','PiB', 'EiB', 'ZiB', 'YiB'];
+	let unitIndex = 0;
+	while(size > 1024 && unitIndex < units.length){
+		size /= 1024;
+		unitIndex++;
 	}
 	
-	while(...){
-		let currentseek = ...;
-		
-		if(currentseek / filesize > lastpercent){
-			let percent = (currentseek / filesize * 1000) / 10;// round ###.##
-			console.log(percent + '%');
-			lastpercent += 0.01;
-			console.log(human(currentseek) + '/' + human(filesize));
-			if(percent != 0){
-				let now = Date.time();
-				let estimate = (now - starttime) / percent * 100
-				eta = starttime + estimate - now
-				console.log(`ETA: ${eta}s' (estimate ${estimate}s)`);
-			}
+	return ((size * 10) / 10) + units[unitIndex];// round to ###.##
+}
+
+while(...){
+	let currentseek = ...;
+	
+	if(currentseek / filesize > lastpercent){
+		let percent = (currentseek / filesize * 1000) / 10;// round ###.##
+		console.log(percent + '%');
+		lastpercent += 0.01;
+		console.log(human(currentseek) + '/' + human(filesize));
+		if(percent != 0){
+			let now = Date.time();
+			let estimate = (now - starttime) / percent * 100
+			eta = starttime + estimate - now
+			console.log(`ETA: ${eta}s' (estimate ${estimate}s)`);
 		}
 	}
-	console.log("done!");
+}
+console.log("done!");
+```
 
 - XSLT `###.##` `format-number()`
 - [Binary prefix — Wikipedia](https://en.wikipedia.org/wiki/Binary_prefix#kibi)
@@ -2217,51 +2245,67 @@ See also [RegExp](RegExp)
 
 Be carefull when create/inline regex in loops. Regex are muttable (`lastIndex` property is used to keep iterator infos)
 
-	// Don’t do that:
-	var count = 0;
-	while (/a/g.test('babaa')) count++;
+```js
+// Don’t do that:
+var count = 0;
+while (/a/g.test('babaa')) count++;
+```
 
 But
 
-	var count = 0;
-	var regex = /a/g;
-	while (regex.test('babaa')) count++;
+```js
+var count = 0;
+var regex = /a/g;
+while (regex.test('babaa')) count++;
+```
 
-	// Don’t do that:
-	function extractQuoted(str) {
-		var match;
-		var result = [];
-		while ((match = /"(.*?)"/g.exec(str)) != null) {
-			result.push(match[1]);
-		}
-		return result;
+```js
+// Don’t do that:
+function extractQuoted(str) {
+	var match;
+	var result = [];
+	while ((match = /"(.*?)"/g.exec(str)) != null) {
+		result.push(match[1]);
 	}
+	return result;
+}
+```
 
 But
 
-	var QUOTE_REGEX = /"(.*?)"/g;
-	function extractQuoted(str) {
-		QUOTE_REGEX.lastIndex = 0;
-		var match;
-		var result = [];
-		while ((match = QUOTE_REGEX.exec(str)) != null) {
-			result.push(match[1]);
-		}
-		return result;
+```js
+const QUOTE_REGEX = /"(.*?)"/g;
+function extractQuoted(str) {
+	QUOTE_REGEX.lastIndex = 0;
+	var match;
+	var result = [];
+	while ((match = QUOTE_REGEX.exec(str)) != null) {
+		result.push(match[1]);
 	}
+	return result;
+}
+```
 
 - [Chapter 19. Regular Expressions # Problems with the Flag /g](http://speakingjs.com/es5/ch19.html#tips_flag_g)
 
 
 ## String padding
 
-	var n = 13;
+```js
+var n = 13;
+```
 
-	String(n).padStart(3, "0");// -> "013"
+```js
+String(n).padStart(3, "0");// -> "013"
+```
 
-	("000" + n).substr(-3, 3);// -> "013"
+```js
+("000" + n).substr(-3, 3);// -> "013"
+```
 
-	("000" + n).slice(-3);// -> "013"
+```js
+("000" + n).slice(-3);// -> "013"
+```
 
 `"000"` replace with `"0".repeat(3)`
 
@@ -2272,38 +2316,44 @@ But
 
 ### Is power of two
 
-	let isPositivePowerOfTwo = a > 0 && (a & (a - 1)) == 0;
+```js
+let isPositivePowerOfTwo = a > 0 && (a & (a - 1)) == 0;
+```
 
 ### Round to nearest power of two
 
-	// returns the closest (high) number that is a power of two
-	function getNextPowerOfTwo(number)
+```js
+// returns the closest (high) number that is a power of two
+function getNextPowerOfTwo(number)
+{
+	if (number > 0 && (number & (number - 1)) === 0)
 	{
-		if (number > 0 && (number & (number - 1)) === 0)
-		{
-			return number;
-		}
-		else
-		{
-			var result = 1;
-			
-			while (result < number)
-			{
-				result <<= 1;
-			}
-			
-			return result;
-		}
+		return number;
 	}
-
-	function roundToPowerOfTwo(value) {
-		let rounded = 2;
-		while (value > rounded) {
-			rounded *= 2;
+	else
+	{
+		var result = 1;
+		
+		while (result < number)
+		{
+			result <<= 1;
 		}
 		
-		return rounded;
+		return result;
 	}
+}
+```
+
+```js
+function roundToPowerOfTwo(value) {
+	let rounded = 2;
+	while (value > rounded) {
+		rounded *= 2;
+	}
+	
+	return rounded;
+}
+```
 
 - [java - Nearest multiple of a power of two fraction - Stack Overflow](https://stackoverflow.com/questions/28238149/nearest-multiple-of-a-power-of-two-fraction)
 - http://en.wikipedia.org/wiki/Power_of_two#Fast_algorithm_to_check_if_a_positive_number_is_a_power_of_two
@@ -2318,46 +2368,60 @@ See [Round to multiple](#round-to-multiple)
 
 ## Odd and even
 
-	value % 2
+```js
+value % 2
+```
 
-	[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(value => Math.round(value % 2))
-	// -> [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+```js
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(value => Math.round(value % 2))
+// -> [0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+```
 
 Double odd
 
-	Math.round(value % 4 / 4)
+```js
+Math.round(value % 4 / 4)
+```
 
-	[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(value => Math.round(value % 4 / 4))
-	// -> [0, 0, 1, 1, 0, 0, 1, 1, 0, 0]
+```js
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(value => Math.round(value % 4 / 4))
+// -> [0, 0, 1, 1, 0, 0, 1, 1, 0, 0]
+```
 
 Triple odd:
 
-`Math.round(value % 6 / 6)`
+```js
+Math.round(value % 6 / 6)
+```
 
 etc.
 
 ## Center of 2 points
 
-	let x1 = 10;
-	let x2 = 20;
-	let xC = (x1 + x2) / 2;// 15
+```js
+let x1 = 10;
+let x2 = 20;
+let xC = (x1 + x2) / 2;// 15
+```
 
 ## Scale control point
 
-	let transformOriginX;
-	let transformOriginY;
-	let scale;
-	let x;
-	let y;
-	let newScale = scale;
-	let previousScale;
-	scale = newScale;
-	
-	// Adjust with transformOrigin
-	let localTransformOriginX = (transformOriginX - x) / previousScale;
-	let localTransformOriginY = (transformOriginY - y) / previousScale;
-	x = transformOriginX - localTransformOriginX * newScale;
-	y = transformOriginY - localTransformOriginY * newScale;
+```js
+let transformOriginX;
+let transformOriginY;
+let scale;
+let x;
+let y;
+let newScale = scale;
+let previousScale;
+scale = newScale;
+
+// Adjust with transformOrigin
+let localTransformOriginX = (transformOriginX - x) / previousScale;
+let localTransformOriginY = (transformOriginY - y) / previousScale;
+x = transformOriginX - localTransformOriginX * newScale;
+y = transformOriginY - localTransformOriginY * newScale;
+```
 
 ## Type
 
@@ -2377,25 +2441,35 @@ Works for null too: `Object.prototype.toString.call(value) == "[Object Null]"`
 
 Boolean, number, string and function:
 
-	typeof value == "boolean"//"number", "string" and "function"
+```js
+typeof value == "boolean"//"number", "string" and "function"
+```
 
 Optionaly you can use also:
 
-	typeof value == "boolean" || value instanceof Boolean
+```js
+typeof value == "boolean" || value instanceof Boolean
+```
 
 Integer (number):
 
-	Number.isInteger(value)
-	Number.isFinite(value)
-	isNaN(value)
+```js
+Number.isInteger(value)
+Number.isFinite(value)
+isNaN(value)
+```
 
 Array:
 
-	Array.isArray(value)
+```js
+Array.isArray(value)
+```
 
 Array, Date and all other objects:
 
-	value instanceof Array
+```js
+value instanceof Array
+```
 
 Note: read above about window context of constructor and primitives
 
@@ -2405,45 +2479,49 @@ Note: read above about window context of constructor and primitives
 
 Array:
 
-	Array.isArray(value) || (typeof value[Symbol.iterator] || "length" in value) && (value = Array.from(value)) || (value = Array.of(value))
+```js
+Array.isArray(value) || (typeof value[Symbol.iterator] || "length" in value) && (value = Array.from(value)) || (value = Array.of(value))
+```
 
 Number:
 
 `Number(value)` is equivalent to `+value`
 
-	function strictParseFloat(value) {
-		// Fix Number("")==0, Number(" ")==0, Number(null)==0, Number(), skip NaN
-		if(value == undefined || value == null || value == "" || value.trim() == "" || isNaN(value)) return NaN;
-		value = String(value);
-		let firstChar = value.charAt(0);
-		let sign = 1;
-		// Fix isNaN(Number("-0x10"))
-		if(firstChar == "-"){
-			sign = -1;
-			value = value.substr(1);
-		}
-		else if(firstChar == "+"){
-			value = value.substr(1);
-		}
-		return sign * Number(value);
+```js
+function strictParseFloat(value) {
+	// Fix Number("")==0, Number(" ")==0, Number(null)==0, Number(), skip NaN
+	if(value == undefined || value == null || value == "" || value.trim() == "" || isNaN(value)) return NaN;
+	value = String(value);
+	let firstChar = value.charAt(0);
+	let sign = 1;
+	// Fix isNaN(Number("-0x10"))
+	if(firstChar == "-"){
+		sign = -1;
+		value = value.substr(1);
 	}
-	
-	function strictParseInt(value) {
-		// Fix Number("")==0, Number(" ")==0, Number(null)==0, Number(), skip NaN, value w/ decimals, negative exponent
-		if(value == undefined || value == null || value == "" || value.trim() == "" || isNaN(value) || value.contains(".") || value.contains("e-")) return NaN;
-		value = String(value);
-		let firstChar = value.charAt(0);
-		let sign = 1;
-		// Fix isNaN(Number("-0x10"))
-		if(firstChar == "-"){
-			sign = -1;
-			value = value.substr(1);
-		}
-		else if(firstChar == "+"){
-			value = value.substr(1);
-		}
-		return sign * Number(value);
+	else if(firstChar == "+"){
+		value = value.substr(1);
 	}
+	return sign * Number(value);
+}
+
+function strictParseInt(value) {
+	// Fix Number("")==0, Number(" ")==0, Number(null)==0, Number(), skip NaN, value w/ decimals, negative exponent
+	if(value == undefined || value == null || value == "" || value.trim() == "" || isNaN(value) || value.contains(".") || value.contains("e-")) return NaN;
+	value = String(value);
+	let firstChar = value.charAt(0);
+	let sign = 1;
+	// Fix isNaN(Number("-0x10"))
+	if(firstChar == "-"){
+		sign = -1;
+		value = value.substr(1);
+	}
+	else if(firstChar == "+"){
+		value = value.substr(1);
+	}
+	return sign * Number(value);
+}
+```
 
 | value			| `parseFloat`	| `parseInt`	| `Number`		| `strictParseFloat`	| `strictParseInt`
 | `"3"`			| `3`			| `3`			| `3`			| `3`					| `3`
@@ -2472,17 +2550,23 @@ See `value.valueOf()` (`Date` return number)
 
 ## Check date validity
 
-	new Date(null)// > Thu Jan 01 1970 01:00:00 GMT+0100
+```js
+new Date(null)// > Thu Jan 01 1970 01:00:00 GMT+0100
+```
 
-	Number.isNaN(Number(new Date("")))// > date invalid: true
-	Number.isNaN(new Date("").getTime())// > date invalid: true
-	Number.isNaN(new Date("").valueOf())// > date invalid: true
+```js
+Number.isNaN(Number(new Date("")))// > date invalid: true
+Number.isNaN(new Date("").getTime())// > date invalid: true
+Number.isNaN(new Date("").valueOf())// > date invalid: true
+```
 
 Compare a date with an invalid one is always falsy: `new Date() => new Date("")`
 
-	const now = new Date();
-	startDate, endDate
-	const isOpening = !(now < startDate) && !(now >= endDate);// not before and not after (handle invalid dates: compare a date with an invalid date is always falsy)
+```js
+const now = new Date();
+startDate, endDate
+const isOpening = !(now < startDate) && !(now >= endDate);// not before and not after (handle invalid dates: compare a date with an invalid date is always falsy)
+```
 
 ## Filter out `NaN`, `undefined` and `null` in Array
 
@@ -2519,64 +2603,68 @@ Note: `flatMap()` expects to see non-array entries as well as array entries
 
 ## Thousands separators
 
-	// similar and simplified equivalent of toLocaleString('en-US', {minimumFractionDigits: 2})
-	function toLocaleString(value){
-		var parts = value.split(".");
-		var integerDigits = parts[0];
-		var recomposedIntDigits = "";
-		var offset = integerDigits.length;
-		while(offset >= 3)
-			grp = integerDigits.substr(offset -= 3, 3);
-			recomposedIntDigits = (recomposedIntDigits == "" ? grp : grp + ",") + recomposedIntDigits
-		grp = integerDigits.substr(0, offset)
-		parts[0] = (grp == "+" || grp == "-" || grp == "" || recomposedIntDigits == "" ? grp : grp + ",") + recomposedIntDigits;
-		return parts.join(".");
-	}
+```js
+// similar and simplified equivalent of toLocaleString('en-US', {minimumFractionDigits: 2})
+function toLocaleString(value){
+	var parts = value.split(".");
+	var integerDigits = parts[0];
+	var recomposedIntDigits = "";
+	var offset = integerDigits.length;
+	while(offset >= 3)
+		grp = integerDigits.substr(offset -= 3, 3);
+		recomposedIntDigits = (recomposedIntDigits == "" ? grp : grp + ",") + recomposedIntDigits
+	grp = integerDigits.substr(0, offset)
+	parts[0] = (grp == "+" || grp == "-" || grp == "" || recomposedIntDigits == "" ? grp : grp + ",") + recomposedIntDigits;
+	return parts.join(".");
+}
+```
 
 - [Number.prototype.toLocaleString() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
 
 ## Human byte unit
 
-	var value = 12.34;
-	var modifier = "G";
-	// Decimal
-	switch(modifier) {
-		case "Y":// yotta
-			value *= 1000;
-		case "Z":// zetta
-			value *= 1000;
-		case "E":// exa
-			value *= 1000;
-		case "P":// peta
-			value *= 1000;
-		case "T":// tera
-			value *= 1000;
-		case "G":// giga
-			value *= 1000;
-		case "M":// mega
-			value *= 1000;
-		case "k":// kilo
-			value *= 1000;
-	}
-	// Binary (1024^x)
-	switch(modifier) {
-		case "Yi":// yobi
-			value *= 1024;
-		case "Zi":// zebi
-			value *= 1024;
-		case "Ei":// exbi
-			value *= 1024;
-		case "Pi":// pebi
-			value *= 1024;
-		case "Ti":// tebi
-			value *= 1024;
-		case "Gi":// gibi
-			value *= 1024;
-		case "Mi":// mebi
-			value *= 1024;
-		case "Ki":// kibi
-			value *= 1024;
-	}
+```js
+var value = 12.34;
+var modifier = "G";
+// Decimal
+switch(modifier) {
+	case "Y":// yotta
+		value *= 1000;
+	case "Z":// zetta
+		value *= 1000;
+	case "E":// exa
+		value *= 1000;
+	case "P":// peta
+		value *= 1000;
+	case "T":// tera
+		value *= 1000;
+	case "G":// giga
+		value *= 1000;
+	case "M":// mega
+		value *= 1000;
+	case "k":// kilo
+		value *= 1000;
+}
+// Binary (1024^x)
+switch(modifier) {
+	case "Yi":// yobi
+		value *= 1024;
+	case "Zi":// zebi
+		value *= 1024;
+	case "Ei":// exbi
+		value *= 1024;
+	case "Pi":// pebi
+		value *= 1024;
+	case "Ti":// tebi
+		value *= 1024;
+	case "Gi":// gibi
+		value *= 1024;
+	case "Mi":// mebi
+		value *= 1024;
+	case "Ki":// kibi
+		value *= 1024;
+}
+```
 
 Note: Switch without break will do all instructions from the matching case and continue to next break or to the end.
 
@@ -2586,13 +2674,17 @@ Note: Switch without break will do all instructions from the matching case and c
 
 ## Clamp
 
-	function clamp(num, min, max) {
-		return Math.min(Math.max(num, min), max);
-	}
+```js
+function clamp(num, min, max) {
+	return Math.min(Math.max(num, min), max);
+}
+```
 
 ## Array of key-value tuples to object
 
-	let obj = arr.reduce((obj, [key, value]) => ((obj[key] = value, obj)), {});
+```js
+let obj = arr.reduce((obj, [key, value]) => ((obj[key] = value, obj)), {});
+```
 
 - [javascript - How to convert an array of key-value tuple into an object - Stack Overflow](https://stackoverflow.com/questions/32002176/how-to-convert-an-array-of-key-value-tuples-into-an-object)
 
@@ -2600,25 +2692,29 @@ Note: Switch without break will do all instructions from the matching case and c
 
 Split/fold array to arrays of specified size
 
-	function chunk(array, size) {
-		let sets = [];
-		let chunks = array.length / size;
-	
-		for (let i = 0, j = 0; i < chunks; i++, j += size) {
-			sets[i] = array.slice(j, j + size);
-		}
-	
-		return sets;
-	};
+```js
+function chunk(array, size) {
+	let sets = [];
+	let chunks = array.length / size;
 
-	// Note about performance: reduce call callback on each value, where the previous example run loop only for each chunks
-	// If you have a large size, prefere using the loop
-	const chunk = (array, size) =>
-		array.reduce(
-			(sets, value, index, values) =>
-				!(index % size) ? (sets.push(values.slice(index, index + size)), sets) : sets,
-			[]
-		)
+	for (let i = 0, j = 0; i < chunks; i++, j += size) {
+		sets[i] = array.slice(j, j + size);
+	}
+
+	return sets;
+};
+```
+
+```js
+// Note about performance: reduce call callback on each value, where the previous example run loop only for each chunks
+// If you have a large size, prefere using the loop
+const chunk = (array, size) =>
+	array.reduce(
+		(sets, value, index, values) =>
+			!(index % size) ? (sets.push(values.slice(index, index + size)), sets) : sets,
+		[]
+	)
+```
 
 ## Math
 
@@ -2640,32 +2736,38 @@ Sort on multiple fields:
 
 ## Relative / absolute value
 
-	/*
-	 * @returns "percentage" 0 -> 1
-	 */
-	function absoluteToRelative(value, min, max){
-		return (value - min) / (max - min);
-	}
-	
-	/*
-	 * @param value "percentage" (0 -> 1) between min and max. Where 0 = min and 1 = max
-	 * @returns value between min and max
-	 */
-	function relativeToAbsolute(value, min, max){
-		return min + (max - min) * value;
-	}
+```js
+/*
+ * @returns "percentage" 0 -> 1
+ */
+function absoluteToRelative(value, min, max){
+	return (value - min) / (max - min);
+}
+
+/*
+ * @param value "percentage" (0 -> 1) between min and max. Where 0 = min and 1 = max
+ * @returns value between min and max
+ */
+function relativeToAbsolute(value, min, max){
+	return min + (max - min) * value;
+}
+```
 
 ## Median and average
 
 Median:
 
-	let sortedValues = values.slice().sort()
-	let halfCount = sortedValues.length / 2;
-	let median = sortedValues.length == 0 ? 0 : halfCount % 1 == 0 ? (sortedValues[halfCount - 1] + sortedValues[halfCount]) / 2 : sortedValues[Math.floor(halfCount)];
+```js
+let sortedValues = values.slice().sort()
+let halfCount = sortedValues.length / 2;
+let median = sortedValues.length == 0 ? 0 : halfCount % 1 == 0 ? (sortedValues[halfCount - 1] + sortedValues[halfCount]) / 2 : sortedValues[Math.floor(halfCount)];
+```
 
 Average:
 
-	let average = values.reduce((total, value) => total + value, 0) / values.length;
+```js
+let average = values.reduce((total, value) => total + value, 0) / values.length;
+```
 
 - [Median — Wikipedia](https://en.wikipedia.org/wiki/Median)
 - Average Value of a Function over interval [Antiderivatives / Average Value of a Function - 1](http://archives.math.utk.edu/visual.calculus/5/average.1/index.html)
@@ -2674,65 +2776,82 @@ Average:
 
 Over 2 stacks
 
-	for(let index = 0, stack1Sum = 0, stack2Sum = 0, num = elements.length; index < num; index++){
-		let element = elements[index];
-		let value = element.value;
-		if(stack1Sum <= stack2Sum){
-			stack1Sum += value;
-			stack1.push(element);
-		}else{
-			stack2Sum += value;
-			stack2.push(element);
-		}
+```js
+for(let index = 0, stack1Sum = 0, stack2Sum = 0, num = elements.length; index < num; index++){
+	let element = elements[index];
+	let value = element.value;
+	if(stack1Sum <= stack2Sum){
+		stack1Sum += value;
+		stack1.push(element);
+	}else{
+		stack2Sum += value;
+		stack2.push(element);
 	}
+}
+```
 
 ## Random index
 
 With linear distribution
 
-	var length = 10;
-	var index = Math.round(Math.random() * length - 0.5);// give the same change for all indexes
+```js
+var length = 10;
+var index = Math.round(Math.random() * length - 0.5);// give the same change for all indexes
+```
 
 ## Flatten array
 
-	function flatten(arr) {
-		return [].concat.apply([], arr);
-	}
-	// flatten(["a", "b", ["c", "d"]]) => ["a", "b", "c", "d"]
+```js
+function flatten(arr) {
+	return [].concat.apply([], arr);
+}
+// flatten(["a", "b", ["c", "d"]]) => ["a", "b", "c", "d"]
+```
 
 ## Get the first or last part of a string
 
 Don't (not work if `/` is not present):
 
-	let base = path.substring(0, path.indexOf("/"));
+```js
+let base = path.substring(0, path.indexOf("/"));
+```
 
 Use instead:
 
-	let base = path.split("/", 1)[0];
-	let base = path.split("/", 1).shift();
-	// or use destructuring
-	let [base] = path.split("/", 1);
+```js
+let base = path.split("/", 1)[0];
+let base = path.split("/", 1).shift();
+// or use destructuring
+let [base] = path.split("/", 1);
+```
 
 To get the last part: `path.split("/").pop()`
 
+```js
+function before(str, searchValue, fromIndex = 0){
+	return str.slice(fromIndex, indexBefore(str, searchValue, fromIndex));
+}
+```
 
-	function before(str, searchValue, fromIndex = 0){
-		return str.slice(fromIndex, indexBefore(str, searchValue, fromIndex);
-	}
+```js
+function after(str, searchValue, fromIndex = 0){
+	return str.slice(indexAfter(str, searchValue, fromIndex), fromIndex);
+}
+```
 
-	function after(str, searchValue, fromIndex = 0){
-		return str.slice(indexAfter(str, searchValue, fromIndex), fromIndex);
-	}
+```js
+function indexBefore(str, searchValue, fromIndex = 0){
+	let endIndex = str.indexOf(searchValue, fromIndex);
+	return endIndex < 0 ? str.length : endIndex;
+}
+```
 
-	function indexBefore(str, searchValue, fromIndex = 0){
-		let endIndex = str.indexOf(searchValue, fromIndex);
-		return endIndex < 0 ? str.length : endIndex;
-	}
-
-	function indexAfter(str, searchValue, fromIndex = 0){
-		let endIndex = str.lastIndexOf(searchValue, fromIndex);
-		return endIndex < 0 ? 0 : endIndex;
-	}
+```js
+function indexAfter(str, searchValue, fromIndex = 0){
+	let endIndex = str.lastIndexOf(searchValue, fromIndex);
+	return endIndex < 0 ? 0 : endIndex;
+}
+```
 
 ## DST (Daylight Saving Time)
 
@@ -2746,15 +2865,17 @@ Or use a specific library: https://github.com/spiritit/timezonecomplete
 
 ## UUID
 
-	var createUUID = R.createUUID = (function(uuidRegEx, uuidReplacer) {
-		return function() {
-			return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(uuidRegEx, uuidReplacer).toUpperCase();
-		};
-	})(/[xy]/g, function(c) {
-		var r = Math.random() * 16 | 0,
-			v = c == "x" ? r : (r & 3 | 8);
-		return v.toString(16);
-	});
+```js
+var createUUID = R.createUUID = (function(uuidRegEx, uuidReplacer) {
+	return function() {
+		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(uuidRegEx, uuidReplacer).toUpperCase();
+	};
+})(/[xy]/g, function(c) {
+	var r = Math.random() * 16 | 0,
+		v = c == "x" ? r : (r & 3 | 8);
+	return v.toString(16);
+});
+```
 
 - [Universally unique identifier - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 
@@ -2770,12 +2891,16 @@ Use bitwise operators for rounding, which convert numbers to a 32-bit sequence.
 
 These alternatives will only work with positive signed 32-bit floats, i.e. numbers from 0 to +2,147,483,647 (2^31-1).
 
-	2147483647.1|0; // 2147483647
-	2147483648.1|0; // -2147483648
+```js
+2147483647.1|0; // 2147483647
+2147483648.1|0; // -2147483648
+```
 
-	Math.round(n) === n + (n < 0 ? -0.5 : 0.5) >> 0;
-	Math.ceil(n) === n + (n < 0 ? 0 : 1) >> 0;
-	Math.floor(n) === n + (n < 0 ? -1 : 0) >> 0;
+```js
+Math.round(n) === n + (n < 0 ? -0.5 : 0.5) >> 0;
+Math.ceil(n) === n + (n < 0 ? 0 : 1) >> 0;
+Math.floor(n) === n + (n < 0 ? -1 : 0) >> 0;
+```
 
 - [Rounding — Wikipedia](https://en.wikipedia.org/wiki/Rounding)
 - [arithmetic - Rules for rounding (positive and negative numbers) - Mathematics Stack Exchange](http://math.stackexchange.com/questions/3448/rules-for-rounding-positive-and-negative-numbers/60690#60690)
@@ -2785,8 +2910,10 @@ These alternatives will only work with positive signed 32-bit floats, i.e. numbe
 
 ### Round towards zero
 
-	3.14 -> 3
-	-3.14 -> -3
+```js
+3.14// 3
+-3.14// -3
+```
 
 - Simple expression: `n > 0 ? Math.floor(n) : Math.ceil(n)`
 - Bitwise OR with 0 + Math.floor and ceil for high values: `n >= 0 && n < 2 ^ 31 ? n|0 : n >= 0 ? Math.floor(n) : Math.ceil(n)`. See [Micro optimization are useless](#micro-optimization-are-useless)
@@ -2811,55 +2938,67 @@ But not:
 
 ### Round away from zero
 
-	3.14 -> 4
-	-3.14 -> -4
+```js
+3.14// 4
+-3.14// -4
+```
 
 - Simple expression: `n > 0 ? Math.ceil(n) : Math.floor(n)`
 - Real full expression: `typeof n === 'number' && !isNaN(n) && n !== Infinity ? n > 0 ? Math.ceil(n) : Math.floor(n) : 0`
 
 ### Round 1/2 away from zero
 
-	1.5 -> 2
-	-1.5 -> -2
+```js
+1.5// 2
+-1.5// -2
+```
 
-	value > 0 ? Math.round(value) : -Math.round(-value)
+```js
+value > 0 ? Math.round(value) : -Math.round(-value)
+```
 
 ### Round precision
 
-	function round(value, precision){
-		let exponent = Math.pow(10, precision);
-		return Math.round(value * exponent) / exponent;
-	}
-	round(123.45, 1);// => 123.5
-	round(123.5, 0);// => 124
-	round(125, -1);// => 130
+```js
+function round(value, precision){
+	let exponent = Math.pow(10, precision);
+	return Math.round(value * exponent) / exponent;
+}
+round(123.45, 1);// => 123.5
+round(123.5, 0);// => 124
+round(125, -1);// => 130
+```
 
 - [Math.ceil() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil#Decimal_adjustment)
 - [Number.EPSILON - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON)
 
 ### Round to multiple
 
-	function round(num, multiple){
-		return Math.round(num / multiple) * multiple;
-	}
+```js
+function round(num, multiple){
+	return Math.round(num / multiple) * multiple;
+}
 
-	round(11, 5)// => 10
+round(11, 5)// => 10
+```
 
 ## To N decimals
 
-	/**
-	* @param decimals Number of decimals. Can be negative
-	* @return string
-	*/
-	function toFixed(value, decimals = 0){
-		if(isNaN(Number(decimals))){
-			decimals = 0;
-		}
-		if(decimals < 0){
-			value = Math.round(value * Math.pow(10, decimals));
-		}
-		return value.toFixed(Math.max(0, decimals));
+```js
+/**
+* @param decimals Number of decimals. Can be negative
+* @return string
+*/
+function toFixed(value, decimals = 0){
+	if(isNaN(Number(decimals))){
+		decimals = 0;
 	}
+	if(decimals < 0){
+		value = Math.round(value * Math.pow(10, decimals));
+	}
+	return value.toFixed(Math.max(0, decimals));
+}
+```
 
 Specificities: `(1000000000000000000000).toFixed(3) == "1e+21"` and `35.855*100 == 3585.4999999999995`
 
@@ -2871,30 +3010,33 @@ See [Floating point numbers](#floating-point-numbers)
 
 Aka [pure function](https://en.wikipedia.org/wiki/Pure_function)
 
-	const removeAt = (array, index) => array.filter((_, i) => i !== index );
+```js
+const removeAt = (array, index) => array.filter((_, i) => i !== index );
+```
 
 ## Pseudo Random Number Generator
 
 Aka PRNG
 
-	// From http://codepen.io/quasimondo/pen/ogxJrZ
-	function PRNG(seed)
-	{
-		this.seed = seed || 1;
-	};
-	
-	var p = PRNG.prototype; 
-	p.next = function() { return (this.gen() / 2147483647); }; 
-	p.nextRange = function(min, max)	{ return min + ((max - min) * this.next()) };
-	p.gen = function() { return this.seed = (this.seed * 16807) % 2147483647; };
+```js
+// From http://codepen.io/quasimondo/pen/ogxJrZ
+class PRNG{
+    constructor(seed = 1){
+        this.seed = seed;
+    }
+    next() { return (this.gen() / 2147483647); }
+    nextRange(min, max)	{ return min + ((max - min) * this.next()) }
+    gen() { return this.seed = (this.seed * 16807) % 2147483647; }
+}
 
-	var rng = new PRNG(12275);
-	
-	var order = [];
-	for ( var i = 0; i < 11; i++)
-	{
-		order.splice((rng.next()*(order.length+1))|0,0,i);
-	}
+const rng = new PRNG(12275);
+
+const order = [];
+for ( var i = 0; i < 11; i++)
+{
+	order.splice((rng.next()*(order.length+1))|0,0,i);
+}
+```
 
 Using `Array.prototype.sort()` depends browser's sort algorithm: http://codepen.io/quasimondo/pen/PwNXXQ
 
@@ -2904,227 +3046,254 @@ Using `Array.prototype.sort()` depends browser's sort algorithm: http://codepen.
 
 ## Find range
 
-	let testValue = 150;
-	let ranges = [0, 100, 200, 300];// contains minimal values. ranges: [0, 100) [100, 200) [200, 300) [300, +Infinity)
-	let foundRangeIndex = (value, finalIndex, rangeMinValue, rangeIndex) => value < rangeMinValue ? finalIndex : rangeIndex;
-	// Should in range 0, 1, 2 or 3. For 150 will get index 1
-	// If below the first range, will get index 0
-	let rangeIndex = ranges.reduce(foundRangeIndex.bind(this, testValue), 0);
+```js
+let testValue = 150;
+let ranges = [0, 100, 200, 300];// contains minimal values. ranges: [0, 100) [100, 200) [200, 300) [300, +Infinity)
+let foundRangeIndex = (value, finalIndex, rangeMinValue, rangeIndex) => value < rangeMinValue ? finalIndex : rangeIndex;
+// Should in range 0, 1, 2 or 3. For 150 will get index 1
+// If below the first range, will get index 0
+let rangeIndex = ranges.reduce(foundRangeIndex.bind(this, testValue), 0);
+```
 
 ## HSL
 
-	// HSL (1978) = H: Hue / S: Saturation / L: Lightness
-	HSL_RGB = function (o) { // { H: 0-360, S: 0-100, L: 0-100 }
-	  var H = o.H / 360,
-	      S = o.S / 100,
-	      L = o.L / 100,
-	      R, G, B, _1, _2;
-	
-	  function Hue_2_RGB(v1, v2, vH) {
-	    if (vH < 0) vH += 1;
-	    if (vH > 1) vH -= 1;
-	    if ((6 * vH) < 1) return v1 + (v2 - v1) * 6 * vH;
-	    if ((2 * vH) < 1) return v2;
-	    if ((3 * vH) < 2) return v1 + (v2 - v1) * ((2 / 3) - vH) * 6;
-	    return v1;
-	  }
-	
-	  if (S == 0) { // HSL from 0 to 1
-	    R = L * 255;
-	    G = L * 255;
-	    B = L * 255;
-	  } else {
-	    if (L < 0.5) {
-	      _2 = L * (1 + S);
-	    } else {
-	      _2 = (L + S) - (S * L);
-	    }
-	    _1 = 2 * L - _2;
-	
-	    R = 255 * Hue_2_RGB(_1, _2, H + (1 / 3));
-	    G = 255 * Hue_2_RGB(_1, _2, H);
-	    B = 255 * Hue_2_RGB(_1, _2, H - (1 / 3));
-	  }
-	
-	  return {
-	    R: R,
-	    G: G,
-	    B: B
-	  };
-	};
+```js
+// HSL (1978) = H: Hue / S: Saturation / L: Lightness
+HSL_RGB = function (o) { // { H: 0-360, S: 0-100, L: 0-100 }
+  var H = o.H / 360,
+      S = o.S / 100,
+      L = o.L / 100,
+      R, G, B, _1, _2;
+
+  function Hue_2_RGB(v1, v2, vH) {
+    if (vH < 0) vH += 1;
+    if (vH > 1) vH -= 1;
+    if ((6 * vH) < 1) return v1 + (v2 - v1) * 6 * vH;
+    if ((2 * vH) < 1) return v2;
+    if ((3 * vH) < 2) return v1 + (v2 - v1) * ((2 / 3) - vH) * 6;
+    return v1;
+  }
+
+  if (S == 0) { // HSL from 0 to 1
+    R = L * 255;
+    G = L * 255;
+    B = L * 255;
+  } else {
+    if (L < 0.5) {
+      _2 = L * (1 + S);
+    } else {
+      _2 = (L + S) - (S * L);
+    }
+    _1 = 2 * L - _2;
+
+    R = 255 * Hue_2_RGB(_1, _2, H + (1 / 3));
+    G = 255 * Hue_2_RGB(_1, _2, H);
+    B = 255 * Hue_2_RGB(_1, _2, H - (1 / 3));
+  }
+
+  return {
+    R: R,
+    G: G,
+    B: B
+  };
+};
+```
 
 ## Simple hash
 
 Stringify you data. Easy, but use lot of memory.
 
-	let objHash = Object.keys(obj).sort().map(key => key+":"+obj[key]).join("\0");
-	let objHash = JSON.stringify(obj);// not work because properties could have different order. See https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify/35810961#35810961
+```js
+let objHash = Object.keys(obj).sort().map(key => key+":"+obj[key]).join("\0");
+let objHash = JSON.stringify(obj);// not work because properties could have different order. See https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify/35810961#35810961
+```
 
 - [Hash function — Wikipedia](https://en.wikipedia.org/wiki/Hash_function)
 - [List of hash functions — Wikipedia](https://en.wikipedia.org/wiki/List_of_hash_functions)
 - [c - Simple hash functions - Stack Overflow](https://stackoverflow.com/questions/14409466/simple-hash-functions/14409947#14409947)
- 
-	function crc32 (str) {
-	
-		function Utf8Encode(string) {
-			string = string.replace(/\r\n/g,"\n");
-			var utftext = "";
-	
-			for (var n = 0; n < string.length; n++) {
-	
-				var c = string.charCodeAt(n);
-	
-				if (c < 128) {
-					utftext += String.fromCharCode(c);
-				}
-				else if((c > 127) && (c < 2048)) {
-					utftext += String.fromCharCode((c >> 6) | 192);
-					utftext += String.fromCharCode((c & 63) | 128);
-				}
-				else {
-					utftext += String.fromCharCode((c >> 12) | 224);
-					utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-					utftext += String.fromCharCode((c & 63) | 128);
-				}
-	
+```js
+function crc32 (str) {
+
+	function Utf8Encode(string) {
+		string = string.replace(/\r\n/g,"\n");
+		var utftext = "";
+
+		for (var n = 0; n < string.length; n++) {
+
+			var c = string.charCodeAt(n);
+
+			if (c < 128) {
+				utftext += String.fromCharCode(c);
 			}
-	
-			return utftext;
-		};
-	
-		str = Utf8Encode(str);
-	
-		var table = new Uint32Array([0x00000000, 0x77073096, 0xEE0E612C, 0x990951BA, 0x076DC419, 0x706AF48F, 0xE963A535, 0x9E6495A3, 0x0EDB8832, 0x79DCB8A4, 0xE0D5E91E, 0x97D2D988, 0x09B64C2B, 0x7EB17CBD, 0xE7B82D07, 0x90BF1D91, 0x1DB71064, 0x6AB020F2, 0xF3B97148, 0x84BE41DE, 0x1ADAD47D, 0x6DDDE4EB, 0xF4D4B551, 0x83D385C7, 0x136C9856, 0x646BA8C0, 0xFD62F97A, 0x8A65C9EC, 0x14015C4F, 0x63066CD9, 0xFA0F3D63, 0x8D080DF5, 0x3B6E20C8, 0x4C69105E, 0xD56041E4, 0xA2677172, 0x3C03E4D1, 0x4B04D447, 0xD20D85FD, 0xA50AB56B, 0x35B5A8FA, 0x42B2986C, 0xDBBBC9D6, 0xACBCF940, 0x32D86CE3, 0x45DF5C75, 0xDCD60DCF, 0xABD13D59, 0x26D930AC, 0x51DE003A, 0xC8D75180, 0xBFD06116, 0x21B4F4B5, 0x56B3C423, 0xCFBA9599, 0xB8BDA50F, 0x2802B89E, 0x5F058808, 0xC60CD9B2, 0xB10BE924, 0x2F6F7C87, 0x58684C11, 0xC1611DAB, 0xB6662D3D, 0x76DC4190, 0x01DB7106, 0x98D220BC, 0xEFD5102A, 0x71B18589, 0x06B6B51F, 0x9FBFE4A5, 0xE8B8D433, 0x7807C9A2, 0x0F00F934, 0x9609A88E, 0xE10E9818, 0x7F6A0DBB, 0x086D3D2D, 0x91646C97, 0xE6635C01, 0x6B6B51F4, 0x1C6C6162, 0x856530D8, 0xF262004E, 0x6C0695ED, 0x1B01A57B, 0x8208F4C1, 0xF50FC457, 0x65B0D9C6, 0x12B7E950, 0x8BBEB8EA, 0xFCB9887C, 0x62DD1DDF, 0x15DA2D49, 0x8CD37CF3, 0xFBD44C65, 0x4DB26158, 0x3AB551CE, 0xA3BC0074, 0xD4BB30E2, 0x4ADFA541, 0x3DD895D7, 0xA4D1C46D, 0xD3D6F4FB, 0x4369E96A, 0x346ED9FC, 0xAD678846, 0xDA60B8D0, 0x44042D73, 0x33031DE5, 0xAA0A4C5F, 0xDD0D7CC9, 0x5005713C, 0x270241AA, 0xBE0B1010, 0xC90C2086, 0x5768B525, 0x206F85B3, 0xB966D409, 0xCE61E49F, 0x5EDEF90E, 0x29D9C998, 0xB0D09822, 0xC7D7A8B4, 0x59B33D17, 0x2EB40D81, 0xB7BD5C3B, 0xC0BA6CAD, 0xEDB88320, 0x9ABFB3B6, 0x03B6E20C, 0x74B1D29A, 0xEAD54739, 0x9DD277AF, 0x04DB2615, 0x73DC1683, 0xE3630B12, 0x94643B84, 0x0D6D6A3E, 0x7A6A5AA8, 0xE40ECF0B, 0x9309FF9D, 0x0A00AE27, 0x7D079EB1, 0xF00F9344, 0x8708A3D2, 0x1E01F268, 0x6906C2FE, 0xF762575D, 0x806567CB, 0x196C3671, 0x6E6B06E7, 0xFED41B76, 0x89D32BE0, 0x10DA7A5A, 0x67DD4ACC, 0xF9B9DF6F, 0x8EBEEFF9, 0x17B7BE43, 0x60B08ED5, 0xD6D6A3E8, 0xA1D1937E, 0x38D8C2C4, 0x4FDFF252, 0xD1BB67F1, 0xA6BC5767, 0x3FB506DD, 0x48B2364B, 0xD80D2BDA, 0xAF0A1B4C, 0x36034AF6, 0x41047A60, 0xDF60EFC3, 0xA867DF55, 0x316E8EEF, 0x4669BE79, 0xCB61B38C, 0xBC66831A, 0x256FD2A0, 0x5268E236, 0xCC0C7795, 0xBB0B4703, 0x220216B9, 0x5505262F, 0xC5BA3BBE, 0xB2BD0B28, 0x2BB45A92, 0x5CB36A04, 0xC2D7FFA7, 0xB5D0CF31, 0x2CD99E8B, 0x5BDEAE1D, 0x9B64C2B0, 0xEC63F226, 0x756AA39C, 0x026D930A, 0x9C0906A9, 0xEB0E363F, 0x72076785, 0x05005713, 0x95BF4A82, 0xE2B87A14, 0x7BB12BAE, 0x0CB61B38, 0x92D28E9B, 0xE5D5BE0D, 0x7CDCEFB7, 0x0BDBDF21, 0x86D3D2D4, 0xF1D4E242, 0x68DDB3F8, 0x1FDA836E, 0x81BE16CD, 0xF6B9265B, 0x6FB077E1, 0x18B74777, 0x88085AE6, 0xFF0F6A70, 0x66063BCA, 0x11010B5C, 0x8F659EFF, 0xF862AE69, 0x616BFFD3, 0x166CCF45, 0xA00AE278, 0xD70DD2EE, 0x4E048354, 0x3903B3C2, 0xA7672661, 0xD06016F7, 0x4969474D, 0x3E6E77DB, 0xAED16A4A, 0xD9D65ADC, 0x40DF0B66, 0x37D83BF0, 0xA9BCAE53, 0xDEBB9EC5, 0x47B2CF7F, 0x30B5FFE9, 0xBDBDF21C, 0xCABAC28A, 0x53B39330, 0x24B4A3A6, 0xBAD03605, 0xCDD70693, 0x54DE5729, 0x23D967BF, 0xB3667A2E, 0xC4614AB8, 0x5D681B02, 0x2A6F2B94, 0xB40BBE37, 0xC30C8EA1, 0x5A05DF1B, 0x2D02EF8D]);
-	
-		var crc = 0;
-		var x = 0;
-		var y = 0;
-	
-		crc = crc ^ (-1);
-		for( var i = 0, iTop = str.length; i < iTop; i++ ) {
-			y = ( crc ^ str.charCodeAt( i ) ) & 0xFF;
-			x = table[y];
-			crc = ( crc >>> 8 ) ^ x;
+			else if((c > 127) && (c < 2048)) {
+				utftext += String.fromCharCode((c >> 6) | 192);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+			else {
+				utftext += String.fromCharCode((c >> 12) | 224);
+				utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+
 		}
-	
-		return crc ^ (-1);
-	
+
+		return utftext;
+	};
+
+	str = Utf8Encode(str);
+
+	var table = new Uint32Array([0x00000000, 0x77073096, 0xEE0E612C, 0x990951BA, 0x076DC419, 0x706AF48F, 0xE963A535, 0x9E6495A3, 0x0EDB8832, 0x79DCB8A4, 0xE0D5E91E, 0x97D2D988, 0x09B64C2B, 0x7EB17CBD, 0xE7B82D07, 0x90BF1D91, 0x1DB71064, 0x6AB020F2, 0xF3B97148, 0x84BE41DE, 0x1ADAD47D, 0x6DDDE4EB, 0xF4D4B551, 0x83D385C7, 0x136C9856, 0x646BA8C0, 0xFD62F97A, 0x8A65C9EC, 0x14015C4F, 0x63066CD9, 0xFA0F3D63, 0x8D080DF5, 0x3B6E20C8, 0x4C69105E, 0xD56041E4, 0xA2677172, 0x3C03E4D1, 0x4B04D447, 0xD20D85FD, 0xA50AB56B, 0x35B5A8FA, 0x42B2986C, 0xDBBBC9D6, 0xACBCF940, 0x32D86CE3, 0x45DF5C75, 0xDCD60DCF, 0xABD13D59, 0x26D930AC, 0x51DE003A, 0xC8D75180, 0xBFD06116, 0x21B4F4B5, 0x56B3C423, 0xCFBA9599, 0xB8BDA50F, 0x2802B89E, 0x5F058808, 0xC60CD9B2, 0xB10BE924, 0x2F6F7C87, 0x58684C11, 0xC1611DAB, 0xB6662D3D, 0x76DC4190, 0x01DB7106, 0x98D220BC, 0xEFD5102A, 0x71B18589, 0x06B6B51F, 0x9FBFE4A5, 0xE8B8D433, 0x7807C9A2, 0x0F00F934, 0x9609A88E, 0xE10E9818, 0x7F6A0DBB, 0x086D3D2D, 0x91646C97, 0xE6635C01, 0x6B6B51F4, 0x1C6C6162, 0x856530D8, 0xF262004E, 0x6C0695ED, 0x1B01A57B, 0x8208F4C1, 0xF50FC457, 0x65B0D9C6, 0x12B7E950, 0x8BBEB8EA, 0xFCB9887C, 0x62DD1DDF, 0x15DA2D49, 0x8CD37CF3, 0xFBD44C65, 0x4DB26158, 0x3AB551CE, 0xA3BC0074, 0xD4BB30E2, 0x4ADFA541, 0x3DD895D7, 0xA4D1C46D, 0xD3D6F4FB, 0x4369E96A, 0x346ED9FC, 0xAD678846, 0xDA60B8D0, 0x44042D73, 0x33031DE5, 0xAA0A4C5F, 0xDD0D7CC9, 0x5005713C, 0x270241AA, 0xBE0B1010, 0xC90C2086, 0x5768B525, 0x206F85B3, 0xB966D409, 0xCE61E49F, 0x5EDEF90E, 0x29D9C998, 0xB0D09822, 0xC7D7A8B4, 0x59B33D17, 0x2EB40D81, 0xB7BD5C3B, 0xC0BA6CAD, 0xEDB88320, 0x9ABFB3B6, 0x03B6E20C, 0x74B1D29A, 0xEAD54739, 0x9DD277AF, 0x04DB2615, 0x73DC1683, 0xE3630B12, 0x94643B84, 0x0D6D6A3E, 0x7A6A5AA8, 0xE40ECF0B, 0x9309FF9D, 0x0A00AE27, 0x7D079EB1, 0xF00F9344, 0x8708A3D2, 0x1E01F268, 0x6906C2FE, 0xF762575D, 0x806567CB, 0x196C3671, 0x6E6B06E7, 0xFED41B76, 0x89D32BE0, 0x10DA7A5A, 0x67DD4ACC, 0xF9B9DF6F, 0x8EBEEFF9, 0x17B7BE43, 0x60B08ED5, 0xD6D6A3E8, 0xA1D1937E, 0x38D8C2C4, 0x4FDFF252, 0xD1BB67F1, 0xA6BC5767, 0x3FB506DD, 0x48B2364B, 0xD80D2BDA, 0xAF0A1B4C, 0x36034AF6, 0x41047A60, 0xDF60EFC3, 0xA867DF55, 0x316E8EEF, 0x4669BE79, 0xCB61B38C, 0xBC66831A, 0x256FD2A0, 0x5268E236, 0xCC0C7795, 0xBB0B4703, 0x220216B9, 0x5505262F, 0xC5BA3BBE, 0xB2BD0B28, 0x2BB45A92, 0x5CB36A04, 0xC2D7FFA7, 0xB5D0CF31, 0x2CD99E8B, 0x5BDEAE1D, 0x9B64C2B0, 0xEC63F226, 0x756AA39C, 0x026D930A, 0x9C0906A9, 0xEB0E363F, 0x72076785, 0x05005713, 0x95BF4A82, 0xE2B87A14, 0x7BB12BAE, 0x0CB61B38, 0x92D28E9B, 0xE5D5BE0D, 0x7CDCEFB7, 0x0BDBDF21, 0x86D3D2D4, 0xF1D4E242, 0x68DDB3F8, 0x1FDA836E, 0x81BE16CD, 0xF6B9265B, 0x6FB077E1, 0x18B74777, 0x88085AE6, 0xFF0F6A70, 0x66063BCA, 0x11010B5C, 0x8F659EFF, 0xF862AE69, 0x616BFFD3, 0x166CCF45, 0xA00AE278, 0xD70DD2EE, 0x4E048354, 0x3903B3C2, 0xA7672661, 0xD06016F7, 0x4969474D, 0x3E6E77DB, 0xAED16A4A, 0xD9D65ADC, 0x40DF0B66, 0x37D83BF0, 0xA9BCAE53, 0xDEBB9EC5, 0x47B2CF7F, 0x30B5FFE9, 0xBDBDF21C, 0xCABAC28A, 0x53B39330, 0x24B4A3A6, 0xBAD03605, 0xCDD70693, 0x54DE5729, 0x23D967BF, 0xB3667A2E, 0xC4614AB8, 0x5D681B02, 0x2A6F2B94, 0xB40BBE37, 0xC30C8EA1, 0x5A05DF1B, 0x2D02EF8D]);
+
+	var crc = 0;
+	var x = 0;
+	var y = 0;
+
+	crc = crc ^ (-1);
+	for( var i = 0, iTop = str.length; i < iTop; i++ ) {
+		y = ( crc ^ str.charCodeAt( i ) ) & 0xFF;
+		x = table[y];
+		crc = ( crc >>> 8 ) ^ x;
 	}
+
+	return crc ^ (-1);
+
+}
+```
 
 ## Hypotenuse
 
 The square root of `x*x+y*y`
 
-	let hypot = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+```js
+let hypot = (x, y) => Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+```
 
-	// sqrt(a^2 + b^2) without under/overflow
-	function hypot(a, b) {
-		if (Math.abs(a) > Math.abs(b)) {
-			let r = b / a;
-			return Math.abs(a) * Math.sqrt(1 + r * r);
-		}
-		
-		if (b != 0) {
-			let r = a / b;
-			return Math.abs(b) * Math.sqrt(1 + r * r);
-		}
-		
-		return 0;
+```js
+// sqrt(a^2 + b^2) without under/overflow
+function hypot(a, b) {
+	if (Math.abs(a) > Math.abs(b)) {
+		let r = b / a;
+		return Math.abs(a) * Math.sqrt(1 + r * r);
 	}
+	
+	if (b != 0) {
+		let r = a / b;
+		return Math.abs(b) * Math.sqrt(1 + r * r);
+	}
+	
+	return 0;
+}
+```
 
 ## Required parameters
 
-	const undefinedParameter = name => { throw new Error(`The parameter "${name}" is undefined.`); };
-	const hello = (name = undefinedParameter("name")) => { console.log(`hello ${name}`) };
-	// This will throw an error because no name is provided
-	hello();
+```js
+const undefinedParameter = name => { throw new Error(`The parameter "${name}" is undefined.`); };
+const hello = (name = undefinedParameter("name")) => { console.log(`hello ${name}`) };
+// This will throw an error because no name is provided
+hello();
+```
 
 ## Compare two arrays
 
-	array1.length == array2.length && array1.every(item => array2.includes(item));// will check if both arrays have the same length and contains the same elements (duplicated elements is possible)
-	array1.length == array2.length && array1.every((item, index) => item === array2[index]);// will check if both arrays have the same length and the order
+```js
+array1.length == array2.length && array1.every(item => array2.includes(item));// will check if both arrays have the same length and contains the same elements (duplicated elements is possible)
+array1.length == array2.length && array1.every((item, index) => item === array2[index]);// will check if both arrays have the same length and the order
+```
 
 - [How to compare arrays in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript)
 
 ## Template literals
 
-	function getFullString(strings, ...interpolatedValues) { // `...` essentially slices the arguments for us.
-		return strings.reduce((total, current, index) => { // use an arrow function for brevity here
-			total += current;
-			if (interpolatedValues.hasOwnProperty(index)) {
-				total += interpolatedValues[index];
-			}
-			return total;
-		}, "");
-	}
+```js
+function getFullString(strings, ...interpolatedValues) { // `...` essentially slices the arguments for us.
+	return strings.reduce((total, current, index) => { // use an arrow function for brevity here
+		total += current;
+		if (interpolatedValues.hasOwnProperty(index)) {
+			total += interpolatedValues[index];
+		}
+		return total;
+	}, "");
+}
+```
 
 `let b = getFullString``a ${a}``;` is the same thing as `let b = ``a = ${a}``;`
 
 **Do not `s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;")`** to escape HTML
 
-	function template(strings, ...interpolatedValues) {
-		return strings.reduce((total, current, index) => {
-			total += current;
-			if (interpolatedValues.hasOwnProperty(index)) {
-				total += String(interpolatedValues[index]);
-			}
-			return total;
-		}, "");
-	}
-	var helpers = {
-		if: (condition, thenTemplate, elseTemplate = "") => {
-			return condition ? thenTemplate : elseTemplate;
-		},
-		unless: (condition, thenTemplate, elseTemplate) => {
-			return !condition ? thenTemplate : elseTemplate;
-		},
-		registerHelper(name, fn) => {
-			helpers[name] = fn;
+```js
+function template(strings, ...interpolatedValues) {
+	return strings.reduce((total, current, index) => {
+		total += current;
+		if (interpolatedValues.hasOwnProperty(index)) {
+			total += String(interpolatedValues[index]);
 		}
-	};
-	helpers.registerHelper("capitalize", (string) => {
-		return string[0].toUpperCase() + string.slice(1).toUpperCase();
-	});
-	var page = ({ people, isAdmin }) => template`
-		<h2>People</h2>
-		<ul>
-		${people.map(person => `
-			<li>
-				<span>${helpers.capitalize(person)}</span>
-				${helpers.if(isAdmin,
-					`<button>Delete ${helpers.capitalize(person)}</button>`
-				)}
-			</li>
-		`)}
-		</ul>
-	`;
-	
-	page({ isAdmin: true, people: ['Keith', 'Dave', 'Amy' ] });
+		return total;
+	}, "");
+}
+var helpers = {
+	if: (condition, thenTemplate, elseTemplate = "") => {
+		return condition ? thenTemplate : elseTemplate;
+	},
+	unless: (condition, thenTemplate, elseTemplate) => {
+		return !condition ? thenTemplate : elseTemplate;
+	},
+	registerHelper(name, fn) => {
+		helpers[name] = fn;
+	}
+};
+helpers.registerHelper("capitalize", (string) => {
+	return string[0].toUpperCase() + string.slice(1).toUpperCase();
+});
+var page = ({ people, isAdmin }) => template`
+	<h2>People</h2>
+	<ul>
+	${people.map(person => `
+		<li>
+			<span>${helpers.capitalize(person)}</span>
+			${helpers.if(isAdmin,
+				`<button>Delete ${helpers.capitalize(person)}</button>`
+			)}
+		</li>
+	`)}
+	</ul>
+`;
+
+page({ isAdmin: true, people: ['Keith', 'Dave', 'Amy' ] });
+```
 
 ## Regex dot don't match new line char
 
-	/foo.bar/.test('foo\nbar');// false
-	// A workaround:
-	/foo[^]bar/.test('foo\nbar');// true
+```js
+/foo.bar/.test('foo\nbar');// false
+// A workaround:
+/foo[^]bar/.test('foo\nbar');// true
+```
 
 ## Never loop with float
 
 **Don't (infinite loop):**
 
-	for(let i = 0; i == 1; i+= 0.005){
-		console.log(i);
-	}
+```js
+for(let i = 0; i == 1; i+= 0.005){
+	console.log(i);
+}
+```
 
-	for(let i = 0; i < 1; i+= 0.005){
-		console.log(i);
-	}
-	// Last i === 1.0000000000000007
+```js
+for(let i = 0; i < 1; i+= 0.005){
+	console.log(i);
+}
+// Last i === 1.0000000000000007
+```
 
 Use:
 
-	for(let i = 0; i < 200; i++){
-		console.log(i * 0.005);
-	}
+```js
+for(let i = 0; i < 200; i++){
+	console.log(i * 0.005);
+}
+```
 
 ## Divide array items
 
@@ -3132,392 +3301,410 @@ Add array items separator / dividers.
 
 As string:
 
-	let sep = "-";
-	["a", "b", "c"].join(sep);
+```js
+let sep = "-";
+["a", "b", "c"].join(sep);
+```
 
-	let sep = "-";
-	["a", "b", "c"].reduce((result, item, index) => (index == 0 ? result.push(item) : result.push(sep, item), result), []);
+```js
+let sep = "-";
+["a", "b", "c"].reduce((result, item, index) => (index == 0 ? result.push(item) : result.push(sep, item), result), []);
+```
 
 With pre allocation:
 
-	let sep = "-";
-	let arr = ["a", "b", "c"];
-	arr.reduce((result, item, index) => (result[index * 2] = sep, result[Math.min(index, 1) + index * 2] = item, result), new Array(Math.max(arr.length * 2 - 1, 0));
+```js
+let sep = "-";
+let arr = ["a", "b", "c"];
+arr.reduce((result, item, index) => (result[index * 2] = sep, result[Math.min(index, 1) + index * 2] = item, result), new Array(Math.max(arr.length * 2 - 1, 0)));
+```
 
 Natural inline list (eg.: "1, 2 and 3")
 
-	arr.reduce((result, item, index, items) => (index == 0 ? result.push(item) : result.push(index >= items.length - 1 ? " and " : ", ", item), result), []);
+```js
+arr.reduce((result, item, index, items) => (index == 0 ? result.push(item) : result.push(index >= items.length - 1 ? " and " : ", ", item), result), []);
+```
 
 ## To integer
 
-	// From https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/numeric_conversion.js
-	function toInteger(p) {
-		var x = Number(p);
-		
-		if(isNaN(x)){
-			return +0;
-		}
-		
-		if((x === +0)
-		|| (x === -0)
-		|| (x === Number.POSITIVE_INFINITY)
-		|| (x === Number.NEGATIVE_INFINITY)){
-			return x;
-		}
-		
-		var sign = ( x < 0 ) ? -1 : 1;
-		
-		return sign * Math.floor(Math.abs(x));
+```js
+// From https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/numeric_conversion.js
+function toInteger(p) {
+	var x = Number(p);
+	
+	if(isNaN(x)){
+		return +0;
 	}
+	
+	if((x === +0)
+	|| (x === -0)
+	|| (x === Number.POSITIVE_INFINITY)
+	|| (x === Number.NEGATIVE_INFINITY)){
+		return x;
+	}
+	
+	var sign = ( x < 0 ) ? -1 : 1;
+	
+	return sign * Math.floor(Math.abs(x));
+}
+```
 
 ## Number equals
 
 Doesn't work with NaN
 
-	// From https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/math_precision.js
-	function getPrecision(num)
+```js
+// From https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/math_precision.js
+function getPrecision(num)
+{
+	var log2num = Math.log(Math.abs(num)) / Math.LN2;
+	var pernum = Math.ceil(log2num);
+	return 2 * Math.pow(2, -52 + pernum);
+}
+
+function isEqual(num1, num2)
+{
+	if (num1 === Infinity) && num2 === Infinity)
 	{
-		var log2num = Math.log(Math.abs(num)) / Math.LN2;
-		var pernum = Math.ceil(log2num);
-		return 2 * Math.pow(2, -52 + pernum);
+		return true;
 	}
-	
-	function isEqual(num1, num2)
+	if (num1 === -Infinity && num2 === -Infinity)
 	{
-		if (num1 === Infinity) && num2 === Infinity)
-		{
-			return true;
-		}
-		if (num1 === -Infinity && num2 === -Infinity)
-		{
-			return true;
-		}
-		var prec = getPrecision(Math.min(Math.abs(num1), Math.abs(num2)));	
-		return Math.abs(num1 - num2) <= prec;
+		return true;
 	}
+	var prec = getPrecision(Math.min(Math.abs(num1), Math.abs(num2)));	
+	return Math.abs(num1 - num2) <= prec;
+}
+```
 
 ## Date
 
 `Date.toJSON()` is an alias of `Date.toISOstring()`, see [javascript - Difference between Date.toJSON() and Date.toISOstring() - Stack Overflow](https://stackoverflow.com/questions/16198506/difference-between-date-tojson-and-date-toisostring)
- 
-	// https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/Date_constants.js
-	var hoursPerDay = 24;
-	var minutesPerHour = 60;
-	var secondsPerMinute = 60;
+
+```js
+// https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/Date_constants.js
+var hoursPerDay = 24;
+var minutesPerHour = 60;
+var secondsPerMinute = 60;
+
+var msPerDay = 86400000;
+var msPerSecond = 1000;
+var msPerMinute = 60000;
+var msPerHour = 3600000;
+
+var date_1899_end = -2208988800001;
+var date_1900_start = -2208988800000;
+var date_1969_end = -1;
+var date_1970_start = 0;
+var date_1999_end = 946684799999;
+var date_2000_start = 946684800000;
+var date_2099_end = 4102444799999;
+var date_2100_start = 4102444800000;
+
+// https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/Date_library.js
+//15.9.1.2 Day Number and Time within day
+function day(t) {
+	return Math.floor(t/msPerDay);
+}
+
+function timeWithinDay(t) {
+	return t%msPerDay;
+}
+
+//15.9.1.3 year Number
+function daysInYear(y){
+	if(y%4 != 0) return 365;
+	if(y%4 == 0 && y%100 != 0) return 366;
+	if(y%100 == 0 && y%400 != 0) return 365;
+	if(y%400 == 0) return 366;
+}
+
+function dayFromYear(y) {
+	return (365*(y-1970)
+					+ Math.floor((y-1969)/4)
+					- Math.floor((y-1901)/100)
+					+ Math.floor((y-1601)/400));
+}
+
+function timeFromYear(y){
+	return msPerDay*DayFromYear(y);
+}
+
+function yearFromTime(t) {
+	t = Number(t);
+	var sign = ( t < 0 ) ? -1 : 1;
+	var year = ( sign < 0 ) ? 1969 : 1970;
+
+	for(var time = 0;;year += sign){
+		time = timeFromYear(year);
 	
-	var msPerDay = 86400000;
-	var msPerSecond = 1000;
-	var msPerMinute = 60000;
-	var msPerHour = 3600000;
-	
-	var date_1899_end = -2208988800001;
-	var date_1900_start = -2208988800000;
-	var date_1969_end = -1;
-	var date_1970_start = 0;
-	var date_1999_end = 946684799999;
-	var date_2000_start = 946684800000;
-	var date_2099_end = 4102444799999;
-	var date_2100_start = 4102444800000;
-	
-	// https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/Date_library.js
-	//15.9.1.2 Day Number and Time within day
-	function day(t) {
-		return Math.floor(t/msPerDay);
-	}
-	
-	function timeWithinDay(t) {
-		return t%msPerDay;
-	}
-	
-	//15.9.1.3 year Number
-	function daysInYear(y){
-		if(y%4 != 0) return 365;
-		if(y%4 == 0 && y%100 != 0) return 366;
-		if(y%100 == 0 && y%400 != 0) return 365;
-		if(y%400 == 0) return 366;
-	}
-	
-	function dayFromYear(y) {
-		return (365*(y-1970)
-						+ Math.floor((y-1969)/4)
-						- Math.floor((y-1901)/100)
-						+ Math.floor((y-1601)/400));
-	}
-	
-	function timeFromYear(y){
-		return msPerDay*DayFromYear(y);
-	}
-	
-	function yearFromTime(t) {
-		t = Number(t);
-		var sign = ( t < 0 ) ? -1 : 1;
-		var year = ( sign < 0 ) ? 1969 : 1970;
-	
-		for(var time = 0;;year += sign){
-			time = timeFromYear(year);
-		
-			if(sign > 0 && time > t){
-				year -= sign;
-				break;
-			}
-			else if(sign < 0 && time <= t){
-				break;
-			}
-		};
-		return year;
-	}
-	
-	function inLeapYear(t){
-		if(DaysInYear(YearFromTime(t)) == 365)
-			return 0;
-	
-		if(DaysInYear(YearFromTime(t)) == 366)
-			return 1;
-	}
-	
-	function dayWithinYear(t) {
-		return day(t)-DayFromYear(YearFromTime(t));
-	}
-	
-	//15.9.1.4 Month Number
-	function monthFromTime(t){
-		var day = dayWithinYear(t);
-		var leap = inLeapYear(t);
-	
-		if((0 <= day) && (day < 31)) return 0;
-		if((31 <= day) && (day < (59+leap))) return 1;
-		if(((59+leap) <= day) && (day < (90+leap))) return 2;
-		if(((90+leap) <= day) && (day < (120+leap))) return 3;
-		if(((120+leap) <= day) && (day < (151+leap))) return 4;
-		if(((151+leap) <= day) && (day < (181+leap))) return 5;
-		if(((181+leap) <= day) && (day < (212+leap))) return 6;
-		if(((212+leap) <= day) && (day < (243+leap))) return 7;
-		if(((243+leap) <= day) && (day < (273+leap))) return 8;
-		if(((273+leap) <= day) && (day < (304+leap))) return 9;
-		if(((304+leap) <= day) && (day < (334+leap))) return 10;
-		if(((334+leap) <= day) && (day < (365+leap))) return 11;
-	}
-	
-	//15.9.1.5 Date Number
-	function dateFromTime(t) {
-		var day = dayWithinYear(t);
-		var month = monthFromTime(t);
-		var leap = inLeapYear(t);
-	
-		if(month == 0) return day+1;
-		if(month == 1) return day-30;
-		if(month == 2) return day-58-leap;
-		if(month == 3) return day-89-leap;
-		if(month == 4) return day-119-leap;
-		if(month == 5) return day-150-leap;
-		if(month == 6) return day-180-leap;
-		if(month == 7) return day-211-leap;
-		if(month == 8) return day-242-leap;
-		if(month == 9) return day-272-leap;
-		if(month == 10) return day-303-leap;
-		if(month == 11) return day-333-leap;
-	}
-	
-	//15.9.1.6 Week day
-	function weekDay(t) {
-		var weekday = (Day(t)+4)%7;
-		return (weekday < 0 ? 7+weekday : weekday);
-	}
-	
-	//15.9.1.9 Daylight Saving time Adjustment
-	var localTZA = $LocalTZ*msPerHour;
-	
-	function DaysInMonth(m, leap) {
-		m = m%12;
-	
-		//April, June, Sept, Nov
-		if(m == 3 || m == 5 || m == 8 || m == 10 ) {
-			return 30;
+		if(sign > 0 && time > t){
+			year -= sign;
+			break;
 		}
-	
-		//Jan, March, May, July, Aug, Oct, Dec
-		if(m == 0 || m == 2 || m == 4 || m == 6 || m == 7 || m == 9 || m == 11){
-			return 31;
+		else if(sign < 0 && time <= t){
+			break;
 		}
-	
-		//Feb
-		return 28+leap;
+	};
+	return year;
+}
+
+function inLeapYear(t){
+	if(DaysInYear(YearFromTime(t)) == 365)
+		return 0;
+
+	if(DaysInYear(YearFromTime(t)) == 366)
+		return 1;
+}
+
+function dayWithinYear(t) {
+	return day(t)-DayFromYear(YearFromTime(t));
+}
+
+//15.9.1.4 Month Number
+function monthFromTime(t){
+	var day = dayWithinYear(t);
+	var leap = inLeapYear(t);
+
+	if((0 <= day) && (day < 31)) return 0;
+	if((31 <= day) && (day < (59+leap))) return 1;
+	if(((59+leap) <= day) && (day < (90+leap))) return 2;
+	if(((90+leap) <= day) && (day < (120+leap))) return 3;
+	if(((120+leap) <= day) && (day < (151+leap))) return 4;
+	if(((151+leap) <= day) && (day < (181+leap))) return 5;
+	if(((181+leap) <= day) && (day < (212+leap))) return 6;
+	if(((212+leap) <= day) && (day < (243+leap))) return 7;
+	if(((243+leap) <= day) && (day < (273+leap))) return 8;
+	if(((273+leap) <= day) && (day < (304+leap))) return 9;
+	if(((304+leap) <= day) && (day < (334+leap))) return 10;
+	if(((334+leap) <= day) && (day < (365+leap))) return 11;
+}
+
+//15.9.1.5 Date Number
+function dateFromTime(t) {
+	var day = dayWithinYear(t);
+	var month = monthFromTime(t);
+	var leap = inLeapYear(t);
+
+	if(month == 0) return day+1;
+	if(month == 1) return day-30;
+	if(month == 2) return day-58-leap;
+	if(month == 3) return day-89-leap;
+	if(month == 4) return day-119-leap;
+	if(month == 5) return day-150-leap;
+	if(month == 6) return day-180-leap;
+	if(month == 7) return day-211-leap;
+	if(month == 8) return day-242-leap;
+	if(month == 9) return day-272-leap;
+	if(month == 10) return day-303-leap;
+	if(month == 11) return day-333-leap;
+}
+
+//15.9.1.6 Week day
+function weekDay(t) {
+	var weekday = (Day(t)+4)%7;
+	return (weekday < 0 ? 7+weekday : weekday);
+}
+
+//15.9.1.9 Daylight Saving time Adjustment
+var localTZA = $LocalTZ*msPerHour;
+
+function DaysInMonth(m, leap) {
+	m = m%12;
+
+	//April, June, Sept, Nov
+	if(m == 3 || m == 5 || m == 8 || m == 10 ) {
+		return 30;
 	}
-	
-	function getSundayInMonth(t, m, count){
-		var year = yearFromTime(t);
-		var leap = inLeapYear(t);
-		var day = 0;
-	
-		if(m >= 1) day += daysInMonth(0, leap);
-		if(m >= 2) day += daysInMonth(1, leap);
-		if(m >= 3) day += daysInMonth(2, leap);
-		if(m >= 4) day += daysInMonth(3, leap);
-		if(m >= 5) day += daysInMonth(4, leap);
-		if(m >= 6) day += daysInMonth(5, leap);
-		if(m >= 7) day += daysInMonth(6, leap);
-		if(m >= 8) day += daysInMonth(7, leap);
-		if(m >= 9) day += daysInMonth(8, leap);
-		if(m >= 10) day += daysInMonth(9, leap);
-		if(m >= 11) day += daysInMonth(10, leap);
-	
-		var month_start = timeFromYear(year)+day*msPerDay;
-		var sunday = 0;
-	
-		if(count === "last"){
-			for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay; 
-				WeekDay(last_sunday)>0;
-				last_sunday -= msPerDay
-			){};
-			sunday = last_sunday;
+
+	//Jan, March, May, July, Aug, Oct, Dec
+	if(m == 0 || m == 2 || m == 4 || m == 6 || m == 7 || m == 9 || m == 11){
+		return 31;
+	}
+
+	//Feb
+	return 28+leap;
+}
+
+function getSundayInMonth(t, m, count){
+	var year = yearFromTime(t);
+	var leap = inLeapYear(t);
+	var day = 0;
+
+	if(m >= 1) day += daysInMonth(0, leap);
+	if(m >= 2) day += daysInMonth(1, leap);
+	if(m >= 3) day += daysInMonth(2, leap);
+	if(m >= 4) day += daysInMonth(3, leap);
+	if(m >= 5) day += daysInMonth(4, leap);
+	if(m >= 6) day += daysInMonth(5, leap);
+	if(m >= 7) day += daysInMonth(6, leap);
+	if(m >= 8) day += daysInMonth(7, leap);
+	if(m >= 9) day += daysInMonth(8, leap);
+	if(m >= 10) day += daysInMonth(9, leap);
+	if(m >= 11) day += daysInMonth(10, leap);
+
+	var month_start = timeFromYear(year)+day*msPerDay;
+	var sunday = 0;
+
+	if(count === "last"){
+		for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay; 
+			WeekDay(last_sunday)>0;
+			last_sunday -= msPerDay
+		){};
+		sunday = last_sunday;
+	}
+	else {
+		for(var first_sunday = month_start; 
+			WeekDay(first_sunday)>0;
+			first_sunday += msPerDay
+		){};
+		sunday = first_sunday+7*msPerDay*(count-1);
+	}
+
+	return sunday;
+}
+
+function daylightSavingTA(t) {
+	t = t-localTZA;
+
+	var DST_start = getSundayInMonth(t, $DST_start_month, $DST_start_sunday)
+									+$DST_start_hour*msPerHour
+									+$DST_start_minutes*msPerMinute;
+								
+	var k = new date(DST_start);
+
+	var DST_end	 = getSundayInMonth(t, $DST_end_month, $DST_end_sunday)
+									+$DST_end_hour*msPerHour
+									+$DST_end_minutes*msPerMinute;
+
+	if ( t >= DST_start && t < DST_end ) {
+		return msPerHour;
+	} else {
+		return 0;
+	}
+}
+
+//15.9.1.9 Local time
+function localTime(t){
+	return t+localTZA+daylightSavingTA(t);
+}
+
+function utc(t) {
+	return t-localTZA-daylightSavingTA(t-localTZA);
+}
+
+//15.9.1.10 Hours, Minutes, Second, and Milliseconds
+function hourFromTime(t){
+	return Math.floor(t/msPerHour)%hoursPerDay;
+}
+
+function minFromTime(t){
+	return Math.floor(t/msPerMinute)%minutesPerHour;
+}
+
+function secFromTime(t){
+	return Math.floor(t/msPerSecond)%secondsPerMinute;
+}
+
+function msFromTime(t){
+	return t%msPerSecond;
+}
+
+//15.9.1.11 makeTime (hour, min, sec, ms)
+function makeTime(hour, min, sec, ms){
+	if ( !isFinite(hour) || !isFinite(min) || !isFinite(sec) || !isFinite(ms)) {
+		return Number.NaN;
+	}
+
+	hour = toInteger(hour);
+	min	= toInteger(min);
+	sec	= toInteger(sec);
+	ms	 = toInteger(ms);
+
+	return ((hour*msPerHour) + (min*msPerMinute) + (sec*msPerSecond) + ms);
+}
+
+//15.9.1.12 MakeDay (year, month, date)
+function makeDay(year, month, date) {
+	if ( !isFinite(year) || !isFinite(month) || !isFinite(date)) {
+		return Number.NaN;
+	}
+
+	year = toInteger(year);
+	month = toInteger(month);
+	date = toInteger(date );
+
+	var result5 = year + Math.floor(month/12);
+	var result6 = month%12;
+
+	var sign = ( year < 1970 ) ? -1 : 1;
+	var t =		( year < 1970 ) ? 1 :	0;
+	var y =		( year < 1970 ) ? 1969 : 1970;
+
+	if( sign == -1 ){
+		for ( y = 1969; y >= year; y += sign ) {
+			t += sign * daysInYear(y)*msPerDay;
 		}
-		else {
-			for(var first_sunday = month_start; 
-				WeekDay(first_sunday)>0;
-				first_sunday += msPerDay
-			){};
-			sunday = first_sunday+7*msPerDay*(count-1);
-		}
-	
-		return sunday;
-	}
-	
-	function daylightSavingTA(t) {
-		t = t-localTZA;
-	
-		var DST_start = getSundayInMonth(t, $DST_start_month, $DST_start_sunday)
-										+$DST_start_hour*msPerHour
-										+$DST_start_minutes*msPerMinute;
-									
-		var k = new date(DST_start);
-	
-		var DST_end	 = getSundayInMonth(t, $DST_end_month, $DST_end_sunday)
-										+$DST_end_hour*msPerHour
-										+$DST_end_minutes*msPerMinute;
-	
-		if ( t >= DST_start && t < DST_end ) {
-			return msPerHour;
-		} else {
-			return 0;
+	} else {
+		for ( y = 1970 ; y < year; y += sign ) {
+			t += sign * daysInYear(y)*msPerDay;
 		}
 	}
-	
-	//15.9.1.9 Local time
-	function localTime(t){
-		return t+localTZA+daylightSavingTA(t);
+
+	var leap = 0;
+	for ( var m = 0; m < month; m++ ) {
+		//if year is changed, than we need to recalculate leep
+		leap = inLeapYear(t);
+		t += daysInMonth(m, leap)*msPerDay;
 	}
-	
-	function utc(t) {
-		return t-localTZA-daylightSavingTA(t-localTZA);
+
+	if ( yearFromTime(t) != result5 ) {
+		return Number.NaN;
 	}
-	
-	//15.9.1.10 Hours, Minutes, Second, and Milliseconds
-	function hourFromTime(t){
-		return Math.floor(t/msPerHour)%hoursPerDay;
+	if ( monthFromTime(t) != result6 ) {
+		return Number.NaN;
 	}
-	
-	function minFromTime(t){
-		return Math.floor(t/msPerMinute)%minutesPerHour;
+	if ( dateFromTime(t) != 1 ) {
+		return Number.NaN;
 	}
-	
-	function secFromTime(t){
-		return Math.floor(t/msPerSecond)%secondsPerMinute;
+
+	return day(t)+date-1;
+}
+
+//15.9.1.13 MakeDate (day, time)
+function makeDate( day, time ) {
+	if(!isFinite(day) || !isFinite(time)) {
+		return Number.NaN;
 	}
-	
-	function msFromTime(t){
-		return t%msPerSecond;
+
+	return day*msPerDay+time;
+}
+
+//15.9.1.14 TimeClip (time)
+function timeClip(time) {
+	if(!isFinite(time) || Math.abs(time) > 8.64e15){
+		return Number.NaN;
 	}
-	
-	//15.9.1.11 makeTime (hour, min, sec, ms)
-	function makeTime(hour, min, sec, ms){
-		if ( !isFinite(hour) || !isFinite(min) || !isFinite(sec) || !isFinite(ms)) {
-			return Number.NaN;
-		}
-	
-		hour = toInteger(hour);
-		min	= toInteger(min);
-		sec	= toInteger(sec);
-		ms	 = toInteger(ms);
-	
-		return ((hour*msPerHour) + (min*msPerMinute) + (sec*msPerSecond) + ms);
-	}
-	
-	//15.9.1.12 MakeDay (year, month, date)
-	function makeDay(year, month, date) {
-		if ( !isFinite(year) || !isFinite(month) || !isFinite(date)) {
-			return Number.NaN;
-		}
-	
-		year = toInteger(year);
-		month = toInteger(month);
-		date = toInteger(date );
-	
-		var result5 = year + Math.floor(month/12);
-		var result6 = month%12;
-	
-		var sign = ( year < 1970 ) ? -1 : 1;
-		var t =		( year < 1970 ) ? 1 :	0;
-		var y =		( year < 1970 ) ? 1969 : 1970;
-	
-		if( sign == -1 ){
-			for ( y = 1969; y >= year; y += sign ) {
-				t += sign * daysInYear(y)*msPerDay;
-			}
-		} else {
-			for ( y = 1970 ; y < year; y += sign ) {
-				t += sign * daysInYear(y)*msPerDay;
-			}
-		}
-	
-		var leap = 0;
-		for ( var m = 0; m < month; m++ ) {
-			//if year is changed, than we need to recalculate leep
-			leap = inLeapYear(t);
-			t += daysInMonth(m, leap)*msPerDay;
-		}
-	
-		if ( yearFromTime(t) != result5 ) {
-			return Number.NaN;
-		}
-		if ( monthFromTime(t) != result6 ) {
-			return Number.NaN;
-		}
-		if ( dateFromTime(t) != 1 ) {
-			return Number.NaN;
-		}
-	
-		return day(t)+date-1;
-	}
-	
-	//15.9.1.13 MakeDate (day, time)
-	function makeDate( day, time ) {
-		if(!isFinite(day) || !isFinite(time)) {
-			return Number.NaN;
-		}
-	
-		return day*msPerDay+time;
-	}
-	
-	//15.9.1.14 TimeClip (time)
-	function timeClip(time) {
-		if(!isFinite(time) || Math.abs(time) > 8.64e15){
-			return Number.NaN;
-		}
-	
-		return toInteger(time);
-	}
+
+	return toInteger(time);
+}
+```
 
 ## Create range array
 
-	let range = (from, to) => Array.from({length: to - from + 1}, (x, i) => from + i);
+```js
+let range = (from, to) => Array.from({length: to - from + 1}, (x, i) => from + i);
+```
 
-	function range(from, to){
-		return Array
-			.apply(null, {length: to - from + 1})
-			.map(function(a, i){
-				return from + i;
-			})
-	}
+```js
+function range(from, to){
+	return Array
+		.apply(null, {length: to - from + 1})
+		.map(function(a, i){
+			return from + i;
+		})
+}
+```
 
 ## Beautify
 
@@ -3540,54 +3727,56 @@ for (; 0 > a;) b()								while(a < 0){ b() }
 
 Usefull for simplify aspect ratios.
 
-	/**
-	 * Find the greatest common divisor using a recursive function
-	 * @see http://en.wikipedia.org/wiki/Greatest_common_divisor
-	 * @param a numerator
-	 * @param b denominator
-	 * @return common divisor (always positive)
-	 */
-	function findGCD(a, b){
-		var t;
-		a = Number(a);
-		b = Number(b);
-		// Not valid type (not a number)
-		if (isNaN(a) || isNaN(b)){
-			return NaN;
-		}
-		// Infinity
-		if(!isFinite(a) || !isFinite(b)){
-			return Number.POSITIVE_INFINITY;
-		}
-		// division-based version
-		while(b !== 0){
-			t = b;
-			b = a % b;
-			a = t;
-		}
-		
-		// Common divisor is always a positive number
-		return Math.abs(a);
+```js
+/**
+ * Find the greatest common divisor using a recursive function
+ * @see http://en.wikipedia.org/wiki/Greatest_common_divisor
+ * @param a numerator
+ * @param b denominator
+ * @return common divisor (always positive)
+ */
+function findGCD(a, b){
+	var t;
+	a = Number(a);
+	b = Number(b);
+	// Not valid type (not a number)
+	if (isNaN(a) || isNaN(b)){
+		return NaN;
+	}
+	// Infinity
+	if(!isFinite(a) || !isFinite(b)){
+		return Number.POSITIVE_INFINITY;
+	}
+	// division-based version
+	while(b !== 0){
+		t = b;
+		b = a % b;
+		a = t;
 	}
 	
-	/**
-	 * Reduce a numerator and denominator to it's smallest, ratio using Euclid's Algorithm
-	 */
-	function reduceRatio(numerator, denominator) {
-		var numerator = Number(numerator);
-		var denominator = Number(denominator);
-		var divisor = findGCD(numerator, denominator);
-		
-		// Infinity
-		if(!isFinite(numerator)){
-			return [numerator, 1];
-		}
-		if(!isFinite(denominator)){
-			return [1, denominator];
-		}
-		
-		return [numerator / divisor, denominator / divisor];
+	// Common divisor is always a positive number
+	return Math.abs(a);
+}
+
+/**
+ * Reduce a numerator and denominator to it's smallest, ratio using Euclid's Algorithm
+ */
+function reduceRatio(numerator, denominator) {
+	var numerator = Number(numerator);
+	var denominator = Number(denominator);
+	var divisor = findGCD(numerator, denominator);
+	
+	// Infinity
+	if(!isFinite(numerator)){
+		return [numerator, 1];
 	}
+	if(!isFinite(denominator)){
+		return [1, denominator];
+	}
+	
+	return [numerator / divisor, denominator / divisor];
+}
+```
 
 - [Greatest common divisor — Wikipedia](https://en.wikipedia.org/wiki/Greatest_common_divisor)
 - [Euclidean algorithm — Wikipedia](https://en.wikipedia.org/wiki/Euclidean_algorithm)
@@ -3598,27 +3787,37 @@ Usefull for simplify aspect ratios.
 
 Angle between 0° and 360°
 
-	angle = (angle % 360 + 360) % 360;
+```js
+angle = (angle % 360 + 360) % 360;
+```
 
 Angle between -180° and 180°
 
-	angle = (angle % 360 + 540) % 360 - 180;
+```js
+angle = (angle % 360 + 540) % 360 - 180;
+```
 
 normalize an angle between -π and +π (https://stackoverflow.com/questions/24234609/standard-way-to-normalize-an-angle-to-%CF%80-radians-in-java)
 
-	theta - TWO_PI * Math.floor((theta + Math.PI) / TWO_PI)
+```js
+theta - TWO_PI * Math.floor((theta + Math.PI) / TWO_PI)
+```
 
 Angle between -179° and 180°
 
-	angle = ((angle + 179) % 360 + 360) % 360 - 179;
+```js
+angle = ((angle + 179) % 360 + 360) % 360 - 179;
+```
 
-Infinit index
+Infinite index
 
-	var values:Array = ["a", "b", "c"];
-	var index:int = -5;
-	var length:uint = values.length;
-	var realIndex:uint = (index % length + length) % length;// = 0, 1 or 2
-	values[realIndex];//= "b"
+```js
+var values:Array = ["a", "b", "c"];
+var index:int = -5;
+var length:uint = values.length;
+var realIndex:uint = (index % length + length) % length;// = 0, 1 or 2
+values[realIndex];//= "b"
+```
 
 ## Resize
 
@@ -3629,8 +3828,9 @@ Infinit index
 
 ### None fit
 
-	var newWidth:Number = displayObject.width;
-	var newHeight:Number = displayObject.height;
+```js
+const {width, height} = displayObject;
+```
 
 ### Contain fit
 
@@ -3638,29 +3838,37 @@ Also called letterbox (for movie on a screen)
 
 Uniformly scales (homotheticaly) up content as much as possible, while still showing all content on the target.
 
-	var ratioSource:Number = displayObject.width / displayObject.height;
-	var ratioTarget:Number = WIDTH_TARGET / HEIGHT_TARGET;
-	var newWidth:Number = Math.min(ratioSource, ratioTarget) * HEIGHT_TARGET;
-	var newHeight:Number = WIDTH_TARGET / Math.max(ratioSource, ratioTarget);
+```js
+var ratioSource:Number = displayObject.width / displayObject.height;
+var ratioTarget:Number = WIDTH_TARGET / HEIGHT_TARGET;
+var newWidth:Number = Math.min(ratioSource, ratioTarget) * HEIGHT_TARGET;
+var newHeight:Number = WIDTH_TARGET / Math.max(ratioSource, ratioTarget);
+```
 
-	var scale:Number = Math.min(WIDTH_TARGET / displayObject.width, HEIGHT_TARGET / displayObject.height);
+```js
+var scale:Number = Math.min(WIDTH_TARGET / displayObject.width, HEIGHT_TARGET / displayObject.height);
+```
 
 ### Fit height homotheticaly
 
-	var ratioSource:Number = displayObject.width / displayObject.height;
-	var newWidth:Number = ratioSource * HEIGHT_TARGET;
-	var newHeight:Number = HEIGHT_TARGET;
+```js
+var ratioSource:Number = displayObject.width / displayObject.height;
+var newWidth:Number = ratioSource * HEIGHT_TARGET;
+var newHeight:Number = HEIGHT_TARGET;
+```
 
 ### Scale-down fit
 
 with original max size homotheticaly
 
-	var widthTarget:Number = Math.min(WIDTH_TARGET, displayObject.width);
-	var heightTarget:Number = Math.min(HEIGHT_TARGET, displayObject.height);
-	var ratioSource:Number = displayObject.width / displayObject.height;
-	var ratioTarget:Number = widthTarget / heightTarget;
-	var newWidth:Number = Math.min(ratioSource, ratioTarget) * heightTarget;
-	var newHeight:Number = widthTarget / Math.max(ratioSource, ratioTarget);
+```js
+var widthTarget:Number = Math.min(WIDTH_TARGET, displayObject.width);
+var heightTarget:Number = Math.min(HEIGHT_TARGET, displayObject.height);
+var ratioSource:Number = displayObject.width / displayObject.height;
+var ratioTarget:Number = widthTarget / heightTarget;
+var newWidth:Number = Math.min(ratioSource, ratioTarget) * heightTarget;
+var newHeight:Number = widthTarget / Math.max(ratioSource, ratioTarget);
+```
 
 ### Cover fit
 
@@ -3668,10 +3876,12 @@ Crop to fit (zoom even) homotheticaly
 
 Uniformly scales up content to fill the screen, while preserving aspect ratio. Some content may appear offscreen, if the new screen has a different aspect ratio.
 
-	var ratioSource:Number = displayObject.width / displayObject.height;
-	var ratioTarget:Number = WIDTH_TARGET / HEIGHT_TARGET;
-	var newWidth:Number = Math.max(ratioSource, ratioTarget) * HEIGHT_TARGET;
-	var newHeight:Number = WIDTH_TARGET / Math.min(ratioSource, ratioTarget);
+```js
+var ratioSource:Number = displayObject.width / displayObject.height;
+var ratioTarget:Number = WIDTH_TARGET / HEIGHT_TARGET;
+var newWidth:Number = Math.max(ratioSource, ratioTarget) * HEIGHT_TARGET;
+var newHeight:Number = WIDTH_TARGET / Math.min(ratioSource, ratioTarget);
+```
 
 ### Fill fit
 
@@ -3679,25 +3889,29 @@ Scale (zoom stretch)
 
 Non-uniformly scales up content to fill the screen. All content will remain onscreen, but it may be stretched vertically or horizontally. It can distort display objects on devices (e.g., circles become ovals).
 
-	var newWidth:Number = HEIGHT_TARGET;
-	var newHeight:Number = WIDTH_TARGET;
+```js
+var newWidth:Number = HEIGHT_TARGET;
+var newHeight:Number = WIDTH_TARGET;
+```
 
 ### Complex case
 
 Merge multiple modes
 
-	var canvasRatio = canvasWidth / canvasHeight;
-	// First define a target window to fit all
-	// portrait use 8:9 as minimal ratio
-	var targetRatio = Math.max(canvasRatio, 8 / 9);
-	var targetWidth = Math.min(canvasRatio, targetRatio) * canvasHeight;
-	var targetHeight = canvasWidth / Math.max(canvasRatio, targetRatio);
-	// Then define a final window to cover the target window
-	var naturalRatio = frame.naturalWidth / frame.naturalHeight;
-	var width = Math.max(naturalRatio, targetRatio) * targetHeight;
-	var height = targetWidth / Math.min(naturalRatio, targetRatio);
-	var x = (canvasWidth - width) / 2;
-	var y = (canvasHeight - height) / 2;
+```js
+var canvasRatio = canvasWidth / canvasHeight;
+// First define a target window to fit all
+// portrait use 8:9 as minimal ratio
+var targetRatio = Math.max(canvasRatio, 8 / 9);
+var targetWidth = Math.min(canvasRatio, targetRatio) * canvasHeight;
+var targetHeight = canvasWidth / Math.max(canvasRatio, targetRatio);
+// Then define a final window to cover the target window
+var naturalRatio = frame.naturalWidth / frame.naturalHeight;
+var width = Math.max(naturalRatio, targetRatio) * targetHeight;
+var height = targetWidth / Math.min(naturalRatio, targetRatio);
+var x = (canvasWidth - width) / 2;
+var y = (canvasHeight - height) / 2;
+```
 
 ## Can play through
 
@@ -3707,64 +3921,70 @@ Works better with CBR (Constant bitrate) media
 
 See HTML Media [`canplaythrough`](https://developer.mozilla.org/en-US/docs/Web/Events/canplaythrough)
 
-	if (duration > 0)
-	{
-		var bufferingDuration = Date.now() - startTimer;
-		var totalLoadTime = bytesLoaded == 0 ? Number.POSITIVE_INFINITY : bytesTotal / bytesLoaded * bufferingDuration;
-		var duration = duration * 1000;//s -> ms
-		console.log("(" + bytesLoaded + "/" + bytesTotal + ")" + bufferingDuration + " : " + totalLoadTime.toFixed(2))
-		if (totalLoadTime < duration || bufferingDuration + duration > totalLoadTime)
-			// here the media can be play through
-	}
+```js
+if (duration > 0)
+{
+	var bufferingDuration = Date.now() - startTimer;
+	var totalLoadTime = bytesLoaded == 0 ? Number.POSITIVE_INFINITY : bytesTotal / bytesLoaded * bufferingDuration;
+	var duration = duration * 1000;//s -> ms
+	console.log("(" + bytesLoaded + "/" + bytesTotal + ")" + bufferingDuration + " : " + totalLoadTime.toFixed(2))
+	if (totalLoadTime < duration || bufferingDuration + duration > totalLoadTime)
+		// here the media can be play through
+}
+```
 
 Where `startTimer` is value of `Date.now()` defined at begin of the media loading and `duration` is length of media.
 
 ## Date offset by month
 
-	//Before = After - 5.5 months
-	var monthRatio:Number = 5.5;
-	var today:Date = new Date();
-	//trace("today: " + today.toDateString())
-	
-	var after:Date = new Date(today.fullYear, today.month, today.date);
-	trace("after: " + after.toDateString());
-	
-	var before:Date = new Date(today.fullYear, (today.month - uint(monthRatio)), 32);
-	trace((32 - before.date) + " jours");
-	before = new Date(before.fullYear, (today.month - uint(monthRatio)), today.date - Math.round(monthRatio % 1 * (32 - before.date)))
-	trace("before (after - " + monthRatio + " months): " + before.toDateString())
+```js
+//Before = After - 5.5 months
+var monthRatio:Number = 5.5;
+var today:Date = new Date();
+//trace("today: " + today.toDateString())
+
+var after:Date = new Date(today.fullYear, today.month, today.date);
+trace("after: " + after.toDateString());
+
+var before:Date = new Date(today.fullYear, (today.month - uint(monthRatio)), 32);
+trace((32 - before.date) + " jours");
+before = new Date(before.fullYear, (today.month - uint(monthRatio)), today.date - Math.round(monthRatio % 1 * (32 - before.date)))
+trace("before (after - " + monthRatio + " months): " + before.toDateString())
+```
 
 ## Bit array
 
-	private function getBits(stream: ByteArray, n: int): int
+```js
+private function getBits(stream: ByteArray, n: int): int
+{
+	// by darron schall
+	// http://osflash.org/swfheaderinfo
+	
+	var returnbits: int = 0;
+	
+	while(true)
 	{
-		// by darron schall
-		// http://osflash.org/swfheaderinfo
-		
-		var returnbits: int = 0;
-		
-		while(true)
+		if(n >= 1)
 		{
-			if(n >= 1)
+			if(bitPos == 8)
 			{
-				if(bitPos == 8)
-				{
-					bitPos = 0;
-					bitBuffer = stream.readByte();
-				}
-				returnbits <<= 1;
-				
-				var bitMask: int = 0x80 >> bitPos;
-				returnbits |= (bitBuffer & bitMask) == bitMask ? 1 : 0;
-				n -= 1;
-				bitPos += 1;
+				bitPos = 0;
+				bitBuffer = stream.readByte();
 			}
-			else
-			{
-				return returnbits;
-			}
+			returnbits <<= 1;
+			
+			var bitMask: int = 0x80 >> bitPos;
+			returnbits |= (bitBuffer & bitMask) == bitMask ? 1 : 0;
+			n -= 1;
+			bitPos += 1;
+		}
+		else
+		{
+			return returnbits;
 		}
 	}
+}
+```
 
 ## Integer to hexadecimal
 
@@ -3840,72 +4060,82 @@ See also [Integer to hexadecimal](#integer-to-hexadecimal)
 
 ## Walk through object path
 
-	var walk = (obj, path) => path.split('.').reduce((obj, key) => obj && obj[key], obj);
-	walk({foo: { bar: {baz: 1} }}, ["foo", "bar", "baz"]);// -> 1
+```js
+var walk = (obj, path) => path.split('.').reduce((obj, key) => obj && obj[key], obj);
+walk({foo: { bar: {baz: 1} }}, ["foo", "bar", "baz"]);// -> 1
+```
 
 ## Array mutation inside loop
 
 Array mutations inside loop map/forEach etc: Items will be skipped!
 
-	[1,2,3,4,5].forEach((a,i,arr)=>{console.log(a); arr.splice(i,1)})// 1, 3, 5
+```js
+[1,2,3,4,5].forEach((a,i,arr)=>{console.log(a); arr.splice(i,1)})// 1, 3, 5
+```
 
 ## Simple CSV Parser
 
 **TODO use [Recursive descent parser](https://en.wikipedia.org/wiki/Recursive_descent_parser)**
 
-	function parseCSV(s){
-		let i = 0;
-		let y = 0;
-		const results = [];
-		while(true){
-			if(i >= s.length)
-				break;
-		
-			//new row
-			if("\n\r".includes(s[i])){
-				i++;
-				y++;
-				continue;
-			}
-		
-			// skip whitespaces
-			if(" \t".includes(s[i])){
-				i++;
-				continue
-			}
-		
-			// Read value
-			let value = "";
-			if(s[i] === '"'){
-				i++;
-				// Handle escaped double quote with double quote
-				for(; s[i] && (s[i] !== '"' || s[i+1] === '"'); i += s[i] === '"' ? 2 : 1)
-					value += s[i]
-				i++
-			}
-			else{
-				while(s[i] && !",\n\r".includes(s[i]))
-					value += s[i++]
-			}
-		
-			(results[y] = results[y] || []).push(value);
-		
-			// Skip comma to read next value
-			if(s[i] === ",") i++
+```js
+function parseCSV(s){
+	let i = 0;
+	let y = 0;
+	const results = [];
+	while(true){
+		if(i >= s.length)
+			break;
+	
+		//new row
+		if("\n\r".includes(s[i])){
+			i++;
+			y++;
+			continue;
 		}
-		return results;
+	
+		// skip whitespaces
+		if(" \t".includes(s[i])){
+			i++;
+			continue
+		}
+	
+		// Read value
+		let value = "";
+		if(s[i] === '"'){
+			i++;
+			// Handle escaped double quote with double quote
+			for(; s[i] && (s[i] !== '"' || s[i+1] === '"'); i += s[i] === '"' ? 2 : 1)
+				value += s[i]
+			i++
+		}
+		else{
+			while(s[i] && !",\n\r".includes(s[i]))
+				value += s[i++]
+		}
+	
+		(results[y] = results[y] || []).push(value);
+	
+		// Skip comma to read next value
+		if(s[i] === ",") i++
 	}
+	return results;
+}
+```
 
-	parseCSV(`a,b,c\n,"d
-	e",'f'`);
-	// -> [["a", "b", "c"], ["", "d\ne", "'f'"]]
+```js
+parseCSV(`a,b,c\n,"d
+e",'f'`);
+// -> [["a", "b", "c"], ["", "d\ne", "'f'"]]
+```
 
 ## Error to JSON
 
 `name`, `message` and `stack` are not enumerable, output error in JSON will give an empty object `{}`
 
-	["name", "message", "stack", ...Object.keys(error)].reduce((result, key) => (result[key] = error[key], result), {})
-	Object.getOwnPropertyNames(error).reduce((result, key) => (result[key] = error[key], result), {})
+```js
+["name", "message", "stack", ...Object.keys(error)].reduce((result, key) => (result[key] = error[key], result), {})
+Object.getOwnPropertyNames(error).reduce((result, key) => (result[key] = error[key], result), {})
+```
 
 About stack:
 
@@ -3916,7 +4146,7 @@ About stack:
 
 ## Replace all
 
-```javascript
+```js
 // Search first occurence and replace, then move after the match and repeat
 // string and non global rexexp can replace the first occurrence only. Global rexexp can replace each occurences
 /*
