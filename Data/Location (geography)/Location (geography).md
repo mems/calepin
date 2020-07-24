@@ -92,6 +92,7 @@ See Geocoder
 - zip/postal code can match one city or more
 	It's common in France
 	In US Zipcode 33334 cover Fort Lauderdale, FL (33301, 33304-33306, 33308-33309, 33312-33313, 33315-33316, 33334, 33394); Oakland Park, FL (33304-33309, 33311, 33334) and Wilton Manors, FL (33305, 33306, 33311, 33334) http://www.unitedstateszipcodes.org/33334/
+- special [postal code CEDEX](https://en.wikipedia.org/wiki/Postal_codes_in_France#CEDEX)
 - multiple zip/postal codes can be used for same place https://en.wikipedia.org/wiki/ZIP_code#Division_and_reallocation_of_ZIP_codes
 - It can be a fictive location (Santa Claus mailbox) https://en.wikipedia.org/wiki/Postal_code#Non-geographic_codes
 - Postal code / ZIP can contains number, letters and spaces https://en.wikipedia.org/wiki/Postal_code#Alphanumeric_postal_codes
