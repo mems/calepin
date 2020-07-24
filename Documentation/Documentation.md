@@ -1,16 +1,11 @@
-Aka documentation style guide
+Aka documentation style guide, write documentation
 
 Write all, make reports, about choice has been mades
 
 API references, guides, tutorials, and blog posts
 
-- don't use words like “easy,” “simple,” “trivial,” and “not hard”
 - when communicating on a project, use clear and accessible language for people who didn’t grow up speaking English, or read less-than-fluently.
 - avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”
-
-> After you do something dozens of times, it is understandable that something is “easy” to you. However, what about someone who’s never seen the UI or feature before?
-> [...]
-> Encourage people who are newer to the project to contribute to or address documentation that doesn’t make sense to them
 
 - [Bus factor — Wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
 - [Code comments](../Development/Development.md#comments)
@@ -33,6 +28,20 @@ API references, guides, tutorials, and blog posts
 
 - [RFC 2119: Key words for use in RFCs to Indicate Requirement Levels](https://www.rfc-editor.org/rfc/rfc2119) and [RFC 8174: Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words](https://www.rfc-editor.org/rfc/rfc8174.html)
 - [w3ctag.github.io/explainers.md at master · w3ctag/w3ctag.github.io](https://github.com/w3ctag/w3ctag.github.io/blob/master/explainers.md) - explainer as living document that describes a (proposed) feature (for web platform)
+
+## It's not easy for everyone
+
+Aka "It's not simple for everyone"
+
+Don't use words like "easy", "simple", "trivial", and "not hard".
+
+> After you do something dozens of times, it is understandable that something is “easy” to you. However, what about someone who’s never seen the UI or feature before?
+> [...]
+> Encourage people who are newer to the project to contribute to or address documentation that doesn’t make sense to them
+> 
+> — [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Intersection](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/#oversimplification)
+
+- [Don’t tell me it’s easy – BI Polar](https://ssbipolar.com/2020/05/01/dont-tell-me-its-easy/)
 
 ## Checklist
 

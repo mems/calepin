@@ -1,4 +1,5 @@
 - [Develop Locally, Use Images from Production | CSS-Tricks](https://css-tricks.com/develop-locally-use-images-production/)
+- [pozorvlak | Falsehoods programmers believe about build systems](https://pozorvlak.dreamwidth.org/174323.html)
 
 ## Debug
 

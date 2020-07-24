@@ -409,13 +409,13 @@ Component/template/object-oriented class name could be ideal, but semantic don't
 ### Inspiration
 
 - [Foobar — Wikipedia](https://en.wikipedia.org/wiki/Foobar)
-- http://www.schema.org/docs/full.html
-- http://thesaurus.com/browse/
-- http://seesparkbox.com/foundry/naming_css_stuff_is_really_hard
+- [Full Hierarchy - schema.org](https://www.schema.org/docs/full.html)
+- [Browse A-Z: 0 Page 1 | Thesaurus.com](https://www.thesaurus.com/list/0)
+- [CSS Class Names to Prevent Refactoring](https://seesparkbox.com/foundry/naming_css_stuff_is_really_hard)
 - [Abbreviations.com](http://www.abbreviations.com/)
 - [All Acronyms Dictionary](http://www.allacronyms.com/)
 - [List of glossing abbreviations — Wikipedia](https://en.wikipedia.org/wiki/List_of_glossing_abbreviations)
-- http://en.wikibooks.org/wiki/LaTeX/Document_Structure
+- [LaTeX/Document Structure - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/LaTeX/Document_Structure)
 - [hcard-input-formats · Microformats Wiki](http://microformats.org/wiki/hcard-input-formats)
 - [Full Hierarchy - schema.org](http://schema.org/docs/full.html)
 - [GoodRelations Language Reference](http://www.heppnetz.de/ontologies/goodrelations/v1.html)

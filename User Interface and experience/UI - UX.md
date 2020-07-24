@@ -865,7 +865,13 @@ Aka menu with sub menus, hit area
 - [Ben Kamens, Breaking down Amazon's mega dropdown](http://bjk5.com/post/44698559168/breaking-down-amazons-mega-dropdown)
 - [Dropdown Menus with More Forgiving Mouse Movement Paths | CSS-Tricks](https://css-tricks.com/dropdown-menus-with-more-forgiving-mouse-movement-paths/)
 - [kamens/jQuery-menu-aim: jQuery plugin to fire events when user's cursor aims at particular dropdown menu items. For making responsive mega dropdowns like Amazon's.](https://github.com/kamens/jQuery-menu-aim)
-- [Menu (computing) — Wikipedia](https://en.wikipedia.org/wiki/Menu_(computing)#Sub-menus)
+
+## Submenu
+
+> Use an ellipsis whenever choosing a menu item requires additional input from the user. The ellipsis character (…) means a dialog or separate window will open and prompt the user for additional information or to make a choice.
+
+- [Menu (computing) - Wikipedia](https://en.wikipedia.org/wiki/Menu_%28computing%29#Sub-menus)
+- [Menu Anatomy - Menus - macOS - Human Interface Guidelines - Apple Developer](https://developer.apple.com/design/human-interface-guidelines/macos/menus/menu-anatomy/)
 
 ## Table
 
