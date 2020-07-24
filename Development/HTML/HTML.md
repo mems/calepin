@@ -418,6 +418,7 @@ Component/template/object-oriented class name could be ideal, but semantic don't
 - http://en.wikibooks.org/wiki/LaTeX/Document_Structure
 - [hcard-input-formats · Microformats Wiki](http://microformats.org/wiki/hcard-input-formats)
 - [Full Hierarchy - schema.org](http://schema.org/docs/full.html)
+- [GoodRelations Language Reference](http://www.heppnetz.de/ontologies/goodrelations/v1.html)
 - [word choice - Looking for the most common abbreviation to indicate the end of a working day - English Language & Usage Stack Exchange](http://english.stackexchange.com/questions/137458/looking-for-the-most-common-abbreviation-to-indicate-the-end-of-a-working-day)
 - Rules: [Variables: The Backbone Of CSS Architecture – Smashing Magazine](https://www.smashingmagazine.com/2016/01/variables-in-css-architecture/#variables-nomenclature)
 
