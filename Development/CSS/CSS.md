@@ -4240,3 +4240,9 @@ Aka custom styles vs default styles, diffing, compare changes, impact of default
 
 - [HTML5 Test Page](https://cbracco.github.io/html5-test-page/)
 - [dbox/html5-kitchen-sink: Sample markup containing all HTML5 elements for jumpstarting/testing css](https://github.com/dbox/html5-kitchen-sink)
+
+## Internationalization
+
+Aka i18n
+
+- [CSS for internationalisation](https://chenhuijing.com/blog/css-for-i18n/)

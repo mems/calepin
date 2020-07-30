@@ -2101,7 +2101,7 @@ See [Water](#water)
 ### Liquid
 
 - [Left 4 Dead 2 – Puke | Simon schreibt.](https://simonschreibt.de/gat/left-4-dead-2-puke/)
-- [No particles. Gerstner Wave shader + analytical splashes - YouTube](https://www.youtube.com/watch?v=OQ3D0Q5BlOs) - gerstner wave shader, utilizing distance fields for analytical splashes. All splashes are a single mesh here, using a masked flipbook texture. Splash flipbook texture. https://twitter.com/ShaderBits/status/827969354121805824
+- [No particles. Gerstner Wave shader + analytical splashes - YouTube](https://www.youtube.com/watch?v=OQ3D0Q5BlOs) - gerstner wave shader, utilizing distance fields for analytical splashes. All splashes are a single mesh here, using a masked flipbook texture. Splash flipbook texture. [Ryan Brucks on Twitter: "Test using distance fields for analytical splashes. No particles are enabled here, all splashes are from 1 mesh. https://t.co/2o7dSBxt4S" / Twitter](https://twitter.com/ShaderBits/status/827969354121805824)
 - [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=42)
 - [WebGL Water](http://madebyevan.com/webgl-water/) - see https://github.com/evanw/webgl-water
 - [Rendering Water with WebGL](https://29a.ch/slides/2012/webglwater/)
@@ -2113,6 +2113,7 @@ See [Water](#water)
 - [Quick Game Art Tips - Unity Liquid Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-18245226)
 - Boozy liquid shader
 - Unity liquid shader, aka Wobble: [Quick Game Art Tips - Unity Liquid Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-18245226)
+- [Macoron/Unity-Simple-Liquid: Simple high-performance liquids simulation for Unity3d](https://github.com/Macoron/Unity-Simple-Liquid)
 
 ![Unity liquid shader](https://c10.patreonusercontent.com/3/eyJ3Ijo2MjB9/patreon-media/p/post/18245226/db9cc3b3c3a649788900464d416eae9f/1.gif?token-time=1591883850&token-hash=QyNle-lEchyr3TAekNeRKqGgY7MnizmSfVWMmNIeBYA%3D)
 

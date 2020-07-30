@@ -263,7 +263,10 @@ It's like unsolicited "redesign" website or app (without real constraints). See 
 
 ## A/B test
 
+Aka A/B testing
+
 - [Most winning a/b test results are illusory](http://www.qubit.com/sites/default/files/pdf/mostwinningabtestresultsareillusory_0.pdf)
+- [A/B Test et UX design : l’utilisateur préfère cette version ? Non !   - Le blog des designers de la MAIF](https://design.maif.fr/blog/ab-test-et-ux-design-lutilisateur-prefere-cette-version-non.html)
 
 ## Quality and test
 

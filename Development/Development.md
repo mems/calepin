@@ -417,15 +417,38 @@ See also read, inspect,...
 > - describe **what** it does, **not how** it does it
 > - i.e. do not expose the implementation details in the name
 
+See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
+
+- [Naming is a process, not a single step « Arlo Being Bloody Stupid](http://arlobelshee.com/good-naming-is-a-process-not-a-single-step/) - Blog posts serie
+
+### Inclusive terminology
+
+> For symbol names and documentation, avoid introducing new usage of "master" / "slave" (or "slave" independent of "master") and "blacklist" / "whitelist".
+> 
+> Recommended replacements for "master" / "slave" are:
+> 
+> - "primary", "main" / "secondary", "replica", "subordinate"
+> - "initiator", "requester" / "target", "responder"
+> - "controller", "host" / "device", "worker", "proxy"
+> - "leader" / "follower"
+> - "director" / "performer"
+> 
+> Recommended replacements for "blacklist" / "whitelist" are:
+> 
+> - "denylist" / "allowlist"
+> - "blocklist" / "passlist"
+> 
+> Exceptions for introducing new usage is to maintain a userspace ABI/API, or when updating code for an existing (as of 2020) hardware or protocol specification that mandates those terms. For new specifications translate specification usage of the terminology to the kernel coding standard where possible.
+> 
+> — [coding-style.rst « process « Documentation - kernel/git/torvalds/linux.git - Linux kernel source tree](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst?id=49decddd39e5f6132ccd7d9fdc3d7c470b0061bb#n322)
+
 Use more appropriate terms. Exemple, instead of "master and slave", use "primary and secondary" or "initiator and responder" (based on the context). For "whitelist and blacklist", use "safelist" and "blocklist".
 
 - [Paul Vixie sur Twitter : "as the originator of the terms, i have to say, "master and slave" describe protocol roles not data mod](https://mobile.twitter.com/paulvixie/status/942849555111874560)
 - [Kelly Ellis sur Twitter : "The notion that the terms "master" and "slave" have no historical context is false. Otherwise they wo](https://mobile.twitter.com/justkelly_ok/status/933460605813641216)
 - [Amy Gebhardt on Twitter: "Huh! Just noticed that @travisci doesn't use whitelist/blacklist terminology. Instead, they choose "safelist" and "blocklist" in their documentation 💯 There. Now you have alternatives too. Let's stop using problematic phrases, yeah? Language matters. And it's not that hard." / Twitter](https://twitter.com/amlyhamm/status/1202684742069604353)
-
-See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
-
-- [Naming is a process, not a single step « Arlo Being Bloody Stupid](http://arlobelshee.com/good-naming-is-a-process-not-a-single-step/) - Blog posts serie
+- [kernel/git/torvalds/linux.git - Linux kernel source tree](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=49decddd39e5f6132ccd7d9fdc3d7c470b0061bb)
+- [Terminology, Power, and Inclusive Language in Internet-Drafts and RFCs](https://tools.ietf.org/id/draft-knodel-terminology-03.html) - [draft-knodel-terminology-03 - Terminology, Power, and Inclusive Language in Internet-Drafts and RFCs](https://datatracker.ietf.org/doc/draft-knodel-terminology/)
 
 ### Naming convention
 

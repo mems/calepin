@@ -115,3 +115,7 @@ For one error (ex: 401 status code error "Permission Denied"), there are a lot o
 - [Personal pronoun - Wikipedia](https://en.wikipedia.org/wiki/Personal_pronoun)
 - [T–V distinction](../Text/Text.md#t–v-distinction)
 - [Second person and first person](https://developers.google.com/style/person)
+
+## Naming
+
+See also [../Development/Development.md](#naming)
