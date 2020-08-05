@@ -78,3 +78,11 @@ A envoyer en lrar au procureur de la republique dont vous dependez, cf pages jau
 - [Rérérentiel de certification des systèmes de caisse - LNE - referentiel-certification-systemes-caisse.pdf](https://www.lne.fr/sites/default/files/bloc-telecharger/referentiel-certification-systemes-caisse.pdf)
 - [Using Shopify POS in France and Europe - Shopify POS — Ecommerce University](https://ecommerce.shopify.com/c/shopify-point-of-sale/t/using-shopify-pos-in-france-and-europe-342848)
 
+## Usurpation d'indentité
+
+- [Usurpation d'identité — Wikipédia](https://fr.wikipedia.org/wiki/Usurpation_d%27identit%C3%A9)
+- [J’ai testé pour vous : se faire usurper son identité - LinuxFr.org](https://linuxfr.org/users/malizor/journaux/j-ai-teste-pour-vous-se-faire-usurper-son-identite)
+- [Usurpation d’identité, comment s’en protéger ? | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/protection-usurpation-identite)
+- [L'usurpation d'identité en questions | CNIL](https://www.cnil.fr/fr/lusurpation-didentite-en-questions)
+- [Usurpation d’identité, comment s’en protéger ? | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/protection-usurpation-identite)
+- 

@@ -8,6 +8,7 @@
 - http://codex.wordpress.org/WordPress_Coding_Standards
 - [Coding Standards (Contributing to Symfony)](http://symfony.com/doc/current/contributing/code/standards.html)
 - [Popular Coding Convention on Github](http://sideeffect.kr/popularconvention/#php)
+- [PHP - The Wrong Way](https://phpthewrongway.com/)
 
 > remember most important thing is being consistent in your naming conventions and coding style. 
 
