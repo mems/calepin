@@ -7106,8 +7106,8 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 ```js
 // Read one cookie
-var value = (document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/) || ["", ""])[1];//es5
-const [, value = ""] = document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/];
+var value = (document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/) || ["", ""])[1];// es5
+//const [, value = ""] = document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/];// es6
 
 // const value = !!document.cookie.split(";").find(pair => /cookiename(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
 
@@ -7442,3 +7442,10 @@ function getDataURIJavaScript(uri){
   return new Function(code);
 }
 ```
+
+## Keyboard
+
+Arrow keys, WASD or ZQSD
+
+- [Some subtleties of keyboard inputs in JS games - Maxime Euzière](https://xem.github.io/articles/jsgamesinputs.html)
+- [Arrow keys - Wikipedia](https://en.wikipedia.org/wiki/Arrow_keys#WASD_keys)

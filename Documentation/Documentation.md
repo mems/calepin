@@ -16,6 +16,7 @@ API references, guides, tutorials, and blog posts
 - [Why You Shouldn't Ignore Internal API Documentation | Stoplight API Intersection](https://stoplight.io/blog/internal-api-documentation/)
 - [Where the Wild Docs Are | Stoplight API Intersection](https://stoplight.io/blog/open-source-documentation/)
 - [Google developer documentation style guide  |  Google Developers](https://developers.google.com/style)
+- [PharkMillups/beautiful-docs: Pointers to useful, well-written, and otherwise beautiful documentation.](https://github.com/PharkMillups/beautiful-docs)
 
 ## Specification
 

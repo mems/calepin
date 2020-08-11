@@ -17,7 +17,7 @@
 
 Aka man, command documentation
 
-Obtenir le manuel de la commande `mv` :é
+Obtenir le manuel de la commande `mv` :
 
 	man mv
 
@@ -29,16 +29,15 @@ Obtenir le manuel de la commande `mv` :
 
 Section numbers of the (`man`) manual
 
-	1   Executable programs or shell commands
-	2   System calls (functions provided by the kernel)
-	3   Library calls (functions within program libraries)
-	4   Special files (usually found in /dev)
-	5   File formats and conventions eg /etc/passwd
-	6   Games
-	7   Miscellaneous (including macro  packages  and  conven‐
-	    tions), e.g. man(7), groff(7)
-	8   System administration commands (usually only for root)
-	9   Kernel routines [Non standard]
+1. Executable programs or shell commands
+2. System calls (functions provided by the kernel)
+3. Library calls (functions within program libraries)
+4. Special files (usually found in /dev)
+5. File formats and conventions eg /etc/passwd
+6. Games
+7. Miscellaneous (including macro  packages  and  conven‐tions), e.g. man(7), groff(7)
+8. System administration commands (usually only for root)
+9. Kernel routines [Non standard]
 
 - [What do the parentheses and number after a Unix command or C function mean? Like: man(8), ftok(2), mount(8)?](http://superuser.com/questions/297702/what-do-the-parentheses-and-number-after-a-unix-command-or-c-function-mean)
 
@@ -623,7 +622,7 @@ Use esc to type these strings (add `\033` in input field) or past (via the conte
 
 	env
 
-### Shell colors et terminal control sequences
+### Colors and control sequences
 
 For `ls` colors:
 
@@ -664,6 +663,7 @@ To known color config:
 	cyan_red_prompt
 
 - [TIL: Moving the terminal cursor](https://ddfreyne.github.io/til/2016/12-03-terminal-cursor-movement/)
+- [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)
 
 ### Command alias
 

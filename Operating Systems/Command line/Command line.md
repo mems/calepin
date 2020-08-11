@@ -1,5 +1,3 @@
-- [Exploring CLI Best Practices // Localytics Engineering Blog](http://eng.localytics.com/exploring-cli-best-practices/)
-
 ## Copy to clipboard
 
 Win:

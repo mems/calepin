@@ -118,6 +118,7 @@ Aka document code
 two-column [Docco](http://ashkenas.com/docco/)
 
 - [Notebook interface - Wikipedia](https://en.wikipedia.org/wiki/Notebook_interface)
+- [Starboard](https://starboard.gg/) - [gzuidhof/starboard-notebook: In-browser literal notebooks](https://github.com/gzuidhof/starboard-notebook)
 - [CoffeeScript](http://coffeescript.org/#literate)
 - [Literate programming - Wikipedia](https://en.wikipedia.org/wiki/Literate_programming)
 
@@ -135,7 +136,6 @@ Outline important elements like :
 ## Minimap
 
 Graphical dezomed view of document like navigator panel in Photoshop
-
 
 ## Code hightlighting
 

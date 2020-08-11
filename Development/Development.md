@@ -844,6 +844,16 @@ For replay, be sure:
 - [Permissive software license - Wikipedia](https://en.wikipedia.org/wiki/Permissive_software_license)
 - [License compatibility - Wikipedia](https://en.wikipedia.org/wiki/License_compatibility)
 
+## Command line
+
+Aka CLI
+
+- manpage
+- [Exploring CLI Best Practices // Localytics Engineering Blog](http://eng.localytics.com/exploring-cli-best-practices/)
+- [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)
+- [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Command%20manual%20page)
+- [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Colors%20and%20control%20sequences)
+
 # Concepts and Methodology
 
 > Just because you can't see it, doesn't mean it isn't there.
