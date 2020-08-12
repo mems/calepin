@@ -104,6 +104,7 @@ AHJ/OMTP interface:
 
 - [Aspirateurs robots - Guide d'achat - UFC-Que Choisir](https://www.quechoisir.org/guide-d-achat-aspirateurs-robots-n8441/)
 - [Comparatif : Quel aspirateur robot choisir ? Août 2020 - Les Numériques](https://www.lesnumeriques.com/aspirateur-robot/comparatif-choisir-meilleur-aspirateur-robot-a1555.html)
+- [Classement, test et comparatif d'aspirateur robot - Blog Kelrobot](https://www.kelrobot.fr/comparatif-de-robots-aspirateurs/)
 - [🥇 Meilleurs Aspirateurs Robots 2020 - Test et Comparatif](https://www.futura-sciences.com/maison/comparatifs/meilleur-aspirateur-robot-comparatif/)
 - [Comparatif : les meilleurs aspirateurs robots](https://www.lemonde.fr/guides-d-achat/article/2019/10/13/les-meilleurs-aspirateurs-robots_6015335_5306571.html)
 - [Meilleur aspirateur robot - Comparatif 2020 | Clubic](https://www.clubic.com/image-et-son/article-851110-1-meilleur-aspirateur-robot-comparatif.html)

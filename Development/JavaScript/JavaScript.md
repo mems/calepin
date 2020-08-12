@@ -75,6 +75,9 @@ Collections:
 
 Some libraries:
 
+- Angular 1 scope can be accessed by any JS, with `angular.element(domElement).scope()` (an read: `scope.myVar`, `scope.$parent.myOtherVar` or update: `scope.$apply()`)
+    For Angular 2 `ng.probe($0)._debugInfo._view.changeDetectorRef.detectChanges()` `ng.probe($0).componentInstance` `ng.probe($0).triggerEventHandler('click')`, `ng.getComponent(...)`
+    For Angular 9 `$0.__ngContext__` (human readable only when debug mode is enabled with debug view `$0.__ngContext__.debug`)
 - https://github.com/michalsnik/aos - scroll trigger **-> use `IntersectionObserver`**
 - [Svelte • The magical disappearing UI framework](https://svelte.technology/)
 - videoplayer [mozilla-central: toolkit/content/widgets/videocontrols.xml](http://hg.mozilla.org/mozilla-central/file/tip/toolkit/content/widgets/videocontrols.xml)
@@ -90,12 +93,12 @@ Some libraries:
 
 ### Choose and use libraries
 
-- Prefere common libaries with larger community and support.
-- Don't use libraries to make something you can do yourself or just for prototypes or P.O.C.
-- Don't use overweight libraries just for doing a simple tasks
-- Use complexe libraries if performance are really a need
-- If you make your own patch on a library write about it somewere even if it's a simple comment in lib file header. Provide a .patch file.
-- If possible pick only needed parts of that lib / custom builds
+- prefere common libaries with larger community and support.
+- don't use libraries to make something you can do yourself or just for prototypes or P.O.C.
+- don't use overweight libraries just for doing a simple tasks
+- use complexe libraries if performance are really a need
+- if you make your own patch on a library write about it somewere even if it's a simple comment in lib file header. Provide a .patch file.
+- if possible pick only needed parts of that lib / custom builds
 
 - [jQuery Builder](http://projects.jga.me/jquery-builder/)
 - [Modernizr Download Builder](https://modernizr.com/download)
@@ -121,7 +124,9 @@ Prefer to use library locally direclty. Use [`integrity` attribute](https://deve
 
 **Always use HTTPS for external resources.** Don't use protocol relative URLs or HTTP (without TLS)
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" data-fallback-src="/path/to/your/jquery-1.2.6.min.js" integrity="sha512-4pean7m+KYmoRi7hfc/a4JtcsGFLJJxkrB0NV5vWvRpoA4mZVgLT3ls+/kVRzhziZEX+SU3kRIqFDJkue+HnmA==" onerror="var s=document.createElement('script');s.src=this.getAttaribute('data-fallback-src');document.head.appendChild(s)"></script>
+```html
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" data-fallback-src="/path/to/your/jquery-1.2.6.min.js" integrity="sha512-4pean7m+KYmoRi7hfc/a4JtcsGFLJJxkrB0NV5vWvRpoA4mZVgLT3ls+/kVRzhziZEX+SU3kRIqFDJkue+HnmA==" onerror="var s=document.createElement('script');s.src=this.getAttaribute('data-fallback-src');document.head.appendChild(s)"></script>
+```
 
 Note: in the example above, the attribute `onerror` will not work with CSP that doesn't allow inline script
 
