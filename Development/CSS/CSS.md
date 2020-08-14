@@ -1692,6 +1692,7 @@ but can't be multilines (but workaround exist, see below)
 - [CSS text-overflow: ellipsis; not working? - Stack Overflow](https://stackoverflow.com/questions/17779293/css-text-overflow-ellipsis-not-working/17783233#17783233)
 - [CSS Ellipsis: How to Manage Multi-Line Ellipsis in Pure CSS | Mobify](http://dev.mobify.com/blog/multiline-ellipsis-in-pure-css/)
 - [Pure CSS for multiline truncation with ellipsis | Hacking UI](http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/)
+- [Using Flexbox and text ellipsis together · Leonardo Faria](https://leonardofaria.net/2020/07/18/using-flexbox-and-text-ellipsis-together/) - Show ellipsis similar to Finder (macOS) does for long filename
 
 ### Underline
 
