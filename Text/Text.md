@@ -700,3 +700,20 @@ Y 💖 💘
 
 - [Lorem ipsum - Wikipedia](https://en.wikipedia.org/wiki/Lorem_ipsum)
 - [Filler text - Wikipedia](https://en.wikipedia.org/wiki/Filler_text)
+
+## Animation with symbols and emojis
+
+```
+🌑🌘🌗🌖🌕🌔🌓🌒
+🏻🏼🏽🏾🏿 + 👶
+🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛
+ ▏▎▍▌▋▊▉█
+ ▁▂▃▄▅▆▇█
+▖▘▝▗
+▙▛▜▟
+```
+
+- [Animating URLs with Javascript and Emojis](https://matthewrayfield.com/articles/animating-urls-with-javascript-and-emojis/)
+- [Block Elements - Wikipedia](https://en.wikipedia.org/wiki/Block_Elements)
+- [Box-drawing character - Wikipedia](https://en.wikipedia.org/wiki/Box-drawing_character)
+- [Braille Patterns - Wikipedia](https://en.wikipedia.org/wiki/Braille_Patterns)

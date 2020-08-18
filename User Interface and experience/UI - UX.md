@@ -1034,3 +1034,16 @@ Ex: delete account require to send a mail (not an email)
 Aka my stuff or your stuff, perspective
 
 - [Is this my interface or yours? – Medium](https://medium.com/@jsaito/is-this-my-interface-or-yours-b09a7a795256)
+
+## Dashboard
+
+> Dashboards are often what customers ask for.
+> They are rarely what customers need.
+> If you’re building a dashboard, it’s likely your user research wasn’t finished.
+> [...]
+> Dashboards report on current status.
+> Users don’t act on status.
+> They act on change in status.
+> Dashboards are passive when the user needs something active.
+> They are a failure before it happens.
+> — [Jared Spool on Twitter: "Dashboards are often what customers ask for. They are rarely what customers need. If you’re building a dashboard, it’s likely your user research wasn’t finished." / Twitter](https://twitter.com/jmspool/status/1293015767038996480)

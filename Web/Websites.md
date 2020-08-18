@@ -51,89 +51,133 @@ See also [`navigator.share()` API](https://developer.mozilla.org/en-US/docs/Web/
 
 Some social network have a direct access to share an URL, text or to prefill a message
 
-With `TITLE = encodeURIComponent("TITLE")` (same for `URL`, `DESCRIPTION`, `IMAGE_SRC`):
+Test with [URI template online tester](https://codepen.io/mmems/pen/oNxxRvN)
 
-- no value: `?key1&key2`
-- empty value: `?key1=&key2=`
-- default method: `GET`
-- default pair separator: `&`
-- values must be encoded (`GET`: URL encoding)
+### Twitter
 
-Share activity:
+URL template: `https://twitter.com/intent/tweet{?url,text,via,related,hashtags}`
 
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Network				| URI															| Parameters
-+=======================+===============================================================+==========================================================
-| Twitter				| https://www.twitter.com/share									| - `url`: `{URL}` or `{TITLE}:{URL}`
-| 						| 																| - `text`: `{TEXT}`
-| 						| 																| - `via` (optional): `{TWITTER_HANDLE}`
-| 						| 																| - `related` (optional): `{TWITTER_RELATED}`, ex: `twitterapi,twittermedia,twitter` or `twitterapi:For platform info,twittermedia:For great tips` (usernames list or relations plus usernames list)
-| 						| 																| - `hashtags` (optional): `{TWITTER_HASHTAGS_LIST}`, ex: `hashtag1,hashtag2,hashtag3` (list separated by commas)
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Twitter				| https://twitter.com/intent/tweet								| - `text`: `{DESCRIPTION}` or `{URL} {TITLE}` (max 280 chars or ~260 if contains an URL, which will be shortened)
-| 						| 																| - `url`: `{URL}`
-| 						| 																| - `in_reply_to` (optional): `{TWEET_ID}`
-| 						| 																| - `via` (optional): `{TWITTER_HANDLE}`
-| 						| 																| - `hashtags` (optional): `{TWITTER_HASHTAGS_LIST}`, ex: `hashtag1,hashtag2,hashtag3` (list separated by commas)
-| 						| 																| 
-| 						| 																| - [Overview — Twitter Developers](https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview.html#retweet-a-tweet)
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Twitter				| https://twitter.com/intent/retweet							| - `tweet_id`: `{TWEET_ID}`
-| 						| 																| - `related` (optional): `{TWITTER_RELATED}`
-| 						| 																| 
-| 						| 																| - [Overview — Twitter Developers](https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview.html#retweet-a-tweet)
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Twitter				| https://twitter.com/home										| - `status`: `{URL}` or `RT @author {MESSAGE}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Facebook				| https://www.facebook.com/sharer/sharer.php					| - `u`: `{URL}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Facebook				| https://www.facebook.com/sharer.php							| - `s`: `100`
-| 						| 																| - `p[url]`: `{URL}`
-| 						| 																| - `p[title]` (ignored): `{TITLE}`
-| 						| 																| - `p[summary]` (ignored): `{DESCRIPTION}`
-| 						| 																| - `p[images][0]` (ignored): `{IMAGE_SRC}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Facebook				| https://facebook.com/dialog/share								| - `app_id`: `{FACEBOOK_APP_ID}`, ex: `249377268519431`
-| 						| 																| - `display`: `popup`
-| 						| 																| - `href`: `{URL}`
-| 						| 																| - `quote` (optional): `{DESCRIPTION}`
-| 						| 																| - `hashtag` (optional): `{HASHTAG}`, ex: `#facebook` (include the hash symbol)
-| 						| 																| 
-| 						| 																| - [Share Dialog - Sharing](https://developers.facebook.com/docs/sharing/reference/share-dialog)
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Facebook				| https://www.facebook.com/dialog/send							| - `app_id`: `{FACEBOOK_APP_ID}`, ex: `249377268519431`
-| 						| 																| - `display`: `popup`
-| 						| 																| - `link`: `{URL}`
-| 						| 																| - `locale` (optional): `{LANG}`, ex: `en_US`
-| 						| 																| - `redirect_uri` (optional): `{REDIRECT_URL}`
-| 						| 																| - `to` (optional): `{FB_RECIPIENT_USER_ID}` (app-scoped user ID)
-| 						| 																| 
-| 						| 																| - [Send Dialog - Sharing](https://developers.facebook.com/docs/sharing/reference/send-dialog)
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Google+				| https://plus.google.com/share									| - `url`: `{URL}`
-| 						| 																| - `hl`: `{LANG}`, ex: `en`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Google+				| https://plus.google.com/{PAGE_ID}/share						| - `url`: `{URL}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| 						| https://plusone.google.com/_/+1/confirm						| - `hl`: `{LANG}`, ex: `en`
-| 						| 																| - `url`: `{URL}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Linkedin				| https://www.linkedin.com/shareArticle							| - `mini`: `true`
-| 						| 																| - `url`: `{URL}`
-| 						| 																| - `title`: `{TITLE}`
-| 						| 																| - `summary`: `{DESCRIPTION}`
-| 						| 																| - `source`: `{URL}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Pinterest				| https://www.pinterest.com/pin/create/button/					| - `url`: `{URL}`
-| 						| 																| - `description`: `{DESCRIPTION}`
-| 						| 																| - `media`: `{IMAGE_SRC}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Pinterest				| https://www.pinterest.com/pin/create/link/					| - `url`: `{URL}`
-| 						| 																| - `description`: `{DESCRIPTION}`
-| 						| 																| - `media`: `{IMAGE_SRC}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Pinterest				| https://www.pinterest.com/pin/find/							| - `url`: `{URL}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
+Parameters (optional):
+
+- `text`: the tweet text
+- `url`: the URL or title `:` URL (ex: `Some title:http://example.com`)
+- `via`: Twitter handle
+- `hashtags`: comma-separated list of hashtags, ex: `hashtag1,hashtag2,hashtag3`
+- `original_referer`: URL 
+- `in_reply_to`: tweet ID
+
+Examples:
+
+```json
+{
+  "url": "https://twitter.com/Interior/status/463440424141459456",
+  "via": "Interior",
+  "hashtags": ["nature", "sunset"]
+}
+```
+
+```json
+{
+  "text": "Stunning!",
+  "in_reply_to": "Interior"
+}
+```
+
+- [Overview | Docs | Twitter Developer](https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview#tweet-or-reply)
+
+URL template: `https://twitter.com/intent/retweet{?tweet_id}`
+
+Parameter (required) `tweet_id`: Tweet ID
+
+- [Overview | Docs | Twitter Developer](https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview#retweet-a-tweet)
+
+### Facebook
+
+URL template: `https://www.facebook.com/sharer/sharer.php?u={url}`
+
+URL template: `https://www.facebook.com/sharer.php?s=100&p[url]={url}`
+
+URL template: `https://www.facebook.com/dialog/share?display=popup{&app_id,href,quote,hashtag}`
+
+Parameters:
+
+- `app_id`: the (controled) Facebook App ID
+- `href`: the URL
+- `quote` (optional): description
+- `hashtag` (optional): (only one)hashtag including the hash symbol
+
+Examples:
+
+```json
+{
+  "app_id": "249377268519431",
+  "href": "http://example.com",
+  "hashtag": "#facebook",
+  "quote": "Some example"
+}
+```
+
+- [Share Dialog - Sharing](https://developers.facebook.com/docs/sharing/reference/share-dialog)
+
+URL template: `https://www.facebook.com/dialog/send?display=popup{&app_id,link}`
+
+Parameters:
+
+- `app_id`: the (controled) Facebook App ID
+- `link`: the URL
+- `locale` (optional): the locale (with an underscore separator)
+- `redirect_uri` (optional): redirect URL
+- `to` (optional): app-scoped other user ID (the recipient)
+
+Examples:
+
+```json
+{
+  "app_id": "249377268519431",
+  "link": "http://example.com",
+  "locale": "en_US",
+  "redirect_uri": "http://thefinaldestination.com"
+}
+```
+
+- [Send Dialog - Sharing](https://developers.facebook.com/docs/sharing/reference/send-dialog)
+
+### Linkedin
+
+URL template: `https://www.linkedin.com/shareArticle?mini=true{&url,title,summary,source}`
+
+Parameters:
+
+- `url`: the URL
+- `title`: a title
+- `summary`: a description
+- `source`: the source URL
+
+### Pinterest
+
+URL template: `https://www.pinterest.com/pin/create/button/{?url,description,media}`
+
+Parameters:
+
+- `url`: the URL
+- `description`: a description
+- `media`: a source image source
+
+URL template: `https://www.pinterest.com/pin/create/link/{?url,description,media}`
+
+Parameters:
+
+- `url`: the URL
+- `description`: a description
+- `media`: a source image source
+
+URL template: `https://www.pinterest.com/pin/find/{?url}`
+
+### Others
+
++-----------------------+---------------------------------------------------------------+-----------------------------------------------------------
+| Network				| [URL templates](https://en.wikipedia.org/wiki/URL_Template)	| Parameters												
++=======================+===============================================================+===========================================================
 | AddThis				| https://api.addthis.com/oexchange/0.8/offer					| - `url`: `{URL}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | Diaspora				| https://share.diasporafoundation.org/							| - `url`: `{URL}`
@@ -353,8 +397,6 @@ Share activity:
 | 						|																| - `body`: `{URL}` or `{DESCRIPTION}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 
-
-
 Others activities:
 
 |---------------------------|---------------------------------------------------------------|----------------------------------------------------------
@@ -415,17 +457,17 @@ Others activities:
 
 More networks and informations:
 
-- https://github.com/bradvin/social-share-urls
-- https://github.com/cferdinandi/social-sharing#2-add-the-markup-to-your-html
+- [bradvin/social-share-urls: Social Share URLs](https://github.com/bradvin/social-share-urls)
+- [cferdinandi/social-sharing: Add social sharing links and buttons without the bloat.](https://github.com/cferdinandi/social-sharing#2-add-the-markup-to-your-html)
 - [The Simplest (and Most Performant) Way to Offer Sharing Links for Social Media | CSS-Tricks](https://css-tricks.com/simple-social-sharing-links/)
 - [url - Renren, Weibo, and Baidu Like buttons using only HTML (No Javascript) - Stack Overflow](https://stackoverflow.com/questions/10490443/renren-weibo-and-baidu-like-buttons-using-only-html-no-javascript)
 - [How To Add Chinese Social Media Sharing Links in WordPress Jetpack Sharing | Duncan's Blog](https://blog.duncanworthy.me/misc/how-to-add-chinese-social-media-sharing-links-on-wordpress/)
 - [How do I setup custom sharing? – Ideas and Knowledge Base for Netvibes](http://faq.netvibes.com/knowledgebase/articles/370909-how-do-i-setup-custom-sharing)
-- https://wordpress.org/plugins/open-social/developers/
+- [WP Open Social – WordPress plugin | WordPress.org](https://wordpress.org/plugins/open-social/#developers)
 
 Plugins and libs:
 
-- https://wordpress.org/plugins/2-click-socialmedia-buttons/
+- [2 Click Social Media Buttons – WordPress plugin | WordPress.org](https://wordpress.org/plugins/2-click-socialmedia-buttons/)
 
 ### Interactions count
 

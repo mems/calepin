@@ -3,7 +3,7 @@
 - [Introducing Git Submodule in Tower](https://www.git-tower.com/blog/introducing-git-submodules-in-tower/)
 - [version control - Git for beginners: The definitive practical guide - Stack Overflow](https://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide)
 - [Gérez vo code source avec Git - OpenClassrooms](https://openclassrooms.com/courses/gerez-vos-codes-source-avec-git)
-- List of commands in plain english: [Oh, shit, git!](http://ohshitgit.com/)
+- List of commands in plain english: [Oh Shit, Git!?!](https://ohshitgit.com/)
 
 ## User infos
 

@@ -2278,8 +2278,9 @@ Don't use number type thing that use digit like identifier (credit card number, 
 > 
 > — [\<input type=number\> is only intended for amounts - Web Platform News](https://webplatform.news/issues/2020-03-06)
 
-Instead use `type="tel"`, `type="email"`, `type="url"`. If no type match, use `type="text"` with `pattern` attribute and `inputmode` attribute if needed (`numeric`).
+Use instead `type="tel"`, `type="email"`, `type="url"`. If no type match, use `type="text"` with `pattern` attribute and `inputmode` attribute if needed (`numeric`).
 
+- [Álvaro Trigo 🐦🔥 on Twitter: "Today I discovered "inputmode"! 🥳 Now we can "hint" the browser what virtual keyboard we want to show on mobile devices without forcing the browser to change the visuals of the input. (unlike with input="number" for example) https://t.co/CwaVlOqshD" / Twitter](https://twitter.com/IMAC2/status/1293863884537946112)
 - [I Wanted To Type a Number | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/type-number.html)
 - [Payment card number — Wikipedia](https://en.wikipedia.org/wiki/Payment_card_number)
 - [Identifier — Wikipedia](https://en.wikipedia.org/wiki/Identifier)

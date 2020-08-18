@@ -31,6 +31,7 @@ See [URI](../URI/URI.md)
 
 ## With visual
 
+- [Picture to QR code converter](https://www.qrpicture.com/) - [xyzzy/qrpicture: Picture to QR code converter hosted on www.QRpicture.com](https://github.com/xyzzy/qrpicture)
 - [How to put your logo in a QR code | Hackaday](http://hackaday.com/2011/08/11/how-to-put-your-logo-in-a-qr-code/)
 - [research!rsc: QArt Codes](https://research.swtch.com/qart) - see https://code.google.com/archive/p/rsc (download `pubgo.zip `, uncompresse `pubgo/src/code.google.com/p/rsc/qr`)
 - [Using generalizations of Kuznetsov-Tsybakov problem for new possibilities of steganography](qrsem.pdf)

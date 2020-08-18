@@ -135,6 +135,9 @@ Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will 
 > 
 > — [slides/webpack-5-why-breaking-changes.pdf at master · sokra/slides](https://github.com/sokra/slides/blob/master/data/webpack-5-why-breaking-changes.pdf)
 
+- "new code is the tomorrow's legacy" 
+- [Write code that is easy to delete, not easy to... — programming is terrible](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to)
+
 ## Latency numbers
 
 - [The Infinite Space Between Words](https://blog.codinghorror.com/the-infinite-space-between-words/)

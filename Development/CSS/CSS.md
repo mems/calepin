@@ -617,6 +617,7 @@ Usefull for sliders, etc. see [Slider](#slider)
 - [The Flexbox Holy Albatross | HeydonWorks](http://www.heydonworks.com/article/the-flexbox-holy-albatross) and [The Flexbox Holy Albatross Reincarnated | HeydonWorks](https://www.heydonworks.com/article/the-flexbox-holy-albatross-reincarnated) - Kind of container query (configuration switch), based on `flex-basis`
 - Change layout of lastest elements with [`nth-child()`](#range-selector) [Quantity queries and Flexbox part 2 | Charlotte Jackson, Front-end developer](http://www.lottejackson.com/learning/quantity-queries-and-flexbox-part-2)
 - [Quick Tip: How z-index and Auto Margins Work in Flexbox](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
+- (decision tree) [My incomplete mental model for flexbox's main axis](https://excalidraw.com/#json=5387559236534272,IXmodlSiZ935NXIs7I0CYg) - [Rodrigo Pombo on Twitter: "My incomplete mental model for flexbox's main axis https://t.co/Vi2bvmyRCn" / Twitter](https://twitter.com/pomber/status/1281339741682753542)
 
 Notes:
 
@@ -1227,10 +1228,98 @@ Negative z-index:
 - [CSS Positioned Layout Module Level 3](https://www.w3.org/TR/css3-positioning/#det-stacking-context)
 - [z-index - CSS | MDN](https://developer.mozilla.org/en/docs/Web/CSS/z-index)
 
-### Overflow
+## Overflow
 
 - [Heydon/forceFeed](https://github.com/Heydon/forceFeed) - To debug, add random words until it's break
-- [Flexible Overflow](http://kizu.ru/en/blog/flexible-overflow/) - Overflow text
+- [Flexible Overflow](https://www.kizu.ru/flexible-overflow/) - Overflow text
+
+### Ellipsis
+
+Aka text overflow and "..."/"…"
+
+**Don't use `contenteditable="true"` and `text-overflow: ellipsis` in the same time**: text that overflow is not visible and can't be selected. Workaround: use an input or a textarea instead, or toggle `text-overflow` when field is focused. See [Mariusz on Twitter: "TIL: contenteditable=“true” + text-overflow = 💩 https://t.co/9fXLObR3vQ" / Twitter](https://twitter.com/dotmariusz/status/776334849007316992)
+
+```css
+*{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+```
+
+Can't used for multilines, but workaround exist, see links below.
+
+- [line-clamp (with fallback)](https://codepen.io/vincent-valentin/pen/mddzByB?editors=1100)
+- [text-overflow - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
+- [CSS text-overflow: ellipsis; not working? - Stack Overflow](https://stackoverflow.com/questions/17779293/css-text-overflow-ellipsis-not-working/17783233#17783233)
+- [CSS Ellipsis: How to Manage Multi-Line Ellipsis in Pure CSS | Mobify](http://dev.mobify.com/blog/multiline-ellipsis-in-pure-css/)
+- [Pure CSS for multiline truncation with ellipsis | Hacking UI](http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/)
+- [Using Flexbox and text ellipsis together · Leonardo Faria](https://leonardofaria.net/2020/07/18/using-flexbox-and-text-ellipsis-together/) - Show ellipsis similar to Finder (macOS) does for long filename
+
+### Break words
+
+Aka break inline blocks, wrap text
+
+See [Ellipsis](#ellipsis), [Flexbox](#flexbox)
+
+If used in table, use `table-layout: fixed` to force to break line.
+
+By default use `<wbr>` or `&#8203;` to suggest break opportunities.
+By default use `&shy;`/`&#173;` to suggest hyphens break opportunities (`hyphens: manual` is the default value).
+By default use `<br>` to force line break
+
+With or without, you can use:
+
+1. `hyphens: auto` to add hyphen. But require the `lang` attribute. It's the better solution, but not well supported (can require prefixes). `&shy;`/`&#173;` can be used to suggest break opportunities.
+	Only `hyphens: none` is supported on Chrome/Opera. Only manual hyphens can be used (but `hyphens: manual` is not supported).
+	Result differ from browsers to browsers.
+2. `word-wrap: break-word;/*compat IE*/ overflow-wrap: break-word;` to break long words anywhere.
+
+Give the following CSS :
+
+```css
+*{
+	word-wrap: break-word;/*compat IE*/
+	overflow-wrap: break-word;
+	-webkit-hyphens: auto;/*Safari*/
+	-ms-hyphens: auto;
+	hyphens: auto;/*don't forget to add lang attribute*/
+}
+```
+
+Or use `overflow-wrap: break-word` or `white-space: pre-wrap` to break long lines in pre block, like URLs
+
+`<wbr>` and `<br>` can be styled to disable it (ex: with class): `br{content: ""} br::before{content: " "}` (or `br{display: none}`). See also `br{content: ""} br::before{content: "\A\A\A"; white-space: pre}`
+
+```css
+@media(min-wdith: 500px){
+	br{
+		display: none;
+	}
+}
+/* you can also use classes: <br class="br-smallscreen"> <br class="br-largescreen">*/
+```
+
+See also 
+
+> _The Yahoo Style Guide_ recommends **breaking a URL _before_ punctuation**, to avoid leaving a punctuation mark at the end of the line, which the reader might mistake for the end of the URL.
+— [\<wbr\> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr#Example)
+
+- [Šime Vidas on Twitter: "😳 You can conditionally disable \<br\> line breaks via CSS media queries:… "](https://twitter.com/simevidas/status/1170834814259347456?s=12)
+- [My takeaways from Florian Rivoal’s “Line breaking” talk# | Web Platform News](https://webplatform.news/issues/2019-04-01#my-takeaways-from-florian-rivoal-s-line-breaking-talk)
+- [Injecting a Line Break | CSS-Tricks](https://css-tricks.com/injecting-line-break/)
+- [Wrap at sibling's width](http://codepen.io/simurai/pen/evgVvm/) - Wrap text automatically at a sibling element's width
+- [What is the difference between "word-break: break-all" versus "word-wrap: break-word" in CSS - Stack Overflow](https://stackoverflow.com/questions/1795109/what-is-the-difference-between-word-break-break-all-versus-word-wrap-break/15137272#15137272)
+- [css - Using "word-wrap: break-word" within a table - Stack Overflow](https://stackoverflow.com/questions/5889508/using-word-wrap-break-word-within-a-table)
+- [hyphens - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens#Suggesting_line_break_opportunities)
+- [word-break - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)
+- [More than anyone needs to know about word-break colon break-word.](https://miketaylr.com/posts/2014/01/word-break-break-word.html)
+- [Hyphenation works! - QuirksBlog](http://www.quirksmode.org/blog/archives/2012/11/hyphenation_wor.html)
+- [Word wrapping/hyphenation using CSS. — Kenneth Auchenberg](https://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/)
+- [Soft hyphen — Wikipedia](https://en.wikipedia.org/wiki/Soft_hyphen)
+- [Issue 605840 - chromium - CSS hyphens property - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=605840)
+- [overflow-wrap | CSS-Tricks](https://css-tricks.com/almanac/properties/o/overflow-wrap/)
+- [Handling Long Words and URLs (Forcing Breaks, Hyphenation, Ellipsis, etc) | CSS-Tricks](https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/)
 
 ## Text
 
@@ -1673,27 +1762,6 @@ Create a vertical spacer. It will be aligned with the parent's content baseline:
 
 - [css - How to absolutely position the baseline of text in HTML - Stack Overflow](https://stackoverflow.com/questions/20443220/how-to-absolutely-position-the-baseline-of-text-in-html/36476034#36476034)
 
-### Ellipsis
-
-Or text overflow and "..."/"…"
-
-```css
-*{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-```
-
-but can't be multilines (but workaround exist, see below)
-
-- [line-clamp (with fallback)](https://codepen.io/vincent-valentin/pen/mddzByB?editors=1100)
-- [text-overflow - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow)
-- [CSS text-overflow: ellipsis; not working? - Stack Overflow](https://stackoverflow.com/questions/17779293/css-text-overflow-ellipsis-not-working/17783233#17783233)
-- [CSS Ellipsis: How to Manage Multi-Line Ellipsis in Pure CSS | Mobify](http://dev.mobify.com/blog/multiline-ellipsis-in-pure-css/)
-- [Pure CSS for multiline truncation with ellipsis | Hacking UI](http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/)
-- [Using Flexbox and text ellipsis together · Leonardo Faria](https://leonardofaria.net/2020/07/18/using-flexbox-and-text-ellipsis-together/) - Show ellipsis similar to Finder (macOS) does for long filename
-
 ### Underline
 
 A different underline (than `text-decoration: underline`)
@@ -1748,71 +1816,6 @@ a{
 - [Decorative Text Underline](http://codepen.io/jonneal/details/PzGYEE/)
 - [Crafting link underlines on Medium](https://medium.design/crafting-link-underlines-on-medium-7c03a9274f9)
 - `text-decoration-skip` editor draft
-
-### Break words
-
-Aka break inline blocks, wrap text
-
-See [Ellipsis](#ellipsis), [Flexbox](#flexbox)
-
-If used in table, use `table-layout: fixed` to force to break line.
-
-By default use `<wbr>` or `&#8203;` to suggest break opportunities.
-By default use `&shy;`/`&#173;` to suggest hyphens break opportunities (`hyphens: manual` is the default value).
-By default use `<br>` to force line break
-
-With or without, you can use:
-
-1. `hyphens: auto` to add hyphen. But require the `lang` attribute. It's the better solution, but not well supported (can require prefixes). `&shy;`/`&#173;` can be used to suggest break opportunities.
-	Only `hyphens: none` is supported on Chrome/Opera. Only manual hyphens can be used (but `hyphens: manual` is not supported).
-	Result differ from browsers to browsers.
-2. `word-wrap: break-word;/*compat IE*/ overflow-wrap: break-word;` to break long words anywhere.
-
-Give the following CSS :
-
-```css
-*{
-	word-wrap: break-word;/*compat IE*/
-	overflow-wrap: break-word;
-	-webkit-hyphens: auto;/*Safari*/
-	-ms-hyphens: auto;
-	hyphens: auto;/*don't forget to add lang attribute*/
-}
-```
-
-Or use `overflow-wrap: break-word` or `white-space: pre-wrap` to break long lines in pre block, like URLs
-
-`<wbr>` and `<br>` can be styled to disable it (ex: with class): `br{content: ""} br::before{content: " "}` (or `br{display: none}`). See also `br{content: ""} br::before{content: "\A\A\A"; white-space: pre}`
-
-```css
-@media(min-wdith: 500px){
-	br{
-		display: none;
-	}
-}
-/* you can also use classes: <br class="br-smallscreen"> <br class="br-largescreen">*/
-```
-
-See also 
-
-> _The Yahoo Style Guide_ recommends **breaking a URL _before_ punctuation**, to avoid leaving a punctuation mark at the end of the line, which the reader might mistake for the end of the URL.
-— [\<wbr\> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr#Example)
-
-- [Šime Vidas on Twitter: "😳 You can conditionally disable \<br\> line breaks via CSS media queries:… "](https://twitter.com/simevidas/status/1170834814259347456?s=12)
-- [My takeaways from Florian Rivoal’s “Line breaking” talk# | Web Platform News](https://webplatform.news/issues/2019-04-01#my-takeaways-from-florian-rivoal-s-line-breaking-talk)
-- [Injecting a Line Break | CSS-Tricks](https://css-tricks.com/injecting-line-break/)
-- [Wrap at sibling's width](http://codepen.io/simurai/pen/evgVvm/) - Wrap text automatically at a sibling element's width
-- [What is the difference between "word-break: break-all" versus "word-wrap: break-word" in CSS - Stack Overflow](https://stackoverflow.com/questions/1795109/what-is-the-difference-between-word-break-break-all-versus-word-wrap-break/15137272#15137272)
-- [css - Using "word-wrap: break-word" within a table - Stack Overflow](https://stackoverflow.com/questions/5889508/using-word-wrap-break-word-within-a-table)
-- [hyphens - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens#Suggesting_line_break_opportunities)
-- [word-break - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)
-- [More than anyone needs to know about word-break colon break-word.](https://miketaylr.com/posts/2014/01/word-break-break-word.html)
-- [Hyphenation works! - QuirksBlog](http://www.quirksmode.org/blog/archives/2012/11/hyphenation_wor.html)
-- [Word wrapping/hyphenation using CSS. — Kenneth Auchenberg](https://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/)
-- [Soft hyphen — Wikipedia](https://en.wikipedia.org/wiki/Soft_hyphen)
-- [Issue 605840 - chromium - CSS hyphens property - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=605840)
-- [overflow-wrap | CSS-Tricks](https://css-tricks.com/almanac/properties/o/overflow-wrap/)
-- [Handling Long Words and URLs (Forcing Breaks, Hyphenation, Ellipsis, etc) | CSS-Tricks](https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/)
 
 ### Text edition, selection
 
@@ -3840,14 +3843,6 @@ element {
 - [We Bo 🔥 on Twitter: "Countdown clock kept shifting because the width of number change. Got to use thi to fix it!…](https://twitter.com/wesbos/status/932644812582522880)
 - [Robin Rendle ･ The Smallest Difference](https://www.robinrendle.com/notes/the-smallest-difference.html)
 - [Monospaced font - Wikipedia](https://en.wikipedia.org/wiki/Monospaced_font)
-
-## Don't use `contenteditable="true"` and `text-overflow: ellipsis` in same time
-
-Text that overflow is not visible and can't be selected
-
-Or toggle `text-overflow` when field is focused.
-
-- https://twitter.com/dotmariusz/status/776334849007316992
 
 ## Newline in CSS content
 

@@ -139,6 +139,10 @@ Graphical dezomed view of document like navigator panel in Photoshop
 
 ## Code hightlighting
 
+Aka syntax hightlighting
+
+- [Syntax highlighting is a waste of an information channel • Buttondown](https://buttondown.email/hillelwayne/archive/syntax-highlighting-is-a-waste-of-an-information/)
+
 ## Code flow
 
 Save all calls, contexts (like closures), parameters, time, duration

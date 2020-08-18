@@ -246,29 +246,95 @@ with (catcher) {
 
 ## Floating point numbers
 
+See [IEE 754](../../Formats,%20encoding%20and%20protocols/IEEE%20754/IEE%20754.md)
+
 Use a libs like https://github.com/dtrebbien/BigDecimal.js, https://github.com/MikeMcl/bignumber.js, https://github.com/MikeMcl/decimal.js or https://github.com/MikeMcl/big.js. See [What is the difference between big.js, bignumber.js and decimal.js?](https://github.com/MikeMcl/big.js/wiki)
 
-> we can just use whole integers of cents [...] Division of integers and multiplication by decimals may still result in inexact values, but basic integer addition, subtraction, and multiplication will be accurate.
+```js
+/**
+* Corrects errors caused by floating point math.
+*/
+function correctFloatingPointError(number, precision = 5)
+{
+	//default returns (10000 * number) / 10000
+	//should correct very small floating point errors
+	const correction = Math.pow(10, precision);
+	return Math.round(correction * number) / correction;
+}
 
-- [IEEE 754 - Wikipedia](https://en.wikipedia.org/wiki/IEEE_754)
-- [The Floating-Point Guide - What Every Programmer Should Know About Floating-Point Arithmetic](http://floating-point-gui.de/)
-- [What Every JavaScript Developer Should Know About Floating Point - Modern Web](https://modernweb.com/what-every-javascript-developer-should-know-about-floating-points/) and [What Every JavaScript Developer Should Know About Floating Point Numbers | Bigger On The Inside](http://blog.chewxy.com/2014/02/24/what-every-javascript-developer-should-know-about-floating-point-numbers/)
-- [Avoiding Problem with Decimal Math in JavaScript - A Drip of JavaScript](http://adripofjavascript.com/blog/drips/avoiding-problems-with-decimal-math-in-javascript.html)
-- [The Floating-Point Guide - What Every Programmer Should Know About Floating-Point Arithmetic](http://floating-point-gui.de/)
-- [Double-precision floating-point format — Wikipedia](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
-- [What Every Computer Scientist Should Know About Floating-Point Arithmetic](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
-- [IEEE floating point — Wikipedia](https://en.wikipedia.org/wiki/IEEE_floating_point)
-- [Round-off error — Wikipedia](https://en.wikipedia.org/wiki/Round-off_error)
-- [Loss of significance — Wikipedia](https://en.wikipedia.org/wiki/Loss_of_significance)
-- [Floating point — Wikipedia](https://en.wikipedia.org/wiki/Floating_point#Accuracy_problems)
-- [Number().toFixed() Rounding Errors: Broken But Fixable — SitePoint](https://www.sitepoint.com/number-tofixed-rounding-errors-broken-but-fixable/)
-- [How to deal with floating point number precision in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/1458633/how-to-deal-with-floating-point-number-precision-in-javascript)
+/**
+* Tests if two numbers are <em>almost</em> equal.
+*/
+function fuzzyEquals(number1, number2, precision = 5)
+{
+	const difference = number1 - number2;
+	const range = Math.pow(10, - precision);
+	//default check:
+	//0.00001 <difference> - 0.00001
+	return difference < range && difference > - range;
+}
+```
+
+```js
+// From How to add by 0.1? https://www.reddit.com/r/learnjavascript/comments/i8v1ef/how_to_add_by_01/g1ayq8u/
+
+// Original approach with precision problems
+function addIncrements1() {
+  const result = [];
+  let start = 3;
+  for (let i=0; i<15; i++) {
+    result.push(start);
+    start += 0.1;
+  }
+  return result;
+}
+console.log(addIncrements1());
+
+
+// Rounding after each addition to fix the precision
+function addIncrements2() {
+  const result = [];
+  let start = 3;
+  for (let i=0; i<15; i++) {
+    result.push(start);
+    start += 0.1;
+    start = Math.round(start * 10) / 10;
+  }
+  return result;
+}
+console.log(addIncrements2());
+
+
+// Computing with integers, dividing them by 10 when necessary
+function addIncrements3() {
+  const result = [];
+  let startTimesTen = 30;
+  for (let i=0; i<15; i++) {
+    result.push(startTimesTen/10);
+    startTimesTen += 1;
+  }
+  return result;
+}
+console.log(addIncrements3());
+
+
+// Adding 1/8 (which is base 2 and doesn’t cause precision problems)
+function addIncrements4() {
+  const result = [];
+  let start = 3;
+  for (let i=0; i<15; i++) {
+    result.push(start);
+    start += 0.125;
+  }
+  return result;
+}
+console.log(addIncrements4());
+```
+
+- [Number.EPSILON - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON) - "EPSILON property represents the difference between 1 and the smallest floating point number greater than 1"
 - [tc39/proposal-bigint: Arbitrary precision integer in JavaScript](https://github.com/tc39/proposal-bigint) - BigInt
 - [dtrebbien/BigDecimal.js: Arbitrary-precision decimal library for JavaScript](https://github.com/dtrebbien/BigDecimal.js)
 - [MikeMcl/big.js: A small, fast JavaScript library for arbitrary-precision decimal arithmetic.](https://github.com/MikeMcl/big.js)
-- [JavaScript floating point math bug example](https://gist.github.com/lsloan/f8c5ab552545ee968cca)
-- [c# - How to convert IEEE754 float to fixed-point in deterministic way? - Stack Overflow](https://stackoverflow.com/questions/11542299/how-to-convert-ieee754-float-to-fixed-point-in-deterministic-way)
-- [I Math Broken in JavaScript? (Part 2) | GoorooThink Tech New | Article | Skill Analytic | Gooroo](https://gooroo.io/GoorooTHINK/Article/16306/Is-Math-Broken-in-JavaScript-Part-2/18867#.WqxaJ8gh3UI)
 
 ## Array
 
@@ -1961,6 +2027,7 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 - [V8 JavaScript Engine: Optimizing hash tables: hiding the hash code](https://v8project.blogspot.fr/2018/01/hash-code.html)
 - [JavaScript engine fundamentals: optimizing prototypes · Mathias Bynens](https://mathiasbynens.be/notes/prototypes)
 - [Compiler Compiler: A Twitch series about working on a JavaScript engine - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2020/06/compiler-compiler-working-on-a-javascript-engine/)
+- [Speculation in JavaScriptCore | WebKit](https://webkit.org/blog/10308/speculation-in-javascriptcore/)
 
 ### Event loop
 
@@ -2057,33 +2124,6 @@ Or 32 bit color (argb)
 	var b:uint = 0xcc;
 	
 	var _32bitColor:uint = a << 24 | r << 16 | g << 8 | b;
-
-## Floating point number errors
-
-	/**
-	* Corrects errors caused by floating point math.
-	*/
-	public function correctFloatingPointError(number:Number, precision:int = 5):Number
-	{
-		//default returns (10000 * number) / 10000
-		//should correct very small floating point errors
-		var correction:Number = Math.pow(10, precision);
-		return Math.round(correction * number) / correction;
-	}
-	
-	/**
-	* Tests if two numbers are <em>almost</em> equal.
-	*/
-	public function fuzzyEquals(number1:Number, number2:Number, precision:int = 5):Boolean
-	{
-		var difference:Number = number1 - number2;
-		var range:Number = Math.pow(10, - precision);
-		//default check:
-		//0.00001 <difference> - 0.00001
-		return difference < range && difference > - range;
-	}
-
-- [Floating-point errors got you down? « Josh Talks Flash](http://wayback.archive.org/web/20121201005111/http://joshblog.net/2007/01/30/flash-floating-point-number-errors)
 
 ## Ratio
 

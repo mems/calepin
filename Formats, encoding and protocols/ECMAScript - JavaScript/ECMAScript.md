@@ -1,4 +1,4 @@
-Aka JavaScript
+Aka JavaScript (ECMAScript + DOM and Web APIs),
 
 - http://msdn.microsoft.com/en-us/library/ie/121hztk3%28v=vs.94%29.aspx
 - http://wiki.ecmascript.org/doku.php?id=resources:resources&s=conditional+compilation#microsoft_drafts
@@ -65,14 +65,14 @@ It's will help you to found errors before you try/compile your code.
 
 ## Tools
 
-- https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md
+- [gulp/browserify-uglify-sourcemap.md at master · gulpjs/gulp](https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md)
+- [JavaScript Obfuscator Tool](https://obfuscator.io/) - [javascript-obfuscator/javascript-obfuscator: A powerful obfuscator for JavaScript and Node.js](https://github.com/javascript-obfuscator/javascript-obfuscator)
 
 ### Unuglify
 
-- http://unminify.com/
-- https://www.npmjs.com/package/unuglify-js
-- http://jsnice.org/
+- [Unminify JS, CSS, HTML, XML and JSON Code](https://unminify.com/)
+- [eth-sri/UnuglifyJS: A simpler open-source version of JavaScript deobfuscator JSNice](https://github.com/eth-sri/UnuglifyJS)
+- [JS NICE: Statistical renaming, Type inference and Deobfuscation](http://jsnice.org/)
 	[JSNice artifact instructions](https://files.sri.inf.ethz.ch/jsniceartifact/index.html)
-- http://nice2predict.org/
-- http://dean.edwards.name/packer/
-- http://jsbeautifier.org/
+- [Nice2Predict](http://nice2predict.org/)
+- [Online JavaScript beautifier](https://beautifier.io/)
