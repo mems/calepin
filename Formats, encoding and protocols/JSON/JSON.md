@@ -5,11 +5,16 @@
 
 ## JSON Schema
 
-- [JSON Schema Store](http://schemastore.org/json/)
 - [JSON Schema](http://json-schema.org/)
+- [JSON Schema Store](http://schemastore.org/json/) - List of common JSON Schema ()
+- [JSON Schema](https://cswr.github.io/JsonSchema/) - For JSON Schema Draft 4 and below
 - [jdorn/json-editor: JSON Schema Based Editor](https://github.com/jdorn/json-editor)
-- [Understanding JSON Schema — Understanding JSON Schema 1.0 documentation](https://spacetelescope.github.io/understanding-json-schema/)
-- [Fake your JSON-Schemas!](http://json-schema-faker.js.org/)
+- [Understanding JSON Schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/index.html)
+
+Data generator from schema:
+
+- [Fake your JSON-Schemas!](https://json-schema-faker.js.org) - [json-schema-faker/json-schema-faker: JSON-Schema + fake data generators](https://github.com/json-schema-faker/json-schema-faker)
+- [Online JSON Schema Validator and Generator](https://extendsclass.com/json-schema-validator.html)
 
 ## Binary data
 
