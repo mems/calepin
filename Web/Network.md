@@ -1087,12 +1087,14 @@ Infos and docs:
 
 Tools:
 
-- [API Monitoring and Testing · Runscope API Testing & Monitoring](https://www.runscope.com/)
-- [A server side OAuth2 Bundle for Symfony2 ](https://github.com/FriendsOfSymfony/FOSOAuthServerBundle)
-- [JSON API — A specification for building APIs in JSON](http://jsonapi.org/)
-- [World's Most Popular API Framework | Swagger](https://swagger.io/)
+- [Home - OpenAPI Initiative](https://www.openapis.org/)
+- [JSON:API — A specification for building APIs in JSON](https://jsonapi.org/)
+- [API Documentation & Design Tools for Teams | Swagger](https://swagger.io/)
 - [Welcome | RAML](https://raml.org/) - "RESTful API Modeling Language (RAML) makes it easy to manage the whole API lifecycle from design to sharing."
 - [API Blueprint | API Blueprint](https://apiblueprint.org/) - "A powerful high-level API description language for web APIs."
+- [adobe/ride: REST API Automation framework for functional, integration, fuzzing, and performance testing](https://github.com/adobe/ride)
+- [API Monitoring and Testing · Runscope API Testing & Monitoring](https://www.runscope.com/)
+- [A server side OAuth2 Bundle for Symfony2 ](https://github.com/FriendsOfSymfony/FOSOAuthServerBundle)
 
 Examples:
 
