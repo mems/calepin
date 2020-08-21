@@ -15,6 +15,9 @@ Data generator from schema:
 
 - [Fake your JSON-Schemas!](https://json-schema-faker.js.org) - [json-schema-faker/json-schema-faker: JSON-Schema + fake data generators](https://github.com/json-schema-faker/json-schema-faker)
 - [Online JSON Schema Validator and Generator](https://extendsclass.com/json-schema-validator.html)
+- [andreineculau/json-schema-random: Given a JSON Schema, provide a random valid instance](https://github.com/andreineculau/json-schema-random)
+- [jonahkagan/schematic-ipsum: A simple service that generates fake JSON data in accordance with a JSON Schema](https://github.com/jonahkagan/schematic-ipsum)
+- [Humanstate/json-schema-tojson: Convert JSON Schema definitions to "fake" JSON structures for emulation and testing](https://github.com/Humanstate/json-schema-tojson)
 
 ## Binary data
 
