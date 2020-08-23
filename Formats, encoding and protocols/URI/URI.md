@@ -30,46 +30,58 @@ iOS and/or Android
 
 ## Apple Maps URI
 
-`x-maps-mapitemhandles://%plist_base64_encoded%`
+```
+x-maps-mapitemhandles://{plist_base64_encoded}
+```
 
 Sometimes, iOS keyboard predict a part of calendar event address links
 
-	pbpaste | base64 -d > data.plist
-	plutil -convert xml1 -o - - < data.plist
+```sh
+pbpaste | base64 -d > data.plist
+plutil -convert xml1 -o - - < data.plist
+```
 
-	x-maps-mapitemhandles://YnBsaXN0MDDSAQIDBV8QFk1LTWFwSXRlbUxhdW5jaEhhbmRsZXNfECVNS01hcEl0ZW1MYXVuY2hBZGRpdGlvbnNMYXVuY2hPcHRpb25zoQRPENoIARLVAQiuTRDV8Yii35y6gskBGhIJDROymH1xSEAR+GmB4mzfAkAifAoGRnJhbmNlEgJGUhoOw45sZS1kZS1GcmFuY2UqBVBhcmlzMgVQYXJpczoFNzUwMThCC0dvdXR0ZSBkJ09yUg5QYXNzYWdlIFJ1ZWxsZVoBMWIQMSBQYXNzYWdlIFJ1ZWxsZYoBCDE4ZSBhcnIuigELR291dHRlIGQnT3IqDEljZSBLdWJlIEJhcjIQMSBQYXNzYWdlIFJ1ZWxsZTILNzUwMTggUGFyaXMyBkZyYW5jZdIGBwgJXxAtTUtMYXVuY2hPcHRpb25zRnJvbVRpbWVUb0xlYXZlTm90aWZpY2F0aW9uS2V5XxAkTUtMYXVuY2hPcHRpb25zUmVmZXJyYWxJZGVudGlmaWVyS2V5CF8QE2NvbS5hcHBsZS5tb2JpbGVjYWwACAANACYATgBQAS0BMgFiAYkBigAAAAAAAAIBAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAGg
+```
+x-maps-mapitemhandles://YnBsaXN0MDDSAQIDBV8QFk1LTWFwSXRlbUxhdW5jaEhhbmRsZXNfECVNS01hcEl0ZW1MYXVuY2hBZGRpdGlvbnNMYXVuY2hPcHRpb25zoQRPENoIARLVAQiuTRDV8Yii35y6gskBGhIJDROymH1xSEAR+GmB4mzfAkAifAoGRnJhbmNlEgJGUhoOw45sZS1kZS1GcmFuY2UqBVBhcmlzMgVQYXJpczoFNzUwMThCC0dvdXR0ZSBkJ09yUg5QYXNzYWdlIFJ1ZWxsZVoBMWIQMSBQYXNzYWdlIFJ1ZWxsZYoBCDE4ZSBhcnIuigELR291dHRlIGQnT3IqDEljZSBLdWJlIEJhcjIQMSBQYXNzYWdlIFJ1ZWxsZTILNzUwMTggUGFyaXMyBkZyYW5jZdIGBwgJXxAtTUtMYXVuY2hPcHRpb25zRnJvbVRpbWVUb0xlYXZlTm90aWZpY2F0aW9uS2V5XxAkTUtMYXVuY2hPcHRpb25zUmVmZXJyYWxJZGVudGlmaWVyS2V5CF8QE2NvbS5hcHBsZS5tb2JpbGVjYWwACAANACYATgBQAS0BMgFiAYkBigAAAAAAAAIBAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAGg
+```
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	<plist version="1.0">
+```plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MKMapItemLaunchAdditionsLaunchOptions</key>
 	<dict>
-		<key>MKMapItemLaunchAdditionsLaunchOptions</key>
-		<dict>
-			<key>MKLaunchOptionsFromTimeToLeaveNotificationKey</key>
-			<false/>
-			<key>MKLaunchOptionsReferralIdentifierKey</key>
-			<string>com.apple.mobilecal</string>
-		</dict>
-		<key>MKMapItemLaunchHandles</key>
-		<array>
-			<data>
-			CAES1QEIrk0Q1fGIot+cuoLJARoSCQ0Tsph9cUhAEfhpgeJs3wJAInwKBkZy
-			YW5jZRICRlIaDsOObGUtZGUtRnJhbmNlKgVQYXJpczIFUGFyaXM6BTc1MDE4
-			QgtHb3V0dGUgZCdPclIOUGFzc2FnZSBSdWVsbGVaATFiEDEgUGFzc2FnZSBS
-			dWVsbGWKAQgxOGUgYXJyLooBC0dvdXR0ZSBkJ09yKgxJY2UgS3ViZSBCYXIy
-			EDEgUGFzc2FnZSBSdWVsbGUyCzc1MDE4IFBhcmlzMgZGcmFuY2U=
-			</data>
-		</array>
+		<key>MKLaunchOptionsFromTimeToLeaveNotificationKey</key>
+		<false/>
+		<key>MKLaunchOptionsReferralIdentifierKey</key>
+		<string>com.apple.mobilecal</string>
 	</dict>
-	</plist>
+	<key>MKMapItemLaunchHandles</key>
+	<array>
+		<data>
+		CAES1QEIrk0Q1fGIot+cuoLJARoSCQ0Tsph9cUhAEfhpgeJs3wJAInwKBkZy
+		YW5jZRICRlIaDsOObGUtZGUtRnJhbmNlKgVQYXJpczIFUGFyaXM6BTc1MDE4
+		QgtHb3V0dGUgZCdPclIOUGFzc2FnZSBSdWVsbGVaATFiEDEgUGFzc2FnZSBS
+		dWVsbGWKAQgxOGUgYXJyLooBC0dvdXR0ZSBkJ09yKgxJY2UgS3ViZSBCYXIy
+		EDEgUGFzc2FnZSBSdWVsbGUyCzc1MDE4IFBhcmlzMgZGcmFuY2U=
+		</data>
+	</array>
+</dict>
+</plist>
+```
 
 ## Tel URI
 
-`tel:`
+```
+tel:
+```
 
 See [Phone number](../../Data/Phone%20number/Phone%20number.md)
 
-	<p>Appelez le <a href="tel:+33612345678">06 12 34 56 78</a>.</p>
+```html
+<p>Appelez le <a href="tel:+33612345678">06 12 34 56 78</a>.</p>
+```
 
 Should support extensions: `tel:+00000;ext=00`, but often only `tel:+00000,00` is supported. See [Phone number](../../Data/Phone%20number/Phone%20number.md#extension)
 
@@ -84,23 +96,31 @@ Chars are composed as number (what about `w`/"wait for dial tone" or `p`/"pause"
 
 ## SMS URI
 
-	sms:?body=http%3A%2F%2F…
+```
+sms:?body=http%3A%2F%2F…
+```
 
 ## Geo URI
 
-	geo:{lat},{long}
+```
+geo:{lat},{long}
+```
 
 - [The "geo:" URI scheme](http://geouri.org/)
 
 ## Mailto
 
-`mailto:`
+```
+mailto:
+```
 
 - [mailto - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Mailto)
 
 ## Data URI
 
-`data:`
+```
+data:
+```
 
 - [RFC 2397 - The "data" URL scheme](http://tools.ietf.org/html/rfc2397)
 
@@ -110,38 +130,55 @@ Base64 encoding = 5/4 * original data size
 
 To encode:
 
-`recode ../b64 < file.png`, `base64 < file.png`, `openssl enc -base64 < file.png | tr -d '\n'` or `uuencode`. add ` | pbcopy` to copy in clipboard (OSX)
+```sh
+recode ../b64 < file.png
+base64 < file.png
+openssl enc -base64 < file.png | tr -d '\n'
+uuencode -m -o /dev/stdout file
+# To copy in clipboard on macOS, use:
+# command | pbcopy
+# Exemple:
+# base64 < file.png | pbcopy
+```
 
-	base64 < file.png | pbcopy
+```sh
+function dataurl() {
+	local mimeType=$(file -b --mime-type "$1");
+	if [[ $mimeType == text/* ]]; then
+		mimeType="${mimeType};charset=utf-8";
+	fi
+	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}
 
-	function dataurl() {
-		local mimeType=$(file -b --mime-type "$1");
-		if [[ $mimeType == text/* ]]; then
-			mimeType="${mimeType};charset=utf-8";
-		fi
-		echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
-	}
+# Usage:
+dataurl file
+```
 
-- https://github.com/arbitraryco/base64-encode
-- https://coderwall.com/p/tgmdia/copy-base64-version-of-file-to-your-clipboard
+- [arbitraryco/base64-encode: Base64 Encode is an OSX Service used to encode files to data URIs.](https://github.com/arbitraryco/base64-encode)
 - `<?php echo base64_encode(file_get_contents('file.png')) ?>`
 
 To decode:
 
-`echo B64STRING | recode b64/.. > file.png`, `openssl enc -base64 -d <<< B64STRING`, `echo B64STRING | base64 -D`
+```sh
+echo B64STRING | recode b64/.. > file.png
+openssl enc -base64 -d <<< B64STRING
+echo B64STRING | base64 -D
+```
 
-	openssl enc -base64 -d -A << EOF
-	> B64STRING_LINE1
-	> B64STRING_LINE2
-	> EOF
+```sh
+openssl enc -base64 -d -A << EOF
+B64STRING_LINE1
+B64STRING_LINE2
+EOF
+```
 
-See also http://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line
+See also [bash - How can I decode a base64 string from the command line? - Ask Ubuntu](https://askubuntu.com/questions/178521/how-can-i-decode-a-base64-string-from-the-command-line)
 
 Or create a Automator Service (MacOSX only) with a shell command `cat "$1" | base64 | pbcopy` or `cat "$@" | base64 | pbcopy` (for concat all provided files)
 
 See also:
 
-- https://en.wikipedia.org/wiki/Base64
+- [Base64 - Wikipedia](https://en.wikipedia.org/wiki/Base64)
 
 ## Webcal URI
 

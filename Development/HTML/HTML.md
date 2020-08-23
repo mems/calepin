@@ -2278,9 +2278,8 @@ Don't use number type thing that use digit like identifier (credit card number, 
 > 
 > — [\<input type=number\> is only intended for amounts - Web Platform News](https://webplatform.news/issues/2020-03-06)
 
-Use instead `type="tel"`, `type="email"`, `type="url"`. If no type match, use `type="text"` with `pattern` attribute and `inputmode` attribute if needed (`numeric`).
+Use instead `type="tel"`, `type="email"`, `type="url"`. If no type match, use `type="text"` with `pattern` attribute and `inputmode` attribute if needed (`numeric`). See [Input mode](#input-mode).
 
-- [Álvaro Trigo 🐦🔥 on Twitter: "Today I discovered "inputmode"! 🥳 Now we can "hint" the browser what virtual keyboard we want to show on mobile devices without forcing the browser to change the visuals of the input. (unlike with input="number" for example) https://t.co/CwaVlOqshD" / Twitter](https://twitter.com/IMAC2/status/1293863884537946112)
 - [I Wanted To Type a Number | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/type-number.html)
 - [Payment card number — Wikipedia](https://en.wikipedia.org/wiki/Payment_card_number)
 - [Identifier — Wikipedia](https://en.wikipedia.org/wiki/Identifier)
@@ -2290,15 +2289,21 @@ Note: Maybe you can use `<input type="number" value="0.00">` to show the user he
 
 Note: color input can have datalist for color palette
 
-Input date value use [RFC 3339](http://tools.ietf.org/html/rfc3339) format. YYYY-MM-DD **with 0 padded numbers**.
+Input date value use [RFC 3339](http://tools.ietf.org/html/rfc3339) format. `YYYY-MM-DD` **with 0 padded numbers**.
 
 ```php
-<input type="date" value="<?php echo date("Y-m-d");?>">
+<input type="date" value="<?php echo date('Y-m-d');?>">
 ```
 
 #### Input mode
 
+- [Stefan Judis on Twitter: "`inputmode` on HTML elements. 🙈👇 #devsheets 🔗 MDN: https://t.co/sAvjqZQvBT https://t.co/t3dSD8OdnP" / Twitter](https://twitter.com/stefanjudis/status/1296749635290234882)
+- [Álvaro Trigo 🐦🔥 on Twitter: "Today I discovered "inputmode"! 🥳 Now we can "hint" the browser what virtual keyboard we want to show on mobile devices without forcing the browser to change the visuals of the input. (unlike with input="number" for example) https://t.co/CwaVlOqshD" / Twitter](https://twitter.com/IMAC2/status/1293863884537946112)
 - [The HTML inputmode attribute is now supported in most mobile browsers# | Web Platform News](https://webplatform.news/issues/2019-05-06#the-html-inputmode-attribute-is-now-supported-in-most-mobile-browsers)
+
+### Enter key hint
+
+- [Stefan Judis on Twitter: "Safari now supports `enterkeyhint`. 👏 I always like it when the enter key gives me more context. 👇 🔗 Spec: https://t.co/IOQkUsjB6f #devsheets https://t.co/7HHX77Jow7" / Twitter](https://twitter.com/stefanjudis/status/1249958064041734144)
 
 ### Tabular form 
 
@@ -2492,7 +2497,9 @@ Glossary, description list, metadata, **key-value pairs: keyword(s) / name(s)** 
 - https://stackoverflow.com/questions/8900571/two-column-table-or-dl
 - http://www.w3.org/html/wg/drafts/html/master/grouping-content.html#the-dl-element (Examples)
 
-### `dl` element (definition list)
+### `dl` element
+
+Aka definition list
 
 [Recommended by HTML Standard for "name-value groups"](https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element).
 
@@ -2594,9 +2601,9 @@ Since the value format decribe itself (you can easily identify a phone number, a
 
 ## Tables
 
-- https://stackoverflow.com/questions/3247370/semantic-html-markup-for-complex-tables
-- http://webaim.org/techniques/tables/data
-- http://www.w3.org/TR/html51/tabular-data.html#table-examples
+- [Semantic HTML markup for complex tables - Stack Overflow](https://stackoverflow.com/questions/3247370/semantic-html-markup-for-complex-tables)
+- [WebAIM: Creating Accessible Tables - Data Tables](https://webaim.org/techniques/tables/data)
+- [HTML 5.1 2nd Edition: 4.9. Tabular data](https://www.w3.org/TR/html51/tabular-data.html#examples)
 
 ```html
 <table>
@@ -2648,7 +2655,7 @@ More than one main element is allowed, but only on must be active. Other ones mu
 
 - [L'élément \<main\> - Alsacreations](https://www.alsacreations.com/actu/lire/1776-element-main-html5.html)
 - [The main element | HTML5 Doctor](http://html5doctor.com/the-main-element/)
-- http://www.w3.org/html/wg/wiki/User:Sfaulkne/main-usecases
+- [User:Sfaulkne/main-usecases - HTML WG Wiki](https://www.w3.org/html/wg/wiki/User:Sfaulkne/main-usecases)
 - [Use Only One <main> on a Page | Adrian Roselli](http://adrianroselli.com/2015/09/use-only-one-main-on-a-page.html)
 
 ## `abbr` element
@@ -2810,7 +2817,7 @@ For space `&nbsp;`:
 - proper nouns: `Dairy&nbsp;Queen`
 - [section](https://en.wikipedia.org/wiki/Section_sign) `§ 3.2`
 
-https://en.wikipedia.org/wiki/Non-breaking_space#Non-breaking_behavior
+[Non-breaking space - Wikipedia](https://en.wikipedia.org/wiki/Non-breaking_space#Non-breaking_behavior)
 
 For hyphen `&#8209;` or `‑` (non breaking hyphen)
 
@@ -2958,26 +2965,32 @@ HTML5 allow to wrap multiple elements with a link
 
 But we can't do it to `tr` (table row). That require a little bit of JS emulate a click on the (first?) link in the row
 
-http://wiki.whatwg.org/wiki/FAQ#HTML_should_support_href_on_any_element.21
+> It doesn't make sense for all elements, such as interactive elements like input and button, where the use of href would interfere with their normal function.
+> 
+> Wrapping `<a>` elements around blocks solves most use cases. It doesn't handle making rows in tables into links, though; for those just do something like this instead: `<tr onclick="location = this.getElementsByTagName('a')[0]"> ... </tr>`
+> 
+> — [html/FAQ.md at master · whatwg/html](https://github.com/whatwg/html/blob/master/FAQ.md#html-should-support-href-on-any-element)
 
-> 	<aside class="advertising">
-> 		<h1>Advertising</h1>
-> 		<a href="http://ad.example.com/?adid=1929&amp;pubid=1422">
-> 			<section>
-> 				<h2>Mellblomatic 9000!</h2>
-> 				<p>Turn all your widgets into mellbloms!</p>
-> 				<p>Only $9.99 plus shipping and handling.</p>
-> 			</section>
-> 		</a>
-> 		<a href="http://ad.example.com/?adid=375&amp;pubid=1422">
-> 			<section>
-> 				<h2>The Mellblom Browser</h2>
-> 				<p>Web browsing at the speed of light.</p>
-> 				<p>No other browser goes faster!</p>
-> 			</section>
-> 		</a>
-> 	</aside>
-— http://dev.w3.org/html5/spec-preview/the-a-element.html#the-a-element
+```html
+<!-- From https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element -->
+<aside class="advertising">
+	<h1>Advertising</h1>
+	<a href="http://ad.example.com/?adid=1929&amp;pubid=1422">
+		<section>
+			<h2>Mellblomatic 9000!</h2>
+			<p>Turn all your widgets into mellbloms!</p>
+			<p>Only $9.99 plus shipping and handling.</p>
+		</section>
+	</a>
+	<a href="http://ad.example.com/?adid=375&amp;pubid=1422">
+		<section>
+			<h2>The Mellblom Browser</h2>
+			<p>Web browsing at the speed of light.</p>
+			<p>No other browser goes faster!</p>
+		</section>
+	</a>
+</aside>
+```
 
 Link as wrapper / block-level link:
 
@@ -3164,13 +3177,14 @@ Use dedicated elements like `figure` for a graphical element with a legend, etc.
 > DON’T use section for the wrapper when implementing faux columns; again, use div instead
 > DON’T use section to nest elements when trying to avoid IE6′s float double-margin bug (or a similar layout-related issue); again, use div
 > DON’T use section to hold an individual author bio on a blog post or news article; use aside instead
-— http://www.impressivewebs.com/html5-section/
-- [Sectioning Content in HTML5 - div or section or article? | bitsofcode](http://bitsofco.de/2015/sectioning-content-in-html5/)
+> 
+> — [When to Use the HTML5 "section" Element - Impressive Webs](https://www.impressivewebs.com/html5-section/)
 
+- [Sectioning Content in HTML5 - div or section or article? | bitsofcode](http://bitsofco.de/2015/sectioning-content-in-html5/)
 - [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/#article-header-id-9) - "Don’t swap `<div>` for `<section>`"
-- https://stackoverflow.com/questions/7173558/html5-section-inside-unordered-list
-- http://html5doctor.com/the-section-element/
-- http://gsnedders.html5.org/outliner/
+- [html - HTML5, \<section\> inside unordered list - Stack Overflow](https://stackoverflow.com/questions/7173558/html5-section-inside-unordered-list)
+- [The section element | HTML5 Doctor](http://html5doctor.com/the-section-element/)
+- [HTML 5 Outliner](https://gsnedders.html5.org/outliner/)
 
 ## Secondary content, side comments
 
@@ -3180,7 +3194,7 @@ By default `aside` has `role` of `complementary` and `footer` has `role` of `con
 
 > `aside` - Used for tangentially related content. Just because some content appears to the left or right of the main content isn’t enough reason to use the aside element. Ask yourself if the content within the aside can be removed without reducing the meaning of the main content. Pullquotes are an example of tangentially related content.
 
-- https://stackoverflow.com/questions/9261748/is-it-semantically-valid-to-put-an-aside-tag-inside-a-header-tag TL;DR: aside can be in `header`
+- [html - Is it semantically valid to put an aside tag inside a header tag? - Stack Overflow](https://stackoverflow.com/questions/9261748/is-it-semantically-valid-to-put-an-aside-tag-inside-a-header-tag) TL;DR: aside can be in `header`
 
 The `aside` element can now represent secondary content when used outside of an `article`
 
@@ -3215,9 +3229,7 @@ Social links:
 </aside>
 ```
 
-http://html5doctor.com/your-questions-16/
-
-Copyright:
+From [Your Questions #16 | HTML5 Doctor](http://html5doctor.com/your-questions-16/), copyright:
 
 ```html
 <p><small>Copyright<small></p>

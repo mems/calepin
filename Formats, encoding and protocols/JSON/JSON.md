@@ -6,10 +6,10 @@
 ## JSON Schema
 
 - [JSON Schema](http://json-schema.org/)
-- [JSON Schema Store](http://schemastore.org/json/) - List of common JSON Schema ()
+- [Understanding JSON Schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/index.html)
+- [JSON Schema Store](http://schemastore.org/json/) - List of common JSON Schema
 - [JSON Schema](https://cswr.github.io/JsonSchema/) - For JSON Schema Draft 4 and below
 - [jdorn/json-editor: JSON Schema Based Editor](https://github.com/jdorn/json-editor)
-- [Understanding JSON Schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/index.html)
 
 Data generator from schema:
 

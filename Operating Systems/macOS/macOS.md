@@ -427,9 +427,9 @@ Or use an app:
 - Use cron task
 	By controling when enable/disable/start it:
 
-	`sudo tmutil enable|disable` or `defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -boolean YES|NO` or `tmutil startbackup`
+	`sudo tmutil enable|disable` or `defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -boolean YES|NO` or `tmutil startbackup --auto --block`
 	
-	* [How can I execute sudo commands as a cron job? - Ask Different](http://apple.stackexchange.com/questions/27181/how-can-i-execute-sudo-commands-as-a-cron-job)
+	- [How can I execute sudo commands as a cron job? - Ask Different](http://apple.stackexchange.com/questions/27181/how-can-i-execute-sudo-commands-as-a-cron-job)
 
 ### Reduce size
 

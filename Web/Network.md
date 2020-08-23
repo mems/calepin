@@ -813,6 +813,13 @@ Aka apex domain, base, bare, naked, root apex, or zone apex
 Note: [public suffix](https://en.wikipedia.org/wiki/Public_Suffix_List) aka effective top-level domain (eTDL).
 
 - [www. is not deprecated – really](http://www.yes-www.org/) and [Why use www? | Hacker News](https://news.ycombinator.com/item?id=11004396)
+- Chrome hide "trivial subdomains" (`www.`, `m.`)
+	- [Chrome 69 Removing WWW and M subdomains From the Browser's Address Bar](https://www.bleepingcomputer.com/news/google/chrome-69-removing-www-and-m-subdomains-from-the-browsers-address-bar/)
+	- [Google Chrome Hides WWW and HTTPS:// in the Address Bar Again](https://www.bleepingcomputer.com/news/google/google-chrome-hides-www-and-https-in-the-address-bar-again/)
+- browser autocomplete/autofill user entering URLs
+	- `browser.fixup.alternate.*`, `browser.fixup.*` 
+	- [Omnibox - The Chromium Projects](https://www.chromium.org/user-experience/omnibox#TOC-Input-Types-and-Examples)
+- [Mettre un tiret dans mon nom de domaine ? | Gandi News](https://news.gandi.net/fr/2020/08/dois-je-mettre-un-tiret-dans-mon-nom-de-domaine/)
 - Suffixes, like `.com`, `.co.uk`, `pvt.k12.ma.us`, etc. [Public Suffix List](https://publicsuffix.org/)
 - [Second-level domain — Wikipedia](https://en.wikipedia.org/wiki/Second-level_domain)
 
@@ -849,6 +856,7 @@ https://example.com/search{?q*,lang}
 ```
 
 - [RFC 6570 - URI Template](https://tools.ietf.org/html/rfc6570)
+- [URI template online tester](https://codepen.io/mmems/pen/oNxxRvN?editors=1111)
 - [hannesg/uri_template: A URI template library for ruby.](https://github.com/hannesg/uri_template)
 - [medialize/URI.js: Javascript URL mutation library](https://github.com/medialize/URI.js)
 - [grncdr/uri-template: CoffeeScript/Javascript implementation of RFC 6570 for URI-templates](https://github.com/grncdr/uri-template)
@@ -857,8 +865,6 @@ https://example.com/search{?q*,lang}
 ## Subordinate resource
 
 Aka subresource, hash, fragment identifier
-
-Aka fragment
 
 Selectors:
 
@@ -1019,9 +1025,9 @@ iVBORw0KGgoAAAANSUhEUgAAABkAAAAUBAMAAACKWYuOAAAAMFBMVEX///92dnZ2dnZ2dnZ2dnZ2dnZ2
 - [MHTML — Wikipedia](https://en.wikipedia.org/wiki/MHTML)
 - [MHTML – when you need data: URIs in IE7 and under / Stoyan's phpied.com](http://www.phpied.com/mhtml-when-you-need-data-uris-in-ie7-and-under/)
 
-### `mailto:` protocol
+### `mailto:` URI
 
-See [mailto](URI#mailto)
+See [mailto](../Formats,%20encoding%20and%20protocols/URI/URI.md#mailto)
 
 Note: Be carefull with non encoded chars. Chrome don't open mailto url if not all required chars that require encoding are not.
 
@@ -1038,9 +1044,9 @@ You can open mailto in `_self` or `_blank` window. If an protocol handler is ena
 
 Target can be omited (default to `_self`).
 
-### `tel:` protocol
+### `tel:` URI
 
-See [tel](URI#tel)
+See [tel](../Formats,%20encoding%20and%20protocols/URI/URI.md#tel)
 
 ### Well known
 

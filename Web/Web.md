@@ -999,6 +999,7 @@ Dev tools:
 - [Download Chromium - The Chromium Projects](https://www.chromium.org/getting-involved/download-chromium)
 - [Version Numbers - The Chromium Projects](https://www.chromium.org/developers/version-numbers)
 - [OmahaProxy - Google Chrome](https://omahaproxy.appspot.com/) - Look up information about a given Chrome release
+- [Chromium Dash](https://chromiumdash.appspot.com/schedule)
 - `https://crrev.com/<branch_position|commit>`
 - `https://storage.googleapis.com/chromium-find-releases-static/d4a.html#<commit>`
 - `https://omahaproxy.appspot.com/deps.json?version=<version>` (`Major.Minor.Branch.Patch`)
@@ -1225,7 +1226,7 @@ See also [How ECMAScript engine works](..//Development/ECMAScript/ECMAScript.md#
 	- [Tags to DOM · An A List Apart Article](https://alistapart.com/article/tags-to-dom)
 	- [Braces to Pixels · An A List Apart Article](https://alistapart.com/article/braces-to-pixels)
 	- [var to JIT · An A List Apart Article](https://alistapart.com/article/var-to-jit)
-
+- [Why Did Mozilla Remove XUL Add-ons?](https://yoric.github.io/post/why-did-mozilla-remove-xul-addons/)
 - [Using Hardware to Decode and Load JPG Images up to 45% faster in Internet Explorer 11 – IEBlog](https://blogs.msdn.microsoft.com/ie/2013/09/12/using-hardware-to-decode-and-load-jpg-images-up-to-45-faster-in-internet-explorer-11/)
 
 ### Headless browser
@@ -1641,6 +1642,10 @@ Other:
     - [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
 - [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
 - [thetuttingtutor/accessibility-disability-justice: Accessibility and disability justice resources](https://github.com/thetuttingtutor/accessibility-disability-justice)
+- [WebAIM: Articles](https://webaim.org/articles/)
+- [Accessibility Wins, curated by Marcy Sutton](https://a11ywins.tumblr.com/)
+- [Home - The A11Y Project](https://www.a11yproject.com/)
+- [An Alphabet of Accessibility Issues](https://the-pastry-box-project.net/anne-gibson/2014-july-31) - Blind, color blind, epilepsy, poor hearing, vertigo, fractured multiple fingers
 
 ## Screensaver
 

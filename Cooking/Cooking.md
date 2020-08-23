@@ -7,6 +7,7 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 — [Conseils d'utilisation](https://www.lecreuset.fr/conseils-d-utilisation/)
 
 - [World Food Atlas: Discover 11,062 Local Dishes & Ingredients](https://www.tasteatlas.com/)
+- [Index des recettes -](http://lesgourmandsdisentdarmelle.fr/2017/01/index-recettes.html)
 
 ## Other
 
@@ -327,13 +328,40 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 > 
 > — [BBC - Travel - How to make pizza like a Neapolitan master](http://www.bbc.com/travel/story/20200415-how-to-make-pizza-like-a-neapolitan-master)
 
-## Far breton
-
 ## Muhammara
 
 Aka crème de poivrons à la grenade
 
 - [Muhammara, crème de poivrons à la grenade - Un déjeuner de soleil](https://www.undejeunerdesoleil.com/2014/05/muhammara-creme-poivrons-noix-grenade.html)
+
+## Gauffre courgette - pomme de terre
+
+> Pour environ 10 mini gaufres:
+> 
+> - 200g de pommes de terre
+> - 150g de courgette
+> - 1 oeuf
+> - 100ml de crème fraiche épaisse ou du boursin
+> - 50g de gruyère râpé
+> - 20g de beurre
+> - 25g de farine
+> - persil
+> - sel et poivre
+> 
+> 1. Allumez votre gaufrier pour qu'il soit bien chaud une fois la pâte préparée
+> 2. Épluchez les pommes de terre et râpez-les. Rapez également la courgette en ayant enlevé la peau au préalable
+> 3. Pressez-les pour retirer l’excédent d'eau, en serrant dans un torchon par exemple
+> 4. Mettez-les pommes de terre et les courgettes râpées dans un saladier puis ajoutez tous les autres ingrédients: sel, poivre, crème fraiche, œuf, gruyère râpé, persil ciselé, farine et beurre fondu
+> 5. Mélangez le tout jusqu'à obtention d'une pâte homogène
+> 6. Versez une belle cuillère à soupe dans chaque compartiment de votre gaufrier
+> 7. Refermez et laissez cuire jusqu'à ce que vos gaufres est une jolie couleur dorée
+
+## Far breton
+
+## Nougat
+
+- [Nougat — Wikipédia](https://fr.wikipedia.org/wiki/Nougat)
+- [Touron — Wikipédia](https://fr.wikipedia.org/wiki/Touron)
 
 ## Extrait de vanille
 
