@@ -927,43 +927,53 @@ Structural test: DOM capture (CSS and HTML for each nodes and tree nodes)
 
 ### Chaining
 
-	displayObject.setX(10).setY(20).setAlpha(0.5).setRotation(180);
+```js
+displayObject.setX(10).setY(20).setAlpha(0.5).setRotation(180);
+```
 
-	$aMembers = $this->m_pMembers
-		->join('jobs')
-		->join('orders')
-		->fetchAll($szFields, $szConditions);
+```php
+$aMembers = $this->m_pMembers
+	->join('jobs')
+	->join('orders')
+	->fetchAll($szFields, $szConditions);
+```
 
 Vs.
 
-	$this->m_pMembers->join('jobs');
-	$this->m_pMembers->join('orders');
-	$aMembers = $this->m_pMembers->fetchAll($szFields, $szConditions);  
+```php
+$this->m_pMembers->join('jobs');
+$this->m_pMembers->join('orders');
+$aMembers = $this->m_pMembers->fetchAll($szFields, $szConditions);
+```
 
-- http://en.wikipedia.org/wiki/Method_chaining
-- http://en.wikipedia.org/wiki/Fluent_interface
+- [Method chaining - Wikipedia](https://en.wikipedia.org/wiki/Method_chaining)
+- [Fluent interface - Wikipedia](https://en.wikipedia.org/wiki/Fluent_interface)
 
-See also [Method cascades]
+See also [Method cascades](#method-cascades)
 
 ### Method cascades
 
 Supported in Dart language via `..`
 
-	displayObject = new DisplayObject();
-	..x = 10;
-	..y = 20;
-	..alpha = 0.5;
-	..rotation = 180;
+```dart
+displayObject = new DisplayObject();
+..x = 10;
+..y = 20;
+..alpha = 0.5;
+..rotation = 180;
+```
 
 Vs.
 
-	displayObject = new DisplayObject();
-	displayObject.x = 10;
-	displayObject.y = 20;
-	displayObject.alpha = 0.5;
-	displayObject.rotation = 180;
+```as3
+displayObject = new DisplayObject();
+displayObject.x = 10;
+displayObject.y = 20;
+displayObject.alpha = 0.5;
+displayObject.rotation = 180;
+```
 
-See also [Chaining]
+See also [Chaining](#chaining)
 
 ### Goto
 
