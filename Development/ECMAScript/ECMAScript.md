@@ -342,19 +342,21 @@ console.log(addIncrements4());
 
 Map to Array (note: I don't know how it's called, nor if it's ECMAScript):
 
-	let map = new Map(/**/);
-	let result = [for(entry of map) entry = entry[0] + "=" + entry[1]];// same as Array.from(map.values(), entry => entry[0] + "=" + entry[1]);
+```js
+const map = new Map(/**/);
+const result = Array.from(map.values(), ([name, value]) => name + "=" + value);
 
-	// eq. of if(cond) array.push('a')
-	// better than cond && arr.push('a') because `arr.push('a')` is converted to a boolean for nothing
-	const cond = false;
-	const result = [ ...(cond ? ['a'] : []), 'b']);
-	// ['b']
+// eq. of if(cond) array.push('a')
+// better than cond && arr.push('a') because `arr.push('a')` is converted to a boolean for nothing
+const cond = false;
+const result = [ ...(cond ? ['a'] : []), 'b'];
+// ['b']
 
-	var chars = [..."test"];
+var chars = [..."test"];
 
-	// range
-	[...new Array(4).keys()]// [0, 1, 2, 3]
+// range
+[...new Array(4).keys()]// [0, 1, 2, 3]
+```
 
 ### Spread operator
 
