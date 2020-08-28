@@ -22,8 +22,7 @@
 - [dotenv](https://www.npmjs.com/package/dotenv) - Load environnement variable from `.env` file
 - [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
-- [75lb/command-line-args: A mature, feature-complete library to parse command-line options.](https://github.com/75lb/command-line-args/) - parse command line arguments
-- [zeit/arg: Simple argument parsing](https://github.com/zeit/arg) - parse command line arguments
+- parse command line arguments : [command-line-args](https://www.npmjs.com/package/command-line-args), [arg](https://www.npmjs.com/package/arg), [minimist](https://www.npmjs.com/package/minimist) / [commander](https://www.npmjs.com/package/commander) / [yargs](https://www.npmjs.com/package/yargs)
 
 - [Server-side Libraries](https://github.com/dexteryy/spellbook-of-modern-webdev#server-side-libraries-nodejs)
 
