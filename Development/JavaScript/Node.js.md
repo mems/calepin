@@ -23,6 +23,7 @@
 - [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
 - parse command line arguments : [command-line-args](https://www.npmjs.com/package/command-line-args), [arg](https://www.npmjs.com/package/arg), [minimist](https://www.npmjs.com/package/minimist) / [commander](https://www.npmjs.com/package/commander) / [yargs](https://www.npmjs.com/package/yargs)
+- parse [configuration file](https://en.wikipedia.org/wiki/Configuration_file) / [run commands](https://en.wikipedia.org/wiki/Run_command): [rc](https://www.npmjs.com/package/rc)
 
 - [Server-side Libraries](https://github.com/dexteryy/spellbook-of-modern-webdev#server-side-libraries-nodejs)
 
