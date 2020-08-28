@@ -19,11 +19,11 @@
 - [auth0/node-jsonwebtoken: JsonWebToken implementation for node.js](https://github.com/auth0/node-jsonwebtoken) - JSON Token generation and verification (for access token)
 - [kelektiv/node.bcrypt.js: bcrypt for NodeJs](https://github.com/kelektiv/node.bcrypt.js) - bcrypt hash generation and verification (for password storage)
 - [expressjs/session: Simple session middleware for Express](https://github.com/expressjs/session) - Handle clients sessions
-- [dotenv](https://www.npmjs.com/package/dotenv) - Load environnement variable from `.env` file
 - [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
 - parse command line arguments : [command-line-args](https://www.npmjs.com/package/command-line-args), [arg](https://www.npmjs.com/package/arg), [minimist](https://www.npmjs.com/package/minimist) / [commander](https://www.npmjs.com/package/commander) / [yargs](https://www.npmjs.com/package/yargs)
 - parse [configuration file](https://en.wikipedia.org/wiki/Configuration_file) / [run commands](https://en.wikipedia.org/wiki/Run_command): [rc](https://www.npmjs.com/package/rc)
+- load environnement variable (from `.env` file): ~~[dotenv](https://www.npmjs.com/package/dotenv)~~; do it view the command line instead: [bash - Set environment variables from file of key/value pairs - Stack Overflow](https://stackoverflow.com/questions/19331497/set-environment-variables-from-file-of-key-value-pairs/20909045#20909045)
 
 - [Server-side Libraries](https://github.com/dexteryy/spellbook-of-modern-webdev#server-side-libraries-nodejs)
 
@@ -300,10 +300,10 @@ Aka monorepos and multi packages
 ## Promisify
 
 ```js
-import util from 'util';
+import {promisify} from 'util';
 const result;
 try{
-	result = await util.promisify(obj.method.bind(obj))("value1", "value2");
+	result = await promisify(obj.method.bind(obj))("value1", "value2");
 	console.log(result);
 }catch(error){
 	console.error(error);
@@ -323,7 +323,8 @@ obj.method("value1", "value2", (error, result) => {
 })
 ```
 
-- [Util | Node.js v8.9.4 Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)
+- [File system | Node.js v14.9.0 Documentation](https://nodejs.org/docs/latest/api/fs.html#fs_fs_promises_api)
+- [Util | Node.js v8.9.4 Documentation](https://nodejs.org/docs/latest/api/util.html#util_util_promisify_original)
 
 ## Modules
 
