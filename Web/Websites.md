@@ -2695,3 +2695,33 @@ Save the RSS / Atom
 - https://datatracker.ietf.org/doc/search/?rfcs=on&name=%s (where `%s` is 2616 for RFC 2616)
 - [IETF | RFCs](https://www.ietf.org/standards/rfcs/)
 - [📄 HTTP Documentation](https://httpwg.org/specs/)
+
+## Can I use
+
+```js
+const type = "custom";
+const id = "mysite";
+const source = "custom";
+const uid = `${type}.${id}`;
+
+localStorage.setItem("config-primary_usage", uid);
+localStorage.setItem("usage-data-by-id", JSON.stringify({
+	[uid]: {
+		name: "My Custom Data Usage",
+		id,
+		uid,
+		type,
+		source,
+		/*meta: {
+			"access_date": "2019-05-03",
+			"month": "2019-04"
+		},*/
+		// 100 based values
+		dataByBrowser: {
+			// see "data" field in https://caniuse.com/process/request_region_data.php?id=US
+		},
+	}
+}));
+```
+
+- [Additional browser usage sources/functionality · Issue #1724 · Fyrd/caniuse](https://github.com/Fyrd/caniuse/issues/1724#issuecomment-497950671)

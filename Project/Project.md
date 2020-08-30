@@ -26,22 +26,22 @@ See [Specification](../Documentation/Documentation.md#specification)
 - poser des questions qui ne recueillent que des réponses fermées
 - être trop centré sur la fonctionnalité technique en oubliant la situation d’usage
 - trop extrapoler vis-à-vis de données statistiques
+- [Culture differences](#culture-differences)
 
 ![Good Cheap Fast](good%20cheap%20fast.mp4) ![GoodCheapFast](GoodCheapFast.jpg)
 ![Coca Cola Fail](Coca-Cola_fail.gif)
 ![Castorama Fail](castorama_fail.jpg)
 [Motorola et la pub](https://web.archive.org/web/20101223200221/http://blogs.nofrag.com:80/NoLog/2008/oct/27/41184-motorola-et-la-pub/)
 
-Métro Express Régional Défense-Etoile (MERDE : translated to SHIT) → Réseau Express Régional (RER)
-- [Réseau expres régional — Wikipédia](https://fr.wikipedia.org/wiki/R%C3%A9seau_express_r%C3%A9gional#Anecdote)
+## Brand blunder
 
-Renault Koleos
-- [κολεός — Wiktionnaire](https://fr.wiktionary.org/wiki/%CE%BA%CE%BF%CE%BB%CE%B5%CF%8C%CF%82)
-
-Mitsubishi Pajero (ex: masturbator, wanker)
-- [Mitsubishi Pajero - Wikipedia](https://en.wikipedia.org/wiki/Mitsubishi_Pajero)
-- [Mitsubishi Montero - Wikipedia, la enciclopedia libre](https://es.wikipedia.org/wiki/Mitsubishi_Montero)
-
+- Métro Express Régional Défense-Etoile (MERDE : translated to SHIT) → Réseau Express Régional (RER)
+	- [Réseau expres régional — Wikipédia](https://fr.wikipedia.org/wiki/R%C3%A9seau_express_r%C3%A9gional#Anecdote)
+- Renault Koleos
+	- [κολεός — Wiktionnaire](https://fr.wiktionary.org/wiki/%CE%BA%CE%BF%CE%BB%CE%B5%CF%8C%CF%82)
+- Mitsubishi Pajero (ex: masturbator, wanker)
+	- [Mitsubishi Pajero - Wikipedia](https://en.wikipedia.org/wiki/Mitsubishi_Pajero)
+	- [Mitsubishi Montero - Wikipedia, la enciclopedia libre](https://es.wikipedia.org/wiki/Mitsubishi_Montero)
 - Diapers Pedo (es: "I fart"; [Pedobear - Wikipedia](https://en.wikipedia.org/wiki/Pedobear))
 - Ford Pinto (pt: "male genitals")
 - Nokia Lumia (es: "prostitute")
@@ -49,14 +49,13 @@ Mitsubishi Pajero (ex: masturbator, wanker)
 - GM Nova (es: ("No va") "doesn’t go")
 - Mazda Laputa
 - Peugeot (Biao Zi: ("婊子") "prostitute")
-- Coca-Cola (Hans: ("骒马口蠟") "female horse stuffed with wax")
-- [GEC Plessey Telecommunication - Wikipedia](https://en.wikipedia.org/wiki/GEC_Plessey_Telecommunications) (fr: ("J’ai pété") or "I’ve farted")
+- [GEC Plessey Telecommunication - Wikipedia](https://en.wikipedia.org/wiki/GEC_Plessey_Telecommunications) / GPT (fr: ("J’ai pété") or "I’ve farted")
 
 ![TGV Snail](tgv_snail.jpg)
 [TGV - Wikipedia](https://en.wikipedia.org/wiki/TGV)
 [le nouveau logo du CNRS - Etienne Mineur archives](http://www.my-os.net/blog/index.php?2008/11/17/1161-le-logo-du-cnrs)
 
-- [11 brand name that sound really wrong in foreign language - Blog about marketing failure - Marketing Shmarketing](http://marketingshmarketing.net/post/116199876011/11-brand-names-that-sound-really-wrong-in-foreign)
+- [Brand blunder - Wikipedia](https://en.wikipedia.org/wiki/Brand_blunder)
 
 ## Lifetime
 

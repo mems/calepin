@@ -4,7 +4,7 @@
 Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C max:
 
 > La température maximale supportée par les produits dont les boutons de couvercle sont en phénolique noire est de 200°C / 392°F / thermostat 5 (en Europe thermostat 6 pour les fours à gaz)
-— [Conseils d'utilisation](https://www.lecreuset.fr/conseils-d-utilisation/)
+> — [Conseils d'utilisation](https://www.lecreuset.fr/conseils-d-utilisation/)
 
 - [World Food Atlas: Discover 11,062 Local Dishes & Ingredients](https://www.tasteatlas.com/)
 - [Index des recettes -](http://lesgourmandsdisentdarmelle.fr/2017/01/index-recettes.html)
@@ -12,7 +12,11 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 ## Other
 
 - [5 Mouth-Watering Rib Recipes by Tasty](https://tasty.co/compilation/5-mouth-watering-rib-recipes)
+
+## Eggs
+
 - [Tasty Present - Here are five easy tip to cook perfect eggs...](https://www.facebook.com/TastyPresents/videos/154478935252929/)
+- [l'oeuf parfait : Recette de l'oeuf parfait - Marmiton](https://www.marmiton.org/recettes/recette_l-oeuf-parfait_383288.aspx)
 
 ## Fluffy pancake
 

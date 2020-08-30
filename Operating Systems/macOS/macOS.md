@@ -33,13 +33,14 @@ purge
 - [I learned all about Time (Machine) so you don't have to | The Occasional Blog](http://mike.peay.us/blog/archives/248)
 - [Mass Deploying Time Machine in Mac OS X Lion | krypted.com](http://krypted.com/mac-security/mass-deploying-time-machine/)
 - [Time Machine 10.8 – Part 3 – Advanced Features > Amsys](http://www.amsys.co.uk/2013/04/time-machine-10-8-part-3-advanced-features/)
+- automount remote disk at `/Volumes/.timemachine/{remote-machine-name}`
 - TM process name: `com.apple.backupd`.
 - Open `system.log` with Console.app, search for `backupd`
 - ignore disk to be a TM target: `touch ".com.apple.timemachine.donotpresent"` in the root of the disk
 - `.com.apple.timemachine.supported` if the folder must be backup by Time Machine
 - current files used by Time Machine `sudo fs_usage -w -f filesys backupd`
 - [The ins and outs of using tmutil to backup, restore, and review Time Machine backups - krypted](https://krypted.com/mac-os-x/ins-outs-using-tmutil-backup-restore-review-time-machine-backups/)
-- [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/)
+- [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/) - T2M2 (TheTimeMachineMechanic) summarise TM logs, Mints
 - [TM-Utilities  - Arthur Rosel, Ltd.](http://7clinton.com/TM-UtilitiesHelp.html)
 
 Time Machine backup fiability:
@@ -672,6 +673,8 @@ Can be required
 - [tmutil(8) Mac OS X Manual Page](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/tmutil.8.html)
 
 ### Troubleshooting
+
+Catalina have issue with SMB (often disconnected and sometimes can't reconnect). Force to use AFP mounted disk instead. See [Time Machine in Catalina 10.15.3 has serious bugs – The Eclectic Light Company](https://eclecticlight.co/2020/02/12/time-machine-in-catalina-10-15-3-has-serious-bugs/) and [Catalina - no longer access NAS via Finder? Time Machine not working. | Synology Community](https://community.synology.com/enu/forum/1/post/129160)
 
 - [Time Machine problems? Try T2M2: it’ll tell you what’s wrong – The Eclectic Light Company](https://eclecticlight.co/2017/05/22/time-machine-problems-try-t2m2-itll-tell-you-whats-wrong/)
 - [maverick - How to repair time machine after it lose it history - Ask Different](https://apple.stackexchange.com/questions/146685/how-to-repair-time-machine-after-it-loses-its-history)
@@ -1635,6 +1638,8 @@ or:
 - [windows - Bootcamp Not enough space but nothing helps! - Ask Different](https://apple.stackexchange.com/questions/335076/bootcamp-not-enough-space-but-nothing-helps)
 
 ## Network
+
+- [What causes some Network Drives using SMB no longer connect to macOS Catalina? - Ask Different](https://apple.stackexchange.com/questions/362739/what-causes-some-network-drives-using-smb-no-longer-connect-to-macos-catalina) - SMB and NetBIOS (`/etc/nsmb.conf`) troubles
 
 ### Bandwidth limiter
 

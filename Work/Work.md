@@ -41,6 +41,14 @@ Be a good senior dev:
 > It doesn’t make sense to hire smart people and then tell them what to do; we hire smart people so they can tell us what to do.
 > — Steve Jobs
 
+> Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour. Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés.
+> Et ne nous laisse pas entrer en tentation mais délivre-nous du freelancing.
+> Amen.
+> 
+> Au nom du scrum, du git et du saint projet...
+> Amen
+> - [noredine69 on Twitter: "@gregalexandre @neur0nia Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour.Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés." / Twitter](https://twitter.com/noredine69/status/1295077783593418756?s=12)
+
 ## Entreprise lifecycle
 
 > Il existe depuis longtemps un cycle de vie pour les entreprises : les jeunes entreprises innovent, sont avides de cash et se cherchent désespérément des financements. Certaines y parviennent, vendent leurs produits et se retrouvent à gagner plus d'argent qu'elles n'en ont besoin. Les grandes entreprises prennent cet argent et l'investissent dans des produits encore meilleurs, emmenant l'entreprise vers de nouveaux sommets. [...]
@@ -96,6 +104,10 @@ Not for team or at least without expertise requirements
 > - Do you do hallway usability testing?
 > 
 > — [The Joel Test: 12 Steps to Better Code – Joel on Software](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/)
+
+See also
+
+- [Position](#position)
 
 ### Credits
 
@@ -164,6 +176,7 @@ See also:
 - [test management - How to categorize defects? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/7530/how-to-categorize-defects)
 - [agile testing - Does anyone know of a good bug matrix or defect management process? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/17386/does-anyone-know-of-a-good-bug-matrix-or-defect-management-process)
 - [manageevents - risk](https://manageevents.wikispaces.com/risk)
+
 ### Burn-out
 
 6 pratiques saines de management pour mieux accompagner :
@@ -274,11 +287,16 @@ Give better/efficient tools.
 - [No, research does not say that you produce more when working 40 hours per week | Meta Rabbit](https://metarabbit.wordpress.com/2017/07/07/no-research-does-not-say-that-you-produce-more-when-working-40-hours-per-week/)  - [Les travailleurs sont-ils plus productifs lorsqu'ils travaillent plus de 40 heures par semaine ? Qu'en est-il des développeurs ?](https://www.developpez.com/actu/148804/Les-travailleurs-sont-ils-plus-productifs-lorsqu-ils-travaillent-plus-de-40-heures-par-semaine-Qu-en-est-il-des-developpeurs/)
 - [Average Work-week is Over, a few Thoughts on Productivity | Meta Rabbit](https://metarabbit.wordpress.com/2014/02/26/average-work-week-is-over-a-few-thoughts-on-productivity/)
 
+## Position
+
+- [Time estimation](#time-estimation)
+- [Salaire brut / net : le convertisseur Urssaf - Mon-entreprise](https://mon-entreprise.fr/simulateurs/salaire-brut-net)
+
 ## Self-employed
 
 ### Contract
 
-- [Contract generator](http://docontract.com/)
+- [contract( )](https://docontract.com/)
 
 ### Project security lock
 
@@ -339,7 +357,7 @@ How much:
 
 jour/homme -> jour/personne
 
-- Projet sous 1000€ payement avant commencement (évite les ajouts non souhaitable de dernière minutes) -> au dessus prévoir un devis détaillé, cahier des charges
+- Projet sous 1000€ : payement avant commencement (évite les ajouts non souhaitable de dernière minutes) -> au dessus prévoir un devis détaillé, cahier des charges
 - Préférer le taux horaire plutôt qu'un prix global
 - Négocier le champ d'application, pas le prix
 
@@ -423,7 +441,7 @@ Régie / prix unitaire / à débours (direct labour hours, timework, sous-traita
 > Merci !
 > — [Christophe ANDRIEU | LinkedIn](https://www.linkedin.com/in/christophe-andrieu-9901575)
 
-### Time estimation
+## Time estimation
 
 Aka Chiffrage
 
@@ -438,7 +456,8 @@ Aka Chiffrage
 > nine women can't make a baby in one month
 > — Brooks’ law — https://en.wikipedia.org/wiki/Brooks%E2%80%99_law https://fr.wikipedia.org/wiki/Le_Mythe_du_mois-homme
 
-10x engineer myth:
+The 10x engineer myth:
+
 > 10x Engineer: a developer who incurs technical debt so fast he appears more productive than the 10 developers tasked w/ cleaning his mess up
 > — [Sam Bhagwat](https://twitter.com/calcsam/status/652360672827674624)
 
@@ -486,12 +505,12 @@ Aka Chiffrage
 > This adds up to a large percentage of your time, often more time than you get to spend creating artwork.
 > — [Reflections on Five Years of Making Art Through Programming — TYLER HOBBS](https://tylerxhobbs.com/essays/2019/reflections-on-five-years-of-making-art-through-programming)
 
-See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
+See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
 
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
 - [Ton estimation de temps est une blague - Je suis un dev](https://www.jesuisundev.com/ton-estimation-de-temps-est-une-blague/) - "Donne toujours une fourchette de temps [...] D’avoir une vue sur les risques de ta tâche [...] toujours donner une mise à jour en temps réel sur ton estimation"
 
-#### Evidence based scheduling
+### Evidence based scheduling
 
 > The estimation system takes 100 velocities calculated from the developers history. Each velocity is the ratio between estimated time and actual time for a given task.
 > [...]
@@ -508,7 +527,7 @@ See [Time estimation](Work#time-estimation) and [Unsolicited reworks](#unsolicit
 - [Feature #3595: Evidence Based Scheduling - Redmine](http://www.redmine.org/issues/3595)
 - [Evidence-based Scheduling - evidence-based_scheduling.pdf](https://www.csie.ntu.edu.tw/~hsinmu/courses/_media/ada_11fall/evidence-based_scheduling.pdf)
 
-#### Difficulty time estimation
+### Difficulty time estimation
 
 > I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs".
 > 

@@ -6,16 +6,18 @@ You can ship with a manifest file (contains all file names) if the archive will 
 	find . > MANIFEST
 
 - [Indexing large tar files for fast access using python | fomori blog](http://fomori.org/blog/?p=391)
-- https://github.com/devsnd/tarindexer
+- [devsnd/tarindexer: python module for indexing tar files for fast access](https://github.com/devsnd/tarindexer)
 - [star(1): unique standard tape archiver - Linux man page](http://linux.die.net/man/1/star)
 
-- https://en.wikipedia.org/wiki/Tar_%28computing%29
+- [tar (computing) - Wikipedia](https://en.wikipedia.org/wiki/Tar_%28computing%29)
 - http://www.cs.usfca.edu/~benson/cs326/pintos/pintos/src/lib/ustar.c
-- http://www.fileformat.info/format/tar/corion.htm
+- [tar(5)](https://manpages.ubuntu.com/manpages/precise/en/man5/tar.5.html)
 
 - [linux - List contents of large tar archive quickly - Super User](http://superuser.com/questions/712095/list-contents-of-large-tar-archive-quickly/712133#712133)
 
-- https://github.com/sdmp/signed-tar-manifest and https://github.com/sdmp/signed-tar
+- [saibotsivad/signed-tar-manifest: Simple manifest generator to act as authoritative implementation of specs.](https://github.com/saibotsivad/signed-tar-manifest) and [saibotsivad/signed-tar: Specifications for a method of generating signed tar packages.](https://github.com/saibotsivad/signed-tar)
+
+- [GNU tar blocking factor, blocks, records and checkpoints](https://finch.am/projects/tar/) - additional informations
 
 ## Tarbomb
 

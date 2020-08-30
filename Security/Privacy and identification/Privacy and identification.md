@@ -65,20 +65,6 @@ Metadata:
 - [Exchangeable image file format - Wikipedia, the free encyclopedia - Privacy and security](https://en.wikipedia.org/wiki/Exchangeable_image_file_format#Privacy_and_security)
 - [FotoForensics](http://fotoforensics.com/tutorial-meta.php)
 
-Recover data from corrupted stream/storage medium:
-
-- [SANS SIFT Kit/Workstation: Investigative Forensic Toolkit Download](http://digital-forensics.sans.org/community/downloads)
-- [CAINE Live USB/DVD - computer forensics digital forensics](http://www.caine-live.net/)
-- [How to build your first digital forensics lab on a budget | SecurityWatch](http://bhconsulting.ie/securitywatch/?p=3045)
-- [DEFT Linux - Computer Forensics live CD |](http://www.deftlinux.net/)
-- [Autopsy](http://www.sleuthkit.org/autopsy/)
-- [Forensic Toolkit (FTK) | AccessData](http://accessdata.com/solutions/digital-forensics/forensic-toolkit-ftk)
-- [PhotoRec - Digital Picture and File Recovery](http://www.cgsecurity.org/wiki/PhotoRec)
-- [Digital Image Forensic Analyzer - imageforensic.org](http://www.imageforensic.org/)
-- [PC Inspector - kostenlose Software für die Datenrettung von CONVAR - Die Datenretter.](http://www.pcinspector.de/Default.htm?language=1)
-- [Download Recuva | Recover deleted files, free!](https://www.ccleaner.com/recuva)
-- [FreeUndelete - OfficeRecovery.com](http://www.officerecovery.com/freeundelete/)
-
 Example of leak:
 
 - [Le dragueur trahi par sa clef USB - virtualabs.fr](http://www.virtualabs.fr/Le-dragueur-trahi-par-sa-clef-USB)

@@ -523,6 +523,7 @@ Don't use select if you have less than 5 choices or more than 15 choices or choi
 - autocomplete (if too many choices)
 
 - [Stop Using ‘Drop-down’ | Adrian Roselli](https://adrianroselli.com/2020/03/stop-using-drop-down.html)
+- [Dropdown alternatives for better (mobile) forms | by Zoltan Kollin | Medium](https://medium.com/@kollinz/dropdown-alternatives-for-better-mobile-forms-53e40d641b53)
 - [SXSW Keynote - "You Know What? Fuck Dropdowns." - YouTube](https://www.youtube.com/watch?v=hcYAHix-riY)
 - [The problem with dropdown fields (and what you should use instead) | Design Smarts](https://designsmarts.co/the-problem-with-dropdowns/)
 - [Dropdown alternatives for better (mobile) forms – Zoltan Kollin – Medium](https://medium.com/@kollinz/dropdown-alternatives-for-better-mobile-forms-53e40d641b53)

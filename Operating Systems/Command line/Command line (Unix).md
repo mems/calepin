@@ -520,31 +520,37 @@ xdg-open .
 
 Lister les shells disponibles :
 
-	cat /etc/shells
+```sh
+cat /etc/shells
+```
 
 Le shell par défaut d'un utilisateur est définit dans le fichier `/etc/passwd`
 
 Display current shell prompt setting:
 
-	echo $PS1
+```sh
+echo $PS1
+```
 
 And change it:
 
-	export PS1="..."
-
-	export PS1="\[\033[0m\]\[\033[0;30;47m\] \u\[\033[0m\]\[\033[0;30;47m\]@\h\[\033[0m\] \w\n\[\033[1;32m\] \@ \$ \[\033[0m\]"
-
-	export PS1="[${LOGNAME}@$(hostname)]"
+```sh
+export PS1="..."
+export PS1="\[\033[0m\]\[\033[0;30;47m\] \u\[\033[0m\]\[\033[0;30;47m\]@\h\[\033[0m\] \w\n\[\033[1;32m\] \@ \$ \[\033[0m\]"
+export PS1="[${LOGNAME}@$(hostname)]"
+```
 
 In `/etc/bashrc` or `~/.bashrc`
 
-	# If id command returns zero, you’ve root access.
-	if [ $(id -u) -eq 0 ];
-	then you are root, set red colour prompt
-		PS1="\\[$(tput setaf 1)\\]\\u@\\h:\\w\\[$(tput sgr0)\\]"
-	else normal
-		PS1="[\\u@\\h:\\w] $"
-	fi
+```sh
+# If id command returns zero, you’ve root access.
+if [ $(id -u) -eq 0 ];
+then you are root, set red colour prompt
+	PS1="\\[$(tput setaf 1)\\]\\u@\\h:\\w\\[$(tput sgr0)\\]"
+else normal
+	PS1="[\\u@\\h:\\w] $"
+fi
+```
 
 - [How to: Change / Setup bash custom prompt (PS1)](http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html)
 
@@ -552,11 +558,15 @@ In `/etc/bashrc` or `~/.bashrc`
 
 Donner le dossier courant
 
-	pwd
+```sh
+pwd
+```
 
 ### Clear shell cache
 
-	hash -r
+```sh
+hash -r
+```
 
 ### Shell config
 
@@ -574,11 +584,15 @@ Dans l'ordre :
 
 Pour recharger un fichier de configuration (ici le fichier `~/.bashrc`)
 
-	source ~/.bashrc
+```sh
+source ~/.bashrc
+```
 
 ou 
 
-	. ~/.bashrc 
+```sh
+. ~/.bashrc
+```
 
 By convention, the prompt ends with `$` for users and by `#` for root
 
@@ -586,6 +600,8 @@ By convention, the prompt ends with `$` for users and by `#` for root
 - [Shell startup scripts — flowblok’s blog](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html)
 
 ### Programmable bash completions
+
+See `complete` buildin command
 
 - [iridakos - Creating a bash completion script](https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial)
 - [git/git-completion.bash at master · git/git](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
@@ -598,11 +614,13 @@ By convention, the prompt ends with `$` for users and by `#` for root
 
 In `~/.inputrc` or `/etc/inputrc`:
 
-	# History auto complete with "start with" filter
-	"\e[5~": history-search-backward
-	"\e[6~": history-search-forward
-	set show-all-if-ambiguous on
-	set completion-ignore-case on
+```sh
+# History auto complete with "start with" filter
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
+```
 
 - http://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html
 - https://stackoverflow.com/questions/1030182/how-do-i-change-bash-history-completion-to-complete-whats-already-on-the-line
@@ -626,48 +644,58 @@ Use esc to type these strings (add `\033` in input field) or past (via the conte
 
 For `ls` colors:
 
-	export CLICOLOR=1
-	export TERM=xterm-color
-	export LSCOLORS=DxFxcxdxBxegedbxHxacHd
+```sh
+export CLICOLOR=1
+export TERM=xterm-color
+export LSCOLORS=DxFxcxdxBxegedbxHxacHd
+```
 
 `key=effect;foreground colour;background colour` separated by `:`.
 
 Ex.: a symlink bright pink `ln=01;95;40` give:
 
-	export LS_COLORS="di=01;33;40:ln=01;95;40"
+```sh
+export LS_COLORS="di=01;33;40:ln=01;95;40"
+```
 
 To known color config:
 
-	man ls
+```sh
+man ls
+```
 
 - http://geoff.greer.fm/lscolors/
 - http://www.bigsoft.co.uk/blog/index.php/2008/04/11/configuring-ls_colors
- 
-	#
-	# Dont forget to call ~/.bashrc in your ~/.profile script
-	#
-	
-	export CLICOLOR=1   
-	alias ll='ls -l' 
-	alias la='ls -A' 
-	alias vi='vim' 
-	alias l='ls -CF' 
-	
-	function cyan_red_prompt {   
-		local CYAN="\[\033[0;36m\]" 
-		local GRAY="\[\033[0;37m\]" 
-		local RED="\[\033[0;31m\]"   
-		PS1="${CYAN}[\u@\h ${RED}\w${CYAN}]${GRAY} " 
-	}   
-	
-	cyan_red_prompt
+
+```sh
+#
+# Dont forget to call ~/.bashrc in your ~/.profile script
+#
+
+export CLICOLOR=1   
+alias ll='ls -l' 
+alias la='ls -A' 
+alias vi='vim' 
+alias l='ls -CF' 
+
+function cyan_red_prompt {   
+	local CYAN="\[\033[0;36m\]" 
+	local GRAY="\[\033[0;37m\]" 
+	local RED="\[\033[0;31m\]"   
+	PS1="${CYAN}[\u@\h ${RED}\w${CYAN}]${GRAY} " 
+}
+
+cyan_red_prompt
+```
 
 - [TIL: Moving the terminal cursor](https://ddfreyne.github.io/til/2016/12-03-terminal-cursor-movement/)
 - [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)
 
 ### Command alias
 
-	alias NICKNAME='COMMAND -withargs'
+```sh
+alias NICKNAME='COMMAND -withargs'
+```
 
 A ajouter dans `~/.bashrc`
 
@@ -677,11 +705,15 @@ A ajouter dans `~/.bashrc`
 
 Créer un fichier `.sh` et executer la commande suivante sur celui ci
 
-	chmod +x /path/to/file.sh
+```sh
+chmod +x /path/to/file.sh
+```
 
 Celui-ci devra contenir un shebang sur la première ligne indiquant quel interpréteur var être utilisé pour executer le contenu du fichier.
 
-	#!/bin/sh
+```sh
+#!/bin/sh
+```
 
 Les plus courant sont `sh`, `php`, `python` ou encore `perl`.
 
@@ -689,35 +721,47 @@ Les plus courant sont `sh`, `php`, `python` ou encore `perl`.
 
 Il est possible d'être générique, et de ne pas indiquer directement le chemin de l'interpréteur :
 
-	#!/usr/bin/env php
+```sh
+#!/usr/bin/env php
+```
 
 - http://en.wikipedia.org/wiki/Shebang_%28Unix%29#Portability
 
 Include shell script into an other
 
-	source /path/to/script.sh
+```sh
+source /path/to/script.sh
+```
 
 But it's relative to execution path, not current script path.
 
 So use this instead:
 
-	source $(dirname $0)/script.sh
+```sh
+source $(dirname $0)/script.sh
+```
 
 Or:
 
-	CURRENT_DIR=`dirname $0`
-	$CURRENT_DIR/script.sh
+```sh
+CURRENT_DIR=`dirname $0`
+$CURRENT_DIR/script.sh
+```
 
 Node shebang:
 
-	#!/usr/bin/env node
+```sh
+#!/usr/bin/env node
+```
 
 Or use if support system with nodejs instead of node. (`:` command in bash is noop)
 
-	#!/usr/bin/env sh
-	':' //; exec "$(command -v nodejs || command -v node)" "$0" "$@"
-	
-	console.log('Hello world!');
+```sh
+#!/usr/bin/env sh
+':' //; exec "$(command -v nodejs || command -v node)" "$0" "$@"
+
+console.log('Hello world!');
+```
 
 - [scripting - Universal Node.js shebang? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/65235/universal-node-js-shebang)
 
@@ -729,20 +773,28 @@ Avoid using UPPERCASE variable names. That namespace is generally reserved by th
 
 Escape special char in argument:
 
-	command $'\t'
+```sh
+command $'\t'
+```
 
 Wildcard files:
 
-	for file in *.ext1; do echo "${file} ${file/.ext1/.ext2}"; done
+```sh
+for file in *.ext1; do echo "${file} ${file/.ext1/.ext2}"; done
+```
 
-	ls file_*{.png,.jpg}
+```sh
+ls file_*{.png,.jpg}
+```
 
 File [Wildcards](http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm#STANDARD-WILDCARDS)
 
 Brace expansion
 
-	sudo mv /path/file{,.old}
-	sudo ln {/path1,/path2}/file
+```sh
+sudo mv /path/file{,.old}
+sudo ln {/path1,/path2}/file
+```
 
 - [Bash Reference Manual: Brace Expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
 
@@ -774,10 +826,12 @@ File pointer and file redirection
 - [I/O Redirection](http://tldp.org/LDP/abs/html/io-redirection.html)
 - [Bash scripting quirks & safety tips - Julia Evans](http://jvns.ca/blog/2017/03/26/bash-quirks/)
 - named pipe (`mkfifo`)
- 
-	while read item; do
-		echo $item
-	done < sql.res
+
+```sh
+while read item; do
+	echo $item
+done < sql.res
+```
 
 Bash support [process substitution](https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html#Process-Substitution):
 
@@ -869,22 +923,28 @@ Execute in background
 
 > If a command is terminated by the control operator &, the shell executes the command in the background in a subshell
 
-	echo '' > .mycmd.pid
-	mycmd & echo "$!" >> .mycmd.pid
-	# ... later
-	cat .mycmd.pid | xargs -n 1 kill -9
+```sh
+echo '' > .mycmd.pid
+mycmd & echo "$!" >> .mycmd.pid
+# ... later
+cat .mycmd.pid | xargs -n 1 kill -9
+```
 
 ### Add a bin folder to global executables
 
 Pour éviter de tapper le chemin entier vers les commandes / executables
 
-	PATH=$PATH:/path/bindir
-	export PATH
+```sh
+PATH=$PATH:/path/bindir
+export PATH
+```
 
-	PATH=$PATH:/path/bindir command-use-path
-	PATH=$PATH:/path/bindir bash -c 'echo $PATH'
-	PATH=$PATH:/path/bindir bash -c 'command1 | command2'
-	(export PATH=$PATH:/path/bindir; command1 | command2)
+```sh
+PATH=$PATH:/path/bindir command-use-path
+PATH=$PATH:/path/bindir bash -c 'echo $PATH'
+PATH=$PATH:/path/bindir bash -c 'command1 | command2'
+(export PATH=$PATH:/path/bindir; command1 | command2)
+```
 
 Pour l'ajouter de façon permanente, l'écrire dans `~/.profile` ou `~/.bashrc`
 
@@ -896,24 +956,19 @@ Pour l'ajouter de façon permanente, l'écrire dans `~/.profile` ou `~/.bashrc`
 
 ## Directory navigation
 
-Go to previous directory
+```sh
+# Go to previous directory
+cd -
 
-	cd -
+# Go to $HOME directory
+cd
 
+# Go to dir, execute command and return to current dir
+(cd dir && command)
 
-Go to $HOME directory
-
-	cd
-
-
-Go to dir, execute command and return to current dir
-
-	(cd dir && command)
-
-
-Put current dir on stack so you can popd back to it
-
-	pushd .
+# Put current dir on stack so you can popd back to it
+pushd .
+```
 
 ## Files and folders operations
 
@@ -928,50 +983,39 @@ File name:
 
 - [bash - How do I make find fail if -exec fails? - Ask Different](https://apple.stackexchange.com/questions/49042/how-do-i-make-find-fail-if-exec-fails)
 
-Find all files that have been modified in the past 7 days
+```sh
+# Find all files that have been modified in the past 7 days
+find . -mtime -7
 
-	find . -mtime -7
+# Find all JPEGs that have been modified more than 30 days ago
+find . -name \*.jpg -mtime +30
 
-Find all JPEGs that have been modified more than 30 days ago
+# Move all JPEGs from the current folder (recursively) that are greater than 40k into the folder /tmp/2
+find ./ -name \*.jpg -size +40k -exec mv {} /tmp/2 +
 
-	find . -name \*.jpg -mtime +30
+# quick dir listing
+alias l='ls -l --color=auto'
 
-Move all JPEGs from the current folder (recursively) that are greater than 40k into the folder /tmp/2
+# List files by date. See also newest and find_mm_yyyy
+ls -lrt
 
-	find ./ -name \*.jpg -size +40k -exec mv {} /tmp/2 +
+# Print in 9 columns to width of terminal
+ls /usr/bin | pr -T9 -W$COLUMNS
 
-quick dir listing
+# Search 'expr' in this dir and below. See also findrepo
+find -name '*.[ch]' | xargs grep -E 'expr'
 
-	alias l='ls -l --color=auto'
+# Search all regular files for 'example' in this dir and below
+find -type f -print0 | xargs -r0 grep -F 'example'
 
-List files by date. See also newest and find_mm_yyyy
+# Search all regular files for 'example' in this dir
+find -maxdepth 1 -type f | xargs grep -F 'example'
 
-	ls -lrt
+# Process each item with multiple commands (in while loop)
+find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done
 
-Print in 9 columns to width of terminal
-
-	ls /usr/bin | pr -T9 -W$COLUMNS
-
-
-Search 'expr' in this dir and below. See also findrepo
-
-	find -name '*.[ch]' | xargs grep -E 'expr'
-
-
-Search all regular files for 'example' in this dir and below
-
-	find -type f -print0 | xargs -r0 grep -F 'example'
-
-
-Search all regular files for 'example' in this dir
-
-	find -maxdepth 1 -type f | xargs grep -F 'example'
-
-Process each item with multiple commands (in while loop)
-
-	find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done
-
-	find ./ -name "tile_*.png" -exec bash -c 'filename="$1";echo "${filename%.*}"' _ {} \;
+find ./ -name "tile_*.png" -exec bash -c 'filename="$1";echo "${filename%.*}"' _ {} \;
+```
 
 - [bash - Find and replace filename recursively in a directory - Stack Overflow](https://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory/9394625#9394625)
 
@@ -996,33 +1040,24 @@ ls *.jpg | xargs -n1 sh -c 'convert $0 -thumbnail 200x90 thumbnails/$0.gif'
 # An alternative method on linux (rather than plain unix)
 # This does not need a shell to handle the argument.
 ls *.jpg | xargs -r -I FILE convert FILE -thumbnail 200x90 FILE_thumb.gif
+
+# Find files not readable by all (useful for web site)
+find -type f ! -perm -444
+
+# Find dirs not accessible by all (useful for web site)
+find -type d ! -perm -111
+
+#Search cached index for names. This re is like glob *file*.txt
+locate -r 'file[^/]*\.txt'
+
+# Quickly search (sorted) dictionary for prefix
+look reference
+
+# Highlight occurances of regular expression in dictionary
+grep --color reference /usr/share/dict/words
+
+# Search for empty files and folder (or file with only whitespaces)
 ```
-
-Find files not readable by all (useful for web site)
-
-	find -type f ! -perm -444
-
-
-Find dirs not accessible by all (useful for web site)
-
-	find -type d ! -perm -111
-
-
-Search cached index for names. This re is like glob *file*.txt
-
-	locate -r 'file[^/]*\.txt'
-
-
-Quickly search (sorted) dictionary for prefix
-
-	look reference
-
-
-Highlight occurances of regular expression in dictionary
-
-	grep --color reference /usr/share/dict/words
-
-Search for empty files and folder (or file with only whitespaces)
 
 - [command line - How to find all empty files and folders in a specific directory including files which just look empty but are not? - Ask Ubuntu](https://askubuntu.com/questions/719912/how-to-find-all-empty-files-and-folders-in-a-specific-directory-including-files)
 - [unix - Appending new lines to multiple files - Super User](https://superuser.com/questions/1327969/appending-new-lines-to-multiple-files/1327980#1327980) - How to use `echo "test" >> {}` within find exec
@@ -1325,14 +1360,16 @@ Extension du fichier magic compilé : `*.mgc`
 
 ### Test if a file exist
 
-	#!/bin/bash
-	filename=$1
-	if [ -f $filename ]
-	then
-		echo "$filename exists"
-	else
-		echo "$filename does NOT exist"
-	fi
+```sh
+#!/bin/bash
+filename=$1
+if [ -f $filename ]
+then
+	echo "$filename exists"
+else
+	echo "$filename does NOT exist"
+fi
+```
 
 ### Name, extension and parent folder
 
@@ -1393,49 +1430,46 @@ extension=$([[ "$file" = *.* ]] && echo "${file##*.}" || echo '')
 
 ### Supprimer tous les fichiers Unix cachés
 
-Tous les fichiers/dossier commençant par ".", comme `.htaccess` ou `.DS_STORE`
+```sh
+# Tous les fichiers/dossier commençant par ".", comme `.htaccess` ou `.DS_STORE`
+rm -rf .[^.]*
 
-	rm -rf .[^.]*
-
-Tous les fichiers `.svn`
-
-	find ./ -name ".svn" -exec rm -rf {} +
+# Tous les fichiers `.svn`
+find ./ -name ".svn" -exec rm -rf {} +
+```
 
 ### Affichage de fichier / flux
 
-Affichage 
+```sh
+# Affichage 
+cat /path/file
 
-	cat /path/file
+# Pageurs (affichage page par page) :
+less /path/file
+# ou
+more /path/file
 
-Pageurs (affichage page par page) :
-
-	less /path/file
-
-ou
-
-	more /path/file
-
-Affichage en live des modifications:
-
-	tail -f /path/file
+# Affichage en live des modifications:
+tail -f /path/file
+```
 
 ### List all folders and files
 
-Ordered by size :
+```sh
+# Ordered by size :
+du -ak . | sort -nr | less
 
-	du -ak . | sort -nr | less
-
-List top 10 largest files and directories
-
-	du -a /var | sort -n -r | head -n 10
+# List top 10 largest files and directories
+du -a /var | sort -n -r | head -n 10
+```
 
 ### Find text in files
 
-Find text in files:
-
-	grep -rn "texttofind" *
-
-	grep "string text to find in all files" . -R
+```sh
+# Find text in files:
+grep -rn "texttofind" *
+grep "string text to find in all files" . -R
+```
 
 ### Create an empty file or truncate a file
 

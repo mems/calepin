@@ -55,7 +55,7 @@ Le placement d'un hyperlien renvoyant vers un site qui a publié des photos sans
 	#signature#
 	
 
-A envoyer en lrar au procureur de la republique dont vous dependez, cf pages jaunes ou justice.gouv.fr
+A envoyer en [LRAR](https://fr.wiktionary.org/wiki/LRAR) au procureur de la république dont vous dépendez. Cf. pages jaunes ou justice.gouv.fr
 
 ## Vol carte de crédit
 
@@ -85,4 +85,3 @@ A envoyer en lrar au procureur de la republique dont vous dependez, cf pages jau
 - [Usurpation d’identité, comment s’en protéger ? | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/protection-usurpation-identite)
 - [L'usurpation d'identité en questions | CNIL](https://www.cnil.fr/fr/lusurpation-didentite-en-questions)
 - [Usurpation d’identité, comment s’en protéger ? | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/protection-usurpation-identite)
-- 

@@ -2114,6 +2114,7 @@ See [Water](#water)
 - Boozy liquid shader
 - Unity liquid shader, aka Wobble: [Quick Game Art Tips - Unity Liquid Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-18245226)
 - [Macoron/Unity-Simple-Liquid: Simple high-performance liquids simulation for Unity3d](https://github.com/Macoron/Unity-Simple-Liquid)
+- [Simulating Liquids in Bottles with a Shader](https://80.lv/articles/simulating-liquids-in-a-bottle-with-a-shader/)
 
 ![Unity liquid shader](https://c10.patreonusercontent.com/3/eyJ3Ijo2MjB9/patreon-media/p/post/18245226/db9cc3b3c3a649788900464d416eae9f/1.gif?token-time=1591883850&token-hash=QyNle-lEchyr3TAekNeRKqGgY7MnizmSfVWMmNIeBYA%3D)
 
