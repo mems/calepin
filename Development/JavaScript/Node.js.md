@@ -49,26 +49,24 @@ const isSubdir = !!relative && relative.split(path.sep)[0] !== ".." && !path.isA
 ## List files recursively
 
 ```js
-const path = require("path");
-const {promisify} = require("util");
-const fs = require("fs");
-const lstat = promisify(fs.lstat);
-const readdir = promisify(fs.readdir);
+import path from "path";
+import {lstat, readdir} from "fs/promise";
+
 // Walk directories
-const getFiles = async entry => {
+async function* getFiles(entry){
 	if((await lstat(entry)).isDirectory()){
 		return entry;
 	}
 
-	const files = [];
 	for(const subEntry of await readdir(entry)){
-		files.push(...await getFiles(path.join(entry, subEntry)));
+		yield* getFiles(path.join(entry, subEntry));
 	}
-	return files;
 };
-```
 
-TODO use generator function
+for(const file of await getFiles("/some/path")){
+	console.log(file);
+}
+```
 
 - [List all file in a directory in Node.j recursively in a synchronou fashion](https://gist.github.com/kethinov/6658166)
 
@@ -90,6 +88,8 @@ In all `node_modules` directory on an hard drive.
 ```sh
 find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;
 ```
+
+- [Prevent spotlight from indexing folders with a certain name - Ask Different](https://apple.stackexchange.com/questions/247019/prevent-spotlight-from-indexing-folders-with-a-certain-name/258791#258791)
 
 ## Performances
 
@@ -321,6 +321,11 @@ obj.method("value1", "value2", (error, result) => {
 
 	console.log(result);
 })
+```
+
+```js
+import {readFile} from "fs/promises";
+const content = await readFile("./test.txt", "utf8");
 ```
 
 - [File system | Node.js v14.9.0 Documentation](https://nodejs.org/docs/latest/api/fs.html#fs_fs_promises_api)
