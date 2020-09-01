@@ -86,7 +86,8 @@ In all `node_modules` directory on an hard drive.
 ## Turn off Spotflight indexation of dependencies
 
 ```sh
-find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;
+find /path/to/projects -type d  -path '*node_modules/*' -prune -o -type d -name 'node_modules' -exec xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd '{}' \;
+# find /path/to/projects -type d  -path '*node_modules/*' -prune -o -type d -name 'node_modules' -exec touch '{}/.metadata_never_index' \;
 ```
 
 - [Prevent spotlight from indexing folders with a certain name - Ask Different](https://apple.stackexchange.com/questions/247019/prevent-spotlight-from-indexing-folders-with-a-certain-name/258791#258791)
