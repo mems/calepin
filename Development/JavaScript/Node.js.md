@@ -54,7 +54,7 @@ import {lstat, readdir} from "fs/promise";
 
 // Walk directories
 async function* getFiles(entry){
-	if((await lstat(entry)).isDirectory()){
+	if(!(await lstat(entry)).isDirectory()){
 		return entry;
 	}
 
