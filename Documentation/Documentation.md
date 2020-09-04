@@ -5,7 +5,7 @@ Write all, make reports, about choice has been mades
 API references, guides, tutorials, and blog posts
 
 - when communicating on a project, use clear and accessible language for people who didn’t grow up speaking English, or read less-than-fluently.
-- avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”
+- [avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”](../Development/Development.md#inclusive-terminology)
 
 - [Bus factor — Wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
 - [Code comments](../Development/Development.md#comments)
