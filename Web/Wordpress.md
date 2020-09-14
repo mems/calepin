@@ -11,40 +11,52 @@
 
 - [Using Composer with WordPress | Roots](https://roots.io/using-composer-with-wordpress/)
 - [Using Composer With WordPress — Smashing Magazine](https://www.smashingmagazine.com/2019/03/composer-wordpress/)
- 
-	"extra": {
-		"webroot-dir": "www",
-		"webroot-package": "wordpress",
-		"installer-paths": {
-			"app/plugins/{$name}/": ["type:wordpress-plugin"],
-			"app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-			"app/themes/{$name}/": ["type:wordpress-theme"]
-		}
+
+```json
+"extra": {
+	"webroot-dir": "www",
+	"webroot-package": "wordpress",
+	"installer-paths": {
+		"app/plugins/{$name}/": ["type:wordpress-plugin"],
+		"app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+		"app/themes/{$name}/": ["type:wordpress-theme"]
 	}
+}
+```
 
-	/** Absolute path to the WordPress directory. */
-	if ( !defined('ABSPATH') )
-		define('ABSPATH', dirname(__FILE__) . '/wordpress/');
-	
-	/** Absolute path to the WordPress wp-content directory, which holds your themes, plugins, and uploads */
-	//define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
+```php
+/** Absolute path to the WordPress directory. */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/wordpress/');
 
-	include_once './vendor/autoload.php';
-	require( './wordpress/wp-blog-header.php' );
+/** Absolute path to the WordPress wp-content directory, which holds your themes, plugins, and uploads */
+//define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
+```
+
+```php
+include_once './vendor/autoload.php';
+require( './wordpress/wp-blog-header.php' );
+```
+
+### Docker
+
+- [Quickstart: Compose and WordPress | Docker Documentation](https://docs.docker.com/compose/wordpress/)
+- [nezhar/wordpress-docker-compose: Easy Wordpress development with Docker and Docker Compose](https://github.com/nezhar/wordpress-docker-compose)
+- [wordpress - How to run wp cli in docker-compose.yml - Stack Overflow](https://stackoverflow.com/questions/50999848/how-to-run-wp-cli-in-docker-compose-yml)
 
 ### Config
 
 ```php
 /*
 Automatic Url + Content Dir/Url Detection for Wordpress
-Based on https://gist.github.com/CMCDragonkai/7578784 and https://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
+Based on https://gist.github.com/CMCDragonkai/7578784#gistcomment-1237365 and https://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
 */
 // Use realpath to resolve symlinks (like /homez.xxx/ to /home/)
 $document_root = rtrim(str_replace(array('/', '\\'), '/', realpath($_SERVER['DOCUMENT_ROOT'])), '/');
 
 $root_dir = str_replace(array('/', '\\'), '/', __DIR__);
-$wp_dir = str_replace(array('/', '\\'), '/', __DIR__ . '/wp');
-$wp_content_dir = str_replace(array('/', '\\'), '/', __DIR__ . '/wp-content');
+$wp_dir = str_replace(array('/', '\\'), '/', rtrim(ABSPATH, '/'));
+$wp_content_dir = str_replace(array('/', '\\'), '/', WP_CONTENT_DIR);
 
 $root_url = substr_replace($root_dir, '', stripos($root_dir, $document_root), strlen($document_root));
 $wp_url = substr_replace($wp_dir, '', stripos($wp_dir, $document_root), strlen($document_root));
@@ -60,7 +72,6 @@ $wp_content_url = $scheme . $host . $port . $wp_content_url;
 
 define('WP_HOME', $root_url); //url to index.php
 define('WP_SITEURL', $wp_url); //url to wordpress installation
-define('WP_CONTENT_DIR', $wp_content_dir); //wp-content dir
 define('WP_CONTENT_URL', $wp_content_url); //wp-content url
 ```
 
@@ -69,8 +80,8 @@ define('WP_CONTENT_URL', $wp_content_url); //wp-content url
 ### Update site URL
 
 ```sql
-SET @current = '';
-SET @next = '';
+SET @current = 'http://some.example.com';
+SET @next = 'https://www.example.com';
 UPDATE wp_options SET option_value = replace(option_value, @curent, @next) WHERE option_name = 'home' OR option_name = 'siteurl';
 UPDATE wp_posts SET post_content = replace(post_content, @curent, @next);
 UPDATE wp_postmeta SET meta_value = replace(meta_value,@curent,@next);
@@ -111,6 +122,12 @@ Simple/cleared theme: [BlankSlate — Free WordPress Themes](https://wordpress.o
 - [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
 - [roots/sage: WordPress starter theme with a modern development workflow](https://github.com/roots/sage)
 - [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
+
+### Theme development
+
+- [Theme Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/themes/)
+- [Handbook – Make WordPress Themes](https://make.wordpress.org/themes/handbook/)
+- [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
 
 ## Performance / optimisation
 

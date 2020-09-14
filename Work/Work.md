@@ -319,6 +319,16 @@ Un devis et bon de commande par phase : découper le projet en plusieurs phase/d
 Ce qui permet 1 paiement (et 1 acompte) par phase. Ainsi, ne pas engager la suite que si la première partie est validée / payée.
 Cela répond au besoin de flexibilité de paiement dont le client se réclame.
 
+- Définition du besoin
+- Description technique
+    - nouvelle apis / modification api
+    - doc technique partenaire ?
+    - AB test ?
+    - mobile / desktop (responsive)
+- Wireframe
+- Spec, Contract interface back/front
+- Maquette
+
 ### Price
 
 See [Time estimation](#time-estimation)

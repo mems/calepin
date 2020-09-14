@@ -37,6 +37,10 @@ RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Comma
 - [Etendre Une Partition Sur Un Nouveau Disque Dur (Non Raid) - Installation, Démarrage et Configuration - NAS-Forum](http://www.nas-forum.com/forum/topic/44795-etendre-une-partition-sur-un-nouveau-disque-dur-non-raid/)
 - [How can I recover data on my Synology NAS using a PC? | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/How_can_I_recover_data_from_my_DiskStation_using_a_PC)
 
+### DSM on a PC
+
+- [Turn old PC into Synology NAS - YouTube](https://www.youtube.com/watch?v=_3_7ZzFxePI)
+
 ## Security
 
 - [Hardening access to your Synology Diskstation, be prepared – Q&D](https://www.wijngaard.org/hardening-access-to-your-synology-diskstation-and-prepare/)

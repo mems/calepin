@@ -329,3 +329,12 @@ git mergetool --no-prompt FILEPATH
 - [Git - git-mergetool Documentation](https://git-scm.com/docs/git-mergetool)
 - [Git - git-difftool Documentation](https://git-scm.com/docs/git-difftool)
 - [Beyond Compare Technical Support](http://www.scootersoftware.com/support.php?zz=kb_vcs)
+
+## Remove branches no longer on remote
+
+```sh
+git branch --merged | egrep -v "(^\*|main|master|develop)" | xargs git branch -d
+```
+
+- [git - Remove tracking branches no longer on remote - Stack Overflow](https://stackoverflow.com/questions/7726949/remove-tracking-branches-no-longer-on-remote)
+- [github - git - how to get default branch? - Stack Overflow](https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch)

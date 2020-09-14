@@ -1104,6 +1104,7 @@ Tools:
 
 Examples:
 
+- [public-apis/public-apis: A collective list of free APIs for use in software and web development.](https://github.com/public-apis/public-apis)
 - [API Events Proposal · DozroK/mp2013 Wiki](https://github.com/DozroK/mp2013/wiki/API-Events-Proposal) - opensource API of the opendata database of all events of Marseille Provence 2013
 - [Events  |  Google Calendar API  |  Google Developers](https://developers.google.com/google-apps/calendar/v3/reference/events)
 - [Flickr Services](https://www.flickr.com/services/api/)
@@ -1182,15 +1183,29 @@ Could use `422 Unprocessable Entity` instead of `400 Bad Request` when the reque
 - [Introduction · HTTP API Design](https://geemus.gitbooks.io/http-api-design/content/en/) - [interagent/http-api-design: HTTP API design guide extracted from work on the Heroku Platform API](https://github.com/interagent/http-api-design)
 - [HTTP status code for update and delete? - Stack Overflow](https://stackoverflow.com/questions/2342579/http-status-code-for-update-and-delete)
 
-#### Specs / docs format
+#### Documentation formats
+
+Aka specs, docs format
 
 And generators
 
+- OpenAPI
+    - [Home - OpenAPI Initiative](https://www.openapis.org/)
+    - [Swagger 2.0](http://swagger.io/)
+    - [What is OpenAPI? Swagger vs. OpenAPI | Swagger Blog](https://swagger.io/blog/api-strategy/difference-between-swagger-and-openapi/) - "OpenAPI = Specification, Swagger = Tools for implementing the specification"
+    - some implementations:
+        - [danivek/json-api-serializer: Node.js/browser framework agnostic JSON API (http://jsonapi.org/) serializer.](https://github.com/danivek/json-api-serializer)
+        - [mu-io/ts-japi: A highly-modular (typescript-friendly)-framework agnostic library for serializing data to the JSON:API specification](https://github.com/mu-io/ts-japi)
+        - [ostinelli/gin: A LUA fast, low-latency, low-memory footprint, web JSON-API framework with Test Driven Development helpers and patterns.](https://github.com/ostinelli/gin) - Lua implementation included in OpenResty
+- Postman collection and environnements files (JSON)
+    - [Postman | The Collaboration Platform for API Development](https://www.postman.com/)
+    - [Postman Inc.](https://github.com/postmanlabs)
+    - https://schema.getpostman.com/json/collection/v2.1.0/collection.json
+    - [postmanlabs/schemas: Repository of all schemas for JSON structures compatible with Postman (such as the Postman Collection Format)](https://github.com/postmanlabs/schemas)
+    - [adobe/reactor-postman: A Postman collection of Reactor API examples for Adobe Experience Platform Launch](https://github.com/adobe/reactor-postman)
 - [Apiary — Home](http://apiary.io/)
 - [API Blueprint - API Documentation with powerful tooling](https://apiblueprint.org/#hello_world)
 - [RAML - RESTful API modeling language](http://raml.org/)
-- [Swagger 2.0](http://swagger.io/)
-- [Swagger- A simple, open standard for describing REST APIs with JSON | Reverb for Developers](https://helloreverb.com/developers/swagger)
 - [mashery/iodocs](https://github.com/mashery/iodocs)
 - [Mashape - Free API Management Platform & Marketplace](https://www.mashape.com/)
 - [Web Application Description Language — Wikipedia](https://en.wikipedia.org/wiki/Web_Application_Description_Language)
@@ -1204,13 +1219,16 @@ And generators
 
 - [Home · wordnik/swagger-core Wiki](https://github.com/wordnik/swagger-core/wiki)
 
-Hypermedia and 
+Hypermedia
 
 - [The Hypertext Application Language](http://stateless.co/hal_specification.html)
-- [JSON:API — A specification for building APIs in JSON](https://jsonapi.org/)
 - [kevinswiber/siren: Structured Interface for Representing Entities, super-rad hypermedia](https://github.com/kevinswiber/siren)
 - [RFC 8288 - Web Linking](https://tools.ietf.org/html/rfc8288)
 - HTML5 links
+
+#### JSON API
+
+- [JSON:API — A specification for building APIs in JSON](https://jsonapi.org/)
 
 #### API examples
 

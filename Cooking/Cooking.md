@@ -375,3 +375,45 @@ Peut être conservé plusieurs années sans problème. Les ingrédients peuvent 
 Ex: 5 gousses de vanille pour 1L d'alcool, attendre 3 mois pour la macération
 
 - [Extrait de vanille fait maison Recette | Chocolate & Zucchini](https://cnz.to/vf/ingredients-bons-produits/extrait-de-vanille-fait-maison-recette/)
+
+## Tarte tatin
+
+Pâte :
+
+- 130 gr de beurre
+- 1 oeuf
+- 1 pincée de sel ou sel fin
+- 230 gr de farine
+- 70 gr de sucre (glace ?)
+
+- couper le beurre en petits morceaux, le laisser ramollir puis le travailler à la fourchette pour obtenir une pommade
+- battre l'oeuf avec une fourchette
+- dissoudre le sel dans 30ml d'eau et ajouter à l'oeuf
+- tamiser la farine avec le sucre glace
+- verser petit à petit le mélange à l'oeuf sur le beurre et bien mélanger
+- incorporer environ la moitié du mélange farine-sucre à la fourchette puis ajouter le reste en pétrissant avec les doigts
+- rassembler en boule et mettre au frais au moins une heure
+
+Fruits :
+
+- éplucher, épépiner et couper les pommes en lamelles
+- porter à ébullition l'eau avec le beurre et le sucre semoule dans une casserole
+- plonger les pommes
+- pocher les pommes pendant une dizaine de minutes et les ressortir à l'aide d'une écumoire
+
+Caramel :
+
+- faire cuire petit à petit 100g de sucre à sec dans une casserole jusqu'à ce qu'il soit dissout et de couleur caramel.
+    Commencer par un quart de la quantité, quand il est fondu, ajouter encore un quart et ainsi de suite sans mélanger avec une cuiller, juste en tournant le poêlon de temps en temps.
+- verser le tout dans un moule (à manqué)
+- laisser refroidir
+
+Cuisson :
+
+- étaler la pâte à la dimension du plat et piquer la à l'aide d'une fourchette.
+- dresser les fruits dans le moule en les serrant bien. Mettre du papier cuisson si il faut pour plus facilement démouler.
+- poser le disque de feuilletage sur les pommes et pincer la pâte sur le rebord du moule pour éviter qu'elle ne se rétracte.
+- enfourner pendant 30 minutes à 180°C
+
+- [Recette - Tarte tatin de Christophe Michalak | 750g](https://www.750g.com/tarte-tatin-de-christophe-michalak-r70365.htm)
+- [Recette - Tarte Tatin simplissime | 750g](https://www.750g.com/tarte-tatin-simplissime-r11246.htm)

@@ -38,7 +38,7 @@ Aka JavaScript (ECMAScript + DOM and Web APIs),
 - [Extreme Javascript Minimization](http://mainroach.blogspot.fr/2013/09/extreme-javascript-minimization.html)
 - [ESTree](https://github.com/estree/estree) - ESTree Spec. Common format for ECMAScript tokens
 - [pvdz/tenko: An 100% spec compliant ES2020 JavaScript parser written in JS](https://github.com/pvdz/tenko)
-- [Esprima](http://esprima.org/) - ECMAScript parser written in ECMAScript. See https://github.com/jquery/esprima
+- [Esprima](http://esprima.org/) - ECMAScript parser written in ECMAScript. See https://github.com/jquery/esprima and [benjamn/recast: JavaScript syntax tree transformer, nondestructive pretty-printer, and automatic source map generator](https://github.com/benjamn/recast)
 - [acornjs/acorn: A small, fast, JavaScript-based JavaScript parser](https://github.com/acornjs/acorn)
 - [engine262/engine262 at parser](https://github.com/engine262/engine262/tree/parser)
 - [webkit/Source/JavaScriptCore/parser at master · WebKit/webkit](https://github.com/WebKit/webkit/tree/master/Source/JavaScriptCore/parser)

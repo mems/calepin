@@ -116,7 +116,7 @@ Aka dataviz
 ![How To Make Your Graphs Less Terrible](Data%20visualisation/How%20to%20make%20your%20graphs%20less%20terrible.gif)
 ![How To Make Your Tables Less Terrible](Data%20visualisation/How%20to%20make%20your%20tables%20less%20terrible.gif)
 
-### Sort algorithms
+### Sorting algorithms
 
 - [Sorting Algorithm Animations | Toptal](https://www.toptal.com/developers/sorting-algorithms)
 - [Visualization and comparison of sorting algorithms](https://github.com/vbohush/SortingAlgorithmAnimations)
@@ -124,6 +124,7 @@ Aka dataviz
 - [The Sound of Sorting - "Audibilization" and Visualization of Sorting Algorithms](https://github.com/bingmann/sound-of-sorting) and [The Sound of Sorting - "Audibilization" and Visualization of Sorting Algorithms - panthema.net](http://panthema.net/2013/sound-of-sorting/)
 - [16 Sorts - Color Circle - YouTube](https://www.youtube.com/watch?v=y9Ecb43qw98)
 - [Sorting Algorithms Revisualized - Album on Imgur](https://imgur.com/gallery/GD5gi)
+- [Nihilogic : Canvas Visualizations of Sorting Algorithms](https://web.archive.org/web/20140703060111/http://www.nihilogic.dk/labs/sorting_visualization/)
 
 ### ASCII to SVG diagram
 

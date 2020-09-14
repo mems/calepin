@@ -1,7 +1,5 @@
 ## How to use docker
 
-- [docker-compose with php/mysql/phpmyadmin/apache](https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b)
-- [nystudio107 | An Annotated Docker Config for Frontend Web Development](https://nystudio107.com/blog/an-annotated-docker-config-for-frontend-web-development)
 - [Tobias T– | Docker](https://tobiastom.name/explains/docker)
 - [Building Efficient Dockerfiles - Node.js - bitJudo](http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/)
 - [Kubernetes: An Introduction to Deploying a Node.js Docker App — SitePoint](https://www.sitepoint.com/kubernetes-deploy-node-js-docker-app/)
@@ -37,3 +35,15 @@ http://dl-cdn.alpinelinux.org/alpine/edge/community
 
 - [How Docker Works - Intro to Namespaces - YouTube](https://www.youtube.com/watch?v=-YnMr1lj4Z8)
 - [Introduction to Docker for CTFs - YouTube](https://www.youtube.com/watch?v=cPGZMt4cJ0I)
+
+## AMP
+
+Aka LAMP, Linux Apache MySQL PHP
+
+- [PHP, Apache, MySQL within Docker containers | Cloudreach](https://www.cloudreach.com/en/resources/blog/ct-apache-docker-containers/)
+- [docker-compose with php/mysql/phpmyadmin/apache](https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b)
+- [nystudio107 | An Annotated Docker Config for Frontend Web Development](https://nystudio107.com/blog/an-annotated-docker-config-for-frontend-web-development)
+
+## Optimizations
+
+- [Optimizing Dockerfile for Node.js (Part 1) - js.io](https://web.archive.org/web/20200913150039/https://js.io/optimizing-dockerfile-for-node-js-part-1)

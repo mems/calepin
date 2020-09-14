@@ -2719,3 +2719,9 @@ On Photoshop with color proofing:
 
 - [Tim Soret on Twitter: "Desaturating in Photoshop doesn't accurately portray brightness at all. https://t.co/9XxTt8SMNQ" / Twitter](https://twitter.com/timsoret/status/1251764345538781185)
 - [Luminosity function - Wikipedia](https://en.wikipedia.org/wiki/Luminosity_function)
+
+## Contours
+
+Aka border, outline, marching square algorithm, edge
+
+- [marching squares – Youpi !](https://web.archive.org/web/20171128171351/http://barradeau.com/blog/?p=391)

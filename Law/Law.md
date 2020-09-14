@@ -1,5 +1,11 @@
 - [Retards et annulations de vols](../Travel/Travel.md#retards-et-annulations-de-vols)
 
+Avocat spécialisé droit numériques :
+
+> M. F. Gallaire est avocat au barreau de Paris. Il a précédemment été évoqué sur ce site ([1](http://linuxfr.org/news/random-029-4-d%C3%A9cembre-2010), [2](http://linuxfr.org/users/zenitram/journaux/jai-raison-mais-je-ne-ferai-pas-valider-mon-raisonnement), [3](http://linuxfr.org/users/zandu/journaux/le-goncourt-en-cc-by-sa), [4](http://linuxfr.org/users/farvardin/journaux/mont%C3%A9e-en-puissance-de-txt2tags), [5](http://linuxfr.org/users/julo4lfr/journaux/grippe-g)) pour un conflit avec l'auteur [Michel Houellebecq](https://fr.wikipedia.org/wiki/Michel_Houellebecq) et les éditions Flammarion, autour d'une contrefaçon supposée de Wikipédia (d'une licence Creative Commons donc) pour le livre [La Carte et le Territoire](https://fr.wikipedia.org/wiki/La_Carte_et_le_Territoire), Prix Goncourt 2010 (quelques réactions de l'époque comme [celle de Me Eolas](http://www.maitre-eolas.fr/post/2010/12/26/Lrsquo%3Baffaire-ldquo%3Bla-carte-et-le-territoirerdquo%3B), de Wikimédia [1](https://www.wikimedia.fr/2010/11/30/wikipedia-michel-houellebecq-et-le-droit-dauteur/) et [2](https://www.wikimedia.fr/2011/05/18/wikipedia-et-m-houellebecq-des-nouvelles-et-une-avancee/), ou du [blogueur Bluetouff](https://bluetouff.com/?p=6839)).
+> 
+> — [Seconde mise en demeure pour l'association LinuxFr - LinuxFr.org](https://linuxfr.org/news/seconde-mise-en-demeure-pour-l-association-linuxfr) (mise en demeure pour contrefaçon)
+
 ## DMCA
 
 "removal of online materials"

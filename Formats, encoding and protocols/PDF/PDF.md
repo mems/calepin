@@ -9,6 +9,8 @@
 - [pdfimages - Wikipedia](https://en.wikipedia.org/wiki/Pdfimages) - Export embedded bitmap images in PDF `pdfimages -all file.pdf file.pdf.image`
 - [Use `pdflatex` to embed image in PDF without modification (byte-for-byte identical)](https://askubuntu.com/questions/776679/why-are-the-images-produced-by-pdfimages-different-when-using-the-all-flag#778395)
 - [imagemagick - Convert PDF to image with high resolution - Stack Overflow](https://stackoverflow.com/questions/6605006/convert-pdf-to-image-with-high-resolution#6605085)
+- [Apache PDFBox | A Java PDF Library](https://pdfbox.apache.org/)
+- [XpdfReader Support](https://www.xpdfreader.com/support.html) - `pdftotext`, `pdfimages`, `pdftohtml`, etc.
 
 ![PDF](PDF.png)
 

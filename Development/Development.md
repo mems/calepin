@@ -843,6 +843,8 @@ For replay, be sure:
 > This file incorporates work covered by the following copyright and permission notice:” followed by the original copyright and license copied in
 
 - [Choose an open source license | Choose a License](https://choosealicense.com/)
+- [SPDX License List | Software Package Data Exchange (SPDX)](https://spdx.org/licenses/)
+- [Choose a License](https://creativecommons.org/choose/)
 - [The Legal Side of Open Source | Open Source Guides](https://opensource.guide/legal/)
 - [Permissive software license - Wikipedia](https://en.wikipedia.org/wiki/Permissive_software_license)
 - [License compatibility - Wikipedia](https://en.wikipedia.org/wiki/License_compatibility)
@@ -856,6 +858,10 @@ Aka CLI
 - [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Command%20manual%20page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Colors%20and%20control%20sequences)
+
+## Libraries
+
+Dependency = risk
 
 # Concepts and Methodology
 

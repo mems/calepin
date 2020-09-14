@@ -39,6 +39,7 @@ purge
 - ignore disk to be a TM target: `touch ".com.apple.timemachine.donotpresent"` in the root of the disk
 - `.com.apple.timemachine.supported` if the folder must be backup by Time Machine
 - current files used by Time Machine `sudo fs_usage -w -f filesys backupd`
+- files ignored by TM with extended attribute `sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"`
 - [The ins and outs of using tmutil to backup, restore, and review Time Machine backups - krypted](https://krypted.com/mac-os-x/ins-outs-using-tmutil-backup-restore-review-time-machine-backups/)
 - [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/) - T2M2 (TheTimeMachineMechanic) summarise TM logs, Mints
 - [TM-Utilities  - Arthur Rosel, Ltd.](http://7clinton.com/TM-UtilitiesHelp.html)
@@ -434,10 +435,16 @@ Or use an app:
 
 ### Reduce size
 
+```sh
+tmutil listbackups
+sudo tmutil delete '/Volumes/Time Machine Backups/Backups.backupdb/.../2018-'{01,02,03,04}*
+sudo hdiutil compact '/Volumes/....sparsebundle'
+```
+
 - [Shrink Your Time Machine Backups and Free Disk Space - DZone Performance](https://dzone.com/articles/shrink-your-time-machine)
 - [Create or resize sparsebundle](#create-or-resize-sparsebundle)
-- `tmutil listbackups`, `sudo tmutil delete '/Volumes/Time Machine Backups/Backups.backupdb/.../2018-'*`, `sudo hdiutil compact '/Volumes/....sparsebundle'`
 - [If the Time Machine backup disk for your Mac is full - Apple Support](https://support.apple.com/guide/mac-help/if-the-time-machine-backup-disk-is-full-mh15137/mac)
+- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/557425#557425)
 
 #### Remove specific file from Time Machine backup
 
@@ -1837,7 +1844,7 @@ In `Stuff/Resources/fr.lproj/InfoPlist.strings`, we found:
 
 ### Keyboard layout
 
-OSX on a MacBook (without special keys like page up/down keys):
+macOS on a MacBook (without special keys like page up/down keys):
 
 - Page up : fn + up
 - Page down : fn + down
@@ -1845,6 +1852,8 @@ OSX on a MacBook (without special keys like page up/down keys):
 - End : fn + right
 - Del : fn + backspace
 - Enter (num) : fn + return
+
+See also [Apple keyboard layout on Windows](../Windows/Windows.md#apple-keyboard-layout)
 
 ### Mouse acceleration
 
