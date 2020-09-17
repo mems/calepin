@@ -222,6 +222,18 @@ See [Burger menu](UI - UX#burger-menu)
 
 ## Clean text
 
+> Mojibake is the garbled text that is the result of text being decoded using an unintended character encoding.
+> 
+> — [Mojibake - Wikipedia](https://en.wikipedia.org/wiki/Mojibake)
+
+Example:
+
+```
+UTF-8: é è à ï ô ç ê
+Binary UTF-8: C3 A9 20 C3 A8 20 C3 A0 20 C3 AF 20 C3 B4 20 C3 A7 20 C3 AA
+ISO 8859-1: Ã© Ã¨ Ã  Ã¯ Ã´ Ã§ Ãª
+```
+
 Fix encoding:
 
 - [ftfy - fix unicode that's broken in various ways](https://ftfy.now.sh/)
