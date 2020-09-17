@@ -231,7 +231,7 @@ Example:
 ```
 UTF-8: é è à ï ô ç ê
 Binary UTF-8: C3 A9 20 C3 A8 20 C3 A0 20 C3 AF 20 C3 B4 20 C3 A7 20 C3 AA
-ISO 8859-1: Ã© Ã¨ Ã  Ã¯ Ã´ Ã§ Ãª
+ISO 8859-1: Ã© Ã¨ Ã  Ã¯ Ã´ Ã§ Ãª
 ```
 
 Fix encoding:
