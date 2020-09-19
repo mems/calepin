@@ -138,6 +138,16 @@ Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will 
 - "new code is the tomorrow's legacy" 
 - [Write code that is easy to delete, not easy to... — programming is terrible](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to)
 
+## Refactoring
+
+Monolith to separate modules / files.
+
+> [about dependency graph like circular dependencies] We can make arrows point in different directions, by either moving responsibilities into the component that depends on them or applying inversion of control. Inversion of control means to invert a dependency in such a way that control flow and source code dependency are opposed. This can be done for example through a publish/subscribe mechanism
+> 
+> — [Under Deconstruction: The State of Shopify’s Monolith – Shopify Engineering](https://web.archive.org/web/20200918094004/https://engineering.shopify.com/blogs/engineering/shopify-monolith)
+
+Ex: A ↔︎ B refactored to A → B, with B that use the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern).
+
 ## Latency numbers
 
 - [The Infinite Space Between Words](https://blog.codinghorror.com/the-infinite-space-between-words/)

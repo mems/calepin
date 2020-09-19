@@ -5,7 +5,9 @@ See also [Pre compress assets, GZip - Deflate](Web#pre-compress-assets-gzip---de
 
 ## Authorized access
 
-	Require all granted
+```apache
+Require all granted
+```
 
 - http://httpd.apache.org/docs/current/mod/mod_authz_core.html#require
 - [ClientDeniedByServerConfiguration - Httpd Wiki](https://wiki.apache.org/httpd/ClientDeniedByServerConfiguration)
@@ -18,106 +20,116 @@ See also [Pre compress assets, GZip - Deflate](Web#pre-compress-assets-gzip---de
 
 ## Smart serve `image/webp`
 
-	# Check if Accept header is image/webp, if an image is requested in "classic" folder with a classic format, and check if the corresponding webp image exists. If yes, rewrite the requested classic image URI to the WebP image URI.
-	
-	RewriteCond %{HTTP_ACCEPT} image/webp
-	RewriteCond %{REQUEST_FILENAME} (.*)images/classic/(.*)\.(png|jpg|gif)$
-	RewriteCond %1images/webp/%2\.webp -f
-	RewriteRule .* images/webp/%2.webp [L]
+```apache
+# Check if Accept header is image/webp, if an image is requested in "classic" folder with a classic format, and check if the corresponding webp image exists. If yes, rewrite the requested classic image URI to the WebP image URI.
 
-	<IfModule mod_rewrite.c>
-	    RewriteEngine on
-	    RewriteCond %{HTTP_ACCEPT} image/webp
-	    RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
-	    RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
-	</IfModule>
-	
-	<IfModule mod_headers.c>
-	    Header append Vary Accept env=REDIRECT_accept
-	</IfModule>
-	
-	AddType image/webp .webp
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_FILENAME} (.*)images/classic/(.*)\.(png|jpg|gif)$
+RewriteCond %1images/webp/%2\.webp -f
+RewriteRule .* images/webp/%2.webp [L]
+```
+
+```apache
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+    RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+
+AddType image/webp .webp
+```
 
 ## Auto compress
 
-	# Be carefull, in Apache <= 2.2, AddOutputFilterByType was part of mod_deflate not mod_filter
-	<IfModule mod_filter.c>
-	# Use Brotoli:
-	#<IfModule mod_brotli.c>
-	#	AddOutputFilterByType BROTLI;DEFLATE ...
-	#</IfModule>
-	<IfModule mod_deflate.c>
-	AddOutputFilterByType DEFLATE \
-		application/atom+xml \
-		application/javascript \
-		application/json \
-		application/ld+json \
-		application/manifest+json \
-		application/rdf+xml \
-		application/rss+xml \
-		application/schema+json \
-		application/vnd.geo+json \
-		application/vnd.ms-fontobject \
-		application/x-font-ttf \
-		application/x-javascript \
-		application/x-web-app-manifest+json \
-		application/xhtml+xml \
-		application/xml \
-		font/eot \
-		font/opentype \
-		image/bmp \
-		image/svg+xml \
-		image/vnd.microsoft.icon \
-		image/x-icon \
-		text/cache-manifest \
-		text/css \
-		text/html \
-		text/javascript \
-		text/plain \
-		text/vcard \
-		text/vnd.rim.location.xloc \
-		text/vtt \
-		text/x-component \
-		text/x-cross-domain-policy \
-		text/xml
-	</IfModule>
-	</IfModule>
+```apache
+# Be carefull, in Apache <= 2.2, AddOutputFilterByType was part of mod_deflate not mod_filter
+<IfModule mod_filter.c>
+# Use Brotoli:
+#<IfModule mod_brotli.c>
+#	AddOutputFilterByType BROTLI;DEFLATE ...
+#</IfModule>
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE \
+	application/atom+xml \
+	application/javascript \
+	application/json \
+	application/ld+json \
+	application/manifest+json \
+	application/rdf+xml \
+	application/rss+xml \
+	application/schema+json \
+	application/vnd.geo+json \
+	application/vnd.ms-fontobject \
+	application/x-font-ttf \
+	application/x-javascript \
+	application/x-web-app-manifest+json \
+	application/xhtml+xml \
+	application/xml \
+	font/eot \
+	font/opentype \
+	image/bmp \
+	image/svg+xml \
+	image/vnd.microsoft.icon \
+	image/x-icon \
+	text/cache-manifest \
+	text/css \
+	text/html \
+	text/javascript \
+	text/plain \
+	text/vcard \
+	text/vnd.rim.location.xloc \
+	text/vtt \
+	text/x-component \
+	text/x-cross-domain-policy \
+	text/xml
+</IfModule>
+</IfModule>
+```
 
-	DeflateCompressionLevel 9
-	DeflateFilterNote ratio
+```apache
+DeflateCompressionLevel 9
+DeflateFilterNote ratio
+```
 
 For PHP, which return `text/html` it handled with `AddOutputFilterByType`
 
 An other version:
 
-	<IfModule mod_deflate.c>
-		# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
-		<IfModule mod_setenvif.c>
-		<IfModule mod_headers.c>
-			SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
-			RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
-		</IfModule>
-		</IfModule>
-		
-		<IfModule version.c>
-		<IfModule filter_module.c>
-		<IfVersion >= 2.4>
-			FilterDeclare   COMPRESS
-			FilterProvider COMPRESS DEFLATE "%{CONTENT_TYPE} = 'text/html'"
-			#...
-			FilterChain     COMPRESS
-			FilterProtocol COMPRESS DEFLATE change=yes;byteranges=no
-		</IfVersion>
-		<IfVersion <= 2.2>
-			FilterDeclare   COMPRESS
-			FilterProvider COMPRESS DEFLATE resp=Content-Type $text/html
-			#...
-			FilterChain     COMPRESS
-			FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
-		</IfVersion>
-		</IfModule>
-		</IfModule>
+```apache
+<IfModule mod_deflate.c>
+	# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+	<IfModule mod_setenvif.c>
+	<IfModule mod_headers.c>
+		SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+		RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
 	</IfModule>
+	</IfModule>
+	
+	<IfModule version.c>
+	<IfModule filter_module.c>
+	<IfVersion >= 2.4>
+		FilterDeclare   COMPRESS
+		FilterProvider COMPRESS DEFLATE "%{CONTENT_TYPE} = 'text/html'"
+		#...
+		FilterChain     COMPRESS
+		FilterProtocol COMPRESS DEFLATE change=yes;byteranges=no
+	</IfVersion>
+	<IfVersion <= 2.2>
+		FilterDeclare   COMPRESS
+		FilterProvider COMPRESS DEFLATE resp=Content-Type $text/html
+		#...
+		FilterChain     COMPRESS
+		FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+	</IfVersion>
+	</IfModule>
+	</IfModule>
+</IfModule>
+```
 
 - [mod_filter - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/2.4/en/mod/mod_filter.html#addoutputfilterbytype)
 - [Apache AddOutputFilterByType is deprecated. How to rewrite using mod_filter? - Stack Overflow](https://stackoverflow.com/questions/5230202/apache-addoutputfilterbytype-is-deprecated-how-to-rewrite-using-mod-filter)
@@ -126,11 +138,13 @@ An other version:
 
 ## Content handling
 
-	# Discard exploit.php.jpg
-	<FilesMatch \.php$>
-		SetHandler application/x-httpd-php
-		# see also fastcgi-script
-	</FilesMatch>
+```apache
+# Discard exploit.php.jpg
+<FilesMatch \.php$>
+	SetHandler application/x-httpd-php
+	# see also fastcgi-script
+</FilesMatch>
+```
 
 - [PHP: Apache 2.x on Unix systems - Manual](http://php.net/manual/en/install.unix.apache2.php)
 - [mod_deflate - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
@@ -139,39 +153,41 @@ An other version:
 
 Use header `Content-type`
 
-	# Set encoding for file extensions
-	<IfModule mod_mime.c>
-		# audio
-		AddType audio/ogg oga ogg
-	
-		# video
-		AddType video/ogg ogv
-		AddType video/mp4 mp4
-		AddType video/webm webm
-	
-		# Proper svg serving. Required for svg webfonts on iPad
-		# twitter.com/FontSquirrel/status/14855840545
-		AddType image/svg+xml svg svgz
-		AddEncoding gzip svgz
-	
-		# webfonts
-		AddType application/vnd.ms-fontobject eot
-		AddType font/truetype ttf
-		AddType font/opentype otf
-		AddType font/woff woff
-		AddType font/woff2 woff2
-	
-		# assorted types
-		AddType image/vnd.microsoft.icon ico
-		AddType image/webp webp
-		AddType text/cache-manifest manifest
-		AddType text/x-component htc
-		AddType application/x-chrome-extension crx
-		AddType application/x-xpinstall xpi
-		AddType application/octet-stream safariextz
-	
-		AddType text/plain md markdown mdown txt
-	</IfModule>
+```apache
+# Set encoding for file extensions
+<IfModule mod_mime.c>
+	# audio
+	AddType audio/ogg oga ogg
+
+	# video
+	AddType video/ogg ogv
+	AddType video/mp4 mp4
+	AddType video/webm webm
+
+	# Proper svg serving. Required for svg webfonts on iPad
+	# twitter.com/FontSquirrel/status/14855840545
+	AddType image/svg+xml svg svgz
+	AddEncoding gzip svgz
+
+	# webfonts
+	AddType application/vnd.ms-fontobject eot
+	AddType font/truetype ttf
+	AddType font/opentype otf
+	AddType font/woff woff
+	AddType font/woff2 woff2
+
+	# assorted types
+	AddType image/vnd.microsoft.icon ico
+	AddType image/webp webp
+	AddType text/cache-manifest manifest
+	AddType text/x-component htc
+	AddType application/x-chrome-extension crx
+	AddType application/x-xpinstall xpi
+	AddType application/octet-stream safariextz
+
+	AddType text/plain md markdown mdown txt
+</IfModule>
+```
 
 See also [Media type](Formats, encoding and protocols#media-type)
 
@@ -193,45 +209,53 @@ See [HSTS](Security#http-strict-transport-security)
 
 You should add a mecanism to redirect HTTP to HTTPS too. It's adviced to **use [VirtualHost](https://stackoverflow.com/questions/13376219/htaccess-redirect-http-to-https/13376534#13376534)**:
 
-	<IfModule mod_rewrite.c>
-		# Force HTTPS
-		# Inspired from https://stackoverflow.com/questions/13376219/htaccess-redirect-http-to-https/
-		RewriteEngine on
-		RewriteCond %{HTTPS} !on
-		# Header used by proxies or load balancers (CDN):
-		RewriteCond %{HTTP:X-Forwarded-Proto} !https
-		# Some load balancer use other methods:
-		# RewriteCond %{HTTPS} !1
-		# RewriteCond %{SERVER_PORT} !443
-		# RewriteCond %{HTTP:X-Forwarded-SSL} !on
-		# RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"'
-		# RewriteCond %{ENV:HTTPS} !on
-		RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-	</IfModule>
+```apache
+<IfModule mod_rewrite.c>
+	# Force HTTPS
+	# Inspired from https://stackoverflow.com/questions/13376219/htaccess-redirect-http-to-https/
+	RewriteEngine on
+	RewriteCond %{HTTPS} !on
+	# Header used by proxies or load balancers (CDN):
+	RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	# Some load balancer use other methods:
+	# RewriteCond %{HTTPS} !1
+	# RewriteCond %{SERVER_PORT} !443
+	# RewriteCond %{HTTP:X-Forwarded-SSL} !on
+	# RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"'
+	# RewriteCond %{ENV:HTTPS} !on
+	RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+```
 
-	<IfModule mod_headers.c>
-		# Force HTTPS
-		Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
-	</IfModule>
+```apache
+<IfModule mod_headers.c>
+	# Force HTTPS
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
+</IfModule>
+```
 
-	<IfModule mod_headers.c>
-		# Force HTTPS only for www.example.com
-		SetEnvIf Host "^www\.example\.com$" StrictTransportSecurity
-		Header always set Strict-Transport-Security "max-age=63072000; preload" env=StrictTransportSecurity
-	</IfModule>
+```apache
+<IfModule mod_headers.c>
+	# Force HTTPS only for www.example.com
+	SetEnvIf Host "^www\.example\.com$" StrictTransportSecurity
+	Header always set Strict-Transport-Security "max-age=63072000; preload" env=StrictTransportSecurity
+</IfModule>
+```
 
 - [RewriteHTTPToHTTPS - Httpd Wiki](https://wiki.apache.org/httpd/RewriteHTTPToHTTPS)
 - Detect how to know if it's HTTPS with PHP https://github.com/rlankhorst/really-simple-ssl/blob/master/ssl-test-page.php
 
 ## CORS
 
-	# Add CORS header for domain1.org, domain2.com and domain3.net only
-	<IfModule mod_headers.c>
-		SetEnvIf Origin "^http(s)?://(www\.)?(domain1\.org|domain2\.com|domain3\.net)$" AccessControlAllowOrigin=$0$1
-		Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
-		Header set Access-Control-Allow-Credentials true
-		Vary: Origin
-	</IfModule>
+```apache
+# Add CORS header for domain1.org, domain2.com and domain3.net only
+<IfModule mod_headers.c>
+	SetEnvIf Origin "^http(s)?://(www\.)?(domain1\.org|domain2\.com|domain3\.net)$" AccessControlAllowOrigin=$0$1
+	Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+	Header set Access-Control-Allow-Credentials true
+	Vary: Origin
+</IfModule>
+```
 
 - [apache - .htaccess - how to set headers dynamically per domain? - Stack Overflow](https://stackoverflow.com/questions/15469482/htaccess-how-to-set-headers-dynamically-per-domain)
 - [.htaccess - handle multiple domains with Access-Control-Allow-Origin header in Apache - Stack Overflow](https://stackoverflow.com/questions/20673882/handle-multiple-domains-with-access-control-allow-origin-header-in-apache)
@@ -242,7 +266,7 @@ You should add a mecanism to redirect HTTP to HTTPS too. It's adviced to **use [
 curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 ```
 
-```
+```apache
 # Redirect to naked domain: www.example.com to example.com
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -251,7 +275,7 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 </IfModule>
 ```
 
-```
+```apache
 # Redirect to HTTPS
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -262,7 +286,7 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 
 - [.htaccess - htaccess https off condition - Stack Overflow](https://stackoverflow.com/questions/15010874/htaccess-https-off-condition)
 
-```
+```apache
 # Redirect example.com to https://www.example.com
 <IfModule mod_rewrite.c>
     RewriteEngine On
@@ -273,7 +297,7 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 
 - [Redirect non-www to www in .htaccess - Stack Overflow](https://stackoverflow.com/questions/12050590/redirect-non-www-to-www-in-htaccess)
 
-```
+```apache
 <IfModule mod_rewrite.c>
 	RewriteEngine on
 	
@@ -295,172 +319,190 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 http://httpd.apache.org/docs/current/mod/mod_rewrite.html
 http://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#logging Debug `LogLevel rewrite:trace8` (>= Apache 2.3.6, else use [`RewriteLog "/path/to/rewrite.log"` and `RewriteLogLevel 3`](http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html#rewritelog) or more)
 
-	<IfModule rewrite_module>
-		RewriteEngine on
-		
-		RewriteCond %{DOCUMENT_ROOT} ^(.*)$ [NC]
-		RewriteRule ^ - [E=doc_root:%1]
-		# Will add an header `X-Debug` with value equal DOCUMENT_ROOT (see the syntax `%{xxxx}e`)
-		Header append X-Debug "%{doc_root}e"
-		
-		# Add cookie `test` to `1`
-		RewriteRule ^ - [CO=test:1:%{HTTP_HOST}]
+```apache
+<IfModule rewrite_module>
+	RewriteEngine on
 	
-		# Test cookie `test` == `1`
-		RewriteCond %{HTTP:Cookie} \test=1(;|$)
+	RewriteCond %{DOCUMENT_ROOT} ^(.*)$ [NC]
+	RewriteRule ^ - [E=doc_root:%1]
+	# Will add an header `X-Debug` with value equal DOCUMENT_ROOT (see the syntax `%{xxxx}e`)
+	Header append X-Debug "%{doc_root}e"
 	
-		# Skip next RewriteRule (use 2 instead 1 to skip more, 3... or use L)
-		RewriteRule ^ - [S=1]
-	
-		# Test if env var `test` equal `1`
-		RewriteCond %{ENV:test} ^1$
-		RewriteRule...
-	</IfModule>
+	# Add cookie `test` to `1`
+	RewriteRule ^ - [CO=test:1:%{HTTP_HOST}]
+
+	# Test cookie `test` == `1`
+	RewriteCond %{HTTP:Cookie} \test=1(;|$)
+
+	# Skip next RewriteRule (use 2 instead 1 to skip more, 3... or use L)
+	RewriteRule ^ - [S=1]
+
+	# Test if env var `test` equal `1`
+	RewriteCond %{ENV:test} ^1$
+	RewriteRule...
+</IfModule>
+```
 
 From Symfony https://github.com/symfony/symfony-standard/blob/master/web/.htaccess, see also [.htaccess - What Double Colon does in RewriteCond? - Stack Overflow](https://stackoverflow.com/questions/37605218/what-double-colon-does-in-rewritecond):
 
-	# Use the front controller as index file. It serves as a fallback solution when
-	# every other rewrite/redirect fails (e.g. in an aliased environment without
-	# mod_rewrite). Additionally, this reduces the matching process for the
-	# start page (path "/") because otherwise Apache will apply the rewriting rules
-	# to each configured DirectoryIndex file (e.g. index.php, index.html, index.pl).
-	DirectoryIndex app.php
-	
-	# By default, Apache does not evaluate symbolic links if you did not enable this
-	# feature in your server configuration. Uncomment the following line if you
-	# install assets as symlinks or if you experience problems related to symlinks
-	# when compiling LESS/Sass/CoffeScript assets.
-	# Options FollowSymlinks
-	
-	# Disabling MultiViews prevents unwanted negotiation, e.g. "/app" should not resolve
-	# to the front controller "/app.php" but be rewritten to "/app.php/app".
-	<IfModule mod_negotiation.c>
-	    Options -MultiViews
-	</IfModule>
-	
-	<IfModule mod_rewrite.c>
-	    RewriteEngine on
-	
-	    # Determine the RewriteBase automatically and set it as environment variable.
-	    # If you are using Apache aliases to do mass virtual hosting or installed the
-	    # project in a subdirectory, the base path will be prepended to allow proper
-	    # resolution of the app.php file and to redirect to the correct URI. It will
-	    # work in environments without path prefix as well, providing a safe, one-size
-	    # fits all solution. But as you do not need it in this case, you can comment
-	    # the following 2 lines to eliminate the overhead.
-	    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
-	    RewriteRule ^(.*) - [E=BASE:%1]
-	
-	    # Sets the HTTP_AUTHORIZATION header removed by Apache
-	    RewriteCond %{HTTP:Authorization} .
-	    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-	
-	    # Redirect to URI without front controller to prevent duplicate content
-	    # (with and without `/app.php`). Only do this redirect on the initial
-	    # rewrite by Apache and not on subsequent cycles. Otherwise we would get an
-	    # endless redirect loop (request -> rewrite to front controller ->
-	    # redirect -> request -> ...).
-	    # So in case you get a "too many redirects" error or you always get redirected
-	    # to the start page because your Apache does not expose the REDIRECT_STATUS
-	    # environment variable, you have 2 choices:
-	    # - disable this feature by commenting the following 2 lines or
-	    # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
-	    #   following RewriteCond (best solution)
-	    RewriteCond %{ENV:REDIRECT_STATUS} ^$
-	    RewriteRule ^app\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
-	
-		## Not part of Symfony
-		# Ignore /admin/ and /mobile/ subfolders
-		# https://stackoverflow.com/a/24319167/470117
-		RewriteCond "%{ENV:BASE}/admin/ %{REQUEST_URI}" "(^[^ ]*) \1" [OR]
-		RewriteCond "%{ENV:BASE}/mobile/ %{REQUEST_URI}" "(^[^ ]*) \1"
-		RewriteRule ^ - [L]
-		## /Not part of Symfony
-	
-	    # If the requested filename exists, simply serve it.
-	    # We only want to let Apache serve files and not directories.
-	    RewriteCond %{REQUEST_FILENAME} -f
-	    RewriteRule ^ - [L]
-	
-	    # Rewrite all other queries to the front controller.
-	    RewriteRule ^ %{ENV:BASE}/app.php [L]
-	</IfModule>
-	
-	<IfModule !mod_rewrite.c>
-	    <IfModule mod_alias.c>
-	        # When mod_rewrite is not available, we instruct a temporary redirect of
-	        # the start page to the front controller explicitly so that the website
-	        # and the generated links can still be used.
-	        RedirectMatch 302 ^/$ /app.php/
-	        # RedirectTemp cannot be used instead
-	    </IfModule>
-	</IfModule>
+```apache
+# Use the front controller as index file. It serves as a fallback solution when
+# every other rewrite/redirect fails (e.g. in an aliased environment without
+# mod_rewrite). Additionally, this reduces the matching process for the
+# start page (path "/") because otherwise Apache will apply the rewriting rules
+# to each configured DirectoryIndex file (e.g. index.php, index.html, index.pl).
+DirectoryIndex app.php
+
+# By default, Apache does not evaluate symbolic links if you did not enable this
+# feature in your server configuration. Uncomment the following line if you
+# install assets as symlinks or if you experience problems related to symlinks
+# when compiling LESS/Sass/CoffeScript assets.
+# Options FollowSymlinks
+
+# Disabling MultiViews prevents unwanted negotiation, e.g. "/app" should not resolve
+# to the front controller "/app.php" but be rewritten to "/app.php/app".
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    # Determine the RewriteBase automatically and set it as environment variable.
+    # If you are using Apache aliases to do mass virtual hosting or installed the
+    # project in a subdirectory, the base path will be prepended to allow proper
+    # resolution of the app.php file and to redirect to the correct URI. It will
+    # work in environments without path prefix as well, providing a safe, one-size
+    # fits all solution. But as you do not need it in this case, you can comment
+    # the following 2 lines to eliminate the overhead.
+    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    RewriteRule ^(.*) - [E=BASE:%1]
+
+    # Sets the HTTP_AUTHORIZATION header removed by Apache
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect to URI without front controller to prevent duplicate content
+    # (with and without `/app.php`). Only do this redirect on the initial
+    # rewrite by Apache and not on subsequent cycles. Otherwise we would get an
+    # endless redirect loop (request -> rewrite to front controller ->
+    # redirect -> request -> ...).
+    # So in case you get a "too many redirects" error or you always get redirected
+    # to the start page because your Apache does not expose the REDIRECT_STATUS
+    # environment variable, you have 2 choices:
+    # - disable this feature by commenting the following 2 lines or
+    # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
+    #   following RewriteCond (best solution)
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^app\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
+
+	## Not part of Symfony
+	# Ignore /admin/ and /mobile/ subfolders
+	# https://stackoverflow.com/a/24319167/470117
+	RewriteCond "%{ENV:BASE}/admin/ %{REQUEST_URI}" "(^[^ ]*) \1" [OR]
+	RewriteCond "%{ENV:BASE}/mobile/ %{REQUEST_URI}" "(^[^ ]*) \1"
+	RewriteRule ^ - [L]
+	## /Not part of Symfony
+
+    # If the requested filename exists, simply serve it.
+    # We only want to let Apache serve files and not directories.
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Rewrite all other queries to the front controller.
+    RewriteRule ^ %{ENV:BASE}/app.php [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    <IfModule mod_alias.c>
+        # When mod_rewrite is not available, we instruct a temporary redirect of
+        # the start page to the front controller explicitly so that the website
+        # and the generated links can still be used.
+        RedirectMatch 302 ^/$ /app.php/
+        # RedirectTemp cannot be used instead
+    </IfModule>
+</IfModule>
+```
 
 and use [Base](PHP#base)
 
-	////  http://mydomain/seach/a10/b30/c9/f99 -> http://mydomain/myscript.php?param_a=10&param_b=30&param_c_new=9&param_f=99
-	RewriteRule ^/seach/(.*) /myscript.php/$1
+```apache
+# http://mydomain/seach/a10/b30/c9/f99 -> http://mydomain/myscript.php?param_a=10&param_b=30&param_c_new=9&param_f=99
+RewriteRule ^/seach/(.*) /myscript.php/$1
+```
 
-	RewriteRule ^/myscript.php/([a-z])([0-9]+)/(.*) /myscript.php/$3?param_$1=$2 [QSA,N]
-	RewriteRule ^/myscript.php/([a-z])([0-9]+)$ /myscript.php?param_$1=$2 [QSA,L]
+```apache
+RewriteRule ^/myscript.php/([a-z])([0-9]+)/(.*) /myscript.php/$3?param_$1=$2 [QSA,N]
+RewriteRule ^/myscript.php/([a-z])([0-9]+)$ /myscript.php?param_$1=$2 [QSA,L]
+```
 
-	///WAP-redirect, based upon accepted file type
-	RewriteCond %{HTTP_ACCEPT} (x-)*(application|text)/(x-)*(vnd[-.])*(wap[-.]|wml)+
-	RewriteRule ^(index.html)*$ index.wml [L]
+```apache
+///WAP-redirect, based upon accepted file type
+RewriteCond %{HTTP_ACCEPT} (x-)*(application|text)/(x-)*(vnd[-.])*(wap[-.]|wml)+
+RewriteRule ^(index.html)*$ index.wml [L]
+```
 
-	/////http://www.mysite.com/keyword/j1_1/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j1=1&j2=2&j4=4&j5=5&j7=7... 
-	/////http://www.mysite.com/keyword/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j2=2&j4=4&j5=5&j7=7... 
-	# Skip following section if not a "keyword/" request
-	rewriterule !^keyword/ - [S=9]
-	#
-	# Else copy/append keywords to user-defined variable "tQuery"
-	rewriterule ^keyword(/[^/]+)*/j1_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}j1=$2]
-	rewriterule ^keyword(/[^/]+)*/j2_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j2=$2]
-	rewriterule ^keyword(/[^/]+)*/j3_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j3=$2]
-	rewriterule ^keyword(/[^/]+)*/j4_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j4=$2]
-	rewriterule ^keyword(/[^/]+)*/j5_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j5=$2]
-	rewriterule ^keyword(/[^/]+)*/j6_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j6=$2]
-	rewriterule ^keyword(/[^/]+)*/j7_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j7=$2]
-	#
-	# Strip leading "&" from tQuery (if any)
-	RewriteCond %{ENV:tQuery} ^&(.+)$
-	rewriterule ^keyword/ - [NC,E=tQuery:%1]
-	# Tweaked to look for city name (if any)
-	rewriterule ^keyword(_[^/]+)? - [NC,E=tQuery:%1]
-	# Rewrite the URL-path to index.php query format
-	# Tweaked to look for city name (if any)
-	rewriterule ^keyword(_[^/]+)? /index.php?%{ENV:tQuery} [NC,L] 
+```apache
+# http://www.mysite.com/keyword/j1_1/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j1=1&j2=2&j4=4&j5=5&j7=7... 
+# http://www.mysite.com/keyword/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j2=2&j4=4&j5=5&j7=7... 
+# Skip following section if not a "keyword/" request
+rewriterule !^keyword/ - [S=9]
+#
+# Else copy/append keywords to user-defined variable "tQuery"
+rewriterule ^keyword(/[^/]+)*/j1_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}j1=$2]
+rewriterule ^keyword(/[^/]+)*/j2_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j2=$2]
+rewriterule ^keyword(/[^/]+)*/j3_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j3=$2]
+rewriterule ^keyword(/[^/]+)*/j4_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j4=$2]
+rewriterule ^keyword(/[^/]+)*/j5_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j5=$2]
+rewriterule ^keyword(/[^/]+)*/j6_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j6=$2]
+rewriterule ^keyword(/[^/]+)*/j7_([^/]+) - [NC,E=tQuery:%{ENV:tQuery}&j7=$2]
+#
+# Strip leading "&" from tQuery (if any)
+RewriteCond %{ENV:tQuery} ^&(.+)$
+rewriterule ^keyword/ - [NC,E=tQuery:%1]
+# Tweaked to look for city name (if any)
+rewriterule ^keyword(_[^/]+)? - [NC,E=tQuery:%1]
+# Rewrite the URL-path to index.php query format
+# Tweaked to look for city name (if any)
+rewriterule ^keyword(_[^/]+)? /index.php?%{ENV:tQuery} [NC,L]
+```
 
-	////http://mysite.com/keyword/test/page2 -> http://mysite.com/data.php?method=keyword&criteria=test&page=2
-	////http://mysite.com/date/06-05-02 -> http://mysite.com/data.php?method=keyword&criteria=06-05-02
-	# Skip following section if not a "keyword/" request
-	rewriterule !^(keyword|date|category) - [skip=4]
-	# Else copy/append keywords to user-defined variable "tmpQuery"
-	RewriteRule ^(keyword|date|category).*$ - [env=tmpQuery:%{ENV:tmpQuery}method=$1]
-	RewriteRule ^(keyword|date|category)/([^/]*).*$ - [env=tmpQuery:%{ENV:tmpQuery}&criteria=$2]
-	RewriteRule ^(keyword|date|category)/([^/]*)/page(\d+).*$ - [env=tmpQuery:%{ENV:tmpQuery}&page=$3]
-	# Rewrite the URL-path to data.php query format 
-	rewriterule ^(keyword|date|category).* /data.php?%{ENV:tmpQuery} [last]
-	http://www.dracos.co.uk/code/apache-rewrite-problem/
+```apache
+# http://mysite.com/keyword/test/page2 -> http://mysite.com/data.php?method=keyword&criteria=test&page=2
+# http://mysite.com/date/06-05-02 -> http://mysite.com/data.php?method=keyword&criteria=06-05-02
+# Skip following section if not a "keyword/" request
+rewriterule !^(keyword|date|category) - [skip=4]
+# Else copy/append keywords to user-defined variable "tmpQuery"
+RewriteRule ^(keyword|date|category).*$ - [env=tmpQuery:%{ENV:tmpQuery}method=$1]
+RewriteRule ^(keyword|date|category)/([^/]*).*$ - [env=tmpQuery:%{ENV:tmpQuery}&criteria=$2]
+RewriteRule ^(keyword|date|category)/([^/]*)/page(\d+).*$ - [env=tmpQuery:%{ENV:tmpQuery}&page=$3]
+# Rewrite the URL-path to data.php query format 
+rewriterule ^(keyword|date|category).* /data.php?%{ENV:tmpQuery} [last]
+# http://www.dracos.co.uk/code/apache-rewrite-problem/
+```
 
-	/// Rewrite by accept language given by client
-	RewriteEngine on
-	RewriteCond %{HTTP:Accept-Language} (sv) [NC]
-	RewriteRule .* http://www.sverige.hms-solutions.com [R,L]
-	RewriteCond %{HTTP:Accept-Language} (nn) [NC]
-	RewriteRule .* http://www.norge.hms-solutions.com [R,L]
-	RewriteCond %{HTTP:Accept-Language} (da) [NC]
-	RewriteRule .* http://www.danmark.hms-solutions.com [R,L]
-	RewriteCond %{HTTP:Accept-Language} (en) [NC]
-	RewriteRule .* http://www.english.hms-solutions.com [R,L]
-	RewriteCond %{HTTP:Accept-Language} .* [NC]
-	RewriteRule .* http://www.international.hms-solutions.com [R,L]
+```apache
+/// Rewrite by accept language given by client
+RewriteEngine on
+RewriteCond %{HTTP:Accept-Language} (sv) [NC]
+RewriteRule .* http://www.sverige.hms-solutions.com [R,L]
+RewriteCond %{HTTP:Accept-Language} (nn) [NC]
+RewriteRule .* http://www.norge.hms-solutions.com [R,L]
+RewriteCond %{HTTP:Accept-Language} (da) [NC]
+RewriteRule .* http://www.danmark.hms-solutions.com [R,L]
+RewriteCond %{HTTP:Accept-Language} (en) [NC]
+RewriteRule .* http://www.english.hms-solutions.com [R,L]
+RewriteCond %{HTTP:Accept-Language} .* [NC]
+RewriteRule .* http://www.international.hms-solutions.com [R,L]
+```
 
-	// Feed redirect
-	RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(feed|wp-atom|wp-feed|wp-rss|wp-rdf|wp-commentsrss)(.*)\ HTTP/ [NC,OR]
-	RewriteCond %{QUERY_STRING} ^feed [NC]
-	RewriteCond %{HTTP_USER_AGENT} !^(FeedBurner|FeedValidator|talkr) [NC]
-	RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
+```apache
+// Feed redirect
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(feed|wp-atom|wp-feed|wp-rss|wp-rdf|wp-commentsrss)(.*)\ HTTP/ [NC,OR]
+RewriteCond %{QUERY_STRING} ^feed [NC]
+RewriteCond %{HTTP_USER_AGENT} !^(FeedBurner|FeedValidator|talkr) [NC]
+RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
+```
 
 - [mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html)
 
@@ -468,23 +510,31 @@ and use [Base](PHP#base)
 
 Set cookie
 
-	This code sends the Set-Cookie header to create a cookie on the client with the value of a matching item in 2nd parantheses.
-	RewriteRule ^(.*)(de|es|fr|it|ja|ru|en)/$ - [co=lang:$2:.askapache.com:7200:/] 
+```apache
+# This code sends the Set-Cookie header to create a cookie on the client with the value of a matching item in 2nd parantheses.
+RewriteRule ^(.*)(de|es|fr|it|ja|ru|en)/$ - [co=lang:$2:.askapache.com:7200:/]
+```
 
 Get cookie
 
-	RewriteCond %{HTTP_COOKIE} lang=([^;]+) [NC]
-	RewriteRule ^(.*)$ /$1?cookie-value=%1 [R,QSA,L]
+```apache
+RewriteCond %{HTTP_COOKIE} lang=([^;]+) [NC]
+RewriteRule ^(.*)$ /$1?cookie-value=%1 [R,QSA,L]
+```
 
 Rewirte base on cookie
 
-	RewriteCond %{HTTP_COOKIE} lang=([^;]+) [NC]
-	RewriteRule ^(.*)$ /$1?lang=%1 [NC,L,QSA]
+```apache
+RewriteCond %{HTTP_COOKIE} lang=([^;]+) [NC]
+RewriteRule ^(.*)$ /$1?lang=%1 [NC,L,QSA]
+```
 
 Redirect if cookie not set
 
-	RewriteCond %{HTTP_COOKIE}!^.*cookie-name.*$ [NC]
-	RewriteRule .* /login-error/set-cookie-first.cgi [NC,L]	
+```apache
+RewriteCond %{HTTP_COOKIE}!^.*cookie-name.*$ [NC]
+RewriteRule .* /login-error/set-cookie-first.cgi [NC,L]
+```
 
 ## Environnement variables
 
@@ -495,100 +545,112 @@ Redirect if cookie not set
 
 Pass env variable to PHP, should start with `HTTP_`, eg. `$_SERVER['HTTP_MY_VARIABLE']`:
 
-	SetEnv MY_VARIABLE "my value"
+```apache
+SetEnv MY_VARIABLE "my value"
+```
 
 Or use query param
 
-	RewriteRule ^(.*) index.php?cur_url=/$1&my_variable=my+value?%{QUERY_STRING}
+```apache
+RewriteRule ^(.*) index.php?cur_url=/$1&my_variable=my+value?%{QUERY_STRING}
+```
 
 ## Echo all header back
 
-	Header echo ^.*	
+```apache
+Header echo ^.*	
+```
 
 ## Caching
 
-	<IfModule mod_expires.c>
-	ExpiresActive on
-	
-	# Perhaps better to whitelist expires rules? Perhaps.
-	ExpiresDefault                          "access plus 1 month"
-	
-	# cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
-	ExpiresByType text/cache-manifest       "access plus 0 seconds"
-	
-	# Your document html
-	ExpiresByType text/html                 "access plus 0 seconds"
-	
-	# CSS and JavaScript
-	ExpiresByType text/css                  "access plus 1 year"
-	ExpiresByType application/javascript    "access plus 1 year"
-	
-	# Data
-	ExpiresByType text/xml                  "access plus 0 seconds"
-	ExpiresByType application/xml           "access plus 0 seconds"
-	ExpiresByType application/json          "access plus 0 seconds"
-	ExpiresByType application/ld+json       "access plus 0 seconds"
-	ExpiresByType application/vnd.geo+json  "access plus 0 seconds"
-	
-	# Feed
-	ExpiresByType application/rss+xml       "access plus 1 hour"
-	ExpiresByType application/atom+xml      "access plus 1 hour"
-	
-	# Favicon (cannot be renamed)
-	ExpiresByType image/x-icon              "access plus 1 week"
-	
-	# Manifest files
-	ExpiresByType application/manifest+json             "access plus 1 year"
-	ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
-	ExpiresByType text/cache-manifest                   "access plus 0 seconds"
-	
-	# Media: images, video, audio
-	ExpiresByType image/gif                             "access plus 1 month"
-	ExpiresByType image/png                             "access plus 1 month"
-	ExpiresByType image/jpg                             "access plus 1 month"
-	ExpiresByType image/jpeg                            "access plus 1 month"
-	ExpiresByType video/ogg                             "access plus 1 month"
-	ExpiresByType audio/ogg                             "access plus 1 month"
-	ExpiresByType video/mp4                             "access plus 1 month"
-	ExpiresByType video/webm                            "access plus 1 month"
-	
-	# Webfonts
-	ExpiresByType application/font-woff                 "access plus 1 month"
-	ExpiresByType application/font-woff2                "access plus 1 month"
-	ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
-	ExpiresByType application/x-font-ttf                "access plus 1 month"
-	ExpiresByType font/opentype                         "access plus 1 month"
-	ExpiresByType image/svg+xml                         "access plus 1 month"
-	</IfModule>
+```apache
+<IfModule mod_expires.c>
+ExpiresActive on
 
-	# 1 YEAR
-	<FilesMatch "\.(ico|pdf|flv)$">
-	Header set Cache-Control "max-age=29030400, public"
-	</FilesMatch>
-	# 1 WEEK
-	<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
-	Header set Cache-Control "max-age=604800, public"
-	</FilesMatch>
-	# 2 DAYS
-	<FilesMatch "\.(xml|txt|css|js)$">
-	Header set Cache-Control "max-age=172800, proxy-revalidate"
-	</FilesMatch>
-	# 1 MIN
-	<FilesMatch "\.(html|htm|php)$">
-	Header set Cache-Control "max-age=60, private, proxy-revalidate"
-	</FilesMatch>
+# Perhaps better to whitelist expires rules? Perhaps.
+ExpiresDefault                          "access plus 1 month"
+
+# cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
+ExpiresByType text/cache-manifest       "access plus 0 seconds"
+
+# Your document html
+ExpiresByType text/html                 "access plus 0 seconds"
+
+# CSS and JavaScript
+ExpiresByType text/css                  "access plus 1 year"
+ExpiresByType application/javascript    "access plus 1 year"
+
+# Data
+ExpiresByType text/xml                  "access plus 0 seconds"
+ExpiresByType application/xml           "access plus 0 seconds"
+ExpiresByType application/json          "access plus 0 seconds"
+ExpiresByType application/ld+json       "access plus 0 seconds"
+ExpiresByType application/vnd.geo+json  "access plus 0 seconds"
+
+# Feed
+ExpiresByType application/rss+xml       "access plus 1 hour"
+ExpiresByType application/atom+xml      "access plus 1 hour"
+
+# Favicon (cannot be renamed)
+ExpiresByType image/x-icon              "access plus 1 week"
+
+# Manifest files
+ExpiresByType application/manifest+json             "access plus 1 year"
+ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+# Media: images, video, audio
+ExpiresByType image/gif                             "access plus 1 month"
+ExpiresByType image/png                             "access plus 1 month"
+ExpiresByType image/jpg                             "access plus 1 month"
+ExpiresByType image/jpeg                            "access plus 1 month"
+ExpiresByType video/ogg                             "access plus 1 month"
+ExpiresByType audio/ogg                             "access plus 1 month"
+ExpiresByType video/mp4                             "access plus 1 month"
+ExpiresByType video/webm                            "access plus 1 month"
+
+# Webfonts
+ExpiresByType application/font-woff                 "access plus 1 month"
+ExpiresByType application/font-woff2                "access plus 1 month"
+ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+ExpiresByType application/x-font-ttf                "access plus 1 month"
+ExpiresByType font/opentype                         "access plus 1 month"
+ExpiresByType image/svg+xml                         "access plus 1 month"
+</IfModule>
+```
+
+```apache
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+# 2 DAYS
+<FilesMatch "\.(xml|txt|css|js)$">
+Header set Cache-Control "max-age=172800, proxy-revalidate"
+</FilesMatch>
+# 1 MIN
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=60, private, proxy-revalidate"
+</FilesMatch>
+```
 
 ETag removal
 
-	# FileETag None is not enough for every server.
-	<IfModule mod_headers.c>
-	  Header unset ETag
-	</IfModule>
-	
-	# Since we're sending far-future expires, we don't need ETags for
-	# static content.
-	#   developer.yahoo.com/performance/rules.html#etags
-	FileETag None
+```apache
+# FileETag None is not enough for every server.
+<IfModule mod_headers.c>
+  Header unset ETag
+</IfModule>
+
+# Since we're sending far-future expires, we don't need ETags for
+# static content.
+#   developer.yahoo.com/performance/rules.html#etags
+FileETag None
+```
 
 - https://gist.github.com/FlorianKromer/aa08762387183404a506#file-htaccess-L180-L241
 
@@ -596,160 +658,164 @@ ETag removal
 
 `.htaccess`:
 
-	RewriteEngine on
-	RewriteBase /
-	RewriteRule .* - [E=INFO_API_VERSION:%{API_VERSION},NE]
-	RewriteRule .* - [E=INFO_AUTH_TYPE:%{AUTH_TYPE},NE]
-	RewriteRule .* - [E=INFO_CONTENT_LENGTH:%{CONTENT_LENGTH},NE]
-	RewriteRule .* - [E=INFO_CONTENT_TYPE:%{CONTENT_TYPE},NE]
-	RewriteRule .* - [E=INFO_DOCUMENT_ROOT:%{DOCUMENT_ROOT},NE]
-	RewriteRule .* - [E=INFO_GATEWAY_INTERFACE:%{GATEWAY_INTERFACE},NE]
-	RewriteRule .* - [E=INFO_HTTPS:%{HTTPS},NE]
-	RewriteRule .* - [E=INFO_HTTP_ACCEPT:%{HTTP_ACCEPT},NE]
-	RewriteRule .* - [E=INFO_HTTP_ACCEPT_CHARSET:%{HTTP_ACCEPT_CHARSET},NE]
-	RewriteRule .* - [E=INFO_HTTP_ACCEPT_ENCODING:%{HTTP_ACCEPT_ENCODING},NE]
-	RewriteRule .* - [E=INFO_HTTP_ACCEPT_LANGUAGE:%{HTTP_ACCEPT_LANGUAGE},NE]
-	RewriteRule .* - [E=INFO_HTTP_CACHE_CONTROL:%{HTTP_CACHE_CONTROL},NE]
-	RewriteRule .* - [E=INFO_HTTP_CONNECTION:%{HTTP_CONNECTION},NE]
-	RewriteRule .* - [E=INFO_HTTP_COOKIE:%{HTTP_COOKIE},NE]
-	RewriteRule .* - [E=INFO_HTTP_FORWARDED:%{HTTP_FORWARDED},NE]
-	RewriteRule .* - [E=INFO_HTTP_HOST:%{HTTP_HOST},NE]
-	RewriteRule .* - [E=INFO_HTTP_KEEP_ALIVE:%{HTTP_KEEP_ALIVE},NE]
-	RewriteRule .* - [E=INFO_HTTP_MOD_SECURITY_MESSAGE:%{HTTP_MOD_SECURITY_MESSAGE},NE]
-	RewriteRule .* - [E=INFO_HTTP_PROXY_CONNECTION:%{HTTP_PROXY_CONNECTION},NE]
-	RewriteRule .* - [E=INFO_HTTP_REFERER:%{HTTP_REFERER},NE]
-	RewriteRule .* - [E=INFO_HTTP_USER_AGENT:%{HTTP_USER_AGENT},NE]
-	RewriteRule .* - [E=INFO_IS_SUBREQ:%{IS_SUBREQ},NE]
-	RewriteRule .* - [E=INFO_ORIG_PATH_INFO:%{ORIG_PATH_INFO},NE]
-	RewriteRule .* - [E=INFO_ORIG_PATH_TRANSLATED:%{ORIG_PATH_TRANSLATED},NE]
-	RewriteRule .* - [E=INFO_ORIG_SCRIPT_FILENAME:%{ORIG_SCRIPT_FILENAME},NE]
-	RewriteRule .* - [E=INFO_ORIG_SCRIPT_NAME:%{ORIG_SCRIPT_NAME},NE]
-	RewriteRule .* - [E=INFO_PATH:%{PATH},NE]
-	RewriteRule .* - [E=INFO_PATH_INFO:%{PATH_INFO},NE]
-	RewriteRule .* - [E=INFO_PHP_SELF:%{PHP_SELF},NE]
-	RewriteRule .* - [E=INFO_QUERY_STRING:%{QUERY_STRING},NE]
-	RewriteRule .* - [E=INFO_REDIRECT_QUERY_STRING:%{REDIRECT_QUERY_STRING},NE]
-	RewriteRule .* - [E=INFO_REDIRECT_REMOTE_USER:%{REDIRECT_REMOTE_USER},NE]
-	RewriteRule .* - [E=INFO_REDIRECT_STATUS:%{REDIRECT_STATUS},NE]
-	RewriteRule .* - [E=INFO_REDIRECT_URL:%{REDIRECT_URL},NE]
-	RewriteRule .* - [E=INFO_REMOTE_ADDR:%{REMOTE_ADDR},NE]
-	RewriteRule .* - [E=INFO_REMOTE_HOST:%{REMOTE_HOST},NE]
-	RewriteRule .* - [E=INFO_REMOTE_IDENT:%{REMOTE_IDENT},NE]
-	RewriteRule .* - [E=INFO_REMOTE_PORT:%{REMOTE_PORT},NE]
-	RewriteRule .* - [E=INFO_REMOTE_USER:%{REMOTE_USER},NE]
-	RewriteRule .* - [E=INFO_REQUEST_FILENAME:%{REQUEST_FILENAME},NE]
-	RewriteRule .* - [E=INFO_REQUEST_METHOD:%{REQUEST_METHOD},NE]
-	RewriteRule .* - [E=INFO_REQUEST_TIME:%{REQUEST_TIME},NE]
-	RewriteRule .* - [E=INFO_REQUEST_URI:%{REQUEST_URI},NE]
-	RewriteRule .* - [E=INFO_SCRIPT_FILENAME:%{SCRIPT_FILENAME},NE]
-	RewriteRule .* - [E=INFO_SCRIPT_GROUP:%{SCRIPT_GROUP},NE]
-	RewriteRule .* - [E=INFO_SCRIPT_NAME:%{SCRIPT_NAME},NE]
-	RewriteRule .* - [E=INFO_SCRIPT_URI:%{SCRIPT_URI},NE]
-	RewriteRule .* - [E=INFO_SCRIPT_URL:%{SCRIPT_URL},NE]
-	RewriteRule .* - [E=INFO_SCRIPT_USER:%{SCRIPT_USER},NE]
-	RewriteRule .* - [E=INFO_SERVER_ADDR:%{SERVER_ADDR},NE]
-	RewriteRule .* - [E=INFO_SERVER_ADMIN:%{SERVER_ADMIN},NE]
-	RewriteRule .* - [E=INFO_SERVER_NAME:%{SERVER_NAME},NE]
-	RewriteRule .* - [E=INFO_SERVER_PORT:%{SERVER_PORT},NE]
-	RewriteRule .* - [E=INFO_SERVER_PROTOCOL:%{SERVER_PROTOCOL},NE]
-	RewriteRule .* - [E=INFO_SERVER_SIGNATURE:%{SERVER_SIGNATURE},NE]
-	RewriteRule .* - [E=INFO_SERVER_SOFTWARE:%{SERVER_SOFTWARE},NE]
-	RewriteRule .* - [E=INFO_THE_REQUEST:%{THE_REQUEST},NE]
-	RewriteRule .* - [E=INFO_TIME:%{TIME},NE]
-	RewriteRule .* - [E=INFO_TIME_DAY:%{TIME_DAY},NE]
-	RewriteRule .* - [E=INFO_TIME_HOUR:%{TIME_HOUR},NE]
-	RewriteRule .* - [E=INFO_TIME_MIN:%{TIME_MIN},NE]
-	RewriteRule .* - [E=INFO_TIME_MON:%{TIME_MON},NE]
-	RewriteRule .* - [E=INFO_TIME_SEC:%{TIME_SEC},NE]
-	RewriteRule .* - [E=INFO_TIME_WDAY:%{TIME_WDAY},NE]
-	RewriteRule .* - [E=INFO_TIME_YEAR:%{TIME_YEAR},NE]
-	RewriteRule .* - [E=INFO_TZ:%{TZ},NE]
-	RewriteRule .* - [E=INFO_UNIQUE_ID:%{UNIQUE_ID},NE]
-	RequestHeader set INFO_API_VERSION "%{INFO_API_VERSION}e"
-	RequestHeader set INFO_AUTH_TYPE "%{INFO_AUTH_TYPE}e"
-	RequestHeader set INFO_CONTENT_LENGTH "%{INFO_CONTENT_LENGTH}e"
-	RequestHeader set INFO_CONTENT_TYPE "%{INFO_CONTENT_TYPE}e"
-	RequestHeader set INFO_DOCUMENT_ROOT "%{INFO_DOCUMENT_ROOT}e"
-	RequestHeader set INFO_GATEWAY_INTERFACE "%{INFO_GATEWAY_INTERFACE}e"
-	RequestHeader set INFO_HTTPS "%{INFO_HTTPS}e"
-	RequestHeader set INFO_HTTP_ACCEPT "%{INFO_HTTP_ACCEPT}e"
-	RequestHeader set INFO_HTTP_ACCEPT_CHARSET "%{INFO_HTTP_ACCEPT_CHARSET}e"
-	RequestHeader set INFO_HTTP_ACCEPT_ENCODING "%{INFO_HTTP_ACCEPT_ENCODING}e"
-	RequestHeader set INFO_HTTP_ACCEPT_LANGUAGE "%{INFO_HTTP_ACCEPT_LANGUAGE}e"
-	RequestHeader set INFO_HTTP_CACHE_CONTROL "%{INFO_HTTP_CACHE_CONTROL}e"
-	RequestHeader set INFO_HTTP_CONNECTION "%{INFO_HTTP_CONNECTION}e"
-	RequestHeader set INFO_HTTP_COOKIE "%{INFO_HTTP_COOKIE}e"
-	RequestHeader set INFO_HTTP_FORWARDED "%{INFO_HTTP_FORWARDED}e"
-	RequestHeader set INFO_HTTP_HOST "%{INFO_HTTP_HOST}e"
-	RequestHeader set INFO_HTTP_KEEP_ALIVE "%{INFO_HTTP_KEEP_ALIVE}e"
-	RequestHeader set INFO_HTTP_MOD_SECURITY_MESSAGE "%{INFO_HTTP_MOD_SECURITY_MESSAGE}e"
-	RequestHeader set INFO_HTTP_PROXY_CONNECTION "%{INFO_HTTP_PROXY_CONNECTION}e"
-	RequestHeader set INFO_HTTP_REFERER "%{INFO_HTTP_REFERER}e"
-	RequestHeader set INFO_HTTP_USER_AGENT "%{INFO_HTTP_USER_AGENT}e"
-	RequestHeader set INFO_IS_SUBREQ "%{INFO_IS_SUBREQ}e"
-	RequestHeader set INFO_ORIG_PATH_INFO "%{INFO_ORIG_PATH_INFO}e"
-	RequestHeader set INFO_ORIG_PATH_TRANSLATED "%{INFO_ORIG_PATH_TRANSLATED}e"
-	RequestHeader set INFO_ORIG_SCRIPT_FILENAME "%{INFO_ORIG_SCRIPT_FILENAME}e"
-	RequestHeader set INFO_ORIG_SCRIPT_NAME "%{INFO_ORIG_SCRIPT_NAME}e"
-	RequestHeader set INFO_PATH "%{INFO_PATH}e"
-	RequestHeader set INFO_PATH_INFO "%{INFO_PATH_INFO}e"
-	RequestHeader set INFO_PHP_SELF "%{INFO_PHP_SELF}e"
-	RequestHeader set INFO_QUERY_STRING "%{INFO_QUERY_STRING}e"
-	RequestHeader set INFO_REDIRECT_QUERY_STRING "%{INFO_REDIRECT_QUERY_STRING}e"
-	RequestHeader set INFO_REDIRECT_REMOTE_USER "%{INFO_REDIRECT_REMOTE_USER}e"
-	RequestHeader set INFO_REDIRECT_STATUS "%{INFO_REDIRECT_STATUS}e"
-	RequestHeader set INFO_REDIRECT_URL "%{INFO_REDIRECT_URL}e"
-	RequestHeader set INFO_REMOTE_ADDR "%{INFO_REMOTE_ADDR}e"
-	RequestHeader set INFO_REMOTE_HOST "%{INFO_REMOTE_HOST}e"
-	RequestHeader set INFO_REMOTE_IDENT "%{INFO_REMOTE_IDENT}e"
-	RequestHeader set INFO_REMOTE_PORT "%{INFO_REMOTE_PORT}e"
-	RequestHeader set INFO_REMOTE_USER "%{INFO_REMOTE_USER}e"
-	RequestHeader set INFO_REQUEST_FILENAME "%{INFO_REQUEST_FILENAME}e"
-	RequestHeader set INFO_REQUEST_METHOD "%{INFO_REQUEST_METHOD}e"
-	RequestHeader set INFO_REQUEST_TIME "%{INFO_REQUEST_TIME}e"
-	RequestHeader set INFO_REQUEST_URI "%{INFO_REQUEST_URI}e"
-	RequestHeader set INFO_SCRIPT_FILENAME "%{INFO_SCRIPT_FILENAME}e"
-	RequestHeader set INFO_SCRIPT_GROUP "%{INFO_SCRIPT_GROUP}e"
-	RequestHeader set INFO_SCRIPT_NAME "%{INFO_SCRIPT_NAME}e"
-	RequestHeader set INFO_SCRIPT_URI "%{INFO_SCRIPT_URI}e"
-	RequestHeader set INFO_SCRIPT_URL "%{INFO_SCRIPT_URL}e"
-	RequestHeader set INFO_SCRIPT_USER "%{INFO_SCRIPT_USER}e"
-	RequestHeader set INFO_SERVER_ADDR "%{INFO_SERVER_ADDR}e"
-	RequestHeader set INFO_SERVER_ADMIN "%{INFO_SERVER_ADMIN}e"
-	RequestHeader set INFO_SERVER_NAME "%{INFO_SERVER_NAME}e"
-	RequestHeader set INFO_SERVER_PORT "%{INFO_SERVER_PORT}e"
-	RequestHeader set INFO_SERVER_PROTOCOL "%{INFO_SERVER_PROTOCOL}e"
-	RequestHeader set INFO_SERVER_SIGNATURE "%{INFO_SERVER_SIGNATURE}e"
-	RequestHeader set INFO_SERVER_SOFTWARE "%{INFO_SERVER_SOFTWARE}e"
-	RequestHeader set INFO_THE_REQUEST "%{INFO_THE_REQUEST}e"
-	RequestHeader set INFO_TIME "%{INFO_TIME}e"
-	RequestHeader set INFO_TIME_DAY "%{INFO_TIME_DAY}e"
-	RequestHeader set INFO_TIME_HOUR "%{INFO_TIME_HOUR}e"
-	RequestHeader set INFO_TIME_MIN "%{INFO_TIME_MIN}e"
-	RequestHeader set INFO_TIME_MON "%{INFO_TIME_MON}e"
-	RequestHeader set INFO_TIME_SEC "%{INFO_TIME_SEC}e"
-	RequestHeader set INFO_TIME_WDAY "%{INFO_TIME_WDAY}e"
-	RequestHeader set INFO_TIME_YEAR "%{INFO_TIME_YEAR}e"
-	RequestHeader set INFO_TZ "%{INFO_TZ}e"
-	RequestHeader set INFO_UNIQUE_ID "%{INFO_UNIQUE_ID}e"
+```apache
+RewriteEngine on
+RewriteBase /
+RewriteRule .* - [E=INFO_API_VERSION:%{API_VERSION},NE]
+RewriteRule .* - [E=INFO_AUTH_TYPE:%{AUTH_TYPE},NE]
+RewriteRule .* - [E=INFO_CONTENT_LENGTH:%{CONTENT_LENGTH},NE]
+RewriteRule .* - [E=INFO_CONTENT_TYPE:%{CONTENT_TYPE},NE]
+RewriteRule .* - [E=INFO_DOCUMENT_ROOT:%{DOCUMENT_ROOT},NE]
+RewriteRule .* - [E=INFO_GATEWAY_INTERFACE:%{GATEWAY_INTERFACE},NE]
+RewriteRule .* - [E=INFO_HTTPS:%{HTTPS},NE]
+RewriteRule .* - [E=INFO_HTTP_ACCEPT:%{HTTP_ACCEPT},NE]
+RewriteRule .* - [E=INFO_HTTP_ACCEPT_CHARSET:%{HTTP_ACCEPT_CHARSET},NE]
+RewriteRule .* - [E=INFO_HTTP_ACCEPT_ENCODING:%{HTTP_ACCEPT_ENCODING},NE]
+RewriteRule .* - [E=INFO_HTTP_ACCEPT_LANGUAGE:%{HTTP_ACCEPT_LANGUAGE},NE]
+RewriteRule .* - [E=INFO_HTTP_CACHE_CONTROL:%{HTTP_CACHE_CONTROL},NE]
+RewriteRule .* - [E=INFO_HTTP_CONNECTION:%{HTTP_CONNECTION},NE]
+RewriteRule .* - [E=INFO_HTTP_COOKIE:%{HTTP_COOKIE},NE]
+RewriteRule .* - [E=INFO_HTTP_FORWARDED:%{HTTP_FORWARDED},NE]
+RewriteRule .* - [E=INFO_HTTP_HOST:%{HTTP_HOST},NE]
+RewriteRule .* - [E=INFO_HTTP_KEEP_ALIVE:%{HTTP_KEEP_ALIVE},NE]
+RewriteRule .* - [E=INFO_HTTP_MOD_SECURITY_MESSAGE:%{HTTP_MOD_SECURITY_MESSAGE},NE]
+RewriteRule .* - [E=INFO_HTTP_PROXY_CONNECTION:%{HTTP_PROXY_CONNECTION},NE]
+RewriteRule .* - [E=INFO_HTTP_REFERER:%{HTTP_REFERER},NE]
+RewriteRule .* - [E=INFO_HTTP_USER_AGENT:%{HTTP_USER_AGENT},NE]
+RewriteRule .* - [E=INFO_IS_SUBREQ:%{IS_SUBREQ},NE]
+RewriteRule .* - [E=INFO_ORIG_PATH_INFO:%{ORIG_PATH_INFO},NE]
+RewriteRule .* - [E=INFO_ORIG_PATH_TRANSLATED:%{ORIG_PATH_TRANSLATED},NE]
+RewriteRule .* - [E=INFO_ORIG_SCRIPT_FILENAME:%{ORIG_SCRIPT_FILENAME},NE]
+RewriteRule .* - [E=INFO_ORIG_SCRIPT_NAME:%{ORIG_SCRIPT_NAME},NE]
+RewriteRule .* - [E=INFO_PATH:%{PATH},NE]
+RewriteRule .* - [E=INFO_PATH_INFO:%{PATH_INFO},NE]
+RewriteRule .* - [E=INFO_PHP_SELF:%{PHP_SELF},NE]
+RewriteRule .* - [E=INFO_QUERY_STRING:%{QUERY_STRING},NE]
+RewriteRule .* - [E=INFO_REDIRECT_QUERY_STRING:%{REDIRECT_QUERY_STRING},NE]
+RewriteRule .* - [E=INFO_REDIRECT_REMOTE_USER:%{REDIRECT_REMOTE_USER},NE]
+RewriteRule .* - [E=INFO_REDIRECT_STATUS:%{REDIRECT_STATUS},NE]
+RewriteRule .* - [E=INFO_REDIRECT_URL:%{REDIRECT_URL},NE]
+RewriteRule .* - [E=INFO_REMOTE_ADDR:%{REMOTE_ADDR},NE]
+RewriteRule .* - [E=INFO_REMOTE_HOST:%{REMOTE_HOST},NE]
+RewriteRule .* - [E=INFO_REMOTE_IDENT:%{REMOTE_IDENT},NE]
+RewriteRule .* - [E=INFO_REMOTE_PORT:%{REMOTE_PORT},NE]
+RewriteRule .* - [E=INFO_REMOTE_USER:%{REMOTE_USER},NE]
+RewriteRule .* - [E=INFO_REQUEST_FILENAME:%{REQUEST_FILENAME},NE]
+RewriteRule .* - [E=INFO_REQUEST_METHOD:%{REQUEST_METHOD},NE]
+RewriteRule .* - [E=INFO_REQUEST_TIME:%{REQUEST_TIME},NE]
+RewriteRule .* - [E=INFO_REQUEST_URI:%{REQUEST_URI},NE]
+RewriteRule .* - [E=INFO_SCRIPT_FILENAME:%{SCRIPT_FILENAME},NE]
+RewriteRule .* - [E=INFO_SCRIPT_GROUP:%{SCRIPT_GROUP},NE]
+RewriteRule .* - [E=INFO_SCRIPT_NAME:%{SCRIPT_NAME},NE]
+RewriteRule .* - [E=INFO_SCRIPT_URI:%{SCRIPT_URI},NE]
+RewriteRule .* - [E=INFO_SCRIPT_URL:%{SCRIPT_URL},NE]
+RewriteRule .* - [E=INFO_SCRIPT_USER:%{SCRIPT_USER},NE]
+RewriteRule .* - [E=INFO_SERVER_ADDR:%{SERVER_ADDR},NE]
+RewriteRule .* - [E=INFO_SERVER_ADMIN:%{SERVER_ADMIN},NE]
+RewriteRule .* - [E=INFO_SERVER_NAME:%{SERVER_NAME},NE]
+RewriteRule .* - [E=INFO_SERVER_PORT:%{SERVER_PORT},NE]
+RewriteRule .* - [E=INFO_SERVER_PROTOCOL:%{SERVER_PROTOCOL},NE]
+RewriteRule .* - [E=INFO_SERVER_SIGNATURE:%{SERVER_SIGNATURE},NE]
+RewriteRule .* - [E=INFO_SERVER_SOFTWARE:%{SERVER_SOFTWARE},NE]
+RewriteRule .* - [E=INFO_THE_REQUEST:%{THE_REQUEST},NE]
+RewriteRule .* - [E=INFO_TIME:%{TIME},NE]
+RewriteRule .* - [E=INFO_TIME_DAY:%{TIME_DAY},NE]
+RewriteRule .* - [E=INFO_TIME_HOUR:%{TIME_HOUR},NE]
+RewriteRule .* - [E=INFO_TIME_MIN:%{TIME_MIN},NE]
+RewriteRule .* - [E=INFO_TIME_MON:%{TIME_MON},NE]
+RewriteRule .* - [E=INFO_TIME_SEC:%{TIME_SEC},NE]
+RewriteRule .* - [E=INFO_TIME_WDAY:%{TIME_WDAY},NE]
+RewriteRule .* - [E=INFO_TIME_YEAR:%{TIME_YEAR},NE]
+RewriteRule .* - [E=INFO_TZ:%{TZ},NE]
+RewriteRule .* - [E=INFO_UNIQUE_ID:%{UNIQUE_ID},NE]
+RequestHeader set INFO_API_VERSION "%{INFO_API_VERSION}e"
+RequestHeader set INFO_AUTH_TYPE "%{INFO_AUTH_TYPE}e"
+RequestHeader set INFO_CONTENT_LENGTH "%{INFO_CONTENT_LENGTH}e"
+RequestHeader set INFO_CONTENT_TYPE "%{INFO_CONTENT_TYPE}e"
+RequestHeader set INFO_DOCUMENT_ROOT "%{INFO_DOCUMENT_ROOT}e"
+RequestHeader set INFO_GATEWAY_INTERFACE "%{INFO_GATEWAY_INTERFACE}e"
+RequestHeader set INFO_HTTPS "%{INFO_HTTPS}e"
+RequestHeader set INFO_HTTP_ACCEPT "%{INFO_HTTP_ACCEPT}e"
+RequestHeader set INFO_HTTP_ACCEPT_CHARSET "%{INFO_HTTP_ACCEPT_CHARSET}e"
+RequestHeader set INFO_HTTP_ACCEPT_ENCODING "%{INFO_HTTP_ACCEPT_ENCODING}e"
+RequestHeader set INFO_HTTP_ACCEPT_LANGUAGE "%{INFO_HTTP_ACCEPT_LANGUAGE}e"
+RequestHeader set INFO_HTTP_CACHE_CONTROL "%{INFO_HTTP_CACHE_CONTROL}e"
+RequestHeader set INFO_HTTP_CONNECTION "%{INFO_HTTP_CONNECTION}e"
+RequestHeader set INFO_HTTP_COOKIE "%{INFO_HTTP_COOKIE}e"
+RequestHeader set INFO_HTTP_FORWARDED "%{INFO_HTTP_FORWARDED}e"
+RequestHeader set INFO_HTTP_HOST "%{INFO_HTTP_HOST}e"
+RequestHeader set INFO_HTTP_KEEP_ALIVE "%{INFO_HTTP_KEEP_ALIVE}e"
+RequestHeader set INFO_HTTP_MOD_SECURITY_MESSAGE "%{INFO_HTTP_MOD_SECURITY_MESSAGE}e"
+RequestHeader set INFO_HTTP_PROXY_CONNECTION "%{INFO_HTTP_PROXY_CONNECTION}e"
+RequestHeader set INFO_HTTP_REFERER "%{INFO_HTTP_REFERER}e"
+RequestHeader set INFO_HTTP_USER_AGENT "%{INFO_HTTP_USER_AGENT}e"
+RequestHeader set INFO_IS_SUBREQ "%{INFO_IS_SUBREQ}e"
+RequestHeader set INFO_ORIG_PATH_INFO "%{INFO_ORIG_PATH_INFO}e"
+RequestHeader set INFO_ORIG_PATH_TRANSLATED "%{INFO_ORIG_PATH_TRANSLATED}e"
+RequestHeader set INFO_ORIG_SCRIPT_FILENAME "%{INFO_ORIG_SCRIPT_FILENAME}e"
+RequestHeader set INFO_ORIG_SCRIPT_NAME "%{INFO_ORIG_SCRIPT_NAME}e"
+RequestHeader set INFO_PATH "%{INFO_PATH}e"
+RequestHeader set INFO_PATH_INFO "%{INFO_PATH_INFO}e"
+RequestHeader set INFO_PHP_SELF "%{INFO_PHP_SELF}e"
+RequestHeader set INFO_QUERY_STRING "%{INFO_QUERY_STRING}e"
+RequestHeader set INFO_REDIRECT_QUERY_STRING "%{INFO_REDIRECT_QUERY_STRING}e"
+RequestHeader set INFO_REDIRECT_REMOTE_USER "%{INFO_REDIRECT_REMOTE_USER}e"
+RequestHeader set INFO_REDIRECT_STATUS "%{INFO_REDIRECT_STATUS}e"
+RequestHeader set INFO_REDIRECT_URL "%{INFO_REDIRECT_URL}e"
+RequestHeader set INFO_REMOTE_ADDR "%{INFO_REMOTE_ADDR}e"
+RequestHeader set INFO_REMOTE_HOST "%{INFO_REMOTE_HOST}e"
+RequestHeader set INFO_REMOTE_IDENT "%{INFO_REMOTE_IDENT}e"
+RequestHeader set INFO_REMOTE_PORT "%{INFO_REMOTE_PORT}e"
+RequestHeader set INFO_REMOTE_USER "%{INFO_REMOTE_USER}e"
+RequestHeader set INFO_REQUEST_FILENAME "%{INFO_REQUEST_FILENAME}e"
+RequestHeader set INFO_REQUEST_METHOD "%{INFO_REQUEST_METHOD}e"
+RequestHeader set INFO_REQUEST_TIME "%{INFO_REQUEST_TIME}e"
+RequestHeader set INFO_REQUEST_URI "%{INFO_REQUEST_URI}e"
+RequestHeader set INFO_SCRIPT_FILENAME "%{INFO_SCRIPT_FILENAME}e"
+RequestHeader set INFO_SCRIPT_GROUP "%{INFO_SCRIPT_GROUP}e"
+RequestHeader set INFO_SCRIPT_NAME "%{INFO_SCRIPT_NAME}e"
+RequestHeader set INFO_SCRIPT_URI "%{INFO_SCRIPT_URI}e"
+RequestHeader set INFO_SCRIPT_URL "%{INFO_SCRIPT_URL}e"
+RequestHeader set INFO_SCRIPT_USER "%{INFO_SCRIPT_USER}e"
+RequestHeader set INFO_SERVER_ADDR "%{INFO_SERVER_ADDR}e"
+RequestHeader set INFO_SERVER_ADMIN "%{INFO_SERVER_ADMIN}e"
+RequestHeader set INFO_SERVER_NAME "%{INFO_SERVER_NAME}e"
+RequestHeader set INFO_SERVER_PORT "%{INFO_SERVER_PORT}e"
+RequestHeader set INFO_SERVER_PROTOCOL "%{INFO_SERVER_PROTOCOL}e"
+RequestHeader set INFO_SERVER_SIGNATURE "%{INFO_SERVER_SIGNATURE}e"
+RequestHeader set INFO_SERVER_SOFTWARE "%{INFO_SERVER_SOFTWARE}e"
+RequestHeader set INFO_THE_REQUEST "%{INFO_THE_REQUEST}e"
+RequestHeader set INFO_TIME "%{INFO_TIME}e"
+RequestHeader set INFO_TIME_DAY "%{INFO_TIME_DAY}e"
+RequestHeader set INFO_TIME_HOUR "%{INFO_TIME_HOUR}e"
+RequestHeader set INFO_TIME_MIN "%{INFO_TIME_MIN}e"
+RequestHeader set INFO_TIME_MON "%{INFO_TIME_MON}e"
+RequestHeader set INFO_TIME_SEC "%{INFO_TIME_SEC}e"
+RequestHeader set INFO_TIME_WDAY "%{INFO_TIME_WDAY}e"
+RequestHeader set INFO_TIME_YEAR "%{INFO_TIME_YEAR}e"
+RequestHeader set INFO_TZ "%{INFO_TZ}e"
+RequestHeader set INFO_UNIQUE_ID "%{INFO_UNIQUE_ID}e"
+```
 
 `index.php`:
 
-	<?php
-	header('Content-Type: text/plain');
-	
-	$infos = array();
-	foreach($_SERVER as $key => $value)
+```php
+<?php
+header('Content-Type: text/plain');
+
+$infos = array();
+foreach($_SERVER as $key => $value)
+{
+	if(substr($key, 0, 5) == 'HTTP_')
 	{
-		if(substr($key, 0, 5) == 'HTTP_')
-		{
-			$infos[$key] = $value;
-		}
+		$infos[$key] = $value;
 	}
-	
-	ksort($infos);
-	print_r($infos);
-	?>
+}
+
+ksort($infos);
+print_r($infos);
+?>
+```
 
 - `getenv`, `putenv`, `apache_getenv` and `apache_setenv`
 - [apache - Set an environment variable in .htaccess and retrieve it in PHP - Stack Overflow](https://stackoverflow.com/questions/17550223/set-an-environment-variable-in-htaccess-and-retrieve-it-in-php)
@@ -759,68 +825,74 @@ ETag removal
 
 From drupal:
 
-	# Protect files and directories from prying eyes.
-	<FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\..*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock))$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig\.save)$">
-	  Order allow,deny
-	</FilesMatch>
+```apache
+# Protect files and directories from prying eyes.
+<FilesMatch "\.(engine|inc|info|install|make|module|profile|test|po|sh|.*sql|theme|tpl(\.php)?|xtmpl)(~|\.sw[op]|\.bak|\.orig|\.save)?$|^(\..*|Entries.*|Repository|Root|Tag|Template|composer\.(json|lock))$|^#.*#$|\.php(~|\.sw[op]|\.bak|\.orig\.save)$">
+  Order allow,deny
+</FilesMatch>
+```
 
-	# PHP 5 settings, Apache 1 and 2.
-	<IfModule mod_php5.c>
-	  php_flag magic_quotes_gpc                 off
-	  php_flag magic_quotes_sybase              off
-	  php_flag register_globals                 off
-	  php_flag session.auto_start               off
-	  php_value mbstring.http_input             pass
-	  php_value mbstring.http_output            pass
-	  php_flag mbstring.encoding_translation    off
-	</IfModule>
+```apache
+# PHP 5 settings, Apache 1 and 2.
+<IfModule mod_php5.c>
+  php_flag magic_quotes_gpc                 off
+  php_flag magic_quotes_sybase              off
+  php_flag register_globals                 off
+  php_flag session.auto_start               off
+  php_value mbstring.http_input             pass
+  php_value mbstring.http_output            pass
+  php_flag mbstring.encoding_translation    off
+</IfModule>
+```
 
-	<IfModule mod_rewrite.c>
-	  RewriteEngine on
-	
-	  # Set "protossl" to "s" if we were accessed via https://.  This is used later
-	  # if you enable "www." stripping or enforcement, in order to ensure that
-	  # you don't bounce between http and https.
-	  RewriteRule ^ - [E=protossl]
-	  RewriteCond %{HTTPS} on
-	  RewriteRule ^ - [E=protossl:s]
-	
-	  # Make sure Authorization HTTP header is available to PHP
-	  # even when running as CGI or FastCGI.
-	  RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-	
-	  # Block access to "hidden" directories whose names begin with a period. This
-	  # includes directories used by version control systems such as Subversion or
-	  # Git to store control files. Files whose names begin with a period, as well
-	  # as the control files used by CVS, are protected by the FilesMatch directive
-	  # above.
-	  #
-	  # NOTE: This only works when mod_rewrite is loaded. Without mod_rewrite, it is
-	  # not possible to block access to entire directories from .htaccess, because
-	  # <DirectoryMatch> is not allowed here.
-	  #
-	  # If you do not have mod_rewrite installed, you should remove these
-	  # directories from your webroot or otherwise protect them from being
-	  # downloaded.
-	  RewriteRule "(^|/)\." - [F]
-	
-	  # If your site can be accessed both with and without the 'www.' prefix, you
-	  # can use one of the following settings to redirect users to your preferred
-	  # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
-	  #
-	  # To redirect all users to access the site WITH the 'www.' prefix,
-	  # (http://example.com/... will be redirected to http://www.example.com/...)
-	  # uncomment the following:
-	  # RewriteCond %{HTTP_HOST} .
-	  # RewriteCond %{HTTP_HOST} !^www\. [NC]
-	  # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-	  #
-	  # To redirect all users to access the site WITHOUT the 'www.' prefix,
-	  # (http://www.example.com/... will be redirected to http://example.com/...)
-	  # uncomment the following:
-	  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-	  # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
-	</IfModule>
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  # Set "protossl" to "s" if we were accessed via https://.  This is used later
+  # if you enable "www." stripping or enforcement, in order to ensure that
+  # you don't bounce between http and https.
+  RewriteRule ^ - [E=protossl]
+  RewriteCond %{HTTPS} on
+  RewriteRule ^ - [E=protossl:s]
+
+  # Make sure Authorization HTTP header is available to PHP
+  # even when running as CGI or FastCGI.
+  RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  # Block access to "hidden" directories whose names begin with a period. This
+  # includes directories used by version control systems such as Subversion or
+  # Git to store control files. Files whose names begin with a period, as well
+  # as the control files used by CVS, are protected by the FilesMatch directive
+  # above.
+  #
+  # NOTE: This only works when mod_rewrite is loaded. Without mod_rewrite, it is
+  # not possible to block access to entire directories from .htaccess, because
+  # <DirectoryMatch> is not allowed here.
+  #
+  # If you do not have mod_rewrite installed, you should remove these
+  # directories from your webroot or otherwise protect them from being
+  # downloaded.
+  RewriteRule "(^|/)\." - [F]
+
+  # If your site can be accessed both with and without the 'www.' prefix, you
+  # can use one of the following settings to redirect users to your preferred
+  # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
+  #
+  # To redirect all users to access the site WITH the 'www.' prefix,
+  # (http://example.com/... will be redirected to http://www.example.com/...)
+  # uncomment the following:
+  # RewriteCond %{HTTP_HOST} .
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  #
+  # To redirect all users to access the site WITHOUT the 'www.' prefix,
+  # (http://www.example.com/... will be redirected to http://example.com/...)
+  # uncomment the following:
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+```
 
 ## Special chars with `RewriteRule`
 
@@ -839,39 +911,45 @@ Potential solution: use flag `B` or double URL encoding `?`
 
 ## Bots
 
-	# redirect bots to one page 
-	RewriteEngine on
-	RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC,OR]
-	RewriteCond %{HTTP_USER_AGENT} Facebot [NC,OR]
-	RewriteCond %{HTTP_USER_AGENT} Twitterbot [NC,OR]
-	RewriteCond %{HTTP_USER_AGENT} Baiduspider [NC,OR]
-	RewriteCond %{HTTP_USER_AGENT} MetaURI [NC,OR]
-	RewriteCond %{HTTP_USER_AGENT} mediawords [NC,OR]
-	RewriteCond %{HTTP_USER_AGENT} FlipboardProxy [NC]
-	RewriteCond %{REQUEST_URI} !\/nocrawler.html
-	RewriteRule .* /nocrawler.html [L]
+```apache
+# redirect bots to one page 
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Facebot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Twitterbot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Baiduspider [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} MetaURI [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} mediawords [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} FlipboardProxy [NC]
+RewriteCond %{REQUEST_URI} !\/nocrawler.html
+RewriteRule .* /nocrawler.html [L]
+```
 
 Or
 
-	# show a 403
-	SetEnvIfNoCase User-Agent "facebookexternalhit" bot
-	SetEnvIfNoCase User-Agent "Facebot" bot
-	SetEnvIfNoCase User-Agent "Twitterbot" bot
-	SetEnvIfNoCase User-Agent "Baiduspider" bot
-	SetEnvIfNoCase User-Agent "MetaURI" bot
-	SetEnvIfNoCase User-Agent "mediawords" bot
-	SetEnvIfNoCase User-Agent "FlipboardProxy" bot
-	
-	<Limit GET POST HEAD>
-		Order Allow,Deny
-		Allow from all
-		Deny from env=bot
-	</Limit>
+```apache
+# show a 403
+SetEnvIfNoCase User-Agent "facebookexternalhit" bot
+SetEnvIfNoCase User-Agent "Facebot" bot
+SetEnvIfNoCase User-Agent "Twitterbot" bot
+SetEnvIfNoCase User-Agent "Baiduspider" bot
+SetEnvIfNoCase User-Agent "MetaURI" bot
+SetEnvIfNoCase User-Agent "mediawords" bot
+SetEnvIfNoCase User-Agent "FlipboardProxy" bot
+
+<Limit GET POST HEAD>
+	Order Allow,Deny
+	Allow from all
+	Deny from env=bot
+</Limit>
+```
 
 Or use `robot.txt`
 
 To get the list: add a honeypot URL, or use `wp-login` if it's a Wordpress website (but it will including you and others humans admin/users)
 
-	grep "honeypot" access.log | sort | uniq -c | sort -n
+```sh
+grep "honeypot" access.log | sort | uniq -c | sort -n
+```
 
 - https://github.com/serbanghita/Mobile-Detect/blob/c08a459521496f2925c3dcb186a910f5b8d7e336/Mobile_Detect.php#L554

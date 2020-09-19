@@ -343,10 +343,10 @@ Could also be used for generic data (other formats that don't already use compre
 With nginx: http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#example
 
 With Apache:
- 
- ```apache
- If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
- http://developer.yahoo.com/performance/rules.html#gzip
+
+```apache
+# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
+# http://developer.yahoo.com/performance/rules.html#gzip
 <IfModule mod_rewrite.c>
 	# If the browser accepts gzip and the requested file exists under
 	# pre-encoded version, then rewrite to that version.
@@ -407,21 +407,23 @@ With Apache:
 		RewriteRule \.tar\.(gz|br)$ - [T=application/octet-stream]
 	</IfModule>
 </IfModule>
+```
 
+```apache
 RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javascript]
 ```
 
 An other way (**need to test**: content not double encoded, `.gz.html` output). It is use [content negotiation](http://httpd.apache.org/docs/2.4/en/content-negotiation.html):
 
 ```apache
- Activate Content Negotiation
+# Activate Content Negotiation
 Options +MultiViews
 RemoveType .gz
 AddEncoding gzip .gz
 RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
 RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
 RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
- By using content negociation, Apache will add Content-Encoding to Vary header
+# By using content negociation, Apache will add Content-Encoding to Vary header
 ```
 
 Or:

@@ -161,7 +161,29 @@ For write to clipboard:
 - [35. What are the best TCP Optimizer settings for gaming ? :: SG FAQ](https://www.speedguide.net/faq/35-what-are-the-best-tcp-optimizer-settings-for-474)
 - [Secret Tricks To Fix Lag? MTU, TCP Optimizer, Leatrix Lag Fix - YouTube](https://www.youtube.com/watch?v=9J3xZ6hpTXk)
 
-## Apple keyboard layout
+## Keyboard layout
+
+"When using Remote Desktop the keyboard layout always defaults to EN (English)":
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"IgnoreRemoteKeyboardLayout"=dword:00000001
+```
+
+- [c# - Extracting keyboard layouts from windows - Stack Overflow](https://stackoverflow.com/questions/661722/extracting-keyboard-layouts-from-windows/44392188#44392188)
+- [randyrants/sharpkeys: SharpKeys is a utility that manages a Registry key that allows Windows to remap one key to any other key.](https://github.com/randyrants/sharpkeys)
+- [Keyboard Manager Overview · microsoft/PowerToys Wiki](https://github.com/microsoft/PowerToys/wiki/Keyboard-Manager-Overview)
+
+- Microsoft Keyboard Layout Creator use .Net
+- [grompe/kbdasm: Assembler/disassembler of Windows keyboard layouts in flat assembler](https://github.com/grompe/kbdasm) - Disassemble kayboard layout DLLs
+- [ijprest/keyboard-layout-editor: Web application to enable the design & editing of keyboard layouts](https://github.com/ijprest/keyboard-layout-editor)
+- [Windows-driver-samples/input/layout at master · microsoft/Windows-driver-samples](https://github.com/Microsoft/Windows-driver-samples/tree/master/input/layout)
+- [HOWTO: Build keyboard layouts for Windows x64 - Levicki's Tech Spot - levicki.net](https://web.archive.org/web/20200211103320/https://levicki.net/articles/2006/09/29/HOWTO_Build_keyboard_layouts_for_Windows_x64.php)
+- [KbdEdit - The Best Keyboard Layout Editor For Windows 10, 8, 7, Vista, XP and 2003 (32- and 64-bit)](http://kbdedit.com/)
+
+### Apple keyboard layout
 
 Useful when you use a remote desktop connection. The host doesn't have the Apple keyboard layout.
 
@@ -323,16 +345,4 @@ Windows Registry Editor Version 5.00
 - [Utiliser un clavier Apple avec Connexion Bureau à distance* – i3idouille](https://web.archive.org/web/20200914101629/https://www.i3idouille.fr/index.php/2011/12/sys-utiliser-un-clavier-apple-avec-connexion-bureau-a-distance/)
 - [Use your Apple Keyboard in Windows with Boot Camp - Apple Support](https://support.apple.com/en-us/HT202676)
 - [Keyboard mappings using a PC keyboard on a Macintosh](https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh)
-- [c# - Extracting keyboard layouts from windows - Stack Overflow](https://stackoverflow.com/questions/661722/extracting-keyboard-layouts-from-windows/44392188#44392188)
-- [randyrants/sharpkeys: SharpKeys is a utility that manages a Registry key that allows Windows to remap one key to any other key.](https://github.com/randyrants/sharpkeys)
-- [Keyboard Manager Overview · microsoft/PowerToys Wiki](https://github.com/microsoft/PowerToys/wiki/Keyboard-Manager-Overview)
 - [Apple - Support - Downloads](https://support.apple.com/downloads/boot-camp)
-
-See also
-
-- Microsoft Keyboard Layout Creator use .Net
-- [grompe/kbdasm: Assembler/disassembler of Windows keyboard layouts in flat assembler](https://github.com/grompe/kbdasm) - Disassemble kayboard layout DLLs
-- [ijprest/keyboard-layout-editor: Web application to enable the design & editing of keyboard layouts](https://github.com/ijprest/keyboard-layout-editor)
-- [Windows-driver-samples/input/layout at master · microsoft/Windows-driver-samples](https://github.com/Microsoft/Windows-driver-samples/tree/master/input/layout)
-- [HOWTO: Build keyboard layouts for Windows x64 - Levicki's Tech Spot - levicki.net](https://web.archive.org/web/20200211103320/https://levicki.net/articles/2006/09/29/HOWTO_Build_keyboard_layouts_for_Windows_x64.php)
-- [KbdEdit - The Best Keyboard Layout Editor For Windows 10, 8, 7, Vista, XP and 2003 (32- and 64-bit)](http://kbdedit.com/)

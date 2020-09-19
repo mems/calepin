@@ -378,6 +378,8 @@ Ex: 5 gousses de vanille pour 1L d'alcool, attendre 3 mois pour la macération
 
 ## Tarte tatin
 
+Amandes ?
+
 Pâte :
 
 - 130 gr de beurre
