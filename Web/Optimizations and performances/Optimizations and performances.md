@@ -340,97 +340,24 @@ Could also be used for generic data (other formats that don't already use compre
 - create a TAR of all .ext `COPYFILE_DISABLE=1 tar -cvf file.tar *.ext`
 - `Content-Encoding: br` Brotli
 
-With nginx: http://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#example
+- a CDN
+- `mod_mem_cache` or `mod_disk_cache`: [webdirect.no Apache caching with gzip enabled | webdirect.no](http://webdirect.no/linux/apache-caching-with-gzip-enabled/)
+- a proxy cache like Varnish
 
-With Apache:
+#### Server precompressed files with nginx
 
-```apache
-# If an asset (CSS, JS, SVG, HTML, JSON, TAR, etc.) exist in a pre-encoded form, serve as is
-# http://developer.yahoo.com/performance/rules.html#gzip
-<IfModule mod_rewrite.c>
-	# If the browser accepts gzip and the requested file exists under
-	# pre-encoded version, then rewrite to that version.
-	# Requires both mod_rewrite and mod_headers to be enabled.
-	<IfModule mod_headers.c>
-		RewriteEngine on
+With nginx [`ngx_http_gzip_static_module`](https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html#example) and [`ngx_brotli`](https://github.com/google/ngx_brotli) (there is no [`ngx_http_brotli_static_module`](https://trac.nginx.org/nginx/ticket/798))
 
-		# *.br
-		# Serve gzip compressed CSS files if they exist and the client accepts brotli.
-		RewriteCond %{HTTP:Accept-Encoding} \bbr\b
-		RewriteCond %{REQUEST_FILENAME}.br -s
-		RewriteRule (.*) $1.br [QSA]
+#### Server precompressed files with Apache
 
-		# *.gz
-		# Serve gzip compressed CSS files if they exist and the client accepts gzip.
-		RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
-		RewriteCond %{REQUEST_FILENAME}.gz -s
-		RewriteRule (.*) $1.gz [QSA]
-
-		# *.svg to *.svgz
-		RewriteCond %{HTTP:Accept-Encoding} \bgzip\b
-		RewriteCond %{REQUEST_FILENAME} .svg$
-		RewriteCond %{REQUEST_FILENAME}z -s
-		RewriteRule (.*) $1z [QSA]
-
-		<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.(gz|br)|svgz)$">
-			# Tell caching proxy servers to cache the file based on encoding
-			# Apache should add it automatically: http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
-			Header append Vary Accept-Encoding
-			# Do this to set proper ETags for server clusters
-			FileETag MTime Size
-		</FilesMatch>
-
-		<FilesMatch "\.((js|css|html|xml|svg|json|tar)\.gz|svgz)$">
-			# Prevent double compression
-			SetEnv no-gzip 1
-			# We serve a gzipped stream
-			Header set Content-Encoding br
-		</FilesMatch>
-
-		<FilesMatch "\.(js|css|html|xml|svg|json|tar)\.br$">
-			# Prevent double compression
-			SetEnv no-brotli 1
-			# We serve a gzipped stream
-			Header set Content-Encoding gzip
-		</FilesMatch>
-
-		# And set proper media type:
-		RewriteRule \.js\.(gz|br)$ - [T=application/javascript]
-		RewriteRule \.css\.(gz|br)$ - [T=text/css]
-		RewriteRule \.svg(z|\.gz|br)$ - [T=image/svg+xml]
-		RewriteRule \.html\.(gz|br)$ - [T=text/html]
-		RewriteRule \.xml\.(gz|br)$ - [T=text/xml]
-		RewriteRule \.json\.(gz|br)$ - [T=application/json]
-		# Allow for example JS to access tar data already ungzipped (done by the browser, instead using JS to decode)
-		#RewriteRule \.tar\.(gz|br)$ - [T=application/x-tar]
-		# For browsers compatibility we can't use the right media type but:
-		RewriteRule \.tar\.(gz|br)$ - [T=application/octet-stream]
-	</IfModule>
-</IfModule>
-```
-
-```apache
-RewriteRule \.js\.gz$ - [E=no-gzip:1,H=Content-Encoding:gzip,T=application/javascript]
-```
-
-An other way (**need to test**: content not double encoded, `.gz.html` output). It is use [content negotiation](http://httpd.apache.org/docs/2.4/en/content-negotiation.html):
-
-```apache
-# Activate Content Negotiation
-Options +MultiViews
-RemoveType .gz
-AddEncoding gzip .gz
-RewriteRule \.html\.gz$ - [T=text/html,E=no-gzip:1]
-RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
-RewriteRule \.js\.gz$ - [T=application/javascript,E=no-gzip:1]
-# By using content negociation, Apache will add Content-Encoding to Vary header
-```
-
-Or:
-
-- use a CDN
-- use `mod_mem_cache` or `mod_disk_cache`: [webdirect.no Apache caching with gzip enabled | webdirect.no](http://webdirect.no/linux/apache-caching-with-gzip-enabled/)
-- use a proxy cache like Varnish
+> This limitation of `mod_deflate` is prominently mentioned in the documentation, [which recommends](https://httpd.apache.org/docs/2.4/mod/mod_deflate.html#precompressed) using [`mod_rewrite`](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html) to rewrite requests to their compressed alternatives when appropriate. Although this method can work [...] it has the major drawback that you are reimplementing content negotiation (which [`mod_negotiation`](https://httpd.apache.org/docs/2.4/mod/mod_negotiation.html) was designed to do) and are likely to get it wrong and lack features supported by `mod_negotiation`. Some common problems and pitfalls with this approach:
+> - Sending an incorrect or missing `Content-Encoding` header.
+> - Not sending the `Vary` header or setting it incorrectly (overwriting previous values for other headers which cause the response to vary).
+> - Sending `Content-Type: application/x-gzip` instead of the underlying type.
+> - Sending double-gzipped content due to forgetting to set `no-gzip` in the environment to exclude the response from `mod_deflate`.
+> - Not respecting client preferences (i.e. quality values/qvalues). According to [RFC 7231](https://tools.ietf.org/html/rfc7231#section-5.3.4) (and [RFC 2616](https://tools.ietf.org/html/rfc2616#section-14.3) before it) clients can send a numeric value between 0 and 1 (inclusive) to express their relative preference for each encoding. An `Accept-Encoding: gzip;q=0` header would signify that the client wants “anything but gzip”. Most `mod_rewrite` implementations would send them gzip. A more realistic example would be a client that sends `Accept-Encoding: br;q=1, gzip;q=0.5, deflate;q=0.1` to signify that they prefer Brotli, then gzip, then deflate. Writing `mod_rewrite` rules which properly handle these sorts of expressed preferences is extremely difficult.
+> 
+> - [Serving Pre-Compressed Files with Apache MultiViews - Kevin Locke's Homepage](https://web.archive.org/web/20200829235117/https://kevinlocke.name/bits/2016/01/20/serving-pre-compressed-files-with-apache-multiviews/#non-multiviews-methods)
 
 - Serving pre-compressed content [mod_deflate - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/current/en/mod/mod_deflate.html#precompressed)
 - [Getting more out of GZIP for web content](http://mainroach.blogspot.fr/2013/09/getting-more-out-of-gzip-for-web-content.html)
@@ -443,6 +370,136 @@ Or:
 - [Optimizing Mendix for low bandwidth - Using Compression](https://forum.mendixcloud.com/link/questions/3475)
 - [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-Simple-gzip-Support-for-Apache-with-mod_rewrite.html)
 - [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x)
+- [w3-total-cache-fixed/Minify_Environment.php at d7c4e8f9648f6dde232430feec27d241359761f1 · szepeviktor/w3-total-cache-fixed](https://github.com/szepeviktor/w3-total-cache-fixed/blob/d7c4e8f9648f6dde232430feec27d241359761f1/Minify_Environment.php#L395-L398)
+- [Serving Pre-Compressed Files with Apache MultiViews - Kevin Locke's Homepage](https://kevinlocke.name/bits/2016/01/20/serving-pre-compressed-files-with-apache-multiviews/)
+
+##### Precompressed files and [`mod_rewrite`](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html)
+
+```apache
+# If the browser accepts gzip/br and the requested file exists under pre-encoded version, then serve that version directly.
+<IfModule mod_rewrite.c>
+	<IfModule mod_headers.c>
+		# Brotli
+		<IfModule mod_brotli.c>
+			RewriteEngine On
+			RewriteCond %{HTTP:Accept-Encoding} br
+			RewriteCond %{REQUEST_FILENAME}.br -f
+			RewriteRule (.*) $1.br [L,E=no-brotli:1,E=PRE_ENCODED_CODING:br]
+		</IfModule>
+
+		# Deflate / Gzip
+		<IfModule mod_deflate.c>
+			RewriteEngine On
+
+			RewriteCond %{HTTP:Accept-Encoding} gzip
+			RewriteCond %{REQUEST_FILENAME}.gz -f
+			RewriteRule (.*) $1.gz [L,E=no-gzip:1,E=PRE_ENCODED_CODING:gzip]
+
+			# Special case for *.svg -> *.svgz
+			RewriteCond %{HTTP:Accept-Encoding} gzip
+			RewriteCond %{REQUEST_FILENAME} .svg$
+			RewriteCond %{REQUEST_FILENAME}z -f
+			RewriteRule (.*) $1z [L,E=no-gzip:1,E=PRE_ENCODED_CODING:gzip]
+		</IfModule>
+
+		# Special case for internal redirection (pre encoded) response only
+		# For "REDIRECT_" env var prefix see https://stackoverflow.com/questions/3050444
+		# Some directives support env vars conditions (Header does, but RemoveType doesn't)
+		<If "-n env('REDIRECT_PRE_ENCODED_CODING')">
+			# Debian (and related distributions) set AddType application/x-gzip gz in their default conf (/etc/apache2/mods-available/mime.conf)
+			# or you the Content-Type will be override to application/x-gzip
+			RemoveType gz
+			Header always set Content-Encoding %{REDIRECT_PRE_ENCODED_CODING}e
+			# Apache already append Accept-Encoding to Vary http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
+		</If>
+	</IfModule>
+</IfModule>
+```
+
+#### Server precompressed files with Apache and [`mod_negotiation`](https://httpd.apache.org/docs/current/en/mod/mod_negotiation.html)
+
+#####  Precompressed files and `MultiViews`
+
+To handle content encoding.
+
+`MultiViews` allow to list all files (recognized by [`mod_mime`](https://httpd.apache.org/docs/current/mod/mod_mime.html#multiviewsmatch)) in the same folder for the given name:
+
+```console
+> curl --header "Accept: example/*; q=1.0" -s -D - -o /dev/null https://example.com/test
+HTTP/1.1 406 Not Acceptable
+Date: Sat, 19 Sep 2020 18:36:20 GMT
+Server: Apache/2.4.38 (Debian)
+Alternates: {"test.html" 1 {type text/html} {length 13}}, {"test.html.gz" 1 {type text/html} {encoding gzip} {length 38}}, {"test.php" 1 {type application/x-httpd-php} {length 59}}
+Vary: negotiate,accept,accept-encoding
+
+```
+
+You need to restrict content negotiation by include directives in [a `<Directory>`, `<Files>` or `.htaccess`](https://httpd.apache.org/docs/current/sections.html) for a subset of directories, file types.
+
+The major drawback, [only requests for files which do not exist are negotiated](https://httpd.apache.org/docs/current/mod/mod_negotiation.html#multiviews). That means you need to rename uncompressed files for an additional extension (ex: `index.html.html` and `index.html.gz` for `https://example.com/index.html`) which is not pratical.
+
+```apache
+# Let Apache choose media type, encoding, etc. based on client preferences.
+# Need rewrite to force use pre encoded version because MultiViews only negotiates requests for files which do not exist.
+<IfModule mod_mime.c>
+	<IfModule mod_rewrite.c>
+		# Brotli
+		<IfModule mod_brotli.c>
+			Options +MultiViews
+			RewriteEngine On
+			
+			# Note: BR is a RFC 3066 language
+			RemoveLanguage br
+			AddEncoding br br
+		</IfModule>
+
+		# Deflate / Gzip
+		<IfModule mod_deflate.c>
+			Options +MultiViews
+			RewriteEngine On
+
+			# Case for * -> *.gz
+			# Debian (and related distributions) set AddType application/x-gzip gz in their default conf (/etc/apache2/mods-available/mime.conf)
+			RemoveType .gz
+			AddEncoding gzip gz
+
+			# Case for *.svg -> .svgz
+			AddEncoding gzip svgz
+		</IfModule>
+	</IfModule>
+</IfModule>
+```
+
+- [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x/34932031#34932031)
+
+##### Precompressed files and [type maps](http://httpd.apache.org/docs/current/mod/mod_negotiation.html#typemaps)
+
+```apache
+# Treat not as application/gzip type
+RemoveType .gz
+# Handle type maps
+AddHandler type-map .var
+
+RewriteCond %{REQUEST_FILENAME}.var -f
+RewriteRule (.*) $1.var [QSA]
+```
+
+Exemple, for `test.html` `test.html.gz` and `test.html.br`, create a file `test.var`, for a request `/test`
+```
+URI: test
+
+Content-type: text/html; qs=0.7
+Content-Encoding: gzip
+URI: index.html.gz
+
+Content-type: text/html; qs=0.8
+Content-Encoding: br
+URI: index.html.br
+```
+
+- [50848 – Content Negotiation type map file precedence could be clarified](https://bz.apache.org/bugzilla/show_bug.cgi?id=50848)
+- [Apache HTTP encoding negotiation notes | mrclay.org](https://web.archive.org/web/20161009225339/http://www.mrclay.org/2008/05/25/apache-http-encoding-negotiation-notes/)
+- [Pre-encoding vs. mod_deflate | mrclay.org](https://web.archive.org/web/20161010115837/http://www.mrclay.org/2008/06/03/pre-encoding-vs-mod_deflate/)
 
 ### Multiplexed / Pipelining
 

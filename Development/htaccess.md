@@ -18,11 +18,12 @@ Require all granted
 - [What is the difference between apache modules with and without the ".c" extension? - Server Fault](http://serverfault.com/questions/671200/what-is-the-difference-between-apache-modules-with-and-without-the-c-extensio)
 - [List of Apache modules — Wikipedia](https://en.wikipedia.org/wiki/List_of_Apache_modules)
 
-## Smart serve `image/webp`
+## Smart serve image formats
+
+Note: It's not recommended to use that way but [\<picture\>: The Picture element - HTML: Hypertext Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture).
 
 ```apache
 # Check if Accept header is image/webp, if an image is requested in "classic" folder with a classic format, and check if the corresponding webp image exists. If yes, rewrite the requested classic image URI to the WebP image URI.
-
 RewriteCond %{HTTP_ACCEPT} image/webp
 RewriteCond %{REQUEST_FILENAME} (.*)images/classic/(.*)\.(png|jpg|gif)$
 RewriteCond %1images/webp/%2\.webp -f
@@ -49,45 +50,45 @@ AddType image/webp .webp
 ```apache
 # Be carefull, in Apache <= 2.2, AddOutputFilterByType was part of mod_deflate not mod_filter
 <IfModule mod_filter.c>
-# Use Brotoli:
-#<IfModule mod_brotli.c>
-#	AddOutputFilterByType BROTLI;DEFLATE ...
-#</IfModule>
-<IfModule mod_deflate.c>
-AddOutputFilterByType DEFLATE \
-	application/atom+xml \
-	application/javascript \
-	application/json \
-	application/ld+json \
-	application/manifest+json \
-	application/rdf+xml \
-	application/rss+xml \
-	application/schema+json \
-	application/vnd.geo+json \
-	application/vnd.ms-fontobject \
-	application/x-font-ttf \
-	application/x-javascript \
-	application/x-web-app-manifest+json \
-	application/xhtml+xml \
-	application/xml \
-	font/eot \
-	font/opentype \
-	image/bmp \
-	image/svg+xml \
-	image/vnd.microsoft.icon \
-	image/x-icon \
-	text/cache-manifest \
-	text/css \
-	text/html \
-	text/javascript \
-	text/plain \
-	text/vcard \
-	text/vnd.rim.location.xloc \
-	text/vtt \
-	text/x-component \
-	text/x-cross-domain-policy \
-	text/xml
-</IfModule>
+	# Use Brotoli:
+	#<IfModule mod_brotli.c>
+	#	AddOutputFilterByType BROTLI_COMPRESS ...
+	#</IfModule>
+	<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE \
+		application/atom+xml \
+		application/javascript \
+		application/json \
+		application/ld+json \
+		application/manifest+json \
+		application/rdf+xml \
+		application/rss+xml \
+		application/schema+json \
+		application/vnd.geo+json \
+		application/vnd.ms-fontobject \
+		application/x-font-ttf \
+		application/x-javascript \
+		application/x-web-app-manifest+json \
+		application/xhtml+xml \
+		application/xml \
+		font/eot \
+		font/opentype \
+		image/bmp \
+		image/svg+xml \
+		image/vnd.microsoft.icon \
+		image/x-icon \
+		text/cache-manifest \
+		text/css \
+		text/html \
+		text/javascript \
+		text/plain \
+		text/vcard \
+		text/vnd.rim.location.xloc \
+		text/vtt \
+		text/x-component \
+		text/x-cross-domain-policy \
+		text/xml
+	</IfModule>
 </IfModule>
 ```
 
@@ -102,7 +103,7 @@ An other version:
 
 ```apache
 <IfModule mod_deflate.c>
-	# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+	# Force deflate for mangled headers https://web.archive.org/web/20130209130731/http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
 	<IfModule mod_setenvif.c>
 	<IfModule mod_headers.c>
 		SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
@@ -134,7 +135,7 @@ An other version:
 - [mod_filter - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/2.4/en/mod/mod_filter.html#addoutputfilterbytype)
 - [Apache AddOutputFilterByType is deprecated. How to rewrite using mod_filter? - Stack Overflow](https://stackoverflow.com/questions/5230202/apache-addoutputfilterbytype-is-deprecated-how-to-rewrite-using-mod-filter)
 - https://gist.github.com/FlorianKromer/aa08762387183404a506#file-htaccess-L101-L178
-- [Pushing Beyond Gzipping · YDN Blog](http://wayback.archive.org/web/20130209130731/http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/)
+- [Pushing Beyond Gzipping · YDN Blog](https://web.archive.org/web/20130209130731/http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/)
 
 ## Content handling
 
@@ -165,7 +166,7 @@ Use header `Content-type`
 	AddType video/webm webm
 
 	# Proper svg serving. Required for svg webfonts on iPad
-	# twitter.com/FontSquirrel/status/14855840545
+	# https://twitter.com/FontSquirrel/status/14855840545
 	AddType image/svg+xml svg svgz
 	AddEncoding gzip svgz
 
@@ -179,17 +180,20 @@ Use header `Content-type`
 	# assorted types
 	AddType image/vnd.microsoft.icon ico
 	AddType image/webp webp
+	AddType image/avif avif
+	#AddType image/avif avif heif heifs hif
 	AddType text/cache-manifest manifest
 	AddType text/x-component htc
 	AddType application/x-chrome-extension crx
 	AddType application/x-xpinstall xpi
 	AddType application/octet-stream safariextz
 
-	AddType text/plain md markdown mdown txt
+	AddType text/plain txt
+	AddType text/markdown md markdown mdown
 </IfModule>
 ```
 
-See also [Media type](Formats, encoding and protocols#media-type)
+See also [Media type](../Formats,%20encoding%20and%20protocols/Formats,%20encoding%20and%20protocols.md#media-type)
 
 ## Documentation and editors
 
@@ -316,9 +320,6 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 </IfModule>
 ```
 
-http://httpd.apache.org/docs/current/mod/mod_rewrite.html
-http://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#logging Debug `LogLevel rewrite:trace8` (>= Apache 2.3.6, else use [`RewriteLog "/path/to/rewrite.log"` and `RewriteLogLevel 3`](http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html#rewritelog) or more)
-
 ```apache
 <IfModule rewrite_module>
 	RewriteEngine on
@@ -424,7 +425,7 @@ DirectoryIndex app.php
 </IfModule>
 ```
 
-and use [Base](PHP#base)
+and use [Base](./PHP/PHP.md#base-path)
 
 ```apache
 # http://mydomain/seach/a10/b30/c9/f99 -> http://mydomain/myscript.php?param_a=10&param_b=30&param_c_new=9&param_f=99
@@ -504,7 +505,13 @@ RewriteCond %{HTTP_USER_AGENT} !^(FeedBurner|FeedValidator|talkr) [NC]
 RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
 ```
 
+- `RewriteMap`
+    - [mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#rewritemap)
+    - [Using RewriteMap - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/rewrite/rewritemap.html)
 - [mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html)
+- [Logging - mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#logging) Debug `LogLevel rewrite:trace8`
+- [mod rewrite - mod_rewrite not sending Vary: accept-language when RewriteCond matches - Stack Overflow](https://stackoverflow.com/questions/3698363/mod-rewrite-not-sending-vary-accept-language-when-rewritecond-matches) - "header name will not be added to the `Vary` response header if it is not sent by the client."
+- [mod rewrite - how to use "AND", "OR" for RewriteCond on Apache? - Stack Overflow](https://stackoverflow.com/questions/922399/how-to-use-and-or-for-rewritecond-on-apache/31572003#31572003)
 
 ## Cookies
 
@@ -538,8 +545,8 @@ RewriteRule .* /login-error/set-cookie-first.cgi [NC,L]
 
 ## Environnement variables
 
-- https://turboflash.wordpress.com/2010/05/27/apache-environment-variables-visibility-with-setenv-setenvif-and-rewriterule-directives/
-- https://stackoverflow.com/questions/3050444/when-setting-environment-variables-in-apache-rewriterule-directives-what-causes
+- [Apache: Environment Variables Visibility with SetEnv, SetEnvIf and RewriteRule Directives | TurboFlash](https://web.archive.org/web/20180820235431/http://www.onlinesmartketer.com/2010/05/27/apache-environment-variables-visibility-with-setenv-setenvif-and-rewriterule-directives/)
+- [php - When setting environment variables in Apache RewriteRule directives, what causes the variable name to be prefixed with "REDIRECT_"? - Stack Overflow](https://stackoverflow.com/questions/3050444/when-setting-environment-variables-in-apache-rewriterule-directives-what-causes)
 
 ### Pass variable to script
 

@@ -863,6 +863,27 @@ For replay, be sure:
 
 Aka CLI
 
+> Short flags are a command line shortcut, and they do belong there, but if you’re not writing the command in a prompt, do yourself (and anyone else that may someday be reading your code) a favor and be more verbose.
+> Because this:
+> 
+> 	curl --silent checkip.dyndns.org | grep --extended-regexp --only-matching '[0-9\.]+'
+> 
+> is a lot easier for a human to understand than this:
+> 
+> 	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+> 
+> — [Use long flags when scripting |\> News and podcasts for developers |\> Changelog](https://changelog.com/posts/use-long-flags-when-scripting)
+
+> While it is generally a good idea to write readable code, it is also true that long flags are not universally supported, and the short flags don't always have the same meanings (or even exist!) across different systems.
+> [...]
+> A much simpler solution is to comment your code:
+> [...]
+> 
+> 	# Get my IP address by checking dyndns.org
+> 	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+>
+> — [Use long flags when scripting | Hacker News](https://news.ycombinator.com/item?id=5164354)
+
 - manpage
 - [Exploring CLI Best Practices // Localytics Engineering Blog](http://eng.localytics.com/exploring-cli-best-practices/)
 - [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)

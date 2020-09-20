@@ -109,14 +109,16 @@ UPDATE wp_posts SET guid = replace(guid, @curent, @next);
 
 Simple/cleared theme: [BlankSlate — Free WordPress Themes](https://wordpress.org/themes/blankslate/)
 
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'wp_shortlink_wp_head');
-	remove_action('wp_head', 'wp_generator');
-	remove_action('wp_head', array( $sitepress, 'meta_generator_tag', 20 ) );
-	add_filter('xmlrpc_enabled', '__return_false');
-	add_filter('json_enabled', '__return_false');
-	add_filter('json_jsonp_enabled', '__return_false');
+```php
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', array( $sitepress, 'meta_generator_tag', 20 ) );
+add_filter('xmlrpc_enabled', '__return_false');
+add_filter('json_enabled', '__return_false');
+add_filter('json_jsonp_enabled', '__return_false');
+```
 
 - [WordPress/WordPress: WordPress, Git-ified. Synced via SVN every 15 minutes, including branches and tags! This repository is just a mirror of the WordPress subversion repository. Please do not send pull requests. Submit patches to https://core.trac.wordpress.org/ instead.](https://github.com/WordPress/WordPress/)
 - [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
@@ -258,30 +260,34 @@ See [Wordpress](../Security/Security.md#wordpress)
 Apache use a different group than FTP users. It's a safe measure, but updates can't be automatic (require SSH or FTP credentials).
 Ex: FTP: user 522/538; Apache/PHP: 48/48 (www-data)
 
-	#!/bin/bash
-	USER=user
-	PASSWD=password
-	SITE=www.example.com
-	#DIR_MOD=0755
-	DIR_MOD=0775
-	#FILE_MOD=0644
-	FILE_MOD=0664
-	ROOT_DIR=/public_html
-	
-	# use `cat` instead of last command after the last pipe for dry-run
-	{
-	lftp <<EOF
-	open -u $USER,$PASSWD $SITE
-	find $ROOT_DIR
-	exit
-	EOF
-	} | gawk 'BEGIN { print "open -u '$USER','$PASSWD' '$SITE'" } { if (match($0 ,/\/$/)) printf "chmod '$DIR_MOD' \"%s\"\n", $0; else printf "chmod '$FILE_MOD' \"%s\"\n", $0 } END { print "exit" }' | lftp
+```sh
+#!/bin/bash
+USER=user
+PASSWD=password
+SITE=www.example.com
+#DIR_MOD=0755
+DIR_MOD=0775
+#FILE_MOD=0644
+FILE_MOD=0664
+ROOT_DIR=/public_html
 
-> The Code is in [get_filesystem_method()](https://developer.wordpress.org/reference/functions/get_filesystem_method/). Wordpress tries to create a file 'wp-content/temp-write-test-'.time()
+# use `cat` instead of last command after the last pipe for dry-run
+{
+lftp <<EOF
+open -u $USER,$PASSWD $SITE
+find $ROOT_DIR
+exit
+EOF
+} | gawk 'BEGIN { print "open -u '$USER','$PASSWD' '$SITE'" } { if (match($0 ,/\/$/)) printf "chmod '$DIR_MOD' \"%s\"\n", $0; else printf "chmod '$FILE_MOD' \"%s\"\n", $0 } END { print "exit" }' | lftp
+```
 
-	define( 'FTP_USER', 'username' );
-	define( 'FTP_PASS', 'password' );
-	define( 'FTP_HOST', 'ftp.example.org' );
+> The Code is in [`get_filesystem_method()`](https://developer.wordpress.org/reference/functions/get_filesystem_method/). Wordpress tries to create a file `'wp-content/temp-write-test-'.time()`
+
+```php
+define( 'FTP_USER', 'username' );
+define( 'FTP_PASS', 'password' );
+define( 'FTP_HOST', 'ftp.example.org' );
+```
 
 - [Editing wp-config.php « WordPress Codex](https://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants)
 - [php - Correct file permissions for WordPress - Stack Overflow](https://stackoverflow.com/questions/18352682/correct-file-permissions-for-wordpress)
