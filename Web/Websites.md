@@ -671,14 +671,31 @@ Embed with start time and stop (in seconds) `https://www.youtube.com/embed/7qkmG
 See [YouTube Embedded Players and Player Parameters  |  YouTube IFrame Player API  |  Google Developers](https://developers.google.com/youtube/player_parameters?#end) or [How to share a YouTube video with a specific start and end time? - Web Applications Stack Exchange](https://webapps.stackexchange.com/questions/61397/how-to-share-a-youtube-video-with-a-specific-start-and-end-time/61398)
 But it's looklike the end parameter doesn't works (2018)
 
-### Youtube video view count
+### Youtube video data
 
-Require an API key
+Video thumbnail:
 
-`https://www.googleapis.com/youtube/v3/videos?id=$1&key=$2&part=statistics`, `$2=API_KEY` `json.videos[0].statistics.viewCount` (see also `.likeCount`)
+```
+https://i.ytimg.com/vi/{video-id}/{0,1,2,3,default,maxresdefault,hqdefault,mqdefault,sddefault}.jpg
+https://img.youtube.com/vi/{video-id}/{0,1,2,3,default,maxresdefault,hqdefault,mqdefault,sddefault}.jpg
+https://i.ytimg.com/vi_webp/{video-id}/{0,1,2,3,default,maxresdefault,hqdefault,mqdefault,sddefault}.webp
+```
 
+Require an API key:
+
+```
+https://www.googleapis.com/youtube/v3/videos?part={properties}&id={video_ids}&key={api_key}
+```
+
+- view count `json.videos[0].statistics.viewCount` (see also `.likeCount`)
+- title `items.snippet.title`
+- `items.contentDetails.duration`
+
+- `https://www.youtube.com/get_video_info?video_id={video_id}`
+- `https://www.youtube.com/oembed?url={video-url}&format=json`
+- `https://noembed.com/embed?url={video-url}&format=json` - [Noembed - oEmbed everything.](https://noembed.com/), [leedo/noembed: oEmbed gateway service with additional non-oEmbed sources](https://github.com/leedo/noembed) and [noembed/noembed: oEmbed gateway service with additional non-oEmbed sources](https://github.com/noembed/noembed)
+- [itteco/iframely: oEmbed proxy. Supports over 1800 domains via custom parsers, oEmbed, Twitter Cards and Open Graph](https://github.com/itteco/iframely)
 - [YouTube Data API Overview  |  YouTube Data API  |  Google Developers](https://developers.google.com/youtube/v3/getting-started)
-
 
 ### API
 
