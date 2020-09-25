@@ -1574,6 +1574,8 @@ Use `multipart/related`?
 
 ## Sample files
 
+See [Sample data](../Data/Sample%20data/Sample%20data.md)
+
 - [JSONPlaceholder - Fake online REST API for developers](http://jsonplaceholder.typicode.com/)
 - [SWAPI - The Star Wars API](http://swapi.co/)
 
@@ -1627,6 +1629,10 @@ Use `multipart/related`?
 - [Welcome to Para-Dice in Sight - Compression DataBase](http://wayback.archive.org/web/20140617090355/http://cdb.paradice-insight.us/)
 - [TID2008: TAMPERE IMAGE DATABASE 2008 | Computer Vision Online](http://www.computervisiononline.com/dataset/tid2008-tampere-image-database-2008)
 
+- [Dynamic Dummy Image Generator - DummyImage.com](https://dummyimage.com/)
+- [Placeholder.com: Placeholder.com – The Free Image Placeholder Service Favoured By Designers](https://placeholder.com/)
+- [LoremFlickr: free placeholder images](https://loremflickr.com/)
+
 - [Tecnick's public test images](http://www.tecnick.com/public/code/cp_dpage.php?aiocp_dp=testimages)
 - [Fractal art 2](http://morbid-sheep.deviantart.com/art/Final-Monster-Fractal-Pack-213288585)
 - [Fractal art](http://greentunic.deviantart.com/art/Fractal-Pack-4-150661301)
@@ -1669,13 +1675,6 @@ See also [Compare image](../Algorithms/Compare%20data/Compare%20data.md#compare-
 - [Samples - Official Kodi Wiki](http://kodi.wiki/view/Samples)
 - [Beauty of Science sur Vimeo](https://vimeo.com/beautyofscience2016)
 - [QuickTime Sample files - Apple Support](https://support.apple.com/en-us/HT201549)
-
-### Text
-
-- [Filler text - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Filler_text) like Lorem ipsum
-- [Meet the Ipsums](http://meettheipsums.com/)
-- [charabia.net : génération de textes](http://www.charabia.net/gen/index.php)
-- [Fillerati - Faux Latin is a Dead Language](http://www.fillerati.com/)
 
 ### Test media
 

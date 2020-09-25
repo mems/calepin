@@ -5814,27 +5814,30 @@ Aka hexastring to binary data
 
 The ratio is 2:1 bytes
 
-	var data = "78da93e0e6b4d35f79d292d5c436c7b286d1daeedeb5684619658f1faf99";// must data.length % 2 == 0
 
-	// Encode
-	bytes.reduce((result, byte) => (result += byte.toString(16).padStart(2, "0"), result), "");
+```js
+var data = "78da93e0e6b4d35f79d292d5c436c7b286d1daeedeb5684619658f1faf99";// must data.length % 2 == 0
 
-	let bytes = new Uint8Array(data.length / 2);
-	for(let i = 0, j = 0; i < data.length; i += 2, j++){
-		 bytes[j] = parseInt(data.substr(i, 2), 16)
-	}
+// Encode
+bytes.reduce((result, byte) => (result += byte.toString(16).padStart(2, "0"), result), "");
 
-	let bytes = new DataView(new ArrayBuffer());
-	let i;
-	let j = bytes.byteOffset;
-	// Write 4 bytes
-	for(i = 0; i < data.length - (data.length % 8); i += 8, j += 4){
-		bytes.setUint32(j, parseInt(data.substr(i, 8), 16));
-	}
-	// Write the rest of bytes (n % 8)
-	for(; i < data.length; i += 2, j++){
-		bytes.setUint8(j, parseInt(data.substr(i, 2), 16));
-	}
+let bytes = new Uint8Array(data.length / 2);
+for(let i = 0, j = 0; i < data.length; i += 2, j++){
+	 bytes[j] = parseInt(data.substr(i, 2), 16)
+}
+
+let bytes = new DataView(new ArrayBuffer());
+let i;
+let j = bytes.byteOffset;
+// Write 4 bytes
+for(i = 0; i < data.length - (data.length % 8); i += 8, j += 4){
+	bytes.setUint32(j, parseInt(data.substr(i, 8), 16));
+}
+// Write the rest of bytes (n % 8)
+for(; i < data.length; i += 2, j++){
+	bytes.setUint8(j, parseInt(data.substr(i, 2), 16));
+}
+```
 
 #### Store bytes in JS source as base64
 
@@ -5842,88 +5845,86 @@ See [Store bytes in JS source as Data URI](#store-bytes-in-js-source-as-data-uri
 
 Base64 to bytes. The ratio is 4:3 bytes
 
-<details>
-	<summary>Base64 storage</summary>
+```js
+function base64ToBytes(data){
+	// Use atob() but less performant for big data (string->string->arraybuffer)
+	//let decodedData = atob(data);
+	//let bytes = new Uint8Array(decodedData.length);
+	//for (let i = 0, l = bytes.length; i < l; i++) {
+	//	bytes[i] = decodedData.charCodeAt(i);
+	//}
+	//
+	//return bytes.buffer;
 	
-	function base64ToBytes(data){
-		// Use atob() but less performant for big data (string->string->arraybuffer)
-		//let decodedData = atob(data);
-		//let bytes = new Uint8Array(decodedData.length);
-		//for (let i = 0, l = bytes.length; i < l; i++) {
-		//	bytes[i] = decodedData.charCodeAt(i);
-		//}
-		//
-		//return bytes.buffer;
-		
-		// Parts from https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView
-		// from StringView.base64ToBytes
-		// Invalid chars https://bugzilla.mozilla.org/show_bug.cgi?id=73026#c12
-		let cleanedData = data.replace(/\x20\t\r\n=/g, "");
-		if (/[^A-Za-z0-9\+\/]/g.test(cleanedData)) {
-			throw new DOMException("Invalid base64 data", "DataError");
-		}
-		let dataLength = cleanedData.length;
-		let numBytes = /*length ? Math.ceil((dataLength * 3 + 1 >>> 2) / length) * length : */dataLength * 3 + 1 >>> 2;
-		if (numBytes % 4 > 0) {
-			throw new DOMException("Invalid data URI", "DataError");
-		}
-		let bytes = new Uint8Array(numBytes);
-		
-		for (let mod3, mod4, buffer = 0, index = 0, dataIndex = 0; dataIndex < dataLength; dataIndex++) {
-			mod4 = dataIndex & 3;
-			let charCode = cleanedData.charCodeAt(dataIndex);
-			// from StringView.b64ToUint6
-			if(charCode > 64 && charCode < 91){
-				charCode -= 65
-			}else if(charCode > 96 && charCode < 123){
-				charCode -= 71
-			}else if(charCode > 47 && charCode < 58){
-				charCode += 4
-			}else if(charCode === 43){
-				charCode = 62
-			}else if(charCode === 47){
-				charCode = 63
-			}else{
-				charCode = 0
-			}
-			buffer |= charCode << 18 - 6 * mod4;
-			if (mod4 === 3 || dataLength - dataIndex === 1) {
-				for (mod3 = 0; mod3 < 3 && index < numBytes; mod3++, index++) {
-					bytes[index] = buffer >>> (16 >>> mod3 & 0b11000) & 0xff;
-				}
-				buffer = 0;
-			}
-		}
-		
-		return bytes.buffer;
+	// Parts from https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView
+	// from StringView.base64ToBytes
+	// Invalid chars https://bugzilla.mozilla.org/show_bug.cgi?id=73026#c12
+	let cleanedData = data.replace(/\x20\t\r\n=/g, "");
+	if (/[^A-Za-z0-9\+\/]/g.test(cleanedData)) {
+		throw new DOMException("Invalid base64 data", "DataError");
 	}
+	let dataLength = cleanedData.length;
+	let numBytes = /*length ? Math.ceil((dataLength * 3 + 1 >>> 2) / length) * length : */dataLength * 3 + 1 >>> 2;
+	if (numBytes % 4 > 0) {
+		throw new DOMException("Invalid data URI", "DataError");
+	}
+	let bytes = new Uint8Array(numBytes);
+	
+	for (let mod3, mod4, buffer = 0, index = 0, dataIndex = 0; dataIndex < dataLength; dataIndex++) {
+		mod4 = dataIndex & 3;
+		let charCode = cleanedData.charCodeAt(dataIndex);
+		// from StringView.b64ToUint6
+		if(charCode > 64 && charCode < 91){
+			charCode -= 65
+		}else if(charCode > 96 && charCode < 123){
+			charCode -= 71
+		}else if(charCode > 47 && charCode < 58){
+			charCode += 4
+		}else if(charCode === 43){
+			charCode = 62
+		}else if(charCode === 47){
+			charCode = 63
+		}else{
+			charCode = 0
+		}
+		buffer |= charCode << 18 - 6 * mod4;
+		if (mod4 === 3 || dataLength - dataIndex === 1) {
+			for (mod3 = 0; mod3 < 3 && index < numBytes; mod3++, index++) {
+				bytes[index] = buffer >>> (16 >>> mod3 & 0b11000) & 0xff;
+			}
+			buffer = 0;
+		}
+	}
+	
+	return bytes.buffer;
+}
 
-	function urlB64ToUint8Array(base64String) {
-		const padding = "=".repeat((4 - base64String.length % 4) % 4);
-		const base64 = (base64String + padding)
-			.replace(/\-/g, "+")
-			.replace(/_/g, "/");
-		
-		const rawData = window.atob(base64);
-		const outputArray = new Uint8Array(rawData.length);
-		
-		for (let i = 0; i < rawData.length; ++i) {
-			outputArray[i] = rawData.charCodeAt(i);
-		}
-		return outputArray;
-	}
+function urlB64ToUint8Array(base64String) {
+	const padding = "=".repeat((4 - base64String.length % 4) % 4);
+	const base64 = (base64String + padding)
+		.replace(/\-/g, "+")
+		.replace(/_/g, "/");
 	
-	function uint8ArrayToBase64Url(uint8Array, start, end) {
-		start = start || 0;
-		end = end || uint8Array.byteLength;
-		
-		const base64 = window.btoa(String.fromCharCode.apply(null, uint8Array.subarray(start, end)));
-		return base64
-			.replace(/\=/g, "") // eslint-disable-line no-useless-escape
-			.replace(/\+/g, "-")
-			.replace(/\//g, "_");
+	const rawData = window.atob(base64);
+	const outputArray = new Uint8Array(rawData.length);
+	
+	for (let i = 0; i < rawData.length; ++i) {
+		outputArray[i] = rawData.charCodeAt(i);
 	}
-</details>
+	return outputArray;
+}
+
+function uint8ArrayToBase64Url(uint8Array, start, end) {
+	start = start || 0;
+	end = end || uint8Array.byteLength;
+	
+	const base64 = window.btoa(String.fromCharCode.apply(null, uint8Array.subarray(start, end)));
+	return base64
+		.replace(/\=/g, "") // eslint-disable-line no-useless-escape
+		.replace(/\+/g, "-")
+		.replace(/\//g, "_");
+}
+```
 
 - [Base64 encoding and decoding - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem)
 - [StringView - Mozilla | MDN](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView)
@@ -6013,13 +6014,16 @@ for (let c, i = 0; 0 <= (c = C[a.charAt(i++)]);){
 //s
 ```
 
+#### Store bytes in JS source as base65536
+
+- [qntm/base65536: Unicode's answer to Base64](https://github.com/qntm/base65536)
 
 #### Store bytes in JS source as Data URI
 
 See [Store bytes in JS source as base64](#store-bytes-in-js-source-as-base64)
 
 ```js
-let uri = "data:application/octet-stream;base64,..."
+const uri = "data:application/octet-stream;base64,..."
 ```
 
 Easyier to transmit in data (XML, JSON)
@@ -6039,7 +6043,7 @@ Note: It's async, because `XMLHttpRequest` can't be used in synchronous mode bec
 Note: encoding scheme must be supported (base64 or unencoded)
 
 ```js
-let xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open("GET", uri, true);
 xhr.responseType = "arraybuffer";
 xhr.addEventListener("error", event => console.log(event));

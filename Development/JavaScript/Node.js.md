@@ -249,6 +249,18 @@ npm update --latest
 - `yarn upgrade-interactive --latest`
 - [npm-upgrade - npm](https://www.npmjs.com/package/npm-upgrade)
 
+### Inspect package
+```sh
+# Extract package from cache
+npm pack somepackagename | tail -n 1 | xargs tar -zxzf
+cat package/package.json
+# View registry infos
+npm view somepackagename
+```
+
+- [npm-pack | npm Documentation](https://docs.npmjs.com/cli/pack.html)
+- [npm-view | npm Documentation](https://docs.npmjs.com/cli/view)
+
 ### Package variables
 
 ```json

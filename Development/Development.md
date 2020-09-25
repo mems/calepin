@@ -894,6 +894,10 @@ Aka CLI
 
 Dependency = risk
 
+## Plugins
+
+- [What are the advantages and disadvantages of plug-in based architecture? - Stack Overflow](https://stackoverflow.com/questions/2818415/what-are-the-advantages-and-disadvantages-of-plug-in-based-architecture/2851880#2851880)
+
 # Concepts and Methodology
 
 > Just because you can't see it, doesn't mean it isn't there.

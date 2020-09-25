@@ -1,3 +1,11 @@
+Aka placeholder
+
+See [Sample files](../../Formats,%20encoding%20and%20protocols/Formats,%20encoding%20and%20protocols.md#sample-files)
+
+## Text
+
+See [Placeholder text](../../Text/Text.md#placeholder-text)
+
 ## Names
 
 - foo

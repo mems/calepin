@@ -377,6 +377,7 @@ Aka simple server
 
 - [http.server — HTTP servers — Python 3 documentation](https://docs.python.org/3/library/http.server.html) `python -m http.server 8000 -d /path/to/wwwroot`
 - [PHP: Built-in web server - Manual](http://php.net/manual/en/features.commandline.webserver.php) - `php -S localhost:8000 -t /path/to/wwwroot`
+- [HTTP | Node.js Documentation](https://nodejs.org/dist/latest/docs/api/http.html#http_http_createserver_options_requestlistener) - `const http = require("http"); http.createServer((req, res) => {res.writeHead(200, {"Content-Type": "text/html"}); res.write("Hello World!"); res.end();}).listen(8000);`
 - [Netcat — Wikipedia](https://en.wikipedia.org/wiki/Netcat) - `while true; do nc -l 8000 < response.http; done`. Will serve an unique stream/page. To get the raw HTTP response, use `printf "GET / HTTP/1.1\nHost:example.com\nUser-Agent:Firefox\Connection: close\n\n" | nc example.com 80 > response.http` or write/edit it with text editor
 - [A simple HTTP/2 server for development](https://github.com/GoogleChrome/simplehttp2server) - Written in Go
 - ([deprecated](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html)) [kzahel/web-server-chrome: An HTTP Web Server for Chrome (chrome.socket API)](https://github.com/kzahel/web-server-chrome)

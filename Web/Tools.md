@@ -396,6 +396,7 @@ page.evaluateOnNewDocument(() => {
 		return ["en-US", "en", "bn"];
 	  }
 	});
+});
 ```
 	
 ```js

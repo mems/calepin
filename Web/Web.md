@@ -583,7 +583,7 @@ Examples, using diff method like:
 
 > Don't trust your third parties
 
-See also [Third parties webperf](#third-parties-webperf)
+See also [Third parties webperf](./Optimizations%20and%20performances.md#third-parties-webperf)
 
 Comments services alternatives:
 
@@ -1014,6 +1014,16 @@ Dev tools:
 - [ChromeDevTools](https://github.com/ChromeDevTools)
 - [Chrome DevTools Protocol Viewer - latest (tip-of-tree)](https://chromedevtools.github.io/devtools-protocol/tot/)
 - [GoogleChrome/puppeteer: Headless Chrome Node.js API](https://github.com/GoogleChrome/puppeteer)
+
+Skia:
+
+- [CSS Paint Times and Page Render Weight - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/css-paint-times/)
+- [skia/tools/skp at master · google/skia](https://github.com/google/skia/tree/master/tools/skp)
+- [skia/Viewer.cpp at master · google/skia](https://github.com/google/skia/blob/master/tools/viewer/Viewer.cpp)
+- [Skia Viewer](https://skia.org/user/sample/viewer)
+- [How can i write a SkBitmap to a file - Google Groups](https://groups.google.com/forum/#!topic/skia-discuss/dsUqLOATq94)
+- [How to save .skp files from Chromium - The Chromium Projects](https://www.chromium.org/developers/how-tos/trace-event-profiling-tool/saving-skp-s-from-chromium)
+- [skia/modules/canvaskit at master · google/skia](https://github.com/google/skia/tree/master/modules/canvaskit)
 
 Enable Chrome developer tools experiments:
 
@@ -1888,3 +1898,9 @@ Allow multiple popup, or open popup from non user action:
 	2. go to Advanced Settings
 	3. switch Block Pop Ups Off
 	4. after using the desired website, roll back these settings
+
+## Parties
+
+- first party: the host, the application
+- second party: CDN (substitution)
+- [third parties](#third-parties)

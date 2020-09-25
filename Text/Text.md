@@ -703,6 +703,8 @@ Y 💖 💘
 
 ## Placeholder text
 
+See [Sample data](../Data/Sample%20data/Sample%20data.md)
+
 > This sentence has five words. Here are five more words. Five-word sentences are fine. But several together become monotonous. Listen to what is happening. The writing is getting boring. The sound of it drones. It’s like a stuck record. The ear demands some variety.
 > 
 > Now listen. I vary the sentence length, and I create music. Music. The writing sings. It has a pleasant rhythm, a lilt, a harmony. I use short sentences. And I use sentences of medium length. And sometimes, when I am certain the reader is rested, I will engage him with a sentence of considerable length, a sentence that burns with energy and builds with all the impetus of a crescendo, the roll of the drums, the crash of the cymbals–sounds that say listen to this, it is important.
@@ -711,7 +713,11 @@ Y 💖 💘
 > — Gary Provost - 100 Ways to Improve Your Writting, 1985
 
 - [Lorem ipsum - Wikipedia](https://en.wikipedia.org/wiki/Lorem_ipsum)
-- [Filler text - Wikipedia](https://en.wikipedia.org/wiki/Filler_text)
+- [Filler text - Wikipedia](https://en.wikipedia.org/wiki/Filler_text) like Lorem ipsum
+- [Meet the Ipsums](http://meettheipsums.com/)
+- [charabia.net : génération de textes](http://www.charabia.net/gen/index.php)
+- [Fillerati - Faux Latin is a Dead Language](http://www.fillerati.com/)
+- [Copy & Paste Dummy Text at Placeholder.com](https://placeholder.com/text/)
 
 ## Animation with symbols and emojis
 
