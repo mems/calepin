@@ -1941,10 +1941,11 @@ Use `padding-top` to push down the content:
 
 ```css
 *{
-	display: block;/*or any other display mode where width is not defined by the content*/
+	position: absolute;/*or fixed*/
 	overflow: hidden;
-	height: 0px;
-	padding-top: 100px;
+	height: 0;
+	padding: 1px 0 0 0;
+	margin: 0;
 }
 ```
 
@@ -3418,29 +3419,31 @@ Note: be carefull with the length of `calc()`:
 
 Note: `calc()` is not supported in all properties (like in `rgba()` channels)
 
-- [Conditions for CSS Variables](http://kizu.ru/en/fun/conditions-for-css-variables/)
-
 For colors, use explicit named color name `--light-blue` (`$light-blue`). **Don't use the context for variable name (ex: `blue-text`, `red-title`).** This allow minor adjustements.
 If you need to use an other color globally, rename the variable to match to the new color name. Otherwise (the color is needed locally), create a new variable an use it.
 Note: some keywords already exist: `white`, `black`, etc. See [color keywords](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords)
 
 ```html
-<button type="button" onclick="click()">Click me</button>
+<button type="button" onclick="clickListener()">Click me</button>
 <style>
 :root{
-	--cond: root.style.background = x ? "rebeccapurple" : "oldenrod";
+	--cond: root.style.background = active ? "rebeccapurple" : "goldenrod";
 }
 </style>
 <script>
 	let x = false;
-	let condSrc = getComputedStyle(document.querySelector(":root")).getPropertyValue('--cond');
-	function click(){
+	const root = document.querySelector(":root");
+	let cond, condSrc;
+	function clickListener(){
 		x = !x;
-		eval(condSrc);
+		const source = getComputedStyle(root).getPropertyValue("--cond");
+		(condSrc !== source ? cond = new Function("root", "active", condSrc = source) : cond)(root, x);
 	}
 </script>
 ```
 
+- [Conditions for CSS Variables](http://kizu.ru/en/fun/conditions-for-css-variables/)
+- [Switch font color for different backgrounds with CSS | CSS-Tricks](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
 - [Logical Operations with CSS Variables | CSS-Tricks](https://css-tricks.com/logical-operations-with-css-variables/)
 - [pixelass/hphn: A collection of intersing concepts using css variables.](https://github.com/pixelass/hphn)
 - [CSS custom properties (native variables) In-Depth](https://blog.hospodarets.com/css_properties_in_depth)

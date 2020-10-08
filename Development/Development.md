@@ -158,7 +158,8 @@ Ex: A ↔︎ B refactored to A → B, with B that use the [observer pattern](htt
 
 Aka multiplayer game, streaming, RTS game
 
-- [How Figma’s multiplayer technology works](https://www.figma.com/blog/how-figmas-multiplayer-technology-works/)
+- [How Figma’s multiplayer technology works](https://web.archive.org/web/20200829094142/https://www.figma.com/blog/how-figmas-multiplayer-technology-works/) - About implementation of multiple user editor
+- [pfrazee/crdt_notes](https://github.com/pfrazee/crdt_notes)
 - [Gamasutra - 1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond](http://www.gamasutra.com/view/feature/131503/1500_archers_on_a_288_network_.php)
 - [Gamasutra - Opinion: Synchronous RTS Engines And A Tale of Desyncs](http://www.gamasutra.com/view/news/126022/Opinion_Synchronous_RTS_Engines_And_A_Tale_of_Desyncs.php)
 - [A Beginner's Guide to Scaling to 11 Million+ Users on Amazon's AWS - High Scalability -](http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html) http://wayback.archive.org/web/20160304044912/http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html
@@ -166,6 +167,9 @@ Aka multiplayer game, streaming, RTS game
 - [Source Multiplayer Networking - Valve Developer Community](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking)
 - [Gaffer on Games | Glenn Fiedler's Game Development Articles](http://gafferongames.com/)
 - [RedpointGames/netcode.io-browser: Browser extensions which enable the use of netcode.io (secure UDP) prior to adoption in web browsers](https://github.com/RedpointGames/netcode.io-browser)
+- [I was wrong. CRDTs are the future](https://web.archive.org/web/20200929062536/https://josephg.com/blog/crdts-are-the-future/)
+- [yjs/yjs: Peer-to-peer shared types](https://github.com/yjs/yjs)
+- [share/sharedb: Realtime database backend based on Operational Transformation (OT)](https://github.com/share/sharedb)
 
 ## Complexity
 

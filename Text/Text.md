@@ -49,9 +49,9 @@ Température: 3 °C
 
 ### Dash
 
-- `-` hyphen: connect words (object-oriented)
-- `–` en dash: ranges (May 9–15), UK dash (– lo and behold –)
-- `—` em dash: US dash (—lo and behold—)
+- `-` hyphen: connect words (ex: object-oriented)
+- `–` en dash: ranges (May 9–15), UK dash (ex: – lo and behold –)
+- `—` em dash: US dash (ex: —lo and behold—)
 - `−` minus sign: U+2212
 
 ### Line break
@@ -272,13 +272,16 @@ It's not always possible to get the equivalence. Ex.: CJK
 - Strike: `text-decoration:line-through` or add char U+0335 or U+0336 (prefered) or U+0337 or U+0338
 - Overline: `text-decoration:overline` or add char U+0305 (prefered) or U+0304 or U+033F
 - Underline: `text-decoration:underline` or add char U+0332 (prefered) or U+0333 or U+0320
- 
-	
-	var combChar = String.fromCharCode(0x0336);
-	// Will not work or not correctly with some chars, especially precomposed chars
-	input.replace(/./g, function(char){return char + combChar});
 
-	var chars = ""; for(var i = 0; i <= 0x024F; i++){chars+=String.fromCharCode(i)}
+```js
+const combChar = String.fromCharCode(0x0336);
+// Will not work or not correctly with some chars, especially precomposed chars
+input.replace(/./g, char => char + combChar);
+```
+
+```js
+let chars = ""; for(var i = 0; i <= 0x024F; i++){chars+=String.fromCharCode(i)}
+```
 
 HTML+CSS `text-decoration` copy only work in editor with rich text support, no plain text
 

@@ -1625,7 +1625,7 @@ The heading level (h1, h2, h3, etc.) should reflect deepth of the container (by 
 - [HTML/Usage/Headings/h1only - W3C Wiki](https://www.w3.org/wiki/HTML/Usage/Headings/h1only)
 - [Do not recommend using nested sections with h1 · Issue #169 · w3c/html](https://github.com/w3c/html/issues/169)
 
-In HTML5 is't allowed to use h1 only:
+In HTML5 it is not allowed to use h1 only:
 
 - [The Truth About Multiple H1 Tags in the HTML5 Era - Tuts+ Web Design Article](http://webdesign.tutsplus.com/articles/the-truth-about-multiple-h1-tags-in-the-html5-era--webdesign-16824)
 
