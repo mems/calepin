@@ -48,6 +48,19 @@ See also [Documentation](ECMAScript#documentation)
 - https://developers.google.com/closure/compiler/docs/api-tutorial3
 - [User Timing API - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) [`performance.measure(...)`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/measure)
 
+```js
+const requestStart = (() => {
+    const now = Date.now()
+    // Try to use the performanceNavigationTiming API
+    if (window.PerformanceNavigationTiming) {
+        // use performance.now() to adjust requestStart from context time (monotonic time) to epoch time (UNIX time)
+        return now - performance.now() + performance.getEntriesByType("navigation")[0].requestStart;
+    }
+    // fallback to the former performanceTiming API or Date.now().
+    return performance.timing ? performance.timing.requestStart : now;
+})();
+```
+
 ### Debug
 
 Debug with conditional breakpoint:

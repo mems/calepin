@@ -1,6 +1,6 @@
 ## Resources
 
-See also [Compare image](../../Algorithms/Compare%20data/Compare%20data.md#compare-image)
+See also [Compare image](../../Algorithms/Compare%20data/Compare%20data.md#compare-image) and [Image sequence](../../Web/Web.md#image-sequence)
 
 `identify -verbose image.ext`
 

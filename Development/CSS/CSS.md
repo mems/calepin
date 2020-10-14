@@ -817,6 +817,8 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 
 #### Responsive table
 
+See also [Responsive - UI - UX](../../User%20Interface%20and%20experience/UI%20-%20UX.md)
+
 Use `flex-direction: column;` on `tr`. But don't handle well cell with different height.
 
 - [Making Tables Responsive With Minimal CSS · Ugly Duck](https://uglyduck.ca/responsive-tables/) - [CSS-Tricks on Twitter: "Responsive tables... When you need to compare data up and down columns, it's probably best to largely leave the table structure alone and allow scrolling. If each row can be broken apart and still be useful, collapsing them to avoid scrolling is nice. https://t.co/zeMFdrwU1M https://t.co/3z8hQDvNAZ" / Twitter](https://twitter.com/css/status/1182715016820199427?s=12)

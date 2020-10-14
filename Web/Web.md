@@ -553,15 +553,15 @@ Methods:
 
 1. decompose effect and recreate it with 3D models, JS, CSS, SVG... But won't look the same
 2. use video with specific frames encoding.
-	Use only I-Frames or B-frames (B for bidirectional frame). See [Frame types](Video#Frame types)
+	Use only I-Frames or B-frames (B for bidirectional frame). See [Frame types](../Formats,%20encoding%20and%20protocols/Video/Video.md#frame-types)
 3. use images:
-	Can use format like [APNG](PNG#APNG), [MNG](PNG), [JNG](JNG), [Animated WebP](WebP), SVG (animation), QTVR, tar archive contains images and data files.
+	Can use format like [APNG](../Formats,%20encoding%20and%20protocols/PNG/PNG.md#APNG), [MNG](../Formats,%20encoding%20and%20protocols/PNG/PNG.md), [JNG](../Formats,%20encoding%20and%20protocols/Image/Image.md#jng), [Animated WebP](../Formats,%20encoding%20and%20protocols/WebP/WebP.md), SVG (animation), [QTVR](../Formats,%20encoding%20and%20protocols/MOV/MOV.md#quickTime-vr), tar archive contains images and data files.
 	If multiple images use the same container, [content encoding](#content-encoding) could be used to compress more (GZip, Brotli) to reduce redonancy between images. For JPEG, use same DCT coefficients and omit it to reduce weight.
-	Use codecs of [compressed texture format](Texture format), JPEG, PNG, etc.
+	Use codecs of [compressed texture format](../Formats,%20encoding%20and%20protocols/Texture%20format/Texture%20format.md), JPEG, PNG, etc.
 	
-	1. images diff (pixels + metadata) and draw the patched image (frames: I,P,P,P...) P images could refer to the I frame or to the previous P frame (see [how APNG works](PNG#APNG))
+	1. images diff (pixels + metadata) and draw the patched image (frames: `I,P,P,P...`) `P` images could refer to the I frame or to the previous P frame (see [how APNG works](../Formats,%20encoding%20and%20protocols/PNG/PNG.md#apng))
 		Need fine control of playback
-	2. bunch of images loaded into blobs and load into the DOM (IMG or Canvas or via ImageData) and drawn on canvas (frames: I,I,I,I...)
+	2. bunch of images loaded into blobs and load into the DOM (IMG or Canvas or via ImageData) and drawn on canvas (frames: `I,I,I,I...`)
 
 Examples, using diff method like:
 

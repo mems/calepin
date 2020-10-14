@@ -1048,3 +1048,16 @@ Aka my stuff or your stuff, perspective
 > Dashboards are passive when the user needs something active.
 > They are a failure before it happens.
 > — [Jared Spool on Twitter: "Dashboards are often what customers ask for. They are rarely what customers need. If you’re building a dashboard, it’s likely your user research wasn’t finished." / Twitter](https://twitter.com/jmspool/status/1293015767038996480)
+
+## Responsive
+
+Aka Responsive Web Design (RWD), art direction
+
+- [Use Cases and Requirements for Standardizing Responsive Images](https://web.archive.org/web/20200717095058/http://usecases.responsiveimages.org/#art-direction)
+
+Responsive Data Table:
+
+- [Responsive Data Table Roundup | CSS-Tricks](https://web.archive.org/web/20200620061641/https://css-tricks.com/responsive-data-table-roundup/)
+- [overflow - How should large table columns be handled on a responsive design? - User Experience Stack Exchange](https://ux.stackexchange.com/questions/15463/how-should-large-table-columns-be-handled-on-a-responsive-design)
+- [A Responsive Design Approach for Complex, Multicolumn Data Tables | Filament Group, Inc.](https://web.archive.org/web/20200808064240/https://www.filamentgroup.com/lab/responsive-design-approach-for-complex-multicolumn-data-tables.html)
+- [responsive table patterns](https://web.archive.org/web/20171108075728/https://www.filamentgroup.com/examples/rwd-table-patterns/)
