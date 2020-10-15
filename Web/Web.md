@@ -1645,17 +1645,20 @@ Tools:
 Other:
 
 - tools for browser for users or authors: zoom and font size settings, [reduce motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion), [custom font](https://www.dyslexiefont.com/en/chrome-extension/), screen reader, [colors inversion](http://adrianroselli.com/2017/11/os-high-contrast-versus-inverted-colors.html), video sub titles, keyboard navigation, [etc.](https://chrome.google.com/webstore/category/collection/accessibility))
-- advise against using web accessibility overlay tools / add-on accessibility / plug and play solutions
+- advice against using web accessibility overlay tools / add-on accessibility / plug and play solutions (accessiBe, Facil'iti)
     - [Web accessibility overlay tools: lies and gum balls - Le Lutin du Web](https://www.lelutinduweb.fr/en/web-accessibility-overlays-lies-gum-balls/)
     - [Be Wary of Add-on Accessibility | Adrian Roselli](https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
     - [#accessiBe Will Get You Sued | Adrian Roselli](https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html)
     - [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
+    - [Web Accessibility Overlays Don't Work](https://web.archive.org/web/20201005172019/https://blog.tenon.io/web-accessibility-overlays-dont-work)
+    - [Les outils de surcouche d’accessibilité web : mensonges et boules de gomme - La Lutine du Web](https://web.archive.org/web/20201015162302/https://www.lalutineduweb.fr/surcouche-accessibilite-web-mensonges-boules-gommes/)
 - [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
 - [thetuttingtutor/accessibility-disability-justice: Accessibility and disability justice resources](https://github.com/thetuttingtutor/accessibility-disability-justice)
 - [WebAIM: Articles](https://webaim.org/articles/)
 - [Accessibility Wins, curated by Marcy Sutton](https://a11ywins.tumblr.com/)
 - [Home - The A11Y Project](https://www.a11yproject.com/)
 - [An Alphabet of Accessibility Issues](https://the-pastry-box-project.net/anne-gibson/2014-july-31) - Blind, color blind, epilepsy, poor hearing, vertigo, fractured multiple fingers
+- [Mobile Dyslexic – Get this Extension for 🦊 Firefox (en-US)](https://addons.mozilla.org/en-US/firefox/addon/mobile-dyslexic/) - "Mobile Dyslexic replaces all fonts of all web pages with carefully crafted special font which is easier to read by people with dyslexia."
 
 ## Screensaver
 
