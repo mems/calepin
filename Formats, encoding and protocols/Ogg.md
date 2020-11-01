@@ -1,0 +1,3 @@
+- [Xiph.org: Ogg](https://www.xiph.org/ogg/)
+- [J-Ogg overview](http://www.j-ogg.de/core/main?/index.html)
+- [JOrbis - Pure Java Ogg Vorbis Decoder](http://www.jcraft.com/jorbis/)

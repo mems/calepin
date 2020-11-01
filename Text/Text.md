@@ -290,11 +290,11 @@ HTML+CSS `text-decoration` copy only work in editor with rich text support, no p
 - http://en.wikipedia.org/wiki/Combining_character
 - http://en.wikipedia.org/wiki/Precomposed_character
 - http://en.wikipedia.org/wiki/Unicode_equivalence
-- http://adamvarga.com/strike/
+- [Unicode strikethrough text tool for Twitter, Facebook, internationalized domain names, etc.](https://web.archive.org/web/20200926175536/http://adamvarga.com/strike/)
 - http://ecmanaut.blogspot.ca/2006/07/encoding-decoding-utf8-in-javascript.html
 - https://stackoverflow.com/questions/17357716/javascript-regex-unicode-diacritic-combining-characters
 - https://stackoverflow.com/questions/18057534/javascript-encoding-breaking-combining-multibyte-characters
-- http://xregexp.com/plugins/#unicode
+- [Addons :: XRegExp](http://xregexp.com/plugins/#unicode)
 
 ### Superscript subscripts and modifiers
 

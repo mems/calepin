@@ -1,0 +1,2 @@
+- [ASCII character set - Lammert Bies](https://web.archive.org/web/20200814221340/https://www.lammertbies.nl/comm/info/ascii-characters)
+- `man ascii`

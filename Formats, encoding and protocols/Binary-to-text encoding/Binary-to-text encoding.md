@@ -1,2 +1,0 @@
-- [Binary-to-text encoding — Wikipedia](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
-- [Four Column ASCII](https://garbagecollected.org/2017/01/31/four-column-ascii/)

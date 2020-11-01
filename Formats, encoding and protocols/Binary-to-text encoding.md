@@ -1,0 +1,7 @@
+- [Binary-to-text encoding — Wikipedia](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
+- [Four Column ASCII](https://garbagecollected.org/2017/01/31/four-column-ascii/)
+- [Ascii85](./Ascii85.md)
+- [Base64](./Base64.md)
+- [Base91](./Base91.md)
+- [Base122](./Base122.md)
+- [VQL encoding](./VQL%20encoding.md)

@@ -21,3 +21,13 @@ Convert VB.Net to C#:
 - [CodeTranslator: Code Translation From VB.NET <-> C# <-> TypeScript <-> Java](https://www.carlosag.net/tools/codetranslator/)
 - [Source Code Converters](https://www.tangiblesoftwaresolutions.com/)
 - [VB.NET and C# Equivalents](https://www.tangiblesoftwaresolutions.com/vb-and-csharp-equivalents.html)
+
+ASP.NET MVC (and WebForms, but not Core):
+
+- [aspnet/AspNetWebStack: ASP.NET MVC 5.x, Web API 2.x, and Web Pages 3.x (not ASP.NET Core)](https://github.com/aspnet/AspNetWebStack)
+- [.NET API browser | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnet-mvc-5.2)
+
+ASP.NET Core:
+
+- [dotnet/aspnetcore: ASP.NET Core is a cross-platform .NET framework for building modern cloud-based web applications on Windows, Mac, or Linux.](https://github.com/dotnet/aspnetcore)
+- [.NET API browser | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-3.1)

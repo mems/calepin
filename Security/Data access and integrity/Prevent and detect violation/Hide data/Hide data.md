@@ -750,7 +750,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 	* [A Collection of JavaScript Gotchas - CodeProject](http://www.codeproject.com/Articles/182416/A-Collection-of-JavaScript-Gotchas)
 	* 	eval(unescape(escape`𩁯𨱵𫑥𫡴𛡷𬡩𭁥𨀼𨱡𫡶𨑳𘁩𩀽𠐠𪁥𪑧𪁴🐲𝐰🡠𞱦𫱲𚁑🐶𩐴𞱑𛐭𞱁𛡧𩑴𠱯𫡴𩑸𭁠𜡤𨀮𩡩𫁬𤡥𨱴𚁑𙐳𜀰𛁑𛰳𜀰𛀱𛁉𛰹𜀩𚑦𫱲𚁖👘👑𛰱𜀰𙐳𛐲𛁗👙👑𛰳𩐴𛐱𛁉🐹𜀻𢐭𛐦𙡗𚡗🀹𞱗👚𚱚𚱙𚑚👖𚡗𛁖👖𚡖𛑗𚡗𚱘`.replace(/u../g,''))) // draw mandelbrot with 140 chars
 		- [xem on Twitter: "eval(unescape(escape`𩁯𨱵𫑥𫡴𛡷𬡩𭁥𨀼𨱡𫡶𨑳𘁩𩀽𠐠𪁥𪑧𪁴🐲𝐰🡠𞱦𫱲𚁑🐶𩐴𞱑𛐭𞱁𛡧𩑴𠱯𫡴𩑸𭁠𜡤𨀮𩡩𫁬𤡥𨱴𚁑𙐳𜀰𛁑𛰳𜀰𛀱𛁉𛰹𜀩𚑦𫱲𚁖👘👑𛰱𜀰𙐳𛐲𛁗👙👑𛰳𩐴𛐱𛁉🐹𜀻𢐭𛐦𙡗𚡗🀹𞱗👚𚱚𚱙𚑚👖𚡗𛁖👖𚡖𛑗𚡗𚱘`.replace(/u../g,''))) // 140brot https://t.co/GPSFxeYwSD"](https://twitter.com/MaximeEuziere/status/843397121369956354)
-	* IEEE 754 Floating-point numbers limitations
+	* [IEEE 754](../../../../IEEE%20754.md) Floating-point numbers limitations
 		- [particularité de IEEE 754 Floating-point numbers:](https://stackoverflow.com/questions/3730019/why-not-use-double-or-float-to-represent-currency)
 		- [`0.1 + 0.2 != 0.3`](https://stackoverflow.com/questions/588004/is-floating-point-math-broken))
 		- `0.2 + 0.4 !== 0.6`

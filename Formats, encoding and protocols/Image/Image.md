@@ -2,6 +2,8 @@
 
 See also [Compare image](../../Algorithms/Compare%20data/Compare%20data.md#compare-image) and [Image sequence](../../Web/Web.md#image-sequence)
 
+[EXIF](../EXIF/EXIF.md), [IPTC](../IPTC.md), [JNG](../JNG/JNG.md), [JPEG](../JPEG/JPEG.md), [PNG](../PNG/PNG.md), [Texture format](../Texture%20format/Texture%20format.md)
+
 `identify -verbose image.ext`
 
 Libraires support differents formats

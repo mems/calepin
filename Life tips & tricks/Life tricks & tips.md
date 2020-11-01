@@ -107,3 +107,11 @@ Ne pas prendre d'antibiotique si ce n'est pas précscrit par le médecin (origin
 Si présence de fièvre ou si au bout de quelques jours, il n'y a aucun signe d'amélioration, consulter un médecin
 
 - [Angine — Wikipédia](https://fr.wikipedia.org/wiki/Angine)
+
+## Emménagement
+
+Électricité:
+
+- avant qu'une ligne soit coupée (par ERDF) il est possible de disposer d'électricité (énergie en libre service) qui est accordé par ERDF afin de permettre à un nouvel occupant de pouvoir emménager (mais c'est pas toujours le cas, surtout avec les compteurs électronique type Linky)
+- [Déménager de mon logement | Enedis](https://www.enedis.fr/demenager-de-mon-logement#etape-emmenager)
+- [Contacter le service client EDF par téléphone ou en ligne](https://particulier.edf.fr/fr/accueil/aide-et-contact/contact/contacter-edf.html)

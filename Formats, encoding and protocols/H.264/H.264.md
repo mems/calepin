@@ -1,0 +1,3 @@
+- [Advanced Video Coding - Wikipedia](https://en.wikipedia.org/wiki/Advanced_Video_Coding)
+- [mbebenita/Broadway: A JavaScript H.264 decoder.](https://github.com/mbebenita/Broadway)
+- [H.264 is magic: a technical walkthrough of a remarkable technology.](https://web.archive.org/web/20201006164027/https://sidbala.com/h-264-is-magic/)

@@ -563,19 +563,25 @@ Methods:
 		Need fine control of playback
 	2. bunch of images loaded into blobs and load into the DOM (IMG or Canvas or via ImageData) and drawn on canvas (frames: `I,I,I,I...`)
 
-Examples, using diff method like:
+Examples, using differents methods:
 
-- [iPhone 5 website teardown_ How Apple compresses video using JPEG, JSON, and \<canvas\>](https://docs.google.com/document/pub?id=1GWTMLjqQsQS45FWwqNG9ztQTdGF48hQYpjQHR_d1WsI) and [iPhone 5 web teardown: How Apple compresses video using JPEG, JSON, and canvas | Hacker News](https://news.ycombinator.com/item?id=4531088)
-- http://www.bigbossstudio.com/packed_player/index.html
+- iPhone 5 webpage
+	- [iPhone 5 website teardown: How Apple compresses video using JPEG, JSON, and \<canvas\>](https://web.archive.org/web/20201009042250/https://docs.google.com/document/pub?id=1GWTMLjqQsQS45FWwqNG9ztQTdGF48hQYpjQHR_d1WsI)
+	- [iPhone 5 web teardown: How Apple compresses video using JPEG, JSON, and canvas | Hacker News](https://news.ycombinator.com/item?id=4531088)
+- [Video Packer Player](https://web.archive.org/web/20151220090428/http://www.bigbossstudio.com/packed_player/index.html)
 - [samiare/whitewater-mobile-video: An encoding system for playing inline videos on the mobile web.](https://github.com/samiare/whitewater-mobile-video)
 - Phosphor:
-	- [Phosphor - divergent media](http://www.divergentmedia.com/phosphor)
+	- [Phosphor - divergent media](https://web.archive.org/web/20161115144939/http://www.divergentmedia.com/phosphor#overview)
+	- [Phosphor Manual - divergent media](https://web.archive.org/web/20170608060127/http://www.divergentmedia.com/support/documentation/phosphor)
 	- [divergentmedia/phosphorframework: Player framework for Phosphor encoded video content](https://github.com/divergentmedia/phosphorframework)
 	- https://itunes.apple.com/us/app/phosphor/id589654268
 	- http://chrisdowling.biz/demos/phosphor-filesize/
 - Sublimetext:
 	- [sublimehq/anim_encoder](https://github.com/sublimehq/anim_encoder)
 	- [Animated GIFs the Hard Way | Hacker News](https://news.ycombinator.com/item?id=4532146)
+- Mac Pro webpage
+	- [How Apple made the new Mac Pro web page - YouTube](https://www.youtube.com/watch?v=-Qo9BAI4TQE)
+	- [Apple Mac Pro page deconstructed](https://web.archive.org/web/20160607153247/https://ihatetomatoes.net/apple-mac-pro-page-deconstructed/)
 
 - [Image Sequences: Let Me Count The Ways « Thomas Reynolds](http://awardwinningfjords.com/2012/03/08/image-sequences.html) - Use CSS animation or Canvas or DOM image suite
 

@@ -4154,7 +4154,9 @@ for(let [property, collection] of [
 
 **Note: be carefull if multiple input have same id/name.**
 
-	let [deg, x, y, z] = Array.from(document.querySelectorAll("input[name=deg], input[name=x], input[name=y], input[name=z]"), input => input.value);
+```js
+const [deg, x, y, z] = Array.from(document.querySelectorAll("input[name=deg], input[name=x], input[name=y], input[name=z]"), input => input.value);
+```
 
 ### Node name and case sensitivity
 
@@ -4162,112 +4164,119 @@ http://ejohn.org/blog/nodename-case-sensitivity/
 
 ### Search text and wrap
 
-	for (const range of[...findTexts('hello world')]) {
-		const mark = document.createElement('mark');
-		mark.appendChild(range.extractContents());
-		range.insertNode(mark);
-	}
-	
-	function* findTexts(str, {
-		root = document.body
-	} = {}) {
-		let matchPos = 0;
-		let startContainer = null;
-		let startOffset = 0;
-	
-		for (const textNode of nodeIterator(root, NodeFilter.SHOW_TEXT)) {
-			const text = textNode.nodeValue;
-	
-			for (let i = 0; i < text.length; i++) {
-				if (text[i] == str[matchPos]) {
-					// Possible match
-					if (matchPos == 0) {
-						startContainer = textNode;
-						startOffset = i;
-					}
-	
-					matchPos++;
-	
-					// Total match
-					if (matchPos == str.length) {
-						const range = document.createRange();
-						range.setStart(startContainer, startOffset);
-						range.setEnd(textNode, i + 1);
-	
-						yield range;
-	
-						matchPos = 0;
-						startContainer = null;
-						startOffset = 0;
-					}
+```js
+for (const range of[...findTexts('hello world')]) {
+	const mark = document.createElement('mark');
+	mark.appendChild(range.extractContents());
+	range.insertNode(mark);
+}
+
+function* findTexts(str, {
+	root = document.body
+} = {}) {
+	let matchPos = 0;
+	let startContainer = null;
+	let startOffset = 0;
+
+	for (const textNode of nodeIterator(root, NodeFilter.SHOW_TEXT)) {
+		const text = textNode.nodeValue;
+
+		for (let i = 0; i < text.length; i++) {
+			if (text[i] == str[matchPos]) {
+				// Possible match
+				if (matchPos == 0) {
+					startContainer = textNode;
+					startOffset = i;
 				}
-				// Match failure
-				else if (matchPos) {
+
+				matchPos++;
+
+				// Total match
+				if (matchPos == str.length) {
+					const range = document.createRange();
+					range.setStart(startContainer, startOffset);
+					range.setEnd(textNode, i + 1);
+
+					yield range;
+
 					matchPos = 0;
 					startContainer = null;
 					startOffset = 0;
 				}
 			}
+			// Match failure
+			else if (matchPos) {
+				matchPos = 0;
+				startContainer = null;
+				startOffset = 0;
+			}
 		}
 	}
-	
-	function* nodeIterator(...args) {
-		const ittr = document.createNodeIterator(...args);
-	
-		while (true) {
-			const node = ittr.nextNode();
-			if (!node) return;
-			yield node;
-		}
-	}
+}
 
+function* nodeIterator(...args) {
+	const ittr = document.createNodeIterator(...args);
+
+	while (true) {
+		const node = ittr.nextNode();
+		if (!node) return;
+		yield node;
+	}
+}
+```
 
 - [JS Bin - Collaborative JavaScript Debugging](http://jsbin.com/walaga/edit?html,js,output)
 
 ### Wrap node children
 
-	var wrapper = container.ownerDocument.createElement("button");
-	while (container.firstChild) {
-		wrapper.appendChild(container.firstChild);
-	}
-	container.appendChild(wrapper);
+```js
+var wrapper = container.ownerDocument.createElement("button");
+while (container.firstChild) {
+	wrapper.appendChild(container.firstChild);
+}
+container.appendChild(wrapper);
+```
 
 - [Wrapping a set of DOM elements using JavaScript - Stack Overflow](https://stackoverflow.com/questions/3337587/wrapping-a-set-of-dom-elements-using-javascript)
 
 ### Loop through all elements
 
-	var el = document.documentElement;
-	while(el){
-		console.log(el);
-		
-		nextEl = el.firstElementChild/*down*/;
-		/*or next or up and next*/
-		if(!nextEl){
-			//go up if no sibling
-			while(el && el.nextElementSibling === null){
-				el = el.parentElement;
-			}
-			// sibling or null (end)
-			nextEl = el ? el.nextElementSibling : null;
+```js
+var el = document.documentElement;
+while(el){
+	console.log(el);
+	
+	nextEl = el.firstElementChild/*down*/;
+	/*or next or up and next*/
+	if(!nextEl){
+		//go up if no sibling
+		while(el && el.nextElementSibling === null){
+			el = el.parentElement;
 		}
-		el = nextEl;
+		// sibling or null (end)
+		nextEl = el ? el.nextElementSibling : null;
 	}
+	el = nextEl;
+}
+```
 
 ### Parse SVG path using the native parser
 
-	var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-	var parseError;
-	try{
-		path.setAttribute("d", "m10,10C45.812,24.024,45.673,24,45.529,24H31.625c0.482-3.325,6.464-2.758,8.913-3.155z");
-	}
-	catch(error){
-		parseError = error;
-		console.log(error);
-	}
-	
-	if(!parseError){
-		path.pathSegList;// path data
-	}
+```js
+var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+var parseError;
+try{
+	path.setAttribute("d", "m10,10C45.812,24.024,45.673,24,45.529,24H31.625c0.482-3.325,6.464-2.758,8.913-3.155z");
+}
+catch(error){
+	parseError = error;
+	console.log(error);
+}
+
+if(!parseError){
+	path.pathSegList;// path data
+}
+```
 
 Polygon or polyline can be used too (with the points attribute) but support only lines (only pairs of coords). Path can use points as: `d="M%POINTS%z"` where `%POINTS%` is value of the attribute `points` of the polygon/polyline.
 
@@ -4278,14 +4287,16 @@ Polygon or polyline can be used too (with the points attribute) but support only
 
 Parse a CSS without apply it to the current document. Resources (backgrounds, fonts, etc.) will not be loaded
 
-	var doc = document.implementation.createHTMLDocument("");
-	var baseElement = doc.createElement('base');
-	//Define a base for relative URL inside stylesheet
-	baseElement.href = window.location;
-	doc.head.appendChild(baseElement);
-	var style = doc.createElement("style");
-	style.appendChild(doc.createTextNode("body{background: url(\"machine-feature1-bg.jpg\");}"));
-	doc.head.appendChild(style);
+```js
+var doc = document.implementation.createHTMLDocument("");
+var baseElement = doc.createElement('base');
+//Define a base for relative URL inside stylesheet
+baseElement.href = window.location;
+doc.head.appendChild(baseElement);
+var style = doc.createElement("style");
+style.appendChild(doc.createTextNode("body{background: url(\"machine-feature1-bg.jpg\");}"));
+doc.head.appendChild(style);
+```
 
 You can also listen "error" and "load" events (on `style` element) to know when the `style.sheet` is available (all import are parsed also)
 
@@ -4316,13 +4327,15 @@ See jQuery [`$.parseHTML()`](https://github.com/jquery/jquery/blob/master/src/co
 
 ##### A (detached) root node
 
-	var node = document.createElement("html");
-	// html element will be striped (ignored, but not its content)
-	// head and body will be generated
-	// scripts, link, meta and title elements will be append to head
-	// Other elements will be append to body
-	// Note: Scripts elements (inline or external) will not be executed
-	node.innerHTML = htmlString;
+```js
+var node = document.createElement("html");
+// html element will be striped (ignored, but not its content)
+// head and body will be generated
+// scripts, link, meta and title elements will be append to head
+// Other elements will be append to body
+// Note: Scripts elements (inline or external) will not be executed
+node.innerHTML = htmlString;
+```
 
 ##### As a sibling nodes
 
@@ -4338,8 +4351,10 @@ element.insertAdjacentHTML("beforeend", htmlString);// at the end of element
 
 Note: Scripts elements (inline or external) will not be executed.
 
-	element.innerHTML = htmlString;
-	let nodes = element.childNodes;
+```js
+element.innerHTML = htmlString;
+let nodes = element.childNodes;
+```
 
 ##### As `DocumentFragment`
 
@@ -4363,37 +4378,49 @@ See [`iframe`](#iframe)
 
 With `document.write()`
 
-	// iframe must be added to an online document
-	var frameDoc = iframe.contentWindow.document;
-	frameDoc.open();
-	//Note: update iframe content force new history record.
-	frameDoc.write('<html><head><title>' + document.title + '</title><script>var frameHash="' + _hash + '";</script></head><body>&nbsp;</body></html>');
-	frameDoc.close();
+```js
+// iframe must be added to an online document
+var frameDoc = iframe.contentWindow.document;
+frameDoc.open();
+//Note: update iframe content force new history record.
+frameDoc.write('<html><head><title>' + document.title + '</title><script>var frameHash="' + _hash + '";</script></head><body>&nbsp;</body></html>');
+frameDoc.close();
+```
 
 Or with `innerHTML`
 
-	iframe.contentDocument.documentElement.innerHTML = htmlString;
+```js
+iframe.contentDocument.documentElement.innerHTML = htmlString;
+```
 
 Or with Data URI
 
-	// With data URI
-	iframe.src = "data:text/html," + encodeURIComponent(htmlString);
+```js
+// With data URI
+iframe.src = "data:text/html," + encodeURIComponent(htmlString);
+```
 
-	// With Blob
-	iframe.src = URL.createObjectURL(new Blob([htmlString], {type: "text/html"}));
-	//iframe.src = URL.createObjectURL(new File([htmlString], "iframe.html", {type: "text/html"}));
+```js
+// With Blob
+iframe.src = URL.createObjectURL(new Blob([htmlString], {type: "text/html"}));
+//iframe.src = URL.createObjectURL(new File([htmlString], "iframe.html", {type: "text/html"}));
+```
 
-	// With srcdoc attribute
-	iframe.srcdoc = htmlString
+```js
+// With srcdoc attribute
+iframe.srcdoc = htmlString
+```
 
 Document access to iframes with Data URI, can fail on some browsers for [security reason (crossdomain)](https://stackoverflow.com/a/14149618/470117). Use others methods (Blob or `srcdoc` attribute)
 
 ##### As replacement of an existing document
 
-	document.open();
-	document.write(htmlChunk);
-	document.write(htmlChunk2);
-	document.close();
+```js
+document.open();
+document.write(htmlChunk);
+document.write(htmlChunk2);
+document.close();
+```
 
 Note: It create a new history entry (navigated to `wyciwyg://0/DOCUMENT_URL`) if the document have a browsing context (cancel the current navigation if any). To not an history entry, use `document.open("text/html", "replace")` instead.
 
@@ -4403,14 +4430,16 @@ Note: It create a new history entry (navigated to `wyciwyg://0/DOCUMENT_URL`) if
 
 You can't access direclty to the document, you need to use `iframe.contentWindow.postMessage()`
 
-	let iframe = document.createElement("iframe");
-	iframe.sandbox = "";// enable sandbox mode, same as iframe.setAttribute("sandbox", "");
-	iframe.srcdoc = htmlString;// not supported by IE and Edge http://caniuse.com/#feat=iframe-srcdoc Note: document.URL will be about:srcdoc
-	// or iframe.src = "javascript:'" + htmlString.replace(/\\/, "\\").replace(/'/, "\\'") + "'";// becarefull with the javascript protocol, it's affected by the URI length can be limited
-	// or iframe.src = "data:text/html," + htmlString;// can be affected by cross domain rules or not
-	// of iframe.src = blobURI;
-	iframe.hidden = true;// hide
-	document.body.appendChild(iframe);
+```js
+let iframe = document.createElement("iframe");
+iframe.sandbox = "";// enable sandbox mode, same as iframe.setAttribute("sandbox", "");
+iframe.srcdoc = htmlString;// not supported by IE and Edge http://caniuse.com/#feat=iframe-srcdoc Note: document.URL will be about:srcdoc
+// or iframe.src = "javascript:'" + htmlString.replace(/\\/, "\\").replace(/'/, "\\'") + "'";// becarefull with the javascript protocol, it's affected by the URI length can be limited
+// or iframe.src = "data:text/html," + htmlString;// can be affected by cross domain rules or not
+// of iframe.src = blobURI;
+iframe.hidden = true;// hide
+document.body.appendChild(iframe);
+```
 
 #### As a document without browsing context
 
@@ -4420,20 +4449,22 @@ If you need to remove all unsafe code, use [DOMPurify](https://github.com/cure53
 
 To load element from a document without browsing context, you have to adopt it to a document with browsing context:
 
-	// Add a base to fix issues with some browsers. See https://github.com/jquery/jquery/issues/2965
-	let base = doc.createElement("base");
-	base.href = document.location.href;
-	doc.head.appendChild(base);
-	img;// from doc
-	
-	document.adoptNode(img);
-	// Now, we you need to load it:
-	// add it to the current document's tree
-	document.body.appendChild(img);
-	// or update the src
-	let src = img.src;
-	img.src = "about:blank";
-	img.src = src;// need async operation?
+```js
+// Add a base to fix issues with some browsers. See https://github.com/jquery/jquery/issues/2965
+let base = doc.createElement("base");
+base.href = document.location.href;
+doc.head.appendChild(base);
+img;// from doc
+
+document.adoptNode(img);
+// Now, we you need to load it:
+// add it to the current document's tree
+document.body.appendChild(img);
+// or update the src
+let src = img.src;
+img.src = "about:blank";
+img.src = src;// need async operation?
+```
 
 Or clone it with `var node = document.importNode(nodeFromOtherDoc);`
 
@@ -4447,17 +4478,19 @@ Note: `document.adoptNode()` and `document.importNode()` are not supported by IE
 
 ##### As a document without browsing context with `createHTMLDocument`
 
-	var doc = document.implementation.createHTMLDocument("");
-	// innerHTML
-	doc.documentElement.innerHTML = htmlString;
-	// or with doc.body.innerHTML or doc.head.innerHTML
-	// or with doc.….insertAdjacentHTML("beforeend", htmlString)
-	// write():
-	// 	doc.open();
-	// 	// Can use HTML chunks, like: "<span", ">test</s", "pan>"
-	// 	doc.write(htmlChunk);
-	// 	doc.write(htmlChunk2);
-	// 	doc.close();
+```js
+var doc = document.implementation.createHTMLDocument("");
+// innerHTML
+doc.documentElement.innerHTML = htmlString;
+// or with doc.body.innerHTML or doc.head.innerHTML
+// or with doc.….insertAdjacentHTML("beforeend", htmlString)
+// write():
+// 	doc.open();
+// 	// Can use HTML chunks, like: "<span", ">test</s", "pan>"
+// 	doc.write(htmlChunk);
+// 	doc.write(htmlChunk2);
+// 	doc.close();
+```
 
 - [`wysiwyg://ID/http://...`](http://www.xav.com/scripts/axs/help/1510.html)
 - https://github.com/jakearchibald/streaming-include/blob/master/polyfill/index.js#L42 - stream HTML into an element, that handle templates node too
@@ -4490,19 +4523,21 @@ new DOMParser().parseFromString('<!doctype html><body>' + str, 'text/html').body
 
 Note: The Fetch API don't allow to parse a HTML/SVG document. See https://developer.mozilla.org/en-US/docs/Web/API/Body. It's still possible to extend Body to support it (add method like `body.xDocument()`)
 
-	var xhr = new XMLHttpRequest();
-	// With Blob (recommended)
-	var uri = URL.createObjectURL(new Blob([htmlString], {type: "text/html"}));
-	// With data URI (not recommended)
-	//var uri = "data:text/html," + encodeURIComponent(htmlString);
-	xhr.open("GET", uri);
-	xhr.responseType = "document";
-	xhr.addEventListener("load", () => {
-		URL.revokeObjectURL(uri);//only for blob URI
-		var doc = xhr.response;
-		console.log(doc);
-	});
-	xhr.send(null);
+```js
+var xhr = new XMLHttpRequest();
+// With Blob (recommended)
+var uri = URL.createObjectURL(new Blob([htmlString], {type: "text/html"}));
+// With data URI (not recommended)
+//var uri = "data:text/html," + encodeURIComponent(htmlString);
+xhr.open("GET", uri);
+xhr.responseType = "document";
+xhr.addEventListener("load", () => {
+	URL.revokeObjectURL(uri);//only for blob URI
+	var doc = xhr.response;
+	console.log(doc);
+});
+xhr.send(null);
+```
 
 Note: This method (XHR + data URI) is not supported by all browsers (eg.: Safari).
 
@@ -4519,55 +4554,59 @@ Note: scripts insert in parent document shouldn't be executed (but Edge, Safari 
 What about `<meta http-equiv="Content-Security-Policy" content="script-src 'none';">`?
 
 - https://cspvalidator.org/
- 
-	var content = document.querySelector('.content');
-	// Create an iframe:
-	var iframe = document.createElement('iframe');
-	// Put it in the document (but hidden):
-	iframe.style.display = 'none';
-	document.body.appendChild(iframe);
-	content.innerHTML = '';
-	// Wait for the iframe to be ready:
-	iframe.onload = function() {
-		// Ignore further load events:
-		iframe.onload = null;
+
+```js
+var content = document.querySelector('.content');
+// Create an iframe:
+var iframe = document.createElement('iframe');
+// Put it in the document (but hidden):
+iframe.style.display = 'none';
+document.body.appendChild(iframe);
+content.innerHTML = '';
+// Wait for the iframe to be ready:
+iframe.onload = function() {
+	// Ignore further load events:
+	iframe.onload = null;
+
+	var xhr = new XMLHttpRequest();// can be done with fetch too
+	var charsLoaded = 0;
+	// Write a dummy tag:
+	iframe.contentDocument.write('<div class="xhr-content-wrapper">');
+	// Get a reference to that element:
+	// Pull it out of the iframe & into the parent document:
+	content.appendChild(iframe.contentDocument.querySelector('.xhr-content-wrapper'));
 	
-		var xhr = new XMLHttpRequest();// can be done with fetch too
-		var charsLoaded = 0;
-		// Write a dummy tag:
-		iframe.contentDocument.write('<div class="xhr-content-wrapper">');
-		// Get a reference to that element:
-		// Pull it out of the iframe & into the parent document:
-		content.appendChild(iframe.contentDocument.querySelector('.xhr-content-wrapper'));
-		
-		// Here, the parser maintains a stack of open elements https://html.spec.whatwg.org/multipage/syntax.html#stack-of-open-elements
-	
-		// Write some more content (async):
-		xhr.onprogress = function() {
-			iframe.contentDocument.write(xhr.response.slice(charsLoaded));
-			charsLoaded = xhr.response.length;
-		};
-		
-		// Keep writing content like above, and then when we're done:
-		xhr.onload = function() {
-			iframe.contentDocument.write('</div>');
-			iframe.contentDocument.close();
-		};
-	
-		xhr.responseType = "text";
-		xhr.open('GET', 'comments.inc.txt');
-		xhr.send();
+	// Here, the parser maintains a stack of open elements https://html.spec.whatwg.org/multipage/syntax.html#stack-of-open-elements
+
+	// Write some more content (async):
+	xhr.onprogress = function() {
+		iframe.contentDocument.write(xhr.response.slice(charsLoaded));
+		charsLoaded = xhr.response.length;
 	};
-	// Initialise the iframe
-	iframe.src = 'about:blank';
+	
+	// Keep writing content like above, and then when we're done:
+	xhr.onload = function() {
+		iframe.contentDocument.write('</div>');
+		iframe.contentDocument.close();
+	};
+
+	xhr.responseType = "text";
+	xhr.open('GET', 'comments.inc.txt');
+	xhr.send();
+};
+// Initialise the iframe
+iframe.src = 'about:blank';
+```
 
 - [Fun hacks for faster content - JakeArchibald.com](https://jakearchibald.com/2016/fun-hacks-faster-content/#using-iframes-and-documentwrite-to-improve-performance)
 - https://github.com/jakearchibald/streaming-html
 
 ### Load SVG inline
 
-- `<svg><use xlink:href="symbols.svg#signal"/></svg>`
-- `<iframe src="signal.svg" onload="this.before(contentDocument.children[0]);this.remove();"></iframe>`
+```html
+<svg><use xlink:href="symbols.svg#signal"/></svg>
+<iframe src="signal.svg" onload="this.before(contentDocument.children[0]);this.remove();"></iframe>
+```
 
 - [CodePen - Inline an SVG file in HTML, declaratively & asynchronously!](https://codepen.io/scottjehl/project/full/XrzdYk)
 
@@ -4577,25 +4616,31 @@ Note: Until the iframe is added to an online document, the `iframe.contentDocume
 
 `iframe.sandbox` can be used to disable scripts, popups, top navigation, etc. even same orgin access (but useless since the contained scripts could disabled it)
 
-	<iframe id="iframe" src="data:text/html;charset=UTF-8,<!DOCTYPE html><html><head></head><body><h1>FAIL</h1></body></html>"></iframe>​
-	<script>
-		let iframe = document.getElementById("iframe")
-		console.log(iframe.contentDocument.body.innerHTML); // ""
-		iframe.contentDocument.body = "PASS 1"; // works because data uri has not yet resolved. Will be overwritten.
-		setTimeout(function(){ iframe.contentDocument.body = "PASS 2"; }, 10); // will throws security error
-	</script>
+```html
+<iframe id="iframe" src="data:text/html;charset=UTF-8,<!DOCTYPE html><html><head></head><body><h1>FAIL</h1></body></html>"></iframe>​
+<script>
+	let iframe = document.getElementById("iframe")
+	console.log(iframe.contentDocument.body.innerHTML); // ""
+	iframe.contentDocument.body = "PASS 1"; // works because data uri has not yet resolved. Will be overwritten.
+	setTimeout(function(){ iframe.contentDocument.body = "PASS 2"; }, 10); // will throws security error
+</script>
+```
 
 An iframe don't inherit it's parent's CSP if sandbox attribute has `allow-same-origin` disabled:
 
-	// In a document with a strict CSP. Ex: script-src 'self'
-	let iframe = document.createElement("iframe");
-	iframe.srcdoc = `<html><head><script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script></head><body><script>$(document.body).text('Hello from jQuery')</script></body></html></iframe>`;
-	iframe.sandbox = "allow-scripts";
-	document.body.appendChild(iframe);
+```js
+// In a document with a strict CSP. Ex: script-src 'self'
+let iframe = document.createElement("iframe");
+iframe.srcdoc = `<html><head><script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script></head><body><script>$(document.body).text('Hello from jQuery')</script></body></html></iframe>`;
+iframe.sandbox = "allow-scripts";
+document.body.appendChild(iframe);
+```
 
 ### Create a new SVG document without browsing context
 
-	var svg = document.implementation.createDocument("http://www.w3.org/2000/svg", "svg:svg", null);
+```js
+const svg = document.implementation.createDocument("http://www.w3.org/2000/svg", "svg:svg", null);
+```
 
 ### DOM mutation
 
@@ -4603,15 +4648,19 @@ Note: Observe the common ancestor of targeted nodes (eg. `document.documentEleme
 
 All mutation happend even for disconnected nodes. Mutation happend on newly created node are "muted":
 
-	const a = document.body.firstChild;
-	const b = document.createElement("div");
-	b.appendChild(a);// mutation: a removed from body
-	document.body.appendChild(b);// mutation: b added to body
+```js
+const a = document.body.firstChild;
+const b = document.createElement("div");
+b.appendChild(a);// mutation: a removed from body
+document.body.appendChild(b);// mutation: b added to body
+```
 
-	const a = document.body.firstChild;
-	const b = document.createElement("div");
-	document.body.appendChild(b);// mutation: b added to body
-	b.appendChild(a);// mutation: a removed from body + a added to b
+```js
+const a = document.body.firstChild;
+const b = document.createElement("div");
+document.body.appendChild(b);// mutation: b added to body
+b.appendChild(a);// mutation: a removed from body + a added to b
+```
 
 Note: It's impossible to observe only namespaced attributes like `xlink:href`, because it's not supported: [javascript - Why does MutationObserver not recognize the xlink:href attribute in the attributeFilter array? - Stack Overflow](https://stackoverflow.com/questions/39047902/why-does-mutationobserver-not-recognize-the-xlinkhref-attribute-in-the-attribut). The spec exclude nodes when ["`attributeFilter` does not contain name or namespace is non-null"](https://dom.spec.whatwg.org/#queueing-a-mutation-record).
 
@@ -4632,18 +4681,22 @@ You need to listen some events like `input` or `DOMSubtreeModified` (depreciated
 
 See [Parse CSS using the native parser](#parse-css-using-the-native-parser)
 
-	var s = document.createElement("style");
-	s.type = "text/css";
-	s.appendChild(document.createTextNode("body { background: #222; } /*... more css ..*/"));// don't use .innterText
-	document.head.appendChild(s);
+```js
+const s = document.createElement("style");
+s.type = "text/css";
+s.appendChild(document.createTextNode("body { background: #222; } /*... more css ..*/"));// don't use .innterText
+document.head.appendChild(s);
+```
 
 Or to link to a file:
 
-	var s = document.createElement("link");
-	s.type = "text/css";
-	s.rel = "stylesheet";
-	s.href = "/url/to/css/file.css";
-	document.head.appendChild(s);
+```js
+const s = document.createElement("link");
+s.type = "text/css";
+s.rel = "stylesheet";
+s.href = "/url/to/css/file.css";
+document.head.appendChild(s);
+```
 
 ### Iterate over stylesheet
 
@@ -4653,7 +4706,7 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 
 <details>
 	<summary>Stylesheet rule walker</summary>
-	
+	```js
 	console.group("sheet:");
 	var treeIndexes = [];
 	var deep = 0;
@@ -4744,13 +4797,14 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 		index++;
 	}
 	console.groupEnd();
+	```
 </details>
 
 Remove all `:hover` and `:active` rules:
 
 <details>
 	<summary>Snippet</summary>
-	
+	```js
 	const selectorFilter = (selector) => !selector.match(":hover") && !selector.match(":active");
 	var rulesGroups = Array.from(document.styleSheets);
 	while(rulesGroups.length > 0){
@@ -4800,6 +4854,7 @@ Remove all `:hover` and `:active` rules:
 			}
 		}
 	}
+	```
 </details>
 
 ```js
@@ -4810,43 +4865,43 @@ Remove all `:hover` and `:active` rules:
 var style = document.getElementById("onetrust-style");
 // CSSStyleSheet and CSSGroupingRule (CSSMediaRule, CSSSupportsRule, CSSDocumentRule, CSSPageRule)
 function removeSelector(rulesSet, filter){
-  var cssRules = rulesSet.cssRules;
-  for(var i = 0; i < cssRules.length;){
-    var rule = cssRules[i];
-    var keep = true;
-    switch(rule.type){
-      case 1://CSSRule.STYLE_RULE:
-        // /!\ "," can be ecaped, see https://mathiasbynens.be/notes/css-escapes
-        // should be selectorText.split(/(?<=[^\\](?:\\\\)*),/)
-        // but look behind is not well supported, simplify by hope escaped "," is not used by this stylesheet
-        var selector = rule.selectorText = rule.selectorText.trim().split(/\s*,\s*/).filter(filter).join(", ");
-        keep = selector.length > 0;
-        break;
-      // rules group CSSGroupingRule
-      case 4://CSSRule.MEDIA_RULE:
-      case 12://CSSRule.SUPPORTS_RULE:
-      case 13://CSSRule.DOCUMENT_RULE:
-      case 6://CSSRule.PAGE_RULE:
-        keep = removeSelector(rule, filter);
-        break;
-      case 3://CSSRule.IMPORT_RULE:
-        keep = removeSelector(rule.styleSheet, filter);// /!\ "null if the style sheet has not yet been loaded or if the style sheet was not loaded because, for example, the media type did not apply."
-        break;
-    }
-
-    if(keep){
-      i++;
-      continue;
-    }
-
-    rulesSet.deleteRule(i);
-  }
-
-  return cssRules.length > 0;
+	var cssRules = rulesSet.cssRules;
+	for(var i = 0; i < cssRules.length;){
+		var rule = cssRules[i];
+		var keep = true;
+		switch(rule.type){
+			case 1://CSSRule.STYLE_RULE:
+				// /!\ "," can be ecaped, see https://mathiasbynens.be/notes/css-escapes
+				// should be selectorText.split(/(?<=[^\\](?:\\\\)*),/)
+				// but look behind is not well supported, simplify by hope escaped "," is not used by this stylesheet
+				var selector = rule.selectorText = rule.selectorText.trim().split(/\s*,\s*/).filter(filter).join(", ");
+				keep = selector.length > 0;
+				break;
+			// rules group CSSGroupingRule
+			case 4://CSSRule.MEDIA_RULE:
+			case 12://CSSRule.SUPPORTS_RULE:
+			case 13://CSSRule.DOCUMENT_RULE:
+			case 6://CSSRule.PAGE_RULE:
+				keep = removeSelector(rule, filter);
+				break;
+			case 3://CSSRule.IMPORT_RULE:
+				keep = removeSelector(rule.styleSheet, filter);// /!\ "null if the style sheet has not yet been loaded or if the style sheet was not loaded because, for example, the media type did not apply."
+				break;
+		}
+		
+		if(keep){
+			i++;
+			continue;
+		}
+		
+		rulesSet.deleteRule(i);
+	}
+	
+	return cssRules.length > 0;
 }
 
 removeSelector(style.sheet, function(selector){
-  return true;
+	return true;
 });
 ```
 
@@ -4854,7 +4909,9 @@ removeSelector(style.sheet, function(selector){
 
 #### Don't
 
-	parent.innerHTML = "";
+```js
+parent.innerHTML = "";
+```
 
 Slow, less efficient than `removeChild()` and not available with SVG nodes.
 Also destroy content grandchild's content too (on IE)
@@ -4864,9 +4921,11 @@ Also destroy content grandchild's content too (on IE)
 
 #### Do
 
-	while (parent.firstChild) {
-		parent.removeChild(parent.firstChild);
-	}
+```js
+while (parent.firstChild) {
+	parent.removeChild(parent.firstChild);
+}
+```
 
 `parent.textContent = ""` could also be used, but less performant than `removeChild()` (jQuery use this method)
 
@@ -4876,7 +4935,9 @@ Also destroy content grandchild's content too (on IE)
 
 ### Match invalid ID or class with `querySelector`
 
-	document.querySelector("#" + element.id.replace(/(\*|\.|\\|:|\s|\[|\]....TODO....)/g, "\\$1"));
+```js
+document.querySelector("#" + element.id.replace(/(\*|\.|\\|:|\s|\[|\]....TODO....)/g, "\\$1"));
+```
 
 - https://stackoverflow.com/questions/448981/what-characters-are-valid-in-css-class-selectors
 
@@ -4886,17 +4947,21 @@ Also destroy content grandchild's content too (on IE)
 
 ### Get all comments nodes
 
-	var nodeIterator = document.createNodeIterator(
-		document.body,
-		NodeFilter.SHOW_COMMENT,
-		node => NodeFilter.FILTER_ACCEPT
-	);
-	// For each comment node
-	while ( nodeIterator.nextNode() ) {
-		nodeIterator.referenceNode.nodeValue
-	}
+```js
+var nodeIterator = document.createNodeIterator(
+	document.body,
+	NodeFilter.SHOW_COMMENT,
+	node => NodeFilter.FILTER_ACCEPT
+);
+// For each comment node
+while ( nodeIterator.nextNode() ) {
+	nodeIterator.referenceNode.nodeValue
+}
+```
 
-	node.nodeType === Node.COMMENT_NODE;//8
+```js
+node.nodeType === Node.COMMENT_NODE;//8
+```
 
 - [Document.createTreeWalker() - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTreeWalker)
 
@@ -4991,9 +5056,12 @@ if attr not exist `getAttribute` returns null. parseFloat return `NaN` for inval
 
 ### `window.name`
 
-Browsers keep the window name accross origns navigation in the same tab/frame.
-Can only store string (can be objects serialized to string or [encrypted string](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt)).
-To share data between different origins, use instead `postMessage()`
+Browsers keep the window name across ~~origns~~ navigation in the same tab/frame.
+This property can store string (can be objects serialized to string or [encrypted string](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt)).
+
+This property is not intended to be use as a storage. **Use `sessionStorage` to keep data across navigation in the same tab/frame. Use `postMessage()` to share data between different origins.**
+
+> [In Firefox 82,] if a new page from another domain is loaded into a tab, then window.name is set to the empty string (the original string is restored if the tab reverts back to the original page)
 
 > IE7 runs slower as soon as you start putting more than 2MB into window.name. FF3 runs pretty stable even with +200MB.
 > [...]
@@ -5010,6 +5078,7 @@ To share data between different origins, use instead `postMessage()`
 - [window.name won't be preserved after navigation - Microsoft Edge Development](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/105516/)
 - [internet explorer - Javascript set window.name - issue in IE - Stack Overflow](https://stackoverflow.com/questions/12645374/javascript-set-window-name-issue-in-ie)
 - [50513 - window.open("", "name") will not reuse existing/opened windows - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=50513)
+- [444222 - window.name can be used as an XSS attack vector](https://bugzilla.mozilla.org/show_bug.cgi?id=444222)
 
 ### Web component
 
@@ -5124,8 +5193,10 @@ instead of:
 
 > script.js line X > eval:W:Z
 
-	eval("/*code*/\n//# sourceURL=script-eval.js")
-	(new Function("/*function body*/\n//# sourceURL=script-eval.js"))()
+```js
+eval("/*code*/\n//# sourceURL=script-eval.js")
+(new Function("/*function body*/\n//# sourceURL=script-eval.js"))()
+```
 
 - [Debug eval sources - Firefox Developer Tools | MDN](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Debug_eval_sources)
 
@@ -5133,32 +5204,36 @@ instead of:
 
 Catch error, then send [beacon](#beacon)
 
-	window.addEventListener("error", event => {
-		//ErrorEvent
-		const data = event.message.startsWith("Script error") ? {
-			// Script error from inaccessible crossorigin script, values (filename, line, col, error, etc.) are not available
-			message: "Uncaught Error: Crossorigin script error"
-		} : {
-			message: event.message,// Message
-			filename: event.filename,// URL of the script
-			lineno: event.lineno,// Line
-			colno: event.colno,// Column
-			stack: event.error && event.error.stack || "[stack trace unavailable]",// Stack
-			timestamp: event.timeStamp,
-			docurl: document.URL,// document URL
-			url: location.href// current URL
-		}
-		
-		// sendBeacon could be not supported by the browser, you need to use AJAX as fallback
-		if(!navigator.sendBeacon("/error", new URLSearchParams(data))){
-			console.error(event);// the amount of data to be queued exceeds the user agent limit
-		}
-	});
+```js
+window.addEventListener("error", event => {
+	//ErrorEvent
+	const data = event.message.startsWith("Script error") ? {
+		// Script error from inaccessible crossorigin script, values (filename, line, col, error, etc.) are not available
+		message: "Uncaught Error: Crossorigin script error"
+	} : {
+		message: event.message,// Message
+		filename: event.filename,// URL of the script
+		lineno: event.lineno,// Line
+		colno: event.colno,// Column
+		stack: event.error && event.error.stack || "[stack trace unavailable]",// Stack
+		timestamp: event.timeStamp,
+		docurl: document.URL,// document URL
+		url: location.href// current URL
+	}
+	
+	// sendBeacon could be not supported by the browser, you need to use AJAX as fallback
+	if(!navigator.sendBeacon("/error", new URLSearchParams(data))){
+		console.error(event);// the amount of data to be queued exceeds the user agent limit
+	}
+});
+```
 
-	window.onerror = function (message, name, lineno, colno, error) {
-		//...
-		return false;
-	};
+```js
+window.onerror = function (message, name, lineno, colno, error) {
+	//...
+	return false;
+};
+```
 
 And wrap addEventListener, setTimeout, setInterval callback
 
@@ -5180,21 +5255,23 @@ See also [Tracking scripts errors](Web#tracking-scripts-errors)
 
 Catch error, then send [beacon](#beacon)
 
-	document.documentElement.addEventListener(
-		"error",
-		function handleErrorCapture (event){
-			console.group("Resource Error event");
-			console.log("Target:", event.target);
-			console.log("Source:", event.target.src);
-			console.groupEnd();
-		},
-		// https://dom.spec.whatwg.org/#introduction-to-dom-events
-		// According to the DOM (Document Object Model) specification, the ERROR and
-		// LOAD events for Images do not BUBBLE up through the DOM tree. As such, we
-		// have to use the CAPTURE phase, which starts at the top of the DOM and
-		// descends down into the DOM toward the target element.
-		true
-	);
+```js
+document.documentElement.addEventListener(
+	"error",
+	function handleErrorCapture (event){
+		console.group("Resource Error event");
+		console.log("Target:", event.target);
+		console.log("Source:", event.target.src);
+		console.groupEnd();
+	},
+	// https://dom.spec.whatwg.org/#introduction-to-dom-events
+	// According to the DOM (Document Object Model) specification, the ERROR and
+	// LOAD events for Images do not BUBBLE up through the DOM tree. As such, we
+	// have to use the CAPTURE phase, which starts at the top of the DOM and
+	// descends down into the DOM toward the target element.
+	true
+);
+```
 
 - [Tracking Image Error Event Using Event Delegation In JavaScript](https://www.bennadel.com/blog/3429-tracking-image-error-events-using-event-delegation-in-javascript.htm)
 
@@ -5220,7 +5297,7 @@ Some browsers (Chrome) don't dispatch load event for iframe contains attachment 
 
 Use `Transfer-Encoding: chunked` to serve the file and set cookie in trailer. **Shouldn't work because `Set-Cookie` is forbidden in trailer (and because some client don't read trailers)**. https://en.wikipedia.org/wiki/Chunked_transfer_encoding#Applicability.
 
-- http://www.atalasoft.com/cs/blogs/jake/archive/2009/06/18/events-to-expect-when-dynamically-loading-iframes-in-javascript.aspx
+- [Jake Opines : Events to Expect when Dynamically Loading iFrames in JavaScript](https://web.archive.org/web/20150318030620/http://www.atalasoft.com/cs/blogs/jake/archive/2009/06/18/events-to-expect-when-dynamically-loading-iframes-in-javascript.aspx)
 
 ## Clipboard API
 
@@ -5228,42 +5305,47 @@ Aka DataTransfer
 
 `text/uri-list`, `text/plain`, `text/html`
 
-	var pasteEvent = new ClipboardEvent("paste");
-	pasteEvent.clipboardData.items.add("My string", "text/plain");
-	document.dispatchEvent(pasteEvent);
+```js
+var pasteEvent = new ClipboardEvent("paste");
+pasteEvent.clipboardData.items.add("My string", "text/plain");
+document.dispatchEvent(pasteEvent);
+```
 
 - [html - Click button copy to clipboard using jQuery - Stack Overflow](https://stackoverflow.com/questions/22581345/click-button-copy-to-clipboard-using-jquery/22581382#22581382)
 
 Require a condition: short-lived event handler for a user action, works only if the document is HTML (not SVG nor XML)
 
-	// execCommand will not been executed if a frame or an iframe is focused
-	if(["IFRAME","FRAME"].includes(document.activeElement.tagName)){
-		let focusable = document.createElement("span");
-		focusable.tabIndex = -1;// focusable
-		focusable.setAttribute("aria-hidden", "true");// will not be announced by AT
-		focusable.style.position = "fixed";
-		document.documentElement.appendChild(focusable);// don't use doc.body because in case of frame the body is the frameset and execCommand will not work
-		focusable.focus();// force focus, but will not scroll into view, because it have fixed position
-		focusable.remove();// remove focus, without force to scroll into view to an other element
-	}
-	let elementCopy = event => {
-		document.removeEventListener("copy", elementCopy, true);// one time listener
-		event.preventDefault();
-		let clipboardData = event.clipboardData;
-		clipboardData.clearData();
-		clipboardData.setData("text/plain", "Hello, world!");
-		clipboardData.setData("text/html", "<b>Hello, world!</b>");
-		// Add any other clipboard data
-		/*
-		Alternative:
-		let items = clipboardData.items;
-		items.clear();
-		items.add("Hello, world!", "text/plain");
-		items.add("<b>Hello, world!</b>", "text/html");
-		items.add(new File(["Rough Draft ...."], "Draft1.txt", {type: "text/plain"; lastModified: new Date(2013, 12, 5, 16, 23, 45, 600)}));// only WD yet, not implemented. See https://www.w3.org/TR/FileAPI/#file-constructor
-	};
-	document.addEventListener("copy", elementCopy, true);
-	document.execCommand("copy");// will dispatch copy event
+```js
+// execCommand will not been executed if a frame or an iframe is focused
+if(["IFRAME","FRAME"].includes(document.activeElement.tagName)){
+	let focusable = document.createElement("span");
+	focusable.tabIndex = -1;// focusable
+	focusable.setAttribute("aria-hidden", "true");// will not be announced by AT
+	focusable.style.position = "fixed";
+	document.documentElement.appendChild(focusable);// don't use doc.body because in case of frame the body is the frameset and execCommand will not work
+	focusable.focus();// force focus, but will not scroll into view, because it have fixed position
+	focusable.remove();// remove focus, without force to scroll into view to an other element
+}
+let elementCopy = event => {
+	document.removeEventListener("copy", elementCopy, true);// one time listener
+	event.preventDefault();
+	let clipboardData = event.clipboardData;
+	clipboardData.clearData();
+	clipboardData.setData("text/plain", "Hello, world!");
+	clipboardData.setData("text/html", "<b>Hello, world!</b>");
+	// Add any other clipboard data
+	/*
+	Alternative:
+	let items = clipboardData.items;
+	items.clear();
+	items.add("Hello, world!", "text/plain");
+	items.add("<b>Hello, world!</b>", "text/html");
+	items.add(new File(["Rough Draft ...."], "Draft1.txt", {type: "text/plain"; lastModified: new Date(2013, 12, 5, 16, 23, 45, 600)}));// only WD yet, not implemented. See https://www.w3.org/TR/FileAPI/#file-constructor
+	*/
+};
+document.addEventListener("copy", elementCopy, true);
+document.execCommand("copy");// will dispatch copy event
+```
 
 - [DataTransferItemList.add() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItemList/add)
 - [javascript - Copy image to clipboard from Chrome App (not Extension or Page) - Stack Overflow](https://stackoverflow.com/questions/35234958/copy-image-to-clipboard-from-chrome-app-not-extension-or-page)
@@ -5273,81 +5355,85 @@ Require a condition: short-lived event handler for a user action, works only if 
 
 ### Past file
 
-	document.addEventListener("paste", event => {
-		event.clipboardData.types;
-		event.clipboardData.files;
-		event.clipboardData.items;
-		
-		/*
-		loop{
-			// event.clipboardData.getData(item.type)
-			if(item.kind != "file"){
-				continue;//need an other implementation
-			}
-			let blob = item.getAsFile();
-			if(!blob){
-				continue;
-			}
-			
-			let reader = new FileReader();
-			reader.addEventListener("load", event => {
-				console.log(event.target.result); // raw bytes
-			});
-			reader.readAsArrayBuffer(blob);
+```js
+document.addEventListener("paste", event => {
+	event.clipboardData.types;
+	event.clipboardData.files;
+	event.clipboardData.items;
+	
+	/*
+	loop{
+		// event.clipboardData.getData(item.type)
+		if(item.kind != "file"){
+			continue;//need an other implementation
 		}
-		*/
-	})
+		let blob = item.getAsFile();
+		if(!blob){
+			continue;
+		}
+		
+		let reader = new FileReader();
+		reader.addEventListener("load", event => {
+			console.log(event.target.result); // raw bytes
+		});
+		reader.readAsArrayBuffer(blob);
+	}
+	*/
+})
+```
 
 ### Update clipboard
 
 When a text is selected and copied or cut
 
-	document.addEventListener("copy", event => {
-		event.preventDefault();
-		let plainText = event.clipboardData.getData("text/plain") + "\n\nRead more at: " + document.URL;
-		//let plainText =  window.getSelection() + "\n\nRead more at: " + document.URL;
-		
-		// Recommanded version:
-		event.clipboardData.setData("text/plain", "Hello, world!");
-		event.clipboardData.setData("text/html", "<b>Hello, world!</b>");
-		
-		// Alternative version 1 (data type "text" alias of "text/plain" and "url" alias of "text/uri-list" with only one URL):
-		// (event.clipboardData || window.clipboardData/*IE*/).setData("Text", text);
-		
-		// Alternative version 2 (create a temporary element, select, copy and restore selection ranges):
-		/*
-		// Backup current ranges and remove it
-		let selection = window.getSelection();
-		let ranges = new Array(selection.rangeCount);
-		for(let rangeIndex = 0, rangeIndex < selection.rangeCount; rangeIndex++){
-			selectionRanges[rangeIndex] = selection.getRangeAt(rangeIndex)
+```js
+document.addEventListener("copy", event => {
+	event.preventDefault();
+	let plainText = event.clipboardData.getData("text/plain") + "\n\nRead more at: " + document.URL;
+	//let plainText =  window.getSelection() + "\n\nRead more at: " + document.URL;
+	
+	// Recommanded version:
+	event.clipboardData.setData("text/plain", "Hello, world!");
+	event.clipboardData.setData("text/html", "<b>Hello, world!</b>");
+	
+	// Alternative version 1 (data type "text" alias of "text/plain" and "url" alias of "text/uri-list" with only one URL):
+	// (event.clipboardData || window.clipboardData/*IE*/).setData("Text", text);
+	
+	// Alternative version 2 (create a temporary element, select, copy and restore selection ranges):
+	/*
+	// Backup current ranges and remove it
+	let selection = window.getSelection();
+	let ranges = new Array(selection.rangeCount);
+	for(let rangeIndex = 0, rangeIndex < selection.rangeCount; rangeIndex++){
+		selectionRanges[rangeIndex] = selection.getRangeAt(rangeIndex)
+	}
+	selection.removeAllRanges();
+	
+	{
+		// Create a new range with a new element
+		let range = document.createRange();
+		let node = document.createElement("p");
+		document.body.appendChild(node);
+		range.selectNode(node);
+		selection.addRange(range);
+	
+		if(document.queryCommandSupported("copy")){
+			let copied = false;
+			try{
+				copied = document.execCommand("copy");
+			}catch(){}
+			// not copied? fail
 		}
-		selection.removeAllRanges();
-		
-		{
-			// Create a new range with a new element
-			let range = document.createRange();
-			let node = document.createElement("p");
-			document.body.appendChild(node);
-			range.selectNode(node);
-			selection.addRange(range);
-		
-			if(document.queryCommandSupported("copy")){
-				let copied = false;
-				try{
-					copied = document.execCommand("copy");
-				}catch(){}
-				// not copied? fail
-			}
-		}
-		
-		// Restore original ranges
-		selection.removeAllRanges(); 
-		for(let range of ranges){
-			selection.addRange(range);
-		}
-		*/
-	});
+	}
+	
+	// Restore original ranges
+	selection.removeAllRanges(); 
+	for(let range of ranges){
+		selection.addRange(range);
+	}
+	*/
+});
+```
 
 - https://github.com/NiklasGollenstede/es6lib/blob/bd5a3584dc7b4abc08b02c405bba0efe726374f8/dom.js#L177-L199
 - [javascript - How to add extra info to copied web text - Stack Overflow](https://stackoverflow.com/questions/2026335/how-to-add-extra-info-to-copied-web-text)
@@ -5360,22 +5446,24 @@ When a text is selected and copied or cut
 
 Some `execCommand` require an element to be focused, but not work if it's a frame or an iframe
 
-	// execCommand will not been executed if a frame or an iframe is focused
-	if(["IFRAME","FRAME"].includes(document.activeElement.tagName)){
-		let focusable = document.createElement("span");
-		focusable.tabIndex = -1;// focusable
-		focusable.setAttribute("aria-hidden", "true");// will not be announced by AT
-		focusable.style.position = "fixed";
-		document.documentElement.appendChild(focusable);// don't use doc.body because in case of frame the body is the frameset and execCommand will not work
-		focusable.focus();// force focus, but will not scroll into view, because it have fixed position
-		focusable.remove();// remove focus, without force to scroll into view to an other element
-	}
-	let listener = event => {
-		document.removeEventListener("copy", listener);// one time listener
-		// Do whaterver you want. Exemple: in copy event, use event.clipboardData
-	};
-	document.addEventListener("copy", listener);
-	document.execCommand("copy");// will dispatch copy event
+```js
+// execCommand will not been executed if a frame or an iframe is focused
+if(["IFRAME","FRAME"].includes(document.activeElement.tagName)){
+	let focusable = document.createElement("span");
+	focusable.tabIndex = -1;// focusable
+	focusable.setAttribute("aria-hidden", "true");// will not be announced by AT
+	focusable.style.position = "fixed";
+	document.documentElement.appendChild(focusable);// don't use doc.body because in case of frame the body is the frameset and execCommand will not work
+	focusable.focus();// force focus, but will not scroll into view, because it have fixed position
+	focusable.remove();// remove focus, without force to scroll into view to an other element
+}
+let listener = event => {
+	document.removeEventListener("copy", listener);// one time listener
+	// Do whaterver you want. Exemple: in copy event, use event.clipboardData
+};
+document.addEventListener("copy", listener);
+document.execCommand("copy");// will dispatch copy event
+```
 
 - [CodePen - Use execCommands to edit HTML content in your browser](http://codepen.io/netsi1964/full/QbLLGW/)
 
@@ -5390,17 +5478,25 @@ Some `execCommand` require an element to be focused, but not work if it's a fram
 
 Where `base` can be:
 
-	let [base] = location.href.split("#", 1);
+```js
+let [base] = location.href.split("#", 1);
+```
 
 Or use `URL`:
 
-	let url = (new URL("#somehash", location.href)).href;
+```js
+let url = (new URL("#somehash", location.href)).href;
+```
 
 ...
 
-	let hash = link.href.split("#").slice(1).join("#");
+```js
+let hash = link.href.split("#").slice(1).join("#");
+```
 
-	let hash = link.hash.substr(1);
+```js
+let hash = link.hash.substr(1);
+```
 
 ## Debounce function
 
@@ -5410,16 +5506,18 @@ For spammy event: resize, scroll, etc.
 
 Note: de-bouncing is not the same as throttling
 
-	// Example in a chat app (where the log is always scrolled to bottom) where the function scrollToEnd() is called after each new log entry is appended (but only if the log view is already at bottom before the message is appended)
-	// Use requestIdleCallback to debounce the request of scrolling
-	function scrollToEnd(){
-		requestIdleCallback(() => {
-			logView.scrollIntoView({
-				behavior: 'smooth',
-				block: 'end'
-			});
+```js
+// Example in a chat app (where the log is always scrolled to bottom) where the function scrollToEnd() is called after each new log entry is appended (but only if the log view is already at bottom before the message is appended)
+// Use requestIdleCallback to debounce the request of scrolling
+function scrollToEnd(){
+	requestIdleCallback(() => {
+		logView.scrollIntoView({
+			behavior: 'smooth',
+			block: 'end'
 		});
 	});
+});
+```
 
 - [resize - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/resize#Examples)
 - [Basic JavaScript Event Throttling by Amelia Bellamy-Royds on CodePen](https://codepen.io/AmeliaBR/post/basic-javascript-event-throttling)
@@ -5427,46 +5525,52 @@ Note: de-bouncing is not the same as throttling
 
 Or
 
-	/**
-	 * Returns a function, that, as long as it continues to be invoked, will not
-	 * be triggered. The function will be called after it stops being called for
-	 * N milliseconds.
-	 * @param {function} func
-	 * @param {number} wait
-	 * @param {boolean} [immediate] trigger the function on the leading edge, instead of the trailing
-	 * @see http://davidwalsh.name/javascript-debounce-function
-	 * @see http://en.wikipedia.org/wiki/Switch#Contact_bounce
-	 */
-	function debounce(func, wait, immediate) {
-		var timeout;
-		return function() {
-			var context = this, args = arguments;
-			var later = function() {
-				timeout = null;
-				if (!immediate) func.apply(context, args);
-			};
-			var callNow = immediate && !timeout;
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
+```js
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not
+ * be triggered. The function will be called after it stops being called for
+ * N milliseconds.
+ * @param {function} func
+ * @param {number} wait
+ * @param {boolean} [immediate] trigger the function on the leading edge, instead of the trailing
+ * @see http://davidwalsh.name/javascript-debounce-function
+ * @see http://en.wikipedia.org/wiki/Switch#Contact_bounce
+ */
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
 		};
-	}
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+}
+```
 
-	window.addEventListener("resize", function(event){console.log("scroll")}, false);
-	window.addEventListener("resize", debounce(function(event){console.log("scroll [debounced]")}), false);
+```js
+window.addEventListener("resize", function(event){console.log("scroll")}, false);
+window.addEventListener("resize", debounce(function(event){console.log("scroll [debounced]")}), false);
+```
 
-	var rafID = 0;
-	window.addEventListener("resize", function(){
-		if(rafID !== 0){
-			return;
-		}
-		
-		rafID = requestAnimationFrame(layout);
-	});
-	function layout(){
-		rafID = 0;
-		console.log("scroll [debounced]");
+```js
+var rafID = 0;
+window.addEventListener("resize", function(){
+	if(rafID !== 0){
+		return;
 	}
+	
+	rafID = requestAnimationFrame(layout);
+});
+function layout(){
+	rafID = 0;
+	console.log("scroll [debounced]");
+}
+```
 
 ## Audio / sound effects
 
@@ -5508,38 +5612,46 @@ Upload require XHR2 and `Content-Range` header (see [Art & Logic – » Ajax Upl
 
 ## Test media autoplay or play without user interaction
 
-	var video = document.createElement("video");
-	var src = document.createElement("source");
-	src.src = "data:video/webm;base64,GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA=";
-	src.type = "video/webm; codecs=vp8";
-	video.appendChild(src);
-	src = document.createElement("source");
-	src.src = "data:video/mp4;base64,AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw==";
-	src.type = "video/mp4; codecs=\"avc1.42E01E\"";//baseline H.264
-	video.appendChild(src);
-	//video.autoplay = true;//instead of video.play() you can test autoplay
-	video.style.cssText = "position:absolute;display:none;height:0;width:0";
-	document.body.appendChild(video);
-	video.load();
+```js
+var video = document.createElement("video");
+var src = document.createElement("source");
+src.src = "data:video/webm;base64,GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA=";
+src.type = "video/webm; codecs=vp8";
+video.appendChild(src);
+src = document.createElement("source");
+src.src = "data:video/mp4;base64,AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAAhmcmVlAAAAG21kYXQAAAGzABAHAAABthADAowdbb9/AAAC6W1vb3YAAABsbXZoZAAAAAB8JbCAfCWwgAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIVdHJhawAAAFx0a2hkAAAAD3wlsIB8JbCAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAIAAAACAAAAAABsW1kaWEAAAAgbWRoZAAAAAB8JbCAfCWwgAAAA+gAAAAAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAAVxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEcc3RibAAAALhzdHNkAAAAAAAAAAEAAACobXA0dgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAgASAAAAEgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAAFJlc2RzAAAAAANEAAEABDwgEQAAAAADDUAAAAAABS0AAAGwAQAAAbWJEwAAAQAAAAEgAMSNiB9FAEQBFGMAAAGyTGF2YzUyLjg3LjQGAQIAAAAYc3R0cwAAAAAAAAABAAAAAQAAAAAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAAEAAAABAAAAFHN0c3oAAAAAAAAAEwAAAAEAAAAUc3RjbwAAAAAAAAABAAAALAAAAGB1ZHRhAAAAWG1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAAK2lsc3QAAAAjqXRvbwAAABtkYXRhAAAAAQAAAABMYXZmNTIuNzguMw==";
+src.type = "video/mp4; codecs=\"avc1.42E01E\"";//baseline H.264
+video.appendChild(src);
+//video.autoplay = true;//instead of video.play() you can test autoplay
+video.style.cssText = "position:absolute;display:none;height:0;width:0";
+document.body.appendChild(video);
+video.load();
+```
 
 Then:
 
-	video.play().catch(reason => {
-		reason instanceof DOMException && reason.name == "NotAllowedError"// can't autoplay or play without user interaction
-	});
+```js
+video.play().catch(reason => {
+	reason instanceof DOMException && reason.name == "NotAllowedError"// can't autoplay or play without user interaction
+});
+```
 
 Or, if play promise is not supported:
 
-	video.play();
-	video.paused == true// can't autoplay or play without user interaction
+```js
+video.play();
+video.paused == true// can't autoplay or play without user interaction
+```
 
 Finally (if promise supported, put this in the catch callback):
 
-	video.pause();
-	document.body.removeChild(video);
-	video.innerHTML = "";
-	video.removeAttribute("src");
-	video = src = null;
+```js
+video.pause();
+document.body.removeChild(video);
+video.innerHTML = "";
+video.removeAttribute("src");
+video = src = null;
+```
 
 ## Check font load
 
@@ -5605,7 +5717,9 @@ Events:
 
 ## Create SVG matrix
 
-	document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGMatrix();
+```js
+document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGMatrix();
+```
 
 ## Download generated data
 
@@ -5613,30 +5727,38 @@ Note: With blob or data URI, use `application/octet-stream` to force download.
 
 Aka save file
 
-	<a href="blob:..." download="filename.ext">Generated file</a><!-- a blob or a file: new File(["Hello"], "data.txt", {type: "plain/text"}) -->
+```html
+<a href="blob:..." download="filename.ext">Generated file</a><!-- a blob or a file: new File(["Hello"], "data.txt", {type: "plain/text"}) -->
+```
 
 `"data:application/octet-stream;base64," + btoa(data)` where `data`:
 
-	let bytes = new Uint8Array(dataBytes);
-	let data = bytes.reduce((chars, byte) => (chars += String.fromCharCode(byte), chars), "");// as raw string
+```js
+let bytes = new Uint8Array(dataBytes);
+let data = bytes.reduce((chars, byte) => (chars += String.fromCharCode(byte), chars), "");// as raw string
+```
 
 Not supported everywhere. Also blob URI not work on iOS, use data URI. Or use [service worker](#service-worker).
- 
-	let uri = "data:application/octet-stream;base64," + dataBase64;// could be a blob URI
-	let filename = "data.bin";
-	let link = document.createElement("a");
-	link.download = filename;
-	link.href = uri;
-	// link.type = mediatype;// Does this have any impact?
-	document.body.appendChild(link);// requireb by Firefox (not Chrome)
-	link.click();
-	link.remove();
 
-	let msg = "Hello world!";
-	let blob = new File([msg], "hello.txt", {"type": "application/octet-stream"});
-	let link = document.createElement("a");
-	link.href = URL.createObjectURL(blob);
-	window.location.href = link;
+```js
+let uri = "data:application/octet-stream;base64," + dataBase64;// could be a blob URI
+let filename = "data.bin";
+let link = document.createElement("a");
+link.download = filename;
+link.href = uri;
+// link.type = mediatype;// Does this have any impact?
+document.body.appendChild(link);// requireb by Firefox (not Chrome)
+link.click();
+link.remove();
+```
+
+```js
+let msg = "Hello world!";
+let blob = new File([msg], "hello.txt", {"type": "application/octet-stream"});
+let link = document.createElement("a");
+link.href = URL.createObjectURL(blob);
+window.location.href = link;
+```
 
 - [Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com/#feat=download)
 - https://github.com/eligrey/FileSaver.js		
@@ -5651,30 +5773,36 @@ And drag and drop to desktop
 - `HTMLAnchorElement.download`: [<a> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download)
 - open a new window/tab
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable
- 
-	[draggable='true'] {
-		-khtml-user-drag: element;
-		-webkit-user-drag: element;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		user-select: none;
-	}
 
-	drag.addEventListener("dragstart", function(e) {
-		var dt = e.dataTransfer,
-		// IE doesn't like anything other than "Text"
-		type = /*@cc_on!@*/0 ? "Text" : "text/plain";
-		dt.setData( type, "Some data to set" );
-	}, false);
+```css
+[draggable='true'] {
+	-khtml-user-drag: element;
+	-webkit-user-drag: element;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+```
 
-	drop.addEventListener("drop", function(e) { 
-		var dt = e.dataTransfer,
-		// IE doesn't like anything other than "Text"
-		data = dt.getData( /*@cc_on!@*/0 ? 
-		"Text" : "text/plain" );
-		alert(data);
-	}, false);
+```js
+drag.addEventListener("dragstart", function(e) {
+	var dt = e.dataTransfer,
+	// IE doesn't like anything other than "Text"
+	type = /*@cc_on!@*/0 ? "Text" : "text/plain";
+	dt.setData( type, "Some data to set" );
+}, false);
+```
+
+```js
+drop.addEventListener("drop", function(e) { 
+	var dt = e.dataTransfer,
+	// IE doesn't like anything other than "Text"
+	data = dt.getData( /*@cc_on!@*/0 ? 
+	"Text" : "text/plain" );
+	alert(data);
+}, false);
+```
 
 ## Download multiple files with one interaction
 
@@ -5687,17 +5815,19 @@ Solution 1:
 3. Set for each the `download` attribute to the filename
 4. Trigger a click event (via `.click()` or via `.dispatchEvent(new MouseEvent("click"))`) (advice: add ~500ms delay between each click)
 5. (optional) Remove the link (advice: add ~500ms delay before remove generated links)
- 
-	let link = document.createElement('a');
-	let list = ["file1.txt", "file2.txt", "file3.txt"];
-	let i = 1;
-	document.body.appendChild(link);
-	for(let file of list){
-		link.href = file;
-		link.setAttribute("download", file);
-		link.click();//link.dispatchEvent(new MouseEvent("click"));
-	}
-	link.remove();
+
+```js
+let link = document.createElement('a');
+let list = ["file1.txt", "file2.txt", "file3.txt"];
+let i = 1;
+document.body.appendChild(link);
+for(let file of list){
+	link.href = file;
+	link.setAttribute("download", file);
+	link.click();//link.dispatchEvent(new MouseEvent("click"));
+}
+link.remove();
+```
 
 Solution 2:
 
@@ -5725,9 +5855,11 @@ The server need to support `GET /file.ext?` or `POST /file.ext`
 Use greek question mark `;` (U+037E) instead of semicolon `;`
 Use zero-width chars: U+200d, U+feff, U+200c, U+200b:
 
-	<meta charset="UTF-8"><script>q="﻿‌‍​﻿‌​​﻿‌​‌﻿​‍​﻿​﻿‍﻿​‍‌﻿​﻿﻿﻿‌‍​﻿​﻿‍﻿‌​​﻿​‍‌﻿﻿​​‍​​﻿‍‌﻿​‍‍﻿﻿﻿﻿﻿​‍​​﻿﻿﻿​‍‍‌﻿​‍​​‍﻿‌​﻿﻿‍​‍﻿‌‍﻿‍﻿​​‍‍﻿​﻿‍​﻿﻿‌﻿‌‍‌​﻿‍​‌‍﻿​​​‍​​‍‍﻿﻿​﻿​‍﻿‍‍﻿​‍‌‍​‍‌‍‌‍​‌​﻿‌​‍‍​​﻿﻿​‍﻿‍‍‌​‍​‌​﻿​‍​‍‍﻿​﻿​​‍‍﻿‍‌﻿﻿‍﻿﻿‌​‍‍​‌​﻿‌‌﻿‍‌‌​‍​​﻿‍​﻿‍‍‌‌﻿‍﻿‍‍﻿​‌​﻿​﻿​‍‍﻿​‍﻿‍‌‍‍​‌﻿​﻿​‍‌‌​‍​​﻿‍‌‌‍﻿​‍﻿﻿‍﻿​‍‌‌​﻿‌‌‌‍‌‌﻿‍‌‌‌‍​﻿﻿‍‌​​‍​‍‌‍‌‌﻿‍‌﻿‌‍​‍​﻿​​﻿‍​‌​﻿​‍﻿‍‌‌​‍‍﻿‌‍﻿‍‍﻿​‍‍﻿‍‌​﻿​‍​﻿‌﻿﻿﻿‍‌﻿‍‌﻿‍‍‌‌‍﻿​﻿​‍‌​‍‍​﻿‍‍‌‌﻿‍‌‌﻿﻿​​﻿‍​‌​﻿‌‍​‍​​﻿﻿﻿‍‌‍‌​‍﻿‌​‍‍‌‌​‍​‍﻿‍​‍﻿‍﻿﻿‌﻿‌‍​﻿﻿‌​﻿‌‍​﻿﻿​﻿﻿﻿‌​﻿‌‍​﻿﻿​﻿‍‌‌‍﻿﻿‍‌‍‌‌​‍​‍﻿‍​‍﻿‍‌‌﻿‍‌‌﻿‍‌‌‍‍﻿﻿‌‍‌‍‍‍‌​​‍‌​​‍‌‍‍﻿‌‍‌﻿​‌﻿‍‌‍‍﻿‍‍‍‍﻿‍​‍‍​​‍﻿﻿​﻿﻿​‍‍‌﻿​‍​‌​‍‍﻿﻿﻿‌‍​‍‍﻿‍‍​​﻿﻿‌﻿‌﻿​﻿﻿﻿‌​‌﻿‌‍​﻿​﻿‍﻿‌‌﻿﻿﻿‍‍‍‌‌‍‍‌‌﻿‍‌‍‍﻿​‌​‍‍﻿﻿‍﻿​﻿﻿​‍‌‍‍﻿​﻿‌‍​﻿﻿‍‍‍﻿​﻿﻿​‍‌﻿​﻿﻿﻿‌‍​﻿​﻿‍﻿‌​​﻿​‍‌‍‌‍‌‍‌‌​‍‍‍‌‍﻿​‌‍‍‌‍‍​​​‍﻿‌﻿‍​‌​‍‍﻿﻿﻿‌​﻿﻿‌‍﻿﻿​‍‍‍‍﻿‌﻿﻿​​‍​﻿﻿‍‌​‍‍​﻿‌‍​﻿﻿‍​‍‌‍​﻿​‍​‌﻿‍‌​‍﻿﻿​​‍​﻿‍‍‌​‍﻿﻿​​‍​‍​‍﻿﻿‌‍‍﻿﻿‍﻿‍﻿‍‍﻿​‍﻿‍‌‍‍﻿﻿﻿﻿‍﻿‍﻿​﻿﻿​‍‌‍‍‌​‍​‌​﻿‌‌﻿‍‌‌​‍‌‌​‍‌‌﻿﻿​‌​‍‍﻿﻿﻿‌‍‌‍‍﻿​‍​‍‍‍​‍‍‍​‍‍‍​‍‍‍‌‍‌‍‌‌​‍﻿​﻿﻿​‍‌﻿‍﻿​‍‌‌﻿‍‌​‌﻿​﻿‍﻿‌​​﻿﻿‍​‍‍‌﻿‍‌‌‍‍​﻿‍‍﻿﻿‌‍﻿‍﻿‍‌‌​‍​​﻿﻿‌‍‌‍‌​‌﻿​​‍‍‌‌‍﻿‌‍‌‍‍‌​‍‌​﻿‍​﻿‍‍﻿﻿‌﻿​​﻿﻿‌‍‍‍‌‌‍‍‍﻿﻿‍‍​‌‍﻿‍﻿‍​​﻿‍﻿‍﻿‍‌‍﻿‍‌‍‌‍‌‌​﻿‌‌‌‍‌‌﻿‍‌​‌﻿‌‌‌﻿‌​​‍﻿​‌‍‌‌‍﻿‌​﻿﻿‌‍﻿﻿​‍‍﻿﻿‌​﻿‌‌‌﻿﻿​﻿‍﻿﻿‌﻿​​﻿‍‍‍‌﻿‌​​﻿‍​﻿‍‍‌‍‍​​​‍﻿‌﻿‍​​﻿﻿﻿﻿​‍‌‍﻿‍‌‍​‍​​​﻿‌‌‌﻿‌​​‍﻿​‌‍‌‌‍‍﻿‍﻿‍﻿﻿‌﻿​​﻿‍​‌​‍﻿‌‌﻿​﻿​﻿‍​‌‍﻿﻿﻿‍‌‌‍﻿﻿​‍‍‌﻿​‍​​‍﻿﻿‌‌﻿‌​﻿﻿‌​‍‍‍‍﻿﻿​​‌‍﻿​﻿﻿​‌﻿‍﻿​‍‍​​‌‍﻿‍‍﻿‌‍‌﻿﻿‌﻿﻿​‌﻿﻿​‌​﻿‌﻿‌﻿‌​​‍‌﻿‍‍‌​﻿﻿‌﻿‌﻿‌‍﻿﻿‌​﻿﻿‌‌﻿﻿‌​‍﻿​‌﻿‍​‌‌﻿﻿﻿‌﻿﻿​‌﻿‌﻿‍﻿‌‍﻿﻿‌​‌﻿‌‍﻿‍‌​‍﻿‍‍﻿﻿‍​‌﻿‌‍﻿﻿‌​‍‍‌​‍﻿‍‌‍﻿‌﻿﻿﻿‌​‍﻿​﻿‌﻿‍​‍﻿‌‌﻿﻿‌‍​﻿‌‍﻿‍‌​‍﻿​‍​﻿‌‍﻿﻿‌​‌﻿​‍​‍‌​﻿﻿​‍​﻿‌﻿﻿﻿‍​‌﻿‌﻿‌‍​‌​﻿​​﻿‍﻿‍‍‍‍‍​﻿​‌​﻿‌﻿‍﻿‌‌﻿﻿​‍​﻿​‍‍﻿‌​‍﻿‌‍﻿﻿​‌﻿‍​‌‌﻿‌‍‌﻿‌​‍﻿‌​​﻿‌‍​﻿‌‌​‍​‌​﻿​﻿​﻿‌‌﻿﻿‌﻿‍﻿​﻿‍﻿‌‌‍‍​‌‌‍​‌﻿‍​‍‍‍‌﻿﻿‍​‌​﻿‌‌‍﻿‌﻿﻿﻿‌‌﻿﻿‌﻿​﻿﻿‌‌‍​‌‌‍​‍‌‍​‍‍‍​‍‍﻿​‍‍﻿​‌‍‍​‌​﻿​​﻿‍﻿‍‍‍‍​​‍﻿​﻿﻿​‌﻿‍﻿​‍‍‍‍﻿﻿‌​﻿﻿‍​‍﻿‌‍﻿‍‌‍‍﻿﻿‌‌﻿​﻿‍﻿​‍‍‍‌​﻿﻿‌﻿﻿﻿​‍﻿﻿​﻿﻿﻿‌‌﻿﻿​﻿‌‍‍﻿​﻿‍‍​﻿﻿‍‍‍﻿﻿﻿‍‌﻿‍‍‌​﻿﻿﻿﻿‍﻿​‌﻿﻿​‍‍﻿‌﻿﻿‍‌‍‌‍‌‍‍﻿‌‍​﻿﻿‍‍‍﻿﻿﻿‍‌﻿‍‍‍﻿​‍﻿﻿﻿﻿​‌‍﻿​﻿‍‍‌​​﻿﻿‌‌﻿‌​﻿﻿‌​‍‍​‌​‍﻿​​‍​​﻿﻿‌‌﻿﻿​‍​﻿‌​​‍‌​﻿‍​‌‍‍​‌‍‍​﻿﻿‍​‌﻿‍‌​﻿‍​‍﻿‍‌‍‌‍‍‍﻿﻿​﻿‍﻿‌‌﻿﻿​﻿‍‍﻿​‍‍﻿﻿‍‍‍​​﻿​﻿‍﻿‌‌﻿﻿​﻿‍‍﻿​‍‍‍‍﻿‍‌​​﻿​​‌﻿‌‍‌﻿﻿‌﻿﻿​‌﻿‍‍‍﻿﻿‌‌‍‍​‍﻿‍﻿﻿‍‍‌‍‍‍‌​﻿‍‌‍‍﻿‍‍​‍‍﻿‍‍‌‍‍﻿‌﻿﻿﻿​﻿‌﻿﻿​‌﻿​‌﻿‍‌‍‍﻿‍‌‌﻿‌‍﻿﻿​﻿‌﻿‌‍﻿﻿​‌‌﻿﻿‌‍﻿‌​​‍‌‍‍﻿​‍​﻿‍﻿‍﻿‌‍​‍﻿‌‍﻿‌‍​﻿﻿‌﻿‍﻿‌‍﻿‌​‍﻿‌​​﻿‌​​﻿‌‌​‍﻿​‌﻿‌﻿​﻿﻿‌‍﻿‌‌‍‍﻿‌‍﻿​‍​﻿‌‍﻿﻿‌​﻿﻿‌﻿﻿‍‌​‌‍‌​‌‍‌​‌‍‍​​﻿‌‌‍‍​‍﻿﻿‍﻿‌‍​​‍﻿‌‌﻿‍​​‌﻿‌‍‌﻿​‌﻿‍‌‍‍﻿‌​﻿﻿‌‌﻿﻿‌‌‍﻿‌‌﻿‍‌‍‍‍‌﻿‌﻿‌​‍﻿​﻿‍‍​‌​﻿​‍​﻿‌‍​﻿‌‌‍﻿‌‌﻿﻿﻿​‌﻿‌​‍﻿‌​﻿‍‌‍‍﻿‌‍﻿﻿​﻿‍‍‌‍‍﻿​﻿﻿﻿​‍​﻿﻿​‌﻿​‍​‍‌‍‍﻿‌﻿‍﻿‌​​﻿​﻿‍‍‌‍‍﻿​‍​﻿‍﻿‍﻿‌‍​﻿‌﻿﻿﻿‌‍‍﻿‌﻿​‍﻿‌‍﻿‌﻿‍﻿‌​​﻿​﻿‍‍‌‍‍﻿‌​‌﻿‍​‍‍‌﻿‌﻿‌﻿​﻿​﻿‍‍​‌​‍‌​‍‍‌‍‍‍​​‍﻿‌‍﻿‍‌‍‍﻿‌‌‍﻿​‍‌﻿‌﻿﻿﻿‌﻿‌‍‍﻿​﻿﻿‌‌﻿​﻿‍﻿​‍‍‍​‌‌‍‌​​‍‌​​﻿​﻿‍﻿​﻿​﻿‌‌﻿﻿​﻿‍‍﻿﻿﻿﻿​‍‌‍‌​‌﻿‌‍​﻿‌​​﻿‌​﻿‍‌​​‍﻿‍​﻿​​​﻿‍‍‍‍﻿‍​‍‍​​﻿‌‍﻿‍​​‌‍‍​​﻿‌‌﻿‍​​‌‍‍​​﻿​‍‍﻿‍﻿‌﻿‍‌﻿﻿‌​‌‍‌‍‍﻿‌﻿‌﻿‌‍﻿﻿‌‍​﻿​﻿‍‍‌​‍‍‌‍‍﻿‌​​﻿‌﻿‌‍‌‍‍﻿‌‍​﻿‍﻿‍﻿​‍​‍﻿‌‍﻿​﻿​‍﻿‌‍﻿‍‌​‍﻿‌‍﻿​﻿﻿﻿​‍​‍﻿​‌﻿‌﻿​‍‌‍‍﻿​‍​﻿‌​​﻿‌​﻿‍﻿‌‍﻿﻿﻿﻿﻿‌​‌﻿‌‌﻿﻿‌‍​﻿﻿‌﻿‍﻿‌‍﻿​﻿‍﻿‍​‌﻿‌‍​﻿‌‌​﻿​‍​﻿﻿‌‍﻿‌​​‍‌‍‍﻿​‍‍﻿​﻿﻿﻿‌​‍﻿‌​‍‍‌‍‍﻿‌​​﻿‌﻿‌﻿﻿‌‍﻿‌‌‍﻿‌‌﻿﻿​‍​‍‌‍‍‍﻿​﻿﻿​﻿﻿‍‌﻿‍‍‌‍‍‍​‌‌‍‌‌﻿‍‍​​﻿​‍‍﻿‍﻿‌﻿​‌‌‍﻿‌​‍﻿​‌‍‍‌‍﻿​​​﻿‌‍﻿‍﻿​‍﻿​‍‌﻿​﻿‍‍‌‌‍‍​﻿‍‍​‍‌‍﻿﻿‌‍‌​​‍‌​​‍‍‌‍‍‌‍‍﻿​‌﻿﻿‍﻿‍‍‌‍‍﻿‍‌‌﻿﻿‍​‍‌‍‍﻿‌‌‍﻿﻿​‌﻿‌﻿﻿‍‍​​‍‍‍​‍‍‍﻿‍﻿​‌‍‍‌‍‍‌‍‍﻿‌‌﻿﻿‌﻿‍‍‍﻿​﻿‌﻿​﻿‌​​‍‌‍‌﻿﻿‌‍﻿​‌﻿﻿​‍‍﻿‌﻿﻿‍‍﻿​﻿‌‍‌﻿‍​﻿﻿​﻿‍﻿﻿‍‍‍‌‍‌‍‌‍‍‍﻿‌﻿‍‍﻿​﻿‍‍​‍‍﻿‍‍‌‍‌﻿‍﻿‌﻿‍​​﻿‍​﻿‍‍‌‍‍﻿‌​﻿‌​​﻿‍​﻿‍‍‌‍﻿​​​‍‍​​‍‍‍​‍​​‌﻿﻿​‍‍‌﻿​‍﻿﻿‌‍‍‍‌﻿‌﻿​﻿‌​​‍​​​﻿﻿‍‍﻿‌‍​﻿‌​‍﻿‌‌﻿﻿‌‍​﻿‌‌​‍​​﻿﻿‌‍​‍‍﻿‍‍​‌​﻿‌‍​‍‍﻿‍‍‌‌‍‍﻿﻿‌‍‍‍﻿‍​​‌‍﻿‍‍‍​​‍‍‍‍‌‍﻿‌‌﻿‌﻿​﻿‍​‍﻿‍﻿﻿‍﻿​‍﻿‌​﻿﻿‌﻿﻿‍‌﻿‍﻿‍‍‌﻿​‌﻿﻿‍‌﻿﻿‌﻿‍‍‌‌‍‍‌‍‌‍‍‍​‍﻿﻿﻿﻿​‌‍﻿​﻿‍﻿‍‌​﻿‌﻿﻿﻿‌‍﻿‍‍﻿‍﻿‌​​﻿‌​﻿﻿​‍‍‍﻿‍﻿﻿​‍​‍‍﻿﻿﻿​﻿‌﻿‍‌​‍‌‍‍‍‍﻿‌‍​​﻿﻿﻿‍​‍‍‌﻿‍‌​‌﻿‌﻿‌﻿​‍‌﻿‌​​﻿‌​﻿﻿‍‍​‍‍​‍‍‌‌‍‍‍﻿​‍​​﻿‍‌‍‌‍‍‌‍﻿​‍‍﻿‍​﻿‍‍‌﻿﻿​﻿‍﻿​‍‌‍﻿​‌﻿‌﻿​‍‍‌​‍‌​‌‍﻿​‍﻿‌​‌﻿‌﻿​﻿​﻿‍﻿‌‌‍‍‍​‍﻿‌‌‍﻿‍‌​﻿‍‍​﻿﻿‌﻿﻿‌﻿﻿‍‍​‌﻿‌‌‌‍​​﻿‍​‍‍‍​‌​﻿‌‌‌‍​​‍‍​﻿‍‍​‌​﻿‌‌‌‍‌‌​‍‌‌​‍‌‌﻿﻿​‌​‍‍​​‍​​‍‍‌​​‍﻿‍‍﻿﻿​‍﻿﻿​‍﻿‌​‌‍﻿‍﻿﻿​‍‌﻿‌﻿﻿﻿​‍​‍﻿‍‌‍‌‍‌‍​‌​﻿‌‍‍‍‌‌‍‍﻿‍​﻿‌​﻿﻿‌‌﻿﻿‌‌‍﻿‌‌﻿‍​﻿‍‍​‍‌‍﻿﻿‍‍​​‌﻿﻿‍​﻿‌​﻿﻿‌‍﻿﻿‌​‍‍﻿​‍‍﻿​﻿﻿‍‌‌﻿﻿‍​‍﻿﻿﻿﻿​﻿‍﻿‌﻿﻿‍﻿﻿‌‍‌‌﻿‍​‌​‍﻿﻿​﻿​‍​﻿‌‍​﻿​‍‌﻿﻿​‍‍‌﻿​‍‌‌​﻿﻿​‍‍‌﻿​﻿‌‌﻿﻿​‍‍﻿​﻿‍‍​​‌‍﻿‌‍﻿‌﻿﻿‍‌‍‍‍﻿‌﻿﻿​﻿‌﻿‌‍﻿﻿‌​‍﻿​﻿﻿﻿‌﻿﻿‍﻿‌‌﻿‌﻿‍﻿‌​​﻿‌‍​﻿​﻿﻿﻿‌​﻿﻿‌﻿﻿‍‌﻿‍‍‌​‌‍﻿‌​‍​‌‌‍‍​​﻿​‍‍‍‍‍﻿‍‍‍​‍‌‍‍﻿‌‌﻿﻿‌﻿‍‍‍﻿​‍﻿​‍﻿‌​‍﻿‌﻿﻿‍﻿​﻿﻿​‍​﻿​﻿‍‍﻿​‌﻿‌‌﻿﻿‌​‌‍﻿​​‍‌‍‍﻿‌‍​﻿‌‌‍﻿‍‌​﻿​‍​﻿‍​‍‍‌‍﻿‍‌​‌﻿​‍​﻿​‍‍﻿‌​‍﻿‌‌﻿﻿​﻿‍‍‌‌‍‍‌‍‌‍‌﻿‍﻿‌​‌﻿​﻿‍‍​​​‍‌‍‌‍‌‌﻿‍‌​‌﻿‍﻿‍﻿‌​​﻿​﻿﻿﻿​‍‌﻿‍﻿‌‍‍‍﻿﻿​‍‍‍​​‌﻿‍﻿​‍‌​‌﻿‌‍​‍‍​‍﻿‍‍﻿﻿​﻿‍‍‌‌‍﻿‌‌﻿﻿‍‌​﻿‌‍﻿﻿​‍‌﻿‍​‍﻿‌﻿﻿﻿​﻿‍﻿‍​﻿﻿​﻿﻿﻿​﻿‍﻿‍​‌﻿​‍‌﻿‌‌﻿﻿﻿‍‍﻿‌​​﻿‌​‌﻿﻿‍﻿﻿‌‌﻿‍​​﻿‍​‍‍‍​‌​﻿‌‌﻿‍​​‍﻿﻿‍‌﻿​‍﻿﻿﻿‌​﻿​‍​﻿﻿​﻿‍‌‌‍﻿‌​‍﻿﻿﻿​‍﻿﻿﻿﻿‌​﻿﻿​‍‍﻿‌​‍﻿‌‍﻿‍﻿﻿﻿﻿﻿‌‍‍‌‍‍﻿​﻿‍﻿﻿‌﻿﻿‌​​﻿‌﻿‍﻿﻿‌‌﻿‌‌‍﻿​﻿‍﻿﻿​‌﻿‌﻿﻿﻿​‍‌﻿﻿​​‍​‌‍‍​‍‌‍​‍‍﻿‌‍‍﻿‌﻿‌﻿‌​​﻿​‍‌﻿​‌‌﻿﻿‍​﻿‌‍​﻿‍​‌﻿​‍‍﻿​﻿‍﻿​​‍﻿​‍​﻿​﻿﻿﻿‌‍‌﻿​‍​‍‍‌﻿﻿​​‌﻿‌‌‍﻿‌﻿﻿﻿‌‍﻿﻿‌﻿‍‍‍‍﻿﻿​​​‍‌‍‌‍​​‌‍‌﻿​‍​‌​﻿‌﻿‌﻿‌​​﻿​‍‌‍‌‌‍﻿﻿‌﻿‍‌‍‍﻿‌‌﻿﻿‌​‌‍‌‍‍‍‌﻿‍‍​​﻿‍‌﻿​﻿​​​﻿​​‌﻿​​‍﻿​‌‌﻿‌‍‍﻿﻿​​﻿﻿​‌﻿﻿‌‌﻿﻿‌﻿﻿﻿‌‍﻿﻿﻿​﻿﻿‍‌﻿﻿‍﻿﻿﻿‍‍﻿‍​‌﻿‍​﻿﻿‍​‍﻿‍‌​﻿‍﻿​﻿‍﻿‌﻿‍﻿‍‍​​​‍‌﻿‍‍‌‍﻿‍﻿​​‍﻿​‌‍﻿​﻿‍﻿​‍‍﻿‌​‍﻿‌‌‍﻿‌﻿‍﻿‌‍‍﻿﻿​‍﻿﻿‌‍﻿﻿﻿‍﻿﻿‍‍﻿‍​‍﻿‍‌‍﻿‍﻿‍﻿‍‍‍‍​​‍‍​‌‍‍​‍‍‍‌​‍‍‌﻿‍‍‌‍‍‍﻿​‍‍﻿‌‍‍﻿﻿‍‍﻿‍‍‍‍​‍‍‍‌‍‍‍﻿‍‌﻿​‍‌‌﻿﻿​﻿​﻿‌‌﻿﻿​﻿‍﻿‌‌‍‍‌‌‍﻿﻿​​‍‌​‌﻿​‍​﻿​‍‍﻿‌​‍﻿‌‌﻿﻿​﻿‍‍‌‌‍‍‌﻿‍﻿﻿‌​﻿﻿‌﻿﻿﻿​﻿‍‌‌﻿‍‌‌﻿﻿﻿​​‍​​﻿﻿‌‌‌﻿‌​​﻿‌‌﻿﻿‌​‌‍‌‌‍﻿​‍‍﻿‌​​﻿​‍‍‍‌‌‍‍‌‌﻿‍‌‌﻿‍​‌​﻿‌﻿﻿﻿​﻿‌﻿‌‍﻿﻿‌​‍‍‌‌‍﻿﻿​​‍‌‌﻿";l=q.length;s="substring";for(i=0;i<l;i+=4)
-	{w="";for(j=0;j<4;j++){w+=(q.charCodeAt(i+j)*5/2)&3};q+=String.fromCharCode(
-	parseInt(w,4))};c=q[s](l,l+11);c[c][c](q[s](l+11))(); // by @mihi42</script>
+```
+<meta charset="UTF-8"><script>q="﻿‌‍​﻿‌​​﻿‌​‌﻿​‍​﻿​﻿‍﻿​‍‌﻿​﻿﻿﻿‌‍​﻿​﻿‍﻿‌​​﻿​‍‌﻿﻿​​‍​​﻿‍‌﻿​‍‍﻿﻿﻿﻿﻿​‍​​﻿﻿﻿​‍‍‌﻿​‍​​‍﻿‌​﻿﻿‍​‍﻿‌‍﻿‍﻿​​‍‍﻿​﻿‍​﻿﻿‌﻿‌‍‌​﻿‍​‌‍﻿​​​‍​​‍‍﻿﻿​﻿​‍﻿‍‍﻿​‍‌‍​‍‌‍‌‍​‌​﻿‌​‍‍​​﻿﻿​‍﻿‍‍‌​‍​‌​﻿​‍​‍‍﻿​﻿​​‍‍﻿‍‌﻿﻿‍﻿﻿‌​‍‍​‌​﻿‌‌﻿‍‌‌​‍​​﻿‍​﻿‍‍‌‌﻿‍﻿‍‍﻿​‌​﻿​﻿​‍‍﻿​‍﻿‍‌‍‍​‌﻿​﻿​‍‌‌​‍​​﻿‍‌‌‍﻿​‍﻿﻿‍﻿​‍‌‌​﻿‌‌‌‍‌‌﻿‍‌‌‌‍​﻿﻿‍‌​​‍​‍‌‍‌‌﻿‍‌﻿‌‍​‍​﻿​​﻿‍​‌​﻿​‍﻿‍‌‌​‍‍﻿‌‍﻿‍‍﻿​‍‍﻿‍‌​﻿​‍​﻿‌﻿﻿﻿‍‌﻿‍‌﻿‍‍‌‌‍﻿​﻿​‍‌​‍‍​﻿‍‍‌‌﻿‍‌‌﻿﻿​​﻿‍​‌​﻿‌‍​‍​​﻿﻿﻿‍‌‍‌​‍﻿‌​‍‍‌‌​‍​‍﻿‍​‍﻿‍﻿﻿‌﻿‌‍​﻿﻿‌​﻿‌‍​﻿﻿​﻿﻿﻿‌​﻿‌‍​﻿﻿​﻿‍‌‌‍﻿﻿‍‌‍‌‌​‍​‍﻿‍​‍﻿‍‌‌﻿‍‌‌﻿‍‌‌‍‍﻿﻿‌‍‌‍‍‍‌​​‍‌​​‍‌‍‍﻿‌‍‌﻿​‌﻿‍‌‍‍﻿‍‍‍‍﻿‍​‍‍​​‍﻿﻿​﻿﻿​‍‍‌﻿​‍​‌​‍‍﻿﻿﻿‌‍​‍‍﻿‍‍​​﻿﻿‌﻿‌﻿​﻿﻿﻿‌​‌﻿‌‍​﻿​﻿‍﻿‌‌﻿﻿﻿‍‍‍‌‌‍‍‌‌﻿‍‌‍‍﻿​‌​‍‍﻿﻿‍﻿​﻿﻿​‍‌‍‍﻿​﻿‌‍​﻿﻿‍‍‍﻿​﻿﻿​‍‌﻿​﻿﻿﻿‌‍​﻿​﻿‍﻿‌​​﻿​‍‌‍‌‍‌‍‌‌​‍‍‍‌‍﻿​‌‍‍‌‍‍​​​‍﻿‌﻿‍​‌​‍‍﻿﻿﻿‌​﻿﻿‌‍﻿﻿​‍‍‍‍﻿‌﻿﻿​​‍​﻿﻿‍‌​‍‍​﻿‌‍​﻿﻿‍​‍‌‍​﻿​‍​‌﻿‍‌​‍﻿﻿​​‍​﻿‍‍‌​‍﻿﻿​​‍​‍​‍﻿﻿‌‍‍﻿﻿‍﻿‍﻿‍‍﻿​‍﻿‍‌‍‍﻿﻿﻿﻿‍﻿‍﻿​﻿﻿​‍‌‍‍‌​‍​‌​﻿‌‌﻿‍‌‌​‍‌‌​‍‌‌﻿﻿​‌​‍‍﻿﻿﻿‌‍‌‍‍﻿​‍​‍‍‍​‍‍‍​‍‍‍​‍‍‍‌‍‌‍‌‌​‍﻿​﻿﻿​‍‌﻿‍﻿​‍‌‌﻿‍‌​‌﻿​﻿‍﻿‌​​﻿﻿‍​‍‍‌﻿‍‌‌‍‍​﻿‍‍﻿﻿‌‍﻿‍﻿‍‌‌​‍​​﻿﻿‌‍‌‍‌​‌﻿​​‍‍‌‌‍﻿‌‍‌‍‍‌​‍‌​﻿‍​﻿‍‍﻿﻿‌﻿​​﻿﻿‌‍‍‍‌‌‍‍‍﻿﻿‍‍​‌‍﻿‍﻿‍​​﻿‍﻿‍﻿‍‌‍﻿‍‌‍‌‍‌‌​﻿‌‌‌‍‌‌﻿‍‌​‌﻿‌‌‌﻿‌​​‍﻿​‌‍‌‌‍﻿‌​﻿﻿‌‍﻿﻿​‍‍﻿﻿‌​﻿‌‌‌﻿﻿​﻿‍﻿﻿‌﻿​​﻿‍‍‍‌﻿‌​​﻿‍​﻿‍‍‌‍‍​​​‍﻿‌﻿‍​​﻿﻿﻿﻿​‍‌‍﻿‍‌‍​‍​​​﻿‌‌‌﻿‌​​‍﻿​‌‍‌‌‍‍﻿‍﻿‍﻿﻿‌﻿​​﻿‍​‌​‍﻿‌‌﻿​﻿​﻿‍​‌‍﻿﻿﻿‍‌‌‍﻿﻿​‍‍‌﻿​‍​​‍﻿﻿‌‌﻿‌​﻿﻿‌​‍‍‍‍﻿﻿​​‌‍﻿​﻿﻿​‌﻿‍﻿​‍‍​​‌‍﻿‍‍﻿‌‍‌﻿﻿‌﻿﻿​‌﻿﻿​‌​﻿‌﻿‌﻿‌​​‍‌﻿‍‍‌​﻿﻿‌﻿‌﻿‌‍﻿﻿‌​﻿﻿‌‌﻿﻿‌​‍﻿​‌﻿‍​‌‌﻿﻿﻿‌﻿﻿​‌﻿‌﻿‍﻿‌‍﻿﻿‌​‌﻿‌‍﻿‍‌​‍﻿‍‍﻿﻿‍​‌﻿‌‍﻿﻿‌​‍‍‌​‍﻿‍‌‍﻿‌﻿﻿﻿‌​‍﻿​﻿‌﻿‍​‍﻿‌‌﻿﻿‌‍​﻿‌‍﻿‍‌​‍﻿​‍​﻿‌‍﻿﻿‌​‌﻿​‍​‍‌​﻿﻿​‍​﻿‌﻿﻿﻿‍​‌﻿‌﻿‌‍​‌​﻿​​﻿‍﻿‍‍‍‍‍​﻿​‌​﻿‌﻿‍﻿‌‌﻿﻿​‍​﻿​‍‍﻿‌​‍﻿‌‍﻿﻿​‌﻿‍​‌‌﻿‌‍‌﻿‌​‍﻿‌​​﻿‌‍​﻿‌‌​‍​‌​﻿​﻿​﻿‌‌﻿﻿‌﻿‍﻿​﻿‍﻿‌‌‍‍​‌‌‍​‌﻿‍​‍‍‍‌﻿﻿‍​‌​﻿‌‌‍﻿‌﻿﻿﻿‌‌﻿﻿‌﻿​﻿﻿‌‌‍​‌‌‍​‍‌‍​‍‍‍​‍‍﻿​‍‍﻿​‌‍‍​‌​﻿​​﻿‍﻿‍‍‍‍​​‍﻿​﻿﻿​‌﻿‍﻿​‍‍‍‍﻿﻿‌​﻿﻿‍​‍﻿‌‍﻿‍‌‍‍﻿﻿‌‌﻿​﻿‍﻿​‍‍‍‌​﻿﻿‌﻿﻿﻿​‍﻿﻿​﻿﻿﻿‌‌﻿﻿​﻿‌‍‍﻿​﻿‍‍​﻿﻿‍‍‍﻿﻿﻿‍‌﻿‍‍‌​﻿﻿﻿﻿‍﻿​‌﻿﻿​‍‍﻿‌﻿﻿‍‌‍‌‍‌‍‍﻿‌‍​﻿﻿‍‍‍﻿﻿﻿‍‌﻿‍‍‍﻿​‍﻿﻿﻿﻿​‌‍﻿​﻿‍‍‌​​﻿﻿‌‌﻿‌​﻿﻿‌​‍‍​‌​‍﻿​​‍​​﻿﻿‌‌﻿﻿​‍​﻿‌​​‍‌​﻿‍​‌‍‍​‌‍‍​﻿﻿‍​‌﻿‍‌​﻿‍​‍﻿‍‌‍‌‍‍‍﻿﻿​﻿‍﻿‌‌﻿﻿​﻿‍‍﻿​‍‍﻿﻿‍‍‍​​﻿​﻿‍﻿‌‌﻿﻿​﻿‍‍﻿​‍‍‍‍﻿‍‌​​﻿​​‌﻿‌‍‌﻿﻿‌﻿﻿​‌﻿‍‍‍﻿﻿‌‌‍‍​‍﻿‍﻿﻿‍‍‌‍‍‍‌​﻿‍‌‍‍﻿‍‍​‍‍﻿‍‍‌‍‍﻿‌﻿﻿﻿​﻿‌﻿﻿​‌﻿​‌﻿‍‌‍‍﻿‍‌‌﻿‌‍﻿﻿​﻿‌﻿‌‍﻿﻿​‌‌﻿﻿‌‍﻿‌​​‍‌‍‍﻿​‍​﻿‍﻿‍﻿‌‍​‍﻿‌‍﻿‌‍​﻿﻿‌﻿‍﻿‌‍﻿‌​‍﻿‌​​﻿‌​​﻿‌‌​‍﻿​‌﻿‌﻿​﻿﻿‌‍﻿‌‌‍‍﻿‌‍﻿​‍​﻿‌‍﻿﻿‌​﻿﻿‌﻿﻿‍‌​‌‍‌​‌‍‌​‌‍‍​​﻿‌‌‍‍​‍﻿﻿‍﻿‌‍​​‍﻿‌‌﻿‍​​‌﻿‌‍‌﻿​‌﻿‍‌‍‍﻿‌​﻿﻿‌‌﻿﻿‌‌‍﻿‌‌﻿‍‌‍‍‍‌﻿‌﻿‌​‍﻿​﻿‍‍​‌​﻿​‍​﻿‌‍​﻿‌‌‍﻿‌‌﻿﻿﻿​‌﻿‌​‍﻿‌​﻿‍‌‍‍﻿‌‍﻿﻿​﻿‍‍‌‍‍﻿​﻿﻿﻿​‍​﻿﻿​‌﻿​‍​‍‌‍‍﻿‌﻿‍﻿‌​​﻿​﻿‍‍‌‍‍﻿​‍​﻿‍﻿‍﻿‌‍​﻿‌﻿﻿﻿‌‍‍﻿‌﻿​‍﻿‌‍﻿‌﻿‍﻿‌​​﻿​﻿‍‍‌‍‍﻿‌​‌﻿‍​‍‍‌﻿‌﻿‌﻿​﻿​﻿‍‍​‌​‍‌​‍‍‌‍‍‍​​‍﻿‌‍﻿‍‌‍‍﻿‌‌‍﻿​‍‌﻿‌﻿﻿﻿‌﻿‌‍‍﻿​﻿﻿‌‌﻿​﻿‍﻿​‍‍‍​‌‌‍‌​​‍‌​​﻿​﻿‍﻿​﻿​﻿‌‌﻿﻿​﻿‍‍﻿﻿﻿﻿​‍‌‍‌​‌﻿‌‍​﻿‌​​﻿‌​﻿‍‌​​‍﻿‍​﻿​​​﻿‍‍‍‍﻿‍​‍‍​​﻿‌‍﻿‍​​‌‍‍​​﻿‌‌﻿‍​​‌‍‍​​﻿​‍‍﻿‍﻿‌﻿‍‌﻿﻿‌​‌‍‌‍‍﻿‌﻿‌﻿‌‍﻿﻿‌‍​﻿​﻿‍‍‌​‍‍‌‍‍﻿‌​​﻿‌﻿‌‍‌‍‍﻿‌‍​﻿‍﻿‍﻿​‍​‍﻿‌‍﻿​﻿​‍﻿‌‍﻿‍‌​‍﻿‌‍﻿​﻿﻿﻿​‍​‍﻿​‌﻿‌﻿​‍‌‍‍﻿​‍​﻿‌​​﻿‌​﻿‍﻿‌‍﻿﻿﻿﻿﻿‌​‌﻿‌‌﻿﻿‌‍​﻿﻿‌﻿‍﻿‌‍﻿​﻿‍﻿‍​‌﻿‌‍​﻿‌‌​﻿​‍​﻿﻿‌‍﻿‌​​‍‌‍‍﻿​‍‍﻿​﻿﻿﻿‌​‍﻿‌​‍‍‌‍‍﻿‌​​﻿‌﻿‌﻿﻿‌‍﻿‌‌‍﻿‌‌﻿﻿​‍​‍‌‍‍‍﻿​﻿﻿​﻿﻿‍‌﻿‍‍‌‍‍‍​‌‌‍‌‌﻿‍‍​​﻿​‍‍﻿‍﻿‌﻿​‌‌‍﻿‌​‍﻿​‌‍‍‌‍﻿​​​﻿‌‍﻿‍﻿​‍﻿​‍‌﻿​﻿‍‍‌‌‍‍​﻿‍‍​‍‌‍﻿﻿‌‍‌​​‍‌​​‍‍‌‍‍‌‍‍﻿​‌﻿﻿‍﻿‍‍‌‍‍﻿‍‌‌﻿﻿‍​‍‌‍‍﻿‌‌‍﻿﻿​‌﻿‌﻿﻿‍‍​​‍‍‍​‍‍‍﻿‍﻿​‌‍‍‌‍‍‌‍‍﻿‌‌﻿﻿‌﻿‍‍‍﻿​﻿‌﻿​﻿‌​​‍‌‍‌﻿﻿‌‍﻿​‌﻿﻿​‍‍﻿‌﻿﻿‍‍﻿​﻿‌‍‌﻿‍​﻿﻿​﻿‍﻿﻿‍‍‍‌‍‌‍‌‍‍‍﻿‌﻿‍‍﻿​﻿‍‍​‍‍﻿‍‍‌‍‌﻿‍﻿‌﻿‍​​﻿‍​﻿‍‍‌‍‍﻿‌​﻿‌​​﻿‍​﻿‍‍‌‍﻿​​​‍‍​​‍‍‍​‍​​‌﻿﻿​‍‍‌﻿​‍﻿﻿‌‍‍‍‌﻿‌﻿​﻿‌​​‍​​​﻿﻿‍‍﻿‌‍​﻿‌​‍﻿‌‌﻿﻿‌‍​﻿‌‌​‍​​﻿﻿‌‍​‍‍﻿‍‍​‌​﻿‌‍​‍‍﻿‍‍‌‌‍‍﻿﻿‌‍‍‍﻿‍​​‌‍﻿‍‍‍​​‍‍‍‍‌‍﻿‌‌﻿‌﻿​﻿‍​‍﻿‍﻿﻿‍﻿​‍﻿‌​﻿﻿‌﻿﻿‍‌﻿‍﻿‍‍‌﻿​‌﻿﻿‍‌﻿﻿‌﻿‍‍‌‌‍‍‌‍‌‍‍‍​‍﻿﻿﻿﻿​‌‍﻿​﻿‍﻿‍‌​﻿‌﻿﻿﻿‌‍﻿‍‍﻿‍﻿‌​​﻿‌​﻿﻿​‍‍‍﻿‍﻿﻿​‍​‍‍﻿﻿﻿​﻿‌﻿‍‌​‍‌‍‍‍‍﻿‌‍​​﻿﻿﻿‍​‍‍‌﻿‍‌​‌﻿‌﻿‌﻿​‍‌﻿‌​​﻿‌​﻿﻿‍‍​‍‍​‍‍‌‌‍‍‍﻿​‍​​﻿‍‌‍‌‍‍‌‍﻿​‍‍﻿‍​﻿‍‍‌﻿﻿​﻿‍﻿​‍‌‍﻿​‌﻿‌﻿​‍‍‌​‍‌​‌‍﻿​‍﻿‌​‌﻿‌﻿​﻿​﻿‍﻿‌‌‍‍‍​‍﻿‌‌‍﻿‍‌​﻿‍‍​﻿﻿‌﻿﻿‌﻿﻿‍‍​‌﻿‌‌‌‍​​﻿‍​‍‍‍​‌​﻿‌‌‌‍​​‍‍​﻿‍‍​‌​﻿‌‌‌‍‌‌​‍‌‌​‍‌‌﻿﻿​‌​‍‍​​‍​​‍‍‌​​‍﻿‍‍﻿﻿​‍﻿﻿​‍﻿‌​‌‍﻿‍﻿﻿​‍‌﻿‌﻿﻿﻿​‍​‍﻿‍‌‍‌‍‌‍​‌​﻿‌‍‍‍‌‌‍‍﻿‍​﻿‌​﻿﻿‌‌﻿﻿‌‌‍﻿‌‌﻿‍​﻿‍‍​‍‌‍﻿﻿‍‍​​‌﻿﻿‍​﻿‌​﻿﻿‌‍﻿﻿‌​‍‍﻿​‍‍﻿​﻿﻿‍‌‌﻿﻿‍​‍﻿﻿﻿﻿​﻿‍﻿‌﻿﻿‍﻿﻿‌‍‌‌﻿‍​‌​‍﻿﻿​﻿​‍​﻿‌‍​﻿​‍‌﻿﻿​‍‍‌﻿​‍‌‌​﻿﻿​‍‍‌﻿​﻿‌‌﻿﻿​‍‍﻿​﻿‍‍​​‌‍﻿‌‍﻿‌﻿﻿‍‌‍‍‍﻿‌﻿﻿​﻿‌﻿‌‍﻿﻿‌​‍﻿​﻿﻿﻿‌﻿﻿‍﻿‌‌﻿‌﻿‍﻿‌​​﻿‌‍​﻿​﻿﻿﻿‌​﻿﻿‌﻿﻿‍‌﻿‍‍‌​‌‍﻿‌​‍​‌‌‍‍​​﻿​‍‍‍‍‍﻿‍‍‍​‍‌‍‍﻿‌‌﻿﻿‌﻿‍‍‍﻿​‍﻿​‍﻿‌​‍﻿‌﻿﻿‍﻿​﻿﻿​‍​﻿​﻿‍‍﻿​‌﻿‌‌﻿﻿‌​‌‍﻿​​‍‌‍‍﻿‌‍​﻿‌‌‍﻿‍‌​﻿​‍​﻿‍​‍‍‌‍﻿‍‌​‌﻿​‍​﻿​‍‍﻿‌​‍﻿‌‌﻿﻿​﻿‍‍‌‌‍‍‌‍‌‍‌﻿‍﻿‌​‌﻿​﻿‍‍​​​‍‌‍‌‍‌‌﻿‍‌​‌﻿‍﻿‍﻿‌​​﻿​﻿﻿﻿​‍‌﻿‍﻿‌‍‍‍﻿﻿​‍‍‍​​‌﻿‍﻿​‍‌​‌﻿‌‍​‍‍​‍﻿‍‍﻿﻿​﻿‍‍‌‌‍﻿‌‌﻿﻿‍‌​﻿‌‍﻿﻿​‍‌﻿‍​‍﻿‌﻿﻿﻿​﻿‍﻿‍​﻿﻿​﻿﻿﻿​﻿‍﻿‍​‌﻿​‍‌﻿‌‌﻿﻿﻿‍‍﻿‌​​﻿‌​‌﻿﻿‍﻿﻿‌‌﻿‍​​﻿‍​‍‍‍​‌​﻿‌‌﻿‍​​‍﻿﻿‍‌﻿​‍﻿﻿﻿‌​﻿​‍​﻿﻿​﻿‍‌‌‍﻿‌​‍﻿﻿﻿​‍﻿﻿﻿﻿‌​﻿﻿​‍‍﻿‌​‍﻿‌‍﻿‍﻿﻿﻿﻿﻿‌‍‍‌‍‍﻿​﻿‍﻿﻿‌﻿﻿‌​​﻿‌﻿‍﻿﻿‌‌﻿‌‌‍﻿​﻿‍﻿﻿​‌﻿‌﻿﻿﻿​‍‌﻿﻿​​‍​‌‍‍​‍‌‍​‍‍﻿‌‍‍﻿‌﻿‌﻿‌​​﻿​‍‌﻿​‌‌﻿﻿‍​﻿‌‍​﻿‍​‌﻿​‍‍﻿​﻿‍﻿​​‍﻿​‍​﻿​﻿﻿﻿‌‍‌﻿​‍​‍‍‌﻿﻿​​‌﻿‌‌‍﻿‌﻿﻿﻿‌‍﻿﻿‌﻿‍‍‍‍﻿﻿​​​‍‌‍‌‍​​‌‍‌﻿​‍​‌​﻿‌﻿‌﻿‌​​﻿​‍‌‍‌‌‍﻿﻿‌﻿‍‌‍‍﻿‌‌﻿﻿‌​‌‍‌‍‍‍‌﻿‍‍​​﻿‍‌﻿​﻿​​​﻿​​‌﻿​​‍﻿​‌‌﻿‌‍‍﻿﻿​​﻿﻿​‌﻿﻿‌‌﻿﻿‌﻿﻿﻿‌‍﻿﻿﻿​﻿﻿‍‌﻿﻿‍﻿﻿﻿‍‍﻿‍​‌﻿‍​﻿﻿‍​‍﻿‍‌​﻿‍﻿​﻿‍﻿‌﻿‍﻿‍‍​​​‍‌﻿‍‍‌‍﻿‍﻿​​‍﻿​‌‍﻿​﻿‍﻿​‍‍﻿‌​‍﻿‌‌‍﻿‌﻿‍﻿‌‍‍﻿﻿​‍﻿﻿‌‍﻿﻿﻿‍﻿﻿‍‍﻿‍​‍﻿‍‌‍﻿‍﻿‍﻿‍‍‍‍​​‍‍​‌‍‍​‍‍‍‌​‍‍‌﻿‍‍‌‍‍‍﻿​‍‍﻿‌‍‍﻿﻿‍‍﻿‍‍‍‍​‍‍‍‌‍‍‍﻿‍‌﻿​‍‌‌﻿﻿​﻿​﻿‌‌﻿﻿​﻿‍﻿‌‌‍‍‌‌‍﻿﻿​​‍‌​‌﻿​‍​﻿​‍‍﻿‌​‍﻿‌‌﻿﻿​﻿‍‍‌‌‍‍‌﻿‍﻿﻿‌​﻿﻿‌﻿﻿﻿​﻿‍‌‌﻿‍‌‌﻿﻿﻿​​‍​​﻿﻿‌‌‌﻿‌​​﻿‌‌﻿﻿‌​‌‍‌‌‍﻿​‍‍﻿‌​​﻿​‍‍‍‌‌‍‍‌‌﻿‍‌‌﻿‍​‌​﻿‌﻿﻿﻿​﻿‌﻿‌‍﻿﻿‌​‍‍‌‌‍﻿﻿​​‍‌‌﻿";l=q.length;s="substring";for(i=0;i<l;i+=4)
+{w="";for(j=0;j<4;j++){w+=(q.charCodeAt(i+j)*5/2)&3};q+=String.fromCharCode(
+parseInt(w,4))};c=q[s](l,l+11);c[c][c](q[s](l+11))(); // by @mihi42</script>
+```
 
 From [SmallestJS](http://schierlm.users.sourceforge.net/smallestjs.html)
 
@@ -5737,8 +5869,10 @@ See [Obfuscation (code)](Security#obfuscation-code))
 
 ## Listen user page navigation
 
-	window.addEventListener("beforeunload", event => console.log(event));// dispatched when the user request a page navigation (link, history, form, etc.)
-	window.addEventListener("unload", event => console.log(event));// dispatched when the document is unloaded juste before the new one appears
+```js
+window.addEventListener("beforeunload", event => console.log(event));// dispatched when the user request a page navigation (link, history, form, etc.)
+window.addEventListener("unload", event => console.log(event));// dispatched when the document is unloaded juste before the new one appears
+```
 
 `setTimeout` for 100ms after `beforeunload` to be sure the user doesn't cancel the unload. **TODO** make a POC
 
@@ -5754,8 +5888,10 @@ You can use a [beacon](#beacon) to log it.
 
 ### Use a different TypedArray
 
-	new SomeTypedArray(typedarray.buffer, typedarray.byteOffset, Math.floor(typedarray.byteLength / SomeTypedArray.BYTES_PER_ELEMENT))
-	new DataView(typedarray.buffer, typedarray.byteOffset, typedarray.byteLength)
+```js
+new SomeTypedArray(typedarray.buffer, typedarray.byteOffset, Math.floor(typedarray.byteLength / SomeTypedArray.BYTES_PER_ELEMENT))
+new DataView(typedarray.buffer, typedarray.byteOffset, typedarray.byteLength)
+```
 
 **Do not use** `new SomeTypedArray(typedarray)`, **only values will be copied (doesn't use the same buffer)**. Example: if the typed array is `Uint8Array[0x01, 0x02, 0x03, 0x04]` and use `Uint32Array`, the result will be `Uint32Array[0x01, 0x02, 0x03, 0x04]` not `Uint32Array[0x01020304]`
 **Be carefull with [endianess](#typedarray-endianness)
@@ -5770,7 +5906,9 @@ You can use a [beacon](#beacon) to log it.
 
 Intel / x86 cpu are little endian. But files format, or network data are fixed and often use big endian.
 
-	const isLittleEndian = new Uint16Array(new Uint8Array([1, 0]).buffer)[0] === 1;
+```js
+const isLittleEndian = new Uint16Array(new Uint8Array([1, 0]).buffer)[0] === 1;
+```
 
 - [Typed Arrays in ECMAScript 6](http://www.2ality.com/2015/09/typed-arrays.html#endianness)
 - [Javascript Typed Arrays and Endianness - Stack Overflow](https://stackoverflow.com/questions/7869752/javascript-typed-arrays-and-endianness)
@@ -5795,26 +5933,30 @@ Use UTF-8 encoding (natively supported by JS, use UTF-16, 16 bits in memory to s
 
 The compress ratio is between 1:1 and 2:1
 
-	let buffer = (new Uint8Array(256)).fill(0).map((i, y) => y).buffer;//Uint8Array 0 to 255
+```js
+let buffer = (new Uint8Array(256)).fill(0).map((i, y) => y).buffer;//Uint8Array 0 to 255
+```
 
 To generate the corresponding code:
 
-	let stringDelimiter = "\"";//"'"// can measure how many " ' or \r\n the string contains
-	let stringDelimiterCharCode = stringDelimiter.charCodeAt(0);
-	let multilineString = stringDelimiter != "\"" && stringDelimiter != "\'";
-	let escapedString = (new Uint8Array(buffer)).reduce((result, charCode) => {
-		let char = String.fromCharCode(charCode);
-		return result
-			+ (
-				char == stringDelimiter ? "\\" + stringDelimiter
-				: !multilineString && char == "\n" ? "\\n"
-				: !multilineString && char == "\r" ? "\\r"
-				: char == "\\" ? "\\\\"
-				: multilineString && char == "$" ? "\\" + char
-				: char
-			);
-	}, "");
-	console.log(`Array.prototype.reduce.call(${stringDelimiter}${escapedString}${stringDelimiter}, (result, value, index) => (result[index] = value.charCodeAt(0), result), new Uint8Array(${buffer.byteLength})).buffer`);
+```js
+let stringDelimiter = "\"";//"'"// can measure how many " ' or \r\n the string contains
+let stringDelimiterCharCode = stringDelimiter.charCodeAt(0);
+let multilineString = stringDelimiter != "\"" && stringDelimiter != "\'";
+let escapedString = (new Uint8Array(buffer)).reduce((result, charCode) => {
+	let char = String.fromCharCode(charCode);
+	return result
+		+ (
+			char == stringDelimiter ? "\\" + stringDelimiter
+			: !multilineString && char == "\n" ? "\\n"
+			: !multilineString && char == "\r" ? "\\r"
+			: char == "\\" ? "\\\\"
+			: multilineString && char == "$" ? "\\" + char
+			: char
+		);
+}, "");
+console.log(`Array.prototype.reduce.call(${stringDelimiter}${escapedString}${stringDelimiter}, (result, value, index) => (result[index] = value.charCodeAt(0), result), new Uint8Array(${buffer.byteLength})).buffer`);
+```
 
 Note: It's limited to 2<sup>53</sup>-1 bytes that could be stored. It could be limited by the heap max size (see `window.performance.memory.jsHeapSizeLimit`)
 
@@ -5826,7 +5968,6 @@ Note: It's limited to 2<sup>53</sup>-1 bytes that could be stored. It could be l
 Aka hexastring to binary data
 
 The ratio is 2:1 bytes
-
 
 ```js
 var data = "78da93e0e6b4d35f79d292d5c436c7b286d1daeedeb5684619658f1faf99";// must data.length % 2 == 0

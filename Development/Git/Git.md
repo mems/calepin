@@ -41,6 +41,18 @@ Merge branch, not rebase
 - [Trunk Based Development](https://trunkbaseddevelopment.com/)
 - [What are some examples of commonly used practices for naming git branches? - Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches#answer-6065944)
 
+## Gitflow
+
+```sh
+# Per project
+#git config --add gitflow.multi-hotfix true
+git flow config multi-hotfix true
+
+# Or globally
+#git config --global --add gitflow.multi-hotfix true
+git flow config --global multi-hotfix true
+```
+
 ## Stash
 
 Save a stash:

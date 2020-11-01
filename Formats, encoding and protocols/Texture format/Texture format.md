@@ -1,3 +1,5 @@
+See also [S3TC - DXT](../S3TC%20-%20DXT/S3TC%20-%20DXT.md), [PVRTC](../PVRTC/PVRTC.md), [PVR](../PVR/PVR.md), [OpenGL - DX3D API Proxies](../../Graphics/3D%20-%20GPU/OpenGL%20-%20DX3D%20API%20Proxies), [KTX](../KTX/KTX.md), [ETC](../ETC/ETC.md), [DDS](../DDS/DDS.md)
+
 Infos:
 
 - [OpenGL ES | Android Developers](https://developer.android.com/guide/topics/graphics/opengl.html#textures)

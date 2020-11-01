@@ -1,3 +1,5 @@
+See also [PVR](../PVR/PVR.md)
+
 Often used by light devices like smartphones or tablets with PowerVR chipsets (Apple iPhone, iPad) and some Android devices
 
 - PVRTC 2bpp (v1) (RGB)

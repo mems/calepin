@@ -1,4 +1,4 @@
-See [LZ77](../../Algorithms/Algorithms.md#lz77)
+See also [LZ77](../Algorithms/Algorithms.md#lz77), [Brotli](../Brotli/Brotli.md), [Deflate](../Deflate/Deflate.md), [LZMA](../LZMA/LZMA.md)
 
 - [Compressor Head - YouTube](https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H) - Well explained videos about compression (how to compression works, how to write a compression algorithms) by Colt McAnlis.
 	- Variable Length Codes
@@ -14,8 +14,8 @@ All compressions are subject to decompression bomb.
 
 See:
 
-- [Deflate Decompression Bomb](../Deflate/Deflate.md#decompression-bomb)
-- [ZIP Decompression Bomb](../ZIP/ZIP.md#decompression-bomb)
+- [Deflate Decompression Bomb](./Deflate/Deflate.md#decompression-bomb)
+- [ZIP Decompression Bomb](./ZIP/ZIP.md#decompression-bomb)
 - [AERAsec - Network Security - Eigene Advisories](http://www.aerasec.de/security/advisories/decompression-bomb-vulnerability.html)
 
 ## Optimization

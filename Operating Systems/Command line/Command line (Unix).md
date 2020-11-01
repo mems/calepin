@@ -1127,19 +1127,17 @@ In destination folder, execute following command:
 
 https://stackoverflow.com/questions/417916/how-to-do-a-mass-rename
 
-	for i in 'Ref_00'*.jpg; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
+```sh
+for i in 'Ref_00'*.jpg; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
 
-Or (a better solution):
+# Will rename `Ref_00001.jpg` to `anim001.jpg`
+find . -name 'Ref_00*.jpg' -prune -print | while read i; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
 
-	find . -name 'Ref_00*.jpg' -prune -print | while read i; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
+# Will rename `sprite1.png` to `sprite0.png` (if change the offset, be careful of sort order)
+find . -maxdepth 1 -type f -exec mv "{}" "{}.tmp" \; -print | awk 'match($0,"^(.*atlas-)([0-9]+)(.*)$",a){print "\""a[1]a[2]a[3]".tmp\" \""a[1]a[2]-1a[3]"\""}' | while read args; do eval "mv $args"; done
+```
 
-Will rename `Ref_00001.jpg` to `anim001.jpg`
-
-	find . -maxdepth 1 -type f -exec mv "{}" "{}.tmp" \; -print | awk 'match($0,"^(.*atlas-)([0-9]+)(.*)$",a){print "\""a[1]a[2]a[3]".tmp\" \""a[1]a[2]-1a[3]"\""}' | while read args; do eval "mv $args"; done
-
-Will rename `sprite1.png` to `sprite0.png` (if change the offset, be careful of sort order)
-
-### Use `rename`
+With `rename`:
 
 ```sh
 # Rename *.JPG to *.jpg
@@ -1150,7 +1148,7 @@ rename 's/ //' *.jpg
 rename 'y/A-Z/a-z/' *
 ```
 
-On OSX install it with port `port install p5-file-rename` (but should use the cmd `rename-5.22` where `22` is installed version via port instead of `rename`) or brew `brew install rename`
+On macOS install it with port `port install p5-file-rename` (but should use the cmd `rename-5.22` where `22` is installed version via port instead of `rename`) or brew `brew install rename`
 
 ### Remove files
 
@@ -1173,6 +1171,10 @@ With a list of exceptions:
 ### Remove empty dir
 
 ```sh
+find <path> -type d -empty -delete
+
+find <path> -type d -empty -print0 | xargs -0 -I {} rmdir "{}"
+
 find <path> -type d -print0 | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
 
 # or
@@ -1225,7 +1227,7 @@ gawk '
 	fdupes
 
 	find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
-	
+
 BTRFS [Deduplication - btrf Wiki](https://btrfs.wiki.kernel.org/index.php/Deduplication)
 
 See also `diff -q --binary` or `cmp -s $1 $2 && echo "identical" || echo "different"`
@@ -1899,6 +1901,26 @@ sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q'
 # Delete a particular line
 sed -i 42d ~/.ssh/known_hosts
 ```
+
+### AWK
+
+> AWK reads the input a line at a time. A line is scanned for each pattern in the program, and for each pattern that matches, the associated action is executed.
+
+```sh
+#!/usr/bin/env awk -f
+
+{print $0}
+```
+
+- [AWK - Wikipedia](https://en.wikipedia.org/wiki/AWK)
+- [awk](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/awk.html)
+- [The AWK programming language : Aho, Alfred V : Free Download, Borrow, and Streaming : Internet Archive](https://archive.org/details/pdfy-MgN0H1joIoDVoIC7)
+- [awk: BEGIN { ... | Jemma Issroff](https://web.archive.org/web/20201030181353/https://jemma.dev/blog/awk-part-1)
+- [awk: END { ... | Jemma Issroff](https://web.archive.org/web/20201101093640/https://jemma.dev/blog/awk-part-2)
+- [Awk-Batteries/csv.awk at master · Nomarian/Awk-Batteries](https://github.com/Nomarian/Awk-Batteries/blob/master/Units/csv.awk) - parse CSV `gawk -f "$AWK/Units/csv.awk" -e '{print NF}'`
+- [awk-scripts/talk.txt at master · rethab/awk-scripts](https://github.com/rethab/awk-scripts/blob/master/talk.txt)
+- [onetrueawk/awk: One true awk](https://github.com/onetrueawk/awk)
+- [wernsey/d.awk: An Awk script to generate documentation from Markdown comments in C/C++/Java/JavaScript/C# source code.](https://github.com/wernsey/d.awk)
 
 ### Other text operations
 

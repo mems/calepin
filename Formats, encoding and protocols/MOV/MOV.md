@@ -27,9 +27,13 @@ Cinema 4D can export to "QuickTime VR Object" (in Render Settings)
 
 To speed up loading or streaming, metadata should be at the begining:
 
-	[ 'mdat' QT data atom ]+[ 'moov' QT info atom ] to [ 'moov' QT info atom ]+[ 'mdat' QT data atom ]
+```
+[ 'mdat' QT data atom ]+[ 'moov' QT info atom ] to [ 'moov' QT info atom ]+[ 'mdat' QT data atom ]
+```
 
-	ffmpeg -i simple1.mp4 -codec copy -map 0 -movflags +faststart output.mp4
-	qt-faststart <infile.mov> <outfile.mov>
+```sh
+ffmpeg -i simple1.mp4 -codec copy -map 0 -movflags +faststart output.mp4
+qt-faststart <infile.mov> <outfile.mov>
+```
 
 - [Encode/H.264 – FFmpeg](https://trac.ffmpeg.org/wiki/Encode/H.264#faststartforwebvideo)
