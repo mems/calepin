@@ -17,7 +17,9 @@ Aditional compression can be applied:
 
 To premultiply alpha (for formats that don't use it) of an PNG image:
 
-	convert RGBA.png \( +clone -alpha Extract \) -channel RGB -compose Multiply -composite RGBA_premultiplied.png
+```sh
+convert RGBA.png \( +clone -alpha Extract \) -channel RGB -compose Multiply -composite RGBA_premultiplied.png
+```
 
 ## Optimizations
 
@@ -1057,13 +1059,17 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 	Require winetrick "C++ runtime Libraries" `vcrun2015`. CLI require DLLs from GUI (in same folder)
 	Need to add DLL override `api-ms-win-crt-time-l1-1-0` (use native first). See winecfg
 	
-		CompressonatorCLI.exe -nomipmap -fd DXT5 image.png image_dxt5.dds
-		CompressonatorCLI.exe -nomipmap -fd ATC_RGBA_Explicit image.png image_atca.dds
+	```sh
+	CompressonatorCLI.exe -nomipmap -fd DXT5 image.png image_dxt5.dds
+	CompressonatorCLI.exe -nomipmap -fd ATC_RGBA_Explicit image.png image_atca.dds
+	```
 	
 	Note: ATC codec incorrectly swizzling R and B channels (BGR instead of RGB): https://github.com/GPUOpen-Tools/Compressonator/issues/19
 	To fix that you can use ImageMagick:
 	
-		convert image.png -channel rgba -alpha on -set colorspace RGB -separate -swap 0,2 -combine -define png:color-type=6 image_bgra.png
+	```sh
+	convert image.png -channel rgba -alpha on -set colorspace RGB -separate -swap 0,2 -combine -define png:color-type=6 image_bgra.png
+	```
 - [NVIDIA Texture Tools](https://github.com/castano/nvidia-texture-tools) DXT1, DXT5, BPTC See also https://github.com/floooh/nvidia-texture-tools (and all potential fork)
 	Based on libsquish (see [S3TC - DXT](S3TC - DXT))
 	- [GPU Accelerated Texture Compression | NVIDIA Developer](https://developer.nvidia.com/gpu-accelerated-texture-compression)
@@ -1098,15 +1104,19 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 	See [PVRTexTool - PVRTexTool.User+Manual.pdf](http://cdn.imgtec.com/sdk-documentation/PVRTexTool.User+Manual.pdf#29)
 	PVRTexLib usage examples: https://github.com/TermiT/mkpack https://github.com/KTXSoftware/kraffiti-pvrtc
 	
-		/Applications/Imagination/PowerVR_Graphics/PowerVR_Tools/PVRTexTool/CLI/OSX_x86/PVRTexToolCLI -m -flip y,flag -f PVRTC1_4  -q pvrtcbest -i image.png
-		/Applications/Imagination/PowerVR_Graphics/PowerVR_Tools/PVRTexTool/CLI/OSX_x86/PVRTexToolCLI -i atlas.png -o atlas.pvr -m -l -f PVRTC1_4 -q pvrtcbest -mfilter cubic
+	```sh
+	/Applications/Imagination/PowerVR_Graphics/PowerVR_Tools/PVRTexTool/CLI/OSX_x86/PVRTexToolCLI -m -flip y,flag -f PVRTC1_4  -q pvrtcbest -i image.png
+	/Applications/Imagination/PowerVR_Graphics/PowerVR_Tools/PVRTexTool/CLI/OSX_x86/PVRTexToolCLI -i atlas.png -o atlas.pvr -m -l -f PVRTC1_4 -q pvrtcbest -mfilter cubic
+	```
 - Apple Texturetool KTX, PVR (v2); ASTC, PVRTC 2-4bpp v1
 	For PVRTC, use PVRTexTool instead (quicker and better results)
 	- [Using texturetool to Compress Textures](https://developer.apple.com/library/content/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/TextureTool/TextureTool.html)
 	- [Technical Q&A QA1611: Creating textures in the PVRTC compression format](https://developer.apple.com/library/ios/qa/qa1611/_index.html)
-	 
-		/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool -e ASTC --compression-mode-exhaustive --bits-per-pixel-4 -f PVR -o image.pvr image.png
-		/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool -e PVRTC --channel-weighting-perceptual -f PVR -o image.pvrtc image.png
+	
+	```sh
+	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool -e ASTC --compression-mode-exhaustive --bits-per-pixel-4 -f PVR -o image.pvr image.png
+	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool -e PVRTC --channel-weighting-perceptual -f PVR -o image.pvrtc image.png
+	```
 - DirectXTex library read/write DDS and WIC https://github.com/Microsoft/DirectXTex
 - Read DSS and PVR https://github.com/toji/texture-tester/blob/master/js/webgl-texture-util.js and https://github.com/pixijs/pixi-compressed-textures/blob/master/src/CompressedImage.js
 - Read KTX, PKM, DDS, ASTC, PVR https://bitbucket.org/rude/love/src/9d8164a7e6b3/src/modules/image/magpie/

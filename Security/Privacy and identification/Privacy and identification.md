@@ -4,6 +4,7 @@
 - [Have I been pwned? Check if your email has been compromised in a data breach](https://haveibeenpwned.com/)
 - [Did you know that the NSA uses Uber Drivers and Soccer Moms to Spy on You?](https://medium.com/@amuse/did-you-know-that-the-nsa-uses-uber-drivers-and-soccer-moms-to-spy-on-you-d912fe74befd)
 - [Restore Privacy | Your online privacy resource center](https://restoreprivacy.com/)
+- [All Sites - ACCOUNTKILLER.COM](https://www.accountkiller.com/en/all-sites)
 - Facebook image tracking data (image identifier)
     - [(1) Edin Jusupovic on Twitter: "#facebook is embedding tracking data inside photos you download. I noticed a structural abnormality when looking at a hex dump of an image file from an unknown origin only to discover it contained what I now understand is an IPTC special instruction. Shocking level of tracking.. https://t.co/WC1u7Zh5gN" / Twitter](https://mobile.twitter.com/oasace/status/1149181539000864769)
     - [IPTC metadata automatically added to uploaded images on Facebook - Stack Overflow](https://stackoverflow.com/questions/31120222/iptc-metadata-automatically-added-to-uploaded-images-on-facebook)
@@ -48,7 +49,7 @@ Uploading a document can expose/leak private data. This data and metadata should
 	* human fingerprint / eye iris
 	* user name / account
 	* address
-	
+
 	Directly or in reflects
 - Word document:
 	* author
@@ -186,7 +187,7 @@ fetch(url, {
 ```
 
 Compare 2 string take less time if string provided is small or start with identical chars (for same length), etc. like using a safe string compare (time is less impacted by optimizations):
-	
+
 ```js
 // Not executed faster depends b
 function safeCompare(a, b) {
@@ -194,16 +195,16 @@ function safeCompare(a, b) {
 	b = String(b);
 	var length = a.length;
 	var result = 0;
-	
+
 	if (length !== b.length) {
 		b = a;
 		result = 1;
 	}
-	
+
 	for (let index = 0; index < length; index++) {
 		result |= (a.charCodeAt(index) ^ b.charCodeAt(index));// XOR
 	}
-	
+
 	return result === 0;
 };
 ```
@@ -288,10 +289,10 @@ Software and hardware:
 - battery status
 	> When battery is running low, people might be prone to some - otherwise different - decisions
 	— [Battery Status readout as a privacy risk](https://blog.lukaszolejnik.com/battery-status-readout-as-a-privacy-risk/)
-	
+
 	> When your phone is down to 5 per cent battery and that little icon on the iphone turns red, people start saying I’d better get home or I don’t know how I’m going to get home otherwise
 	— [Keith Chen Is Uber's Head Of Economics And Decides When Uber Surges Price : NPR](http://www.npr.org/2016/05/17/478266839/this-is-your-brain-on-uber)
-	
+
 	> The amount of battery users had left was “one of the strongest predictors of whether or not you are going to be sensitive to surge” – in other words, agree to pay 1.5 times, 2 times or more the normal cost of a journey
 	— [Uber knows when your phone is running out of battery | The Independent](http://www.independent.co.uk/life-style/gadgets-and-tech/news/uber-knows-when-your-phone-is-about-to-run-out-of-battery-a7042416.html)
 - OS
@@ -325,7 +326,7 @@ Software and hardware:
 - OS/Browser UI: (macOS, Windows, Linux) scrollbar size, input default styles, etc.
 - third party autentification
 	Use login auth mecanisms to detect if the user is logged in:
-	
+
 	```html
 	<img onload="alert('logged in to Facebook')" onerror="alert('not logged in to Facebook')" src="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Ffavicon.ico">
 	```

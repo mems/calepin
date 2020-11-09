@@ -37,8 +37,8 @@ See also [cryptography - Pre-hash password before applying bcrypt to avoid restr
 - [Serious Security: How to store your users’ passwords safely – Naked Security](https://nakedsecurity.sophos.com/2013/11/20/serious-security-how-to-store-your-users-passwords-safely/)
 - [How Dropbox securely stores your passwords | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2016/09/how-dropbox-securely-stores-your-passwords/)
 - search public leaked authentification informations
-	VCS revision contains password 
-	
+	VCS revision contains password
+
 	- [Google Hacking Database, GHDB, Google Dorks](https://www.exploit-db.com/google-hacking-database/)
 	- https://github.com/search?p=2&q=mysqli_connect+http&type=Code
 	- https://github.com/search?q=%22rds.amazonaws.com%22&type=Code
@@ -160,7 +160,7 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	```
 - use honeypots
 	"It's a trap"
-	
+
 	```html
 	<!-- Require CSS support. Add hidden (display: none) input field and detect if it's filled. -->
 	<style>
@@ -173,7 +173,7 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	<input id="test_email" type="email" name="email" size="25" value="">
 	<!-- if test_email if filled, the sender have a high probability to trick you -->
 	```
-	
+
 	```php
 	// Cut down on registration spam using long-polling. If the attackers detech blocking and switch to a different IP/host, instead slow them down.
 	// Note: this is not resource free like max concurrent connections or reach script timeout
@@ -189,7 +189,7 @@ Content submission: bots create account, add review, video, message / post (SPAM
 	```
 
 	Or add hidden fake entries (for a directory page with list of file). If the link is accessed, there is a high probability it's a scrapper. What append if the trigger link is discovered and inserted in ads / others websites (to trigger false positive)... by using rotation (detect only in some periode of time)?
-	
+
 	Use instead quota or slowdown or auto logout (and reduce timeout/quantity each time) mechanisms to prevent scrapping. Display a message to allow the user to contact you directy, by email or phone in case it's really legit.
 
 	- add fake data, aka "copyright trap", "paper town". [Fictitious entry — Wikipedia](https://en.wikipedia.org/wiki/Fictitious_entry) Ex: for map data provider add fake town, etc. [Agloe, New York — Wikipedia](https://en.wikipedia.org/wiki/Agloe,_New_York)
@@ -230,7 +230,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 		}
 	});
 	```
-	
+
 	```js
 	var minimalUserResponseInMiliseconds = 100;
 	var before = Date.now();
@@ -264,7 +264,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 	var baseline_measurements = [];
 	var measurements = 20;
 	var warmup_runs = 3;
-	
+
 	const status = document.documentElement.appendChild(document.createTextNode("DevTools are closed"));
 	const junk = document.documentElement.insertBefore(document.createElement("div"), document.body);
 	junk.style.display = "none";
@@ -286,7 +286,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 		} else {
 			baseline_measurements = baseline_measurements.slice(warmup_runs); // exclude unoptimized runs
 			const baseline = baseline_measurements.reduce((sum, el) => sum + el, 0) / baseline_measurements.length;
-		
+
 			setInterval(() => {
 				// In actual usage you would also check document.hasFocus()
 				// as background tabs are throttled and get false positives
@@ -298,7 +298,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 			}, 1000);
 		}
 	};
-	
+
 	setTimeout(measure, 200);
 	```
 
@@ -307,7 +307,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 	setInterval(function () {
 			var widthThreshold = window.outerWidth - window.innerWidth > threshold;
 			var heightThreshold = window.outerHeight - window.innerHeight > threshold;
-			
+
 			if (!(heightThreshold && widthThreshold) && ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)) {
 				// devtools is opened
 			} else {
@@ -315,7 +315,7 @@ For contexts where code/data is given to untrusted parties (games, webapp, downl
 			}
 	}, 500);
 	```
-	
+
 	- [DevTools Undocked · Issue #15 · sindresorhus/devtools-detect · GitHub](https://github.com/sindresorhus/devtools-detect/issues/15#issuecomment-215908435)
 	- [sindresorhus/devtools-detect: Detect if DevTools is open and its orientation](https://github.com/sindresorhus/devtools-detect)
 
@@ -359,9 +359,9 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 - text, URL, link, 2D/3D data can contains offencive (insult, nudity, obscenity, etc.) text, scene, symbol, gesture, etc. in an image, 3D object, points on a map, ASCII text image
 	**Text: Don't think you can manage the problem with just a blacklist of words** (what about lookalike, slang, backward-slang?)
 	Forbidden/profanity words domains: Politic, racism, religious, sex, insults, drogs, weight (related to food industry), competing/rival companies...
-	
+
 	> If it can be killed, people will kill it. If it can't be killed, people will try and may succeed. If it can be destroyed, it will always be broken. If it can be moved, people will draw dongs or write obscenities with it.
-	
+
 	See [User generated content problems](Conception#User generated content problems)
 
 	- [Scunthorpe problem — Wikipedia](https://en.wikipedia.org/wiki/Scunthorpe_problem)
@@ -401,14 +401,14 @@ See also:
 - `<noscript><noscript></noscript><script>confirm(1)</script></noscript>`
 - `htmlspecialchars()` or (`htmlentities()`). `'<a href="' . htmlspecialchars($url) . '">Link</>'` You can use `ENT_QUOTES` as flag to escape simple quotes. And you should check the protocol of `$url` before.
 	`<form name="test" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">` else `http://example.com/form.php?d=%22%3E%3Cscript%3Ealert('xss')%3C/script%3E%3Cfoo%22`
-	
+
 	- [Using PHP_SELF in the action field of a form](http://www.html-form-guide.com/php-form/php-form-action-self.html)
 - Escape JSON in HTML
 	- In element's attribute
 		`<div data-test="<?php echo htmlspecialchars(json_encode($data, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES)) ?>">`
 	- In `<script type="application/json">`, in `<script>` (where type will be `application/javascript`, and use `JSON_PARTIAL_OUTPUT_ON_ERROR`) or any other element
 		`echo 'var data = ' . json_encode($data, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES);`
-	
+
 	- [The end-tag open (ETAGO) delimiter · Mathias Bynens](https://mathiasbynens.be/notes/etago)
 	- [php - Is json_encode Sufficient XSS Protection? - Stack Overflow](https://stackoverflow.com/questions/12062146/is-json-encode-sufficient-xss-protection)
 	- [php - Why does JSON encoder adds escaping character when encoding URLs? - Stack Overflow](https://stackoverflow.com/questions/3723243/why-does-json-encoder-adds-escaping-character-when-encoding-urls)
@@ -447,7 +447,7 @@ See also:
 - `http://e­x­a­m­p­l­e­.­com` is not `http://example.com` (use SHY - U+00AD chars)
 	> Soft hyphens have been used to obscure malicious domains or URLs in e-mail spam.
 	[Soft hyphen — Wikipedia](https://en.wikipedia.org/wiki/Soft_hyphen#Security_issues)
-	
+
 	Many browsers ignore SHY chars in URL. That means `http://e­x­a­m­p­l­e­.­com` will be interpreted as `http://example.com`
 - Some chars in file path are not supported on Windows: [Git for Windows accidentally creates NTFS alternate data streams](http://latkin.org/blog/2016/07/20/git-for-windows-accidentally-creates-ntfs-alternate-data-streams/) with char `:` in filename
 - `urlencode()` and `rawurlencode()` for URLs `$url = 'http://localhost/' . rawurlencode($page) . '?foo=' . urlencode($foo) . '&bar=' . urlencode($bar)`. The same with `encodeURI()`, `encodeURIComponent()`
@@ -466,7 +466,7 @@ See also:
 	- [CommonMisconfigurations - Httpd Wiki](https://wiki.apache.org/httpd/CommonMisconfigurations#Not_setting_a_ServerName_in_a_virtual_host.)
 	- [How nginx processes a request](http://nginx.org/en/docs/http/request_processing.html#how_to_prevent_undefined_server_names)
 	- [server-configs-nginx/no-default at master · h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx/blob/master/sites-available/no-default)
-	
+
 	```
 	# Ngnix
 	# no default server
@@ -480,7 +480,7 @@ See also:
 	* [15KB Of Fame: HTTP Cache Poisoning via Host Header Injection](http://carlos.bueno.org/2008/06/host-header-injection.html)
 	* [Skeleton Scribe: Practical HTTP Host header attacks](http://www.skeletonscribe.net/2013/05/practical-http-host-header-attacks.html)
 	* [HTTP HOST header attacks](http://www.slideshare.net/DefconRussia/http-host-header-attacks)
-	
+
 	See also [Cache Poisoning - OWASP](https://www.owasp.org/index.php/Cache_Poisoning)
 - take care of HTTP headers especially `Host`, `Origin`, `Referer`, etc. Don't trust `User-Agent`. Clean value in returned `Location`, `Set-Cookie` (escape them)
 
@@ -520,7 +520,7 @@ See [Unsafe filename](#unsafe-filename)
 	- [PNG Decompression Bomb](PNG#Decompression Bomb)
 	- [JPEG Bomb](JPEG#Decompression Bomb)
 	- [Tarbomb](Tar#Tarbomb)
-	
+
 	Workaround: define size or max memory limits (`width * height > max_pixels_limit`)
 
 #### Unsafe name
@@ -564,7 +564,7 @@ Forbid (rewrite) `robots.txt` as username: `domain.ext/username` (use `robots-tx
 - [Pure PHP polyfill for ext/sodium](https://github.com/paragonie/sodium_compat) - Polyfill for libsodium in PHP (libsodium is included by default in PHP 7.2)
 - as3crypto
 	Partial TLS 1.0 support, RSA,  AES, DES, 3DES, BlowFish, XTEA, RC4, MD2, MD5, SHA-1, SHA-224, SHA-256, etc.
-	
+
 	- http://code.google.com/p/as3crypto (official repo and issues)
 	- https://github.com/timkurvers/as3-crypto (based on as3crypto 1.3)
 	- https://github.com/lyokato/as3crypto_patched (based on as3crypto 1.3)
@@ -727,7 +727,7 @@ Note: Chrome 58 and Firefox 48 require Subject Alternative Name (SAN) (`subjectA
 <summary>
 How to create a trusted certificate on Windows
 </summary>
-	
+
 Create a trusted certificate:
 
 1. open "Microsoft Management Console (MMC)" (Run/Win+R "mmc", then OK)
@@ -1053,6 +1053,8 @@ if(!empty($_SERVER['HTTP_USER_AGENT']) && preg_match('/Wget/', $_SERVER['HTTP_US
 
 ## Hacking
 
+Aka reverse engineering, cracking
+
 See [Prevent and detect violation](#prevent-and-detect-violation)
 
 ```sh
@@ -1104,6 +1106,8 @@ sudo fs_usage -w -f filesys | grep "file_used.ext"
 - [RE for Beginners | Reverse Engineering](https://www.begin.re/)
 - [Reverse Engineering Stickies.app - Low Level Bits](https://lowlevelbits.org/reverse-engineering-stickies.app/)
 - [Nightmare - Nightmare](https://guyinatuxedo.github.io/) - "Nightmare is an intro to binary exploitation / reverse engineering course based around ctf challenges."
+- [Reverse Engineering a North Korean Sim City Game – Digital NK](https://web.archive.org/web/20201007082821/https://digitalnk.com/blog/2019/04/21/reverse-engineering-a-north-korean-sim-city-game/)
+- [Hardware Hacking Experiments Jeremy Brun Nouvion 2020](https://web.archive.org/web/20201001163247/https://raw.githubusercontent.com/koutto/hardware-hacking/master/Hardware-Hacking-Experiments-Jeremy-Brun-Nouvion-2020.pdf) - [koutto/hardware-hacking: Some stuff about Hardware Hacking](https://github.com/koutto/hardware-hacking)
 
 ### Alternative data storage
 
@@ -1171,7 +1175,7 @@ Fuzzing test
 About fuzzing test with JPEG data:
 
 > It starts with an invalid .jpg (literally a text file containing "hello"), and by trying over and over, changing random bytes and tracing the execution of the decoder program as it is fed the corrupted input, it will drill deeper and deeper into the program until it has gotten far enough that the input is actually a valid .jpg, without any human input.
-> 
+>
 > Fuzzing like this is a very effective technique for finding (security) bugs in programs that parse input, because you will quickly end up with "impossible" input nobody thought to check for (but is close enough that it won't be rejected outright), and whoops there's your buffer overflow.
 > [...]
 > it just finds one input that makes the program exit with exit code zero (for success)
@@ -1362,7 +1366,7 @@ PPS. Bonus question: can you do something useful by flipping two pages
 very rapidly, especially with history.*? What are the implications for
 clickjacking & friends?
 */
-var spaces = 
+var spaces =
   "																		  " +
   "																		  " +
   "																		  " +
@@ -1405,7 +1409,7 @@ function dostuff2() {
 </script>
 <p>illustrates the effectiveness of using
 data: or precached content to do the deed. Should work neatly in
-up-to-date browsers. You're probably fooling yourself if you 
+up-to-date browsers. You're probably fooling yourself if you
 think you'd reliably spot this happening to you in the wild.</p>
 <a href="http://banking.beaver-peak.us/banking_interface/" onclick="dostuff()">Beaver peak bank</a>
 ```
@@ -1670,7 +1674,7 @@ All browsers/libs don't handle the same way this files
 		</xsl:stylesheet>
 	</root>
 	```
-	
+
 	- [Security: A harmless SVG + XSLT curiousity](http://scarybeastsecurity.blogspot.fr/2011/01/harmless-svg-xslt-curiousity.html)
 - etc.
 

@@ -25,7 +25,9 @@ Responsive image (use JPEG): [Responsive Image Container · Yoav Weiss](https://
 
 Exemple: H.264 image (video as image):
 
-	ffmpeg.exe -i image.jpg -an -vcodec libx264 -coder 1 -flags +loop -cmp +chroma -subq 10 -qcomp 0.6 -qmin 10 -qmax 51 -qdiff 4 -flags2 +dct8x8 -trellis 2 -partitions +parti8x8+parti4x4 -crf 24 -threads 0 -r 25 -g 25 -y image.mp4
+```sh
+ffmpeg.exe -i image.jpg -an -vcodec libx264 -coder 1 -flags +loop -cmp +chroma -subq 10 -qcomp 0.6 -qmin 10 -qmax 51 -qdiff 4 -flags2 +dct8x8 -trellis 2 -partitions +parti8x8+parti4x4 -crf 24 -threads 0 -r 25 -g 25 -y image.mp4
+```
 
 The `-crf` parameter changes the quality level. Try with values from 15 to 30 (the final effect depends by frame size). You can also resize the frame prior to encode using the parameter `-s WxH` (es: `-s 640×360`).
 
@@ -153,14 +155,16 @@ And derived support of WebM with Alpha Channel
 
 It's better to embed with data URI for independancy, but add weight (4/3%)
 
-	<svg viewBox="0 0 500 400">
-		<defs>
-			<clipPath id="clip">
-				<path d="..." />
-			</clipPath>
-		</defs>
-		<image xlink:href="..." clip-path="url(#clip)" x="0" y="0" width="500" height="400">
-	<svg>
+```svg
+<svg viewBox="0 0 500 400">
+	<defs>
+		<clipPath id="clip">
+			<path d="..." />
+		</clipPath>
+	</defs>
+	<image xlink:href="..." clip-path="url(#clip)" x="0" y="0" width="500" height="400">
+<svg>
+```
 
 - [ZorroSVG - Put a Mask on it](http://quasimondo.com/ZorroSVG/) - use JEPG to contains both RGB and Alpha channels in top-down order (side by side, RGB to top and alpha to bottom, as black and white)
 - [Transparent JPG (With SVG) | CSS-Tricks](https://css-tricks.com/transparent-jpg-svg/)
@@ -178,39 +182,45 @@ Use mask (black and white)
 
 Or JPEG + PNG1(w/ tRNS)
 
-	// Merges the rgb channels of one image with the alpha channel of another
-	ctx.save();
-	ctx.drawImage(rgbImage, 0, 0);
-	ctx.globalCompositeOperation = "destination-in";
-	ctx.drawImage(alphaImage, 0, 0);
-	ctx.restore();
+```js
+// Merges the rgb channels of one image with the alpha channel of another
+ctx.save();
+ctx.drawImage(rgbImage, 0, 0);
+ctx.globalCompositeOperation = "destination-in";
+ctx.drawImage(alphaImage, 0, 0);
+ctx.restore();
+```
 
 Other possibilities:
 
-	ctx.save();
-	ctx.drawImage(rgbImage, 0, 0);
-	ctx.globalCompositeOperation = "xor";
-	ctx.drawImage(inverseAlphaMask, 0, 0);// black image with transparent pixel where rbgImage will be visible
-	ctx.restore();
+```js
+ctx.save();
+ctx.drawImage(rgbImage, 0, 0);
+ctx.globalCompositeOperation = "xor";
+ctx.drawImage(inverseAlphaMask, 0, 0);// black image with transparent pixel where rbgImage will be visible
+ctx.restore();
+```
 
-	// Will create an inverse alpha mask from grey-scale image (black and white)
-	var alpha = document.createElement("canvas");
-	alpha.width = alphaChannelImage.naturalWidth || alphaChannelImage.width;
-	alpha.height = alphaChannelImage.naturalHeight || alphaChannelImage.height;
-	var actx = alpha.getContext("2d");
-	actx.drawImage(alphaChannelImage, 0, 0);
-	var id = actx.getImageData(0, 0, alpha.width, alpha.height);
-	var data = id.data;
-	for (var i = 0; i < data.length - 4; i += 4) {
-		data[i + 3] = 255 - data[i];// copy the inverse of the red channel to the alpha channel
-	}
-	actx.putImageData(id, 0, 0);
-	
-	ctx.save();
-	ctx.drawImage(rgbImage, 0, 0);
-	ctx.globalCompositeOperation = "xor";
-	ctx.drawImage(alpha, 0, 0);// black image with transparent pixel where rbgImage will be visible
-	ctx.restore();
+```js
+// Will create an inverse alpha mask from grey-scale image (black and white)
+var alpha = document.createElement("canvas");
+alpha.width = alphaChannelImage.naturalWidth || alphaChannelImage.width;
+alpha.height = alphaChannelImage.naturalHeight || alphaChannelImage.height;
+var actx = alpha.getContext("2d");
+actx.drawImage(alphaChannelImage, 0, 0);
+var id = actx.getImageData(0, 0, alpha.width, alpha.height);
+var data = id.data;
+for (var i = 0; i < data.length - 4; i += 4) {
+	data[i + 3] = 255 - data[i];// copy the inverse of the red channel to the alpha channel
+}
+actx.putImageData(id, 0, 0);
+
+ctx.save();
+ctx.drawImage(rgbImage, 0, 0);
+ctx.globalCompositeOperation = "xor";
+ctx.drawImage(alpha, 0, 0);// black image with transparent pixel where rbgImage will be visible
+ctx.restore();
+```
 
 - [Adding alpha channels or chroma keys to JPEG images | W3C Blog](http://www.w3.org/blog/2013/03/adding-alpha-channels-or-chrom/)
 - [Reducing File Size for Images With Alpha Channels - gskinner blog](http://blog.gskinner.com/archives/2012/08/reducing-file-size-for-images-with-alpha-channels.html)
@@ -273,11 +283,15 @@ Remove all metadata:
 
 With [ExifTool by Phil Harvey](http://www.sno.phy.queensu.ca/~phil/exiftool/):
 
-	exiftool -gps:all= -xmp-exif:all= image.jpg
+```sh
+exiftool -gps:all= -xmp-exif:all= image.jpg
+```
 
 With [ImageMagick](http://www.imagemagick.org/script/index.php):
 
-	mogrify -strip image.jpg
+```sh
+mogrify -strip image.jpg
+```
 
 Note: use ImageMagick re-encode JPEG image data, see [unix - How to remove EXIF data without recompressing the JPEG? - Stack Overflow](https://stackoverflow.com/questions/2654281/how-to-remove-exif-data-without-recompressing-the-jpeg#comment2670770_2654371)
 

@@ -2,6 +2,7 @@ Aka QRCode, Quick Response Code
 
 - [QR code — Wikipedia](https://en.wikipedia.org/wiki/QR_code)
 - [WTF QR CODES](http://wtfqrcodes.com/)
+- [Barcode](../Barcode/Barcode.md)
 
 ## Datatypes
 

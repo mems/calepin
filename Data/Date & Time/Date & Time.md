@@ -28,6 +28,7 @@ Due to leap second, it's possible to have 61 seconds or only 59 seconds in 1 min
 - [More falsehoods programmers believe about time;...: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time)
 - [How and why the leap second affected Cloudflare DNS](https://blog.cloudflare.com/how-and-why-the-leap-second-affected-cloudflare-dns/#afalsehoodprogrammersbelieveabouttime)
 - [Official Google Blog: Time, technology and leaping seconds](https://googleblog.blogspot.fr/2011/09/time-technology-and-leaping-seconds.html)
+- [Maz Jovanovich on Twitter: "Any European country: “Multiple time zones in one country are weird” Australia during daylight savings: “Hold my beer”… https://t.co/Mx7oVQWKfX"](https://web.archive.org/web/20201101183658/https://twitter.com/maz_jovanovich/status/1312620947472556034?s=12)
 
 - [Parse Natural Language Dates with Dateparser | The Scrapinghub Blog](http://blog.scrapinghub.com/2015/11/09/parse-natural-language-dates-with-dateparser/)
 

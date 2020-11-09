@@ -4,11 +4,14 @@
 - [version control - Git for beginners: The definitive practical guide - Stack Overflow](https://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide)
 - [Gérez vo code source avec Git - OpenClassrooms](https://openclassrooms.com/courses/gerez-vos-codes-source-avec-git)
 - List of commands in plain english: [Oh Shit, Git!?!](https://ohshitgit.com/)
+- [Explain Git with D3](https://onlywei.github.io/explain-git-with-d3/) - Visualizing Git Concepts
 
 ## User infos
 
-	git config --global user.name John Doe
-	git config --global user.email john@doe.name
+```sh
+git config --global user.name John Doe
+git config --global user.email john@doe.name
+```
 
 ## Merge and rebase
 
@@ -57,15 +60,21 @@ git flow config --global multi-hotfix true
 
 Save a stash:
 
-	git stash save
+```sh
+git stash save
+```
 
 Remove tracked file inside an ignored folder:
 
-	git rm --cached that_dir
+```sh
+git rm --cached that_dir
+```
 
 Remove the lastest stash:
 
-	git stash drop
+```sh
+git stash drop
+```
 
 ## Gerrit
 
@@ -78,7 +87,9 @@ code review tool
 3. Config local repository to pushref: `refs/heads/*:refs/for/*`
 	Change inside: `[remote "origin"]` the line with `push = ` as:
 
-		push = refs/heads/*:refs/for/*
+	```
+	push = refs/heads/*:refs/for/*
+	```
 
 Now all push with `git push` or in gittower push to `origin/<default>` (or use "Gerrit Push" in Git Tower 2)
 
@@ -90,33 +101,45 @@ Now all push with `git push` or in gittower push to `origin/<default>` (or use "
 
 ## Git diff for binary files
 
-	git config --global core.attributesfile '~/.gitattributes'
+```sh
+git config --global core.attributesfile '~/.gitattributes'
+```
 
 Exemple to diff PNG files with EXIFtool
 
-	echo '*.png diff=exif' >> .gitattributes
-	git config diff.exif.textconv exiftool
+```sh
+echo '*.png diff=exif' >> .gitattributes
+git config diff.exif.textconv exiftool
+```
 
-	diff --git a/image.png b/image.png
+```sh
+diff --git a/image.png b/image.png
+```
 
 - http://git-scm.com/book/ch7-2.html
 - [Git - How to Get Better Diff for Image - Lar Tesmer' Blog](http://www.lars-tesmer.com/blog/2010/09/20/git---how-to-get-better-diffs-for-images/)
 
 ----
 
-	echo "*.gif diff=image" >> ~/.gitattributes
-	echo "*.jpg diff=image" >> ~/.gitattributes
-	echo "*.png diff=image" >> ~/.gitattributes
-	git config --global diff.image.command '~/bin/git-imgdiff'
+```sh
+echo "*.gif diff=image" >> ~/.gitattributes
+echo "*.jpg diff=image" >> ~/.gitattributes
+echo "*.png diff=image" >> ~/.gitattributes
+git config --global diff.image.command '~/bin/git-imgdiff'
+```
 
 `~/bin/git-imgdiff`:
 
-	#!/bin/sh
-	compare $2 $1 png:- | montage -geometry +4+4 $2 - $1 png:- | display -title "$1" -
+```sh
+#!/bin/sh
+compare $2 $1 png:- | montage -geometry +4+4 $2 - $1 png:- | display -title "$1" -
+```
 
 ----
 
-	identify -verbose info: <image>
+```sh
+identify -verbose info: <image>
+```
 
 ## Sparse checkout
 
@@ -138,7 +161,9 @@ Aka partial checkout
 
 	From:
 
-	git commit --amend --author="Author Name <email@address.com>"
+```sh
+git commit --amend --author="Author Name <email@address.com>"
+```
 
 - [git - Change commit author at one specific commit - Stack Overflow](https://stackoverflow.com/questions/3042437/change-commit-author-at-one-specific-commit)
 
@@ -152,7 +177,9 @@ Do it only for non pushed commits
 
 For pushed commit, **this change the history**
 
-	git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+```sh
+git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+```
 
 - [Git - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#_removing_file_every_commit)
 
@@ -162,27 +189,32 @@ For pushed commit, **this change the history**
 
 Ignore `sites/*/files` but not `sites/default/files/favicon.ico`.
 
-	*
-	!.gitattributes
-	!.gitignore
-	!readme.md
-	!.gitkeep
-	!*.php
-	!*/
+```gitignore
+*
+!.gitattributes
+!.gitignore
+!readme.md
+!.gitkeep
+!*.php
+!*/
+```
 
 You need to make exception for each subfolders:
 
-	sites/*/files
-	#
-	!sites/default/files
-	sites/default/files/*
-	!sites/default/files/favicon.ico
-
+```gitignore
+sites/*/files
+#
+!sites/default/files
+sites/default/files/*
+!sites/default/files/favicon.ico
+```
 
 Note `*` will also exclude folder, to exclude only files use `*.*`:
 
-	*.*
-	!*.c
+```gitignore
+*.*
+!*.c
+```
 
 - [Git - gitignore Documentation](https://git-scm.com/docs/gitignore)
 - [git - gitignore - only allow certain extensions and files - Stack Overflow](https://stackoverflow.com/questions/11852558/gitignore-only-allow-certain-extensions-and-files/11853075#11853075)
@@ -192,14 +224,18 @@ Note `*` will also exclude folder, to exclude only files use `*.*`:
 
 Add an empty file `.gitkeep`:
 
-	touch .gitkeep
+```sh
+touch .gitkeep
+```
 
 Or use a `.gitignore`:
 
-	# Ignore everything in this directory
-	*
-	# Except this file
-	!.gitignore
+```gitignore
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+```
 
 - [What is .gitkeep? Differences between .gitignore and .gitkeep - Apply Head](https://applyhead.com/gitkeep-vs-gitignore/)
 - [How can I add an empty directory to a Git repository? - Stack Overflow](https://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
@@ -211,7 +247,9 @@ Or use a `.gitignore`:
 
 ## Case sensitivity
 
-	git mv hello.txt Hello.txt
+```sh
+git mv hello.txt Hello.txt
+```
 
 - [rename - Changing capitalization of filename in Git - Stack Overflow](https://stackoverflow.com/questions/10523849/changing-capitalization-of-filenames-in-git)
 
@@ -219,8 +257,10 @@ Or use a `.gitignore`:
 
 Unicode
 
-	git config --global core.precomposeunicode true
-	git config --global core.quotepath false
+```sh
+git config --global core.precomposeunicode true
+git config --global core.quotepath false
+```
 
 - [macos - Git and the Umlaut problem on Mac OS X - Stack Overflow](https://stackoverflow.com/questions/5581857/git-and-the-umlaut-problem-on-mac-os-x)
 - [macos - How to handle Asian character in file name in Git on OS X - Stack Overflow](https://stackoverflow.com/questions/4144417/how-to-handle-asian-characters-in-file-names-in-git-on-os-x)
@@ -272,7 +312,7 @@ rollback
 git archive -o patch.zip $COMMIT_HASH^ $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $COMMIT_HASH)
 git archive -o patch.zip $COMMIT_FROM_HASH^ $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $COMMIT_TO_HASH $COMMIT_FROM_HASH^)
 ```
-	
+
 - [git diff - Export only modified and added file with folder structure in Git - Stack Overflow](https://stackoverflow.com/questions/4541300/export-only-modified-and-added-files-with-folder-structure-in-git)
 
 ## Git light local copy

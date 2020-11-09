@@ -11,14 +11,14 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 > To change the mouse pointer with CSS, use "cursor"
 > To set it to a pointer, use "default"
 > To set it to a hand, use "pointer"
-> 
+>
 > — [Jake Archibald](https://twitter.com/jaffathecake/status/832228132446990339)
 
 > [CSS is] declarative language: describe _intent_ rather than specific steps
-> 
+>
 > — [Why Is CSS So Weird? - YouTube](https://www.youtube.com/watch?v=aHUtMbJw8iA)
 
-> Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread 
+> Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread
 > - tu as testé en dark mode ?
 > - en "light" mode ?
 > - avec un fort zoom ?
@@ -54,7 +54,7 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 > - Au fait, en RTL, ça passe ?
 > - et ton interface passe bien quand il y a tous les composants dans le pire des cas ? Et quand il y a rien ?
 > - et ton interface avec beaucoup de contenus/très peu de contenus, ça roule ?
-> 
+>
 > — [Nicolas Hoffmann on Twitter: "Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread - tu as testé en dark mode ? - en "light" mode ? - avec un fort zoom ? - avec un fort zoom texte ? - avec une combinaison des précédents ? - si ton viewport est petit ?" / Twitter](https://twitter.com/Nico3333fr/status/1245641136011538437)
 
 ## "HTML once, redesign CSS"
@@ -176,7 +176,7 @@ See [Fixed elements](#fixed-elements) and [Sticky header](#sticky-header)
 - [Custom Scrollbars in WebKit | CSS-Tricks](https://css-tricks.com/custom-scrollbars-in-webkit/)
 - [Quick Tip: Styling Scrollbars to Match Your UI Design](https://webdesign.tutsplus.com/articles/quick-tip-styling-scrollbars-to-match-your-ui-design--webdesign-9430)
 
-### Scroll indicator 
+### Scroll indicator
 
 - [CSS only scroll indicator](http://codepen.io/MadeByMike/pen/ZOrEmr)
 
@@ -294,7 +294,7 @@ Use both `max-[width|height]` and `max-device-[width|height]`. Or `max-[width|he
 /* Wide screens */
 @media (min-width: 640px), (min-height: 640px){
 	/*...*/
-	
+
 	/* Nested rules for orientation */
 	@media (orientation: portrait) {
 		/*small screens in portrait*/
@@ -343,7 +343,7 @@ logical pixel x device pixel ratio = physical pixel
 /* remove rules when dppx is supported by all major browsers */
 @media (-webkit-min-device-pixel-ratio: 1.25),/* Webkit */
 	(min-resolution: 120dpi),/* IE, Safari */
-	(min-resolution: 1.25dppx)/* Everyone else */{ 
+	(min-resolution: 1.25dppx)/* Everyone else */{
 	selector{
 		background-image: url("image.png");
 	}
@@ -376,7 +376,7 @@ See [Responsive typography](#responsive-typography)
 ```css
 /* landscape (but with a minimum aspect ratio 3/2) to not show it on Android portrait when the keyboard is open */
 @media (min-aspect-ratio: 3/2) {
-	
+
 }
 ```
 
@@ -397,14 +397,14 @@ Use autoprefixer
 video{
 	height: 100%;
 	width: 100%;
-	
+
 	/* Workaround for object-fit: cover works only if video element has 16/9 ratio */
 	$ratio: 16 / 9;// ex.: 1920 / 1080
 	height: 100%;
 	width: 100vh * $ratio;
 	min-width: 100%;
 	min-height: 100vw / $ratio;
-	
+
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -711,7 +711,7 @@ See [Alignment](#alignment)
 	  margin-right: 1em;
 	}
 
-	/* the hack */ 
+	/* the hack */
 	ul::after {
 	  content: "";
 	  padding-right: 0.02px; /* smallest size that is cross browser */
@@ -1025,7 +1025,7 @@ video {
 	width: 100vh * $ratio;
 	min-width: 100%;
 	min-height: 100vw / $ratio;
-	
+
 	/* centering: */
 	position: absolute;
 	left: 50%;
@@ -1127,7 +1127,7 @@ Use padding:
 	margin: 0 auto;
 	max-width: 1044px;
 	position: relative;
-	
+
 	/*decorations*/
 	font-family: sans-serif;
 	/*end of decorations*/
@@ -1146,7 +1146,7 @@ Use padding:
 	padding: 0 calc(50vw - 50%);
 	margin-right: calc(100% - 50vw);/* break line for flex parent */
 	box-sizing: border-box;
-	
+
 	/*decorations*/
 	background: gray;
 	/*end of decorations*/
@@ -1167,7 +1167,7 @@ Use a pseudo element. Fix issue if content larger than viewport
 .simple-page{
 	margin: 0 auto;
 	max-width: 1044px;
-	
+
 	/*decorations*/
 	font-family: sans-serif;
 	/*end of decorations*/
@@ -1190,7 +1190,7 @@ Use a pseudo element. Fix issue if content larger than viewport
 	position: absolute;
 	margin-right: calc(100% - 50vw);/* break line for flex parent */
 	z-index: -1;
-	
+
 	/*decorations*/
 	background: gray;
 	/*end of decorations*/
@@ -1302,7 +1302,7 @@ Or use `overflow-wrap: break-word` or `white-space: pre-wrap` to break long line
 /* you can also use classes: <br class="br-smallscreen"> <br class="br-largescreen">*/
 ```
 
-See also 
+See also
 
 > _The Yahoo Style Guide_ recommends **breaking a URL _before_ punctuation**, to avoid leaving a punctuation mark at the end of the line, which the reader might mistake for the end of the URL.
 — [\<wbr\> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr#Example)
@@ -1331,7 +1331,7 @@ See also
 
 Note: always declare `font-weight` in `@font-face` (if not `normal` or `400`). Don't use different font name for styles.
 
-Tip: Changing weight based on ambient light. "Heavy" font in low-light. See also [Variable font](OpenType#variable-font)
+Tip: Changing weight based on ambient light. "Heavy" font in low-light. See also [Variable font](../../Formats,%20encoding%20and%20protocols/OpenType%20font%20-%20OTF%20-%20TTF/OpenType.md#variable-font)
 
 If weight is unavailable, weights 100–500 will render as normal, 600–900 will render as bold, or use [font-synthesis - CSS | MDN](https://developer.mozilla.org/en/docs/Web/CSS/font-synthesis)
 
@@ -1354,7 +1354,7 @@ Other values
 
 All foundries don't use the same names:
 
-- http://help.typekit.com/customer/portal/articles/6855-using-multiple-weights-and-styles:
+- [CSS selectors](https://helpx.adobe.com/fonts/using/css-selectors.ug.html#Usingmultipleweightsandstyles):
 	- 100 thin
 	- 200 extra-light
 	- 300 light
@@ -1364,7 +1364,7 @@ All foundries don't use the same names:
 	- 700 bold
 	- 800 heavy
 	- 900 black
-- http://www.webtype.com/info/articles/fonts-weights/:
+- [Best practices for using font-weights with web fonts](https://web.archive.org/web/20170608192449/http://www.webtype.com/info/articles/fonts-weights/):
 	- 100 Extra Light or Ultra Light
 	- 200 Light or Thin
 	- 300 Book or Demi
@@ -1374,7 +1374,7 @@ All foundries don't use the same names:
 	- 700 Bold
 	- 800 Black, Extra Bold or Heavy
 	- 900 Extra Black, Fat, Poster or Ultra Black
-- http://elliotjaystocks.com/blog/font-weight-in-the-age-of-web-fonts/:
+- [Font-weight in the age of web fonts &#187Elliot Jay Stocks](https://web.archive.org/web/20190823021616/https://elliotjaystocks.com/blog/font-weight-in-the-age-of-web-fonts/):
 	- 100 Ultra Light
 	- 200 Thin
 	- 300 Light
@@ -1384,7 +1384,7 @@ All foundries don't use the same names:
 	- 700 Heavy
 	- 800 Black
 	- 900 Ultra or Extra Black
-- http://en.wikipedia.org/wiki/Univers#Linotype_numbering_system and http://en.wikipedia.org/wiki/Univers#The_Frutiger_numbering_system (list all names in relative order):
+- [Univers - Wikipedia](https://en.wikipedia.org/wiki/Univers#Linotype_numbering_system) and [Univers - Wikipedia](https://en.wikipedia.org/wiki/Univers#The_Frutiger_numbering_system) (list all names in relative order):
 	- Ultra Light
 	- Thin
 	- Light
@@ -1394,7 +1394,7 @@ All foundries don't use the same names:
 	- Heavy
 	- Black
 	- Extra Black
-- http://en.wikipedia.org/wiki/Font#Weight (list all names in relative order):
+- [Font - Wikipedia](https://en.wikipedia.org/wiki/Font#Weight) (list all names in relative order):
 	- Hairline
 	- Thin
 	- Ultra-light
@@ -1442,7 +1442,7 @@ All foundries don't use the same names:
 	- 800 Extra-bold (Ultra-bold)
 	- 900 Black (Heavy)
 
-- http://v1.jontangerine.com/silo/typography/naming/
+- [Font naming conventions — Jon Tan 陳](https://web.archive.org/web/20200223124154/http://v1.jontangerine.com/silo/typography/naming/)
 
 ### Font faces
 
@@ -1497,7 +1497,11 @@ Use the same `font-family` name for all styles, weights and stretches. **Always 
 
 Then use:
 
+```css
+*{
 	font-family: "Open Sans", sans-serif;
+}
+```
 
 #### Font web safe
 
@@ -1533,45 +1537,39 @@ Then use:
 }
 ```
 
-Times New Roman et serif
+```css
+*{
+	/* Times New Roman et serif */
+	font-family: Cambria, Hoefler Text, Utopia, Liberation Serif, Nimbus Roman No9 L Regular, Times, Times New Roman, serif;
 
-	font-family: Cambria, Hoefler Text, Utopia, Liberation Serif", Nimbus Roman No9 L Regular, Times, Times New Roman, serif;
-
-Georgia
-
+	/* Georgia */
 	font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
 
-Garamond
-
+	/* Garamond */
 	font-family: Palatino Linotype, Palatino, Palladio, URW Palladio L, Book Antiqua, Baskerville, Bookman Old Style, Bitstream Charter, Nimbus Roman No9 L, Garamond, Apple Garamond, ITC Garamond Narrow, New Century Schoolbook, Century Schoolbook, Century Schoolbook L, Georgia, serif;
 
-Helvetica/Arial
-
+	/* Helvetica/Arial */
 	font-family: Frutiger, Frutiger Linotype, Univers, Calibri, Gill Sans, Gill Sans MT, Myriad Pro, Myriad, DejaVu Sans Condensed, Liberation Sans, Nimbus Sans L, Tahoma, Geneva, Helvetica Neue, Helvetica, Arial, sans serif;
 
-Verdana
-
+	/* Verdana */
 	font-family: Corbel, Lucida Grande, Lucida Sans Unicode, Lucida Sans, DejaVu Sans, Bitstream Vera Sans, Liberation Sans, Verdana, Verdana Ref, sans serif;
 
-Trebuchet
-
+	/* Trebuchet */
 	font-family: Segoe UI, Candara, Bitstream Vera Sans, DejaVu Sans, Bitstream Vera Sans, Trebuchet MS, Verdana, Verdana Ref, sans serif;
 
-Impact
-
+	/* Impact */
 	font-family: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
 
-Monospace
-
+	/* Monospace */
 	font-family: Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace;
 
-Github:
+	/* Github */
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
-
-WordPress admin and Medium interface:
-
+	/* WordPress admin and Medium interface */
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+```
 
 
 ### Fonts and FO*T
@@ -1591,7 +1589,7 @@ See `font-display` property.
 > FOIT-fix anti-pattern: embed fonts as Data URIs in main CSS, e.g. alibaba.com — instead of invisible text, this blocks page render.
 — [Zach Leatherman on Twitter: "FOIT-fix anti-pattern: embed fonts as Data URIs in main CSS, e.g. http://t.co/ON6wJsomgd—instead of invisible text, this blocks page render."](https://twitter.com/zachleat/status/587725066244386816)
 
-- [Font style matcher](https://meowni.ca/font-style-matcher/) - Tool to define for reduce FOUC
+- [Font style matcher](https://web.archive.org/web/20201019170902/https://meowni.ca/font-style-matcher/) - Tool to define for reduce FOUC
 - [A Comprehensive Guide to Font Loading Strategies—zachleat.com](https://www.zachleat.com/web/comprehensive-webfonts/)
 - [Non-blocking web fonts using LocalStorage — CrocoDillon](http://crocodillon.com/blog/non-blocking-web-fonts-using-localstorage)
 - [Dev.Opera — Better @font-face with Font Load Events](https://dev.opera.com/articles/better-font-face/)
@@ -1898,7 +1896,7 @@ Photoshop space unit is 1/1000em
 ```css
 *{
 	text-shadow:
-	   -1px -1px 0 #000,  
+	   -1px -1px 0 #000,
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		 1px 1px 0 #000;
@@ -2232,24 +2230,19 @@ body::after {
 
 Use `transform` instead of `top`/`left`/`bottom`/`right` for better performances. See [relayout, repaint, reflow](#relayout-repaint-reflow).
 
-Transition or animation on some devices (tablet or smartphone) are not perfectly synchronized, when lot of differents animated elements.
-
 For complexe layout with text and/or `em` or `rem`, it's could be usefull to animate `font-size`. But it's trigger layout.
-
-`animation-play-state` stop animation, but after next keyframe
-
-To replay an animation, you need to reflow animated elements. Ex.: (just) `element.offsetWidth;`
 
 Note: Declarations in a keyframe that are qualified with `!important` are ignored
 
-- http://css-tricks.com/restart-css-animation/
-- https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element
+- [javascript - Restart animation in CSS3: any better way than removing the element? - Stack Overflow](https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element)
 
 - [Animatable: One property, two values, endless possibilities](http://leaverou.github.io/animatable/)
 - [Myth Busting: CSS Animations vs. JavaScript | CSS-Tricks](https://css-tricks.com/myth-busting-css-animations-vs-javascript/)
 - [The ultimate guide to Web animation | Webdesigner Depot](http://www.webdesignerdepot.com/2015/05/the-ultimate-guide-to-web-animation/)
 - [Keyframes generator](https://github.com/wholcman/css-animation-on-fly)
 - ["will-change" must change? Animators beware. | GreenSock](https://greensock.com/will-change)
+- [Codevember 11 #bike gsap svg stroke animation](https://codepen.io/alaricweb/pen/vWxPyp)
+- [Animate pseudo element instead of box-shadow](#animate-pseudo-element-instead-of-box-shadow)
 
 For accessibility, disable animations / transitions with:
 
@@ -2273,8 +2266,21 @@ For accessibility, disable animations / transitions with:
 - [CSS transition from/to auto values](http://n12v.com/css-transition-to-from-auto/)
 - [\[css-transitions\] Transition to height (or width) "auto" · Issue #626 · w3c/csswg-drafts](https://github.com/w3c/csswg-drafts/issues/626)
 - `element.style.height = window.getComputedStyle(element, null).height` explicitly define the dimension before animate (need adjusted when parent and children are reflowed)
+
+### Easing
+
+- [cubic-bezier(.17,.67,.83,.67) ✿ cubic-bezier.com](https://cubic-bezier.com/#.17,.67,.83,.67)
 - [Spring physics with CSS variables](https://codepen.io/valhead/pen/yXYYdm)
-- [Codevember 11 #bike gsap svg stroke animation](https://codepen.io/alaricweb/pen/vWxPyp)
+
+### Playback
+
+Transition or animation on some devices (tablet or smartphone) are not perfectly synchronized, when lot of differents animated elements.
+
+To replay an animation, you need to reflow animated elements. Ex.: (just) `element.offsetWidth;`
+
+`animation-play-state` stop animation, but after next keyframe
+
+- [Restart CSS Animation | CSS-Tricks](https://css-tricks.com/restart-css-animation/)
 
 ### Content
 
@@ -2928,7 +2934,7 @@ element:hover::after {
 ```
 
 - [How to animate "box-shadow" with silky smooth performance | Tobias Ahlin](http://tobiasahlin.com/blog/how-to-animate-box-shadow/)
-- http://www.sassmeister.com/gist/c0b2a8d6945a88c76bd9459a0cf1752e
+- [Compare box-shadow vs opacity performances](https://www.sassmeister.com/gist/c0b2a8d6945a88c76bd9459a0cf1752e) - [source](https://gist.github.com/csswizardry/c0b2a8d6945a88c76bd9459a0cf1752e)
 
 ### Improve loading perception with backgrounds
 
@@ -2974,7 +2980,7 @@ Chrome display focus ring when button are clicked not only tabbed
 	var element = document.createElement("style");
 	element.textContent = ":focus{outline:0}::-moz-focus-inner{border:0;}";
 	document.head.appendChild(element);
-	
+
 	function handleEvent(event){
 		element.disabled = event.type == "keydown";
 	}
@@ -3059,7 +3065,7 @@ Possible solutions:
 
 - borders
 - SVG background
- 
+
 Empty arrow:
 
 ```css
@@ -3136,7 +3142,7 @@ element{
 	overflow: hidden;
 	position: relative;
 	/*display: block;*/
-	
+
 	$height: 200px;
 	$rotate: 3deg;
 	&::before,
@@ -3245,7 +3251,7 @@ for(let keyframeIndex = 0; keyframeIndex < keyframes.length; keyframeIndex++){
 		let localTime = time - pointIndex * delay;
 		localTime = Math.min(Math.max(localTime, 0), duration);
 		let progress = easing(localTime / duration);
-	
+
 		let pointFrom = from[pointIndex];
 		let pointTo = to[pointIndex];
 		values[pointIndex] = {
@@ -3358,6 +3364,7 @@ element {
 }
 ```
 
+- [CSS Gradient — Generator, Maker, and Background](https://web.archive.org/web/20201021105837/https://cssgradient.io/)
 - [CSS linear-gradient helper](http://codepen.io/captainbrosset/pen/ByqRMB) and [captainbrosset/linear-gradient: A visualization tool for CSS linear-gradients](https://github.com/captainbrosset/linear-gradient)
 - [Do you really understand CSS linear-gradients? – Medium](https://medium.com/@patrickbrosset/do-you-really-understand-css-linear-gradients-631d9a895caf)
 - [linear-gradient() - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient)
@@ -3489,6 +3496,10 @@ Supported by all major browser (include IE9+)
 - [Fixing the white glow in the CSS blur() filter by Taylor Hunt on CodePen](https://codepen.io/tigt/post/fixing-the-white-glow-in-the-css-blur-filter)
 - [Switch font color for different backgrounds with CSS | CSS-Tricks](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
 
+### Box-shadow
+
+- [brumm.af](https://web.archive.org/web/20200829085322/https://brumm.af/shadows)
+
 ## Newsletters
 
 > Newsletters, the hardest thing after IE6
@@ -3562,7 +3573,7 @@ a code {
 	background: inherit;
 	color: inherit;
 	padding: inherit;
-}	
+}
 ```
 
 - [Basic styling of `button` elements – tests](http://fvsch.com/code/button-css/test.html)
@@ -3645,7 +3656,7 @@ sub {
 
 ```css
 .link{
-	
+
 }
 .link-list{/*or .link-ul*/
 	list-style: none;
@@ -3752,7 +3763,7 @@ pre{
 #periodic{
 	display: table;
 }
-#big-bang::before { 
+#big-bang::before {
 	content: "";
 }
 #chucknouris{
@@ -3761,7 +3772,7 @@ pre{
 #nsa{
 	opacity: 1;
 }
-#tower-of-pisa { 
+#tower-of-pisa {
 	font-style: italic;
 }
 .ninja{
@@ -3779,13 +3790,13 @@ pre{
 	right: 100%
 	margin: 0%;
 }
-#lego { 
+#lego {
 	display: block;
 }
 .delorean{
 	z-index: -1955;
 }
-.fear { 
+.fear {
 	display: none;
 }
 .illuminati{
@@ -3821,10 +3832,10 @@ pre{
 
 ## The property `background` is propagated from `<body>` to `<html>`
 
-> For documents whose root element is an HTML HTML element [HTML401] or an XHTML html element [XHTML11]: if the computed value of ‘background-image’ on the root element is ‘none’ and its ‘background-color’ is ‘transparent’, user agents must instead propagate the computed values of the background properties from that element's first HTML BODY or XHTML body child element. 
+> For documents whose root element is an HTML HTML element [HTML401] or an XHTML html element [XHTML11]: if the computed value of ‘background-image’ on the root element is ‘none’ and its ‘background-color’ is ‘transparent’, user agents must instead propagate the computed values of the background properties from that element's first HTML BODY or XHTML body child element.
 — https://www.w3.org/TR/css3-background/#body-background
 
-> In other words, user agents must propagate the background of body through the viewport if html is not styled with a background. Meaning if html is styled with a background then the background of body will be only painted within the body's boundaries. 
+> In other words, user agents must propagate the background of body through the viewport if html is not styled with a background. Meaning if html is styled with a background then the background of body will be only painted within the body's boundaries.
 
 > `body` does not mean the whole visible page. `html` does. `body` only means its contents.
 
@@ -3902,7 +3913,7 @@ Position when rescale will be based on `transform-origin`
 			transform-style: preserve-3d;
 			perspective-origin: top left;
 		}
-		
+
 		.parallax {
 			position: absolute;
 			top: 200px;
@@ -4040,7 +4051,7 @@ HTML:
 			<div class="hv-item-parent">
 				<p>Parent</p>
 			</div>
-	
+
 			<ul class="hv-item-children">
 				<li class="hv-item-child">
 					<!-- Key component -->
@@ -4048,27 +4059,27 @@ HTML:
 						<div class="hv-item-parent">
 							<p>Parent</p>
 						</div>
-	
+
 						<ul class="hv-item-children">
 							<li class="hv-item-child">
 								<p>Child 1</p>
 							</li>
-	
+
 							<li class="hv-item-child">
 								<p>Child 2</p>
 							</li>
-	
+
 							<li class="hv-item-child">
 								<p>Child 2</p>
 							</li>
 						</ul>
 					</div>
 				</li>
-	
+
 				<li class="hv-item-child">
 					<p>Child 2</p>
 				</li>
-	
+
 				<li class="hv-item-child">
 					<p>Child 3</p>
 				</li>
@@ -4079,18 +4090,18 @@ HTML:
 CSS:
 
 	@import url('https://fonts.googleapis.com/css?family=Poppins');
-	
+
 	$bottom-margin: 50px;
 	$line-width: 2px;
 	$line-color: rgba(#FFF, 0.7);
 	$bg-color: #EFE6E2;
-	
+
 	body{
 		background: $bg-color;
 		font-family: 'Poppins', sans-serif;
 		padding-top: 50px;
 	}
-	
+
 	p{
 		margin: 0;
 		background-color: #fff;
@@ -4101,7 +4112,7 @@ CSS:
 		text-align: center;
 		box-shadow: 0 3px 6px rgba(#CC8367, 0.22);
 	}
-	
+
 	.hv-wrapper{
 		display: flex;
 		.hv-item{
@@ -4134,39 +4145,39 @@ CSS:
 				.hv-item-child{
 					padding: 0 15px;
 					position: relative;
-				
+
 					&:before, &:after{
 						content: '';
 						position: absolute;
 						background-color: $line-color;
 						left: 0;
 					}
-				
+
 					&:before{
 						left: 50%;
 						top: 0;
 						transform: translateY(-100%);
 						width: $line-width;
 						height: $bottom-margin / 2;
-					
+
 					}
-				
+
 					&:after{
 						top: -$bottom-margin / 2;
 						transform: translateY(-100%);
 						height: $line-width;
 						width: 100%;
 					}
-				
+
 					&:first-child:after{
 						left: 50%;
 						width: 50%;
 					}
-					
+
 					&:last-child:after{
 						width: calc(50% + 1px);
-					}				
-				
+					}
+
 				}
 			}
 		}

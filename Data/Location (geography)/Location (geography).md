@@ -16,14 +16,14 @@ Aka address
 	* crk (creek)
 	* mnt (mountain)
 	* ft (fort)
-	
+
 	* Gge (garage)
-	
+
 	* Esc (escalier)
 	* Apt (appartement)
 	* Etg (étage)
 	* Pte (porte)
-	
+
 	* [C1 Street Suffix Abbreviations | Postal Explorer](http://pe.usps.gov/text/pub28/28apc_002.htm)
 	* [State Abbreviations](https://about.usps.com/who-we-are/postal-history/state-abbreviations.htm)
 	* Street Suffix Abbreviations [Publication 28 - Postal Addressing Standards - pub28.pdf](http://pe.usps.com/cpim/ftp/pubs/Pub28/pub28.pdf#G7.538618)
@@ -116,8 +116,9 @@ See Geocoder
 - [Publication 28 - Postal Addressing Standards - pub28.pdf](http://pe.usps.com/cpim/ftp/pubs/Pub28/pub28.pdf)
 - [House numbering - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/House_numbering)
 - [Address (geography) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Address_(geography))
-- [Falsehoods programmers believe about addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/)
-- [Falsehoods programmers believe about geography | Thias の blog](http://wiesmann.codiferes.net/wordpress/?p=15187&lang=en)
+- [Falsehoods programmers believe about addresses](https://web.archive.org/web/20201029074423/https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/)
+- [Falsehoods programmers believe about geography – Thias の blog](https://web.archive.org/web/20190606013357/https://wiesmann.codiferes.net/wordpress/?p=15187&lang=en)
+- [Kablamo Engineering Blog](https://web.archive.org/web/20201008152441if_/https://engineering.kablamo.com.au/posts/2020/falsehoods-about-map-coordinates)
 - [Better Web Form Name & Address Inputs - David Michael Ross](https://davidmichaelross.com/blog/better-name-address-inputs/)
 - [Designing a @#$%ing address form — Jon H.M. Chan](http://www.jonhmchan.com/blog/2014/2/19/designing-an-address-form)
 - [Form Usability: Getting 'Address Line 2' Right - Articles - Baymard Institute](http://baymard.com/blog/address-line-2)

@@ -1,3 +1,7 @@
+- [filamentgroup/glyphhanger: Your web font utility belt. It can subset web fonts. It can find unicode-ranges for you automatically. It makes julienne fries.](https://github.com/filamentgroup/glyphhanger)
+- [Rendering text](../../Graphics/Graphics.md#rendering-text)
+- [OpenType font - OTF - TTF](../OpenType%20font%20-%20OTF%20-%20TTF/OpenType.md)
+
 ## Color
 
 See [OpenType font](../OpenType%20font%20-%20OTF%20-%20TTF/OpenType.md#color)

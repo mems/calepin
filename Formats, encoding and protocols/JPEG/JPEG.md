@@ -229,7 +229,7 @@ By default, JPEG will half the resolution of colour data, but you can disable th
 
 - [Lepton](https://github.com/dropbox/lepton)
 	A tool and file format for losslessly compressing JPEGs by an average of 22%.
-	
+
 	- [Lepton image compression: saving 22% losslessly from images at 15MB/s | Dropbox Tech Blog](https://blogs.dropbox.com/tech/2016/07/lepton-image-compression-saving-22-losslessly-from-images-at-15mbs/)
 
 ### Selective compression

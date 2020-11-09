@@ -91,7 +91,7 @@ Javascript use `<button type="button">` to interact with user clicks/actions.
 > Represents an integration point for an external(typically non-HTML) application or interactive content.
 >
 > The optional src attribute specifies the URL of the resource being embedded.
-> 
+>
 > The optional type attribute specifies the MIME type of the plugin to instantiate. The value must be a valid MIME type, optionally with parameters. If both the type attribute and the src attribute are present, then the type attribute must specify the same MIME type as the explicit Content-Type metadata of the resource given by the src attribute.
 
 Before HTML5:
@@ -555,7 +555,7 @@ And from [What are the naming guidelines for ASP.NET controls? - Stack Overflow]
 	tbl Table
 	txt TextBox
 	v View
-	
+
 	DATA CONTROLS
 	dtl DataList
 	dp DataPager
@@ -571,7 +571,7 @@ And from [What are the naming guidelines for ASP.NET controls? - Stack Overflow]
 	smd SiteMapDataSource
 	sds SqlDataSource
 	xds XmlDataSource
-	
+
 	VALIDATION CONTROLS
 	cpv CompareValidator
 	ctv CustomValidator
@@ -579,7 +579,7 @@ And from [What are the naming guidelines for ASP.NET controls? - Stack Overflow]
 	rev RegularExpressionValidator
 	rfv RequiredFieldValidator
 	vs ValidationSummary
-	
+
 	VALIDATION CONTROLS:
 	cpv // CompareValidator
 	ctv CustomValidator
@@ -587,14 +587,14 @@ And from [What are the naming guidelines for ASP.NET controls? - Stack Overflow]
 	rev RegularExpressionValidator
 	rfv RequiredFieldValidator
 
-Sequences: 
+Sequences:
 
 1. intro
 2. bridge
 3. hero
 4. standard
 5. outro
- 
+
 	.some-module {}
 	.some-module__sub-compontent {}
 	.some-module--modifier {}
@@ -768,9 +768,9 @@ webpage, text, image, video, map
 - colophon (about the document / website): author, co-authors, publishing date, editors, used softwares, etc.
 	> about the publication of a book such as the place of publication, the publisher, and the date of publication
 	— [Colophon (publishing) — Wikipedia](https://en.wikipedia.org/wiki/Colophon_(publishing))
-	
+
 	See also:
-	
+
 	* [Paratexte — Wikipédia](https://fr.wikipedia.org/wiki/Paratexte)
 	* [Colophon - The Web Standards Project](http://www.webstandards.org/about/colophon/)
 - lead-article
@@ -807,7 +807,7 @@ webpage, text, image, video, map
 
 #### E-commerce & services
 
-- offer (coupon) (use `aside` or `footer`?) (or as offer page to choose pricing plan/table) 
+- offer (coupon) (use `aside` or `footer`?) (or as offer page to choose pricing plan/table)
 - supply
 - gift/discount voucher (coupon/bon de réduction)
 - digital distribution platform (itunes, app store, google play, windows phone store, etc.)
@@ -875,7 +875,7 @@ Some field/control names are reserved for an other purpose, by the backend or as
 	* "mobile", meaning the field/control is for contacting someone regardless of location
 	* "fax", meaning the field/control describes a fax machine's contact details
 	* "pager", meaning the field/control describes a pager's or beeper's contact details
-	
+
 	Family name + First name or Single name (mononym)
 - [HTML Standard - 4.10.19.8 Autofill](https://html.spec.whatwg.org/multipage/forms.html#autofill)
 - [Field Specifications for E-Commerce v1.1](http://www.ietf.org/rfc/rfc3106.txt)
@@ -932,14 +932,14 @@ Aka a11y
 - `lang` attribute should match the actual content language, else the screen reader's interpretation will be incomprehensible (`lang` attribute is also used by CSS for `hyphens`, quotes, etc.)
 - VoiceOver don't handle elements with `width: 0; height: 0;`
 - images `alt` attribute with null value (`alt=""`) are usally ignored. AT assume it is for decorative purposes.
-- avoid usage of line return for `alt` value: [Short note on coding alt text | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/09/short-note-on-coding-alt-text/) 
+- avoid usage of line return for `alt` value: [Short note on coding alt text | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/09/short-note-on-coding-alt-text/)
 - duplicate content should be avoided. **Don't** Ex: `<a href="register.html"><img src="register.png" alt="Register">Register</a>`, image `alt` should null (else AT show : "Register, Register link")
 	or use `aria-hidden="true"` in conjonction with `role="presentation"`. But with an image, using CSS is recommended
 - using `role=button` can be sometimes irrevelant (for example if the node is an heading level. http://heydonworks.com/practical_aria_examples/#comment-1178134652). A child element is required to fix that.
 - > `role="presentation"` tells screen readers that the semantics of an element are inaccurate and should be ignored (useful in situations where you’re unable to change the element’s type to `<div>`).
 	> `aria-hidden="true"` completely hides an element from screen readers (useful for e.g. decorative SVG icons).
 	— [The Accessibility Difference Between Aria-hidden and role="presentation"](http://csskarma.com/blog/difference-rolepresentation-aria-hiddentrue/)
-	
+
 	> If you feel a need to do `<nav role="presentation">` or `<header role="presentation">` or `<article role="presentation">` **use `<div>` instead**
 	— https://twitter.com/stevefaulkner/status/798835014670512128
 - **DONT:** Remove focus outline, underline, and no diff color for links (people with parkinson are unable to use the website, hovering over text to find the links is difficult with this condition)
@@ -1087,7 +1087,7 @@ Others (doc, about, etc.):
 `aria-label`:
 
 ```html
-<ul aria-label="Vehicle Models Available:"> 
+<ul aria-label="Vehicle Models Available:">
 	<li>Dodge Shadow</li>
 	<li>Ford Focus</li>
 	<li>Chevy Lumina</li>
@@ -1255,7 +1255,7 @@ Note: Ideally, expandable items should be following the item that expands and co
 	background-color: #eee;
 	z-index:1002;
 	overflow: auto;
-}		
+}
 </style>
 
 <script>
@@ -1277,20 +1277,20 @@ function toggleDialog(sh) {
 	if (sh == "show") {
 		dialogOpen = true;
 
-		// show the dialog 
+		// show the dialog
 		dialog.style.display = 'block';
-	
+
 		// after displaying the dialog, focus an element inside it
 		okbutton.focus();// be carefull, if you have animations and overflow: hidden, you shoud do elementWithOverflowHidden.scroll[Left|Top] = 0
-	
+
 		// only hide the background *after* you've moved focus out of the content that will be "hidden"
 		pagebackground.setAttribute("aria-hidden","true");
-	
+
 	} else {
 		dialogOpen = false;
 		dialog.style.display = 'none';
 		pagebackground.setAttribute("aria-hidden","false");
-		lastFocus.focus(); 
+		lastFocus.focus();
 	}
 }
 
@@ -1321,7 +1321,7 @@ document.addEventListener("keydown", function(event) {
 <div role="dialog" aria-labelledby="myDialog" id="box" class="box-hidden" tabindex="-1">
 	<h3 id="myDialog">Just an example.</h3>
 	<button id="ok" onclick="hideDialog(this);" class="close-button">OK</button>
-	<button onclick="hideDialog(this);" class="close-button">Cancel</button>		
+	<button onclick="hideDialog(this);" class="close-button">Cancel</button>
 </div>
 ```
 
@@ -1945,7 +1945,7 @@ Use list for radios, with a fieldset:
 		</select>
 	</p>
 	-->
-	
+
 	<button>Submit</button>
 </form>
 <!-- [WebAIM: Creating Accessible Forms - Accessible Form Controls](http://webaim.org/techniques/forms/controls#radio) -->
@@ -1975,7 +1975,7 @@ And for self explanatory choices (radios, like gender), without fieldset:
 			<input name="gender" value="female" id="female" type="radio">
 		</li>
 	</ul>
-	
+
 	<button>Submit</button>
 </form>
 ```
@@ -2001,7 +2001,7 @@ But **always use a label**:
 		<label for="other-input2">Other input 2</label>
 		<input id="other-input2" type="checkbox">
 	</p>
-	
+
 	<button type="submit">Submit</button>
 </form>
 ```
@@ -2036,7 +2036,7 @@ Examples:
 
 - date: year, month, day, hour, minute
 - address: place nearby, building number, street, city name, zip/postal code, country, etc. (some fields are useless in some area)
-- name: First name, middle name, last name, 
+- name: First name, middle name, last name,
 
 Instead use date input:
 
@@ -2082,24 +2082,24 @@ Pick a predefined value (suggest any value match the entered data), but allow to
 See also [Multiselect component](#multiselect-component) and [`autocomplete` attribute]()
 
 > The search field
-> 
+>
 > - The auto-suggest input must have a descriptive label
 > - The input field must have a `role="combobox"` attribute
 > - The input field must have an `aria-autocomplete` attribute
 > - The input field must have an `aria-owns` attribute
 > - The input field must have an `aria-activedescendant` attribute that changes value with each selection
-> 
+>
 > Keyboard Access
-> 
+>
 > - The auto-suggest must be able to be operated using only a keyboard
 > - Focus must alxways be visible
 > - Suggestions can be selected using _Up Arrow_ and _Down Arrow_ keys (wrapping through the text box whe, the top or bottom of the list is reached)
 > - _Up Arrow_ and _Down Arrow_ keys move through suggestions highlighting the current option
 > - _Enter_ key selects the hightlighted option and close the list
 > - _ESC_ when suggesteions visible closes the list and leaves the user typed text in the textbox
-> 
+>
 > Suggestions
-> 
+>
 > - Avaiable suggestions must be displayed directly below the input field and come directly after the input field in the page source
 > - Number of available suggestions must be announced to screen readers
 > - Suggestions container has `role="listbox"` attribute
@@ -2227,7 +2227,7 @@ Recent browser ignore `autocomplete="off"` for user credentials (Firefox 38+, Go
 
 Some workarounds:
 
-- Use a correct value like `autocomplete="new-password"` (password field). Else use `autocomplete="off"` on form or on the field. 
+- Use a correct value like `autocomplete="new-password"` (password field). Else use `autocomplete="off"` on form or on the field.
 - Use header like `Cache-Control: no-store` (`no-cache`, `private` too?)
 - Use a delayed script (timeout) and after page load to clear data (revert value to defaultValue)
 - Use a script after page load to select all auto filled fields (webkit only: `input:-webkit-autofill`) and revert value to default
@@ -2265,17 +2265,17 @@ Don't use number type thing that use digit like identifier (credit card number, 
 > — [🥕 Blade Teacher on Twitter: "@antumbral @wavebeem I tell developers "If you can't do math on it, it's a string, not a number."" / Twitter](https://twitter.com/corydodt/status/1233428222454296577)
 
 > ## `<input type=number>` is only intended for amounts
-> 
+>
 > If your web form includes a field that accepts a number, make sure that this field is not implemented as an `<input type=number>` element unless its value represents a quantity or amount (e.g., a price or a number of items).
-> 
+>
 > Use the regular `<input type=text>` element for codes, PINs, account numbers, identification numbers, and any other **numeric value that doesn’t represent an amount**.
-> 
+>
 > In the following code example, the inputmode attribute selects the [suitable virtual keyboard in mobile browsers](https://webplatform.news/issues/2019-05-06) (the pattern value is a fallback for iOS versions prior to 12.2).
-> 
+>
 > `<input type="text" pattern="[0-9]*" inputmode="numeric">`
-> 
+>
 > If you do have a form field whose value represents an amount and decide to use `type=number`, be aware that this input type is not well supported in some assistive technology software (NVDA, Dragon Naturally Speaking).
-> 
+>
 > — [\<input type=number\> is only intended for amounts - Web Platform News](https://webplatform.news/issues/2020-03-06)
 
 Use instead `type="tel"`, `type="email"`, `type="url"`. If no type match, use `type="text"` with `pattern` attribute and `inputmode` attribute if needed (`numeric`). See [Input mode](#input-mode).
@@ -2305,7 +2305,7 @@ Input date value use [RFC 3339](http://tools.ietf.org/html/rfc3339) format. `YYY
 
 - [Stefan Judis on Twitter: "Safari now supports `enterkeyhint`. 👏 I always like it when the enter key gives me more context. 👇 🔗 Spec: https://t.co/IOQkUsjB6f #devsheets https://t.co/7HHX77Jow7" / Twitter](https://twitter.com/stefanjudis/status/1249958064041734144)
 
-### Tabular form 
+### Tabular form
 
 Aka booking form, book an appointment
 
@@ -2418,9 +2418,9 @@ Use `mark` element for [quotation emphasis](#mark-element)
 > 	<p>The most beautiful women are
 > 	<span lang="fr"><abbr>M<sup>lle</sup></abbr> Gwendoline</span> and
 > 	<span lang="fr"><abbr>M<sup>me</sup></abbr> Denise</span>.</p>
-> 
+>
 > the `sub` element is used to represent the subscript that identifies the variable in a family of variables:
-> 
+>
 > 	<p>The coordinate of the <var>i</var>th point is
 > 	(<var>x<sub><var>i</var></sub></var>, <var>y<sub><var>i</var></sub></var>).
 > 	For example, the 10th point has coordinate
@@ -2430,15 +2430,15 @@ Use `mark` element for [quotation emphasis](#mark-element)
 ## `dfn`
 
 > In the following fragment, the term "Garage Door Opener" is first defined in the first paragraph, then used in the second. In both cases, its abbreviation is what is actually displayed.
-> 
+>
 > 	<p>The <dfn><abbr title="Garage Door Opener">GDO</abbr></dfn>
 > 	is a device that allows off-world teams to open the iris.</p>
 > 	<!-- ... later in the document: -->
 > 	<p>Teal'c activated his <abbr title="Garage Door Opener">GDO</abbr>
 > 	and so Hammond ordered the iris to be opened.</p>
-> 
+>
 > With the addition of an a element, the reference can be made explicit:
-> 
+>
 > 	<p>The <dfn id=gdo><abbr title="Garage Door Opener">GDO</abbr></dfn>
 > 	is a device that allows off-world teams to open the iris.</p>
 > 	<!-- ... later in the document: -->
@@ -2504,19 +2504,19 @@ Aka definition list
 [Recommended by HTML Standard for "name-value groups"](https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element).
 
 ```html
-<dl>		 
+<dl>
 	<dt>Name</dt>
 	<dd>John Don</dd>
-		 
+
 	<dt>Age</dt>
 	<dd>23</dd>
-			 
+
 	<dt>Gender</dt>
 	<dd>Male</dd>
-			 
+
 	<dt>Day of Birth</dt>
 	<dd>12th May 1986</dd>
-	
+
     <div id="devices">
     	<dt>SmartPhone</dt>
     	<dt>Computer</dt>
@@ -2557,7 +2557,7 @@ Don't use it for [Conversations](#conversations), use `p` instead.
 	<tr>
 		<th scope="row">Gender: </th>
 		<td>Male</td>
-	</tr>	
+	</tr>
 	<tr>
 		<th scope="row">Day of Birth:</th>
 		<td>12th May 1986</td>
@@ -2718,7 +2718,7 @@ Recommended by WHATWG:
   <blockquote>
 	<p>For writing maintainable and scalable HTML documents.</p>
   </blockquote>
-  
+
   <figcaption>— HTML Best Practices</figcaption>
 </figure>
 ```
@@ -2750,7 +2750,7 @@ be conceded to have merits.</blockquote>
 <blockquote>Finally, one should be prepared for the threat
 of breakdown in negotiations at any given moment and not
 be cowed by the possibility.</blockquote>
-<p>We shall now discuss these points...	
+<p>We shall now discuss these points...
 ```
 
 - [HTML Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
@@ -2760,7 +2760,7 @@ Recommended by W3C:
 ```html
 <blockquote class="twitter-tweet">
 	<p>♥ Bukowski in <a href="https://twitter.com/search?q=%23HTML5&src=hash">#HTML5</a> spec examples
-	<a href="http://t.co/0FIEiYN1pC">http://t.co/0FIEiYN1pC</a></p><cite>— karl dubost (@karlpro) 
+	<a href="http://t.co/0FIEiYN1pC">http://t.co/0FIEiYN1pC</a></p><cite>— karl dubost (@karlpro)
 	<a href="https://twitter.com/karlpro/statuses/370905307293442048">August 23, 2013</a></cite>
 </blockquote>
 ```
@@ -2782,7 +2782,7 @@ Other:
 
 ## `code`, `kbd`, `var` and `samp`
 
-Element		Purpose 			Example 
+Element		Purpose 			Example
 `code`		Computer code		`The <code>fruitdb</code> program can be used for tracking fruit production.`
 `var`		Variables			`If there are <var>n</var> fruit in the bowl, at least <var>n</var>÷2 will be ripe.`
 `samp`		Computer output		`The computer said <samp>Unknown error -3</samp>.`
@@ -2844,8 +2844,8 @@ Or subheading, subtitle, alternative title, sub header, sub title
 </style>
 
 <h1>
-	The Mothers 
-	<span class="sub">Fillmore East - June 1971</span> 
+	The Mothers
+	<span class="sub">Fillmore East - June 1971</span>
 </h1>
 ```
 
@@ -2888,9 +2888,9 @@ Use the `→` char instead.
 ```html
 <nav>
 	<ul>
-		<li><a href="/">Main</a> →</li> 
-		<li><a href="/products/">Products</a> →</li> 
-		<li><a href="/products/dishwashers/">Dishwashers</a> →</li> 
+		<li><a href="/">Main</a> →</li>
+		<li><a href="/products/">Products</a> →</li>
+		<li><a href="/products/dishwashers/">Dishwashers</a> →</li>
 		<li><a aria-current="location">Second hand</a></li>
 	</ul>
 </nav>
@@ -2966,9 +2966,9 @@ HTML5 allow to wrap multiple elements with a link
 But we can't do it to `tr` (table row). That require a little bit of JS emulate a click on the (first?) link in the row
 
 > It doesn't make sense for all elements, such as interactive elements like input and button, where the use of href would interfere with their normal function.
-> 
+>
 > Wrapping `<a>` elements around blocks solves most use cases. It doesn't handle making rows in tables into links, though; for those just do something like this instead: `<tr onclick="location = this.getElementsByTagName('a')[0]"> ... </tr>`
-> 
+>
 > — [html/FAQ.md at master · whatwg/html](https://github.com/whatwg/html/blob/master/FAQ.md#html-should-support-href-on-any-element)
 
 ```html
@@ -3046,10 +3046,10 @@ Image-map style annotated image (flickr like picture annotations):
 ```html
 <figure>
 	<img src="bike.jpg" alt="Photograph of me on my bike">
-	
+
 	<figcaption>
 		<b>Things to note:</b>
-	
+
 		<ul>
 			<!-- Positions of the list-items. These need defining inline. -->
 			<li style="top:255px; left:150px;">Helmet.</li>
@@ -3057,7 +3057,7 @@ Image-map style annotated image (flickr like picture annotations):
 			<li style="top:480px; left:130px;">Low pressures.</li>
 			<li style="top:390px; left:325px;">The trailer I just jumped from.</li>
 		</ul>
-		
+
 		<i>Photo by Suzanna Haworth</i>
 	</figcaption>
 </figure>
@@ -3131,9 +3131,9 @@ Use dedicated elements like `figure` for a graphical element with a legend, etc.
 ```html
 <article>
 	<h1>Product #1</h1>
-	
+
 	<p>Description blah...</p>
-	
+
 	<!-- attributes -->
 	<dl>
 		<dt>Color</dt>
@@ -3141,7 +3141,7 @@ Use dedicated elements like `figure` for a graphical element with a legend, etc.
 		<dt>Size</dt>
 		<dd>2 x 3 x 4cm</dd>
 	</dl>
-	
+
 	<!-- actions, etc. -->
 	<footer>
 		<a href="/delete">Delete</a>
@@ -3163,13 +3163,13 @@ Use dedicated elements like `figure` for a graphical element with a legend, etc.
 > The theme of each section should be identified, typically by including a heading (h1-h6 element) as a child of the section element.
 
 > A List of DOs…
-> 
+>
 > DO use section for each individual section of a tab switcher or content slider (if an unordered list isn’t needed)
 > DO use section to divide a lengthy “terms and conditions” (or similar) page into numbered sections
 > DO nest section elements if necessary (as you might do with the “terms and conditions” page)
-> 
+>
 > A List of DON’Ts…
-> 
+>
 > DON’T use section to divide content from the header and footer; use div instead (see the doctor)
 > DON’T use section to wrap a tab switcher for DOM manipulation or styling
 > DON’T use section for sidebar or other tangentially-related content boxes; use aside instead
@@ -3177,7 +3177,7 @@ Use dedicated elements like `figure` for a graphical element with a legend, etc.
 > DON’T use section for the wrapper when implementing faux columns; again, use div instead
 > DON’T use section to nest elements when trying to avoid IE6′s float double-margin bug (or a similar layout-related issue); again, use div
 > DON’T use section to hold an individual author bio on a blog post or news article; use aside instead
-> 
+>
 > — [When to Use the HTML5 "section" Element - Impressive Webs](https://www.impressivewebs.com/html5-section/)
 
 - [Sectioning Content in HTML5 - div or section or article? | bitsofcode](http://bitsofco.de/2015/sectioning-content-in-html5/)
@@ -3465,7 +3465,7 @@ By default its `role` is `contentinfo`
 ```
 
 > Some site designs have what is sometimes referred to as "fat footers" — footers that contain a lot of material, including images, links to other articles, links to pages for sending feedback, special offers... in some ways, a whole "front page" in the footer.
-> 
+>
 > This fragment shows the bottom of a page on a site with a "fat footer":
 
 ```html
@@ -3588,7 +3588,7 @@ See also [forum post](#forum-post)
 	 <dt> "A fish." (if you have one)
 	 <dt> "A newspaper." (if you have one)
 	 <dt> "A pebble." (if you have one)
-	 <dd> <p> "No thanks", he replies. Your conversation options		
+	 <dd> <p> "No thanks", he replies. Your conversation options
 	 at this point are the same as they were after asking to borrow
 	 his boat, minus any options you've suggested before.
 	</dl>
@@ -3763,31 +3763,31 @@ Note: you can use `<time>` tag:
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" preserveAspectRatio="xMidYMid meet">
 	<title>Description of image</title>
-	
+
 	<style>
 		svg {
 			background-size: 100% 100%;
 			background-repeat: no-repeat;
 		}
-		
+
 		@media screen and (max-width: 400px) {
 			svg {
 				background-image: url("small.png");
 			}
 		}
-		
+
 		@media screen and (min-width: 401px) and (max-width: 700px) {
 			svg {
 				background-image: url("medium.png");
 			}
 		}
-		
+
 		@media screen and (min-width: 701px) and (max-width: 1000px) {
 			svg {
 				background-image: url("big.png");
 			}
 		}
-		
+
 		@media screen and (min-width: 1001px) {
 			svg {
 				background-image: url("huge.png");
@@ -3981,7 +3981,7 @@ Similar to breadcrumb (but not the same).
       <text class="caption">Continued...</text>
     </g>
   </svg>
-  
+
   <footer>
     <small><a href="http://copyright.gov/title17/" rel="license">© 2010</a></small>
   </footer>
@@ -4386,6 +4386,7 @@ You can use `&quot;` in attribute value `style="background: url(&quot;image.png&
 - [Character Entity Reference Chart](https://dev.w3.org/html5/html-author/charref)
 - [HTML Symbols, Entities, Characters and Codes — HTML Arrows](https://www.toptal.com/designers/htmlarrows/)
 - [Entity Lookup](http://entity-lookup.leftlogic.com/)
+- [Typography Cheatsheet—A Comprehensive Guide to Smart Quotes, Dashes & Other Typographic Characters · Typewolf](https://web.archive.org/web/20201028155034/https://www.typewolf.com/cheatsheet)
 
 ## Language attribute
 
@@ -4502,7 +4503,7 @@ Aka the end-tag open
 
 Encode:
 - `<!--` as `<\!--`
-- (in script tag) `<script` as `<\script` and `</script` as `<\/script` if it's in literal (strings, regular expressions, or comments), else 
+- (in script tag) `<script` as `<\script` and `</script` as `<\/script` if it's in literal (strings, regular expressions, or comments), else
 - (in style tag) `<style` as `<\style` and `</style` as `<\/style`
 
 See also:

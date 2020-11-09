@@ -77,6 +77,17 @@ Or use in Chrome devtools: Sources tab > Event Listener Breakpoints > Script > S
 > Use third-party libraries to solve user problems, not developer problems
 > — Adrian Holovaty [Adrian Holovaty | How I optimized my JS sheet music rendering engine | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=XH5EtQge_Bg&t=2216)
 
+> How much of an advantage does that really give you?
+> [...]
+> But if you are truly worried about speed, surely your whole site should be behind a CDN – not just a few JS libraries?
+> [...]
+> if you’re using v1.2 and another site is using v1.2.1 the browser can’t take advantage of cacheing.
+> [...]
+> If you serve your JS from the same source as your main site, there is less chance of a user getting a broken experience.
+> [...]
+> What happens if someone hacks your CDN?
+> — [Please stop using CDNs for external Javascript libraries – Terence Eden’s Blog](https://web.archive.org/web/20201026140353/https://shkspr.mobi/blog/2020/10/please-stop-using-cdns-for-external-javascript-libraries/)
+
 See [localization](Development#localization), [libaries](ECMAScript#libaries)
 
 Collections:
@@ -207,10 +218,10 @@ See also [`contentEditable`](#contenteditable)
 
 <details>
 	<summary>JS Excel code snipet</summary>
-	
+
 	// from http://jsfiddle.net/ondras/o3tzx1px/
 	<p>This is an updated version of <a href="http://jsfiddle.net/ondras/hYfN3/">http://jsfiddle.net/ondras/hYfN3/</a>. Some people argued that the original approach was too hacky and incompatible with strict/ES2015, so here we go again <strong>without <code>with</code>:</strong></p>
-	
+
 	<ul>
 		<li>25 lines of vanilla ES2015: arrow functions, destructuring, template literals, spread</li>
 		<li>No libraries or frameworks</li>
@@ -219,14 +230,14 @@ See also [`contentEditable`](#contenteditable)
 		<li>Circular reference prevention</li>
 		<li>Automatic localStorage persistence</li>
 	</ul>
-	
+
 	<table></table>
-	
+
 	<footer><p>&copy; 2017 <a href="http://ondras.zarovi.cz/">Ondřej Žára</a></p></footer>
-	
+
 	<style>
 	li {  list-style: none; }
-	
+
 	li:before {
 		position: relative;
 		content: "✓";
@@ -234,38 +245,38 @@ See also [`contentEditable`](#contenteditable)
 		display: inline-block;
 		left: -2ch;
 	}
-	
+
 	input {
 		border: none;
 		width: 80px;
 		font-size: 14px;
 		padding: 2px;
 	}
-	
+
 	input:hover { background-color: #eee; }
 	input:focus { background-color: #ccf; }
-	
+
 	input:not(:focus) {
 		text-align: right;
 	}
-	
+
 	table { border-collapse: collapse; }
-	
+
 	td {
 		border: 1px solid #999;
 		padding: 0;
 	}
-	
+
 	tr:first-child td, td:first-child {
 		background-color: #ccc;
 		padding: 1px 3px;
 		font-weight: bold;
 		text-align: center;
 	}
-	
+
 	footer { font-size: 80%; }
 	</style>
-	
+
 	<script>
 	for (let i=0; i<6; i++) { /* build the table */
 		let row = document.querySelector("table").insertRow()
@@ -275,7 +286,7 @@ See also [`contentEditable`](#contenteditable)
 		}
 	}
 	let keys = Array.from(document.querySelectorAll("input")).map(i => i.id) // spread not in Edge
-	
+
 	function valueOf(key) { /* recursively compute a value */
 		let val = localStorage[key] || ""
 		if (val[0] == "=") {
@@ -285,11 +296,11 @@ See also [`contentEditable`](#contenteditable)
 			return isNaN(parseFloat(val)) ? val : parseFloat(val)
 		}
 	}
-	
+
 	(window.update = _ => keys.forEach(key => { /* update all fields */
 		try { document.getElementById(key).value = valueOf(key) } catch (e) {}
 	}))()
-	
+
 	window.addEventListener("focus", e => e.target.value = localStorage[e.target.id] || "", true)
 	window.addEventListener("blur", e => (localStorage[e.target.id] = e.target.value, update()), true)
 	</script>
@@ -378,28 +389,28 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 	<summary>Sprites and custom shaders</summary>
 
 	// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md
-	
+
 	var scene, camera, renderer;
 	var geometry, material, mesh;
-	
+
 	init();
 	animate();
-	
+
 	function init() {
-	
+
 		scene = new THREE.Scene();
-	
+
 		camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
 		camera.position.z = 1000;
-	
+
 		geometry = new THREE.BoxGeometry( 200, 200, 200 );
 		material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-	
+
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
-	
+
 			// to this example, we shall add some sprites
-		
+
 			for (var i = 0; i < 100; i++) {
 				var sprite = new THREE.Sprite (new THREE.SpriteMaterial ({
 					color: Math.floor (0xffffff * Math.random ())
@@ -412,54 +423,54 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 				sprite.scale.multiplyScalar (100);
 				mesh.add (sprite);
 			}
-	
+
 			// and we shall render these sprites with custom shader
-	
+
 			setSpriteMaterial ();
-	
+
 		renderer = new THREE.WebGLRenderer();
 		renderer.setSize( window.innerWidth, window.innerHeight );
-	
+
 		document.body.appendChild( renderer.domElement );
 	}
-	
+
 	function animate() {
-	
+
 		requestAnimationFrame( animate );
-	
+
 		mesh.rotation.x += 0.01;
 		mesh.rotation.y += 0.02;
-	
+
 		renderer.render( scene, camera );
-	
+
 		// update time parameter
-	
+
 		THREE.SpritePlugin.uniforms.time.value = (Date.now() % 1000) * 1e-3;
 	}
-	
+
 	function setSpriteMaterial () {
 		var spritePluginSource = THREE.SpritePlugin.toString();
-	
+
 		// find "program" variable
-	
+
 		var program = /useProgram\(([^)]+)\)/.exec(spritePluginSource)[1];
-	
+
 		// inject support for custom shader code
-	
+
 		var shaders = ['vertex', 'fragment'];
 		var spritePluginSource = spritePluginSource
 		.replace(/(shaderSource)([^\[]*)(\[)/g, function (match, p1, p2, p3) {
 		  return p1 + p2 + 'THREE.SpritePlugin.' + shaders.shift() + 'ShaderSource||' + p3;
 		})
-	
+
 		// inject shaders debug stuff
-	
+
 		.replace(/([\w]+)(\.compileShader\()([^\)]+)(\);)/g, function (match, p1, p2, p3, p4) {
 		  return p1 + p2 + p3 + p4 + 'console.log(' + p1 + '.getShaderInfoLog(' + p3 + '));';
 		})
-	
+
 		// inject support for custom uniforms
-	
+
 		.replace(/([\w]+)(\.drawElements)/g, function (match, p1, p2) {
 		  return '' +
 			'var extraUniforms = THREE.SpritePlugin.uniforms;' +
@@ -471,11 +482,11 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 			  '}' +
 			'}\n' + p1 + p2;
 		});
-	
+
 		eval('THREE.SpritePlugin = ' + spritePluginSource);
-	
+
 		// finally, set the material - hearts based on http://glslsandbox.com/e#23617.0
-	
+
 		THREE.SpritePlugin.fragmentShaderSource = '\
 			precision highp float;\
 			uniform vec3 color;\
@@ -497,13 +508,13 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 				vec2 p = (-1.0+2.0*vUV);\
 				gl_FragColor = heart(p.x, p.y-0.35);\
 			}';
-	
+
 		// and its time parameter
-	
+
 		THREE.SpritePlugin.uniforms = {
 		  time : { value : 0 }
 		}
-	
+
 	}
 </details>
 
@@ -515,116 +526,116 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 
 <details>
 	<summary>2D position to 3D</summary>
-	
+
 	// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md ThreeJS r71
-	
+
 	// we define this balloon class to handle 2D overlay stuff for us
-	
+
 	function Balloon( html ) {
 		THREE.Object3D.call( this );
-	
+
 		this.popup = document.createElement( 'div' );
 		this.popup.classList.add( 'balloon' );
 		this.popup.innerHTML = html;
-	
+
 		this.addEventListener( 'added', (function () {
 		    container.appendChild( this.popup );
 		}).bind( this ));
-	
+
 		this.addEventListener( 'removed', (function () {
 		    container,removeChild( this.popup );
 		}).bind( this ));
 	}
-	
+
 	Balloon.prototype = Object.create( THREE.Object3D.prototype );
 	Balloon.prototype.constructor = Balloon;
-	
+
 	Balloon.prototype.updateMatrixWorld = (function () {
 		var screenVector = new THREE.Vector3 ();
 		var raycaster = new THREE.Raycaster ();
-	
+
 		return function( force ) {
 		    THREE.Object3D.prototype.updateMatrixWorld.call( this, force );
-	
+
 		    screenVector.set( 0, 0, 0 ); this.localToWorld( screenVector );
-		
+
 		    raycaster.ray.direction.copy( screenVector );
-	
+
 		    raycaster.ray.origin.set( 0, 0, 0 ); camera.localToWorld( raycaster.ray.origin );
 		    raycaster.ray.direction.sub( raycaster.ray.origin );
-		
+
 		    var distance = raycaster.ray.direction.length();
 		    raycaster.ray.direction.normalize();
-		
+
 		    var intersections = raycaster.intersectObject( scene, true );
 		    if( intersections.length && ( intersections[0].distance < distance )) {
-		    
+
 		        // overlay anchor is obscured
 		        this.popup.style.display = 'none';
-		    
+
 		    } else {
-		    
+
 		        // overlay anchor is visible
 		        screenVector.project( camera );
-		    
+
 		        this.popup.style.display = '';
 		        this.popup.style.left = Math.round((screenVector.x + 1) * container.offsetWidth / 2 - 50) + 'px';
 		        this.popup.style.top = Math.round((1 - screenVector.y) * container.offsetHeight / 2 - 50) + 'px';
 		    }
 		};
 	}) ();
-	
+
 	var scene, camera, renderer;
 	var geometry, material, mesh;
-	
+
 	init();
 	animate();
-	
+
 	function init() {
-	
+
 		scene = new THREE.Scene();
-	
+
 		camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / container.offsetHeight, 1, 10000 );
 		camera.position.z = 1000;
-	
+
 		// we change here box to sphere, apply earth texture to it
-	
+
 		THREE.ImageUtils.crossOrigin = '';
-	
+
 		geometry = new THREE.SphereGeometry( 400, 30, 20 );
 		material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture('http://i.imgur.com/DhOF0XH.jpg'/*earth texture*/) } );
-	
+
 		mesh = new THREE.Mesh( geometry, material );
 		scene.add( mesh );
-	
+
 		renderer = new THREE.WebGLRenderer();
 		renderer.setClearColor( 0xffffff );
 		renderer.setSize( container.offsetWidth, container.offsetHeight );
-	
+
 		// and wrap the whole thing into the div
-	
+
 		container.appendChild( renderer.domElement );
-	
+
 		// oh yes, add some overlays
-	
+
 		var africa = new Balloon( 'Africa<div class="arrow"></div>' );
 		africa.position.set( 1, 0.2, -0.4 ).normalize().multiplyScalar( 400 + 1 );
 		mesh.add( africa );
-	
+
 		var australia = new Balloon( 'Australia<div class="arrow"></div>' );
 		australia.position.set( -1, -0.6, -1 ).normalize().multiplyScalar( 400 + 1 );
 		mesh.add( australia );
 	}
-	
+
 	function animate() {
-	
+
 		requestAnimationFrame( animate );
-	
+
 		mesh.rotation.x += 0.001;
 		mesh.rotation.y += 0.020;
-	
+
 		renderer.render( scene, camera );
-	
+
 	}
 </details>
 
@@ -637,7 +648,9 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 
 ## Language and API
 
-See [Language](ECMAScript#language)
+See [Language](../ECMAScript/ECMAScript.md#language)
+
+- [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
 
 ### Reference to the global scope
 
@@ -659,7 +672,7 @@ Use `self` instead `window`. It's available in Web Workers
 
 Don't use `document.implementation.hasFeature()`:
 
-> hasFeature() originally would report whether the user agent claimed to support a given DOM feature, but experience proved it was not nearly as reliable or granular as simply checking whether the desired objects, attributes, or methods existed. As such, it should no longer be used, but continues to exist (and simply returns true) so that old pages don't stop working. 
+> hasFeature() originally would report whether the user agent claimed to support a given DOM feature, but experience proved it was not nearly as reliable or granular as simply checking whether the desired objects, attributes, or methods existed. As such, it should no longer be used, but continues to exist (and simply returns true) so that old pages don't stop working.
 — [DOM Standard](https://dom.spec.whatwg.org/#dom-domimplementation-hasfeature)
 
 See [feature detection](ECMAScript#feature-detection) and [detect a feature](Web#detect-a-feature)
@@ -889,15 +902,15 @@ See [Naming convention](Development#naming-convention)
 			postMessage({foo: "bar"});
 		}, 1000);
 	}
-	
+
 	var code = worker.toString();
 	//code = code.substring(code.indexOf("{")+1, code.lastIndexOf("}"));
 	code = `(${code})()`;
-	
+
 	var blob = new Blob([code], {type: "application/javascript"});
 	//var blob = new File([code], "worker.js", {type: "application/javascript"});
 	var workerInstance = new Worker(URL.createObjectURL(blob));// will not works in IE10
-	
+
 	workerInstance.onmessage = function(m) {
 		console.log("worker msg", m);
 	};
@@ -918,12 +931,12 @@ someAsyncFunction(signal){
 		if(signal.aborted){
 			reject(new AbortError())
 		}
-		
+
 		signal.addEventListener("abort" event => {
 			// cancel current operation
 			reject(new AbortError());
 		})
-		
+
 		// start async operation with some callbacks
 	});
 }
@@ -941,7 +954,7 @@ async someAsyncFunction(signal){
 		if(signal.aborted){
 			throw new AbortError();
 		}
-		
+
 		// pass the signal to sub async function and read iterator / generator (wait promise)
 	}
 }
@@ -1077,7 +1090,7 @@ xhr.send(formEncoder.result);
 	<script>
 		// Suppress native error messages
 		form.addEventListener("invalid", event => event.preventDefault());
-		
+
 		// Trigger validation onblur
 		form.addEventListener("blur", event => {
 			let tgt = event.target;
@@ -1085,7 +1098,7 @@ xhr.send(formEncoder.result);
 			validateField(tgt);
 		});
 		form.onsubmit = validateAll;
-		
+
 		function validateField(field){
 			if (!field.validity.valid) {
 				// set class to invalid
@@ -1282,7 +1295,7 @@ Use transaction in an unload event is not guarantied to works, implementations c
 
 ## Break `console.log()`
 
-It's a fake problems, that must be fixed by browser makers, and don't protect data from someone with bad intentions 
+It's a fake problems, that must be fixed by browser makers, and don't protect data from someone with bad intentions
 
 ```js
 (function() {
@@ -1324,7 +1337,7 @@ In others browser (or if redefine `console` property is not possible), log a mes
 
 <details>
 	<summary>Log in console in non Chrome browsers</summary>
-	
+
 	// From Facebook
 	let j = 'Stop!';
 	let k = 'This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Facebook feature or "hack" someone\'s account, it is a scam and will give them access to your Facebook account.';
@@ -1513,7 +1526,7 @@ var data32 = new Uint32Array(buf);
 for (var y = 0; y < canvasHeight; ++y) {
 	for (var x = 0; x < canvasWidth; ++x) {
 		var value = x * y & 0xff;
-		
+
 		data32[y * canvasWidth + x] =
 			(255   << 24) |	// alpha
 			(value << 16) |	// blue
@@ -1532,27 +1545,27 @@ Or use WebGL:
 
 <details>
 	<summary>Draw in Canvas with WebGL</summary>
-	
+
 	<img id="image" src="image.jpg">
-	
+
 	<script id="vertex-shader" type="x-shader/x-vertex">
 		attribute vec2 a_position;
 		attribute vec2 a_texCoord;
 		uniform vec2 u_resolution;
 		varying vec2 v_texCoord;
-	
+
 		void main() {
 			vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0; // convert the rectangle from pixels to clipspace
 			gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
 			v_texCoord = a_texCoord; // pass the texCoord to the fragment shader
 		}
 	</script>
-	
+
 	<script id="fragment-shader" type="x-shader/x-fragment">
 		precision mediump float;
 		uniform sampler2D u_image; // the texture
 		varying vec2 v_texCoord; // the texCoords passed from the vertex shader.
-	
+
 		void main() {
 			vec4 color = texture2D(u_image, v_texCoord);
 			float grey = (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
@@ -1561,31 +1574,31 @@ Or use WebGL:
 		}
 		</script>
 	<script type="text/javascript">
-	
+
 		// Helper function to compile webGL program
 		createWebGLProgram = function(ctx, vertexShaderSource, fragmentShaderSource) {
-	
+
 			this.ctx = ctx;
-	
+
 			this.compileShader = function(shaderSource, shaderType) {
 				var shader = this.ctx.createShader(shaderType);
 				this.ctx.shaderSource(shader, shaderSource);
 				this.ctx.compileShader(shader);
 				return shader;
 			};
-	
+
 			var program = this.ctx.createProgram();
 			this.ctx.attachShader(program, this.compileShader(vertexShaderSource, this.ctx.VERTEX_SHADER));
 			this.ctx.attachShader(program, this.compileShader(fragmentShaderSource, this.ctx.FRAGMENT_SHADER));
 			this.ctx.linkProgram(program);
 			this.ctx.useProgram(program);
-	
+
 			return program;
-	
+
 		}
-	
+
 		var image = document.getElementById('image');
-	
+
 		if(image.complete){
 			desaturateImage(image);
 		} else {
@@ -1593,33 +1606,33 @@ Or use WebGL:
 				desaturateImage(image);
 			};
 		}
-	
+
 		function desaturateImage(image) {
-	
+
 			var canvas = document.createElement('canvas');
 			image.parentNode.insertBefore(canvas, image);
 			canvas.width  = image.width;
 			canvas.height = image.height;
 			image.parentNode.removeChild(image);
-	
+
 			var ctx;
 			try {
 			  ctx = canvas.getContext("webgl")  || canvas.getContext("experimental-webgl");
 			} catch(e) {}
-	
+
 			if (!ctx) {
 				// You could fallback to 2D methods here
 				alert("Sorry, it seems WebGL is not available.");
 			}
-	
+
 			var fragmentShaderSource = document.getElementById("fragment-shader").text;
 			var vertexShaderSource = document.getElementById("vertex-shader").text;
 			var program = createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource);
-	
+
 			// Expose canvas width and height to shader via u_resolution
 			var resolutionLocation = ctx.getUniformLocation(program, "u_resolution");
 			ctx.uniform2f(resolutionLocation, canvas.width, canvas.height);
-	
+
 			// Position rectangle vertices (2 triangles)
 			var positionLocation = ctx.getAttribLocation(program, "a_position");
 			var buffer = ctx.createBuffer();
@@ -1633,7 +1646,7 @@ Or use WebGL:
 				image.width, image.height]), ctx.STATIC_DRAW);
 			ctx.enableVertexAttribArray(positionLocation);
 			ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, 0, 0);
-	
+
 			//Position texture
 			var texCoordLocation = ctx.getAttribLocation(program, "a_texCoord");
 			var texCoordBuffer = ctx.createBuffer();
@@ -1647,7 +1660,7 @@ Or use WebGL:
 				1.0, 1.0]), ctx.STATIC_DRAW);
 			ctx.enableVertexAttribArray(texCoordLocation);
 			ctx.vertexAttribPointer(texCoordLocation, 2, ctx.FLOAT, false, 0, 0);
-	
+
 			// Create a texture.
 			var texture = ctx.createTexture();
 			ctx.bindTexture(ctx.TEXTURE_2D, texture);
@@ -1658,7 +1671,7 @@ Or use WebGL:
 			ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST);
 			// Load the image into the texture.
 			ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
-	
+
 			// Draw the rectangle.
 			ctx.drawArrays(ctx.TRIANGLES, 0, 6);
 		}
@@ -1737,7 +1750,7 @@ Maybe it's not the right solution
 
 ### Canvas stress test
 
-Usefull for detect low-end devices or old tablets/smartphones 
+Usefull for detect low-end devices or old tablets/smartphones
 
 ```js
 var canvas = document.createElement("canvas");
@@ -1828,11 +1841,11 @@ canvas {
 		 vec4 originalR = texture2D(u_originalImage, (v_texcoord + (u_mouse * 1.0)));
 		 vec4 originalG = texture2D(u_originalImage, (v_texcoord + (u_mouse * 0.6)));
 		 vec4 originalB = texture2D(u_originalImage, (v_texcoord + (u_mouse * 0.2)));
-	 
+
 		 vec4 red = vec4(originalR.r, 0.0, 0.0, 1.0);
 		 vec4 green = vec4(0.0, originalG.g, 0.0, 1.0);
 		 vec4 blue = vec4(0.0, 0.0, originalB.b, 1.0);
-	
+
 		 gl_FragColor = blue + red + green;
 	}
 </script>
@@ -1848,7 +1861,7 @@ function main() {
 
 	let originalImage = { width: 1, height: 1 }; // replaced after loading
 	const originalTexture = twgl.createTexture(gl, {
-		src: "https://robindelaporte.fr/codepen/marie.jpg", 
+		src: "https://robindelaporte.fr/codepen/marie.jpg",
 		crossOrigin: '',
 	}, (err, texture, source) => {
 		originalImage = source;
@@ -1902,17 +1915,17 @@ function main() {
 		const canvasAspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
 		const imageAspect = originalImage.width / originalImage.height;
 		const mat = m3.scaling(imageAspect / canvasAspect, -1);
-	
+
 		nMouse[0] += (mouse[0] - nMouse[0]) * 0.05;
 		nMouse[1] += (mouse[1] - nMouse[1]) * 0.05;
-		
+
 		// calls gl.activeTexture, gl.bindTexture, gl.uniformXXX
 		twgl.setUniforms(programInfo, {
 			u_matrix: mat,
 			u_originalImage: originalTexture,
 			u_mouse: nMouse,
 		});
-	
+
 		// calls gl.drawArrays or gl.drawElements
 		twgl.drawBufferInfo(gl, bufferInfo);
 
@@ -1928,7 +1941,7 @@ main();
 
 - minimise branching (if/else, etc.), nested branches, etc. because each branche will be executed (in series), the after the result will be picked
 - minimise texture quantity
-- minimise 
+- minimise
 
 - [Steve Sanderson - Write massively-parallel GPU code for the browser with WebGL on Vimeo](https://vimeo.com/97329154#t=44m52s)
 
@@ -2030,7 +2043,7 @@ if(!eventDispatched) {
 }
 ```
 
-- 
+-
 - [javascript - How can you programmatically tell an HTML SELECT to drop down (for example, due to mouseover)? - Stack Overflow](https://stackoverflow.com/questions/249192/how-can-you-programmatically-tell-an-html-select-to-drop-down-for-example-due/10136523#10136523)
 - [Using WAI-ARIA in HTML — Custom Control Accessible Development Checklist](http://w3c.github.io/aria-in-html/#custom-control-accessible-development-checklist)
 - [Roving tabindex -- A11ycasts #06 - YouTube](https://www.youtube.com/watch?v=uCIC2LNt0bk)
@@ -2039,7 +2052,7 @@ if(!eventDispatched) {
 
 ### Suggest email address corrections (domain e.g. gnail.com → gmail.com)
 
-Test domain availability (DNS or IP). 
+Test domain availability (DNS or IP).
 Display a message (after a timeout) (for "luke@gnail.com") "Did you mean luke@gmail.com?" (click on this message update the input).
 But be carefull, this can add errors like hotmail.com and hotmail.co.uk (used by UK users)
 In addition: suggest `.` for `。` (chinese)
@@ -2106,15 +2119,15 @@ Field mask
 	html.classList.add("js");
 	var body = document.body;
 	var form = document.getElementById("form");
-	
+
 	var input = document.getElementById("cc-number");
 	input.classList.add("extended");
-	
+
 	var extendedInput = document.createElement("div");
 	extendedInput.contentEditable = true;
 	extendedInput.setAttribute("aria-controls", input.id);
 	extendedInput.classList.add("extended-input");
-	
+
 	extendedInput.addEventListener("input", event => {
 		var groupLength = 4;
 		var rawContent = extendedInput.textContent;
@@ -2157,7 +2170,7 @@ Field mask
 				while( (node = node.previousSibling) != null ){ caretPos += groupLength; }
 				caretPos += range.endOffset;
 			}
-	
+
 			// Limit to max chars (ex.: when forbidden chars are added)
 			Math.min(caretPos, Math.max(numChars - 1, 0));
 		}
@@ -2169,7 +2182,7 @@ Field mask
 			richContent += "<span class=\"extended-input-part\">" + content.substr(index, groupLength) + "</span>";
 			index += groupLength;
 		}
-		
+
 		// Update content
 		input.value = content;
 		extendedInput.innerHTML = richContent;
@@ -2195,14 +2208,14 @@ Field mask
 				selectedNode = extendedInput;
 				selectionOffset = 0;
 			}
-	
+
 			range.setStart(selectedNode, selectionOffset);
 			range.setEnd(selectedNode, selectionOffset);
 			selection.removeAllRanges();
 			selection.addRange(range);
 		}
 	}, false);
-	
+
 	input.parentNode.insertBefore(extendedInput, input.nextSibling);
 </script>
 ```
@@ -2261,7 +2274,7 @@ function click(event){
 	if(event.defaultPrevented){
 		return;
 	}
-	
+
 	// Find the submitter. But not if the default action was prevented
 	var element = event.target;
 	while(element && element != this._form){
@@ -2270,7 +2283,7 @@ function click(event){
 			|| element.nodeName == "BUTTON" && element.type == "submit"
 		){
 			submitter = element;
-	
+
 			break;
 		}
 		element = element.parentElement;
@@ -2936,7 +2949,7 @@ requestAnimationFrame(() => {
 		// been calculated and the paint has occurred. Unless something else
 		// has dirtied the DOM very early, querying for style and layout information
 		// here should be cheap.
-		
+
 		// Do _not_ under any circumstances write to the DOM in one of these callbacks!
 	}, 0);
 });
@@ -3018,7 +3031,7 @@ See [relayout, repaint, reflow](CSS#relayout-repaint-reflow)
 
 `element.getBoundingClientRect()` return `0,0,0,0` for not displayed elements
 
-`element.offsetHeight == 0` means the element is not displayed but not work if element without padding nor border contains no element (or out of flow elements). Plus that trigger a reflow 
+`element.offsetHeight == 0` means the element is not displayed but not work if element without padding nor border contains no element (or out of flow elements). Plus that trigger a reflow
 
 `element.offsetParent !== null` return `null` when element is not displayed (!= not visible or transparent). But... [javascript - What would make offsetParent null? - Stack Overflow](https://stackoverflow.com/questions/306305/what-would-make-offsetparent-null) [HTMLElement.offsetParent - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent)
 
@@ -3292,7 +3305,7 @@ See also:
 See [detect touch device](CSS#detect-touch-device)
 
 > We found that some sites are assuming that “if this web browser supports touch events, then it shouldn’t support mouse events at the same time.” e.g. Apple.com and Wells Fargo.
-> 
+>
 > — SeoJin Kim, Principal Engineer for Samsung Internet
 
 Do you mean: Is it an hover media? or: What is precision of the pointer? (none, coarse, fine)
@@ -3383,22 +3396,22 @@ A few notes about this event:
 "If you listen to touchend events, be sure to also listen for touchcancel":
 
 > The touchend event fires whenever a finger lifts normally from the touchscreen.  All browsers can also fire a touchcancel event (http://www.w3.org/TR/touch-events/#the-touchcancel-event) to indicate that a touch has terminated abnormally.  This can happen, for example, if focus is taken away from the page (such as by the browser's menu being activated), or for any number of other implementation-defined reasons.  The reason this is a separate event is that you may want to avoid triggering some action (eg. a tap that ends with a touchend should activate something, but one that ends in touchcancel should not).
-> 
+>
 > I've seen many websites which listen for touchend but ignore touchcancel entirely.  This results in some subtle but nasty bugs.  For example, the app may think that a finger is stuck down when there are no fingers on the page at all.  When a new touchstart occurs, the app may get very confused - possibly thinking two fingers are now down.
-> 
+>
 > This is particularly problematic for Chrome.  Chrome sends a touchcancel event whenever scrolling starts (i.e. whenever there has been enough movement without the app calling preventDefault on any of the touchmove events) [edit: this is no longer true - see http://updates.html5rocks.com/2014/05/A-More-Compatible-Smoother-Touch].  Chrome does this in order to maximize performance of scrolling.  Scrolling normally occurs on a separate thread (from the main thread which runs JavaScript) in order to allow scrolling to proceed smoothly.  But if we were to send touchmove events throughout the scroll then we'd probably have to block on the main thread for every scroll update, making it potentially janky.  Besides, we've found that the majority of sites that handle touchmove events during scroll are doing it by accident (eg. they've forgotten to call preventDefault, or they care only about taps not dragging gestures).  If the app is also manipulating the DOM in these handlers then the problem can be even worse (in the worst case, forcing a layout on every scroll update) - resulting in scrolling that is unbearably janky.
-> 
+>
 > Chrome for Android has always had this optimization, and now in M32 Chrome desktop is changing (http://crbug.com/240735) to match the Android behavior.  You can see this in action here: http://www.rbyers.net/janky-touch-scroll.html.  Enable the "do lots of work" and "empty touchmove handler" checkboxes.  Scrolling will take a little while to start (to verify the page doesn't want to prevent scrolling entirely), but once it starts it will proceed smoothly on browsers that have this touchcancel behavior (or other such optimizations).  For bonus points, scroll down and try the same thing with the scrollable element.  In Chrome we work hard to try to make scrolling of elements behave the same as document scrolling, but there are some (shrinking) scenarios where this isn't yet possible (and so it will be janky when scrolling the document is smooth).
-> 
+>
 > The precise behavior here is painfully specific to each browser.  I've put some details here: https://docs.google.com/a/chromium.org/document/d/12k_LL_Ot9GjF8zGWP9eI_3IMbSizD72susba0frg44Y/edit#heading=h.nxfgrfmqhzn7.  At least this is very well specified in Pointer Events (http://www.w3.org/TR/pointerevents/), and Chrome's behavior is equivalent to the Pointer Event behavior.  We're talking at the W3C at trying to improve consistency between browsers for this touch event case (see http://lists.w3.org/Archives/Public/public-webevents/2013AprJun/0040.html).
-> 
+>
 > — [If you listen to touchend events, be sure to also listen for touchcancel The…](https://plus.google.com/+RickByers/posts/Ny6ZXuzWdN5)
 
 - [pointercancel - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/pointercancel)
 
 ### Lock drag to scroll in one direction (vertical | horizontal)
 
-Allow 2 axis scroll degree free, but once the user start to scroll in one direction (s)he can't scroll in same time over the other axis 
+Allow 2 axis scroll degree free, but once the user start to scroll in one direction (s)he can't scroll in same time over the other axis
 
 Example with iOS's Springboard (home):
 
@@ -3412,13 +3425,13 @@ var touchDirectionLock;
 var touchStartX;
 var touchStartY;
 element.addEventListener("touchstart", touchStart);
-	
+
 function touchStart(event){
 	touchDirectionLock = null;//Reset
 	var firstTouch = event.touches[0];
 	touchStartX = firstTouch.clientX;
 	touchStartY = firstTouch.clientY;
-	
+
 	window.addEventListener("touchmove", touchMove);
 	window.addEventListener("touchend", touchEnd);
 	window.addEventListener("touchcancel", touchEnd);
@@ -3428,7 +3441,7 @@ function touchMove(event){
 	var diffX = firstTouch.clientX - touchStartX;
 	var diffY = firstTouch.clientY - touchStartY;
 	var distance = Math.sqrt(diffX * diffX + diffY * diffY);//absolute distance from touchStartX and Y
-	
+
 	// If the lock direction not defined yet and touch moves enough to determine it
 	// Require at least 20px distance
 	if(touchDirectionLock === null && distance >= 20){
@@ -3437,13 +3450,13 @@ function touchMove(event){
 		touchStartX = firstTouch.clientX;
 		touchStartY = firstTouch.clientY;
 	}
-	
+
 	// No direction lock determined yet
 	if(touchDirectionLock === null){
 		console.log("Touch direction lock not determined yet");
 		return;
 	}
-	
+
 	// Prevent event default's action here (eg. scroll by touch drag)
 	console.log("Touch direction lock", touchDirectionLock);
 }
@@ -3452,7 +3465,7 @@ function touchEnd(event){
 		console.log("Can't determine touch direction lock");
 		return;
 	}
-	
+
 	console.log("Touch direction lock", touchDirectionLock);
 }
 ```
@@ -3462,23 +3475,23 @@ function touchEnd(event){
 Drag and drop an interactive element, start drag & stop drag
 
 	add listeners on target element: mousedown->pointerDown and touchstart->pointerDown
-	
+
 	pointerDown:
 		// note: will be called by events from element: mousedown and touchstart
 		// filter to handle only event.button === 0 (match left button or right button on left handed mouse)
 		// add listeners on document: mousemove->dragMove, touchmove->dragMove, mouseup->pointerUp, touchend->pointerUp and touchcancel->pointerUp
 		// store event.clientX|Y or event.offsetX|Y if drag relative to the element
-	
+
 	pointerMove:
 		// note: will be called by events from document/window: mousemove and touchmove
 		// move your draggable element, etc. ex.: apply offset between last stored value and the new value (new - prev)
 		// store event.clientX|Y or event.offsetX|Y
-	
+
 	pointerUp:
 		// note: will be called by events from document/window: mouseup, touchend and touchcancel
 		// remove listeners on document: pointerMove and pointerUp
 		// note: you can use event.preventDefault() but will dispatch mouseevent on touch devices
-		
+
 		// ease to final position using lastPointerVelocity * 300, where (in pointerMove) lastPointerVelocity = (clientX - lastPointerX|Y) / (now - lastPointerTime)
 
 Note: listen mousemove, touchmove, mouseup, touchend, touchcancel on document or window makes no differences. Because it bubbling events.
@@ -3549,7 +3562,7 @@ function click(event){
 		return;
 	}
 	time = now;
-	
+
 	//Double Click/Touch!
 }
 
@@ -3581,7 +3594,7 @@ function _linkClick(event){
 	if(event.button != 0/*event.buttons != 1*/){
 		return;
 	}
-	
+
 	// Do stuff
 }
 ```
@@ -3789,7 +3802,7 @@ For fallback (old IE < Edge):
 
 	var supportPageOffset = window.pageXOffset !== undefined;//IE < 9
 	var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
-	
+
 	var x = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
 	var y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
 
@@ -3915,7 +3928,7 @@ See also [Parse HTML using the native parser](#parse-html-using-the-native-parse
 
 ### Read text
 
-	htmlScriptElement.text;//htmlStyleElement don't have that property 
+	htmlScriptElement.text;//htmlStyleElement don't have that property
 	htmlScriptElement.innerText;// trigger reflow to handle hidden elements
 	htmlScriptElement.textContent;// return all text nodes (even in hidden elements)
 
@@ -4109,7 +4122,7 @@ console.log(toc.join("\n"));
 const html = document.documentElement.cloneNode(true);
 
 function patchURL(value){
-	
+
 }
 
 for(let [property, collection] of [
@@ -4123,14 +4136,14 @@ for(let [property, collection] of [
 ]){
 	for(let element of collection){
 		const isSVGElement = element instanceof SVGElement;
-		
+
 		// Some elements have deliberately this missing attribute (like <script> or <video><source src=""></video>)
 		if(!element.hasAttributeNS(property)){
 			continue;
 		}
-	
+
 		let value = element[property];
-	
+
 		if(property === "srcset"){
 			value = value.split(",").map(value => {
 				// https://html.spec.whatwg.org/multipage/images.html#srcset-attribute
@@ -4141,7 +4154,7 @@ for(let [property, collection] of [
 		}else{
 			value = patchURL(value, base);
 		}
-	
+
 		// Update the property (JSDOM doesn't rebase metas, we use absolute URLs)
 		// It's often better to use absolute URLs for metas
 		// But loose the ability to update base tag href
@@ -4245,7 +4258,7 @@ container.appendChild(wrapper);
 var el = document.documentElement;
 while(el){
 	console.log(el);
-	
+
 	nextEl = el.firstElementChild/*down*/;
 	/*or next or up and next*/
 	if(!nextEl){
@@ -4314,7 +4327,7 @@ All these methods don't handle charset/encoding, which is by default `UTF-8`. Yo
 
 - XML/SVG/XHTML: update `<?xml version="1.0" ?>` to `<?xml version="1.0" encoding="ENCODING" ?>`
 - HTML: insert `<meta http-equiv="Content-Type" content="text/html;charset=ENCODING">` just after the `<head>`
-	
+
 You can also re-encode manually the content of `htmlString`.
 
 See also https://developer.mozilla.org/en-US/docs/Web/API/XMLSerializer
@@ -4575,7 +4588,7 @@ iframe.onload = function() {
 	// Get a reference to that element:
 	// Pull it out of the iframe & into the parent document:
 	content.appendChild(iframe.contentDocument.querySelector('.xhr-content-wrapper'));
-	
+
 	// Here, the parser maintains a stack of open elements https://html.spec.whatwg.org/multipage/syntax.html#stack-of-open-elements
 
 	// Write some more content (async):
@@ -4583,7 +4596,7 @@ iframe.onload = function() {
 		iframe.contentDocument.write(xhr.response.slice(charsLoaded));
 		charsLoaded = xhr.response.length;
 	};
-	
+
 	// Keep writing content like above, and then when we're done:
 	xhr.onload = function() {
 		iframe.contentDocument.write('</div>');
@@ -4617,7 +4630,7 @@ Note: Until the iframe is added to an online document, the `iframe.contentDocume
 `iframe.sandbox` can be used to disable scripts, popups, top navigation, etc. even same orgin access (but useless since the contained scripts could disabled it)
 
 ```html
-<iframe id="iframe" src="data:text/html;charset=UTF-8,<!DOCTYPE html><html><head></head><body><h1>FAIL</h1></body></html>"></iframe>​
+<iframe id="iframe" src="data:text/html;charset=UTF-8,<!DOCTYPE html><html><head></head><body><h1>FAIL</h1></body></html>"></iframe>
 <script>
 	let iframe = document.getElementById("iframe")
 	console.log(iframe.contentDocument.body.innerHTML); // ""
@@ -4722,7 +4735,7 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 			if(deep === 0){
 				break;
 			}
-			
+
 			// Read previous index saved
 			// Continue iterate to parent
 			deep--;
@@ -4733,7 +4746,7 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 			// Continue the loop but on next parent rules (if any)
 			continue;
 		}
-		
+
 		let rule = rules[index];
 		switch(rule.type){
 			// CSSGroupingRule
@@ -4793,7 +4806,7 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 				break;
 			}
 		}
-		
+
 		index++;
 	}
 	console.groupEnd();
@@ -4809,11 +4822,11 @@ Remove all `:hover` and `:active` rules:
 	var rulesGroups = Array.from(document.styleSheets);
 	while(rulesGroups.length > 0){
 		let rulesGroup = rulesGroups.shift();
-		
+
 		for (let index = rulesGroup.cssRules.length - 1; index >= 0; index--) {
 			let rules = rulesGroup.cssRules;
 			let rule = rules[index];
-			
+
 			switch(rule.type){
 				// CSSGroupingRule
 				// -> CSSConditionRule
@@ -4888,15 +4901,15 @@ function removeSelector(rulesSet, filter){
 				keep = removeSelector(rule.styleSheet, filter);// /!\ "null if the style sheet has not yet been loaded or if the style sheet was not loaded because, for example, the media type did not apply."
 				break;
 		}
-		
+
 		if(keep){
 			i++;
 			continue;
 		}
-		
+
 		rulesSet.deleteRule(i);
 	}
-	
+
 	return cssRules.length > 0;
 }
 
@@ -4991,12 +5004,12 @@ function l10nDocument(document){
 	);
 	while(nodeIterator.nextNode()){
 		let node = nodeIterator.referenceNode;
-	
+
 		if(node.nodeType == Node.TEXT_NODE){
 			node.nodeValue = l10nString(node.nodeValue);
 			continue;
 		}
-	
+
 		if(node.nodeType == Node.ELEMENT_NODE){
 			Array.from(node.attributes).forEach(attr => {
 				let value = attr.value;
@@ -5004,7 +5017,7 @@ function l10nDocument(document){
 				if(newValue == value){
 					return;
 				}
-			
+
 				node.setAttribute(attr.name, newValue);// We don't need XML namespace here (HTML5 don't support it). Else use .setAttributeNS(attr.namespace, attr.localName, attr.value)
 			});
 			continue;
@@ -5220,7 +5233,7 @@ window.addEventListener("error", event => {
 		docurl: document.URL,// document URL
 		url: location.href// current URL
 	}
-	
+
 	// sendBeacon could be not supported by the browser, you need to use AJAX as fallback
 	if(!navigator.sendBeacon("/error", new URLSearchParams(data))){
 		console.error(event);// the amount of data to be queued exceeds the user agent limit
@@ -5282,15 +5295,15 @@ Some browsers (Chrome) don't dispatch load event for iframe contains attachment 
 `Content-disposition: inline; filename="file.pdf"`
 
 > The client algorithm:
-> 
+>
 > 1. Generate a random unique token.
 > 2. Submit the download request, and include the token in a GET/POST field.
 > 3. Show the "waiting" indicator.
 > 4. Start a timer, and every second or so, look for a cookie named "filedl_" + token (or whatever you decide).
 > 5. If the cookie exists, and its value matches the token, hide the "waiting" indicator and delete the cookie.
-> 
+>
 > The server algorithm:
-> 
+>
 > 1. Look for the GET/POST field in the request.
 > 2. If it has a non-empty value, drop a cookie (e.g. "filedl_" + token), and set its value to anything (like "1").
 — https://stackoverflow.com/a/4168965/470117
@@ -5360,7 +5373,7 @@ document.addEventListener("paste", event => {
 	event.clipboardData.types;
 	event.clipboardData.files;
 	event.clipboardData.items;
-	
+
 	/*
 	loop{
 		// event.clipboardData.getData(item.type)
@@ -5371,7 +5384,7 @@ document.addEventListener("paste", event => {
 		if(!blob){
 			continue;
 		}
-		
+
 		let reader = new FileReader();
 		reader.addEventListener("load", event => {
 			console.log(event.target.result); // raw bytes
@@ -5391,14 +5404,14 @@ document.addEventListener("copy", event => {
 	event.preventDefault();
 	let plainText = event.clipboardData.getData("text/plain") + "\n\nRead more at: " + document.URL;
 	//let plainText =  window.getSelection() + "\n\nRead more at: " + document.URL;
-	
+
 	// Recommanded version:
 	event.clipboardData.setData("text/plain", "Hello, world!");
 	event.clipboardData.setData("text/html", "<b>Hello, world!</b>");
-	
+
 	// Alternative version 1 (data type "text" alias of "text/plain" and "url" alias of "text/uri-list" with only one URL):
 	// (event.clipboardData || window.clipboardData/*IE*/).setData("Text", text);
-	
+
 	// Alternative version 2 (create a temporary element, select, copy and restore selection ranges):
 	/*
 	// Backup current ranges and remove it
@@ -5408,7 +5421,7 @@ document.addEventListener("copy", event => {
 		selectionRanges[rangeIndex] = selection.getRangeAt(rangeIndex)
 	}
 	selection.removeAllRanges();
-	
+
 	{
 		// Create a new range with a new element
 		let range = document.createRange();
@@ -5416,7 +5429,7 @@ document.addEventListener("copy", event => {
 		document.body.appendChild(node);
 		range.selectNode(node);
 		selection.addRange(range);
-	
+
 		if(document.queryCommandSupported("copy")){
 			let copied = false;
 			try{
@@ -5425,9 +5438,9 @@ document.addEventListener("copy", event => {
 			// not copied? fail
 		}
 	}
-	
+
 	// Restore original ranges
-	selection.removeAllRanges(); 
+	selection.removeAllRanges();
 	for(let range of ranges){
 		selection.addRange(range);
 	}
@@ -5563,7 +5576,7 @@ window.addEventListener("resize", function(){
 	if(rafID !== 0){
 		return;
 	}
-	
+
 	rafID = requestAnimationFrame(layout);
 });
 function layout(){
@@ -5761,7 +5774,7 @@ window.location.href = link;
 ```
 
 - [Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com/#feat=download)
-- https://github.com/eligrey/FileSaver.js		
+- https://github.com/eligrey/FileSaver.js
 - [Using HTML5/Javascript to generate and save a file - Stack Overflow](https://stackoverflow.com/questions/2897619/using-html5-javascript-to-generate-and-save-a-file)
 
 And drag and drop to desktop
@@ -5795,10 +5808,10 @@ drag.addEventListener("dragstart", function(e) {
 ```
 
 ```js
-drop.addEventListener("drop", function(e) { 
+drop.addEventListener("drop", function(e) {
 	var dt = e.dataTransfer,
 	// IE doesn't like anything other than "Text"
-	data = dt.getData( /*@cc_on!@*/0 ? 
+	data = dt.getData( /*@cc_on!@*/0 ?
 	"Text" : "text/plain" );
 	alert(data);
 }, false);
@@ -5834,14 +5847,14 @@ Solution 2:
 1. Create one iframe per download file
 2. Set the `src` attribute to the URI of the resource
 
-Note: a given filename can't be defined and file can't be forced downloaded unless the server send the resource with proper HTTP headers (`Content-Type: octet/stream` or `Content-Disposition: attachment; filename=foo.pdf`) 
+Note: a given filename can't be defined and file can't be forced downloaded unless the server send the resource with proper HTTP headers (`Content-Type: octet/stream` or `Content-Disposition: attachment; filename=foo.pdf`)
 
 Solution 3:
 
 The server need to support `GET /file.ext?` or `POST /file.ext`
 
 1. Create a form
-2. set `action` to the first file 
+2. set `action` to the first file
 3. set `target` to `_blank`
 4. set `method` to `get` or `post` according the server support (get will append `?` to the requested URL)
 5. submit form `form.submit()`
@@ -6009,7 +6022,7 @@ function base64ToBytes(data){
 	//}
 	//
 	//return bytes.buffer;
-	
+
 	// Parts from https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView
 	// from StringView.base64ToBytes
 	// Invalid chars https://bugzilla.mozilla.org/show_bug.cgi?id=73026#c12
@@ -6023,7 +6036,7 @@ function base64ToBytes(data){
 		throw new DOMException("Invalid data URI", "DataError");
 	}
 	let bytes = new Uint8Array(numBytes);
-	
+
 	for (let mod3, mod4, buffer = 0, index = 0, dataIndex = 0; dataIndex < dataLength; dataIndex++) {
 		mod4 = dataIndex & 3;
 		let charCode = cleanedData.charCodeAt(dataIndex);
@@ -6049,7 +6062,7 @@ function base64ToBytes(data){
 			buffer = 0;
 		}
 	}
-	
+
 	return bytes.buffer;
 }
 
@@ -6058,10 +6071,10 @@ function urlB64ToUint8Array(base64String) {
 	const base64 = (base64String + padding)
 		.replace(/\-/g, "+")
 		.replace(/_/g, "/");
-	
+
 	const rawData = window.atob(base64);
 	const outputArray = new Uint8Array(rawData.length);
-	
+
 	for (let i = 0; i < rawData.length; ++i) {
 		outputArray[i] = rawData.charCodeAt(i);
 	}
@@ -6071,7 +6084,7 @@ function urlB64ToUint8Array(base64String) {
 function uint8ArrayToBase64Url(uint8Array, start, end) {
 	start = start || 0;
 	end = end || uint8Array.byteLength;
-	
+
 	const base64 = window.btoa(String.fromCharCode.apply(null, uint8Array.subarray(start, end)));
 	return base64
 		.replace(/\=/g, "") // eslint-disable-line no-useless-escape
@@ -6123,7 +6136,7 @@ Inspiration (base122?):
 This table includes 11280 characters: characters are defined in Japanese Industrial Standards(JIS X 0208-1997), special characters is available in windows, “i-mode EMOJI”(pictogram).
 The table is sorted by JIS code. The function making the table contained an ASCII string that was differential compressed and decoded script, this function will be executed when script file loaded.
 This mechanism make some advantage: volume of the table decrease by half, works on any encode environment because it dose’nt include “Kanji”.
-You can write direct this function to HTML, because it does’nt include characters that make a browser confusing such as “</”. The table used in escape/unescape functions about SJIS. 
+You can write direct this function to HTML, because it does’nt include characters that make a browser confusing such as “</”. The table used in escape/unescape functions about SJIS.
 */
 // 12396 chars; Firefox: 12832B Chrome: 12424B
 // JCT11280
@@ -6148,7 +6161,7 @@ for (let c, i = 0; 0 <= (c = C[a.charAt(i++)]);){
 			if (86 === c) c = 1879;
 			for (; c--;) s += fromCharCode(++p)
 		}
-		else 
+		else
 		{
 			s += s.substr(8272, 360);
 		}
@@ -6258,7 +6271,7 @@ To generate the corresponding code:
 
 <details>
 	<summary>Generate source</summary>
-	
+
 	let xhr = new XMLHttpRequest();
 	xhr.open("GET", "data:application/octet-stream;base64,AAECAwQFBgcICQ==");//0x010203040506070809
 	xhr.responseType = "arraybuffer";
@@ -6266,14 +6279,14 @@ To generate the corresponding code:
 	xhr.addEventListener("load", event => {
 		// In the generated code, JavaScript will read an array of number (float64) first then write to it into the buffer
 		//console.log(`Uint8Array.from([${Array.from(new Uint8Array(event.target.response)}]).buffer`);// a simple way to generate, to using uint8, but will use 8 more time & memory before write the buffer (javascript use float64 to store numbers/ints), but use between 2/1 and 4/1 bytes to store it, 0x00 -> 0xff = ",0" -> ",255"
-		
+
 		// Use Uint32Array is a better bet:
 		// - it use less bytes to store the data: 2/4 to 11/4, 0x00000000 -> 0xffffffff = ",0" -> ",4294967295"
 		// - it use the twice memory than the final buffer
 		// Idealy we should use Uint64Array but this not exist in JS
 		// But need to use DataView instead of Uint32Array to fix endianness (we don't know in advance what will be the platform's endianness)
 		// (new DataView(new Uint8Array([0x01, 0x02, 0x03, 0x04]).buffer)).getUint32(0) == 0x01020304
-		
+
 		let typeBytes = 4;
 		let buffer = event.target.response;
 		let alignedByteLength = buffer.byteLength - buffer.byteLength % typeBytes;
@@ -6295,7 +6308,7 @@ To generate the corresponding code:
 			output += `.slice(0, ${buffer.byteLength})`;
 			//output = `ArrayBuffer.transfer(${output}, ${buffer.byteLength})`;// use transfert instead of slice (which copy buffer content), but it's not well supported
 		}
-		
+
 		console.log(output);
 	});
 	xhr.send(null);
@@ -6322,7 +6335,7 @@ As image
 - https://github.com/niegowski/node-pngjs
 - http://www.forensicswiki.org/wiki/Gzip
 - https://stackoverflow.com/questions/24082305/how-is-png-crc-calculated-exactly
- 
+
  ```js
 let deflateBytes = new Uint8Array();
 // let blockType = deflateBytes[0] >> 5 & 0b00000011;
@@ -6601,7 +6614,7 @@ If top domain is shared, update `document.domain`
 
 If not supported on old browser, you can use an `HTMLAnchorElement` (`document.createElement('a')`) to parse the URL (see `a.protocol`, `a.hostname`, `a.host`, `a.port`, `a.search`, `a.pathname`, `a.href`, `a.getAttribute("href")`)
 
-	// don't support parameter array nor multiple param with same names 
+	// don't support parameter array nor multiple param with same names
 	let params = url.split("#", 1)[0].split("?").slice(1).join("?").split("&").reduce((params, pair) => {let [key, ...value] = pair.split("="); return params.set(key, decodeURIComponent(value.join("=")))}, new Map());
 	let params = url.split("#", 1)[0].split("?").slice(1).join("?").split("&").reduce((params, pair) => {let [key, ...value] = pair.split("="); params[key] = decodeURIComponent(value.join("=")); return params}, {});
 
@@ -6645,26 +6658,26 @@ Like [WSSE](http://www.xml.com/pub/a/2003/12/17/dive.html)
 		xhr.onload = e => {
 			alert('Fully uploaded');
 		};
-	
+
 		var progressBar = document.querySelector('progress');
 		xhr.upload.onprogress = e => { // track upload progress
 			if (e.lengthComputable) {
 				progressBar.value = (e.loaded / e.total) * 100;
 			}
 		};
-	
+
 		xhr.send(blobOrFile);
 	}
-	
+
 	button.addEventListener("click", () => {
 		//upload(new File(["Hello world!"], "data.txt", {type: "text/plain"}));
-		
+
 		let mediatype = "image/png";
 		let extension = ".png"
 		canvas.toBlob(blob => {
 			upload(new File([blob], `image${extension}`, {type: mediatype}));
 		}, mediatype)
-		
+
 	});
 
 ### Network cache
@@ -6720,15 +6733,15 @@ Avoid changing the URL of service worker script:
 
 > If you've read [my post on caching best practices](https://jakearchibald.com/2016/caching-best-practices/), you may consider giving each version of your service worker a unique URL.
 > **Don't do this!** This is usually bad practice for service workers, just update the script at its current location.
-> 
+>
 > It can land you with a problem like this:
-> 
+>
 > 1. `index.html` registers `sw-v1.js` as a service worker.
 > 2. `sw-v1.js` caches and serves `index.html` so it works offline-first.
 > 3. You update `index.html` so it registers your new and shiny `sw-v2.js`.
-> 
+>
 > If you do the above, the user never gets `sw-v2.js`, because `sw-v1.js` is serving the old version of `index.html` from its cache. You've put yourself in a position where you need to update your service worker in order to update your service worker.
-> 
+>
 > — [The Service Worker Lifecycle  |  Web Fundamentals  |  Google Developers](https://github.com/google/WebFundamentals/blob/72658bac3b48b9a57033e35fe9d585252daeaeb0/src/content/en/fundamentals/primers/service-workers/lifecycle.md)
 
 Handle too long response (force third parties SLA)
@@ -6779,10 +6792,10 @@ With `XMLHttpRequest`:
 	xhr.overrideMimeType("text/plain; charset=x-user-defined");// if loaded content should be read as bytes, else remove it
 	// because, for xhr.response: "If state is not done, return null." (for `xhr.responseType = "arraybuffer";`). See https://xhr.spec.whatwg.org/#dom-xmlhttprequest-response
 	xhr.addEventListener("progress", event => {
-		var chunk = xhr.response.slice(bytesLoaded); 
+		var chunk = xhr.response.slice(bytesLoaded);
 		// process data chunk
 		// ex: var firstChunkByte = chunk.charCodeAt(0);
-		
+
 		bytesLoaded = xhr.response.length;
 	});
 	xhr.send();
@@ -6800,7 +6813,7 @@ Using [Newline delimited JSON (NDJSON)](http://specs.okfnlabs.org/ndjson/)
 		.pipeThrough(splitStream("\n"))
 		// Parse chunks as JSON:
 		.pipeThrough(parseJSON());
-	
+
 	for await (const comment of comments) {
 		// Process each comment and add it to the page:
 		// (via whatever template or VDOM you're using)
@@ -6819,7 +6832,7 @@ Note: **get a resource with `Range` header doesn't mean you will always get a re
 		console.log(xhr.status, xhr.getResponseHeader("Content-Range") || "no Content-Range header received", `${xhr.response.length} bytes (${xhr.getResponseHeader("Content-Length") || "no Content-Length head received"})`);
 		// If no Content-Range header: all content is available, else read A-B/X (where X is the total bytes available)
 	});
-	
+
 	xhr.open("GET", "image.png");
 	xhr.setRequestHeader('Range', 'bytes=0-101'); // the 101 first bytes
 	xhr.send(null);
@@ -6923,7 +6936,7 @@ The workaround is use `eval(anchor.href)` instead.
 
 <details>
 	<summary>Snippet</summary>
-	
+
 	function activateProvider(node, name) {
 		// fixup the service data with a postActivationURL if one doesn't exist.
 		var data = JSON.parse(node.getAttribute("data-service"));
@@ -7024,7 +7037,7 @@ Solutions:
 > on each frame ( requestAnimationFrame ), check the currentTime continually against the buffer length
 
 or
- 
+
 > on each frame, check if current timestamp minus “last time the video was updated” is inferior to a certain threshold
 
 - [HTML5 Video](https://www.w3.org/2010/05/video/mediaevents.html)
@@ -7155,18 +7168,18 @@ Like click but with touch only (not mousedown, mouseup)
 				}
 			}
 		}
-		
+
 		if(currentTouchedCountry == touchedCountry){
 			return;// don't click twice
 		}
-		
+
 		// Like click but with touches
 		if(touchedCountry == startTouchedTarget && touchedCountry != currentTouchedCountry){
 			country.classList.add("dsp-country-wrp--active");
 		}else{
 			lastCountryTouched.classList.remove("dsp-country-wrp--active");
 		}
-		
+
 		currentTouchedCountry = touchedCountry;
 	}
 	document.addEventListener("touchstart", documentTouchEnd);
@@ -7179,7 +7192,7 @@ Or simply use touchstart only:
 	var currentTouchedCountry = null;
 	function documentTouchStart(event){
 		var touchedCountry = null;
-		
+
 		for(var i = 0; i < countries.length; i++){
 			var pos = event.target.compareDocumentPosition(countries[i]);
 			if(pos == 0 || pos & 8){//self || Node.DOCUMENT_POSITION_CONTAINS
@@ -7187,11 +7200,11 @@ Or simply use touchstart only:
 				break;
 			}
 		}
-	
+
 		if(touchedCountry === currentTouchedCountry){
 			return;
 		}
-	
+
 		if(currentTouchedCountry){
 			currentTouchedCountry.classList.remove("dsp-country-wrp--active");
 		}
@@ -7350,7 +7363,7 @@ When a promise is used, the exception or error can be the reason of the promise'
 
 ## Replace `setTimeout()` and `setInterval()` with `requestAnimationFrame()`
 
-Drop in replacements for setTimeout()/setInterval() that makes use of requestAnimationFrame() where possible for better performance 
+Drop in replacements for setTimeout()/setInterval() that makes use of requestAnimationFrame() where possible for better performance
 
 https://gist.github.com/joelambert/1002116#gistcomment-1953925
 
@@ -7358,7 +7371,7 @@ https://gist.github.com/joelambert/1002116#gistcomment-1953925
 
 - non standardized methods (but valid)
 	Send chunks of data over the same [persistent connection](https://en.wikipedia.org/wiki/HTTP_persistent_connection)
-	
+
 	* `multipart/x-mixed-replace`
 	* chunk encoding
 	* [long polling](https://en.wikipedia.org/wiki/Push_technology#Long_polling) see [How to implement COMET with PHP](http://www.zeitoun.net/articles/comet_and_php/start)
@@ -7404,10 +7417,10 @@ iframe, window, worker, etc.
 > `MessageChannel` is basically a 2-way communication pipe. Think of it as an alternative to `window.postMessage` / `window.onmessage` - but a somewhat easier and more configurable.
 
 	const ch = new MessageChannel();
-	
+
 	ch.port1.addEventListener('message', …);
 	ch.port1.start();
-	
+
 	//vs
 	ch.port1.onmessage = …;
 	//ch.port1.start(); is automatically called
@@ -7475,7 +7488,7 @@ Copy current document as Markdown link bookmarklet (see [Clipboard API](#clipboa
 
 <details>
 	<summary>Bookmarklet snippet</summary>
-	
+
 	// Encode with Uglify3 https://skalman.github.io/UglifyJS-online/
 	// copy("javascript:"+document.getElementById("out").value.replace(/[\s#%]/g, match => "%" + match.charCodeAt(0).toString(16).padStart(2, "0"))+"void(0)")
 	{
@@ -7499,7 +7512,7 @@ Copy current document as Markdown link bookmarklet (see [Clipboard API](#clipboa
 			focusable.focus();// force focus, but will not scroll into view, because it have fixed position
 			focusable.remove();// remove focus, without force to scroll into view to an other element
 		}
-		
+
 		//TODO support SVGDocument (execCommand only exist on HTMLDocument) by create a iframe about:blank inside a foreignObject
 		doc.addEventListener("copy", event => {
 			let clipboardData = event.clipboardData;

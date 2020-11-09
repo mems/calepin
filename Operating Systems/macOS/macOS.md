@@ -54,7 +54,6 @@ Time Machine backup fiability:
 ### Similar tools
 
 - [Time Machine for every Unix out there - IMHO](https://blog.interlinked.org/tutorials/rsync_time_machine.html)
-
 	`.snapshots/daily.0/`
 
 	```sh
@@ -67,7 +66,7 @@ Time Machine backup fiability:
 	mv $HOME/Backups/back-$date.incomplete $HOME/Backups/back-$date
 	ln -sf back-$date $HOME/Backups/current
 	```
-	
+
 	```sh
 	#!/bin/sh
 	date=`date "+%Y-%m-%dT%H_%M_%S"`
@@ -82,7 +81,7 @@ Time Machine backup fiability:
 		"mv Backups/incomplete_back-$date Backups/back-$date \
 		&& ln -sf back-$date Backups/current"
 	```
-	
+
 	See also [Easy Automated Snapshot-Style Backups with Rsync](http://www.mikerubel.org/computers/rsync_snapshots/)
 - [osx - Using rsync to backup - Ask Different](http://apple.stackexchange.com/questions/224747/using-rsync-to-backup)
 - [How to install & compile rsync on Mac OSX](https://gist.github.com/Sounds-of-Science/7561838) - Install rsync 3.x on macOS without macport or brew
@@ -116,157 +115,158 @@ Included by default
 From `$IBACKUP_APP/Contents/Resources/System Settings/` [iBackup](http://grapefruit.ch/iBackup/)
 
 - Address Book (Cards, Groups, Plug-Ins)
-
-		~/Library/Address Book Plug-Ins
-		~/Library/Application Support/AddressBook
-		~/Library/Preferences/AddressBookMe.plist
-		~/Library/Preferences/com.apple.AddressBook.plist
-
+	```
+	~/Library/Address Book Plug-Ins
+	~/Library/Application Support/AddressBook
+	~/Library/Preferences/AddressBookMe.plist
+	~/Library/Preferences/com.apple.AddressBook.plist
+	```
 - Dashboard
-
-		~/Library/Preferences/com.apple.dashboard.client.plist
-		~/Library/Preferences/com.apple.dashboard.plist
-		~/Library/Widgets
-
+	```
+	~/Library/Preferences/com.apple.dashboard.client.plist
+	~/Library/Preferences/com.apple.dashboard.plist
+	~/Library/Widgets
+	```
 - Desktop Pictures
-
-		~/Library/Desktop Pictures
-
+	```
+	~/Library/Desktop Pictures
+	```
 - Fonts
-
-		~/Library/Fonts
-
+	```
+	~/Library/Fonts
+	```
 - Keychains
-
-		~/Library/Keychains
-		~/Library/Preferences/com.apple.keychainaccess.plist
-
+	```
+	~/Library/Keychains
+	~/Library/Preferences/com.apple.keychainaccess.plist
+	```
 - Mail (Accounts, Mailboxes, Messages)
-
-		~/Library/Mail
-		~/Library/Preferences/com.apple.mail.plist
-		~/Library/Preferences/com.apple.mail.searchhistory
-		~/Library/Mail Downloads
-
+	```
+	~/Library/Mail
+	~/Library/Preferences/com.apple.mail.plist
+	~/Library/Preferences/com.apple.mail.searchhistory
+	~/Library/Mail Downloads
+	```
 - Printers
-
-		~/Library/Printers
-		~/Library/Preferences/com.apple.print.custompresets.plist
-		~/Library/Preferences/com.apple.print.PrintCenter.plist
-
+	```
+	~/Library/Printers
+	~/Library/Preferences/com.apple.print.custompresets.plist
+	~/Library/Preferences/com.apple.print.PrintCenter.plist
+	```
 - Safari (Bookmarks, History, Preferences)
-
-		~/Library/Safari
-		~/Library/Preferences/com.apple.Safari.plist
-		~/Library/Cookies
-
+	```
+	~/Library/Safari
+	~/Library/Preferences/com.apple.Safari.plist
+	~/Library/Cookies
+	```
 - Screen Savers
-
-		~/Library/Screen Savers
-
+	```
+	~/Library/Screen Savers
+	```
 - System Preferences (Bluetooth, Dock, Services ...)
-
-		~/Library/Application Support/Apple
-		~/Library/Logs
-		~/Library/PreferencePanes
-		~/Library/Preferences/com.apple.ActivityMonitor.plist
-		~/Library/Preferences/com.apple.airport.adminutility.plist
-		~/Library/Preferences/com.apple.AppleShareClient
-		~/Library/Preferences/com.apple.Aperture.plist
-		~/Library/Preferences/com.apple.BezelServices.plist
-		~/Library/Preferences/com.apple.Bluetooth.plist
-		~/Library/Preferences/com.apple.BluetoothFileExchange.plist
-		~/Library/Preferences/com.apple.BluetoothFirmwareUpdater.plist
-		~/Library/Preferences/com.apple.calculator.plist
-		~/Library/Preferences/com.apple.Console.plist
-		~/Library/Preferences/com.apple.desktop.plist
-		~/Library/Preferences/com.apple.DiskUtility.plist
-		~/Library/Preferences/com.apple.dock.plist
-		~/Library/Preferences/com.apple.DotMacSync.plist
-		~/Library/Preferences/com.apple.driver.AppleHIDMouse.plist
-		~/Library/Preferences/com.apple.finder.plist
-		~/Library/Preferences/com.apple.FolderActions.plist
-		~/Library/Preferences/com.apple.FontBook.plist
-		~/Library/Preferences/com.apple.frontrow.plist
-		~/Library/Preferences/com.apple.help.plist
-		~/Library/Preferences/com.apple.helpviewer.plist
-		~/Library/Preferences/com.apple.HIToolbox.plist
-		~/Library/Preferences/com.apple.InterfaceBuilder.plist
-		~/Library/Preferences/com.apple.InterfaceBuilder3
-		~/Library/Preferences/com.apple.internetconfig.plist
-		~/Library/Preferences/com.apple.internetconfigpriv.plist
-		~/Library/Preferences/com.apple.LaunchServices.plist
-		~/Library/Preferences/com.apple.loginwindow.plist
-		~/Library/Preferences/com.apple.MenuBarClock.plist
-		~/Library/Preferences/com.apple.menuextra.battery.plist
-		~/Library/Preferences/com.apple.menuextra.textinput.plist
-		~/Library/Preferences/com.apple.PhotoBooth.plist
-		~/Library/Preferences/com.apple.NetworkUtility.plist
-		~/Library/Preferences/com.apple.preference.desktopscreeneffect
-		~/Library/Preferences/com.apple.Preview.bookmarks.plist
-		~/Library/Preferences/com.apple.Preview.plist
-		~/Library/Preferences/com.apple.PropertyListEditor.plist
-		~/Library/Preferences/com.apple.recentitems.plist
-		~/Library/Preferences/com.apple.scheduler.plist
-		~/Library/Preferences/com.apple.ScriptEditor2.plist
-		~/Library/Preferences/com.apple.Sherlock.plist
-		~/Library/Preferences/com.apple.sidebarlists.plist
-		~/Library/Preferences/com.apple.spotlight.plist
-		~/Library/Preferences/com.apple.symbolichotkeys.plist
-		~/Library/Preferences/com.apple.systempreferences.plist
-		~/Library/Preferences/com.apple.systemuiserver.plist
-		~/Library/Preferences/com.apple.Terminal.plist
-		~/Library/Preferences/com.apple.TextEdit.plist
-		~/Library/Preferences/com.apple.universalaccess.plist
-		~/Library/Preferences/com.apple.x11.plist
-		~/Library/Preferences/com.apple.Xcode.plist
-		~/Library/Preferences/loginwindow.plist
-		~/Library/Preferences/Sherlock
-		~/Library/Recent Servers
-		~/Library/Services
-		~/Library/Scripts
-		~/Library/Spotlight
-		/Library/Preferences/com.apple.sharing.firewall.plist
-
+	```
+	~/Library/Application Support/Apple
+	~/Library/Logs
+	~/Library/PreferencePanes
+	~/Library/Preferences/com.apple.ActivityMonitor.plist
+	~/Library/Preferences/com.apple.airport.adminutility.plist
+	~/Library/Preferences/com.apple.AppleShareClient
+	~/Library/Preferences/com.apple.Aperture.plist
+	~/Library/Preferences/com.apple.BezelServices.plist
+	~/Library/Preferences/com.apple.Bluetooth.plist
+	~/Library/Preferences/com.apple.BluetoothFileExchange.plist
+	~/Library/Preferences/com.apple.BluetoothFirmwareUpdater.plist
+	~/Library/Preferences/com.apple.calculator.plist
+	~/Library/Preferences/com.apple.Console.plist
+	~/Library/Preferences/com.apple.desktop.plist
+	~/Library/Preferences/com.apple.DiskUtility.plist
+	~/Library/Preferences/com.apple.dock.plist
+	~/Library/Preferences/com.apple.DotMacSync.plist
+	~/Library/Preferences/com.apple.driver.AppleHIDMouse.plist
+	~/Library/Preferences/com.apple.finder.plist
+	~/Library/Preferences/com.apple.FolderActions.plist
+	~/Library/Preferences/com.apple.FontBook.plist
+	~/Library/Preferences/com.apple.frontrow.plist
+	~/Library/Preferences/com.apple.help.plist
+	~/Library/Preferences/com.apple.helpviewer.plist
+	~/Library/Preferences/com.apple.HIToolbox.plist
+	~/Library/Preferences/com.apple.InterfaceBuilder.plist
+	~/Library/Preferences/com.apple.InterfaceBuilder3
+	~/Library/Preferences/com.apple.internetconfig.plist
+	~/Library/Preferences/com.apple.internetconfigpriv.plist
+	~/Library/Preferences/com.apple.LaunchServices.plist
+	~/Library/Preferences/com.apple.loginwindow.plist
+	~/Library/Preferences/com.apple.MenuBarClock.plist
+	~/Library/Preferences/com.apple.menuextra.battery.plist
+	~/Library/Preferences/com.apple.menuextra.textinput.plist
+	~/Library/Preferences/com.apple.PhotoBooth.plist
+	~/Library/Preferences/com.apple.NetworkUtility.plist
+	~/Library/Preferences/com.apple.preference.desktopscreeneffect
+	~/Library/Preferences/com.apple.Preview.bookmarks.plist
+	~/Library/Preferences/com.apple.Preview.plist
+	~/Library/Preferences/com.apple.PropertyListEditor.plist
+	~/Library/Preferences/com.apple.recentitems.plist
+	~/Library/Preferences/com.apple.scheduler.plist
+	~/Library/Preferences/com.apple.ScriptEditor2.plist
+	~/Library/Preferences/com.apple.Sherlock.plist
+	~/Library/Preferences/com.apple.sidebarlists.plist
+	~/Library/Preferences/com.apple.spotlight.plist
+	~/Library/Preferences/com.apple.symbolichotkeys.plist
+	~/Library/Preferences/com.apple.systempreferences.plist
+	~/Library/Preferences/com.apple.systemuiserver.plist
+	~/Library/Preferences/com.apple.Terminal.plist
+	~/Library/Preferences/com.apple.TextEdit.plist
+	~/Library/Preferences/com.apple.universalaccess.plist
+	~/Library/Preferences/com.apple.x11.plist
+	~/Library/Preferences/com.apple.Xcode.plist
+	~/Library/Preferences/loginwindow.plist
+	~/Library/Preferences/Sherlock
+	~/Library/Recent Servers
+	~/Library/Services
+	~/Library/Scripts
+	~/Library/Spotlight
+	/Library/Preferences/com.apple.sharing.firewall.plist
+	```
 - iCal (Alarms, Events, To Do, Calendars)
-
-		~/Library/Calendars
-		~/Library/Preferences/com.apple.iCal.alarmsCache.plist
-		~/Library/Preferences/com.apple.iCal.AlarmScheduler.plist
-		~/Library/Preferences/com.apple.iCal.plist
-		~/Library/Preferences/com.apple.iCal.sources.plist
-		~/Library/Application Support/iCal
-
+	```
+	~/Library/Calendars
+	~/Library/Preferences/com.apple.iCal.alarmsCache.plist
+	~/Library/Preferences/com.apple.iCal.AlarmScheduler.plist
+	~/Library/Preferences/com.apple.iCal.plist
+	~/Library/Preferences/com.apple.iCal.sources.plist
+	~/Library/Application Support/iCal
+	```
 - iChat (Accounts, Preferences)
-
-		~/Library/Preferences/com.apple.iChat.AIM.plist
-		~/Library/Preferences/com.apple.iChat.Jabber.plist
-		~/Library/Preferences/com.apple.iChat.plist
-		~/Library/Preferences/com.apple.iChat.SubNet.plist
-		~/Library/Preferences/com.apple.iChatAgent.plist
-
+	```
+	~/Library/Preferences/com.apple.iChat.AIM.plist
+	~/Library/Preferences/com.apple.iChat.Jabber.plist
+	~/Library/Preferences/com.apple.iChat.plist
+	~/Library/Preferences/com.apple.iChat.SubNet.plist
+	~/Library/Preferences/com.apple.iChatAgent.plist
+	```
 - iMovie (Preferences)
-
-		~/Library/iMovie
-		~/Library/Preferences/com.apple.iMovie7.plist
-
+	```
+	~/Library/iMovie
+	~/Library/Preferences/com.apple.iMovie7.plist
+	```
 - iPhone
-
-		~/Library/Application Support/MobileSync/Backup
-
+	```
+	~/Library/Application Support/MobileSync/Backup
+	```
 - iPhoto
-
-		~/Library/Preferences/com.apple.iPhoto.plist
-
+	```
+	~/Library/Preferences/com.apple.iPhoto.plist
+	```
 - iPod
-
-		~/Library/Preferences/com.apple.iPod.plist
-
+	```
+	~/Library/Preferences/com.apple.iPod.plist
+	```
 - iTunes
-
-		~/Library/iTunes
-		~/Library/Preferences/com.apple.iTunes.eq.plist
-		~/Library/Preferences/com.apple.iTunes.plist
+	```
+	~/Library/iTunes
+	~/Library/Preferences/com.apple.iTunes.eq.plist
+	~/Library/Preferences/com.apple.iTunes.plist
+	```
 
 ### Exclude drives, folders and files
 
@@ -275,8 +275,9 @@ By default some folder/files are excluded. But some are not to allow a full rest
 How to:
 
 - Fixed path exclusions System Preferences > Time Machine > Options, similar to `sudo tmutil addexclusion -p <drive, dir or file>` (but it's not the same). See also `/Library/Preferences/com.apple.TimeMachine.plist` and `/System/Library/CoreServices/backupd.bundle/Contents/Resources/StdExclusions.plist`
-- Sticky exclusions `tmutil addexclusion <drive, dir or file>` same as `xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd <filename>`. This not work for [files inside packages](http://apple.stackexchange.com/questions/158213/programmatically-mark-files-to-be-ignored-by-time-machine) (Spotlight don't index files in packages)
-- (Not work) name end with `.noindex` will not be indexed by Spotlight (but still indexed by Time Machine)
+- Sticky exclusions `tmutil addexclusion <drive, dir or file>` same as `xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd <filename>`. ~~This not work for [files inside packages](http://apple.stackexchange.com/questions/158213/programmatically-mark-files-to-be-ignored-by-time-machine) (Spotlight don't index files in packages)~~
+	`find /path/to/projects -type d  -path '*node_modules/*' -prune -o -type d -name 'node_modules' -exec xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd '{}' \;`
+- files ignored by Spotlight still backup by Time Machine
 
 Find sticky excluded files/folders `sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"`
 
@@ -430,7 +431,7 @@ Or use an app:
 	By controling when enable/disable/start it:
 
 	`sudo tmutil enable|disable` or `defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -boolean YES|NO` or `tmutil startbackup --auto --block`
-	
+
 	- [How can I execute sudo commands as a cron job? - Ask Different](http://apple.stackexchange.com/questions/27181/how-can-i-execute-sudo-commands-as-a-cron-job)
 
 ### Reduce size
@@ -535,7 +536,7 @@ hdiutil resize -size 320g -shrinkonly /Volumes/Network_Drive_Name/path/to/timema
 
 - reclaim unused bands (free space) `sudo hdiutil compact -verbose image.sparsebundle` (could be executed multiple times) or `hdiutil resize -verbose -sectors min image.sparseimage`.
 	- [mac osx - How to reclaim all/most free space from a sparsebundle on OS X - Server Fault](https://serverfault.com/questions/14112/how-to-reclaim-all-most-free-space-from-a-sparsebundle-on-os-x)
-	
+
 	To fix `hdiutil: compact failed - internal error` see:
 	- [Fixing corrupted time machine backup | Tony Lawrence](http://tonylawrence.com/post/unix/fixing-corrupted-time-machine-backups/)
 	- [Repair Time Machine sparsebundle that will no longer mount - Ask Different](https://apple.stackexchange.com/questions/18482/repair-time-machine-sparsebundle-that-will-no-longer-mount/39842#39842)
@@ -597,7 +598,7 @@ UUID=`system_profiler SPHardwareDataType | grep 'Hardware UUID' | awk '{print $3
 echo -n "Generating disk image ${NAME}.sparsebundle with size ${SIZE}GB ... "
 hdiutil create -size ${SIZE}G -fs HFS+J -type SPARSEBUNDLE \
 	-volname 'Time Machine Backups' "${NAME}.sparsebundle" >> /dev/null 2>&1
-	
+
 echo "done!"
 
 echo -n "Generating property list file with uuid $UUID ... "
@@ -664,7 +665,7 @@ hdiutil info -verbose | grep band-size
 
 This format is often created to backup on a shared network volume (that is not HFS+)
 
-Mount it (db click in Finder) and 
+Mount it (db click in Finder) and
 
 	sudo tmutil setdestination /Volumes/name-of-the-mounted-sparsebundle
 
@@ -730,7 +731,7 @@ On non Mac Machine (AFP) or other network protocols
 > Sparsebundle disk images cannot, however, be saved on SMB volumes and a handful of other filesystems due to their lack of support for "F_FULLFSYNC", which is a filesystem command that instructs the disk to write data from cache to media.
 
 > If you are using Netatalk version 2.0.5 or better, this has the special new features added to avoid Time Machine disk corruption. If you have a version of Netatalk earlier than 2.0.5 (e.g. Ubuntu 9.10 currently has 2.0.4) [..]
-> 
+>
 > If you have Netatalk 2.0.5 installed, you should add the option “tm” to any share you use for Time Machine, in the AppleVolumes.default config file.
 — [Using Ubuntu for Time Machine in Snow Leopard – Delivering Quality](http://www.markdeepwell.com/2009/11/using-ubuntu-for-time-machine-in-snow-leopard/#comment-513)
 
@@ -792,7 +793,7 @@ mv ~/Desktop/Catalina.cdr ~/Desktop/Catalina.iso
 
 ```cmd
 cd "C:\Program Files\Oracle\VirtualBox\"
-# 
+#
 # Virtualbox 5.x 00000001 000106e5 00100800 0098e3fd bfebfbff
 # Virtualbox 4.x 00000001 000306a9 04100800 7fbae3ff bfebfbff
 VBoxManage.exe modifyvm "Virtual Machine Name" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
@@ -855,23 +856,23 @@ On an HFS+ (Journaled) formatted USB drive
 - Applications (`/Applications` and `/Library/Application`)
 - User accounts and groups (reset UserShell and NFSHomeDirectory for created users)
 	For macports, see:
-	
+
 	```sh
 	#!/bin/sh
-	
+
 	# Fix MacPorts user config
 	# Sources here: https://trac.macports.org/browser/trunk/base/portmgr/dmg/postflight.in?rev=154110#L159
-	
+
 	# Variable provided by postinstall script, extracted from MacPort installer package (*.pkg)
 	PREFIX="/opt/local"
 	DSCL=/usr/bin/dscl
 	RUNUSR=macports
-	
+
 	# List all users:
 	# ${DSCL} . list /Users | grep -E -v ^_
 	# Read user infos
 	# ${DSCL} . read "/Users/${RUNUSR}"
-	
+
 	${DSCL} -q . -delete "/Users/${RUNUSR}" AuthenticationAuthority
 	${DSCL} -q . -delete "/Users/${RUNUSR}" PasswordPolicyOptions
 	${DSCL} -q . -delete "/Users/${RUNUSR}" dsAttrTypeNative:KerberosKeys
@@ -889,9 +890,9 @@ On an HFS+ (Journaled) formatted USB drive
 	- [Transferring from Time Machine shows "MacPorts". What is this and should I transfer it? - Ask Different](https://apple.stackexchange.com/questions/275708/transferring-from-time-machine-shows-macports-what-is-this-and-should-i-trans)
 	- `dscacheutil -q user -a name macports`
 	- [macos - How to delete MacPorts user after using the Migration Assistant - Ask Different](https://apple.stackexchange.com/questions/317576/how-to-delete-macports-user-after-using-the-migration-assistant)
-	
+
 	For Wireshark, see:
-	
+
 	- create user group `access_bpf`
 	- [wireshark - what is access_bpf group? - Ask Different](https://apple.stackexchange.com/questions/138694/what-is-access-bpf-group/138728#138728)
 	- https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob;f=packaging/macosx/Scripts/chmodbpf-postinstall.sh;hb=HEAD - postinstall script of Wireshark installer package
@@ -939,12 +940,12 @@ Files can be removed in 10.13.6:
 	# Not sure
 	/Volumes/Macintosh HD/usr/share/current-os.sdk
 	/Volumes/Macintosh HD/usr/libexec/cups/backend/cups-pdf
-	
+
 	find "/Volumes/Macintosh HD/" \( -name "*~orig" -o -name "*~previous" \) -exec rm -rf {} \;
-	
+
 	/Volumes/Macintosh HD/usr/local/sbin/mount_fusefs_txantfs
 	/Volumes/Macintosh HD/usr/local/sbin/newfs_fusefs_txantfs
-	
+
 	# For pre SIP with XQuartz and MacFUSE (or remains) installed:
 	/Volumes/Macintosh HD/usr/X11
 	/Volumes/Macintosh HD/usr/X11R6
@@ -1624,7 +1625,7 @@ or:
 1. reboot
 3. hold `command + r`
 3. in Terminal ("Mackintosh HD" is the default name of the main disk, depends what has been defined when macOS was installed):
-	
+
 		rm "/Volumes/Mackintosh HD/var/db/.AppleSetupDone"
 		shutdown -h now
 
@@ -1652,7 +1653,7 @@ or:
 
 Use "Network Link Conditioner" (but not work for localhost/127.0.0.1) or use a proxy instead (for HTTP/HTTPS)
 
-Install: 
+Install:
 
 1. download "Additional Tools for Xcode" from https://developer.apple.com/download/more/?q=Additional%20Tools
 2. from DMG, double click to install `Network Link Conditioner.prefPane`
@@ -1929,11 +1930,61 @@ See [FileVault](#filevault)
 
 ### Extended attribute
 
-Aka quarantine, icons, thumbnail
+Aka quarantine, icons, thumbnail, `xattr`
+
+See also [Spotlight](#spotlight) and [Uniform Type Identifier](#uniform-type-identifier)
+
+Extended attribute `com.apple.FinderInfo` (same/similar binary format as [resource fork](https://en.wikipedia.org/wiki/Resource_fork) and [AppleDouble file](https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats), [`com.apple.ResourceFork`](https://web.archive.org/web/20201031144833/https://eclecticlight.co/2017/12/12/xattr-com-apple-resourcefork-a-classic-mac-resource-fork/)):
+
+> com.apple.FinderInfo (XATTR_FINDERINFO_NAME, ATTR_CMN_FNDRINFO getattrlist(2))
+> 32 bytes of data for use by the Finder.  Equivalent to the concatenation of a FileInfo structure and an ExtendedFileInfo structure (or, for directories, a FolderInfo structure and an ExtendedFolderInfo structure).
+> These structures are defined in <CarbonCore/Finder.h>.
+>
+> This attribute is not byte swapped by the file system.  The value of multibyte fields on disk is always big endian.
+> When running on a little endian system (such as Darwin on x86), you must byte swap any multibyte fields.
+
+- [xattr: com.apple.FinderInfo, information for the Finder – The Eclectic Light Company](https://web.archive.org/web/20201031174043/https://eclecticlight.co/2017/12/19/xattr-com-apple-finderinfo-information-for-the-finder/)
+- [How to add a custom icon to an app without breaking its signature – The Eclectic Light Company](https://web.archive.org/web/20200311090951/https://eclecticlight.co/2019/07/20/how-to-add-a-custom-icon-to-an-app-without-breaking-its-signature/)
+
+```sh
+# Add a fake name
+xattr -w com.apple.metadata:kMDItemDisplayName MyNewFilename.txt ActualFile.txt
+
+# Hide file to Finder
+xattr -px com.apple.FinderInfo testfile
+#00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+xattr -wx com.apple.FinderInfo "0000000000000000400000000000000000000000000000000000000000000000" filename
+# or (spaces aren't important)
+xattr -wx com.apple.FinderInfo "00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" filename
+# Find some hidden files (kMDItemFSInvisible mapped from the extended attribute com.apple.FinderInfo)
+mdfind kMDItemFSInvisible=1 -onlyin .
+
+# Add custom colors and tags to a file
+# https://eclecticlight.co/2017/12/27/xattr-com-apple-metadata_kmditemusertags-finder-tags/
+xattr -wx com.apple.metadata:_kMDItemUserTags "62706c69 73743030 a3010203 584f7261 6e67650a 37585965 6c6c6f77 0a355949 6d706f72 74616e74 080c151e 00000000 00000101 00000000 00000004 00000000 00000000 00000000 00000028" filename
+xattr -wx com.apple.metadata:_kMDItemUserTags "$(echo '["Orange\n7","Yellow\n5","Important"]' | plutil -convert binary1 -o - - | xxd -p)" filename
+xattr -w com.apple.metadata:_kMDItemUserTags '("Red\n6","new tag")' filename
+xattr -w com.apple.metadata:_kMDItemUserTags '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><array>...</array></plist>' filename
+# Metadata see by Spotlight backend (metadata server)
+mdls -plist - -name _kMDItemUserTags
+
+# Set custom application association
+# Even if the type is the default "public.data"
+xattr -wx com.apple.LaunchServices.OpenWith "$(echo '{"version":0,"path":"\/Applications\/Hex Fiend.app","bundleidentifier":"com.ridiculousfish.HexFiend"}' | plutil -convert binary1 -o - - | xxd -p)" filename
+# Get custom application association
+xattr -p com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p - | plutil -convert json -o - -
+#xattr -p com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p - | plutil -convert json -o - -
+```
+
+Other:
 
 - [xattred, Sandstrip & xattr tools – The Eclectic Light Company](https://eclecticlight.co/xattred-sandstrip-xattr-tools/)
-- [An introduction to extended attributes, xattrs – The Eclectic Light Company](https://eclecticlight.co/2017/12/11/an-introduction-to-extended-attributes-xattrs/)
-- [How to preserve metadata stored in a custom extended attribute – The Eclectic Light Company](https://eclecticlight.co/2019/10/01/how-to-preserve-metadata-stored-in-a-custom-extended-attribute/)
+- [An introduction to extended attributes, xattrs – The Eclectic Light Company](https://web.archive.org/web/20200316222605/https://eclecticlight.co/2017/12/11/an-introduction-to-extended-attributes-xattrs/)
+- [How to preserve metadata stored in a custom extended attribute – The Eclectic Light Company](https://web.archive.org/web/20200414045618/https://eclecticlight.co/2019/10/01/how-to-preserve-metadata-stored-in-a-custom-extended-attribute/)
+- [Spotlight Metadata Attributes](https://developer.apple.com/library/archive/documentation/CoreServices/Reference/MetadataAttributesRef/Reference/CommonAttrs.html#//apple_ref/doc/uid/TP40001694-SW1)
+- [About File Metadata Queries](https://developer.apple.com/library/archive/documentation/Carbon/Conceptual/SpotlightQuery/Concepts/Introduction.html)
+- [xattr: com.apple.LaunchServices.OpenWith, sets a custom app to open a file – The Eclectic Light Company](https://web.archive.org/web/20201031170621/https://eclecticlight.co/2017/12/20/xattr-com-apple-launchservices-openwith-sets-a-custom-app-to-open-a-file/)
+- [xattr: com.apple.metadata:_kMDItemUserTags, Finder tags – The Eclectic Light Company](https://web.archive.org/web/20190629034831/https://eclecticlight.co/2017/12/27/xattr-com-apple-metadata_kmditemusertags-finder-tags/)
 
 ### Icons and Cursors
 
@@ -1949,7 +2000,7 @@ Aka quarantine, icons, thumbnail
 ### AFPS
 
 > Does Apple File System support directory hard links?
-> 
+>
 > Directory hard links are not supported by Apple File System. All directory hard links are converted to symbolic links or aliases when you convert from HFS+ to APFS volume formats on macOS.
 > — [Frequently Asked Questions](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/APFS_Guide/FAQ/FAQ.html)
 
@@ -1967,7 +2018,7 @@ Use NTFS-3G or use exFAT instead (supported natively)
 
 #### Mount AFP share online
 
-**Don't do that! It's not secure (same for NFS, CIFS, SMB). Use it over a VPN (or a SSH tunnel) or use SFTP** (use https://github.com/osxfuse/osxfuse/wiki/SSHFS) 
+**Don't do that! It's not secure (same for NFS, CIFS, SMB). Use it over a VPN (or a SSH tunnel) or use SFTP** (use https://github.com/osxfuse/osxfuse/wiki/SSHFS)
 
 Can contains Time Machine backups
 
@@ -2018,13 +2069,13 @@ sudo chmod g+r,+X path/to/item
 
 - [How do I add permissions for "System" and "Staff"? | Official Apple Support Communities](https://discussions.apple.com/thread/2240708)
 
-### Uniform Type Identifiers
+### Uniform Type Identifier
 
 Aka UTI
 
-`kMDItemContentType` and `kMDItemContentTypeTree`; `CFBundleDocumentTypes`, `UTImportedTypeDeclarations` and `UTExportedTypeDeclarations`
+Metadatas: `kMDItemContentType` and `kMDItemContentTypeTree` (hierarchical content type); `CFBundleDocumentTypes`, `UTImportedTypeDeclarations` and `UTExportedTypeDeclarations`
 
-Get UTI:
+Get UTI from metadata server:
 
 ```sh
 mdls -raw -name kMDItemContentType $FILE
@@ -2032,13 +2083,14 @@ mdls -raw -name kMDItemContentType $FILE
 
 For the same extension, mutliple UTI definitions could exist. But the last definition will be used. Exemple: Adobe Flash use `.as` for ActionScript files (source code), but `.as` is declared instead as "AppleSingle archive" (UTI: `com.apple.applesingle-archive`). Installing Adobe Flash should override the default declaration. See [uti - Revert Filetype Association - Ask Different](http://apple.stackexchange.com/questions/49447/revert-filetype-association/86762#86762)
 
+- [What happens when you double-click a document? Processes, problems and solutions – The Eclectic Light Company](https://web.archive.org/web/20200815140318/https://eclecticlight.co/2020/05/04/what-happens-when-you-double-click-a-document-processes-problems-and-solutions/)
 - [Introduction to Uniform Type Identifiers Overview](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/understanding_utis/understand_utis_intro/understand_utis_intro.html)
 - [System-Declared Uniform Type Identifiers](https://developer.apple.com/library/content/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html)
 - `/System/Library/CoreServices/CoreTypes.bundle/Contents/Info.plist`
 - [Fun with UTI | Cocoanetics](https://www.cocoanetics.com/2012/09/fun-with-uti/)
 - https://github.com/schwa/UTI-Types/tree/master/Types - List of common UTI
-- [Amit's Thoughts: Mac OS: Spotlight and source code](http://amitp.blogspot.fr/2014/05/mac-os-spotlight-and-source-code.html)
-- [Amit's Thoughts: Mac OS: index source code](http://amitp.blogspot.fr/2014/06/mac-os-index-source-code.html)
+- [Amit's Thoughts: Mac OS: Spotlight and source code](https://web.archive.org/web/20200805112003/http://amitp.blogspot.com/2014/05/mac-os-spotlight-and-source-code.html)
+- [Amit's Thoughts: Mac OS: index source code](https://web.archive.org/web/20200922025246/http://amitp.blogspot.com/2014/06/mac-os-index-source-code.html)
 - [Core Foundation Keys](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/20001431-101685)
 - [macos - OSX: assign extension to content kind - Super User](http://superuser.com/questions/371892/osx-assign-extension-to-content-kind/371939#371939)
 - `/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -dump` - list all registered UTI
@@ -2056,25 +2108,25 @@ Aka defragmentation
 ### Disk image
 
 > ## Create a disk image from a disk or connected device
-> 
+>
 > [...]
-> 
+>
 > - **Sparse bundle disk image:** Same as a sparse disk image (below), but the directory data for the image is stored differently. Uses the .sparsebundle file extension.
 > - **Sparse disk image:** Creates an expandable file that shrinks and grows as needed. No additional space is used. Uses the .sparseimage file extension.
 > - **Read/write disk image:** Allows you to add files to the disk image after it’s created. Uses the .dmg file extension.
 > - **DVD/CD master:** Changes the size of the image to 177 MB (CD 8 cm). Uses the .cdr file extension.
-> 
+>
 > [...]
-> 
+>
 > ## Create a disk image from a folder or connected device
-> 
+>
 > [...]
-> 
+>
 > - **Read-only:** The disk image can’t be written to, and is quicker to create and open.
 > - **Compressed:** Compresses data, so the disk image is smaller than the original data. The disk image is read-only.
 > - **Read/write:** Allows you to add files to the disk image after it’s created.
 > - **DVD/CD master:** Can be used with third-party apps. It includes a copy of all sectors of the disk image, whether they’re used or not. When you use a master disk image to create other DVDs or CDs, all data is copied exactly.
-> 
+>
 > — [Create a disk image using Disk Utility on Mac - Apple Support](https://support.apple.com/guide/disk-utility/create-a-disk-image-dskutl11888/mac)
 
 - [Create or resize sparsebundle](#create-or-resize-sparsebundle)
@@ -2178,7 +2230,7 @@ Create in `/Library/LaunchDaemons` a file called like `info.mamp.start.apache.pl
 ```sh
 # Check current user keyboard
 /usr/libexec/PlistBuddy -c "Print :AppleCurrentKeyboardLayoutInputSourceID" ~/Library/Preferences/com.apple.HIToolbox.plist
-# defaults -currentHost read com.apple.HIToolbox 
+# defaults -currentHost read com.apple.HIToolbox
 # Set global/default keyboard
 sudo /usr/libexec/PlistBuddy -c "Set :AppleCurrentKeyboardLayoutInputSourceID com.apple.keylayout.French" /Library/Preferences/com.apple.HIToolbox.plist
 ```
@@ -2205,7 +2257,7 @@ Aka SIP
 Some specific softwares require to disable it
 
 - [Disable .DS_Store in OS X El Capitan](http://pixelcog.com/blog/2016/disable-ds_store-in-el-capitan/)
- 
+
 1. in Terminal: `csrutil status` to check status
 2. restart
 3. hold down command-R to boot into the Recovery System
@@ -2310,7 +2362,7 @@ Handled by OpenDirectory
 - `dscacheutil -q user`
 - `/var/db/dslocal/nodes/Default/users/*.plist` data of OpenDirectory
 - `sudo dscl . create /Users/<username> IsHidden 1`, hide user on loginwindow and fast user switching: [Hide a user account in macOS - Apple Support](https://support.apple.com/en-us/HT203998)
-- disable guest user: 
+- disable guest user:
 	1. ppen System Preferences
 	2. go to "Users & Groups" and click the unlock icon
 	3. click on “Guest User”
@@ -2320,25 +2372,25 @@ Handled by OpenDirectory
 #### Non interactive user
 
 > loginwindow UI will consider a user as one that can't be logged in if the following occur
-> 
+>
 > the shell is /usr/bin/false
-> 
+>
 > or
-> 
+>
 > the AuthAuthority has ;disableduser; in it.
-> 
+>
 > or
-> 
+>
 > the AuthAuthority doesn't exist or contains ;basic; and the password is missing or is a single asterisk.
-> 
+>
 > or
-> 
+>
 > the record name is missing or blank \[RealName?\]
-> 
+>
 > or
-> 
+>
 > the uid is missing
-> 
+>
 > loginwindow UI doesn't care about the UIDs number.
 
 
@@ -2530,7 +2582,7 @@ Install ports:
 ```
 # 1. Install Xcode Command Line Tools: `xcode-select --install`
 # 2. Accept Xcode licence: `sudo xcodebuild -license`
-# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, JDK, etc.) 
+# 3. Check installed version (newer version can exist for php, node, python, perl, ruby, JDK, etc.)
 
 sudo port install \
 wget rsync \
@@ -2675,7 +2727,7 @@ Right click to remove prefpane
 - [hschmidt/EnvPane: EnvPane - An OS X preference pane for environment variables](https://github.com/hschmidt/EnvPane) - Change environment variables
 - [specialunderwear/Hosts.prefpane: a Cocoa GUI for /etc/hosts](https://github.com/specialunderwear/Hosts.prefpane) - Change hosts files (works with SIP enabled)
 - [Lord-Kamina/SwiftDefaultApps: Replacement for RCDefaultApps, written in Swift.](https://github.com/Lord-Kamina/SwiftDefaultApps)
-- (old) [Rubicode - RCDefaultApp](http://www.rubicode.com/Software/RCDefaultApp/)  - "allows a user to set the default application used for various URL schemes, file extensions, file types, MIME types, and Uniform Type Identifiers / UTIs"
+- (old) [Rubicode - RCDefaultApp](http://www.rubicode.com/Software/RCDefaultApp/)  - "allows a user to set the default application used for various URL schemes, file extensions, file types, MIME types, and [Uniform Type Identifiers / UTIs](#uniform-type-identifier)"
 - [Arcana Research - StartupSound.prefPane](http://www5e.biglobe.ne.jp/~arcana/StartupSound/index.en.html) - "controls the volume of the startup sound of your Macintosh computer"
 - `/System/Library/CoreServices/Archive Utility.app/Contents/Resources/Archives.prefPane`
 
@@ -2703,10 +2755,25 @@ http://lists.apple.com/archives/quicklook-dev/2010/Jun/msg00011.html
 
 ## Spotlight
 
+Aka Metadata Server (`mds`)
+
+See also [Extended attribute](#extended-attribute)
+
+> Once the macOS does kick-off the extraction of metadata from a file, it does so through a Spotlight Importer. Spotlight Importers are plug-ins for the Mac OS that a developer provides specifically for helping files created by their applications to be searchable within Spotlight. Spotlight crawls through its list of changed files, handing each one to the appropriate importer. The importers then read the files, compile a list of metadata, and then hand the metadata back to Spotlight. At this point, the changed file is available for searching within Spotlight.
+
+- [Spotlight and Document Bundles](https://developer.apple.com/library/archive/documentation/Carbon/Conceptual/MetadataIntro/Concepts/DocumentBundles.html#//apple_ref/doc/uid/TP40002007)
+- [Section 11.8. Spotlight - Mac OS X Internals: A Systems Approach](https://web.archive.org/web/20130729230756/http://flylib.com/books/en/3.126.1.138/1/)
+
 - `/System/Library/Spotlight`
 - `/Library/Spotlight`
 - `~/Library/Spotlight`
 - App `./Content/Library/Spotlight`
+- `/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mdworker`
+- `/System/Library/LaunchDaemons/com.apple.metadata.com.apple.metadata.mds.scan.plist`
+- `/System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds`
+- `/System/Library/PrivateFrameworks/SpotlightDaemon.framework/Versions/A/SpotlightDaemon`
+- `/System/Library/Frameworks/CoreSpotlight.framework/CoreSpotlightService`
+- `/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd`
 
 - [Troubleshooting Spotlight Importers](https://developer.apple.com/library/archive/documentation/Carbon/Conceptual/MDImporters/Concepts/Troubleshooting.html)
 
@@ -2714,19 +2781,33 @@ Turn off:
 
 - `sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist`
 - System Preferences > Spotlight > Privacy
-- add `.noindex` extension to folder or file
-- `sudo defaults read /.Spotlight-V100/VolumeConfiguration.plist Exclusions`
+- (need to be verified) ignore files and directories ends with `.noindex` (and `.build`) and all (hidden) files start with `.`.
+- `sudo defaults read /.Spotlight-V100/VolumeConfiguration.plist Exclusions` (that depends the filesystem)
 	`sudo defaults write /.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add 'path/to/exclude'`
-	`sudo find / -type d -exec defaults write /.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add  {}`
+	`sudo defaults write /.Spotlight-V100/Store-V1/Exclusions Exclusions -array-add 'path/to/exclude'`
+	`sudo defaults write /System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add 'path/to/exclude'`
+	`sudo /usr/libexec/PlistBuddy -c "Add :Exclusions: string path/to/exclude" /System/Volumes/Data/.Spotlight-V100/VolumeConfiguration.plist`
+	`sudo find / -type d -exec defaults write /.Spotlight-V100/VolumeConfiguration.plist Exclusions -array-add {}`
 	`sudo launchctl stop com.apple.metadata.mds && sudo launchctl start com.apple.metadata.mds`
-- put in `~/Library/`
-- `.metadata_never_index` at the root of a volume, directory / folder
-	`touch folder-to-exclude/.metadata_never_index`
-	`find /path/to/projects -type d \( -name "node_modules" -o -name "bower_modules" \) -exec touch "{}/.metadata_never_index" \;`
-	
+- put in `~/Library/`, `/System/`
+- use [symlink](https://apple.stackexchange.com/questions/110915/find-symbolic-links-s-names-with-spotlight-finder) (see ["avi@ has confirmed with Apple that the indexer will not follow symlinks."](https://bugs.chromium.org/p/chromium/issues/detail?id=810617#c15))
+- `.metadata_never_index` at the root of a volume, directory / folder (see also `.metadata_never_index_unless_rootfs`)
+
 	- [Purpose of Files with the .metadata_never_index File Extension - FileTypeHelp.com](http://www.filetypehelp.com/purpose-files-metadataneverindex-file-extension/)
 	- [395300 - Spotlight constantly indexing files in "Profile 2" - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=395300)
 	- [apple : .Trashes, .fseventsd, and .Spotlight-V100](http://blog.hostilefork.com/trashes-fseventsd-and-spotlight-v100/)
+- [810617 - Spotlight indexing Chrome data wastes power and CPU - chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=810617#c14)
+
+```sh
+launchctl stop com.apple.metadata.mds && sudo launchctl start com.apple.metadata.mds
+```
+
+```sh
+# Rename all node_modules to node_modules.noindex and create a symlink node_modules -> node_modules.noindex
+find /path/to/projects -type d \( -path '*/.*' -o -path '*node_modules/*' -o -path '*node_module.noindex/*' \) -prune -o -type d -name 'node_modules' -exec mv '{}' '{}.noindex' \; -exec ls -s '{}.noindex' '{}' \;
+```
+
+Note: extended attribute `com.apple.FinderInfo` doesn't have any impact, `chflags hidden /path/to/file`, `touch folder-to-exclude/.metadata_never_index` too
 
 Reindex drive
 
@@ -2742,7 +2823,7 @@ sudo mdutil -i on /
 sudo mdutil -E /
 ```
 
-Reindex (eq. Finder's Search not work properly): `find . -name "*.md" -exec mdimport {} \;` or `sudo mdutil -E /` (where `/` is the affected volume, or all volumes)
+Reindex (eq. Finder's Search not work properly): `find . -name "*.md" -exec mdimport {} \;` or `sudo mdutil -E /` (where `/` affect the whole volume, or all volumes)
 
 ```sh
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
@@ -2766,10 +2847,31 @@ Erase all Spotlight data (all volumes):
 sudo mdutil -avE
 ```
 
-Metadata:
+Queries:
 
-- `xattr -w com.apple.metadata:kMDItemDisplayName MyNewFilename.txt ActualFile.txt`
-- `mdls`
+```sh
+# Find all files
+mdfind "*"
+mdfind -onlyin "/" "kMDItemFSSize>0"
+
+# List all metadata for a specific file
+mdls /path/to/file
+
+# Find DMG files
+mdfind -0 "kMDItemFSName=*.dmg"
+# Find Finder excluded files
+mdfind "_kMDItemFinderExcluded=*"
+mdfind "_kMDItemFinderExcluded=1"
+
+# Find user tags / colors set by user
+mdls -plist - -name _kMDItemUserTags
+
+# Find ghost files ("if the Finder is in the middle of a copy and the source disk is suddenly disconnected") that aren't deletable ("Item XYZ is used by Mac OS X and can’t be opened.")
+mdfind -onlyin /path/to/files -0 "kMDItemFSTypeCode==brok && kMDItemFSCreatorCode==MACS" | xargs -0 -n1 xattr -d com.apple.FinderInfo
+
+# find all encrypted DMG
+mdfind -0 "kMDItemFSName == '*.dmg'" | xargs -0 -IX ksh -c ' if hdiutil isencrypted "X" 2>&1 | grep -q "encrypted: YES" then echo "X -ENCRYPTED" fi'
+```
 
 - [Spotlight syntax, mdfind examples, and metadata attributes](http://osxnotes.net/spotlight.html)
 - [MDItem - Core Services | Apple Developer Documentation](https://developer.apple.com/reference/coreservices/1658213-mditem)
@@ -2778,9 +2880,27 @@ Metadata:
 - [mavericks - Possible to tag a folder via terminal? - Ask Different](http://apple.stackexchange.com/questions/110662/possible-to-tag-a-folder-via-terminal)
 - [Spotlight Metadata Attributes](http://www.real-world-systems.com/docs/mdAtt.1.html)
 
-`mdimport -r ~/Library/Spotlight/SomeImporter.mdimporter`
+### Metadata importer
 
-Add to `/System/Library/Spotlight/RichText.mdimporter/Contents/info.plist` (get file format `mdimport -n -d1 somefile.ext`)
+Aka Spotlight importers
+
+```sh
+# List all available metadatas
+mdimport -X
+# Infos about metadatas (nosearch, noindex, notokenize, multivalued, uniqued)
+```
+
+- [filesystem - What all file metadata is available in macOS? - Ask Different](https://apple.stackexchange.com/questions/274744/what-all-file-metadata-is-available-in-macos)
+- [macOS persistence - Spotlight importers and how to create them · theevilbit blog](https://web.archive.org/web/20201106042208//)
+- [Troubleshooting Spotlight Importers](https://developer.apple.com/library/archive/documentation/Carbon/Conceptual/MDImporters/Concepts/Troubleshooting.html)
+- [MDImporter | Apple Developer Documentation](https://developer.apple.com/documentation/coreservices/file_metadata/mdimporter)
+- [macOS persistence - Spotlight importers and how to create them · theevilbit blog](https://web.archive.org/web/20201106042208/https://theevilbit.github.io/posts/macos_persistence_spotlight_importers/)
+
+```sh
+mdimport -r ~/Library/Spotlight/SomeImporter.mdimporter
+```
+
+Add to `/System/Library/Spotlight/RichText.mdimporter/Contents/info.plist` (get file format `mdimport -n -d1 somefile.ext`) to search inside source code:
 
 ```xml
 <string>public.c-header</string>
@@ -2799,7 +2919,7 @@ Add to `/System/Library/Spotlight/RichText.mdimporter/Contents/info.plist` (get 
 <string>com.netscape.javascript-source</string>
 ```
 
-- [Mac OSX Spotlight Enhancement](https://gist.github.com/gereon/3150445)
+- Markdown to Spotlight [Mac OSX Spotlight Enhancement](https://gist.github.com/gereon/3150445#gistcomment-2764557)
 - [Fixing Spotlight indexing of Markdown content - BrettTerpstra.com](http://brettterpstra.com/2011/10/18/fixing-spotlight-indexing-of-markdown-content/)
 - [Problem with Spotlight (mds/mdimport)](https://www.rsmas.miami.edu/users/agleason/comp_other/mds.html)
 - [Spotlight : réindexation des dossiers ou volumes - Assistance Apple](http://support.apple.com/fr-fr/ht2409)

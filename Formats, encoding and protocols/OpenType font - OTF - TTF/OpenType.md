@@ -1,5 +1,11 @@
 - [OpenType: what's the difference between TTF and OTF??](https://pomax.github.io/1449438115186/opentype-what-s-the-difference-between-ttf-and-otf)
-- [FontView](https://github.com/googlei18n/fontview) - Demo app that displays fonts with a free/libre/open-source text rendering stack: FreeType, HarfBuzz and Raqm 
+- [FontView](https://github.com/googlei18n/fontview) - Demo app that displays fonts with a free/libre/open-source text rendering stack: FreeType, HarfBuzz and Raqm
+- [WOFF](../WOFF/WOFF.md)
+- [Fonts](../Fonts/Fonts.md)
+- [Rendering text](../../Graphics/Graphics.md#rendering-text)
+
+- [photopea/Typr.js: Typr.js - process fonts in Javascript](https://github.com/photopea/Typr.js)
+- [opentypejs/opentype.js: Read and write OpenType fonts using JavaScript.](https://github.com/opentypejs/opentype.js)
 
 - TTF = OpenType TrueType outlines (glyf/loca data blocks)
 - OTF = OpenType Type2 outlines (CFF data block)
@@ -20,21 +26,21 @@ http://typophile.com/node/96671#comment-524375
 > Version: 2 USHORTS, as usual for TTF tables. Version seems to be 1.1
 > Num Sizes: ULONG -- 6, for Apple Color Emoji v.8.0d3e1
 > numSizes * ULONG: offset for size table, relative to the start of the sbix chunk
-> 
+>
 > Each size table starts with
 > Size USHORT
 > Dpi USHORT
 > The sizes in the six tables are 20, 40, 48, 64, 96, and 160 pixels (all individual images appear to be square). Dpi is '72' in all of the tables.
-> 
+>
 > Then follow (numChars + 1) * ULONG offsets from the start of the size table. numChars seems to be taken from the maxp table, plus 1 to add a 'last entry' file size.
-> 
+>
 > Each offset from the start of this table points to:
 > 4 zero bytes \
 > "png " / reminiscent of Apple's File Type/Creator data
 > .... raw PNG data
-> 
+>
 > The file size of the PNG data seems to be calculated from the offset to the next image; the last one is empty.
-> 
+>
 > There seems to be no direct link from bitmap index to Unicode or the character map. The first 41 images seems to always be of size 0; inverse parallel to InDesign's Glyph panel, where the first 41 glyphs contain visible vector data (the bitmaps are not visible in InDesign).
 
 COLR/CPAL: systems that support layered color TrueType fonts; this includes Windows 8.1 and later, as well as Mozilla Firefox and other Gecko-based applications running on any platform

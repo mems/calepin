@@ -118,24 +118,24 @@ Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will 
 ## Technical dept
 
 > ## Non breacking release of Webpack 4
-> 
+>
 > - **4.0.0**, 4.0.1, **4.1.0**, 4.1.1, **4.2.0**, **4.3.0**, **4.4.0**, 4.4.1, [...]
 > - 33 **minor** releases
 > - 43 patch releases
 > - but: **technical debt** pills up...
-> 
+>
 > ## Strategy to prevent major releases
-> 
+>
 > - hacks, and add **TODOs** to the source code
 > - opt-in flags
 > - **plan** ahead of **future features**
 > 	- make necessary **preparations** in major releases
 > - restrict API to be able to do changes in **non-breacking way**
 > 	- very difficult, because of the **large plugin API surface**
-> 
+>
 > — [slides/webpack-5-why-breaking-changes.pdf at master · sokra/slides](https://github.com/sokra/slides/blob/master/data/webpack-5-why-breaking-changes.pdf)
 
-- "new code is the tomorrow's legacy" 
+- "new code is the tomorrow's legacy"
 - [Write code that is easy to delete, not easy to... — programming is terrible](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to)
 
 ## Refactoring
@@ -143,7 +143,7 @@ Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will 
 Monolith to separate modules / files.
 
 > [about dependency graph like circular dependencies] We can make arrows point in different directions, by either moving responsibilities into the component that depends on them or applying inversion of control. Inversion of control means to invert a dependency in such a way that control flow and source code dependency are opposed. This can be done for example through a publish/subscribe mechanism
-> 
+>
 > — [Under Deconstruction: The State of Shopify’s Monolith – Shopify Engineering](https://web.archive.org/web/20200918094004/https://engineering.shopify.com/blogs/engineering/shopify-monolith)
 
 Ex: A ↔︎ B refactored to A → B, with B that use the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern).
@@ -185,9 +185,9 @@ Magic = complexity. With react, JSX is magic
 
 Often due to [complexity](#complexity) or [misconceptions and falsehoods](#falsehoods)
 
-> Apparently, when they didn't have the right data for a vehicle, a privately operated citation processing center used the word NULL in the license plate field for many tickets. Since that just happens to be Droogie's license plate, he got all of them. 
-> Droogie contacted the DMV who told him to change his plate. He refused because he didn't do anything wrong. While they wiped the fines off his record, unfortunately for him, they didn't fix the problem in the system so once again, Droogie has accrued another $6,000 in tickets that he had nothing to do with. He says he won't be paying those either. 
-> 
+> Apparently, when they didn't have the right data for a vehicle, a privately operated citation processing center used the word NULL in the license plate field for many tickets. Since that just happens to be Droogie's license plate, he got all of them.
+> Droogie contacted the DMV who told him to change his plate. He refused because he didn't do anything wrong. While they wiped the fines off his record, unfortunately for him, they didn't fix the problem in the system so once again, Droogie has accrued another $6,000 in tickets that he had nothing to do with. He says he won't be paying those either.
+>
 > — [!FALSE 😜 on Twitter: "Vanity license plate "NULL" goes horribly wrong https://t.co/yyz13fyODV via @JohnMu https://t.co/okznfwSQhV" / Twitter](https://twitter.com/mahemoff/status/1160989395043934208?s=12)
 
 - [The Daily WTF: Curious Perversions in Information Technology](http://thedailywtf.com/)
@@ -260,7 +260,7 @@ Fake langues to test UI, etc.
 	- [L10ns](http://l10ns.org/)
 	- [L10ns - Effective translation workflow](https://github.com/tinganho/l10ns)
 	- [Pluralization for JavaScript · An A List Apart Article](https://alistapart.com/article/pluralization-for-javascript)
-	
+
 	See also
 	- [Client-side internationalization / localization library](https://github.com/fabi1cazenave/webL10n)
 	- [RootsLabs » Firefox OS : Localiser son application](https://rootslabs.net/blog/184-firefox-os-localiser-son-application)
@@ -300,7 +300,7 @@ Fake langues to test UI, etc.
 Notes:
 
 - Google Translate: `iw` to `he`
-- ICU: underscores to dashes, `nn` to `no`, extraneous script removed if non-script version doesn't exist. 
+- ICU: underscores to dashes, `nn` to `no`, extraneous script removed if non-script version doesn't exist.
 - Java: underscores to dashes, reorder script to be at the end, `iw` to `he`, `in` to `id`, `hi` has no language-only variant, only `hi-IN`
 - ICU, Java and .Net don't use exact same locale IDs [Complete List](http://www.localeplanet.com/compare/all.html). See also [Compare Locale Data Sources](http://www.localeplanet.com/compare/index.html)
 
@@ -329,29 +329,29 @@ Aka naming things, few words
 - [Rob Pike: Notes on Programming in C](https://www.lysator.liu.se/c/pikestyle.html)
 
 > Local variables
-> 
+>
 > Keep them short; long names obscure what the code does.
-> 
-> Common variable/type combinations may use really short names: 
+>
+> Common variable/type combinations may use really short names:
 > Prefer i to index.
 > Prefer r to reader.
 > Prefer b to buffer.
 > Avoid redundant names, given their context:
-> 
+>
 > Prefer count to runeCount inside a function named RuneCount.
-> Prefer ok to keyInMap in the statement 
+> Prefer ok to keyInMap in the statement
 > [...]
 > Longer names may help in long functions, or functions with many local variables.
-> (But often this just means you should refactor.) 
-> 
+> (But often this just means you should refactor.)
+>
 > — [What's in a name?](https://talks.golang.org/2014/names.slide#6)
 
 > Junior devs, variable naming is SO important.
-> 
+>
 > I'm working with one of my mentees right now and I can clearly see why she's getting confused. The variable names are not representative (enough) of what they are holding.
-> 
+>
 > When I had her rename all of her variables, she excelled.
-> 
+>
 > — [Angie Jones on Twitter: "Junior devs, variable naming is SO important. I'm working with one of my mentees right now and I can clearly see why she's getting confused. The variable names are not representative (enough) of what they are holding. When I had her rename all of her variables, she excelled." / Twitter](https://twitter.com/techgirl1908/status/1247344099801227265)
 
 See also [Case styles](#case-styles)
@@ -383,11 +383,11 @@ See also [Case styles](#case-styles)
 - nonempty ["Not empty" set in one word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/102771/not-empty-set-in-one-word)
 - edges (endpoints) and fields
 - substitute something (ex: `substituteTLDHost("example.com") // -> "example"`)
-- normalized / mung / hash / slug (remove non ASCII chars, remove accents, purged data) [Mung (computer term) — Wikipedia](https://en.wikipedia.org/wiki/Mung_%28computer_term%29)
+- normalized / [mung](https://en.wikipedia.org/wiki/Mung_%28computer_term%29) / [munge](https://en.wikipedia.org/wiki/Munged_password) / hash / slug (remove non ASCII chars, remove accents, purged data) ,
 - user, admin/administator, standard user,  [nonadministrator](https://en.wiktionary.org/wiki/nonadministrator) / non-administrator user / unprivileged users, member, registered user
 	editors, authors / writers, proofreaders / copywriters / correctors, commenters, translators, illustrators / photographers, designers, programmers / coders, supporters, contributors, uploaders / seeders, downloaders / leechers and readers / viewers / listeners
 	members, staff, public, consumers, trustees, board, humans / people, machines / bots / crawlers
-	
+
 	[web app - What is a good name for non-administrator users
 	? - User Experience Stack Exchange](http://ux.stackexchange.com/questions/27769/what-is-a-good-name-for-non-administrator-users)
 - greatest distance, longest path, high score
@@ -396,28 +396,28 @@ See also [Case styles](#case-styles)
 - [Deterministic algorithm — Wikipedia](https://en.wikipedia.org/wiki/Deterministic_algorithm)
 - credentials - [Username + password = one word - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/309008/username-password-one-word)
 - authentication [nouns - Is "authentification" a real word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/7844/is-authentification-a-real-word)
-	
+
 - [Glossary](http://catb.org/jargon/html/go01.html)
 - [Find Similar or Opposite words at WordHippo](http://www.wordhippo.com/)
 
 > \#python tip: Avoid property() setters when the effect of the setting isn't obvious:
-> 
+>
 > 	bill.price = 1.15
 > 	bill.quantity = 20
 > 	bill.total = 19.50  # What changes, the price or quantity?
-> 
+>
 > Better:
-> 
+>
 > 	bill.adjust_price_giving_total(19.50)
 > [...]
-> 
+>
 > 	t = Temperature(celsius=17)
 > 	t.fahrenheit *= 1.10  # updates the celsius attribute
 > 	print(t.celsius)          # regular attribute
 > 	print(t.farhenheit)    # computed field
-> 
+>
 > [...]
-> 
+>
 > Solution:  Make the computed field read-only and move the update feature to a well-named method.
 
 > don't try and name a function by looking at its implementation as you'll only come up with a name that reflects how it works. Instead look at the call sites and see what they want to know or do.
@@ -441,22 +441,22 @@ See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
 ### Inclusive terminology
 
 > For symbol names and documentation, avoid introducing new usage of "master" / "slave" (or "slave" independent of "master") and "blacklist" / "whitelist".
-> 
+>
 > Recommended replacements for "master" / "slave" are:
-> 
+>
 > - "primary", "main" / "secondary", "replica", "subordinate"
 > - "initiator", "requester" / "target", "responder"
 > - "controller", "host" / "device", "worker", "proxy"
 > - "leader" / "follower"
 > - "director" / "performer"
-> 
+>
 > Recommended replacements for "blacklist" / "whitelist" are:
-> 
+>
 > - "denylist" / "allowlist"
 > - "blocklist" / "passlist"
-> 
+>
 > Exceptions for introducing new usage is to maintain a userspace ABI/API, or when updating code for an existing (as of 2020) hardware or protocol specification that mandates those terms. For new specifications translate specification usage of the terminology to the kernel coding standard where possible.
-> 
+>
 > — [coding-style.rst « process « Documentation - kernel/git/torvalds/linux.git - Linux kernel source tree](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst?id=49decddd39e5f6132ccd7d9fdc3d7c470b0061bb#n322)
 
 Use more appropriate terms. Exemple, instead of "master and slave", use "primary and secondary" or "initiator and responder" (based on the context). For "whitelist and blacklist", use "safelist" and "blocklist".
@@ -494,23 +494,23 @@ See also [complexity](#complexity).
 > — Joel Spolsky
 
 > Writing code that others will read (including your future self) is about making yourself easy to understand.
-> 
+>
 > It's not about:
 > - being clever
 > - showing how much you know
 > - using this new thing you just learned about
 > - typing the fewest characters possible
-> 
+>
 > — [Brian Hilson on Twitter: "Writing code that others will read (including your future self) is about making yourself easy to understand. It's not about: - being clever - showing how much you know - using this new thing you just learned about - typing the fewest characters possible https://t.co/ythAeaw1XJ" / Twitter](https://twitter.com/brianhilson/status/1220296329517322240?s=12)
 
 ### Comments
 
 > The proper use of comments is to compensate for our failure to express ourselves in code.
-> 
+>
 > — Robert C. Martin
 
 > Every comment represents a failure to make the code self explanatory
-> 
+>
 > — Robert C. Martin
 
 ```js
@@ -537,7 +537,7 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 > Documentation is for every possible user
 > [...]
 > Saying that variable names are the only documentation needed means that only people who read your code can use it
-> 
+>
 > — [“My Code is Self-Documenting” — Eric Holscher - Surfing in Kansas](http://ericholscher.com/blog/2017/jan/27/code-is-self-documenting/)
 
 - [Code Tells You How, Comments Tell You Why](https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
@@ -602,7 +602,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 	- [phpstan](https://github.com/phpstan/phpstan)
 	- [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 	- [SonarLint](https://www.sonarlint.org/)
-	
+
 	See also [Is there a static code analyzer \[like Lint\] for PHP files? - Stack Overflow](https://stackoverflow.com/questions/378959/is-there-a-static-code-analyzer-like-lint-for-php-files/379471#379471)
 - TypeScript:
 	- TSLint
@@ -653,15 +653,15 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 	- [SqlFluff](https://github.com/alanmcruickshank/sqlfluff)
 - JSON:
 	- [JSON Lint](https://github.com/zaach/jsonlint)
-	
+
 	See [JSONLint - The JSON Validator](https://jsonlint.com/)
 - YAML:
 	- [yamllint](https://github.com/adrienverge/yamllint)
-	
+
 	See [YAMLlint - The YAML Validator](http://www.yamllint.com/)
 - Dart:
 	- dartfmt
-	
+
 	See [dart-lang/dart_style: An opinionated formatter/linter for Dart code](https://github.com/dart-lang/dart_style)
 - VBA/VB.Net:
 	- [Rubberduck](https://github.com/rubberduck-vba/Rubberduck/)
@@ -672,7 +672,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 	- [SonarLint](https://www.sonarlint.org/)
 - PO:
 	- [Dennis](https://dennis.readthedocs.io/en/latest/linting.html)
-	
+
 - git repository: repolinter
 - commit message: [commitlint](https://commitlint.js.org/)
 - website/webpage:
@@ -703,7 +703,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 
 ## Source code organisation
 
-	/build (bin|export|dist) - a (pre-)compiled version of your library/app 
+	/build (bin|export|dist) - a (pre-)compiled version of your library/app
 	/docs (documentation) - possibly in .md .html or .txt so no compiling is needed in order to read them
 		/{ISO 639-1 code} - if localized docs
 	/examples - demos of your library or sample files
@@ -793,7 +793,7 @@ Aka Spaces vs tabs
 - store a tab char use less space than spaces
 - alignement (with spaces) don't survive an automated refactor
 - tabs for indentation, spaces for alignment:
-	
+
     ```
 	[tab]void someNiceMethod(
 	[tab][space*20]int arg1
@@ -869,20 +869,20 @@ Aka CLI
 
 > Short flags are a command line shortcut, and they do belong there, but if you’re not writing the command in a prompt, do yourself (and anyone else that may someday be reading your code) a favor and be more verbose.
 > Because this:
-> 
+>
 > 	curl --silent checkip.dyndns.org | grep --extended-regexp --only-matching '[0-9\.]+'
-> 
+>
 > is a lot easier for a human to understand than this:
-> 
+>
 > 	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
-> 
+>
 > — [Use long flags when scripting |\> News and podcasts for developers |\> Changelog](https://changelog.com/posts/use-long-flags-when-scripting)
 
 > While it is generally a good idea to write readable code, it is also true that long flags are not universally supported, and the short flags don't always have the same meanings (or even exist!) across different systems.
 > [...]
 > A much simpler solution is to comment your code:
 > [...]
-> 
+>
 > 	# Get my IP address by checking dyndns.org
 > 	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 >
@@ -927,7 +927,7 @@ Simplicity Matters, [KISS](../Conception/Conception.md#kiss)
 [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 
 > Framework guide:
-> 
+>
 > - Can an idiot decipher your errors?
 > - Can an idiot read the code?
 > - Can an idiot make something quickly without a tutorial?
@@ -935,6 +935,7 @@ Simplicity Matters, [KISS](../Conception/Conception.md#kiss)
 
 See also:
 
+- [Why not use GraphQL? | wundergraph](https://web.archive.org/web/20201108045427/https://wundergraph.com/blog/why_not_use_graphql)
 - [Web API](../Web/Web.md#api)
 - [API documentation](../Documentation/Documentation.md#api)
 - [Error messages documentation](../Documentation/Documentation.md#error-messages)
@@ -1053,7 +1054,7 @@ Query languages
 - Callback: `connection.load(callback, errorcallback, params…);`, `var intervalID = setInterval(callback, params…); clearInterval(intervalID);`
 - W3C DOM0, Traditional Event Handler: `connection.onload = callback; connection.onerror = errorcallback; connection.load();`
 - W3C DOM2 (Observer pattern): `connection.addEventListener("load", callback); connection.addEventListener("error", callback); connection.load()`
-- `java.util.Observer` and `java.util.Observable` (Observer pattern) 
+- `java.util.Observer` and `java.util.Observable` (Observer pattern)
 - Signal (AS3Signal): https://github.com/robertpenner/as3-signals
 - Other: event SuperClass listener (listen all ErrorEvent), condition event, delayed event (dispatch when a listener is added), first time event listener
 
@@ -1098,7 +1099,7 @@ In ECMAScript, `function` have context:
 String data could contains injection points or processing instructions
 
 - PHP can contains part of HTML (specialy outside processing instruction, inside strings / HEREDOC)
-- HTML can contains CSS (in `style` tags) or JavaScript (inside `script` tags) or any other language like human language (en, fr, etc. in any tag) or machine language (inside `pre`, `code`, `script` tags) 
+- HTML can contains CSS (in `style` tags) or JavaScript (inside `script` tags) or any other language like human language (en, fr, etc. in any tag) or machine language (inside `pre`, `code`, `script` tags)
 - PHP can contains SQL (inside strings / HEREDOC)
 - JavaScript can contains HTML or CSS (inside strings)
 - HTML can contains JS or CSS
@@ -1112,7 +1113,7 @@ String data could contains injection points or processing instructions
 — Michael Feathers
 
 > Good unit tests share a lot of the following characteristics:
-> 
+>
 > - Fast - should run in milliseconds.
 > - No network access - should be able to turn off wireless/unplug and all the tests still pass.
 > - Limited file system access - this adds to speed and flexibility if deploying code to other environments.
@@ -1152,7 +1153,7 @@ namespace CommandPattern
   {
     void Execute();
   }
-  
+
   public class Switch
   {
     private List _commands = new List();
@@ -1162,50 +1163,50 @@ namespace CommandPattern
       command.Execute();
     }
   }
-  
+
   public class Light
   {
     public void TurnOn()
     {
       Console.WriteLine("The light is on");
     }
-	
+
     public void TurnOff()
     {
       Console.WriteLine("The light is off");
     }
   }
-  
+
   public class FlipUpCommand : ICommand
   {
     private Light _light;
-	
+
     public FlipUpCommand(Light light)
     {
       _light = light;
     }
-	
+
     public void Execute()
     {
       _light.TurnOn();
     }
   }
-  
+
   public class FlipDownCommand : ICommand
   {
     private Light _light;
-	
+
     public FlipDownCommand(Light light)
     {
       _light = light;
     }
-	
+
     public void Execute()
     {
       _light.TurnOff();
     }
   }
-  
+
   internal class Program
   {
     public static void Main(string[] args)
@@ -1213,7 +1214,7 @@ namespace CommandPattern
       Light lamp = new Light();
       ICommand switchUp = new FlipUpCommand(lamp);
       ICommand switchDown = new FlipDownCommand(lamp);
-	  
+
       Switch s = new Switch();
       string arg = args.Length &gt; 0 ? args[0].ToUpper() : null;
       if (arg == "ON")
@@ -1249,7 +1250,7 @@ namespace CommandPattern
         { "ON", () => Console.WriteLine("The light is on") },
         { "OFF", () => Console.WriteLine("The light is off") }
       };
-	 
+
     private static void Main(string[] args)
     {
       if (args.Length == 1 && Commands.ContainsKey(args[0]))

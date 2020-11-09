@@ -1,3 +1,7 @@
+- [BMFont](../BMFont/BMFont.md)
+- [Arrange space](../../../Algorithms/Layout,%20pack%20—%20Arrange%20space/Arrange%20space.md)
+- [Rendering text](../../../Graphics/Graphics.md#rendering-text)
+
 Tools:
 
 - [libgdx Hiero](https://github.com/libgdx/libgdx/wiki/Hiero)

@@ -80,7 +80,7 @@ Could be a protest, a capabilities test, etc.
 
 ## SPAM and Phishing
 
-A targeted fishing after a smartphone has been stolen, to get unlock the protection [This is what Apple should tell you when you lose your iPhone](https://hackernoon.com/this-is-what-apple-should-tell-you-when-you-lose-your-iphone-8f07cf73cf82#)
+A targeted fishing after a smartphone has been stolen, to get unlocked the protection [This is what Apple should tell you when you lose your iPhone](https://hackernoon.com/this-is-what-apple-should-tell-you-when-you-lose-your-iphone-8f07cf73cf82#)
 
 - [Warning: beware of fake TibiaMaps.io copies! · TibiaMaps.io](https://tibiamaps.io/blog/phishing) - Phishers copy site, add malware, & buy Google ads to make them appear above the original website in search results
 - [Phishing — Wikipedia](https://en.wikipedia.org/wiki/Phishing)

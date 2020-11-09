@@ -28,7 +28,9 @@ See [Texture format](../Texture%20format/Texture%20format.md)
 
 ImageMagic as parameter `dds:mipmaps` but it's dont match DDS format value: always to 1, means one (default) level, use 0 to disable mipmap generation.
 
-	convert image_rgba.png -format dds -define dds:compression=dxt5 -define dds:cluster-fit=true -define dds:mipmaps=0 image_rgba_dxt5.dds
+```sh
+convert image_rgba.png -format dds -define dds:compression=dxt5 -define dds:cluster-fit=true -define dds:mipmaps=0 image_rgba_dxt5.dds
+```
 
 - (about ImageMagic `dds:mipmaps` option) [Strange "add" behaviour - Page 2 - ImageMagick](http://www.imagemagick.org/discourse-server/viewtopic.php?f=1&t=23946&start=15#p102687)
 - (about ImageMagic DDS specific options) [Strange "add" behaviour - Page 2 - ImageMagick](http://www.imagemagick.org/discourse-server/viewtopic.php?f=1&t=23946&start=15#p102574)

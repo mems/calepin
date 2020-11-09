@@ -1,0 +1,5 @@
+- [QR Code](../QR Code/QR Code.md)
+- [EddieLa/JOB: A Barcode scanner capapable of reading Code128, Code93, Code39, Standard/Industrial 2 of 5, Interleaved 2 of 5, Codabar and EAN-13 barcodes in javascript.](https://github.com/EddieLa/JOB)
+- [Barcode - Wikipedia](https://en.wikipedia.org/wiki/Barcode)
+- [absorptions: Barcode recovery using a priori constraints](https://web.archive.org/web/20201023085050/http://www.windytan.com/2016/02/barcode-recovery-using-priori.html)
+- [1D barcode generator (JavaScript)](https://web.archive.org/web/20200804003629/https://www.nayuki.io/page/1d-barcode-generator-javascript)
