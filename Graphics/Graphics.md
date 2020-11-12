@@ -204,10 +204,10 @@ Dithered noise can be used to enhance, see [enhance](Enhance)
 - [Advanced Map Shading wwwtyro.net](https://wwwtyro.net/2019/03/21/advanced-map-shading.html) - [wwwtyro/map-tile-lighting-demo](https://github.com/wwwtyro/map-tile-lighting-demo)
 
 > Signed Distance Fields are basically volume textures that are assigned to a mesh or height map etc.. The idea is to sample a number of locations around a mesh and calculate the shortest distance to any mesh point for each of these samples and finally store all of that in a volume texture.
-> 
+>
 > Then during runtime you can sample the current location in this volume texture and have the minimum distance at the cost of a texture read!
 
-- [Signed Distance Field Rendering Journey pt.1 | kosmonaut's blog](https://kosmonautblog.wordpress.com/2017/05/01/signed-distance-field-rendering-journey-pt-1/)
+- [Signed Distance Field Rendering Journey pt.1 – kosmonaut's blog](https://web.archive.org/web/20201110230809/https://kosmonautblog.wordpress.com/2017/05/01/signed-distance-field-rendering-journey-pt-1/)
 
 ### Ambient lighting
 
@@ -265,7 +265,7 @@ Aka sprite, billboard, Z-sprite
 
 - [Sprite (computer graphics) — Wikipedia](https://en.wikipedia.org/wiki/Sprite_%28computer_graphics%29#Use_in_3D_rendering)
 
-Example, Live2D Euclid (use multiple layers and project it using [Orthographic projection](Projection#orthographic-projection)): 
+Example, Live2D Euclid (use multiple layers and project it using [Orthographic projection](Projection#orthographic-projection)):
 
 > Basically, it allows for certain details to be rendered in a way that isn't easy to do in 3D. eg: 2D-animated mouths when seen from the side
 > Like lighting & shadows etc.
@@ -279,20 +279,20 @@ Example, Live2D Euclid (use multiple layers and project it using [Orthographic p
 ### Volumetric billboard
 
 > Re: Volumetric Billboards
-> 
+>
 > Postby Patapom » Tue Jul 19, 2011 4:25 pm
 > I just finished implementing the technique in my renderer.
 > Actually, it's not ray-marching of a volume but slicing of that volume.
-> 
+>
 > Step 1 : Render a scene (anything really, as long as it's not too detailed) into a 3D texture (I actually rendered into 2 textures : diffuse|alpha and normal)
 > Step 2 : Place several boxes in the world, each box the size of the original scene. Each box is assigned a material with the textures rendered in Step 1
 > Step 3 : (todo for each frame)
 > . Step 3.1 : Slice the entire space with planes orthogonal to the view direction in back to front order and with BLEND mode enabled
 > . Step 3.2 : When a plane intersects the box, cut the box and generate geometry (using a Geometry Shader here)
 > . Step 3.3 : For each pixel of the generated geometry, sample the 3D texture(s) and display using favorite lighting model
-> 
+>
 > Nothing really complicated as you can see. The problem with the algorithm though is that you post many many individual draw calls ! Also, it's kind of really slow.
-> 
+>
 > My advice : only use this technique at a distance, with low mip levels. Use (simplified) meshes for close view and traditional billboards for very far view. This technique is ideal for middle range LOD I think.
 — [Irrlicht Engine • View topic - Volumetric Billboards](http://irrlicht.sourceforge.net/forum/viewtopic.php?t=38663#p254522)
 
@@ -332,7 +332,7 @@ Aka sky
 
 Add a bit fog effect
 
-- [The MoviePass Quest](https://medium.com/@Falgan/the-moviepass-quest-c395e656a813) - Atmospheric scattering and scattering asteroids see [valerian](http://spacevr.makemepulse.com/expe.html?hd=1)
+- [The MoviePass Quest](https://medium.com/@Falgan/the-moviepass-quest-c395e656a813) - Atmospheric scattering and scattering asteroids see [valerian](https://web.archive.org/web/20201108104240/http://spacevr.makemepulse.com/expe.html?hd=1)
 - [Simulating the Colors of the Sky (Simulating the Colors of the Sky)](http://www.scratchapixel.com/lessons/procedural-generation-virtual-worlds/simulating-sky)
 - [Advanced WebGL - Part 2: Sky Rendering - Codeflow](http://codeflow.org/entries/2011/apr/13/advanced-webgl-part-2-sky-rendering/)
 - [Atmospheric Scattering Sample](https://www.shadertoy.com/view/lslXDr) - see `test.glsl`
@@ -343,7 +343,7 @@ Add a bit fog effect
 
 ## Material
 
-- Different type of material in ThreeJS https://github.com/mrdoob/three.js/issues/10235#issuecomment-263163446
+- different type of material in ThreeJS: [Is MeshStandardMaterial intended as a replacement for Phong and Lambert · Issue #10235 · mrdoob/three.js](https://github.com/mrdoob/three.js/issues/10235#issuecomment-263163446)
 - [Packing Lightmaps](Arrange space)
 - [3d Max Help: Car Paint Material/Shader (mental ray)](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-1CD21856-588A-4A05-AC0A-88489F5F9C84.htm,topicNumber=d30e378481) - Car paint
 
@@ -499,16 +499,16 @@ Usefull for panet environment, highly detailed textures, rich environment, etc.
 Virtual Texturing - Antelope Island:
 
 > For a long time games have used textures to add surface details and diversity to their virtual worlds. These textures usually consist of a basic set of different surface appearances which are then composited at run-time by shaders to calculate the final surface appearance.
-> 
+>
 > Recently there has been an increased interest in virtual texturing technologies. Virtual texturing allows very large textures (in the order of one gigapixel) to be applied to the game's geometry while still remaining within the limits of today's hardware. This allows far more varied worlds than can be achieved with composing tiling textures at a lower or comparable render cost.
-> 
+>
 > This video demonstrates our virtual texturing system. Our system uses NVIDIA's CUDA(Compute Unified Device Architecture) platform to reduce CPU work to a minimum and efficiently streams data between system memory and GPU memory. Additionally the data is transcoded on the fly using both the CPU (SSE2) and GPU(CUDA) to accelerate this as much as possible.
-> 
+>
 > The technical details and source code of our system are available in the following publication:
 > C. Hollemeersch, B. Pieters, P. Lambert, R. Van de Walle. Accelerating virtual texturing using CUDA, In GPU Pro : advanced rendering techniques, Pages 623-641, AK Peters, 2010
-> 
+>
 > The texture data used in this demo was made available by Utah's State Geographic Information Database (see http://gis.utah.gov/hro2006).
-> 
+>
 > http://gis.utah.gov/data/aerial-photography/2006-hro-1-foot-color-orthophotography/
 > ftp://ftp.agrc.utah.gov/UtahSGID_Vector/UTM12_NAD83/INDICES/UnpackagedData/HRO2006/_Statewide/HRO2006_shp.zip
 > ftp://ftp.agrc.utah.gov/Imagery/HRO2006/HRO2006_Index.zip
@@ -592,7 +592,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 	float f = smoothstep( 0.4, 0.6, sin(iGlobalTime	) );
 	float s = smoothstep( 0.4, 0.6, sin(iGlobalTime*0.5) );
-	
+
 	vec3 col = textureNoTile( (4.0 + 6.0*s)*uv, f );
 
 	fragColor = vec4( col, 1.0 );
@@ -612,7 +612,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 #define USEHASH
 
-vec4 hash4( vec2 p ) { return fract(sin(vec4( 1.0+dot(p,vec2(37.0,17.0)), 
+vec4 hash4( vec2 p ) { return fract(sin(vec4( 1.0+dot(p,vec2(37.0,17.0)),
 											  2.0+dot(p,vec2(11.0,47.0)),
 											  3.0+dot(p,vec2(41.0,29.0)),
 											  4.0+dot(p,vec2(23.0,31.0))))*103.0); }
@@ -622,7 +622,7 @@ vec4 texture2DNoTile( sampler2D samp, in vec2 uv )
 	vec2 iuv = floor( uv );
 	vec2 fuv = fract( uv );
 
-#ifdef USEHASH	
+#ifdef USEHASH
 	// generate per-tile transform (needs GL_NEAREST_MIPMAP_LINEARto work right)
 	vec4 ofa = texture2D( iChannel1, (iuv + vec2(0.5,0.5))/256.0 );
 	vec4 ofb = texture2D( iChannel1, (iuv + vec2(1.5,0.5))/256.0 );
@@ -635,7 +635,7 @@ vec4 texture2DNoTile( sampler2D samp, in vec2 uv )
 	vec4 ofc = hash4( iuv + vec2(0.0,1.0) );
 	vec4 ofd = hash4( iuv + vec2(1.0,1.0) );
 #endif
-	
+
 	vec2 ddx = dFdx( uv );
 	vec2 ddy = dFdy( uv );
 
@@ -644,18 +644,18 @@ vec4 texture2DNoTile( sampler2D samp, in vec2 uv )
 	ofb.zw = sign(ofb.zw-0.5);
 	ofc.zw = sign(ofc.zw-0.5);
 	ofd.zw = sign(ofd.zw-0.5);
-	
+
 	// uv's, and derivarives (for correct mipmapping)
 	vec2 uva = uv*ofa.zw + ofa.xy; vec2 ddxa = ddx*ofa.zw; vec2 ddya = ddy*ofa.zw;
 	vec2 uvb = uv*ofb.zw + ofb.xy; vec2 ddxb = ddx*ofb.zw; vec2 ddyb = ddy*ofb.zw;
 	vec2 uvc = uv*ofc.zw + ofc.xy; vec2 ddxc = ddx*ofc.zw; vec2 ddyc = ddy*ofc.zw;
 	vec2 uvd = uv*ofd.zw + ofd.xy; vec2 ddxd = ddx*ofd.zw; vec2 ddyd = ddy*ofd.zw;
-		
+
 	// fetch and blend
 	vec2 b = smoothstep(0.25,0.75,fuv);
-	
-	return mix( mix( texture2DGradEXT( samp, uva, ddxa, ddya ), 
-					 texture2DGradEXT( samp, uvb, ddxb, ddyb ), b.x ), 
+
+	return mix( mix( texture2DGradEXT( samp, uva, ddxa, ddya ),
+					 texture2DGradEXT( samp, uvb, ddxb, ddyb ), b.x ),
 				mix( texture2DGradEXT( samp, uvc, ddxc, ddyc ),
 					 texture2DGradEXT( samp, uvd, ddxd, ddyd ), b.x), b.y );
 }
@@ -663,17 +663,17 @@ vec4 texture2DNoTile( sampler2D samp, in vec2 uv )
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	vec2 uv = fragCoord / iResolution.x;
-	
+
 	float f = smoothstep( 0.4, 0.6, sin(iGlobalTime	) );
 	float s = smoothstep( 0.4, 0.6, sin(iGlobalTime*0.5) );
-		
+
 	uv = (4.0 + 16.0*s)*uv + iGlobalTime*0.1;
-		
+
 	vec3 cola = texture2DNoTile( iChannel0, uv ).xyz;
 	vec3 colb = texture2D( iChannel0, uv ).xyz;
-	
+
 	vec3 col = mix( cola, colb, f );
-	
+
 	fragColor = vec4( col, 1.0 );
 }
 ```
@@ -750,11 +750,11 @@ Text erodes, fades, glows, drips, glistens, absorbs...
 
 - [War and Peace and WebGL · Will Dobbie](http://wdobbie.com/post/war-and-peace-and-webgl/)
 	See [Resolution independent GPU text rendering demo](http://wdobbie.com/warandpeace/)
-	
+
 	> The .bmp is gzipped to 7MB. I'm not using png because some browsers will premultiply alpha, and this corrupts the vector texture atlas. The file is just downloaded as regular binary data and processed in javascript.
-	
+
 	See also
-	
+
 	- [Resolution independent GPU text rendering demo](http://wdobbie.com/pdf/)
 	- [GPU text rendering with vector textures · Will Dobbie](http://wdobbie.com/post/gpu-text-rendering-with-vector-textures/)
 	- [Implementation notes: GPU text rendering with vector textures · Will Dobbie](http://wdobbie.com/post/gpu-text-rendering-with-vector-textures-details/)
@@ -784,7 +784,7 @@ Use bitmap data:
 Use vector data:
 
 - [GLyphy](https://github.com/behdad/glyphy) - GLyphy: high-quality glyph rendering using OpenGL ES2 shaders. See also https://vimeo.com/83732058 and [glyphy_slides.pdf](http://behdad.org/glyphy_slides.pdf)
-	
+
 #### Multi-channel Signed Distance Field
 
 Aka MSDF
@@ -805,7 +805,7 @@ Aka antialiasing
 - [Feedback Applet Ported to WebGL « null program](http://nullprogram.com/blog/2014/06/21/#anti-aliasing)
 - aastep
 	- [anti-alias smoothstep utility function](https://github.com/stackgl/glsl-aastep) - aastep
-	
+
     ```glsl
 	float aastep(float threshold, float value) {
 	  #ifdef GL_OES_standard_derivatives
@@ -813,39 +813,39 @@ Aka antialiasing
 		return smoothstep(threshold-afwidth, threshold+afwidth, value);
 	  #else
 		return step(threshold, value);
-	  #endif  
+	  #endif
 	}
     ```
 
     ```glsl
 	# A full example of 2D circle rendering
 	precision highp float;
-	
+
 	#ifdef GL_OES_standard_derivatives
 	#extension GL_OES_standard_derivatives : enable
 	#endif
-	
+
 	#include aastep
-	
+
 	uniform float iGlobalTime;
 	uniform vec3  iResolution;
-	
+
 	void main() {
 		//centered texture coordinates
 		vec2 uv = vec2(gl_FragCoord.xy / iResolution.xy) - 0.5;
-		
+
 		//correct aspect
 		uv.x *= iResolution.x / iResolution.y;
-		
+
 		//animate zoom
-		uv /= sin(iGlobalTime * 0.2); 
-		
+		uv /= sin(iGlobalTime * 0.2);
+
 		//radial distance
 		float len = length(uv);
-		
+
 		//anti-alias
 		len = aastep(0.5, len);
-		
+
 		gl_FragColor.rgb = vec3(len);
 		gl_FragColor.a   = 1.0;
 	}
@@ -861,8 +861,8 @@ Aka antialiasing
 ![Wire aliasing](http://www.humus.name/3D/PhoneWireAAComp.png)
 
 > The idea is to adjust the radius of the wire to make sure it does not get smaller than a pixel wide. If the wire's radius would make it smaller than a pixel, it clamps the width to a pixel and instead fades with an alpha value corresponding to the radius reduction ratio. For example, if the wire is deemed to be half a pixel large at current distance, it clamps width to a full pixel and sets coverage to 0.5 instead. While the technique solves the problem of aliasing due to thin geometry, it does not address the general problem of jaggies; however, your regular MSAA will take care of that. With both enabled you get a very natural looking wire at any distance.
-> 
-> A similar approach could likely be used on other aliasing prone geometry based on thin geometry, such as antenna towers, pipes and railings. 
+>
+> A similar approach could likely be used on other aliasing prone geometry based on thin geometry, such as antenna towers, pipes and railings.
 — [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=89)
 
 - [GPU Gems - Chapter 22. Fast Prefiltered Lines](http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter22.html)
@@ -956,64 +956,65 @@ Aka PBR
 About tiled rendering architectures:
 
 > These two simple tips can speed up your rendering by 40%!
-> 
+>
 > I mentioned in my notes a couple days ago about Pinball FX2 VR that it wasn’t holding 60 fps. I investigated with Qualcomm’s Snapdragon Profiler and it turns out that it suffers from mobile GPU specific pitfalls that would not be at all obvious to developers coming from a PC or console background.
-> 
+>
 > Both the Snapdragon Adreno and ARM Mali GPUs found in Gear VR use a tiled rendering architecture. Mali uses small, fixed size tiles, and Adreno uses larger, variable sized “bins”, but the performance characteristics are similar. The idea is that instead of drawing triangles one at a time directly to a color / depth buffer in main memory, the triangles are grouped so that all the triangles in a small are can be drawn at once, using a tiny on-chip color buffer and depth buffer. If things go right, the traffic to main memory is just linear writes of the color buffer, the depth buffer doesn’t ever actually exist in main memory, and both power and performance are saved.
-> 
+>
 > However, for this to work, you have to do all your drawing to a surface in one batch.
-> 
+>
 > In the old days of simple rendering techniques, drawing straight to the screen, this happened pretty much automatically. However, many modern techniques involve rendering something to a separate buffer so it can be used as a texture, which can ruin things.
-> 
+>
 > This is an anti-pattern for mobile graphics:
-> 
+>
 > Start drawing stuff to your scene.
 > Switch to another framebuffer to render some effect.
 > Switch back to your scene to use that texture.
-> 
+>
 > There is another subtle case that can cause inefficiency – if you don’t explicitly clear or invalidate all the render buffers you use, the driver has to be pessimistic and assume that you are expecting whatever you last drew to the buffer to remain there. Some apps would do things like only updating the dirty rectangles in a changing UI instead of rendering it completely, so that case does matter for correctness. Not knowing ahead of time if the drawing is going to cover every pixel, the driver is forced to initialize the internal tile memory by reading the real framebuffer contents from main memory.
-> 
+>
 > The driver will skip that read if you have done a glClear() that covers the entire buffer. Simple apps often do that, but on most platforms it has become a standard optimization for developers to skip the clear of the color buffer, because every reasonable app does actually cover every pixel with drawing. On mobile, this is a de-optimization! The clear will always be faster than the forced read from main memory. The even-better solution is to use glInvalidateFramebuffer(), which does nothing but tell the driver that it can safely skip the read, even if you don’t clear.
-> 
+>
 > EDIT: I forgot to mention that you should also do a glInvalidateFramebuffer() on your depth buffer after you have finished rendering, but before flushing. This tells the driver that you promise not to use the depth buffer again, so it doesn't have to write it out to memory along with the color buffer.
-> 
+>
 > On Adreno, if you are using glInvalidateFramebuffer() and you can noclip outside of your world, the leftover garbage data in the areas where nothing is drawn let you see the actual bin layout on screen. On Mali, invalidates are equivalent to clears.
-> 
+>
 > A less common historical optimization was to also avoid clearing the depth buffer by halving your depth precision and switching the depth range and test sense each frame. Don’t ever do that nowadays – it will trigger the bad reads on mobile, but it will also screw up the various fast-Z optimizations on desktop GPUs.
-> 
+>
 > The attached image is a trace view from Snapdragon Profiler from a frame of Pinball FX2 VR.
-> 
+>
 > The fact that there is a single green IB1 Start Marker and red Flush Marker is a good thing, it means that the CPU didn’t try to read anything back mid-render, so everything proceeded without any stalls, as fast as it can.
-> 
+>
 > There are a lot of surfaces, which is concerning. Ideally, you just want to see two surfaces, one for each VR eye. What is happening here is that one eye is rendered to a 973 x 973 resolution surface (which is odd – should be 1024 x 1024, there is edge stretching visible), then several small and fast surfaces are rendered, then the second eye is rendered, then several small and fast surfaces for that eye, then the poison part – it goes back to both eye buffer surfaces to use the results of the little texture renderings. This go-back phase is just a single full screen quad, but it is taking a third of the total GPU time!
-> 
+>
 > The green Binning blocks show the time spent sorting all the triangles into the individual bins. This is largely dominated by the triangle count in the scene and the number of bins, which is a function of buffer options. This looks fine.
-> 
+>
 > The red GMEM Load bars are all waste due to not clearing / invalidating the framebuffer before rendering, and returning to the partly-rendered framebuffer. *A good mobile app should not have any GMEM Loads at all*.
-> 
+>
 > The cyan Render bars are where the GPU is running fragment shaders to the internal bin memory. This looks fine.
-> 
+>
 > The GMEM Store bars are when the GPU writes the bin out to main memory, which is unavoidable, but it happens twice as much here as it should, because the same buffer is returned to twice.
-> 
+>
 > Invalidating the color buffer is a trivial fix, but the mid-frame rendering is the more important problem, and more difficult to fix.
-> 
+>
 > Many off screen renders, like shadow buffers, can, with a little effort, be done before the eye buffers are rendered (and shared between the two eyes!), rather than on-demand, midway through the eye buffers. Drivers can sometimes figure this out and do it automatically, but it is better to not rely on that, and structure your code properly.
-> 
+>
 > Unfortunately, the internal rendering here is for a glow / glare effect, and it is using the “bright” pixels that were just rendered, so it isn’t obvious how to have it ready before the eyes are drawn.
-> 
+>
 > What to do?
-> 
+>
 > Option 1:
 > Don’t do the glare effect at all. Often the simplest solutions are best. It is easy to get a little bit over attached to some effects, and not judge them by their true value. Right now, this effect is costing a LOT. Skipping the glare means you don’t need to do the other surface renders, and you wind up with just the standard two surfaces being rendered.
-> 
+>
 > Option 2:
 > Do the glare mip mapping before the eye buffer rendering, but use the previous frame’s eye buffer as the source, since it is already done. That wouldn’t be in exactly the right place if your head is turning, so the glare would swim around a little bit. That might be OK, but you could mostly correct for it by reprojecting the texture based on the view change, TimeWarp / temporal anti-aliasing style. Getting that right can be pretty tricky. It would not be the exact same effect, since the glare would be coming from an eye buffer with glare already applied. That might be pleasing, but it might also be a runaway feedback loop, depending on parameters.
-> 
+>
 > Option 3:
 > Instead of copying the results of the main eye buffer rendering to the glare buffer, actually render the geometry again to that smaller buffer. Rendering everything would be bad, but if the “bright” surfaces that could contribute to the glare are a small subset of the entire scene, this can work out. There may be some artifacts due to bright objects not being occluded by surfaces that weren’t drawn.
-> 
+>
 > ![Trace view from Snapdragon Profiler from a frame of Pinball FX2 VR](Pinball%20FX2%20VR%20render%20frame.jpg)
-— [John Carmack - These two simple tips can speed up your rendering...](https://www.facebook.com/permalink.php?story_fbid=1923486231219218&id=100006735798590)
+>
+> — [John Carmack - These two simple tips can speed up your rendering...](https://www.facebook.com/permalink.php?story_fbid=1923486231219218&id=100006735798590)
 
 ## Primite
 
@@ -1150,7 +1151,7 @@ Usefull functions:
 - [Walls](http://samsy.ninja/nebula/index.html)
 - [Quick Game Art Tips - Unity Triplanar Terrain Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-16714688) - A collection of shared effects
 - [Standard Assets - Asset Store](https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-32351) - Unity Standard Assets (see Effects) [Unity - Manual: Standard Assets](https://docs.unity3d.com/540/Documentation/Manual/HOWTO-InstallStandardAssets.html)
-	
+
 		Shader "Toon/Lit TriPlanar" {
 			Properties{
 				_Color("Main Color", Color) = (0.5,0.5,0.5,1)
@@ -1167,16 +1168,16 @@ Usefull functions:
 				_RimColor("Rim Color Top", Color) = (0.5,0.5,0.5,1)
 				_RimColor2("Rim Color Side/Bottom", Color) = (0.5,0.5,0.5,1)
 			}
-		
+
 				SubShader{
 				Tags{ "RenderType" = "Opaque" }
 				LOD 200
-		
+
 				CGPROGRAM
 		#pragma surface surf ToonRamp
-		
+
 				sampler2D _Ramp;
-		
+
 			// custom lighting function that uses a texture ramp based
 			// on angle between light direction and normal
 		#pragma lighting ToonRamp exclude_path:prepass
@@ -1185,97 +1186,97 @@ Usefull functions:
 		#ifndef USING_DIRECTIONAL_LIGHT
 				lightDir = normalize(lightDir);
 		#endif
-		
+
 				half d = dot(s.Normal, lightDir)*0.5 + 0.5;
 				half3 ramp = tex2D(_Ramp, float2(d,d)).rgb;
-		
+
 				half4 c;
 				c.rgb = s.Albedo * _LightColor0.rgb * ramp * (atten * 2);
 				c.a = 0;
 				return c;
 			}
-		
-		
+
+
 			sampler2D _MainTex, _MainTexSide, _Normal;
 			float4 _Color, _RimColor, _RimColor2;
 			float _RimPower;
 			float  _TopSpread, _EdgeWidth;
 			float _Scale, _SideScale, _NoiseScale;
-		
+
 			struct Input {
 				float2 uv_MainTex : TEXCOORD0;
 				float3 worldPos; // world position built-in value
 				float3 worldNormal; // world normal built-in value
 				float3 viewDir;// view direction built-in value we're using for rimlight
 			};
-		
+
 			void surf(Input IN, inout SurfaceOutput o) {
-		
+
 				// clamp (saturate) and increase(pow) the worldnormal value to use as a blend between the projected textures
 				float3 blendNormal = saturate(pow(IN.worldNormal * 1.4,4));
-		
+
 				// normal noise triplanar for x, y, z sides
 				float3 xn = tex2D(_Normal, IN.worldPos.zy * _NoiseScale);
 				float3 yn = tex2D(_Normal, IN.worldPos.zx * _NoiseScale);
 				float3 zn = tex2D(_Normal, IN.worldPos.xy * _NoiseScale);
-		
+
 				// lerped together all sides for noise texture
 				float3 noisetexture = zn;
 				noisetexture = lerp(noisetexture, xn, blendNormal.x);
 				noisetexture = lerp(noisetexture, yn, blendNormal.y);
-		
+
 				// triplanar for top texture for x, y, z sides
 				float3 xm = tex2D(_MainTex, IN.worldPos.zy * _Scale);
 				float3 zm = tex2D(_MainTex, IN.worldPos.xy * _Scale);
 				float3 ym = tex2D(_MainTex, IN.worldPos.zx * _Scale);
-		
+
 				// lerped together all sides for top texture
 				float3 toptexture = zm;
 				toptexture = lerp(toptexture, xm, blendNormal.x);
 				toptexture = lerp(toptexture, ym, blendNormal.y);
-		
+
 				// triplanar for side and bottom texture, x,y,z sides
 				float3 x = tex2D(_MainTexSide, IN.worldPos.zy * _SideScale);
 				float3 y = tex2D(_MainTexSide, IN.worldPos.zx * _SideScale);
 				float3 z = tex2D(_MainTexSide, IN.worldPos.xy * _SideScale);
-		
+
 				// lerped together all sides for side bottom texture
 				float3 sidetexture = z;
 				sidetexture = lerp(sidetexture, x, blendNormal.x);
 				sidetexture = lerp(sidetexture, y, blendNormal.y);
-		
+
 				// rim light for fuzzy top texture
 				half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal * noisetexture));
-		
+
 				// rim light for side/bottom texture
 				half rim2 = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
-		
+
 				// dot product of world normal and surface normal + noise
 				float worldNormalDotNoise = dot(o.Normal + (noisetexture.y + (noisetexture * 0.5)), IN.worldNormal.y);
-		
+
 				// if dot product is higher than the top spread slider, multiplied by triplanar mapped top texture
 				// step is replacing an if statement to avoid branching :
 				// if (worldNormalDotNoise > _TopSpread{ o.Albedo = toptexture}
 				float3 topTextureResult = step(_TopSpread, worldNormalDotNoise) * toptexture;
-		
+
 				// if dot product is lower than the top spread slider, multiplied by triplanar mapped side/bottom texture
 				float3 sideTextureResult = step(worldNormalDotNoise, _TopSpread) * sidetexture;
-		
+
 				// if dot product is in between the two, make the texture darker
 				float3 topTextureEdgeResult = step(_TopSpread, worldNormalDotNoise) * step(worldNormalDotNoise, _TopSpread + _EdgeWidth) *  -0.15;
-		
+
 				// final albedo color
 				o.Albedo = topTextureResult + sideTextureResult + topTextureEdgeResult;
 				o.Albedo *= _Color;
 				// adding the fuzzy rimlight(rim) on the top texture, and the harder rimlight (rim2) on the side/bottom texture
 				o.Emission = step(_TopSpread, worldNormalDotNoise) * _RimColor.rgb * pow(rim, _RimPower) + step(worldNormalDotNoise, _TopSpread) * _RimColor2.rgb * pow(rim2, _RimPower);
-		
-		
+
+
 			}
 			ENDCG
-		
+
 			}
-		
+
 				Fallback "Diffuse"
 		}
 
@@ -1283,7 +1284,7 @@ Usefull functions:
 
 > The issue is that the human eye is adaptive so you get banding on elongated gradients in 8bit/channel precision unless you throw a lot of high-contrast stuff on the screen.
 > Gamma-corrected colorspace reallocates the 8bit/channel precision to where it really matters, so it helps with the original problem somewhat, but even with nonlinear gamma 8 bits/channel are just not enough.
-> Unfortunately, gamma correction introduces its own set of problems for gradients with saturated colors: 
+> Unfortunately, gamma correction introduces its own set of problems for gradients with saturated colors:
 
 Doing the math linearly and applying the nonlinearity at end is called [gamma correction](https://en.wikipedia.org/wiki/Gamma_correction) (enhance dark details).
 
@@ -1303,29 +1304,31 @@ Doing the math linearly and applying the nonlinearity at end is called [gamma co
 
 ### Tone map
 
-	/*----------------------------------------- ToneMapFilmic_Hejl2015 ---
-	 |  Function ToneMapFilmic_Hejl2015
-	 |
-	 |  Purpose: This function applies a "film-like" tonemap to supplied
-	 |		   HDR pixel. This curve does not approximate gamma2.2,
-	 |		   so an explicit sRGB transform should be performed
-	 |		  before display.
-	 |
-	 |  Parameters:
-	 |	  float3 hdr (IN)	-- HDR pixel in linear space
-	 |	  float  whitePt (IN) -- Scene white point. Must be > 0.0
-	 |
-	 |  Returns:  Tonemapped pixel, white point corrected, in gamma 1.0 space
-	 |
-	 |   08-18-15   v1   Jim Hejl
-	 *-------------------------------------------------------------------*/
-	float3 ToneMapFilmic_Hejl2015(float3 hdr, float whitePt)
-	{
-	   float4 vh = float4(hdr,whitePt);	// pack: [r,g,b,w]
-	   float4 va = (1.425 * vh) + 0.05f;   // eval filmic curve
-	   float4 vf = ((vh * va + 0.004f) / ((vh * (va + 0.55f) + 0.0491f))) - 0.0821f;
-	   return vf.rgb / vf.www;		  // white point correction
-	}
+```glsl
+/*----------------------------------------- ToneMapFilmic_Hejl2015 ---
+ |  Function ToneMapFilmic_Hejl2015
+ |
+ |  Purpose: This function applies a "film-like" tonemap to supplied
+ |		   HDR pixel. This curve does not approximate gamma2.2,
+ |		   so an explicit sRGB transform should be performed
+ |		  before display.
+ |
+ |  Parameters:
+ |	  float3 hdr (IN)	-- HDR pixel in linear space
+ |	  float  whitePt (IN) -- Scene white point. Must be > 0.0
+ |
+ |  Returns:  Tonemapped pixel, white point corrected, in gamma 1.0 space
+ |
+ |   08-18-15   v1   Jim Hejl
+ *-------------------------------------------------------------------*/
+float3 ToneMapFilmic_Hejl2015(float3 hdr, float whitePt)
+{
+   float4 vh = float4(hdr,whitePt);	// pack: [r,g,b,w]
+   float4 va = (1.425 * vh) + 0.05f;   // eval filmic curve
+   float4 vf = ((vh * va + 0.004f) / ((vh * (va + 0.55f) + 0.0491f))) - 0.0821f;
+   return vf.rgb / vf.www;		  // white point correction
+}
+```
 
 - [Tone mapping — Wikipedia](https://en.wikipedia.org/wiki/Tone_mapping)
 - [tonemap: hejl2015](https://www.shadertoy.com/view/llsSD2)
@@ -1336,36 +1339,42 @@ Doing the math linearly and applying the nonlinearity at end is called [gamma co
 
 In a cube
 
-	// vertex
-	varying vec3 worldPosition;
-	void main () {\n\
-		vec4 p = vec4 (position, 1.0);
-		worldPosition = (modelMatrix * p).xyz;
-		gl_Position = projectionMatrix * modelViewMatrix * p;
-	}
+```glsl
+// vertex
+varying vec3 worldPosition;
+void main () {\n\
+	vec4 p = vec4 (position, 1.0);
+	worldPosition = (modelMatrix * p).xyz;
+	gl_Position = projectionMatrix * modelViewMatrix * p;
+}
+```
 
-	// fragment
-	uniform sampler2D map;
-	uniform vec3 placement;
-	varying vec3 worldPosition;
-	const float seamWidth = 0.01;
-	
-	void main () {
-		vec3 R = worldPosition - placement;
-		float r = length (R);
-		float c = -R.y / r;
-		float theta = acos (c);
-		float phi = atan (R.x, -R.z);
-		float seam = 
-			// thin circle around x axis
-			max (0.0, 1.0 - abs (R.x / r) / seamWidth) *
-			// keep the part facing positive z direction
-			clamp (1.0 + (R.z / r) / seamWidth, 0.0, 1.0);
-		gl_FragColor = texture2D (map, vec2 (
-			0.5 + phi / 6.2831852,
-			theta / 3.1415926
-		), -2.0 * log2(1.0 + c * c) -12.3 * seam);
-	}
+```glsl
+// fragment
+uniform sampler2D map;
+uniform vec3 placement;
+varying vec3 worldPosition;
+const float seamWidth = 0.01;
+```
+
+```glsl
+void main () {
+	vec3 R = worldPosition - placement;
+	float r = length (R);
+	float c = -R.y / r;
+	float theta = acos (c);
+	float phi = atan (R.x, -R.z);
+	float seam =
+		// thin circle around x axis
+		max (0.0, 1.0 - abs (R.x / r) / seamWidth) *
+		// keep the part facing positive z direction
+		clamp (1.0 + (R.z / r) / seamWidth, 0.0, 1.0);
+	gl_FragColor = texture2D (map, vec2 (
+		0.5 + phi / 6.2831852,
+		theta / 3.1415926
+	), -2.0 * log2(1.0 + c * c) -12.3 * seam);
+}
+```
 
 - [Sampling equirectangular textures | Coding on acid.](https://makc3d.wordpress.com/2017/01/19/sampling-equirectangular-textures/)
 - [Edit fiddle - JSFiddle](http://jsfiddle.net/hfj7gm6t/2879/)
@@ -1378,7 +1387,8 @@ See [Math](Math#arc-tangent)
 > GLSL provides two atan-operators. One taking 1 parameter and one taking 2 parameters. The one with 2 parameters is the equivalent of atan2.
 
 - [atan - OpenGL 4 Reference Pages](https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/atan.xhtml)
- 
+
+	```glsl
 	// AGAL atan2 implementation
 	float atan2(float4 v0){
 		const float4 fc0 = float4(0, 0, 3.141592654, 2 * 3.141592654);/* Math.PI, 2 * Math.PI */
@@ -1386,7 +1396,7 @@ See [Math](Math#arc-tangent)
 		float4 ft0 = v0;
 		float4 ft2;
 		float4 ft3;
-		
+
 		ft0.zw = ft0.zw - ft0.zw;
 		/* In their eternal wisdom Adobe or whoever is responsible
 		 * made no atan2 in AGAL, so we need to use approximation,
@@ -1414,6 +1424,7 @@ See [Math](Math#arc-tangent)
 		ft3.x = ft3.x * ft2.y;/* ft3.x = "((partSignX + 1.0) * 0.7853981634 + (0.1821 * absYandR * absYandR - 0.9675) * absYandR) * sign" */
 		return ft3.x;
 	}
+	```
 
 ### Blur
 
@@ -1610,7 +1621,7 @@ float distance(vec2 p0, vec2 p1) {
 // dopt, cross, normalize, faceforward, reflect, refract
 
 // Matrix functions
-// matrixCompMult, 
+// matrixCompMult,
 
 // Vector Relational Functions
 bvec2 lessThan(vec2 x, vec2 y) {
@@ -1662,7 +1673,7 @@ bvec2 not(bvec2 x) {
 uniform sampler2D tex;
 uniform int index = 0;
 void main(void) { vec4 c = texture2D(tex, gl_TexCoord[0].st);
-mat3 m[9] = 
+mat3 m[9] =
 {
 	// normal
 	mat3(
@@ -1775,34 +1786,34 @@ float getContrast() {
   https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/MeasureImageBrightnessAndContrast/MeasureImageBrightnessAndContrast.pde
   MEASURE IMAGE BRIGHTNESS AND CONTRAST
   Jeff Thompson | 2013 | www.jeffreythompson.org
-  
+
   Measures the overall brightness and contrast in an image.
-  
-  NOTE: this is average for both measures, meaning localized areas of 
+
+  NOTE: this is average for both measures, meaning localized areas of
   extreme brightness/contrast may throw off the measurements.
-  
+
   Contrast based on this formula:
   http://en.wikipedia.org/wiki/Contrast_%28vision%29#RMS_contrast
-  
+
   Thanks to Amnon Owed for helping figure out the contrast/RMS algorithm!
   https://forum.processing.org/topic/calculate-image-contrast-using-root-mean-square-rms#25080000001971367
   */
-  
+
   // file to load (gray, mountain, truck)
   String filename = "truck.jpg";
-  
+
   boolean normalizeRange = true;	// normalize results to range of 0-1
   PImage img;
   float brightness = 0;
   float contrast = 0;
-  
+
   void setup() {
-	  
+
 	img = loadImage(filename);
 	size(img.width, img.height);
 	image(img, 0,0);
 	loadPixels();				   // load pixels into array, iterate!
-	
+
 	// find average brightness across image
 	for (color c : pixels) {
 	  float r = c >> 16 & 0xFF;												 // extract RGB values quickly (better than red(), etc)
@@ -1815,7 +1826,7 @@ float getContrast() {
 	}
 	brightness /= pixels.length;												// average result
 	println("Average brightness: " + brightness);
-	
+
 	// find contrast by comparing average brightness with current value
 	for (color c : pixels) {
 	  float r = c >> 16 & 0xFF;
@@ -1839,10 +1850,10 @@ float getContrast() {
 https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/ContrastAdjustment/ContrastAdjustment.pde
 CONTRAST ADJUSTMENT
  Jeff Thompson | 2012 | www.jeffreythompson.org
- 
+
  A simple algorithm to adjust image contrast.
  */
- 
+
 float increment = 0.5;	// amount to adjust contrast each time the arrow keys are hit
 float contrast = 127;	 // 0 - 255
 PImage source, copy;
@@ -1858,22 +1869,22 @@ void draw() {
 }
 
 PImage adjustContrast(PImage img, float contrast) {
-	
+
   // ensure our contrast is in a legal range of 0-255
   contrast = constrain(contrast, 0.0, 255.0);
-  
+
   // find difference from center (127), equal to the adjustment we make to the image!
   float adjustment = map(contrast, 0, 255, -127, 127);
   println(adjustment);
-  
+
   img.loadPixels();
   for (int i=0; i<img.pixels.length; i++) {
-	  
+
 	// get RGB values from the pixels and adjust
 	float r = img.pixels[i] >> 16 & 0xFF;	// faster equivelant to red() command
 	float g = img.pixels[i] >> 8 & 0xFF;	 // ditto green
-	float b = img.pixels[i] & 0xFF;		  // and blue! 
-	
+	float b = img.pixels[i] & 0xFF;		  // and blue!
+
 	// decrease contrast by moving into center (easier)
 	if (adjustment < 0) {
 	  r = map(r, 0, 255, adjustment, 255-adjustment);
@@ -1888,14 +1899,14 @@ PImage adjustContrast(PImage img, float contrast) {
 	  else {
 		r = map(r, 0, 255, 0, 127-adjustment);
 	  }
-  
+
 	  if (g > 127) {
 		g = map(g, 0, 255, 127+adjustment, 255);
 	  }
 	  else {
 		g = map(g, 0, 255, 0, 127-adjustment);
 	  }
-  
+
 	  if (b > 127) {
 		b = map(b, 0, 255, 127+adjustment, 255);
 	  }
@@ -1903,7 +1914,7 @@ PImage adjustContrast(PImage img, float contrast) {
 		b = map(b, 0, 255, 0, 127-adjustment);
 	  }
 	}
-	
+
 	img.pixels[i] = color(r, g, b);
 	// println(r + ", " + g + ", " + b);
   }
@@ -1935,14 +1946,14 @@ void keyPressed() {
     	https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/FindDarkestPointsByNeighborhood/FindDarkestPointsByNeighborhood.pde
     	FIND DARKEST POINTS BY NEIGHBORHOOD/DISTANCE
     	 Jeff Thompson | 2013 | www.jeffreythompson.org
-	 
-    	 An algorithm to find the darkest points in an image. 
-	 
+
+    	 An algorithm to find the darkest points in an image.
+
  While a true centroid algorithm would likely be better, and is possible in Processing
  (and likely easiest using OpenCV), this is either computationally expensive (ie: slow)
  and/or requires external libraries and methods.
 
- Instead, this is a much lighter-weight example for finding the darkest single-pixel 
+ Instead, this is a much lighter-weight example for finding the darkest single-pixel
  points within blocks of the image, then compares those results to neighbors, removing
  ones that are too close to each other.
 
@@ -1977,7 +1988,7 @@ void setup() {
   // copy pixels to another PImage for processing
   test = createImage(width, height, RGB);
   test.copy(source, 0, 0, width, height, 0, 0, width, height);
-  test.filter(GRAY);  
+  test.filter(GRAY);
 
   // go through image block-by-block, finding the darkest pixel and, if it
   // falls within 'storeThresh', store it to the ArrayList - this helps keep
@@ -1985,7 +1996,7 @@ void setup() {
   test.loadPixels();
   for (int x=0; x < width-sampleSize; x += sampleSize) {				  // go through in blocks
 	for (int y=0; y < height-sampleSize; y += sampleSize) {
-	
+
 	  // within each sample square, get the darkest pixel
 	  // if that pixel is dark enough, add it to the darkest!
 	  int darkX = 0;													  // variables for the darkest px's location
@@ -2001,8 +2012,8 @@ void setup() {
 		  }
 		}
 	  }
-  
-	  // if the result is dark enough, store it to the ArrayList! 
+
+	  // if the result is dark enough, store it to the ArrayList!
 	  if (darkestValue <= storeThresh) {
 		darkest.add((darkY*width + darkX));	// store location as int in the centroid ArrayList
 	  }
@@ -2014,7 +2025,7 @@ void setup() {
   // great solution mostly via: https://stackoverflow.com/a/14389321/1167783
   println("Culling darkest for proximity...");
   ArrayList<Integer> results = new ArrayList<Integer>();	// create new ArrayList to store pixels that aren't too close
-all: 
+all:
   for (Integer current : darkest) {						 // label 'all' allows us to continue to outer for loop
 	int cx = current % width;							   // get x/y coords of current point
 	int cy = current / width;
@@ -2120,7 +2131,9 @@ See [Water](#water)
 
 #### Wave
 
-	amplitude * Math.sin(((2 * Math.PI) / wavelength) * position - (frequency * time) + phase) + offset;
+```js
+amplitude * Math.sin(((2 * Math.PI) / wavelength) * position - (frequency * time) + phase) + offset;
+```
 
 * `amplitude`: Deviation from center (aka. height of the wave)
 * `frequency`: Radians per second (aka. speed of the wave)
@@ -2155,18 +2168,18 @@ Aka sparly shader, twinkling
 - ![Sparkle shader](Pixel Shader/Sparkle shader/Sparkle shader.mp4)
 - ![Sparkle shader 2](Pixel Shader/Sparkle shader 2/Sparkle shader 2.mp4) (normalize the direction vector, make sure you normalize the direction vector), could use using the camera direction vector
 
-```
+```glsl
 // From https://www.shadertoy.com/view/tdsXRX
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
 	// Normalized pixel coordinates (from 0 to 1)
 	vec2 uv = fragCoord/iResolution.xy;
-	
+
 	vec2 light = vec2(cos(iTime*.5), sin(iTime*.5));
-	
+
 	vec2 direction = normalize(texture(iChannel0,uv).xy - .5);
 	float sparkle = dot(direction, light);
-	
+
 	sparkle = step(.999,sparkle);
 	// Output to screen
 	fragColor = vec4(sparkle);
@@ -2240,42 +2253,48 @@ See also "wagon wheel effect"
 
 Use a vertex shader to compute motion (velocity texture). [Motion blur](Blur#motion-blur) shader can be used too
 
-	using UnityEngine;
-	
-	[ExecuteInEditMode]
-	public class DynamicScale : MonoBehaviour
+```csharp
+using UnityEngine;
+
+[ExecuteInEditMode]
+public class DynamicScale : MonoBehaviour
+{
+	Vector3 lastPosition;
+
+	void Start()
 	{
-		Vector3 lastPosition;
-		
-		void Start()
-		{
-			lastPosition = transform.position;
-		}
-		
-		void LateUpdate()
-		{
-			Vector3 delta = transform.position - lastPosition;
-			transform.localRotation = Quaternion.LookRotation(delta + Vector3.forward * 0.001f);
-			float l = 1f + delta.magnitude;
-			float wh = Mathf.Sqrt(1f / l);
-			transform.localScale = new Vector3(wh, wh, l);
-			
-			lastPosition = transform.position;
-		}
+		lastPosition = transform.position;
 	}
+
+	void LateUpdate()
+	{
+		Vector3 delta = transform.position - lastPosition;
+		transform.localRotation = Quaternion.LookRotation(delta + Vector3.forward * 0.001f);
+		float l = 1f + delta.magnitude;
+		float wh = Mathf.Sqrt(1f / l);
+		transform.localScale = new Vector3(wh, wh, l);
+
+		lastPosition = transform.position;
+	}
+}
+```
 
 For cube:
 
-	volume of a cube; V=h×w×L
-	you know h=w though and assume volume is 1, so:
-	1=w×w×L
-	1=w²×L
-	1/L=w²
-	√(1/L)=w
+```
+volume of a cube; V=h×w×L
+you know h=w though and assume volume is 1, so:
+1=w×w×L
+1=w²×L
+1/L=w²
+√(1/L)=w
+```
 
 For general case (volumes other than 1):
 
-	w_new = w_old*√(L_old/L_new)
+```
+w_new = w_old*√(L_old/L_new)
+```
 
 > You can move wheel rotation to vertex shader, instead of doing it as an object. That adds certain difficulties, such as complications with normal maps and added shader costs, however it also opens you a way to precisely control how much rotational blur you get independently from rotation speed using previous frame switch.
 > — [Wheels, motion blur and motion vector - Unreal Engine Forums](https://forums.unrealengine.com/development-discussion/rendering/121459-wheels-motion-blur-and-motion-vectors/page2)
@@ -2363,6 +2382,12 @@ Aka Mandelbrot, Julia
 - [SVG Pencil Filter #2](https://codepen.io/srt19170/pen/XWWopOg)
 - [Hand-Drawn Lines Code (Javascript)](https://gist.github.com/srt19170/06a032e541cb4208a3e47a64f7b4687c)
 
+### Blueprint
+
+- [Jaume Sanchez Elias on Twitter: "Blueprint shading #threejs #webgl Live: https://t.co/KAdN2fPuPg Source: https://t.co/gBzdacrmO3 More: https://t.co/kvAGraA8fk" / Twitter](https://twitter.com/thespite/status/1326644798455943169)
+	- [sketch/post-blueprint at master · spite/sketch](https://github.com/spite/sketch/tree/master/post-blueprint)
+- [Sketch](https://spite.github.io/sketch/)
+
 ### Draw & paint
 
 See also [interaction](#interaction)
@@ -2423,50 +2448,52 @@ Aka Film grain, details restoration
 
 See [noise and dithering](Random, noise and dithering)
 
-	// "video" is your video object istance
-	var filter:ConvolutionFilter = new flash.filters.ConvolutionFilter();
-	filter.matrixX = 3;
-	filter.matrixY = 3;
-	filter.matrix = [-1, 0, -1, 0, 8, 0, -1, 0, -1];
-	filter.bias =  0;
-	filter.divisor = 4;
-	video.filters = [filter];
+```as3
+// "video" is your video object istance
+var filter:ConvolutionFilter = new flash.filters.ConvolutionFilter();
+filter.matrixX = 3;
+filter.matrixY = 3;
+filter.matrix = [-1, 0, -1, 0, 8, 0, -1, 0, -1];
+filter.bias =  0;
+filter.divisor = 4;
+video.filters = [filter];
 
-	// Init noise frames
-	var baseX:Number = 1.3;
-	var baseY:Number = 1.3;
-	var numOctaves:Number = 1;
-	var stitch:Boolean = true;
-	var fractalNoise:Boolean = true;
-	var channelOptions:Number = BitmapDataChannel.BLUE | BitmapDataChannel.RED | BitmapDataChannel.GREEN;
-	var grayScale:Boolean = false;
-	var offsets:Array = new Array(new Point(), new Point());
-	var bitmapArray:Array = new Array();
-	var frameNumber:Number = 12;
-	
-	for (var i = 0; i < frameNumber; i++)
-	{
-		var bmpData:BitmapData = new BitmapData(1280, 720);
-		var bmp:Bitmap = new Bitmap(bmpData);
-		bmp.alpha = 0.20;
-		bmp.blendMode = "overlay";
-		bmpData.perlinNoise(baseX, baseY, numOctaves, Math.random() * 65000, stitch, fractalNoise, channelOptions, grayScale, offsets);
-		bmp.visible = false;
-		bitmapArray.push(bmp);
-	}
+// Init noise frames
+var baseX:Number = 1.3;
+var baseY:Number = 1.3;
+var numOctaves:Number = 1;
+var stitch:Boolean = true;
+var fractalNoise:Boolean = true;
+var channelOptions:Number = BitmapDataChannel.BLUE | BitmapDataChannel.RED | BitmapDataChannel.GREEN;
+var grayScale:Boolean = false;
+var offsets:Array = new Array(new Point(), new Point());
+var bitmapArray:Array = new Array();
+var frameNumber:Number = 12;
 
-	// Noise video sequence
-	var altcnt:uint = 0;
-	
-	addEventListener(Event.ENTER_FRAME, frameHandler);
-	function frameHandler(event:Event):void
-	{
-		altcnt = altcnt >= frameNumber ? 0 : altcnt + 1;
-		for(var i = 0; i < frameNumber; i++)
-			bitmapArray[i].visible = false;
-		bitmapArray[altcnt].visible = true;
-		bitmapArray[altcnt].alpha = (0.14 + 0.06 * Math.random()) * 1.5;
-	}
+for (var i = 0; i < frameNumber; i++)
+{
+	var bmpData:BitmapData = new BitmapData(1280, 720);
+	var bmp:Bitmap = new Bitmap(bmpData);
+	bmp.alpha = 0.20;
+	bmp.blendMode = "overlay";
+	bmpData.perlinNoise(baseX, baseY, numOctaves, Math.random() * 65000, stitch, fractalNoise, channelOptions, grayScale, offsets);
+	bmp.visible = false;
+	bitmapArray.push(bmp);
+}
+
+// Noise video sequence
+var altcnt:uint = 0;
+
+addEventListener(Event.ENTER_FRAME, frameHandler);
+function frameHandler(event:Event):void
+{
+	altcnt = altcnt >= frameNumber ? 0 : altcnt + 1;
+	for(var i = 0; i < frameNumber; i++)
+		bitmapArray[i].visible = false;
+	bitmapArray[altcnt].visible = true;
+	bitmapArray[altcnt].alpha = (0.14 + 0.06 * Math.random()) * 1.5;
+}
+```
 
 - [How To Optimize Images With HTML5 Canvas – Smashing Magazine](https://www.smashingmagazine.com/2011/08/optimize-images-with-html5-canvas/#generating-noise) - Noise can be used to increase details
 - [Flash + H.264 = H.264 Squared – Part III | Video Encoding & Streaming Technologies](https://sonnati.wordpress.com/2010/10/06/flash-h-264-h-264-squared-%E2%80%93-part-iii/)
@@ -2577,72 +2604,82 @@ Premultiplied (matted) vs straight alpha (unmatted)
 
 Non premultiplied operation:
 
-	// blend(source, dest)
-	result = (source.rgb * source.a) + (dest.rgb * (1 – source.a))
+```
+// blend(source, dest)
+result = (source.rgb * source.a) + (dest.rgb * (1 – source.a))
+```
 
 Premultiplied operation:
 
-	rgba(0, 1, 0, 0.5) -> rgba(0, 0.5, 0, 0.5)//color.rgb *= color.a
+```
+rgba(0, 1, 0, 0.5) -> rgba(0, 0.5, 0, 0.5)//color.rgb *= color.a
+```
 
-	// blend(source, dest)
-	result = source.rgb + (dest.rgb * (1 – source.a))
+```
+// blend(source, dest)
+result = source.rgb + (dest.rgb * (1 – source.a))
+```
 
 See premultiplied alpha data loss due to rounding
 
-	// From http://www.quasimondo.com/premultipliedAlpha/
-	[Embed(source="assets/example.jpg")]
-	private static const PICTURE: Class;
-	
-	private var original:BitmapData;
-	private var alphaMap:BitmapData;
-	private var displayMap:BitmapData;
-	private const origin:Point = new Point();
-	private const rect:Rectangle = new Rectangle();
-	private const ct:ColorTransform = new ColorTransform();
-	
-	private function init():void
+```as3
+// From http://www.quasimondo.com/premultipliedAlpha/
+[Embed(source="assets/example.jpg")]
+private static const PICTURE: Class;
+
+private var original:BitmapData;
+private var alphaMap:BitmapData;
+private var displayMap:BitmapData;
+private const origin:Point = new Point();
+private const rect:Rectangle = new Rectangle();
+private const ct:ColorTransform = new ColorTransform();
+
+private function init():void
+{
+	var sourceHolder:Bitmap = Bitmap( new PICTURE() );
+
+	original = new BitmapData( sourceHolder.width, sourceHolder.height, true, 0 );
+	original.draw( sourceHolder );
+
+	rect.width = original.width;
+	rect.height = original.height;
+
+	alphaMap   = new BitmapData( original.width, original.height, true, 0x00000000 );
+	displayMap = new BitmapData( original.width, original.height, true, 0xff000000 );
+
+	display.source = new Bitmap( displayMap );
+
+	update();
+}
+
+private function update():void
+{
+	displayMap.copyPixels( original, original.rect, origin );
+	alphaMap.fillRect( alphaMap.rect, alphaValue.value << 24 );
+
+	displayMap.copyChannel( alphaMap, displayMap.rect, origin, 8, 8 );
+	displayMap.copyChannel( original, displayMap.rect, origin, 8, 8 );
+
+	if ( dataLoss.selected )
 	{
-		var sourceHolder:Bitmap = Bitmap( new PICTURE() );
-	
-		original = new BitmapData( sourceHolder.width, sourceHolder.height, true, 0 );
-		original.draw( sourceHolder );
-	
-		rect.width = original.width;
-		rect.height = original.height;
-	
-		alphaMap   = new BitmapData( original.width, original.height, true, 0x00000000 );
-		displayMap = new BitmapData( original.width, original.height, true, 0xff000000 );
-	
-		display.source = new Bitmap( displayMap );
-	
-		update();
-	}
-	
-	private function update():void
-	{
-		displayMap.copyPixels( original, original.rect, origin );
-		alphaMap.fillRect( alphaMap.rect, alphaValue.value << 24 );
-	
-		displayMap.copyChannel( alphaMap, displayMap.rect, origin, 8, 8 );
-		displayMap.copyChannel( original, displayMap.rect, origin, 8, 8 );
-	
-		if ( dataLoss.selected )
-		{
-			displayMap.draw( original, null, null, "difference" );
-			ct.redMultiplier = ct.greenMultiplier = ct.blueMultiplier = 0.25 * ( 256 - Math.sqrt(alphaValue.value));
-			displayMap.colorTransform( displayMap.rect, ct );
-	
-		}
-	
-		rect.width = ( splitImage.value / 100) * original.width;
-		displayMap.copyPixels( original, rect, origin );
+		displayMap.draw( original, null, null, "difference" );
+		ct.redMultiplier = ct.greenMultiplier = ct.blueMultiplier = 0.25 * ( 256 - Math.sqrt(alphaValue.value));
+		displayMap.colorTransform( displayMap.rect, ct );
+
 	}
 
-	var map:BitmapData = new BitmapData(1,1,true,0xffffffff);
-	map.setPixel32(0,0,0x00ffffff); // RGBA(255, 255, 255, 0);`
-	trace( map.getPixel32(0,0).toString(16)) // traces 0x00000000
-	map.setPixel32(0,0,0x20fcfcfc);
-	trace( map.getPixel32(0,0).toString(16)) // traces 0x20ffffff
+	rect.width = ( splitImage.value / 100) * original.width;
+	displayMap.copyPixels( original, rect, origin );
+}
+```
+
+```as3
+var map:BitmapData = new BitmapData(1,1,true,0xffffffff);
+map.setPixel32(0,0,0x00ffffff); // RGBA(255, 255, 255, 0);`
+trace( map.getPixel32(0,0).toString(16)) // traces 0x00000000
+map.setPixel32(0,0,0x20fcfcfc);
+trace( map.getPixel32(0,0).toString(16)) // traces 0x20ffffff
+```
 
 - [Quasimondo - Mario Klingemann's Flash Blog: The Dirty Secrets of Premultiplied Alpha](http://www.quasimondo.com/archives/000665.php)
 - [Premultiplied alpha – Shawn Hargreaves Blog](https://blogs.msdn.microsoft.com/shawnhar/2009/11/06/premultiplied-alpha/)
@@ -2702,7 +2739,7 @@ Don't use desaturation, that don't reflect brightness.
 
 > Here's the common approximation:
 > Luminance = red 21% + green 72% + blue 7%
-> 
+>
 > Yes, we really see green roughly 3x brighter red, and 10x brighter than blue. We can easily model the contribution of each primary color in Photoshop using the channel mixer.
 
 On Photoshop with layers:

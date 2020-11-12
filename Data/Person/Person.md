@@ -1,6 +1,3 @@
-- data sample https://github.com/fzaninotto/Faker/tree/master/src/Faker/Provider
-
-
 
 - Civilité (Monsieur, Madame)
 - Nom de naissance (nom de jeune fille)
@@ -33,8 +30,15 @@ Name(s):
 - name not shared but all familiy members (or part of name depends husband or wife)
 - can be changed for multiple reasons (names, prefixes, suffixes, titles and honorifics): marriage (of any gender), gratitude or job, sex change, personal choice, etc.
 - can be [Daesh or ISIS](https://en.wikipedia.org/wiki/Islamic_State_of_Iraq_and_the_Levant), [Gaylord](https://en.wiktionary.org/wiki/Gaylord), [Cumming](https://en.wikipedia.org/wiki/Cumming_(surname))
-- last name (family name) can be a name usually used as first name https://twitter.com/rumyra/status/779320504343814148
+- last name (family name) can be a name usually used as first name (Ruth John, "John" is not her firstname) [Ruth John on Twitter: "I appreciate the prompt but this is so confusing for me!… "](https://web.archive.org/web/20201110095609/https://twitter.com/rumyra/status/779320504343814148)
 - contains or not upper/lower case letters: [Bartholomeus van der Helst](https://en.wikipedia.org/wiki/Bartholomeus_van_der_Helst), [Ian Stephen McCulloch](https://en.wikipedia.org/wiki/Ian_McCulloch_(singer))
+
+Data test or tools:
+
+- [patch/i18n-testing: International data for testing and QA](https://github.com/patch/i18n-testing)
+- [FakerPHP/Faker: Faker is a PHP library that generates fake data for you](https://github.com/FakerPHP/Faker/tree/main/src/Faker/Provider)
+- [Marak/faker.js: generate massive amounts of realistic fake data in Node.js and the browser](https://github.com/Marak/faker.js)
+- [Faker · PyPI](https://pypi.org/project/Faker/)
 
 Patrick McKenzie is problematic in Japan where Japanese name with more than four characters are very rare
 
@@ -42,15 +46,15 @@ Patrick McKenzie is problematic in Japan where Japanese name with more than four
 - [Appendix:Names - Wiktionary](https://en.wiktionary.org/wiki/Appendix:Names)
 - [flex - How do I correctly pass the string "Null" (an employee's proper surname) to a SOAP web service from ActionScript 3? - Stack Overflow](https://stackoverflow.com/questions/4456438/how-do-i-correctly-pass-the-string-null-an-employees-proper-surname-to-a-so)
 - [The The - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/The_The)
-- [Your last name contains invalid characters | John Graham-Cumming](http://blog.jgc.org/2010/06/your-last-name-contains-invalid.html)
-- [My name contains a number and cannot create profile. - WikiTree G2G](http://www.wikitree.com/g2g/177917/my-name-contains-a-number-and-cannot-create-profile)
-- [Falsehoods Programmers Believe About Names | Kalzumeus Software](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
-- [Naming customs from the Iberian Peninsula, Why do they use two surnames? : AskHistorians](http://www.reddit.com/r/AskHistorians/comments/2ycelk/naming_customs_from_the_iberian_peninsula_why_do/)
+- [Your last name contains invalid characters](https://web.archive.org/web/20201109000822/https://blog.jgc.org/2010/06/your-last-name-contains-invalid.html)
+- [My name contains a number and cannot create profile. - WikiTree G2G](https://web.archive.org/web/20150912135401/http://www.wikitree.com/g2g/177917/my-name-contains-a-number-and-cannot-create-profile)
+- [Falsehoods Programmers Believe About Names | Kalzumeus Software](https://web.archive.org/web/20201109025208/https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
+- [Naming customs from the Iberian Peninsula, Why do they use two surnames? : AskHistorians](https://web.archive.org/web/20201110095711if_/https://www.reddit.com/r/AskHistorians/comments/2ycelk/naming_customs_from_the_iberian_peninsula_why_do/)
 - [Personal name — Wikipedia](https://en.wikipedia.org/wiki/Personal_name)
 - [Turkish Airline remove spaces in names](https://www.google.com/search?q=turkish+airline+remove+name+spaces) (where name "must be entered as shown on the passport"): Valeria Marisol Gonzalez -> Valeriamarisol Gonzalez, Robin van Hees -> Robin Vanhees
 - [People's Names That Break Websites | CSS-Tricks](https://css-tricks.com/peoples-names-break-websites/)
 - [Wikipedia:Naming conventions (people) — Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_%28people%29)
-- [Hello, I’m Mr. Null. My Name Makes Me Invisible to Computers | WIRED](https://www.wired.com/2015/11/null/)
+- [Hello, I'm Mr. Null. My Name Makes Me Invisible to Computers | WIRED](https://web.archive.org/web/20201108091644/http://www.wired.com/2015/11/null/)
 
 ### Prefixes, suffixes, titles and honorifics
 
@@ -145,15 +149,15 @@ Family name + First name or Single name (mononym), Middle name, etc.
 - [General naming formats/customs across Eurasia and North Africa \[2184x1517\] : MapPorn](https://www.reddit.com/r/MapPorn/comments/27allv/general_naming_formatscustoms_across_eurasia_and/)
 - [Wikipedia:Naming conventions (people) — Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_(people))
 - [Given name — Wikipedia](https://en.wikipedia.org/wiki/Given_name)
-- [Name Order Confusion - TV Tropes](http://tvtropes.org/pmwiki/pmwiki.php/Main/NameOrderConfusion)
-- [Better Web Form Name & Address Inputs - David Michael Ross](https://davidmichaelross.com/blog/better-name-address-inputs/)
+- [Name Order Confusion - TV Tropes](https://web.archive.org/web/20200806203132/https://tvtropes.org/pmwiki/pmwiki.php/Main/NameOrderConfusion)
+- [Better Web Form Names & Addresses - David Michael Ross](https://web.archive.org/web/20150911164611/https://davidmichaelross.com/blog/better-name-address-inputs)
 - [Hello, My Name is \<Error\> · An A List Apart Article](http://alistapart.com/article/hello-my-name-is-error)
 - [People's names — Government Service Design Manual](https://www.gov.uk/service-manual/user-centred-design/resources/patterns/names.html)
 - [Microsoft Word - UK Names Guide - U - V.2 310306 - Naming_practice_guide_UK_2006.pdf](https://www.fbiic.gov/public/2008/nov/Naming_practice_guide_UK_2006.pdf)
-- [People's names - designpatterns.hackpad.com](https://designpatterns.hackpad.com/Peoples-names-mgFWXkwyPEt)
+- [Names - designpatterns.hackpad.com](https://web.archive.org/web/20161011115418if_/https://designpatterns.hackpad.com/Names-mgFWXkwyPEt)
 - [Middle name - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Middle_name)
-- [Splitting names](http://www.onlineaspect.com/2009/08/17/splitting-names/)
-- [Hello, my name is __________. ⁕ Nova Patch](http://patch.codes/talks/hello-my-name-is/)
+- [Splitting names](https://web.archive.org/web/20200430114832/http://www.onlineaspect.com/2009/08/17/splitting-names/)
+- [Hello, my name is __________. ⁕ Nova Patch](https://web.archive.org/web/20201110100335/https://novapatch.is/talks/hello-my-name-is/) - [OSB 2015 - Hello, my name is __________. - Nova Patch - YouTube](https://www.youtube.com/watch?v=RqB2P5SPfgM) [Nova Patch - Hello, my name is __________. Speaker Deck PDF](https://web.archive.org/web/20201110100614/https://files.speakerdeck.com/presentations/ef70b3970e9d4effa65affbe6ef03bca/SpeakerDeck-Nova-Patch-Hello-my-name-is-present.pdf)
 
 Example (or not):
 

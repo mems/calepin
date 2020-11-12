@@ -320,13 +320,15 @@ Normalize first ("NFD"), remove all non A-Za-z chars
 Aka naming things, few words
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
-— Phil Karlton
+>
+> — Phil Karlton
 
 - [Is naming things really that hard?](http://wade.be/development/2017/03/03/naming-things.html)
 - [Naming Things | DevIQ](http://deviq.com/naming-things/)
 - [Naming Guidelines](https://msdn.microsoft.com/en-us/library/ms229002%28v=vs.110%29.aspx)
 - [Sensible Interfaces](http://verraes.net/2013/09/sensible-interfaces/)
 - [Rob Pike: Notes on Programming in C](https://www.lysator.liu.se/c/pikestyle.html)
+- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard)
 
 > Local variables
 >
@@ -920,23 +922,23 @@ Dependency = risk
 
 ## API
 
-Aka application programming interfaces
+Aka application programming interfaces, SDK, framework
 
-Simplicity Matters, [KISS](../Conception/Conception.md#kiss)
-
-[Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
+Simplicity matters, [KISS](../Conception/Conception.md#kiss)
 
 > Framework guide:
 >
-> - Can an idiot decipher your errors?
-> - Can an idiot read the code?
-> - Can an idiot make something quickly without a tutorial?
-— https://twitter.com/elsassph/status/557866984705380352
+> - can an idiot decipher your errors?
+> - can an idiot read the code?
+> - can an idiot make something quickly without a tutorial?
+>
+> — [desmarkie 🇮🇪 on Twitter: "Framework guide: Can an idiot decipher your errors? Can an idiot read the code? Can an idiot make something quickly without a tutorial?"](https://web.archive.org/web/20201112102307/https://twitter.com/desmarkie/status/557864491153907712)
 
 See also:
 
+- [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 - [Why not use GraphQL? | wundergraph](https://web.archive.org/web/20201108045427/https://wundergraph.com/blog/why_not_use_graphql)
-- [Web API](../Web/Web.md#api)
+- [HTTP API](../Web/Network.md#api)
 - [API documentation](../Documentation/Documentation.md#api)
 - [Error messages documentation](../Documentation/Documentation.md#error-messages)
 

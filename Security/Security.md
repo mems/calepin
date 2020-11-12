@@ -103,9 +103,7 @@ To: "Receiver" <user@receiver.com>
 Subject: SPAM
 ```
 
-`whois AA.BB.CC.DD`, search for `OrgAbuseEmail`
-
-Report at abuse that address or to `abuse@...domain...`
+`whois AA.BB.CC.DD`, search for `OrgAbuseEmail` to report an abuse or use the address `abuse@AA.BB.CC.DD`
 
 - [internet-signalement.gouv.fr - Portail officiel de signalements de contenus illicites - Accueil](https://www.internet-signalement.gouv.fr/PortailWeb/planets/Accueil!input.action)
 - [Phishing Initiative](https://phishing-initiative.fr/contrib/)

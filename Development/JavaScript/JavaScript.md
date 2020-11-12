@@ -9,36 +9,37 @@ See also [ECMAScript](../ECMAScript/ECMAScript.md)
 
 Style guide, code conventions:
 
-- http://techwiki.openstructs.org/index.php/AS3_Coding_Standards
-- http://sourceforge.net/adobe/flexsdk/wiki/Coding%20Conventions/
+- [AS3 Coding Standards - TechWiki](https://web.archive.org/web/20130727234942/http://techwiki.openstructs.org/index.php/AS3_Coding_Standards)
+- [Flex SDK / Wiki / Coding Conventions](https://web.archive.org/web/20201112103845/https://sourceforge.net/adobe/flexsdk/wiki/Coding%20Conventions/)
 - [Code Conventions for the JavaScript Programming Language](http://javascript.crockford.com/code.html)
-- http://contribute.jquery.org/style-guide/js/
-- http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
-- https://github.com/airbnb/javascript
-- http://jibbering.com/faq/notes/code-guidelines/
-- http://neil.rashbrook.org/Js.htm
-- https://github.com/feross/standard
+- [JavaScript Style Guide | Contribute to jQuery](https://contribute.jquery.org/style-guide/js/)
+- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+- [airbnb/javascript: JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [Code Guidelines for Rich Internet Application Development](https://web.archive.org/web/20200107195821/http://jibbering.com/faq/notes/code-guidelines/)
+- [JavaScript Style Guide](https://web.archive.org/web/20160614115731/http://neil.rashbrook.org/JS.htm)
+- [standard/standard: 🌟 JavaScript Style Guide, with linter & automatic code fixer](https://github.com/standard/standard)
 - [Popular Coding Convention on Github](http://sideeffect.kr/popularconvention/#javascript)
 - [JavaScript best practices - W3C Wiki](https://www.w3.org/wiki/JavaScript_best_practices)
 
-- https://github.com/Seravo/js-winning-style
-- http://code.google.com/p/gmaps-utility-library-dev/wiki/JavascriptCodingConventions
-- https://developer.mozilla.org/en-US/docs/JavaScript_Tips
-- [JS: The Right Way](http://jstherightway.org/)
+- [Seravo/js-winning-style: JavaScript, the winning style](https://github.com/Seravo/js-winning-style)
+- [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/gmaps-utility-library-dev/wikis/JavascriptCodingConventions.wiki)
+- [JavaScript Tips - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_Tips)
+- [JS: The Right Way](https://web.archive.org/web/20201110175718/https://jstherightway.org/)
 - https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/categories.md
 - [ryanmcdermott/clean-code-javascript: Clean Code concepts adapted for JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
-- [JavaScript naming conventions: do’s and don’ts – freeCodeCamp.org](https://medium.freecodecamp.org/javascript-naming-conventions-dos-and-don-ts-99c0e2fdd78a)
+- [JavaScript naming conventions: do’s and don’ts](https://web.archive.org/web/20201101050757/https://www.freecodecamp.org/news/javascript-naming-conventions-dos-and-don-ts-99c0e2fdd78a/)
+- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard)
 
 - [Simple Techniques for Writing More Semantic and Maintainable JavaScript Apps — Space Camp — Medium](https://medium.com/space-camp/three-simple-techniques-for-writing-more-semantic-and-maintainable-javascript-apps-206b4fb89f15)
 
-- http://shichuan.github.io/javascript-patterns/
+- [JavaScript Patterns](https://shichuan.github.io/javascript-patterns/)
 - [Learning JavaScript Design Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 - [Don't use these examples](http://code-de-porc.tumblr.com)
-- http://superherojs.com/
+- [Superhero.js](https://web.archive.org/web/20201108135951/http://superherojs.com/)
 
 ## Documentation
 
-See also [Documentation](ECMAScript#documentation)
+See also [Documentation](../ECMAScript/ECMAScript.md#documentation)
 
 - [The DOM Explained, Quick and Simple](http://prettydiff.com/guide/unrelated_dom.xhtml)
 
@@ -74,20 +75,6 @@ Or use in Chrome devtools: Sources tab > Event Listener Breakpoints > Script > S
 
 ## Libraries and frameworks
 
-> Use third-party libraries to solve user problems, not developer problems
-> — Adrian Holovaty [Adrian Holovaty | How I optimized my JS sheet music rendering engine | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=XH5EtQge_Bg&t=2216)
-
-> How much of an advantage does that really give you?
-> [...]
-> But if you are truly worried about speed, surely your whole site should be behind a CDN – not just a few JS libraries?
-> [...]
-> if you’re using v1.2 and another site is using v1.2.1 the browser can’t take advantage of cacheing.
-> [...]
-> If you serve your JS from the same source as your main site, there is less chance of a user getting a broken experience.
-> [...]
-> What happens if someone hacks your CDN?
-> — [Please stop using CDNs for external Javascript libraries – Terence Eden’s Blog](https://web.archive.org/web/20201026140353/https://shkspr.mobi/blog/2020/10/please-stop-using-cdns-for-external-javascript-libraries/)
-
 See [localization](Development#localization), [libaries](ECMAScript#libaries)
 
 Collections:
@@ -117,6 +104,20 @@ Some libraries:
 
 ### Choose and use libraries
 
+> Use third-party libraries to solve user problems, not developer problems
+> — Adrian Holovaty [Adrian Holovaty | How I optimized my JS sheet music rendering engine | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=XH5EtQge_Bg&t=2216)
+
+> How much of an advantage does that really give you?
+> [...]
+> But if you are truly worried about speed, surely your whole site should be behind a CDN – not just a few JS libraries?
+> [...]
+> if you’re using v1.2 and another site is using v1.2.1 the browser can’t take advantage of cacheing.
+> [...]
+> If you serve your JS from the same source as your main site, there is less chance of a user getting a broken experience.
+> [...]
+> What happens if someone hacks your CDN?
+> — [Please stop using CDNs for external Javascript libraries – Terence Eden’s Blog](https://web.archive.org/web/20201026140353/https://shkspr.mobi/blog/2020/10/please-stop-using-cdns-for-external-javascript-libraries/)
+
 - prefere common libaries with larger community and support.
 - don't use libraries to make something you can do yourself or just for prototypes or P.O.C.
 - don't use overweight libraries just for doing a simple tasks
@@ -144,15 +145,15 @@ jQuery: `$('.foo > .bar')` is way faster than `$fooEl.find('> .bar')` because jQ
 ### Include library from CDN
 
 Always make sure you have the library available locally, as fallback of the CDN. The used CDN could be unavailable.
-Prefer to use library locally direclty. Use [`integrity` attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity), see [Subresource Integrity](Security#subresource-integrity).
+Prefer to use library locally direclty. Use [`integrity` attribute](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity), see [Subresource Integrity](../../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#subresource-integrity).
 
 **Always use HTTPS for external resources.** Don't use protocol relative URLs or HTTP (without TLS)
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" data-fallback-src="/path/to/your/jquery-1.2.6.min.js" integrity="sha512-4pean7m+KYmoRi7hfc/a4JtcsGFLJJxkrB0NV5vWvRpoA4mZVgLT3ls+/kVRzhziZEX+SU3kRIqFDJkue+HnmA==" onerror="var s=document.createElement('script');s.src=this.getAttaribute('data-fallback-src');document.head.appendChild(s)"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" data-fallback-src="/path/to/your/jquery-1.2.6.min.js" integrity="sha512-4pean7m+KYmoRi7hfc/a4JtcsGFLJJxkrB0NV5vWvRpoA4mZVgLT3ls+/kVRzhziZEX+SU3kRIqFDJkue+HnmA==" onerror="document.head.appendChild(Object.assign(document.createElement('script'),{src:dataset.fallbackSrc}))"></script>
 ```
 
-Note: in the example above, the attribute `onerror` will not work with CSP that doesn't allow inline script
+Note: in the example above, the attribute `onerror` will not work if the [CSP](../../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#content-security-policy) doesn't allow inline scripts.
 
 ### Simple framework
 

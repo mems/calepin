@@ -89,14 +89,6 @@ See also:
 - [301s, 302s, 307s & 308s: Report URI's journey to a permanent redirect](https://scotthelme.co.uk/report-uri-journey-to-a-permanent-redirect/)
 - [web development - Why doesn't HTTP have POST redirect? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/99894/why-doesnt-http-have-post-redirect/99966#99966)
 
-### Define generated filename
-
-```http
-Content-Disposition: "attachment; filename=generated_filename.ext"
-```
-
-`filename*0=""`
-
 ### HTTPS (TLS)
 
 See [Transport Layer Security](Security#transport-layer-security) and [Decrypt TLS](Security#decrypt-tls)
@@ -125,7 +117,7 @@ For live content (live number of watchers, real-time transport traffic, real-tim
 
 **Note: proxy servers and firewalls could buffer the response, increasing the latency of the message delivery. Antivirus software may block the event streaming data chunks. TLS could be use to solve this problem:**
 
-Note: don't forget to push/flush the content: - [php - Server sent events work, but with a massive time delay - Stack Overflow](https://stackoverflow.com/questions/12297740/server-sent-events-work-but-with-a-massive-time-delay) 
+Note: don't forget to push/flush the content: - [php - Server sent events work, but with a massive time delay - Stack Overflow](https://stackoverflow.com/questions/12297740/server-sent-events-work-but-with-a-massive-time-delay)
 
 - [Networking 101: Transport Layer Security (TLS) - High Performance Browser Networking (O'Reilly)](https://hpbn.co/transport-layer-security-tls/#proxies-intermediaries-tls-and-new-protocols-on-the-web)
 - [html5 - JavaScript EventSource SSE not firing in browser - Stack Overflow](https://stackoverflow.com/questions/12978466/javascript-eventsource-sse-not-firing-in-browser/13135995#13135995)
@@ -256,7 +248,7 @@ Browsers often implent HTTP/2.0 only over TLS
 - Uncacheable Assets: Pushing dynamic assets = reduce page load time
 - Likely Next Pages: the page that a user is likely to load (e.g., the link they’re hovering over), make it look like it loads instantaneously
 - Redirects
- 
+
  ```apache
 <Location /index.html>
 	Header add Link "</css/site.css>;rel=preload;as=style"
@@ -269,7 +261,9 @@ Inline `Link: </css/my.css>;rel=preload;as=style, </js/jquery.js>;rel=preload;as
 Or define it via PHP:
 
 ```php
+<?php
 header('Link: </css/my.css>;rel=preload;as=style', false);
+?>
 ```
 
 Note: I you don't want the server push the resource (preload only) with Link header, use `nopush` as: `Link: </css/image.webp>;rel=preload;as=image;type=image/webp;nopush` Use this if the header `Save-Data: on`
@@ -287,6 +281,7 @@ It's usefull in case the resource format is not widely supported
 #### Cache-aware server push
 
 ```php
+<?php
 // https://css-tricks.com/cache-aware-server-push/
 function pushAssets() {
 	$pushes = array(
@@ -328,6 +323,7 @@ function buildPushString($pushes) {
 
 // Push those assets!
 pushAssets();
+?>
 ```
 
 - [HTTP/2 push is tougher than I thought - JakeArchibald.com](https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/)
@@ -338,8 +334,13 @@ pushAssets();
 
 ### Force download
 
+Aka generated filename
+
+> use a filename that clearly mention the website or the service that allow its identification, and the content type (invoice, contrat, etc).
+> — [Internal names for downloadable files make it possible to identify their content and origin. - Check-list The Web Quality Assurance Check-list - Opquast Check-lists](https://checklists.opquast.com/en/qualiteweb/internal-names-for-downloadable-files-make-it-possible-to-identify-their-content-and-origin)
+
 ```http
-Content-Disposition: attachment;filename=file.ext
+Content-Disposition: attachment; filename="file.ext"
 ```
 
 You can use also:
@@ -351,6 +352,8 @@ Content-Type: application/octet-stream
 ```http
 X-Download-Options: noopen
 ```
+
+- [Content-Disposition - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition)
 
 ### Access
 
@@ -452,7 +455,7 @@ If the server doesn't support the given encoding, should response with the statu
 
 About ranges and chunked transfert encoding:
 
-- [HTTP range requests - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests#Comparison_to_chunked_Transfer-Encoding) - 
+- [HTTP range requests - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests#Comparison_to_chunked_Transfer-Encoding) -
 - [Byte serving — Wikipedia](https://en.wikipedia.org/wiki/Byte_serving)
 
 ### Send binary data in JSON
@@ -482,8 +485,9 @@ Or proxy's IP
 - [wp-geoip-detect/api.php at d48a2d6134a4edf9843d5e4c7c0e4bfd8c4e139d · yellowtree/wp-geoip-detect](https://github.com/yellowtree/wp-geoip-detect/blob/d48a2d6134a4edf9843d5e4c7c0e4bfd8c4e139d/api.php#L177-L220)
 
 - [X-Forwarded-For — Wikipedia](https://en.wikipedia.org/wiki/X-Forwarded-For)
- 
+
  ```php
+ <?php
 // Note: X-Forwarded-For contains a list of IP address, where the first one is the client's IP
 if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
 	$ipaddress = $_SERVER['HTTP_CLIENT_IP'];
@@ -511,22 +515,25 @@ if(!empty($iptype)){
 		$iptype = 'IPv4';
 	}
 }
+?>
 ```
 
 IPv4 to number & number to IPv4:
 
 ```php
-function ipv4ToNumberumber($ip) { 
-	list($a, $b, $c, $d) = explode('.', $ip); 
+<?php
+function ipv4ToNumberumber($ip) {
+	list($a, $b, $c, $d) = explode('.', $ip);
 	return (double) ($a*16777216)+($b*65536)+($c*256)+($d);
 }
-function numberToIPv4($number) { 
-	$a = ($number/16777216)%256; 
-	$b = ($number/65536)%256; 
-	$c = ($number/256)%256; 
-	$d = ($number)%256; 
+function numberToIPv4($number) {
+	$a = ($number/16777216)%256;
+	$b = ($number/65536)%256;
+	$c = ($number/256)%256;
+	$d = ($number)%256;
 	return $a.'.'.$b.'.'.$c.'.'.$d;
 }
+?>
 ```
 
 - [apache - How to set REMOTE_ADDR to HTTP_X_REAL_IP? - Stack Overflow](https://stackoverflow.com/questions/27329499/how-to-set-remote-addr-to-http-x-real-ip/27340127#27340127)
@@ -622,6 +629,7 @@ Some browsers map internaly `localhost` without proxy. To skip that, add the FQD
 `endpoint.php`:
 
 ```php
+<?php
 // Don't handle domain existance
 $url = $_SERVER['REQUEST_URI'];
 $url_parts = parse_url($url);
@@ -684,6 +692,7 @@ if('text/html' == $content_type){
 }else{
 	echo $content;
 }
+?>
 ```
 
 `pac.php`:
@@ -691,7 +700,7 @@ if('text/html' == $content_type){
 ```php
 <?php header('Content-Type: application/x-javascript-config') ?>
 function FindProxyForURL(url, host)
-{ 
+{
 	 return "PROXY <?php echo $_SERVER['SERVER_ADDR'] ?>:<?php echo $_SERVER['SERVER_PORT'] ?>; DIRECT";
 }
 ```
@@ -733,7 +742,7 @@ Fonts require to be loaded as CORS anonymous or require CORS authorization: [CSS
 - [CORS Anonymous requests complicates preconnect · Issue #32 · w3c/resource-hints](https://github.com/w3c/resource-hints/issues/32)
 - Chrome prefix `group_name` for `SOCKET->TRANSPORT_CONNECT_JOB group_name` as `pm/` (example of `pm/ssl/example.com:443` vs `ssl/example.com:443`, `pm/example.com:80` vs `example.com:80`) for anonymous connections `chrome://net-internals/#events&q=type:SOCKET,TRANSPORT_CONNECT_JOB`
 
-#### Shared connection with multiple hosts 
+#### Shared connection with multiple hosts
 
 Aka connection coalescing
 
@@ -818,7 +827,7 @@ Note: [public suffix](https://en.wikipedia.org/wiki/Public_Suffix_List) aka effe
 	- [Chrome 69 Removing WWW and M subdomains From the Browser's Address Bar](https://www.bleepingcomputer.com/news/google/chrome-69-removing-www-and-m-subdomains-from-the-browsers-address-bar/)
 	- [Google Chrome Hides WWW and HTTPS:// in the Address Bar Again](https://www.bleepingcomputer.com/news/google/google-chrome-hides-www-and-https-in-the-address-bar-again/)
 - browser autocomplete/autofill user entering URLs
-	- `browser.fixup.alternate.*`, `browser.fixup.*` 
+	- `browser.fixup.alternate.*`, `browser.fixup.*`
 	- [Omnibox - The Chromium Projects](https://www.chromium.org/user-experience/omnibox#TOC-Input-Types-and-Examples)
 - [Mettre un tiret dans mon nom de domaine ? | Gandi News](https://news.gandi.net/fr/2020/08/dois-je-mettre-un-tiret-dans-mon-nom-de-domaine/)
 - Suffixes, like `.com`, `.co.uk`, `pvt.k12.ma.us`, etc. [Public Suffix List](https://publicsuffix.org/)
@@ -975,13 +984,15 @@ It's safe to keep unencoded:
 - `/` (`%2F`)
 
 > For security reasons, data URIs are restricted to downloaded resources. Data URIs cannot be used for navigation, for scripting, or to populate frame or iframe elements.
-> 
+>
 > Data URIs cannot be larger than 32,768 characters.
-> 
-> The resource data must be properly encoded; otherwise, an error occurs and the resource is not loaded. The "#" and "%" characters must be encoded, as well as control characters, non-US ASCII characters, and multibyte characters. 
+>
+> The resource data must be properly encoded; otherwise, an error occurs and the resource is not loaded. The "#" and "%" characters must be encoded, as well as control characters, non-US ASCII characters, and multibyte characters.
 — [data Protocol](https://msdn.microsoft.com/en-us/library/cc848897%28v=vs.85%29.aspx)
 
-	copy("data:image/svg+xml," + encodeURI(`<svg xmlns="...</svg>`.replace(/"/g, "'").replace(/(^|>)\s+(<|$)/g, "$1$2")).replace(/%20/g, " ").replace(/#/g, "%23"));
+```js
+copy("data:image/svg+xml," + encodeURI(`<svg xmlns="...</svg>`.replace(/"/g, "'").replace(/(^|>)\s+(<|$)/g, "$1$2")).replace(/%20/g, " ").replace(/#/g, "%23"));
+```
 
 - [Percent-encoding — Wikipedia](https://en.wikipedia.org/wiki/Percent-encoding#Types_of_URI_characters)
 - [encodeURIComponent() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)
@@ -1069,7 +1080,7 @@ Site-wide metadata files
 - [about URI scheme - Wikipedia](https://en.wikipedia.org/wiki/About_URI_scheme)
 - ["about" URI Tokens](https://www.iana.org/assignments/about-uri-tokens/about-uri-tokens.xhtml)
 
-## API
+## HTTP API
 
 See also [API](../Development/Development.md#api)
 
