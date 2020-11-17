@@ -41,7 +41,7 @@ Un fois la soudure réalisée, nettoyer avec du white spirit ou de l'eau ou de l
 - La soudure que l'on doit désormais utiliser en électronique doit être de type « sans plomb » :
 	- elle nécessite une température de panne plus élevée entre 330 à 390 °C, car le point de fusion est plus élevé ;
 	- choisissez donc un fer dont la panne peut être portée à une température suffisante pour ce type de soudure.
-	
+
 - [Apprendre à souder sur de bonnes bases - Bulb Zone](http://learn.bulbzone.net/cours/apprendre-a-souder-de-bonnes-bases/)
 
 ### Plomberie
@@ -102,6 +102,7 @@ AHJ/OMTP interface:
 
 ## Robot vacuum
 
+- [BEST Robot Vacuums 2020 Edition - Vacuum Wars - YouTube](https://www.youtube.com/watch?v=bYjlDwY9wPo)
 - [Aspirateurs robots - Guide d'achat - UFC-Que Choisir](https://www.quechoisir.org/guide-d-achat-aspirateurs-robots-n8441/)
 - [Comparatif : Quel aspirateur robot choisir ? Août 2020 - Les Numériques](https://www.lesnumeriques.com/aspirateur-robot/comparatif-choisir-meilleur-aspirateur-robot-a1555.html)
 - [Classement, test et comparatif d'aspirateur robot - Blog Kelrobot](https://www.kelrobot.fr/comparatif-de-robots-aspirateurs/)
@@ -114,3 +115,9 @@ AHJ/OMTP interface:
 - [Best Robotic Vacuums of 2020 - Consumer Reports](https://www.consumerreports.org/robotic-vacuums/best-robotic-vacuums-of-the-year/)
 - [The Best Robot Vacuums of 2020: Roomba | Reviews by Wirecutter](https://www.nytimes.com/wirecutter/reviews/best-robot-vacuum/)
 - [Best robot vacuums to clean your home in 2020 | TechRadar](https://www.techradar.com/news/best-robot-vacuums)
+
+## Mouse grips
+
+Teflon grips
+
+- [Corepad Grips Mouse Rubber Grip Sticker - Corepad](https://corepad.com/en/corepad-grips-mouse-rubber-grip-sticker/#products)

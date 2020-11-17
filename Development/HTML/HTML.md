@@ -1127,6 +1127,7 @@ Don't use the `title` attribute (see [`title` attribute is not accessible](#titl
 </dl>
 ```
 
+- [Not so short note on aria-label usage – Big Table Edition – HTML Accessibility](https://html5accessibility.com/stuff/2020/11/07/not-so-short-note-on-aria-label-usage-big-table-edition/)
 - Image alt attribute: [HTML5: Techniques for providing useful text alternatives](http://dev.w3.org/html5/alt-techniques/)
 - [4.7 Embedded content — HTML5](https://www.w3.org/TR/html5/embedded-content-0.html#alt)
 - [Adactio: Journal—Unlabelled search fields](https://adactio.com/journal/10910)

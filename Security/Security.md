@@ -1,18 +1,22 @@
 The protection resistance is matter of time, money or opportunities. Anything is vulnerable directly or indirectly.
 
 > on ne peut chiffrer ou déchiffrer une donnée, l'inscrire ou la supprimer d'une mémoire sans apporter et déposer une trace sur l'ordinateur, sans modifier et prendre quelque chose qui s'y trouvait auparavant.
-— [Zythom: Le principe de l'échange de Locard](http://zythom.blogspot.fr/2007/08/le-principe-de-lchange-de-locard.html)
+>
+> — [Zythom: Le principe de l'échange de Locard](http://zythom.blogspot.fr/2007/08/le-principe-de-lchange-de-locard.html)
 
 > It's cheaper to get hacked than build strong IT defenses
-– [Sad reality: It's cheaper to get hacked than build strong IT defenses • The Register](http://www.theregister.co.uk/2016/09/23/if_your_company_has_terrible_it_security_that_could_be_a_rational_business_decision/)
+>
+> — [Sad reality: It's cheaper to get hacked than build strong IT defenses • The Register](http://www.theregister.co.uk/2016/09/23/if_your_company_has_terrible_it_security_that_could_be_a_rational_business_decision/)
 
 ![door keypad where some keys are worn](CmF_ddwWMAEX7xv.jpg) [I sense a weak password](https://twitter.com/jcolman/status/748019163831074816)
 
 > areoplanes include strict systems to separate the cabin from the cockpit [...] concept of "security domains"
-— [Peak Internet of Shit - All But One "Watch Dogs 2" Hack Works in REAL LIFE – LearntEmail](https://learntemail.sam.today/blog/peak-internet-of-shit-all-but-one-watch-dogs-2-hack-works-in-real-life/)
+>
+> — [Peak Internet of Shit - All But One "Watch Dogs 2" Hack Works in REAL LIFE – LearntEmail](https://learntemail.sam.today/blog/peak-internet-of-shit-all-but-one-watch-dogs-2-hack-works-in-real-life/)
 
 > We had cryptographic potatoes for dinner. They were salted and hashed.
-— Andromeda Yelton
+>
+> — Andromeda Yelton
 
 > Don't trust anyone
 
@@ -49,7 +53,8 @@ See [Data access and integrity](./Data%20access%20and%20integrity/Data%20access%
 Types: ransomware, etc.
 
 > SMTP stands for Simple Malware Transport Protocol.
-— [Kevin Beaumont](https://twitter.com/GossiTheDog/status/809152384924614657)
+>
+> — [Kevin Beaumont](https://twitter.com/GossiTheDog/status/809152384924614657)
 
 - Detect and report ransomware: [Crypto Sheriff — The No More Ransom Project](https://www.nomoreransom.org/crypto-sheriff.php)
 - [How malware bypassing anti-viruses work](Straight Pole + Curved Hole Illusion.mp4)
@@ -147,6 +152,7 @@ black hat trolling, social sabotage, guerilla
 ## Backup
 
 > The 3-2-1 rule can aid in the backup process. It states that there should be at least 3 copies of the data, stored on 2 different types of storage media, and one copy should be kept offsite, in a remote location
+>
 > — [Backup - Wikipedia](https://en.wikipedia.org/wiki/Backup)
 
 - [Qu'est-ce que la stratégie de sauvegarde 3-2-1 ?](https://www.nextinpact.com/news/109000-quest-ce-que-strategie-sauvegarde-3-2-1.htm)

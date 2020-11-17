@@ -12,7 +12,7 @@ Against attacks, read/write access or modifications
 
 ## Password storage
 
-Aka authentification data storage
+Aka authentication data storage
 
 See [Password](#password)
 
@@ -59,7 +59,22 @@ Like cron tasks
 
 Executed commands or env vars appears in `ps` or in system log (could be transmited by email, etc.)
 
-Commands often support external config file (curl: `.netrc`, mysql: `.my.cnf`, wget: `.wgetrc`, etc.). Use it with a restricted read access (only 400 or 600 mode for the specific user `chmod u=wr,g=,o= config`).
+Commands often support [config file](https://en.wikipedia.org/wiki/Configuration_file) ([`.netrc`](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html) for [curl](https://ec.haxx.se/usingcurl/usingcurl-netrc), wget, rexec and ftp, `.my.cnf` for mysql, `.wgetrc` for wget, etc.). Use it with a restricted read access (only 400 or 600 mode for the specific user `chmod u=wr,g=,o= config`).
+
+Example for `.netrc`:
+
+```
+machine ftp.cyberciti.biz
+login myusername
+password mypassword
+```
+
+```sh
+chmod u=wr,g=,o= .netrc
+# if used as root:
+#sudo chown root .netrc
+```
+
 Alternatively, you can set the password in env vars `MYSQL_PWD="foo" mysqldump -ubackup --all-databases > dump.sql`
 
 Some commands (ssh, sftp, scp, git, rsync, and any other commands that use SSH) support [SSH server](https://www.jveweb.net/en/archives/2010/08/defining-ssh-servers.html) (`man ssh_config`) and SSH keys:
@@ -82,22 +97,6 @@ EOF
 ssh-keygen -t rsa -b 4096 -C "$user" -f "~/.ssh/${user}@${hostname}_key" -N "" -q
 # instead of "ssh -p 34567 username@subdomain.domain.tld" you can now use "ssh theservername""
 ```
-
-Some other commands (curl, wget, rexec, ftp) support [`.netrc` file](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html) password file. Use as follow:
-
-```
-machine ftp.cyberciti.biz
-login myusername
-password mypassword
-```
-
-```sh
-chmod u=wr,g=,o= .netrc
-# if used as root:
-#sudo chown root .netrc
-```
-
-See also [.netrc - Everything curl](https://ec.haxx.se/usingcurl/usingcurl-netrc)
 
 You can also use a SFTP batch file (`-d`) and all similar mecanisms
 
@@ -1565,6 +1564,10 @@ console.log(secretInfos);
 - [robubu : Safe JSON](http://robubu.com/?p=24)
 - [hackademix.net » You Don't Know What My Twitter Leaks](https://hackademix.net/2009/01/13/you-dont-know-what-my-twitter-leaks/)
 - [JSON Hijacking - You’ve Been Haacked](http://haacked.com/archive/2009/06/25/json-hijacking.aspx/)
+
+### Redirection to untrusted website
+
+- [CWE - CWE-601: URL Redirection to Untrusted Site ('Open Redirect') (4.2)](https://cwe.mitre.org/data/definitions/601.html)
 
 ### Carpet-bombing
 

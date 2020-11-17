@@ -135,7 +135,7 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 - [Same Markup: Writing Cross-Browser Code - IEBlog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/ie/archive/2010/04/14/same-markup-writing-cross-browser-code.aspx)
 - http://detectmobilebrowsers.com/ - Simplified (support lot of language) and not up-to-date UA detection.
 - [Browser detection using the user agent | MDN](https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent)
-- [4 Bad Reasons To Detect Mobile Browsers](http://markonphp.com/4-bad-reasons-to-detect-mobile-browsers/) 
+- [4 Bad Reasons To Detect Mobile Browsers](http://markonphp.com/4-bad-reasons-to-detect-mobile-browsers/)
 - [Mobile Grade (A, B, C)](http://jquerymobile.com/browser-support/)
 	* A-grade: Full enhanced experience with Ajax-based animated page transitions.
 	* B-grade: Enhanced experience except without Ajax navigation features.
@@ -211,7 +211,7 @@ Use [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-U
 	<link rel="stylesheet" href="track_printing.css" media="print" type="text/css" />
 	```
 
-	`track_printing.css` (should be served with header that disable cache): 
+	`track_printing.css` (should be served with header that disable cache):
 
 	```css
 	body { background: url("http://path.to/tracker_script"); }
@@ -265,7 +265,7 @@ _gaq.push(["_trackEvent", category, action, label/*optional*/, value/*integer, o
 Aka `analytics.js`
 
 [Universal Analytics tracking library (analytics.js)](https://developers.google.com/analytics/devguides/collection/analyticsjs/):
- 
+
  ```js
 ga("send", "event", category, action, label/*optional*/, value/*integer, optional*/, noninteraction/*boolean, optional*/);
 ga("send", "event", category, action, label/*optional*/, value/*integer, optional*/, {nonInteraction: noninteraction}/*boolean, optional*/);
@@ -316,7 +316,7 @@ ga("send", {
 
 - [Adding analytics.js to Your Site  |  Analytics for Web (analytics.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/analyticsjs/)
 - [The ga Command Queue Reference  |  Analytics for Web (analytics.js)  |  Google Developers](https://developers.google.com/analytics/devguides/collection/analyticsjs/command-queue-reference)
- 
+
  ```js
 // Use beacon or fallback to xhr (instead of image)
 ga("set", "transport", navigator.sendBeacon ? "beacon" : "xhr");
@@ -558,7 +558,7 @@ Methods:
 	Can use format like [APNG](../Formats,%20encoding%20and%20protocols/PNG/PNG.md#APNG), [MNG](../Formats,%20encoding%20and%20protocols/PNG/PNG.md), [JNG](../Formats,%20encoding%20and%20protocols/Image/Image.md#jng), [Animated WebP](../Formats,%20encoding%20and%20protocols/WebP/WebP.md), SVG (animation), [QTVR](../Formats,%20encoding%20and%20protocols/MOV/MOV.md#quickTime-vr), tar archive contains images and data files.
 	If multiple images use the same container, [content encoding](#content-encoding) could be used to compress more (GZip, Brotli) to reduce redonancy between images. For JPEG, use same DCT coefficients and omit it to reduce weight.
 	Use codecs of [compressed texture format](../Formats,%20encoding%20and%20protocols/Texture%20format/Texture%20format.md), JPEG, PNG, etc.
-	
+
 	1. images diff (pixels + metadata) and draw the patched image (frames: `I,P,P,P...`) `P` images could refer to the I frame or to the previous P frame (see [how APNG works](../Formats,%20encoding%20and%20protocols/PNG/PNG.md#apng))
 		Need fine control of playback
 	2. bunch of images loaded into blobs and load into the DOM (IMG or Canvas or via ImageData) and drawn on canvas (frames: `I,I,I,I...`)
@@ -680,7 +680,7 @@ See also [Privacy](#privacy)
 
 - [Cookie Status :: Current Status Of Browser Tracking Prevention | cookiestatus.com](https://www.cookiestatus.com/)
 
-## App Download Interstitials 
+## App Download Interstitials
 
 - [Google+: A case study on App Download Interstitials](http://googlewebmastercentral.blogspot.ca/2015/07/google-case-study-on-app-download-interstitials.html)
 - [Mobile-friendly web pages using app banners](http://googlewebmastercentral.blogspot.ca/2015/09/mobile-friendly-web-pages-using-app.html)
@@ -757,7 +757,7 @@ data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='450' height=
 ```
 data:image/svg+xml,%3Csvg xmlns='w3.org/2000/svg' viewBox='0 0 16 9' width='16' height='9'%3E%3C/svg%3E
 ```
- 
+
  ```svg
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
 	<g stroke="purple" stroke-width="2">
@@ -1161,10 +1161,10 @@ in customEmulatedDeviceList each entry:
 .type = "notebook";//"phone"//"tablet"//"unknown"
 For default value: 0 or ""
 
-WebInspector.EmulatedDevicesList.dispatchEventToListeners(WebInspector.EmulatedDevicesList.Events.CustomDevicesUpdated); 
+WebInspector.EmulatedDevicesList.dispatchEventToListeners(WebInspector.EmulatedDevicesList.Events.CustomDevicesUpdated);
 
 
-chrome.experimental.devtools.* 
+chrome.experimental.devtools.*
 
 https://api.github.com/repos/GoogleChrome/devtools-device-data/contents/devices.json?ref=release
 https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
@@ -1193,7 +1193,7 @@ See also [How ECMAScript engine works](..//Development/ECMAScript/ECMAScript.md#
 - [How Browsers Work: Behind the scenes of modern web browsers - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 - [What happens when you type google.com into your browser and press enter?](https://github.com/alex/what-happens-when)
 - [Rendering performance | Web Fundamentals - Google Developers](https://developers.google.com/web/fundamentals/performance/rendering/)
-- [Constructing the Object Model | Web Fundamentals - Google Developers](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=en) and https://github.com/google/WebFundamentals/blob/master/src/content/en/fundamentals/performance/critical-rendering-path/constructing-the-object-model.markdown and 
+- [Constructing the Object Model | Web Fundamentals - Google Developers](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=en) and https://github.com/google/WebFundamentals/blob/master/src/content/en/fundamentals/performance/critical-rendering-path/constructing-the-object-model.markdown and
 - [Debounce your input handlers | Web Fundamentals - Google Developers](https://developers.google.com/web/fundamentals/performance/rendering/debounce-your-input-handlers?hl=en)
 - [Aerotwist - The Anatomy of a Frame](https://aerotwist.com/blog/the-anatomy-of-a-frame/)
 - https://w3c.github.io/requestidlecallback/#figure1
@@ -1398,7 +1398,7 @@ $date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
 > 2. open a white page:
 >     1. open a new tag
 >     2. write this URL in address bar + enter : about:blank
-> 3. open developement tools:  
+> 3. open developement tools:
 >     - Crtl+Maj+I
 >     - or Menu at the top right (< ⁝ >), then "More tools", then "Developement tools"
 >     - or right clic on page, then "Inspect"
@@ -1406,10 +1406,10 @@ $date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
 >     1. open "Console" tab
 >     2. open the menu "Console settings" (< ⚙️ >)
 >     3. check "Preserve log"
-> 5. enable requests history perservation:  
+> 5. enable requests history perservation:
 >     1. open "Network" tab
 >     2. check "Preserve log"
-> 6. follow your scenario: **keep developement tools opened in background**  
+> 6. follow your scenario: **keep developement tools opened in background**
 >     1. open the first page (in the browser tab by write/pasting it URL in the address bar + enter)
 >     2. the follow the rest of the scenario
 > 7. once the scenario is complete, **without closing the browser tab**, show the developement tools window
@@ -1540,7 +1540,7 @@ JSON Schema + form:
 
 ## User script
 
-openuserjs: 
+openuserjs:
 
 - it's possible to import Script from GitHub, and use a webhook to sync with the source repo
 - don't forget to allow Github auth (Authorized OAuth Apps), and add a [licence field](https://openuserjs.org/user/add/scripts#user-block-copyright)
@@ -1580,7 +1580,7 @@ copy("javascript:" + prompt().replace(/[\s%]/g, match => `%${match.charCodeAt(0)
 
 ## Accessibility
 
-Permanant, 
+Permanant,
 
 See [Accessibility](../Development/HTML/HTML.md#accessibility)
 
@@ -1651,7 +1651,7 @@ Tools:
 Other:
 
 - tools for browser for users or authors: zoom and font size settings, [reduce motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion), [custom font](https://www.dyslexiefont.com/en/chrome-extension/), screen reader, [colors inversion](http://adrianroselli.com/2017/11/os-high-contrast-versus-inverted-colors.html), video sub titles, keyboard navigation, [etc.](https://chrome.google.com/webstore/category/collection/accessibility))
-- advice against using web accessibility overlay tools / add-on accessibility / plug and play solutions (accessiBe, Facil'iti)
+- advice against using web accessibility overlay tools / add-on accessibility / plug and play solutions ([accessiBe](https://en.wikipedia.org/wiki/AccessiBe), Facil'iti)
     - [Web accessibility overlay tools: lies and gum balls - Le Lutin du Web](https://www.lelutinduweb.fr/en/web-accessibility-overlays-lies-gum-balls/)
     - [Be Wary of Add-on Accessibility | Adrian Roselli](https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
     - [#accessiBe Will Get You Sued | Adrian Roselli](https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html)
@@ -1740,7 +1740,7 @@ See also:
 Safe Browsing (UrlSubresourceFilter, BetterAds)
 
 - [Category:Ad blocking software - Wikipedia](https://en.wikipedia.org/wiki/Category:Ad_blocking_software)
-- [Ad blocking - Wikipedia](https://en.wikipedia.org/wiki/Ad_blocking)	
+- [Ad blocking - Wikipedia](https://en.wikipedia.org/wiki/Ad_blocking)
 - [Chromium Blog: Under the hood: How Chrome's ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
 - [Bloqueur de publicités de Chrome : EasyList utilisé pour le blocage, de nouveaux détails](https://www.nextinpact.com/news/106147-bloqueur-publicites-chrome-easylist-utilise-pour-blocage-nouveaux-details.htm)
 - [Here’s how Google Chrome’s new ad blocker works – Ctrl blog](https://www.ctrl.blog/entry/chrome-adblocker)

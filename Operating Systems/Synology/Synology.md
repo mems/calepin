@@ -203,7 +203,7 @@ sudo ln -s "/volume3/@appstore/[app_name]" "/usr/local/[app_name]"
 
 ### MariaDB
 
-	/var/packages/MariaDB10/target/mysql/<servername>.err 
+	/var/packages/MariaDB10/target/mysql/<servername>.err
 
 Config file
 
@@ -216,7 +216,7 @@ By default MariaDB10 runs on port **3307**, where for MariaDB5.5 the port was 33
 
 	[client]
 	port = 3306
-	
+
 	[mysqld]
 	port = 3306
 
@@ -307,12 +307,12 @@ GUI ExtJS
 Dev environnement and tools:
 
 - Install DSM on any harware with XPEnology (bootloader)
-	
+
 	- [Loader Releases - XPEnology Community](https://xpenology.com/forum/forum/30-loader-releases/)
 	- [DSM 6.x.x Loader - DSM 6.x - XPEnology Community](https://xpenology.com/forum/topic/6253-dsm-6xx-loader/)
-	
+
 	[Synology Web Assistant](http://find.synology.com/) or Could need to use Synology Assistant [Download Center | Synology Inc.](https://www.synology.com/en-us/support/download)
-	
+
 	- [Create a Synology VM with XPEnology | iThinkVirtual™](https://ithinkvirtual.com/2016/04/30/create-a-synology-vm-with-xpenology/)
 	- [Xpenology, installer un serveur Synology DSM 6 - Sky-Future](https://www.sky-future.net/2016/11/28/xpenology-installer-serveur-synology-dsm-6/)
 	- [XPEnology (loader 1.02b) - DSM 6.1 on VMware Workstation Pro 12 (tutorial) - YouTube](https://www.youtube.com/watch?v=Si9Y1HNhYrI)
@@ -345,7 +345,7 @@ application/x-subviewer
 - [Support des sous-titres avec DLNA Media Server + BubbleUPNP + Freebox Player - Tutorials - NAS-Forum](http://www.nas-forum.com/forum/topic/48818-support-des-sous-titres-avec-dlna-media-server-bubbleupnp-freebox-player/#comment-1319283655) and [rw_grim / docker-bubbleupnpserver — Bitbucket](https://bitbucket.org/rw_grim/docker-bubbleupnpserver)
 - [Working DLNA Profiles - Plex Forums](https://forums.plex.tv/discussion/73703/working-dlna-profiles)
 
-Freebox Mini Server: 
+Freebox Mini Server:
 
 	WebSerOpen: /desc/device.xml, agent=Linux/2.6 UPnP/1.0 fbxlanbrowser/1.0
 
@@ -458,7 +458,7 @@ By default some folder `homes`, `web`, `docker`, `web` are not visible. Set perm
 - `music` when Video Station is installed
 - `video` when Video Station is installed
 
-To change the location, you need to 
+To change the location, you need to
 
 #### Media folders
 
@@ -623,7 +623,7 @@ Note: **If backup fail, try to backup smaller data set** (Backup task settings >
 Note: `.hbk` hyperbackup image folder package (contains a empty file `SynologyHyperBackup.bkpi`) can be mount (with right click with File Station) and explored via a standard file protocol (e.g. AFP or SMB). Can be open with [HyperBackupExplorer](https://www.synology.com/en-global/knowledgebase/DSM/help/HyperBackupExplorer/hyperbackupexplorer). See [How to retrieve backup files with Hyper Backup Explorer](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Backup_Restore/How_to_retrieve_backup_files_with_Hyper_Backup_Explorer)
 Note: If the backup fail `Error: DB (/XX/XX.hbk/Config/candidate_chunk.db) has tmp-file (/XX/XX.hbk/Config/candidate_chunk.db-shm) in version-complete`. It's due to the size of `candidate_chunk.db` should exceed the file system max file size limit (for FAT32, the file max size is 4GB). Use an other file system (ext4 or exFAT)
 
-- 
+-
 - [DiskStation Manager - Knowledge Base | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Storage/How_can_I_recover_data_from_my_DiskStation_using_a_PC)
 - [Create Backup Tasks | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/HyperBackup/data_backup_create)
 
@@ -637,7 +637,7 @@ The Hyper Backup package can use (client side) encryption:
 — [DiskStation Manager - Knowledge Base | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/Tutorial/backup_backup)
 
 > Client-side encryption to ensure data confidentiality at the backup destination:
-> 
+>
 > - Data and file name encryption with AES256-CBC.
 > - Key ring encryption with RSA2048.
 — [Software spec - DSM 6.0 | Synology Inc.](https://www.synology.com/en-global/dsm/6.0/software_spec)
@@ -702,7 +702,7 @@ Synology Drive (sync part) is remplacement of Cloud Station, see ["Differences b
 - [Drive (Android) | Synology Inc.](https://www.synology.com/en-global/knowledgebase/Mobile/help/Drive)
 - [Drive | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/SynologyDrive/drive_desc)
 
-Apps: 
+Apps:
 
 - Web portal: <https://yourhost:port/?launchApp=SYNO.SDS.Drive.Application>
 - PC & Mac: Synology Drive Client [Download Center - DS415+ | Synology Inc.](https://www.synology.com/en-global/support/download/DS415+#utilities)
@@ -743,7 +743,7 @@ The default Openstack container is `default`. For other container: `https://hubi
 
 ## Time Machine
 
-Can only have 1 folder for all machines (will contains all sparse bundles). 
+Can only have 1 folder for all machines (will contains all sparse bundles).
 
 The band size of sparse bundle don't have importance for block level backups (like Hyper Backup). It's better to have larger band (speed up transferts, but not too large) if it not encrypted images.
 When use Hyper Backup, use smaller band if the sparse bundle is encrypted (sparse bundle chunk updated - full encrypted - and needed reuploaded completely)
@@ -781,7 +781,8 @@ Optware-ng iPKG and Entware-ng oPKG can be installed with Easy Bootstrap Install
 ### Usage
 
 ```sh
-# /opt/bin/ipkg
+# /opt/bin/opkg
+# sudo ...
 opkg update && opkg upgrade
 opkg list
 opkg install <package>
@@ -898,7 +899,7 @@ On macOS pour l'auto routing:
 	sudo route add -net 192.168.3 -interface ppp0
 	# Delete the route. It's remove when the interface is deconnected (?)
 	sudo route -n delete -net 192.168.3 -interface ppp0
-	
+
 	# You can create a route when the VPN connect, by create a file /etc/ppp/ip-up same for /etc/ppp/ip-down
 	# chmod 0755 /etc/ppp/ip-up
 

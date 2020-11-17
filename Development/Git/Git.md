@@ -8,10 +8,14 @@
 
 ## User infos
 
+Aka author, identity (or identities), accounts
+
 ```sh
 git config --global user.name John Doe
 git config --global user.email john@doe.name
 ```
+
+- [Eric Williams - Conditional Includes For Git Config](https://web.archive.org/web/20201105224149/https://www.motowilliams.com/conditional-includes-for-git-config)
 
 ## Merge and rebase
 

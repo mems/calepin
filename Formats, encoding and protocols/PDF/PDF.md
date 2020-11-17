@@ -27,3 +27,21 @@
 	- [macos - How to decrease .pdf size without losing quality - Ask Different](https://apple.stackexchange.com/questions/297417/how-to-decrease-pdf-size-without-losing-quality)
 
 - [mattdesl/gsx-pdf-optimize: Optimize PDFs with Ghostscript command](https://github.com/mattdesl/gsx-pdf-optimize)
+
+## Signature
+
+- [Fill out and sign PDF forms in Preview on Mac - Apple Support](https://support.apple.com/guide/preview/fill-out-and-sign-pdf-forms-prvw35725/mac)
+
+Digital signature:
+
+- [PortableSigner Mainpage](http://portablesigner.sourceforge.net/)
+- `gpg --clearsign --output=signed.pdf input.pdf`
+- signing existing PDF files in LibreOffice: File → Digital signatures → Sign Existing PDF
+- [Sign PDFs in Adobe Acrobat Reader.](https://helpx.adobe.com/reader/using/sign-pdfs.html)
+- [certificates - How do I digitally sign a PDF? - Ask Ubuntu](https://askubuntu.com/questions/147379/how-do-i-digitally-sign-a-pdf)
+- pdf.js
+	- [JohanOtto/digitalSignaturePDFJS: Digital Signatures feature for PDF JS](https://github.com/JohanOtto/digitalSignaturePDFJS)
+	- [Digital signatures in pdf.js · Issue #1076 · mozilla/pdf.js](https://github.com/mozilla/pdf.js/issues/1076)
+	- [E-signature not showing up in pdf.js viewer · Issue #4743 · mozilla/pdf.js](https://github.com/mozilla/pdf.js/issues/4743)
+- [node-signpdf - npm](https://www.npmjs.com/package/node-signpdf)
+- [eSignature standards](https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/eSignature+standards#eSignaturestandards-PAdES%28PDFAdvancedElectronicSignature%29BaselineProfile)

@@ -4,12 +4,21 @@
 - [The Bash Hackers Wiki \[Bash Hackers Wiki\]](https://wiki.bash-hackers.org/start)
 - [Code Snippet - Snipplr Social Repository](https://snipplr.com/all?language=Bash)
 - [BashGuide - Greg's Wiki](http://mywiki.wooledge.org/BashGuide)
-- [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
 - [Bash scripting Tutorial - LinuxConfig.org](https://linuxconfig.org/bash-scripting-tutorial)
 
 - [GNU/Linux Command-Line Tools Summary](https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/GNU-Linux-Tools-Summary.html)
 - [Bash Guide for Beginners](https://tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html)
 - [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/html/abs-guide.html)
+
+Commands tips and examples:
+
+- [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
+- [One-liners | Basic | Cheat sheet | Linux Command Library](https://linuxcommandlibrary.com/basic/oneliners.html)
+- [General purpose command-line tools](http://www.compciv.org/unix-tools/)
+- [All commands sorted by votes](https://www.commandlinefu.com/commands/browse/sort-by-votes)
+- [Linux Commands - Complete Guide](https://linoxide.com/linux-how-to/linux-commands-brief-outline-examples/)
+- [What is your single most favorite command-line trick using Bash? - Stack Overflow](https://stackoverflow.com/questions/68372/what-is-your-single-most-favorite-command-line-trick-using-bash)
+- [dannguyen/bashfoo: My personally curated list of bash/command-line commands and snippets that are very useful yet I keep on forgetting](https://github.com/dannguyen/bashfoo#toc)
 
 ![bash tips](https://pbs.twimg.com/media/C75R5xUVsAEwlwf.jpg:large)
 
@@ -19,11 +28,15 @@ Aka man, command documentation
 
 Obtenir le manuel de la commande `mv` :
 
-	man mv
+```sh
+man mv
+```
 
-Obtenir le manuel de la commande `mv` : 
+Obtenir le manuel de la commande `mv` :
 
-	man man
+```sh
+man man
+```
 
 - http://linux.die.net/man/
 
@@ -53,16 +66,18 @@ Certaines commandes supportent aussi (où à la place) un paramètre dont sont u
 
 ### Conserver la configuration d'iptables lors des démarrages
 
-	# Sauvegarde de la configuration d'iptables dans un fichier
-	iptables-save > /etc/iptables.conf
-	
-	# Création d'un fichier sh dans le dossier ...
-	echo "#!/bin/sh" > /etc/network/if-up.d/iptables
-	
-	# ... qui restaurera les règles sauvegardé dans le fichier /etc/iptables.conf
-	echo "iptables-restore < /etc/iptables.conf" >> /etc/network/if-up.d/iptables
-	# Rendre executable le script bash
-	chmod +x /etc/network/if-up.d/iptables
+```sh
+# Sauvegarde de la configuration d'iptables dans un fichier
+iptables-save > /etc/iptables.conf
+
+# Création d'un fichier sh dans le dossier ...
+echo "#!/bin/sh" > /etc/network/if-up.d/iptables
+
+# ... qui restaurera les règles sauvegardé dans le fichier /etc/iptables.conf
+echo "iptables-restore < /etc/iptables.conf" >> /etc/network/if-up.d/iptables
+# Rendre executable le script bash
+chmod +x /etc/network/if-up.d/iptables
+```
 
 Il est nécéssaire de relancer ce script à chaque modifications d'iptables
 
@@ -70,45 +85,51 @@ Il est nécéssaire de relancer ce script à chaque modifications d'iptables
 
 (must be executable: `chmod +x /etc/init.d/blah`)
 
-	#! /bin/sh
-	# /etc/init.d/blah 
-	## BEGIN INIT INFO
-	# Provides: blah
-	# Required-Start: $local_fs $syslog $remote_fs dbus
-	# Required-Stop: $local_fs $syslog $remote_fs
-	# Default-Start: 2 3 4 5
-	# Default-Stop: 0 1 6
-	# Short-Description: Start blah
-	## END INIT INFO 
-	
-	# Some things that run always
-	touch /var/lock/blah
-	
-	# Carry out specific functions when asked to by the system
-	case "$1" in
-	  start)
-	    echo "Starting script blah"
-	    echo "Could do more here"
-	    ;;
-	  stop)
-	    echo "Stopping script blah"
-	    echo "Could do more here"
-	    ;;
-	  *)
-	    echo "Usage: /etc/init.d/blah {start|stop}"
-	    exit 1
-	    ;;
-	esac
-	
-	exit 0
+```sh
+#! /bin/sh
+# /etc/init.d/blah
+## BEGIN INIT INFO
+# Provides: blah
+# Required-Start: $local_fs $syslog $remote_fs dbus
+# Required-Stop: $local_fs $syslog $remote_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start blah
+## END INIT INFO
 
-Define when service have to be start or stop: 
+# Some things that run always
+touch /var/lock/blah
 
-	update-rc.d blah defaults
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "Starting script blah"
+    echo "Could do more here"
+    ;;
+  stop)
+    echo "Stopping script blah"
+    echo "Could do more here"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/blah {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+```
+
+Define when service have to be start or stop:
+
+```sh
+update-rc.d blah defaults
+```
 
 To remove from the startup sequence
 
-	update-rc.d -f blah remove
+```sh
+update-rc.d -f blah remove
+```
 
 - https://help.ubuntu.com/community/UbuntuBootupHowto
 - http://www.debian-administration.org/articles/28
@@ -119,10 +140,12 @@ To remove from the startup sequence
 
 ## User prompt
 
-	#!/bin/bash
-	echo "Yes,No?"
-	read answer
-	echo "You're answer: $answer"
+```sh
+#!/bin/bash
+echo "Yes,No?"
+read answer
+echo "You're answer: $answer"
+```
 
 - http://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html#sect_08_02_01
 
@@ -417,25 +440,28 @@ udevadm monitor
 
 ### Active processes
 
-	ps -A
+```sh
+ps -A
 
-Sous forme arborescente
+# Tree processes
+/bin/ps acxfwwwe
 
-	/bin/ps acxfwwwe
-
-Affichage en live :
-
-	top
+# Live display
+top
+```
 
 ### Processes details
 
-	/proc/3117
-
-Où `3117` un dossier ayant comme nom le pid du processus visé. 
+```sh
+# For process ID 3117
+/proc/3117
+```
 
 ### Connection réseau actives avec les processus correspondants
 
-	netstat -ape
+```sh
+netstat -ape
+```
 
 - http://en.wikipedia.org/wiki/Netstat
 
@@ -586,11 +612,7 @@ Pour recharger un fichier de configuration (ici le fichier `~/.bashrc`)
 
 ```sh
 source ~/.bashrc
-```
-
-ou 
-
-```sh
+# or
 . ~/.bashrc
 ```
 
@@ -672,17 +694,17 @@ man ls
 # Dont forget to call ~/.bashrc in your ~/.profile script
 #
 
-export CLICOLOR=1   
-alias ll='ls -l' 
-alias la='ls -A' 
-alias vi='vim' 
-alias l='ls -CF' 
+export CLICOLOR=1
+alias ll='ls -l'
+alias la='ls -A'
+alias vi='vim'
+alias l='ls -CF'
 
-function cyan_red_prompt {   
-	local CYAN="\[\033[0;36m\]" 
-	local GRAY="\[\033[0;37m\]" 
-	local RED="\[\033[0;31m\]"   
-	PS1="${CYAN}[\u@\h ${RED}\w${CYAN}]${GRAY} " 
+function cyan_red_prompt {
+	local CYAN="\[\033[0;36m\]"
+	local GRAY="\[\033[0;37m\]"
+	local RED="\[\033[0;31m\]"
+	PS1="${CYAN}[\u@\h ${RED}\w${CYAN}]${GRAY} "
 }
 
 cyan_red_prompt
@@ -900,7 +922,7 @@ Append to a file:
 echo "Appended text" >> /path/file
 ```
 
-Log all infos (and erros) of following commands to a file `/tmp/log.txt`: 
+Log all infos (and erros) of following commands to a file `/tmp/log.txt`:
 
 ```sh
 ( /bin/ps acxfwwwe 2>&1; /usr/sbin/lsof -Pwln 2>&1; /bin/netstat -anpe 2>&1; /usr/bin/lastlog 2>&1; /usr/bin/last 2>&1; /usr/bin/who -a 2>&1 ) > /tmp/log.txt
@@ -975,7 +997,7 @@ pushd .
 File name:
 
 > Using `sed` or other external processes to do simple string operations like stripping extensions and prefixes is inefficient. Instead, use parameter expansions which are part of the shell (no external process means it will be faster). Some helpful articles on the subject are listed below:
-> 
+>
 > [Bash FAQ 73](http://mywiki.wooledge.org/BashFAQ/073): Parameter expansions
 > [Bash FAQ 100](http://mywiki.wooledge.org/BashFAQ/100): String manipulations
 
@@ -1236,7 +1258,7 @@ See also `diff -q --binary` or `cmp -s $1 $2 && echo "identical" || echo "differ
 - [centos - What's the quickest way to find duplicated files? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/277697/whats-the-quickest-way-to-find-duplicated-files/277767#277767)
 
 		find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
-	
+
 	Replace the use of md5sum with `diff` or `cmp`: [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
 - [dupe-krill/README.md at master · kornelski/dupe-krill](https://github.com/kornelski/dupe-krill/blob/master/README.md)
 - [idealo/imagededup: 😎 Finding duplicate images made easy!](https://github.com/idealo/imagededup)
@@ -1290,9 +1312,9 @@ for j in *; do mv "$j" "$n.bin"; done;
 
 Aka hardware link
 
-Créer un pointeur sur les données d'un disque dur. Il est impossible de le faire sur un dossier (à cause du risque boucles dans une arborescence) 
+Créer un pointeur sur les données d'un disque dur. Il est impossible de le faire sur un dossier (à cause du risque boucles dans une arborescence)
 
-Créer un pointeur : 
+Créer un pointeur :
 
 	ln /path/to/source_file /path/to/target_file
 
@@ -1331,7 +1353,7 @@ else
 	while [[ -e "$dest_dir/$basename-$num.$ext" ]]; do
 		(( num++ ))
 	done
-	mv "$source" "$dest_dir/$basename-$num.$ext" 
+	mv "$source" "$dest_dir/$basename-$num.$ext"
 fi
 ```
 
@@ -1384,7 +1406,7 @@ dirname "$folder"
 basename "$folder"
 # tmp
 echo "${folder%/*}"
-# 
+#
 echo "${folder%/*.*}"
 # /tmp
 echo "${folder##*/}"
@@ -1443,7 +1465,7 @@ find ./ -name ".svn" -exec rm -rf {} +
 ### Affichage de fichier / flux
 
 ```sh
-# Affichage 
+# Affichage
 cat /path/file
 
 # Pageurs (affichage page par page) :
@@ -1521,11 +1543,11 @@ Synchronize current directory with remote one
 	rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/
 
 	date=$(date +%Y%m%d-%H%M)
-	
+
 	[for loop over users]
-	
+
 	older=( $backups/$user/*(N/om) )
-	
+
 	rsync --archive --recursive \
 		--fuzzy --partial --partial-dir=$backups/$user/.rsync-partial \
 		--log-file=$tempfile --link-dest=${^older[1,20]} \
@@ -1736,7 +1758,7 @@ find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents
 ( cd /dir/to/copy && tar -c . ) | ( cd /where/to/ && tar -x -p )
 
 # Copy (with permissions) copy/ dir to remote:/where/to/ dir
-( tar -c /dir/to/copy ) | ssh -C user@remote 'cd /where/to/ && tar -x -p' 
+( tar -c /dir/to/copy ) | ssh -C user@remote 'cd /where/to/ && tar -x -p'
 
 # Backup harddrive (raw) to remote machine
 dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz'
@@ -1784,6 +1806,9 @@ Note: If you get `grep: invalid repetition count(s)`, use `(\x00\x00\x00\x00){25
 
 ## Text operations
 
+Aka text processing
+
+- [learnbyexample/Command-line-text-processing: From finding text to search and replace, from sorting to beautifying text and more](https://github.com/learnbyexample/Command-line-text-processing)
 - [bash - How can I test if a variable is empty or contains only spaces? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/146942/how-can-i-test-if-a-variable-is-empty-or-contains-only-spaces)
 
 Sortir une chaine multiligne
@@ -1905,6 +1930,11 @@ sed -i 42d ~/.ssh/known_hosts
 ### AWK
 
 > AWK reads the input a line at a time. A line is scanned for each pattern in the program, and for each pattern that matches, the associated action is executed.
+
+```sh
+# Print all fields
+awk '{print NR": "$0; for(i=1;i<=NF;++i) print "\t"i": "$i}'
+```
 
 ```sh
 #!/usr/bin/env awk -f
@@ -2232,7 +2262,7 @@ Using tar or FTP, incrementaly add/changed/delete files (list made from `cron` o
 	echo -e "GET / HTTP/1.1\r\nHost: example.com\r\nAccept-Encoding: gzip, deflate\r\n\r\n" | nc localhost 80 | sed ':a;N;$!ba;s/^.*\r\n\r\n//g' | wc -c
 	# Get body uncompressed length (should be gzipped)
 	echo -e "GET / HTTP/1.1\r\nHost: example.com\r\nAccept-Encoding: gzip, deflate\r\n\r\n" | nc 93.184.216.34 80 | sed ':a;N;$!ba;s/^.*\r\n\r\n//g' | gzip -d | wc -c
-	
+
 
 [How to display request headers with command line curl - Stack Overflow](https://stackoverflow.com/questions/3252851/how-to-display-request-headers-with-command-line-curl/26644485#26644485)
 

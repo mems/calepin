@@ -22,6 +22,11 @@ Convert VB.Net to C#:
 - [Source Code Converters](https://www.tangiblesoftwaresolutions.com/)
 - [VB.NET and C# Equivalents](https://www.tangiblesoftwaresolutions.com/vb-and-csharp-equivalents.html)
 
+.NET Framework:
+
+- [AspNetWebStack/src at 749384689e027a2fcd29eb79a9137b94cea611a8 · aspnet/AspNetWebStack](https://github.com/aspnet/AspNetWebStack/tree/749384689e027a2fcd29eb79a9137b94cea611a8/src)
+- [Reference Source](https://referencesource.microsoft.com/)
+
 ASP.NET MVC (and WebForms, but not Core):
 
 - [aspnet/AspNetWebStack: ASP.NET MVC 5.x, Web API 2.x, and Web Pages 3.x (not ASP.NET Core)](https://github.com/aspnet/AspNetWebStack)

@@ -18,9 +18,9 @@ Aka JWT
 > [...] defines a compact and self-contained way for securely transmitting information between parties as a JSON object
 > [...]
 > Compact and self-contained: all data needed for authentication exists in the token. It can be transmitted quickly because of its small size.
-> 
+>
 > Digitally signed: tokens are verified against a secret key on the server. They are secure because the content of the JWT can’t be tampered with unless the secret key is known.
-> 
+>
 > Simple: JWTs are conceptually straight-forward and have low overhead. Since they provide a stateless means for authentication, they can be used across multiple servers and domains without running into CORS issues.
 
 - [JSON Web Tokens - jwt.io](http://jwt.io/)
@@ -38,7 +38,7 @@ Aka JWT
 – [I it ok to use uppercase letter in email address? - Webmaster Stack Exchange](https://webmasters.stackexchange.com/questions/34056/is-it-ok-to-use-uppercase-letters-in-email-address/34058#34058)
 
 > The local mailbox part (the username), however, is case sensitive. The email address ReCipiENt@eXaMPle.cOm is indeed different from recipient@example.com (but it the same as ReCipiENt@example.com).
-> 
+>
 > Simply put: Only the username itself is case sensitive. Email addresses are not affected by the case.
 — [Are email addresse case sensitive? - Quora](https://www.quora.com/Are-email-addresses-case-sensitive)
 
@@ -178,6 +178,8 @@ Database, clear text saved in shared files, etc.
 Aka Single sign-on.
 
 If credentials leak, this could give access to more than one application/website.
+
+Note: If for any reason (a good or not) the SSO provider could disable/delete the account. Some implementation don't provide a way to use an other method to sign-in, that means the user will be locked out. [Never Use Google to Sign-In | Gurjeet Singh](https://web.archive.org/web/20201114181850/https://gurjeet.singh.im/blog/never-use-google-to-sign-in)
 
 Examples: OAuth, Google, Facebook, Twitter, LinkedIn, Github, etc.
 
