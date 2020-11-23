@@ -78,7 +78,7 @@ Lorsqu’on travaille sur un projet, il faut le faire tester le plus tôt possib
 See [Productiveness](../Work/Work.md#productiveness)
 
 > Et si la rémunération à la performance nuisait à la performance ?
-> 
+>
 > « Comment faire pire en croyant faire mieux. »
 > [...]
 > « Un club de football met à l’amende un de ses joueurs au motif qu’il rend trop souvent la balle à l’adversaire. Résultat : il ne la passe plus à personne. Un patron décide d’organiser la compétition permanente entre ses salariés. Résultat : une partie d’entre eux commence à saboter le travail de leurs collègues. »
@@ -153,14 +153,14 @@ See [Design](Design)
 - don't release a compiled version with no sources - if you call your project open source go read what it is [The Open Source Definition | Open Source Initiative](https://opensource.org/docs/osd)
 
 > [Suzana Ilić](https://twitter.com/suzatweet/status/1143425542122856448): Folks who manage/lead open source projects: Do you have any advice or lessons learned for someone who has no idea what she's doing?
-> 
+>
 > [Daniel Stenberg](https://twitter.com/bagder/status/1143773910124703744): Patience. Enable contributors. Listen to your community. Prepare for cultural differences and blunt language. Be patient. Thank your contributors. Release often. Prioritize docs. Let things take time. You compete for contributors' time with everyone else.
-> 
-> [Spider](https://twitter.com/spidler/status/1144214905291182080): Also. Prioritize backwards compatibility. Make upgrades painless for users .  Diligence with releases pay off long term. 
-> Keep a list of security issues/fixes. 
-> Keep your defaults secure. 
+>
+> [Spider](https://twitter.com/spidler/status/1144214905291182080): Also. Prioritize backwards compatibility. Make upgrades painless for users .  Diligence with releases pay off long term.
+> Keep a list of security issues/fixes.
+> Keep your defaults secure.
 > Options are a plague on testing.  Options to disable stupid default is worse.
-> 
+>
 > [Mark Mandel](https://twitter.com/Neurotic/status/1143657776943472641): I'll try and hit some ones others haven't:
 > - Have a code of conduct and enforce it
 > - Document everything. From how to use it to how to develop it, to how decisions get made
@@ -169,13 +169,13 @@ See [Design](Design)
 > - Make your contributor experience buttery smooth.
 > - Giving attention to your community helps it grow, so be as attentive as you can (but realise this is a trap, so see point about healthy boundaries).
 > - Enjoy it when inevitably someone does something awesome w/ your project
-> 
+>
 > [Morten @ home](https://twitter.com/mor10/status/1143725473609818112): Create a clear governance model early on. It'll save you endless frustration down the road if the project is successful. One good example can be found here: [browser-compat-data/GOVERNANCE.md](https://github.com/mdn/browser-compat-data/blob/master/GOVERNANCE.md)
 
 > [418 — I'm a teapot](https://twitter.com/mazunki1/status/1143792135524749312): any advice on how to make a living with open-sourcing?
-> 
+>
 > [Anca Mosoiu](https://twitter.com/anca/status/1144033462879260672): Sell services that go along with the software, like installation, implementation in an organization, support.
-> 
+>
 > [Daniel Stenberg](https://twitter.com/bagder/status/1143793181433180162) That's harder than "just" succeeding with your project The less hard way to do that is to get a job at a company already doing a lot of open source. To make living on your own project you need to find a business case for it. Not easy.
 
 See also:
@@ -212,14 +212,14 @@ See also [The X-Y Problem](#the-x-y-problem)
 
 See also [80/20 rule](#8020-rule)
 
-> The X-Y Problem, as it is sometimes called, is a mental block which leads to enormous amounts of wasted time and energy, both on the part of people asking for help, and on the part of those providing help. It often goes something like this: 
-> 
+> The X-Y Problem, as it is sometimes called, is a mental block which leads to enormous amounts of wasted time and energy, both on the part of people asking for help, and on the part of those providing help. It often goes something like this:
+>
 > 1. User wants to do X.
 > 2. User doesn't know how to do X, but thinks they can fumble their way to a solution if they can just manage to do Y.
 > 3. User doesn't know how to do Y either.
 > 4. User asks for help with Y.
 > 5. Others try to help user with Y, but are confused because Y seems like a strange problem to want to solve.
-> 6. After much interaction and wasted time, it finally becomes clear that the user really wants help with X, and that Y wasn't even a suitable solution for X. 
+> 6. After much interaction and wasted time, it finally becomes clear that the user really wants help with X, and that Y wasn't even a suitable solution for X.
 — [XyProblem - Greg's Wiki](http://mywiki.wooledge.org/XyProblem)
 
 ## Solve problems, not exploiting it
@@ -240,7 +240,7 @@ Base you product on an external service is dangerous. What its provider decide t
 Could also be a prototype
 
 > Obviously, this is POC level only.
-> 
+>
 > Because any “real” solution needs to follow audit trails, pass security screening, not be reliant on something that could “just go away”, etc.
 > ...
 > No you did NOT replicate an $86 million dollar project, not even close. You replicated a single solitary feature of the project.
@@ -282,8 +282,14 @@ Aka A/B testing
 
 Aka gamification
 
+Make a reward rather a penalty
+
+> [about player behaviors] encourage the behavior you want than discourage the behavior you dont.
+> [...] instead of punishing a player who is too slow, reward a player who finishes the level quickly
+
 - [Extra Credits - YouTube](https://www.youtube.com/channel/UCCODtTcd5M1JavPCOr_Uydg) - Videos about games: how they are made, what they mean, and how we can make them better. For entertainment, education, etc. Rules, UX, business, etc.
 - [Visual Guide: Multiplayer Level Design — Level Art+Design Portfolio](http://bobbyross.com/library/mpleveldesign)
+- [How Game Designers Protect Players From Themselves | Game Maker's Toolkit - YouTube](https://www.youtube.com/watch?v=7L8vAGGitr8)
 
 ## Report issues
 
@@ -439,7 +445,7 @@ Target user:
 	- culture (paper size, weights & measures unities, currency, etc.)
 	- writing conventions (date/time format, time zone, numbers formating)
 	- regulatory compliance (borders shown on maps, taxation laws, labour laws, etc.)
-	
+
 - technical abilities (usage of new technologies or tools)
 - social position
 - disability (temporarily or permanently), accessibility issues: color blindness, blindness, muscular or neurology disease, immobilization...

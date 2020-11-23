@@ -109,21 +109,30 @@ Now all push with `git push` or in gittower push to `origin/<default>` (or use "
 git config --global core.attributesfile '~/.gitattributes'
 ```
 
+### JSON diff
+
+```sh
+jq -c . input.json
+```
+
+- [tomnomnom/gron: Make JSON greppable!](https://github.com/tomnomnom/gron)
+
+### Image diff
+
 Exemple to diff PNG files with EXIFtool
 
 ```sh
 echo '*.png diff=exif' >> .gitattributes
 git config diff.exif.textconv exiftool
-```
 
-```sh
 diff --git a/image.png b/image.png
 ```
 
-- http://git-scm.com/book/ch7-2.html
-- [Git - How to Get Better Diff for Image - Lar Tesmer' Blog](http://www.lars-tesmer.com/blog/2010/09/20/git---how-to-get-better-diffs-for-images/)
+```sh
+identify -verbose info: <image>
+```
 
-----
+- [Git - How to Get Better Diffs for Images - Lars Tesmer's Blog](https://web.archive.org/web/20200805133545/http://www.lars-tesmer.com/blog/2010/09/20/git---how-to-get-better-diffs-for-images/)
 
 ```sh
 echo "*.gif diff=image" >> ~/.gitattributes
@@ -139,11 +148,15 @@ git config --global diff.image.command '~/bin/git-imgdiff'
 compare $2 $1 png:- | montage -geometry +4+4 $2 - $1 png:- | display -title "$1" -
 ```
 
-----
+### SQLite diff
 
-```sh
-identify -verbose info: <image>
 ```
+[diff "sqlite3"]
+    textconv = sqlite3 $1 .dump
+```
+
+- [sqldiff.exe: Database Difference Utility](https://sqlite.org/sqldiff.html)
+- [simonw/sqlite-diffable: Tools for dumping/loading a SQLite database to diffable directory structure](https://github.com/simonw/sqlite-diffable)
 
 ## Sparse checkout
 

@@ -36,3 +36,57 @@ ASP.NET Core:
 
 - [dotnet/aspnetcore: ASP.NET Core is a cross-platform .NET framework for building modern cloud-based web applications on Windows, Mac, or Linux.](https://github.com/dotnet/aspnetcore)
 - [.NET API browser | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/api/?view=aspnetcore-3.1)
+
+## Debug
+
+- Windows application: Event Viewer
+- [dnSpy/dnSpy: .NET debugger and assembly editor](https://github.com/dnSpy/dnSpy) - debug process, assembly browser
+	- breakpoint:
+		1. start dnSpy as admin
+		2. menu "Debug" -> "Attach to process"
+		3. select `w3wp.exe`
+		4. menu "Debug" -> "Windows" -> "Modules" to see all loaded assemblies
+	- if local variables didn't show (JIT optimization):
+		- by updating assembly attributes: [hacktricks/reversing.md at master · carlospolop/hacktricks](https://github.com/carlospolop/hacktricks/blob/master/exploiting/reversing.md#dnspy-debugging) - [Reversing - HackTricks](https://web.archive.org/web/20201118144644/https://book.hacktricks.xyz/exploiting/reversing#dnspy-debugging)
+			```csharp
+			[assembly: Debuggable(DebuggableAttribute.DebuggingModes.Default |
+			DebuggableAttribute.DebuggingModes.DisableOptimizations |
+			DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints |
+			DebuggableAttribute.DebuggingModes.EnableEditAndContinue)]
+			```
+		- For ASP.Net, set `configuration/system.web/compilation/@debug` to `true` (`Web.config`) to disable execution optimizations (see also `@optimizeCompilations`, set to `false`) (only for generated code?)
+		- by use ini file or registry:
+			- set the environment variable `COMPLUS_ZAPDISABLE=1`  or the registry key `HKLM\SOFTWARE\Microsoft\.NETFramework\ZapDisable`
+
+			For ASP.Net, set `system.web/hostingEnvironment/@shadowCopyBinAssemblies` to `false` (`Web.config`) to disable shadow copies of DLLs (in a tmp dir)
+
+			For the DLL `somelib.dll` create a `somelib.ini` with:
+			```ini
+			[.NET Framework Debugging Control]
+			GenerateTrackingInfo=1
+			AllowOptimize=0
+			```
+
+		- [Making an Image Easier to Debug · dnSpy/dnSpy Wiki](https://github.com/dnSpy/dnSpy/wiki/Making-an-Image-Easier-to-Debug)
+		- [dnSpy - A Fantastic .NET Debugger](https://web.archive.org/web/20200129155827/http://omnine.blogspot.com/2016/11/dnspy-fantastic-net-debugger.html#!http://web.archive.org/web/20201120101936/http://omnine.blogspot.com/2016/11/dnspy-fantastic-net-debugger.html)
+		- [Easily debug Sitecore assemblies using dnSpy](https://web.archive.org/web/20201107225457/https://blog.richardszalay.com/2019/06/14/debugging-sitecore-assemblies/)
+		- [Making an image easier to debug in .NET | Microsoft Docs](https://web.archive.org/web/20201120104100/https://docs.microsoft.com/en-us/dotnet/framework/debug-trace-profile/making-an-image-easier-to-debug?redirectedfrom=MSDN)
+		- [fgreinacher/nooptimize: A tiny command line tool that allows you to disable JIT optimization for a given set of .NET assemblies.](https://github.com/fgreinacher/nooptimize) - Create a ini file for all assemblies
+
+		- [.net - How can I disable compiler optimization in C#? - Stack Overflow](https://stackoverflow.com/questions/1199204/how-can-i-disable-compiler-optimization-in-c)
+		- [dotnet/testing-with-ryujit.md at 2ab884e04a0a40c84dcb8782033b2191b7a94fd4 · microsoft/dotnet](https://github.com/microsoft/dotnet/blob/2ab884e04a0a40c84dcb8782033b2191b7a94fd4/Documentation/testing-with-ryujit.md)
+- [ProcDump - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump) - generate process dump
+- WinDbg - load process dump
+
+## Decompiler
+
+- [ILSpy](http://ilspy.net/) [icsharpcode/ILSpy: .NET Decompiler](https://github.com/icsharpcode/ILSpy)
+	[ILSpy/ICSharpCode.Decompiler.Console at master · icsharpcode/ILSpy](https://github.com/icsharpcode/ILSpy/tree/master/ICSharpCode.Decompiler.Console)
+	[docs/using-on-macos.md at master · dotnet/docs](https://github.com/dotnet/docs/blob/master/docs/core/tutorials/using-on-macos.md)
+- [dotPeek: Free .NET Decompiler & Assembly Browser by JetBrains](https://www.jetbrains.com/decompiler/)
+	[Download dotPeek: Free .NET Decompiler by JetBrains](https://www.jetbrains.com/decompiler/download/#section=standalone)
+	Wine: need dotnet45 + Windows NT 6.0+ (Vista+)
+- [.NET Decompiler: Decompile Any .NET Code | .NET Reflector](https://www.red-gate.com/products/dotnet-development/reflector/)
+- [0xd4d/de4dot: .NET deobfuscator and unpacker.](https://github.com/0xd4d/de4dot)
+- [wildcardc/cfxc-deobf: A ConfuserEx-custom deobfuscation toolchain](https://github.com/wildcardc/cfxc-deobf)
+- [ViRb3/de4dot-cex: de4dot deobfuscator with full support for vanilla ConfuserEx](https://github.com/ViRb3/de4dot-cex)

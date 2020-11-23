@@ -227,7 +227,7 @@ const catcher = new Proxy(global, {
     has(target, key){
         return true;
     },
-    
+
     get(target, name){
         if(name in target){
             // return original value if exists
@@ -372,7 +372,7 @@ See also [Destructuring](#destructuring)
 ### Array holes
 
 - [ECMAScript 6: holes in Arrays](http://www.2ality.com/2015/09/holes-arrays-es6.html)
- 
+
 	Array.apply(null, {length: 2});//create a filled array [undefined, undefined]
 
 	const numHarrys = 7;
@@ -440,7 +440,7 @@ const table = new Map([
 // ES6
 const table = Object.create(null, {
     key1: "value1",
-    key2: "value2", 
+    key2: "value2",
 });
 ```
 
@@ -460,7 +460,7 @@ const table = {
 > slice vs splice
 > shift vs unshift
 > substr vs substring
-> 
+>
 > Always slice (never substr or substring)
 > shift = how bash accesses args (left to right)
 
@@ -567,7 +567,7 @@ var i = 0;
 
 while (i < s.length) {
 	var codePoint;
-	
+
 	// Decode UTF-16
 	var a = s.charCodeAt(i++);
 	if (a < 0xD800 || a >= 0xDC00) {
@@ -576,7 +576,7 @@ while (i < s.length) {
 		var b = s.charCodeAt(i++);
 		codePoint = (a << 10) + b + (0x10000 - (0xD800 << 10) - 0xDC00);
 	}
-	
+
 	// Encode UTF-8
 	if (codePoint < 0x80) {
 		utf8.push(codePoint);
@@ -608,7 +608,7 @@ var i = 0;
 
 while (i < length) {
 	var codePoint;
-	
+
 	// Decode UTF-8
 	var a = bytes.readUint8(offset + i++);
 	if (a < 0xC0) {
@@ -635,7 +635,7 @@ while (i < length) {
 					(d & 0x3F);
 			}
 		}
-		
+
 		// Encode UTF-16
 		if (codePoint < 0x10000) {
 			result += String.fromCharCode(codePoint);
@@ -685,7 +685,7 @@ String.prototype.encodeURI = function() {
 	for (var i = 0; i < len; i++) {
 		var code = this.charCodeAt(i);
 		if (code < 255) {
-			//if (code == 61 || code == 38) {	
+			//if (code == 61 || code == 38) {
 			result.push(this.charAt(i));
 		} else {
 			result.push(this.charAt(i).toUTF8());
@@ -706,13 +706,13 @@ function fancyCount2(str){
   const joiner = "\u{200D}";
   const split = str.split(joiner);
   let count = 0;
-  
+
   for(const s of split){
     //removing the variation selectors
     const num = Array.from(s.split(/[\ufe00-\ufe0f]/).join("")).length;
     count += num;
   }
-  
+
   //assuming the joiners are used appropriately
   return count / split.length;
 }
@@ -728,12 +728,12 @@ function fancyCount2(str){
 		`).join('')}
 		</table>
 	`;
-	
+
 	const data = [
 		{ first: '<Jane>', last: 'Bond' },
 		{ first: 'Lars', last: '<Croft>' },
 	];
-	
+
 	console.log(tmpl(data));
 	// Output:
 	// <table>
@@ -985,9 +985,9 @@ Some JS/ECMAScript Engines are not optimised for extrem long switch. Use if-else
 	const TAG_OPEN = "TagOpen";
 	const END_TAG_OPEN = "EndTagOpen";
 	const TAG_NAME = "TagName";
-	
+
 	const isASCII = char => {let code = char.charCodeAt(0); return code >= 65/*A*/ && code <= 90/*Z*/ || code >= 97/*a*/ && code <= 122/*z*/}
-	
+
 	let char;
 	let position = 0;
 	let stream = "<tag>link</tag>";
@@ -1045,7 +1045,7 @@ Some JS/ECMAScript Engines are not optimised for extrem long switch. Use if-else
 					break consumeStream;
 				}
 				break;
-			
+
 		}
 		position++;
 	}
@@ -1054,7 +1054,7 @@ Some JS/ECMAScript Engines are not optimised for extrem long switch. Use if-else
 	while (true)
 	{
 		nextToken = readToken()
-		
+
 		switch (true)
 		{
 			case currentToken is A && nextToken is B:
@@ -1092,10 +1092,10 @@ To speed up results of often call function like `Math.sqrt`, pre-compute all val
 	{
 		/** Table of function values*/
 		//var table;
-		
+
 		/** 10^decimals of precision*/
 		//var pow;
-		
+
 		/**
 		*   Make the look up table
 		*   @param max Maximum value to cache
@@ -1110,7 +1110,7 @@ To speed up results of often call function like `Math.sqrt`, pre-compute all val
 			const round = 1 / pow;
 			const len = 1 + max * pow;
 			const table = this.table = new Array(len);
-			
+
 			let val = 0;
 			for (let i = 0; i < len; i++)
 			{
@@ -1118,7 +1118,7 @@ To speed up results of often call function like `Math.sqrt`, pre-compute all val
 				val += round;
 			}
 		}
-		
+
 		/**
 		*   Look up the value of the given input
 		*   @param val Input value to look up the value of
@@ -1142,16 +1142,16 @@ Binary flags:
 	const FLAG_2 = 1 << 1;
 	const FLAG_3 = 1 << 2;
 	const FLAG_4 = 1 << 3;
-	
+
 	//Set differents flags
 	let flags = FLAG_1 | FLAG_2;
-	
+
 	//Add flag 3
 	flags |= FLAG_3;
-	
+
 	//Remove flag 4
 	flags &= ~FLAG_4;
-	
+
 	//Get flag
 	let hasFlag2 = (flags & FLAG_2) !== 0;
 
@@ -1226,7 +1226,7 @@ Swap integers without a temporary variable using XOR (integer only):
 	x ^= y;
 	y ^= x;
 	x ^= y;
-	
+
 	/*
 	equals to:
 		var z:int = x;
@@ -1328,36 +1328,44 @@ function promiseTimeout(ms, promise) {
 
 **Note: Promise-returning functions should never synchronously throw errors**
 
-	function asyncFunc() {
-		return Promise.resolve()
-		.then(() => {
-			doSomethingSync();// called after the end of JS stack of current JS loop
-			return doSomethingAsync();
-		})
-		.then(result => {
-			//···
-		});
-	}
-	
-	async function asyncFunc() {
-		doSomethingSync();// call immediately
-		await doSomethingAsync();
+```js
+function asyncFunc() {
+	return Promise.resolve()
+	.then(() => {
+		doSomethingSync();// called after the end of JS stack of current JS loop
+		return doSomethingAsync();
+	})
+	.then(result => {
 		//···
-	}
+	});
+}
+```
+
+```js
+async function asyncFunc() {
+	doSomethingSync();// call immediately
+	await doSomethingAsync();
+	//···
+}
+```
 
 Handle promises rejection in HTML document:
 
-	window.addEventListener("unhandledrejection", event => {
-		// Prevent error output on the console:
-		event.preventDefault();
-		console.log("Promise unhandled rejection. Reason: " + event.reason);
-	});
+```js
+window.addEventListener("unhandledrejection", event => {
+	// Prevent error output on the console:
+	event.preventDefault();
+	console.log("Promise unhandled rejection. Reason: " + event.reason);
+});
+```
 
 `rejectionhandled` can also be used to handle unhandled rejection later handled (asynchrounous `promise.catch(reason => {});`)
 
 Handle promises rejection in node v6.6.0+:
 
-	process.on("unhandledRejection", error => console.log('Rejection', error));
+```js
+process.on("unhandledRejection", error => console.log('Rejection', error));
+```
 
 - [TC39: Promises, Promises](https://thefeedbackloop.xyz/tc39-promises-promises/)
 - [Promise-based functions should not throw exceptions](http://www.2ality.com/2016/03/promise-rejections-vs-exceptions.html)
@@ -1371,39 +1379,55 @@ JavaScript is dynamic type, but it hard to debug if you use more than one type p
 
 To make the debug easier comment variable type by using [JSDoc comment](#comments) like:
 
-	/**
-	 * My own string variable
-	 * @type {string}
-	 */
-	var myString = "a string";
+```js
+/**
+ * My own string variable
+ * @type {string}
+ */
+const myString = "a string";
+```
 
 ## Always declare object properties in same order
 
 Don't:
-
-	var a = {property1: "1", property2: "2"};
-	var b = {property2: "4", property1: "3"};
+```js
+const a = {property1: "1", property2: "2"};
+const b = {property2: "4", property1: "3"};
+```
 
 instead:
 
-	var a = {property1: "1", property2: "2"};
-	var b = {property1: "3", property2: "4"};
+```js
+const a = {property1: "1", property2: "2"};
+const b = {property1: "3", property2: "4"};
+```
 
 Don't:
 
-	var a = {property1: "1", property2: "2"};
-	var b = {property1: "3"};
-	if(condition){
-		b.property2 = "4";
-	}
+```js
+const a = {property1: "1", property2: "2"};
+const b = {property1: "3"};
+if(condition){
+	b.property2 = "4";
+}
+```
 
 instead:
 
-	var a = {property1: "1", property2: "2"};
-	var b = {property1: "3", property2: null};
-	if(condition){
-		b.property2 = "4";
-	}
+```js
+const a = {property1: "1", property2: "2"};
+const b = {property1: "3", property2: condition ? "4" : null};
+```
+
+or
+
+```js
+const a = {property1: "1", property2: "2"};
+const b = {property1: "3", property2: null};
+if(condition){
+	b.property2 = "4";
+}
+```
 
 See [hidden class](#hidden-classes)
 
@@ -1413,9 +1437,11 @@ Don't use `delete` on instance of classes or classless similar objects ("point" 
 
 Set to `null` instead, or (only if you have a prototype chain) use:
 
-	if(someObject.hasOwnProperty("property")){
-		delete someObject.property;
-	}
+```js
+if(someObject.hasOwnProperty("property")){
+	delete someObject.property;
+}
+```
 
 - [Understanding delete — Perfection Kills](http://perfectionkills.com/understanding-delete/)
 - [delete operator - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete)
@@ -1425,6 +1451,7 @@ Set to `null` instead, or (only if you have a prototype chain) use:
 
 Always use the same type in same property
 
+- [JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind) | victor felder](https://web.archive.org/web/20201021072104if_/https://draft.li/blog/2016/12/22/javascript-engines-hidden-classes/)
 - [Design Elements](https://github.com/v8/v8/wiki/Design%20Elements#fast-property-access)
 - [Performance Tips for JavaScript in V8 - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/speed/v8/#toc-topic-hiddenclasses)
 - [Understanding the V8 Runtime to Maximize Application Performance](http://www.slideshare.net/DanielFields9/understanding-the-v8-runtime-to-maximize-application-performance#slide=23)
@@ -1436,21 +1463,27 @@ Always use the same type in same property
 
 ## Loop over array like
 
-	for(let item of arraylike){
-		
-	}
+```js
+for(let item of arraylike){
+
+}
+```
 
 - [Performance optimizations and for loops](http://www.2ality.com/2013/07/for-loop-performance.html)
 
 ### Cache length
 
-**Don't do it because it faster for millions iterations.** See [Micro optimization are useless](#micro-optimization-are-useless)
+**It's not needed, because it faster only for millions of iterations.** See [Micro optimization are useless](#micro-optimization-are-useless)
 
-	for (let i = 0; i < arr.length; i++);
+```js
+for (let i = 0; i < arr.length; i++);
+```
 
-vs 
+vs
 
-	for (let i = 0, len = arra.length; i < len; i++);
+```js
+for (let i = 0, len = arra.length; i < len; i++);
+```
 
 For array is seem not nesessary, but for Array like node collections (especially for [live collections](https://stackoverflow.com/questions/28163033/when-is-nodelist-live-and-when-is-it-static/28163742#28163742))
 
@@ -1468,7 +1501,9 @@ You have to create sub classes of defined classes if you want to add or reconfig
 
 The concept of namespace don't exist on JS. Use es6 modules instead or simply use a name like `MLClass` for class `Class` of "mylib" namespace.
 
-	this.[[HomeObject]] == Object.getPrototypeOf(Object.getPrototypeOf(this)).%method%.call(this);
+```js
+this.[[HomeObject]] == Object.getPrototypeOf(Object.getPrototypeOf(this)).%method%.call(this);
+```
 
 ES6 class
 
@@ -1501,8 +1536,10 @@ See also:
 
 ### `typeof` object
 
-	typeof null === "object"
-	typeof function(){} === "function"
+```js
+typeof null === "object"
+typeof function(){} === "function"
+```
 
 Use `obj === Object(obj)`
 
@@ -1513,16 +1550,20 @@ Use `obj === Object(obj)`
 
 Could be equal to self
 
-	const obj = {
-		f(){
-			return this;
-		}
+```js
+const obj = {
+	f(){
+		return this;
 	}
-	(false || obj.f)()// undefined
-	obj.f.apply(null)
+}
+(false || obj.f)()// undefined
+obj.f.apply(null)
+```
 
-	obj.method('a') // short for: obj.method.call(obj.method, 'a')
-	func('a') // short for: func.call(undefined, 'a')
+```js
+obj.method('a') // short for: obj.method.call(obj.method, 'a')
+func('a') // short for: func.call(undefined, 'a')
+```
 
 - inside callable entities:
 	- function call: `this === undefined` (strict mode)
@@ -1544,43 +1585,51 @@ Could be equal to self
 
 Use:
 
-	function myFunction(){
-		if(condition){
-			return;
-		}
-		
-		// Rest of long code
+```js
+function myFunction(){
+	if(condition){
+		return;
 	}
+
+	// Rest of long code
+}
+```
 
 Instead of:
 
-	function myFunction(){
-		if(!condition){
-			// Rest of long code
-		}
+```js
+function myFunction(){
+	if(!condition){
+		// Rest of long code
 	}
+}
+```js
 
 In the same idea you can use labels and break:
 
-	check: if(condition){
-		if(other_condition){
-			break check;
-		}
-		
-		//...default
+```js
+check: if(condition){
+	if(other_condition){
+		break check;
 	}
-	
-	always_do_something;
 
-	check: {
-		//...
-		if(condition){
-			break check;
-		}
-		//...default
+	//...default
+}
+
+always_do_something;
+```
+
+```js
+check: {
+	//...
+	if(condition){
+		break check;
 	}
-	
-	always_do_something;
+	//...default
+}
+
+always_do_something;
+```
 
 ## Scoped variable
 
@@ -1588,17 +1637,23 @@ Use `_` prefixing, but don't prefix by type
 
 Local:
 
-	myLocalVariable
+```js
+myLocalVariable
+```
 
 Private:
 
-	_myPrivateVariable
+```js
+_myPrivateVariable
+```
 
 See [Private slots](#private-slots)
 
 Global, public:
 
-	myPublicVariable
+```js
+myPublicVariable
+```
 
 ## Function
 
@@ -1606,11 +1661,13 @@ Avoid as possible, function declared in other functions.
 
 When your function is related to a different context of execution, use bound functions instead of closures:
 
-	var callback = myObject.myFunction.bind(myObject);
-	//
-	callback();
-	// equal to:
-	myObject.myFunction();
+```js
+const callback = myObject.myFunction.bind(myObject);
+//
+callback();
+// equal to:
+myObject.myFunction();
+```
 
 Require a _ECMAScript 5th Edition_ / _JavaScript 1.8.5_ compatbile JavaScript engine.
 
@@ -1622,30 +1679,39 @@ Don't forget to keep a reference to the bounded function to remove it reference 
 
 Avoid as possible global variable in function:
 
-	function mouseOnLeftSide(mouseX, windowWidth) {
-		return mouseX < windowWidth / 2;
-	}
+```js
+function mouseOnLeftSide(mouseX, windowWidth) {
+	return mouseX < windowWidth / 2;
+}
+```
 
 Instead of
 
-	function mouseOnLeftSide(mouseX) {
-		return mouseX < window.innerWidth / 2;
-	}
+```js
+function mouseOnLeftSide(mouseX) {
+	return mouseX < window.innerWidth / 2;
+}
+```
 
 Allow test
 
 [Immediately-invoked function expression (IIFE)](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression), aka self calling function, self invoking function or self-executing anonymous function:
 
-	// ES5:
-	(function(arg){
-		console.log(arg)
-	})("val1");
-	
-	// ES6 equivalent using a block statement:
-	{
-		let arg = "val1";
-		console.log(arg);
-	}
+
+```js
+// ES5:
+(function(arg){
+	console.log(arg)
+})("val1");
+```
+
+```js
+// ES6 equivalent using a block statement:
+{
+	let arg = "val1";
+	console.log(arg);
+}
+```
 
 - [Making your JavaScript Pure · An A List Apart Article](http://alistapart.com/article/making-your-javascript-pure)
 
@@ -1653,15 +1719,19 @@ Allow test
 
 Declare one variable per declaration.
 
-	var variable1,
-	  variable2,
-	  variable3;
+```js
+var variable1,
+  variable2,
+  variable3;
+```
 
 Instead:
 
-	var variable1;
-	var variable2;
-	var variable3;
+```js
+var variable1;
+var variable2;
+var variable3;
+```
 
 > using one “var” for multiple var decls tho means you can’t step through them with the debugger.
 — https://twitter.com/ljharb/status/690695085239861249
@@ -1693,19 +1763,26 @@ Silently conflict with a global variable.
 
 ### Missing semilicon
 
-	const test = {
-	  run () {
-	  }
-	}
-	
-	(() => {
-	  test.run()
-	})()
+```js
+const test = {
+  run () {
+  }
+}
+```
 
-	code.js:6
-	(() => {
-	^
-	TypeError: (intermediate value) is not a function
+
+```js
+(() => {
+  test.run()
+})()
+```
+
+```
+code.js:6
+(() => {
+^
+TypeError: (intermediate value) is not a function
+```
 
 Is due to [Automatic Semicolon Insertion](https://github.com/getify/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch5.md#automatic-semicolons)
 See also https://github.com/leebyron/async-to-gen/issues/25#issuecomment-251891170
@@ -1777,22 +1854,26 @@ Comment all your code particularly your functions. Give it a name is great, but 
 
 Use [JSDoc](http://usejsdoc.org/index.html) to define meta informations like variable type, function return type, function parameters, etc.
 
-	/**
-	 * @param {String|Array} [somebody=John Doe] Name or array of names
-	 * @returns {String}
-	 */
-	function getGreeting(somebody) {
-		if (!somebody) {
-			somebody = "John Doe";
-		} else if (Array.isArray(somebody)) {
-			somebody = somebody.join(", ");
-		}
-		return "Hello " + somebody;
+```js
+/**
+ * @param {String|Array} [somebody=John Doe] Name or array of names
+ * @returns {String}
+ */
+function getGreeting(somebody) {
+	if (!somebody) {
+		somebody = "John Doe";
+	} else if (Array.isArray(somebody)) {
+		somebody = somebody.join(", ");
 	}
+	return "Hello " + somebody;
+}
+```
 
 Explain via comments the functioning of code blocks. But dont use useless comments, like your own feeling.
 
-	// That's fuck up
+```js
+// That's fuck up
+```
 
 - Function: description, arguments, return
 - Program flow branch (if, else)(+ loops?): condition
@@ -1805,27 +1886,35 @@ Use also `TODO`.
 
 ### Comment toggle
 
-	/*
-	[code]
-	//*/
+```js
+/*
+[code]
+//*/
+```
 
-	//*
-	[code]
-	//*/
+```js
+//*
+[code]
+//*/
+```
 
 Only add `/` char to comment
 
-	//*
-	[code 1]
-	/*/
-	[code 2]
-	//*/
+```js
+//*
+[code 1]
+/*/
+[code 2]
+//*/
+```
 
-	/*
-	[code 1]
-	/*/
-	[code 2]
-	//*/
+```js
+/*
+[code 1]
+/*/
+[code 2]
+//*/
+```
 
 ## Quotes
 
@@ -1837,11 +1926,15 @@ JSON use double quotes only. Some languages use double quotes only to represent 
 
 Like in XML or HTML simple quote could be use, but don't use it. Use instead double quote, it's not PHP where [double quote are different than simple one](http://www.php.net/manual/en/language.types.string.php#language.types.string.parsing "Variable parsing in PHP").
 
-	var rawHTML = "<input type=\"text\" value=\"test\">";
+```js
+const rawHTML = "<input type=\"text\" value=\"test\">";
+```
 
 Or use JS templates:
 
-	var rawHTML = `<input type="text" value="test">`;
+```js
+const rawHTML = `<input type="text" value="test">`;
+```
 
 - [JavaScript: single quotes or double quotes?](http://www.2ality.com/2012/09/javascript-quotes.html)
 - [string - When to use double or single quotes in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript)
@@ -1908,7 +2001,7 @@ function test(param = 0){
 	if(param == 0){
 		return
 	}
-	
+
 	// do stuff
 }
 ```
@@ -1967,22 +2060,26 @@ vs iteration
 
 Instead of:
 
-	function something() {
-		if("something" in obj) {
-			// something
-		}
-		else {
-			// fallback
-		}
+```js
+function something() {
+	if("something" in obj) {
+		// something
 	}
+	else {
+		// fallback
+	}
+}
+```
 
 do:
 
-	var something = ("something" in obj) ? function() {
-		// something
-	} : function() {
-		// fallback
-	};
+```js
+const something = ("something" in obj) ? function() {
+	// something
+} : function() {
+	// fallback
+};
+```
 
 If you need to detect host object, instead of `"WheelEvent" in self` or `"WheelEvent" in window`, use `typeof WheelEvent == "function"`.
 
@@ -2001,7 +2098,9 @@ Unless it's to backport the features of newers ECMAscript engines (like `Array.f
 
 ## Comma operator
 
-	var x = ("a", "b", "c");// x == "c"
+```js
+const x = ("a", "b", "c");// x == "c"
+```
 
 > The comma operator has the lowest priority of all operators
 
@@ -2013,7 +2112,7 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 
 - [cesanta/mjs: Embedded JavaScript engine for C/C++](https://github.com/cesanta/mjs)
 - [XS7 @ TC-39](https://www.moddable.com/XS7-TC-39.php)
-- [QuickJS Javascript Engine](https://bellard.org/quickjs/)
+- [QuickJS Javascript Engine](https://bellard.org/quickjs/) - [bellard/quickjs](https://github.com/bellard/quickjs)
 - [List of ECMAScript engines - Wikipedia](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
 
 - [Test262 Report](https://test262.report/)
@@ -2047,20 +2146,24 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 
 ## `finally` is executed after return
 
-	function test(){
-		try{
-			console.log("before test() returns");
-			return;
-			console.log("after test() returns in try");// never called
-		}
-		finally{
-			console.log("after test() returns in finally");
-		}
+```js
+function test(){
+	try{
+		console.log("before test() returns");
+		return;
+		console.log("after test() returns in try");// never called
 	}
-	
-	console.log("before test()");
-	test();
-	console.log("after test()");
+	finally{
+		console.log("after test() returns in finally");
+	}
+}
+```
+
+```js
+console.log("before test()");
+test();
+console.log("after test()");
+```
 
 Output:
 
@@ -2073,59 +2176,73 @@ Output:
 
 ## Check if variable is declared
 
-	typeof undeclaredVariable === 'undefined'
+```js
+typeof undeclaredVariable === 'undefined'
+```
 
 - http://speakingjs.com/es5/ch09.html#_checking_whether_a_variable_exists
 
 ## Hexadecimal string as number
 
-	function hexaToNumber(value){
-		return parseInt(value.substr(1), 16);//#RRGGBB
-	}
+```js
+function hexaToNumber(value){
+	return parseInt(value.substr(1), 16);//#RRGGBB
+}
+```
 
-	"#" + ( color | 0).toString(16).padStart(6, "0")
+```js
+"#" + ( color | 0).toString(16).padStart(6, "0")
+```
 
 ## Extract color component from color number
 
 Aka hexadecimal color extraction
 
-	var _24bitsColor:uint = 0xff00cc;
-	
-	var r:uint = _24bitsColor >> 16;
-	var g:uint = _24bitsColor >> 8 & 0xff;
-	var b:uint = _24bitsColor & 0xff;
+```js
+const colorRGB = 0xff00cc;
+
+const redChannel = colorRGB >> 16;
+const greenChannel = colorRGB >> 8 & 0xff;
+const blueChannel = colorRGB & 0xff;
+```
 
 Or 32 bit color (argb)
 
-	var _32bitsColor:uint = 0xddff00cc;
-	
-	var a:uint = _32bitsColor >> 24 & 0xff;
-	var r:uint = _32bitsColor >> 16 & 0xff;
-	var g:uint = _32bitsColor >> 8 & 0xff;
-	var b:uint = _32bitsColor & 0xff;
-	
-	//Or alpha and 24 bits color:
-	var a:uint = _32bitsColor >> 24 & 0xff;
-	var _24bitsColor:uint = _32bitsColor & 0xffffff;
+```js
+const colorARGB32 = 0xddff00cc;
+
+const alphaChannel = colorARGB >> 24 & 0xff;
+const redChannel = colorARGB >> 16 & 0xff;
+const greenChannel = colorARGB >> 8 & 0xff;
+const blueChannel = colorARGB & 0xff;
+```
+
+```js
+//Or alpha and 24 bits color:
+const alphaChannel = colorARGB >> 24 & 0xff;
+const colorRGB = colorARGB & 0xffffff;
+```
 
 ## Color component to color number
 
 Aka hexadecimal from color components
 
-	var r:uint = 0xff;
-	var g:uint = 0x00;
-	var b:uint = 0xcc;
-	
-	var _24bitColor:uint = r << 16 | g << 8 | b;
+```js
+const redChannel = 0xff;
+const greenChannel = 0x00;
+const blueChannel = 0xcc;
+const colorRGB = redChannel << 16 | greenChannel << 8 | blueChannel;
+```
 
 Or 32 bit color (argb)
 
-	var a:uint = 0xdd;
-	var r:uint = 0xff;
-	var g:uint = 0x00;
-	var b:uint = 0xcc;
-	
-	var _32bitColor:uint = a << 24 | r << 16 | g << 8 | b;
+```js
+const alphaChannel = 0xdd;
+const redChannel = 0xff;
+const greenChannel = 0x00;
+const blueChannel = 0xcc;
+const colorARGB32 = alphaChannel << 24 | redChannel << 16 | greenChannel << 8 | blueChannel;
+```
 
 ## Ratio
 
@@ -2133,8 +2250,10 @@ Divide both terms of the ratio by the greatest common factor :
 
 For `24:40` (`24/40`) the greatest common factor is 8:
 
-	24/8 = 3
-	40/8 = 5
+```
+24/8 = 3
+40/8 = 5
+```
 
 `24:40` equals to `3:5`
 
@@ -2200,6 +2319,30 @@ var index = fromIndex + offset;//offset = relative index
 var absIndex = (count + index % count) % count;// real index (support negative index)
 ```
 
+## Insert property in object with order
+
+**It's recommended to use `Map` instead of an object with properties for that.** See why in [Don't use `delete`](#don-t-use-delete-).
+
+```js
+function insert(obj, {before, property, value}) {
+	for (let p in obj) {
+		if (p === before) {
+			obj[property] = value;
+			found = true;
+		}
+
+		// p comes after the new property, delete it and re-add it to push it to the end
+		if (found) {
+			let temp = obj[p];
+			delete obj[p];
+			obj[p] = temp;
+		}
+	}
+}
+```
+
+- [Lea Verou on Twitter: "#JS The only way to insert a property before another in an object literal and maintain references to it, is to delete all properties onwards, insert your property, then re-add. Here are 3 different helpers for this: https://t.co/GTOgYmv3hp Which one is best? Can you do better?" / Twitter](https://twitter.com/LeaVerou/status/1329793951973470214)
+
 ## Inside rect
 
 ```js
@@ -2238,13 +2381,13 @@ function human(size){
 		size /= 1024;
 		unitIndex++;
 	}
-	
+
 	return ((size * 10) / 10) + units[unitIndex];// round to ###.##
 }
 
 while(...){
 	let currentseek = ...;
-	
+
 	if(currentseek / filesize > lastpercent){
 		let percent = (currentseek / filesize * 1000) / 10;// round ###.##
 		console.log(percent + '%');
@@ -2376,12 +2519,12 @@ function getNextPowerOfTwo(number)
 	else
 	{
 		var result = 1;
-		
+
 		while (result < number)
 		{
 			result <<= 1;
 		}
-		
+
 		return result;
 	}
 }
@@ -2393,7 +2536,7 @@ function roundToPowerOfTwo(value) {
 	while (value > rounded) {
 		rounded *= 2;
 	}
-	
+
 	return rounded;
 }
 ```
@@ -2473,7 +2616,7 @@ y = transformOriginY - localTransformOriginY * newScale;
 **Do you realy need to check the type?**
 
 Check primitive wrapped too (with `instanceof`) created by the `new` keyword `new Number(1)` (equivalent of `new Object(Number(value))`)
- 
+
 - [javascript - Why is 4 not an instance of Number? - Stack Overflow](https://stackoverflow.com/questions/472418/why-is-4-not-an-instance-of-number/472427#472427)
 
 **Note: Full object constructors are per window**:
@@ -2631,9 +2774,9 @@ Aka clean
 
 ```js
 const persons = [
-  {name: 'John', age: 73}, 
+  {name: 'John', age: 73},
   {name: 'Alex', age: 3},
-  {name: 'Jane', age: 22}, 
+  {name: 'Jane', age: 22},
 ];
 const adultNames = persons.flatMap(p => p.age >= 18 ? p.name : []);
 // same as:
@@ -3154,6 +3297,7 @@ let objHash = JSON.stringify(obj);// not work because properties could have diff
 - [Hash function — Wikipedia](https://en.wikipedia.org/wiki/Hash_function)
 - [List of hash functions — Wikipedia](https://en.wikipedia.org/wiki/List_of_hash_functions)
 - [c - Simple hash functions - Stack Overflow](https://stackoverflow.com/questions/14409466/simple-hash-functions/14409947#14409947)
+
 ```js
 function crc32 (str) {
 
@@ -3218,12 +3362,12 @@ function hypot(a, b) {
 		let r = b / a;
 		return Math.abs(a) * Math.sqrt(1 + r * r);
 	}
-	
+
 	if (b != 0) {
 		let r = a / b;
 		return Math.abs(b) * Math.sqrt(1 + r * r);
 	}
-	
+
 	return 0;
 }
 ```
@@ -3374,20 +3518,20 @@ arr.reduce((result, item, index, items) => (index == 0 ? result.push(item) : res
 // From https://github.com/kangax/sputniktests-webrunner/blob/master/src/lib/numeric_conversion.js
 function toInteger(p) {
 	var x = Number(p);
-	
+
 	if(isNaN(x)){
 		return +0;
 	}
-	
+
 	if((x === +0)
 	|| (x === -0)
 	|| (x === Number.POSITIVE_INFINITY)
 	|| (x === Number.NEGATIVE_INFINITY)){
 		return x;
 	}
-	
+
 	var sign = ( x < 0 ) ? -1 : 1;
-	
+
 	return sign * Math.floor(Math.abs(x));
 }
 ```
@@ -3415,7 +3559,7 @@ function isEqual(num1, num2)
 	{
 		return true;
 	}
-	var prec = getPrecision(Math.min(Math.abs(num1), Math.abs(num2)));	
+	var prec = getPrecision(Math.min(Math.abs(num1), Math.abs(num2)));
 	return Math.abs(num1 - num2) <= prec;
 }
 ```
@@ -3480,7 +3624,7 @@ function yearFromTime(t) {
 
 	for(var time = 0;;year += sign){
 		time = timeFromYear(year);
-	
+
 		if(sign > 0 && time > t){
 			year -= sign;
 			break;
@@ -3590,14 +3734,14 @@ function getSundayInMonth(t, m, count){
 	var sunday = 0;
 
 	if(count === "last"){
-		for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay; 
+		for(var last_sunday = month_start+DaysInMonth(m, leap)*msPerDay;
 			WeekDay(last_sunday)>0;
 			last_sunday -= msPerDay
 		){};
 		sunday = last_sunday;
 	}
 	else {
-		for(var first_sunday = month_start; 
+		for(var first_sunday = month_start;
 			WeekDay(first_sunday)>0;
 			first_sunday += msPerDay
 		){};
@@ -3613,7 +3757,7 @@ function daylightSavingTA(t) {
 	var DST_start = getSundayInMonth(t, $DST_start_month, $DST_start_sunday)
 									+$DST_start_hour*msPerHour
 									+$DST_start_minutes*msPerMinute;
-								
+
 	var k = new date(DST_start);
 
 	var DST_end	 = getSundayInMonth(t, $DST_end_month, $DST_end_sunday)
@@ -3736,23 +3880,14 @@ function timeClip(time) {
 ## Create range array
 
 ```js
-let range = (from, to) => Array.from({length: to - from + 1}, (x, i) => from + i);
-```
-
-```js
-function range(from, to){
-	return Array
-		.apply(null, {length: to - from + 1})
-		.map(function(a, i){
-			return from + i;
-		})
-}
+const range = (from, to) => Array.from({length: to - from + 1}, (x, i) => from + i);
 ```
 
 ## Beautify
 
 From minified source code
 
+```
 !0												true
 !1												false
 a && b											if(a){b}
@@ -3764,7 +3899,7 @@ return a(), b									a(); return b;
 if(a(), b){c()}									a(); if(b){c();}
 1 == a ? b() : 2 == a ? c() : 3 == a && d()		switch(a){case 1: b(); break; case 2: c(); break; case 3: d(); break;}
 for (; 0 > a;) b()								while(a < 0){ b() }
-
+```
 
 ## Reduce by common divisor
 
@@ -3796,7 +3931,7 @@ function findGCD(a, b){
 		b = a % b;
 		a = t;
 	}
-	
+
 	// Common divisor is always a positive number
 	return Math.abs(a);
 }
@@ -3808,7 +3943,7 @@ function reduceRatio(numerator, denominator) {
 	var numerator = Number(numerator);
 	var denominator = Number(denominator);
 	var divisor = findGCD(numerator, denominator);
-	
+
 	// Infinity
 	if(!isFinite(numerator)){
 		return [numerator, 1];
@@ -3816,7 +3951,7 @@ function reduceRatio(numerator, denominator) {
 	if(!isFinite(denominator)){
 		return [1, denominator];
 	}
-	
+
 	return [numerator / divisor, denominator / divisor];
 }
 ```
@@ -3869,10 +4004,18 @@ values[realIndex];//= "b"
 - https://developer.mozilla.org/en-US/docs/Web/CSS/object-position
 - https://www.w3.org/TR/css3-images/img_scale.png
 
+```js
+const sourceWidth;
+const sourceHeight;
+const targetWidth;
+const targetHeight;
+```
+
 ### None fit
 
 ```js
-const {width, height} = displayObject;
+const width = sourceWidth;
+const height = sourceHeight;
 ```
 
 ### Contain fit
@@ -3882,22 +4025,22 @@ Also called letterbox (for movie on a screen)
 Uniformly scales (homotheticaly) up content as much as possible, while still showing all content on the target.
 
 ```js
-var ratioSource:Number = displayObject.width / displayObject.height;
-var ratioTarget:Number = WIDTH_TARGET / HEIGHT_TARGET;
-var newWidth:Number = Math.min(ratioSource, ratioTarget) * HEIGHT_TARGET;
-var newHeight:Number = WIDTH_TARGET / Math.max(ratioSource, ratioTarget);
+const sourceRatio = sourceWidth / sourceHeight;
+const targetRatio = targetWidth / targetHeight;
+const width = Math.min(sourceRatio, targetRatio) * targetHeight;
+const height = targetWidth / Math.max(sourceRatio, targetRatio);
 ```
 
 ```js
-var scale:Number = Math.min(WIDTH_TARGET / displayObject.width, HEIGHT_TARGET / displayObject.height);
+const scale = Math.min(targetWidth / sourceWidth, targetHeight / sourceHeight);
 ```
 
 ### Fit height homotheticaly
 
 ```js
-var ratioSource:Number = displayObject.width / displayObject.height;
-var newWidth:Number = ratioSource * HEIGHT_TARGET;
-var newHeight:Number = HEIGHT_TARGET;
+const sourceRatio = sourceWidth / sourceHeight;
+const width = sourceRatio * targetHeight;
+const height = targetHeight;
 ```
 
 ### Scale-down fit
@@ -3905,12 +4048,12 @@ var newHeight:Number = HEIGHT_TARGET;
 with original max size homotheticaly
 
 ```js
-var widthTarget:Number = Math.min(WIDTH_TARGET, displayObject.width);
-var heightTarget:Number = Math.min(HEIGHT_TARGET, displayObject.height);
-var ratioSource:Number = displayObject.width / displayObject.height;
-var ratioTarget:Number = widthTarget / heightTarget;
-var newWidth:Number = Math.min(ratioSource, ratioTarget) * heightTarget;
-var newHeight:Number = widthTarget / Math.max(ratioSource, ratioTarget);
+const altTargetWidth = Math.min(targetWidth, sourceWidth);
+const altTargetHeight = Math.min(targetHeight, sourceHeight);
+const sourceRatio = sourceWidth / sourceHeight;
+const altTargetRatio = altTargetWidth / altTargetHeight;
+const width = Math.min(sourceRatio, altTargetRatio) * altTargetHeight;
+const height = altTargetWidth / Math.max(sourceRatio, altTargetRatio);
 ```
 
 ### Cover fit
@@ -3920,10 +4063,10 @@ Crop to fit (zoom even) homotheticaly
 Uniformly scales up content to fill the screen, while preserving aspect ratio. Some content may appear offscreen, if the new screen has a different aspect ratio.
 
 ```js
-var ratioSource:Number = displayObject.width / displayObject.height;
-var ratioTarget:Number = WIDTH_TARGET / HEIGHT_TARGET;
-var newWidth:Number = Math.max(ratioSource, ratioTarget) * HEIGHT_TARGET;
-var newHeight:Number = WIDTH_TARGET / Math.min(ratioSource, ratioTarget);
+const sourceRatio = sourceWidth / sourceHeight;
+const targetRatio = targetWidth / targetHeight;
+const width = Math.max(sourceRatio, targetRatio) * targetHeight;
+const height = targetWidth / Math.min(sourceRatio, targetRatio);
 ```
 
 ### Fill fit
@@ -3933,8 +4076,8 @@ Scale (zoom stretch)
 Non-uniformly scales up content to fill the screen. All content will remain onscreen, but it may be stretched vertically or horizontally. It can distort display objects on devices (e.g., circles become ovals).
 
 ```js
-var newWidth:Number = HEIGHT_TARGET;
-var newHeight:Number = WIDTH_TARGET;
+const width = targetHeight;
+const height = targetWidth;
 ```
 
 ### Complex case
@@ -3942,18 +4085,19 @@ var newHeight:Number = WIDTH_TARGET;
 Merge multiple modes
 
 ```js
-var canvasRatio = canvasWidth / canvasHeight;
-// First define a target window to fit all
+const sourceRatio = sourceWidth / sourceHeight;
+// First define a internal target to fit all
 // portrait use 8:9 as minimal ratio
-var targetRatio = Math.max(canvasRatio, 8 / 9);
-var targetWidth = Math.min(canvasRatio, targetRatio) * canvasHeight;
-var targetHeight = canvasWidth / Math.max(canvasRatio, targetRatio);
+const altTargetRatio = Math.max(sourceRatio, 8 / 9);
+const altTargetWidth = Math.min(sourceRatio, altTargetRatio) * sourceHeight;
+const altTargetHeight = sourceWidth / Math.max(sourceRatio, altTargetRatio);
 // Then define a final window to cover the target window
-var naturalRatio = frame.naturalWidth / frame.naturalHeight;
-var width = Math.max(naturalRatio, targetRatio) * targetHeight;
-var height = targetWidth / Math.min(naturalRatio, targetRatio);
-var x = (canvasWidth - width) / 2;
-var y = (canvasHeight - height) / 2;
+const targetRatio = targetWidth / targetHeight;
+const width = Math.max(targetRatio, altTargetRatio) * targetHeight;
+const height = targetWidth / Math.min(targetRatio, altTargetRatio);
+// Center
+const x = (altTargetWidth - width) / 2;
+const y = (altTargetHeight - height) / 2;
 ```
 
 ## Can play through
@@ -3967,66 +4111,32 @@ See HTML Media [`canplaythrough`](https://developer.mozilla.org/en-US/docs/Web/E
 ```js
 if (duration > 0)
 {
-	var bufferingDuration = Date.now() - startTimer;
-	var totalLoadTime = bytesLoaded == 0 ? Number.POSITIVE_INFINITY : bytesTotal / bytesLoaded * bufferingDuration;
-	var duration = duration * 1000;//s -> ms
+	const bufferingDuration = Date.now() - startTimer;
+	const totalLoadTime = bytesLoaded == 0 ? Number.POSITIVE_INFINITY : bytesTotal / bytesLoaded * bufferingDuration;
 	console.log("(" + bytesLoaded + "/" + bytesTotal + ")" + bufferingDuration + " : " + totalLoadTime.toFixed(2))
-	if (totalLoadTime < duration || bufferingDuration + duration > totalLoadTime)
+	if (totalLoadTime < duration || bufferingDuration + duration > totalLoadTime){
 		// here the media can be play through
+	}
 }
 ```
 
-Where `startTimer` is value of `Date.now()` defined at begin of the media loading and `duration` is length of media.
+Where `startTimer` is value of `Date.now()` defined at begin of the media loading and `duration` is length of media in ms.
 
 ## Date offset by month
 
 ```js
 //Before = After - 5.5 months
-var monthRatio:Number = 5.5;
-var today:Date = new Date();
-//trace("today: " + today.toDateString())
+const monthRatio = 5.5;
+const today = new Date();
+//console.log("today: " + today.toDateString())
 
-var after:Date = new Date(today.fullYear, today.month, today.date);
-trace("after: " + after.toDateString());
+const after = new Date(today.fullYear, today.month, today.date);
+console.log("after: " + after.toDateString());
 
-var before:Date = new Date(today.fullYear, (today.month - uint(monthRatio)), 32);
-trace((32 - before.date) + " jours");
-before = new Date(before.fullYear, (today.month - uint(monthRatio)), today.date - Math.round(monthRatio % 1 * (32 - before.date)))
-trace("before (after - " + monthRatio + " months): " + before.toDateString())
-```
-
-## Bit array
-
-```js
-private function getBits(stream: ByteArray, n: int): int
-{
-	// by darron schall
-	// http://osflash.org/swfheaderinfo
-	
-	var returnbits: int = 0;
-	
-	while(true)
-	{
-		if(n >= 1)
-		{
-			if(bitPos == 8)
-			{
-				bitPos = 0;
-				bitBuffer = stream.readByte();
-			}
-			returnbits <<= 1;
-			
-			var bitMask: int = 0x80 >> bitPos;
-			returnbits |= (bitBuffer & bitMask) == bitMask ? 1 : 0;
-			n -= 1;
-			bitPos += 1;
-		}
-		else
-		{
-			return returnbits;
-		}
-	}
-}
+const before = new Date(today.fullYear, (today.month - uint(monthRatio)), 32);
+console.log((32 - before.date) + " jours");
+const before = new Date(before.fullYear, (today.month - uint(monthRatio)), today.date - Math.round(monthRatio % 1 * (32 - before.date)))
+console.log("before (after - " + monthRatio + " months): " + before.toDateString())
 ```
 
 ## Integer to hexadecimal
@@ -4034,7 +4144,7 @@ private function getBits(stream: ByteArray, n: int): int
 ```js
 // From https://github.com/mikechambers/as3corelib/blob/master/src/com/adobe/utils/IntUtil.as
 /** String for quick lookup of a hex character based on index */
-var hexChars = "0123456789abcdef";
+const hexChars = "0123456789abcdef";
 
 /**
  * Outputs the hex value of a int, allowing the developer to specify
@@ -4043,20 +4153,20 @@ var hexChars = "0123456789abcdef";
  * @param n The int value to output as hex
  * @param bigEndian Flag to output the int as big or little endian
  * @return A string of length 8 corresponding to the hex representation of n ( minus the leading "0x" )
- * 
+ *
  * @example toHex(3, false) === "03000000"
  * @example toHex(3, true) === "00000003"
  */
 function toHex( n, bigEndian = false ) {
-	var s = "";
+	let s = "";
 
 	if ( bigEndian ) {
-		for ( var i = 0; i < 4; i++ ) {
-			s += hexChars.charAt( ( n >> ( ( 3 - i ) * 8 + 4 ) ) & 0xF ) 
+		for ( let i = 0; i < 4; i++ ) {
+			s += hexChars.charAt( ( n >> ( ( 3 - i ) * 8 + 4 ) ) & 0xF )
 				+ hexChars.charAt( ( n >> ( ( 3 - i ) * 8 ) ) & 0xF );
 		}
 	} else {
-		for ( var x = 0; x < 4; x++ ) {
+		for ( let x = 0; x < 4; x++ ) {
 			s += hexChars.charAt( ( n >> ( x * 8 + 4 ) ) & 0xF )
 				+ hexChars.charAt( ( n >> ( x * 8 ) ) & 0xF );
 		}
@@ -4128,20 +4238,20 @@ function parseCSV(s){
 	while(true){
 		if(i >= s.length)
 			break;
-	
+
 		//new row
 		if("\n\r".includes(s[i])){
 			i++;
 			y++;
 			continue;
 		}
-	
+
 		// skip whitespaces
 		if(" \t".includes(s[i])){
 			i++;
 			continue
 		}
-	
+
 		// Read value
 		let value = "";
 		if(s[i] === '"'){
@@ -4155,9 +4265,9 @@ function parseCSV(s){
 			while(s[i] && !",\n\r".includes(s[i]))
 				value += s[i++]
 		}
-	
+
 		(results[y] = results[y] || []).push(value);
-	
+
 		// Skip comma to read next value
 		if(s[i] === ",") i++
 	}
@@ -4180,118 +4290,12 @@ e",'f'`);
 Object.getOwnPropertyNames(error).reduce((result, key) => (result[key] = error[key], result), {})
 ```
 
-About stack:
+About error stack:
 
 - [Error.prototype.stack - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack)
 - [StackTrace.JS - Framework-agnostic, micro-library for getting stack trace in all web browsers](https://www.stacktracejs.com/)
 - [stacktracejs/stacktrace.js: Generate, parse, and enhance JavaScript stack trace in all web browsers](https://github.com/stacktracejs/stacktrace.js/)
 - [stacktracejs/error-stack-parser: Extract meaning from JS Errors](https://github.com/stacktracejs/error-stack-parser)
-
-## Replace all
-
-```js
-// Search first occurence and replace, then move after the match and repeat
-// string and non global rexexp can replace the first occurrence only. Global rexexp can replace each occurences
-/*
-replaceAll("à partir du 31/01", [[
-	/D\u00e8s demain/g,
-	"En stock : livr\u00e9 d\u00e8s demain"
-],[
-	/A partir du/g,
-	"En stock : livr\u00e9 \u00e0 partir du"
-],[
-	/à partir du/g,
-	"En stock : livr\u00e9 \u00e0 partir du"
-],[
-	/En 2H Chrono/g,
-	"En stock : en 2H Chrono"
-]]);
-// > "En stock : livré à partir du 31/01"
-*/
-function replaceAll(str, rules){
-	var result = "";
-	var lastIndex = 0;
-	// mutiple replace
-	// loop over matches: if string only first is replaced, if global rexexp search for each occurences
-	// See how string.replace works
-	while(lastIndex < str.length){
-		var bestMatch = null;
-		var bestMatchReplace = null;
-		
-		for (var i = 0; i < rules.length; ++i) {
-			var substr = rules[i][0];
-			var match = null;
-			
-			// Some types can only be used to match only the first occurence
-			if(lastIndex > 0 && (typeof substr === "string" || substr instanceof RegExp && substr.global)){
-				continue;
-			}
-			
-			if(typeof substr === "string"){
-				var index = str.indexOf(substr, lastIndex);
-				if(index >= 0){
-					// impersonate regexp exec result
-					match = [substr];
-					match.index = index;
-					match.input = str;
-				}
-			}else if(substr instanceof RegExp){
-				substr.lastIndex = lastIndex;
-				match = substr.exec(str);
-			}else{
-				throw new Error("Unsupported type");
-			}
-			
-			if(!bestMatch || match && match.index < bestMatch.index){
-				bestMatch = match;
-				bestMatchReplace = rules[i][1];
-			}
-		}
-		
-		// No best match
-		if(bestMatch === null){
-			break;
-		}
-		
-		var bestMatchIndex = bestMatch.index;
-		var bestMatchStr = bestMatch[0];
-		var bestMatchLength = bestMatchStr.length;
-		var bestMatchResult = null;
-		if(typeof bestMatchReplace === "string"){
-			// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter
-			bestMatchResult = bestMatchReplace.replace(/\$([$&`']|\d{1,2})/, function(match, grp1){
-				switch(match){
-					case "$":
-						return match;
-					case "&":
-						return bestMatchStr;
-					case "`":
-						return str.substring(0, bestMatchIndex);
-					case "'":
-						return str.substring(bestMatchIndex + bestMatchLength);
-					default:
-						var index = parseInt(grp1, 10);
-						return index >= bestMatch.length ? match : bestMatch[index];
-				}
-			})
-		} else if(typeof bestMatchReplace === "function"){
-			var args = bestMatch.slice();// clone (match + nth grps)
-			args.push(bestMatchIndex, str);
-			bestMatchResult = bestMatchReplace.apply(null, args);
-		} else {
-			throw new Error("Unsupported type");
-		}
-		
-		result += str.substring(lastIndex, bestMatchIndex) + bestMatchResult;
-		lastIndex += bestMatchIndex + bestMatchLength;
-	}
-	
-	// Add last part
-	result += str.substring(lastIndex);
-	
-	return result;
-}
-```
 
 ## Empty object
 

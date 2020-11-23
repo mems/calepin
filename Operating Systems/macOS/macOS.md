@@ -3086,6 +3086,9 @@ Aka camera as webcam
 - [works for me 1 time but then doesn't let me select the camera on zoom/others · Issue #102 · v002/v002-Camera-Live](https://github.com/v002/v002-Camera-Live/issues/102#issuecomment-618312892)
 - [Using a Canon DSLR as a webcam on macOS with Zoom – Nicholas Sherlock](https://www.nicksherlock.com/2020/04/using-a-canon-dslr-as-a-webcam-with-zoom-us/)
 
+- [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
+- [Open Broadcaster Software®️ | OBS](https://obsproject.com/)
+
 ## Java
 
 - Java 8 is the only supported version which runs applets

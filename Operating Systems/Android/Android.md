@@ -32,6 +32,20 @@ Setup Proxy (when using Emulator, or not) http://www.techverse.net/how-to-setup-
 
 `UVESA_MODE=1336x768 DPI=96` `UVESA_MODE=1920x1080 DPI=340`
 
+## Virtualization
+
+- [BlueStacks](https://www.bluestacks.com/) - use VirtualBox and run Android x64 binaries
+	- [rooting - How to gain root on BlueStacks Android emulator - Android Enthusiasts Stack Exchange](https://android.stackexchange.com/questions/224119/how-to-gain-root-on-bluestacks-android-emulator)
+	- [How to enable Virtualization (VT) on Windows 10 for BlueStacks 4 – BlueStacks Support](https://web.archive.org/web/20201110163832/https://support.bluestacks.com/hc/en-us/articles/115003174386-How-to-enable-Virtualization-VT-on-Windows-10-for-BlueStacks-4)
+- [MEmu](https://www.memuplay.com/)
+- [NoxPlayer](https://www.bignox.com/)
+- [Android SKD Emulator](#emulator)
+- [Anbox - Android in a Box](https://anbox.io/) - use Linux Containers to run on GNU/Linux distributions
+- Android-x86
+	- [Installation Howto | Android-x86](https://www.android-x86.org/installhowto.html)
+	- [How to Install Android Lineage OS on VMware Workstation | XpertsTec](https://web.archive.org/web/20201122184440/https://www.xpertstec.com/how-to-install-android-lineage-os-on-vmware-workstation/)
+	- [How to Install Android in VirtualBox](https://web.archive.org/web/20201112022000/http://www.howtogeek.com/164570/how-to-install-android-in-virtualbox/)
+
 ## APK
 
 APK is a ZIP

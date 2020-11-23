@@ -22,8 +22,10 @@ Sideload IPA (install a third party app):
 
 `~/Library/iTunes/iPhone Software Updates/*_Restore.ipsw`
 
-	$ md5 iPhone3,1_7.1.2_11D257_Restore.ipsw
-	MD5 (iPhone3,1_7.1.2_11D257_Restore.ipsw) = 6ed6cb1c2eac7177f96c9fbcf04a4f34
+```sh
+md5 iPhone3,1_7.1.2_11D257_Restore.ipsw
+# MD5 (iPhone3,1_7.1.2_11D257_Restore.ipsw) = 6ed6cb1c2eac7177f96c9fbcf04a4f34
+```
 
 - [Download iPhone Software (IPSW firmware files)](http://www.iphonehacks.com/download-iphone-ios-firmware)
 - [Firmware - The iPhone Wiki](https://www.theiphonewiki.com/wiki/Firmware)
@@ -73,98 +75,100 @@ It's possible to develop an app that use CallKit to fake a call, and use confere
 
 ## Phone Codes
 
-	Any command can be preceded by *#, ** or ##.
-	
-	*# is INTERROGATION.
-	** is SETUP.
-	## is CANCEL / DELETE.
-	
-	*#5005*78283#           This dumps a baseband log in /Library/Logs/Baseband/ - Note 1
-	**5005*78283#           This dumps a baseband log in /Library/Logs/Baseband/ - Note 1
-	##5005*78283#           This dumps a baseband log in /Library/Logs/Baseband/ - Note 1
-	*#5005*62#              "Error performing request - No Network Service" - Note 2
-	*#5005*62255#           "Error performing request - No Network Service" - Note 2
-	*#5005*87223#           "Error performing request - No Network Service" - Note 2
-	*#5005*86#              Displays the Voice Mail dial-in number.
-	**5005*86*VOICEMAIL#    Sets the Voice Mail number to VOICEMAIL (international format).
-	##5005*86#              Erases the Voice Mail number from phone.
-	*#5005*7672#            Display the SMSC Setting. 
-	**5005*7672*SMSCNUMBER# Sets the SMSC to SMSCNUMBER (international format).
-	##5005*7672#            Erases the SMSC number from phone.
-	*#5005*22#              "Error performing request - No Network Service" - Note 2
-	**5005*22#              Unknown. Displays "Please wait"; returns to dialpad - Note 2
-	##5005*22#              Unknown. Displays "Please wait"; returns to dialpad - Note 2
-	*#5005*5264#            This reads LANG and tells you the "actual language" (en).
-	*#5005#                 "Error performing request - No Network Service" - Note 2
-	##5005*22*12345678#     Function unknown, displays "please wait"...; power-off to exit.
-	
-	'
-	Note 1: It may be necessary to change the prefix from the set of (*#, **, ##) to
-	        initiate a new log dump.  The logs are not "tail" able, since this is a single
-	        dump, with no additional data written.  So far, these logs appear to always
-	        remain the same size.  Logfiles are stamped with the current date.
-	
-	Note 2: These tests were performed with a stock phone on the AT&T network.  It is
-	        possible that these errors represent debugging features that are only
-	        available on a special debug cellular base-station (CONJECTURE only!)'
+```
+Any command can be preceded by *#, ** or ##.
 
-	international format: start with 0 instead +
-	
-	#302#,#303#,#304#,#305#,#306#,#307# is a call loop into the iphone, it makes a call to itself.
-	
-	the number codes correspond to the alphabets to spell out the service, i.e.
-	Voicemail: #5005*86# => 86 = VM
-	SMSC: #5005*7672# => 7672 = SMSC
-	
-	"#31# number" to hide caller id(to call and not show your call number)
+*# is INTERROGATION.
+** is SETUP.
+## is CANCEL / DELETE.
 
-	- If you have an iPhone 3GS or iPhone 4 (GSM), to enable the logging, follow steps 1 and 2 below:
-	
-	1) Dial: *KOOL*CSI# (*5005*274#) and hit Dismiss button 2) Dial: *KOOL*MA# (*5005*62#)
-	
-	Once this is done, proceed to step 3 below.
-	
-	- If you have an iPhone 4 (CDMA), iPhone 4S (GSM/CDMA) or iPhone 5, to enable logging, follow steps 1 and 2 below:
-	
-	1) Dial: *KOOL*CSI# (*5005*274#) and hit Dismiss button 2) Dial: **KOOL*DIAG# (*5005*3424#) and hit Dismiss button
-	
-	Once this is done, proceed to step 3 below.
-	
-	3) Wait a few moments for the command to process. 4) Power off the device by holding down the power button and swiping to turn it off. 5) Power on the device again 6) At this point, CSI and MA or CSI and DIAG logging should be enabled, depending on which device you're using.
-	
-	- When the issue occurs, follow the steps below to capture the logs:
-	
-	1) Dial: *KOOL*STATE# (*5005*78283#) 2) Press "Reply" (big green button) 3) Enter a description of the problem 4) Press "Reply" (upper right corner)
-	
-	Note: The buffer to hold the logs is only 1.5 MB so, make sure to enable logging when you see the issue.
-	
-	After an iTunes sync to your computer, csi and ma or diag baseband log files should appear in the following locations, depending on what OS you're using:
-	
-	OS X:
-	
-	~/Library/Logs/CrashReporter/MobileDevice/<your device's name here>/Baseband
-	
-	Use Terminal (/Applications/Utilities/Terminal.app) to view this folder and copy the files from there to your desktop like this (replace your device name here with the name of your device in the MobileDevice folder which is unique for each device):
-	
-	cp -R ~/Library/Logs/CrashReporter/MobileDevice/<your device name here>/Baseband ~/Desktop
-	
-	Windows 7 and Vista:
-	
-	C:\Users\User Name\AppData\Roaming\Apple Computer\Logs\CrashReporter\MobileDevice\<device-name>\Baseband\ Note: The AppData folder is hidden by default. Choose Folder and Search Options from the Organize menu in the file browser window, then click the View tab and change the "Hidden files and folders" option to "Show hidden files and folders".
-	
-	Windows XP: C:\Documents and Settings\User Name\Application Data\Apple Computer\Logs\CrashReporter\MobileDevice\<device-name>\Baseband\ Note: The Application Data folder is hidden by default. Choose Tools > Folder Options in the file browser window, then click the View tab and change the "Hidden files and folders" option to "Show hidden files and folders".
-	
-	--- Disabling Baseband Logging ---
-	
-	To disable logging, replace the leading asterisk (*) with a pound character (#), like the example below, for each item you enabled:
-	
-	- If you have an iPhone 3GS or iPhone 4 (GSM), to disable the logging, follow steps 1 and 2 below:
-	
-	1) #5005*274# (#KOOL*CSI#) 2) #5005*62# (#KOOL*MA#)
-	
-	- If you have an iPhone 4 (CDMA), iPhone 4S (GSM/CDMA) or iPhone 5, to disable logging, follow steps 1 and 2 below:
-	
-	1) #5005*274# (#KOOL*CSI#) 2) #5005*3424# (#KOOL*DIAG#)
+*#5005*78283#           This dumps a baseband log in /Library/Logs/Baseband/ - Note 1
+**5005*78283#           This dumps a baseband log in /Library/Logs/Baseband/ - Note 1
+##5005*78283#           This dumps a baseband log in /Library/Logs/Baseband/ - Note 1
+*#5005*62#              "Error performing request - No Network Service" - Note 2
+*#5005*62255#           "Error performing request - No Network Service" - Note 2
+*#5005*87223#           "Error performing request - No Network Service" - Note 2
+*#5005*86#              Displays the Voice Mail dial-in number.
+**5005*86*VOICEMAIL#    Sets the Voice Mail number to VOICEMAIL (international format).
+##5005*86#              Erases the Voice Mail number from phone.
+*#5005*7672#            Display the SMSC Setting.
+**5005*7672*SMSCNUMBER# Sets the SMSC to SMSCNUMBER (international format).
+##5005*7672#            Erases the SMSC number from phone.
+*#5005*22#              "Error performing request - No Network Service" - Note 2
+**5005*22#              Unknown. Displays "Please wait"; returns to dialpad - Note 2
+##5005*22#              Unknown. Displays "Please wait"; returns to dialpad - Note 2
+*#5005*5264#            This reads LANG and tells you the "actual language" (en).
+*#5005#                 "Error performing request - No Network Service" - Note 2
+##5005*22*12345678#     Function unknown, displays "please wait"...; power-off to exit.
+
+'
+Note 1: It may be necessary to change the prefix from the set of (*#, **, ##) to
+        initiate a new log dump.  The logs are not "tail" able, since this is a single
+        dump, with no additional data written.  So far, these logs appear to always
+        remain the same size.  Logfiles are stamped with the current date.
+
+Note 2: These tests were performed with a stock phone on the AT&T network.  It is
+        possible that these errors represent debugging features that are only
+        available on a special debug cellular base-station (CONJECTURE only!)'
+
+international format: start with 0 instead +
+
+#302#,#303#,#304#,#305#,#306#,#307# is a call loop into the iphone, it makes a call to itself.
+
+the number codes correspond to the alphabets to spell out the service, i.e.
+Voicemail: #5005*86# => 86 = VM
+SMSC: #5005*7672# => 7672 = SMSC
+
+"#31# number" to hide caller id(to call and not show your call number)
+
+- If you have an iPhone 3GS or iPhone 4 (GSM), to enable the logging, follow steps 1 and 2 below:
+
+1) Dial: *KOOL*CSI# (*5005*274#) and hit Dismiss button 2) Dial: *KOOL*MA# (*5005*62#)
+
+Once this is done, proceed to step 3 below.
+
+- If you have an iPhone 4 (CDMA), iPhone 4S (GSM/CDMA) or iPhone 5, to enable logging, follow steps 1 and 2 below:
+
+1) Dial: *KOOL*CSI# (*5005*274#) and hit Dismiss button 2) Dial: **KOOL*DIAG# (*5005*3424#) and hit Dismiss button
+
+Once this is done, proceed to step 3 below.
+
+3) Wait a few moments for the command to process. 4) Power off the device by holding down the power button and swiping to turn it off. 5) Power on the device again 6) At this point, CSI and MA or CSI and DIAG logging should be enabled, depending on which device you're using.
+
+- When the issue occurs, follow the steps below to capture the logs:
+
+1) Dial: *KOOL*STATE# (*5005*78283#) 2) Press "Reply" (big green button) 3) Enter a description of the problem 4) Press "Reply" (upper right corner)
+
+Note: The buffer to hold the logs is only 1.5 MB so, make sure to enable logging when you see the issue.
+
+After an iTunes sync to your computer, csi and ma or diag baseband log files should appear in the following locations, depending on what OS you're using:
+
+OS X:
+
+~/Library/Logs/CrashReporter/MobileDevice/<your device's name here>/Baseband
+
+Use Terminal (/Applications/Utilities/Terminal.app) to view this folder and copy the files from there to your desktop like this (replace your device name here with the name of your device in the MobileDevice folder which is unique for each device):
+
+cp -R ~/Library/Logs/CrashReporter/MobileDevice/<your device name here>/Baseband ~/Desktop
+
+Windows 7 and Vista:
+
+C:\Users\User Name\AppData\Roaming\Apple Computer\Logs\CrashReporter\MobileDevice\<device-name>\Baseband\ Note: The AppData folder is hidden by default. Choose Folder and Search Options from the Organize menu in the file browser window, then click the View tab and change the "Hidden files and folders" option to "Show hidden files and folders".
+
+Windows XP: C:\Documents and Settings\User Name\Application Data\Apple Computer\Logs\CrashReporter\MobileDevice\<device-name>\Baseband\ Note: The Application Data folder is hidden by default. Choose Tools > Folder Options in the file browser window, then click the View tab and change the "Hidden files and folders" option to "Show hidden files and folders".
+
+--- Disabling Baseband Logging ---
+
+To disable logging, replace the leading asterisk (*) with a pound character (#), like the example below, for each item you enabled:
+
+- If you have an iPhone 3GS or iPhone 4 (GSM), to disable the logging, follow steps 1 and 2 below:
+
+1) #5005*274# (#KOOL*CSI#) 2) #5005*62# (#KOOL*MA#)
+
+- If you have an iPhone 4 (CDMA), iPhone 4S (GSM/CDMA) or iPhone 5, to disable logging, follow steps 1 and 2 below:
+
+1) #5005*274# (#KOOL*CSI#) 2) #5005*3424# (#KOOL*DIAG#)
+```
 
 - [Phone.app codes - The iPhone Wiki](https://www.theiphonewiki.com/wiki/Phone.app_codes)
 - [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/iphone-elite/wikis/iPhoneCodes.wiki)
@@ -210,25 +214,26 @@ Note: don't forget to disable it after test done
 3. connect the device to a power source (or wait a little)
 4. find `BatteryHealth`, enter
 5. similar log messages `com.apple.BatteryCenter` shoud appears:
-
-		Found power source: {
-			"Battery Provides Time Remaining" = 1;
-			BatteryHealth = Good;
-			"Current Capacity" = 10;
-			"Is Charging" = 1;
-			"Is Finishing Charge" = 0;
-			"Is Present" = 1;
-			"Max Capacity" = 100;
-			Name = "InternalBattery-0";
-			"Power Source ID" = 2424931;
-			"Power Source State" = "AC Power";
-			"Raw External Connected" = 1;
-			"Show Charging UI" = 1;
-			"Time to Empty" = 0;
-			"Time to Full Charge" = 0;
-			"Transport Type" = Internal;
-			Type = InternalBattery;
-		}
+	```
+	Found power source: {
+		"Battery Provides Time Remaining" = 1;
+		BatteryHealth = Good;
+		"Current Capacity" = 10;
+		"Is Charging" = 1;
+		"Is Finishing Charge" = 0;
+		"Is Present" = 1;
+		"Max Capacity" = 100;
+		Name = "InternalBattery-0";
+		"Power Source ID" = 2424931;
+		"Power Source State" = "AC Power";
+		"Raw External Connected" = 1;
+		"Show Charging UI" = 1;
+		"Time to Empty" = 0;
+		"Time to Full Charge" = 0;
+		"Transport Type" = Internal;
+		Type = InternalBattery;
+	}
+	```
 
 The possible value could be `Perfect`, `Good` and `Poor`
 
@@ -247,60 +252,62 @@ Beta only?:
 
 Capture diagnostic requets and change the response (works with iOS 9, but not with iOS 11 due to certificate pinning):
 
-	from libmproxy.models import HTTPResponse
-	from netlib.http.headers import Headers
-	import cgi
-	import re
-	from gzip import GzipFile
-	import StringIO
-	import time
-	
-	XML_OK_RESPONSE = '''<?xml version="1.0" encoding="UTF-8"?>
-	  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-	  <plist version="1.0">
-	   <dict>
-		 <key>iPhone5,1</key><array><string>powerDiagnostics</string></array><key>iPhone5,2</key><array><string>powerDiagnostics</string></array><key>iPhone5,3</key><array><string>powerDiagnostics</string></array><key>iPhone5,4</key><array><string>powerDiagnostics</string></array><key>iPhone6,1</key><array><string>powerDiagnostics</string></array><key>iPhone6,2</key><array><string>powerDiagnostics</string></array><key>iPhone7,1</key><array><string>powerDiagnostics</string></array><key>iPhone7,2</key><array><string>powerDiagnostics</string></array><key>iPhone8,2</key><array><string>powerDiagnostics</string></array><key>iPhone8,1</key><array><string>powerDiagnostics</string></array>
-	   </dict>
-	</plist>'''
-	
-	
-	def request(context, flow):
-		path = flow.request.path
-		context.log('Path is %s' % path, 'error')
-		#if path == '/ios/TestConfiguration/1.2':
-			# context.log('sending OK', 'error')
-			# respond(flow, XML_OK_RESPONSE)
-		if path == '/MR3Server/ValidateTicket?ticket_number=123456':
-			context.log('sending OK', 'error')
-			respond(flow, XML_OK_RESPONSE)
-		elif path == '/MR3Server/MR3Post':
-			context.log('sending OK', 'error')
-			saveContent(flow, 'general')
-			respond(flow, XML_OK_RESPONSE)
-		elif path == '/ios/log/extendedUpload':
-			context.log('sending OK', 'error')
-			saveContent(flow, 'power')
-			respond(flow, XML_OK_RESPONSE)
-	
-	
-	def saveContent(flow, prefix):
-		decodedData = StringIO.StringIO()
-		decodedData.write(flow.request.get_decoded_content())
-	
-		contentType = flow.request.headers["Content-Type"]
-		multipart_boundary_re = re.compile('^multipart/form-data; boundary=(.*)$')
-		matches = multipart_boundary_re.match(contentType)
-	
-		decodedData.seek(0)
-	
-		query = cgi.parse_multipart( decodedData, {"boundary" : matches.group(1)})
-	
-		with open("%s-%s.tar.gz" % (prefix, time.strftime("%Y%m%d-%H%M%S")), "wb") as logs:
-			logs.write(query['log_archive'][0])
-	
-	def respond(flow, content):
-		resp = HTTPResponse([1,1], 200, "OK", Headers(Content_Type="text/xml"), content)
-		flow.reply(resp)
+```py
+from libmproxy.models import HTTPResponse
+from netlib.http.headers import Headers
+import cgi
+import re
+from gzip import GzipFile
+import StringIO
+import time
+
+XML_OK_RESPONSE = '''<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  <plist version="1.0">
+   <dict>
+	 <key>iPhone5,1</key><array><string>powerDiagnostics</string></array><key>iPhone5,2</key><array><string>powerDiagnostics</string></array><key>iPhone5,3</key><array><string>powerDiagnostics</string></array><key>iPhone5,4</key><array><string>powerDiagnostics</string></array><key>iPhone6,1</key><array><string>powerDiagnostics</string></array><key>iPhone6,2</key><array><string>powerDiagnostics</string></array><key>iPhone7,1</key><array><string>powerDiagnostics</string></array><key>iPhone7,2</key><array><string>powerDiagnostics</string></array><key>iPhone8,2</key><array><string>powerDiagnostics</string></array><key>iPhone8,1</key><array><string>powerDiagnostics</string></array>
+   </dict>
+</plist>'''
+
+
+def request(context, flow):
+	path = flow.request.path
+	context.log('Path is %s' % path, 'error')
+	#if path == '/ios/TestConfiguration/1.2':
+		# context.log('sending OK', 'error')
+		# respond(flow, XML_OK_RESPONSE)
+	if path == '/MR3Server/ValidateTicket?ticket_number=123456':
+		context.log('sending OK', 'error')
+		respond(flow, XML_OK_RESPONSE)
+	elif path == '/MR3Server/MR3Post':
+		context.log('sending OK', 'error')
+		saveContent(flow, 'general')
+		respond(flow, XML_OK_RESPONSE)
+	elif path == '/ios/log/extendedUpload':
+		context.log('sending OK', 'error')
+		saveContent(flow, 'power')
+		respond(flow, XML_OK_RESPONSE)
+
+
+def saveContent(flow, prefix):
+	decodedData = StringIO.StringIO()
+	decodedData.write(flow.request.get_decoded_content())
+
+	contentType = flow.request.headers["Content-Type"]
+	multipart_boundary_re = re.compile('^multipart/form-data; boundary=(.*)$')
+	matches = multipart_boundary_re.match(contentType)
+
+	decodedData.seek(0)
+
+	query = cgi.parse_multipart( decodedData, {"boundary" : matches.group(1)})
+
+	with open("%s-%s.tar.gz" % (prefix, time.strftime("%Y%m%d-%H%M%S")), "wb") as logs:
+		logs.write(query['log_archive'][0])
+
+def respond(flow, content):
+	resp = HTTPResponse([1,1], 200, "OK", Headers(Content_Type="text/xml"), content)
+	flow.reply(resp)
+```
 
 - [How to Check Your iPhone’s Battery Health](https://www.howtogeek.com/254739/how-to-check-your-iphones-battery-health/)
 - [iOS Diagnostics - Christopher Lyon Anderson](http://www.lyonanderson.org/blog/2014/02/06/ios-power-diagnostics/)
@@ -315,10 +322,12 @@ Capture diagnostic requets and change the response (works with iOS 9, but not wi
 
 Start the simulator with a specific SDK
 
-	# Xcode changes these paths frequently, so doublecheck them
-	SDK_DIR="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs"
-	SIM_APP="/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator"
-	$SIM_APP -SimulateApplication $SDK_DIR/iPhoneSimulator8.4.sdk/Applications/MobileSafari.app/MobileSafari
+```sh
+# Xcode changes these paths frequently, so doublecheck them
+SDK_DIR="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs"
+SIM_APP="/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/Contents/MacOS/Simulator"
+$SIM_APP -SimulateApplication $SDK_DIR/iPhoneSimulator8.4.sdk/Applications/MobileSafari.app/MobileSafari
+```
 
 - [simctl: Control iOS Simulators from Command Line – XCBlog – Medium](https://medium.com/xcblog/simctl-control-ios-simulators-from-command-line-78b9006a20dc)
 - [terminal - How to launch an iOS Simulator with Safari open using a single command? - Ask Different](https://apple.stackexchange.com/questions/170743/how-to-launch-an-ios-simulator-with-safari-open-using-a-single-command)
@@ -390,8 +399,10 @@ Require Xcode installed.
 
 Create a symbolic link :
 
-	cd /Applications/Utilities/
-	ln -s ../Xcode.app/Contents/Developer/Applications/Simulator.app
+```sh
+cd /Applications/Utilities/
+ln -s ../Xcode.app/Contents/Developer/Applications/Simulator.app
+```
 
 - `../Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app iPhone\ Simulator.app`
 - http://developer.apple.com/library/ios/DOCUMENTATION/Xcode/Conceptual/ios_development_workflow/25-Using_iOS_Simulator/ios_simulator_application.html
@@ -404,24 +415,32 @@ Since Xcode 5:
 
 Copy
 
-	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime
-	→ /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime
+```
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime
+→ /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime
+```
 
-Then, copy 
+Then, copy
 
-	Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
-	→ /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot
+```
+Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
+→ /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot
+```
 
 But could require to fix simulator runtime:
 
-	sudo mv "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot/usr/lib/system/host/liblaunch_sim.dylib"{,.bak}
-	sudo ln -sf "/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/lib/system/host/liblaunch_sim.dylib" "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot/usr/lib/system/host/liblaunch_sim.dylib"
+```sh
+sudo mv "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot/usr/lib/system/host/liblaunch_sim.dylib"{,.bak}
+sudo ln -sf "/Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/usr/lib/system/host/liblaunch_sim.dylib" "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot/usr/lib/system/host/liblaunch_sim.dylib"
+```
 
 See `~/Library/Logs/CoreSimulator.log`
 
 For older version (but require copy other files):
 
-	/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot <=> Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
+```
+/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 7.1.simruntime/Contents/Resources/RuntimeRoot <=> Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
+```
 
 - [iOS 8: Building custom simulators — Erica Sadun](http://ericasadun.com/2014/06/18/ios-8-building-custom-simulators/)
 
@@ -453,3 +472,7 @@ sudo /System/Library/Extensions/TMSafetyNet.kext/Contents/Helpers/bypass rm -rf 
 ```
 
 See [Remove specific file from Time Machine backup](../macOS/macOS.md#remove-specific-file-from-time-machine-backup)
+
+## Virtualization
+
+- [UTM](https://getutm.app/) - "Run virtual machines on iOS"

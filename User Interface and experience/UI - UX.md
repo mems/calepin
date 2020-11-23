@@ -36,87 +36,89 @@
 - [Refactoring UI](https://refactoringui.com/)
 - [Checklist Design - best UI elements for the best UX practice](https://www.checklist.design/)
 
-From [GoodUI](http://www.goodui.org/):
+From [GoodUI](https://web.archive.org/web/20201108132942/https://goodui.org/):
 
-- [A One Column Layout instead of multicolumns.](http://www.goodui.org/#1)
-- [Giving a Gift instead of closing a sale right away.](http://www.goodui.org/#2)
-- [Merging Similar Functions instead of fragmenting the UI.](http://www.goodui.org/#3)
-- [Social Proof instead of talking about yourself.](http://www.goodui.org/#4)
-- [Repeating Your Primary Action instead of showing it just once.](http://www.goodui.org/#5)
-- [Distinct Clickable/Selected Styles instead of blurring them.](http://www.goodui.org/#6)
-- [Recommending instead of showing equal choices.](http://www.goodui.org/#7)
-- [Undos instead of prompting for confirmation.](http://www.goodui.org/#8)
-- [Telling Who It's For instead of targeting everyone.](http://www.goodui.org/#9)
-- [Being Direct instead of indecisive.](http://www.goodui.org/#10)
-- [More Contrast instead of similarity.](http://www.goodui.org/#11)
-- [Personality instead of being generic.](http://www.goodui.org/#12)
-- [Fewer Form Fields instead of asking for too many.](http://www.goodui.org/#13)
-- [Exposing Options instead of hiding them.](http://www.goodui.org/#14)
-- [Suggesting Continuity instead of false bottoms.](http://www.goodui.org/#15)
-- [Keeping Focus instead of drowning with links.](http://www.goodui.org/#16)
-- [Showing State instead of being state agnostic.](http://www.goodui.org/#17)
-- [Benefit Buttons instead of just task based ones.](http://www.goodui.org/#18)
-- [Direct Manipulation instead of contextless menus.](http://www.goodui.org/#19)
-- [Exposing Fields instead of creating extra pages.](http://www.goodui.org/#20)
-- [Transitions instead of showing changes instantly.](http://www.goodui.org/#21)
-- [Gradual Engagement instead of a hasty sign up.](http://www.goodui.org/#22)
-- [Fewer Borders instead of wasting attention.](http://www.goodui.org/#23)
-- [Selling Benefits instead of features.](http://www.goodui.org/#24)
-- [Designing For Zero Data instead of just data heavy cases.](http://www.goodui.org/#25)
-- [Opt-Out instead of opt-in.](http://www.goodui.org/#26)
-- [Consistency instead of making people relearn.](http://www.goodui.org/#27)
-- [Smart Defaults instead of asking to do extra work.](http://www.goodui.org/#28)
-- [Conventions instead of reinventing the wheel.](http://www.goodui.org/#29)
-- [Loss Aversion instead of emphasizing gains.](http://www.goodui.org/#30)
-- [Visual Hierarchy instead of dullness.](http://www.goodui.org/#31)
-- [Grouping Related Items instead of disordering.](http://www.goodui.org/#32)
-- [Inline Validation instead of delaying errors.](http://www.goodui.org/#33)
-- [Forgiving Inputs instead of being strict with data.](http://www.goodui.org/#34)
-- [Urgency instead of timelessness.](http://www.goodui.org/#35)
-- [Scarcity instead of abundance.](http://www.goodui.org/#36)
-- [Recognition instead of recall.](http://www.goodui.org/#37)
-- [Bigger Click Areas instead of tiny ones.](http://www.goodui.org/#38)
-- [Faster Load Times instead of making people wait.](http://www.goodui.org/#39)
-- [Keyboard Shortcuts instead of buttons only.](http://www.goodui.org/#40)
-- [Anchoring instead of starting with the price.](http://www.goodui.org/#41)
-- [Upfront Progress instead of starting with a blank.](http://www.goodui.org/#42)
-- [Progressive Disclosure instead of overwhelming.](http://www.goodui.org/#43)
-- [Smaller Commitments instead of one big one.](http://www.goodui.org/#44)
-- [Softer Prompts instead of modal windows.](http://www.goodui.org/#45)
-- [Multifunctional Controls instead of more parts.](http://www.goodui.org/#46)
-- [Icon Labels instead of opening for interpretation.](http://www.goodui.org/#47)
-- [Natural Language instead of dry text.](http://www.goodui.org/#48)
-- [Curiosity instead of being reserved.](http://www.goodui.org/#49)
-- [Reassurances instead of assuming all is fine.](http://www.goodui.org/#50)
-- [Price Illusions instead of just plain prices.](http://www.goodui.org/#51)
-- [Thanking instead of simply confirming completion.](http://www.goodui.org/#52)
-- [Useful Calculations instead of asking to do math.](http://www.goodui.org/#53)
-- [Reaffirming Freedom instead of implying it.](http://www.goodui.org/#54)
-- [Variable Rewards instead of predictability.](http://www.goodui.org/#55)
-- [Attention Grabs instead of neglect.](http://www.goodui.org/#56)
-- [Friendly Comparisons instead of confusion.](http://www.goodui.org/#57)
-- [Set Collections instead of independent items.](http://www.goodui.org/#58)
-- [Expectation Setting instead of being ignorant.](http://www.goodui.org/#59)
-- [Humor instead of being so serious.](http://www.goodui.org/#60)
-- [Providing Feedback instead of silence.](http://www.goodui.org/#61)
-- [Anticipating Intent instead of shortsightedness.](http://www.goodui.org/#62)
-- [Extra Padding instead of overcrowding elements.](http://www.goodui.org/#63)
-- [Storytelling instead of listing just the facts.](http://www.goodui.org/#64)
-- [Authenticity instead of faking it.](http://www.goodui.org/#65)
-- [Progressive Reduction instead of being static.](http://www.goodui.org/#66)
-- [Putting Others First instead of self-centeredness.](http://www.goodui.org/#67)
-- [Explaining instead of assuming the obvious.](http://www.goodui.org/#68)
-- [Concise Copy instead of using unnecessary words.](http://www.goodui.org/#69)
-- [Responsive Layouts instead of static ones.](http://www.goodui.org/#70)
-- [Visual Clarity instead of ambiguity.](http://www.goodui.org/#71)
-- [Enabling Corrections instead of rigidness.](http://www.goodui.org/#72)
-- [Social Commitments instead of solitude.](http://www.goodui.org/#73)
-- [Retries And Redos instead of single chances.](http://www.goodui.org/#74)
-- [Less Choice instead of giving too many options.](http://www.goodui.org/#75)
-- [Gradual Reassurance instead of ...](http://www.goodui.org/#76)
-- [Giving The Best Price instead of ...](http://www.goodui.org/#77)
- 
-	copy(Array.from(document.body.querySelectorAll(".ideas h2")).map(title => `- [${title.textContent}](${title.querySelector("a").href})`).join("\n"))
+- [A One Column Layout instead of multicolumns.](https://web.archive.org/web/20201108132942/https://goodui.org/#1)
+- [Giving a Gift instead of closing a sale right away.](https://web.archive.org/web/20201108132942/https://goodui.org/#2)
+- [Merging Similar Functions instead of fragmenting the UI.](https://web.archive.org/web/20201108132942/https://goodui.org/#3)
+- [Social Proof instead of talking about yourself.](https://web.archive.org/web/20201108132942/https://goodui.org/#4)
+- [Repeating Your Primary Action instead of showing it just once.](https://web.archive.org/web/20201108132942/https://goodui.org/#5)
+- [Distinct Clickable/Selected Styles instead of blurring them.](https://web.archive.org/web/20201108132942/https://goodui.org/#6)
+- [Recommending instead of showing equal choices.](https://web.archive.org/web/20201108132942/https://goodui.org/#7)
+- [Undos instead of prompting for confirmation.](https://web.archive.org/web/20201108132942/https://goodui.org/#8)
+- [Telling Who It's For instead of targeting everyone.](https://web.archive.org/web/20201108132942/https://goodui.org/#9)
+- [Being Direct instead of indecisive.](https://web.archive.org/web/20201108132942/https://goodui.org/#10)
+- [More Contrast instead of similarity.](https://web.archive.org/web/20201108132942/https://goodui.org/#11)
+- [Personality instead of being generic.](https://web.archive.org/web/20201108132942/https://goodui.org/#12)
+- [Fewer Form Fields instead of asking for too many.](https://web.archive.org/web/20201108132942/https://goodui.org/#13)
+- [Exposing Options instead of hiding them.](https://web.archive.org/web/20201108132942/https://goodui.org/#14)
+- [Suggesting Continuity instead of false bottoms.](https://web.archive.org/web/20201108132942/https://goodui.org/#15)
+- [Keeping Focus instead of drowning with links.](https://web.archive.org/web/20201108132942/https://goodui.org/#16)
+- [Showing State instead of being state agnostic.](https://web.archive.org/web/20201108132942/https://goodui.org/#17)
+- [Benefit Buttons instead of just task based ones.](https://web.archive.org/web/20201108132942/https://goodui.org/#18)
+- [Direct Manipulation instead of contextless menus.](https://web.archive.org/web/20201108132942/https://goodui.org/#19)
+- [Exposing Fields instead of creating extra pages.](https://web.archive.org/web/20201108132942/https://goodui.org/#20)
+- [Transitions instead of showing changes instantly.](https://web.archive.org/web/20201108132942/https://goodui.org/#21)
+- [Gradual Engagement instead of a hasty sign up.](https://web.archive.org/web/20201108132942/https://goodui.org/#22)
+- [Fewer Borders instead of wasting attention.](https://web.archive.org/web/20201108132942/https://goodui.org/#23)
+- [Selling Benefits instead of features.](https://web.archive.org/web/20201108132942/https://goodui.org/#24)
+- [Designing For Zero Data instead of just data heavy cases.](https://web.archive.org/web/20201108132942/https://goodui.org/#25)
+- [Opt-Out instead of opt-in.](https://web.archive.org/web/20201108132942/https://goodui.org/#26)
+- [Consistency instead of making people relearn.](https://web.archive.org/web/20201108132942/https://goodui.org/#27)
+- [Smart Defaults instead of asking to do extra work.](https://web.archive.org/web/20201108132942/https://goodui.org/#28)
+- [Conventions instead of reinventing the wheel.](https://web.archive.org/web/20201108132942/https://goodui.org/#29)
+- [Loss Aversion instead of emphasizing gains.](https://web.archive.org/web/20201108132942/https://goodui.org/#30)
+- [Visual Hierarchy instead of dullness.](https://web.archive.org/web/20201108132942/https://goodui.org/#31)
+- [Grouping Related Items instead of disordering.](https://web.archive.org/web/20201108132942/https://goodui.org/#32)
+- [Inline Validation instead of delaying errors.](https://web.archive.org/web/20201108132942/https://goodui.org/#33)
+- [Forgiving Inputs instead of being strict with data.](https://web.archive.org/web/20201108132942/https://goodui.org/#34)
+- [Urgency instead of timelessness.](https://web.archive.org/web/20201108132942/https://goodui.org/#35)
+- [Scarcity instead of abundance.](https://web.archive.org/web/20201108132942/https://goodui.org/#36)
+- [Recognition instead of recall.](https://web.archive.org/web/20201108132942/https://goodui.org/#37)
+- [Bigger Click Areas instead of tiny ones.](https://web.archive.org/web/20201108132942/https://goodui.org/#38)
+- [Faster Load Times instead of making people wait.](https://web.archive.org/web/20201108132942/https://goodui.org/#39)
+- [Keyboard Shortcuts instead of buttons only.](https://web.archive.org/web/20201108132942/https://goodui.org/#40)
+- [Anchoring instead of starting with the price.](https://web.archive.org/web/20201108132942/https://goodui.org/#41)
+- [Upfront Progress instead of starting with a blank.](https://web.archive.org/web/20201108132942/https://goodui.org/#42)
+- [Progressive Disclosure instead of overwhelming.](https://web.archive.org/web/20201108132942/https://goodui.org/#43)
+- [Smaller Commitments instead of one big one.](https://web.archive.org/web/20201108132942/https://goodui.org/#44)
+- [Softer Prompts instead of modal windows.](https://web.archive.org/web/20201108132942/https://goodui.org/#45)
+- [Multifunctional Controls instead of more parts.](https://web.archive.org/web/20201108132942/https://goodui.org/#46)
+- [Icon Labels instead of opening for interpretation.](https://web.archive.org/web/20201108132942/https://goodui.org/#47)
+- [Natural Language instead of dry text.](https://web.archive.org/web/20201108132942/https://goodui.org/#48)
+- [Curiosity instead of being reserved.](https://web.archive.org/web/20201108132942/https://goodui.org/#49)
+- [Reassurances instead of assuming all is fine.](https://web.archive.org/web/20201108132942/https://goodui.org/#50)
+- [Price Illusions instead of just plain prices.](https://web.archive.org/web/20201108132942/https://goodui.org/#51)
+- [Thanking instead of simply confirming completion.](https://web.archive.org/web/20201108132942/https://goodui.org/#52)
+- [Useful Calculations instead of asking to do math.](https://web.archive.org/web/20201108132942/https://goodui.org/#53)
+- [Reaffirming Freedom instead of implying it.](https://web.archive.org/web/20201108132942/https://goodui.org/#54)
+- [Variable Rewards instead of predictability.](https://web.archive.org/web/20201108132942/https://goodui.org/#55)
+- [Attention Grabs instead of neglect.](https://web.archive.org/web/20201108132942/https://goodui.org/#56)
+- [Friendly Comparisons instead of confusion.](https://web.archive.org/web/20201108132942/https://goodui.org/#57)
+- [Set Collections instead of independent items.](https://web.archive.org/web/20201108132942/https://goodui.org/#58)
+- [Expectation Setting instead of being ignorant.](https://web.archive.org/web/20201108132942/https://goodui.org/#59)
+- [Humor instead of being so serious.](https://web.archive.org/web/20201108132942/https://goodui.org/#60)
+- [Providing Feedback instead of silence.](https://web.archive.org/web/20201108132942/https://goodui.org/#61)
+- [Anticipating Intent instead of shortsightedness.](https://web.archive.org/web/20201108132942/https://goodui.org/#62)
+- [Extra Padding instead of overcrowding elements.](https://web.archive.org/web/20201108132942/https://goodui.org/#63)
+- [Storytelling instead of listing just the facts.](https://web.archive.org/web/20201108132942/https://goodui.org/#64)
+- [Authenticity instead of faking it.](https://web.archive.org/web/20201108132942/https://goodui.org/#65)
+- [Progressive Reduction instead of being static.](https://web.archive.org/web/20201108132942/https://goodui.org/#66)
+- [Putting Others First instead of self-centeredness.](https://web.archive.org/web/20201108132942/https://goodui.org/#67)
+- [Explaining instead of assuming the obvious.](https://web.archive.org/web/20201108132942/https://goodui.org/#68)
+- [Concise Copy instead of using unnecessary words.](https://web.archive.org/web/20201108132942/https://goodui.org/#69)
+- [Responsive Layouts instead of static ones.](https://web.archive.org/web/20201108132942/https://goodui.org/#70)
+- [Visual Clarity instead of ambiguity.](https://web.archive.org/web/20201108132942/https://goodui.org/#71)
+- [Enabling Corrections instead of rigidness.](https://web.archive.org/web/20201108132942/https://goodui.org/#72)
+- [Social Commitments instead of solitude.](https://web.archive.org/web/20201108132942/https://goodui.org/#73)
+- [Retries And Redos instead of single chances.](https://web.archive.org/web/20201108132942/https://goodui.org/#74)
+- [Less Choice instead of giving too many options.](https://web.archive.org/web/20201108132942/https://goodui.org/#75)
+- [Gradual Reassurance instead of ...](https://web.archive.org/web/20201108132942/https://goodui.org/#76)
+- [Giving The Best Price instead of ...](https://web.archive.org/web/20201108132942/https://goodui.org/#77)
+
+```js
+copy(Array.from(document.body.querySelectorAll(".ideas h2")).map(title => `- [${title.textContent}](${title.querySelector("a").href})`).join("\n"))
+```
 
 Tools:
 
@@ -138,6 +140,7 @@ Patterns:
 - [Golden Rules of User Interface Design](http://babich.biz/golden-rules-of-user-interface-design/)
 
 > Too Many Messages Equals No Message
+>
 > — Peep Laja
 
 ## Majority of users are not high end user
@@ -222,11 +225,13 @@ TL;DR: **Don't do that!**
 > - Don’t interrupt someone’s experience.
 > - Don’t ask for an app rating after your app has crashed. That’s just stupid.
 > - Do delay asking for a rating until there’s a likely moment of constructive feedback (as you’ll read later), or a positive rating.
+>
 > — https://medium.com/circa/the-right-way-to-ask-users-to-review-your-app-9a32fd604fca
 
 ## A good UI don't need a tutorial
 
 > A user interface is like a joke. If you have to explain it, it’s not that good.
+>
 > — Martin LeBlanc
 
 > If you have to draw me a picture to "show" me how to use your UI, you're doing it wrong
@@ -235,7 +240,7 @@ TL;DR: **Don't do that!**
 
 ## Feedback
 
-- Visually confirm interactions [“God is in the details.” – Prevue App – Medium](https://medium.com/prevue-app/god-is-in-the-details-bc3a9a9a5d88#40be)
+- Visually confirm interactions [“God is in the details.”. In design, the details are the last 1%… | by Buzz Usborne | Medium](https://web.archive.org/web/20201108125142/https://medium.com/@buzzusborne/god-is-in-the-details-bc3a9a9a5d88)
 
 ### Triggered success instantly
 
@@ -255,8 +260,8 @@ For simple tasks, where 97 to 99% will be sucess.
 ### Action buttons
 
 - [Icon](#icon)
-- [Primary & Secondary Action Buttons](http://babich.biz/primary-secondary-action-buttons/) and [Primary & Secondary Action Buttons — UX Planet](https://uxplanet.org/primary-secondary-action-buttons-c16df9b36150)
-- (ghost button are best used for secondary or tertiary actions) [Ghost Buttons in UX Design](http://babich.biz/ghost-buttons-in-ux-design/)
+- [Primary & Secondary Action Buttons](https://web.archive.org/web/20200129193925/http://babich.biz/primary-secondary-action-buttons/) and [Primary & Secondary Action Buttons | by Nick Babich | UX Planet](https://web.archive.org/web/20201112013615/https://uxplanet.org/primary-secondary-action-buttons-c16df9b36150?gi=e8e6eac8a32e)
+- (ghost button are best used for secondary or tertiary actions) [Ghost Buttons in UX Design](https://web.archive.org/web/20200417132330/http://babich.biz/ghost-buttons-in-ux-design/)
 
 ### Modal buttons
 
@@ -270,6 +275,7 @@ Use a meaning label instead of "OK" ex: "Save" / "Save the file", "Print", "Open
 ### Buttons shouldn't have a hand cursor
 
 > `pointer`: The cursor is a pointer that indicates a link
+>
 > — https://www.w3.org/TR/css-ui-3/#propdef-cursor
 
 - [Buttons shouldn’t have a hand cursor — Simple = Human — Medium](https://medium.com/simple-human/buttons-shouldnt-have-a-hand-cursor-b11e99ca374b)
@@ -286,27 +292,29 @@ See [Buttons vs links](HTML#buttons-vs-links)
 > Sufficient spacing between touch targets. The main reason to have a minimum distance between touch targets is to prevent users from touching and invoking the incorrect action. This becomes extremely important in scenarios where you have icons like “Save” and “Cancel” right next to each other. Using at least 2 mm of padding between targets is extremely important in this case.
 > — [Tips for Using Icons in Your App](https://uxplanet.org/tips-for-using-icons-in-your-app-541a6728e7d4#)
 
-- http://ux.stackexchange.com/questions/39023/what-is-the-optimum-button-size-of-touch-screen-applications
-- http://ux.stackexchange.com/questions/1226/smallest-button-size-and-spacing-for-a-touchscreen
+- [usability - What is the optimum button size of touch screen applications? - User Experience Stack Exchange](https://ux.stackexchange.com/questions/39023/what-is-the-optimum-button-size-of-touch-screen-applications)
+- [overflow - Smallest button size and spacing for a touchscreen - User Experience Stack Exchange](https://ux.stackexchange.com/questions/1226/smallest-button-size-and-spacing-for-a-touchscreen)
 - [Recommandations de taille pour les éléments d'interfaces mobiles - SimpleWeb.fr](http://www.simpleweb.fr/2013/03/29/recommandations-de-taille-pour-les-elements-dinterfaces-mobiles/)
 - [Size Tap Targets Appropriately   |   PageSpeed Insights   |   Google Developers](https://developers.google.com/speed/docs/insights/SizeTapTargetsAppropriately)
-- http://blog.codinghorror.com/the-opposite-of-fitts-law/
+- [The Opposite of Fitts' Law](https://web.archive.org/web/20201111213942/https://blog.codinghorror.com/the-opposite-of-fitts-law/)
 - [Targeting - Target sizes](https://msdn.microsoft.com/en-us/windows/uwp/input-and-devices/guidelines-for-targeting#target-sizes)
-- [We've updated the radios and checkboxes on GOV.UK | GDS design notes](https://designnotes.blog.gov.uk/2016/11/30/weve-updated-the-radios-and-checkboxes-on-gov-uk/)
+- [We've updated the radios and checkboxes on GOV.UK - Design in government](https://web.archive.org/web/20201108120336/https://designnotes.blog.gov.uk/2016/11/30/weve-updated-the-radios-and-checkboxes-on-gov-uk/)
 
 ![image](Finger size.png)
- 
-	9.2mm x 0.0393701inches/mm x 326dpi / 2dppx ~= 59pt = 59 CSS px (59 logical pixels = 118 physical pixels @2pddx)
 
-- http://dpi.lv/
+```
+9.2mm x 0.0393701inches/mm x 326dpi / 2dppx ~= 59pt = 59 CSS px (59 logical pixels = 118 physical pixels @2pddx)
+```
+
+- [DPI love ♥ Easily find the DPI/PPI of any screen](https://dpi.lv/)
 - https://stackoverflow.com/questions/14360647/define-and-calculate-apples-definition-of-the-unit-point
 - [Targeting - Measurements and scaling](https://msdn.microsoft.com/en-us/windows/uwp/input-and-devices/guidelines-for-targeting#measurements-and-scaling)
-- See Clearance [Icons - Style - Material design guidelines](https://material.google.com/style/icons.html)
+- [System icons - Material Design](https://web.archive.org/web/20201111173232if_/https://material.io/design/iconography/system-icons.html#grid-and-keyline-shapes) - See "Space": "Adequate space should surround system icons to allow legibility and touch. Icons of 24dp can use a touch target of 48dp"
 - [Finger-Friendly Design: Ideal Mobile Touchscreen Target Sizes – Smashing Magazine](https://www.smashingmagazine.com/2012/02/finger-friendly-design-ideal-mobile-touchscreen-target-sizes/)
 
 ### No hover with touch
 
-- [Hover is dead. Long live hover. – Design at Instacart – Medium](https://medium.com/instacart-design/hover-is-dead-long-live-hover-37a89d3795df#.2pxy969ms)
+- [Hover is dead. Long live hover.. During February 2013, the web underwent… | by Jordan Staniscia | Medium](https://web.archive.org/web/20201116185613/https://medium.com/@jordance/hover-is-dead-long-live-hover-37a89d3795df)
 
 ## Colors
 
@@ -371,7 +379,7 @@ Loading and splash screen
 
 ## Empty state
 
-No content to display, empty list, offline mode, etc.
+Aka skeleton screen, no content to display, empty list, offline mode
 
 - [Design the Details: Empty States by @hamishmcneill — Realmac Blog](http://wayback.archive.org/web/20150526075208/http://realmacsoftware.com/blog/design-the-details-empty-states)
 - [Designing For The Empty States](http://tympanus.net/codrops/2013/01/09/designing-for-the-empty-states/)
@@ -407,7 +415,7 @@ Aka carrousel (FR)
 > You might want to use a slideshow for a gallery of photographs or a presentation perhaps. Maybe a step by step. In the right circumstance it makes a lot of sense.
 
 Alternative Idea: Complex Grids
-> Scrolling has become a dominant feature of website navigation, especially on mobile where to click/tap interactions aren’t as reliable. Grids allow the user to scroll and scan through content quickly while being subjected to a mixture of text and images. Our brains tend to feel more familiar with this type of concept because we navigate our social media feeds in the same way. 
+> Scrolling has become a dominant feature of website navigation, especially on mobile where to click/tap interactions aren’t as reliable. Grids allow the user to scroll and scan through content quickly while being subjected to a mixture of text and images. Our brains tend to feel more familiar with this type of concept because we navigate our social media feeds in the same way.
 > — [5 Fancy (But Useless) Web Components You Should Avoid](http://www.sitepoint.com/5-fancy-useless-web-components-avoid/#alternative-idea:-complex-grids)
 
 - [Should I Use A Carousel?](http://shouldiuseacarousel.com/)
@@ -561,7 +569,7 @@ Use case: person should confirm that he or she is 18+ to proceed to the flow
 ### Form validation
 
 > Don’t disable buttons. If a user makes a mistake it won’t be clear what they’ve done wrong.
-> 
+>
 > Always let users click the button, and show an error message if you need to.
 > - [Adam Silver on Twitter: "Don’t disable buttons…" https://t.co/i5nU1LbU1o"](https://twitter.com/adambsilver/status/1170954800374173696?s=12)
 
@@ -718,7 +726,7 @@ Scroll native behaviors:
 
 - native performances, hardware acceleration:
 	iPad Pro get Apple's ProMotion technology: "delivers refresh rates of up to 120Hz for fluid scrolling, greater responsiveness and smoother motion content [...] automatically adjusting the display refresh rate to match the movement of the content."
-	
+
 	- [iPad Pro, in 10.5-inch and 12.9-inch models, introduces the world’s most advanced display and breakthrough performance - Apple](https://www.apple.com/newsroom/2017/06/ipad-pro-10-5-and-12-9-inch-models-introduces-worlds-most-advanced-display-breakthrough-performance/)
 	- [Apple's ProMotion is going to change how we use our devices | iMore](https://www.imore.com/promotion)
 - smoothing or not (can be configurable - or not - by the user at OS or browser level) impacted by touch pad for ex.
@@ -1009,8 +1017,8 @@ Text with background, readability, accessibility, etc.
 ## 3D actions
 
 study, examine, trun, arc rotate
-Press SHIFT and drag horizontally to lock view rotation about the world Y axis. This produces a horizontal orbit. 
-Press SHIFT and drag vertically to lock rotation about the world X axis. This produces a vertical orbit. 
+Press SHIFT and drag horizontally to lock view rotation about the world Y axis. This produces a horizontal orbit.
+Press SHIFT and drag vertically to lock rotation about the world X axis. This produces a vertical orbit.
 
 pan, plan, dolly
 roll
@@ -1061,3 +1069,7 @@ Responsive Data Table:
 - [overflow - How should large table columns be handled on a responsive design? - User Experience Stack Exchange](https://ux.stackexchange.com/questions/15463/how-should-large-table-columns-be-handled-on-a-responsive-design)
 - [A Responsive Design Approach for Complex, Multicolumn Data Tables | Filament Group, Inc.](https://web.archive.org/web/20200808064240/https://www.filamentgroup.com/lab/responsive-design-approach-for-complex-multicolumn-data-tables.html)
 - [responsive table patterns](https://web.archive.org/web/20171108075728/https://www.filamentgroup.com/examples/rwd-table-patterns/)
+
+## Switch control
+
+- [State-Switch Controls: The Infamous Case of the "Mute" Button](https://web.archive.org/web/20201109234218/https://www.nngroup.com/articles/state-switch-buttons/)

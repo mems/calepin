@@ -644,6 +644,32 @@ Don't forget to use `table-layout: fixed`
 - https://stackoverflow.com/questions/18419082/flexbox-vs-tables-why-do-we-need-flexbox
 - http://benfrain.com/css-performance-test-flexbox-v-css-table-fight/
 
+#### Flex gap
+
+Aka gutters
+
+```css
+element{
+	gap: 20px 10px;
+}
+```
+
+Is the equivalent with margin:
+
+```css
+/* For a row-gap: 20px and column-gap: 10px */
+.flex-container{
+	display: flex;
+	margin: -10px -5px;
+}
+.flex-item{
+	margin: 10px 5px;
+}
+```
+
+- [fake gap](https://codepen.io/vincent-valentin/pen/eYzwxOW?editors=1100)
+- [gap (grid-gap) - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
+
 #### Responsive flexbox
 
 ```css
@@ -1079,15 +1105,10 @@ Is the same as use `transform-origin: bottom center;`
 
 Aka banner, hero, bust-outs, takeover, full bleed
 
-With CSS grid:
-
-- [Use CSS Subgrid to layout full-width content stripes in an article template - bryanlrobinson.com](https://bryanlrobinson.com/blog/use-css-subgrid-laying-out-full-width-article-stripes/)
-- [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
-
-With `*:not()` selector:
+With `margin: auto` and `max-width` and `*:not()`:
 
 ```css
-post > *:not( img ):not( video ) {
+body > *:not(img):not(video) {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 50rem;
@@ -1096,7 +1117,15 @@ post > *:not( img ):not( video ) {
 }
 ```
 
-Use viewport units:
+- [Full bleed layout using simple CSS | Kilian Valkhof](https://web.archive.org/web/20201115114700/https://kilianvalkhof.com/2020/css-html/full-bleed-layout-using-simple-css/)
+
+With CSS grid:
+
+- [Use CSS Subgrid to layout full-width content stripes in an article template - bryanlrobinson.com](https://bryanlrobinson.com/blog/use-css-subgrid-laying-out-full-width-article-stripes/)
+- [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
+
+
+With viewport units:
 
 ```css
 .bust-out { margin: auto calc(50% - 50vw) }
@@ -2886,6 +2915,7 @@ Chrome is better to animate (or make a transition using transform) a large conta
 - [How I Destroyed my Blog's Performance with CSS Background-Blend-Modes – LearntEmail](https://learntemail.sam.today/blog/1-css-property-that-will-ruin-your-scroll-performance/)
 - [CSS Containment in Chrome 52  |  Web  |  Google Developers](https://developers.google.com/web/updates/2016/06/css-containment)
 - [contain - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
+- [“The CSS Universal Selector Is Slow And Should Be Avoided” — Yet Another Lie! | by Jason Knight | Oct, 2020 | Level Up Coding](https://web.archive.org/web/20201101084059if_/https://levelup.gitconnected.com/the-css-universal-selector-is-slow-and-should-be-avoided-yet-another-lie-eb4d15f4c320?gi=94dfe0f9ca65)
 
 ### Relayout, repaint, reflow
 
@@ -3451,6 +3481,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 </script>
 ```
 
+- [The -​-var: ; hack to toggle multiple values with one custom property – Lea Verou](https://web.archive.org/web/20201116223623/https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/)
 - [Conditions for CSS Variables](http://kizu.ru/en/fun/conditions-for-css-variables/)
 - [Switch font color for different backgrounds with CSS | CSS-Tricks](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
 - [Logical Operations with CSS Variables | CSS-Tricks](https://css-tricks.com/logical-operations-with-css-variables/)
