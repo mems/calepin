@@ -2321,7 +2321,7 @@ var absIndex = (count + index % count) % count;// real index (support negative i
 
 ## Insert property in object with order
 
-**It's recommended to use `Map` instead of an object with properties for that.** See why in [Don't use `delete`](#don-t-use-delete-).
+**It's recommended to use `Map` instead of an object with properties for that.** See why in [Don't use `delete`](#dont-use-delete).
 
 ```js
 function insert(obj, {before, property, value}) {
