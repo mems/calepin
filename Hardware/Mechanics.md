@@ -1,0 +1,4 @@
+- 507 Mechanical Movements, Henry T. Brown 1860 - [Five hundred and seven mechanical movements ... : Brown, Henry T : Free Download, Borrow, and Streaming : Internet Archive](https://archive.org/details/fivehundredseven00browiala)
+- [507 Mechanical Movements](http://507movements.com/)
+- [507 Mechanical Movements](https://www.fivehundredseven.com/)
+- [thang010146 - YouTube](https://www.youtube.com/user/thang010146/videos)

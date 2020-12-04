@@ -1,6 +1,6 @@
 File format, identification:
 
-- [File Format Identification - ForensicsWiki](http://www.forensicswiki.org/wiki/File_Format_Identification) - how to identify file types by content
+- [File Format Identification - ForensicsWiki](https://web.archive.org/web/20190910074620/www.forensicswiki.org/wiki/File_Format_Identification) - tools, libs, how to identify file types by content
 - [File format — Wikipedia](https://en.wikipedia.org/wiki/File_format)
 - [Type code — Wikipedia](https://en.wikipedia.org/wiki/Type_code) - replaced by [Uniform Type Identifier — Wikipedia](https://en.wikipedia.org/wiki/Uniform_Type_Identifier). See [System-Declared Uniform Type Identifiers](https://developer.apple.com/library/prerelease/content/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html)
 
@@ -8,9 +8,9 @@ Infos, tools and code for some formats / protocols / encodings
 
 - [Comparison of data serialization formats — Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats)
 - [Formats/binary posters](https://github.com/corkami/pics#binary-posters) see also https://github.com/Invoke-IR/ForensicPosters
-- [ForensicsWiki](http://www.forensicswiki.org/wiki/Main_Page)
+- [ForensicsWiki](https://web.archive.org/web/20190921172115/http://www.forensicswiki.org/wiki/Main_Page)
+- [File Formats - Just Solve the File Format Problem](https://web.archive.org/web/20201126134021/http://fileformats.archiveteam.org/wiki/File_Formats)
 - [www.FOURCC.org - Video Codecs and Pixel Formats](http://fourcc.org/)
-- [File Formats - Just Solve the File Format Problem](http://fileformats.archiveteam.org/wiki/File_Formats)
 - [MediaInfo / Code / \[r6865\] /MediaInfoLib/trunk/Source/MediaInfo](https://sourceforge.net/p/mediainfo/code/HEAD/tree/MediaInfoLib/trunk/Source/MediaInfo/)
 - [MultimediaWiki](https://wiki.multimedia.cx/index.php/Main_Page)
 - [XentaxWiki - Game File Format Central](http://wiki.xentax.com/index.php/Game_File_Format_Central)
@@ -20,7 +20,7 @@ Infos, tools and code for some formats / protocols / encodings
 - [Why are the Microsoft Office file formats so complicated? (And some workarounds) – Joel on Software](https://www.joelonsoftware.com/2008/02/19/why-are-the-microsoft-office-file-formats-so-complicated-and-some-workarounds/)
 
 - [FileOptimizer (English) - Software Javier Gutiérrez Chamorro (Guti): FileOptimizer, SumatraPDFOpt, TBClamAV, ClamAVOpt, RealSpeed, RLE64, WinVer, TXT2PDF, Lamark, XPlorer, SMETAR, MEMTRACE, ZEROFILL](http://nikkhokkho.sourceforge.net/static.php?page=FileOptimizer)
-- https://github.com/HaxeFoundation/format ZIP, SWF, TGA, WAV, JPEG, MP3, PDF, etc. reader and/or writer (with inflate, deflate, md5, crc32, alder, etc.)
+- [HaxeFoundation/format: Various files formats support for Haxe](https://github.com/HaxeFoundation/format) ZIP, SWF, TGA, WAV, JPEG, MP3, PDF, etc. reader and/or writer (with inflate, deflate, md5, crc32, alder, etc.)
 
 File/data format Posters:
 

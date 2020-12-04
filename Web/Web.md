@@ -1833,6 +1833,7 @@ For CSS and JavaScript
 - [SourceMap - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/SourceMap)
 - [Rich-Harris/sourcemap-codec: Encode/decode sourcemap mappings](https://github.com/Rich-Harris/sourcemap-codec)
 - [source-map-visualization](https://sokra.github.io/source-map-visualization/)
+- [lydell/source-map-visualize: Quickly open an online source map visualization with local files](https://github.com/lydell/source-map-visualize)
 
 ## PWA
 

@@ -197,16 +197,20 @@ via email service
 
 - multiple
 
-See [Location (geography)](Location%20%28geography%29)
+See [Location (geography)](../../Location%20%28geography%29/Location%20%28geography%29.md)
 
-## Sex
+## Gender
 
-Aka gender
+Aka sex
+
+- sex: biological
+- gender: the sex or personal identification (sex and gender could not align, the person could be transgender)
 
 - [ISO/IEC 5218 — Wikipedia](https://en.wikipedia.org/wiki/ISO/IEC_5218)
-- [How to ask about gender | Yoomee](https://www.yoomee.com/how-to-ask-about-gender)
-- [Gender / plurial combined form](Text#gender202f20plurial20combined20form)
-- [gender formats · Microformats Wiki](http://microformats.org/wiki/gender-formats)
+- [How to ask about gender | Yoomee](https://web.archive.org/web/20200807151401/http://yoomee.com/how-to-ask-about-gender)
+- [Gender / plurial combined form](../../Text/Text.md#gender202f20plurial20combined20form)
+- [gender formats - Microformats Wiki](https://web.archive.org/web/20201020180846/https://microformats.org/wiki/gender-formats)
+- [gender examples - Microformats Wiki](https://web.archive.org/web/20201023223444/https://microformats.org/wiki/gender-examples)
 - [Sex and gender distinction — Wikipedia](https://en.wikipedia.org/wiki/Sex_and_gender_distinction)
 
 ## Identifier

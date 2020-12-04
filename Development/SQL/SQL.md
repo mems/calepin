@@ -35,16 +35,18 @@ Use single atomic statement (like `INNER JOIN`) or transaction
 
 For performances, you can create temporary/virtual table [`CREATE TEMPORARY TABLE IF NOT EXISTS table2 AS (SELECT * FROM table1)`](https://stackoverflow.com/questions/5859391/create-a-temporary-table-in-a-select-statement-without-a-separate-create-table). It's unique per session (this is not supported by non CGI PHP). Else use a regular table. See also [views](http://dev.mysql.com/doc/refman/5.7/en/create-view.html)
 
-	-- insert game
-	INSERT INTO games (time, player, ip, email, mobile, over_reason, round, beginning, score)
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
-	-- get rank
-	SELECT (SELECT 1 + COUNT(*) FROM games WHERE round = ? AND score > ?) as rank;
-	-- get top 10
-	SELECT player, score FROM games
-	WHERE round = ?
-	ORDER BY score DESC
-	LIMIT 10;
+```sql
+-- insert game
+INSERT INTO games (time, player, ip, email, mobile, over_reason, round, beginning, score)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+-- get rank
+SELECT (SELECT 1 + COUNT(*) FROM games WHERE round = ? AND score > ?) as rank;
+-- get top 10
+SELECT player, score FROM games
+WHERE round = ?
+ORDER BY score DESC
+LIMIT 10;
+```
 
 1. game end timestamp
 2. player's ID
@@ -73,28 +75,36 @@ leaderboards are read-heavy. Favor memory to store fields used to compute rank
 
 ## Insert new lines
 
-	INSERT INTO test VALUES(replace('a\nb\nc\nd\ne', '\n', char(10)));
+```sql
+INSERT INTO test VALUES(replace('a\nb\nc\nd\ne', '\n', char(10)));
+```
 
 Insert in multiple tables, use **transaction** to rollbak in case of error (conflict, database connection lost, etc.)
 
-	BEGIN;
-	INSERT INTO users (username, password)
-	  VALUES('test', 'test');
-	INSERT INTO profiles (userid, bio, homepage) 
-	  VALUES(LAST_INSERT_ID(),'Hello world!', 'http://www.stackoverflow.com');
-	COMMIT;
+```sql
+BEGIN;
+INSERT INTO users (username, password)
+  VALUES('test', 'test');
+INSERT INTO profiles (userid, bio, homepage)
+  VALUES(LAST_INSERT_ID(),'Hello world!', 'http://www.stackoverflow.com');
+COMMIT;
+```
 
 - [MySQL Insert into multiple tables? (Database normalization?) - Stack Overflow](https://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization)
- 
-	INSERT INTO table_listnames (name, address, tele)
-	SELECT * FROM (SELECT 'Rupert', 'Somewhere', '022') AS tmp
-	WHERE NOT EXISTS (
-	    SELECT name FROM table_listnames WHERE name = 'Rupert'
-	) LIMIT 1;
+
+```sql
+INSERT INTO table_listnames (name, address, tele)
+SELECT * FROM (SELECT 'Rupert', 'Somewhere', '022') AS tmp
+WHERE NOT EXISTS (
+    SELECT name FROM table_listnames WHERE name = 'Rupert'
+) LIMIT 1;
+```
 
 - [MySQL: Insert record if not exist in table - Stack Overflow](https://stackoverflow.com/questions/3164505/mysql-insert-record-if-not-exists-in-table)
- 
-	INSERT INTO table (id, name, age) VALUES(1, "A", 19) ON DUPLICATE KEY UPDATE name="A", age=19
+
+```sql
+INSERT INTO table (id, name, age) VALUES(1, "A", 19) ON DUPLICATE KEY UPDATE name="A", age=19
+```
 
 - [MySQL :: MySQL 5.7 Reference Manual :: 13.2.5.2 INSERT ... ON DUPLICATE KEY UPDATE Syntax](https://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html)
 - [sql - Insert into a MySQL table or update if exist - Stack Overflow](https://stackoverflow.com/questions/4205181/insert-into-a-mysql-table-or-update-if-exists)
@@ -122,11 +132,17 @@ Import file:
 
 ## Variables
 
-	SET @myvar = 10
+```sql
+SET @myvar = 10
+```
 
-	SELECT @myvar := 10
+```sql
+SELECT @myvar := 10
+```
 
-	UPDATE mytable SET col = @tmp := col, col = 10
+```sql
+UPDATE mytable SET col = @tmp := col, col = 10
+```
 
 - [sql - MySql How to set a local variable in an update statement (Syntax?) - Stack Overflow](https://stackoverflow.com/questions/8475311/mysql-how-to-set-a-local-variable-in-an-update-statement-syntax)
 - [sql - How to declare a variable in MySQL? - Stack Overflow](https://stackoverflow.com/questions/11754781/how-to-declare-a-variable-in-mysql)
@@ -164,10 +180,14 @@ Insert lot of rows:
 - [MySQL :: MySQL 5.6 Reference Manual :: 13.2.6 LOAD DATA INFILE Syntax](https://dev.mysql.com/doc/refman/5.6/en/load-data.html)
 - [MySQL :: MySQL 5.6 Reference Manual :: 4.5.5 mysqlimport — A Data Import Program](https://dev.mysql.com/doc/refman/5.6/en/mysqlimport.html)
 - [How to import CSV file to MySQL table - Stack Overflow](https://stackoverflow.com/questions/3635166/how-to-import-csv-file-to-mysql-table)
- 
-	./mysqltuner.pl --user root --pass root --defaults-file .../my.cnf --mysqladmin .../mysqladmin --mysqlcmd .../mysql
 
-	./mysqltuner.pl --user root --pass root --defaults-file /Applications/MAMP/conf/my.cnf --mysqladmin /Applications/MAMP/Library/bin/mysqladmin --mysqlcmd /Applications/MAMP/Library/bin/mysql
+```sh
+./mysqltuner.pl --user root --pass root --defaults-file .../my.cnf --mysqladmin .../mysqladmin --mysqlcmd .../mysql
+```
+
+```sh
+./mysqltuner.pl --user root --pass root --defaults-file /Applications/MAMP/conf/my.cnf --mysqladmin /Applications/MAMP/Library/bin/mysqladmin --mysqlcmd /Applications/MAMP/Library/bin/mysql
+```
 
 ### Compress data
 
@@ -185,17 +205,23 @@ Use `SQLSTATE` codes in your client, it's more standardized.
 
 ## Clear a table
 
-	TRUNCATE TABLE table;
-	# kick, internaly delete and recreate the table
+```sql
+# Kick, internaly delete and recreate the table
+TRUNCATE TABLE table;
+```
 
-	DELETE FROM table;
-	# delete each rows, but doesn't reset auto increment
+```sql
+# Delete each rows, but doesn't reset auto increment
+DELETE FROM table;
+```
 
 Truncate a table with referenced fields as foreign keys
 
-	DELETE FROM table;
-	-- will execute cascades
-	ALTER TABLE table AUTO_INCREMENT = 1;
+```sql
+DELETE FROM table;
+-- will execute cascades
+ALTER TABLE table AUTO_INCREMENT = 1;
+```
 
 - [mysql - How to truncate a foreign key constrained table? - Stack Overflow](https://stackoverflow.com/questions/5452760/how-to-truncate-a-foreign-key-constrained-table)
 
@@ -203,8 +229,10 @@ Truncate a table with referenced fields as foreign keys
 
 Aka like
 
-	-- select URL contains url encoded space
-	SELECT 'http://example/David%20and%20Goliath' LIKE '\%20'
+```sql
+-- select URL contains url encoded space
+SELECT 'http://example/David%20and%20Goliath' LIKE '\%20'
+```
 
 - [MySQL :: MySQL 5.7 Reference Manual :: 12.5.1 String Comparison Functions](https://dev.mysql.com/doc/refman/5.7/en/string-comparison-functions.html)
 - [mysql - Wildcard in Java PreparedStatement - Stack Overflow](https://stackoverflow.com/questions/327765/wildcards-in-java-preparedstatements)
@@ -245,17 +273,27 @@ Or:
 
 All of window washing customers even if they are cancelled:
 
-	SELECT * FROM customers WHERE (status & 16) AND !(status & 2)
+```sql
+SELECT * FROM customers WHERE (status & 16) AND !(status & 2)
+```
 
 All of tree trimming AND pool service customers i.e. 32+4:
 
-	SELECT * FROM customers WHERE status & 36
+```sql
+SELECT * FROM customers WHERE status & 36
+```
 
 - [MySQL :: MySQL 8.0 Reference Manual :: 12.12 Bit Function and Operators](https://dev.mysql.com/doc/refman/8.0/en/bit-functions.html#c10542)
 
 ## Concatenate list as string
 
-	SET SESSION group_concat_max_len = 1000000;#max 1MB
-	SELECT GROUP_CONCAT(k SEPARATOR ',') FROM (SELECT CONCAT(col1, ':', col2) AS k FROM sometable WHERE condition) AS tmp
+```sql
+SET SESSION group_concat_max_len = 1000000;#max 1MB
+SELECT GROUP_CONCAT(k SEPARATOR ',') FROM (SELECT CONCAT(col1, ':', col2) AS k FROM sometable WHERE condition) AS tmp
+```
 
 - [sql - Can I concatenate multiple MySQL row into one field? - Stack Overflow](https://stackoverflow.com/questions/276927/can-i-concatenate-multiple-mysql-rows-into-one-field)
+
+## JSON with SQLite
+
+- [SQLite as a document database](https://web.archive.org/web/20201129072300/https://dgl.cx/2020/06/sqlite-json-support)

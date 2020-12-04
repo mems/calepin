@@ -1,4 +1,4 @@
-See [Constraint solver](Algorithm#constraint-solver)
+See [Constraint solver](../Algorithms.md#constraint-solver)
 
 Shapes: rect, circle, other (points)
 

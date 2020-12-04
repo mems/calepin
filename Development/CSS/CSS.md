@@ -1124,7 +1124,6 @@ With CSS grid:
 - [Use CSS Subgrid to layout full-width content stripes in an article template - bryanlrobinson.com](https://bryanlrobinson.com/blog/use-css-subgrid-laying-out-full-width-article-stripes/)
 - [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
 
-
 With viewport units:
 
 ```css
@@ -1287,17 +1286,24 @@ Can't used for multilines, but workaround exist, see links below.
 - [Pure CSS for multiline truncation with ellipsis | Hacking UI](http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/)
 - [Using Flexbox and text ellipsis together · Leonardo Faria](https://leonardofaria.net/2020/07/18/using-flexbox-and-text-ellipsis-together/) - Show ellipsis similar to Finder (macOS) does for long filename
 
-### Break words
+### Break text
 
-Aka break inline blocks, wrap text
+Aka break word, break inline blocks, wrap text
 
 See [Ellipsis](#ellipsis), [Flexbox](#flexbox)
 
 If used in table, use `table-layout: fixed` to force to break line.
 
-By default use `<wbr>` or `&#8203;` to suggest break opportunities.
-By default use `&shy;`/`&#173;` to suggest hyphens break opportunities (`hyphens: manual` is the default value).
-By default use `<br>` to force line break
+- break opportunities:
+	- `<wbr>`
+	- `&ZeroWidthSpace;` (`&NegativeVeryThinSpace;`, `&NegativeThinSpace;`, `&NegativeMediumSpace;`, `&NegativeThickSpace;`, `&#8203;`)
+- suggest hyphens break opportunities:
+	- `&shy;` (`&#173;`)
+	- CSS `hyphens: auto`
+- force line break:
+	- CSS `white-space: pre-line` with newline chars or `&NewLine;` (`&#10;`)
+	- `<br>` (impact screen readers)
+	- `<span style="display:block"></span>` (or flexbox) (impact screen readers)
 
 With or without, you can use:
 
@@ -1351,6 +1357,7 @@ See also
 - [Issue 605840 - chromium - CSS hyphens property - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=605840)
 - [overflow-wrap | CSS-Tricks](https://css-tricks.com/almanac/properties/o/overflow-wrap/)
 - [Handling Long Words and URLs (Forcing Breaks, Hyphenation, Ellipsis, etc) | CSS-Tricks](https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/)
+- [Sandrina Pereira on Twitter: "#A11Y / #CSS tip. Use "white-space: pre-line;" to break a title into multiple lines on a strategic word. Unlike &lt;br&gt; and flexbox, this solution doesn't mess up with the screen reader pitch flow. (at least with VoiceOver) Give it a try on codepen: https://t.co/94jx3cGtvF https://t.co/SSXy5F7b13" / Twitter](https://twitter.com/a_sandrina_p/status/1318217958955601922)
 
 ## Text
 
@@ -1950,6 +1957,7 @@ Use pseudo element and flex box.
 
 ## Hide element
 
+- [removal techniques and implications](https://codepen.io/vincent-valentin/full/JjGmxzV)
 - [Hiding Elements On The Web](https://ishadeed.com/article/hiding-web/)
 - [CSS Image Replacement](https://css-tricks.com/examples/ImageReplacement/)
 - [Hiding DOM elements - ally.js](http://allyjs.io/tutorials/hiding-elements.html)

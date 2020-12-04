@@ -178,10 +178,12 @@ Aka Eclipse, start/sun and planets,  splotlight, godrays
 
 ## HDR
 
-- [High Dynamic Range Rendering - Graphics Programming and Theory - Articles - Articles - GameDev.net](https://www.gamedev.net/resources/_/technical/graphics-programming-and-theory/high-dynamic-range-rendering-r2108)
+Aka High Dynamic Range
+
+- [High Dynamic Range Rendering - Graphics and GPU Programming - Tutorials - GameDev.net](https://web.archive.org/web/20201128133522/https://www.gamedev.net/articles/programming/graphics/high-dynamic-range-rendering-r2108/)
 - [High-dynamic-range rendering — Wikipedia](https://en.wikipedia.org/wiki/High-dynamic-range_rendering)
 - [Qu'est-ce que le High Dynamic Range (HDR) ? Une technologie pas si nouvelle ?](https://jeux.developpez.com/actu/105400/Qu-est-ce-que-le-High-Dynamic-Range-HDR-Une-technologie-pas-si-nouvelle/)
-- [6800_Leagues_HDR.pdf - 6800_Leagues_HDR.pdf](ftp://download.nvidia.com/developer/presentations/2004/6800_Leagues/6800_Leagues_HDR.pdf) - see [6800_Leagues_HDR.pdf](6800_Leagues_HDR.pdf)
+- [6800_Leagues_HDR.pdf - 6800_Leagues_HDR.pdf](https://web.archive.org/web/20200801193835/ftp://download.nvidia.com/developer/presentations/2004/6800_Leagues/6800_Leagues_HDR.pdf) - see [6800_Leagues_HDR.pdf](6800_Leagues_HDR.pdf)
 
 ## Shading
 
@@ -294,7 +296,8 @@ Example, Live2D Euclid (use multiple layers and project it using [Orthographic p
 > Nothing really complicated as you can see. The problem with the algorithm though is that you post many many individual draw calls ! Also, it's kind of really slow.
 >
 > My advice : only use this technique at a distance, with low mip levels. Use (simplified) meshes for close view and traditional billboards for very far view. This technique is ideal for middle range LOD I think.
-— [Irrlicht Engine • View topic - Volumetric Billboards](http://irrlicht.sourceforge.net/forum/viewtopic.php?t=38663#p254522)
+>
+> — [Irrlicht Engine • View topic - Volumetric Billboards](http://irrlicht.sourceforge.net/forum/viewtopic.php?t=38663#p254522)
 
 > This is a PSA I tell everyone who is using particle effects: put some vertical lightness/darkness gradients on those particle bitmaps! It tends to look way more voluminous and less flat than an evenly lit particle bitmap.
 — [commentaires de quitefunny sur A missile effect i've been working on for Air Brawl](http://www.reddit.com/r/Unity3D/comments/2bxry4/a_missile_effect_ive_been_working_on_for_air_brawl/cja5l1w)
@@ -344,8 +347,14 @@ Add a bit fog effect
 ## Material
 
 - different type of material in ThreeJS: [Is MeshStandardMaterial intended as a replacement for Phong and Lambert · Issue #10235 · mrdoob/three.js](https://github.com/mrdoob/three.js/issues/10235#issuecomment-263163446)
-- [Packing Lightmaps](Arrange space)
+- [Packing Lightmaps](../Algorithms/Layout,%20pack%20—%20Arrange%20space/Arrange%20space.md)
 - [3d Max Help: Car Paint Material/Shader (mental ray)](http://docs.autodesk.com/3DSMAX/15/ENU/3ds-Max-Help/index.html?url=files/GUID-1CD21856-588A-4A05-AC0A-88489F5F9C84.htm,topicNumber=d30e378481) - Car paint
+
+Some materials:
+
+- [Texture Haven](https://texturehaven.com/)
+- [Free Cg textures 3D Models | CGTrader](https://www.cgtrader.com/free-3d-models/textures)
+- [Textures for 3D, graphic design and Photoshop!](https://www.textures.com/)
 
 ### Materials parameters
 
@@ -687,11 +696,11 @@ See [resample](Resample)
 
 ### Procedural texture
 
-See [Random, noise and dithering - Procedural](Random, noise and dithering#procedural)
+See [Random, noise and dithering - Procedural](../Algorithms/Random,%20noise%20and%20dithering/Random,%20noise%20and%20dithering.md#procedural)
 
 - [mike🌵black on Twitter: "oh, and btw the textures we use as thresholds for the road are fun as heck to make - seamless tiles that are layers upon layers of similar textures we multiply this noise tex by the per-channel gradient texture then threshold it https://t.co/9YBp8YJR2u" / Twitter](https://twitter.com/kurtruslfanclub/status/1156929244263436293) - base texture variation based on world location (road dirty)
 - [TexGen - AngelCode.com](http://www.angelcode.com/texgen/)
-- [blogorrhea: Procedural Textures in HTML5 Canvas](http://asserttrue.blogspot.fr/2012/01/procedural-textures-in-html5-canvas.html) - see [Procedural Textures](Procedural Textures.html)
+- [blogorrhea: Procedural Textures in HTML5 Canvas](http://asserttrue.blogspot.fr/2012/01/procedural-textures-in-html5-canvas.html) - see [Procedural Textures](Procedural%20Textures.html)
 - [WaveFunctionCollapse](https://github.com/mxgmn/WaveFunctionCollapse) - Bitmap & tilemap generation from a single example with the help of ideas from quantum mechanics
 - [ConvChain](https://github.com/mxgmn/ConvChain) -  Bitmap generation from a single example with convolutions and MCMC
 - [pix2pix](https://github.com/phillipi/pix2pix) and [pix2pix-tensorflow](https://github.com/affinelayer/pix2pix-tensorflow) (tensorflow port) - Image-to-image translation using conditional adversarial nets. See [Image-to-Image Demo - Affine Layer](http://affinelayer.com/pixsrv/)
@@ -1152,133 +1161,135 @@ Usefull functions:
 - [Quick Game Art Tips - Unity Triplanar Terrain Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-16714688) - A collection of shared effects
 - [Standard Assets - Asset Store](https://assetstore.unity.com/packages/essentials/asset-packs/standard-assets-32351) - Unity Standard Assets (see Effects) [Unity - Manual: Standard Assets](https://docs.unity3d.com/540/Documentation/Manual/HOWTO-InstallStandardAssets.html)
 
-		Shader "Toon/Lit TriPlanar" {
-			Properties{
-				_Color("Main Color", Color) = (0.5,0.5,0.5,1)
-				_MainTex("Top Texture", 2D) = "white" {}
-				_MainTexSide("Side/Bottom Texture", 2D) = "white" {}
-				_Ramp("Toon Ramp (RGB)", 2D) = "gray" {}
-				_Normal("Normal/Noise", 2D) = "bump" {}
-				_Scale("Top Scale", Range(-2,2)) = 1
-				_SideScale("Side Scale", Range(-2,2)) = 1
-				_NoiseScale("Noise Scale", Range(-2,2)) = 1
-				_TopSpread("TopSpread", Range(-2,2)) = 1
-				_EdgeWidth("EdgeWidth", Range(0,0.5)) = 1
-				_RimPower("Rim Power", Range(-2,20)) = 1
-				_RimColor("Rim Color Top", Color) = (0.5,0.5,0.5,1)
-				_RimColor2("Rim Color Side/Bottom", Color) = (0.5,0.5,0.5,1)
-			}
-
-				SubShader{
-				Tags{ "RenderType" = "Opaque" }
-				LOD 200
-
-				CGPROGRAM
-		#pragma surface surf ToonRamp
-
-				sampler2D _Ramp;
-
-			// custom lighting function that uses a texture ramp based
-			// on angle between light direction and normal
-		#pragma lighting ToonRamp exclude_path:prepass
-			inline half4 LightingToonRamp(SurfaceOutput s, half3 lightDir, half atten)
-			{
-		#ifndef USING_DIRECTIONAL_LIGHT
-				lightDir = normalize(lightDir);
-		#endif
-
-				half d = dot(s.Normal, lightDir)*0.5 + 0.5;
-				half3 ramp = tex2D(_Ramp, float2(d,d)).rgb;
-
-				half4 c;
-				c.rgb = s.Albedo * _LightColor0.rgb * ramp * (atten * 2);
-				c.a = 0;
-				return c;
-			}
-
-
-			sampler2D _MainTex, _MainTexSide, _Normal;
-			float4 _Color, _RimColor, _RimColor2;
-			float _RimPower;
-			float  _TopSpread, _EdgeWidth;
-			float _Scale, _SideScale, _NoiseScale;
-
-			struct Input {
-				float2 uv_MainTex : TEXCOORD0;
-				float3 worldPos; // world position built-in value
-				float3 worldNormal; // world normal built-in value
-				float3 viewDir;// view direction built-in value we're using for rimlight
-			};
-
-			void surf(Input IN, inout SurfaceOutput o) {
-
-				// clamp (saturate) and increase(pow) the worldnormal value to use as a blend between the projected textures
-				float3 blendNormal = saturate(pow(IN.worldNormal * 1.4,4));
-
-				// normal noise triplanar for x, y, z sides
-				float3 xn = tex2D(_Normal, IN.worldPos.zy * _NoiseScale);
-				float3 yn = tex2D(_Normal, IN.worldPos.zx * _NoiseScale);
-				float3 zn = tex2D(_Normal, IN.worldPos.xy * _NoiseScale);
-
-				// lerped together all sides for noise texture
-				float3 noisetexture = zn;
-				noisetexture = lerp(noisetexture, xn, blendNormal.x);
-				noisetexture = lerp(noisetexture, yn, blendNormal.y);
-
-				// triplanar for top texture for x, y, z sides
-				float3 xm = tex2D(_MainTex, IN.worldPos.zy * _Scale);
-				float3 zm = tex2D(_MainTex, IN.worldPos.xy * _Scale);
-				float3 ym = tex2D(_MainTex, IN.worldPos.zx * _Scale);
-
-				// lerped together all sides for top texture
-				float3 toptexture = zm;
-				toptexture = lerp(toptexture, xm, blendNormal.x);
-				toptexture = lerp(toptexture, ym, blendNormal.y);
-
-				// triplanar for side and bottom texture, x,y,z sides
-				float3 x = tex2D(_MainTexSide, IN.worldPos.zy * _SideScale);
-				float3 y = tex2D(_MainTexSide, IN.worldPos.zx * _SideScale);
-				float3 z = tex2D(_MainTexSide, IN.worldPos.xy * _SideScale);
-
-				// lerped together all sides for side bottom texture
-				float3 sidetexture = z;
-				sidetexture = lerp(sidetexture, x, blendNormal.x);
-				sidetexture = lerp(sidetexture, y, blendNormal.y);
-
-				// rim light for fuzzy top texture
-				half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal * noisetexture));
-
-				// rim light for side/bottom texture
-				half rim2 = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
-
-				// dot product of world normal and surface normal + noise
-				float worldNormalDotNoise = dot(o.Normal + (noisetexture.y + (noisetexture * 0.5)), IN.worldNormal.y);
-
-				// if dot product is higher than the top spread slider, multiplied by triplanar mapped top texture
-				// step is replacing an if statement to avoid branching :
-				// if (worldNormalDotNoise > _TopSpread{ o.Albedo = toptexture}
-				float3 topTextureResult = step(_TopSpread, worldNormalDotNoise) * toptexture;
-
-				// if dot product is lower than the top spread slider, multiplied by triplanar mapped side/bottom texture
-				float3 sideTextureResult = step(worldNormalDotNoise, _TopSpread) * sidetexture;
-
-				// if dot product is in between the two, make the texture darker
-				float3 topTextureEdgeResult = step(_TopSpread, worldNormalDotNoise) * step(worldNormalDotNoise, _TopSpread + _EdgeWidth) *  -0.15;
-
-				// final albedo color
-				o.Albedo = topTextureResult + sideTextureResult + topTextureEdgeResult;
-				o.Albedo *= _Color;
-				// adding the fuzzy rimlight(rim) on the top texture, and the harder rimlight (rim2) on the side/bottom texture
-				o.Emission = step(_TopSpread, worldNormalDotNoise) * _RimColor.rgb * pow(rim, _RimPower) + step(worldNormalDotNoise, _TopSpread) * _RimColor2.rgb * pow(rim2, _RimPower);
-
-
-			}
-			ENDCG
-
-			}
-
-				Fallback "Diffuse"
+	```
+	Shader "Toon/Lit TriPlanar" {
+		Properties{
+			_Color("Main Color", Color) = (0.5,0.5,0.5,1)
+			_MainTex("Top Texture", 2D) = "white" {}
+			_MainTexSide("Side/Bottom Texture", 2D) = "white" {}
+			_Ramp("Toon Ramp (RGB)", 2D) = "gray" {}
+			_Normal("Normal/Noise", 2D) = "bump" {}
+			_Scale("Top Scale", Range(-2,2)) = 1
+			_SideScale("Side Scale", Range(-2,2)) = 1
+			_NoiseScale("Noise Scale", Range(-2,2)) = 1
+			_TopSpread("TopSpread", Range(-2,2)) = 1
+			_EdgeWidth("EdgeWidth", Range(0,0.5)) = 1
+			_RimPower("Rim Power", Range(-2,20)) = 1
+			_RimColor("Rim Color Top", Color) = (0.5,0.5,0.5,1)
+			_RimColor2("Rim Color Side/Bottom", Color) = (0.5,0.5,0.5,1)
 		}
+
+			SubShader{
+			Tags{ "RenderType" = "Opaque" }
+			LOD 200
+
+			CGPROGRAM
+	#pragma surface surf ToonRamp
+
+			sampler2D _Ramp;
+
+		// custom lighting function that uses a texture ramp based
+		// on angle between light direction and normal
+	#pragma lighting ToonRamp exclude_path:prepass
+		inline half4 LightingToonRamp(SurfaceOutput s, half3 lightDir, half atten)
+		{
+	#ifndef USING_DIRECTIONAL_LIGHT
+			lightDir = normalize(lightDir);
+	#endif
+
+			half d = dot(s.Normal, lightDir)*0.5 + 0.5;
+			half3 ramp = tex2D(_Ramp, float2(d,d)).rgb;
+
+			half4 c;
+			c.rgb = s.Albedo * _LightColor0.rgb * ramp * (atten * 2);
+			c.a = 0;
+			return c;
+		}
+
+
+		sampler2D _MainTex, _MainTexSide, _Normal;
+		float4 _Color, _RimColor, _RimColor2;
+		float _RimPower;
+		float  _TopSpread, _EdgeWidth;
+		float _Scale, _SideScale, _NoiseScale;
+
+		struct Input {
+			float2 uv_MainTex : TEXCOORD0;
+			float3 worldPos; // world position built-in value
+			float3 worldNormal; // world normal built-in value
+			float3 viewDir;// view direction built-in value we're using for rimlight
+		};
+
+		void surf(Input IN, inout SurfaceOutput o) {
+
+			// clamp (saturate) and increase(pow) the worldnormal value to use as a blend between the projected textures
+			float3 blendNormal = saturate(pow(IN.worldNormal * 1.4,4));
+
+			// normal noise triplanar for x, y, z sides
+			float3 xn = tex2D(_Normal, IN.worldPos.zy * _NoiseScale);
+			float3 yn = tex2D(_Normal, IN.worldPos.zx * _NoiseScale);
+			float3 zn = tex2D(_Normal, IN.worldPos.xy * _NoiseScale);
+
+			// lerped together all sides for noise texture
+			float3 noisetexture = zn;
+			noisetexture = lerp(noisetexture, xn, blendNormal.x);
+			noisetexture = lerp(noisetexture, yn, blendNormal.y);
+
+			// triplanar for top texture for x, y, z sides
+			float3 xm = tex2D(_MainTex, IN.worldPos.zy * _Scale);
+			float3 zm = tex2D(_MainTex, IN.worldPos.xy * _Scale);
+			float3 ym = tex2D(_MainTex, IN.worldPos.zx * _Scale);
+
+			// lerped together all sides for top texture
+			float3 toptexture = zm;
+			toptexture = lerp(toptexture, xm, blendNormal.x);
+			toptexture = lerp(toptexture, ym, blendNormal.y);
+
+			// triplanar for side and bottom texture, x,y,z sides
+			float3 x = tex2D(_MainTexSide, IN.worldPos.zy * _SideScale);
+			float3 y = tex2D(_MainTexSide, IN.worldPos.zx * _SideScale);
+			float3 z = tex2D(_MainTexSide, IN.worldPos.xy * _SideScale);
+
+			// lerped together all sides for side bottom texture
+			float3 sidetexture = z;
+			sidetexture = lerp(sidetexture, x, blendNormal.x);
+			sidetexture = lerp(sidetexture, y, blendNormal.y);
+
+			// rim light for fuzzy top texture
+			half rim = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal * noisetexture));
+
+			// rim light for side/bottom texture
+			half rim2 = 1.0 - saturate(dot(normalize(IN.viewDir), o.Normal));
+
+			// dot product of world normal and surface normal + noise
+			float worldNormalDotNoise = dot(o.Normal + (noisetexture.y + (noisetexture * 0.5)), IN.worldNormal.y);
+
+			// if dot product is higher than the top spread slider, multiplied by triplanar mapped top texture
+			// step is replacing an if statement to avoid branching :
+			// if (worldNormalDotNoise > _TopSpread{ o.Albedo = toptexture}
+			float3 topTextureResult = step(_TopSpread, worldNormalDotNoise) * toptexture;
+
+			// if dot product is lower than the top spread slider, multiplied by triplanar mapped side/bottom texture
+			float3 sideTextureResult = step(worldNormalDotNoise, _TopSpread) * sidetexture;
+
+			// if dot product is in between the two, make the texture darker
+			float3 topTextureEdgeResult = step(_TopSpread, worldNormalDotNoise) * step(worldNormalDotNoise, _TopSpread + _EdgeWidth) *  -0.15;
+
+			// final albedo color
+			o.Albedo = topTextureResult + sideTextureResult + topTextureEdgeResult;
+			o.Albedo *= _Color;
+			// adding the fuzzy rimlight(rim) on the top texture, and the harder rimlight (rim2) on the side/bottom texture
+			o.Emission = step(_TopSpread, worldNormalDotNoise) * _RimColor.rgb * pow(rim, _RimPower) + step(worldNormalDotNoise, _TopSpread) * _RimColor2.rgb * pow(rim2, _RimPower);
+
+
+		}
+		ENDCG
+
+		}
+
+			Fallback "Diffuse"
+	}
+	```
 
 ### Gamma correction
 
@@ -1288,6 +1299,7 @@ Usefull functions:
 
 Doing the math linearly and applying the nonlinearity at end is called [gamma correction](https://en.wikipedia.org/wiki/Gamma_correction) (enhance dark details).
 
+- [Photorealism](#photorealism)
 - [Understanding Gamma Correction](http://www.cambridgeincolour.com/tutorials/gamma-correction.htm)
 - [RenderWonk » Blog Archive » Adventures with Gamma-Correct Rendering](http://renderwonk.com/blog/index.php/archive/adventures-with-gamma-correct-rendering/)
 - search this document for "gamma"
@@ -2366,6 +2378,18 @@ Aka Mandelbrot, Julia
 
 ## Rendering type
 
+### Photorealism
+
+> sRGB should *never* be used for rendering
+>
+> — [The Secret Ingredient to Photorealism — Blender Guru](https://web.archive.org/web/20201112045411/https://www.blenderguru.com/tutorials/secret-ingredient-photorealism/)
+
+- [Gamma correction](#gamma-correction)
+- [Contrast adjustment](#contrast-adjustment)
+- [High Dynamic Range](#HDR)
+- [The Secret Ingredient to Photorealism — Blender Guru](https://web.archive.org/web/20201112045411/https://www.blenderguru.com/tutorials/secret-ingredient-photorealism/)
+- [Filmic Blender | filmic-blender](https://sobotka.github.io/filmic-blender/) - Emulate [ACES color space](https://en.wikipedia.org/wiki/Academy_Color_Encoding_System)
+
 ### Cel shading
 
 - [Cel shading — Wikipedia](https://en.wikipedia.org/wiki/Cel_shading)
@@ -2514,6 +2538,7 @@ See [projection](Projection)
 - [Blend Modes](http://www.nutty.ca/articles/blend_modes/) - using WebGL
 - [Blend Modes for OpenGL](http://fr.slideshare.net/Mark_Kilgard/blend-modes-for-opengl)
 - [Can image transparency be calculated automatically from multiple non-transparent samples? - Graphic Design Stack Exchange](http://graphicdesign.stackexchange.com/questions/31337/can-image-transparency-be-calculated-automatically-from-multiple-non-transparent)
+- [PDF Blend Modes](https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/blend_modes.pdf)
 
 Compute blend mode: (image A and image B): [Photoshop math with GLSL shaders](http://wayback.archive.org/web/20100508034307/http://blog.mouaif.org/2009/01/05/photoshop-math-with-glsl-shaders/) - see also the file `PhotoshopMathFP.hlsl`
 
@@ -2531,7 +2556,8 @@ Compute blend mode: (image A and image B): [Photoshop math with GLSL shaders](ht
 > 	soft light 	b < .5 ? (2 * a * b + a * a * (1 - 2 * b)) : (sqrt(a) * (2 * b - 1) + (2 * a) * (1 - b))
 > 	dodge 	a / (1 - b)
 > 	burn 	1 - (1 - a) / b
-— [Pegtop delphi](http://www.pegtop.net/delphi/articles/blendmodes/)
+>
+> — [Pegtop delphi](http://www.pegtop.net/delphi/articles/blendmodes/)
 
 > 	// multiply
 > 	// c' = Math.floor( ( c1 * c0 ) / 0xff )
@@ -2553,7 +2579,8 @@ Compute blend mode: (image A and image B): [Photoshop math with GLSL shaders](ht
 > 	// c' = Math.max( 0, c0 - c1 )
 > 	// invert ( no influence from c1 )
 > 	// c' = 255 - c0
-— [Andre Michelle » Blog Archive » BlendMode Math](http://wayback.archive.org/web/20140213144344/http://blog.andre-michelle.com/2005/blendmodes-math/)
+>
+> — [Andre Michelle » Blog Archive » BlendMode Math](http://wayback.archive.org/web/20140213144344/http://blog.andre-michelle.com/2005/blendmodes-math/)
 
 > 	#define ChannelBlend_Normal(A,B)	 ((uint8)(A))
 > 	#define ChannelBlend_Lighten(A,B)	((uint8)((B > A) ? B:A))
@@ -2582,7 +2609,8 @@ Compute blend mode: (image A and image B): [Photoshop math with GLSL shaders](ht
 > 	#define ChannelBlend_Phoenix(A,B)	((uint8)(min(A,B) - max(A,B) + 255))
 > 	#define ChannelBlend_Alpha(A,B,O)	((uint8)(O * A + (1 - O) * B))
 > 	#define ChannelBlend_AlphaF(A,B,F,O) (ChannelBlend_Alpha(F(A,B),A,O))
-— [c++ - How does photoshop blend two images together? - Stack Overflow](https://stackoverflow.com/questions/5919663/how-does-photoshop-blend-two-images-together/5925219#5925219)
+>
+> — [c++ - How does photoshop blend two images together? - Stack Overflow](https://stackoverflow.com/questions/5919663/how-does-photoshop-blend-two-images-together/5925219#5925219)
 
 - [Photoshop Blend Mode Math](http://wayback.archive.org/web/20080123092608/http://www.nathanm.com/photoshop-blending-math/)
 
@@ -2762,3 +2790,8 @@ On Photoshop with color proofing:
 Aka border, outline, marching square algorithm, edge
 
 - [marching squares – Youpi !](https://web.archive.org/web/20171128171351/http://barradeau.com/blog/?p=391)
+
+## Procedural geomerty
+
+- [Procedural texture](#procedural%20texture)
+- [Infinitown | A WebGL Experiment by Little Workshop](https://web.archive.org/web/20201203210935/https://demos.littleworkshop.fr/infinitown)

@@ -172,7 +172,7 @@ console.log(new SubSub())// {isBase: true, isSub: true, isSubSub: true}
 
 Use static factory method:
 
-```
+```js
 class DataContainer {
 	#data;
 	static async create() {
@@ -362,7 +362,9 @@ var chars = [..."test"];
 
 Convert Arguments to Array:
 
-	let argsArray = [...arguments];
+```js
+let argsArray = [...arguments];
+```
 
 See also [Destructuring](#destructuring)
 
@@ -757,6 +759,7 @@ function fancyCount2(str){
 ## Destructuring
 
 ```js
+// Swap values
 [a, b] = [b, a];
 ```
 
@@ -940,6 +943,7 @@ See [Performance and optimization](Development#performance-and-optimization)
 `if(obj !== undefined && obj !== null){return obj.x}` (explicit) vs `if(obj){return obj.x}` (implicit). The second is less performant (the first one is ~15% faster). See [Michael Haeuslmann on Twitter: "Not only is declarative code more readable, it also produces beautiful byte code and is therefore faster. Thanks @bmeurer @munichnug https://t.co/Iae0s3e40W"](https://twitter.com/michaelhaeu/status/845003383153025024) and [TurboFan: A new code generation architecture for V8 - Google Slides](https://docs.google.com/presentation/d/1_eLlVzcj94_G4r9j9d_Lj5HRKFnq6jgpuPJtnmIBs88/edit#slide=id.g2134da681e_0_596)
 `let len = (obj !== undefined) ? obj.length : 0` vs `let len = obj && obj.length` convert length as boolean, then later check if it's a number. [More specific if conditions lead to ~10% faster render. by asolove · Pull Request #610 · developit/preact](https://github.com/developit/preact/pull/610#issuecomment-289981990)
 `void 0` vs `undefined`. In Safari (JSC), the first one is cont, and the second one is global variable. See [olexandr on Twitter: "@kuvos @michaelhaeu @bmeurer @munichnug In JSC (Safari) it is better to use 'void 0'. undefined is global variable, but 'void 0' is const https://t.co/N4C5QQTYaQ"](https://twitter.com/alSkachkov/status/845331457761579009)
+Use lot of WeakMap can be an issue: [Evan Wallace on Twitter: "@MarijnJH This was in 2019. Figma has a sandbox for plugins. We needed to associate metadata about Figma’s objects with handles inside the sandbox. Long story short there were a LOT of handles, and GC was pretty bad. Might be fine for your use case. Just avoid really big WeakMaps." / Twitter](https://twitter.com/evanwallace/status/1328459072794808320)
 
 ### Micro-optimization can be useless
 
@@ -979,99 +983,103 @@ Long switchs are used by state machine like parsers / tokenizers, wrapped in a l
 
 Some JS/ECMAScript Engines are not optimised for extrem long switch. Use if-else instead.
 
-	// A more complete HTML tokenizer: https://chromium.googlesource.com/chromium/src.git/+/master/ios/third_party/blink/src/html_tokenizer.mm
-	// See also https://www.w3.org/TR/html5/syntax.html#tokenization
-	const DATA = "Data";
-	const TAG_OPEN = "TagOpen";
-	const END_TAG_OPEN = "EndTagOpen";
-	const TAG_NAME = "TagName";
+```js
+// A more complete HTML tokenizer: https://chromium.googlesource.com/chromium/src.git/+/master/ios/third_party/blink/src/html_tokenizer.mm
+// See also https://www.w3.org/TR/html5/syntax.html#tokenization
+const DATA = "Data";
+const TAG_OPEN = "TagOpen";
+const END_TAG_OPEN = "EndTagOpen";
+const TAG_NAME = "TagName";
 
-	const isASCII = char => {let code = char.charCodeAt(0); return code >= 65/*A*/ && code <= 90/*Z*/ || code >= 97/*a*/ && code <= 122/*z*/}
+const isASCII = char => {let code = char.charCodeAt(0); return code >= 65/*A*/ && code <= 90/*Z*/ || code >= 97/*a*/ && code <= 122/*z*/}
 
-	let char;
-	let position = 0;
-	let stream = "<tag>link</tag>";
-	let state = DATA;
-	// Consume loop
-	consumeStream: while (true)
+let char;
+let position = 0;
+let stream = "<tag>link</tag>";
+let state = DATA;
+// Consume loop
+consumeStream: while (true)
+{
+	char = stream.charAt(position);
+	switch (state)
 	{
-		char = stream.charAt(position);
-		switch (state)
-		{
-			case DATA:
-				if(char == "<"){
-					state = TAG_OPEN;
-				}else if(char == ""){
-					console.log("token: end");
-					console.log("end of stream")
-					break consumeStream;
-				} else {
-					console.log(`token: append char "${char}" to data`);
-				}
-				break;
-			case TAG_OPEN:
-				if (char == "/"){
-					state = END_TAG_OPEN;
-				} else if(isASCII(char)){
-					console.log(`token: start tag token with char "${char}"`)
-					state = TAG_NAME;
-				} else {
-					console.log("token: end");
-					console.log(char ? `invalid char "${char}" in tag name` : "end of stream");
-					break consumeStream;
-				}
-				break;
-			case END_TAG_OPEN:
-				if (isASCII(char)){
-					console.log(`token: start end tag token with char "${char}"`);
-					state = TAG_NAME;
-				} else {
-					console.log("token: end");
-					console.log(char ? `invalid char "${char}" in tag name` : "end of stream");
-					break consumeStream;
-				}
-				break;
-			case TAG_NAME:
-				if (char == ">"){
-					console.log("token: end");
-					console.log("token: start data token");
-					state = DATA;
-				} else if (isASCII(char)){
-					console.log(`token: append char "${char}" to tag name`);
-					state = TAG_NAME;
-				} else {
-					console.log("token end");
-					console.log(char ? `invalid char "${char}" in tag name` : "end of stream");
-					break consumeStream;
-				}
-				break;
+		case DATA:
+			if(char == "<"){
+				state = TAG_OPEN;
+			}else if(char == ""){
+				console.log("token: end");
+				console.log("end of stream")
+				break consumeStream;
+			} else {
+				console.log(`token: append char "${char}" to data`);
+			}
+			break;
+		case TAG_OPEN:
+			if (char == "/"){
+				state = END_TAG_OPEN;
+			} else if(isASCII(char)){
+				console.log(`token: start tag token with char "${char}"`)
+				state = TAG_NAME;
+			} else {
+				console.log("token: end");
+				console.log(char ? `invalid char "${char}" in tag name` : "end of stream");
+				break consumeStream;
+			}
+			break;
+		case END_TAG_OPEN:
+			if (isASCII(char)){
+				console.log(`token: start end tag token with char "${char}"`);
+				state = TAG_NAME;
+			} else {
+				console.log("token: end");
+				console.log(char ? `invalid char "${char}" in tag name` : "end of stream");
+				break consumeStream;
+			}
+			break;
+		case TAG_NAME:
+			if (char == ">"){
+				console.log("token: end");
+				console.log("token: start data token");
+				state = DATA;
+			} else if (isASCII(char)){
+				console.log(`token: append char "${char}" to tag name`);
+				state = TAG_NAME;
+			} else {
+				console.log("token end");
+				console.log(char ? `invalid char "${char}" in tag name` : "end of stream");
+				break consumeStream;
+			}
+			break;
 
-		}
-		position++;
 	}
+	position++;
+}
+````
 
-	// Pseudo code
-	while (true)
+```js
+// Pseudo code
+while (true)
+{
+	nextToken = readToken()
+
+	switch (true)
 	{
-		nextToken = readToken()
-
-		switch (true)
-		{
-			case currentToken is A && nextToken is B:
-				currentToken = nextToken;
-				continue;
-			case currentToken is A && nextToken is C || currentToken is A && nextToken is D:
-				currentToken = nextToken;
-				continue;
-			case currentToken is A && nextToken is E:
-				currentToken = nextToken;
-				continue;
-			case currentToken is B && nextToken is C:
-				...
-				continue;
-		}
-		return;
+		case currentToken is A && nextToken is B:
+			currentToken = nextToken;
+			continue;
+		case currentToken is A && nextToken is C || currentToken is A && nextToken is D:
+			currentToken = nextToken;
+			continue;
+		case currentToken is A && nextToken is E:
+			currentToken = nextToken;
+			continue;
+		case currentToken is B && nextToken is C:
+			...
+			continue;
 	}
+	return;
+}
+```
 
 - [Should I use big switch statements in JavaScript without performance problems? - Stack Overflow](https://stackoverflow.com/questions/18830626/should-i-use-big-switch-statements-in-javascript-without-performance-problems#comment27798374_18830724)
 
@@ -1081,54 +1089,56 @@ See [language parsing (see `goto`s)](Language parsing)
 
 To speed up results of often call function like `Math.sqrt`, pre-compute all values (with precision error):
 
-	const lut = new LUT(2, 100, Math.sqrt);
-	lut.val(25);//
+```js
+const lut = new LUT(2, 100, Math.sqrt);
+lut.val(25);//
+
+/**
+*   A generic lookup table useful for caching the results of a function
+*   @author Jackson Dunstan
+*/
+class LUT
+{
+	/** Table of function values*/
+	//var table;
+
+	/** 10^decimals of precision*/
+	//var pow;
 
 	/**
-	*   A generic lookup table useful for caching the results of a function
-	*   @author Jackson Dunstan
+	*   Make the look up table
+	*   @param max Maximum value to cache
+	*   @param numDigits Number of digits places of precision
+	*   @param func Function to call to generate stored values.
+	*               Must be valid on [0,max).
+	*   @throws Error If func is null or invalid on [0,max)
 	*/
-	class LUT
+	constructor(numDigits, max, func)
 	{
-		/** Table of function values*/
-		//var table;
+		const pow = this.pow = Math.pow(10, numDigits);
+		const round = 1 / pow;
+		const len = 1 + max * pow;
+		const table = this.table = new Array(len);
 
-		/** 10^decimals of precision*/
-		//var pow;
-
-		/**
-		*   Make the look up table
-		*   @param max Maximum value to cache
-		*   @param numDigits Number of digits places of precision
-		*   @param func Function to call to generate stored values.
-		*               Must be valid on [0,max).
-		*   @throws Error If func is null or invalid on [0,max)
-		*/
-		constructor(numDigits, max, func)
+		let val = 0;
+		for (let i = 0; i < len; i++)
 		{
-			const pow = this.pow = Math.pow(10, numDigits);
-			const round = 1 / pow;
-			const len = 1 + max * pow;
-			const table = this.table = new Array(len);
-
-			let val = 0;
-			for (let i = 0; i < len; i++)
-			{
-				table[i] = func(val);
-				val += round;
-			}
-		}
-
-		/**
-		*   Look up the value of the given input
-		*   @param val Input value to look up the value of
-		*   @return The value of the given input
-		*/
-		val(val)
-		{
-			return this.table[Math.floor(val * this.pow)];
+			table[i] = func(val);
+			val += round;
 		}
 	}
+
+	/**
+	*   Look up the value of the given input
+	*   @param val Input value to look up the value of
+	*   @return The value of the given input
+	*/
+	val(val)
+	{
+		return this.table[Math.floor(val * this.pow)];
+	}
+}
+```
 
 ### Binary flags
 
@@ -1138,22 +1148,24 @@ Save memory (instead of use 8 bytes in memory for each boolean)
 
 Binary flags:
 
-	const FLAG_1 = 1;
-	const FLAG_2 = 1 << 1;
-	const FLAG_3 = 1 << 2;
-	const FLAG_4 = 1 << 3;
+```js
+const FLAG_1 = 1;
+const FLAG_2 = 1 << 1;
+const FLAG_3 = 1 << 2;
+const FLAG_4 = 1 << 3;
 
-	//Set differents flags
-	let flags = FLAG_1 | FLAG_2;
+//Set differents flags
+let flags = FLAG_1 | FLAG_2;
 
-	//Add flag 3
-	flags |= FLAG_3;
+//Add flag 3
+flags |= FLAG_3;
 
-	//Remove flag 4
-	flags &= ~FLAG_4;
+//Remove flag 4
+flags &= ~FLAG_4;
 
-	//Get flag
-	let hasFlag2 = (flags & FLAG_2) !== 0;
+//Get flag
+let hasFlag2 = (flags & FLAG_2) !== 0;
+```
 
 Where flag are unsigned integer with value power of 2: (0, 0x0), (1, 0x1), (2, 0x2, `1 << 1`), (4, 0x4, `1 << 2`), …
 
@@ -1188,91 +1200,79 @@ is not exactly the same because bitwise will **clamp Number to 32bits integers**
 - [Bitwise operators - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 - [Bit Twiddling Hacks](https://graphics.stanford.edu/~seander/bithacks.html) - collection of bit twiddling examples
 
-Rotates x left n bits:
+```js
+// Rotates x left n bits
+function rol ( x, n ) {
+	return ( x << n ) | ( x >>> ( 32 - n ) );
+}
 
-	function rol ( x, n ) {
-		return ( x << n ) | ( x >>> ( 32 - n ) );
-	}
+// Rotates x right n bits
+function ror ( x, n ) {
+	var nn = 32 - n;
+	return ( x << nn ) | ( x >>> ( 32 - nn ) );
+}
 
-Rotates x right n bits:
+// Increment / decrement
+// if i is 32bits interger:
+i = -~i;//equal to i++
+i = ~-i;//i--
 
-	function ror ( x, n ) {
-		var nn = 32 - n;
-		return ( x << nn ) | ( x >>> ( 32 - nn ) );
-	}
+// Multiplication (power of 2 only)
+y = x << 1;//equals (~300% faster) to: y = x * 2;
+y = x << 6;//y = x * 64
 
-Increment / decrement:
+// Division (power of 2 only)
+y = x >> 1;//equals (~350% faster) to: y = x / 2;
+y = x >> 6;//y = x / 64
 
-	// if i is 32bits interger:
-	i = -~i;//equal to i++
-	i = ~-i;//i--
+// Number to integer conversion
+y = x >> 0;//equals to: y = int(x); or y = Math.floor(x);
 
-Multiplication (power of 2 only):
+// Swap integers without a temporary variable using XOR (integer only):
+x ^= y;
+y ^= x;
+x ^= y;
+/*
+same as:
+[x, y] = [y, x];
+or:
+const z = x;
+x = y;
+y = z;
+*/
 
-	y = x << 1;//equals (~300% faster) to: y = x * 2;
-	y = x << 6;//y = x * 64
+// Sign flipping using NOT or XOR (power of 2 only)
+x = ~x + 1;//or
+x = (x ^ -1) + 1;//equals to x = -x;
 
-Division (power of 2 only):
+// Modulo operation using AND (power of 2 only)
+z = x & (y - 1);//equals to z = x % y;
 
-	y = x >> 1;//equals (~350% faster) to: y = x / 2;
-	y = x >> 6;//y = x / 64
+// Check if an integer is even/uneven using AND
+(x & (y - 1)) == 0;//equals to: (x % y) == 0
 
-Number to integer conversion:
+// Absolute value (signed interger only)
+y = (x ^ (x >> 31)) - (x >> 31);//equals to Math.abs()
 
-	y = x >> 0;//equals to: y = int(x); or y = Math.floor(x);
+// Sign comparaison (signed integers only)
+z = x ^ y > 0;//equals (~35% faster) to: z = x * y > 0;
 
-Swap integers without a temporary variable using XOR (integer only):
+// Determining if an integer is a power of 2 (where `x` is integer tested and y is "if is power of 2")
+y = !(x & (x - 1)) && x;
 
-	x ^= y;
-	y ^= x;
-	x ^= y;
+// indexOf
+// Note: try to not use that way
+var myWord = "mychar";
+if(~myWord.indexOf("d"))// equals to myWord.contains("d")
+	console.log("found")
+else
+	console.log("not found")
 
-	/*
-	equals to:
-		var z:int = x;
-		x = y;
-		y = z;
-	*/
-
-Sign flipping using NOT or XOR (power of 2 only):
-
-	x = ~x + 1;//or
-	x = (x ^ -1) + 1;//equals to x = -x;
-
-Modulo operation using AND (power of 2 only):
-
-	z = x & (y - 1);//equals to z = x % y;
-
-Check if an integer is even/uneven using AND:
-
-	(x & (y - 1)) == 0;//equals to: (x % y) == 0
-
-Absolute value (signed interger only):
-
-	y = (x ^ (x >> 31)) - (x >> 31);//equals to Math.abs()
-
-Sign comparaison (signed integers only):
-
-	z = x ^ y > 0;//equals (~35% faster) to: z = x * y > 0;
-
-Determining if an integer is a power of 2 (where `x` is integer tested and y is "if is power of 2"):
-
-	y = !(x & (x - 1)) && x;
-
-indexOf:
-
-	var myWord = "mychar";
-	if(~myWord.indexOf("d"))// equals to myWord.contains("d")
-		console.log("found")
-	else
-		console.log("not found")
-
-Extract ammount of bits in unsigned integer:
-
-	y = (x >>> offset) & (0xffffffff >>> 32 - numBits);
-	y = (x >>> offset) & (Math.pow(2, numBits) - 1);
-
-Where `x` is an unsigned interger and `numBits` is value of bits need to extract.
+// Extract ammount of bits in unsigned integer:
+y = (x >>> offset) & (0xffffffff >>> 32 - numBits);
+y = (x >>> offset) & (Math.pow(2, numBits) - 1);
+// Where `x` is an unsigned interger and `numBits` is value of bits need to extract.
+```
 
 - BitCalc Whiteboard for explaining bit-twiddling algorithms: [x&-x](https://alf.nu/s/bitcalc.html?t1=x+%3D+0x12340&t2=~x&t3=~x+%2B+1&t4=-x&t5=x&t6=x+%26+-x&t7=&t8=&t9=&t10=) and [snoob](https://alf.nu/s/bitcalc.html?t1=x+%3D+0x012300f0&t2=smallest+%3D+x+%26+-x&t3=ripple+%3D+x+%2B+smallest&t4=ones+%3D+x+%5E+ripple&t5=ones+%3D+%28ones+%3E%3E+2%29+%2F+smallest&t6=ripple+%7C+ones&t7=&t8=&t9=&t10=)
 
@@ -1370,6 +1370,56 @@ process.on("unhandledRejection", error => console.log('Rejection', error));
 - [TC39: Promises, Promises](https://thefeedbackloop.xyz/tc39-promises-promises/)
 - [Promise-based functions should not throw exceptions](http://www.2ality.com/2016/03/promise-rejections-vs-exceptions.html)
 - [Tracking unhandled rejected Promises](http://www.2ality.com/2016/04/unhandled-rejections.html)
+
+## Cancel promise
+
+```js
+const controller = new AbortController();
+
+someAsyncFunction(signal){
+	return new Promise((resolve, reject) => {
+		if(signal.aborted){
+			reject(new AbortError())
+		}
+
+		signal.addEventListener("abort" event => {
+			// cancel current operation
+			reject(new AbortError());
+		})
+
+		// start async operation with some callbacks
+	});
+}
+
+const promise = someAsyncFunction(controller.signal).catch(reason => console.log("promise catch", reason));
+controller.abort();
+```
+
+Alternatively using iterator / generator:
+
+```js
+async someAsyncFunction(signal){
+	//in loop over async iterator / generator
+	{
+		if(signal.aborted){
+			throw new AbortError();
+		}
+
+		// pass the signal to sub async function and read iterator / generator (wait promise)
+	}
+}
+```
+
+- [AbortController - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+- [Async iterator and generator - JakeArchibald.com](https://jakearchibald.com/2017/async-iterators-and-generators/)
+
+### Promise queue
+
+```js
+
+```
+
+- [Async map with limited parallelism in Node.js | by Alex Ewerlöf | codeburst](https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70)
 
 ## Type
 
@@ -1629,30 +1679,6 @@ check: {
 }
 
 always_do_something;
-```
-
-## Scoped variable
-
-Use `_` prefixing, but don't prefix by type
-
-Local:
-
-```js
-myLocalVariable
-```
-
-Private:
-
-```js
-_myPrivateVariable
-```
-
-See [Private slots](#private-slots)
-
-Global, public:
-
-```js
-myPublicVariable
 ```
 
 ## Function
@@ -3017,22 +3043,16 @@ To get the last part: `path.split("/").pop()`
 function before(str, searchValue, fromIndex = 0){
 	return str.slice(fromIndex, indexBefore(str, searchValue, fromIndex));
 }
-```
 
-```js
 function after(str, searchValue, fromIndex = 0){
 	return str.slice(indexAfter(str, searchValue, fromIndex), fromIndex);
 }
-```
 
-```js
 function indexBefore(str, searchValue, fromIndex = 0){
 	let endIndex = str.indexOf(searchValue, fromIndex);
 	return endIndex < 0 ? str.length : endIndex;
 }
-```
 
-```js
 function indexAfter(str, searchValue, fromIndex = 0){
 	let endIndex = str.lastIndexOf(searchValue, fromIndex);
 	return endIndex < 0 ? 0 : endIndex;

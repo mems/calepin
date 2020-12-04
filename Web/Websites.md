@@ -1,6 +1,7 @@
 # Websites informations and tips
 
 Logos: https://github.com/larsenwork/social.svg.min
+
 - [Web scrapping](Web scrapping)
 - [site-deaths - IndieWeb](https://indieweb.org/site-deaths)
 
@@ -43,6 +44,15 @@ This can also impact dependencies like styles, fonts, images, video, scripts (li
 - [Raidious Support Your Owned Media Strategy by Creating Graphics - Raidious](http://www.raidious.com/support-your-owned-media-strategy-by-creating-graphics/)
 - [The Complete Social Media Image Size Guide: With Awesome Design Tips [Infographic] – Design School](https://designschool.canva.com/blog/social-media-image-size/)
 
+## Avatar
+
+Aka [identicon](https://en.wikipedia.org/wiki/Identicon)
+
+- [Gravatar - Globally Recognized Avatars](https://en.gravatar.com/site/implement/images/)
+- [Jdenticon - Open source identicon generator](https://jdenticon.com/)
+- [Volosh1n/github-avatar-generator: Simple script, which generates GitHub's avatar-style images.](https://github.com/Volosh1n/github-avatar-generator)
+- [How is the default user avatar generated? - Meta Stack Exchange](https://meta.stackexchange.com/questions/17443/how-is-the-default-user-avatar-generated/17444#17444)
+
 ## Intent URLs
 
 See also [Web Intents](http://www.webintents.org/) and [WebActivities](https://wiki.mozilla.org/WebAPI/WebActivities)
@@ -63,7 +73,7 @@ Parameters (optional):
 - `url`: the URL or title `:` URL (ex: `Some title:http://example.com`)
 - `via`: Twitter handle
 - `hashtags`: comma-separated list of hashtags, ex: `hashtag1,hashtag2,hashtag3`
-- `original_referer`: URL 
+- `original_referer`: URL
 - `in_reply_to`: tweet ID
 
 Examples:
@@ -176,7 +186,7 @@ URL template: `https://www.pinterest.com/pin/find/{?url}`
 ### Others
 
 +-----------------------+---------------------------------------------------------------+-----------------------------------------------------------
-| Network				| [URL templates](https://en.wikipedia.org/wiki/URL_Template)	| Parameters												
+| Network				| [URL templates](https://en.wikipedia.org/wiki/URL_Template)	| Parameters
 +=======================+===============================================================+===========================================================
 | AddThis				| https://api.addthis.com/oexchange/0.8/offer					| - `url`: `{URL}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
@@ -190,7 +200,7 @@ URL template: `https://www.pinterest.com/pin/find/{?url}`
 | 						| 																| - `hidden`: `0` or `1`
 | 						| 																| - `category`: `text` or other?
 | 						| 																| - `tags`: ?
-| 						| 																| 
+| 						| 																|
 | 						| 																| - [HowTo: Flattr in WordPress.com](https://blog.flattr.com/2011/06/flattr-in-wordpress-com/)
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | Reddit				| https://www.reddit.com/submit/								| - `url`: `{URL}`
@@ -266,18 +276,18 @@ URL template: `https://www.pinterest.com/pin/find/{?url}`
 | Xing					| https://www.xing-share.com/app/user							| - `op`: `share`
 | 						| 																| - `url`: `{URL}`
 | 						| 																| - `sc_p` (optional): `xing-share`
-| 						| 																| 
+| 						| 																|
 | 						| 																| Note: use `;` as pairs separator
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | Xing					| https://www.xing.com/app/user									| - `op`: `share`
 | 						| 																| - `url`: `{URL}`
 | 						| 																| - `title`: `{TITLE}`
-| 						| 																| 
+| 						| 																|
 | 						| 																| Note: use `;` as pairs separator
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | Xing					| https://www.xing.com/social_plugins/share						| - `h` (optional): `1`
 | 						| 																| - `url`: `{URL}`
-| 						| 																| 
+| 						| 																|
 | 						| 																| Note: use `;` as pairs separator
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | Xing					| https://www.xing.com/spi/shares/new							| - `url`: `{URL}`
@@ -375,7 +385,7 @@ URL template: `https://www.pinterest.com/pin/find/{?url}`
 | Threema App			| threema://compose												| - `text`: `{TEXT} {URL}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | WeChat				| 																| WeChat require JS API or display a QRCode to be scanned with WeChat
-| 						| 																| 
+| 						| 																|
 | 						| 																| - http://dev.wechat.com/
 | 						| 																| - http://admin.wechat.com/wiki/index.php?title=JS_SDK_DOCUMENT
 | 						| 																| - https://github.com/weui/weui/wiki/%E5%BE%AE%E4%BF%A1JSAPI
@@ -390,7 +400,7 @@ URL template: `https://www.pinterest.com/pin/find/{?url}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | WhatsApp App			| https://wa.me/{PHONE}											| - [WhatsApp FAQ - Using Click to Chat](https://faq.whatsapp.com/en/android/26000030/)
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
-| Line App				| line://msg/text/{URL}											| 
+| Line App				| line://msg/text/{URL}											|
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | Mail					| mailto:														| - `to`: `{RECIPIENT_EMAIL}`
 | 						|																| - `subject`: `{TITLE}`
@@ -402,7 +412,7 @@ Others activities:
 |---------------------------|---------------------------------------------------------------|----------------------------------------------------------
 | Activity					| URI															| Parameters
 |---------------------------|---------------------------------------------------------------|----------------------------------------------------------
-| Print						| javascript:window.print()										| 
+| Print						| javascript:window.print()										|
 |---------------------------|---------------------------------------------------------------|----------------------------------------------------------
 | Add to Google Calendar	| https://www.google.com/calendar/event							| - `text`: `{TITLE}`
 | 							| https://calendar.google.com/calendar/r/eventedit				| - `action` (optional): `TEMPLATE`
@@ -414,7 +424,7 @@ Others activities:
 | 							|																| - `details`: `{DESCRIPTION}` (multilines)
 | 							|																| - `location`: `{LOCATION}` (could be an address, only one line, parts separated by comma `,`)
 | 							|																| - `output` (optional): `xml`
-| 							| 																| 
+| 							| 																|
 | 							| 																| - [Add a Google calendar to your website - Calendar Help](https://support.google.com/calendar/answer/41207?hl=en&visit_id=1-636677701437823955-3736175218&rd=2)
 |---------------------------|---------------------------------------------------------------|------------------------------------------------------------------------------------------------
 | Add to Yahoo Calendar		| https://calendar.yahoo.com/									| - `text`: `{TITLE}`
@@ -447,11 +457,11 @@ Others activities:
 | 							| 																| - `cht`: `qr`
 | 							| 																| - `chld`: `{QRCODE_ECL}|{MARGIN}`, ex: `L|5`
 | 							| 																| - `chl`: `{URL}`
-| 							| 																| 
+| 							| 																|
 | 							| 																| - [QR Codes  |  Infographics  |  Google Developers](https://developers.google.com/chart/infographics/docs/qr_codes)
 |---------------------------|---------------------------------------------------------------|----------------------------------------------------------
 | iCalendar file			| data:text/calendar,											| URL encoded content of iCalendar
-| 							| 																| 
+| 							| 																|
 | 							| 																| [iCalendar - Wikipedia](https://en.wikipedia.org/wiki/ICalendar)
 |---------------------------|---------------------------------------------------------------|----------------------------------------------------------
 
@@ -504,7 +514,7 @@ Note: if the intent document load start can't be made direclty after the user in
 
 - Facebook: 600×300 or 555×320
 - Twitter: 550×420 or 500×310
-- LinkedIn: 
+- LinkedIn:
 	- login: content: 974×622, window.open(): 974×688 (Chrome macOS)
 	- share: content: 550×475 (content call automatically `window.resizeBy(offsetX, offsetY)`)
 
@@ -546,8 +556,8 @@ In China?
 	http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
 	http://lbsyun.baidu.com/index.php?title=jspopular
 - [搜狗地图API - Sogou Maps JavaScript API](http://map.sogou.com/api/documentation/javascript/api2.5/basics.html)
-- 	`http://api.map.baidu.com/staticimage?center=`${location.getLongitude()},${location.getLatitude()}&width=${width}&height=${height}&zoom=15&markers=${location.getLongitude()},${location.getLatitude()}`;
-		http://api.map.baidu.com/staticimage?center=121,31&width=300&height=300&zoom=15
+- http://api.map.baidu.com/staticimage?center={longitude},{latitude}&width={width}&height={height}&zoom=15&markers={longitude},{latitude}
+	http://api.map.baidu.com/staticimage?center=121,31&width=300&height=300&zoom=15
 
 - [android - Using Google Maps and Baidu Maps in same app - Stack Overflow](https://stackoverflow.com/questions/18910361/using-google-maps-and-baidu-maps-in-same-app/29468356#29468356)
 
@@ -636,8 +646,8 @@ Branded bitly
 
 Unshorten:
 
-- `https://unshorten.me/s/%s`
-- `http://www.linkexpander.com/?url=%s`
+- `https://unshorten.me/s/{short}`
+- `http://www.linkexpander.com/?url={short}`
 
 ```js
 function unshorten_url($url) {
@@ -691,8 +701,8 @@ https://www.googleapis.com/youtube/v3/videos?part={properties}&id={video_ids}&ke
 - title `items.snippet.title`
 - `items.contentDetails.duration`
 
-- `https://www.youtube.com/get_video_info?video_id={video_id}`
-- `https://www.youtube.com/oembed?url={video-url}&format=json`
+- `https://www.youtube.com/get_video_info?video_id={video_id}` - `application/x-www-form-urlencoded` (for Flash player?)
+- `https://www.youtube.com/oembed?url={video-url}&format=json` - [oEmbed](https://oembed.com/) JSON (no CORS)
 - `https://noembed.com/embed?url={video-url}&format=json` - [Noembed - oEmbed everything.](https://noembed.com/), [leedo/noembed: oEmbed gateway service with additional non-oEmbed sources](https://github.com/leedo/noembed) and [noembed/noembed: oEmbed gateway service with additional non-oEmbed sources](https://github.com/noembed/noembed)
 - [itteco/iframely: oEmbed proxy. Supports over 1800 domains via custom parsers, oEmbed, Twitter Cards and Open Graph](https://github.com/itteco/iframely)
 - [YouTube Data API Overview  |  YouTube Data API  |  Google Developers](https://developers.google.com/youtube/v3/getting-started)
@@ -781,11 +791,11 @@ window.addEventListener("message", function(event){new URLSearchParams(event.dat
 
 ## Google Maps
 
-- `https://www.google.com/maps/@${LAT},${LNG},${ZOOM}z`
-- `https://maps.google.com/maps?daddr=${LAT},${LNG}&saddr=${?}` `saddr` is optional: start point, `daddr` is optional: destination point (add `+to:` for steps "via")
-- `https://www.google.com/maps/dir/${START_POINT}/${DEST_POINT}` (`START_POINT` is optional, can be blank, `START_POINT` can be `current+location`). For steps "via" (multidestination / waypoints) add `/${POINT}` between start and dest. Encode space with `+` (`%20` is also supported). For multiline/multipart addresses (ex: street name, city, zipcode, country), replace line break with `,`
-- `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}` `PLACE_ID` start with `ChIJ...`
-- `https://www.google.com/maps/place/${PLACE_NAME}/@${LAT},${LNG},${ZOOM}z/`
+- `https://www.google.com/maps/@{latitude},{longitude},{zoom}z`
+- `https://maps.google.com/maps?daddr={latitude},{longitude}{&saddr}` `saddr` is optional: start point, `daddr` is optional: destination point (add `+to:` for steps "via")
+- `https://www.google.com/maps/dir/{startpoint}/{destpoint}` (`startpoint` is optional, can be blank, `startpoint` can be `current+location`). For steps "via" (multidestination / waypoints) add `/{point}` between start and dest. Encode space with `+` (`%20` is also supported). For multiline/multipart addresses (ex: street name, city, zipcode, country), replace line break with `,`
+- `https://www.google.com/maps/place/?q=place_id:{placeid}` `placeid` start with `ChIJ...`
+- `https://www.google.com/maps/place/{placename}/@{latitude},{longitude},{zoom}z/`
 
 Bracket syntax (add a label for start or dest) doesn't work any more.
 
@@ -802,8 +812,8 @@ Use it as data source and editor (can output KML)
 
 Import Google Drive Sheet in My Map : New Layer > Import > Google Drive. Must contains at least columns: Title, Latitude, Longitude
 
-Original Google Drive Share Url: `https://drive.google.com/file/d/{KML_FILE_ID}`
-Hosted KML file to use in your application: `https://googledrive.com/host/{KML_FILE_ID}`
+Original Google Drive Share Url: `https://drive.google.com/file/d/{kml_file_id}`
+Hosted KML file to use in your application: `https://googledrive.com/host/{kml_file_id}`
 
 - [Visualize your data on a custom map using Google My Maps – Google Earth Outreach](https://www.google.com/earth/outreach/learn/visualize-your-data-on-a-custom-map-using-google-my-maps/)
 - [Mapping from a Google Spreadsheet – Google Earth Outreach](https://www.google.com/earth/outreach/learn/mapping-from-a-google-spreadsheet/)
@@ -815,8 +825,8 @@ Only for embeded maps
 - [Snazzy Maps - Free Styles for Google Maps](https://snazzymaps.com/) `window.map.setMapTypeId(google.maps.MapTypeId.HYBRID)` or `window.editor.map.setMapTypeId(google.maps.MapTypeId.HYBRID)` for https://snazzymaps.com/editor/customize/XXXXX
 - [Styling Wizard: Google Maps APIs](https://mapstyle.withgoogle.com/)
 - [Start Styling your Map | Google Maps JavaScript API | Google Developers](https://developers.google.com/maps/documentation/javascript/styling)
- 
- ```json
+
+```json
 [
 	{
 		"elementType": "labels",
@@ -1211,7 +1221,7 @@ getNextPage();
 1. Find the ID of the extension you’re interested in. When on the details page of the extension, it will be something like `bfbmjmiodbnnpllbbbfblcplfjjepjdn` after `https://chrome.google.com/extensions/detail/` in the page URL
 2. Paste this URL into your browser: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc` replacing `{EXT_ID}` with the extension ID.
 3. You’ll be prompted to save a CRX file. Drag this file to a Chrome window and proceed with installation
- 
+
  ```
 version = 10000 | 32.0
 os = mac | win | android | cros | openbsd | Linux
@@ -1245,7 +1255,7 @@ typedef struct {
 	uint32 sigLength;
 	SetBackColor(0xf7d6c3);
 	byte pubKey[pkLength];
-	SetBackColor(0xd8edd8);    
+	SetBackColor(0xd8edd8);
 	byte sig[sigLength];
 	byte zipData[];
 } CRX;
@@ -1474,7 +1484,7 @@ How stories are ranked: see [Rank content](Algorithms/Rank content)
 
 Supported locales: https://www.facebook.com/translations/FacebookLocales.xml
 
-`https://www.facebook.com/photo.php?fbid=${PHOTO_ID}` and `https://www.facebook.com/${USER}/photos/${TIMELINE_ID}/${PHOTO_ID}/` where `00000000_${PHOTO_ID}_0000000000000000000_o.jpg` PHOTO_ID `00000000000000000` TIMELINE_ID `a.000000000000.000000.00000000000`
+`https://www.facebook.com/photo.php?fbid={photo_id}` and `https://www.facebook.com/{user}/photos/{timeline_id}/{photo_id}/` where `00000000_{photo_id}_0000000000000000000_o.jpg` `photo_id` `00000000000000000` `timeline_id` `a.000000000000.000000.00000000000`
 
 Default profile picture
 https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-1/c29.0.100.100/p100×100/10354686_10150004552801856_220367501106153455_n.jpg?oh=e8ca515e48d1bc743308966715634bee&oe=58C66077
@@ -1506,7 +1516,7 @@ https://scontent-cdg2-1.xx.fbcdn.net/t39.2081-0/851578_455087414601994_160111069
 - [Open Graph Stories - Sharing](https://developers.facebook.com/docs/sharing/opengraph)
 - [The Open Graph protocol](http://ogp.me/)
 - [Webmasters - Sharing](https://developers.facebook.com/docs/sharing/webmasters/#markup)
-
+f
 ### Setup Facebook Website Application
 
 **Note: the SDK is not available (loaded) in Firefox private mode by the Tracking Protection**
@@ -1520,7 +1530,7 @@ Or use `document.createElement("script"); ... window.fbAsyncInit = function(){FB
 - [Initialization - Web SDKs](https://developers.facebook.com/docs/javascript/reference/FB.init/v3.2)
 - [Login Status - Web SDKs](https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus/)
 - HTTPS is required, but `localhost` is allowed (but not `0.0.0.0`) [Requiring HTTPS for Facebook Login - Facebook for Developers](https://developers.facebook.com/blog/post/2018/06/08/enforce-https-facebook-login/) [Login Security - Facebook Login](https://developers.facebook.com/docs/facebook-login/security/#https)
- 
+
  ```js
 FB.login(..., {scope: "..."});
 ```
@@ -1635,7 +1645,7 @@ Metadata:
 - [Object Debugger](https://developers.facebook.com/tools/debug/og/object?q=%s)
 - [Platform Update: Facebook Removes Pre-Filled Stream Stories, Like Box Configurator Gets Border Color | SocialTimes](http://www.adweek.com/socialtimes/pre-filled-stream-stories-like-box-border-color/263479?red=if)
 - [Platform Policy 2.3](https://developers.facebook.com/docs/apps/review/prefill)
- 
+
  ```html
 <iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL" scrolling="no" style="border:none; width:450px; height:80px"></iframe>
 ```
@@ -1697,7 +1707,7 @@ Common parameters:
 	See https://developers.facebook.com/docs/facebook-login/access-tokens/
 	Ex. of invalid access token: `AAACZBLSe4fcoBAFcGMJZAUS9OthIr5o6ZCUySgXYj0nfWX7u08×7h0VZAFFuJJs9LmeWgud2u5ZCEZCeUHZCVIq1Y2j4gjKAjJ0gx5OY9PBihlABJn64njm`
 - `limit=xx` is not fixed. Never rely to it for a fixed limit between pages. Ex: `limit=500`, but return `487` items for page 1 and `492` items for page 2.
-	
+
 	- [Maximum limit fetching facebook pages with Graph API - Stack Overflow](https://stackoverflow.com/questions/29730526/maximum-limit-fetching-facebook-pages-with-graph-api)
 	- [The limit of Facebook's graph api "limit" parameter - Stack Overflow](https://stackoverflow.com/questions/14876105/the-limit-of-facebooks-graph-api-limit-parameter)
 - `fields` to filder fields. Ex.: `me/albums?fields=count,name`: will get only `id`, photo `count` and `name` per album
@@ -1978,7 +1988,7 @@ module.exports = birthdate => {
 
 	return NaN;
 };
-```	
+```
 
 ### Share an external Animation
 
@@ -1988,7 +1998,7 @@ GIF: Only posted URL, not file uploaded (in Facebook album)
 
 #### Video
 
-**To get a custom HTML5 player (embeded in Facebook feed), you must be whitlisted.** Don't know how. 
+**To get a custom HTML5 player (embeded in Facebook feed), you must be whitlisted.** Don't know how.
 
 (need verification) Note: `og:video` can be defined multiple times (for types `text/html`, `application/x-shockwave-flash`, `video/mp4`, etc.). Even if it's not a video
 Note: `og:video`, `og:video:type`, `og:video:width` and `og:video:width` should be explicited provided for each format
@@ -1998,7 +2008,7 @@ Note: `text/html` type it's seem to be **reserved to whitlisted domains**. No in
 Note: if the `og:video` as `text/html` is not valid, Facebook fallback to the first `og:video` url will be used as `src` for a `<video>` (directly in feed) and `og:video:type` as `type`
 Note: a div with `me-cannotplay` class with a link "Download File" as child
 Note: based on `og:image` file dimensions if width <= ~400 the image is squared and take 1/3 of the post width. Where the title and description take 2/3. If width > ~400 the image will take all the width and only the title and origin are visible (no description)
-Note: does the size provided (`og:video:width` and `og:video:height`) have any impact? 
+Note: does the size provided (`og:video:width` and `og:video:height`) have any impact?
 
 ```html
 <meta property="og:type" content="video">
@@ -2167,18 +2177,18 @@ https://github.com/kennethreitz/twitter-scraper/blob/master/twitter_scraper.py
 Media video:
 
 Use same APIs used by `https://mobile.twitter.com`:
-`https://api.twitter.com/2/timeline/conversation/${TWEET_ID}.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&include_mute_edge=1&include_can_dm=1&include_can_media_tag=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_alt_text=true&include_reply_count=1&tweet_mode=extended&include_entities=true&include_user_entities=true&include_ext_media_color=true&send_error_codes=true&count=20&ext=mediaStats%2ChighlightedLabel`
+`https://api.twitter.com/2/timeline/conversation/{tweet_id}.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&include_mute_edge=1&include_can_dm=1&include_can_media_tag=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_alt_text=true&include_reply_count=1&tweet_mode=extended&include_entities=true&include_user_entities=true&include_ext_media_color=true&send_error_codes=true&count=20&ext=mediaStats%2ChighlightedLabel`
 Require header `authorization: Bearer ....`
-Read the JSON, as `root[0].globalObjects.tweets[${TWEET_ID}].extended_entities.media[0].video_info.variants` 
-Previously, in `https://api.twitter.com/1.1/conversation/show.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_media_color=true&tweet_mode=extended&id=${TWEET_ID}&max_id=${TWEET_ID}`:
+Read the JSON, as `root[0].globalObjects.tweets[${TWEET_ID}].extended_entities.media[0].video_info.variants`
+Previously, in `https://api.twitter.com/1.1/conversation/show.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_media_color=true&tweet_mode=extended&id={tweet_id}&max_id={tweet_id}`:
 Read the JSON, as `roor[0].extended_entities.media[0].video_info.variants`
 
-Or APIs used by 
-`https://api.twitter.com/1.1/videos/tweet/config/${TWEET_ID}.json`
+Or APIs used by
+`https://api.twitter.com/1.1/videos/tweet/config/{tweet_id}.json`
 Require header `authorization: Bearer ....`
 Read the JSON as `root.track.playbackUrl`
 
-Or use jDownloader with `https://twitter.com/${USER}/status/${TWEET_ID}/video/1`
+Or use jDownloader with `https://twitter.com/{user}/status/{tweet_id}/video/1`
 
 - [How I downloaded a video from Twitter using Curl | Zero One Labs](http://zeroonelabs.com/how-i-downloaded-a-video-from-twitter-using-curl/)
 - [SAVEVIDEO.ME: Download Dailymotion Videos, Vimeo, Facebook, Twitter and more!](http://savevideo.me/)
@@ -2239,16 +2249,16 @@ Note: you need to request approval to allow your domain to be allowed to use twi
 
 ### Stream
 
+With `dnt=false` `lang=fr`, this return JSON:
+
 ```
-https://syndication.twitter.com/timeline/likes?callback=console.log&dnt=false&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
-https://syndication.twitter.com/timeline/profile?callback=console.log&dnt=false&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
-https://syndication.twitter.com/timeline/list?callback=console.log&dnt=false&list_slug=%{user-list-id}&screen_name=%{user-name}&suppress_response_codes=true&lang=fr
-
-See https://twitter.com/settings/widgets/new/search?query=
-https://cdn.syndication.twimg.com/widgets/timelines/%{widget-id}?&callback=console.log&suppress_response_codes=true&lang=fr
-
-https://twitter.com/i/profiles/popup?screen_name=%{user-name}&wants_hovercard=true&lang=fr
-https://twitter.com/i/profiles/popup?user_id=%{user-id}&wants_hovercard=true&lang=fr
+https://syndication.twitter.com/timeline/likes?screen_name={username}&suppress_response_codes=true{&lang}{&dnt}
+https://syndication.twitter.com/timeline/profile?screen_name={username}&suppress_response_codes=true{&lang}{&dnt}
+https://syndication.twitter.com/timeline/list?list_slug={userlist_id}&screen_name={username}&suppress_response_codes=true{&lang}
+https://twitter.com/settings/widgets/new/search?query={term}
+https://cdn.syndication.twimg.com/widgets/timelines/{widget_id}?&suppress_response_codes=true{&lang}
+https://twitter.com/i/profiles/popup?screen_name={username}&wants_hovercard=true{&lang}
+https://twitter.com/i/profiles/popup?user_id={user_id}&wants_hovercard=true{&lang}
 ```
 
 - [Reference Documentation — Twitter Developers](https://dev.twitter.com/rest/reference)
@@ -2406,43 +2416,20 @@ Get Markdown of Wiki:
 For home page `https://github.com/msndevs/protocol-docs/wiki` go to `https://github.com/msndevs/protocol-docs/wiki/Home.md` (redirect to `https://raw.githubusercontent.com/wiki/msndevs/protocol-docs/Home.md`)
 For other page `https://github.com/msndevs/protocol-docs/wiki/Authentication` go to `https://github.com/msndevs/protocol-docs/wiki/Authentication.md` (redirect to `https://raw.githubusercontent.com/wiki/msndevs/protocol-docs/Authentication.md`)
 
-`https://api.github.com/repos/${USER}/${REPO}/commits/${BRANCH}`
+- `https://api.github.com/repos/{username}/{repository}/commits/{branch}`
+- `https://gist.github.com/{gist_id}{/revision_id}{/filename}` (`revision_id` and `filename` are optional)
+- `https://gist.githubusercontent.com/{gist_id}/raw{/revision_id}{/filename}` (`revision_id` and `filename` are optional)
+- `https://raw.github.com/{username}/{repository}/{reference}/{filepath}` and `https://raw.githubusercontent.com/{username}/{repository}/{reference}/{filepath}`
+- `https://github.com/{username}/{repository}{/format}/{reference}/{filepath}` `format` could be `blob` or `raw` (shouldn't be `releases`)
 
-```js
-const REGEX_GIST_URL     = /^https?:\/\/gist\.github\.com\/.+?\/([0-9a-f]+)(?:\/([0-9a-f]+))?/i;
-const REGEX_RAW_GIST_URL = /^https?:\/\/gist\.githubusercontent\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+\..+)$/i;
-
-/**
-Matches a GitHub raw URL.
-
-Captures:
-
-1.  Username
-2.  Repo
-3.  Ref
-4.  File path
-**/
-const REGEX_RAW_REPO_URL = /^https?:\/\/raw\.github(?:usercontent)?\.com\/(.+?)\/(.+?)\/(.+?)\/(.+)/i;
-
-/**
-Matches a GitHub repo URL.
-
-Captures:
-
-1.  Username
-2.  Repo
-3.  Ref
-4.  File path
-**/
-const REGEX_REPO_URL = /^https?:\/\/github\.com\/(.+?)\/(.+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?)\/(.+)/i;
-```
+- [if you have the dmca repo on your computer, you can checkout this PR via git fet... | Hacker News](https://news.ycombinator.com/item?id=24883933)
 
 ### Gist
 
-- `https://gist.github.com/${USER}/${ID}`
-- `https://gist.github.com/${USER}/${ID}.js` - Script to insert embedded gist
-- `https://api.github.com/gists/${ID}`
-- `https://api.github.com/gists/${ID}/${VERSION}`
+- `https://gist.github.com/{user}/{id}`
+- `https://gist.github.com/{user}/{id}.js` - Script to insert embedded gist
+- `https://api.github.com/gists/{id}`
+- `https://api.github.com/gists/{id}/{version}`
 
 - [Customizing GitHub Gists / Coder's Block](http://codersblock.com/blog/customizing-github-gists/)
 
@@ -2453,8 +2440,8 @@ Aka Stackoverflow, etc.
 Short URLs:
 
 ```
-https://*.stackexchange.com/q/QUESTION_ID
-https://*.stackexchange.com/a/ANSWER_ID
+https://{subdomain}.stackexchange.com/q/{question_id}
+https://{subdomain}.stackexchange.com/q/{anwser_id}
 ```
 
 ## Voyage SNCF
@@ -2464,7 +2451,7 @@ https://*.stackexchange.com/a/ANSWER_ID
 
 ## Gitweb
 
-Download snapshot: `http://<gitweburl>/gitweb.cgi?p=<repo>;a=snapshot;h=HEAD` Use `h=HEAD` or `h=` (path hash, from `ls-tree`)
+Download snapshot: `http://{gitweburl}/gitweb.cgi?p={repo};a=snapshot;h=HEAD` Use `h=HEAD` or `h=` (path hash, from `ls-tree`)
 Or use "snapshot" link
 
 Example:
@@ -2516,7 +2503,7 @@ Permalink to a slide number: `http://www.slideshare.net/.../presentation-name` �
 
 ## Fashion Anthology bookmarlet
 
-Show all fullres images (without watermark, + inaccessible ones) of a Fashion Anthology gallery in one page and without require any account 
+Show all fullres images (without watermark, + inaccessible ones) of a Fashion Anthology gallery in one page and without require any account
 
 Filename pattern `%designer_name% %collection% %year% %image_number%.jpg`
 
@@ -2528,7 +2515,7 @@ javascript:var t=document.title.split(/\s+\|\s+/).slice(1).join(" ");$("head").a
 
 ## Apple
 
-### Apple live stream URL 
+### Apple live stream URL
 
 Found the Apple live stream URL
 
@@ -2551,7 +2538,7 @@ Previous Apple's website:
 
 ## Online cursor editor
 
-Add support of load an image in http://www.rw-designer.com/online-cursor-editor tool (Make CUR file) 
+Add support of load an image in http://www.rw-designer.com/online-cursor-editor tool (Make CUR file)
 
 ```js
 /*
@@ -2565,7 +2552,7 @@ http://www.motobit.com/util/base64-decoder-encoder.asp
 //------------
 
 // Define draw position
-var × = 0;
+var x = 0;
 var y = 0;
 
 // Define canvas size 32 × 32
@@ -2617,7 +2604,10 @@ for(var i = 0; i < numPixels; i++){
 
 First exec this in WebDev console for each page, copy in clipboard the iframes src of each videos + title + keywords
 
-	copy(JSON.stringify(Array.from(document.querySelectorAll("article")).map(article => [article.querySelector("iframe").src, /<a[^>]*>([^<]+)/.exec(article.querySelector("textarea").value)[1], article.querySelector(".cat").textContent])))
+
+```js
+copy(JSON.stringify(Array.from(document.querySelectorAll("article")).map(article => [article.querySelector("iframe").src, /<a[^>]*>([^<]+)/.exec(article.querySelector("textarea").value)[1], article.querySelector(".cat").textContent])))
+```
 
 Go to https://videos.sproutvideo.com/embed/189bdbb01e1ce7c790/98b77e706be88310, open WebDev console and exec:
 
@@ -2679,8 +2669,8 @@ copy(Array.from(document.querySelectorAll(".upload_info[about]")).map(info => in
 
 `robots.txt` is retroactive
 
-`http://web.archive.org/cdx/search/cdx?url=${domain}&matchType=${matchType}&output=json&fl=timestamp,original&fastLatest=true&filter=statuscode:200&collapse=original` `&from=${from}&to=${to}`
-`http://web.archive.org/web/${timestamp}id_/${originalurl}`
+`http://web.archive.org/cdx/search/cdx?url={domain}&matchType={matchType}&output=json&fl=timestamp,original&fastLatest=true&filter=statuscode:200&collapse=original` `&from={from}&to={to}`
+`http://web.archive.org/web/{timestamp}id_/{originalurl}`
 
 - [Wayback Machine APIs | Internet Archive](https://archive.org/help/wayback_api.php)
 - [Retrieving Snapshots · Internet Archive](https://archive.readme.io/docs/website-snapshots)
@@ -2701,7 +2691,7 @@ Save the RSS / Atom
 	See [Importer les commentaires d'un blog sous Wordpress (4) - Reedition - nouvelles fonctionnalités + Haut et Fort - jrcourtois: le blog](http://blog.jrcourtois.net/post/2009/07/30/Importer-les-commentaires-d-un-blog-sous-Wordpress-4)
 	See [Sauvegarde Erog et export vers Wordpress (voire vers Blogger) - Iv Oam Blog](https://iv-oam.blogspot.fr/2013/02/export-d-vers-wordpress-voire-vers.html)
 	But get only posts have a category:
-	
+
 	- execute first the tool (will create `files/index.html` and empty file `TheBigFile.xml`)
 	- edit files/index.html to add `categorie-0.html">Uncategorized</a>`
 - [Back up, import, or delete your blog - Blogger Help](https://support.google.com/blogger/answer/41387?hl=en)

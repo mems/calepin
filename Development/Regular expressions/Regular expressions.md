@@ -2,21 +2,38 @@ Aka regex, regexp
 
 A regex is a function with subroutines (instruction)
 
-- [Understanding and Using Regular Expressions](https://www.infoq.com/presentations/regex) - [Understanding and Using Regular Expressions by Damian Conway](https://videoh.infoq.com/presentations/14-mar-regularexpressions-B.mp4?Key-Pair-Id=APKAIMZVI7QH4C5YKH6Q&Signature=BZMZnJA751nsDqL5iT7mtyspeSDzrQZTYeuh363H~ijASn11EL0e1~SehHoWaylFeCxwqjXgECdcff6blWouQR16ZsHkYRQHYPrqPzSxp27UHzA1Y3O-aNJF6RlADXuDW5TUPAbTROm8ByJN1vGldfF0Qe8tIQ7-k7ALqZK9mgs_&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6IioiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0ODg5NzI1Mzh9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19)
 - [devongovett/regexgen: Generate regular expressions that match a set of strings](https://github.com/devongovett/regexgen)
 - [fent/randexp.js: Create random strings that match a given regular expression.](https://github.com/fent/randexp.js)
 - IrRegex [Irregexp | Hummus and Magnets](http://h14s.p5r.org/2009/02/irregexp.html)
 - [YARR! - Yet Another Regex Runtime](https://trac.webkit.org/browser/trunk/Source/JavaScriptCore/yarr)
+- [Comparison of regular-expression engines - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_regular-expression_engines)
 - [wregex - How Regular Expression Engines Work](http://wstoop.co.za/wregex.php)
 - [Regexper](https://regexper.com/) - [javallone/regexper-static: Regular Expression Visualization Site (static site version)](https://github.com/javallone/regexper-static)
 - [Email Address Regular Expression That 99.99% Works.](http://emailregex.com/)
 
 W3C [HTML 5.2: 4.10. Forms](https://www.w3.org/TR/html/sec-forms.html#valid-e-mail-address) (see also [HTML 5.1 2nd Edition: 4.10. Forms](https://www.w3.org/TR/html51/sec-forms.html#valid-e-mail-address)) regular expression for email fields:
 
-	/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+```regexp
+/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+```
 
 A match is faster. Try all execution paths start at each char is very long.
 Regular Expression engines always find the cheapest (simpliest, shortest) first match: "Always matches as early possible in string on leftmost possible alternative in regex"
+
+## Documentation and tools
+
+- [Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript](https://regex101.com/)
+- [RegExr: Learn, Build, & Test RegEx](https://regexr.com/)
+- [Regulex：JavaScript Regular Expression Visualizer](https://jex.im/regulex/)
+- [Debuggex: Online visual regex tester. JavaScript, Python, and PCRE.](https://www.debuggex.com/)
+- [Regexper](https://regexper.com/)
+- [txt2re: headache relief for programmers :: regular expression generator](https://www.txt2re.com/index_php3.html) - Regular expression from text
+- [Refiddle](http://refiddle.com/)
+
+- [VerbalExpressions](https://github.com/VerbalExpressions) - "Regular Expressions made easy" with library to build regular expression: `VerEx().startOfLine().then("http").maybe("s").then("://").maybe("www.").anythingBut(" ").endOfLine()` gives `/^(http)(s)?(\:\/\/)(www\.)?([^\ ]*)$/`
+- [Understanding and Using Regular Expressions](https://www.infoq.com/presentations/regex) - [Understanding and Using Regular Expressions by Damian Conway](https://videoh.infoq.com/presentations/14-mar-regularexpressions-B.mp4?Key-Pair-Id=APKAIMZVI7QH4C5YKH6Q&Signature=BZMZnJA751nsDqL5iT7mtyspeSDzrQZTYeuh363H~ijASn11EL0e1~SehHoWaylFeCxwqjXgECdcff6blWouQR16ZsHkYRQHYPrqPzSxp27UHzA1Y3O-aNJF6RlADXuDW5TUPAbTROm8ByJN1vGldfF0Qe8tIQ7-k7ALqZK9mgs_&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6IioiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0ODg5NzI1Mzh9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19)
+- [Regex Crossword](https://regexcrossword.com/) - Game with regexp
+- [Regular-Expressions.info - Regex Tutorial, Examples and Reference - Regexp Patterns](https://www.regular-expressions.info/)
 
 ## Non-greedy quantifier
 
@@ -27,7 +44,9 @@ Aka lazy quantifier
 
 Usefull for enclosed match (attribute value, text in quotes)
 
-	/("|')(.*?)(\1)/g
+```regexp
+/("|')(.*?)(\1)/g
+```
 
 - [DasSur.ma – My most useful RegExp trick](https://dassur.ma/things/regexp-quote/)
 - [regex - What do 'lazy' and 'greedy' mean in the context of regular expressions? - Stack Overflow](https://stackoverflow.com/questions/2301285/what-do-lazy-and-greedy-mean-in-the-context-of-regular-expressions)
@@ -43,7 +62,7 @@ Assert but doesn't match: _zero-width assertion_.
 
 ## Exclude
 
-```
+```regexp
 ^(?!(class|image|instanceof)$).*$
 ```
 

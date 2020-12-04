@@ -35,6 +35,7 @@
 - [Website Tools and Applications with Flash | Free NN/g Report](https://www.nngroup.com/reports/website-tools-and-applications-flash/) - tips for creating interactive web-based applications, including accessibility considerations (not specific to Flash)
 - [Refactoring UI](https://refactoringui.com/)
 - [Checklist Design - best UI elements for the best UX practice](https://www.checklist.design/)
+- [The UI & UX Tips Collection: Volume One. | Marc Andrew](https://web.archive.org/web/20201201074935/https://marcandrew.me/ui-ux-tips-collection-vol-one/)
 
 From [GoodUI](https://web.archive.org/web/20201108132942/https://goodui.org/):
 
@@ -549,6 +550,12 @@ If you have too many checkboxes, use a multiple choice select.
 
 - [WebAIM: Creating Accessible Forms - Accessible Form Controls](http://webaim.org/techniques/forms/controls#select)
 - [Why Users Abandon Forms with Select Menus - UX Movement](http://uxmovement.com/forms/why-users-abandon-forms-with-select-menus/)
+
+### Binary choice
+
+Aka checkbox vs radio buttons
+
+- ["Yes or No?" — One Checkbox vs Two Radio Buttons.](https://web.archive.org/web/20201122093811/https://www.sarasoueidan.com/blog/one-checkbox-or-two-radio-buttons/)
 
 ### Checkboxes
 

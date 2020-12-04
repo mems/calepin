@@ -7,3 +7,4 @@
 - [ewasm/wasm-json-toolkit: \[ORPHANED\] A small toolkit for converting wasm binaries into json and back.](https://github.com/ewasm/wasm-json-toolkit)
 - [The anatomy of WebAssembly: Writing your first WebAssembly module using C (C++)](https://itnext.io/the-anatomy-of-webassembly-writing-your-first-webassembly-module-using-c-c-d9ee18f7ac9b)
 - [Decoding WebAssembly](https://jarombek.com/blog/jan-7-2019-web-assembly)
+- [WebAssembly for Java developers | Blog](https://web.archive.org/web/20200805154639/http://blog.dmitryalexandrov.net/webassembly-for-java-developers/)

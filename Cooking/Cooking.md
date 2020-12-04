@@ -87,7 +87,7 @@ Gougères
 Gaufres de Liège
 Bánh Mì (sandwich vietnamien)
 
-Poisson cru (type colin) cuit par du citron, avec lait coco et échalotes, coriandre 
+Poisson cru (type colin) cuit par du citron, avec lait coco et échalotes, coriandre
 
 ## Apéro à la Ben
 
@@ -209,13 +209,13 @@ Abricots
 5 à 6 étoiles de badiane (anis étoilé)
 10 à 15 clous de girofles (selon le goût souhaité, moi je n’en met que 10...).
 
-Verser le vin dans un récipient ajouter les ingrédients au fur et à mesure et mélanger avec une cuillère en bois… 
+Verser le vin dans un récipient ajouter les ingrédients au fur et à mesure et mélanger avec une cuillère en bois…
 Couvrir et laisser infuser pendant 24h00.
 De temps à autre mélanger et gouter le breuvage…
 Si le goût de l'hypocras vous paraît idéal avant les 24h00, enlevez tout ce qui infuse car l'infusion continue en attendant...
 Ensuite, il faut le mettre en bouteille.
 
-Cet hypocras peut être conservé pendant plusieurs mois dans un endroit frais et à l’abri de la lumière (cave, cellier)… Une fois ouvert, il peut être placé au réfrigérateur pour se conserver... 
+Cet hypocras peut être conservé pendant plusieurs mois dans un endroit frais et à l’abri de la lumière (cave, cellier)… Une fois ouvert, il peut être placé au réfrigérateur pour se conserver...
 J’ai ouvert ma dernière d’hypocras fait avec cette méthode 6 mois après sa mise en bouteille, il était encore excellent !
 
 — Christophe Bulot
@@ -228,7 +228,7 @@ J’ai ouvert ma dernière d’hypocras fait avec cette méthode 6 mois après s
 
 - Mélanger farine et levure
 - Mettre l'eau
-- Laisser reposer plusieurs heure au moins 6h 
+- Laisser reposer plusieurs heure au moins 6h
 - Pétrir un peu
 - Former boule ou mouler
 - Couvrir pas plus de 3/4 d'h
@@ -295,28 +295,28 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 
 > ## Neapolitan pizza dough recipe
 > By Ciro Salvo of 50 Kalò
-> 
+>
 > - 450g flour (ideally 00, but can use 0 or 1)
 > - 300ml cold tap water
 > - 3g fresh brewer's yeast
 > - 9g salt
-> 
+>
 > In a large bowl, dissolve the yeast in the cold tap water, and then mix in about two-thirds of the flour with a big spoon until a creamy consistency is formed. Mix in the salt, and then the remaining flour a little bit at a time. Continue to mix until all the flour has been absorbed.
-> 
+>
 > Knead energetically with your hands by folding the dough and pushing it inwards. When the dough is smooth and no longer has lumps, let it rest for 10-15 minutes.
-> 
+>
 > Dust the dough with flour, place it on a table and then give it a few folds, forming it into a spherical shape until it’s firm and elastic.
-> 
+>
 > Place dough inside an oiled baking tin and cover, and then allow it to rest and rise for 7-8 hours at room temperature.
-> 
+>
 > Place dough onto a round sheet pan that’s been lightly greased with olive oil, and lightly press it with your fingertips until the classical, flat-and-round pizza shape is formed (or into a square if using a square-shaped pan). It should be no more than 3mm thick. Cover and let rest for another 3 hours.
-> 
+>
 > Add tomatoes (or tomato puree) as desired onto the flattened dough, and put pizza on the base of the oven, baking at 250-280°C for 5-6 minutes. Move pizza to the top rack of the oven and bake for another 6-8 minutes, adding drained mozzarella (if using) only in the last 3-4 minutes. Other ingredients such as extra virgin olive oil and basil should be added at the end of cooking.
-> 
+>
 > — [BBC - Travel - How to make pizza like a Neapolitan master](http://www.bbc.com/travel/story/20200415-how-to-make-pizza-like-a-neapolitan-master)
 
 > ## Pizza marinara recipe
-> 
+>
 > - pizza dough
 > - 50g Corbara tomatoes, drained
 > - 70g escarole, blanched
@@ -325,11 +325,11 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 > - garlic clove, thinly sliced
 > - pinch of oregano
 > - extra virgin olive oil
-> 
+>
 > Place already-prepared dough onto a baking sheet and lightly press flat. It should be no more than 3mm thick.
-> 
+>
 > Top with tomatoes and bake at 250-280°C for 5-6 minutes. Add escarole, black olives, capers, garlic and bake in the oven at 250-300°C for another 6-8 minutes. Add oregano and a trickle of olive oil.
-> 
+>
 > — [BBC - Travel - How to make pizza like a Neapolitan master](http://www.bbc.com/travel/story/20200415-how-to-make-pizza-like-a-neapolitan-master)
 
 ## Muhammara
@@ -341,7 +341,7 @@ Aka crème de poivrons à la grenade
 ## Gauffre courgette - pomme de terre
 
 > Pour environ 10 mini gaufres:
-> 
+>
 > - 200g de pommes de terre
 > - 150g de courgette
 > - 1 oeuf
@@ -351,7 +351,7 @@ Aka crème de poivrons à la grenade
 > - 25g de farine
 > - persil
 > - sel et poivre
-> 
+>
 > 1. Allumez votre gaufrier pour qu'il soit bien chaud une fois la pâte préparée
 > 2. Épluchez les pommes de terre et râpez-les. Rapez également la courgette en ayant enlevé la peau au préalable
 > 3. Pressez-les pour retirer l’excédent d'eau, en serrant dans un torchon par exemple
@@ -419,3 +419,15 @@ Cuisson :
 
 - [Recette - Tarte tatin de Christophe Michalak | 750g](https://www.750g.com/tarte-tatin-de-christophe-michalak-r70365.htm)
 - [Recette - Tarte Tatin simplissime | 750g](https://www.750g.com/tarte-tatin-simplissime-r11246.htm)
+
+## Semoule au lait
+
+(sucrée)
+
+- 500ml de lait
+- 40gr de semoule fine
+- 35-50gr de sucre
+- raisin sec
+- un sachet de sucre vanillé
+
+porter à feu doux le lait et le sucre, verser en pluie la semoule et remuer sans s'arrêter jusqu'à ce que cela s'épaissise

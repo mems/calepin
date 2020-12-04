@@ -1003,6 +1003,12 @@ File name:
 
 ### File searching
 
+Find support [shell pattern](https://www.gnu.org/software/findutils/manual/html_mono/find.html#Shell-Pattern-Matching) for `-path` and `-ipath` parameters:
+
+- `*/file.ext`
+- `*.ext`
+- `*/file.*`
+
 - [bash - How do I make find fail if -exec fails? - Ask Different](https://apple.stackexchange.com/questions/49042/how-do-i-make-find-fail-if-exec-fails)
 
 ```sh
@@ -1174,17 +1180,18 @@ On macOS install it with port `port install p5-file-rename` (but should use the 
 
 ### Remove files
 
-	rm -f file1 file2
 
-	find . -name 'tile_*.png' -delete
+```sh
+rm -f file1 file2
 
-Remove all files with exceptions:
+find . -name 'tile_*.png' -delete
 
-	find . -type f -not \( -name '*.php' -or -name '*.iso' \) -exec rm {} \;
+# Remove all files with exceptions:
+find . -type f -not \( -name '*.php' -or -name '*.iso' \) -exec rm {} \;
 
-With a list of exceptions:
-
-	find . -type f -printf "%P\n" ! -name "list.txt" | fgrep -vf list.txt | xargs -r rm
+# With a list of exceptions:
+find . -type f -printf "%P\n" ! -name "list.txt" | fgrep -vf list.txt | xargs -r rm
+```
 
 - http://www.cyberciti.biz/faq/linux-bash-delete-all-files-in-directory-except-few/
 - [unix - BASH: How to remove all files except those named in a manifest? - Stack Overflow](https://stackoverflow.com/questions/2782602/bash-how-to-remove-all-files-except-those-named-in-a-manifest)

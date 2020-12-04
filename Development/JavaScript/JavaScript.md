@@ -28,7 +28,6 @@ Style guide, code conventions:
 - https://github.com/Reactive-Extensions/RxJS/blob/master/doc/gettingstarted/categories.md
 - [ryanmcdermott/clean-code-javascript: Clean Code concepts adapted for JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
 - [JavaScript naming conventions: do’s and don’ts](https://web.archive.org/web/20201101050757/https://www.freecodecamp.org/news/javascript-naming-conventions-dos-and-don-ts-99c0e2fdd78a/)
-- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard)
 
 - [Simple Techniques for Writing More Semantic and Maintainable JavaScript Apps — Space Camp — Medium](https://medium.com/space-camp/three-simple-techniques-for-writing-more-semantic-and-maintainable-javascript-apps-206b4fb89f15)
 
@@ -36,6 +35,11 @@ Style guide, code conventions:
 - [Learning JavaScript Design Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 - [Don't use these examples](http://code-de-porc.tumblr.com)
 - [Superhero.js](https://web.archive.org/web/20201108135951/http://superherojs.com/)
+
+Design JavaScript APIs:
+
+- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard)
+- [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
 
 ## Documentation
 
@@ -101,6 +105,7 @@ Some libraries:
 - [barmalei/zebkit: JavaScript library that follow easy OOP concept, provide HTML5 Canva based Rich UI and include Java to JavaScript converter tool](https://github.com/barmalei/zebkit) - UI framework
 - [kornelski/slip: Slip.js — UI library for manipulating lists via swipe and drag gestures](https://github.com/kornelski/slip)
 - [cure53/DOMPurify: DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify works with a secure default, but offers a lot of configurability and hooks. Demo:](https://github.com/cure53/DOMPurify) - Remove "dirty" HTML, filter out tags and attributes
+- [FFMPEG.WASM](https://ffmpegwasm.github.io/) - "ffmpeg.wasm is a pure WebAssembly / JavaScript port of FFmpeg. It enables video & audio record, convert and stream right inside browsers."
 
 ### Choose and use libraries
 
@@ -200,6 +205,7 @@ And Virtual DOM
 
 #### Text editors
 
+- [Monaco Editor](https://microsoft.github.io/monaco-editor/) - the code editor that powers VS Code
 - [Example | Sir Trevor JS | Made by Many](http://madebymany.github.io/sir-trevor-js/example.html) - smart editor using blocks. see [Rich content editing entirely re-imagined for the web](https://github.com/madebymany/sir-trevor-js)
 - [Ace (Ajax.org Cloud9 Editor)](https://ace.c9.io/)
 - [CodeMirror](http://codemirror.net/)
@@ -829,6 +835,15 @@ Use `event.preventDefault()` instead
 Event handler: `el.onload = func;`. Note: when func has its scope to `eventTarget` and its `this` value. Ex: `onload="console.log(prop===this.prop)"`, properties can be used without `this` (but not functions). See [DOM on-event handlers - Developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers#Event_handler's_parameters_this_binding_and_the_return_value) and [HTML Standard - "callback this value"](https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm) and [HTML Standard - "internal raw uncompiled handler FunctionCreate Scope"](https://html.spec.whatwg.org/multipage/webappapis.html#internal-raw-uncompiled-handler)
 Event listener: `el.addEventListener("load", listener);`, where listener is a `function` or an object (`EventListener`) implement `handleEvent` method
 
+```js
+handleEvent()
+handleSubjectEvent()
+handleNameChange()
+handleChange()
+handleFormReset()
+handleReset()
+```
+
 - [DOM on-event handlers - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)
 - [EventListener - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventListener)
 
@@ -870,7 +885,7 @@ Are browser-specific additions (by Microsoft for Internet Explorer):
 Examples: `userId` and `profileURL`
 
 - [Why String.prototype.startsWith but not String.prototype.startWith? : javascript](https://www.reddit.com/r/javascript/comments/a2etsp/why_stringprototypestartswith_but_not/eaxnxip/) - "String starts with?" ('Does "foobar" start with "foo"?' → '"Foobar" starts with "foo"')
-- [Client-side API Design Principles](https://w3ctag.github.io/design-principles/#casing-rules)
+- [Web Platform Design Principles](https://www.w3.org/TR/design-principles/#casing-rules)
 - [javascript - Why does XMLHttpRequest not seem to follow a naming convention? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/157375/why-does-xmlhttprequest-not-seem-to-follow-a-naming-convention)
 - [coding style - Acronyms in CamelCase - Stack Overflow](https://stackoverflow.com/questions/15526107/acronyms-in-camelcase)
 - [wp-calypso/javascript.md at master · Automattic/wp-calypso](https://github.com/Automattic/wp-calypso/blob/master/docs/coding-guidelines/javascript.md#naming-conventions)
@@ -889,7 +904,9 @@ See [Naming convention](Development#naming-convention)
 
 ## Worker
 
-	navigator.hardwareConcurrency
+```js
+navigator.hardwareConcurrency
+```
 
 - [navigator.hardwareConcurrency - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorConcurrentHardware/hardwareConcurrency)
 - [web worker - Get number of CPU cores in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/3289465/get-number-of-cpu-cores-in-javascript)
@@ -898,71 +915,29 @@ See [Naming convention](Development#naming-convention)
 
 ### Inline worker
 
-	function worker() {
-		setInterval(function() {
-			postMessage({foo: "bar"});
-		}, 1000);
-	}
+```js
+function worker() {
+	setInterval(function() {
+		postMessage({foo: "bar"});
+	}, 1000);
+}
 
-	var code = worker.toString();
-	//code = code.substring(code.indexOf("{")+1, code.lastIndexOf("}"));
-	code = `(${code})()`;
+var code = worker.toString();
+//code = code.substring(code.indexOf("{")+1, code.lastIndexOf("}"));
+code = `(${code})()`;
 
-	var blob = new Blob([code], {type: "application/javascript"});
-	//var blob = new File([code], "worker.js", {type: "application/javascript"});
-	var workerInstance = new Worker(URL.createObjectURL(blob));// will not works in IE10
+var blob = new Blob([code], {type: "application/javascript"});
+//var blob = new File([code], "worker.js", {type: "application/javascript"});
+var workerInstance = new Worker(URL.createObjectURL(blob));// will not works in IE10
 
-	workerInstance.onmessage = function(m) {
-		console.log("worker msg", m);
-	};
+workerInstance.onmessage = function(m) {
+	console.log("worker msg", m);
+};
+```
 
 - [The Basics of Web Workers - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/workers/basics/#toc-inlineworkers)
 - https://stackoverflow.com/questions/10343913/how-to-create-a-web-worker-from-a-string
 - [Using Web Workers - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#Embedded_workers)
-
-## Promise
-
-Cancel promise
-
-```js
-const controller = new AbortController();
-
-someAsyncFunction(signal){
-	return new Promise((resolve, reject) => {
-		if(signal.aborted){
-			reject(new AbortError())
-		}
-
-		signal.addEventListener("abort" event => {
-			// cancel current operation
-			reject(new AbortError());
-		})
-
-		// start async operation with some callbacks
-	});
-}
-
-const promise = someAsyncFunction(controller.signal).catch(reason => console.log("promise catch", reason));
-controller.abort();
-```
-
-Alternatively using iterator / generator:
-
-```js
-async someAsyncFunction(signal){
-	//in loop over async iterator / generator
-	{
-		if(signal.aborted){
-			throw new AbortError();
-		}
-
-		// pass the signal to sub async function and read iterator / generator (wait promise)
-	}
-}
-```
-
-- [AbortController - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
-- [Async iterator and generator - JakeArchibald.com](https://jakearchibald.com/2017/async-iterators-and-generators/)
 
 ## Components
 
@@ -1006,19 +981,21 @@ function submitImplicitly(input){
 
 ### Get the form submitter
 
-Can be:
-- non disabled button(button[type=submit]|input[type=button]|input[type=image]) with current form as owner form (inside form or with form="id-of-current-form")
+It can be:
+
+- non disabled button(`button[type=submit],input[type=button],input[type=image]`) with current form as owner form (inside form or with `form="id-of-current-form"`)
 - an implicity submitter field (with type: Text, Search, URL, Telephone, E-mail, Password, Date, Time, Number) (virtually submit the first non disabled button if exist, see below).
 
 ```js
 form.addEventListener("submit", event => {
+	event.submitter;// standard
 	event.explicitOriginalTarget;//(Firefox only) form submitter: input or button
 	form.ownerDocument.activeElement;//works for user interactions, but not works for programmatically submitter (ex.: focus input and call button.click(), activeElement match input not button)
 });
 ```
 
+- [SubmitEvent.submitter - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent/submitter)
 - [javascript - Can I find out on the client which submit button was pressed when listening to the submit event? - Stack Overflow](https://stackoverflow.com/questions/29087977/can-i-find-out-on-the-client-which-submit-button-was-pressed-when-listening-to-t)
-- [Extend submit events: add the button/element, that triggered the submit - HTML - WICG](http://discourse.wicg.io/t/extend-submit-events-add-the-button-element-that-triggered-the-submit/406)
 - [4.10 Forms — HTML5](http://www.w3.org/TR/html5/forms.html#form-submission-0)
 - [Comparison of Event Targets - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets)
 
@@ -3991,28 +3968,44 @@ See [DOM clobbering](../../Security/Security.md#dom-clobbering)
 
 ### Clear all child nodes
 
-Empty children
+Empty children, remove children
 
-	// use lastChild cause less layout than fistChild
-	while (parent.lastChild && !parent.lastChild.remove());
+```js
+// https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/replaceChildren#Examples
+parent.replaceChildren();
 
-	parent.textContent = "";
+// With textContent
+parent.textContent = "";
 
-	parent.innerHTML = "";
+// This method have an issue with IE: it "permanently destroys all descendant text nodes"
+// see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#Description
+// see https://stackoverflow.com/questions/28741528/is-there-a-bug-in-internet-explorer-9-10-with-innerhtml
+parent.innerHTML = "";
 
-	node.parentNode.replaceChild(node.cloneNode(false), node);// but all attached listeners and references will not match the new element
+// Use lastChild cause less layout than fistChild
+while (parent.lastChild && !parent.lastChild.remove());
+//while (parent.lastChild !== null) parent.lastChild.remove();
+while (parent.lastChild && !parent.removeChild(parent.lastChild));
+//while (parent.lastChild !== null) parent.removeChild(parent.lastChild);
 
-Use `lastChild` is not better in all browsers
+// Remplace parentNode with a clone of itself without his children
+// But all attached listeners and references will not match the new element
+node.parentNode.replaceChild(node.cloneNode(false), node);
+```
 
 - [Remove all child elements of a DOM node in JavaScript - Stack Overflow](https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript)
 
 For replace the whole document:
 
-	document.documentElement.replaceWith(newDocEl);
+```js
+document.documentElement.replaceWith(newDocEl);
+```
 
 or
 
-	document.replaceChild(newDocEl, document.documentElement);
+```js
+document.replaceChild(newDocEl, document.documentElement);
+```
 
 ### Find a node
 
@@ -6767,12 +6760,12 @@ self.adEventListener("fetch", event => {
 Do some tasks before complete the installation (fill cache, dynamic additional `importScripts`, dynamic event listeners, etc.):
 
 ```js
-addEventListener('install', event => {
+addEventListener("install", event => {
   event.waitUntil(async function() {
 // additional importScripts based on config, etc.
     const [cache, urls] = await Promise.all([
-      caches.open('static-v1'),
-      idbKeyval.get('urlsToCache')
+      caches.open("static-v1"),
+      idbKeyval.get("urlsToCache")
     ]);
     await cache.addAll(urls);
   }());
@@ -7351,9 +7344,10 @@ httpOnly
 
 ## Throw errors / exceptions
 
-	throw new DOMException("The object is in an invalid state.", "InvalidStateError");
-
-	throw new Error("The object is in an invalid state.");
+```js
+throw new DOMException("The object is in an invalid state.", "InvalidStateError");
+throw new Error("The object is in an invalid state.");
+```
 
 When a promise is used, the exception or error can be the reason of the promise's rejection.
 

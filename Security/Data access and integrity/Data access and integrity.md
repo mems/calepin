@@ -1268,6 +1268,12 @@ An implicit id can't have the same name as a protected JS keyword and can't over
 - [Clobbering the clobbered — Advanced DOM Clobbering - terjanq - Medium](https://medium.com/@terjanq/dom-clobbering-techniques-8443547ebe94)
 - [JSLR](http://www.thespanner.co.uk/2012/06/05/jslr/)
 
+### Bypass XSS sanitizer
+
+XSS sanitizer often makes the HTML markup to be parsed twice, leave DOM tree to be mutated on reparsing.
+
+- [Mutation XSS via namespace confusion - DOMPurify \< 2.0.17 bypass - research.securitum.com](https://web.archive.org/web/20201106032220/https://research.securitum.com/mutation-xss-via-mathml-mutation-dompurify-2-0-17-bypass/)
+
 ### Clickjacking
 
 ```js

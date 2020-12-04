@@ -139,7 +139,6 @@ SSE use vanilla HTTP (eg thru load-balancers) and do auto-reconnect
 - [SSE vs Websockets - Streamdata.io](https://streamdata.io/blog/push-sse-vs-websockets/)
 - [Server-Sent Events with Node.js (Express)](https://tomkersten.com/articles/server-sent-events-with-node/)
 
-
 #### Websocket
 
 Aka WS
@@ -159,7 +158,7 @@ For Ngnix:
 
 Example of Ngnix-as-proxy configuration:
 
-```
+```nginx
 http {
 	map $http_upgrade $connection_upgrade {
 		default upgrade;
@@ -778,6 +777,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 
 `scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]`
 
+- [How many ways can you slice a URL and name the pieces? - Tantek](https://web.archive.org/web/20201031030005/http://tantek.com/2011/238/b1/many-ways-slice-url-name-pieces)
 - `http://[::1]:80/`, `http://[::]:80/`, `http://0.0.0.0:80/`, `http://127.0.0.1/`, `http://localhost/`, `http://3232235778/` (IP decimal notation, is the same as `http://192.168.1.2/` [how to convert](https://www.mkyong.com/java/java-convert-ip-address-to-decimal-number/))
 - `mysql://user:pass@host/mydatabase`
 - `smtps://username:password@smtp.example.com/?pool=true`

@@ -407,3 +407,16 @@ git branch --merged | egrep -v "(^\*|main|master|develop)" | xargs git branch -d
 
 - [git - Remove tracking branches no longer on remote - Stack Overflow](https://stackoverflow.com/questions/7726949/remove-tracking-branches-no-longer-on-remote)
 - [github - git - how to get default branch? - Stack Overflow](https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch)
+
+## Restore delete file
+
+```sh
+# Get the commit hash that delete the file
+git rev-list -n 1 HEAD -- <file_path>
+# List all deleted files
+git ls-files -d
+# Restore the
+git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
+```
+
+- [How to find and restore a deleted file in a Git repository - Stack Overflow](https://stackoverflow.com/questions/953481/how-to-find-and-restore-a-deleted-file-in-a-git-repository)

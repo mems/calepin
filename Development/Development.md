@@ -371,6 +371,7 @@ See also [Case styles](#case-styles)
 - [payload](https://en.wikipedia.org/wiki/Payload_%28computing%29) (network)
 - analytics / a7s
 - source / src, destination / dst / dest
+- action: get, add, push, format, remove, request, fetch, retrieve, detach, dispatch, initialize/init, set, take
 - constructor / ctor
 - watermark / fingerprint / hash
 - stale (original state)
@@ -411,6 +412,7 @@ See also [Case styles](#case-styles)
 > Better:
 >
 > 	bill.adjust_price_giving_total(19.50)
+>
 > [...]
 >
 > 	t = Temperature(celsius=17)
@@ -423,13 +425,16 @@ See also [Case styles](#case-styles)
 > Solution:  Make the computed field read-only and move the update feature to a well-named method.
 
 > don't try and name a function by looking at its implementation as you'll only come up with a name that reflects how it works. Instead look at the call sites and see what they want to know or do.
+>
 > — [Chris Oldwood](https://twitter.com/chrisoldwood/status/1026914381613985792)
 
 > Alternatives for get: create, build, make, acquire, allocate, find, locate, fetch, request, retrieve, pull, derive, calculate, format, ...
+>
 > — [Chris Oldwood](https://twitter.com/chrisoldwood/status/693398223705260033)
 See also read, inspect,...
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
+>
 > — Phil Karlton
 
 > - use meaningful function names
@@ -490,9 +495,11 @@ Aka case style, casing
 See also [complexity](#complexity).
 
 > It’s harder to read code than to write it.
+>
 > — Joel Spolsky
 
 > when you start from scratch there is **absolutely no reason** to believe that you are going to do a better job than you did the first time
+>
 > — Joel Spolsky
 
 > Writing code that others will read (including your future self) is about making yourself easy to understand.
@@ -507,6 +514,20 @@ See also [complexity](#complexity).
 
 ### Comments
 
+> Code can describe how, but it cannot explain why
+
+> Clarify what's not typically legible by humans
+
+> Comments can be like a chapter of a book [sections for people to find they way more quickly]
+> [...]
+> This is ok to refactor [about a comment that describe a part of code that is not well written, because it's temporary or for any understandable reason]
+>
+> — [The Art of Code Comments - Sarah Drasner | JSConf Hawaii 2020 - YouTube](https://www.youtube.com/watch?v=yhF7OmuIILc)
+
+Can be used to descript the purpose of specific regexp or usage of unexpected API/syntax (for bugs workaround or undocumented features need to be used)
+
+But add comment that is not well maintained is "bad documentation can be worst than no documentation". The comment is part of the code and maintenance too.
+
 > The proper use of comments is to compensate for our failure to express ourselves in code.
 >
 > — Robert C. Martin
@@ -520,15 +541,34 @@ See also [complexity](#complexity).
 if ((employee.flags & HOURLY_FLAG) && (employee.age > 65)) {
 	…
 }
-```
-
-vs.:
-
-```js
+// vs
 if (employee.isEligibleForFullBenefits()) {
 	…
 }
 ```
+
+
+```js
+// from https://twitter.com/mgechev/status/1308654845432340480/photo/1
+// Descriptive variable names:
+const height = 1;// Height in pixels
+// vs
+const heightInPixels = 1;
+
+// Extracting logic into methods:
+// Calculate total area
+for(const size of sizes){/**/}
+// vs
+calculateTotalArea(sizes);
+
+// Adding extra checks in case of assumptions:
+// Height should always be greater that zero
+return width / height;
+// vs
+console.assert(height > 0);
+return width / height;
+```
+
 
 > Much of the time, a comment can be improved by deleting it and encapsulating meaning in well-named functions or variables
 
@@ -542,9 +582,10 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 >
 > — [“My Code is Self-Documenting” — Eric Holscher - Surfing in Kansas](http://ericholscher.com/blog/2017/jan/27/code-is-self-documenting/)
 
-- [Code Tells You How, Comments Tell You Why](https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
-- [Thoughts on Self-Documenting CSS](http://keithjgrant.com/posts/2017/06/self-documenting-css/)
+- [Code Tells You How, Comments Tell You Why](https://web.archive.org/web/20201112032711/https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
+- [Thoughts on Self-Documenting CSS](https://web.archive.org/web/20201109032904/https://keithjgrant.com/posts/2017/06/self-documenting-css/)
 - [La notion de code source autodescriptif relèverait d'un mythe entretenu par les programmeurs qui n'ont pas saisi la portée de « documenter »](https://www.developpez.com/actu/150976/La-notion-de-code-source-autodescriptif-releverait-d-un-mythe-entretenu-par-les-programmeurs-qui-n-ont-pas-saisi-la-portee-de-documenter/)
+- [What is the best comment in source code you have ever encountered? - Stack Overflow](https://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)
 
 ## Code quality
 
@@ -562,7 +603,11 @@ Organization complexity is predictor of bugs (more preople + more departments + 
 
 Domain-Driven Design : on étudie le problème en large et en travers avant de concevoir et avant de programmer
 
+> Tester, c'est douter
+> To test is to doubt
+
 > QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.
+>
 > — [Bill Sempf on Twitter: "QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv." / Twitter](https://web.archive.org/web/20200428073851/https://twitter.com/sempf/status/514473420277694465)
 
 > Orders 1.33333333 beers
@@ -570,6 +615,7 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 > Orders a ">.
 > Orders a DROP TABLE.
 > Orders a cerveza
+>
 > — Someone on post [Bill Sempf | On Testing](https://web.archive.org/web/20201108002410/https://www.sempf.net/post/On-Testing1)
 
 - [minimaxir/big-list-of-naughty-strings: The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.](https://github.com/minimaxir/big-list-of-naughty-strings)
@@ -705,20 +751,22 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 
 ## Source code organisation
 
-	/build (bin|export|dist) - a (pre-)compiled version of your library/app
-	/docs (documentation) - possibly in .md .html or .txt so no compiling is needed in order to read them
-		/{ISO 639-1 code} - if localized docs
-	/examples - demos of your library or sample files
-	/src (sources)
-		/data (assets|resources|res) - assets you need
-		/libs (vendor|libraries) - libraries you depend on
-		/in as many folders as needed - your own code
-		main entry file (e.g. main.cpp, index.html)
-	/tests - unit tests
-	/utils - utilities for building and stuff
-	LICENSE
-	README
-	.gitignore (or similar)
+```
+/build (bin|export|dist) - a (pre-)compiled version of your library/app
+/docs (documentation) - possibly in .md .html or .txt so no compiling is needed in order to read them
+	/{ISO 639-1 code} - if localized docs
+/examples - demos of your library or sample files
+/src (sources)
+	/data (assets|resources|res) - assets you need
+	/libs (vendor|libraries) - libraries you depend on
+	/in as many folders as needed - your own code
+	main entry file (e.g. main.cpp, index.html)
+/tests - unit tests
+/utils - utilities for building and stuff
+LICENSE
+README
+.gitignore (or similar)
+```
 
 - [Usable open source repositories | soledad penadés](http://soledadpenades.com/2013/04/07/usable-open-source-repositories/)
 - [directory structure - What is the difference between the "lib" and "vendor" folders? - Programmers Stack Exchange](http://programmers.stackexchange.com/questions/123305/what-is-the-difference-between-the-lib-and-vendor-folders)
@@ -1062,20 +1110,26 @@ Query languages
 
 ### Object and Procedural
 
-	object.method(param1);
+```
+object.method(param1);
+```
 
 Vs.
 
-	function(object, param1)
+```
+function(object, param1)
+```
 
 In ECMAScript, `function` have context:
 
-	var bindedFunction = object.function.bind(object);
-	bindedFunction(param1);
-	//eq.
-	object.function(param1);
-	//eq.
-	bindedFunction.call(object, param1);
+```js
+const bindedFunction = object.function.bind(object);
+bindedFunction(param1);
+//eq.
+object.function(param1);
+//eq.
+bindedFunction.call(object, param1);
+```
 
 - http://en.wikipedia.org/wiki/Programming_paradigm
 - https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/apply
@@ -1112,7 +1166,8 @@ String data could contains injection points or processing instructions
 > The most important role of unit tests in your code is to provide an executable specification of what the code is supposed to do. Even if the test code is wrong, or the code has bugs, the knowledge of what the system is supposed to do is priceless.
 
 > Unit testing forces you to feel the pain of bad design up front
-— Michael Feathers
+>
+> — Michael Feathers
 
 > Good unit tests share a lot of the following characteristics:
 >

@@ -22,21 +22,25 @@ Only Professional, Enterprise or Education version
 
 Windows XP, 2000
 
-	*\Thumbs.db
-	*\ehthumbs.db
-	*\ehthumbs_vista.db
+```
+*\Thumbs.db
+*\ehthumbs.db
+*\ehthumbs_vista.db
+```
 
 Windows XP Media Center Edition:
 
-	#%USERPROFILE%\Local Settings\Application Data\Microsoft\Ehome\Image.db
-	#%LOCALAPPDATA%\Microsoft\Ehome\Video.db
-	#%USERPROFILE%\Local Settings\Application Data\Microsoft\Ehome\Video.db
-	#%LOCALAPPDATA%\Microsoft\Ehome\musicThumbs.db
-	#%USERPROFILE%\Local Settings\Application Data\Microsoft\Ehome\musicThumbs.db
-	#%ALLUSERSPROFILE%\Microsoft\eHome\thmb\TVThumb.db
-	#%ALLUSERSPROFILE%\Application Data\Microsoft\eHome\thmb\TVThumb.db
-	#%LOCALAPPDATA%\VirtualStore\ProgramData\Microsoft\eHome\thmb\TVThumb.db
-	#%USERPROFILE%\Local Settings\Application Data\VirtualStore\ProgramData\Microsoft\eHome\thmb\TVThumb.db
+```
+#%USERPROFILE%\Local Settings\Application Data\Microsoft\Ehome\Image.db
+#%LOCALAPPDATA%\Microsoft\Ehome\Video.db
+#%USERPROFILE%\Local Settings\Application Data\Microsoft\Ehome\Video.db
+#%LOCALAPPDATA%\Microsoft\Ehome\musicThumbs.db
+#%USERPROFILE%\Local Settings\Application Data\Microsoft\Ehome\musicThumbs.db
+#%ALLUSERSPROFILE%\Microsoft\eHome\thmb\TVThumb.db
+#%ALLUSERSPROFILE%\Application Data\Microsoft\eHome\thmb\TVThumb.db
+#%LOCALAPPDATA%\VirtualStore\ProgramData\Microsoft\eHome\thmb\TVThumb.db
+#%USERPROFILE%\Local Settings\Application Data\VirtualStore\ProgramData\Microsoft\eHome\thmb\TVThumb.db
+```
 
 Windows Vista, 7, 8, 10:
 
@@ -110,24 +114,24 @@ Alternatively you can use also:
 	- [Git for Windows](https://gitforwindows.org/)
 	- [The difference between MINGW and MSYS2 · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/The-difference-between-MINGW-and-MSYS2)
 	- [What is Git Bash for Windows anyway? - Super User](https://superuser.com/questions/1053633/what-is-git-bash-for-windows-anyway/1053657#1053657)
-	
+
 	In `C:\Program Files\Git`:
 	> `/bin/bash.exe` refers to a redirector that sets up some environment variables and then hands off to `/usr/bin/bash.exe`. This redirector was only invented for backwards compatibility, but apparently is needed for eternity.
-	> 
+	>
 	> To sum it up: `/bin/bash.exe` is not the Bash, but relies on `/usr/bin/bash.exe` to do the hard lifting.
 	> [...]
 	> Use `git-bash.exe` and just use the mintty that comes with Git for Windows
 	> - [CTRL -C event is closing the ConsoleZ window instead of returning to a prompt · Issue #262 · cbucher/console](https://github.com/cbucher/console/issues/262#issuecomment-183875609)
-	
+
 	To start bash, in different terminal emulators (interactive shell):
-	
+
 	- [Mintty](https://github.com/mintty/mintty) (that comes with Git for Windows): `C:\Program Files\Git\git-bash.exe`. See [windows - How can I find out the command line options for git-bash.exe? - Super User](https://superuser.com/questions/1104567/how-can-i-find-out-the-command-line-options-for-git-bash-exe)
 		[CTRL + C & CTRL + V copy paste · Issue #602 · mintty/mintty](https://github.com/mintty/mintty/issues/602)
 	- Windows CMD: `C:\Windows\System32\cmd.exe /c "C:\Program Files\Git\usr\bin\bash.exe" --login -i`
 	- PowerShell: `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Set-Location -Path (Get-Location); & \"C:\\Program Files\\Git\\usr\\bin\\bash.exe\" --login -i"`
-	
+
 	See also:
-	
+
 	- `pacman -S <package-name>`, [Package management · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/Package-management)
 	- [batch file - How to start MingW Console (GitBash) from Command Line on Windows? - Stack Overflow](https://stackoverflow.com/questions/34252265/how-to-start-mingw-console-gitbash-from-command-line-on-windows)
 	- [windows 7 - Git: Open Git-Bash in specific directory - Super User](https://superuser.com/questions/1310814/git-open-git-bash-in-specific-directory)
@@ -346,3 +350,21 @@ Windows Registry Editor Version 5.00
 - [Use your Apple Keyboard in Windows with Boot Camp - Apple Support](https://support.apple.com/en-us/HT202676)
 - [Keyboard mappings using a PC keyboard on a Macintosh](https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh)
 - [Apple - Support - Downloads](https://support.apple.com/downloads/boot-camp)
+
+## Minimal Install
+
+Aka lightweight
+
+- [Download Windows 10 Disc Image (ISO File)](https://www.microsoft.com/en-us/software-download/windows10ISO) - You need a webbrowser on a non Windows OS (you can fake it with the browser dev tools)
+
+- [MSMG Toolkit](https://msmgtoolkit.in/) - Batch command script to install or remove components `(echo A & echo. & echo 1 & echo 3 & echo Y) | toolkit.cmd` `toolkit.cmd <answers.txt` https://stackoverflow.com/a/53421091/470117
+- [WinReducer ES Wim Converter - WINREDUCER.NET](https://www.winreducer.net/winreducer-es-wim-converter.html) - convert ESD file to WIM
+- [prclaunchky/Windows-10-Super-Minimal](https://github.com/prclaunchky/Windows-10-Super-Minimal)
+- [Sycnex/Windows10Debloater: Script to remove Windows 10 bloatware.](https://github.com/Sycnex/Windows10Debloater)
+- [Windows 10 Lite (Better Privacy) download | SourceForge.net](https://sourceforge.net/projects/windows-10-lite/)
+- [Setting up a Minimal Windows 10 Installation • Archives | Nico Verbruggen](https://web.archive.org/web/20200929053833/https://nicoverbruggen.be/archives/mindows-10)
+
+```
+dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /ScanHealth
+dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /StartComponentCleanup /ResetBase
+```

@@ -16,6 +16,7 @@ See also [Algorithms](../Algorithms/Algorithms.md#resources), [Easing](../Animat
 - [GraphFree Home](http://www.graphfree.com/)
 - ![ALEFReferenceCards Trigonometry   Side 1](ALEFReferenceCards-Trigonometry%20-%20Side%201.Jpg)
 - ![ALEFReferenceCards Trigonometry   Side 2](ALEFReferenceCards-Trigonometry%20-%20Side%202.Jpg)
+- [BiVector.net: Geometric Algebra Resources](https://bivector.net/)
 
 ## Imaginary Number
 
@@ -64,7 +65,7 @@ public static function atan2(y:Number, x:Number):Number {
 - [Matrix Multiplication](http://matrixmultiplication.xyz/)
 - [A Programmer’s Intuition for Matrix Multiplication – BetterExplained](https://betterexplained.com/articles/matrix-multiplication/)
 - [CleVR Actionscript 3 Library](https://github.com/ascorbic/clevrlib) - This library provides some classes for linear algebra. It's ported from the NIST's JAMA Java Matrix library
-- [JAMA: Java Matrix Package](http://math.nist.gov/javanumerics/jama/) - 
+- [JAMA: Java Matrix Package](http://math.nist.gov/javanumerics/jama/) -
 
 ## Pythagorean Theorem
 

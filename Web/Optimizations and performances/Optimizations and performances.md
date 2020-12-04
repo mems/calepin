@@ -9,13 +9,13 @@ Aka WebPerfs, Web Perf
 Loading, parsing, rendering, etc.
 
 > We don't want humans waiting on computers. We want computers waiting on humans.
-> 
+>
 > — Gregory Szorc
 
 > Monitoring is your bank telling you you're overdrawn.
-> 
+>
 > Observability is the ability to tell you're running out of money because you're spending too much money on chocolates, cakes and sweets because you've recorded data on what you spent your money on throughout the month.
-> 
+>
 > — [Liz Fong-Jones (方禮真) sur Twitter : "Monitoring is your bank telling you you're overdrawn. Observability is the ability to tell you're running out of money because you're spending too much money on chocolates, cakes and sweets because you've recorded data on what you spent your money on throughout the month. https://t.co/kQcvlUWqqV" / Twitter](https://twitter.com/lizthegrey/status/1230979460708499456?s=12)
 
 - [The Impact of Web Performance | Simplified.](https://simplified.dev/performance/impact-of-web-performance)
@@ -87,7 +87,7 @@ Tools (audit, checklist, benchmark, best practices, etc.):
 ## Reduce bytes
 
 > http://www.haratetsuo.com/wp-content/themes/haratetsuo2018_cms_v2/images/ico/arrow.svg
-> The 30MB SVG image is a simple arrow! It's served uncompressed (gzipped would be 24MB and brotli would be 3.8MB). It contains 82 base64 encoded JPG images (one per image size). There are only 10 unique base64 images encoded in the file, so a lot of repetition...  
+> The 30MB SVG image is a simple arrow! It's served uncompressed (gzipped would be 24MB and brotli would be 3.8MB). It contains 82 base64 encoded JPG images (one per image size). There are only 10 unique base64 images encoded in the file, so a lot of repetition...
 > [Paul Calvano on Twitter: "Exactly! The 30MB SVG image is a simple arrow!… https://t.co/ci2hz7WpLI"](https://twitter.com/paulcalvano/status/1164466648260198400)
 
 > The fastest byte is a byte not sent.
@@ -112,33 +112,33 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	- optimize/reduce without require reverse operation
 	- remove unessary data (duplicates, unused tags, selectors)
 	- merge/round similar data, reduce precision (`0.2345` -> `.23`)
-	
+
 	- http://cssstats.com/
 	- https://isellsoap.github.io/specificity-visualizer/
 - compact/compress (require processing to recover operable state): pre-gzip. See [Precompress](#precompress) and [Content encoding`](#content-encoding)
 - use different compression algorithm, or a better tool/algorithm implementation (like zopfli for deflate)
 	- [Guetzli](https://github.com/google/guetzli/) can be use in conjunction of tools like [ImageOptim](https://imageoptim.com/)
 	- brotli (vs gzip)
-	
+
 	Note some framework read the `zlib.output_compression` value to define the header `Content-Encoding` to gzip (set `zlib.output_compression = Off` in `php.ini`)
-	
+
 	Example: compress CSS with optimized dictionary based alogrithms (like gzip use huffman tables): blocks, selectors, media queries, properties, values. See [Compression & Minification](CSS#Compression & Minification)
-	
+
 	- [Optimising GIFs for the Web](https://bitsofco.de/optimising-gifs/) - use `gifsicle -O3 --lossy=80 -o compressed.gif original.gif`
 - split commbined HTTP headers values: to use HPACK (HTTP/2.0)
 	Instead of:
-	
+
 	```http
 	set-cookie: key1=value1; key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
 	```
-	
+
 	Use:
-	
+
 	```http
 	set-cookie: key1=value1; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
 	set-cookie: key2=value2; domain=.example.com; expires=Fri, 21-Dec-2018 22:15:42 GMT; path=/
 	```
-	
+
 	- [mnot’s blog: Designing Headers for HTTP Compression](https://www.mnot.net/blog/2018/11/27/header_compression)
 	- [Headers](#headers)
 	- [Header compression](#header-compression)
@@ -148,14 +148,14 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	- transparent video: WebM or side by side channels (RGB + A as RGB) videos. See [Alpha](Video#Alpha)
 	- transparent image: instead of PNG use WebP (or JPEG-XR) or combined formats. See [Alpha compression](Image#Alpha compression)
 	- animated image: use APNG or Animated WebP or looped video instead of GIF
-	
+
 		```html
 		<video autoplay loop muted playsinline poster="original.jpg">
 			<source type="video/webm" src="original.webm">
 			<img src="original.gif">
 		</video>
 		```
-		
+
 		See [Animated image](Image#Animated image). See also [Image sequence](#image-sequence)
 	- Use a video with only 1 frame as image (ex: WebP), could done with H.264/H.265, see [Use video codec](Image#Use video codec)
 	- Use code/lib to animate elements instead of video or sprites: https://github.com/bodymovin/bodymovin
@@ -177,9 +177,9 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 		- [Video - Compression and optimisation](Video#Compression and optimisation)
 		- [compression by upscaling](Formats and protocols/Images#Compression by upscaling) technique
 		- [ImageOptim](https://imageoptim.com/)
-	
+
 		Use other (experimental) formats like [BPG](BPG) or [FLIF](FLIF)
-	
+
 		To investigate: store vector using SWF, decompress on the fly (to SVG) with ServiceWorker; decompress biJPEG to PNG or webp with OfflineCanvas
 	- use the right dimensions (ex.: thumbnails)
 - 3D models:
@@ -194,7 +194,7 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	- create WOFF files from OpenType/CFF font (instead of TrueType) (OpenType/CFF use cubic Bézier vs quadratic Bézier for TrueType)
 	- use only subset. use `pyftsubset` from [fonttools](https://github.com/fonttools/fonttools) (a library to manipulate font files from Python). Be carefull when set this parameter, with content changes or languages could invalidate it.
 	- reduce the `unitsPerEm` to 256 (usally 1000 or 2048). This use a byte (8 bits) instead of a short (16 bits) to store coordinates. Reduce precision, but for regular text, the difference is invisible.
-	
+
 	- [Saving the internet 2000 terabytes a day: fixing Font Awesome's fonts – Pixelambacht](https://pixelambacht.nl/2016/font-awesome-fixed/)
 	- [The Typekit Blog | The Benefits Of OpenType/CFF Over TrueType](https://blog.typekit.com/2010/12/02/the-benefits-of-opentypecff-over-truetype/)
 	- [The Glyph Data Table](https://www.microsoft.com/typography/OTSPEC/glyf.htm)
@@ -271,8 +271,8 @@ Congestion window: initial cwnd size is 10; 14.6KB = 10 packets of 1460 Bytes.
 Use Keep-Alive connection (more useful for HTTP/1.X connection than HTTP/2):
 
 ```apache
-<IfModule mod_headers.c> 
-	Header set Connection keep-alive 
+<IfModule mod_headers.c>
+	Header set Connection keep-alive
 </IfModule>
 ```
 
@@ -356,7 +356,7 @@ With nginx [`ngx_http_gzip_static_module`](https://nginx.org/en/docs/http/ngx_ht
 > - Sending `Content-Type: application/x-gzip` instead of the underlying type.
 > - Sending double-gzipped content due to forgetting to set `no-gzip` in the environment to exclude the response from `mod_deflate`.
 > - Not respecting client preferences (i.e. quality values/qvalues). According to [RFC 7231](https://tools.ietf.org/html/rfc7231#section-5.3.4) (and [RFC 2616](https://tools.ietf.org/html/rfc2616#section-14.3) before it) clients can send a numeric value between 0 and 1 (inclusive) to express their relative preference for each encoding. An `Accept-Encoding: gzip;q=0` header would signify that the client wants “anything but gzip”. Most `mod_rewrite` implementations would send them gzip. A more realistic example would be a client that sends `Accept-Encoding: br;q=1, gzip;q=0.5, deflate;q=0.1` to signify that they prefer Brotli, then gzip, then deflate. Writing `mod_rewrite` rules which properly handle these sorts of expressed preferences is extremely difficult.
-> 
+>
 > - [Serving Pre-Compressed Files with Apache MultiViews - Kevin Locke's Homepage](https://web.archive.org/web/20200829235117/https://kevinlocke.name/bits/2016/01/20/serving-pre-compressed-files-with-apache-multiviews/#non-multiviews-methods)
 
 - Serving pre-compressed content [mod_deflate - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/current/en/mod/mod_deflate.html#precompressed)
@@ -447,7 +447,7 @@ The major drawback, [only requests for files which do not exist are negotiated](
 		<IfModule mod_brotli.c>
 			Options +MultiViews
 			RewriteEngine On
-			
+
 			# Note: BR is a RFC 3066 language
 			RemoveLanguage br
 			AddEncoding br br
@@ -546,7 +546,7 @@ Use forever cache (cache immutable) for static resources.
 
 max-age or expires headers, `Header append Cache-Control "public"`, `Header append Cache-Control "immutable"` avoid check of 304s
 
-`.htaccess`: 
+`.htaccess`:
 
 ```apache
  Requires mod_expires to be enabled.
@@ -868,9 +868,9 @@ Use [`loading="lazy"` attribute](https://developer.mozilla.org/en-US/docs/Web/Pe
 1. placeholder shouldn't be visible if script is not available (inlined CSS hide the placeholder)
 2. placeholder should have `role="img"` and `aria-label` set with image `alt` (will be set by the JS)
 3. should works with complex image content (eg. `<figure>`)
-	
+
 TODO: support all replaced elements: video, audio and iframe. Use a weakmap or additional property to store the replacement fragment (parse noscript HTML only one time)
- 
+
  ```html
 <style>
 .img,
@@ -994,9 +994,9 @@ Or partial load
 	[The technology behind preview photos | Engineering Blog | Facebook Code](https://code.facebook.com/posts/991252547593574/the-technology-behind-preview-photos/)
 - progressive JPEG and interlaced PNG: [Introduction to PNG - nuwen.net](http://nuwen.net/png.html) & [Progressive Image Rendering](http://blog.codinghorror.com/progressive-image-rendering/).
 	But can make file larger: [png - When to interlace an image? - Stack Overflow](https://stackoverflow.com/questions/13449314/when-to-interlace-an-image/14124340#14124340)
-	
+
 	Benefit of HTTP2 multiplexing and progressive image to speed up first paint sooner
-	
+
 	See also [JPEG - Progressive](JPEG#Progressive) (scan config and number of it can be tweak)
 
 For images (works better with progressive images), in Edge Workers (Service Workers for CDN):
@@ -1086,15 +1086,15 @@ Example: the hero image
 		- https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/09/blocking-bold@2x-1.png
 		- tips: move the script before blocking stylesheet if no need of CSSOM (often the case)
 - readystatechange event (readyState = "interactive")
-	
+
 	- [readystatechange - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/readystatechange)
 - readystatechange event (readyState = "complete")
-	
+
 	- [readystatechange - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/readystatechange)
 - DOM Content Loaded event
 	- fired after defer scripts are executed if any, else after HTML parser complete
 	- fired after the transition to "interactive" but before the transition to "complete" of document readyState
-	
+
 	- [HTML Standard](https://html.spec.whatwg.org/#event-domcontentloaded)
 	- [DOMContentLoaded - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded)
 	- [HTML Standard](https://html.spec.whatwg.org/#dom-document-readystate-dev)
@@ -1103,7 +1103,7 @@ Example: the hero image
 - load event / fully loaded
 	- after DOMContentLoaded event execution
 	- fired when the document has finished loading
-	
+
 	- [HTML Standard](https://html.spec.whatwg.org/#event-load)
 	- [load - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/load)
 - background image
@@ -1146,7 +1146,7 @@ Example: the hero image
 	- use fallback font (default serif)
 		- [font-family - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#Values)
 		- [Fundamental text and font styling - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts)
-		
+
 	- [font-display - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display)
 	- [Font-display playground](https://font-display.glitch.me/)
 	- [`font-display` for the Masses | CSS-Tricks](https://css-tricks.com/font-display-masses/)
@@ -1158,9 +1158,9 @@ Example: the hero image
 - Time to First Paint (TTFP / FP) - The time when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint.
 	- when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint and the enclosing box of an iframe.
 	- [Time to First Meaningful Paint: a layout-based approach - Google Docs](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/edit)
-	
+
 	Heuristic/guess are used when "meaningful" was (the paint after the largest layout change). See also LCP.
-	
+
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-paint)
 - Time to First Contentful Paint (TTFCP / FCP) - When the browser first rendered any text, image (including background images), non-white canvas or SVG. Text and graphics start to render (but often catches non-leaningful paints, e.g. headers, nav bars)
 	- when the browser first rendered any text, image (including background images), non-white canvas or SVG. This excludes any content of iframes, but includes text with pending webfonts
@@ -1168,19 +1168,19 @@ Example: the hero image
 
 	- [Paint Timing 1](https://w3c.github.io/paint-timing/#first-contentful-paint)
 - Largest Contentful Paint (LCP) - when the main content of a web page has loaded
-	
+
 	- [Largest Contentful Paint  |  web.dev](https://web.dev/largest-contentful-paint/)
 - First Input Delay (FID)
 	First Click (Click Interaction Time), First scroll (Scroll Interaction Time), First Key (Key Interacton Time)
 	- based on users interaction, based on RUM
 - FCI (First CPU Idle) / TFI (Time to First Interactive) - Page is minimally interactive, most visible UI elements are interactive, repsonds to user input reasonably quickly
-	
+
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
 - Time to interactive (TTI) / Time to Consistently Interactive (TCI) - when the page is first expected to be usable and will respond to input quickly
 	It is the first span of 5 seconds where the browser main thread is never blocked for more than 50ms after First Contentful Paint with no more than 2 in-flight requests
 	Displays useful content, event handlers are registered for most visible elements, page responds to user interaction within 50ms
 	- fired when page's resources are loaded (load event) and the main thread is idle (for at least 5 seconds)
-	
+
 	- [webpagetest/TimeToInteractive.md at master · WPO-Foundation/webpagetest](https://github.com/WPO-Foundation/webpagetest/blob/master/docs/Metrics/TimeToInteractive.md)
 	- [First Input Delay  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/05/first-input-delay)
 	- [GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay)
@@ -1189,7 +1189,7 @@ Example: the hero image
 - Visual Complete - first time when the visual progress reaches 100%
 
 Composite metric examples (based on what the user care about):
-	
+
 - Pinterest use Pinner Wait Time (PWT)
 	- [Get Down to Business: Why the Web Matters (Chrome Dev Summit 2018) - YouTube](https://www.youtube.com/watch?v=Xryhxi45Q5M&t=1214)
 	- "For us, that’s images. Until the above-the-fold images are loaded, to our users, page load is not complete."
@@ -1374,6 +1374,7 @@ if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
 - [Deep dive into the murky waters of script loading - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/script-loading/)
 - [Faster Pageloads: Effectively using HTTP Caching, Cache Busting, and a CDN - FoxyCart](http://www.foxycart.com/blog/caching-and-cdn#.VPZa0xfHNE4)
 - [Your Hero Images Need You: Save the Day with HTTP/2 Image Loading - YouTube](https://www.youtube.com/watch?v=66JINbkBYqw)
+- Some [link tag are "body-ok"](https://html.spec.whatwg.org/multipage/links.html#body-ok) (aka allowed in the body, not only in the head)
 
 #### Blocking resources
 
@@ -1474,7 +1475,7 @@ Aka client timing
 
 See JavaScript [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance) (ex: `window.performance.getEntriesByType("resource")`) and `navigator.sendBeacon()`
 
-![HTTPS ClientTimings](https://nickcraver.com/blog/content/HTTPS-ClientTimings.png) — From [Nick Craver - HTTPS on Stack Overflow: The End of a Long Road](https://nickcraver.com/blog/2017/05/22/https-on-stack-overflow/#preparing-for-a-proxy-client-timings) 
+![HTTPS ClientTimings](https://nickcraver.com/blog/content/HTTPS-ClientTimings.png) — From [Nick Craver - HTTPS on Stack Overflow: The End of a Long Road](https://nickcraver.com/blog/2017/05/22/https-on-stack-overflow/#preparing-for-a-proxy-client-timings)
 
 - [SpeedCurve | Synthetic: WebPageTest](https://speedcurve.com/features/synthetic/)
 

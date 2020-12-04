@@ -257,7 +257,7 @@ Create LCB XML version
 4. Import as HSBC
 5. Compare with `diff import_CA.xml import_HSBC.xml` (not unified)
 6. Replace patch content and list:
-	
+
     ```
 	/([0-9a-f,]+\n<\s*<date[^<].*\n---\n>\s*<date.*)/g
 	$1\n
@@ -361,9 +361,9 @@ Note: Version 3 can show an error but works. "Direct" not work
 		<echo>Revision: ${revision}</echo>
 	</target>
     ```
-	
+
 	to (number of https://github.com/filebot/filebot commits)
-	
+
     ```xml
 	<target name="revision" depends="init">
 		<echo>Revision: 4498</echo>
@@ -506,7 +506,7 @@ document.addEventListener("paste", function(event) {
 Settings > Appearance & Behavior > Scopes
 
 `file[group:Libraries]:*/||file[Fnaccom-18.1-FR-BE-CH]:*/`
-	
+
 ### Subprojects
 
 Aka modules, WebStorm
@@ -544,7 +544,7 @@ Will open add a module line in the root project .idea/modules.xml:
 	</component>
 </project>
 ```
-	
+
 You can use a subproject folder with the attribute `group` (can contains `/` for multiple subfolder)
 
 Modules order can't be changed: [How to order modules in intellij-idea? - Stack Overflow](https://stackoverflow.com/questions/31245847/how-to-order-modules-in-intellij-idea)
@@ -584,10 +584,17 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Proces
 
 ## Adobe
 
+- install the app from Adobe Creative Cloud app "try", but do not open it untill Adobe Zii patch applied
 - [Download Adobe Creative Cloud apps | Free Adobe Creative Cloud trial](https://www.adobe.com/creativecloud/desktop-app.html)
-- [Adobe Zii Universal Patcher – Adobe Zii](https://www.adobezii.com/universal-patcher/)
+- [Adobe Zii Universal Patcher – Adobe Zii](https://www.adobezii.com/universal-patcher/) - [Adobe Zii](https://www.reddit.com/r/AdobeZii/)
 - [CCMaker Download Version 1.3.7 For Windows & Mac \[2020\]](https://official-ccmaker.com/)
-- `sudo xattr -cr "MyApp.app"`
+- `sudo xattr -cr "MyApp.app"` (remove quarantie attribute)
+
+For Adobe Lightroom Classic 10.0:
+
+- Adobe Lightroom Classic 10.0 [202010011851-ef6045e0] + Adobe Zii 2021 6.0.1 (need the account to be logged in) no need to block any network connection
+- [Lightroom Classic v10.0 Download Link : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/jyj7vz/lightroom_classic_v100_download_link/)
+- [Another Solution for Lightroom v10 : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/jvz8ru/another_solution_for_lightroom_v10/)
 
 ### Offline packages
 
@@ -602,6 +609,169 @@ Find packageset "ADC", package "HDBox", and concat manifestUrl with https://ccmd
 curl -H 'x-api-key: CreativeCloud_v5_0' -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: accc-hdcore-desktop' 'https://ccmdls.adobe.com/AdobeProducts/KCCC/1/osx10/packages/ACCC_5_1_0_HDBox_407/manifest.xml'
 download the url manifest/asset_list/asset[0]/asset_path
 read it as zip, insde /packages/HDBox/HDBox.pima, read it as zip, inside you find all tools
+```
+
+```sh
+#!/bin/bash
+
+# Based on https://gist.github.com/ayyybe/a5f01c6f40020f9a7bc4939beeb2df1d
+
+#python3 -m pip install --target="$(pwd)" requests
+#export PYTHONPATH=$PYTHONPATH:$(pwd)
+
+#curl https://gist.githubusercontent.com/ayyybe/a5f01c6f40020f9a7bc4939beeb2df1d/raw/ccdl.py -o "ccdl.py"
+#chmod +x "ccdl.py"
+
+#Edit ccdl.py
+#remove part with `if (not os.path.isfile('/Library/Application Support/Adobe/Adobe Desktop Common/HDBox/Setup')):`
+#edit part with /Library/Application Support/Adobe/Adobe Desktop Common/HDBox
+
+#python3 ccdl.py
+
+
+PRODUCTS_DIR=Contents/Resources/products
+
+# changes ? https://helpx.adobe.com/after-effects/kb/fixed-issues.html
+
+
+#usage() {
+#  if [ -n "$1" ]; then
+#    echo -e "${RED}$1${CLEAR}\n";
+#  fi
+#
+#  echo "Usage: $0 -b TFS_BRANCH -d TFS_DOMAIN -u TFS_USERNAME -p TFS_PASSWORD -v NPM_PACKAGE_VERSION -w TFS_WORKSPACE APPLICATION
+#"
+#  echo "  -b    TFS branch"
+#  echo "  -d    TFS domain"
+#  echo "  -u    TFS user"
+#  echo "  -p    TFS password"
+#  echo "  -v    NPM package version"
+#  echo "  -w    TFS workspace name"
+#  echo ""
+#  echo "Example: $0 -d FNAC -u username -p password -v 0.0.0-develop -w my-workspace orderpipe"
+#  exit 1
+#}
+#
+#
+#npm_install() {
+#  local PACKAGE_NAME=$1
+#  local PACKAGE_VERSION=$2
+#
+#  log "Running 'npm install'..."
+#
+#  npm install "$PACKAGE_NAME@$PACKAGE_VERSION" \
+#    --save-exact \
+#    --ignore-scripts \
+#    --no-audit
+#}
+#
+## Start parsing options
+#while getopts "h?a:b:d:u:p:v:w:" opt; do
+#  case "$opt" in
+#    h|\?)   usage ;;
+#    a)      ACTION=$OPTARG ;;
+#    b)      TFS_BRANCH=$OPTARG ;;
+#    d)      TFS_DOMAIN=$OPTARG ;;
+#    u)      TFS_USERNAME=$OPTARG ;;
+#    p)      TFS_PASSWORD=$OPTARG ;;
+#    v)      NPM_PACKAGE_VERSION=$OPTARG ;;
+#    w)      TFS_WORKSPACE=$OPTARG ;;
+#  esac
+#done
+
+
+
+DST_DIR=
+HDBOX_DIR=HDBox
+HDBOX_TMP_DIR=hdbox-tmp
+
+# Get HDBox:
+#mkdir -p HDBox
+# Get HDBox package infos of Creative cloud
+# exact xpath: /applications/application[name="CreativeCloud" and plaform="osx10"]/packageSets/packageSet[name="ADC"]/packages/package[name="HDBox" and platform="osx10"]/manifestUrl
+#https://stackoverflow.com/questions/15461737/how-to-execute-xpath-one-liners-from-shell
+HDBOX_MANIFEST_PATH=$(curl -s "https://cdn-ffc.oobesaas.adobe.com/core/v1/applications?name=CreativeCloud&name=KCCC" | xmllint --xpath '//package[name="HDBox" and platform="osx10"]/manifestUrl[1]/text()' -)
+# Get package asset location
+# exact xpath: /manifest/asset_list/asset[0]/asset_path
+HDBOX_PKG=$(curl -s -H 'x-api-key: CreativeCloud_v5_0' -H 'User-Agent: Creative Cloud' -H 'x-adobe-app-id: accc-hdcore-desktop' "https://ccmdls.adobe.com$HDBOX_MANIFEST_PATH" | xmllint --xpath '//asset_path[1]/text()' -)
+# Extract package
+mkdir -p "$HDBOX_TMP_DIR" "$HDBOX_DIR"
+curl -s "$HDBOX_PKG" > "$HDBOX_TMP_DIR/hdbox.zip"
+unzip -qqo "$HDBOX_TMP_DIR/hdbox.zip" "packages/HDBox/HDBox.pima" -d "$HDBOX_TMP_DIR"
+unzip -qqo "$HDBOX_TMP_DIR/packages/HDBox/HDBox.pima" -d "$HDBOX_DIR"
+rm -rf "$HDBOX_TMP_DIR"
+
+# find the matching product (SAP_CODE, VERSION, NAME)
+
+# get product dependencies (SAP_CODE, VERSION)
+
+# loop dependencies (driver xml, curl config)
+# https://stackoverflow.com/questions/34555278/bash-read-a-looping-on-null-delimited-string-variable/34557041#34557041
+# https://stackoverflow.com/questions/8677546/reading-null-delimited-strings-through-a-bash-loop
+# https://stackoverflow.com/questions/11426529/reading-output-of-a-command-into-an-array-in-bash/32931403#32931403
+
+# download files from config file with curl https://curl.haxx.se/docs/manpage.html#-K
+
+
+$NAME=product['displayName']
+$SAP_CODE=prodInfo['sapCode'],
+$VERSION=prodInfo['version'],
+$LANGUAGE = installLanguag
+
+read -r -d '' CURL_CONFIG << EOF
+# Download core ${SAP_CODE} ${VERSION}
+url = "example.com"
+output = "file.ext"
+user-agent = "superagent/1.0"
+EOF
+
+for ((i=0; i<$COUNT; i++))
+do
+	SAP_CODE=
+	VERSION=
+	read -r -d '' DEPENDENCIES_XML << EOF
+${DEPENDENCIES_XML}
+			<Dependency>
+				<SAPCode>$SAP_CODE</SAPCode>
+				<BaseVersion>$VERSION</BaseVersion>
+				<EsdDirectory>./$SAP_CODE</EsdDirectory>
+			</Dependency>
+EOF
+	read -r -d '' CURL_CONFIG << EOF
+${CURL_CONFIG}
+# Download dependency ${SAP_CODE} ${VERSION}
+url = "example.com"
+output = "file.ext"
+user-agent = "superagent/1.0"
+EOF
+done
+
+cat > $PRODUCTS_DIR/driver.xml << EOF
+<DriverInfo>
+	<ProductInfo>
+		<Name>Adobe $NAME</Name>
+		<SAPCode>$SAP_CODE</SAPCode>
+		<CodexVersion>$VERSION</CodexVersion>
+		<Platform>osx10-64</Platform>
+		<EsdDirectory>./$SAP_CODE</EsdDirectory>
+		<Dependencies>$DEPENDENCIES_XML
+		</Dependencies>
+	</ProductInfo>
+	<RequestInfo>
+		<InstallDir>/Applications</InstallDir>
+		<InstallLanguage>$LANGUAGE</InstallLanguage>
+	</RequestInfo>
+</DriverInfo>
+EOF
+
+
+APP_BUNDLE_NAME="Install $NAME $VERSION.app"
+APP_BUNDLE_DIR="$DST_DIR/$APP_BUNDLE_NAME"
+cp "HDBox/Install.app/Contents/Resources/app.icns" "$APP_BUNDLE_DIR/Contents/Resources/applet.icns"
+
+# after install and before apply patch
+# see https://www.adobezii.com/adobezii-damaged/
+sudo xattr -rd com.apple.quarantine /Applications/AppName.app
 ```
 
 ```js
@@ -657,7 +827,7 @@ async function search({sapCode, version, type = "Desktop", platformID}){
             if(productEntry.id !== sapCode){
                 continue;
             }
-        
+
             for(const platformEntry of productEntry.platforms.platform){
                 // -> platformEntry.id === platformID
                 for(const applicationEntry of platformEntry.languageSet){
@@ -666,7 +836,7 @@ async function search({sapCode, version, type = "Desktop", platformID}){
                     if(productVersion !== version){
                         continue;
                     }
-                
+
                     product = productEntry;
                     platform = platformEntry;
                     application = applicationEntry;
@@ -813,13 +983,13 @@ Open PSD to get vectors (shapes and masks):
 	3. change resolution to 72dpi
 	4. restore previous values of pixel dimensions
 	5. now only document size width and height should changes
-	
+
 	Or (in Illustrator):
-	
+
 	Scale all imported elements as 300/72 ~= 416.666667%
 
 	It's related to import as 300 dpi instead of 72 dpi
-	
+
 #### Scripts
 
 - [Ajar Productions » Announcing Merge Text Extension for Adobe Illustrator](https://ajarproductions.com/blog/2008/11/23/merge-text-extension-for-illustrator/)
@@ -1027,7 +1197,7 @@ ffmpeg -f concat -safe 0 -i <(find $PWD -type f -iname *.mp4 -printf "file '%h/%
 
 Pixel shader for channels [`fx`](http://www.imagemagick.org/script/fx.php), column (`i`) and row (`j`) are zero based.
 
-Multiple files: 
+Multiple files:
 
 Use `mogrify` or `find ./ -iname "tile_*.png" -exec bash -c 'filename="$1";echo "${filename%.*}"' _ {} \;`
 
@@ -1332,7 +1502,7 @@ port dependents <portname>
 ```
 
 ```sh
-# See https://trac.macports.org/wiki/FAQ#alldependencies	
+# See https://trac.macports.org/wiki/FAQ#alldependencies
 port rdeps <portname>
 ```
 
@@ -1552,7 +1722,7 @@ See also `sources.xml`. See also [Store passwords](#store-passwords)
 - Refreshing the library [Set content and scan - Official Kodi Wiki](http://kodi.wiki/view/Set_content_and_scan#Refreshing_the_library)
 - Example of config files [XBMC/Kodi – Einrichtung der Medienquellen über Kommandozeile – www.it-system.info](http://www.it-system.info/xbmc-kodi-einrichtung-der-medienquellen-ueber-kommandozeile/)
 
-On Android: 
+On Android:
 
 `$SYSTEMDATA` should be something like `/storage/emulated/0/Android/data/org.xmbc.kodi/files/.kodi`. See [System data - Official Kodi Wiki](http://kodi.wiki/view/Systemdata)
 `$USERDATA` should be something like `$SYSTEMDATA/userdata`. See [Userdata - Official Kodi Wiki](http://kodi.wiki/view/userdata)
