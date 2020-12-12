@@ -74,6 +74,23 @@ Add conditional breakpoint to inject code to execute: `console.log("here")` (`lo
 
 Or use in Chrome devtools: Sources tab > Event Listener Breakpoints > Script > Script First Statement
 
+```js
+Object.defineProperties(window, {
+	scroll: {value: console.trace},
+	scrollTo: {value: console.trace},
+	scrollBy: {value: console.trace},
+	scrollY: {set: console.trace, get: () => 55},
+	scrollX: {set: console.trace, get: () => 55}
+});
+Object.defineProperties(document.scrollingElement, {
+	scroll: {value: console.trace},
+	scrollTo: {value: console.trace},
+	scrollBy: {value: console.trace},
+	scrollTop: {set: console.trace, get: () => 55},
+	scrollLeft: {set: console.trace, get: () => 55}
+});
+```
+
 - [Set a conditional breakpoint - Firefox Developer Tools | MDN](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_conditional_breakpoint)
 - [Fixing memory leaks in web applications | Read the Tea Leaves](https://nolanlawson.com/2020/02/19/fixing-memory-leaks-in-web-applications/)
 
@@ -106,6 +123,7 @@ Some libraries:
 - [kornelski/slip: Slip.js — UI library for manipulating lists via swipe and drag gestures](https://github.com/kornelski/slip)
 - [cure53/DOMPurify: DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify works with a secure default, but offers a lot of configurability and hooks. Demo:](https://github.com/cure53/DOMPurify) - Remove "dirty" HTML, filter out tags and attributes
 - [FFMPEG.WASM](https://ffmpegwasm.github.io/) - "ffmpeg.wasm is a pure WebAssembly / JavaScript port of FFmpeg. It enables video & audio record, convert and stream right inside browsers."
+- [TrevorSundberg/h264-mp4-encoder: H264 encoder + MP4 output for the web](https://github.com/TrevorSundberg/h264-mp4-encoder)
 
 ### Choose and use libraries
 

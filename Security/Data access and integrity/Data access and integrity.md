@@ -5,16 +5,16 @@
 Against attacks, read/write access or modifications
 
 - [Public-key cryptography — Wikipedia](https://en.wikipedia.org/wiki/Public-key_cryptography)
-- [RSA \(cryptosystem\) — Wikipedia](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
+- [RSA (cryptosystem) - Wikipedia](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29)
 - [Portail:Cryptologie — Wikipédia](https://fr.wikipedia.org/wiki/Portail:Cryptologie)
 - [Portail:Sécurité informatique — Wikipédia](https://fr.wikipedia.org/wiki/Portail:S%C3%A9curit%C3%A9_informatique)
 - [59Hardware - Dossier : La cryptographie](http://wayback.archive.org/web/20090227061422/http://59hardware.net/Tests/Jeux_Videos_et_Logiciels/Dossier_:_La_cryptographie.html)
 
 ## Password storage
 
-Aka authentication data storage
+Aka authentication data storage, secret storage
 
-See [Password](#password)
+See [Password](../Authentication.md#password)
 
 Use [bcrypt](http://en.wikipedia.org/wiki/Bcrypt) or a better one: https://github.com/p-h-c/phc-winner-argon2
 
@@ -100,7 +100,7 @@ ssh-keygen -t rsa -b 4096 -C "$user" -f "~/.ssh/${user}@${hostname}_key" -N "" -
 
 You can also use a SFTP batch file (`-d`) and all similar mecanisms
 
-- [Password-less login](#password-less-login)
+- [Password-less login](../Authentication.md#password-less-login)
 - SSH: use `ssh-keygen` (see `ssh-copy-id`) `ssh-keygen -t rsa -f keyfile -N ""` (create keyfile without passphrase)
 - [BashFAQ/069 - Greg's Wiki](http://mywiki.wooledge.org/BashFAQ/069) - "I want to automate an ssh (or scp, or sftp) connection, but I don't know how to send the password...."
 - [how to pass a password with a cron job safely? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/176747/how-to-pass-a-password-with-a-cron-job-safely)
@@ -865,10 +865,10 @@ For HTML, use:
 - use `SameSite=Strict` cookies
 
 - add a timestamp (use it also to create the "nonce") and check the diff time (depends how much input number is), a user require a minimum of few seconds
-- Other prevention techniques [Cross-site request forgery — Wikipedia](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Prevention)
 - use a [nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) (see Wordpress `wp_create_nonce()`) field to protect against CSRF (Cross-Site Request Forgery)
 - [Cookies for Comments — WordPress Plugins](https://wordpress.org/plugins/cookies-for-comments/)
 - (require cookies) add unique image/js/css resource (`<script src="script.php?UNIQ_ID"></script>`), when this resource is called add a cookie. When the form is POST, check if the cookie exist
+- other prevention techniques: [Cross-site request forgery — Wikipedia](https://en.wikipedia.org/wiki/Cross-site_request_forgery#Prevention)
 
 About XSS and service workers:
 
@@ -1317,6 +1317,8 @@ Even if the timeframe is not supported, you can add delay after the action by us
 - [clipboardData object (Internet Explorer)](https://msdn.microsoft.com/en-us/library/ms535220%28v=vs.85%29.aspx) https://developer.microsoft.com/en-us/microsoft-edge/platform/status/clipboardapi/ https://connect.microsoft.com/IE/feedback/details/1572456/edge-clipboard-api-text-html-content-messed-up-in-event-clipboarddata
 
 ### Tabnabbing and Address Bar Spoofing
+
+Aka tab nabbing
 
 Link and `target="_blank"` or `window.open()`
 

@@ -756,6 +756,10 @@ But may not support this.
 - [Shifting from SPDY to HTTP/2 | StackPath Blog](https://blog.stackpath.com/spdy-to-http2)
 - [What is HTTP/2 - The Ultimate Guide by Kinsta](https://kinsta.com/learn/what-is-http2/)
 
+### HTTP/3
+
+- [Web Performance Calendar » Head-of-Line Blocking in QUIC and HTTP/3: The Details](https://web.archive.org/web/20201208205628/https://calendar.perfplanet.com/2020/head-of-line-blocking-in-quic-and-http-3-the-details/)
+
 ## URI/URL
 
 URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org/html/rfc6570)
@@ -1255,8 +1259,9 @@ Hypermedia
 - [Rest api - Redmine](http://www.redmine.org/projects/redmine/wiki/Rest_api)
 - [Developers - REST API Reference - Thingiverse](http://www.thingiverse.com/developers/rest-api-reference)
 - [DELETE Object - Amazon Simple Storage Service](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectDELETE.html)
-- https://github.com/WhiteHouse/api-standards
-- https://github.com/Microsoft/api-guidelines
+- [WhiteHouse/api-standards](https://github.com/WhiteHouse/api-standards)
+- [microsoft/api-guidelines: Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines)
+- [public-apis/public-apis: A collective list of free APIs for use in software and web development.](https://github.com/public-apis/public-apis)
 
 #### Security
 

@@ -310,6 +310,19 @@ Aka monorepos and multi packages
 - [The npm Blog — Monorepos and npm](https://blog.npmjs.org/post/186494959890/monorepos-and-npm)
 - [babel/monorepo.md at master · babel/babel](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
 
+### Local packages
+
+```json
+{
+  "name": "baz",
+  "dependencies": {
+    "bar": "file:./foo/bar"
+  }
+}
+```
+
+- [package.json | npm Docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#local-paths)
+
 ## Promisify
 
 ```js
@@ -484,7 +497,7 @@ echo console.log("b super.__filename =", b.__filename); >> index.js
 powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait -WorkingDirectory $(Get-Location).ToString().ToLower()"
 
 :: Will log:
-:: 
+::
 :: ```
 :: process.cwd() = D:\somepath\test
 :: junction/instance = a
@@ -495,7 +508,7 @@ powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.j
 :: a super.__filename = D:\SomePath\Test\Class.js
 :: b super.__filename = D:\somepath\test\Class.js
 :: ```
-:: 
+::
 :: Note the difference of path case between constructors of a and b
 :: A and b should be the same object, have the same constructor from ./Class.js
 :: It's because the case of the instance is not the same: != path case -> != modules

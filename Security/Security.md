@@ -26,11 +26,11 @@ The protection resistance is matter of time, money or opportunities. Anything is
 
 - [Template:Information security — Wikipedia](https://en.wikipedia.org/wiki/Template:Information_security)
 - [Articles - CGSecurity](http://www.cgsecurity.org/wiki/Articles)
-- https://observatory.mozilla.org/
+- [Mozilla Observatory](https://observatory.mozilla.org/)
 - [Defence in depth — Wikipedia](https://en.wikipedia.org/wiki/Defence_in_depth)
 - [Slides and code](https://github.com/eoftedal/presentations) and [Erlend Oftedal's stuff on Github](http://eoftedal.github.io/)
-- http://www.kb.cert.org/CERT_WEB/services/vul-notes.nsf/bymetric?open&start=1
-- https://github.com/Hack-with-Github/Awesome-Hacking
+- [CERT Vulnerability Notes Database](https://www.kb.cert.org/vuls/bypublished/desc/)
+- [Hack-with-Github/Awesome-Hacking: A collection of various awesome lists for hackers, pentesters and security researchers](https://github.com/Hack-with-Github/Awesome-Hacking)
 - [A practical guide to securing macOS](https://github.com/drduh/macOS-Security-and-Privacy-Guide)
 - Free OS X Security Tools [Objective-See](https://objective-see.com/products.html)
 - IP lists of suspicious activities (some lists are non-free) [I-BlockList | Home](https://www.iblocklist.com/)

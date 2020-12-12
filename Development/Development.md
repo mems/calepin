@@ -37,11 +37,12 @@ Aka prejudice and falsehoods about things
 
 - [mr-mig/every-programmer-should-know: A collection of (mostly) technical things every software developer should know](https://github.com/mr-mig/every-programmer-should-know)
 - [Curated list of falsehoods programmers believe in](https://github.com/kdeldycke/awesome-falsehood)
-- [Things you should test: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25230828820/things-you-should-test)
-- [Falsehoods Programmers Believe About Names | Kalzumeus Software](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
-- [Falsehoods programmers believe about time: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)
-- [Falsehoods programmers believe about addresses](https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/)
-- [Falsehoods programmers believe about geography | Thias の blog](http://wiesmann.codiferes.net/wordpress/?p=15187&lang=en)
+- [Falsehoods programmers believe about addresses](https://web.archive.org/web/20201204071621/https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/)
+- [Falsehoods Programmers Believe About Names | Kalzumeus Software](https://web.archive.org/web/20201204072657/https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
+- [Falsehoods programmers believe about time: @noahsussman: Infinite Undo](https://web.archive.org/web/20201101134632/https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)
+- [Things you should test: @noahsussman: Infinite Undo](https://web.archive.org/web/20200917062624/https://infiniteundo.com/post/25230828820/things-you-should-test)
+- [Falsehoods programmers believe about geography – Thias の blog](https://web.archive.org/web/20200924143222/https://wiesmann.codiferes.net/wordpress/?p=15187&lang=en)
+- [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!) – Joel on Software](https://web.archive.org/web/20201212114246/https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 
 Due to cultural context
 
@@ -65,13 +66,14 @@ See also:
 - [Person](../Data/Person.md)
 - [Date & Time](../Data/Date%20&%20Time.md)
 - [Postal address](../Data/Postal%20address.md)
+- [Unicode](../Data/Unicode/Unicode.md)
 
 ## Development skill
 
-1. Can I do this?
-2. Can I do this more easily?
-3. Can I do this more elegantly?
-4. Can I not do this?
+1. can I do this?
+2. can I do this more easily?
+3. can I do this more elegantly?
+4. can I not do this?
 
 ## Reasons why code breaks
 
@@ -100,14 +102,14 @@ See also:
 
 Syslog Severity Levels (importance or severity, from high to low):
 
-- Emergency (0) aka panic, emerg: "Your application is completely broken. If you sleep, you must wake up and begin to repair your application.". Ex: crashes, stopped processes
-- Alert (1): "Your application does not work. If you going to go to bed, you should not do it, you must begin to repair your application.". Ex: platform errors
-- Critical (2) aka crit: "Your application is running, but can be broken soon. If you eat, you should do it quickly and begin to repair your application.". Ex: hardware issues, port security, STP
-- Error (3), aka err: "Your application is running, but something bad happened. You must add the task "fix the bug" to your to-do list.". Ex: ACL issues, TCAM issues, PAgP problems, ethernet controller, interface up/down
-- Warning (4), aka warn: "Your application is running, but soon you may see error messages. You should add the task "fix the bug" to your to-do list.". Ex: DHCP snooping
-- Notifications (5) aka notice: "Your application is running, but something unusual happened. You have to think about it in your spare time.". Ex: 802.1X, DTP, EtherChannel, inline power, STP, interface line protocol
-- Information (6), aka info: "Your application works fine. These messages show how well.". Ex: stack events, port security, dynamic ARP inspection, VTP, UDLD, STP, hardware diagnostics
-- Debug (7): "You can use it during development. And do not use in production environment.". Ex: debug output
+- emergency (0) aka panic, emerg: "Your application is completely broken. If you sleep, you must wake up and begin to repair your application.". Ex: crashes, stopped processes
+- alert (1): "Your application does not work. If you going to go to bed, you should not do it, you must begin to repair your application.". Ex: platform errors
+- critical (2) aka crit: "Your application is running, but can be broken soon. If you eat, you should do it quickly and begin to repair your application.". Ex: hardware issues, port security, STP
+- error (3), aka err: "Your application is running, but something bad happened. You must add the task "fix the bug" to your to-do list.". Ex: ACL issues, TCAM issues, PAgP problems, ethernet controller, interface up/down
+- warning (4), aka warn: "Your application is running, but soon you may see error messages. You should add the task "fix the bug" to your to-do list.". Ex: DHCP snooping
+- notifications (5) aka notice: "Your application is running, but something unusual happened. You have to think about it in your spare time.". Ex: 802.1X, DTP, EtherChannel, inline power, STP, interface line protocol
+- information (6), aka info: "Your application works fine. These messages show how well.". Ex: stack events, port security, dynamic ARP inspection, VTP, UDLD, STP, hardware diagnostics
+- debug (7): "You can use it during development. And do not use in production environment.". Ex: debug output
 
 Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will consume unnecessary resources.
 
@@ -178,8 +180,8 @@ Aka multiplayer game, streaming, RTS game
 
 Magic = complexity. With react, JSX is magic
 
-- [Pourquoi les développeurs détestent-ils le low-code ? - Le Monde Informatique](https://www.lemondeinformatique.fr/actualites/lire-pourquoi-les-developpeurs-detestent-ils-le-low-code-76497.html)
-- [Le monde du logiciel est en train de se détruire... Manifeste pour un développement plus durable - GREENSPECTOR®](https://greenspector.com/fr/articles/2018-12-11-manifeste-developpement-plus-durable/)
+- [Pourquoi les développeurs détestent-ils le low-code ? - Le Monde Informatique](https://web.archive.org/web/20200105104803/https://www.lemondeinformatique.fr/actualites/lire-pourquoi-les-developpeurs-detestent-ils-le-low-code-76497.html)
+- [Le monde du logiciel est en train de se détruire... Manifeste pour un développement plus durable - Greenspector](https://web.archive.org/web/20201211081957/https://greenspector.com/fr/le-monde-du-logiciel-est-en-train-de-se-detruire-manifeste-pour-un-developpement-plus-durable/)
 
 ## The wrong way
 
@@ -190,12 +192,12 @@ Often due to [complexity](#complexity) or [misconceptions and falsehoods](#false
 >
 > — [!FALSE 😜 on Twitter: "Vanity license plate "NULL" goes horribly wrong https://t.co/yyz13fyODV via @JohnMu https://t.co/okznfwSQhV" / Twitter](https://twitter.com/mahemoff/status/1160989395043934208?s=12)
 
-- [The Daily WTF: Curious Perversions in Information Technology](http://thedailywtf.com/)
-- [The Inner JSON Effect - The Daily WTF](http://thedailywtf.com/articles/the-inner-json-effect) A story about some weird enterprise framework "JDSL" using SVN revisions to do store code fragments, and reference it later by the revision ID.
-- [Project from Hell | Project Failures](https://projectfailures.wordpress.com/2008/06/24/project-from-hell/)
+- [The Daily WTF: Curious Perversions in Information Technology](https://web.archive.org/web/20201208033147/https://thedailywtf.com/)
+- [The Inner JSON Effect - The Daily WTF](https://web.archive.org/web/20201120111520/http://thedailywtf.com/articles/the-inner-json-effect) - A story about some weird enterprise framework "JDSL" using SVN revisions to do store code fragments, and reference it later by the revision ID.
+- [Project from Hell | Project Failures](https://web.archive.org/web/20201202113953/https://projectfailures.wordpress.com/2008/06/24/project-from-hell/) - How a big projet doing wrong
 - [How To Write Unmaintainable Code](https://github.com/Droogans/unmaintainable-code)
 - [Pourquoi réécrire un projet en partant de zéro ? Parce que l'ancien code est un fatra ou qu'il est plu facile d'écrire que de lire un code ?](https://www.developpez.com/actu/200958/Pourquoi-reecrire-un-projet-en-partant-de-zero-Parce-que-l-ancien-code-est-un-fatras-ou-qu-il-est-plus-facile-d-ecrire-que-de-lire-un-code/)
-- [Thing You Should Never Do, Part I – Joel on Software](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
+- [Things You Should Never Do, Part I – Joel on Software](https://web.archive.org/web/20201211193918/https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
 
 ## Performance and optimization
 
@@ -358,10 +360,10 @@ Aka naming things, few words
 
 See also [Case styles](#case-styles)
 
-- [Glue code — Wikipedia](https://en.wikipedia.org/wiki/Glue_code)
+- [glue code](https://en.wikipedia.org/wiki/Glue_code)
 - Patch: a piece of tape covering some punched holes [Patch (computing) — Wikipedia](https://en.wikipedia.org/wiki/Patch_%28computing%29)
-- [Software bug — Wikipedia](https://en.wikipedia.org/wiki/Software_bug)
-- Mangle [Name mangling — Wikipedia](https://en.wikipedia.org/wiki/Name_mangling)
+- [software bug](https://en.wikipedia.org/wiki/Software_bug)
+- [mangle / name mangling](https://en.wikipedia.org/wiki/Name_mangling)
 - threshold (seuil)
 - leading (heading), trailing (tail, rear)
 - header, trailer
@@ -375,7 +377,7 @@ See also [Case styles](#case-styles)
 - constructor / ctor
 - watermark / fingerprint / hash
 - stale (original state)
-- dry run (testing process) https://en.wikipedia.org/wiki/Dry_run_(testing)
+- [dry run (testing process)](https://en.wikipedia.org/wiki/Dry_run_%28testing%29)
 - [hard-coded](https://en.wikipedia.org/wiki/Hard_coding) (FR "écrit en dur")
 - noop / No Operation
 - canonical
@@ -781,12 +783,9 @@ See also [Git](./Git/Git.md)
 
 **Don't store configuration files, especially if contains password, private keys, etc.** Ignore configuration files, but provide an configuration example file
 
-- [StackExchange/blackbox: Safely store secrets in Git/Mercurial/Subversion](https://github.com/StackExchange/blackbox)
-- [Check hash and keys leak or reversed (hashes)](../Security/Security.md#hash-and-keys)
-
 **Store only sources**, nothing else can be computed / recreated. If you need it, use submodules or a [package manager](https://en.wikipedia.org/wiki/Package_manager).
 Store only data is part of the software. If it's content like blog content (mysql dump) store it with an other way or with a submodule.
-The question is: resource that belong to the project or are projects them-selves? Store it in the same VCS or as dependency (submodule) or with another solution (like SQL dump)
+The question is: the resource that belong to the project or are projects them-selves? Store it in the same VCS or as dependency (submodule) or with another solution (like SQL dump)
 
 Ex: App Code + precompiled lib/binaries submodule (will be used to include thrid party code)
 
@@ -797,6 +796,14 @@ App Code + (exported) PNGs or AppCode + design (PSD) submodule (will be used to 
 - [version control - Should images be stored in a git repository? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/80962/should-images-be-stored-in-a-git-repository)
 - [Working with large files - GitHub Help](https://help.github.com/en/github/managing-large-files/working-with-large-files)
 - [How to ignore changes in git submodules | /bb|\[ˆb\]{2}/](http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules) (add `ignore = dirty` for each submodule in `.gitmodules`)
+
+### Store secrets
+
+- [mozilla/sops: Simple and flexible tool for managing secrets](https://github.com/mozilla/sops)
+- [StackExchange/blackbox: Safely store secrets in Git/Mercurial/Subversion](https://github.com/StackExchange/blackbox)
+- [Check hash and keys leak or reversed (hashes)](../Security/Security.md#hash-and-keys)
+- [Password storage](../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#password-storage)
+- [Secret sharing](../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#secret-sharing)
 
 ### Monorepo
 
@@ -938,9 +945,15 @@ Aka CLI
 >
 > — [Use long flags when scripting | Hacker News](https://news.ycombinator.com/item?id=5164354)
 
-- manpage
-- [Exploring CLI Best Practices // Localytics Engineering Blog](http://eng.localytics.com/exploring-cli-best-practices/)
-- [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)
+- [CLI documentation](../Documentation/Documentation.md#cli)
+- [Exploring CLI Best Practices // Localytics Engineering Blog](https://web.archive.org/web/20201108124530/https://eng.localytics.com/exploring-cli-best-practices/)
+- [danyspin97's site - Colorize your CLI](https://web.archive.org/web/20201101020353/https://danyspin97.org/blog/colorize-your-cli/)
+- [Command Line Interface Guidelines](https://web.archive.org/web/20201210232149/https://clig.dev/)
+- [Use long flags when scripting |\> Changelog](https://web.archive.org/web/20201111204522if_/https://changelog.com/posts/use-long-flags-when-scripting)
+
+### Command line documentation
+
+- [man page - Wikipedia](https://en.wikipedia.org/wiki/Man_page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Command%20manual%20page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Colors%20and%20control%20sequences)
 
@@ -955,10 +968,12 @@ Dependency = risk
 # Concepts and Methodology
 
 > Just because you can't see it, doesn't mean it isn't there.
-— http://www.awbnetwork.org/campaigns/item/49-what-lies-under.html
+>
+> — [What lies under](https://web.archive.org/web/20180403150656/http://www.awbnetwork.org/campaigns/item/49-what-lies-under.html)
 
 > Telling a programmer there's already a library to do X is like telling a songwriter there's already a song about love.
-— Pete Cordell
+>
+> — Pete Cordell
 
 - [Global Variables Are Bad](http://c2.com/cgi/wiki?GlobalVariablesAreBad)
 - [Programming paradigm — Wikipedia](https://en.wikipedia.org/wiki/Programming_paradigm)
@@ -986,7 +1001,10 @@ See also:
 
 - [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 - [Why not use GraphQL? | wundergraph](https://web.archive.org/web/20201108045427/https://wundergraph.com/blog/why_not_use_graphql)
-- [HTTP API](../Web/Network.md#api)
+- [HTTP API](../Web/Network.md#http-api)
+
+### API documentaiton
+
 - [API documentation](../Documentation/Documentation.md#api)
 - [Error messages documentation](../Documentation/Documentation.md#error-messages)
 
@@ -1011,6 +1029,8 @@ Graphical test: image capture
 Structural test: DOM capture (CSS and HTML for each nodes and tree nodes)
 
 ## Continuous integration and continuous delivery
+
+Aka CI/CD
 
 - [Travis CI - Test and Deploy Your Code with Confidence](https://travis-ci.org/)
 - [Deploys at Slack - Several People Are Coding](https://slack.engineering/deploys-at-slack-cd0d28c61701)
@@ -1324,3 +1344,9 @@ namespace CommandPattern
 ```
 
 ### Observer
+
+## Bit manipulation
+
+- [Bit Twiddling Hacks](https://web.archive.org/web/20201205153143/http://graphics.stanford.edu/~seander/bithacks.html)
+- [Bitwise conversion of doubles using only floating-point multiplication and addition | dougallj](https://web.archive.org/web/20201130171059/https://dougallj.wordpress.com/2020/05/10/bitwise-conversion-of-doubles-using-only-floating-point-multiplication-and-addition/)
+- [Bit manipulation - Wikipedia](https://en.wikipedia.org/wiki/Bit_manipulation)

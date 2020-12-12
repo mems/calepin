@@ -4,6 +4,11 @@
 - [Long number - Wikipedia](https://en.wikipedia.org/wiki/Long_number)
 - [Short code - Wikipedia](https://en.wikipedia.org/wiki/Short_code)
 
+## Fictional numbers
+
+- [Fictitious telephone number - Wikipedia](https://en.wikipedia.org/wiki/Fictitious_telephone_number)
+- [Article - Décision n° 2018-0881 du 24 juillet 2018 de l'Autorité de régulation des communications électroniques et des postes établissant le plan national de numérotation et ses règles de gestion - Légifrance](https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000037263033) - "2.5.12 Numéros pour œuvres audiovisuelles"
+
 ## Format
 
 "tel"						+1 617 253 5702		Full telephone number, including country code

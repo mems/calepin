@@ -270,6 +270,8 @@ git mv hello.txt Hello.txt
 
 - [rename - Changing capitalization of filename in Git - Stack Overflow](https://stackoverflow.com/questions/10523849/changing-capitalization-of-filenames-in-git)
 
+If a remove branch doesn't appears because it use a different naming (ext `origin/Feature/branchA` vs `origin/feature/branchA`) update path name in `/.git/modules/submodules/<submodule>/refs/remotes/origin/feature`
+
 ## Character encoding
 
 Unicode

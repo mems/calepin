@@ -2161,14 +2161,45 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 ![Nodejs Event Loop   Bert Belder](Nodejs%20event%20loop%20-%20Bert%20Belder.jpg)
 ![Nodejs Event Loop 2   Bert Belder](Nodejs%20event%20loop%202%20-%20Bert%20Belder.jpg)
 
-- [The Node.js Event Loop, Timers, and process.nextTick() | Node.js](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
+> Immediately after every macrotask, the engine executes all tasks from microtask queue, prior to running any other macrotasks or rendering or anything else.
+>
+> — [Event loop: microtasks and macrotasks](https://javascript.info/event-loop#macrotasks-and-microtasks)
+
+```js
+setTimeout(() => console.log("timeout"));
+Promise.resolve().then(() => console.log("promise"));
+console.log("body");
+requestAnimationFrame(() => console.log("requestAnimationFrame"));
+await console.log("await");
+console.log("after await");
+requestAnimationFrame(() => console.log("requestAnimationFrame 2"));
+// will log:
+// (macrotask: script)
+// 1. body: synchronous call
+// (microtask)
+// 2. await: this part of the script body is put the microtask queue and executed if the Promise is resolved. console.log() doesn't return a promise therefore it's considered as "resolved" ("fulfilled")
+// 3. promise: resolved promise executed in from the microtask queue before next macrotask
+// 4. after await: executed after the previous promise
+// (update rendering if suitable)
+// 5. requestAnimationFrame
+// 6. requestAnimationFrame 2
+// (macrotask: timers)
+// 7. timeout
+// (update rendering if suitable)
+// (5 and 6 could instead be executed here)
+```
+
+- [The Node.js Event Loop, Timers, and process.nextTick() | Node.js](https://web.archive.org/web/20201117083749/https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [Philip Roberts Help I'm stuck in an event loop - YouTube](https://www.youtube.com/watch?v=6MXRNXXgP_0)
 - [Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014 - YouTube](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 - [Jake Archibald: In The Loop - JSConf.Asia - YouTube](https://www.youtube.com/watch?v=cCOL7MC4Pl0&feature=youtu.be)
+- [Event loop processing model - HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)
+- [Tasks, microtasks, queues and schedules - JakeArchibald.com](https://web.archive.org/web/20201128115739/https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+- [⭐️🎀 JavaScript Visualized: Promises & Async/Await - DEV](https://web.archive.org/web/20201127083654/https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke#tasks)
 
-- [How JavaScript works: memory management + how to handle 4 common memory leaks](https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec)
+- [How JavaScript works: memory management + how to handle 4 common memory leaks | by Alexander Zlatkov | SessionStack Blog](https://web.archive.org/web/20201115130752/https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec?gi=e35da23f4d92)
 - [Concurrency model and Event Loop - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
-- [Asynchronous Adventures in JavaScript: Understanding the Event Loop](https://medium.com/dailyjs/asynchronous-adventures-in-javascript-understanding-the-event-loop-fc6f968d5f72)
+- [Asynchronous Adventures in JavaScript: Understanding the Event Loop](https://web.archive.org/web/20191013173002/https://medium.com/dailyjs/asynchronous-adventures-in-javascript-understanding-the-event-loop-fc6f968d5f72)
 
 ## `finally` is executed after return
 
@@ -4310,12 +4341,17 @@ e",'f'`);
 Object.getOwnPropertyNames(error).reduce((result, key) => (result[key] = error[key], result), {})
 ```
 
-About error stack:
+See also [Stack trace](#stack-trace)
 
+## Stack trace
+
+- `new Error().stack`
+- [console.trace() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Console/trace)
 - [Error.prototype.stack - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack)
 - [StackTrace.JS - Framework-agnostic, micro-library for getting stack trace in all web browsers](https://www.stacktracejs.com/)
 - [stacktracejs/stacktrace.js: Generate, parse, and enhance JavaScript stack trace in all web browsers](https://github.com/stacktracejs/stacktrace.js/)
 - [stacktracejs/error-stack-parser: Extract meaning from JS Errors](https://github.com/stacktracejs/error-stack-parser)
+
 
 ## Empty object
 

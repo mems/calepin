@@ -21,3 +21,9 @@ Use compressed powdered salt to "cast" in place the model the remelting with ove
 
 - [Remelting 3D printed thermoplastics (the salt method) - YouTube](https://www.youtube.com/watch?v=nRLJ4ylGTFc)
 - [The STRENGTH of 3D prints REMELTED in SALT - YouTube](https://www.youtube.com/watch?v=DyAKtS1b3SQ)
+
+## Recycling
+
+Aka failament, make filament
+
+- [Recycle your failed 3D prints! Make new filament at home. - YouTube](https://www.youtube.com/watch?v=vqWwUx8l_Io&feature=share)

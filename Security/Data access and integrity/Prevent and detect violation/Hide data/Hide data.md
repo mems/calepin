@@ -10,11 +10,11 @@ The reader / browser / VM must be able to read your files and since it has no id
 - isolate code/class definition/context and checking for existing definition
 - Memory Hacking Prevention, String & Binary Obfuscation, binary level obfuscation, key encrypting
 - use different radix, etc.:
-	
+
 	```
 	"A" == "1000001" == "		 	"
 	```
-	
+
 	```js
 	// ascii string to whitespaces
 	"Hello"
@@ -23,7 +23,7 @@ The reader / browser / VM must be able to read your files and since it has no id
 	"	  	   		  	 			 		  		 		  		 				"
 		.replace(/.{7}/g, function(w){return String.fromCharCode(parseInt(w.replace(/ /g, "0").replace(/	/g, "1"), 2))})
 	```
-	
+
 	See [javascript - Detect when "Inspect Element" is open - Stack Overflow](https://stackoverflow.com/questions/42193700/detect-when-inspect-element-is-open/42194142#comment71551031_42194142)
 
 ```as3
@@ -40,9 +40,33 @@ class Test {
 }
 ```
 
-Hidden text part can be recovered if short parts missing:
+## Sanitization
+
+Aka redact sensitive data, edited, censored, censorship, classified, secrecy protection, data anonymization, blacking out, over up tape, data erasure
+
+Sensitive in text document could be recovered if not well removed.
+
+Black or white rectangles:
+
+...can be recovered if short parts missing.
 ![DW19QBdWsAAPCJk.jpeg](./Data access and integrity/Prevent and detect violation/DW19QBdWsAAPCJk.jpg)
 [Tom 7 on Twitter: "Redaction pro-tip: Most short word will have distinct length in a proportional font like Time New Roman. I think it' pretty clear, but decide for yourself...(Thi i the Democratic "rebuttal" #memo unclassified today, page 3.)… https://t.co/eQvmiDwL1M"](https://twitter.com/tom7/status/967568358861430785)
+
+Pixelated:
+
+- [beurtschipper/Depix: Recovers passwords from pixelized screenshots](https://github.com/beurtschipper/Depix)
+- [Recovering passwords from pixelized screenshots](https://web.archive.org/web/20201210024934/https://www.linkedin.com/pulse/recovering-passwords-from-pixelized-screenshots-sipke-mellema/)
+- [Spibblez on Twitter: "I created a tool for recovering passwords from pixelized images: https://t.co/94QugVryjH https://t.co/DEXWDdsqDB" / Twitter](https://twitter.com/spibblez/status/1335638633970348032)
+
+Blur:
+
+- [Deblur](../../Algorithms/Deblur/Deblur.md)
+
+See also:
+
+- [Classified information - Wikipedia](https://en.wikipedia.org/wiki/Classified_information)
+- [Sanitization (classified information) - Wikipedia](https://en.wikipedia.org/wiki/Sanitization_%28classified_information%29)
+- [Data anonymization - Wikipedia](https://en.wikipedia.org/wiki/Data_anonymization)
 
 ## Steganography
 
@@ -58,7 +82,7 @@ Hide data in data or metadata in a carrier format (image, video, etc.)
 - hidding data in LSB's (Least significant bit), minor offset values
 	or Selected Least Significant Bit, LSB matching, etc.
 	- doesn't impact file size
-	
+
 	- [Intensity Adaptive LSB Method Applying a Revised Matching - pxc3888468.pdf](http://research.ijcaonline.org/volume70/number27/pxc3888468.pdf)
 - palette manipulation
 	Reduce colors and duplocate palette entries, allow to create an other image by swapting palette
@@ -80,7 +104,7 @@ Hide data in data or metadata in a carrier format (image, video, etc.)
 
 	- [MP3 for Image Compression (2006) | Hacker News](https://news.ycombinator.com/item?id=14133221)
 	- [Avian’s Blog: Lossy compression](https://www.tablix.org/~avian/blog/archives/2006/01/lossy_compression/)
-	
+
 	```sh
 	sox mo.wav -e unsigned -b 8 -c 1 -r 48k mo.raw
 	bytes=`stat -f %z mo.raw`
@@ -118,43 +142,43 @@ In document, user's comment, chat message, source code / script, source code's c
 	- [Homoglyph — Wikipedia](https://en.wikipedia.org/wiki/Homoglyph)
 	- Ruby annotation are usally not visible
 		> They tend not to have any rendering in fonts, since they’re control characters, and Unicode actually recommends they not be exposed directly to users at all, so there are no rules for how to actually display them
-	
+
 		`<ruby><rb>日本語</rb><rp>（</rp><rt>にほんご</rt><rp>）</rp></ruby>` `[U+FFF9]日本語[U+FFFA]にほんご[U+FFFB]`
 	- Unicode decomposition `"한글" !== "한글"` `"ㅎㅏㄴ ㄱㅡㄹ"`
 	- http://www.unicode.org/Public/security/latest/confusables.txt see [UTS #39: Unicode Security Mechanisms](http://www.unicode.org/reports/tr39/#confusables)
 	- [vhf/confusable_homoglyphs: ϲοｎｆｕѕаｂｌе＿һοｍоɡｌｙｐｈｓ](https://github.com/vhf/confusable_homoglyphs)
 	- replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" -> "асеіјорѕху"), or Roman Numerals ("ⅰⅴⅹⅼⅽⅾⅿ" -> "ivxlcdm"):
 		- [(1) Martin Kleppe on Twitter: "Evil note: In JavaScript you can replace some Latin characters with their Cyrillic doppelgänger ("aceijopsxy" =&gt; "асеіјорѕху") to use reserved words as your variable names such as: var vаr = function functіon(functіon){ cаtch = "me"; іf \[you = "can"\]; } vаr (breаk = true);" / Twitter](https://twitter.com/aemkei/status/1146884713371578369?s=12)
-		
+
 		```js
 		var vаr = function functіon(functіon){
-		  cаtch = "me"; 
+		  cаtch = "me";
 		  іf [you = "can"];
 		}
 
 		vаr (breаk = true);
 		```
-		
+
 		```js
 		dо='',vаr=!dо+dо,breаk=!vаr+dо,cаtch=dо+{},іf=vаr[dо++],ѕwitch=vаr[іn=dо],thiѕ=++іn+dо,cоnst=cаtch[іn+thiѕ],vаr[cоnst+=cаtch[dо]+(vаr.breаk+cаtch)[dо]+breаk[thiѕ]+іf+ѕwitch+vаr[іn]+cоnst+іf+cаtch[dо]+ѕwitch][cоnst](breаk[dо]+breаk[іn]+vаr[thiѕ]+ѕwitch+іf+"(dо)")()
 		```
-		
+
 		```js
 		[breаk,caѕe,cаtch,contіnue,dеbugger,defаult,dеlete,dо,elѕe,fіnally,fоr,functіon,іf,іn,inѕtanceof,nеw,rеturn,ѕwitch,thiѕ,thrоw,trу,typeоf,vаr,voіd,whіle,wіth] = "cyrillic doppelgänger of reserved words";
 		```
-		
+
 		```js
 		var сonst = "W";
 		let vаr = "T";
 		const lеt = "F";
 		сonst + vаr + lеt // WTF
 		```
-		
+
 		```js
 		([cοnst,cοnst,сοnst,сοnst,сοnst,сοnst]=[]+{},[сonst,cоnst,conѕt,соnst,сonѕt,сonѕt,cоnѕt,соnѕt,сοnѕt,сοnѕt,cοnѕt]=[!!cοnst]+!cοnst+cοnst.cοnst)[сοnst+=cοnst+cοnѕt+соnѕt+сonst+cоnst+conѕt+сοnst+сonst+cοnst+cоnst][сοnst](сonѕt+cоnѕt+соnst+cоnst+сonst+'("const")')()
 		```
 - Zero width chars:
-	
+
 	```html
 	<!-- [SmallestJS](http://schierlm.users.sourceforge.net/smallestjs.html) -->
 	<!-- Use zero-width (invisible as text) chars: U+200D, U+FEFF, U+200C, U+200B, made visible here with unicode escape sequence -->
@@ -190,7 +214,7 @@ It's still valid, but add extra data will be invisible / ingored when read norma
 	- `<div a="b><span></span></div>` eq. `<html><head></head><body></body></html>`
 	- `<div a=b"><span></span></div>` eq. `<html><head></head><body><div a="b&quot;"><span></span></div></body></html>`
 	- `<div something="else"<span>test</span></div>` eq. `<html><head></head><body><div something="else" <span="">test</div></body></html>` (attributes: `something` and `<span`)
-	
+
 	- [Attribute names - HTML Standard](https://html.spec.whatwg.org/multipage/syntax.html#attributes-2)
 	- [Tag omission in text/html - HTML 5.1: 3. Semantics, structure, and APIs of HTML documents](https://www.w3.org/TR/html/dom.html#tag-omission-in-text-html)
 	- [8 The HTML syntax — HTML5](https://www.w3.org/TR/html5/syntax.html#tokenization)
@@ -205,7 +229,7 @@ It's still valid, but add extra data will be invisible / ingored when read norma
 - HTTP Field parameters allow to escape any char in parameter value: `Content-Disposition: application/octet-stream; filename="w\hat th\e\ hel\l is going \on.mp3"` gives "hello"
 - `gzip-steg` ftp://ftp.mirrorservice.org/sites/ftp.wiretapped.net/pub/security/steganography/gzip-steg/
 	> gzip uses LZ77 which compresses data by storing length/offset pairs that refer back in the uncompressed data stream to previous occurrences of the information being compressed. gzip considers a length of 3 to be the shortest acceptable length. We allow gzip to find the length/offset pairs and then do the following.
-	> 
+	>
 	> If the length is at least 5 then we subtract 1 and set bit 0 to the value of the bit that we need to hide. We have now hidden information in the length without pushing it beyond a valid value.  Drawbacks are a slight decrease in compression (very slight) since we have to disallow lengths of 4 and some of our meddling will decrease the actual matched length by 1. The hidden file is totally invisible to the normal operation of gzip, gunzip et al and (if encrypted) will only be visible to those in the know.
 - JSON indentation / whitespaces between tokens
 
@@ -215,12 +239,12 @@ In metadata, comment, extra fields or unused fields
 
 - PNG `tEXt` chunk (comment)
 	See also [chunks `zTXt` and `iTXt`](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/PNG.html#TextualData)
-	
+
 	```bash
 	exiftool "-Comment<=/path/to/secret.txt" dummy.png
 	exiftool -b -Comment dummy.png > secret.txt
 	```
-	
+
 	- PHP contains base64 contains PNG with data encoded in `tEXt` chunk (comment)
 		- [When Bad Guys are Pwning Bad Guys... - SANS Internet Storm Center](https://isc.sans.edu/forums/diary/When+Bad+Guys+are+Pwning+Bad+Guys/22410/)
 		- [backdoor as stripped from RC-SHELL](https://gist.github.com/anonymous/319ef7124affebec67ebc56bc83cbe87)
@@ -232,11 +256,11 @@ In metadata, comment, extra fields or unused fields
 	* original filename: N Bytes + 1 Byte (`\0`)
 	* creation date: 4 Bytes (POSIX timestamp)
 	* comment N Bytes + 1 zero Byte (`\0`)
-	
+
 	See `gzip -N`
-	
+
 	It's also possible to concatenate gzip stream in one `cat file1.gz file2.gz file3.gz > all.gz`. This could be ignored (the reader read only the first part). See [Concatenation](GZip#Concatenation)
-	
+
 	You can also add extra data after gzip stream, some tools/libs ignore them (`gunzip -q`)
 - HTTP/1.1 chunk encoding use chunk extension (kind of comment), always ignored https://tools.ietf.org/html/rfc7230#section-4.1.1
 - matroska media container can contains additional tags to store fonts, text, image, binary, etc.
@@ -295,9 +319,9 @@ https://en.wikipedia.org/wiki/File:StenographyOriginal.png https://upload.wikime
 - [petereigenschink/steganography.js: Hide secret messages with JavaScript and this library](https://github.com/petereigenschink/steganography.js/)
 - [Virus Bulletin :: Script in a lossy stream](https://www.virusbulletin.com/virusbulletin/2015/03/script-lossy-stream)
 	> You can perturb the input of the DCT so that a specific IDCT implementation will generate the desired output
-	> 
+	>
 	> In general signal-processing terms, this is known as preemphasis/equalisation --- since the communications channel will distort the signal in a known way, by sending a signal distorted appropriately in the opposite direction, it will arrive "undistorted" at the destination.
-	> 
+	>
 	> You can also consider using ECC codes, so that any small errors introduced can be corrected.
 	> — https://news.ycombinator.com/item?id=17589503
 - [Another nasty trick in malicious PDF](https://blog.avast.com/2011/04/22/another-nasty-trick-in-malicious-pdf/)
@@ -308,13 +332,13 @@ Prepend or append data. Easily detectable.
 
 - ZIP and RAR can have prepend data before header
 	>  The spec is specifically that the last header is the only valid header
-	
+
 	`zip` return a warning "extra bytes at beginning or within zipfile"
 
 	- [Doesn't respect zip format · Issue #148 · gildas-lormeau/zip.js](https://github.com/gildas-lormeau/zip.js/issues/148)
 
 	Ex: prepend data with a valid image
-	
+
 	```sh
 	zip -r secret.zip file1 file2
 	cat cat.gif secret.zip > fun.gif
@@ -374,7 +398,7 @@ Note: ZIP (APK, ODT, DOCX, JAR…), 7z, RAR, HTML, PDF (header must be in the fi
 	PNG:
 	- [Encoding Web Shells in PNG IDAT chunks | Application Security](https://www.idontplaydarts.com/2012/06/encoding-web-shells-in-png-idat-chunks/)
 	GIF:
-	- [Exploiting PHP-GD imagecreatefromgif() function](https://github.com/fakhrizulkifli/Defeating-PHP-GD-imagecreatefromgif) - Proof-of-concept to exploit the flaw in the PHP-GD built-in function, `imagecreatefromgif()` 
+	- [Exploiting PHP-GD imagecreatefromgif() function](https://github.com/fakhrizulkifli/Defeating-PHP-GD-imagecreatefromgif) - Proof-of-concept to exploit the flaw in the PHP-GD built-in function, `imagecreatefromgif()`
 - [pocorgtfo/README.md at master · angea/pocorgtfo](https://github.com/angea/pocorgtfo/blob/master/writeups/19/README.md#rename-extension) - HTML parser can be stopped by `<script>document.documentElement.innerHTML = document.getElementById("mypage").innerHTML;</script>`: "The page payload escapes out of the whole file so that the browser stops loading the whole file (which is 64 Mb)."
 - [pocorgtfo/README.md at master · angea/pocorgtfo](https://github.com/angea/pocorgtfo/blob/master/writeups/19/README.md#write-up) - Polyglot PDF - ZIP - HTML file
 - [How to create polyglot HTML/JS/Wasm module | WebAssembly Security](https://webassembly-security.com/polyglot-webassembly-module-html-js-wasm/)
@@ -387,7 +411,7 @@ ZIP data in JPEG survive image processing (resize, stripping EXIF data, recompre
 
 Use ICC profiles, ICC profile chunk size limits (65376 for the first file, else 65521 for the others, this why the zip for bigger files must contains multipart .rar)
 
-> In a JPEG file, an APP2 marker with an identifier of "ICC_PROFILE" is used for ICC profiles. See the ICC profile specification for details. Note that large ICC profiles must be split up, to accommodate JPEG's 64KB segment size limit. 
+> In a JPEG file, an APP2 marker with an identifier of "ICC_PROFILE" is used for ICC profiles. See the ICC profile specification for details. Note that large ICC profiles must be split up, to accommodate JPEG's 64KB segment size limit.
 
 > Yes, if you open the file as text you will find the magic number of icc profile (acsp) follwoed by a bunch of random bytes and that of zip (PK/x03/x04). It is quite easy to append arbitrary data to JPEG files [0] and however there is no guarantee that it will survive image processing, so it was necessary to hide it within an ICC　profile. As for zip, unzip will happily decode any data stream as long as it makes sense and ignore the parts that don't.
 
@@ -397,12 +421,12 @@ Use ICC profiles, ICC profile chunk size limits (65376 for the first file, else 
 - [Dаvіd Вucһаnаn on Twitter: "Source code. This one is also a PDF :P… "](https://twitter.com/David3141593/status/1057609354403287040)
 - [JPEG image of Shakespeare which is also a zip file containing his complete works | Hacker News](https://news.ycombinator.com/item?id=18342042)
 - [Command-line Options @ ImageMagick](http://www.imagemagick.org/script/command-line-options.php#profile)
-	
+
 	```sh
 	curl 'https://pbs.twimg.com/media/DqteCf6WsAAhqwV.jpg' > tmp.zip  && unzip tmp.zip && unrar e shakespeare.part001.rar
 	curl 'https://pbs.twimg.com/media/Dq1iEpfXgAADZRg.jpg' > tmp.pdf  && unzip tmp.pdf
 	```
-	
+
 	```
 	binwalk DqteCf6WsAAhqwV.jpg
 	DECIMAL	   HEXADECIMAL	 DESCRIPTION
@@ -428,7 +452,7 @@ exiftool -comment='<style>*{visibility: hidden;} div{visibility: visible; positi
 mv image.jpg index.html
 ```
 
-See https://www.reddit.com/r/programming/comments/4wak58/this_html_page_is_also_a_jpeg/d65fe6m
+See [This HTML page is also a JPEG : programming](https://www.reddit.com/r/programming/comments/4wak58/this_html_page_is_also_a_jpeg/d65fe6m/)
 
 ### Polyglot GIF - JS file
 
@@ -467,7 +491,7 @@ with open(fname + "_malw.gif", "w+b") as fout:
 			fout.write(ls2)
 	fout.seek(6,0)
 	fout.write(b'\x2F\x2A') #/*
-	
+
 f = open(fname + "_malw.gif", "a+b") #appending mode
 f.write(b'\x2A\x2F\x3D\x31\x3B')
 f.write(payload)
@@ -477,7 +501,7 @@ f.write(b'\x3B')
 An other example:
 
 - [Perl::Visualize - search.cpan.org](http://search.cpan.org/~jnagra/Perl-Visualize-1.02/Visualize.pm) and http://cpansearch.perl.org/src/JNAGRA/Perl-Visualize-1.02/Visualize.pm
-- [ThinkFu › GIF/Javascript Polyglots](http://www.thinkfu.com/blog/gifjavascript-polyglots)
+- [ThinkFu › GIF/Javascript Polyglots](https://web.archive.org/web/20200301052900/http://www.thinkfu.com/blog/gifjavascript-polyglots)
 
 ### Polyglot JPEG - JS file
 
@@ -488,16 +512,20 @@ An other example:
 
 ### Polyglot PNG
 
-> The idea is that PNG data can be interpreted depending on the Color Type among other types as RGB values (color type =2) or as indexed values (color type =3) together with a palette (PLTE). 
+> The idea is that PNG data can be interpreted depending on the Color Type among other types as RGB values (color type =2) or as indexed values (color type =3) together with a palette (PLTE).
 
 - [PNG Merge - YobiWiki](http://wiki.yobi.be/wiki/PNG_Merge)
 
 ### Polyglot JSON - JS file
 
-- [JSON hijacking for the modern web | Blog](https://portswigger.net/blog/json-hijacking-for-the-modern-web)
-- [Why Facebook's api starts with a for loop - DEV Community 👩‍💻👨‍💻](https://dev.to/antogarand/why-facebooks-api-starts-with-a-for-loop-1eob)
-- [Crafty Tricks for Avoiding XSSI | patorjk.com](http://patorjk.com/blog/2013/02/05/crafty-tricks-for-avoiding-xssi/)
+- [JSON hijacking for the modern web | PortSwigger Research](https://web.archive.org/web/20201108090739/https://portswigger.net/research/json-hijacking-for-the-modern-web)
+- [Why Facebook's api starts with a for loop - DEV](https://web.archive.org/web/20201108102203/https://dev.to/antogarand/why-facebooks-api-starts-with-a-for-loop-1eob)
+- [Crafty Tricks for Avoiding XSSI | patorjk.com](https://web.archive.org/web/20201007205809/http://patorjk.com/blog/2013/02/05/crafty-tricks-for-avoiding-xssi/)
 - [api - How does including a magic prefix to a JSON response work to prevent XSSI attacks? - Information Security Stack Exchange](https://security.stackexchange.com/questions/110539/how-does-including-a-magic-prefix-to-a-json-response-work-to-prevent-xssi-attack)
+
+### Polyglot JSON - HTML file
+
+- [WDR](https://web.archive.org/web/20201209220539/https://webdatarender.com/)
 
 ### Angecryption
 
@@ -570,7 +598,7 @@ See also [Obfuscation (code)](#obfuscation2028code29)
 - [mame/jsfuck-quine: A JavaScript Quine written in the JSFuck style](https://github.com/mame/jsfuck-quine)
 - [שלום עולם – JavaScript Written in the Hebrew Alphabet](http://aem1k.com/%D7%A9%D7%9C%D7%95%D7%9D-%D7%A2%D7%95%D7%9C%D7%9D/)
 - [aurebesh.js – Translate JavaScript to Other Writing Systems](http://aem1k.com/aurebesh.js/)
- 
+
 - `13 + !0 === 14`
 - `null == undefined`
 - `+"3" === 3`, `isFinite(null) === true` (unary plus converting something into a number)
@@ -586,7 +614,7 @@ $ = {
 	$_$_: (![] + "")[$],	// "a" : "false"[1] is "a"
 	_$_: ++$,				// 2   : 1 + 1 is 2
 	$_$$: ({} + "")[$],		// "b" : {} is an object, +"" converts it to "[object Object]", "[Object object]"[2] is "b"
-	$$_$: ($[$] + "")[$],	// "d" : 2[2] is undefined, +"" converts it to "undefined", "undefined"[2] is "d" 
+	$$_$: ($[$] + "")[$],	// "d" : 2[2] is undefined, +"" converts it to "undefined", "undefined"[2] is "d"
 	_$$: ++$,				// 3   : 2 + 1 is 3
 	$$$_: (!"" + "")[$],	// "e" : !"" is true, +"" converts it to "true", "true"[3] is "e"
 	$__: ++$,				// 4   : 3 + 1 is 4
@@ -603,7 +631,7 @@ $ = {
 $.$_ = ($.$_ = $ + "")[$.$_$] + ($._$ = $.$_[$.__$]) + ($.$$ = ($.$ + "")[$.__$]) + ((!$) + "")[$._$$] + ($.__ = $.$_[$.$$_]) + ($.$ = (!"" + "")[$.__$]) + ($._ = (!"" + "")[$._$_]) + $.$_[$.$_$] + $.__ + $._$ + $.$;
 
 // Explanation:
-// $.$_ = "[object Object]"[5] + "[object Object]"[1] + "undefined"[2] + 
+// $.$_ = "[object Object]"[5] + "[object Object]"[1] + "undefined"[2] +
 // "false"[3] + "[object Object]"[6] + "true"[1] + "true"[2] + "c"+"t"+"o"+ "r";
 
 // Result:
@@ -682,7 +710,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 	* [Spaghetti code — Wikipedia](https://en.wikipedia.org/wiki/Spaghetti_code)
 - mangle names: identifiants renommés avec des noms sémantiquement muets, avec caractères non affichables ([espace visible ou non](http://en.wikipedia.org/wiki/Space_%28punctuation%29#Spaces_in_Unicode), null char `\x0`, charactères spéciaux `/\"'(){}`) ou nom portant confusion avec l'API native
 - `base64(base64(payload))`, `btoa(pako.deflate(root.dca_compressor.utf16to8(JSON.stringify(requests)), {to: "string"}))`
-	
+
 	See also:
 
 	* [mikemo » AprilScript: ActionScript worst practices](http://wayback.archive.org/web/20111029080653/http://www.morearty.com/blog/2009/04/01/aprilscript-actionscript-worst-practices/)
@@ -718,31 +746,31 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		- `𝟣+𝟣` (`SyntaxError: Invalid or unexpected token`/`SyntaxError: illegal character`) `MATHEMATICAL SANS-SERIF DIGIT` [Unicode Characters in the 'Number, Decimal Digit' Category](http://www.fileformat.info/info/unicode/category/Nd/list.htm)
 		- https://en.wikipedia.org/wiki/Whitespace_character#Spaces_in_Unicode
 		- `'mañana' != 'mañana'; 'ma\xF1ana' != 'man\u0303ana'; 'ma\xF1ana'.length == 6; 'man\u0303ana'.length == 7;` https://mathiasbynens.be/notes/javascript-unicode#accounting-for-lookalikes
-		
+
 		Note: all languages / parsers / engines are not compatible
-		
+
 		See [Fancy transformation](Text#Fancy transformation)
-		
+
 		- https://github.com/reinderien/mimic and https://github.com/reinderien/mimic/wiki/Character-Set
 		- [JavaScript variable name validator](https://mothereff.in/js-variables)
 		- https://mathiasbynens.be/notes/javascript-identifiers-es6 and https://github.com/mathiasbynens/mothereff.in/tree/master/js-variables and https://stackoverflow.com/questions/1661197/what-characters-are-valid-for-javascript-variable-names
-		
+
 	* Use RLO (Right-to-Left Override) or Bidi chars:
-	
+
 		```js
-		(eye="‮rotator")+eval('alert(eye)')   
+		(eye="‮rotator")+eval('alert(eye)')
 		```
-		
+
 		```js
 		"‮";(llun=eval)
 		"‮";llun(`"‮";alert
 		(llun)`)
 		```
-	
+
 		```js
 		(a=1) > 0; (א=1) > 0;
 		```
-	
+
 		- [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/nihifi/edit?html,output)
 		- [JS Bin - Collaborative JavaScript Debugging](https://jsbin.com/heriku/edit?html,output)
 		- [Unicode Bidirectional Algorithm basics](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics#mirroring)
@@ -779,7 +807,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 	* ECMAScript, trailing comma don't add an element: [Trailing commas in JavaScript - Stack Overflow](https://stackoverflow.com/a/11306770/470117)
 	* ECMAScript, `var x = NaN; x !== x`
 	* ECMAScript: `0[["__proto__"]] === Number.prototype`: [An Abusive Relationship with AngularJS](http://slideshare.net/x00mario/an-abusive-relationship-with-angularjs)
-	* Java: 
+	* Java:
 		- `Integer.valueOf(6) == Integer.valueOf(6)` but `Integer.valueOf(1000) != Integer.valueOf(1000)` (`==` is not `equal()`)
 		- `(byte) + (char) - (int) + (long) - 1` (give `1`) (equivalent to `+ - + -1` and `-(-1)`?)
 		Explainations: [Some Education While Feeding a Code Troll | Danimo's blog](https://daniel.molkentin.net/2015/02/18/some-education-while-feeding-a-code-troll/)
@@ -798,13 +826,13 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		`var x = 0; var y = (x++, 10); x == 1 && y == 10;` can be written `var x = 0, y = (x++, 10);`
 		`[].concat[1,2,3];` will return `[1,2,3]` if you do `Array.prototype.concat[3] = [1,2,3];` first.
 		Other example: `({baz: "a"})["foo","bar","baz"]` is the same as `({baz: "a"})["baz"]`
-		
+
 		- http://www.2ality.com/2016/11/concat-array-literal.html
 	* ECMAScript `void 4+7 === (void 4)+7`, `void 4+7 !== void (4+7)` http://speakingjs.com/es5/ch09.html#void_operator
 	* ECMAScript: `["10", "10", "10"].map(parseInt) // [10, NaN, 2]`
 		Because in `array.map(callback)`, the `callback` receive [3 parameters (`currentValue`, `index`, `array`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map#Parameters).
 		And `parseInt()` accept [2 parameters (`string`, `radix`)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#Parameters)
-		
+
 		Use `["10", "10", "10"].map(value => parseInt(value))` instead
 	* ECMAScript: `Array.prototype.push("test"); let empty = []; empty.length === 0; empty[0] === "test"; Array.prototype[0] === "test"` `Array.isArray(Array.prototype))` same as `Object.prototype.foo = "bar"; let empty = {}; empty.foo === "bar"`
 	* ECMAScript proxy: https://github.com/mathiasbynens/tpyo `const array = tpyo(['a', 'b', 'c']);array.lnegth;array.tosTr1ng();`
@@ -814,14 +842,14 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 			consöle.ërror('Mëtal');
 			alërt('Ümlauts');
 		}
-		
+
 		function MëtalÜmlauts(){
 			const handler = {
 				// always pretend the property exists
 				has(){
 					return true;
 				},
-				
+
 				// remplace umlauts in properties
 				get(target, name){
 					const ascii = String(name).normalize("NFKD").replace(/[\u0300-\u036F]/g, "");
@@ -838,12 +866,12 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 					}
 				}
 			};
-			
+
 			return new Proxy(window, handler);
 		}
 		```
 	* ECMAScript regexp previous match:
-	
+
 		```js
 		"abc".match(/b/);
 		console.log(RegExp["$`"]);// a
@@ -854,7 +882,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		console.log("abc".re:place("b", "$'"));// acc
 		```
 	* ECMAScript string template
-	
+
 		```js
 		alert`1`				// no parenthesis needed
 		Function`alert\`1\````	// escaped back-ticks
@@ -864,7 +892,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		`hello${alert(1)}goodbye`	// expression interpolation
 		```
 	* ECMAScript:
-	
+
 		```js
 		let x = (() => {
 			for (var i = 0; i < 5; i++) {
@@ -874,9 +902,9 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		})();
 		console.log( x ); // -> 3
 		```
-		
+
 		- [c# - Why can't a 'continue' statement be inside a 'finally' block? - Stack Overflow](https://stackoverflow.com/questions/17991036/why-cant-a-continue-statement-be-inside-a-finally-block)
-	* Esoteric programming language that are subset of a language 
+	* Esoteric programming language that are subset of a language
 		see [JSFuck](#esoteric-programming-languages)
 	* closures
 	* enumerable
@@ -887,7 +915,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		- in using function parameter `(function(undefined = "a") {typeof undefined != "undefined"})();`
 		- `with({undefined: 1}){1 === undefined}`
 		- `(() => {var undefined = 1; return 1 === undefined;})()`
-		
+
 		To resolve it, just use: `var trueUndefined = (function(undefined) {return undefined})();` or `var trueUndefined = void(0);`
 	* PHP, copy array instead of using it reference. See [Is there a function to make a copy of a PHP array to another? - Stack Overflow](https://stackoverflow.com/questions/1532618/is-there-a-function-to-make-a-copy-of-a-php-array-to-another/1532632#1532632)
 	* JS: [DOM clobbering](#dom-clobbering)
@@ -901,14 +929,14 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		- `1/998001 = 1/Math.pow(999, 2) = 0.000001002003004005006007…994995996997999000001002003004…` (but without 998)
 		- `1/9801 = 1/Math.pow(99, 2) = 0.000102030405…9697990001020304…` (sequence from 00 to 99, but without 98)
 		- `1/81 = 1/Math.pow(9, 2) = 012345679/999999999 = 0.0123456790123456790123…` (without 8)
-		
+
 		`Math.floor(Math.pow(10, 1 + x)/81) % 10 == x// but doesn't works for all x (x=8 gives 9, x=9 gives 0, x=10 gives 1, etc.)`
 		See [998,001 and its Mysterious Recurring Decimals - Numberphile - YouTube](https://www.youtube.com/watch?v=daro6K6mym8&feature=youtu.be&app=desktop)
-		
+
 		```
 		12345679*9 = 111111111
 		```
-		
+
 		```
 		1*8+1=9
 		12*8+2=98
@@ -921,39 +949,39 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		123456789*8+9=987654321
 		1234567890*8+0=9876543210
 		```
-		
+
 	* C `main(){printf(&unix["\021%six\012\0"], (unix)["have"]+"fun"-0x60);}` print `unix` when compiled on unix [`main(){printf(&unix\["\021%six\012\0"\], (unix)["have"]+"fun"-0x60);}` - faehnri.ch](http://faehnri.ch/have-fun/)
 	* Auto expand, in HTML `<table><td></td></table>` is parsed as `<HTML><HEAD></HEAD><BODY><TABLE><TBODY><TR><TD></TD></TR></TBODY></TABLE></BODY></HTML>`. See also HTML5 with non closed tags
 	* HTML head and its children are not display by default, but can be `head,meta,title,link,script,style,base{display: block !important;min-width: 50px;min-height: 20px;overflow: visible;}`
 	* Retro compatibility of ECMAScript RegExps [The madness of parsing real world JavaScript regexps](https://hackernoon.com/the-madness-of-parsing-real-world-javascript-regexps-d9ee336df983#.pm1rfh4zy)
 	* ActionScript
-		
+
 		```as3
 		package {
 			import flash.display.*
 			import flash.text.*
-			
+
 			public class AprilFools extends Sprite {
 				エイプリルフール var Number = 4..toString()
-		
+
 				use namespace エイプリルフール
-		
+
 				function AprilFools()
 				{
 					get = set
 					set = get
-			
+
 					with (createTextField())
 					text = new Date(Number).toDateString()
 				}
-		
+
 				function get get() { return Number + <><{Number}
 					b={"/"+Number.split(/\//)[0]*502.25}/>..@b }
 				function set get(set) { Number = set+'/'+set/4 }
-		
+
 				function get set() { return Number }
 				function set set(get) { Number = get }
-		
+
 				// nothing fun here
 				function createTextField():TextField
 				{
@@ -966,7 +994,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 				}
 			}
 		}
-		
+
 		namespace エイプリルフール
 		```
 
@@ -981,7 +1009,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 - Control Flow obfuscation / Dynamic Code wrapping / Statement-Level Randomization
 - simple:
 	compress (deflate) + XOR with a key `This obfuscation is intended to discourage XXXX from making modifications to the YYYY. We know this 'encryption' is easily broken.`
-	
+
 	- [Orange: \[Bug Bounty\] GitHub Enterprise SQL Injection](http://blog.orange.tw/2017/01/bug-bounty-github-enterprise-sql-injection.html)
 	- [decrypt obfuscated GitHub Enterprise .rb files](https://gist.github.com/geoff-codes/02d1e45912253e9ac183)
 - Some good advices [How To Write Unmaintainable Code](https://github.com/Droogans/unmaintainable-code)

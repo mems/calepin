@@ -8,7 +8,11 @@ Lumière diffue:
 
 WB "neutral": 5200K
 
-## Astrophotographie 
+## Astrophotographie
 
 The great thing about random noise is that you can get rid of most of it by stacking about 40 images, with some decreasing benefit using higher numbers of images
 https://www.reddit.com/r/space/comments/arer0k/comment/egn6mbz
+
+## Lenses
+
+- [Cameras and Lenses – Bartosz Ciechanowski](https://web.archive.org/web/20201210185337/https://ciechanow.ski/cameras-and-lenses/)

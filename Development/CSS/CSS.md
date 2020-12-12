@@ -57,7 +57,9 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 >
 > — [Nicolas Hoffmann on Twitter: "Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread - tu as testé en dark mode ? - en "light" mode ? - avec un fort zoom ? - avec un fort zoom texte ? - avec une combinaison des précédents ? - si ton viewport est petit ?" / Twitter](https://twitter.com/Nico3333fr/status/1245641136011538437)
 
-## "HTML once, redesign CSS"
+## Definition
+
+> HTML once, redesign CSS"
 
 It's an utopy saying that when you change website design, you just need to change the CSS.
 
@@ -67,7 +69,8 @@ And because style have meaning to and related to ARIA attributes (like `aria-has
 
 **But it's not impossible.**
 
-- https://en.wikipedia.org/wiki/Css#Limitations
+- [The CSS Mindset | Max Böck](https://web.archive.org/web/20201208185817/https://mxb.dev/blog/the-css-mindset/)
+- [Limitations - CSS - Wikipedia](https://en.wikipedia.org/wiki/CSS#Limitations)
 - [8 CSS gotchas to start your morning off right – Isaac Lyman – Medium](https://medium.com/@isaaclyman/8-css-gotchas-to-start-your-morning-off-right-c5daade0731d)
 
 ## Write CSS
@@ -198,10 +201,11 @@ Smoothing
 
 ### Snap points
 
+- [CSS Scroll Snap](https://web.archive.org/web/20201210192316/https://ishadeed.com/article/css-scroll-snap/)
 - [CSS Scroll Snap Points - CSS | MDN](https://developer.mozilla.org/en/docs/Web/CSS/CSS_Scroll_Snap_Points)
 - [Introducing CSS Scroll Snap Points | CSS-Tricks](https://css-tricks.com/introducing-css-scroll-snap-points/)
 - [Native CSS Scroll Snap Points](https://blog.hospodarets.com/css-scroll-snap)
-- [Well-Controlled Scrolling with CSS Scroll Snap  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/07/css-scroll-snap)
+- [Well-Controlled Scrolling with CSS Scroll Snap  |  Web](https://web.archive.org/web/20201209104623/https://developers.google.com/web/updates/2018/07/css-scroll-snap)
 - [Practical CSS Scroll Snapping | CSS-Tricks](https://css-tricks.com/practical-css-scroll-snapping/)
 
 ### Prevent body to scroll
@@ -480,12 +484,13 @@ element::after{
 }
 ```
 
-- [Revisiting Margin Collapse - Pine](https://pineco.de/revisiting-margin-collapse/)
+- [Revisiting Margin Collapse - Pine](https://web.archive.org/web/20200925025359/https://pineco.de/revisiting-margin-collapse/)
 - [Collapsing Margins - SitePoint](http://www.sitepoint.com/web-foundations/collapsing-margins/)
 - [Box model](https://drafts.csswg.org/css2/box.html#collapsing-margins)
 - [Box model](https://www.w3.org/TR/CSS21/box.html#collapsing-margins)
 - [Mastering margin collapsing - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
 - [css - Margin on child element moves parent element - Stack Overflow](https://stackoverflow.com/questions/1762539/margin-on-child-element-moves-parent-element)
+- [The Rules of Margin Collapse](https://web.archive.org/web/20201210075326/https://www.joshwcomeau.com/css/rules-of-margin-collapse/)
 
 ### Clear both without any elements
 
@@ -840,6 +845,8 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 ### Table
 
 - [Tables, CSS Display Properties, and ARIA | Adrian Roselli](https://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html)
+- [Styling HTML Tables: How to Apply Margin, Border and z-index on Table Elements - Markus Oberlehner](https://web.archive.org/web/20201207192927/https://markus.oberlehner.net/blog/styling-html-tables-how-to-apply-margins-borders-and-z-index-on-table-elements/) - Table with margin, rounded borders and z-index, see [the result](https://web.archive.org/web/20201212134936/https://wo9cc.csb.app/)
+- [Table with Rounded Corners](https://codepen.io/chris22smith/pen/RwGRGEv)
 
 #### Responsive table
 
@@ -872,8 +879,8 @@ Use `flex-direction: column;` on `tr`. But don't handle well cell with different
 
 #### Inline blocks and `text-align: justify`
 
-- https://stackoverflow.com/questions/11589590/text-align-justify-inline-block-elements-properly
-- http://www.barrelny.com/blog/text-align-justify-and-rwd/
+- [css - "text-align: justify;" inline-block elements properly? - Stack Overflow](https://stackoverflow.com/questions/11589590/text-align-justify-inline-block-elements-properly)
+- [BARREL | Text-align: Justify and RWD](https://web.archive.org/web/20200927073049if_/https://archive.barrelny.com/blog/text-align-justify-and-rwd/)
 
 ### Alignment
 
@@ -1257,6 +1264,7 @@ Negative z-index:
 - [perspective - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
 - [CSS Positioned Layout Module Level 3](https://www.w3.org/TR/css3-positioning/#det-stacking-context)
 - [z-index - CSS | MDN](https://developer.mozilla.org/en/docs/Web/CSS/z-index)
+- [CSS stacking contexts: What they are and how they work](https://web.archive.org/web/20200927091301/https://tiffanybbrown.com/2015/09/css-stacking-contexts-wtf/index.html)
 
 ## Overflow
 
@@ -3691,7 +3699,10 @@ sub {
 ## List
 
 > remove list element semantics when `list-style: none` is used
-> - ["Fixing" Lists | scottohara.me](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html)
+> - ["Fixing" Lists | scottohara.me](https://web.archive.org/web/20201101185421/https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html)
+
+- [James Craig #BLM auf Twitter: "WebKit’s presentational list heuristics for accessibility have come up as a topic recently. Starting a thread with some of the background. 1/20"](https://web.archive.org/web/20201211024741/https://twitter.com/cookiecrook/status/1337226933822603270)
+- [Much Ado About No Lists · yatil.net](https://web.archive.org/web/20201204023657/https://yatil.net/posts/2019/01/13/much-ado-about-no-lists/)
 
 ```css
 .link{

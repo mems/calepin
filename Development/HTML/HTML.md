@@ -257,19 +257,6 @@ Small screen viewport size
 
 ## Attributes
 
-### `alt` vs `title`
-
-Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
-
-Alternative text is... the text version of image. Same information/data or summary, but with words. Ex.: "WordPress awesomeness has increased from 90% awesome in 2006, to 120% awesome in 2008".
-Caption describe the meaning the image. Ex.: "WordPress awesomeness by time, based on data from the WordPress Awesomeness Institute"
-
-Alt is not only for accessibility purpose, but also for SEO: [HTeuMeuLeu on Twitter: "Rappel : l'attribut alt, ça ne sert pas qu'aux lecteurs d'écrans. http://t.co/yZKY5FYLMQ"](https://twitter.com/HTeuMeuLeu/status/582470239201439744/photo/1)
-
-- http://www.w3.org/TR/html5/embedded-content-0.html#alt
-- http://www.w3.org/TR/WCAG20/#text-altdef
-- http://www.w3.org/WAI/alt/
-
 ### Quotes
 
 ```html
@@ -1142,6 +1129,30 @@ Don't use the `title` attribute (see [`title` attribute is not accessible](#titl
 - [Screen Reader Testing](http://jnurthen.users.sonic.net/test.html)
 - [Writing for all people: how to use alternative text well — Shopify UX — Medium](https://medium.com/shopify-ux/writing-for-all-people-how-to-use-alternative-text-well-1205a18307a1#)
 
+### `alt` vs `title`
+
+Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
+
+Alternative text is... the text version of image. Same information/data or summary, but with words. Ex.: "WordPress awesomeness has increased from 90% awesome in 2006, to 120% awesome in 2008".
+Caption describe the meaning the image. Ex.: "WordPress awesomeness by time, based on data from the WordPress Awesomeness Institute"
+
+Alt is not only for accessibility purpose, but also for SEO: [HTeuMeuLeu on Twitter: "Rappel : l'attribut alt, ça ne sert pas qu'aux lecteurs d'écrans. http://t.co/yZKY5FYLMQ"](https://twitter.com/HTeuMeuLeu/status/582470239201439744/photo/1)
+
+- http://www.w3.org/TR/html5/embedded-content-0.html#alt
+- http://www.w3.org/TR/WCAG20/#text-altdef
+- http://www.w3.org/WAI/alt/
+
+### `title` attribute is not accessible
+
+Accessible to user with AT but for touch device users too.
+Because touch can't handle it on link, abbr, images, etc. Some screen reader ignore it too.
+
+See [Labelling](#labelling)
+
+- [Using the HTML title attribute – Updated Dec 2012 | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
+- [3 Semantics, structure, and APIs of HTML documents — The title attribute | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/dom.html#the-title-attribute)
+- [Using the HTML title attribute – Updated March 2020 | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
+
 ## Update content (script, AJAX)
 
 - [AJAX progress/loader](#ajax-progressloader)
@@ -1417,17 +1428,6 @@ Or use a shadow DOM/subdom:
 
 See [Spelling is important](Text#spelling-is-important)
 
-## `title` attribute is not accessible
-
-Accessible to user with AT but for touch device users too.
-Because touch can't handle it on link, abbr, images, etc. Some screen reader ignore it too.
-
-See [Labelling](#labelling)
-
-- [Using the HTML title attribute – Updated Dec 2012 | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
-- [3 Semantics, structure, and APIs of HTML documents — The title attribute | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/dom.html#the-title-attribute)
-- [Using the HTML title attribute – Updated March 2020 | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
-
 ## Tooltip
 
 - [Simple standalone toggletip widget pattern | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2016/01/simple-standalone-toggletip-widget-pattern/)
@@ -1678,7 +1678,15 @@ If you have to define multiple size based on dppx or viewport size, you can use 
 
 **Note: If you use SVG as inlined icon (in HTML, using `<use>`), always define a inlined stylesheet: `<style>.icon { width: 1em; height: 1em; fill: currentColor; }</style>` in case of faulty CSS loading.** See [SVG Style Inheritance and the ‘Flash Of Unstyled SVG’](https://sarasoueidan.com/blog/svg-style-inheritance-and-FOUSVG/) and http://d.pr/i/cHS2/2XMaVh29
 
-Image alternative:
+See also [CSS - Image](../CSS/CSS.md#image)
+
+## Image description
+
+Image alternative
+
+> While both [..] provide a way to describe images, the way we write for them is different. `alt` descriptions should be functional; `figcaption` descriptions should be editorial or illustrative.
+>
+> — [Alt vs Figcaption](https://web.archive.org/web/20201209220923/https://thoughtbot.com/blog/alt-vs-figcaption)
 
 - [Writing for all people: how to use alternative text well — Shopify UX — Medium](https://medium.com/shopify-ux/writing-for-all-people-how-to-use-alternative-text-well-1205a18307a1#)
 - [Alternative Text and Images](https://bitsofco.de/alternative-text-and-images/)
@@ -1686,6 +1694,7 @@ Image alternative:
 - https://stackoverflow.com/questions/492809/when-to-use-img-vs-css-background-image
 - [F3: Failure of Success Criterion 1.1.1 due to using CSS to include images that convey important information | Techniques for WCAG 2.0](http://www.w3.org/TR/WCAG20-TECHS/F3.html)
 - [mezzoblue § Testing Grounds](http://www.mezzoblue.com/tests/revised-image-replacement/)
+- [Axess Lab | Alt-texts: The Ultimate Guide](https://web.archive.org/web/20201107223531/https://axesslab.com/alt-texts/)
 
 - [How Can I Make My Icon System Accessible? | CSS-Tricks](https://css-tricks.com/can-make-icon-system-accessible/)
 - [CSS image replacement with pseudo-elements (NIR) – Nicolas Gallagher](http://nicolasgallagher.com/css-image-replacement-with-pseudo-elements/)
@@ -1696,8 +1705,6 @@ Image alternative:
 - [It's Time to Be Honest about Image Replacement Techniques](https://www.sitepoint.com/its-time-to-be-honest-about-image-replacement-techniques/)
 - [More Than Just Pretty: How Imagery Drives User Experience – Smashing Magazine](https://www.smashingmagazine.com/2017/01/more-than-just-pretty-how-imagery-drives-user-experience/)
 - [Alternate text for background images, alt text accessibility](http://davidmacd.com/blog/alternate-text-for-css-background-images.html)
-
-See also [CSS - Image](CSS#image)
 
 ## Responsive image
 
@@ -1765,11 +1772,15 @@ When a form is submitted, and the result is the same page (with error message, e
 
 Note: button can also be a button (not a submit button) `<button type="button"></button>`. It's not owned by any form.
 
-	<input type="submit" value="Send">
+```html
+<input type="submit" value="Send">
+```
 
 or
 
-	<button>Send</button>
+```html
+<button>Send</button>
+```
 
 The second one are much easier to style. But in old IE, innerHTML was sent, [plus few others bugs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Button#Notes). Type attribute with value `submit` is the default value.
 
@@ -1856,29 +1867,31 @@ Also because with this technique, the input can have only have one associated la
 
 - [ARIA Checkbox – IT Accessibility](https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/aria-checkbox/)
 
-### Select with unselected option
+### Select placeholder
 
-Without (valid) selection
+...with unselected option
+
+> If a `select` element has a `required` attribute specified, [...]; and if the value of the first option element [...] is the empty string, [...], then that `option` is the `select` element's **placeholder label option**.
+>
+> [The `select` element - HTML Standard](https://html.spec.whatwg.org/#placeholder-label-option)
 
 ```html
-<select>
+<select required>
+	<option value="">Select a year</option><!-- This first option is the placeholder  -->
 	<option value="1900">1900</option>
 	<option value="1901">1901</option>
-	<!--...-->
-	<!-- Define label as "Undefined" or (&ndash;) "–" or (&horbar;) "―" or (math) "{}", "∅", and " ∅ " or "  ⃠ " -->
-	<option selected value="">No selection</option>
-	<!-- Or use the label attribute with space or other non empty value the user can't select -->
-	<option disabled selected value="" label=" "></option>
 </select>
 ```
 
-You can also use JS, it's but not the best solution:
-
-```js
-document.getElementById("myDropdown").selectedIndex = -1;
+```html
+<select>
+	<option value="" disabled selected hidden>Select a year</option><!-- This first option is the placeholder  -->
+	<option value="1900">1900</option>
+	<option value="1901">1901</option>
+</select>
 ```
 
-- [html - default select option as blank - Stack Overflow](https://stackoverflow.com/questions/8605516/default-select-option-as-blank)
+- [html - How do I make a placeholder for a 'select' box? - Stack Overflow](https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box/8442831#8442831)
 
 ### Disabled vs readonly
 

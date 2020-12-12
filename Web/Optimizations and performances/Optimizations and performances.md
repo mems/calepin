@@ -655,6 +655,17 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
 
 - [http - Making sure a web page is not cached, across all browsers - Stack Overflow](https://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers)
 
+#### Cache partitioning
+
+- Chrome 86: [910708 - Split Disk Cache Meta Bug - chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=910708)
+- Safari 6.1, Safari iOS 7 (WebKit 537.32): [110269 – Optionally partition cache to prevent using cache for tracking](https://bugs.webkit.org/show_bug.cgi?id=110269)
+- Firefox 72 (supported by 70): [1590107 - \[meta\] Top-level site partitioning](https://bugzilla.mozilla.org/show_bug.cgi?id=1590107)
+
+- [Time to Say Goodbye to Google Fonts](https://web.archive.org/web/20201210165352/https://wicki.io/posts/2020-11-goodbye-google-fonts/)
+- [Gaining security and privacy by partitioning the cache  |  Web](https://web.archive.org/web/20201202112031/https://developers.google.com/web/updates/2020/10/http-cache-partitioning)
+- [Double-keyed HTTP cache · Issue #904 · whatwg/fetch](https://github.com/whatwg/fetch/issues/904)
+- [shivanigithub/http-cache-partitioning](https://github.com/shivanigithub/http-cache-partitioning/)
+
 ### Reduce processing
 
 - [JavaScript Start-up Performance – reloading – Medium](https://medium.com/reloading/javascript-start-up-performance-69200f43b201)

@@ -865,7 +865,7 @@ See [Detection](#detection)
 
 #### Web Extensions
 
-Chrome, Firefox, Edge
+Chrome, Firefox, Edge, Safari
 
 #### Safari Extensions
 
@@ -1432,7 +1432,7 @@ $date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
 - `X-Frame-Options` header (depreciated)
 - `Content-Security-Policy` header
 
-See [XSS and injection](Security#xss-and-injection)
+See [XSS and injection prevention](../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#xss-and-injection-prevention)
 
 ### Subresource checksum
 
@@ -1749,7 +1749,9 @@ Safe Browsing (UrlSubresourceFilter, BetterAds)
 - [Blockthrough/PageFair Adblock Reports | Blockthrough](https://blockthrough.com/pagefair-annual-adblock-reports/)
 - [2019 US ad-blocking usage report – eyeo GmbH](https://eyeo.com/2019-us-ad-blocking-usage-report/)
 
-- [Intelligent Tracking Prevention 2.0 | WebKit](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/) - ITP (Intelligent Tracking Prevention), third party cookies isolation
+- ITP (Intelligent Tracking Prevention) used by Safari - third party cookies isolation
+	- [Intelligent Tracking Prevention 2.0 | WebKit](https://webkit.org/blog/8311/intelligent-tracking-prevention-2-0/)
+	- [ITP Debug Mode in Safari | Simo Ahava's blog](https://web.archive.org/web/20201205112922/https://www.simoahava.com/privacy/itp-debug-mode-in-safari/)
 - [Chromium Blog: Under the hood: How Chrome' ad filtering works](https://blog.chromium.org/2018/02/how-chromes-ad-filtering-works.html)
 - [Focus by Firefox - Content Blocking for the Open Web - The Mozilla Blog](https://blog.mozilla.org/blog/2015/12/07/focus-by-firefox-content-blocking-for-the-open-web/)
 - [Selectively Filtering Content in Web Browsers – IEBlog](https://blogs.msdn.microsoft.com/ie/2010/11/30/selectively-filtering-content-in-web-browsers/)
@@ -1797,7 +1799,7 @@ Code:
 
 - [safe_browsing/ - Code Search](https://cs.chromium.org/chromium/src/chrome/browser/safe_browsing/?q=chrome/browser/safe_browsing/&sq=package:chromium&dr)
 - [SafeBrowsingWarningCocoa.mm dans webkit/trunk/Source/WebKit/UIProcess/Cocoa. – WebKit](http://trac.webkit.org/browser/webkit/trunk/Source/WebKit/UIProcess/Cocoa/SafeBrowsingWarningCocoa.mm?rev=239408) - Safe Browsing
-- /System/Library/PrivateFrameworks/SafariSafeBrowsing.framework
+- `/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework`
 
 ## Datasets
 
