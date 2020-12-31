@@ -17,13 +17,17 @@ Make parse and execute. But not dynamically all makefile code is resolved before
 `@:` it's a no-op (for recipe)
 
 - [gnu make - What does @: (at symbol colon) mean in a Makefile? - Stack Overflow](https://stackoverflow.com/questions/8610799/what-does-at-symbol-colon-mean-in-a-makefile)
- 
-	$(addsuffix /path/%.png,image1 image2)
-	$(patsubst %.svg,%.png,image1.svg image2.svg)
+
+```makefile
+$(addsuffix /path/%.png,image1 image2)
+$(patsubst %.svg,%.png,image1.svg image2.svg)
+```
 
 Get files (if file exist):
 
-	FILES := $(shell [ -d /tmp ] && find /tmp -type f \( -name "*.png" -o -name "*.png.tmp" \))
+```makefile
+FILES := $(shell [ -d /tmp ] && find /tmp -type f \( -name "*.png" -o -name "*.png.tmp" \))
+```
 
 - [What’s Wrong With GNU make? - Conifer Systems](http://www.conifersystems.com/whitepapers/gnu-make/)
 - [Troubles of using GNU Make « kmod's blog](http://blog.kevmod.com/2014/03/troubles-of-using-gnu-make/)
@@ -37,21 +41,21 @@ See also
 
 ## Goals
 
-	# Ignore if clean as been already called before (if "exist")
-	.PHONY: clean
-	clean:
-		rm *.o temp
+```makefiles
+```
 
 - [GNU make: Phony Targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html)
 
 Put first:
 
-	.PHONY: help
-	help:
-		@echo "Please use \`make <target>' where <target> is one of"
-		@echo "  clean      to clean generated files"
-		@echo "  install    to install binaries"
-		@echo "  test       to run all tests"
+```makefile
+.PHONY: help
+help:
+	@echo "Please use \`make <target>' where <target> is one of"
+	@echo "  clean      to clean generated files"
+	@echo "  install    to install binaries"
+	@echo "  test       to run all tests"
+```
 
 ### Common goals
 
@@ -119,7 +123,7 @@ Debug targets, dependencies, etc. `make target --debug=b`
 ## Generic
 
 	files = foo.md bar.md
-	
+
 	$(files): %.md: %.txt
 		 cat $< > $@
 
@@ -143,7 +147,7 @@ In rule `$$i` will be `$i` in sh.
 Useful when the result of a command create multiple files
 
 	all: foo-new.txt bar-new.txt
-	
+
 	foo-new.txt bar-new.txt: bundle
 	.INTERMEDIATE: bundle
 	bundle: foo.txt bar.txt
@@ -169,7 +173,7 @@ An other technique is to use an intermediary file to keep track changes.
 
 - use a folder as prerequisite : because "a directory is considered "changed" whenever directory members are added or removed"
 - `echo 'content' | cmp -s - $@ || echo 'content' > $@` where `$@` is the tracking file contains timestamp of files and `content` is list of file in folder using `date -r <file> +"%s%N"`
-	
+
 		#!/usr/bin/env bash
 		# Write index of folder content timestamps, only if timestamps has been changed or a file has been removed
 		# Usage: $0 <folder> <timestampsindex>
@@ -190,41 +194,47 @@ Not related [Makefile rule depend on directory content changes - Stack Overflow]
 
 Create it full script:
 
-	out.tar:
-	   set -e ;\
-	   TMP=$$(mktemp -d) ;\
-	   echo hi $$TMP/hi.txt ;\
-	   tar -C $$TMP cf $@ . ;\
-	   rm -rf $$TMP ;\
+```makefile
+out.tar:
+   set -e ;\
+   TMP=$$(mktemp -d) ;\
+   echo hi $$TMP/hi.txt ;\
+   tar -C $$TMP cf $@ . ;\
+   rm -rf $$TMP ;\
+```
 
 - [makefile - Define make variable at rule execution time - Stack Overflow](https://stackoverflow.com/questions/1909188/define-make-variable-at-rule-execution-time)
 
 ## Multiple rules using same recipe
 
-	# Recipe content for make a JS bundle
-	define COPY
-	mkdir -p $$(dirname $@)
-	cp $< $@
-	endef
-	
-	test/foo.txt: foo.txt
-		$(COPY)
-	
-	test/bar.txt: bar.txt
-		$(COPY)
+```makefile
+# Recipe content for make a JS bundle
+define COPY
+mkdir -p $$(dirname $@)
+cp $< $@
+endef
+
+test/foo.txt: foo.txt
+	$(COPY)
+
+test/bar.txt: bar.txt
+	$(COPY)
+```
 
 - [GNU make: Canned Recipes](https://www.gnu.org/software/make/manual/html_node/Canned-Recipes.html#Canned-Recipes)
 
 ## (Re)define specific variable for rule
 
-	CONTENT = "foo"
-	
-	foo.txt:
-		echo $(CONTENT) > $@
-	
-	bar.txt: CONTENT = "bar"
-	bar.txt:
-		echo $(CONTENT) > $@
+```makefile
+CONTENT = "foo"
+
+foo.txt:
+	echo $(CONTENT) > $@
+
+bar.txt: CONTENT = "bar"
+bar.txt:
+	echo $(CONTENT) > $@
+```
 
 > Be aware that a given prerequisite will only be built once per invocation of make, at most. If the same file is a prerequisite of multiple targets, and each of those targets has a different value for the same target-specific variable, then the first target to be built will cause that prerequisite to be built and the prerequisite will inherit the target-specific value from the first target. It will ignore the target-specific values from any other targets.
 
@@ -232,17 +242,19 @@ Create it full script:
 
 ## Self calling
 
-	# on top
-	MAKEFILE_MAIN := $(lastword $(MAKEFILE_LIST))
-	
-	test :
-		...
-		@$(MAKE) -f $(MAKEFILE_MAIN) runtest --no-print-directory
+```makefile
+# on top
+MAKEFILE_MAIN := $(lastword $(MAKEFILE_LIST))
+
+test :
+	...
+	@$(MAKE) -f $(MAKEFILE_MAIN) runtest --no-print-directory
+```
 
 - `--no-print-directory`` skip logs `make[1]: Entering directory `/working/dir/path/'`, can be defined globaly with `MAKEFLAGS += --no-print-directory`
 - leading `@` is used to not log the current command
 
-Could be use full if a recipe generate an unknow amount of file could be prerequisites 
+Could be use full if a recipe generate an unknow amount of file could be prerequisites
 
 - [GNU make: Special Variables](https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#index-makefiles_002c-and-MAKEFILE_005fLIST-variable)
 - [GNU make: MAKE Variable](https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html)
@@ -266,17 +278,21 @@ Possible workarounds:
 
 Multiple recipe for same target, all will be executed (It's not the case with simple colon)
 
-	libxxx.a : sub1.o sub2.o
-		ar rv libxxx.a sub1.o
-		ar rv libxxx.a sub2.o
+```makefile
+libxxx.a : sub1.o sub2.o
+	ar rv libxxx.a sub1.o
+	ar rv libxxx.a sub2.o
+```
 
 Is the same as:
 
-	libxxx.a :: sub1.o
-		ar rv libxxx.a sub1.o
-		
-	libxxx.a :: sub2.o
-		ar rv libxxx.a sub2.o
+```makefile
+libxxx.a :: sub1.o
+	ar rv libxxx.a sub1.o
+
+libxxx.a :: sub2.o
+	ar rv libxxx.a sub2.o
+```
 
 Can be usefull for parallelization
 
@@ -298,20 +314,26 @@ Be sure a "bootstrap" target is executed before. Not prerequist, but need to be 
 
 When order-only prerequisite are rebuild make does not mark target as needing an update (don't base on timestamp, only if exist) like a dir
 
-	foo: x y z | bar
-		$(MAKE) $^;
-		# Make will run the bar rule before this `foo`. `bar` will not appear in $^
+```makefile
+foo: x y z | bar
+	$(MAKE) $^;
+	# Make will run the bar rule before this `foo`. `bar` will not appear in $^
+```
 
 - [makefile - Order-only prerequisites not working correctly in GNU make? - Stack Overflow](https://stackoverflow.com/questions/24821611/order-only-prerequisites-not-working-correctly-in-gnu-make)
 - [GNU make](http://www.gnu.org/software/make/manual/make.html#Prerequisite-Types)
 
 ## Pattern rules
 
-	%.o: %.c
-		#do it
+```makefile
+%.o: %.c
+	#do it
+```
 
-	$(objects): %.o: %.c
-		#do it
+```makefile
+$(objects): %.o: %.c
+	#do it
+```
 
 - [GNU make: Static Usage](https://www.gnu.org/software/make/manual/html_node/Static-Usage.html#Static-Usage)
 
@@ -319,45 +341,47 @@ When order-only prerequisite are rebuild make does not mark target as needing an
 
 Implicit rules
 
-	# Copy src file to dist
-	dist/%: src/%
-		mkdir -p $$(dirname $@)
-		cp $< $@
-	
-	# Create compressed version of file
-	%.gz: %
-		gzip -9 -k -f -n "$^"
-	
-	# WebP from PNG
-	%.webp: %.png
-		$(CONVERT) "$^" -quality 90 -alpha Background "$@"
-	#	cwebp -short -alpha_cleanup -q 90 "$^" -o "$@"
-	
-	# Audio MP4 (aac) from PM3
-	%.m4a: %.mp3
-		ffmpeg -i "$^" -y -hide_banner -loglevel error -c:a aac -strict experimental "$@"
-	
-	# JPEG from PNG
-	%.jpg: %.png
-		$(CONVERT) $(CONVERT_JPEG_FLAGS) $< $@
-		$(IMAGEOPTIM) $@
-	
-	# PNG from SVG
-	%.png: %.svg
-		$(CONVERT) -density 75 $< $@
-	
-	# DDS-DXT5 from PNG
-	%-dxt5.dds: %.png
-		$(COMPRESSONATOR) -nomipmap -fd ASTC $< $@
-		
-	# DDS-ASTC from PNG
-	%-astc.dds: %.png
-		$(COMPRESSONATOR) -nomipmap -fd DXT5 $< $@
-		# $(CONVERT) $< -format dds -define dds:compression=dxt5 -define dds:cluster-fit=true -define dds:mipmaps=0 $@
-	
-	# PVR-PRVTC 4bpp from PNG
-	%.pvr: %.png
-		$(TEXTURE_TOOL) -e PVRTC --channel-weighting-perceptual --bits-per-pixel-4 -f PVR -o $@ $<
+```makefile
+# Copy src file to dist
+dist/%: src/%
+	mkdir -p $$(dirname $@)
+	cp $< $@
+
+# Create compressed version of file
+%.gz: %
+	gzip -9 -k -f -n "$^"
+
+# WebP from PNG
+%.webp: %.png
+	$(CONVERT) "$^" -quality 90 -alpha Background "$@"
+#	cwebp -short -alpha_cleanup -q 90 "$^" -o "$@"
+
+# Audio MP4 (aac) from PM3
+%.m4a: %.mp3
+	ffmpeg -i "$^" -y -hide_banner -loglevel error -c:a aac -strict experimental "$@"
+
+# JPEG from PNG
+%.jpg: %.png
+	$(CONVERT) $(CONVERT_JPEG_FLAGS) $< $@
+	$(IMAGEOPTIM) $@
+
+# PNG from SVG
+%.png: %.svg
+	$(CONVERT) -density 75 $< $@
+
+# DDS-DXT5 from PNG
+%-dxt5.dds: %.png
+	$(COMPRESSONATOR) -nomipmap -fd ASTC $< $@
+
+# DDS-ASTC from PNG
+%-astc.dds: %.png
+	$(COMPRESSONATOR) -nomipmap -fd DXT5 $< $@
+	# $(CONVERT) $< -format dds -define dds:compression=dxt5 -define dds:cluster-fit=true -define dds:mipmaps=0 $@
+
+# PVR-PRVTC 4bpp from PNG
+%.pvr: %.png
+	$(TEXTURE_TOOL) -e PVRTC --channel-weighting-perceptual --bits-per-pixel-4 -f PVR -o $@ $<
+```
 
 ## Multiline command
 
@@ -365,42 +389,52 @@ Use `.ONESHELL:`
 
 Or
 
-	file.txt:
-		cd folder; echo "content" > $@
+```makefile
+file.txt:
+	cd folder; echo "content" > $@
+```
 
-	file.txt:
-		cd folder && echo "content" > $@
-
-Or:
-
-	file.txt: .SHELLFLAGS = -c eval
-	file.txt: SHELL = bash -c 'eval "$${@//\\\\/}"'
-	file.txt:
-		@cat <<-there\
-			line1\
-			line2\
-		there > $@
+```makefile
+file.txt:
+	cd folder && echo "content" > $@
+```
 
 Or:
 
-	define GITIGNOREDS
-	*.o
-	tmp/
-	endef
-	
-	export GITIGNOREDS
-	.gitignore:
-		echo "$$GITIGNOREDS" > $@
+```makefile
+file.txt: .SHELLFLAGS = -c eval
+file.txt: SHELL = bash -c 'eval "$${@//\\\\/}"'
+file.txt:
+	@cat <<-there\
+		line1\
+		line2\
+	there > $@
+```
 
 Or:
 
-	define GITIGNOREDS
-	*.o\n\
-	tmp/\n
-	endef
-	
-	.gitignore:
-		echo -e "$GITIGNOREDS" | sed 's/\\n/\n/g' > $@
+```makefile
+define GITIGNOREDS
+*.o
+tmp/
+endef
+
+export GITIGNOREDS
+.gitignore:
+	echo "$$GITIGNOREDS" > $@
+```
+
+Or:
+
+```makefile
+define GITIGNOREDS
+*.o\n\
+tmp/\n
+endef
+
+.gitignore:
+	echo -e "$GITIGNOREDS" | sed 's/\\n/\n/g' > $@
+```
 
 - [GNU make](https://www.gnu.org/software/make/manual/make.html#One-Shell)
 - [bash - Makefile recipe with a here-document redirection - Stack Overflow](https://stackoverflow.com/questions/35516379/makefile-recipe-with-a-here-document-redirection)

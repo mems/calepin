@@ -5,6 +5,7 @@
 - [Gérez vo code source avec Git - OpenClassrooms](https://openclassrooms.com/courses/gerez-vos-codes-source-avec-git)
 - List of commands in plain english: [Oh Shit, Git!?!](https://ohshitgit.com/)
 - [Explain Git with D3](https://onlywei.github.io/explain-git-with-d3/) - Visualizing Git Concepts
+- [alaingilbert/git2graph: Generate a git graph structure from linear git history](https://github.com/alaingilbert/git2graph)
 
 ## User infos
 

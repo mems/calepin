@@ -8,3 +8,4 @@
 - [The anatomy of WebAssembly: Writing your first WebAssembly module using C (C++)](https://itnext.io/the-anatomy-of-webassembly-writing-your-first-webassembly-module-using-c-c-d9ee18f7ac9b)
 - [Decoding WebAssembly](https://jarombek.com/blog/jan-7-2019-web-assembly)
 - [WebAssembly for Java developers | Blog](https://web.archive.org/web/20200805154639/http://blog.dmitryalexandrov.net/webassembly-for-java-developers/)
+- [bytecodealliance/wizer: The WebAssembly Pre-Initializer](https://github.com/bytecodealliance/wizer) - "Snapshot an initialized Wasm instance and save the result as a new, pre-initialized  Wasm module" [fitzgen on Twitter: "I wrote a tool to snapshot an initialized Wasm instance and save the result as a new, pre-initialized Wasm module. Up to 6x faster start ups on some workloads I tested! https://t.co/3OE1cNcRAS" / Twitter](https://twitter.com/fitzgen/status/1341096767979364352)

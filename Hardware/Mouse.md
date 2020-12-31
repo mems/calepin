@@ -13,3 +13,9 @@ http://www.damngeeky.com/tag/ergonomic-mouse
 http://www.ellenfinkelstein.com/acadblog/whats-best-mouse-for-autocad/
 
 http://benchmarkreviews.com/27730/zalman-zm-gm4-knossos-laser-gaming-mouse-review/2/
+
+## Mouse grips
+
+Teflon grips
+
+- [Corepad Grips Mouse Rubber Grip Sticker - Corepad](https://corepad.com/en/corepad-grips-mouse-rubber-grip-sticker/#products)

@@ -20,6 +20,10 @@ Actions when a table is modified:
 
 - [MySQL :: MySQL 5.7 Reference Manual :: 23.3 Using Triggers](https://dev.mysql.com/doc/refman/5.7/en/triggers.html)
 
+## Syntax
+
+- [BlocklySQL Demo: Generating SQL Code with Blocks](https://web.archive.org/web/20201226145239/https://www.dbinf.informatik.uni-wuerzburg.de/google-blockly-4efa0da/sql/index.html)
+
 ## Race condition
 
 Aka concurrency

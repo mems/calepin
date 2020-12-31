@@ -55,14 +55,6 @@ Paypal prend une commission pour la réception d'argent: [3,4% + 0,25€](https:
 
 lancer une annonce 10j le jeudi à 20h pour finir la semaine suivante le dimanche à 20h
 
-## Billet d'avion / Chambre d'hotel / Location de voiture
-
-Acheter plutôt en Janvier (11% moins cher que le reste de l'année) et surtout pas en juillet, août et décembre quelque soit la date du voyage. Plutôt en début de semaine, surtout les mardis et mercredis.
-Les places _business class_ baissent hors horaires de bureau. De façon générale préférer réserver en pleine nuit.
-
-http://kayak.yapta.com/flights/
-http://www.lemonde.fr/economie/article/2014/08/28/etre-alerte-quand-un-billet-d-avion-baisse-c-est-possible_4477959_3234.html#xtor=RSS-3208
-
 # Health
 
 ## Traitement verrues plantaires
@@ -77,8 +69,8 @@ N'appliquer la solution que sur la verrue. Car cela attaque le reste de la peau 
 Si à l'application sensation de brulure, arrêter quelques jours le traitement.
 On peut protéger la zone exterieur de l'application avec du verni ou de la crème type vaseline
 
-> Les verrues sont des tumeurs épithéliales de la peau ou des muqueuses dues àunPapillomavirus humain (HPV). Elles sont contagieuses par contact direct (favorisé par les microtrauma- tismes cutanés ou muqueux) ou par contact indirect 
-> 
+> Les verrues sont des tumeurs épithéliales de la peau ou des muqueuses dues àunPapillomavirus humain (HPV). Elles sont contagieuses par contact direct (favorisé par les microtrauma- tismes cutanés ou muqueux) ou par contact indirect
+>
 > Préparations locales kératolytiques
 > **Composition des préparations :** à base d'acide salicylique et d'acide lactique (Duofilm, Kerafilm...), les préparations kératolytiques attaquent la kératine de la couche cornée. Certaines formules sont associées à des teintures de thuya et de chélidoine aux propriétés antivirales (Verrupan, Clic and Go Verrues...).
 > **Mode d'emploi :** les formes liquides s'appliquent 1 fois par jour (couvrir avec un pansement adhésifocclusif type Blenderm 24 h/24) pendant plusieurs jours

@@ -1,12 +1,9 @@
-- [Règles de typographie française - A propos du site - Framasoft](http://www.framasoft.net/article2225.html)
 - [Unicode Search ☯ ☭ ⚡ → ∑ ♀ ♂ ♥ 😄](http://xahlee.info/comp/unicode_index.html)
-- https://github.com/gjeffrey/koken-typography
+- [gjeffrey/koken-typography: Plugin for Koken using the PHP-Typography library.](https://github.com/gjeffrey/koken-typography)
 - [Grammalecte, correcteur grammatical - LinuxFr.org](http://linuxfr.org/news/grammalecte-correcteur-grammatical)
 - Guide-pratique-ecrivain1.pdf
-- https://github.com/yvg/js-replace-diacritics/blob/master/replace-diacritics.js [Script to remove diacritics | lehelk.com](http://web.archive.org/web/20121231230126/http://lehelk.com/2011/05/06/script-to-remove-diacritics/)
 - [The PHP Typography library by KINGdesk](https://github.com/debach/php-typography) [PHP Typography 1.21 • KINGdesk](http://kingdesk.com/projects/php-typography/)
 - [Web typography prettifyier tools derived from the original SmartyPants.pl by John Gruber](https://github.com/michelf/php-smartypants) [PHP SmartyPants](https://michelf.ca/projets/php-smartypants/)
-- [Quotes and Accents](http://quotesandaccents.com/)
 - [UW-Madison Writer’s Handbook – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/) - How to write scientific papers
 - [Writing Guides](https://writing.colostate.edu/guides/) [Writing Resources](https://writing.colostate.edu/learn.cfm) - How to write scientific papers
 - [English Grammar Rules & Usage](https://grammar.yourdictionary.com/)
@@ -14,6 +11,8 @@
 ## Typography rules
 
 - [Grammar and Punctuation – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/grammarpunct/)
+- [Butterick’s Practical Typography](https://web.archive.org/web/20201227000555/https://practicaltypography.com/)
+- [Règles de typographie française - A propos du site - Framasoft](http://www.framasoft.net/article2225.html)
 
 ### Capitalization
 
@@ -112,7 +111,7 @@ Pour rappel (à la date d'avril 2011), on est à la version 10.2, la version 10.
 - http://typophile.com/node/33647
 - http://bytes.com/topic/python/answers/22883-convert-unicode-lower-uppercase
 - http://www.unicode.org/mail-arch/unicode-ml/y2007-m05/0007.html
-- http://german.stackexchange.com/questions/12177/when-to-use-%C3%9F-and-ss  
+- http://german.stackexchange.com/questions/12177/when-to-use-%C3%9F-and-ss
 - http://german.stackexchange.com/questions/11443/how-to-type-the-%c3%9f-and-capital-%c3%9f-%e1%ba%9e-on-a-windows-8-german-keyboard/11450#11450
 - [c# - Why is "ss" equal to the German sharp-s character 'ß'? - Stack Overflow](https://stackoverflow.com/questions/29845872/why-is-ss-equal-to-the-german-sharp-s-character-%C3%9F)
 - [1180372 – HTML: Firefox should not automatically render "ss" as "ß" if lang="de"](https://bugzilla.mozilla.org/show_bug.cgi?id=1180372)
@@ -127,8 +126,8 @@ Pour rappel (à la date d'avril 2011), on est à la version 10.2, la version 10.
 - [INSTITUT FÜR DEUTSCHE SPRACHE - rfdr_PM_2017-06-29_Aktualisierung_Regelwerk.pdf](http://www.rechtschreibrat.com/DOX/rfdr_PM_2017-06-29_Aktualisierung_Regelwerk.pdf)
 - [Capital Sharp S – Germany’s new character - Journal - Typography.Guru](https://typography.guru/journal/germanys-new-character/)
 
-> The UA must use the full case mappings for Unicode characters, including any conditional casing rules, as defined in Default Case Algorithm section of The Unicode Standard [UNICODE]. If (and only if) the content language of the element is, according to the rules of the document language, known, then any appropriate language-specific rules must be applied as well. These minimally include, but are not limited to, the language-specific rules in Unicode’s SpecialCasing.txt. 
-> For example, in Turkish there are two “i”s, one with a dot—“İ” and “i”— and one without—“I” and “ı”. Thus the usual case mappings between “I” and “i” are replaced with a different set of mappings to their respective undotted/dotted counterparts, which do not exist in English. This mapping must only take effect if the content language is Turkish (or another Turkic language that uses Turkish casing rules); in other languages, the usual mapping of “I” and “i” is required. This rule is thus conditionally defined in Unicode’s SpecialCasing.txt file. 
+> The UA must use the full case mappings for Unicode characters, including any conditional casing rules, as defined in Default Case Algorithm section of The Unicode Standard [UNICODE]. If (and only if) the content language of the element is, according to the rules of the document language, known, then any appropriate language-specific rules must be applied as well. These minimally include, but are not limited to, the language-specific rules in Unicode’s SpecialCasing.txt.
+> For example, in Turkish there are two “i”s, one with a dot—“İ” and “i”— and one without—“I” and “ı”. Thus the usual case mappings between “I” and “i” are replaced with a different set of mappings to their respective undotted/dotted counterparts, which do not exist in English. This mapping must only take effect if the content language is Turkish (or another Turkic language that uses Turkish casing rules); in other languages, the usual mapping of “I” and “i” is required. This rule is thus conditionally defined in Unicode’s SpecialCasing.txt file.
 — [CSS Text Module Level 3](https://drafts.csswg.org/css-text-3/#valdef-text-transform-uppercase)
 
 ### Numbers
@@ -220,10 +219,19 @@ See [Burger menu](UI - UX#burger-menu)
 
 - [Abbreviation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Abbreviation#Plural_forms)
 
+### Line height
+
+- [Line length | Butterick’s Practical Typography](https://web.archive.org/web/20201203050916/https://practicaltypography.com/line-length.html)
+
+### Quotes and Accents
+
+- [Quotes and Accents](https://web.archive.org/web/20201203101820/http://quotesandaccents.com/)
+- https://github.com/yvg/js-replace-diacritics/blob/master/replace-diacritics.js [Script to remove diacritics | lehelk.com](http://web.archive.org/web/20121231230126/http://lehelk.com/2011/05/06/script-to-remove-diacritics/)
+
 ## Clean text
 
 > Mojibake is the garbled text that is the result of text being decoded using an unintended character encoding.
-> 
+>
 > — [Mojibake - Wikipedia](https://en.wikipedia.org/wiki/Mojibake)
 
 Example:
@@ -497,7 +505,7 @@ Reversed pseudoalphabet (better with Capitals)
 
 Reversed pseudoalphabet (backwards) (better with Capitals)
 
-	�ɎɍɌɋɊɉɈɇɆɅɄɃɂɁɀɿȾȽȼȻȺȹȸȷȶȵȴȳȲȱȰȯȮȭȬȫȪȩȨȧȦȥȤȣȢȡȠȟȞȝȜțȚșȘȗȖȕȔȓȒȑȐȏȎȍȌȋȊȉȈȇȆȅȄȃȂȁȀȿǾǽǼǻǺǹǸǷǶǵǴǳǲǱǰǯǮǭǬǫǪǩǨǧǦǥǤǣǢǡǠǟǞǝǜǛǚǙǘǗǖǕǔǓǒǑǐǏǎǍǌǋǊǉǈǇǆǅǄǃǂǁǀǿƾƽƼƻƺƹƸƷƶƵƴƳƲƱưƯƮƭƬƫƪƩƨƧƦƥƤƣƢơƠƟƞƝƜƛƚƙƘƗƖƕƔƓƒƑƐƏƎƍƌƋƊƉƈƇƆƅƄƃƂƁƀƿžŽżŻźŹŸŷŶŵŴųŲűŰůŮŭŬūŪũŨŧŦťŤţŢšŠşŞŝŜśŚřŘŗŖŕŔœŒőŐŏŎōŌŋŊŉňŇņŅńŃłŁŀſľĽļĻĺĹĸķĶĵĴĳĲıİįĮĭĬīĪĩĨħĦĥĤģĢġĠğĞĝĜěĚęĘėĖĕĔēĒđĐďĎčČċĊĉĈćĆąĄăĂāĀĿþýüûúùø÷öõôóòñðïîíìëêéèçæåäãâáàßÞÝÜÛÚÙØ×ÖÕÔÓÒÑÐÏÎÍÌËÊÉÈÇÆÅÄÃÂÁÀÿ¾½¼»º¹¸·¶µ´³²±°¯®­¬«ª©¨§¦¥¤£¢¡ �∽}|{zYxwvUTꙅᴙpqoᴎmlkjiHgꟻɘbↄdA`_^]\[ZYXWVUTꙄᴙpꟼOᴎM⅃KJIHGꟻƎbↃdA@⸮>=<⁏:98765432߁0/.-,+*)('&%$#"! 
+	�ɎɍɌɋɊɉɈɇɆɅɄɃɂɁɀɿȾȽȼȻȺȹȸȷȶȵȴȳȲȱȰȯȮȭȬȫȪȩȨȧȦȥȤȣȢȡȠȟȞȝȜțȚșȘȗȖȕȔȓȒȑȐȏȎȍȌȋȊȉȈȇȆȅȄȃȂȁȀȿǾǽǼǻǺǹǸǷǶǵǴǳǲǱǰǯǮǭǬǫǪǩǨǧǦǥǤǣǢǡǠǟǞǝǜǛǚǙǘǗǖǕǔǓǒǑǐǏǎǍǌǋǊǉǈǇǆǅǄǃǂǁǀǿƾƽƼƻƺƹƸƷƶƵƴƳƲƱưƯƮƭƬƫƪƩƨƧƦƥƤƣƢơƠƟƞƝƜƛƚƙƘƗƖƕƔƓƒƑƐƏƎƍƌƋƊƉƈƇƆƅƄƃƂƁƀƿžŽżŻźŹŸŷŶŵŴųŲűŰůŮŭŬūŪũŨŧŦťŤţŢšŠşŞŝŜśŚřŘŗŖŕŔœŒőŐŏŎōŌŋŊŉňŇņŅńŃłŁŀſľĽļĻĺĹĸķĶĵĴĳĲıİįĮĭĬīĪĩĨħĦĥĤģĢġĠğĞĝĜěĚęĘėĖĕĔēĒđĐďĎčČċĊĉĈćĆąĄăĂāĀĿþýüûúùø÷öõôóòñðïîíìëêéèçæåäãâáàßÞÝÜÛÚÙØ×ÖÕÔÓÒÑÐÏÎÍÌËÊÉÈÇÆÅÄÃÂÁÀÿ¾½¼»º¹¸·¶µ´³²±°¯®­¬«ª©¨§¦¥¤£¢¡ �∽}|{zYxwvUTꙅᴙpqoᴎmlkjiHgꟻɘbↄdA`_^]\[ZYXWVUTꙄᴙpꟼOᴎM⅃KJIHGꟻƎbↃdA@⸮>=<⁏:98765432߁0/.-,+*)('&%$#"!
 
 - [Unicode Text Converter](http://qaz.wtf/u/convert.cgi) - By https://twitter.com/elithebearded, [Example](http://qaz.wtf/u/convert.cgi?text=+!%22%23%24%25%26%27%28%29*%2B%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_%60abcdefghijklmnopqrstuvwxyz{|}~%7F%C2%80%C2%81%C2%82%C2%83%C2%84%C2%85%C2%86%C2%87%C2%88%C2%89%C2%8A%C2%8B%C2%8C%C2%8D%C2%8E%C2%8F%C2%90%C2%91%C2%92%C2%93%C2%94%C2%95%C2%96%C2%97%C2%98%C2%99%C2%9A%C2%9B%C2%9C%C2%9D%C2%9E%C2%9F%C2%A0%C2%A1%C2%A2%C2%A3%C2%A4%C2%A5%C2%A6%C2%A7%C2%A8%C2%A9%C2%AA%C2%AB%C2%AC%C2%AD%C2%AE%C2%AF%C2%B0%C2%B1%C2%B2%C2%B3%C2%B4%C2%B5%C2%B6%C2%B7%C2%B8%C2%B9%C2%BA%C2%BB%C2%BC%C2%BD%C2%BE%C2%BF%C3%80%C3%81%C3%82%C3%83%C3%84%C3%85%C3%86%C3%87%C3%88%C3%89%C3%8A%C3%8B%C3%8C%C3%8D%C3%8E%C3%8F%C3%90%C3%91%C3%92%C3%93%C3%94%C3%95%C3%96%C3%97%C3%98%C3%99%C3%9A%C3%9B%C3%9C%C3%9D%C3%9E%C3%9F%C3%A0%C3%A1%C3%A2%C3%A3%C3%A4%C3%A5%C3%A6%C3%A7%C3%A8%C3%A9%C3%AA%C3%AB%C3%AC%C3%AD%C3%AE%C3%AF%C3%B0%C3%B1%C3%B2%C3%B3%C3%B4%C3%B5%C3%B6%C3%B7%C3%B8%C3%B9%C3%BA%C3%BB%C3%BC%C3%BD%C3%BE%C3%BF%C4%80%C4%81%C4%82%C4%83%C4%84%C4%85%C4%86%C4%87%C4%88%C4%89%C4%8A%C4%8B%C4%8C%C4%8D%C4%8E%C4%8F%C4%90%C4%91%C4%92%C4%93%C4%94%C4%95%C4%96%C4%97%C4%98%C4%99%C4%9A%C4%9B%C4%9C%C4%9D%C4%9E%C4%9F%C4%A0%C4%A1%C4%A2%C4%A3%C4%A4%C4%A5%C4%A6%C4%A7%C4%A8%C4%A9%C4%AA%C4%AB%C4%AC%C4%AD%C4%AE%C4%AF%C4%B0%C4%B1%C4%B2%C4%B3%C4%B4%C4%B5%C4%B6%C4%B7%C4%B8%C4%B9%C4%BA%C4%BB%C4%BC%C4%BD%C4%BE%C4%BF%C5%80%C5%81%C5%82%C5%83%C5%84%C5%85%C5%86%C5%87%C5%88%C5%89%C5%8A%C5%8B%C5%8C%C5%8D%C5%8E%C5%8F%C5%90%C5%91%C5%92%C5%93%C5%94%C5%95%C5%96%C5%97%C5%98%C5%99%C5%9A%C5%9B%C5%9C%C5%9D%C5%9E%C5%9F%C5%A0%C5%A1%C5%A2%C5%A3%C5%A4%C5%A5%C5%A6%C5%A7%C5%A8%C5%A9%C5%AA%C5%AB%C5%AC%C5%AD%C5%AE%C5%AF%C5%B0%C5%B1%C5%B2%C5%B3%C5%B4%C5%B5%C5%B6%C5%B7%C5%B8%C5%B9%C5%BA%C5%BB%C5%BC%C5%BD%C5%BE%C5%BF%C6%80%C6%81%C6%82%C6%83%C6%84%C6%85%C6%86%C6%87%C6%88%C6%89%C6%8A%C6%8B%C6%8C%C6%8D%C6%8E%C6%8F%C6%90%C6%91%C6%92%C6%93%C6%94%C6%95%C6%96%C6%97%C6%98%C6%99%C6%9A%C6%9B%C6%9C%C6%9D%C6%9E%C6%9F%C6%A0%C6%A1%C6%A2%C6%A3%C6%A4%C6%A5%C6%A6%C6%A7%C6%A8%C6%A9%C6%AA%C6%AB%C6%AC%C6%AD%C6%AE%C6%AF%C6%B0%C6%B1%C6%B2%C6%B3%C6%B4%C6%B5%C6%B6%C6%B7%C6%B8%C6%B9%C6%BA%C6%BB%C6%BC%C6%BD%C6%BE%C6%BF%C7%80%C7%81%C7%82%C7%83%C7%84%C7%85%C7%86%C7%87%C7%88%C7%89%C7%8A%C7%8B%C7%8C%C7%8D%C7%8E%C7%8F%C7%90%C7%91%C7%92%C7%93%C7%94%C7%95%C7%96%C7%97%C7%98%C7%99%C7%9A%C7%9B%C7%9C%C7%9D%C7%9E%C7%9F%C7%A0%C7%A1%C7%A2%C7%A3%C7%A4%C7%A5%C7%A6%C7%A7%C7%A8%C7%A9%C7%AA%C7%AB%C7%AC%C7%AD%C7%AE%C7%AF%C7%B0%C7%B1%C7%B2%C7%B3%C7%B4%C7%B5%C7%B6%C7%B7%C7%B8%C7%B9%C7%BA%C7%BB%C7%BC%C7%BD%C7%BE%C7%BF%C8%80%C8%81%C8%82%C8%83%C8%84%C8%85%C8%86%C8%87%C8%88%C8%89%C8%8A%C8%8B%C8%8C%C8%8D%C8%8E%C8%8F%C8%90%C8%91%C8%92%C8%93%C8%94%C8%95%C8%96%C8%97%C8%98%C8%99%C8%9A%C8%9B%C8%9C%C8%9D%C8%9E%C8%9F%C8%A0%C8%A1%C8%A2%C8%A3%C8%A4%C8%A5%C8%A6%C8%A7%C8%A8%C8%A9%C8%AA%C8%AB%C8%AC%C8%AD%C8%AE%C8%AF%C8%B0%C8%B1%C8%B2%C8%B3%C8%B4%C8%B5%C8%B6%C8%B7%C8%B8%C8%B9%C8%BA%C8%BB%C8%BC%C8%BD%C8%BE%C8%BF%C9%80%C9%81%C9%82%C9%83%C9%84%C9%85%C9%86%C9%87%C9%88%C9%89%C9%8A%C9%8B%C9%8C%C9%8D%C9%8E%C9%8F)
 - https://twitter.com/glitchr_
@@ -638,42 +646,42 @@ See [How To: Post Emoji on Facebook Posts and Comments \[2013 Working\] - Crypt 
 
 ```
 0 1 2 3 4 5 6 7 8 9
-A 🐶 🐺 🐱 🐭 🐹 🐰 🐸 🐯 🐨 🐻 
-B 🐷 🐮 🐗 🐵 🐒 🐴 🐑 🐘 🐧 🐦 
-C 🐥 🐔 🐍 🐛 🐙 🐚 🐠 🐟 🐬 🐳 
-D 🐎 🐡 🐫 🐩 
+A 🐶 🐺 🐱 🐭 🐹 🐰 🐸 🐯 🐨 🐻
+B 🐷 🐮 🐗 🐵 🐒 🐴 🐑 🐘 🐧 🐦
+C 🐥 🐔 🐍 🐛 🐙 🐚 🐠 🐟 🐬 🐳
+D 🐎 🐡 🐫 🐩
 
 
-E ☕ 🍺 🍸 🍔 
+E ☕ 🍺 🍸 🍔
 
 
-F 🍎 🍊 🍓 🐾 💐 🌸 🌷 🍀 🌹 🌻 
-G 🌺 🍁 🍃 🍂 🌾 🌵 🌴 🌱 🌙 ☀ 
-H ☁ ⚡ ☔ ⛄ 🌀 🌊 🔥 ✨ 🌟 💢 
-I 💦 💤 💨 
+F 🍎 🍊 🍓 🐾 💐 🌸 🌷 🍀 🌹 🌻
+G 🌺 🍁 🍃 🍂 🌾 🌵 🌴 🌱 🌙 ☀
+H ☁ ⚡ ☔ ⛄ 🌀 🌊 🔥 ✨ 🌟 💢
+I 💦 💤 💨
 
 
-J 💩 🌂 🎍 🎎 🎓 🎏 🎐 🎃 👻 🎅 
-K 🎄 🎁 🎉 🎈 💿 📀 💽 💾 💻 📱 
-L ☎ 📞 📠 📺 🔔 📲 🎼 🎵 🎶 
+J 💩 🌂 🎍 🎎 🎓 🎏 🎐 🎃 👻 🎅
+K 🎄 🎁 🎉 🎈 💿 📀 💽 💾 💻 📱
+L ☎ 📞 📠 📺 🔔 📲 🎼 🎵 🎶
 
 
-M 😄 😃 😺 ☺ 😋 😉 😍 😻 😘 😽 
-N 😚 😜 😝 👅 😁 😸 😤 😼 😷 😌 
-O 😆 😏 😂 😹 😳 😲 😒 😔 🙍 😩 
-P 🙀 😣 😫 😵 😞 😠 😖 😪 😢 😿 
-Q 😥 😭 😰 😓 😨 😱 😡 👿 💀 👽 
-R 👾 👲 👳 👮 👷 💂 👶 👦 👧 👨 
-S 👩 👴 👵 👱 👼 👸 💃 👫 💏 💑 
-T 👯 
+M 😄 😃 😺 ☺ 😋 😉 😍 😻 😘 😽
+N 😚 😜 😝 👅 😁 😸 😤 😼 😷 😌
+O 😆 😏 😂 😹 😳 😲 😒 😔 🙍 😩
+P 🙀 😣 😫 😵 😞 😠 😖 😪 😢 😿
+Q 😥 😭 😰 😓 😨 😱 😡 👿 💀 👽
+R 👾 👲 👳 👮 👷 💂 👶 👦 👧 👨
+S 👩 👴 👵 👱 👼 👸 💃 👫 💏 💑
+T 👯
 
 
-U 👍 👎 👌 👊 ✊ ✌ 👋 ✋ 🙋 👐 
-V 👆 👇 👉 👈 🙌 🙏 ☝ 👏 💪 
-W 👂 👀 👃 👄 💋 💅 
+U 👍 👎 👌 👊 ✊ ✌ 👋 ✋ 🙋 👐
+V 👆 👇 👉 👈 🙌 🙏 ☝ 👏 💪
+W 👂 👀 👃 👄 💋 💅
 
 
-X 💝 💛 💙 💜 💚 ♥ ❤ 💔 💗 💓 
+X 💝 💛 💙 💜 💚 ♥ ❤ 💔 💗 💓
 Y 💖 💘
 ```
 
@@ -709,9 +717,9 @@ Y 💖 💘
 See [Sample data](../Data/Sample%20data/Sample%20data.md)
 
 > This sentence has five words. Here are five more words. Five-word sentences are fine. But several together become monotonous. Listen to what is happening. The writing is getting boring. The sound of it drones. It’s like a stuck record. The ear demands some variety.
-> 
+>
 > Now listen. I vary the sentence length, and I create music. Music. The writing sings. It has a pleasant rhythm, a lilt, a harmony. I use short sentences. And I use sentences of medium length. And sometimes, when I am certain the reader is rested, I will engage him with a sentence of considerable length, a sentence that burns with energy and builds with all the impetus of a crescendo, the roll of the drums, the crash of the cymbals–sounds that say listen to this, it is important.
-> 
+>
 > So write with a combination of short, medium, and long sentences. Create a sound that pleases the reader's ear. Don't just write words. Write music.
 > — Gary Provost - 100 Ways to Improve Your Writting, 1985
 

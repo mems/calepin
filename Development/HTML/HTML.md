@@ -2359,12 +2359,36 @@ Use `<select>`. If you want to use a custom widget use `aria-activedescendant` i
 - [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/)
 - [Combo box — Wikipedia](https://en.wikipedia.org/wiki/Combo_box)
 
-## `a` element
+## Anchor element
+
+Aka `a` element
 
 > When you link to something, make sure the group of words you link to work as a standalone thing. [...] If you remove the words around the link, someone should be able to predict the type of content they’re going to get
 > — [How to make blog posts accessible | GDS Digital Engagement](https://gdsengagement.blog.gov.uk/2016/11/28/how-to-make-blog-posts-accessible/)
 
 In a card component that contains multiple links to the same URL (e.g., heading, thumbnail, and “Read more” link), you could add `aria-hidden="true" tabindex="-1"` to some of these links to make it easier for keyboard and screen reader users to tab through the component: [Optimizing keyboard navigation using tabindex and ARIA — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/)
+
+See also [Breadcrumb](#breadcrumb)
+
+### Placeholder hyperlink
+
+Use where you want to use an anchor element, but not have it navigate anywhere. For marking up the current page in a navigation menu or breadcrumb trail.
+
+> links to the current page might become a placeholder
+
+- [The accessibility of placeholder links | scottohara.me](https://www.scottohara.me/note/2019/07/17/placeholder-link.html)
+- [HTML 5.1: 4.5. Text-level semantics](https://www.w3.org/TR/html/textlevel-semantics.html#the-a-element)
+- [What Are HTML5 Placeholder Links For?](http://webdesign.about.com/od/html5tutorials/qt/html5-placeholder-links.htm)
+
+### Back to top
+
+You can use `href="#top"` to link to the top of a page, no need for an element with `id="top"`. Works with `href="#"` too.
+
+> If _decodedFragment_ is an [ASCII case-insensitive](https://infra.spec.whatwg.org/#ascii-case-insensitive) match for the string `top`, then [the indicated part of the document](https://html.spec.whatwg.org/multipage/browsing-the-web.html#the-indicated-part-of-the-document) is the top of the document; return.
+>
+> — [HTML Standard](https://html.spec.whatwg.org/multipage/browsing-the-web.html#scroll-to-the-fragment-identifier)
+
+- [Back-to-Top Button Design Guidelines](https://web.archive.org/web/20201111194159/https://www.nngroup.com/articles/back-to-top/)
 
 ## `i` vs `em` vs `b` vs `cite` vs `strong`
 
@@ -2897,75 +2921,39 @@ Aka fil d'ariane (FR)
 
 Use the attribute `aria-current="location"` to represents the current item.
 
-Use the `→` char instead.
+Show a separator with CSS.
 
 ```html
+<style>li+li::before{content: "→ "}</style>
 <nav>
-	<ul>
-		<li><a href="/">Main</a> →</li>
-		<li><a href="/products/">Products</a> →</li>
-		<li><a href="/products/dishwashers/">Dishwashers</a> →</li>
-		<li><a aria-current="location">Second hand</a></li>
-	</ul>
-</nav>
-```
-
-Some peoples use only a series of links in a paragraph ([in a previous - draft version of HTML5.1](http://dev.w3.org/html5/spec-author-view/common-idioms-without-dedicated-elements.html#rel-up)):
-
-```html
-<nav>
-	<p>
-		<a href="/">Main</a> &gt;
-		<a href="/second-hand/">Second hand</a> &gt;
-		<a aria-current="location">Dishwashers</a>
-	</p>
-</nav>
-```
-
-... or with hierachical lists:
-
-```html
-<nav>
-	<ul>
-		<li>
-			<a href="#">Top Level</a>
-			<ul>
-				<li>
-					<a href="#">Second Level</a>
-					<ul>
-						<li>
-							<a href="#">Third Level</a>
-							<ul>
-								<li><a aria-current="location">Current Item</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-	</ul>
+	<ol>
+		<li><a href="/">Main</a></li>
+		<li><a href="/products/">Products</a></li>
+		<li><a href="/products/dishwashers/">Dishwashers</a></li>
+		<li><a aria-current="page">Second hand</a></li>
+	</ol>
 </nav>
 ```
 
 ```html
 <body itemscope itemtype="http://schema.org/WebPage">
+	<style>li+li::before{content: "→ "}</style>
 	<nav itemprop="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-		<ul>
+		<ol>
 			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-				<a class="belm-bcrumb__link" href="" itemprop="item"><span itemprop="name" rel="index">Accueil</span></a>
-				<span class="belm-bcrumb__sep"> →</span>
+				<a href="..." itemprop="item"><span itemprop="name" rel="index">Accueil</span></a>
 				<meta itemprop="position" content="1">
 			</li>
-			<li class="belm-bcrumb__item" itemprop="itemListElement" itemscope
-				itemtype="http://schema.org/ListItem">
-				<a class="belm-bcrumb__link" href="" rel="self" itemprop="item"><span itemprop="name">My account</span></a>
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a rel="self" itemprop="item"><span itemprop="name">My account</span></a>
 				<meta itemprop="position" content="2">
 			</li>
-		</ul>
+		</ol>
 	</nav>
 </body>
 ```
 
+- [Breadcrumb Example | WAI-ARIA Authoring Practices 1.2](https://w3c.github.io/aria-practices/examples/breadcrumb/index.html)
 - [Exploring Markup for Breadcrumbs | CSS-Tricks](https://css-tricks.com/markup-for-breadcrumbs/)
 - [Breadcrumbs   |   Structured Data   |   Google Developers](https://developers.google.com/structured-data/breadcrumbs)
 - [BreadcrumbList - schema.org](http://schema.org/BreadcrumbList)
@@ -3896,16 +3884,6 @@ Use progressive enhancement for:
 
 - [Progressive Enhancement and Data Visualizations | CSS-Tricks](http://css-tricks.com/progressive-enhancement-data-visualizations/)
 
-## Placeholder hyperlink
-
-Use where you want to use an anchor element, but not have it navigate anywhere. For marking up the current page in a navigation menu or breadcrumb trail.
-
-> links to the current page might become a placeholder
-
-- [The accessibility of placeholder links | scottohara.me](https://www.scottohara.me/note/2019/07/17/placeholder-link.html)
-- [HTML 5.1: 4.5. Text-level semantics](https://www.w3.org/TR/html/textlevel-semantics.html#the-a-element)
-- [What Are HTML5 Placeholder Links For?](http://webdesign.about.com/od/html5tutorials/qt/html5-placeholder-links.htm)
-
 ## Progress tracker
 
 or progress indicator or stepper or multi-step progress. Number of steps in order to complete a specified process, for wizard. ex: order steps `shipping > billing > confirm order`
@@ -3989,7 +3967,7 @@ Similar to breadcrumb (but not the same).
 
       <g class="speech-balloon">
         <title>Frantic shouts:</title>
-        <text><tspan="strong">Darwyn!</tspan></text>
+        <text><tspan class="strong">Darwyn!</tspan></text>
       </g>
 
       <text class="caption">Continued...</text>
@@ -4004,7 +3982,7 @@ Similar to breadcrumb (but not the same).
 
 You can use `<figure>` with `<figcaption>`
 
-- [How do you mark up a comic? by Taylor Hunt on CodePen](https://codepen.io/tigt/blog/how-do-you-mark-up-a-comic)
+- [How do you mark up a comic? by Taylor Hunt on CodePen](https://codepen.io/tigt/post/how-do-you-mark-up-a-comic)
 
 ## Data
 

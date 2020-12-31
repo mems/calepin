@@ -514,7 +514,8 @@ An other example:
 
 > The idea is that PNG data can be interpreted depending on the Color Type among other types as RGB values (color type =2) or as indexed values (color type =3) together with a palette (PLTE).
 
-- [PNG Merge - YobiWiki](http://wiki.yobi.be/wiki/PNG_Merge)
+- [PNG Merge - YobiWiki](https://web.archive.org/web/20200205032506/http://wiki.yobi.be/wiki/PNG_Merge)
+- [Executable PNGs - djhworld](https://web.archive.org/web/20201227120231/https://djharper.dev/post/2020/12/26/executable-pngs/)
 
 ### Polyglot JSON - JS file
 

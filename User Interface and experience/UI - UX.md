@@ -437,6 +437,18 @@ Alternative Idea: Complex Grids
 - [Infinite scroll](#infinite-scroll)
 - [Pagination Best Practices](http://babich.biz/pagination-best-practices/)
 
+About paging with deletable items:
+
+> Ways of handling lists with deletable items in web apps:
+>
+> (1/3) Netflix “My List”: scrolls to the beginning after a deletion. Makes it difficult to delete multiple items at the end.
+>
+> (2/3) Amazon Video watch list: the item stays but is grayed out. A simple solution that has the side benefit of making undo elegant.
+>
+> (3/3) YouTube lists: Deleted items are hidden; scrolling is handled well.
+>
+> — [Axel Rauschmayer on Twitter: "Ways of handling lists with deletable items in web apps: (1/3) Netflix “My List”: scrolls to the beginning after a deletion. Makes it difficult to delete multiple items at the end." / Twitter](https://twitter.com/rauschma/status/1343351568398168064)
+
 ## E-commerce
 
 - [UX Research: 3 Key Design Principles for Product Listing Information - Articles - Baymard Institute](https://baymard.com/blog/list-item-design-ecommerce)

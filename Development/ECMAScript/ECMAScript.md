@@ -1415,8 +1415,64 @@ async someAsyncFunction(signal){
 
 ### Promise queue
 
-```js
+Aka promise batch
 
+```js
+/**
+ * Execute async tasks in parallel
+ * @param {Iterable.<function():(Promise|*)>} tasks List of tasks to execute
+ * @param {number} max Maximum tasks in parallel
+ */
+function parallel(tasks, max = 1){
+	const taskMap = new Map();
+	const promises = [];// create proxy promises for all tasks, will be resolved by the task promise is created
+	for(const task of tasks){
+		let resolve = null;
+		promises.push(new Promise(r => resolve = r));
+		taskMap.set(resolve, task);
+	}
+
+	(async () => {
+		const pendingPromises = new Map();
+
+		for(const [resolve, task] of taskMap) {
+			// Wait until a slot of pending queue freed
+			if(pendingPromises.size >= max){
+				const ref = await Promise.race(pendingPromises.values());
+				pendingPromises.delete(ref);
+			}
+
+			try{
+				const promise = Promise.resolve(task());
+				const ref = resolve;// use the resolve function as identifier, but could also use `const ref = Symbol();`
+				pendingPromises.set(ref, promise.then(() => ref, () => ref));
+				resolve(promise);// the task promise used as result of the "real" promise
+			}catch(error){
+				resolve(Promise.reject(error));
+			}
+		}
+	})();
+
+	return promises;
+}
+
+// Example: network requests
+// on https://www.example.com/ enable slow connection
+const tasks = Array.from({length: 21}).map((v, i) => () => fetch(`https://www.example.com/${i}`));
+Promise.allSettled(parallel(tasks, 2)).then(results => console.table(results));
+
+// Example: long running tasks
+// or in performance tab under "Timings" (Chrome)
+const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
+const tasks = Array.from({length: 21}).map((v, i) => () => {
+	performance.mark(`task${i}-start`);
+	return wait(500 + Math.random() * 1500).then(() => {
+		performance.mark(`task${i}-end`);
+		performance.measure(`measure task${i}`, `task${i}-start`, `task${i}-end`);
+		return `task${i}`;
+	});
+});
+Promise.allSettled(parallel(tasks, 2)).then(results => console.table(results));
 ```
 
 - [Async map with limited parallelism in Node.js | by Alex Ewerlöf | codeburst](https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70)
@@ -2155,6 +2211,7 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 - [JavaScript engine fundamentals: optimizing prototypes · Mathias Bynens](https://mathiasbynens.be/notes/prototypes)
 - [Compiler Compiler: A Twitch series about working on a JavaScript engine - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2020/06/compiler-compiler-working-on-a-javascript-engine/)
 - [Speculation in JavaScriptCore | WebKit](https://webkit.org/blog/10308/speculation-in-javascriptcore/)
+- [Warp: Improved JS performance in Firefox 83 - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2020/11/warp-improved-js-performance-in-firefox-83/)
 
 ### Event loop
 

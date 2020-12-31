@@ -90,3 +90,10 @@ ASP.NET Core:
 - [0xd4d/de4dot: .NET deobfuscator and unpacker.](https://github.com/0xd4d/de4dot)
 - [wildcardc/cfxc-deobf: A ConfuserEx-custom deobfuscation toolchain](https://github.com/wildcardc/cfxc-deobf)
 - [ViRb3/de4dot-cex: de4dot deobfuscator with full support for vanilla ConfuserEx](https://github.com/ViRb3/de4dot-cex)
+
+## Attributes
+
+- [Extending Metadata Using Attributes | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/standard/attributes/)
+- [c# - How to pass objects into an attribute constructor - Stack Overflow](https://stackoverflow.com/questions/1235617/how-to-pass-objects-into-an-attribute-constructor)
+- [c# - Lambda expression in attribute constructor - Stack Overflow](https://stackoverflow.com/questions/16809294/lambda-expression-in-attribute-constructor)
+- [c# - Attribute with action/condition - Stack Overflow](https://stackoverflow.com/questions/21902812/attribute-with-action-condition)

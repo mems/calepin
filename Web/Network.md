@@ -1133,6 +1133,7 @@ Paging:
 - `Link` header with rel `next`, `prev`, `last`, `first`
 - [GitHub API v3 | GitHub Developer Guide](https://developer.github.com/v3/#pagination)
 - [RFC 5988 - Web Linking](https://tools.ietf.org/html/rfc5988#page-6)
+- page cursor (works well for non user paging, or only for "load more") [API pagination design](https://web.archive.org/web/20201228003649/https://solovyov.net/blog/2020/api-pagination-design/) [API pagination design | Hacker News](https://news.ycombinator.com/item?id=25547716)
 
 Rate limit (quotas):
 

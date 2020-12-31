@@ -258,13 +258,15 @@ Authenticate clients with certificates
 
 Face, fingerprint, iris/retina and DNA
 
-**Never use biometrics as authentification, because we can't change it if it's compromised (biometric thieft).**
+**Never use biometrics as authentification, because we can't change it if it's compromised (biometric thieft).** And also because not everyone own it (inherited gene mutation / defect) or it could be lost / altered after an accident, a disease, etc.
 
 > Biometrics are a username, not a password.
-— https://twitter.com/netik/status/924333873252646914
+>
+> — https://twitter.com/netik/status/924333873252646914
 
 > It is plain stupid to use something that you can't change and that you leave everywhere every day as a security token
-— Frank Rieger from Chaos Computer Club: [CCC | Chaos Computer Club breaks Apple TouchID](http://www.ccc.de/en/updates/2013/ccc-breaks-apple-touchid)
+>
+> — Frank Rieger from Chaos Computer Club: [CCC | Chaos Computer Club breaks Apple TouchID](http://www.ccc.de/en/updates/2013/ccc-breaks-apple-touchid)
 
 Issues:
 
@@ -284,6 +286,8 @@ See also [Face](Person#face)
 - [Biometrics — Wikipedia](https://en.wikipedia.org/wiki/Biometrics)
 - [CCC | Fingerprint Biometrics hacked again](https://www.ccc.de/en/updates/2014/ursel)
 - [Researchers warn of fingerprint theft from 'peace' sign | The Japan Times](http://www.japantimes.co.jp/news/2017/01/11/national/crime-legal/researchers-warn-fingerprint-theft-peace-sign/)
+- [The family with no fingerprints - BBC News](https://web.archive.org/web/20201227092611/https://www.bbc.com/news/world-asia-55301200)
+- cosmetic iris
 
 ## Two-factor authentication
 

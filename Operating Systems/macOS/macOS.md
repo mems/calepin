@@ -3077,6 +3077,7 @@ Icon can be change be changed in `/System/Library/Displays/Overrides/Icons.plist
 
 Aka camera as webcam
 
+- [Cam Link 4K | elgato.com](https://www.elgato.com/en/gaming/cam-link-4k) - Hardware HDMI-to-USB Webcam
 - [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
 - [How to use your DSLR as a Webcam | Crowdcast Docs](https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-as-a-webcam)
 - [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)
@@ -3088,6 +3089,8 @@ Aka camera as webcam
 
 - [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
 - [Open Broadcaster Software®️ | OBS](https://obsproject.com/)
+
+Linux: gphoto2 -> ffmpeg -> [v4l2loopback](https://github.com/umlaeute/v4l2loopback)
 
 ## Java
 
@@ -3119,3 +3122,10 @@ sudo rm -rf "/Library/Java/JavaVirtualMachines/jdk-interim.update.patch.jdk"
 - [java - What is the difference between JDK and JRE? - Stack Overflow](https://stackoverflow.com/questions/1906445/what-is-the-difference-between-jdk-and-jre/34510731#34510731) - JRE vs JDK
 - [Download Java for OS X 2015-001](https://support.apple.com/kb/dl1572?locale=en_US)
 - [How do I uninstall Java on my Mac?](https://www.java.com/en/download/help/mac_uninstall_java.xml)
+
+## macOS is Unix
+
+And mostly POSIX-compatible
+
+- [Some Differences between macOS and Common Unix Systems](https://web.archive.org/web/20201226003512/https://www.dyx.name/posts/macunix.html)
+- [Darwin (operating system) - Wikipedia](https://en.wikipedia.org/wiki/Darwin_%28operating_system%29)

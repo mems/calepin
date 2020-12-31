@@ -22,46 +22,6 @@ Commands tips and examples:
 
 ![bash tips](https://pbs.twimg.com/media/C75R5xUVsAEwlwf.jpg:large)
 
-## Command manual page
-
-Aka man, command documentation
-
-Obtenir le manuel de la commande `mv` :
-
-```sh
-man mv
-```
-
-Obtenir le manuel de la commande `mv` :
-
-```sh
-man man
-```
-
-- http://linux.die.net/man/
-
-Section numbers of the (`man`) manual
-
-1. Executable programs or shell commands
-2. System calls (functions provided by the kernel)
-3. Library calls (functions within program libraries)
-4. Special files (usually found in /dev)
-5. File formats and conventions eg /etc/passwd
-6. Games
-7. Miscellaneous (including macro  packages  and  conven‐tions), e.g. man(7), groff(7)
-8. System administration commands (usually only for root)
-9. Kernel routines [Non standard]
-
-- [What do the parentheses and number after a Unix command or C function mean? Like: man(8), ftok(2), mount(8)?](http://superuser.com/questions/297702/what-do-the-parentheses-and-number-after-a-unix-command-or-c-function-mean)
-
-Certaines commandes supportent aussi (où à la place) un paramètre dont sont utilisation permet l'affichage de l'aide. Ce paramètre dépend d'une commande à une autre :
-
-- `--help`
-- `-h`
-- `help`
-- `-?`
-- `/?`
-
 ## Configuration
 
 ### Conserver la configuration d'iptables lors des démarrages
@@ -178,11 +138,11 @@ who -a
 # Be sure no user can hide his command history (a = append only, i = immutable)
 chattr +a /home/user/.bash_history
 chattr +i /home/user/.profile
-# See
+# See also
 # http://www.akyl.net/securing-bashhistory-file-make-sure-your-linux-system-users-won%E2%80%99t-hide-or-delete-their-bashhistory
 # http://zero202.free.fr/bash/html/ar01s01.html#id336074
 
-# http://en.wikipedia.org/wiki/Chattr
+# https://en.wikipedia.org/wiki/Chattr
 chattr
 chwon
 chmod
@@ -265,6 +225,347 @@ timeout 1 bash -c "</dev/tcp/example.com/80" && echo Port open || echo Port clos
 
 - [Configurer une passerelle réseau — Korben Wiki](https://wiki.korben.info/Configurer_une_passerelle_r%C3%A9seau)
 
+### Windows networking
+
+Note: samba is the package that provides all this windows specific networking support
+
+```sh
+# Find windows machines. See also findsmb
+smbtree
+
+# Find the windows (netbios) name associated with ip address
+nmblookup -A 1.2.3.4
+
+# List shares on windows machine or samba server
+smbclient -L windows_box
+
+# Mount a windows share
+mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share
+
+# Send popup to windows machine (off by default in XP sp2)
+echo 'message' | smbclient -M windows_box
+
+# Mount a windows network share
+mount -t smbfs -o username=user,password=pass //WinClient/share /mnt/share
+
+# Netbios name resolution
+nbtscan ip_addr
+
+# Netbios name resolution
+nmblookup -A ip_addr
+
+# Show remote shares of a windows host
+smbclient -L ip_addr/hostname
+
+# Like wget can download files from a host windows via smb
+smbget -Rr smb://ip_addr/share
+```
+
+### HTTP
+
+```sh
+# Get headers
+curl -s -D - https://example.com -o /dev/null
+# Raw body
+curl -s --ignore-content-length --raw https://example.com
+
+# Get HTTP response
+echo -en "GET /feed/ HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc infoheap.com 80
+# Get the header Content-Type
+echo -en "GET /feed/ HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc localhost 80 | head -n 30 | grep -a Content-Type
+# Search if test is in first 1000 bytes (include header)
+echo -en "GET /feed/ HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc localhost 80 | head -c1K | grep -a test
+# Get body length
+echo -e "GET / HTTP/1.1\r\nHost: example.com\r\nAccept-Encoding: gzip, deflate\r\n\r\n" | nc localhost 80 | sed ':a;N;$!ba;s/^.*\r\n\r\n//g' | wc -c
+# Get body uncompressed length (should be gzipped)
+echo -e "GET / HTTP/1.1\r\nHost: example.com\r\nAccept-Encoding: gzip, deflate\r\n\r\n" | nc 93.184.216.34 80 | sed ':a;N;$!ba;s/^.*\r\n\r\n//g' | gzip -d | wc -c
+
+# Simple HTTP server
+echo -e "GET / HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc example.com 80 > response.http
+while true; do nc -l 8000 < response.http; done
+
+# Create `.htpasswd` file
+htpasswd -c /path/.htpasswd USERNAME
+```
+
+[How to display request headers with command line curl - Stack Overflow](https://stackoverflow.com/questions/3252851/how-to-display-request-headers-with-command-line-curl/26644485#26644485)
+
+#### wget
+
+Multi purpose download tool
+
+```sh
+# Store local browsable version of a page to the current dir
+(cd dir/ && wget -nd -pHEKk http://www.pixelbeat.org/cmdline.html)
+
+# Continue downloading a partially downloaded file (with the ability to stop the download and resume later)
+wget -c http://www.example.com/large.file
+
+# Download a set of files to the current directory
+wget -r -nd -np -l1 -A '*.jpg' http://www.example.com/dir/
+
+# FTP supports globbing directly
+wget ftp://remote/file[1-9].iso/
+
+# Process output directly
+wget -q -O- http://www.pixelbeat.org/timeline.html | grep 'a href' | head
+
+# Download url at 1AM to current dir
+echo 'wget url' | at 01:00
+
+# Do a low priority download (limit to 20KB/s in this case)
+wget --limit-rate=20k url
+
+# Check links in a file
+wget -nv --spider --force-html -i bookmarks.html
+
+# Efficiently update a local copy of a site (handy from cron)
+wget -m http://www.example.com/
+wget -m -U "" http://example.com/path/dir
+```
+
+### SSH Tunnel
+
+```sh
+# Redirect local port to a remote machine
+ssh -NfL 8080:127.0.0.1:0808 user@host
+```
+
+- [Set Up SSH Tunneling on a Linux / Unix / BSD Server To Bypass NAT - nixCraft](https://www.cyberciti.biz/faq/set-up-ssh-tunneling-on-a-linux-unix-bsd-server-to-bypass-nat/)
+
+### Backup external server
+
+Use `rsync` if possible, or `lftp`, `curl`, `wget`, `scp`, `sftp`. See also `unison`, `bacula` or `amanda`
+
+### Copy files over SSH
+
+```sh
+scp /path/localfile user@host:/path/remotefile
+
+scp /path/localfile user@host:/path/remotedir/
+
+scp /path/localdir user@host:/path/remotedir
+
+scp -i /home/username/.ssh/id_rsa -r -p username@www.mydomain.tld:/ /dst/dir
+```
+
+### Copy files with `sftp`
+
+```sh
+sftp -i /path/to/private/keyfile remote.host.tld
+```
+
+### Copy files with `lftp`
+
+`/dst/dir.lftp`:
+
+```
+set ftp:list-options -a
+#set cmd:fail-exit true
+# To use keyfile
+# http://www.adminschoice.com/how-to-configure-ssh-without-password
+# ssh-keygen -t rsa -f keyfile -N ""
+#set sftp:connect-program "ssh -a -x -i <keyfile>"
+open -u user,pass sftp://sftp.dc0.gpaas.net
+mirror --verbose --delete --parallel=4 --only-newer --exclude ^snapshots/ --exclude ^vhosts/ --exclude ^lamp0/\.config --exclude ^lamp0/var/admin/gandi.cnf$ --exclude ^lamp0/var/admin/logrotate.conf$ --exclude ^lamp0/var/cron/admin/logrotate$ --exclude ^lamp0/var/cron/admin/phpsess$ --exclude ^lamp0/db/ --exclude ^lamp0/var/log/.+ --exclude ^lamp0/var/php/www/.+ "${SRC_DIR}" "${DST_DIR}"
+exit
+```
+
+```sh
+# For paths in variables used in sed, see https://stackoverflow.com/a/29613573/470117
+SRC_DIR=/src/dir; DST_DIR=/dst/dir; sed -e "s#\${SRC_DIR}#$SRC_DIR#" -e "s#\${DST_DIR}#$DST_DIR#" /dst/dir.lftp | lftp -f /dev/stdin
+```
+
+```sh
+lftp -u username,password ftphost << EOF
+mirror -Re --use-cache /home/ /backup/
+mirror -Re --use-cache /etc/ /backup/
+mirror -Re --use-cache /var/www/ /backup/
+quit 0
+EOF
+```
+
+`--exclude` / `-x` use extended regular expression (see `egrep`) `\.nfo`. Folders path don't start with slash, but have a trailing slash: `etc/bin/`
+
+Add `--reverse` to restore backup
+
+For `lftp –> Fatal error: Certificate verification: Not trusted`:
+
+```sh
+mkdir -p /root/.lftp
+echo "set ssl:verify-certificate no" >> /root/.lftp/rc
+```
+
+- https://linux.die.net/man/1/lftp
+- http://mewbies.com/lftp_basic_usage_tutorial.htm
+- [linux - Transfer files using lftp in bash script - Stack Overflow](https://stackoverflow.com/questions/27635292/transfer-files-using-lftp-in-bash-script)
+- [Fastest segmented parallel sync of a remote directory over ssh | commandlinefu.com](http://www.commandlinefu.com/commands/view/13759/fastest-segmented-parallel-sync-of-a-remote-directory-over-ssh)
+- [`~/.lftp.rc` parameters detailed](https://gist.github.com/gaubert/822090)
+- [Shell scripting and LFTP | A Pipe and a Keyboard](http://apipeandakeyboard.com/2013/05/11/shell-scripting-and-lftp/)
+- [How to store lftp command result to a variable](https://www.experts-exchange.com/questions/25279654/How-to-store-lftp-command-result-to-a-variable.html)
+- [calling lftp from a bash script; howto pass variables into the command syntax](http://www.linuxquestions.org/questions/programming-9/calling-lftp-from-a-bash-script%3B-howto-pass-variables-into-the-command-syntax-4175444669/)
+
+### Copy files from FTP with `wget`
+
+Use a `.wgetrc` file to store configuration
+
+`/dst/dir.wget`:
+
+```
+# Credentials
+ftp_user=user
+ftp_password=password
+# Other commands
+exclude_directories=/snapshots,/vhosts,/lamp0/.config,/lamp0/db,/lamp0/var/log,/lamp0/var/php/www
+#reject=.listing
+#cut_dirs=0
+quiet=on
+no_parent=on
+mirror=on
+add_hostdir=off
+#retr_symlinks=on
+```
+
+```sh
+cd /dst/dir
+WGETRC=/dst/dir.wget wget ftp://www.mydomain.tld/
+# Clean up obselete files
+find . -type f -name ".listing" -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | while read file; do rm $(basename "$file"); done;' \;
+# find . -type f -name ".listing" -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | xargs -r rm' \;
+```
+
+Note: if you set password in URL don't forget to encode special chars: `mypass#gh647` to `mypass%23gh647`
+
+- [GNU Wget 1.20 Manual](https://www.gnu.org/software/wget/manual/wget.html#Wgetrc-Commands)
+
+### Copy files with `rsync`
+
+Network efficient file copier
+
+- [Handling renamed files or directories in rsync - Server Fault](https://serverfault.com/questions/489289/handling-renamed-files-or-directories-in-rsync/596707#596707)
+
+Use the `--dry-run` option for testing
+
+```sh
+# Copy as archive (oneway, for backup)
+rsync -a username@www.mydomain.tld:/ /dst/dir
+
+rsync -r -t -v /path/srcdir /path/destdir
+rsync -r -t -v /path/srcdir remote:~/My\ documents
+# Escape spaces, and keep special char interpreted at the destination. See "How to rsync over ssh when directory names have spaces - Unix & Linux Stack Exchange" https://unix.stackexchange.com/questions/104618/how-to-rsync-over-ssh-when-directory-names-have-spaces
+DEST="~/My\ documents"; rsync -r -t -v /path/srcdir "remote:${DEST// /\\ }"
+
+# Only get diffs. Do multiple times for troublesome downloads
+rsync -P rsync://rsync.server.com/path/to/file file
+
+# Locally copy with rate limit. It's like nice for I/O
+rsync --bwlimit=1000 fromfile tofile
+
+# Mirror web site (using compression and encryption)
+rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'
+
+# Synchronize current directory with remote one
+rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/
+date=$(date +%Y%m%d-%H%M)
+#[for loop over users]
+older=( $backups/$user/*(N/om) )
+rsync --archive --recursive \
+	--fuzzy --partial --partial-dir=$backups/$user/.rsync-partial \
+	--log-file=$tempfile --link-dest=${^older[1,20]} \
+	--files-from=$configdir/I-$user \
+	--exclude-from=$configdir/X-$user \
+	$user@$from:/ $backups/$user/$date/
+
+# Copy folder to folder (if mounted)
+rsync -ah --progress --exclude='$RECYCLE.BIN' --exclude='$Recycle.Bin' --exclude='.AppleDB' --exclude='.AppleDesktop' --exclude='.AppleDouble' --exclude='.com.apple.timemachine.supported' --exclude='.dbfseventsd' --exclude='.DocumentRevisions-V100*' --exclude='.DS_Store' --exclude='.fseventsd' --exclude='.PKInstallSandboxManager' --exclude='.Spotlight*' --exclude='.SymAV*' --exclude='.symSchedScanLockxz' --exclude='.TemporaryItems' --exclude='.Trash*' --exclude='.vol' --exclude='.VolumeIcon.icns' --exclude='Desktop DB' --exclude='Desktop DF' --exclude='hiberfil.sys' --exclude='lost+found' --exclude='Network Trash Folder' --exclude='pagefile.sys' --exclude='Recycled' --exclude='RECYCLER' --exclude='System Volume Information' --exclude='Temporary Items' --exclude='Thumbs.db' /src/dir/ /dst/dir/
+
+# With exlude list `--exclude-from=exclude-list.txt`:
+cat > exclude-list.txt << 'EOF'
+# https://alexkaloostian.com/2015/01/22/what-are-all-these-hidden-items-on-my-mac-part-1/
+# http://superuser.com/questions/180582/what-are-desktop-db-or-desktop-df-files-on-external-hd
+# http://forum.mac4ever.com/pourquoi-t73534.html#p997828
+# http://netatalk.sourceforge.net/wiki/index.php/Special_Files_and_Folders
+# Apple OS
+.AppleDouble
+.com.apple.timemachine.donotpresent
+.com.apple.timemachine.supported
+.Spotlight-V100
+.DocumentRevisions-V100
+.DS_Store
+.Trash
+.Trashes
+.VolumeIcon.icns
+._.Trashes
+.fseventsd
+.dbfseventsd
+.metadata_never_index
+.LSOverride
+.MobileBackups
+.TemporaryItems
+.file
+.hotfiles.btree
+.quota.ops.user
+.quota.user
+.quota.ops.group
+.quota.group
+.vol
+.PKInstallSandboxManager
+.PKInstallSandboxManager-SystemSoftware
+# Max OS6-9
+Desktop DB
+Desktop DF
+# AFP
+.AppleDB
+.AppleDesktop
+Temporary Items
+Network Trash Folder
+.apdisk
+# Sherlock files Mac OS 8.5 to OSX 10.3
+TheFindByContentFolder
+TheVolumeSettingsFolder
+.FBCIndex
+.FBCSemaphoreFile
+.FBCLockFolder
+# http://apple.stackexchange.com/questions/14980/why-are-dot-underscore-files-created-and-how-can-i-avoid-them
+# https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats
+# See also dot_clean command
+#._*
+
+# Linux
+lost+found
+
+# Windows
+$RECYCLE.BIN
+$Recycle.Bin
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+pagefile.sys
+hiberfil.sys
+desktop.ini
+Recycled
+RECYCLER
+System Volume Information
+
+# Other
+.SymAV*
+.symSchedScanLockxz
+
+# Package manager cache
+node_modules
+EOF
+```
+
+Resources for exclude metadata and system files:
+
+- https://github.com/github/gitignore
+- https://github.com/joeblau/gitignore.io/tree/master/data
+- https://gist.github.com/keithmorris/c652b2a4d88788e5416d
+- https://github.com/dotphiles/dotphiles/blob/master/git/gitignore
+
+- [Rsync --exclude List for Mac OS X - Alan W. Smith](http://alanwsmith.com/rsync-exclude-list-for-mac-osx)
+- [rsync on OS X says its complete but it's really not? : unix](https://www.reddit.com/r/unix/comments/4ozc9e/rsync_on_os_x_says_its_complete_but_its_really_not/)
+
 ## Math
 
 ```sh
@@ -302,7 +603,7 @@ units -t '1 googol'
 seq 100 | (tr '\n' +; echo 0) | bc
 ```
 
-## Calendar
+## Date and clock
 
 ```sh
 # Display a calendar
@@ -310,6 +611,15 @@ cal -3
 
 # Display a calendar for a particular month year
 cal 9 1752
+
+# System date
+date
+
+# Set system date and time `MonthDayhoursMinutesYear.Seconds`
+date 041217002020.00
+
+# save date changes on BIOS
+clock -w
 
 # What date is it this friday. See also day
 date -d fri
@@ -330,7 +640,7 @@ TZ='America/Los_Angeles' date
 date --date='TZ="America/Los_Angeles" 09:00 next Fri'
 ```
 
-## Locales
+## Locale
 
 ```sh
 # Print number with thousands grouping appropriate to locale
@@ -351,12 +661,190 @@ locale -kc $(locale | sed -n 's/\(LC_.\{4,\}\)=.*/\1/p') | less
 
 ## Packages
 
+RPM Packages ( Fedora, Red Hat and like):
+
 ```sh
+# install a rpm package
+rpm -ivh [package.rpm]
+
+# install a rpm package ignoring dependencies requests
+rpm -ivh --nodeeps [package.rpm]
+
+# upgrade a rpm package without changing configuration files
+rpm -U [package.rpm]
+
+# upgrade a rpm package only if it is already installed
+rpm -F [package.rpm]
+
+# remove a rpm package
+rpm -e [package]
+
+# show all rpm packages installed on the system
+rpm -qa
+
+# show all rpm packages with the name "httpd"
+rpm -qa | grep httpd
+
+# obtain information on a specific package installed
+rpm -qi [package]
+
+# show rpm packages of a group software
+rpm -qg "System Environment/Daemons"
+
+# show list of files provided by a rpm package installed
+rpm -ql [package]
+
+# show list of configuration files provided by a rpm package installed
+rpm -qc [package]
+
+# show list of dependencies required for a rpm packet
+rpm -q [package] --whatrequires
+
+# show capability provided by a rpm package
+rpm -q [package] --whatprovides
+
+# show scripts started during installation / removal
+rpm -q [package] --scripts
+
+# show history of revisions of a rpm package
+rpm -q [package] --changelog
+
+# verify which rpm package belongs to a given file
+rpm -qf /etc/httpd/conf/httpd.conf
+
+# show list of files provided by a rpm package not yet installed
+rpm -qp [package.rpm] -l
+
+# import public-key digital signature
+rpm --import /media/cdrom/RPM-GPG-KEY
+
+# verify the integrity of a rpm package
+rpm --checksig [package.rpm]
+
+# verify integrity of all rpm packages installed
+rpm -qa gpg-pubkey
+
+# check file size, permissions, type, owner, group, MD5 checksum and last modification
+rpm -V [package]
+
+# check all rpm packages installed on the system - use with caution
+rpm -Va
+
+# verify a rpm package not yet installed
+rpm -Vp [package.rpm]
+- `rpm -ivh /usr/src/redhat/RPMS/`arch`/[package.rpm]`: install a package built from a rpm source
+
+# extract executable file from a rpm package
+rpm2cpio [package.rpm] | cpio --extract --make-directories *bin*
+
+# build a rpm package from a rpm source
+rpmbuild --rebuild [package.src.rpm]
+
 # List all packages by installed size (Bytes) on rpm distros
 rpm -q -a --qf '%10{SIZE}\t%{NAME}\n' | sort -k1,1n
+```
+
+YUM packages tool (Fedora, RedHat and alike):
+
+```sh
+# download and install a rpm package
+yum -y install [package]
+
+# That will install an RPM, and try to resolve all the dependencies for you using your repositories.
+yum localinstall [package.rpm]
+
+# update all rpm packages installed on the system
+yum -y update
+
+# upgrade a rpm package
+yum update [package]
+
+# remove a rpm package
+yum remove [package]
+
+# list all packages installed on the system
+yum list
+
+# find a package on rpm repository
+yum search [package]
+
+# clean up rpm cache erasing downloaded packages
+yum clean [package]
+
+# remove all files headers that the system uses to resolve dependency
+yum clean headers
+
+# remove from the cache packages and headers files
+yum clean all
+```
+
+DEB packages (Debian, Ubuntu and like):
+
+```sh
+# install / upgrade a deb package
+dpkg -i [package.deb]
+
+# remove a deb package from the system
+dpkg -r [package]
+
+# show all deb packages installed on the system
+dpkg -l
+
+# show all deb packages with the name "httpd"
+dpkg -l | grep httpd
+
+# obtain information on a specific package installed on system
+dpkg -s [package]
+
+# show list of files provided by a package installed on system
+dpkg -L [package]
+
+# show list of files provided by a package not yet installed
+dpkg --contents [package.deb]
+
+# verify which package belongs to a given file
+dpkg -S /bin/ping
 
 # List all packages by installed size (KBytes) on deb distros
 dpkg-query -W -f='${Installed-Size;10}\t${Package}\n' | sort -k1,1n
+```
+
+APT packages tool (Debian, Ubuntu and alike):
+
+```sh
+# returns list of packages which corresponds string "searched-packages"
+apt-cache search [package]
+
+# install / upgrade a deb package from cdrom
+apt-cdrom install [package]
+
+# install / upgrade a deb package
+apt-get install [package]
+
+# update the package list
+apt-get update
+
+# upgrade all of the installed packages
+apt-get upgrade
+
+# remove a deb package from system
+apt-get remove [package]
+
+# verify correct resolution of dependencies
+apt-get check
+
+# clean up cache from packages downloaded
+apt-get clean
+```
+
+Pacman packages tool (Arch, Frugalware and alike):
+
+```sh
+# Install package `name` with dependencies
+pacman -S name
+
+# Delete package `name` and all files of it
+pacman -R name
 ```
 
 ## Monitoring / debugging
@@ -379,6 +867,9 @@ inotify
 - [linux - how to list files that are NOT open using find command - Server Fault](http://serverfault.com/questions/359945/how-to-list-files-that-are-not-open-using-find-command)
 
 ```sh
+# Get process details for process ID 3117
+/proc/3117
+
 # Monitor messages in a log file
 tail -f /var/log/messages
 
@@ -436,81 +927,95 @@ watch -n.1 'cat /proc/interrupts'
 
 # Monitor udev events to help configure rules
 udevadm monitor
-```
 
-### Active processes
-
-```sh
+# Active processes
 ps -A
 
-# Tree processes
+# Active processes - Tree processes
 /bin/ps acxfwwwe
 
-# Live display
+# Active processes - Live display
 top
-```
 
-### Processes details
-
-```sh
-# For process ID 3117
-/proc/3117
-```
-
-### Connection réseau actives avec les processus correspondants
-
-```sh
+# List active network connections (TCP) with corresponding processes
 netstat -ape
 ```
 
-- http://en.wikipedia.org/wiki/Netstat
+## System
 
-## System information
+### System information
 
-See also sysinfo.
+See also `sysinfo`.
 
 ```sh
-# Show kernel version and system architecture
-uname -a
-
 # Show name and version of distribution
 head -n1 /etc/issue
 
-# Show all partitions registered on the system
-cat /proc/partitions
+# Show kernel version and system architecture
+uname -a
+# show architecture of machine(2)
+uname -m
+# show used kernel version
+uname -r
 
+# show architecture of machine
+arch
+# show information CPU info
+cat /proc/cpuinfo
+# show interrupts
+cat /proc/interrupts
+# verify memory use
+cat /proc/meminfo
+# show file(s) swap
+cat /proc/swaps
+# show version of the kernel
+cat /proc/version
+# show network adpters and statistics
+cat /proc/net/dev
+# show mounted file system(s)
+cat /proc/mounts
 # Show RAM total seen by the system
 grep MemTotal /proc/meminfo
-
 # Show CPU(s) info
 grep "model name" /proc/cpuinfo
-
 # Show PCI info
 lspci -tv
-
 # Show USB info
 lsusb -tv
-
-# List mounted filesystems on the system (and align output)
-mount | column -t
-
 # Show state of cells in laptop battery
 grep -F capacity: /proc/acpi/battery/BAT0/info
-
 # Display SMBIOS/DMI information
 dmidecode -q | less
+```
 
-# How long has this disk (system) been powered on in total
-smartctl -A /dev/sda | grep Power_On_Hours
+## Power management
 
-# Show info about disk sda
-hdparm -i /dev/sda
+Aka shutdown, restart and logout of a system
 
-# Do a read speed test on disk sda
-hdparm -tT /dev/sda
+```sh
+# shutdown system(2)
+init 0
 
-# Test for unreadable blocks on disk sda
-badblocks -s /dev/sda
+# leaving session
+logout
+
+# reboot(2)
+reboot
+
+# shutdown system(1)
+shutdown -h now
+
+# planned shutdown of the system at 16:30
+shutdown -h 16:30 &
+
+# cancel a planned shutdown of the system
+shutdown -c
+
+# reboot
+shutdown -r now
+
+# shutdown system
+telinit 0
 ```
 
 ## Interactive
@@ -524,7 +1029,7 @@ readline
 # Virtual terminals with detach capability, ...
 screen
 
-# Powerful file manager that can browse rpm, tar, ftp, ssh, ...
+# Visual file manager that can browse rpm, tar, ftp, ssh, ...
 mc
 
 # Interactive/scriptable graphing
@@ -537,33 +1042,20 @@ links
 xdg-open .
 ```
 
-- http://www.linuxguide.it/linux_commands_line_en.htm
-
 ## Shell
 
+- [Minimal safe Bash script template | Better Dev](https://web.archive.org/web/20201225070311/https://betterdev.blog/minimal-safe-bash-script-template/)
 - [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
 - [dylanaraps/pure-bash-bible: 📖 A collection of pure bash alternatives to external processes.](https://github.com/dylanaraps/pure-bash-bible)
 
-Lister les shells disponibles :
+The default shell is defined for a specific user by the file `/etc/passwd`
 
 ```sh
+# List available shells
 cat /etc/shells
-```
 
-Le shell par défaut d'un utilisateur est définit dans le fichier `/etc/passwd`
-
-Display current shell prompt setting:
-
-```sh
-echo $PS1
-```
-
-And change it:
-
-```sh
-export PS1="..."
-export PS1="\[\033[0m\]\[\033[0;30;47m\] \u\[\033[0m\]\[\033[0;30;47m\]@\h\[\033[0m\] \w\n\[\033[1;32m\] \@ \$ \[\033[0m\]"
-export PS1="[${LOGNAME}@$(hostname)]"
+# Clear shell cache
+hash -r
 ```
 
 In `/etc/bashrc` or `~/.bashrc`
@@ -580,23 +1072,18 @@ fi
 
 - [How to: Change / Setup bash custom prompt (PS1)](http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html)
 
-### Working directory
-
-Donner le dossier courant
-
-```sh
-pwd
-```
-
-### Clear shell cache
-
-```sh
-hash -r
-```
-
 ### Shell config
 
-Dans l'ordre :
+```sh
+# Display current shell prompt setting
+echo $PS1
+# Change current shell prompt setting
+export PS1="..."
+export PS1="\[\033[0m\]\[\033[0;30;47m\] \u\[\033[0m\]\[\033[0;30;47m\]@\h\[\033[0m\] \w\n\[\033[1;32m\] \@ \$ \[\033[0m\]"
+export PS1="[${LOGNAME}@$(hostname)]"
+```
+
+Defined by (in order):
 
 1. (global system) `/etc/profile`
 2. (global system) `/etc/bashrc`
@@ -608,7 +1095,7 @@ Dans l'ordre :
 
 (and `/etc/bash.bashrc`, `/etc/bash.bashrc.local`?)
 
-Pour recharger un fichier de configuration (ici le fichier `~/.bashrc`)
+To reload a configuration file (here the file `~/.bashrc`)
 
 ```sh
 source ~/.bashrc
@@ -620,6 +1107,13 @@ By convention, the prompt ends with `$` for users and by `#` for root
 
 - [Bash prompt basics](http://linuxconfig.org/Bash_prompt_basics)
 - [Shell startup scripts — flowblok’s blog](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html)
+
+### Command alias
+
+```sh
+# quick dir listing
+alias l='ls -l --color=auto'
+```
 
 ### Programmable bash completions
 
@@ -660,7 +1154,9 @@ Use esc to type these strings (add `\033` in input field) or past (via the conte
 
 ### Shell variables
 
-	env
+```sh
+env
+```
 
 ### Colors and control sequences
 
@@ -686,8 +1182,8 @@ To known color config:
 man ls
 ```
 
-- http://geoff.greer.fm/lscolors/
-- http://www.bigsoft.co.uk/blog/index.php/2008/04/11/configuring-ls_colors
+- [LSCOLORS Generator](https://web.archive.org/web/20201212101406/https://geoff.greer.fm/lscolors/)
+- [Configuring LS_COLORS](https://web.archive.org/web/20201112025523/http://www.bigsoft.co.uk/blog/2008/04/11/configuring-ls_colors)
 
 ```sh
 #
@@ -721,11 +1217,11 @@ alias NICKNAME='COMMAND -withargs'
 
 A ajouter dans `~/.bashrc`
 
-- http://www.displayobject.fr/2010/03/07/create-cmd-aliases-in-windows
+- [Create cmd aliases in Windows | Displayobject](https://web.archive.org/web/20200918172228/http://www.displayobject.fr/2010/03/07/create-cmd-aliases-in-windows/)
 
 ### Shell script file
 
-Créer un fichier `.sh` et executer la commande suivante sur celui ci
+Create a shell script `file.sh` the execute the following command to allow it to be executable:
 
 ```sh
 chmod +x /path/to/file.sh
@@ -820,25 +1316,7 @@ sudo ln {/path1,/path2}/file
 
 - [Bash Reference Manual: Brace Expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
 
-Here-doc & here-string:
 
-```sh
-cat > /path/to/file << EOF
-Some thing.
-Blahblah!
-$somevar
-EOF
-
-cat > /path/to/file <<< "Some thing."
-
-read -r -d '' MYVAR <<'EOF'
-abc'asdf"
-$(dont-execute-this)
-foo"bar"''
-EOF
-```
-
-- [How to assign a heredoc value to a variable in Bash? - Stack Overflow](https://stackoverflow.com/questions/1167746/how-to-assign-a-heredoc-value-to-a-variable-in-bash)
 
 ### Redirection
 
@@ -877,15 +1355,22 @@ diff <(cd dir1; ls) <(cd dir2; ls)
 	echo bye
 ) | lftp -f /dev/stdin >> lftp.log 2>&1
 ```
+Here-doc & here-string:
 
 ```sh
+cat > /path/to/file << EOF
+Some thing.
+Blahblah!
+$somevar
+EOF
+
+cat > /path/to/file <<< "Some thing."
+
 cat <<EOF
 test1
 test2
 EOF
-```
 
-```sh
 (cat <<'EOF'
 file1
 file2
@@ -893,14 +1378,21 @@ EOF
 ) | while read -r file; do
 	cp "from/$file" "to/$file";
 done;
-```
 
-```sh
-cat <<EOT >> greetings.txt
+cat <<EOF >> greetings.txt
 line 1
 line 2
-EOT
+EOF
+
+# Here-doc to var
+read -r -d '' MYVAR <<'EOF'
+abc'asdf"
+$(dont-execute-this)
+foo"bar"''
+EOF
 ```
+
+- [How to assign a heredoc value to a variable in Bash? - Stack Overflow](https://stackoverflow.com/questions/1167746/how-to-assign-a-heredoc-value-to-a-variable-in-bash)
 
 File descriptors (fd) :
 
@@ -910,21 +1402,14 @@ File descriptors (fd) :
 
 `2>&1` redirects fd 2 to 1 (`stderr` to `stdout`)
 
-Empty a file (ex: clean a log file):
-
 ```sh
+# Empty a file (ex: clean a log file)
 > /var/log/apache2/error.log
-```
 
-Append to a file:
-
-```sh
+# Append to a file
 echo "Appended text" >> /path/file
-```
 
-Log all infos (and erros) of following commands to a file `/tmp/log.txt`:
-
-```sh
+# Log all infos (and erros) of following commands to a file `/tmp/log.txt`
 ( /bin/ps acxfwwwe 2>&1; /usr/sbin/lsof -Pwln 2>&1; /bin/netstat -anpe 2>&1; /usr/bin/lastlog 2>&1; /usr/bin/last 2>&1; /usr/bin/who -a 2>&1 ) > /tmp/log.txt
 ```
 
@@ -976,6 +1461,26 @@ Pour l'ajouter de façon permanente, l'écrire dans `~/.profile` ou `~/.bashrc`
 
 - [mathiasbynens/dotfiles: .files, including ~/.macos — sensible hacker defaults for macOS](https://github.com/mathiasbynens/dotfiles)
 
+### Tree navigation
+
+```sh
+# Enter to directory `/home`
+cd /home
+# Go back one level
+cd ..
+# Go back two levels
+cd ../..
+# Go to home directory
+cd
+# Go to home directory
+cd ~user1
+# Go to previous directory
+cd -
+
+# Get the current working directory
+pwd
+```
+
 ## Directory navigation
 
 ```sh
@@ -1013,16 +1518,19 @@ Find support [shell pattern](https://www.gnu.org/software/findutils/manual/html_
 
 ```sh
 # Find all files that have been modified in the past 7 days
-find . -mtime -7
+find . -type f -mtime -7
+
+# Search binary files are not used in the last 100 days
+find /usr/bin -type f -atime +100
 
 # Find all JPEGs that have been modified more than 30 days ago
 find . -name \*.jpg -mtime +30
 
 # Move all JPEGs from the current folder (recursively) that are greater than 40k into the folder /tmp/2
-find ./ -name \*.jpg -size +40k -exec mv {} /tmp/2 +
+find . -name \*.jpg -size +40k -exec mv {} /tmp/2 +
 
-# quick dir listing
-alias l='ls -l --color=auto'
+# search files and directories belonging to `user1`
+find / -user user1
 
 # List files by date. See also newest and find_mm_yyyy
 ls -lrt
@@ -1043,6 +1551,30 @@ find -maxdepth 1 -type f | xargs grep -F 'example'
 find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done
 
 find ./ -name "tile_*.png" -exec bash -c 'filename="$1";echo "${filename%.*}"' _ {} \;
+
+# search files with `.bin` extension within directory `/home/user1`
+find /home/user1 -name \*.bin
+
+# Search files with `.rpm` extension and modify permits
+find / -name *.rpm -exec chmod 755 '{}' \;
+
+# Search files with `.rpm` extension ignoring removable partitions as cdrom, pen-drive, etc.…
+find / -xdev -name \*.rpm
+
+# Find files with the `.ps` extension - first run `updatedb` command
+locate \*.ps
+
+#Search cached index for names. This re is like glob *file*.txt
+locate -r 'file[^/]*\.txt'
+
+# Find files not readable by all (useful for web site)
+find -type f ! -perm -444
+
+# Find dirs not accessible by all (useful for web site)
+find -type d ! -perm -111
+
+# Search for empty files and folder (or file with only whitespaces)
+find -empty
 ```
 
 - [bash - Find and replace filename recursively in a directory - Stack Overflow](https://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory/9394625#9394625)
@@ -1069,26 +1601,103 @@ ls *.jpg | xargs -n1 sh -c 'convert $0 -thumbnail 200x90 thumbnails/$0.gif'
 # This does not need a shell to handle the argument.
 ls *.jpg | xargs -r -I FILE convert FILE -thumbnail 200x90 FILE_thumb.gif
 
-# Find files not readable by all (useful for web site)
-find -type f ! -perm -444
-
-# Find dirs not accessible by all (useful for web site)
-find -type d ! -perm -111
-
-#Search cached index for names. This re is like glob *file*.txt
-locate -r 'file[^/]*\.txt'
-
 # Quickly search (sorted) dictionary for prefix
 look reference
 
 # Highlight occurances of regular expression in dictionary
 grep --color reference /usr/share/dict/words
-
-# Search for empty files and folder (or file with only whitespaces)
 ```
 
 - [command line - How to find all empty files and folders in a specific directory including files which just look empty but are not? - Ask Ubuntu](https://askubuntu.com/questions/719912/how-to-find-all-empty-files-and-folders-in-a-specific-directory-including-files)
 - [unix - Appending new lines to multiple files - Super User](https://superuser.com/questions/1327969/appending-new-lines-to-multiple-files/1327980#1327980) - How to use `echo "test" >> {}` within find exec
+
+#### Find missing files
+
+- [How do I find which files are missing from a list? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/11989/how-do-i-find-which-files-are-missing-from-a-list)
+
+#### Find duplicates files
+
+	find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate | awk '{$1=""; print substr($0,2)}'
+
+- [diff - Wikipedia](https://en.wikipedia.org/wiki/Diff)
+- [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
+- [shell - Finding duplicate files according to md5 with bash - Stack Overflow](https://stackoverflow.com/questions/19551908/finding-duplicate-files-according-to-md5-with-bash)
+
+Remove duplicates
+
+```sh
+#!/bin/bash
+gawk '
+  {
+    cmd="md5 -r " q FILENAME q
+    cmd | getline cksm
+    close(cmd)
+    sub(/ .*$/,"",cksm)
+    if(a[cksm]++){
+      cmd="rm " q FILENAME q
+      system(cmd)
+      close(cmd)
+    }
+    nextfile
+  }' q='"' *
+```
+
+- [bash - How to remove duplicated files in a directory? - Super User](http://superuser.com/questions/386199/how-to-remove-duplicated-files-in-a-directory/386209#386209)
+
+[Rdfind – redundant data find](https://rdfind.pauldreik.se/):
+
+```sh
+rdfind -makehardlinks true
+
+fdupes
+
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+```
+
+BTRFS [Deduplication - btrf Wiki](https://btrfs.wiki.kernel.org/index.php/Deduplication)
+
+See also `diff -q --binary` or `cmp -s $1 $2 && echo "identical" || echo "different"`
+
+- [Comparing and Merging Files](http://www.gnu.org/software/diffutils/manual/diffutils.html#Binary)
+- [centos - What's the quickest way to find duplicated files? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/277697/whats-the-quickest-way-to-find-duplicated-files/277767#277767)
+
+	```sh
+	find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+	```
+
+	Replace the use of md5sum with `diff` or `cmp`: [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
+- [dupe-krill/README.md at master · kornelski/dupe-krill](https://github.com/kornelski/dupe-krill/blob/master/README.md)
+- [idealo/imagededup: 😎 Finding duplicate images made easy!](https://github.com/idealo/imagededup)
+- [birkenfeld/fddf: Fast data dupe finder](https://github.com/birkenfeld/fddf)
+- [haibison / scan4df — Bitbucket](https://bitbucket.org/haibison/scan4df/src/master/)
+
+Then replace files by [hardlink](#hard-link)
+
+- [Is there an easy way to replace duplicate files with hardlinks? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/3037/is-there-an-easy-way-to-replace-duplicate-files-with-hardlinks)
+- [hardlink - Finding files that are *not* hard links via a shell script - Stack Overflow](https://stackoverflow.com/questions/16282618/finding-files-that-are-not-hard-links-via-a-shell-script)
+
+#### Find all files by content
+
+```sh
+# Find multiple exec a executed only if the previous one exit with 0 https://stackoverflow.com/questions/5119946/find-exec-with-multiple-commands#comment34296391_6043896
+find -type f -iname "*.properties" -exec grep -q -i -E '^abtest=false$' {} \; -print
+find -type f -iname "*.properties" -exec grep -q -i -E '^abtest=' {} \; -exec sed -i 's/^abtest=.*/abtest=true/i' {} \; -print
+
+# Use test to inverse the grep exit value https://stackoverflow.com/a/30495279/470117 (-v/--invert-match option is not useful for that case), for that we need also sh interpreter to use builtin test command
+# For append mode (redirection), need to use sh interpreter directly, else {} will be interpreted directly by Bash. See https://superuser.com/questions/1327969/appending-new-lines-to-multiple-files/1327980#1327980
+# -exec sh -c 'echo "command name: $0, first arg: $1"' test {} \;
+find -iname "*.properties" -exec sh -c 'grep -q -i -E "^abtest=" $1; test $? -eq 1' match {} \; -exec sh -c 'echo -e "\n\nabtest=true" >> $1' append {} \; -print
+
+find -iname "*.properties" -type f -print0 | xargs -0 grep -EHi '^abtest='
+# Same as (flexibity of find vs glob include/exclude filters):
+grep -EHir --include="*.properties" '^abtest=' /path/to/dir
+grep -ir  --include=\*.{php,js,css} "/api/v1/"
+
+# Example search in all .less files that contains `url("<url>")` or `url('<url>')` or `url(<url>)`
+find "$wd" -iname "*.less" \( -not -ipath "*/node_modules/*" \) -type f -print0 | xargs -0 grep -EliZ 'url\(('"'"'|"|)(.*?)\1\)' | xargs -0 -n1 echo "Do something with that file:"
+```
+
+- [find -exec vs find | xargs](https://www.everythingcli.org/find-exec-vs-find-xargs/)
 
 ### Create archive from file list
 
@@ -1145,11 +1754,15 @@ To write file with a size larger than that limit, you need to split it.
 
 In destination folder, execute following command:
 
-	split -b 4294967295 example.dmg example.dmg.part.
+```sh
+split -b 4294967295 example.dmg example.dmg.part.
+```
 
 (the part `example.dmg.part.` will be used to name output files like `example.dmg.part.aa`, `example.dmg.part.ab` and so on)
 
-	cat  example.dmg.part.* > example.dmg
+```sh
+cat example.dmg.part.* > example.dmg
+```
 
 ### Mass rename
 
@@ -1179,7 +1792,6 @@ rename 'y/A-Z/a-z/' *
 On macOS install it with port `port install p5-file-rename` (but should use the cmd `rename-5.22` where `22` is installed version via port instead of `rename`) or brew `brew install rename`
 
 ### Remove files
-
 
 ```sh
 rm -f file1 file2
@@ -1216,93 +1828,7 @@ find -mindepth 1 -type d -print0 | tac -s $'\0' | xargs -0 -r rmdir --ignore-fai
 
 - [Unix tip: Recursively removing empty directories | Network World](https://www.networkworld.com/article/2773290/unix-tip--recursively-removing-empty-directories.html)
 
-### Find missing files
-
-- [How do I find which files are missing from a list? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/11989/how-do-i-find-which-files-are-missing-from-a-list)
-
-### Find duplicates files
-
-	find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate | awk '{$1=""; print substr($0,2)}'
-
-- [diff - Wikipedia](https://en.wikipedia.org/wiki/Diff)
-- [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
-- [shell - Finding duplicate files according to md5 with bash - Stack Overflow](https://stackoverflow.com/questions/19551908/finding-duplicate-files-according-to-md5-with-bash)
-
-Remove duplicates
-
-```sh
-#!/bin/bash
-gawk '
-  {
-    cmd="md5 -r " q FILENAME q
-    cmd | getline cksm
-    close(cmd)
-    sub(/ .*$/,"",cksm)
-    if(a[cksm]++){
-      cmd="rm " q FILENAME q
-      system(cmd)
-      close(cmd)
-    }
-    nextfile
-  }' q='"' *
-```
-
-- [bash - How to remove duplicated files in a directory? - Super User](http://superuser.com/questions/386199/how-to-remove-duplicated-files-in-a-directory/386209#386209)
-
-[Rdfind – redundant data find](https://rdfind.pauldreik.se/):
-
-	rdfind -makehardlinks true
-
-	fdupes
-
-	find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
-
-BTRFS [Deduplication - btrf Wiki](https://btrfs.wiki.kernel.org/index.php/Deduplication)
-
-See also `diff -q --binary` or `cmp -s $1 $2 && echo "identical" || echo "different"`
-
-- [Comparing and Merging Files](http://www.gnu.org/software/diffutils/manual/diffutils.html#Binary)
-- [centos - What's the quickest way to find duplicated files? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/277697/whats-the-quickest-way-to-find-duplicated-files/277767#277767)
-
-		find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
-
-	Replace the use of md5sum with `diff` or `cmp`: [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
-- [dupe-krill/README.md at master · kornelski/dupe-krill](https://github.com/kornelski/dupe-krill/blob/master/README.md)
-- [idealo/imagededup: 😎 Finding duplicate images made easy!](https://github.com/idealo/imagededup)
-- [birkenfeld/fddf: Fast data dupe finder](https://github.com/birkenfeld/fddf)
-- [haibison / scan4df — Bitbucket](https://bitbucket.org/haibison/scan4df/src/master/)
-
-Then replace files by hardlink:
-
-	ln -f TARGET LINK_NAME
-
-- [Is there an easy way to replace duplicate files with hardlinks? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/3037/is-there-an-easy-way-to-replace-duplicate-files-with-hardlinks)
-- [hardlink - Finding files that are *not* hard links via a shell script - Stack Overflow](https://stackoverflow.com/questions/16282618/finding-files-that-are-not-hard-links-via-a-shell-script)
-
-### Find all files by content
-
-```sh
-# Find multiple exec a executed only if the previous one exit with 0 https://stackoverflow.com/questions/5119946/find-exec-with-multiple-commands#comment34296391_6043896
-find -type f -iname "*.properties" -exec grep -q -i -E '^abtest=false$' {} \; -print
-find -type f -iname "*.properties" -exec grep -q -i -E '^abtest=' {} \; -exec sed -i 's/^abtest=.*/abtest=true/i' {} \; -print
-
-# Use test to inverse the grep exit value https://stackoverflow.com/a/30495279/470117 (-v/--invert-match option is not useful for that case), for that we need also sh interpreter to use builtin test command
-# For append mode (redirection), need to use sh interpreter directly, else {} will be interpreted directly by Bash. See https://superuser.com/questions/1327969/appending-new-lines-to-multiple-files/1327980#1327980
-# -exec sh -c 'echo "command name: $0, first arg: $1"' test {} \;
-find -iname "*.properties" -exec sh -c 'grep -q -i -E "^abtest=" $1; test $? -eq 1' match {} \; -exec sh -c 'echo -e "\n\nabtest=true" >> $1' append {} \; -print
-
-find -iname "*.properties" -type f -print0 | xargs -0 grep -EHi '^abtest='
-# Same as (flexibity of find vs glob include/exclude filters):
-grep -EHir --include="*.properties" '^abtest=' /path/to/dir
-grep -ir  --include=\*.{php,js,css} "/api/v1/"
-
-# Example search in all .less files that contains `url("<url>")` or `url('<url>')` or `url(<url>)`
-find "$wd" -iname "*.less" \( -not -ipath "*/node_modules/*" \) -type f -print0 | xargs -0 grep -EliZ 'url\(('"'"'|"|)(.*?)\1\)' | xargs -0 -n1 echo "Do something with that file:"
-```
-
-- [find -exec vs find | xargs](https://www.everythingcli.org/find-exec-vs-find-xargs/)
-
-### Rename all files to a specific extension
+### Change file extension
 
 ```sh
 for j in /path/dir/*.html
@@ -1319,17 +1845,23 @@ for j in *; do mv "$j" "$n.bin"; done;
 
 Aka hardware link
 
-Créer un pointeur sur les données d'un disque dur. Il est impossible de le faire sur un dossier (à cause du risque boucles dans une arborescence)
+It's not possible to create hardlink with a directory (due to the risk of loops in tree)
 
-Créer un pointeur :
+```sh
+# Create hardlink
+ln /path/to/source_file /path/to/target_file
+ln -T /etc/apache2/sites-available/example.com /etc/apache2/sites-enabled/example.com
 
-	ln /path/to/source_file /path/to/target_file
+# Remove file link
+unlink /etc/apache2/sites-enabled/websiteA.exemple
+```
 
-	ln -T /etc/apache2/sites-available/example.com /etc/apache2/sites-enabled/example.com
+### Symbolic link
 
-Détruire un pointeur :
-
-	unlink /etc/apache2/sites-enabled/websiteA.exemple
+```sh
+# create a symbolic link to file or directory
+ln -s file1 lnk1
+```
 
 ### Read write race condition
 
@@ -1366,28 +1898,26 @@ fi
 
 ### File type
 
-Get information about files in the current folder
+```sh
+# Get file type if known by libmagic
+file --mime /path/file
 
-	find . -maxdepth 1 -type f -exec file "{}" \;
+# Get information about files in the current folder
+find . -maxdepth 1 -type f -exec file "{}" \;
+```
 
-(Si reconnu par libmagic)
+Supported formats are listed by:
 
-	file --mime /path/file
-
-Le détails des formats est décrit dans l'un des dossiers suivants :
-
-- les fichiers dans le dossier `/etc/magic`
+- files in `/etc/magic`
 - `/etc/magic.mime`
 - `/usr/share/misc/magic.mgc`
 - `/usr/share/file/magic.mgc`
 - `/opt/local/share/misc/magic.mgc`
-- les fichiers magic dans le dossier `/opt/local/share/misc/magic`
+- files in `/opt/local/share/misc/magic`
 - `~/.magic.mgc`
 - `~/.magic`
 
-Extension du fichier magic compilé : `*.mgc`
-
-- https://github.com/SaltwaterC/mime-magic
+The extension of compiled magic: `*.mgc`
 
 ### Test if a file exist
 
@@ -1459,14 +1989,14 @@ extension=$([[ "$file" = *.* ]] && echo "${file##*.}" || echo '')
 - [bash - Get file directory path from filepath - Stack Overflow](https://stackoverflow.com/questions/6121091/get-file-directory-path-from-filepath)
 - [string - Extract filename and extension in Bash - Stack Overflow](https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash)
 
-### Supprimer tous les fichiers Unix cachés
+### Delete all Unix hidden files
 
 ```sh
-# Tous les fichiers/dossier commençant par ".", comme `.htaccess` ou `.DS_STORE`
+# All files or folders that start with `.`, like `.htaccess` or `.DS_STORE`
 rm -rf .[^.]*
 
-# Tous les fichiers `.svn`
-find ./ -name ".svn" -exec rm -rf {} +
+# All files dir `.git`
+find . -type d -name ".git" -exec rm -rf {} +
 ```
 
 ### Affichage de fichier / flux
@@ -1502,156 +2032,32 @@ grep -rn "texttofind" *
 grep "string text to find in all files" . -R
 ```
 
-### Create an empty file or truncate a file
+### Create or truncate a file
 
-	> /var/log/apache2/error.log
+```sh
+# Create or tuncate a file
+> /var/log/apache2/error.log
+# Create an empty file or change the modification date
+touch file.ext
 
-	touch file.ext
-
-Create a large test file (taking no space):
-
-	dd bs=1 seek=2TB if=/dev/null of=file.ext
-
-### Copy over SSH
-
-	scp /path/localfile user@host:/path/remotefile
-
-	scp /path/localfile user@host:/path/remotedir/
-
-	scp /path/localdir user@host:/path/remotedir
-
-### Copy with rsync
-
-Network efficient file copier
-
-- [Handling renamed files or directories in rsync - Server Fault](https://serverfault.com/questions/489289/handling-renamed-files-or-directories-in-rsync/596707#596707)
-
-Use the `--dry-run` option for testing
-
-	rsync -r -t -v /path/srcdir /path/destdir
-	rsync -r -t -v /path/srcdir remote:~/My\ documents
-	# Escape spaces, and keep special char interpreted at the destination. See "How to rsync over ssh when directory names have spaces - Unix & Linux Stack Exchange" https://unix.stackexchange.com/questions/104618/how-to-rsync-over-ssh-when-directory-names-have-spaces
-	DEST="~/My\ documents"; rsync -r -t -v /path/srcdir "remote:${DEST// /\\ }"
-
-Only get diffs. Do multiple times for troublesome downloads
-
-	rsync -P rsync://rsync.server.com/path/to/file file
-
-Locally copy with rate limit. It's like nice for I/O
-
-	rsync --bwlimit=1000 fromfile tofile
-
-Mirror web site (using compression and encryption)
-
-	rsync -az -e ssh --delete ~/public_html/ remote.com:'~/public_html'
-
-Synchronize current directory with remote one
-
-	rsync -auz -e ssh remote:/dir/ . && rsync -auz -e ssh . remote:/dir/
-
-	date=$(date +%Y%m%d-%H%M)
-
-	[for loop over users]
-
-	older=( $backups/$user/*(N/om) )
-
-	rsync --archive --recursive \
-		--fuzzy --partial --partial-dir=$backups/$user/.rsync-partial \
-		--log-file=$tempfile --link-dest=${^older[1,20]} \
-		--files-from=$configdir/I-$user \
-		--exclude-from=$configdir/X-$user \
-		$user@$from:/ $backups/$user/$date/
-
-Copy folder to folder (if mounted)
-
-	rsync -ah --progress --exclude='$RECYCLE.BIN' --exclude='$Recycle.Bin' --exclude='.AppleDB' --exclude='.AppleDesktop' --exclude='.AppleDouble' --exclude='.com.apple.timemachine.supported' --exclude='.dbfseventsd' --exclude='.DocumentRevisions-V100*' --exclude='.DS_Store' --exclude='.fseventsd' --exclude='.PKInstallSandboxManager' --exclude='.Spotlight*' --exclude='.SymAV*' --exclude='.symSchedScanLockxz' --exclude='.TemporaryItems' --exclude='.Trash*' --exclude='.vol' --exclude='.VolumeIcon.icns' --exclude='Desktop DB' --exclude='Desktop DF' --exclude='hiberfil.sys' --exclude='lost+found' --exclude='Network Trash Folder' --exclude='pagefile.sys' --exclude='Recycled' --exclude='RECYCLER' --exclude='System Volume Information' --exclude='Temporary Items' --exclude='Thumbs.db' /src/dir/ /dst/dir/
-
-Use list `--exclude-from=LIST`:
-
-```
-# https://alexkaloostian.com/2015/01/22/what-are-all-these-hidden-items-on-my-mac-part-1/
-# http://superuser.com/questions/180582/what-are-desktop-db-or-desktop-df-files-on-external-hd
-# http://forum.mac4ever.com/pourquoi-t73534.html#p997828
-# http://netatalk.sourceforge.net/wiki/index.php/Special_Files_and_Folders
-# Apple OS
-.AppleDouble
-.com.apple.timemachine.donotpresent
-.com.apple.timemachine.supported
-.Spotlight-V100
-.DocumentRevisions-V100
-.DS_Store
-.Trash
-.Trashes
-.VolumeIcon.icns
-._.Trashes
-.fseventsd
-.dbfseventsd
-.metadata_never_index
-.LSOverride
-.MobileBackups
-.TemporaryItems
-.file
-.hotfiles.btree
-.quota.ops.user
-.quota.user
-.quota.ops.group
-.quota.group
-.vol
-.PKInstallSandboxManager
-.PKInstallSandboxManager-SystemSoftware
-# Max OS6-9
-Desktop DB
-Desktop DF
-# AFP
-.AppleDB
-.AppleDesktop
-Temporary Items
-Network Trash Folder
-.apdisk
-# Sherlock files Mac OS 8.5 to OSX 10.3
-TheFindByContentFolder
-TheVolumeSettingsFolder
-.FBCIndex
-.FBCSemaphoreFile
-.FBCLockFolder
-# http://apple.stackexchange.com/questions/14980/why-are-dot-underscore-files-created-and-how-can-i-avoid-them
-# https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats
-# See also dot_clean command
-#._*
-
-# Linux
-lost+found
-
-# Windows
-$RECYCLE.BIN
-$Recycle.Bin
-Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
-pagefile.sys
-hiberfil.sys
-desktop.ini
-Recycled
-RECYCLER
-System Volume Information
-
-# Other
-.SymAV*
-.symSchedScanLockxz
-
-# Package manager cache
-node_modules
+# Create a large test file (taking no space)
+dd bs=1 seek=2TB if=/dev/null of=file.ext
 ```
 
-Resources for exclude metadata and system files:
+### Copy file
 
-- https://github.com/github/gitignore
-- https://github.com/joeblau/gitignore.io/tree/master/data
-- https://gist.github.com/keithmorris/c652b2a4d88788e5416d
-- https://github.com/dotphiles/dotphiles/blob/master/git/gitignore
-
-- [Rsync --exclude List for Mac OS X - Alan W. Smith](http://alanwsmith.com/rsync-exclude-list-for-mac-osx)
-- [rsync on OS X says its complete but it's really not? : unix](https://www.reddit.com/r/unix/comments/4ozc9e/rsync_on_os_x_says_its_complete_but_its_really_not/)
+```sh
+# Copying a file
+cp file1 file2
+# copy all files of a directory within the current work directory
+cp dir/* .
+# copy a directory within the current work directory
+cp -a /tmp/dir1 .
+# copy a directory
+cp -a dir1 dir2
+# outputs the mime type of the file as text
+cp file file1
+```
 
 ### File comparaisons
 
@@ -1689,34 +2095,44 @@ Compare 2 folders:
 
 Sans `-q` mais avec `-u` pour faire un patch
 
-	diff -rq /path/dirA /path/dirB
+```sh
+diff -rq /path/dirA /path/dirB
+```
 
 Et sans prendre en compte les fichiers metadonnées d'OSX et de Windows, le tout ordonné :
 
-	diff -uqr /path/dirA /path/dirB | grep -v -e 'DS_Store' -e 'Thumbs' | sort
+```sh
+diff -uqr /path/dirA /path/dirB | grep -v -e 'DS_Store' -e 'Thumbs' | sort
+```
 
 Comparer 2 files:
 
-	diff -u /path/fileA /path/fileB
+```sh
+diff -u /path/fileA /path/fileB
+```
 
 - [The Ten Minute Guide to diff and patch](http://jungels.net/articles/diff-patch-ten-minutes.html)
 
 Apply a patch:
 
-	patch -i my.patch
+```sh
+patch -i my.patch
+```
 
 Use heredoc
 
-	patch -i -p1 - <<EOF
-	diff -ur a/Makefile.in b/Makefile.in
-	--- a/Makefile.in	2016-03-13 01:08:14.000000000 +0100
-	+++ b/Makefile.in	2016-03-13 01:09:13.000000000 +0100
-	@@ -1,3 +1,4 @@
-	+vpath = src
-	 top_builddir = ..
-	 srcdir = @srcdir@
-	 top_srcdir = @top_srcdir@
-	EOF
+```sh
+patch -i -p1 - <<EOF
+diff -ur a/Makefile.in b/Makefile.in
+--- a/Makefile.in	2016-03-13 01:08:14.000000000 +0100
++++ b/Makefile.in	2016-03-13 01:09:13.000000000 +0100
+@@ -1,3 +1,4 @@
++vpath = src
+ top_builddir = ..
+ srcdir = @srcdir@
+ top_srcdir = @top_srcdir@
+EOF
+```
 
 Use `-p1` to strip path `a/` and `b/`
 
@@ -1724,15 +2140,14 @@ Use `-p1` to strip path `a/` and `b/`
 
 Aka folder link, like symlink but for folder (standart implementation don't allow to link folder)
 
-Monter une arborescence (d'un dossier) à l'endroit voulut (ici `/path/destdir`)
+```sh
+# Mount a folder at a specific point (here `/path/destdir`)
+mount --bind /path/srcdir /path/destdir
+# Unmount
+umount /path/destdir
+```
 
-	mount --bind /path/srcdir /path/destdir
-
-Démonter l'arborescence (ici l'equivalent de `/path/destdir` donné ci-dessus)
-
-	umount /path/dir
-
-Le point de montage apparaitra dans le fichier `/etc/fstab` en tant `fs-type` : `bind`
+The mount point is registerd in `/etc/fstab` as `fs-type`: `bind`
 
 ### Archives and compression
 
@@ -1771,6 +2186,91 @@ find dir/ -name '*.txt' | xargs cp -a --target-directory=dir_txt/ --parents
 dd bs=1M if=/dev/sda | gzip | ssh user@remote 'dd of=sda.gz'
 ```
 
+### Incremental listing
+
+Incrementaly add/changed/delete files (list made from `cron` or similar)
+
+```sh
+find . -type f -mtime -7 -exec ls -l {} \; > list.txt
+find . -type f -exec ls -i {} + | sort -k2 > list.txt
+tar --create --file=archive.1.tar --listed-incremental=/var/log/usr.snar .
+tar -cf /dev/null -g /var/log/usr.snar .
+date +%s
+```
+
+```sh
+/backupdevice/folder
+date +%s%N > /backupdevice/folder.index
+```
+
+- [Introduction to Inodes!](https://web.archive.org/web/20201112021029/https://www.grymoire.com/Unix/Inodes.html)
+- [inodes – ctime, mtime, atime | *nix Shell](https://web.archive.org/web/20200805044513/https://nixshell.wordpress.com/2010/10/07/inodes-ctime-mtime-atime/)
+- [timestamps - On what occasion will inode change? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/31255/on-what-occasion-will-inode-change)
+- [linux - Find the files that have been changed in last 24 hours - Stack Overflow](https://stackoverflow.com/questions/16085958/find-the-files-that-have-been-changed-in-last-24-hours)
+- [rsync - How to diff two folders by inodes - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/57825/how-to-diff-two-folders-by-inodes)
+- [command line - List all recently changed files (recursive) - Ask Ubuntu](https://askubuntu.com/questions/704160/list-all-recently-changed-files-recursive)
+- [bash - Show both ctime and atime in ls output - Super User](https://superuser.com/questions/234158/show-both-ctime-and-atime-in-ls-output)
+- [backup - Incremental file back up by date - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/132819/incremental-file-back-up-by-date)
+
+- [GNU tar 1.32: 5.2 Using tar to Perform Incremental Dumps](https://www.gnu.org/software/tar/manual/html_node/Incremental-Dumps.html)
+- [GNU tar 1.32: Format of the Incremental Snapshot Files](https://www.gnu.org/software/tar/manual/html_node/Snapshot-Files.html)
+- [linux - Updating tar.gz daily only with changed files - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/25541/updating-tar-gz-daily-only-with-changed-files)
+- [archive - Linux tar - just create the .snar file - Stack Overflow](https://stackoverflow.com/questions/27763248/linux-tar-just-create-the-snar-file)
+- [A quick guide to backups using tar | TuxRadar Linux](https://web.archive.org/web/20180322022053/http://www.tuxradar.com/content/quick-guide-backups-using-tar)
+- [Backup Linux to NTFS Using GNU tar](https://web.archive.org/web/20201030053025/http://chxo.com/be2/tar_backup_to_ntfs.html)
+
+### Change encoding
+
+Use `recode` that obsoletes iconv, dos2unix, unix2dos
+
+```sh
+# Show available conversions (aliases on each line)
+recode -l
+#iconv -l
+
+# Windows "ansi" to local charset (auto does CRLF conversion)
+recode windows-1252.. file_to_change.txt
+
+# Windows utf8 to local charset
+recode utf-8/CRLF.. file_to_change.txt
+
+# Latin9 (western europe) to utf8
+recode iso-8859-15..utf8 file_to_change.txt
+#iconv -f iso-8859-15 -t utf-8 <infile> -o <outfile>
+
+# Base64 encode / decode
+recode ../b64 < file.png
+
+# Quoted printable decode
+recode /qp.. < file.qp > file.txt
+
+# Text to HTML
+recode ..HTML < file.txt > file.html
+
+# Lookup table of characters
+recode -lf windows-1252 | grep euro
+
+# Convert a text file format from MSDOS to UNIX (line-ending CRLF to LF)
+recode ibmpc..latin1 file file2
+#dos2unix file file2
+#cat file | tr -d '\r' > file2 && mv -v file2 file
+#sed -i s/\r//g file
+
+# convert a text file format from UNIX to MSDOS (line-ending LF to CRLF)
+recode latin1..ibmpc file file2
+#unix2dos file file2
+#sed -i 's/$/\r/' file
+
+# Show what a code represents in latin-9 charmap
+echo -n 0x80 | recode latin-9/x1..dump
+
+# Show latin-9 encoding
+echo -n 0x20AC | recode ucs-2/x2..latin-9/x
+
+# Show utf-8 encoding
+echo -n 0x20AC | recode ucs-2/x2..utf-8/x
+```
+
 ## Relative path
 
 ```sh
@@ -1804,8 +2304,10 @@ realpath --relative-to=DIR FILE
 
 Find files with 100 consecutive zero bytes (partially downloaded, etc.)
 
-	find . -type f -exec egrep "\x00{100,}" {} \; -exec echo {} \;
-	# If not work try with grep -P
+```sh
+find . -type f -exec egrep "\x00{100,}" {} \; -exec echo {} \;
+# If not work try with grep -P
+```
 
 Note: If you get `grep: invalid repetition count(s)`, use `(\x00\x00\x00\x00){250,}` instead of `\x00{1000,}` (because repetition as limitation)
 
@@ -1818,19 +2320,76 @@ Aka text processing
 - [learnbyexample/Command-line-text-processing: From finding text to search and replace, from sorting to beautifying text and more](https://github.com/learnbyexample/Command-line-text-processing)
 - [bash - How can I test if a variable is empty or contains only spaces? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/146942/how-can-i-test-if-a-variable-is-empty-or-contains-only-spaces)
 
-Sortir une chaine multiligne
+```sh
+# Echo multiline string (use the newline separator `\n`)
+echo -e "a\nb"
 
-	echo -e "a\nb"
+# Add line to begin of file, aka prepend text
+echo "firstline" | cat - file.txt > file.txt.tmp && mv file.txt.tmp file.txt
 
-Add line to begin of file, aka prepend text
+# Convert from lower case in upper case
+tr '[:lower:]' '[:upper:]'
 
-	echo "firstline" | cat - file.txt > file.txt.tmp && mv file.txt.tmp file.txt
+# Sort contents of two files
+sort file1 file2
 
-Replace text in file
+# Sort contents of two files omitting lines repeated
+sort file1 file2 | uniq
 
-	sed "s/old-text/new-text/g" file.txt > file.txt.tmp && mv file.txt.tmp file.txt
+# Sort contents of two files by viewing only unique line
+sort file1 file2 | uniq -u
 
-Note: if `old-text` contains slashes `/`, back slash them: `../..` give `..\/..`
+# Sort contents of two files by viewing only duplicate line
+sort file1 file2 | uniq -d
+
+# Sort IPV4 ip addresses
+sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
+
+# Filter non printable characters
+tr -dc '[:print:]'
+
+# cut fields separated by blanks
+tr -s '[:blank:]' '\t'
+
+# Count lines
+wc -l
+
+# Number row of a file
+cat -n file1
+
+# Compare contents of two files by deleting only unique lines from `file1`
+comm -1 file1 file2
+
+# Compare contents of two files by deleting only unique lines from `file2`
+comm -2 file1 file2
+
+# Compare contents of two files by deleting only the lines that appear on both files
+comm -3 file1 file2
+
+# Find differences between two files
+diff file1 file2
+
+# Look up words "Aug" on file `/var/log/messages`
+grep Aug /var/log/messages
+
+# Look up words that begin with "Aug" on file `/var/log/messages`
+grep ^Aug /var/log/messages
+
+# Select from file `/var/log/messages` all lines that contain numbers
+grep [0-9] /var/log/messages
+
+# Search string "Aug" at directory `/var/log` and below
+grep Aug -R /var/log/*
+
+# Merging contents of two files for columns
+paste file1 file2
+
+# Merging contents of two files for columns with `+` delimiter on the center
+paste -d '+' file1 file2
+
+# Find differences between two files and merge interactively alike `diff`
+sdiff file1 file2
+```
 
 ### Sed
 
@@ -1897,6 +2456,10 @@ sed -Ei -e '1h;2,$H;$!d;g' -e "s|$REGEXP|$REPLACEMENT|" "$@"
 ```
 
 ```sh
+# Replace text in file, need a temp file
+# Note: if `old-text` contains slashes `/`, back slash them: `../..` give `..\/..`
+sed "s/old-text/new-text/g" file.txt > file.txt.tmp && mv file.txt.tmp file.txt
+
 # Replace string1 with string2
 sed 's/string1/string2/g'
 
@@ -1932,6 +2495,36 @@ sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q'
 
 # Delete a particular line
 sed -i 42d ~/.ssh/known_hosts
+
+# Replace "string1" with "string2"
+sed 's/string1/string2/g'
+
+# Remove all blank lines
+sed '/^$/d'
+
+# Remove comments and blank lines
+sed '/ *#/d; /^$/d'
+
+# Eliminates the first line
+sed -e '1d'
+
+# View only lines that contain the word `string1`
+sed -n '/string1/p'
+
+# Remove empty characters at the end of each row
+sed -e 's/ *$//'
+
+# Remove only the word "string1" from text and leave intact all
+sed -e 's/string1//g'
+
+# Print from 1th to 5th row of example.txt
+sed -n '1,5p'
+
+# Print row number 5 of example.txt
+sed -n '5p;5q'
+
+# Replace more zeros with a single zero
+sed -e 's/00*/0/g'
 ```
 
 ### AWK
@@ -1941,6 +2534,15 @@ sed -i 42d ~/.ssh/known_hosts
 ```sh
 # Print all fields
 awk '{print NR": "$0; for(i=1;i<=NF;++i) print "\t"i": "$i}'
+
+# Remove all even lines
+awk 'NR%2==1'
+
+# View the first column of a line
+echo a b c | awk '{print $1}'
+
+# View the first and third column of a line
+echo a b c | awk '{print $1,$3}'
 ```
 
 ```sh
@@ -1959,65 +2561,54 @@ awk '{print NR": "$0; for(i=1;i<=NF;++i) print "\t"i": "$i}'
 - [onetrueawk/awk: One true awk](https://github.com/onetrueawk/awk)
 - [wernsey/d.awk: An Awk script to generate documentation from Markdown comments in C/C++/Java/JavaScript/C# source code.](https://github.com/wernsey/d.awk)
 
-### Other text operations
-
-```sh
-# Sort IPV4 ip addresses
-sort -t. -k1,1n -k2,2n -k3,3n -k4,4n
-
-# Case conversion
-echo 'Test' | tr '[:lower:]' '[:upper:]'
-
-# Filter non printable characters
-tr -dc '[:print:]' < /dev/urandom
-
-# cut fields separated by blanks
-tr -s '[:blank:]' '\t' </proc/diskstats | cut -f4
-
-# Count lines
-history | wc -l
-```
-
-### Recode
-
-Obsoletes iconv, dos2unix, unix2dos
-
-```sh
-# Show available conversions (aliases on each line)
-recode -l | less
-
-# Windows "ansi" to local charset (auto does CRLF conversion)
-recode windows-1252.. file_to_change.txt
-
-# Windows utf8 to local charset
-recode utf-8/CRLF.. file_to_change.txt
-
-# Latin9 (western europe) to utf8
-recode iso-8859-15..utf8 file_to_change.txt
-
-# Base64 encode / decode (See also [Base64](Base64))
-recode ../b64 < file.png
-
-# Quoted printable decode
-recode /qp.. < file.qp > file.txt
-
-# Text to HTML
-recode ..HTML < file.txt > file.html
-
-# Lookup table of characters
-recode -lf windows-1252 | grep euro
-
-# Show what a code represents in latin-9 charmap
-echo -n 0x80 | recode latin-9/x1..dump
-
-# Show latin-9 encoding
-echo -n 0x20AC | recode ucs-2/x2..latin-9/x
-
-# Show utf-8 encoding
-echo -n 0x20AC | recode ucs-2/x2..utf-8/x
-```
-
 ## Disk operations
+
+```sh
+# Mounting a Filesystem:
+# force umount when the device is busy
+fuser -km /mnt/hda2
+# mount disk called hda2 - verify existence of the directory `/mnt/hda2`
+mount /dev/hda2 /mnt/hda2
+# mount a floppy disk
+mount /dev/fd0 /mnt/floppy
+# mount a cdrom / dvdrom
+mount /dev/cdrom /mnt/cdrom
+# mount a cdrw / dvdrom
+mount /dev/hdc /mnt/cdrecorder
+# mount a cdrw / dvdrom
+mount /dev/hdb /mnt/cdrecorder
+# mount a file or iso image
+mount -o loop file.iso /mnt/cdrom
+# mount a Windows FAT32 file system
+mount -t vfat /dev/hda5 /mnt/hda5
+# mount a usb pen-drive or flash-drive
+mount /dev/sda1 /mnt/usbdisk
+# mount a windows network share
+mount -t smbfs -o username=user,password=pass //WinClient/share /mnt/share
+# unmount disk called hda2 - exit from mount point `/mnt/hda2` first
+umount /dev/hda2
+# run umount without writing the file /etc/mtab - useful when the file is read-only or the hard disk is full
+umount -n /mnt/hda2
+
+# Show all partitions registered on the system
+cat /proc/partitions
+# List mounted filesystems on the system (and align output)
+mount | column -t
+
+# Show info about disk sda
+hdparm -i /dev/sda
+# displays the characteristics of a hard-disk
+hdparm -i /dev/hda
+# perform test reading on a hard-disk
+hdparm -tT /dev/sda
+
+# Do a read speed test on disk sda
+hdparm -tT /dev/sda
+# Test for unreadable blocks on disk sda
+badblocks -s /dev/sda
+# How long has this disk (system) been powered on in total
+smartctl -A /dev/sda | grep Power_On_Hours
+```
 
 ### Disk space
 
@@ -2025,22 +2616,22 @@ See also FSlint
 
 ```sh
 # Show files by size, biggest last
-ls -lSr
-
+ls -lSr | more
 # Show top disk users in current dir. See also dutop
 du -s * | sort -k1,1rn | head
-
 # Sort paths by easy to interpret disk usage
 du -hs /home/* | sort -k1,1h
-
+# Show size of the files and directories sorted by size
+du -sk * | sort -rn
+# Estimate space used by directory `dir1`
+du -sh dir1
 # Show free space on mounted filesystems aks disk usage
 df -h
-
 # Show free inodes on mounted filesystems
 df -i
-
 # Show disks partitions sizes and types (run as root)
 fdisk -l
+
 ```
 
 ### Clone disk
@@ -2103,13 +2694,11 @@ cdrecord -v dev=/dev/cdrom -audio -pad *.wav
 ## Command operations
 
 ```sh
-# Show commands pertinent to string. See also threadsafe
-apropos whatis
-
-# make a pdf of a manual page
-man -t ascii | ps2pdf - > ascii.pdf
-
 # Show full path name of command
+which command
+# Show location of a binary file, source or man
+whereis command
+# Show full path to a binary / executable
 which command
 
 # See how long a command takes
@@ -2117,6 +2706,9 @@ time command
 
 # Start stopwatch. Ctrl-d to stop. See also sw
 time cat
+
+# Show commands pertinent to string. See also threadsafe
+apropos whatis
 
 # Find the location of a command
 command -v git 2> /dev/null
@@ -2126,202 +2718,49 @@ command -v git 2> /dev/null
 - [shell - `command` vs `type` - Locate program file in user's PATH - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/150512/command-vs-type-locate-program-file-in-users-path)
 - [bash: which vs command -v - Stack Overflow](https://stackoverflow.com/questions/37056192/bash-which-vs-command-v)
 
-## Backup external server
+### Command help
 
-**Note: Be carefull with [crendentials used in job schedulers](Security#crendentials-used-in-job-schedulers).** It's why we try to use configuration files instead pure command line
-
-Use [`rsync`](#rsync) if possible, or `lftp`, `curl`, `wget`, `scp`, `sftp`. See also `unison`, `bacula`, `amanda`
-
-### FTP
-
-#### `wget`
-
-Use a `.wgetrc` file to store configuration
-
-`/dst/dir.wget`:
-
-	# Credentials
-	ftp_user=user
-	ftp_password=password
-	# Other commands
-	exclude_directories=/snapshots,/vhosts,/lamp0/.config,/lamp0/db,/lamp0/var/log,/lamp0/var/php/www
-	#reject=.listing
-	#cut_dirs=0
-	quiet=on
-	no_parent=on
-	mirror=on
-	add_hostdir=off
-	#retr_symlinks=on
-
-	cd /dst/dir
-	WGETRC=/dst/dir.wget wget ftp://www.mydomain.tld/
-	# Clean up obselete files
-	find . -type f -name ".listing" -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | while read file; do rm $(basename "$file"); done;' \;
-	# find . -type f -name ".listing" -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | xargs -r rm' \;
-
-Note: if you set password in URL don't forget to encode special chars: `mypass#gh647` to `mypass%23gh647`
-
-- https://www.gnu.org/software/wget/manual/wget.html#Wgetrc-Commands
-
-### `lftp`
-
-`/dst/dir.lftp`
-
-	set ftp:list-options -a
-	#set cmd:fail-exit true
-	# To use keyfile
-	# http://www.adminschoice.com/how-to-configure-ssh-without-password
-	# ssh-keygen -t rsa -f keyfile -N ""
-	#set sftp:connect-program "ssh -a -x -i <keyfile>"
-	open -u user,pass sftp://sftp.dc0.gpaas.net
-	mirror --verbose --delete --parallel=4 --only-newer --exclude ^snapshots/ --exclude ^vhosts/ --exclude ^lamp0/\.config --exclude ^lamp0/var/admin/gandi.cnf$ --exclude ^lamp0/var/admin/logrotate.conf$ --exclude ^lamp0/var/cron/admin/logrotate$ --exclude ^lamp0/var/cron/admin/phpsess$ --exclude ^lamp0/db/ --exclude ^lamp0/var/log/.+ --exclude ^lamp0/var/php/www/.+ "${SRC_DIR}" "${DST_DIR}"
-	exit
-
-	# For paths in variables used in sed, see https://stackoverflow.com/a/29613573/470117
-	SRC_DIR=/src/dir; DST_DIR=/dst/dir; sed -e "s#\${SRC_DIR}#$SRC_DIR#" -e "s#\${DST_DIR}#$DST_DIR#" /dst/dir.lftp | lftp -f /dev/stdin
-
-	lftp -u username,password ftphost << EOF
-	mirror -Re --use-cache /home/ /backup/
-	mirror -Re --use-cache /etc/ /backup/
-	mirror -Re --use-cache /var/www/ /backup/
-	quit 0
-	EOF
-
-`--exclude` / `-x` use extended regular expression (see `egrep`) `\.nfo`. Folders path don't start with slash, but have a trailing slash: `etc/bin/`
-
-Add `--reverse` to restore backup
-
-For `lftp –> Fatal error: Certificate verification: Not trusted`:
-
-1. Create the .lftp directory with the command : `mkdir /root/.lftp`
-2. Create and edit the rc file with the command : `vi /root/.lftp/rc`
-3. Press `i` for edit mode
-4. Add the line: `set ssl:verify-certificate no`
-5. Exit edit mode by pressing Escape (twice)
-6. Close and save the file by pressing Z (capital z) twice)
-
-- https://linux.die.net/man/1/lftp
-- http://mewbies.com/lftp_basic_usage_tutorial.htm
-- [linux - Transfer files using lftp in bash script - Stack Overflow](https://stackoverflow.com/questions/27635292/transfer-files-using-lftp-in-bash-script)
-- [Fastest segmented parallel sync of a remote directory over ssh | commandlinefu.com](http://www.commandlinefu.com/commands/view/13759/fastest-segmented-parallel-sync-of-a-remote-directory-over-ssh)
-- [`~/.lftp.rc` parameters detailed](https://gist.github.com/gaubert/822090)
-- [Shell scripting and LFTP | A Pipe and a Keyboard](http://apipeandakeyboard.com/2013/05/11/shell-scripting-and-lftp/)
-- [How to store lftp command result to a variable](https://www.experts-exchange.com/questions/25279654/How-to-store-lftp-command-result-to-a-variable.html)
-- [calling lftp from a bash script; howto pass variables into the command syntax](http://www.linuxquestions.org/questions/programming-9/calling-lftp-from-a-bash-script%3B-howto-pass-variables-into-the-command-syntax-4175444669/)
-
-### Backup external server with `rsync`
-
-	rsync -a username@www.mydomain.tld:/ /dst/dir
-
-See [rsync](#rsync)
-
-### `scp`
-
-	scp -i /home/username/.ssh/id_rsa -r -p username@www.mydomain.tld:/ /dst/dir
-
-### `sftp`
-
-	sftp -i /path/to/private/keyfile remote.host.tld
-
-### Other
-
-Using tar or FTP, incrementaly add/changed/delete files (list made from `cron` or similar)
-
-	find . -type f -mtime -7 -exec ls -l {} \; > list.txt
-	find . -type f -exec ls -i {} + | sort -k2 > list.txt
-	tar --create --file=archive.1.tar --listed-incremental=/var/log/usr.snar .
-	tar -cf /dev/null -g /var/log/usr.snar .
-	date +%s
-
-	/backupdevice/folder
-	date +%s%N > /backupdevice/folder.index
-
-- http://www.grymoire.com/Unix/Inodes.html
-- https://nixshell.wordpress.com/2010/10/07/inodes-ctime-mtime-atime/
-- http://unix.stackexchange.com/questions/31255/on-what-occasion-will-inode-change
-- https://stackoverflow.com/questions/16085958/scripts-find-the-files-have-been-changed-in-last-24-hours
-- http://unix.stackexchange.com/questions/57825/how-to-diff-two-folders-by-inodes
-- http://askubuntu.com/questions/704160/list-all-recently-changed-files-recursive
-- http://superuser.com/questions/234158/show-both-ctime-and-atime-in-ls-output
-- http://unix.stackexchange.com/questions/132819/incremental-file-back-up-by-date
-
-- https://www.gnu.org/software/tar/manual/html_node/Incremental-Dumps.html
-- https://www.gnu.org/software/tar/manual/html_node/Snapshot-Files.html
-- http://unix.stackexchange.com/questions/25541/updating-tar-gz-daily-only-with-changed-files
-- https://stackoverflow.com/questions/27763248/linux-tar-just-create-the-snar-file
-- http://www.tuxradar.com/content/quick-guide-backups-using-tar
-- http://chxo.com/be2/tar_backup_to_ntfs.html
-
-## HTTP
-
-	# Get headers
-	curl -s -D - https://example.com -o /dev/null
-	# Raw body
-	curl -s --ignore-content-length --raw https://example.com
-
-	# Get HTTP response
-	echo -en "GET /feed/ HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc infoheap.com 80
-	# Get the header Content-Type
-	echo -en "GET /feed/ HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc localhost 80 | head -n 30 | grep -a Content-Type
-	# Search if test is in first 1000 bytes (include header)
-	echo -en "GET /feed/ HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc localhost 80 | head -c1K | grep -a test
-	# Get body length
-	echo -e "GET / HTTP/1.1\r\nHost: example.com\r\nAccept-Encoding: gzip, deflate\r\n\r\n" | nc localhost 80 | sed ':a;N;$!ba;s/^.*\r\n\r\n//g' | wc -c
-	# Get body uncompressed length (should be gzipped)
-	echo -e "GET / HTTP/1.1\r\nHost: example.com\r\nAccept-Encoding: gzip, deflate\r\n\r\n" | nc 93.184.216.34 80 | sed ':a;N;$!ba;s/^.*\r\n\r\n//g' | gzip -d | wc -c
-
-
-[How to display request headers with command line curl - Stack Overflow](https://stackoverflow.com/questions/3252851/how-to-display-request-headers-with-command-line-curl/26644485#26644485)
-
-### Simple HTTP server
-
-	while true; do nc -l 8000 < response.http; done
-
-	echo -e "GET / HTTP/1.1\r\nHost:example.com\r\nUser-Agent:Firefox\r\n\r\n" | nc example.com 80 > response.http
-
-### Create `.htpasswd` file
-
-	htpasswd -c /path/.htpasswd USERNAME
-
-### wget
-
-Multi purpose download tool
+Aka man, command documentation
 
 ```sh
-# Store local browsable version of a page to the current dir
-(cd dir/ && wget -nd -pHEKk http://www.pixelbeat.org/cmdline.html)
+man mv
 
-# Continue downloading a partially downloaded file
-wget -c http://www.example.com/large.file
+# find any related commands
+man -k mv
 
-# Download a set of files to the current directory
-wget -r -nd -np -l1 -A '*.jpg' http://www.example.com/dir/
-
-# FTP supports globbing directly
-wget ftp://remote/file[1-9].iso/
-
-# Process output directly
-wget -q -O- http://www.pixelbeat.org/timeline.html | grep 'a href' | head
-
-# Download url at 1AM to current dir
-echo 'wget url' | at 01:00
-
-# Do a low priority download (limit to 20KB/s in this case)
-wget --limit-rate=20k url
-
-# Check links in a file
-wget -nv --spider --force-html -i bookmarks.html
-
-# Efficiently update a local copy of a site (handy from cron)
-wget -m http://www.example.com/
-wget -m -U "" http://example.com/path/dir
+# make a pdf of a manual page
+man -t ascii | ps2pdf - > ascii.pdf
 ```
+
+Section numbers of the `man` manual:
+
+1. executable programs or shell commands
+2. system calls (functions provided by the kernel)
+3. library calls (functions within program libraries)
+4. special files (usually found in /dev)
+5. file formats and conventions eg /etc/passwd
+6. games
+7. miscellaneous (including macro  packages  and  conventions), e.g. `man(7)`, `groff(7)`
+8. system administration commands (usually only for root)
+9. kernel routines (non standard)
+
+- [What do the parentheses and number after a Unix command or C function mean? Like: man(8), ftok(2), mount(8)?](http://superuser.com/questions/297702/what-do-the-parentheses-and-number-after-a-unix-command-or-c-function-mean)
+
+Some commands support also (or instead) an option that show the help, could be:
+
+- `--help`
+- `-h`
+- `help`
+- `-?`
+- `/?`
 
 ## Convert PDF 1.4
 
 Force version
 
-	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dColorConversionStrategy=/LeaveColorUnchanged -dDownsampleMonoImages=false -dDownsampleGrayImages=false -dDownsampleColorImages=false -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -dColorImageFilter=/FlateEncode -dGrayImageFilter=/FlateEncode -o airbus_ar_2016_pdf1.4.pdf airbus_ar_2016.pdf
+```sh
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dColorConversionStrategy=/LeaveColorUnchanged -dDownsampleMonoImages=false -dDownsampleGrayImages=false -dDownsampleColorImages=false -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -dColorImageFilter=/FlateEncode -dGrayImageFilter=/FlateEncode -o airbus_ar_2016_pdf1.4.pdf airbus_ar_2016.pdf
+```
 
 ## SSH
 
@@ -2373,35 +2812,6 @@ In `~/.ssh/config`:
 
 - [Generating a new SSH key and adding it to the ssh-agent - User Documentation](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 - SSH Configurations - [Tower Help - Connecting & Authenticating](http://www.git-tower.com/help/mac/remote-repositories/connect-authenticate)
-
-## Tunnel SSH
-
-Redirection d'un port local vers une machine distante
-
-	ssh -NfL 8080:127.0.0.1:0808 user@host
-
-http://www.cyberciti.biz/faq/set-up-ssh-tunneling-on-a-linux-unix-bsd-server-to-bypass-nat/
-
-## Windows networking
-
-Note: samba is the package that provides all this windows specific networking support
-
-```sh
-# Find windows machines. See also findsmb
-smbtree
-
-# Find the windows (netbios) name associated with ip address
-nmblookup -A 1.2.3.4
-
-# List shares on windows machine or samba server
-smbclient -L windows_box
-
-# Mount a windows share
-mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share
-
-# Send popup to windows machine (off by default in XP sp2)
-echo 'message' | smbclient -M windows_box
-```
 
 ## Write email in local spool
 

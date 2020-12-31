@@ -4307,3 +4307,10 @@ Aka custom styles vs default styles, diffing, compare changes, impact of default
 Aka i18n
 
 - [CSS for internationalisation](https://chenhuijing.com/blog/css-for-i18n/)
+
+## Pseudo random
+
+Use `animation: randomCard 1000ms steps(51, end) infinite;
+  animation-play-state: paused;
+
+- [Creating randomness with pure CSS | by Adir SL | Dec, 2020 | UX Collective](https://web.archive.org/web/20201221140729/https://uxdesign.cc/creating-randomness-with-pure-css-a990dafcd569?gi=25a8edfffed2)

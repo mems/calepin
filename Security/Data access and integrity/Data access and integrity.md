@@ -53,7 +53,7 @@ See also [cryptography - Pre-hash password before applying bcrypt to avoid restr
 	- https://github.com/search?utf8=&q=changed+password&type=Commits&ref=searchresults
 	- [GitLeaks - Search Engine for exposed secrets on the web](https://gitleaks.com/)
 
-### Crendentials used in job schedulers
+### Credentials used in job schedulers
 
 Like cron tasks
 

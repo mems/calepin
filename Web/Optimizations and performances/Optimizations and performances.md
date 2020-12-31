@@ -1383,7 +1383,7 @@ if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
 - Use progress events for media (img, video and audio) element. See [Image dispatch progress events](JavaScript#image-dispatch-progress-events)
 - [CSSconf EU 2014 | Patrick Hamann: CSS and the Critical Path ](https://www.youtube.com/watch?v=_0Fk85to6hA)
 - [Deep dive into the murky waters of script loading - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/script-loading/)
-- [Faster Pageloads: Effectively using HTTP Caching, Cache Busting, and a CDN - FoxyCart](http://www.foxycart.com/blog/caching-and-cdn#.VPZa0xfHNE4)
+- [Faster Pageloads: Effectively using HTTP Caching, Cache Busting, and a CDN](https://web.archive.org/web/20200803114642/https://www.foxy.io/blog/faster-pageloads-effectively-using-http-caching-cache-busting-and-a-cdn/)
 - [Your Hero Images Need You: Save the Day with HTTP/2 Image Loading - YouTube](https://www.youtube.com/watch?v=66JINbkBYqw)
 - Some [link tag are "body-ok"](https://html.spec.whatwg.org/multipage/links.html#body-ok) (aka allowed in the body, not only in the head)
 
