@@ -1464,11 +1464,11 @@ Promise.allSettled(parallel(tasks, 2)).then(results => console.table(results));
 // Example: long running tasks
 // or in performance tab under "Timings" (Chrome)
 const wait = delay => new Promise(resolve => setTimeout(resolve, delay));
-const tasks = Array.from({length: 21}).map((v, i) => () => {
+const tasks = Array.from({length: 21}).map((v, i, {length: total}) => () => {
 	performance.mark(`task${i}-start`);
 	return wait(500 + Math.random() * 1500).then(() => {
 		performance.mark(`task${i}-end`);
-		performance.measure(`measure task${i}`, `task${i}-start`, `task${i}-end`);
+		performance.measure(`measure task ${i} of ${total}`, `task${i}-start`, `task${i}-end`);
 		return `task${i}`;
 	});
 });

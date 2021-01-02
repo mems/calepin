@@ -109,10 +109,48 @@ echo "You're answer: $answer"
 
 - http://www.tldp.org/LDP/Bash-Beginners-Guide/html/Bash-Beginners-Guide.html#sect_08_02_01
 
-## User administration
+## User management
 
 ```sh
-# Show user rights
+# Set deadline for user password
+chage -E 2005-12-31 user1
+
+# Create a new group
+groupadd [group]
+
+# Delete a group
+groupdel [group]
+
+# Rename a group from moon to sun
+groupmod -n moon sun
+
+# Check correct syntax and file format of `/etc/group` and groups existence
+grpck
+
+# Log into a new group to change default group of newly created files
+newgrp - [group]
+
+# Change password
+passwd
+# Change a user password (only by root)
+passwd user1
+
+# Check correct syntax and file format of `/etc/passwd` and users existence
+pwck
+
+# Create a new user `user1` belongs `admin` group
+useradd -c "User Linux" -g admin -d /home/user1 -s /bin/bash user1
+
+# Create a new user
+useradd user1
+
+# Delete a user (`-r` eliminates home directory)
+userdel -r user1
+
+# Change user attributes as description, group and other
+usermod -c "User FTP" -g system -d /ftp/user1 -s /bin/nologin user1
+
+# Show user rights on files
 ls -l
 # or, but show folders "." and ".."
 ls -all
@@ -155,64 +193,89 @@ Note: ifconfig, route, mii-tool, nslookup commands are obsolete
 ```sh
 # Show status of ethernet interface eth0
 ethtool eth0
-
 #Manually set ethernet interface speed
 ethtool --change eth0 autoneg off speed 100 duplex full
 
+# Show link status of `eth0`
+mii-tool eth0
+
+# Show configuration of an ethernet network card
+ifconfig eth0
+# Configure IP Address
+ifconfig eth0 192.168.1.1 netmask 255.255.255.0
+# Configure `eth0` in promiscuous mode to gather packets (sniffing)
+ifconfig eth0 promisc
 # Show status of wireless interface eth1
 iwconfig eth1
-
 # Manually set wireless interface speed
 iwconfig eth1 rate 1Mb/s fixed
 
 # List wireless networks in range
 iwlist scan
 
-# List network interfaces
-ip link show
+# Disable an interface `eth0`
+ifdown eth0
+# Activate an interface `eth0`
+ifup eth0
 
+# List network interfaces and their status
+ip link show
 # Rename interface eth0 to wan
 ip link set dev eth0 name wan
-
 # Bring interface eth0 up (or down)
 ip link set dev eth0 up
-
 # List addresses for interfaces
 ip addr show
-
 # Add (or del) ip and mask (255.255.255.0)
 ip addr add 1.2.3.4/24 brd + dev eth0
-
 # List routing table
 ip route show
-
 # Set default gateway to 1.2.3.254
 ip route add default via 1.2.3.254
 
-# Lookup DNS ip address for name or vice versa
-host pixelbeat.org
+# Show routing table
+route -n
+# Configure default gateway
+route add -net 0/0 gw IP_Gateway
+# Configure static route to reach network `192.168.0.0/16`
+route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.1.1
+# Remove static route
+route del 0/0 gw IP_gateway
 
+# Lookup DNS ip address for name or vice versa
+host example.com
+
+# Machine name
+hostname
 # Lookup local ip address (equivalent to host `hostname`)
 hostname -i
 
-# Lookup whois info for hostname or ip address
-whois pixelbeat.org
+# Active interface `eth0` in dhcp mode
+dhclient eth0
 
-# List internet services on a system
+# List network services on a system and their PID
 netstat -tupl
-
-# List active connections to/from system
+# List active network connections to/from system and their PID
 netstat -tup
+# Show routing table alike "route -n"
+netstat -rn
+
+# Show all HTTP traffic
+tcpdump tcp port 80
 
 # DNS record
 dig example.com
 
+# Lookup whois info for hostname or ip address
+whois example.com
+
+# Activate ip routing temporarily
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
 # Reverse DNS
 ping -a 8.8.8.8
 nslookup -type=ptr 8.8.8.8
-
-# Machine name
-hostname
+nslookup www.example.com
 
 # Test if remote port is open
 nc -vz example.com 80
@@ -238,6 +301,8 @@ nmblookup -A 1.2.3.4
 
 # List shares on windows machine or samba server
 smbclient -L windows_box
+# Show remote shares of a windows host
+smbclient -L ip_addr/hostname
 
 # Mount a windows share
 mount -t smbfs -o fmask=666,guest //windows_box/share /mnt/share
@@ -253,9 +318,6 @@ nbtscan ip_addr
 
 # Netbios name resolution
 nmblookup -A ip_addr
-
-# Show remote shares of a windows host
-smbclient -L ip_addr/hostname
 
 # Like wget can download files from a host windows via smb
 smbget -Rr smb://ip_addr/share
@@ -348,6 +410,16 @@ scp /path/localdir user@host:/path/remotedir
 
 scp -i /home/username/.ssh/id_rsa -r -p username@www.mydomain.tld:/ /dst/dir
 ```
+
+### Copy files over SSH shell
+
+```sh
+# Copy content of a directory on remote directory via ssh
+( cd /tmp/local/ && tar c . ) | ssh -C user@ip_addr 'cd /home/share/ && tar x -p'
+
+# Copy a local directory on remote directory via ssh
+( tar c /home ) | ssh -C user@ip_addr 'cd /home/backup-home && tar x -p'
+````
 
 ### Copy files with `sftp`
 
@@ -447,6 +519,18 @@ Network efficient file copier
 Use the `--dry-run` option for testing
 
 ```sh
+# Synchronization between directories
+rsync -rogpav --delete /home /tmp
+
+# Rsync via SSH tunnel
+rsync -rogpav -e ssh --delete /home ip_address:/tmp
+
+# Synchronize a local directory with a remote directory via SSH and compression
+rsync -az -e ssh --delete ip_addr:/home/public /home/local
+
+# Synchronize a remote directory with a local directory via SSH and compression
+rsync -az -e ssh --delete /home/local ip_addr:/home/public
+
 # Copy as archive (oneway, for backup)
 rsync -a username@www.mydomain.tld:/ /dst/dir
 
@@ -847,7 +931,7 @@ pacman -S name
 pacman -R name
 ```
 
-## Monitoring / debugging
+## Monitoring and debugging
 
 ```sh
 fuser
@@ -858,6 +942,63 @@ for p in [0-9]*; do ls -l /proc/$p/fd ;done
 strace ls
 someexe > /dev/null & sudo dtruss -f -t open -p $!
 inotifywait -m -r -e OPEN /path/to/traced/directory
+
+# Displays status of RAM in megabytes
+free -m
+
+# Force closure of the process and finish it
+kill -9 process_id
+
+# force a process to reload configuration
+kill -1 process_id
+
+# Show history reboot
+last reboot
+
+# Display kernel loaded
+lsmod
+
+# Display a list of files opened by processes
+lsof -p process_id
+
+# Displays a list of open files in a given path system
+lsof /home/user1
+
+# Displays linux tasks
+ps -eafw
+
+# Displays linux tasks in a hierarchical mode
+ps -e -o pid,args --forest
+
+# Shows a tree system processes
+pstree
+
+# Monitoring reliability of a hard-disk through SMART
+smartctl -A /dev/hda
+
+# Check if SMART is active on a hard-disk
+smartctl -i /dev/hda
+
+# Display system calls made and received by a process
+strace -c ls >/dev/null
+
+# Display library calls
+strace -f -e open ls >/dev/null
+
+# Show events inherent to the process of booting kernel
+tail /var/log/dmesg
+
+# Show system events
+tail /var/log/messages
+
+# Display linux tasks using most cpu
+top
+
+# Display interrupts in real-time
+watch -n1 'cat /proc/interrupts'
+
+# Show shared libraries required by ssh program
+ldd /usr/bin/ssh
 ```
 
 auditctl
@@ -1056,6 +1197,10 @@ cat /etc/shells
 
 # Clear shell cache
 hash -r
+
+# Change shell
+chsh
+chsh --list-shells
 ```
 
 In `/etc/bashrc` or `~/.bashrc`
@@ -1470,7 +1615,7 @@ cd /home
 cd ..
 # Go back two levels
 cd ../..
-# Go to home directory
+# Go to $HOME directory
 cd
 # Go to home directory
 cd ~user1
@@ -1479,16 +1624,6 @@ cd -
 
 # Get the current working directory
 pwd
-```
-
-## Directory navigation
-
-```sh
-# Go to previous directory
-cd -
-
-# Go to $HOME directory
-cd
 
 # Go to dir, execute command and return to current dir
 (cd dir && command)
@@ -1506,7 +1641,47 @@ File name:
 > [Bash FAQ 73](http://mywiki.wooledge.org/BashFAQ/073): Parameter expansions
 > [Bash FAQ 100](http://mywiki.wooledge.org/BashFAQ/100): String manipulations
 
-### File searching
+```sh
+# Modify timestamp of a file or directory - (YYMMDDhhmm)
+touch -t 0712250000 file1
+
+# Create directories `dir1` and `dir2` (in same parent dir)
+mkdir dir1 dir2
+
+# Try to create a directory tree
+mkdir -p /tmp/dir1/subdir1
+
+# Extract music from m3u (ignore lines start with #, whitespace or are empty)
+# Playlists entries could be relative
+cd "/path/to/playlists"
+cat "playlist1.m3u" "playlist1.m3u" "playlist3.m3u" | grep "^[^# \t]" | tr -s '\n' | while read -r line; do cp --parent -v "$line" /destination; done
+
+# Get extensions of all files
+find . -type f | while read file; do filename=$(basename "$file"); ext=$([[ "$filename" = *.* ]] && echo ".${filename##*.}" || echo ''); echo $ext; done | sort | uniq
+
+# File checksum SHA256, used in chef cookbooks
+openssl dgst -sha256 path/to/myfile
+# File checksumMD5
+openssl dgst -md5 path/to/myfile
+
+# Encrypt a file with GNU Privacy Guard
+gpg -c file1
+# Decrypt a file with GNU Privacy Guard
+gpg file1.gpg
+
+# Create hardlink aka hardware link
+# Note: It's not possible to create hardlink with a directory (due to the risk of loops in tree)
+ln /path/to/source_file /path/to/target_file
+ln -T /etc/apache2/sites-available/example.com /etc/apache2/sites-enabled/example.com
+
+# Remove file link
+unlink /etc/apache2/sites-enabled/websiteA.exemple
+
+# Create a symbolic link to file or directory
+ln -s file1 lnk1
+```
+
+### File listing and searching
 
 Find support [shell pattern](https://www.gnu.org/software/findutils/manual/html_mono/find.html#Shell-Pattern-Matching) for `-path` and `-ipath` parameters:
 
@@ -1575,6 +1750,15 @@ find -type d ! -perm -111
 
 # Search for empty files and folder (or file with only whitespaces)
 find -empty
+
+# List all folders and files, ordered by size
+du -ak . | sort -nr | less
+
+# List top 10 largest files and directories
+du -a /var | sort -n -r | head -n 10
+
+# Quickly search (sorted) dictionary for prefix
+look reference
 ```
 
 - [bash - Find and replace filename recursively in a directory - Stack Overflow](https://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory/9394625#9394625)
@@ -1597,15 +1781,9 @@ find * -prune -name '*.jpg' \
 # This can be combined with either "find" or "ls" to list filenames.
 ls *.jpg | xargs -n1 sh -c 'convert $0 -thumbnail 200x90 thumbnails/$0.gif'
 
-# An alternative method on linux (rather than plain unix)
+# An alternative method on Linux (rather than plain Unix)
 # This does not need a shell to handle the argument.
 ls *.jpg | xargs -r -I FILE convert FILE -thumbnail 200x90 FILE_thumb.gif
-
-# Quickly search (sorted) dictionary for prefix
-look reference
-
-# Highlight occurances of regular expression in dictionary
-grep --color reference /usr/share/dict/words
 ```
 
 - [command line - How to find all empty files and folders in a specific directory including files which just look empty but are not? - Ask Ubuntu](https://askubuntu.com/questions/719912/how-to-find-all-empty-files-and-folders-in-a-specific-directory-including-files)
@@ -1617,7 +1795,9 @@ grep --color reference /usr/share/dict/words
 
 #### Find duplicates files
 
-	find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate | awk '{$1=""; print substr($0,2)}'
+```sh
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate | awk '{$1=""; print substr($0,2)}'
+```
 
 - [diff - Wikipedia](https://en.wikipedia.org/wiki/Diff)
 - [How do I do a binary diff on two identically sized files under Linux? - Super User](https://superuser.com/questions/135911/how-do-i-do-a-binary-diff-on-two-identically-sized-files-under-linux)
@@ -1676,7 +1856,7 @@ Then replace files by [hardlink](#hard-link)
 - [Is there an easy way to replace duplicate files with hardlinks? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/3037/is-there-an-easy-way-to-replace-duplicate-files-with-hardlinks)
 - [hardlink - Finding files that are *not* hard links via a shell script - Stack Overflow](https://stackoverflow.com/questions/16282618/finding-files-that-are-not-hard-links-via-a-shell-script)
 
-#### Find all files by content
+#### Find files by content
 
 ```sh
 # Find multiple exec a executed only if the previous one exit with 0 https://stackoverflow.com/questions/5119946/find-exec-with-multiple-commands#comment34296391_6043896
@@ -1699,7 +1879,181 @@ find "$wd" -iname "*.less" \( -not -ipath "*/node_modules/*" \) -type f -print0 
 
 - [find -exec vs find | xargs](https://www.everythingcli.org/find-exec-vs-find-xargs/)
 
-### Create archive from file list
+##### Find corrupted files
+
+Find files with 100 consecutive zero bytes (partially downloaded, etc.)
+
+```sh
+find . -type f -exec egrep "\x00{100,}" {} \; -exec echo {} \;
+# If not work try with grep -P
+```
+
+Note: If you get `grep: invalid repetition count(s)`, use `(\x00\x00\x00\x00){250,}` instead of `\x00{1000,}` (because repetition as limitation)
+
+- [linux - How to grep for special character NUL (^@^@^@) - Super User](https://superuser.com/questions/507267/how-to-grep-for-special-character-nul)
+
+### Delete files and directories
+
+Aka remove files and dirs
+
+```sh
+# Remove `file1` and `file2`
+rm -f file1 file2
+
+# Remove `dir1` and `dir2` and their contents recursively
+rm -rf dir1 dir2
+
+# Remove directory `dir1`
+rmdir dir1
+
+# Remove all files start with "title_" and ends with ".png"
+find . -name 'tile_*.png' -delete
+# Remove all files with exceptions:
+find . -type f -not \( -name '*.php' -or -name '*.iso' \) -exec rm {} \;
+# Remove all files with a list of exceptions:
+find . -type f -printf "%P\n" ! -name "list.txt" | fgrep -vf list.txt | xargs -r rm
+
+# Remove empty dir
+find <path> -type d -empty -delete
+find <path> -type d -empty -print0 | xargs -0 -I {} rmdir "{}"
+find <path> -type d -print0 | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
+# Handle trailing dot rmdir error: rmdir -p "./test" -> rmdir: failed to remove directory '.': Invalid argument
+find -mindepth 1 -type d -printf '%P\0' | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
+# Find all dirs in reverse order (depth first), remove empty dir to top
+find -mindepth 1 -type d -print0 | tac -s $'\0' | xargs -0 -r rmdir --ignore-fail-on-non-empty
+
+# Delete all Unix hidden files
+# All files or folders that start with `.`, like `.htaccess` or `.DS_STORE`
+rm -rf .[^.]*
+# All files dir `.git`
+find . -type d -name ".git" -exec rm -rf {} +
+```
+
+- http://www.cyberciti.biz/faq/linux-bash-delete-all-files-in-directory-except-few/
+- [unix - BASH: How to remove all files except those named in a manifest? - Stack Overflow](https://stackoverflow.com/questions/2782602/bash-how-to-remove-all-files-except-those-named-in-a-manifest)
+- [linux - find files not in a list - Stack Overflow](https://stackoverflow.com/questions/7306971/find-files-not-in-a-list)
+- [Unix tip: Recursively removing empty directories | Network World](https://www.networkworld.com/article/2773290/unix-tip--recursively-removing-empty-directories.html)
+
+### Copy or move files and directories
+
+Aka duplicate and rename
+
+```sh
+# Rename (move) a file or directory
+mv dir1 new_dir
+
+# Change file extension
+for j in /path/dir/*.html
+do
+	n=${j/.html}
+	mv "$j" "$n.php"
+done
+
+# Change file extension
+for j in *; do mv "$j" "$n.bin"; done;
+
+# Rename `Ref_00001.jpg` to `anim001.jpg`
+for i in 'Ref_00'*.jpg; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
+find . -name 'Ref_00*.jpg' -prune -print | while read i; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
+
+# Rename `sprite1.png` to `sprite0.png` (if change the offset, be careful of sort order)
+find . -maxdepth 1 -type f -exec mv "{}" "{}.tmp" \; -print | awk 'match($0,"^(.*atlas-)([0-9]+)(.*)$",a){print "\""a[1]a[2]a[3]".tmp\" \""a[1]a[2]-1a[3]"\""}' | while read args; do eval "mv $args"; done
+
+# Rename *.JPG to *.jpg
+rename 's/\.JPG/\.jpg/' *.JPG
+# Strip spaces
+rename 's/ //' *.jpg
+# Lower case
+rename 'y/A-Z/a-z/' *
+
+# Copying a file
+cp file1 file2
+# Copy all files of a directory within the current work directory
+cp dir/* .
+# Copy a directory within the current work directory
+cp -a /tmp/dir1 .
+# Copy a directory
+cp -a dir1 dir2
+
+# Find and copy all files with `.txt` extension from a directory to another
+find /home/user1 -name '*.txt' | xargs cp -av --target-directory=/home/backup/ --parents
+
+# local copy preserving permissions and links from a directory to another
+tar cf - . | (cd /tmp/backup ; tar xf - )
+```
+
+On macOS install it with port `port install p5-file-rename` (but should use the cmd `rename-5.22` where `22` is installed version via port instead of `rename`) or brew `brew install rename`
+
+- [unix - How to do a mass rename? - Stack Overflow](https://stackoverflow.com/questions/417916/how-to-do-a-mass-rename)
+
+### Archives and compressed files
+
+```sh
+# Decompress a file called `file1.bz2`
+bunzip2 file1.bz2
+
+# Compress a file called `file1`
+bzip2 file1
+
+# Decompress a file called `file1.gz`
+gunzip file1.gz
+
+# Compress a file called `file1`
+gzip file1
+
+# Compress with maximum compression
+gzip -9 file1
+
+# Create an archive rar called `file1.rar`
+rar a file1.rar test_file
+
+# Compress `file1`, `file2` and `dir1` simultaneously
+rar a file1.rar file1 file2 dir1
+
+# Decompress rar archive
+rar x file1.rar
+
+# Create a uncompressed tarball
+tar -cvf archive.tar file1
+
+# Create an archive containing `file1`, `file2` and `dir1`
+tar -cvf archive.tar file1 file2 dir1
+
+# Show contents of an archive
+tar -tf archive.tar
+
+# Extract a tarball
+tar -xvf archive.tar
+# Extract a tarball into / tmp
+tar -xvf archive.tar -C /tmp
+
+# Create a tarball compressed into bzip2
+tar -cvfj archive.tar.bz2 dir1
+# Create a tarball compressed into gzip
+tar -cvfz archive.tar.gz dir1
+
+# Decompress a compressed tar archive in bzip2
+tar -xvfj archive.tar.bz2
+# Decompress a compressed tar archive in gzip
+tar -xvfz archive.tar.gz
+
+# Make a incremental backup of directory `/home/user`
+tar -Puf backup.tar /home/user
+
+# Decompress rar archive
+unrar x file1.rar
+
+# Decompress a zip archive
+unzip file1.zip
+
+# Create an archive compressed in zip
+zip file1.zip file1
+
+# Compress in zip several files and directories simultaneously
+zip -r file1.zip file1 file2 dir1
+```
+
+Create archive from file list:
 
 ```sh
 #!/bin/bash
@@ -1721,31 +2075,6 @@ mv "$file" "$final"
 rm "$list"
 ```
 
-### Copy files from m3u playlist
-
-```sh
-# Extract music from m3u (ignore lines start with #, whitespace or are empty)
-# Playlists entries could be relative
-cd "/path/to/playlists"
-cat "playlist1.m3u" "playlist1.m3u" "playlist3.m3u" | grep "^[^# \t]" | tr -s '\n' | while read -r line; do cp --parent -v "$line" /destination; done
-```
-
-### Get extensions of all files
-
-```sh
-find . -type f | while read file; do filename=$(basename "$file"); ext=$([[ "$filename" = *.* ]] && echo ".${filename##*.}" || echo ''); echo $ext; done | sort | uniq
-```
-
-### File checksum
-
-```sh
-# SHA256, used in chef cookbooks
-openssl dgst -sha256 path/to/myfile
-
-# MD5
-openssl dgst -md5 path/to/myfile
-```
-
 ### Split files
 
 FAT32 maximum file size is ["4 GiB minus 1 byte"](https://en.wikipedia.org/wiki/File_Allocation_Table#FAT32) (4294967295 bytes)
@@ -1762,105 +2091,6 @@ split -b 4294967295 example.dmg example.dmg.part.
 
 ```sh
 cat example.dmg.part.* > example.dmg
-```
-
-### Mass rename
-
-https://stackoverflow.com/questions/417916/how-to-do-a-mass-rename
-
-```sh
-for i in 'Ref_00'*.jpg; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
-
-# Will rename `Ref_00001.jpg` to `anim001.jpg`
-find . -name 'Ref_00*.jpg' -prune -print | while read i; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
-
-# Will rename `sprite1.png` to `sprite0.png` (if change the offset, be careful of sort order)
-find . -maxdepth 1 -type f -exec mv "{}" "{}.tmp" \; -print | awk 'match($0,"^(.*atlas-)([0-9]+)(.*)$",a){print "\""a[1]a[2]a[3]".tmp\" \""a[1]a[2]-1a[3]"\""}' | while read args; do eval "mv $args"; done
-```
-
-With `rename`:
-
-```sh
-# Rename *.JPG to *.jpg
-rename 's/\.JPG/\.jpg/' *.JPG
-# Strip spaces
-rename 's/ //' *.jpg
-# Lower case
-rename 'y/A-Z/a-z/' *
-```
-
-On macOS install it with port `port install p5-file-rename` (but should use the cmd `rename-5.22` where `22` is installed version via port instead of `rename`) or brew `brew install rename`
-
-### Remove files
-
-```sh
-rm -f file1 file2
-
-find . -name 'tile_*.png' -delete
-
-# Remove all files with exceptions:
-find . -type f -not \( -name '*.php' -or -name '*.iso' \) -exec rm {} \;
-
-# With a list of exceptions:
-find . -type f -printf "%P\n" ! -name "list.txt" | fgrep -vf list.txt | xargs -r rm
-```
-
-- http://www.cyberciti.biz/faq/linux-bash-delete-all-files-in-directory-except-few/
-- [unix - BASH: How to remove all files except those named in a manifest? - Stack Overflow](https://stackoverflow.com/questions/2782602/bash-how-to-remove-all-files-except-those-named-in-a-manifest)
-- [linux - find files not in a list - Stack Overflow](https://stackoverflow.com/questions/7306971/find-files-not-in-a-list)
-
-### Remove empty dir
-
-```sh
-find <path> -type d -empty -delete
-
-find <path> -type d -empty -print0 | xargs -0 -I {} rmdir "{}"
-
-find <path> -type d -print0 | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
-
-# or
-# handle trailing dot rmdir error: rmdir -p "./test" -> rmdir: failed to remove directory '.': Invalid argument
-find -mindepth 1 -type d -printf '%P\0' | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
-
-# find all dirs in reverse order (depth first), remove empty dir to top
-find -mindepth 1 -type d -print0 | tac -s $'\0' | xargs -0 -r rmdir --ignore-fail-on-non-empty
-```
-
-- [Unix tip: Recursively removing empty directories | Network World](https://www.networkworld.com/article/2773290/unix-tip--recursively-removing-empty-directories.html)
-
-### Change file extension
-
-```sh
-for j in /path/dir/*.html
-do
-	n=${j/.html}
-	mv "$j" "$n.php"
-done
-
-# Other way:
-for j in *; do mv "$j" "$n.bin"; done;
-```
-
-### Hard link
-
-Aka hardware link
-
-It's not possible to create hardlink with a directory (due to the risk of loops in tree)
-
-```sh
-# Create hardlink
-ln /path/to/source_file /path/to/target_file
-ln -T /etc/apache2/sites-available/example.com /etc/apache2/sites-enabled/example.com
-
-# Remove file link
-unlink /etc/apache2/sites-enabled/websiteA.exemple
-```
-
-### Symbolic link
-
-```sh
-# create a symbolic link to file or directory
-ln -s file1 lnk1
 ```
 
 ### Read write race condition
@@ -1896,6 +2126,34 @@ else
 fi
 ```
 
+### File attributes
+
+```sh
+# Allows write opening of a file only append mode
+chattr +a file1
+# Allows that a file is compressed / decompressed automatically by the kernel
+chattr +c file1
+# Makes it an immutable file, which can not be removed, altered, renamed or linked
+chattr +i file1
+# All attributes (see details in the manpage of `chattr`):
+# - append only (a)
+# - compressed (c)
+# - no dump (d)
+# - extent format (e)
+# - immutable (i)
+# - data journalling (j)
+# - secure deletion (s)
+# - no tail-merging  (t)
+# - undeletable  (u)
+# - no atime updates (A)
+# - synchronous directory updates (D)
+# - synchronous updates (S)
+# - top of directory hierarchy (T)
+
+# show specials attributes
+lsattr
+```
+
 ### File type
 
 ```sh
@@ -1919,10 +2177,8 @@ Supported formats are listed by:
 
 The extension of compiled magic: `*.mgc`
 
-### Test if a file exist
-
 ```sh
-#!/bin/bash
+# Test if a file exist
 filename=$1
 if [ -f $filename ]
 then
@@ -1930,6 +2186,41 @@ then
 else
 	echo "$filename does NOT exist"
 fi
+```
+
+### Files permissions
+
+```sh
+# Change group of files
+chgrp group1 file1
+
+# Set permissions reading (r), write (w) and (x) access to users owner (u) group (g) and others (o)
+chmod ugo+rwx directory1
+# Remove permits reading (r), write (w) and (x) access to users group (g) and others (or
+chmod go-rwx directory1
+# Set SUID bit on a binary file - the user that running that file gets same privileges as owner
+chmod u+s /bin/file1
+# Disable SUID bit on a binary file
+chmod u-s /bin/file1
+# Set SGID bit on a directory - similar to SUID but for directory
+chmod g+s /home/public
+# Disable SGID bit on a directory
+chmod g-s /home/public
+
+# Set STIKY bit on a directory - allows files deletion only to legitimate owners
+chmod o+t /home/public
+# Disable STIKY bit on a directory
+chmod o-t /home/public
+
+# Change owner of a file
+chown user1 file1
+# Change user owner of a directory and all the files and directories contained inside
+chown -R user1 directory1
+# Change user and group ownership of a file
+chown user1:group1 file1
+
+# View all files on the system with SUID configured
+find / -perm -u+s
 ```
 
 ### Name, extension and parent folder
@@ -1989,48 +2280,41 @@ extension=$([[ "$file" = *.* ]] && echo "${file##*.}" || echo '')
 - [bash - Get file directory path from filepath - Stack Overflow](https://stackoverflow.com/questions/6121091/get-file-directory-path-from-filepath)
 - [string - Extract filename and extension in Bash - Stack Overflow](https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash)
 
-### Delete all Unix hidden files
+### Read file content or stream
 
 ```sh
-# All files or folders that start with `.`, like `.htaccess` or `.DS_STORE`
-rm -rf .[^.]*
+# View the contents of a file starting from the first row
+cat file1
 
-# All files dir `.git`
-find . -type d -name ".git" -exec rm -rf {} +
+# View first two lines of a file
+head -2 file1
+
+# Pagers (moving down the file content one screen at a time)
+# View content of a file along, allowing only forward navigation through the file
+more file1
+# View content of a file along, allowing forward and backward navigation through the file
+less file1
+
+# View the contents of a file starting from the last line
+tac file1
+
+# View last two lines of a file
+tail -2 file1
+# View in real time what is added to a file
+tail -f /var/log/messages
+
+# View from line 20 to 30 of a file
+sed -n '20,30 p' file1
+# View from line 20 to end of a file
+sed -n '20,$ p' file1
+# View from the begining to line 20 of a file
+sed -n '1,20 p' file1
+
+# Divide into 5 columns
+ls /tmp | pr -T5 -W$COLUMNS
 ```
 
-### Affichage de fichier / flux
-
-```sh
-# Affichage
-cat /path/file
-
-# Pageurs (affichage page par page) :
-less /path/file
-# ou
-more /path/file
-
-# Affichage en live des modifications:
-tail -f /path/file
-```
-
-### List all folders and files
-
-```sh
-# Ordered by size :
-du -ak . | sort -nr | less
-
-# List top 10 largest files and directories
-du -a /var | sort -n -r | head -n 10
-```
-
-### Find text in files
-
-```sh
-# Find text in files:
-grep -rn "texttofind" *
-grep "string text to find in all files" . -R
-```
+- [Terminal pager - Wikipedia](https://en.wikipedia.org/wiki/Terminal_pager)
 
 ### Create or truncate a file
 
@@ -2044,21 +2328,6 @@ touch file.ext
 dd bs=1 seek=2TB if=/dev/null of=file.ext
 ```
 
-### Copy file
-
-```sh
-# Copying a file
-cp file1 file2
-# copy all files of a directory within the current work directory
-cp dir/* .
-# copy a directory within the current work directory
-cp -a /tmp/dir1 .
-# copy a directory
-cp -a dir1 dir2
-# outputs the mime type of the file as text
-cp file file1
-```
-
 ### File comparaisons
 
 Note: you can export LANG=C for speed. Also these assume no duplicate lines within a file
@@ -2066,25 +2335,19 @@ Note: you can export LANG=C for speed. Also these assume no duplicate lines with
 ```sh
 # Union of unsorted files
 sort file1 file2 | uniq
-
 # Intersection of unsorted files
 sort file1 file2 | uniq -d
-
 # Difference of unsorted files
 sort file1 file1 file2 | uniq -u
-
 # Symmetric Difference of unsorted files
 sort file1 file2 | uniq -u
 
 # Union of sorted files
 join -t'\0' -a1 -a2 file1 file2
-
 # Intersection of sorted files
 join -t'\0' file1 file2
-
 # Difference of sorted files
 join -t'\0' -v2 file1 file2
-
 # Symmetric Difference of sorted files
 join -t'\0' -v1 -v2 file1 file2
 ```
@@ -2160,6 +2423,8 @@ gpg file.gpg
 
 # Make compressed archive of dir/
 tar -c dir/ | bzip2 > dir.tar.bz2
+# Find all files with `.log` extension and make an bzip archive
+find /var/log -name '*.log' | tar cv --files-from=- | bzip2 > log.tar.bz2
 
 # Extract archive (use gzip instead of bzip2 for tar.gz files)
 bzip2 -dc dir.tar.bz2 | tar -x
@@ -2300,19 +2565,6 @@ realpath --relative-to=DIR FILE
 - [command line - How to calculate a relative path from two absolute paths in Linux shell? - Super User](https://superuser.com/questions/140590/how-to-calculate-a-relative-path-from-two-absolute-paths-in-linux-shell/1268217#1268217)
 - [shell - Convert absolute path into relative path given a current directory using Bash - Stack Overflow](https://stackoverflow.com/questions/2564634/convert-absolute-path-into-relative-path-given-a-current-directory-using-bash)
 
-## Find corrupted files
-
-Find files with 100 consecutive zero bytes (partially downloaded, etc.)
-
-```sh
-find . -type f -exec egrep "\x00{100,}" {} \; -exec echo {} \;
-# If not work try with grep -P
-```
-
-Note: If you get `grep: invalid repetition count(s)`, use `(\x00\x00\x00\x00){250,}` instead of `\x00{1000,}` (because repetition as limitation)
-
-- [linux - How to grep for special character NUL (^@^@^@) - Super User](https://superuser.com/questions/507267/how-to-grep-for-special-character-nul)
-
 ## Text operations
 
 Aka text processing
@@ -2332,13 +2584,10 @@ tr '[:lower:]' '[:upper:]'
 
 # Sort contents of two files
 sort file1 file2
-
 # Sort contents of two files omitting lines repeated
 sort file1 file2 | uniq
-
 # Sort contents of two files by viewing only unique line
 sort file1 file2 | uniq -u
-
 # Sort contents of two files by viewing only duplicate line
 sort file1 file2 | uniq -d
 
@@ -2359,10 +2608,8 @@ cat -n file1
 
 # Compare contents of two files by deleting only unique lines from `file1`
 comm -1 file1 file2
-
 # Compare contents of two files by deleting only unique lines from `file2`
 comm -2 file1 file2
-
 # Compare contents of two files by deleting only the lines that appear on both files
 comm -3 file1 file2
 
@@ -2380,6 +2627,13 @@ grep [0-9] /var/log/messages
 
 # Search string "Aug" at directory `/var/log` and below
 grep Aug -R /var/log/*
+
+# Find text in files
+grep -rn "texttofind" *
+grep "string text to find in all files" . -R
+
+# Highlight occurances of regular expression in dictionary
+grep --color reference /usr/share/dict/words
 
 # Merging contents of two files for columns
 paste file1 file2
@@ -2406,10 +2660,8 @@ Remove multiline comment:
 # Remove in place all multiline comments
 # Note: see also m regex flag
 sed -Ei -e '1h;2,$H;$!d;g' -e 's|/\*.*?\*/||g' file.ext
-
 # Single line only (sed match by default on line basis)
 sed -i '/<!--.*-->/ d' file
-
 # Note: the , implied the multiple lines.
 sed -i '/<!--/,/-->/ d' file
 ```
@@ -2459,70 +2711,48 @@ sed -Ei -e '1h;2,$H;$!d;g' -e "s|$REGEXP|$REPLACEMENT|" "$@"
 # Replace text in file, need a temp file
 # Note: if `old-text` contains slashes `/`, back slash them: `../..` give `..\/..`
 sed "s/old-text/new-text/g" file.txt > file.txt.tmp && mv file.txt.tmp file.txt
-
 # Replace string1 with string2
 sed 's/string1/string2/g'
-
 # Modify anystring1 to anystring2
 sed 's/\(.*\)1/\12/g'
-
 # Remove comments and blank lines
 sed '/^ *#/d; /^ *$/d'
-
 # Concatenate lines with trailing \
 sed ':a; /\\$/N; s/\\\n//; ta'
-
 # Remove trailing spaces from lines
 sed 's/[ \t]*$//'
-
 # Escape shell metacharacters active within double quotes
 sed 's/\([`"$\]\)/\\\1/g'
-
 # Right align numbers
 seq 10 | sed "s/^/      /; s/ *\(.\{7,\}\)/\1/"
-
 # Duplicate a column
 seq 10 | sed p | paste - -
-
 # Print 1000th line
 sed -n '1000{p;q}'
-
 # Print lines 10 to 20
 sed -n '10,20p;20q'
-
 # Extract title from HTML web page
 sed -n 's/.*<title>\(.*\)<\/title>.*/\1/ip;T;q'
-
 # Delete a particular line
 sed -i 42d ~/.ssh/known_hosts
-
 # Replace "string1" with "string2"
 sed 's/string1/string2/g'
-
 # Remove all blank lines
 sed '/^$/d'
-
 # Remove comments and blank lines
 sed '/ *#/d; /^$/d'
-
 # Eliminates the first line
 sed -e '1d'
-
 # View only lines that contain the word `string1`
 sed -n '/string1/p'
-
 # Remove empty characters at the end of each row
 sed -e 's/ *$//'
-
 # Remove only the word "string1" from text and leave intact all
 sed -e 's/string1//g'
-
 # Print from 1th to 5th row of example.txt
 sed -n '1,5p'
-
 # Print row number 5 of example.txt
 sed -n '5p;5q'
-
 # Replace more zeros with a single zero
 sed -e 's/00*/0/g'
 ```
@@ -2561,7 +2791,7 @@ echo a b c | awk '{print $1,$3}'
 - [onetrueawk/awk: One true awk](https://github.com/onetrueawk/awk)
 - [wernsey/d.awk: An Awk script to generate documentation from Markdown comments in C/C++/Java/JavaScript/C# source code.](https://github.com/wernsey/d.awk)
 
-## Disk operations
+## Disk and file system operations
 
 ```sh
 # Mounting a Filesystem:
@@ -2608,6 +2838,74 @@ hdparm -tT /dev/sda
 badblocks -s /dev/sda
 # How long has this disk (system) been powered on in total
 smartctl -A /dev/sda | grep Power_On_Hours
+
+# Check bad blocks on disk hda1
+badblocks -v /dev/hda1
+
+# Repair / check integrity of dos filesystems on disk hda1
+dosfsck /dev/hda1
+
+# Repair / check integrity of ext2 filesystem on disk hda1
+e2fsck /dev/hda1
+# Repair / check integrity of ext3 filesystem on disk hda1
+e2fsck -j /dev/hda1
+
+# Repair / check integrity of linux filesystem on disk hda1
+fsck /dev/hda1
+
+# Repair / check integrity of ext2 filesystem on disk hda1
+fsck.ext2 /dev/hda1
+# Repair / check integrity of ext3 filesystem on disk hda1
+fsck.ext3 /dev/hda1
+# Repair / check integrity of fat filesystem on disk hda1
+fsck.vfat /dev/hda1
+# Repair / check integrity of dos filesystem on disk hda1
+fsck.msdos /dev/hda1
+```
+
+Backup the filesystem
+
+```sh
+# Note: only supported by ext2/ext3 filesystems
+# Make a full backup of directory `/home`
+dump -0aj -f /tmp/home0.bak /home
+# Make a incremental backup of directory `/home`
+dump -1aj -f /tmp/home0.bak /home
+# Restoring a backup interactively
+restore -if /tmp/home0.bak
+```
+
+- [Ubuntu Manpage: dump - ext2/3/4 filesystem backup](https://manpages.ubuntu.com/manpages/xenial/en/man8/dump.8.html)
+- [Ubuntu Manpage: restore - restore files or file systems from backups made with dump](https://manpages.ubuntu.com/manpages/xenial/en/man8/restore.8.html)
+
+Format a filesystem:
+
+```sh
+# Format a floppy disk
+fdformat -n /dev/fd0
+
+# Create a filesystem type linux ext2 on hda1 partition
+mke2fs /dev/hda1
+# Create a filesystem type linux ext3 (journal) on hda1 partition
+mke2fs -j /dev/hda1
+
+# Create a filesystem type linux on hda1 partition
+mkfs /dev/hda1
+# Create a FAT32 filesystem
+mkfs -t vfat 32 -F /dev/hda1
+```
+
+Filesystem swap:
+
+```sh
+# Create a swap filesystem
+mkswap /dev/hda3
+
+# Activating a new swap partition
+swapon /dev/hda3
+
+# Activate two swap partitions
+swapon /dev/hda2 /dev/hdb3
 ```
 
 ### Disk space
@@ -2635,6 +2933,20 @@ fdisk -l
 ```
 
 ### Clone disk
+
+```sh
+# Make a copy of a local hard disk on remote host via ssh
+dd bs=1M if=/dev/hda | gzip | ssh user@ip_addr 'dd of=hda.gz'
+
+# Copy content of the harddrive to a file
+dd if=/dev/sda of=/tmp/file1
+
+# Make a copy of MBR (Master Boot Record) to floppy
+dd if=/dev/hda of=/dev/fd0 bs=512 count=1
+
+# Restore MBR from a copy saved to floppy
+dd if=/dev/fd0 of=/dev/hda bs=512 count=1
+```
 
 Aka duplicate disks
 
@@ -2668,6 +2980,8 @@ Check disk ID (here X and Y) in XXXXX
 
 ### CDs
 
+And DVDs, CD images
+
 ```sh
 # Save copy of data cdrom
 gzip < /dev/cdrom > cdrom.iso.gz
@@ -2689,26 +3003,28 @@ cdparanoia -B
 
 # Make audio CD from all wavs in current dir (see also cdrdao)
 cdrecord -v dev=/dev/cdrom -audio -pad *.wav
+
+# perform an md5sum on a device, like a CD
+dd if=/dev/hdc | md5sum
+
+# mount an ISO image
+mount -o loop cd.iso /mnt/iso
 ```
 
 ## Command operations
 
 ```sh
-# Show full path name of command
+# Show full path to a binary / executable
 which command
 # Show location of a binary file, source or man
 whereis command
-# Show full path to a binary / executable
-which command
 
-# See how long a command takes
+# See how long a command takes (stopwatch). Ctrl-d to stop. See also sw
 time command
 
-# Start stopwatch. Ctrl-d to stop. See also sw
-time cat
-
 # Show commands pertinent to string. See also threadsafe
-apropos whatis
+# Display a list of commands that pertain to keywords of a program, useful when you know what your program does, but you don't know the name of the command
+apropos somekeyword
 
 # Find the location of a command
 command -v git 2> /dev/null
@@ -2723,6 +3039,9 @@ command -v git 2> /dev/null
 Aka man, command documentation
 
 ```sh
+# displays description of what a program does
+whatis somekeyword
+
 man mv
 
 # find any related commands
@@ -2754,14 +3073,6 @@ Some commands support also (or instead) an option that show the help, could be:
 - `-?`
 - `/?`
 
-## Convert PDF 1.4
-
-Force version
-
-```sh
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dColorConversionStrategy=/LeaveColorUnchanged -dDownsampleMonoImages=false -dDownsampleGrayImages=false -dDownsampleColorImages=false -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -dColorImageFilter=/FlateEncode -dGrayImageFilter=/FlateEncode -o airbus_ar_2016_pdf1.4.pdf airbus_ar_2016.pdf
-```
-
 ## SSH
 
 Aka Secure SHell
@@ -2789,32 +3100,47 @@ ssh -R 1434:imap:143 root@$HOST
 ssh-copy-id $USER@$HOST
 ```
 
-### SSH Disallow remote root login
+To disallow SSH remote root login, in `/etc/ssh/sshd_config` update/add:
 
-In `/etc/ssh/sshd_config` update/add:
-
-	PermitRootLogin no
+```sh
+PermitRootLogin no
+```
 
 ### SSH Keyfile
 
-	# If `-f filename` is not defined, will generate 2 files (by default `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub`)
-	ssh-keygen -t rsa -b 4096 -f ~/.ssh/user@host_rsa
-	ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/your_email@example.com_rsa
-	ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/your_email@example.com-hostname.ext_rsa
+```sh
+# If `-f filename` is not defined, will generate 2 files (by default `~/.ssh/id_rsa` and `~/.ssh/id_rsa.pub`)
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/user@host_rsa
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/your_email@example.com_rsa
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f ~/.ssh/your_email@example.com-hostname.ext_rsa
+```
 
 In `~/.ssh/config`:
 
-	# username@hostname
-	Host hostname
-	RSAAuthentication yes
-	IdentityFile ~/.ssh/username@hostname_rsa
-	User username
+```
+# username@hostname
+Host hostname
+RSAAuthentication yes
+IdentityFile ~/.ssh/username@hostname_rsa
+User username
+```
 
 - [Generating a new SSH key and adding it to the ssh-agent - User Documentation](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 - SSH Configurations - [Tower Help - Connecting & Authenticating](http://www.git-tower.com/help/mac/remote-repositories/connect-authenticate)
 
-## Write email in local spool
+## Convert PDF 1.4
 
-	mail -s "Hello" localusername </dev/null
+Force version
 
-	/var/spool/mail/$USER
+```sh
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dColorConversionStrategy=/LeaveColorUnchanged -dDownsampleMonoImages=false -dDownsampleGrayImages=false -dDownsampleColorImages=false -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -dColorImageFilter=/FlateEncode -dGrayImageFilter=/FlateEncode -o airbus_ar_2016_pdf1.4.pdf airbus_ar_2016.pdf
+```
+
+## Email local spool
+
+`/var/spool/mail/$USER`
+
+```sh
+mail -s "Hello" localusername </dev/null
+```
+

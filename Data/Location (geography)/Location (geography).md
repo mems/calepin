@@ -30,16 +30,14 @@ Aka address
 	* Two-Letter State and Possession Abbreviations [Publication 28 - Postal Addressing Standards - pub28.pdf](http://pe.usps.com/cpim/ftp/pubs/Pub28/pub28.pdf#G6.19308)
 	* [C2 Secondary Unit Designators | Postal Explorer](http://pe.usps.com/text/pub28/28apc_003.htm)
 
-[Indice de répétition](https://www.sirene.fr/sirene/public/variable/indrep):
+[Indice de répétition](https://www.sirene.fr/sirene/public/variable/indrep) (bis, ter...):
 
 - (sans)
-- BIS
-- TER
-- QUATER
-- QUINQUIES
+- B (Bis)
+- T (Ter)
+- C (Quarter)
+- Q (Quinquies)
 - A
-- B
-- C
 - D
 - E
 - F
@@ -53,16 +51,77 @@ Aka address
 - N
 - O
 - P
-- Q
 - R
 - S
-- T
 - U
 - V
 - W
 - X
 - Y
 - Z
+
+Type de voie :
+
+- Allée
+- Arcade
+- Autoroute
+- Avenue
+- Aérodrome
+- Barrière
+- Bas (se, ses)
+- Bassin
+- Boulevard
+- Bourg
+- Canal
+- Carrefour
+- Chaussée
+- Chemin
+- Cité
+- Corniche
+- Cours
+- Descente
+- Digue
+- Ecart
+- Escalier
+- Esplanade
+- Faubourg
+- Grand Rue
+- Hameau
+- Impasse
+- Jetée
+- Montée
+- Parvis
+- Pas (sage)
+- Place
+- Porte
+- Poterne
+- Promenade
+- Quai
+- Quartier
+- Rampe
+- Rempart
+- Roc (ade)
+- Rond-Point
+- Route
+- Rue
+- Ruelle
+- Sente (ier)
+- Square
+- Terrasse
+- Terre-Plein
+- Tertre
+- Traverse
+- Venelle
+- Villa
+- Village
+
+- Libellé de voie ou de lieu-dit
+- Distribution spéciale (indication de boîte postale, service X, secteur postal)
+- Complément de localisation (ce qu'il faut savoir pour trouver la portede l'établissement : Bâtiment, escalier,...)
+- Code postal (Indiquez le code postal complet (5 chiffres)) (Cette zone peut également être utilisée pour spécifier le code CEDEX.)
+- Commune (Cette zone peut également être utilisée pour spécifier le libellé du bureau CEDEX.)
+- CEDEX (oui ou non)
+- Bureau distributeur (A indiquer uniquement s'il est différent de celui de la commune ou du libellé du bureau CEDEX.)
 
 - [plus+codes: Personal Postcodes](https://plus.codes/)
 - without formal addressing systems (South Africa and parts of Kenya)
