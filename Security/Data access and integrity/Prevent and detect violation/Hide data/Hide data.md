@@ -695,7 +695,7 @@ w[p1][p2]["length"];
 - [JS Comparison Table](https://dorey.github.io/JavaScript-Equality-Table/)
 - [Zeros in JavaScript](http://zero.milosz.ca/)
 
-## Obfuscation (code)
+## Code obfuscation
 
 See [Hacking](#hacking)
 

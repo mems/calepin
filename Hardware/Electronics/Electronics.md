@@ -1,0 +1,8 @@
+- [Electronics - Wikipedia](https://en.wikipedia.org/wiki/Electronics)
+- [KdN - Kokes dot Net](https://web.archive.org/web/20201201173833/http://www.kokes.net/projectlonghaul/projectlonghaul.htm) - Project Longhaul, LED ring
+- [PayWave & PayPass deletion via RFID antenna kill | feilipu](https://web.archive.org/web/20201101173014/https://feilipu.me/2013/07/16/paywave-paypass-deletion-via-rfid-antenna-kill/)
+- [Electronic paper - Wikipedia](https://en.wikipedia.org/wiki/Electronic_paper)
+- [transparent led - Google Search](https://www.google.com/search?q=transparent+led)
+- [RetroPie - Retro-gaming on the Raspberry Pi](https://web.archive.org/web/20201223224853/https://retropie.org.uk/)
+- [ESP8266 MPU6050 - Google Search](https://www.google.com/search?q=ESP8266+MPU6050)
+- [Cellule photoélectrique — Wikipédia](https://fr.wikipedia.org/wiki/Cellule_photo%C3%A9lectrique)

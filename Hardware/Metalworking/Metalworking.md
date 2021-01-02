@@ -1,6 +1,13 @@
 - [DIY - Shop Tool Cart - YouTube](https://www.youtube.com/watch?v=KyISgG2FLBU)
 - [Metalworking - Wikipedia](https://en.wikipedia.org/wiki/Metalworking)
 
+## Casting
+
+Renshape 460 for the pattern and Petrobond (BOND) for the sand cast
+
+- [FPI - Foundry Products Incorporated](http://www.foundryproductsonline.com/)
+- [myfordboy - YouTube](https://www.youtube.com/channel/UCNC9gjgYrzLfyMQmp31DnjA)
+
 ## Brasage
 
 Utiliser un décapant (pâte ou graisse, appelé aussi flux ou [crème à braser](https://fr.wikipedia.org/wiki/Cr%C3%A8me_%C3%A0_braser) pour l'électronique). Attention le décapant utilisé en plomberie est trop acide pour l'utilisation pour l'électronique.

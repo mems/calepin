@@ -122,25 +122,25 @@ Subject: SPAM
 
 ## Harassment
 
-Aka spontaneous events, flash mob, strike, protest, sit-in (sit-in against a business , DoS IRL), etc.
+Aka spontaneous events, flash mob, strike, protest, sit-in (sit-in against a business , DoS IRL), SPAM, unsolicited, etc.
 
 Could handle the mass of people, crowd overtake
 
 Issues: health, order, safety, etc.
 
-- [Spoofed Grindr Accounts Turned One Man’s Life Into a ‘Living Hell’ | WIRED](https://www.wired.com/2017/01/grinder-lawsuit-spoofed-accounts/)
-- [Thousands attend Mexican girl's 15th birthday party after social media invite goes viral](http://www.telegraph.co.uk/news/2016/12/27/thousands-attend-mexican-girls-party-social-media-invite-went/)
-- [Girl, 14, fears 21,000 party guests after Facebook invite blunder - Telegraph](http://www.telegraph.co.uk/technology/facebook/8012043/Girl-14-fears-21000-party-guests-after-Facebook-invite-blunder.html)
-- [1,500 People Attend Girl's Birthday Party After Public Facebook Invite](http://mashable.com/2011/06/06/facebook-party/)
+- [Spoofed Grindr Accounts Turned One Man's Life Into a 'Living Hell' | WIRED](https://web.archive.org/web/20201223224419/https://www.wired.com/2017/01/grinder-lawsuit-spoofed-accounts/)
+- [Thousands attend Mexican girl's 15th birthday party after social media invite goes viral](https://web.archive.org/web/20201108115440/http://www.telegraph.co.uk/news/2016/12/27/thousands-attend-mexican-girls-party-social-media-invite-went/)
+- [Girl, 14, fears 21,000 party guests after Facebook invite blunder - Telegraph](https://web.archive.org/web/20190129130758/https://www.telegraph.co.uk/technology/facebook/8012043/Girl-14-fears-21000-party-guests-after-Facebook-invite-blunder.html)
+- [1,500 People Attend Girl's Birthday Party After Public Facebook Invite](https://web.archive.org/web/20210102132929/https://mashable.com/2011/06/06/facebook-party/?europe=true)
 - [Harassment — Wikipedia](https://en.wikipedia.org/wiki/Harassment)
-- [Wrong Number Puts Rotterdam, NY, at Center of Turkey-Netherlands Rift](https://www.dailydot.com/layer8/turkey-netherlands-rotterdam-wrong-number-protest/) - People call the wrong phone number, Rotterdam Police could refer to Politie Rotterdam, Netherlands or Rotterdam Police Department, New York, USA
-- [A Tweet to Kurt Eichenwald, a Strobe and a Seizure. Now, an Arrest. - The New York Times](https://www.nytimes.com/2017/03/17/technology/social-media-attack-that-set-off-a-seizure-leads-to-an-arrest.html) - Send a blink GIF to a [photosensitive epilepsy](https://en.wikipedia.org/wiki/Photosensitive_epilepsy) person.
+- [Wrong Number Puts Rotterdam, NY, at Center of Turkey-Netherlands Rift](https://web.archive.org/web/20201112020216/https://www.dailydot.com/debug/turkey-netherlands-rotterdam-wrong-number-protest/) - People call the wrong phone number, Rotterdam Police could refer to Politie Rotterdam, Netherlands or Rotterdam Police Department, New York, USA
+- [A Tweet to Kurt Eichenwald, a Strobe and a Seizure. Now, an Arrest. - The New York Times](https://web.archive.org/web/20201206212412/https://www.nytimes.com/2017/03/17/technology/social-media-attack-that-set-off-a-seizure-leads-to-an-arrest.html) - Send a blink GIF to a [photosensitive epilepsy](https://en.wikipedia.org/wiki/Photosensitive_epilepsy) person.
 - [Dennō Senshi Porygon — Wikipedia](https://en.wikipedia.org/wiki/Denn%C5%8D_Senshi_Porygon#Reception_and_controversy) - trigger a seizure in vulnerable users with a movie (contains flashes) or with strobe lights
 - Use [Virtual mobile number](https://en.wikipedia.org/wiki/Virtual_number) or [spoof SMS](#sms-spoofing) to send lot of SMS to one target (DDoS)
-- [An interesting thought on IRL equivalence of DDOS attacks on a business. I'd love to hear your thoughts. : DepthHub](https://www.reddit.com/r/DepthHub/comments/ejqyb/an_interesting_thought_on_irl_equivalence_of_ddos/)
+- [An interesting thought on IRL equivalence of DDOS attacks on a business. I'd love to hear your thoughts. : DepthHub](https://web.archive.org/web/20210102133103if_/https://www.reddit.com/r/DepthHub/comments/ejqyb/an_interesting_thought_on_irl_equivalence_of_ddos/) - [16 year old arrested for DDOS attacks against Visa, Mastercard and PayPal : news](https://web.archive.org/web/20210102133133if_/https://www.reddit.com/r/news/comments/ejeli/16_year_old_arrested_for_ddos_attacks_against/c18jpqt/)
 
 See [DDoS](#ddos)
-See [Usurpation & social engineering](#usurpation--social-engineering)
+See [Usurpation & social engineering](#usurpation-social-engineering)
 
 ## Sabotage
 

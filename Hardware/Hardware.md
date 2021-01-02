@@ -32,12 +32,6 @@ Toolcraft, Facom (cher), Wolfcraft
 
 - [Converting devices to USB Type-C - YouTube](https://www.youtube.com/watch?v=V-vFtiDYiIw)
 
-## Sound absorption
-
-Use towel (multiple layers)
-
-- [How to Make High Performance Sound Absorption Panels for $5 - YouTube](https://www.youtube.com/watch?v=pABvTWSxOes)
-
 ## Sensor data
 
 - [How to monitor a sourdough starter with Grafana and Prometheus | Grafana Labs](https://grafana.com/blog/2020/06/17/how-to-monitor-a-sourdough-starter-with-grafana-and-prometheus/)

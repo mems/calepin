@@ -431,3 +431,39 @@ Cuisson :
 - un sachet de sucre vanillé
 
 porter à feu doux le lait et le sucre, verser en pluie la semoule et remuer sans s'arrêter jusqu'à ce que cela s'épaissise
+
+## Changer le joint d'une cocotte minute
+
+Mettre le join au congélateur pour le faire rétrécire
+Ne pas le couper, même si il semble trop grand (de plusieurs centimètres)
+L'insérer de façon équitable au tour de l'insert
+
+## Porc au caramel
+
+Ingrédients
+
+- 800 gr d'échines de porc avec os ou 600 gr sans os
+- 1 oignon (rouge de préférence)
+- 2 cuillères à soupe d'huile
+- 3 gousses d'ail
+- 4 cuillères à soupe de sucre en poudre
+- 5 cuillères à soupe de Nuoc man
+- 1 grosse cuillère à soupe Sauce soja
+
+
+Préparation
+
+1. désosser les échines et les couper en dés d'1 cm environ. emincer finement l'oignon et l'ail.
+2. dans une cocotte, faites revenir le porc dans un fond d'huile  avec l'ail et l'oignon. Ajouter un peu de sel.
+3. quand le porc est doré, retirez le, puis ajoutez dans le récipient de cuisson le sucre en poudre (à votre convenance, moi je mets l'équivalent de 4 grosses cuillères à soupe). Laissez caraméliser.
+4. baisser le feu et ajouter 1 grosse cuillère à soupe de sauce soja et 5 autres de nuoc man. Rajoutez la viande.
+5. ajouter de l'eau (à hauteur de la viande). couvrer à moitié et laisser mijoter environ 40 minutes.
+
+Conseils
+
+Verifier régulièrement la caramélisation, le plat ne doit être ni trop sec ni trop liquide. Accompagner d'un riz blanc. Pour les amateurs, proposer un jus de citron, l'acidité du citron se marie très bien avec la douceur du plat.
+
+Conseils de Chef Damien :
+
+- Vous pouvez ajouter quelques pluches de coriandre frais à la fin pour apporter un peu de fraîcheur au plat.
+- J'aime aussi ajouter un petit peu de gingembre haché.
