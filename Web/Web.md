@@ -125,7 +125,7 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 **Always use feature detection (Don't sniff User Agent! Never!)** instead of browser/platform detection. Easyer client side with JavaScript or CSS.
 
 > `var webkit = !document.uniqueID && !window.opera && !window.globalStorage`: old code that evaluates to true in IE, Opera + Firefox today.
-— [Mike Taylor on Twitter](https://twitter.com/miketaylr/status/598211928272437248)
+> — [Mike Taylor on Twitter](https://twitter.com/miketaylr/status/598211928272437248)
 
 - [Browserhacks](http://browserhacks.com/)
 - [User Agent String](#user-agent-string)
@@ -1269,7 +1269,7 @@ It's a [cat-and-mouse game](https://en.wikipedia.org/wiki/Cat_and_mouse)
 - [puppeteer-extra/packages/puppeteer-extra-plugin-stealth at master · berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-stealth) - Puppeteer plugin to prevent detection
 - [Detecting Chrome Headless](http://antoinevastel.github.io/bot%20detection/2017/08/05/detect-chrome-headless.html)
 - [berstend/puppeteer-extra: 💯 Teach puppeteer new tricks through plugins.](https://github.com/berstend/puppeteer-extra)
-- [puppeteer-extra/packages/puppeteer-extra-plugin-recaptcha at master · berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-recaptcha?source=post_page---------------------------)
+- [puppeteer-extra/packages/puppeteer-extra-plugin-recaptcha at master · berstend/puppeteer-extra](https://github.com/berstend/puppeteer-extra/tree/master/packages/puppeteer-extra-plugin-recaptcha)
 - [Detecting Chrome headless | Hacker News](https://news.ycombinator.com/item?id=14936025)
 - [How to bypass “slider CAPTCHA” with JS and Puppeteer](https://medium.com/@filipvitas/how-to-bypass-slider-captcha-with-js-and-puppeteer-cd5e28105e3c)
 
@@ -1653,7 +1653,7 @@ Other:
 - tools for browser for users or authors: zoom and font size settings, [reduce motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion), [custom font](https://www.dyslexiefont.com/en/chrome-extension/), screen reader, [colors inversion](http://adrianroselli.com/2017/11/os-high-contrast-versus-inverted-colors.html), video sub titles, keyboard navigation, [etc.](https://chrome.google.com/webstore/category/collection/accessibility))
 - advice against using web accessibility overlay tools / add-on accessibility / plug and play solutions ([accessiBe](https://en.wikipedia.org/wiki/AccessiBe), Facil'iti)
     - [Web accessibility overlay tools: lies and gum balls - Le Lutin du Web](https://www.lelutinduweb.fr/en/web-accessibility-overlays-lies-gum-balls/)
-    - [Be Wary of Add-on Accessibility | Adrian Roselli](https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
+    - [Be Wary of Add-on Accessibility | Adrian Roselli](https://web.archive.org/web/20201111022804/https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
     - [#accessiBe Will Get You Sued | Adrian Roselli](https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html)
     - [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
     - [Web Accessibility Overlays Don't Work](https://web.archive.org/web/20201005172019/https://blog.tenon.io/web-accessibility-overlays-dont-work)

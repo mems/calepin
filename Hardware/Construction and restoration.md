@@ -26,6 +26,17 @@ Très souvent du sur mesure. Assez cher (une porte blindé, de 1000 à 4000€)
 
 métallier, serrurier, ferronnier, menuiserie métallique
 
+### Sens d'ouverture
+
+> les serruriers le définissent inversé par rapport aux fabricants de portes et fenêtres
+
+> - poussant droit, tirant droit : les charnières sont placées à droite et la poignée à gauche
+> - poussant gauche, tirant gauche : les charnières sont placées à gauche et la poignée à droite
+
+- [Poussant gauche et poussant droit](https://web.archive.org/web/20200206160312/https://wikialbert.fr/pag/p/o/u/poussant_gauche_et_poussant_droit.htm)
+- [Technique des portes et fenêtres — Wikipédia](https://fr.wikipedia.org/wiki/Technique_des_portes_et_fen%C3%AAtres#Les_d%C3%A9tails[5]) - "Le sens d'ouverture"
+- [sens ouverture norme DIN](https://web.archive.org/web/20200922102730/https://www.systemportesindustrie.fr/sens-ouverture)
+
 ## Sound absorption
 
 Use towel (multiple layers)

@@ -1303,6 +1303,10 @@ Use esc to type these strings (add `\033` in input field) or past (via the conte
 env
 ```
 
+See also arrays
+
+- [Multi-dimensional arrays in Bash - Stack Overflow](https://stackoverflow.com/questions/11233825/multi-dimensional-arrays-in-bash)
+
 ### Colors and control sequences
 
 For `ls` colors:
@@ -1366,58 +1370,22 @@ A ajouter dans `~/.bashrc`
 
 ### Shell script file
 
+**Note: [take care editing bash scripts](https://web.archive.org/web/20201120115942/https://thomask.sdf.org/blog/2019/11/09/take-care-editing-bash-scripts.html)**
+
 Create a shell script `file.sh` the execute the following command to allow it to be executable:
 
 ```sh
 chmod +x /path/to/file.sh
 ```
 
-Celui-ci devra contenir un shebang sur la première ligne indiquant quel interpréteur var être utilisé pour executer le contenu du fichier.
+Start with the shebang `#!/bin/sh`, which indicate the script interpreter (`sh`, `php`, `python`, `perl`, `node`, etc.) or for portability, use `env`:
 
 ```sh
-#!/bin/sh
+#!/usr/bin/env sh
+echo Hello world!
 ```
 
-Les plus courant sont `sh`, `php`, `python` ou encore `perl`.
-
-- http://en.wikipedia.org/wiki/Shebang_%28Unix%29
-
-Il est possible d'être générique, et de ne pas indiquer directement le chemin de l'interpréteur :
-
-```sh
-#!/usr/bin/env php
-```
-
-- http://en.wikipedia.org/wiki/Shebang_%28Unix%29#Portability
-
-Include shell script into an other
-
-```sh
-source /path/to/script.sh
-```
-
-But it's relative to execution path, not current script path.
-
-So use this instead:
-
-```sh
-source $(dirname $0)/script.sh
-```
-
-Or:
-
-```sh
-CURRENT_DIR=`dirname $0`
-$CURRENT_DIR/script.sh
-```
-
-Node shebang:
-
-```sh
-#!/usr/bin/env node
-```
-
-Or use if support system with nodejs instead of node. (`:` command in bash is noop)
+Or detect the right interpreter with an additional line, here to use `nodejs` or `node`. `:` command in bash is noop.
 
 ```sh
 #!/usr/bin/env sh
@@ -1426,6 +1394,19 @@ Or use if support system with nodejs instead of node. (`:` command in bash is no
 console.log('Hello world!');
 ```
 
+To include shell script into an other:
+
+```sh
+# Relative to execution path:
+#source /path/to/script.sh
+# So use this instead:
+source $(dirname $0)/script.sh
+# Or:
+CURRENT_DIR=`dirname $0`
+$CURRENT_DIR/script.sh
+```
+
+- [Shebang (Unix) - Wikipedia](https://en.wikipedia.org/wiki/Shebang_%28Unix%29)
 - [scripting - Universal Node.js shebang? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/65235/universal-node-js-shebang)
 
 ### Shell script syntax
@@ -1460,8 +1441,6 @@ sudo ln {/path1,/path2}/file
 ```
 
 - [Bash Reference Manual: Brace Expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
-
-
 
 ### Redirection
 

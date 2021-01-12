@@ -620,6 +620,25 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 >
 > — Someone on post [Bill Sempf | On Testing](https://web.archive.org/web/20201108002410/https://www.sempf.net/post/On-Testing1)
 
+> "I don't have time to write tests".
+>
+> Do you have time to:
+> 1. Run the app manually after each change
+> 2. Investigate and fix broken builds
+> 3. Investigate and fix QA errors
+> 4. Investigate and fix production errors
+>
+> Add all that up. Writing automated tests *saves* time.
+>
+> With tests, my job isn't repetitive. The computer does repetitive tasks for me.
+> 😎
+>
+> I don't waste time re-entering forms to assure things work.
+> I don't waste time assuring the app runs in each environment.
+> I don't waste time being blocked because the build is broken.
+>
+> — [Cory House on Twitter: ""I don't have time to write tests". Do you have time to: 1. Run the app manually after each change 2. Investigate and fix broken builds 3. Investigate and fix QA errors 4. Investigate and fix production errors Add all that up. Writing automated tests *saves* time." / Twitter](https://twitter.com/housecor/status/1259091506830495745)
+
 - [minimaxir/big-list-of-naughty-strings: The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.](https://github.com/minimaxir/big-list-of-naughty-strings)
 - [unit testing](https://en.wikipedia.org/wiki/Unit_testing) (individual module testing) + [integration testing](https://en.wikipedia.org/wiki/Integration_testing) (test modules all together)
 - [Code smell](https://en.wikipedia.org/wiki/Code_smell)
@@ -1130,14 +1149,14 @@ Query languages
 
 ### Object and Procedural
 
-```
-object.method(param1);
+```js
+object.doSomething(param1);
 ```
 
 Vs.
 
-```
-function(object, param1)
+```js
+function doSomething(object, param1){}
 ```
 
 In ECMAScript, `function` have context:

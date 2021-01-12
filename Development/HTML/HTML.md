@@ -34,6 +34,8 @@ Instead of
 <p>Some text...
 ```
 
+- [Simon Sapin on Twitter: "@mathias You don’t have to close anything in CSS either! data:text/html,&lt;style&gt;html:before{content:"test" / Twitter](https://twitter.com/simonsapin/status/1257685935317229568?s=12)
+
 ## Choose the right tag and attribute
 
 See [Accessibility](#accessibility) and [Patterns, markup, semantics and snippets](#patterns-markup-semantics-and-snippets)
@@ -76,7 +78,8 @@ Interactive elements use `button[type=button]` element or `role="button"`
 Javascript use `<button type="button">` to interact with user clicks/actions.
 
 > The only real reason you might have for using the button role is when progressively enhancing a link into a button using JavaScript; for example, to make the link open an overlay instead of a new page
-— [How Our CSS Framework Helps Enforce Accessibility | eBay Tech Blog](http://www.ebaytechblog.com/2015/11/04/how-our-css-framework-helps-enforce-accessibility/)
+>
+> — [How Our CSS Framework Helps Enforce Accessibility | eBay Tech Blog](http://www.ebaytechblog.com/2015/11/04/how-our-css-framework-helps-enforce-accessibility/)
 
 - https://developer.mozilla.org/en-US/docs/Accessibility/ARIA/ARIA_Techniques/Using_the_button_role
 - [Just use button -- A11ycasts #05 - YouTube](https://www.youtube.com/watch?v=CZGqnp06DnI)
@@ -284,7 +287,8 @@ Should use double quotes.
 ## Classname and ID
 
 > It may require a bit more analysis, but it is always better to think of class names that represent the meaning/function of the specific element(s) rather than what happens to be their current presentation. That way when their presentation changes (as it inevitably does), or alternative presentations are designed for additional media types or devices, you avoid such confusing style rules like: `.black { color:navy; }`
-— [Tantek, 2004](http://meyerweb.com/eric/thoughts/2004/07/18/competent-classing/#comment-529)
+>
+> — [Tantek, 2004](http://meyerweb.com/eric/thoughts/2004/07/18/competent-classing/#comment-529)
 
 See [Common issues](Web#common-issues) about limitation adblocks order.
 See also [Development](Development#naming)
@@ -330,6 +334,8 @@ IDs could be used, but (could be) often changed by frontend developers. Instead 
 
 ### Semantic name
 
+Aka thesaurus for HTML classes
+
 - [Leveling up in CSS — Free Code Camp](https://medium.freecodecamp.com/leveling-up-css-44b5045a2667#ee22)
 - [What Makes For a Semantic Class Name? | CSS-Tricks](https://css-tricks.com/semantic-class-names/)
 - [Naming CSS Stuff Is Really Hard | Sparkbox | Web Design and Development](https://seesparkbox.com/foundry/naming_css_stuff_is_really_hard)
@@ -360,7 +366,8 @@ Who never saw that?
 > styles change based on states
 > [..]
 > If you’re going to do `<div class="red">` you may as well do `<div style="color: red">`
-— [MaintainableCSS - an approach to writing modular, scalable and maintainable CSS | By Adam Silver](http://maintainablecss.com/)
+>
+> — [MaintainableCSS - an approach to writing modular, scalable and maintainable CSS | By Adam Silver](http://maintainablecss.com/)
 
 ```html
 <div class="stream">
@@ -376,6 +383,8 @@ Who never saw that?
 
 Component/template/object-oriented class name could be ideal, but semantic don't change over responsive where the presentation does. Ex.: a desktop carrousel, displayed as a list of images on smallscreens
 
+- [Tiny rules for how to name things in CSS and JS](https://web.archive.org/web/20200831101926/https://gist.github.com/paceaux/8638765e747f5bd6387b721cde99e066)
+- [CSS class naming convention - Stack Overflow](https://stackoverflow.com/questions/7927193/css-class-naming-convention/20253304#20253304)
 - [BEM Naming Cheat Sheet by 9elements](https://9elements.com/bem-cheat-sheet/) - Some BEM examples
 - [MaintainableCSS - an approach to writing modular, scalable and maintainable CSS | By Adam Silver](http://maintainablecss.com/) and the joke https://github.com/marmelab/universal.css
 - [Thoughts on semantic HTML class names and maintainability – Brett Jankord – Front-End Software Engineer](http://brettjankord.com/2013/02/09/thoughts-on-semantic-html-class-names-and-maintainability/)
@@ -392,6 +401,7 @@ Component/template/object-oriented class name could be ideal, but semantic don't
 - [Battling BEM (Extended Edition): 10 Common Problems And How To Avoid Them – Smashing Magazine](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/)
 - [Leveling up in CSS — Free Code Camp](https://medium.freecodecamp.com/leveling-up-css-44b5045a2667#)
 - [Grandchild elements in BEM | Assortment - For the practical developer](https://assortment.io/posts/grandchild-elements-bem-css)
+- [BEM — Block Element Modifier](http://getbem.com/naming/)
 
 ### Inspiration
 
@@ -582,18 +592,20 @@ Sequences:
 4. standard
 5. outro
 
-	.some-module {}
-	.some-module__sub-compontent {}
-	.some-module--modifier {}
-	.some-module--modifier .some-module__sub-compontent{}
-	.some-module:first-child .some-module__sub-compontent{}
-	.some-module__sub-compontent--modifier {}
+```css
+.some-module {}
+.some-module__sub-compontent {}
+.some-module--modifier {}
+.some-module--modifier .some-module__sub-compontent{}
+.some-module:first-child .some-module__sub-compontent{}
+.some-module__sub-compontent--modifier {}
 
-	.person{}
-	.person__hand{}
-	.person--female{}
-	.person--female__hand{}
-	.person__hand--left{}
+.person{}
+.person__hand{}
+.person--female{}
+.person--female__hand{}
+.person__hand--left{}
+```
 
 ### Categories
 
@@ -754,7 +766,8 @@ webpage, text, image, video, map
 - toc/table of content (TOC) https://en.wikipedia.org/wiki/Table_of_contents (use `role="directory"`)
 - colophon (about the document / website): author, co-authors, publishing date, editors, used softwares, etc.
 	> about the publication of a book such as the place of publication, the publisher, and the date of publication
-	— [Colophon (publishing) — Wikipedia](https://en.wikipedia.org/wiki/Colophon_(publishing))
+	>
+	> — [Colophon (publishing) — Wikipedia](https://en.wikipedia.org/wiki/Colophon_(publishing))
 
 	See also:
 
@@ -925,10 +938,12 @@ Aka a11y
 - using `role=button` can be sometimes irrevelant (for example if the node is an heading level. http://heydonworks.com/practical_aria_examples/#comment-1178134652). A child element is required to fix that.
 - > `role="presentation"` tells screen readers that the semantics of an element are inaccurate and should be ignored (useful in situations where you’re unable to change the element’s type to `<div>`).
 	> `aria-hidden="true"` completely hides an element from screen readers (useful for e.g. decorative SVG icons).
-	— [The Accessibility Difference Between Aria-hidden and role="presentation"](http://csskarma.com/blog/difference-rolepresentation-aria-hiddentrue/)
+	>
+	> — [The Accessibility Difference Between Aria-hidden and role="presentation"](http://csskarma.com/blog/difference-rolepresentation-aria-hiddentrue/)
 
 	> If you feel a need to do `<nav role="presentation">` or `<header role="presentation">` or `<article role="presentation">` **use `<div>` instead**
-	— https://twitter.com/stevefaulkner/status/798835014670512128
+	>
+	> — https://twitter.com/stevefaulkner/status/798835014670512128
 - **DONT:** Remove focus outline, underline, and no diff color for links (people with parkinson are unable to use the website, hovering over text to find the links is difficult with this condition)
 - > Links without href attributes are cannot be focused. It's a [placeholder hyperlink](#placeholder-hyperlink)
 - > An overkill of web animations and parallaxing can make people physically sick. Be kind to your users.
@@ -947,7 +962,8 @@ Aka a11y
 - [Web Accessibility Perspectives Videos: Explore the Impact and Benefits for Everyone](https://www.w3.org/WAI/perspectives/)
 
 > build a ramp instead of a staircase
-— [The Veil of Ignorance](http://mrmrs.io/writing/2016/03/23/the-veil-of-ignorance/)
+>
+> — [The Veil of Ignorance](http://mrmrs.io/writing/2016/03/23/the-veil-of-ignorance/)
 
 See [Color contrast](../../User%20Interface%20and%20experience/UI%20-%20UX.md#color-contrast)
 
@@ -1065,7 +1081,8 @@ Others (doc, about, etc.):
 ## Labelling
 
 > The `aria-label` attribute is used to define a string that labels the current element. Use it in cases where a text label is not visible on the screen. If there is visible text labeling the element, use `aria-labelledby instead.
-— [Using the aria-label attribute - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
+>
+> — [Using the aria-label attribute - Accessibility | MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
 
 ```html
 <a href="" aria-label="Learn more about opening an online store with Shopify">Learn more</a>
@@ -1522,11 +1539,13 @@ Aka drag and drop list, dnd list, orderable list, reorderable list
 # Patterns, markup, semantics and snippets
 
 > Semantic HTML is HTML which makes a positive contribution to the meaning conveyed by the plain language of the page.
-— @heydonworks
+>
+> — @heydonworks
 
 > Turn off CSS.
 > If the page makes no sense, fix your markup.
-— [Elika J. Etemad](http://fantasai.inkedblade.net/style/talks/best-practices/#no-css)
+>
+> — [Elika J. Etemad](http://fantasai.inkedblade.net/style/talks/best-practices/#no-css)
 
 - [Understanding semantics – Tink](http://tink.uk/understanding-semantics/)
 
@@ -2119,7 +2138,8 @@ See also [Multiselect component](#multiselect-component) and [`autocomplete` att
 > - Suggestions container has `role="listbox"` attribute
 > - Individual suggestion has `role="option"` attribute and an `id` attribute with a unique id
 > - When selected a suggestion has `aria-selected="true"`
-— [@demicifci slide about auto-suggests at respond17](https://twitter.com/paulmsmith/status/860047704885526528)
+>
+> — [@demicifci slide about auto-suggests at respond17](https://twitter.com/paulmsmith/status/860047704885526528)
 
 - [alphagov/accessible-typeahead: A typeahead component, built to be accessible.](https://github.com/alphagov/accessible-typeahead)
 - [Accessible Autocomplete](https://haltersweb.github.io/Accessibility/autocomplete.html)
@@ -2276,6 +2296,7 @@ Some workarounds:
 Don't use number type thing that use digit like identifier (credit card number, CCV, ISBN, barcode, activation/product key, etc.), postcode, date, phone number, social security number, etc.
 
 > If you can't do math on it, it's a string, not a number.
+>
 > — [🥕 Blade Teacher on Twitter: "@antumbral @wavebeem I tell developers "If you can't do math on it, it's a string, not a number."" / Twitter](https://twitter.com/corydodt/status/1233428222454296577)
 
 > ## `<input type=number>` is only intended for amounts
@@ -2364,6 +2385,7 @@ Use `<select>`. If you want to use a custom widget use `aria-activedescendant` i
 Aka `a` element
 
 > When you link to something, make sure the group of words you link to work as a standalone thing. [...] If you remove the words around the link, someone should be able to predict the type of content they’re going to get
+>
 > — [How to make blog posts accessible | GDS Digital Engagement](https://gdsengagement.blog.gov.uk/2016/11/28/how-to-make-blog-posts-accessible/)
 
 In a card component that contains multiple links to the same URL (e.g., heading, thumbnail, and “Read more” link), you could add `aria-hidden="true" tabindex="-1"` to some of these links to make it easier for keyboard and screen reader users to tab through the component: [Optimizing keyboard navigation using tabindex and ARIA — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/keyboard-friendlier-article-listings/)
@@ -2463,7 +2485,8 @@ Use `mark` element for [quotation emphasis](#mark-element)
 > 	(<var>x<sub><var>i</var></sub></var>, <var>y<sub><var>i</var></sub></var>).
 > 	For example, the 10th point has coordinate
 > 	(<var>x<sub>10</sub></var>, <var>y<sub>10</sub></var>).</p>
-— [4 The elements of HTML | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-sub-and-sup-elements)
+>
+> — [4 The elements of HTML | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-sub-and-sup-elements)
 
 ## `dfn`
 
@@ -2482,7 +2505,8 @@ Use `mark` element for [quotation emphasis](#mark-element)
 > 	<!-- ... later in the document: -->
 > 	<p>Teal'c activated his <a href=#gdo><abbr title="Garage Door Opener">GDO</abbr></a>
 > 	and so Hammond ordered the iris to be opened.</p>
-— [4 The elements of HTML | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-dfn-element)
+>
+> — [4 The elements of HTML | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-dfn-element)
 
 ## `mark` element
 
@@ -2501,7 +2525,8 @@ TODO Create to make a flowchart diagram for choices
 
 > Lists are used to group related pieces of information together, so they are clearly associated with each other and easy to read. [...]
 > Lists are good from a structural point of view as they help create a well-structured, more accessible, easy-to-maintain document.
-— [HTML lists - W3C Wiki](http://www.w3.org/wiki/HTML_lists)
+>
+> — [HTML lists - W3C Wiki](http://www.w3.org/wiki/HTML_lists)
 
 A list enumerate (summarily, w/ or w/o order) items of a collection for a global view of this collection.
 
@@ -2672,6 +2697,7 @@ a total line, footnotes for data or repeat header (for long tables)
 ## `hr` element
 
 > The hr element represents a paragraph-level thematic break, e.g. a scene change in a story, or a transition to another topic within a section of a reference book.
+>
 > — [HTML Standard](https://html.spec.whatwg.org/multipage/grouping-content.html#the-hr-element)
 
 Is the same semantically as `section`. But is more for thematic breaks, such as separating different topics within a section of prose, or between scenes in a novel
@@ -2723,7 +2749,8 @@ But (could be) required for:
 ## `noscript` element
 
 > The noscript element is a blunt instrument. Sometimes, scripts might be enabled, but for some reason the page's script might fail. For this reason, it's generally better to avoid using noscript, and to instead design the script to change the page from being a scriptless page to a scripted page on the fly, as in the next example
-— [HTML/Elements/noscript - W3C Wiki](http://www.w3.org/wiki/HTML/Elements/noscript)
+>
+> — [HTML/Elements/noscript - W3C Wiki](http://www.w3.org/wiki/HTML/Elements/noscript)
 
 It's could be required to duplicate it with an HTML comment (for compatibility reason with IE7-8).
 
@@ -2866,7 +2893,8 @@ For breaking oportunity, use `<wbr>` or `&#8203;` and soft hyphen (SHY, `&shy;`)
 Or subheading, subtitle, alternative title, sub header, sub title
 
 > h1–h6 elements must not be used to markup subheadings, subtitles, alternative titles and taglines unless intended to be the heading for a new section or subsection.
-— [4.3 Sections — HTML5](https://www.w3.org/TR/html5/sections.html#headings-and-sections), [4.12 Common idioms without dedicated elements — HTML5](https://www.w3.org/TR/html5/common-idioms.html#common-idioms)
+>
+> — [4.3 Sections — HTML5](https://www.w3.org/TR/html5/sections.html#headings-and-sections), [4.12 Common idioms without dedicated elements — HTML5](https://www.w3.org/TR/html5/common-idioms.html#common-idioms)
 
 > In the following example the subtitle of a book is on the same line as the title separated by a colon
 
@@ -2915,7 +2943,8 @@ See [`h1`-`h6`](#h1-h6) and [`header` element](#header-element)
 Aka fil d'ariane (FR)
 
 > Authors are encouraged to markup bread-crumb navigation as a list. The `nav` element can be used to mark the list containing links as being a navigation block.
-— [4 The elements of HTML | HTML 5.1](http://www.w3.org/TR/html51/semantics.html#rel-up)
+>
+> — [4 The elements of HTML | HTML 5.1](http://www.w3.org/TR/html51/semantics.html#rel-up)
 
 > Note: The use of the right angle bracket symbol ">" to indicate path direction is discouraged as its meaning, in the context used, is not clearly conveyed to all users.
 
@@ -3111,6 +3140,7 @@ Empty src is disallowed, use `src="about:blank"` instead (or "#", see [Data type
 > - `<aside>` - Equivalent to `role="complimentary"`. Content that is only tangentially related (or not related) to the main content. Think of something like a sidebar with supplementary information, a note within an article, or the outer container for a list of related articles at the bottom of a blog post.
 > - `<article>` - Equivalent to `role="article"`. Content that is self-contained in that it makes sense on its own when taken out of context. That could mean a widget, a blog post or even a comment within a blog post.
 > - `<section>` - Equivalent to `role="region"`. Content that needs extra context from its parent sectioning element to make sense. This is a generic sectioning element that is used whenever it doesn’t make sense to use the other more semantic ones.
+>
 > — [How to Section Your HTML | CSS-Tricks](https://css-tricks.com/how-to-section-your-html/)
 
 - [Navigation](#navigation)
@@ -4338,10 +4368,12 @@ Inputs must use `position: fixed` to fix the possible autoscroll-when-focus (int
 If input is nested in form, `form=""` should be added.
 
 > The elements used to create controls generally appear inside a FORM element, but may also appear outside of a FORM element declaration when they are used to build user interfaces
-— [Forms in HTML documents](http://www.w3.org/TR/html401/interact/forms.html#h-17.2.1)
+>
+> — [Forms in HTML documents](http://www.w3.org/TR/html401/interact/forms.html#h-17.2.1)
 
 > Control elements such as INPUT, SELECT, BUTTON, TEXTAREA, and LABEL all respond to certain intrinsic events. When these elements do not appear within a form, they may be used to augment the graphical user interface of the document.
-— [Scripts in HTML documents](http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.3)
+>
+> — [Scripts in HTML documents](http://www.w3.org/TR/html401/interact/scripts.html#h-18.2.3)
 
 HTML5 use the concept of [form owner](https://html.spec.whatwg.org/multipage/forms.html#form-owner)
 

@@ -78,6 +78,11 @@ In certains situations, word can be break apart.
 - https://github.com/mnater/hyphenator
 - [L'élément <wbr> - Alsacreations](https://www.alsacreations.com/article/lire/1765-element-wbr-html5.html)
 
+### Words
+
+- [javascript - How does Chrome decide what to highlight when you double-click Japanese text? - Stack Overflow](https://stackoverflow.com/questions/61672829/how-does-chrome-decide-what-to-highlight-when-you-double-click-japanese-text/61673028#61673028)
+- [Boundary Analysis - Old location of the ICU User Guide](http://userguide.icu-project.org/boundaryanalysis)
+
 ### The letter ß
 
 Aka es-zet (eszet)

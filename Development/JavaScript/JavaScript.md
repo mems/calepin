@@ -1,11 +1,12 @@
 > it's a common misconception that JavaScript isn't an elegant language. The real issue is that it's the only language with a monopoly. So people who want to work on the web have to use it. This results in people being forced to use it against their will. So obviously a lot of people don't like it - probably because it doesn't have that feature they really like from their primary language - whatever that is. If we invented a replacement language, the issue would not go away, but simply shift.
-— [Thomas Watson](https://news.ycombinator.com/item?id=13849478)
+>
+> — [Thomas Watson](https://news.ycombinator.com/item?id=13849478)
 
 See also [ECMAScript](../ECMAScript/ECMAScript.md)
 
 - [HTML DOM - Common tasks of managing HTML DOM with vanilla JavaScript](https://htmldom.dev/)
 
-# Best pratices — Coding conventions
+## Best pratices — Coding conventions
 
 Style guide, code conventions:
 
@@ -45,8 +46,6 @@ Design JavaScript APIs:
 
 See also [Documentation](../ECMAScript/ECMAScript.md#documentation)
 
-- [The DOM Explained, Quick and Simple](http://prettydiff.com/guide/unrelated_dom.xhtml)
-
 ## Tools
 
 - http://code.google.com/p/closure-compiler/wiki/DesignDocuments
@@ -55,14 +54,14 @@ See also [Documentation](../ECMAScript/ECMAScript.md#documentation)
 
 ```js
 const requestStart = (() => {
-    const now = Date.now()
-    // Try to use the performanceNavigationTiming API
-    if (window.PerformanceNavigationTiming) {
-        // use performance.now() to adjust requestStart from context time (monotonic time) to epoch time (UNIX time)
-        return now - performance.now() + performance.getEntriesByType("navigation")[0].requestStart;
-    }
-    // fallback to the former performanceTiming API or Date.now().
-    return performance.timing ? performance.timing.requestStart : now;
+	const now = Date.now()
+	// Try to use the performanceNavigationTiming API
+	if (window.PerformanceNavigationTiming) {
+		// use performance.now() to adjust requestStart from context time (monotonic time) to epoch time (UNIX time)
+		return now - performance.now() + performance.getEntriesByType("navigation")[0].requestStart;
+	}
+	// fallback to the former performanceTiming API or Date.now().
+	return performance.timing ? performance.timing.requestStart : now;
 })();
 ```
 
@@ -116,7 +115,6 @@ Some libraries:
 - [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes) - Lazyload
 - [WebReflection/event-target: The EventTarget Class Polyfill.](https://github.com/WebReflection/event-target)
 - [Plyr - A simple HTML5 media player](https://plyr.io/) - Player video
-- https://github.com/visionmedia/superagent - Ajax
 - [schteppe/p2.js: JavaScript 2D physics library](https://github.com/schteppe/p2.js) - 2D physics engine
 - [schteppe/cannon.js: A lightweight 3D physics engine written in JavaScript.](https://github.com/schteppe/cannon.js) - 3D physics engine
 - [barmalei/zebkit: JavaScript library that follow easy OOP concept, provide HTML5 Canva based Rich UI and include Java to JavaScript converter tool](https://github.com/barmalei/zebkit) - UI framework
@@ -128,6 +126,7 @@ Some libraries:
 ### Choose and use libraries
 
 > Use third-party libraries to solve user problems, not developer problems
+>
 > — Adrian Holovaty [Adrian Holovaty | How I optimized my JS sheet music rendering engine | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=XH5EtQge_Bg&t=2216)
 
 > How much of an advantage does that really give you?
@@ -139,6 +138,7 @@ Some libraries:
 > If you serve your JS from the same source as your main site, there is less chance of a user getting a broken experience.
 > [...]
 > What happens if someone hacks your CDN?
+>
 > — [Please stop using CDNs for external Javascript libraries – Terence Eden’s Blog](https://web.archive.org/web/20201026140353/https://shkspr.mobi/blog/2020/10/please-stop-using-cdns-for-external-javascript-libraries/)
 
 - prefere common libaries with larger community and support.
@@ -201,8 +201,9 @@ And Virtual DOM
 - [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
 
 - [A Virtual DOM and diffing algorithm](https://github.com/Matt-Esch/virtual-dom)
+- [DOM diffing with vanilla JS | Go Make Things](https://web.archive.org/web/20201026215850/https://gomakethings.com/dom-diffing-with-vanilla-js/)
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
-- [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](http://webreflection.blogspot.fr/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
+- [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](https://web.archive.org/web/20201108115943/http://webreflection.blogspot.com/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
 - [JSX + jQuery = jreact](https://glitch.com/~jquery-jsx-pragma) - Custom JSX renderer based on jQuery (no react)
 
 ### Date and time
@@ -241,102 +242,104 @@ See also [`contentEditable`](#contenteditable)
 
 #### Table editors
 
-<details>
-	<summary>JS Excel code snipet</summary>
+JS Excel code snipet:
 
-	// from http://jsfiddle.net/ondras/o3tzx1px/
-	<p>This is an updated version of <a href="http://jsfiddle.net/ondras/hYfN3/">http://jsfiddle.net/ondras/hYfN3/</a>. Some people argued that the original approach was too hacky and incompatible with strict/ES2015, so here we go again <strong>without <code>with</code>:</strong></p>
+```html
+<!-- from http://jsfiddle.net/ondras/o3tzx1px/ -->
+<p>This is an updated version of <a href="http://jsfiddle.net/ondras/hYfN3/">http://jsfiddle.net/ondras/hYfN3/</a>. Some people argued that the original approach was too hacky and incompatible with strict/ES2015, so here we go again <strong>without <code>with</code>:</strong></p>
 
-	<ul>
-		<li>25 lines of vanilla ES2015: arrow functions, destructuring, template literals, spread</li>
-		<li>No libraries or frameworks</li>
-		<li>Excel-like syntax (formulas start with "=")</li>
-		<li>Support for arbitrary expressions (=A1+B2*C3)</li>
-		<li>Circular reference prevention</li>
-		<li>Automatic localStorage persistence</li>
-	</ul>
+<ul>
+	<li>25 lines of vanilla ES2015: arrow functions, destructuring, template literals, spread</li>
+	<li>No libraries or frameworks</li>
+	<li>Excel-like syntax (formulas start with "=")</li>
+	<li>Support for arbitrary expressions (=A1+B2*C3)</li>
+	<li>Circular reference prevention</li>
+	<li>Automatic localStorage persistence</li>
+</ul>
 
-	<table></table>
+<table></table>
 
-	<footer><p>&copy; 2017 <a href="http://ondras.zarovi.cz/">Ondřej Žára</a></p></footer>
+<footer><p>&copy; 2017 <a href="http://ondras.zarovi.cz/">Ondřej Žára</a></p></footer>
 
-	<style>
-	li {  list-style: none; }
+<style>
+li {  list-style: none; }
 
-	li:before {
-		position: relative;
-		content: "✓";
-		width: 0;
-		display: inline-block;
-		left: -2ch;
+li:before {
+	position: relative;
+	content: "✓";
+	width: 0;
+	display: inline-block;
+	left: -2ch;
+}
+
+input {
+	border: none;
+	width: 80px;
+	font-size: 14px;
+	padding: 2px;
+}
+
+input:hover { background-color: #eee; }
+input:focus { background-color: #ccf; }
+
+input:not(:focus) {
+	text-align: right;
+}
+
+table { border-collapse: collapse; }
+
+td {
+	border: 1px solid #999;
+	padding: 0;
+}
+
+tr:first-child td, td:first-child {
+	background-color: #ccc;
+	padding: 1px 3px;
+	font-weight: bold;
+	text-align: center;
+}
+
+footer { font-size: 80%; }
+</style>
+
+<script>
+for (let i=0; i<6; i++) { /* build the table */
+	let row = document.querySelector("table").insertRow()
+	for (let j=0; j<6; j++) {
+		let letter = String.fromCharCode("A".charCodeAt(0)+j-1)
+		row.insertCell().innerHTML = i&&j ? `<input id=${letter}${i} />` : i||letter
 	}
+}
+let keys = Array.from(document.querySelectorAll("input")).map(i => i.id) // spread not in Edge
 
-	input {
-		border: none;
-		width: 80px;
-		font-size: 14px;
-		padding: 2px;
+function valueOf(key) { /* recursively compute a value */
+	let val = localStorage[key] || ""
+	if (val[0] == "=") {
+		let f = new Function(...keys, `return eval("${val.substr(1)}")`)
+		return f(...keys.map(key => ({valueOf: _ => valueOf(key)}))).valueOf()
+	} else {
+		return isNaN(parseFloat(val)) ? val : parseFloat(val)
 	}
+}
 
-	input:hover { background-color: #eee; }
-	input:focus { background-color: #ccf; }
+(window.update = _ => keys.forEach(key => { /* update all fields */
+	try { document.getElementById(key).value = valueOf(key) } catch (e) {}
+}))()
 
-	input:not(:focus) {
-		text-align: right;
-	}
-
-	table { border-collapse: collapse; }
-
-	td {
-		border: 1px solid #999;
-		padding: 0;
-	}
-
-	tr:first-child td, td:first-child {
-		background-color: #ccc;
-		padding: 1px 3px;
-		font-weight: bold;
-		text-align: center;
-	}
-
-	footer { font-size: 80%; }
-	</style>
-
-	<script>
-	for (let i=0; i<6; i++) { /* build the table */
-		let row = document.querySelector("table").insertRow()
-		for (let j=0; j<6; j++) {
-			let letter = String.fromCharCode("A".charCodeAt(0)+j-1)
-			row.insertCell().innerHTML = i&&j ? `<input id=${letter}${i} />` : i||letter
-		}
-	}
-	let keys = Array.from(document.querySelectorAll("input")).map(i => i.id) // spread not in Edge
-
-	function valueOf(key) { /* recursively compute a value */
-		let val = localStorage[key] || ""
-		if (val[0] == "=") {
-			let f = new Function(...keys, `return eval("${val.substr(1)}")`)
-			return f(...keys.map(key => ({valueOf: _ => valueOf(key)}))).valueOf()
-		} else {
-			return isNaN(parseFloat(val)) ? val : parseFloat(val)
-		}
-	}
-
-	(window.update = _ => keys.forEach(key => { /* update all fields */
-		try { document.getElementById(key).value = valueOf(key) } catch (e) {}
-	}))()
-
-	window.addEventListener("focus", e => e.target.value = localStorage[e.target.id] || "", true)
-	window.addEventListener("blur", e => (localStorage[e.target.id] = e.target.value, update()), true)
-	</script>
-</details>
+window.addEventListener("focus", e => e.target.value = localStorage[e.target.id] || "", true)
+window.addEventListener("blur", e => (localStorage[e.target.id] = e.target.value, update()), true)
+</script>
+```
 
 ### Polyfills
 
 > A polyfill …, is a piece of code or plugin that provides the technology that you, the developer, expect the browser to provide natively. Flattening the API landscape if you will.
+>
 > — [What is a Polyfill?](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 
 > A ponyfill, in contrast, doesn't monkey patch anything, but instead exports the functionality as a normal module, so you can use it locally without affecting other code.
+>
 > — [sindresorhus/ponyfill: 🦄 Like polyfill but with pony pureness](https://github.com/sindresorhus/ponyfill)
 
 - [Loading Polyfills Only When Needed — Philip Walton](https://philipwalton.com/articles/loading-polyfills-only-when-needed/) - [blog/loading-polyfills-only-when-needed.md at master · philipwalton/blog](https://github.com/philipwalton/blog/blob/master/articles/loading-polyfills-only-when-needed.md)
@@ -356,7 +359,7 @@ See also [`contentEditable`](#contenteditable)
 
 https://github.com/wellflat/imageprocessing-labs
 
-Computer vision, Image, video, audio, etc. :
+Computer vision, Image, video, audio, etc.:
 
 - Fast Fourier Transform
 - etc.
@@ -405,143 +408,142 @@ if(Howler.usingWebAudio){
 
 Find object at camera target
 
-	var intersects = raycaster.intersectObjects( targetList );
+```js
+const intersects = raycaster.intersectObjects(targetList);
+```
 
 Sprites and custom shaders, aka custom sprite material: [Three.js sprites and custom shaders? | Coding on acid.](https://makc3d.wordpress.com/2015/03/20/three-js-sprites-custom-shaders/). See http://jsdo.it/makc/cozIcan
 
+Sprites and custom shaders:
 
-<details>
-	<summary>Sprites and custom shaders</summary>
+```js
+// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md
 
-	// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md
+var scene, camera, renderer;
+var geometry, material, mesh;
 
-	var scene, camera, renderer;
-	var geometry, material, mesh;
+init();
+animate();
 
-	init();
-	animate();
+function init() {
+	scene = new THREE.Scene();
 
-	function init() {
+	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+	camera.position.z = 1000;
 
-		scene = new THREE.Scene();
+	geometry = new THREE.BoxGeometry( 200, 200, 200 );
+	material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
 
-		camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-		camera.position.z = 1000;
+	mesh = new THREE.Mesh( geometry, material );
+	scene.add( mesh );
 
-		geometry = new THREE.BoxGeometry( 200, 200, 200 );
-		material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+		// to this example, we shall add some sprites
 
-		mesh = new THREE.Mesh( geometry, material );
-		scene.add( mesh );
-
-			// to this example, we shall add some sprites
-
-			for (var i = 0; i < 100; i++) {
-				var sprite = new THREE.Sprite (new THREE.SpriteMaterial ({
-					color: Math.floor (0xffffff * Math.random ())
-				}));
-				sprite.position.set (
-					500 * (Math.random () - Math.random ()),
-					500 * (Math.random () - Math.random ()),
-					500 * (Math.random () - Math.random ())
-				);
-				sprite.scale.multiplyScalar (100);
-				mesh.add (sprite);
-			}
-
-			// and we shall render these sprites with custom shader
-
-			setSpriteMaterial ();
-
-		renderer = new THREE.WebGLRenderer();
-		renderer.setSize( window.innerWidth, window.innerHeight );
-
-		document.body.appendChild( renderer.domElement );
-	}
-
-	function animate() {
-
-		requestAnimationFrame( animate );
-
-		mesh.rotation.x += 0.01;
-		mesh.rotation.y += 0.02;
-
-		renderer.render( scene, camera );
-
-		// update time parameter
-
-		THREE.SpritePlugin.uniforms.time.value = (Date.now() % 1000) * 1e-3;
-	}
-
-	function setSpriteMaterial () {
-		var spritePluginSource = THREE.SpritePlugin.toString();
-
-		// find "program" variable
-
-		var program = /useProgram\(([^)]+)\)/.exec(spritePluginSource)[1];
-
-		// inject support for custom shader code
-
-		var shaders = ['vertex', 'fragment'];
-		var spritePluginSource = spritePluginSource
-		.replace(/(shaderSource)([^\[]*)(\[)/g, function (match, p1, p2, p3) {
-		  return p1 + p2 + 'THREE.SpritePlugin.' + shaders.shift() + 'ShaderSource||' + p3;
-		})
-
-		// inject shaders debug stuff
-
-		.replace(/([\w]+)(\.compileShader\()([^\)]+)(\);)/g, function (match, p1, p2, p3, p4) {
-		  return p1 + p2 + p3 + p4 + 'console.log(' + p1 + '.getShaderInfoLog(' + p3 + '));';
-		})
-
-		// inject support for custom uniforms
-
-		.replace(/([\w]+)(\.drawElements)/g, function (match, p1, p2) {
-		  return '' +
-			'var extraUniforms = THREE.SpritePlugin.uniforms;' +
-			'if (extraUniforms) {' +
-			  'for (var extraName in extraUniforms) {' +
-				  'var extraUniform = extraUniforms[extraName];' +
-				  'extraUniform.location = extraUniform.location || ' + p1 + '.getUniformLocation(' + program + ', extraName);' +
-				  p1 + '.uniform1f (extraUniform.location, extraUniform.value);' +
-			  '}' +
-			'}\n' + p1 + p2;
-		});
-
-		eval('THREE.SpritePlugin = ' + spritePluginSource);
-
-		// finally, set the material - hearts based on http://glslsandbox.com/e#23617.0
-
-		THREE.SpritePlugin.fragmentShaderSource = '\
-			precision highp float;\
-			uniform vec3 color;\
-			uniform float time;\
-			varying vec2 vUV;\
-			vec4 heart( float x, float y ) {\
-				float s = fract( time + color.r ) / 8.0;\
-				s = 0.9 + 0.8*(1.0-exp(-5.0*s)*sin(50.0*s));\
-				x *= s;\
-				y *= s;\
-				float a = atan(x,y)/3.14159265359;\
-				float r = sqrt(x*x*1.5+y*y);\
-				float h = abs(a);\
-				float d = (13.0*h - 22.0*h*h + 10.1*h*h*h)/(6.0-5.0*h);\
-				float g = pow(1.0-clamp(r/d,0.0,1.0),0.25);\
-				return vec4(0.5+0.5*g, 0.4*color.g, 0.8*color.b, min(g * 3.0, 1.0));\
-			}\
-			void main () {\
-				vec2 p = (-1.0+2.0*vUV);\
-				gl_FragColor = heart(p.x, p.y-0.35);\
-			}';
-
-		// and its time parameter
-
-		THREE.SpritePlugin.uniforms = {
-		  time : { value : 0 }
+		for (var i = 0; i < 100; i++) {
+			var sprite = new THREE.Sprite (new THREE.SpriteMaterial ({
+				color: Math.floor (0xffffff * Math.random ())
+			}));
+			sprite.position.set (
+				500 * (Math.random () - Math.random ()),
+				500 * (Math.random () - Math.random ()),
+				500 * (Math.random () - Math.random ())
+			);
+			sprite.scale.multiplyScalar (100);
+			mesh.add (sprite);
 		}
 
+		// and we shall render these sprites with custom shader
+
+		setSpriteMaterial ();
+
+	renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+	document.body.appendChild( renderer.domElement );
+}
+
+function animate() {
+	requestAnimationFrame( animate );
+
+	mesh.rotation.x += 0.01;
+	mesh.rotation.y += 0.02;
+
+	renderer.render( scene, camera );
+
+	// update time parameter
+
+	THREE.SpritePlugin.uniforms.time.value = (Date.now() % 1000) * 1e-3;
+}
+
+function setSpriteMaterial () {
+	var spritePluginSource = THREE.SpritePlugin.toString();
+
+	// find "program" variable
+
+	var program = /useProgram\(([^)]+)\)/.exec(spritePluginSource)[1];
+
+	// inject support for custom shader code
+
+	var shaders = ['vertex', 'fragment'];
+	var spritePluginSource = spritePluginSource
+	.replace(/(shaderSource)([^\[]*)(\[)/g, function (match, p1, p2, p3) {
+	  return p1 + p2 + 'THREE.SpritePlugin.' + shaders.shift() + 'ShaderSource||' + p3;
+	})
+
+	// inject shaders debug stuff
+
+	.replace(/([\w]+)(\.compileShader\()([^\)]+)(\);)/g, function (match, p1, p2, p3, p4) {
+	  return p1 + p2 + p3 + p4 + 'console.log(' + p1 + '.getShaderInfoLog(' + p3 + '));';
+	})
+
+	// inject support for custom uniforms
+
+	.replace(/([\w]+)(\.drawElements)/g, function (match, p1, p2) {
+	  return '' +
+		'var extraUniforms = THREE.SpritePlugin.uniforms;' +
+		'if (extraUniforms) {' +
+		  'for (var extraName in extraUniforms) {' +
+			  'var extraUniform = extraUniforms[extraName];' +
+			  'extraUniform.location = extraUniform.location || ' + p1 + '.getUniformLocation(' + program + ', extraName);' +
+			  p1 + '.uniform1f (extraUniform.location, extraUniform.value);' +
+		  '}' +
+		'}\n' + p1 + p2;
+	});
+
+	eval('THREE.SpritePlugin = ' + spritePluginSource);
+
+	// finally, set the material - hearts based on http://glslsandbox.com/e#23617.0
+
+	THREE.SpritePlugin.fragmentShaderSource = '\
+		precision highp float;\
+		uniform vec3 color;\
+		uniform float time;\
+		varying vec2 vUV;\
+		vec4 heart( float x, float y ) {\
+			float s = fract( time + color.r ) / 8.0;\
+			s = 0.9 + 0.8*(1.0-exp(-5.0*s)*sin(50.0*s));\
+			x *= s;\
+			y *= s;\
+			float a = atan(x,y)/3.14159265359;\
+			float r = sqrt(x*x*1.5+y*y);\
+			float h = abs(a);\
+			float d = (13.0*h - 22.0*h*h + 10.1*h*h*h)/(6.0-5.0*h);\
+			float g = pow(1.0-clamp(r/d,0.0,1.0),0.25);\
+			return vec4(0.5+0.5*g, 0.4*color.g, 0.8*color.b, min(g * 3.0, 1.0));\
+		}\
+		void main () {\
+			vec2 p = (-1.0+2.0*vUV);\
+			gl_FragColor = heart(p.x, p.y-0.35);\
+		}';
+
+	// and its time parameter
+
+	THREE.SpritePlugin.uniforms = {
+	  time : { value : 0 }
 	}
-</details>
+
+}
+```
 
 3D to 2D position (used to display DOM elements), overriding Object3D’s `updateMatrixWorld()`
 
@@ -549,120 +551,117 @@ Sprites and custom shaders, aka custom sprite material: [Three.js sprites and cu
 - [2D overlays in three.js - jsdo.it - Share JavaScript, HTML5 and CSS](http://jsdo.it/makc/hw0L/fullscreen)
 - [Raycaster](https://threejs.org/docs/api/core/Raycaster.html) "Raycasting is used for mouse picking"
 
-<details>
-	<summary>2D position to 3D</summary>
+2D position to 3D:
 
-	// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md ThreeJS r71
+```js
+// we start with basic example from https://github.com/mrdoob/three.js/blob/master/README.md ThreeJS r71
 
-	// we define this balloon class to handle 2D overlay stuff for us
+// we define this balloon class to handle 2D overlay stuff for us
 
-	function Balloon( html ) {
-		THREE.Object3D.call( this );
+function Balloon( html ) {
+	THREE.Object3D.call( this );
 
-		this.popup = document.createElement( 'div' );
-		this.popup.classList.add( 'balloon' );
-		this.popup.innerHTML = html;
+	this.popup = document.createElement( 'div' );
+	this.popup.classList.add( 'balloon' );
+	this.popup.innerHTML = html;
 
-		this.addEventListener( 'added', (function () {
-		    container.appendChild( this.popup );
-		}).bind( this ));
+	this.addEventListener( 'added', (function () {
+	    container.appendChild( this.popup );
+	}).bind( this ));
 
-		this.addEventListener( 'removed', (function () {
-		    container,removeChild( this.popup );
-		}).bind( this ));
-	}
+	this.addEventListener( 'removed', (function () {
+	    container,removeChild( this.popup );
+	}).bind( this ));
+}
 
-	Balloon.prototype = Object.create( THREE.Object3D.prototype );
-	Balloon.prototype.constructor = Balloon;
+Balloon.prototype = Object.create( THREE.Object3D.prototype );
+Balloon.prototype.constructor = Balloon;
 
-	Balloon.prototype.updateMatrixWorld = (function () {
-		var screenVector = new THREE.Vector3 ();
-		var raycaster = new THREE.Raycaster ();
+Balloon.prototype.updateMatrixWorld = (function () {
+	var screenVector = new THREE.Vector3 ();
+	var raycaster = new THREE.Raycaster ();
 
-		return function( force ) {
-		    THREE.Object3D.prototype.updateMatrixWorld.call( this, force );
+	return function( force ) {
+		THREE.Object3D.prototype.updateMatrixWorld.call( this, force );
 
-		    screenVector.set( 0, 0, 0 ); this.localToWorld( screenVector );
+		screenVector.set( 0, 0, 0 ); this.localToWorld( screenVector );
 
-		    raycaster.ray.direction.copy( screenVector );
+		raycaster.ray.direction.copy( screenVector );
 
-		    raycaster.ray.origin.set( 0, 0, 0 ); camera.localToWorld( raycaster.ray.origin );
-		    raycaster.ray.direction.sub( raycaster.ray.origin );
+		raycaster.ray.origin.set( 0, 0, 0 ); camera.localToWorld( raycaster.ray.origin );
+		raycaster.ray.direction.sub( raycaster.ray.origin );
 
-		    var distance = raycaster.ray.direction.length();
-		    raycaster.ray.direction.normalize();
+		var distance = raycaster.ray.direction.length();
+		raycaster.ray.direction.normalize();
 
-		    var intersections = raycaster.intersectObject( scene, true );
-		    if( intersections.length && ( intersections[0].distance < distance )) {
+		var intersections = raycaster.intersectObject( scene, true );
+		if( intersections.length && ( intersections[0].distance < distance )) {
 
-		        // overlay anchor is obscured
-		        this.popup.style.display = 'none';
+			// overlay anchor is obscured
+			this.popup.style.display = 'none';
 
-		    } else {
+		} else {
 
-		        // overlay anchor is visible
-		        screenVector.project( camera );
+			// overlay anchor is visible
+			screenVector.project( camera );
 
-		        this.popup.style.display = '';
-		        this.popup.style.left = Math.round((screenVector.x + 1) * container.offsetWidth / 2 - 50) + 'px';
-		        this.popup.style.top = Math.round((1 - screenVector.y) * container.offsetHeight / 2 - 50) + 'px';
-		    }
-		};
-	}) ();
+			this.popup.style.display = '';
+			this.popup.style.left = Math.round((screenVector.x + 1) * container.offsetWidth / 2 - 50) + 'px';
+			this.popup.style.top = Math.round((1 - screenVector.y) * container.offsetHeight / 2 - 50) + 'px';
+		}
+	};
+}) ();
 
-	var scene, camera, renderer;
-	var geometry, material, mesh;
+var scene, camera, renderer;
+var geometry, material, mesh;
 
-	init();
-	animate();
+init();
+animate();
 
-	function init() {
+function init() {
+	scene = new THREE.Scene();
 
-		scene = new THREE.Scene();
+	camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / container.offsetHeight, 1, 10000 );
+	camera.position.z = 1000;
 
-		camera = new THREE.PerspectiveCamera( 75, container.offsetWidth / container.offsetHeight, 1, 10000 );
-		camera.position.z = 1000;
+	// we change here box to sphere, apply earth texture to it
 
-		// we change here box to sphere, apply earth texture to it
+	THREE.ImageUtils.crossOrigin = '';
 
-		THREE.ImageUtils.crossOrigin = '';
+	geometry = new THREE.SphereGeometry( 400, 30, 20 );
+	material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture('http://i.imgur.com/DhOF0XH.jpg'/*earth texture*/) } );
 
-		geometry = new THREE.SphereGeometry( 400, 30, 20 );
-		material = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture('http://i.imgur.com/DhOF0XH.jpg'/*earth texture*/) } );
+	mesh = new THREE.Mesh( geometry, material );
+	scene.add( mesh );
 
-		mesh = new THREE.Mesh( geometry, material );
-		scene.add( mesh );
+	renderer = new THREE.WebGLRenderer();
+	renderer.setClearColor( 0xffffff );
+	renderer.setSize( container.offsetWidth, container.offsetHeight );
 
-		renderer = new THREE.WebGLRenderer();
-		renderer.setClearColor( 0xffffff );
-		renderer.setSize( container.offsetWidth, container.offsetHeight );
+	// and wrap the whole thing into the div
 
-		// and wrap the whole thing into the div
+	container.appendChild( renderer.domElement );
 
-		container.appendChild( renderer.domElement );
+	// oh yes, add some overlays
 
-		// oh yes, add some overlays
+	var africa = new Balloon( 'Africa<div class="arrow"></div>' );
+	africa.position.set( 1, 0.2, -0.4 ).normalize().multiplyScalar( 400 + 1 );
+	mesh.add( africa );
 
-		var africa = new Balloon( 'Africa<div class="arrow"></div>' );
-		africa.position.set( 1, 0.2, -0.4 ).normalize().multiplyScalar( 400 + 1 );
-		mesh.add( africa );
+	var australia = new Balloon( 'Australia<div class="arrow"></div>' );
+	australia.position.set( -1, -0.6, -1 ).normalize().multiplyScalar( 400 + 1 );
+	mesh.add( australia );
+}
 
-		var australia = new Balloon( 'Australia<div class="arrow"></div>' );
-		australia.position.set( -1, -0.6, -1 ).normalize().multiplyScalar( 400 + 1 );
-		mesh.add( australia );
-	}
+function animate() {
+	requestAnimationFrame( animate );
 
-	function animate() {
+	mesh.rotation.x += 0.001;
+	mesh.rotation.y += 0.020;
 
-		requestAnimationFrame( animate );
-
-		mesh.rotation.x += 0.001;
-		mesh.rotation.y += 0.020;
-
-		renderer.render( scene, camera );
-
-	}
-</details>
+	renderer.render( scene, camera );
+}
+```
 
 - [Portal](http://sketches.vlucendo.com/portal/)
 - [Techniques for Rendering Text with WebGL | CSS-Tricks](https://css-tricks.com/techniques-for-rendering-text-with-webgl/)
@@ -685,22 +684,47 @@ Use `self` instead `window`. It's available in Web Workers
 
 ### String
 
-- `CSS.escape()` polyfill https://github.com/mathiasbynens/CSS.escape
-- escaping CSS strings and identifiers https://github.com/mathiasbynens/cssesc See also `CSS.escape()`
-	* https://github.com/mathiasbynens/brnfckr
-	* https://github.com/mathiasbynens/q-encoding
-	* https://github.com/mathiasbynens/quoted-printable
-	* https://github.com/mathiasbynens/rot
-	* https://github.com/mathiasbynens/gulp-regexpu
+- escaping CSS strings and identifiers with `CSS.escape()` polyfill [mathiasbynens/CSS.escape: A robust polyfill for the CSS.escape utility method as defined in CSSOM.](https://github.com/mathiasbynens/CSS.escape), [mathiasbynens/cssesc: A JavaScript library for escaping CSS strings and identifiers while generating the shortest possible ASCII-only output.](https://github.com/mathiasbynens/cssesc)
+- [mathiasbynens/brnfckr: A brainfuck minifier written in JavaScript](https://github.com/mathiasbynens/brnfckr)
+- [mathiasbynens/q-encoding: A robust & character encoding–agnostic JavaScript implementation of the `Q` encoding as defined by RFC 2047.](https://github.com/mathiasbynens/q-encoding)
+- [mathiasbynens/quoted-printable: A robust & character encoding–agnostic JavaScript implementation of the `Quoted-Printable` content transfer encoding as defined by RFC 2045.](https://github.com/mathiasbynens/quoted-printable)
+- [mathiasbynens/rot: Perform simple rotational letter substitution (such as ROT-13) in JavaScript.](https://github.com/mathiasbynens/rot)
+- [mathiasbynens/gulp-regexpu: Gulp plugin to transpile ES6 Unicode regular expressions to ES5 with regexpu.](https://github.com/mathiasbynens/gulp-regexpu)
 
 ### Detect a feature
 
 Don't use `document.implementation.hasFeature()`:
 
-> hasFeature() originally would report whether the user agent claimed to support a given DOM feature, but experience proved it was not nearly as reliable or granular as simply checking whether the desired objects, attributes, or methods existed. As such, it should no longer be used, but continues to exist (and simply returns true) so that old pages don't stop working.
-— [DOM Standard](https://dom.spec.whatwg.org/#dom-domimplementation-hasfeature)
+> `hasFeature()` originally would report whether the user agent claimed to support a given DOM feature, but experience proved it was not nearly as reliable or granular as simply checking whether the desired objects, attributes, or methods existed. As such, it should no longer be used, but continues to exist (and simply returns true) so that old pages don't stop working.
+> — [DOM Standard](https://dom.spec.whatwg.org/#dom-domimplementation-hasfeature)
 
-See [feature detection](ECMAScript#feature-detection) and [detect a feature](Web#detect-a-feature)
+> - don't expose the objects etc when feature is not available (like no underlying hardware gyroscope for instance)
+> - always expose (due to avoiding fingerprinting) but let object throw (NotAvailableError or similar) when instantiated - this way you can see whether the browser support the feature or not, but not whether the hardware does
+>
+> [...]
+>
+> - no diff between regular mode and privacy preserving mode (incognito)
+> - keeping fingerprinting to the minimum (people can know browser from UA string and features available)
+> - this involves permissions
+>
+> — [Best practices for feature detection of DOM API · Issue #137 · w3ctag/design-principles](https://github.com/w3ctag/design-principles/issues/137#issuecomment-606486358)
+
+```js
+// Presence of a namespace
+if ('bluetooth' in navigator) { /*...*/ }
+
+// Presence of an object
+if ('NFCReader' in window) { /*...*/ }
+
+// Properties on objects, eg. Media Capture
+const capabilities = videoTrack.getCapabilities();
+if ("pan" in capabilities) { /*...*/ }
+```
+
+See [feature detection](../ECMAScript/ECMAScript.md#feature-detection) and [detect a feature](../../Web/Web.md#detection)
+
+- [Best practices for feature detection of DOM API · Issue #137 · w3ctag/design-principles](https://github.com/w3ctag/design-principles/issues/137)
+- [Web Platform Design Principles](https://w3ctag.github.io/design-principles/#feature-detect) - "New features should be detectable"
 
 ### Don't override native logic
 
@@ -737,12 +761,14 @@ Aka unobtrusive JavaScript, polyfill, shim. What happen if script fail to load?
 > Web development requires you to repeat yourself. If you have an Ajax script that adds data to the page, make sure there’s also a simple link somewhere.
 > You write the same functionality twice.
 > Not all software engineering principles make sense on the web because the web is not one platform
-— Peter-Paul Koch
+>
+> — Peter-Paul Koch
 
 > 1. identify core functionality
 > 2. build this with the simplest tech
 > 3. enhance
-— Jeremy Keith
+>
+> — Jeremy Keith
 
 Choose carrefully want it very important, provide polyfill (when it's possible) and fallback
 
@@ -750,15 +776,17 @@ If you make Progressive Web Apps (client-side rendering), be careful. Verify if 
 
 Hide element to reduce rendering flicker (initial state to complete state) for font loading, app initialization, etc. and fallback to an other inlined style (if no JS) or to CSS animation (if the JS fail: load error or script error)
 
-	<style>
-	body {animation: doc-timeout 0s 5s forwards;}
-	@keyframes doc-timeout {
-	  0% {opacity: 0;}
-	  100% {opacity: 1;}
-	}
-	</style>
-	<noscript><style>body {opacity: 1}</style></noscript>
-	<script src="..." async></script>
+```html
+<style>
+body {animation: doc-timeout 0s 5s forwards;}
+@keyframes doc-timeout {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+</style>
+<noscript><style>body {opacity: 1}</style></noscript>
+<script src="..." async></script>
+```
 
 - [Modern Script Loading](https://jasonformat.com/modern-script-loading/) - How to load JavaScript module and it fallback
 - `noscript` and fallback
@@ -842,7 +870,8 @@ Baking CSS and templates into scripts will increase the memory footprint of your
 > Browsers are clever; they use threaded parsing and compilation for both script and other resource types (e.g. CSS)
 > Those parsers look for resources to fetch (pre-parsing and scanning). When you bake that into script, you defeat that whole system.
 > But it's not just parsers! When you bake, e.g., CSS & templates into script, those things live in the heap. We can't drop them (usually).
-— [Alex Russell - @slightlylate](https://twitter.com/slightlylate/status/793617048253247488)
+>
+> — [Alex Russell - @slightlylate](https://twitter.com/slightlylate/status/793617048253247488)
 
 ### Don't use `event.stopPropagation()` or `event.stopImmediatePropagation()`
 
@@ -874,7 +903,7 @@ handleReset()
 
 ### Variables
 
-- https://stackoverflow.com/questions/4862193/difference-between-variable-declaration-syntaxes-in-javascript-including-global/4862268#4862268
+- [Difference between variable declaration syntaxes in Javascript (including global variables)? - Stack Overflow](https://stackoverflow.com/questions/4862193/difference-between-variable-declaration-syntaxes-in-javascript-including-global/4862268#4862268)
 
 ### Naming convention
 
@@ -1075,43 +1104,45 @@ xhr.send(formEncoder.result);
 
 ### Form validation
 
-	<style>
-		label.valid {}
-		label.valid input {}
-		label.valid span {}
-		label.invalid {}
-		label.invalid input {}
-		label.invalid span {}
-	</style>
-	<script>
-		// Suppress native error messages
-		form.addEventListener("invalid", event => event.preventDefault());
+```html
+<style>
+	label.valid {}
+	label.valid input {}
+	label.valid span {}
+	label.invalid {}
+	label.invalid input {}
+	label.invalid span {}
+</style>
+<script>
+	// Suppress native error messages
+	form.addEventListener("invalid", event => event.preventDefault());
 
-		// Trigger validation onblur
-		form.addEventListener("blur", event => {
-			let tgt = event.target;
-			if (tgt.nodeName === 'INPUT') {
-			validateField(tgt);
-		});
-		form.onsubmit = validateAll;
-
-		function validateField(field){
-			if (!field.validity.valid) {
-				// set class to invalid
-			} else if (field.validity.valid && field.value) {
-				// set class to valid
-			} else {
-				// remove both classes
-			}
+	// Trigger validation onblur
+	form.addEventListener("blur", ({target}) => {
+		if (target.nodeName === 'INPUT') {
+			validateField(target);
 		}
-	</script>
-	<form novalidate>
-		<label>
-			Your name
-			<input name=“name” required>
-			<span>This field is required</span>
-		</label>
-	</form>
+	});
+	form.addEventListener("submit", event => {/*...*/});
+
+	function validateField(field){
+		if (!field.validity.valid) {
+			// set class to invalid
+		} else if (field.validity.valid && field.value) {
+			// set class to valid
+		} else {
+			// remove both classes
+		}
+	}
+</script>
+<form novalidate>
+	<label>
+		Your name
+		<input name=“name” required>
+		<span>This field is required</span>
+	</label>
+</form>
+```
 
 - [formvalidation_CSSDay - formvalidation_CSSDay.pdf](https://quirksmode.org/presentations/Spring2017/formvalidation_CSSDay.pdf)
 - [Form tests - what we want](https://quirksmode.org/dom/forms/examples_correct.html)
@@ -1291,7 +1322,7 @@ Use transaction in an unload event is not guarantied to works, implementations c
 
 ## Break `console.log()`
 
-It's a fake problems, that must be fixed by browser makers, and don't protect data from someone with bad intentions
+It's a fake problem, that must be fixed by browser makers, and don't protect data from someone with bad intentions
 
 ```js
 (function() {
@@ -1331,48 +1362,48 @@ See [javascript - Restoring console.log() - Stack Overflow](https://stackoverflo
 
 In others browser (or if redefine `console` property is not possible), log a message:
 
-<details>
-	<summary>Log in console in non Chrome browsers</summary>
+Log in console in non Chrome browsers:
 
-	// From Facebook
-	let j = 'Stop!';
-	let k = 'This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Facebook feature or "hack" someone\'s account, it is a scam and will give them access to your Facebook account.';
-	let url = 'https://www.facebook.com/selfxss';
-	let l = `See ${url} for more information.`;
-	if ((window.chrome || window.safari)) {
-		var m = 'font-family:helvetica; font-size:20px; ';
-		[
-			[j, m + 'font-size:50px; font-weight:bold; ' + 'color:red; -webkit-text-stroke:1px black;'],
-			[k, m],
-			[l, m],
-			['', '']
-		].map(function (s) {
-			setTimeout(console.log.bind(console, '\n%c' + s[0], s[1]));
-		});
-	} else {
-		let n = [
-			'',
-			' .d8888b.  888					   888',
-			'd88P  Y88b 888					   888',
-			'Y88b.	  888					   888',
-			' "Y888b.   888888  .d88b.  88888b.   888',
-			'	"Y88b. 888	d88""88b 888 "88b  888',
-			'	  "888 888	888  888 888  888  Y8P',
-			'Y88b  d88P Y88b.  Y88..88P 888 d88P',
-			' "Y8888P"   "Y888  "Y88P"  88888P"   888',
-			'						   888',
-			'						   888',
-			'						   888'
-		];
-		let o = ('' + k).match(/.{35}.+?\s+|.+$/g);
-		let p = Math.floor(Math.max(0, (n.length - o.length) / 2));
-		for (let q = 0; q < n.length || q < o.length; q++) {
-			let r = n[q];
-			n[q] = r + new Array(45 - r.length).join(' ') + (o[q - p] || '');
-		}
-		console.log('\n\n\n' + n.join('\n') + '\n\n' + l + '\n');
+```js
+// From Facebook
+let j = 'Stop!';
+let k = 'This is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Facebook feature or "hack" someone\'s account, it is a scam and will give them access to your Facebook account.';
+let url = 'https://www.facebook.com/selfxss';
+let l = `See ${url} for more information.`;
+if ((window.chrome || window.safari)) {
+	var m = 'font-family:helvetica; font-size:20px; ';
+	[
+		[j, m + 'font-size:50px; font-weight:bold; ' + 'color:red; -webkit-text-stroke:1px black;'],
+		[k, m],
+		[l, m],
+		['', '']
+	].map(function (s) {
+		setTimeout(console.log.bind(console, '\n%c' + s[0], s[1]));
+	});
+} else {
+	let n = [
+		'',
+		' .d8888b.  888					   888',
+		'd88P  Y88b 888					   888',
+		'Y88b.	  888					   888',
+		' "Y888b.   888888  .d88b.  88888b.   888',
+		'	"Y88b. 888	d88""88b 888 "88b  888',
+		'	  "888 888	888  888 888  888  Y8P',
+		'Y88b  d88P Y88b.  Y88..88P 888 d88P',
+		' "Y8888P"   "Y888  "Y88P"  88888P"   888',
+		'						   888',
+		'						   888',
+		'						   888'
+	];
+	let o = ('' + k).match(/.{35}.+?\s+|.+$/g);
+	let p = Math.floor(Math.max(0, (n.length - o.length) / 2));
+	for (let q = 0; q < n.length || q < o.length; q++) {
+		let r = n[q];
+		n[q] = r + new Array(45 - r.length).join(' ') + (o[q - p] || '');
 	}
-</details>
+	console.log('\n\n\n' + n.join('\n') + '\n\n' + l + '\n');
+}
+```
 
 - https://stackoverflow.com/questions/21692646/how-does-facebook-disable-the-browsers-integrated-developer-tools
 - http://davidwalsh.name/disable-console
@@ -1389,12 +1420,13 @@ In others browser (or if redefine `console` property is not possible), log a mes
 - Kept: Root reference (any entities) or loading XHR (itself and all attached listeners), or closure (any entities), timeout (callback)
 - Released (not immedialy): not a root referenced, not in kept closure, not an timeout callback, not loading XHR, not a loading XHR listener
 
-- [Memory Leaks with XMLHttpRequest Objects « null program](http://nullprogram.com/blog/2013/02/08/)
-- [4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them](https://auth0.com/blog/2016/01/26/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them)
+- [Memory Leaks with XMLHttpRequest Objects](https://web.archive.org/web/20201112002717/https://nullprogram.com/blog/2013/02/08/)
+- [4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them](https://web.archive.org/web/20201109020415/https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)
 - [Understand memory leaks in JavaScript applications](http://www.ibm.com/developerworks/library/wa-jsmemory/)
 - [Fix Memory Problems  |  Web  |  Google Developers](https://developers.google.com/web/tools/chrome-devtools/memory-problems/#discover_detached_dom_tree_memory_leaks_with_heap_snapshots))
 - [Static Memory Javascript with Object Pools - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/static-mem-pools/) - Use object pools (recycle). See [Slay'n the Waste Monster by Colt McAnlis (#perfmatters at SFHTML5) - YouTube](https://www.youtube.com/watch?v=RWmzxyMf2cE)
 - [GCview](https://github.com/adobe-research/GCview) - GC / memory management visualization and monitoring framework
+- [Event listeners and garbage collection - JakeArchibald.com](https://web.archive.org/web/20201108193011/https://jakearchibald.com/2020/events-and-gc/)
 
 - [WebGL progressive texture](#webgl-progressive-texture)
 
@@ -1537,142 +1569,130 @@ ctx.putImageData(imgData, 0, 0);
 
 - http://jsperf.com/canvas-pixel-manipulation
 
-Or use WebGL:
+Or use WebGL, draw in Canvas with WebGL:
 
-<details>
-	<summary>Draw in Canvas with WebGL</summary>
+```js
+// Helper function to compile webGL program
+function createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource) {
+	this.ctx = ctx;
 
-	<img id="image" src="image.jpg">
+	this.compileShader = function(shaderSource, shaderType) {
+		var shader = this.ctx.createShader(shaderType);
+		this.ctx.shaderSource(shader, shaderSource);
+		this.ctx.compileShader(shader);
+		return shader;
+	};
 
-	<script id="vertex-shader" type="x-shader/x-vertex">
-		attribute vec2 a_position;
-		attribute vec2 a_texCoord;
-		uniform vec2 u_resolution;
-		varying vec2 v_texCoord;
+	var program = this.ctx.createProgram();
+	this.ctx.attachShader(program, this.compileShader(vertexShaderSource, this.ctx.VERTEX_SHADER));
+	this.ctx.attachShader(program, this.compileShader(fragmentShaderSource, this.ctx.FRAGMENT_SHADER));
+	this.ctx.linkProgram(program);
+	this.ctx.useProgram(program);
 
-		void main() {
-			vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0; // convert the rectangle from pixels to clipspace
-			gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
-			v_texCoord = a_texCoord; // pass the texCoord to the fragment shader
-		}
-	</script>
+	return program;
+}
 
-	<script id="fragment-shader" type="x-shader/x-fragment">
-		precision mediump float;
-		uniform sampler2D u_image; // the texture
-		varying vec2 v_texCoord; // the texCoords passed from the vertex shader.
+var image = document.getElementById('image');// some image in DOM
 
-		void main() {
-			vec4 color = texture2D(u_image, v_texCoord);
-			float grey = (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
-			color.rgb += (grey - color.rgb);
-			gl_FragColor = color;
-		}
-		</script>
-	<script type="text/javascript">
+if(image.complete){
+	desaturateImage(image);
+} else {
+	image.onload = function(){
+		desaturateImage(image);
+	};
+}
 
-		// Helper function to compile webGL program
-		createWebGLProgram = function(ctx, vertexShaderSource, fragmentShaderSource) {
+function desaturateImage(image) {
 
-			this.ctx = ctx;
+	var canvas = document.createElement('canvas');
+	image.parentNode.insertBefore(canvas, image);
+	canvas.width  = image.width;
+	canvas.height = image.height;
+	image.parentNode.removeChild(image);
 
-			this.compileShader = function(shaderSource, shaderType) {
-				var shader = this.ctx.createShader(shaderType);
-				this.ctx.shaderSource(shader, shaderSource);
-				this.ctx.compileShader(shader);
-				return shader;
-			};
+	var ctx;
+	try {
+	  ctx = canvas.getContext("webgl");
+	} catch(e) {}
 
-			var program = this.ctx.createProgram();
-			this.ctx.attachShader(program, this.compileShader(vertexShaderSource, this.ctx.VERTEX_SHADER));
-			this.ctx.attachShader(program, this.compileShader(fragmentShaderSource, this.ctx.FRAGMENT_SHADER));
-			this.ctx.linkProgram(program);
-			this.ctx.useProgram(program);
+	if (!ctx) {
+		// You could fallback to 2D methods here
+		alert("Sorry, it seems WebGL is not available.");
+	}
 
-			return program;
+	const fragmentShaderSource = `
+precision mediump float;
+uniform sampler2D u_image; // the texture
+varying vec2 v_texCoord; // the texCoords passed from the vertex shader.
 
-		}
+void main() {
+	vec4 color = texture2D(u_image, v_texCoord);
+	float grey = (0.2126 * color.r) + (0.7152 * color.g) + (0.0722 * color.b);
+	color.rgb += (grey - color.rgb);
+	gl_FragColor = color;
+}
+`;
+	const vertexShaderSource = `
+attribute vec2 a_position;
+attribute vec2 a_texCoord;
+uniform vec2 u_resolution;
+varying vec2 v_texCoord;
 
-		var image = document.getElementById('image');
+void main() {
+	vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0; // convert the rectangle from pixels to clipspace
+	gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+	v_texCoord = a_texCoord; // pass the texCoord to the fragment shader
+}
+`;
+	var program = createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource);
 
-		if(image.complete){
-			desaturateImage(image);
-		} else {
-			image.onload = function(){
-				desaturateImage(image);
-			};
-		}
+	// Expose canvas width and height to shader via u_resolution
+	var resolutionLocation = ctx.getUniformLocation(program, "u_resolution");
+	ctx.uniform2f(resolutionLocation, canvas.width, canvas.height);
 
-		function desaturateImage(image) {
+	// Position rectangle vertices (2 triangles)
+	var positionLocation = ctx.getAttribLocation(program, "a_position");
+	var buffer = ctx.createBuffer();
+	ctx.bindBuffer(ctx.ARRAY_BUFFER, buffer);
+	ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array([
+		0, 0,
+		image.width, 0,
+		0, image.height,
+		0, image.height,
+		image.width, 0,
+		image.width, image.height]), ctx.STATIC_DRAW);
+	ctx.enableVertexAttribArray(positionLocation);
+	ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, 0, 0);
 
-			var canvas = document.createElement('canvas');
-			image.parentNode.insertBefore(canvas, image);
-			canvas.width  = image.width;
-			canvas.height = image.height;
-			image.parentNode.removeChild(image);
+	//Position texture
+	var texCoordLocation = ctx.getAttribLocation(program, "a_texCoord");
+	var texCoordBuffer = ctx.createBuffer();
+	ctx.bindBuffer(ctx.ARRAY_BUFFER, texCoordBuffer);
+	ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array([
+		0.0, 0.0,
+		1.0, 0.0,
+		0.0, 1.0,
+		0.0, 1.0,
+		1.0, 0.0,
+		1.0, 1.0]), ctx.STATIC_DRAW);
+	ctx.enableVertexAttribArray(texCoordLocation);
+	ctx.vertexAttribPointer(texCoordLocation, 2, ctx.FLOAT, false, 0, 0);
 
-			var ctx;
-			try {
-			  ctx = canvas.getContext("webgl")  || canvas.getContext("experimental-webgl");
-			} catch(e) {}
+	// Create a texture.
+	var texture = ctx.createTexture();
+	ctx.bindTexture(ctx.TEXTURE_2D, texture);
+	// Set the parameters so we can render any size image.
+	ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.CLAMP_TO_EDGE);
+	ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.CLAMP_TO_EDGE);
+	ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.NEAREST);
+	ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST);
+	// Load the image into the texture.
+	ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
 
-			if (!ctx) {
-				// You could fallback to 2D methods here
-				alert("Sorry, it seems WebGL is not available.");
-			}
-
-			var fragmentShaderSource = document.getElementById("fragment-shader").text;
-			var vertexShaderSource = document.getElementById("vertex-shader").text;
-			var program = createWebGLProgram(ctx, vertexShaderSource, fragmentShaderSource);
-
-			// Expose canvas width and height to shader via u_resolution
-			var resolutionLocation = ctx.getUniformLocation(program, "u_resolution");
-			ctx.uniform2f(resolutionLocation, canvas.width, canvas.height);
-
-			// Position rectangle vertices (2 triangles)
-			var positionLocation = ctx.getAttribLocation(program, "a_position");
-			var buffer = ctx.createBuffer();
-			ctx.bindBuffer(ctx.ARRAY_BUFFER, buffer);
-			ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array([
-				0, 0,
-				image.width, 0,
-				0, image.height,
-				0, image.height,
-				image.width, 0,
-				image.width, image.height]), ctx.STATIC_DRAW);
-			ctx.enableVertexAttribArray(positionLocation);
-			ctx.vertexAttribPointer(positionLocation, 2, ctx.FLOAT, false, 0, 0);
-
-			//Position texture
-			var texCoordLocation = ctx.getAttribLocation(program, "a_texCoord");
-			var texCoordBuffer = ctx.createBuffer();
-			ctx.bindBuffer(ctx.ARRAY_BUFFER, texCoordBuffer);
-			ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array([
-				0.0, 0.0,
-				1.0, 0.0,
-				0.0, 1.0,
-				0.0, 1.0,
-				1.0, 0.0,
-				1.0, 1.0]), ctx.STATIC_DRAW);
-			ctx.enableVertexAttribArray(texCoordLocation);
-			ctx.vertexAttribPointer(texCoordLocation, 2, ctx.FLOAT, false, 0, 0);
-
-			// Create a texture.
-			var texture = ctx.createTexture();
-			ctx.bindTexture(ctx.TEXTURE_2D, texture);
-			// Set the parameters so we can render any size image.
-			ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_S, ctx.CLAMP_TO_EDGE);
-			ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_WRAP_T, ctx.CLAMP_TO_EDGE);
-			ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MIN_FILTER, ctx.NEAREST);
-			ctx.texParameteri(ctx.TEXTURE_2D, ctx.TEXTURE_MAG_FILTER, ctx.NEAREST);
-			// Load the image into the texture.
-			ctx.texImage2D(ctx.TEXTURE_2D, 0, ctx.RGBA, ctx.RGBA, ctx.UNSIGNED_BYTE, image);
-
-			// Draw the rectangle.
-			ctx.drawArrays(ctx.TRIANGLES, 0, 6);
-		}
-	</script>
-</details>
+	// Draw the rectangle.
+	ctx.drawArrays(ctx.TRIANGLES, 0, 6);
+}
+```
 
 - [Canvas image manipulation techniques · MadebyMike](https://madebymike.com.au//writing/canvas-image-manipulation/)
 
@@ -2951,6 +2971,16 @@ requestAnimationFrame(() => {
 });
 ```
 
+```js
+(async () => {
+	// do something...
+	while(true){
+		const time = await new Promise(requestAnimationFrame);
+		// do something just before the repaint...
+	}
+})()
+```
+
 Layout triggers :
 
 - Element
@@ -3009,6 +3039,7 @@ Layout triggers :
 
 See [relayout, repaint, reflow](CSS#relayout-repaint-reflow)
 
+- [DIY Web Animations: Promises + rAF + Transitions — surma.dev](https://web.archive.org/web/20210110231841/https://surma.dev/things/raf-promise/)
 - [What forces layout/reflow. The comprehensive list.](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)
 - [Fastersite: How (not) to trigger a layout in WebKit](http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html)
 - [Rendering: repaint, reflow/relayout, restyle / Stoyan's phpied.com](http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)
@@ -3387,7 +3418,8 @@ A few notes about this event:
 ### Always listen `touchend`/`pointerup` **and** `touchcancel`/`pointercancel`
 
 > …whenever a default action like scroll or zoom is triggered, you’ll get a `pointercancel` event, to let you know that the browser has taken control of the pointer. […] You can stop the browser from taking control with the CSS `touch-action` property.
-— [Pointing the Way Forward  |  Web  |  Google Developers](https://developers.google.com/web/updates/2016/10/pointer-events)
+>
+> — [Pointing the Way Forward  |  Web  |  Google Developers](https://developers.google.com/web/updates/2016/10/pointer-events)
 
 "If you listen to touchend events, be sure to also listen for touchcancel":
 
@@ -4133,8 +4165,8 @@ console.log(toc.join("\n"));
 ```js
 const html = document.documentElement.cloneNode(true);
 
-function patchURL(value){
-
+function patchURL(value, base){
+	return value;
 }
 
 for(let [property, collection] of [
@@ -4185,7 +4217,7 @@ const [deg, x, y, z] = Array.from(document.querySelectorAll("input[name=deg], in
 
 ### Node name and case sensitivity
 
-http://ejohn.org/blog/nodename-case-sensitivity/
+- [John Resig - .nodeName Case Sensitivity](https://web.archive.org/web/20200814104737/https://johnresig.com/blog/nodename-case-sensitivity/)
 
 ### Search text and wrap
 
@@ -4729,37 +4761,113 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 
 **The loop does not support modifications (insert/delete)**
 
-<details>
-	<summary>Stylesheet rule walker</summary>
-	```js
-	console.group("sheet:");
-	var treeIndexes = [];
-	var deep = 0;
-	var index = 0;
-	var group = this._stylesheet;
-	var rules = group.cssRules;
-	var numRules = rules.length;
-	// The loop on rules and child rules
-	while(true){
-		// Go up
-		if(index >= numRules){
-			// This is the end
-			if(deep === 0){
-				break;
-			}
+Stylesheet rule walker:
 
-			// Read previous index saved
-			// Continue iterate to parent
-			deep--;
-			index = ++treeIndexes[deep];
-			group = group.parentRule || group.parentStyleSheet;
-			rules = group.cssRules;
-			numRules = rules.length;
-			// Continue the loop but on next parent rules (if any)
-			continue;
+```js
+console.group("sheet:");
+var treeIndexes = [];
+var deep = 0;
+var index = 0;
+var group = this._stylesheet;
+var rules = group.cssRules;
+var numRules = rules.length;
+// The loop on rules and child rules
+while(true){
+	// Go up
+	if(index >= numRules){
+		// This is the end
+		if(deep === 0){
+			break;
 		}
 
+		// Read previous index saved
+		// Continue iterate to parent
+		deep--;
+		index = ++treeIndexes[deep];
+		group = group.parentRule || group.parentStyleSheet;
+		rules = group.cssRules;
+		numRules = rules.length;
+		// Continue the loop but on next parent rules (if any)
+		continue;
+	}
+
+	let rule = rules[index];
+	switch(rule.type){
+		// CSSGroupingRule
+		// -> CSSConditionRule
+		//	-> CSSMediaRule
+		//	-> CSSSupportsRule
+		case CSSRule.MEDIA_RULE:
+		case CSSRule.SUPPORTS_RULE:
+			// CSSKeyframesRule
+		case CSSRule.KEYFRAMES_RULE:
+			// CSSImportRule
+		case CSSRule.IMPORT_RULE:
+			// CSSDocumentRule
+		case CSSRule.DOCUMENT_RULE:
+			// CSSViewportRule
+		case CSSRule.VIEWPORT_RULE:
+			// CSSRegionStyleRule
+		case CSSRule.REGION_STYLE_RULE:
+		{
+			treeIndexes[deep] = index;
+			deep++;
+			index = 0;
+			group = rule.type == CSSRule.IMPORT_RULE ? rule.styleSheet : rule;
+			rules = group.cssRules;
+			numRules = rules.length;
+			// Continue the loop but on child rules
+			continue;
+		}
+		case CSSRule.STYLE_RULE:
+		// CSSPageRule https://developer.mozilla.org/en-US/docs/Web/CSS/@page
+		case CSSRule.PAGE_RULE:
+		// CSSKeyframeRule
+		case CSSRule.KEYFRAME_RULE:
+		{
+			console.log(rule.selectorText || rule.keyText);
+			let propIndex = 0;
+			// https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration
+			let styleDec = rule.style;
+			while((propName = styleDec.item(propIndex++)) !== ""){
+				switch(propName){
+					// Shorthand (like margin, padding and background) are expanded properties are not used here (IE9, Chrome 40, FF 36)
+					// But spec is unclear
+					// http://lists.w3.org/Archives/Public/www-style/2012Jan/1122.html
+					// http://lists.w3.org/Archives/Public/www-style/2011Apr/0331.html
+					// https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
+					case "height":
+					case "margin-top":
+					//...
+					{
+						propValue = styleDec.getPropertyValue(propName);
+						// Rewrite value
+						styleDec.setProperty(propName, propValue, styleDec.getPropertyPriority(propName));
+						break;
+					}
+				}
+			}
+			break;
+		}
+	}
+
+	index++;
+}
+console.groupEnd();
+```
+
+Remove all `:hover` and `:active` rules:
+
+```js
+const selectorFilter = (selector) => !selector.match(":hover") && !selector.match(":active");
+var rulesGroups = Array.from(document.styleSheets);
+while(rulesGroups.length > 0){
+	let rulesGroup = rulesGroups.shift();
+
+	for (let index = rulesGroup.cssRules.length - 1; index >= 0; index--) {
+		let rules = rulesGroup.cssRules;
 		let rule = rules[index];
+
 		switch(rule.type){
 			// CSSGroupingRule
 			// -> CSSConditionRule
@@ -4767,120 +4875,40 @@ See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md
 			//	-> CSSSupportsRule
 			case CSSRule.MEDIA_RULE:
 			case CSSRule.SUPPORTS_RULE:
-				// CSSKeyframesRule
-			case CSSRule.KEYFRAMES_RULE:
-				// CSSImportRule
+			// // CSSKeyframesRule
+			// case CSSRule.KEYFRAMES_RULE:
+			// CSSImportRule
 			case CSSRule.IMPORT_RULE:
-				// CSSDocumentRule
+			// CSSDocumentRule
 			case CSSRule.DOCUMENT_RULE:
-				// CSSViewportRule
+			// CSSViewportRule
 			case CSSRule.VIEWPORT_RULE:
-				// CSSRegionStyleRule
+			// CSSRegionStyleRule
 			case CSSRule.REGION_STYLE_RULE:
-			{
-				treeIndexes[deep] = index;
-				deep++;
-				index = 0;
-				group = rule.type == CSSRule.IMPORT_RULE ? rule.styleSheet : rule;
-				rules = group.cssRules;
-				numRules = rules.length;
-				// Continue the loop but on child rules
+				rulesGroups.push(rule.type == CSSRule.IMPORT_RULE ? rule.styleSheet : rule);
 				continue;
-			}
 			case CSSRule.STYLE_RULE:
-			// CSSPageRule https://developer.mozilla.org/en-US/docs/Web/CSS/@page
+			// CSSPageRule
 			case CSSRule.PAGE_RULE:
 			// CSSKeyframeRule
-			case CSSRule.KEYFRAME_RULE:
+			// case CSSRule.KEYFRAME_RULE:
 			{
-				console.log(rule.selectorText || rule.keyText);
-				let propIndex = 0;
-				// https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration
-				let styleDec = rule.style;
-				while((propName = styleDec.item(propIndex++)) !== ""){
-					switch(propName){
-						// Shorthand (like margin, padding and background) are expanded properties are not used here (IE9, Chrome 40, FF 36)
-						// But spec is unclear
-						// http://lists.w3.org/Archives/Public/www-style/2012Jan/1122.html
-						// http://lists.w3.org/Archives/Public/www-style/2011Apr/0331.html
-						// https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
-						case "height":
-						case "margin-top":
-						//...
-						{
-							propValue = styleDec.getPropertyValue(propName);
-							// Rewrite value
-							styleDec.setProperty(propName, propValue, styleDec.getPropertyPriority(propName));
-							break;
-						}
+				let selectors = rule.selectorText;
+				let filteredSelectors = selectors.split(",").filter(selectorFilter).join(",");
+				if (selectors != filteredSelectors) {
+					// If multiple selectors and selectors remains
+					if(filteredSelectors != ""){
+						let content = rule.cssText.split("{")[1].slice(0, -1);// content, between accolades: selector{content}
+						rulesGroup.insertRule(`${filteredSelectors}{${content}}`, rules.length);
 					}
+					rulesGroup.deleteRule(index);
 				}
 				break;
 			}
 		}
-
-		index++;
 	}
-	console.groupEnd();
-	```
-</details>
-
-Remove all `:hover` and `:active` rules:
-
-<details>
-	<summary>Snippet</summary>
-	```js
-	const selectorFilter = (selector) => !selector.match(":hover") && !selector.match(":active");
-	var rulesGroups = Array.from(document.styleSheets);
-	while(rulesGroups.length > 0){
-		let rulesGroup = rulesGroups.shift();
-
-		for (let index = rulesGroup.cssRules.length - 1; index >= 0; index--) {
-			let rules = rulesGroup.cssRules;
-			let rule = rules[index];
-
-			switch(rule.type){
-				// CSSGroupingRule
-				// -> CSSConditionRule
-				//	-> CSSMediaRule
-				//	-> CSSSupportsRule
-				case CSSRule.MEDIA_RULE:
-				case CSSRule.SUPPORTS_RULE:
-				// // CSSKeyframesRule
-				// case CSSRule.KEYFRAMES_RULE:
-				// CSSImportRule
-				case CSSRule.IMPORT_RULE:
-				// CSSDocumentRule
-				case CSSRule.DOCUMENT_RULE:
-				// CSSViewportRule
-				case CSSRule.VIEWPORT_RULE:
-				// CSSRegionStyleRule
-				case CSSRule.REGION_STYLE_RULE:
-					rulesGroups.push(rule.type == CSSRule.IMPORT_RULE ? rule.styleSheet : rule);
-					continue;
-				case CSSRule.STYLE_RULE:
-				// CSSPageRule
-				case CSSRule.PAGE_RULE:
-				// CSSKeyframeRule
-				// case CSSRule.KEYFRAME_RULE:
-				{
-					let selectors = rule.selectorText;
-					let filteredSelectors = selectors.split(",").filter(selectorFilter).join(",");
-					if (selectors != filteredSelectors) {
-						// If multiple selectors and selectors remains
-						if(filteredSelectors != ""){
-							let content = rule.cssText.split("{")[1].slice(0, -1);// content, between accolades: selector{content}
-							rulesGroup.insertRule(`${filteredSelectors}{${content}}`, rules.length);
-						}
-						rulesGroup.deleteRule(index);
-					}
-					break;
-				}
-			}
-		}
-	}
-	```
-</details>
+}
+```
 
 ```js
 // Note: if you just want to remove some selector / rules, use:
@@ -5597,7 +5625,7 @@ function layout(){
 }
 ```
 
-## Audio / sound effects
+## Audio and sound effects
 
 - [Audio Sprites (and fixes for iOS)](https://remysharp.com/2010/12/23/audio-sprites)
 - [Overcoming iOS HTML5 audio limitations](http://www.ibm.com/developerworks/library/wa-ioshtml5/)
@@ -5690,6 +5718,13 @@ Note: embeded fonts using data URI are not immediatly available with Webkit
 - [How to detect a loaded stylesheet](https://stackoverflow.com/questions/17747616/webkit-dynamically-created-stylesheet-when-does-it-really-load)
 - [Modernizr fontface detection](https://github.com/Modernizr/Modernizr/blob/master/feature-detects/css/fontface.js)
 - [A Comprehensive Guide to Font Loading Strategies—zachleat.com](https://www.zachleat.com/web/comprehensive-webfonts/)
+
+## Resize event
+
+> put a video on DOM dispatch a `resize` event
+
+- [video element put on dom dispatch a resize event](https://codepen.io/Seraf_NSS/pen/dyYmQxd?editors=1111)
+- [resize - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/resize#Examples)
 
 ## Focus management
 
@@ -5986,7 +6021,8 @@ console.log(`Array.prototype.reduce.call(${stringDelimiter}${escapedString}${str
 Note: It's limited to 2<sup>53</sup>-1 bytes that could be stored. It could be limited by the heap max size (see `window.performance.memory.jsHeapSizeLimit`)
 
 > The String type is the set of all ordered sequences of zero or more 16-bit unsigned integer values (“elements”) up to a maximum length of 2<sup>53</sup>-1 elements
-— [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html#sec-ecmascript-language-types-string-type)
+>
+> — [ECMAScript® 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/index.html#sec-ecmascript-language-types-string-type)
 
 #### Store bytes in JS source as hexadecimal
 
@@ -6217,7 +6253,8 @@ Decode with XmlHttpRequest or fetch, but this could be not supported (see Safari
 Note: It's async, because `XMLHttpRequest` can't be used in synchronous mode because responseType other than the default value (equivalent of `"text"`) need async.
 
 > (`responseType`) When set: throws an `InvalidAccessError` exception if the [synchronous flag](https://xhr.spec.whatwg.org/#synchronous-flag) is set
-— [XMLHttpRequest Standard](https://xhr.spec.whatwg.org/#the-responsetype-attribute)
+>
+> — [XMLHttpRequest Standard](https://xhr.spec.whatwg.org/#the-responsetype-attribute)
 
 Note: encoding scheme must be supported (base64 or unencoded)
 
@@ -6281,50 +6318,48 @@ let buffer = Uint32Array.from(JSON.parse("[0,1,2,...]")).buffer.slice(0);// not 
 
 To generate the corresponding code:
 
-<details>
-	<summary>Generate source</summary>
+```js
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "data:application/octet-stream;base64,AAECAwQFBgcICQ==");//0x010203040506070809
+xhr.responseType = "arraybuffer";
+xhr.addEventListener("error", event => console.log(event))
+xhr.addEventListener("load", event => {
+	// In the generated code, JavaScript will read an array of number (float64) first then write to it into the buffer
+	//console.log(`Uint8Array.from([${Array.from(new Uint8Array(event.target.response)}]).buffer`);// a simple way to generate, to using uint8, but will use 8 more time & memory before write the buffer (javascript use float64 to store numbers/ints), but use between 2/1 and 4/1 bytes to store it, 0x00 -> 0xff = ",0" -> ",255"
 
-	let xhr = new XMLHttpRequest();
-	xhr.open("GET", "data:application/octet-stream;base64,AAECAwQFBgcICQ==");//0x010203040506070809
-	xhr.responseType = "arraybuffer";
-	xhr.addEventListener("error", event => console.log(event))
-	xhr.addEventListener("load", event => {
-		// In the generated code, JavaScript will read an array of number (float64) first then write to it into the buffer
-		//console.log(`Uint8Array.from([${Array.from(new Uint8Array(event.target.response)}]).buffer`);// a simple way to generate, to using uint8, but will use 8 more time & memory before write the buffer (javascript use float64 to store numbers/ints), but use between 2/1 and 4/1 bytes to store it, 0x00 -> 0xff = ",0" -> ",255"
+	// Use Uint32Array is a better bet:
+	// - it use less bytes to store the data: 2/4 to 11/4, 0x00000000 -> 0xffffffff = ",0" -> ",4294967295"
+	// - it use the twice memory than the final buffer
+	// Idealy we should use Uint64Array but this not exist in JS
+	// But need to use DataView instead of Uint32Array to fix endianness (we don't know in advance what will be the platform's endianness)
+	// (new DataView(new Uint8Array([0x01, 0x02, 0x03, 0x04]).buffer)).getUint32(0) == 0x01020304
 
-		// Use Uint32Array is a better bet:
-		// - it use less bytes to store the data: 2/4 to 11/4, 0x00000000 -> 0xffffffff = ",0" -> ",4294967295"
-		// - it use the twice memory than the final buffer
-		// Idealy we should use Uint64Array but this not exist in JS
-		// But need to use DataView instead of Uint32Array to fix endianness (we don't know in advance what will be the platform's endianness)
-		// (new DataView(new Uint8Array([0x01, 0x02, 0x03, 0x04]).buffer)).getUint32(0) == 0x01020304
+	let typeBytes = 4;
+	let buffer = event.target.response;
+	let alignedByteLength = buffer.byteLength - buffer.byteLength % typeBytes;
+	let alignedArray = new DataView(buffer, 0, alignedByteLength);
+	let output = "";
+	for(let byteIndex = 0; byteIndex < alignedByteLength; byteIndex += typeBytes){
+		output += (byteIndex > 0 ? "," : "") + alignedArray.getUint32(byteIndex);
+	}
+	let aligned = alignedByteLength == buffer.byteLength;
+	if(!aligned){
+		// align bytes by filling with zeros
+		let lastBytes = new Uint8Array(buffer, alignedByteLength, buffer.byteLength - alignedByteLength);
+		let lastAlignedBytes = new Uint8Array(typeBytes);
+		lastAlignedBytes.set(lastBytes);//fill first bytes
+		output += (output.length > 0 ? "," : "") + (new DataView(lastAlignedBytes.buffer)).getUint32(0);
+	}
+	output = `JSON.parse("[${output}]").reduce((bytes, value, index) => (bytes.setUint32(index * 4, value), bytes), new DataView(new ArrayBuffer(${Math.ceil(buffer.byteLength / typeBytes) * typeBytes}))).buffer`;
+	if(!aligned){
+		output += `.slice(0, ${buffer.byteLength})`;
+		//output = `ArrayBuffer.transfer(${output}, ${buffer.byteLength})`;// use transfert instead of slice (which copy buffer content), but it's not well supported
+	}
 
-		let typeBytes = 4;
-		let buffer = event.target.response;
-		let alignedByteLength = buffer.byteLength - buffer.byteLength % typeBytes;
-		let alignedArray = new DataView(buffer, 0, alignedByteLength);
-		let output = "";
-		for(let byteIndex = 0; byteIndex < alignedByteLength; byteIndex += typeBytes){
-			output += (byteIndex > 0 ? "," : "") + alignedArray.getUint32(byteIndex);
-		}
-		let aligned = alignedByteLength == buffer.byteLength;
-		if(!aligned){
-			// align bytes by filling with zeros
-			let lastBytes = new Uint8Array(buffer, alignedByteLength, buffer.byteLength - alignedByteLength);
-			let lastAlignedBytes = new Uint8Array(typeBytes);
-			lastAlignedBytes.set(lastBytes);//fill first bytes
-			output += (output.length > 0 ? "," : "") + (new DataView(lastAlignedBytes.buffer)).getUint32(0);
-		}
-		output = `JSON.parse("[${output}]").reduce((bytes, value, index) => (bytes.setUint32(index * 4, value), bytes), new DataView(new ArrayBuffer(${Math.ceil(buffer.byteLength / typeBytes) * typeBytes}))).buffer`;
-		if(!aligned){
-			output += `.slice(0, ${buffer.byteLength})`;
-			//output = `ArrayBuffer.transfer(${output}, ${buffer.byteLength})`;// use transfert instead of slice (which copy buffer content), but it's not well supported
-		}
-
-		console.log(output);
-	});
-	xhr.send(null);
-</details>
+	console.log(output);
+});
+xhr.send(null);
+```
 
 ### Decompress GZIP
 
@@ -6397,7 +6432,8 @@ xhr.send(null);
 Note: `XMLHttpRequest` can't be used in synchronous mode because we can't change the `responseType`.
 
 > (`responseType`) When set: throws an `InvalidAccessError` exception if the [synchronous flag](https://xhr.spec.whatwg.org/#synchronous-flag) is set
-— [XMLHttpRequest Standard](https://xhr.spec.whatwg.org/#the-responsetype-attribute)
+>
+> — [XMLHttpRequest Standard](https://xhr.spec.whatwg.org/#the-responsetype-attribute)
 
 ## Send, load and receive data
 
@@ -6944,75 +6980,25 @@ The workaround is use `eval(anchor.href)` instead.
 - [Daniel Grant on Twitter: "Considering if it would be a good idea to pessimistically fallback to non-JS layout whenever there' a seriou error… "](https://twitter.com/djgrant_/status/734438032716271616)
 - [Capture and Report JavaScript Error with window.onerror — SitePoint](https://www.sitepoint.com/capture-and-report-javascript-errors-with-window-onerror/#browsercompatibility)
 
-## Firefox service provider
-
-<details>
-	<summary>Snippet</summary>
-
-	function activateProvider(node, name) {
-		// fixup the service data with a postActivationURL if one doesn't exist.
-		var data = JSON.parse(node.getAttribute("data-service"));
-		var loc = location.href;
-		var baseurl = loc.substring(0,loc.lastIndexOf('/'));
-		data.postActivationURL = baseurl + "/activated/"+name+".html";
-		node.setAttribute("data-service", JSON.stringify(data));
-		var event = new CustomEvent("ActivateSocialFeature");
-		node.dispatchEvent(event);
-		ga('send', 'event', 'click', 'activation', name);
-	}
-
-	{
-		"activities": {
-			"share": {
-				"disposition": "inline",
-				"filters": {
-					"type": [
-						"*"
-					]
-				},
-				"href": "https://www.facebook.com/sharer/sharer.php?u=%{url}",
-				"returnValue": false
-			}
-		},
-		"author": "Facebook",
-		"description": "Restez en contact avec vos amis où que vous soyez sur le web.",
-		"homepageURL": "https://www.facebook.com",
-		"icon32URL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAADbklEQVRYCc1Xv08UQRj99tctexAuCEFjRE0kGBEtLDSGqIWNxkYKbTAxNlY2JhaGWltNtNFeKgsKKxITK43/gCYW+IsoRhA4D47bH7fn9+bcvdm5JR7sefolC3Ozu9978+bNN7PayUv3HN3umdY0Y6IWBtSJ0HSTarXqTOiuTep6Lj+tdxAcA8RAgSmwdd2aCDs0clldYALb/FvgYVhjmfliVA2XpjEgWo0Attn42Z6WH1RFor5ehwo9XQIUZMoVn4qlCoVMSo62EvD8Kh0b3U2Xz43R2PBO6mUCGDlAf65V6MadZzT/rUimoccc2kYA4BfPHqJb105RzjJigKhRq9kEJUBIjgYVuXeL7SAI6eD+Abp5dTwVHOmEHxT50d8WBYJqSOdPj5BjW8gZR8UNqFR2xagx/65XFYaMH+BGWwiYpi4UkBPPLxTp9v1Z+lHc4DWvCQXWmIy6EjITgKowVd5Jjv7N3Hd6y5esigoOwpkJIAmMpZpLJGdiaaC4F0UmAj6bD84GCEwmB/qxMmRilmnwb/mpjAocHh4UEoNAt5NLZB7oy9OJo0PxqkAtePdhiSqunyC1LQUwWMPQaOr6GRre258Ajn4cP7KHcEXhsxpXbj+lT19X2TMNGTLVAcjcalS8gDwsQ2UOMhH4k8FkcrEn5E5ub2sKohxLK2VR77Hl9RUcsrgeRIEiVOT6z+tDbIeLy+vk+kGTCbXxycet6xhl//3f6bJEkdHYhA+mLtDIvoH4ieev5+juoxdk5+pjhALYEdXIpEB5w+NlSKSzqVQ/+H7IO6BLtl3fngGMiqhGJgIwlM6qpyUGFjySdk8m0Zg0ubeD7X9OIDEFajltRQgUJaUKx69tdgaQa0FMADuahZPMFtcEwNPm2hA7ZI5sK4aoE2NvYI+o8hkCIe7CwTv68zS0q9Dk5vpbm/8FXxitSzmMFHpsGj0wyLUheTwD2Y9fVgh1Ae0EPUgD9241ZEnld+v5kgnVZ/8fE0brVh5BK+1oCqKKF72Dk7HwBsssB/pklU1dfChy3S659H5+uelgIb+8WRv1/uGTV9Sdb5wJFlfW6fPCalMhwhSU1j2xKwKbP838GcOwJja4TqO0bjdmXxYTy1EYjFdCWoCEYZhseH/GDL3yJPHnuW6YmT7P1SlIA4768Hke4vOcsX8BE346lLHhDUQAAAAASUVORK5CYII=",
-		"icon64URL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAADhu0ooAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowNTgwMTE3NDA3MjA2ODExODA4M0NDMTM4MEMyQTVFQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCOEE0QzYzMUE2MTYxMUUyOEJFQUJDRTMzOERDQjM5MCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCOEE0QzYzMEE2MTYxMUUyOEJFQUJDRTMzOERDQjM5MCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QUM3QUJGQTkzODIwNjgxMThDMTQ5OEFGOTgxQUJBQ0UiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDU4MDExNzQwNzIwNjgxMTgwODNDQzEzODBDMkE1RUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4XCE4/AAABzElEQVR42mK0Dp/LyMDAUAHEOUAsxTC8wDMgngLEHSxQT7YxDE8gBfXbfyYgkc0w/EEOyKPSI8Cj0kwMIwSMenTUo6MeHdyAZTA6ipebncHBXIHBTF+aQVFGgIGfl4NBAIgZgU2bL99+Mfz4+Yfh89dfDK/ffQPj9hmHhpZHOTlYGZJDjBgCXNUZONixO42Hiw2MRQS5wIEAAkPKowoyggwdJc4MMhJ8wzfpyojzM0yp82IQ4GMfvoUROxsLQ0eZM009OSg8GuGtw6AgLTC8qxdQgRPpqzP861ErIzlwCTrs61EzPcIdp20H7zCs23Wd4e6jdwy/f/8dmh5VUxTCK7/1wB2i6shBn3TFhXnwym/ce2N45FFODvwJ6tHTD8PDo2yszHjlQe3a0d7LqEdHPTrq0VGPDkVA05bRkRVJNNe/78R9hroJ+4d/jN68925kJN2b91+PDI/efjACYvTlm68MHz//GP4evfXg7cioXm7eezMyPEpKjNK0HrWJmEdRPUlI/2jLaNSjox4d9eioR0c9OurRUY+OenTUo6MeHfXoqEdHPTrq0VGP0t+jT0eAP5+CPDp1BHh0KmhwrBMas1kMw3ODDygiOwECDADJwGV3tLQaBAAAAABJRU5ErkJggg==",
-		"iconURL": "data:image/png;base64,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",
-		"name": "Facebook",
-		"origin": "https://www.facebook.com",
-		"pageSize": {
-			"share": {
-				"height": 400,
-				"width": 700
-			}
-		},
-		"shareURL": "https://www.facebook.com/sharer/sharer.php?u=%{url}",
-		"version": 2
-	}
-</details>
-
-- https://activations.cdn.mozilla.net/fr/activated/google.html
-- https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Social_API/Guide/FirstSteps
-
 ## Get matched CSS rules
 
 Get applied CSS rules.
 
-	// It's a naive way. Stylesheet can be disabled, inaccessible, nested - via `@import` - or contains nested rules
-	function getMatchedCSSRules(a) {
-		var sheets = document.styleSheets, o = [];
-		for (var i in sheets) {
-			var rules = sheets[i].rules || sheets[i].cssRules;
-			for (var r in rules) {
-				if (a.matches(rules[r].selectorText)) {
-					o.push(rules[r]);
-				}
+```js
+// It's a naive way. Stylesheet can be disabled, inaccessible, nested - via `@import` - or contains nested rules
+function getMatchedCSSRules(a) {
+	var sheets = document.styleSheets, o = [];
+	for (var i in sheets) {
+		var rules = sheets[i].rules || sheets[i].cssRules;
+		for (var r in rules) {
+			if (a.matches(rules[r].selectorText)) {
+				o.push(rules[r]);
 			}
 		}
-		return o;
 	}
+	return o;
+}
+```
 
 **Note: `window.getMatchedCSSRules` is depreciated**
 
@@ -7263,7 +7249,8 @@ Maxium of local variables per function (all function compared) will affect also 
 
 > Find and expand the `closure` property. It will show the contents of the closure, as well as properties of the closure object itself. Color coding is used to distinguish closure variables from properties.
 > Find and expand the `consString` property. It will exhibit, that a concatenated string is stored as a linked list of its parts.
-— [Exploring the Heap Contents - Google Chrome](https://developer.chrome.com/devtools/docs/heap-profiling-containment) https://github.com/GoogleChrome/devtools-docs/blob/master/docs/heap-profiling-containment.html
+>
+> — [Exploring the Heap Contents - Google Chrome](https://developer.chrome.com/devtools/docs/heap-profiling-containment) https://github.com/GoogleChrome/devtools-docs/blob/master/docs/heap-profiling-containment.html
 
 - [How to Record Heap Snapshots  |  Web  |  Google Developers](https://developers.google.com/web/tools/chrome-devtools/memory-problems/heap-snapshots)
 
@@ -7464,7 +7451,8 @@ Aka can play media type
 - `` (an empty string) if the browser is certain it can't play this format
 
 > Generally, a user agent should never return "probably" for a type that allows the codecs parameter if that parameter is not present.
-— [4.7 Embedded content — HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#dom-navigator-canplaytype)
+>
+> — [4.7 Embedded content — HTML5](http://www.w3.org/TR/html5/embedded-content-0.html#dom-navigator-canplaytype)
 
 ## `href` property vs `getAttribute()`
 
@@ -7499,55 +7487,55 @@ Last instruction should return undefined (like `undefined` or `void(0)`), or the
 
 Copy current document as Markdown link bookmarklet (see [Clipboard API](#clipboard-api)):
 
-<details>
-	<summary>Bookmarklet snippet</summary>
-
-	// Encode with Uglify3 https://skalman.github.io/UglifyJS-online/
-	// copy("javascript:"+document.getElementById("out").value.replace(/[\s#%]/g, match => "%" + match.charCodeAt(0).toString(16).padStart(2, "0"))+"void(0)")
-	{
-		let doc = document;
-		let url = doc.URL;
-		let title = [doc.title].concat(Array.from(doc.querySelectorAll("h1,h2"), element => element.textContent.replace(/\s+/g," ")), url)
-			.reduce((title, value) => title || value.trim(), "");
-		let encodeChars = (str, regexp, prefix = "&#x", suffix = ";") => str.replace(regexp, match => prefix + match.charCodeAt(0).toString(16).padStart(2, "0") + suffix);
-		let escapedURL = encodeChars(url, /[()"]/g, "%", "");
-		let isImage = doc.contentType.startsWith("image/");
-		// expreg should match "file" for "/file.ext"; "file" for "/file"; "file.a" for "/file.a.ext"
-		let [, filename = "Untitled"] = /\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new URL(url).pathname) || [];
-		filename += "." + doc.contentType.split("/")[1].split("+")[0];// base extension on Content-Type subtype https://www.iana.org/assignments/media-types/media-types.xhtml#image
-		// execCommand will not been executed if a frame or an iframe is focused
-		if(["IFRAME","FRAME"].includes(doc.activeElement.tagName)){
-			let focusable = doc.createElement("span");
-			focusable.tabIndex = -1;// focusable
-			focusable.setAttribute("aria-hidden", "true");// will not be announced by AT
-			focusable.style.position = "fixed";
-			doc.documentElement.appendChild(focusable);// don't use doc.body because in case of frame the body is the frameset and execCommand will not work
-			focusable.focus();// force focus, but will not scroll into view, because it have fixed position
-			focusable.remove();// remove focus, without force to scroll into view to an other element
-		}
-
-		//TODO support SVGDocument (execCommand only exist on HTMLDocument) by create a iframe about:blank inside a foreignObject
-		doc.addEventListener("copy", event => {
-			let clipboardData = event.clipboardData;
-			let setData = clipboardData.setData.bind(clipboardData);
-			event.preventDefault();
-			clipboardData.clearData();
-			setData("text/x-moz-url", url);
-			setData("text/uri-list", url);
-			setData("text/html", isImage ? `<img src="${escapedURL}" alt="${encodeChars(filename, /["&<>]/g)}">` : `<a href="${escapedURL}">${encodeChars(title, /[&<>]/g)}</a>`);
-			setData("text/plain", isImage || title !== url ? (isImage ? "!" : "") + "[" + (isImage ? filename : title).replace(/[\\<>\[\]]/g,"\\$&") + "](" + escapedURL + ")" : escapedURL);
-		}, {once: true});
-		// TODO attach to doc a temp textarea as fallback if copy is not dispatched, and remove it after exec command
-		// TODO see also navigator.clipboard API https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
-		doc.execCommand("copy");
+```js
+// Encode with Uglify3 https://skalman.github.io/UglifyJS-online/
+// copy("javascript:"+document.getElementById("out").value.replace(/[\s#%]/g, match => "%" + match.charCodeAt(0).toString(16).padStart(2, "0"))+"void(0)")
+{
+	let doc = document;
+	let url = doc.URL;
+	let title = [doc.title].concat(Array.from(doc.querySelectorAll("h1,h2"), element => element.textContent.replace(/\s+/g," ")), url)
+		.reduce((title, value) => title || value.trim(), "");
+	let encodeChars = (str, regexp, prefix = "&#x", suffix = ";") => str.replace(regexp, match => prefix + match.charCodeAt(0).toString(16).padStart(2, "0") + suffix);
+	let escapedURL = encodeChars(url, /[()"]/g, "%", "");
+	let isImage = doc.contentType.startsWith("image/");
+	// expreg should match "file" for "/file.ext"; "file" for "/file"; "file.a" for "/file.a.ext"
+	let [, filename = "Untitled"] = /\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new URL(url).pathname) || [];
+	filename += "." + doc.contentType.split("/")[1].split("+")[0];// base extension on Content-Type subtype https://www.iana.org/assignments/media-types/media-types.xhtml#image
+	// execCommand will not been executed if a frame or an iframe is focused
+	if(["IFRAME","FRAME"].includes(doc.activeElement.tagName)){
+		let focusable = doc.createElement("span");
+		focusable.tabIndex = -1;// focusable
+		focusable.setAttribute("aria-hidden", "true");// will not be announced by AT
+		focusable.style.position = "fixed";
+		doc.documentElement.appendChild(focusable);// don't use doc.body because in case of frame the body is the frameset and execCommand will not work
+		focusable.focus();// force focus, but will not scroll into view, because it have fixed position
+		focusable.remove();// remove focus, without force to scroll into view to an other element
 	}
 
-	javascript:{let%20e=document,t=e.URL,a=[e.title].concat(Array.from(e.querySelectorAll("h1,h2"),e=>e.textContent.replace(/\s+/g,"%20")),t).reduce((e,t)=>e||t.trim(),""),n=(e,t,a="&%23x",n=";")=>e.replace(t,e=>a+e.charCodeAt(0).toString(16).padStart(2,"0")+n),l=n(t,/[()"]/g,"%25",""),r=e.contentType.startsWith("image/"),[,i="Untitled"]=/\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new%20URL(t).pathname)||[];if(i+="."+e.contentType.split("/")[1].split("+")[0],["IFRAME","FRAME"].includes(e.activeElement.tagName)){let%20t=e.createElement("span");t.tabIndex=-1,t.setAttribute("aria-hidden","true"),t.style.position="fixed",e.documentElement.appendChild(t),t.focus(),t.remove()}e.addEventListener("copy",e=>{let%20c=e.clipboardData,o=c.setData.bind(c);e.preventDefault(),c.clearData(),o("text/x-moz-url",t),o("text/uri-list",t),o("text/html",r?`<img%20src="${l}"%20alt="${n(i,/["&<>]/g)}">`:`<a%20href="${l}">${n(a,/[&<>]/g)}</a>`),o("text/plain",r||a!==t?(r?"!":"")+"["+(r?i:a).replace(/[\\<>\[\]]/g,"\\$&")+"]("+l+")":l)},{once:!0}),e.execCommand("copy")}void(0)
-</details>
+	//TODO support SVGDocument (execCommand only exist on HTMLDocument) by create a iframe about:blank inside a foreignObject
+	doc.addEventListener("copy", event => {
+		let clipboardData = event.clipboardData;
+		let setData = clipboardData.setData.bind(clipboardData);
+		event.preventDefault();
+		clipboardData.clearData();
+		setData("text/x-moz-url", url);
+		setData("text/uri-list", url);
+		setData("text/html", isImage ? `<img src="${escapedURL}" alt="${encodeChars(filename, /["&<>]/g)}">` : `<a href="${escapedURL}">${encodeChars(title, /[&<>]/g)}</a>`);
+		setData("text/plain", isImage || title !== url ? (isImage ? "!" : "") + "[" + (isImage ? filename : title).replace(/[\\<>\[\]]/g,"\\$&") + "](" + escapedURL + ")" : escapedURL);
+	}, {once: true});
+	// TODO attach to doc a temp textarea as fallback if copy is not dispatched, and remove it after exec command
+	// TODO see also navigator.clipboard API https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
+	doc.execCommand("copy");
+}
+
+//javascript:{let%20e=document,t=e.URL,a=[e.title].concat(Array.from(e.querySelectorAll("h1,h2"),e=>e.textContent.replace(/\s+/g,"%20")),t).reduce((e,t)=>e||t.trim(),""),n=(e,t,a="&%23x",n=";")=>e.replace(t,e=>a+e.charCodeAt(0).toString(16).padStart(2,"0")+n),l=n(t,/[()"]/g,"%25",""),r=e.contentType.startsWith("image/"),[,i="Untitled"]=/\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new%20URL(t).pathname)||[];if(i+="."+e.contentType.split("/")[1].split("+")[0],["IFRAME","FRAME"].includes(e.activeElement.tagName)){let%20t=e.createElement("span");t.tabIndex=-1,t.setAttribute("aria-hidden","true"),t.style.position="fixed",e.documentElement.appendChild(t),t.focus(),t.remove()}e.addEventListener("copy",e=>{let%20c=e.clipboardData,o=c.setData.bind(c);e.preventDefault(),c.clearData(),o("text/x-moz-url",t),o("text/uri-list",t),o("text/html",r?`<img%20src="${l}"%20alt="${n(i,/["&<>]/g)}">`:`<a%20href="${l}">${n(a,/[&<>]/g)}</a>`),o("text/plain",r||a!==t?(r?"!":"")+"["+(r?i:a).replace(/[\\<>\[\]]/g,"\\$&")+"]("+l+")":l)},{once:!0}),e.execCommand("copy")}void(0)
+```
 
 Older version:
 
-	javascript:{let%20e=document,t=e.URL,a=[e.title].concat(Array.from(e.querySelectorAll("h1,h2")),t).reduce((e,t)=>e||t.textContent&&t.textContent.trim().replace(/\s+/g,"%20")||t.trim(),""),n=(e,t,a="&%23x",n=";")=>e.replace(t,e=>a+e.charCodeAt(0).toString(16).padStart(2,"0")+n),r=n(t,/[()"]/g,"%25",""),l=e.contentType.startsWith("image/"),[,i="Untitled"]=/\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new%20URL(t).pathname)||[];i+="."+e.contentType.split("/")[1].split("+")[0];let%20c=o=>{let%20p=o.clipboardData,d=p.setData.bind(p);e.removeEventListener("copy",c),o.preventDefault(),p.clearData(),d("text/x-moz-url",t),d("text/uri-list",t),d("text/html",l?`<img%20src="${r}"%20alt="${n(i,/["&<>]/g)}">`:`<a%20href="${r}">${n(a,/[&<>]/g)}</a>`),d("text/plain",l||a!==t?(l?"!":"")+"["+(l?i:a).replace(/[\\<>\[\]]/g,"\\$&")+"]("+r+")":r)};if(["IFRAME","FRAME"].includes(e.activeElement.tagName)){let%20t=e.createElement("span");t.tabIndex=-1,t.setAttribute("aria-hidden","true"),t.style.position="fixed",e.documentElement.appendChild(t),t.focus(),t.remove()}e.addEventListener("copy",c),e.execCommand("copy")}void(0)
+```
+javascript:{let%20e=document,t=e.URL,a=[e.title].concat(Array.from(e.querySelectorAll("h1,h2")),t).reduce((e,t)=>e||t.textContent&&t.textContent.trim().replace(/\s+/g,"%20")||t.trim(),""),n=(e,t,a="&%23x",n=";")=>e.replace(t,e=>a+e.charCodeAt(0).toString(16).padStart(2,"0")+n),r=n(t,/[()"]/g,"%25",""),l=e.contentType.startsWith("image/"),[,i="Untitled"]=/\/([^/.]+$|[^/]+(?=\.[^.]*$))/g.exec(new%20URL(t).pathname)||[];i+="."+e.contentType.split("/")[1].split("+")[0];let%20c=o=>{let%20p=o.clipboardData,d=p.setData.bind(p);e.removeEventListener("copy",c),o.preventDefault(),p.clearData(),d("text/x-moz-url",t),d("text/uri-list",t),d("text/html",l?`<img%20src="${r}"%20alt="${n(i,/["&<>]/g)}">`:`<a%20href="${r}">${n(a,/[&<>]/g)}</a>`),d("text/plain",l||a!==t?(l?"!":"")+"["+(l?i:a).replace(/[\\<>\[\]]/g,"\\$&")+"]("+r+")":r)};if(["IFRAME","FRAME"].includes(e.activeElement.tagName)){let%20t=e.createElement("span");t.tabIndex=-1,t.setAttribute("aria-hidden","true"),t.style.position="fixed",e.documentElement.appendChild(t),t.focus(),t.remove()}e.addEventListener("copy",c),e.execCommand("copy")}void(0)
+```
 
 - [Bookmarkleter](http://chriszarate.github.io/bookmarkleter/) - Doesn't support ES6
 - [Create Bookmarklets - The Right Way](https://code.tutsplus.com/tutorials/create-bookmarklets-the-right-way--net-18154)
@@ -7576,11 +7564,11 @@ Must be called in event listener only from user-initiated (at least click).
 
 ## Case
 
-	// camelToSnakeCase
-	name => name.replace(/[a-z][A-Z]/g, match => match.charAt(0) + "_" + match.charAt(1).toLowerCase()).toLowerCase();
+```js
+const camelToSnakeCase = name => name.replace(/[a-z][A-Z]/g, match => match.charAt(0) + "_" + match.charAt(1).toLowerCase()).toLowerCase();
 
-	// snakeToCamelCase
-	name => name.replace(/_([a-z])/g, match => match.charAt(1).toUpperCase());
+const snakeToCamelCase = name => name.replace(/_([a-z])/g, match => match.charAt(1).toUpperCase());
+```
 
 ## Data URI function
 

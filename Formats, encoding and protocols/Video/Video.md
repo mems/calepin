@@ -26,8 +26,11 @@ Pixel aligned on H.264/AVC which use 16×16 macroblocks (partition size predicti
 
 To get frames infos:
 
-- `ffmpeg -i video.mp4 -vstats_file stats.txt -f null - >/dev/null && awk '/type= I/ {print $2}' stats.txt`
-- `ffprobe -show_frames test.mp4 > awk -F= ' /pict_type=/ { if (index($2, "I")) { i=1; } else { i=0; } } /coded_picture_number/ { if (i) print $2 } '`
+```sh
+ffmpeg -i video.mp4 -vstats_file stats.txt -f null - >/dev/null && awk '/type= I/ {print $2}' stats.txt
+
+ffprobe -show_frames test.mp4 | awk -F= ' /pict_type=/ { if (index($2, "I")) { i=1; } else { i=0; } } /coded_picture_number/ { if (i) print $2 } '
+```
 
 Force I-frames (keyframes):
 
@@ -92,8 +95,23 @@ Render timecode as barcode, used for image synchronization (tracking, etc.)
 
 ## Subtitles
 
-	ffmpeg -i input.mp4 -f srt -i infile.srt -codec copy -c:s mov_text output.mp4 -metadata:s:s:0 language=eng
-	ffmpeg -i input.mp4 -codec copy output.mkv -sub_charenc UTF-8 -f srt -i subtitles.srt
+```sh
+ffmpeg -i input.mp4 -f srt -i infile.srt -codec copy -c:s mov_text output.mp4 -metadata:s:s:0 language=eng
+ffmpeg -i input.mp4 -codec copy output.mkv -sub_charenc UTF-8 -f srt -i subtitles.srt
+
+# Delays subtitles by 2 seconds (the duration increased by 2 seconds)
+ffmpeg -itsoffset 2 -i subtitles.srt -c copy subtitles_delayed.srt
+ffmpeg -itsoffset 00:00:02.000 -i subtitles.srt -c copy subtitles_delayed.srt
+# Advances subtitles by 2 seconds (keep the same duration, fill the end with "last frame")
+ffmpeg -itsoffset -2 -i subtitles.srt -c copy subtitles_delayed.srt
+ffmpeg -itsoffset -00:00:02.000 -i subtitles.srt -c copy subtitles_delayed.srt
+# Advances subtitles by 2 seconds (reduce the duration by 2 seconds)
+ffmpeg -ss 2 -i subtitles.srt -c copy subtitles_delayed.srt
+ffmpeg -ss -00:00:02.000 -i subtitles.srt -c copy subtitles_delayed.srt
+
+# Burn subtitles
+ffmpeg -i inputfile.mov -vf "subtitles=subtitles_delayed.srt:force_style='Alignment=9,Fontsize=8,Outline=0'" outputfile.mov
+```
 
 - https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo
 - https://stackoverflow.com/questions/8672809/use-ffmpeg-to-add-text-subtitles/33289845#33289845

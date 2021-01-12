@@ -1056,6 +1056,9 @@ See [Depth sorting](Projection#depth-sorting)
 
 Aka path tracing, ray marching, raytracing, pathtracing
 
+- [Using Blue Noise For Raytraced Soft Shadows « The blog at the bottom of the sea](https://web.archive.org/web/20201105132554/https://blog.demofox.org/2020/05/16/using-blue-noise-for-raytraced-soft-shadows/)
+	- [Shader - Shadertoy BETA](https://web.archive.org/web/20210103171208/https://www.shadertoy.com/view/WsfBDf)
+	- [Alan Wolfe👽🐺🎃 on Twitter: "New Blog Post: Ray Marching Fog With Blue Noise Hiding banding from low step count ray marching, using high quality spatio-temporal noise. https://t.co/i4rTcdfnPw https://t.co/JDQH6cN78d" / Twitter](https://twitter.com/atrix256/status/1259706514828177408)
 - [Volume ray casting — Wikipedia](https://en.wikipedia.org/wiki/Volume_ray_casting)
 - [Ray tracing vs Path tracing, in plain English | LAGOA](http://home.lagoa.com/2014/04/ray-tracing-vs-path-tracing-in-plain-english/)
 - [Ray tracing (graphics) — Wikipedia](https://en.wikipedia.org/wiki/Ray_tracing_%28graphics%29)

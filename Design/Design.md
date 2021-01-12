@@ -65,8 +65,9 @@ Use center of mass" / centroid
 - [Rule of thirds — Wikipedia](https://en.wikipedia.org/wiki/Rule_of_thirds)
 - [Golden ratio — Wikipedia](https://en.wikipedia.org/wiki/Golden_ratio#Aesthetics)
 - [10 Top Photography Composition Rules | Photography Mad](http://www.photographymad.com/pages/view/10-top-photography-composition-rules)
-- [20 Composition Techniques That Will Improve Your Photos](https://petapixel.com/2016/09/14/20-composition-techniques-will-improve-photos/)
-- [Optically](https://gumroad.com/l/optically)
+- [20 Composition Techniques That Will Improve Your Photos](https://web.archive.org/web/20201216011012/https://petapixel.com/2016/09/14/20-composition-techniques-will-improve-photos/)
+- [Optically](https://web.archive.org/web/20201023060446/https://gumroad.com/l/optically)
+- [Dan Paquette • Automatically Resizing a List of Icons or Logos So They're Visually Proportional](https://web.archive.org/web/20201108025907/https://danpaquette.net/read/automatically-resizing-a-list-of-icons-or-logos-so-theyre-visually-proportional/)
 
 ## Typography
 

@@ -90,7 +90,8 @@ A targeted fishing after a smartphone has been stolen, to get unlocked the prote
 - [Warning: beware of fake TibiaMaps.io copies! · TibiaMaps.io](https://tibiamaps.io/blog/phishing) - Phishers copy site, add malware, & buy Google ads to make them appear above the original website in search results
 - [Phishing — Wikipedia](https://en.wikipedia.org/wiki/Phishing)
 - [Email spoofing — Wikipedia](https://en.wikipedia.org/wiki/Email_spoofing)
-- authenticate your email domain with [SPF](#spf)
+- authenticate your email domain with [SPF](./Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#spf)
+- [Protect domains that don’t send email - GOV.UK](https://web.archive.org/web/20210104062226/https://www.gov.uk/guidance/protect-domains-that-dont-send-email)
 
 ### Report
 

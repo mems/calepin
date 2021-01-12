@@ -1319,6 +1319,7 @@ function promiseTimeout(ms, promise) {
 }
 ```
 
+- [Writing Promise-Using Specifications](https://www.w3.org/2001/tag/doc/promises-guide/#rejections-should-be-exceptional) - "Rejections must be used for exceptional situations"
 - [Betamark - Mistakes we make using JavaScript Promises](https://www.betamark.com/blog/mistakes-using-javascript-promises/)
 - [Beware of Async/Await | Brandon's Website](https://www.brandonsmith.ninja/blog/async-await#easy-mistakes)
 - [Understanding JQuery.Deferred and Promise](http://joseoncode.com/2011/09/26/a-walkthrough-jquery-deferred-and-promise/)

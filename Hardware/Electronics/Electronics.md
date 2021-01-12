@@ -6,3 +6,4 @@
 - [RetroPie - Retro-gaming on the Raspberry Pi](https://web.archive.org/web/20201223224853/https://retropie.org.uk/)
 - [ESP8266 MPU6050 - Google Search](https://www.google.com/search?q=ESP8266+MPU6050)
 - [Cellule photoélectrique — Wikipédia](https://fr.wikipedia.org/wiki/Cellule_photo%C3%A9lectrique)
+- [DIY True 4K Projector | Hacker News](https://news.ycombinator.com/item?id=23528130)
