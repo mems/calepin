@@ -2976,7 +2976,7 @@ requestAnimationFrame(() => {
 	// do something...
 	while(true){
 		const time = await new Promise(requestAnimationFrame);
-		// do something just before the repaint...
+		// do something just before repaint
 	}
 })()
 ```

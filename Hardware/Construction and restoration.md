@@ -33,9 +33,12 @@ métallier, serrurier, ferronnier, menuiserie métallique
 > - poussant droit, tirant droit : les charnières sont placées à droite et la poignée à gauche
 > - poussant gauche, tirant gauche : les charnières sont placées à gauche et la poignée à droite
 
+Voir norme EN 1935 / EN 12519 / DIN 107
+
 - [Poussant gauche et poussant droit](https://web.archive.org/web/20200206160312/https://wikialbert.fr/pag/p/o/u/poussant_gauche_et_poussant_droit.htm)
 - [Technique des portes et fenêtres — Wikipédia](https://fr.wikipedia.org/wiki/Technique_des_portes_et_fen%C3%AAtres#Les_d%C3%A9tails[5]) - "Le sens d'ouverture"
 - [sens ouverture norme DIN](https://web.archive.org/web/20200922102730/https://www.systemportesindustrie.fr/sens-ouverture)
+- [Définir le sens d’ouverture des portes | HSB Bern](https://web.archive.org/web/20201126212248/https://www.hsb-bern.ch/fr/project/definir-le-sens-douverture-des-portes)
 
 ## Sound absorption
 
