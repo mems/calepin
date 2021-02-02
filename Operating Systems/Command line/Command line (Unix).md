@@ -1642,6 +1642,10 @@ find . -type f | while read file; do filename=$(basename "$file"); ext=$([[ "$fi
 openssl dgst -sha256 path/to/myfile
 # File checksumMD5
 openssl dgst -md5 path/to/myfile
+# Read or write BSD-style checksum file
+# https://unix.stackexchange.com/a/476480/60668
+sha256sum -c SHA256SUMS path/to/myfile
+sha256sum --tag path/to/myfile
 
 # Encrypt a file with GNU Privacy Guard
 gpg -c file1

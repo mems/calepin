@@ -10,9 +10,10 @@ Aka tree walking, path finding, pathfinding
 - [Unity Compute Shader Experiments: GPU Pathfinding - YouTube](https://www.youtube.com/watch?v=1OSXWhd3hvI)
 - [GPU Accelerated Pathfinding - Avi Bleiweiss](https://folk.idi.ntnu.no/elster/tdt24/tdt24-f12/presentations/lars-espen-presentation.pdf)
 - [Browse (1) - Shadertoy BETA](https://www.shadertoy.com/results?query=tag%3Dpathfinding)
+- [path finding with 3js](https://web.archive.org/web/20210116182649/https://makc.github.io/three.js/pathfinding/) - [makc.github.io/three.js/pathfinding at master · makc/makc.github.io](https://github.com/makc/makc.github.io/tree/master/three.js/pathfinding)
 
 To visit a node for a finite tree
- 
+
  ```json
  [
 	{
@@ -57,7 +58,7 @@ Limited by the call stack if no [tail call optimization](https://en.wikipedia.or
 
 Depth-first search like traversal
 
-It support only one root node. It's allow to 
+It support only one root node. It's allow to
 
 Note: `stack` and `indexes` length are not shrinked during loop iteration, because it's not really needed to do so
 
@@ -72,7 +73,7 @@ Note: `stack` and `indexes` length are not shrinked during loop iteration, becau
 		let node = stack[deep];
 		// do something with the node data or insert, delete children:
 		// visitorStart(node, indexes[deep], stack.slice(0, deep - 1), indexes.slice(0, deep - 1));
-		
+
 		// if the node has children, go down visit it
 		if(node.childNodes.length){
 			deep++;
@@ -81,7 +82,7 @@ Note: `stack` and `indexes` length are not shrinked during loop iteration, becau
 			// Continue the loop with the first child node
 			continue;
 		}
-		
+
 		// Else go visit the next sibling or the parent sibling if any
 		// or the grand parent sibling if any, and so on until reach the root node
 		while (true){
@@ -90,7 +91,7 @@ Note: `stack` and `indexes` length are not shrinked during loop iteration, becau
 			let parents = deep == 0 ? [] : stack.slice(0, parentDeep);
 			let childIndexes = deep == 0 ? [] : indexes.slice(0, parentDeep);
 			// visitorEnd(stack[deep], indexes[deep], parents, childIndexes);
-		
+
 			// This is the end. The root node don't have siblings
 			if(deep === 0){
 				break nodes;
@@ -103,12 +104,12 @@ Note: `stack` and `indexes` length are not shrinked during loop iteration, becau
 				stack[deep] = siblings[nextSiblingIndex];
 				continue nodes;
 			}
-			
+
 			// Else no next sibling, go up and try again
 			deep--;
 		}
 	}
-	
+
 	stack.length = indexes.length = 1;// clean up the stack
 
 ## Accumulation
@@ -124,10 +125,10 @@ Simple, but require more memory than [Stack](#stack), because in each loop itera
 	let queue = [rootNode1, rootNode2/*...*/].reverse();// nodes queue waiting for visitation
 	while(queue.length > 0){
 		let node = queue.pop();
-		
+
 		// visite the node
 		// do something with the node data or insert, delete child
-		
+
 		// Node has children
 		if(node.childNodes.length){
 			nodes = queue.concat(node.childNodes.slice(0).reverse());// reverse child order to be sure the last is the first visited order

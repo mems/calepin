@@ -147,6 +147,7 @@ For 2D, 3D engine might be better for performance
 For [bloom](https://learnopengl.com/#!Advanced-Lighting/Bloom), see [Blur](Blur).
 
 - [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/simplegi/simplegi.htm) - simple global illumination
+- [Lights and Shadows – Bartosz Ciechanowski](https://web.archive.org/web/20201211075213/https://ciechanow.ski/lights-and-shadows/)
 - [Dynamic 2D Character Lighting | p1xelcoder](http://www.p1xelcoder.com/2013/12/14/dynamic-2d-character-lighting/)
 - [Circular Harmonics](http://blackpawn.com/texts/ch/) - Spherical harmonics can be used in 3d to project lighting environments
 - [3D lighting and normal mapping](https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson6) - see also https://github.com/mattdesl/kami-demos (normals and normals-pixel)
@@ -875,6 +876,7 @@ Aka antialiasing
 — [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=89)
 
 - [GPU Gems - Chapter 22. Fast Prefiltered Lines](http://http.developer.nvidia.com/GPUGems2/gpugems2_chapter22.html)
+- [Alpha Compositing – Bartosz Ciechanowski](https://web.archive.org/web/20201216230301/https://ciechanow.ski/alpha-compositing/#coverage)
 
 ## Render line
 
@@ -1120,7 +1122,7 @@ Infinite effect, use raymarcher
 
 ## Pixel Shader
 
-See also [color space](Color space) (HSL, ColorMatrix)
+See also [color space](../Algorithms/Color%20space/Color%20space.md) (HSL, ColorMatrix)
 
 Aka Fragment Shaders
 
@@ -2542,6 +2544,7 @@ See [projection](Projection)
 - [Blend Modes for OpenGL](http://fr.slideshare.net/Mark_Kilgard/blend-modes-for-opengl)
 - [Can image transparency be calculated automatically from multiple non-transparent samples? - Graphic Design Stack Exchange](http://graphicdesign.stackexchange.com/questions/31337/can-image-transparency-be-calculated-automatically-from-multiple-non-transparent)
 - [PDF Blend Modes](https://www.adobe.com/content/dam/acom/en/devnet/pdf/pdfs/pdf_reference_archives/blend_modes.pdf)
+- [Alpha Compositing – Bartosz Ciechanowski](https://web.archive.org/web/20201216230301/https://ciechanow.ski/alpha-compositing/)
 
 Compute blend mode: (image A and image B): [Photoshop math with GLSL shaders](http://wayback.archive.org/web/20100508034307/http://blog.mouaif.org/2009/01/05/photoshop-math-with-glsl-shaders/) - see also the file `PhotoshopMathFP.hlsl`
 

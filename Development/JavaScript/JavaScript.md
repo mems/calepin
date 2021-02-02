@@ -863,6 +863,8 @@ document.body.appendChild(script);
 
 See [Load external script](#load-external-script)
 
+See also [krux/postscribe: Asynchronously write javascript, even with document.write.](https://github.com/krux/postscribe)
+
 ### Don't put CSS and template in script
 
 Baking CSS and templates into scripts will increase the memory footprint of your web app. You’re obstructing the browsers’ optimizations.

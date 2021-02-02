@@ -447,6 +447,7 @@ For older version (but require copy other files):
 ## iOS manager
 
 - iTunes / Finder (10.15+) - iPhone manager
+- [iPhone Backup Viewer is a free iPhone backup extractor for Mac and Windows](https://www.imactools.com/iphonebackupviewer/)
 - [Use Quick Start to transfer data from your previous iOS device to your new iPhone, iPad, or iPod touch - Apple Support](https://support.apple.com/en-us/HT210216#migration) - iPhone Migration Utility
 - [iMazing | iPhone, iPad & iPod Manager for Mac & PC](https://imazing.com/)
 - [\[Official\] iMobie AnyTrans®, PhoneRescue®, PhoneClean®, MacClean](https://www.imobie.com/) - AnyTrans

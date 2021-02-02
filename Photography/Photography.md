@@ -15,4 +15,4 @@ https://www.reddit.com/r/space/comments/arer0k/comment/egn6mbz
 
 ## Lenses
 
-- [Cameras and Lenses – Bartosz Ciechanowski](https://web.archive.org/web/20201210185337/https://ciechanow.ski/cameras-and-lenses/)
+- [Cameras and Lenses – Bartosz Ciechanowski](https://web.archive.org/web/20210112170311/https://ciechanow.ski/cameras-and-lenses/)

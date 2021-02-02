@@ -85,6 +85,7 @@ Add public auth key:
 ```sh
 ssh -p 2222 user@<androiddeviceip>
 # use the onetime password given in the SimpleSSHD's console
+# ssh-keyscan -p 2222 -t ecdsa-sha2-nistp256 192.168.3.20
 
 # Add public key for further connections
 echo "<userpublickey>" > /data/data/org.galexander.sshd/files/authorized_keys

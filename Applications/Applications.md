@@ -1977,3 +1977,12 @@ Split tunnel is configurable only by the VPN admin, not by the client only.
 ## Notepad++
 
 - [How to install a Notepad++ plugin offline? - Stack Overflow](https://stackoverflow.com/questions/40015350/how-to-install-a-notepad-plugin-offline/52629470#52629470)
+
+## WhatsApp
+
+Backup WhatsApp data from iOS
+
+- `AppDomainGroup group.net.whatsapp.WhatsApp.shared/ChatStorage.sqlite`
+- [4 Ways to Transfer WhatsApp from iPhone to Android](https://web.archive.org/web/20210121165501/https://mobiletrans.wondershare.com/whatsapp/transfer-whatsapp-from-iphone-to-android.html)
+- [lbalogh/WhatsAppDBReader: Open a WhatsApp database and display conversations](https://github.com/lbalogh/WhatsAppDBReader)
+- [wiggin15/whatsapp_history: Get full chat history from Whatsapp and SMS/iMessage](https://github.com/wiggin15/whatsapp_history)

@@ -7,24 +7,37 @@ Construction quality and defects examples:
 
 ## Door
 
-Porte blindé
+Porte de service blindé : 1000-1500€
+Très souvent du sur mesure.
 
-Porte de cave collective
+- serrure multipoints
+- barre de pivot : forcer les paumelles pour dégonder la porte
+- cornières anti-pinces
+- blindage acier 15/10ème - 25/10ème
+- poignée blindée : casse ou l'arrachage du cylindre
+- 3+ paumelles
+- protège-gonds
 
-Très souvent du sur mesure. Assez cher (une porte blindé, de 1000 à 4000€)
 
 - [Blindage porte : tout savoir sur le blindage d’une porte](https://web.archive.org/web/20201021194222/https://porte.ooreka.fr/comprendre/blindage-de-porte)
 - [Comment faire un blindage de porte soi-même](https://web.archive.org/web/20200930194918/https://www.systemed.fr/menuiserie-exterieure/blinder-porte-existante,2366.html)
 - [Forum 60 millions de consommateurs • Consulter le sujet - porte blindée](https://www.60millions-mag.com/forum/logement-immobilier/porte-blindee-t4995-10.html?sid=614e2891440d2375a2e0a3a8bda072fe#p103892)
 - [Porte d'entrée blindée : comment la choisir ? Quel prix en neuf ou en rénovation ?](https://bricoleurpro.ouest-france.fr/dossier-268-porte-entree-blindee.html)
+- [Prix d'une porte blindée | Coût & Tarif pose | Guide Octobre 2020](https://web.archive.org/web/20201020140305/https://www.abctravaux.org/prix-porte-blindee/)
 
-- [Blocs-portes de services | www.malerba.fr](https://www.malerba.fr/blocs-portes-de-services-familles-de-produit-produit)
+- [Blocs-portes de services | www.malerba.fr](https://www.malerba.fr/blocs-portes-de-services-familles-de-produit-produit) - [Portes de cave (ADAPTA'CAV) - Malerba Distribution](https://www.malerba-distribution.com/produit/portes-cave-adapta-cav.html) - [Nous contacter | www.malerba.fr](https://www.malerba.fr/contacts) ()
 - [Porte métallique technique toutes options | OXIUM](https://www.oxium.fr/produit/oxmetal) (pas de vente aux particuliers)
 - [PSA 1 - Portes d'entrée Acier | Bel'M](https://www.belm.fr/porte-entree-psa-1)
 - [Porte coupe-feu et multifonctionnelles](https://www.hormann.fr/industrie-logistique-tertiaire-commerce/bloc-portes/portes-multifonctionnelles/) (pas de vente aux particuliers)
+- [Produits Archive - Decayeux | Decayeux](https://www.decayeux.com/produits/)
 - [Porte de cave - INDUSTRIMAT Fermetures](https://www.industrimat-fermetures.fr/porte-metallique/porte-de-cave/)
+- [Porte de service - Produits du BTP](https://www.batiproduits.com/liste/produits/porte-de-service-o13078.html#filter_3218%5B%5D=acier)
+- [Porte Métallique Industrielle De Service L900xH2050](https://www.laboutiqueduportail.com/porte-de-service/4531-porte-metallique-industrielle-double-coupe-feu-1h-l800800xh2050-3701111221915.html)
+- [Blindage dans le Val-d'Oise 95 à Domont | Leroi & Galves](https://www.blindage-leroigalves.com/blindage.html)
+- [Porte de cave blindée - Porte metallique - Tordjman Metal](https://www.tordjmanmetal.fr/porte-de-cave)
+- [Installation de porte de cave blindée par votre serrurier à Paris](https://www.serrure-pas-cher.fr/blindage-de-porte/porte-de-cave-blindee)
 
-métallier, serrurier, ferronnier, menuiserie métallique
+métallier, serrurier, ferronnier, menuiserie métallique, quincaillerie
 
 ### Sens d'ouverture
 
@@ -45,3 +58,7 @@ Voir norme EN 1935 / EN 12519 / DIN 107
 Use towel (multiple layers)
 
 - [How to Make High Performance Sound Absorption Panels for $5 - YouTube](https://www.youtube.com/watch?v=pABvTWSxOes)
+
+## Painting
+
+- [PEINDRE: LES 20 ERREURS DE DÉBUTANT - YouTube](https://www.youtube.com/watch?v=WYMX6pwJiFE)

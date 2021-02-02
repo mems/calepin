@@ -818,8 +818,11 @@ App Code + (exported) PNGs or AppCode + design (PSD) submodule (will be used to 
 
 ### Store secrets
 
+Aka git secrets
+
 - [mozilla/sops: Simple and flexible tool for managing secrets](https://github.com/mozilla/sops)
 - [StackExchange/blackbox: Safely store secrets in Git/Mercurial/Subversion](https://github.com/StackExchange/blackbox)
+- [git-crypt - transparent file encryption in git](https://www.agwa.name/projects/git-crypt/)
 - [Check hash and keys leak or reversed (hashes)](../Security/Security.md#hash-and-keys)
 - [Password storage](../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#password-storage)
 - [Secret sharing](../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#secret-sharing)

@@ -1,5 +1,15 @@
 ## Definitions
 
+BCP 74 `fr-CA-u-sd-caqc` with subtags:
+
+1. primary language `fr` (ISO 639-1: French)
+2. region subtag `CA` (ISO 3166-1 alpha-2: Canada)
+3. extension `U` (Unicode Locale):
+	- key `sd` ([Region subdivision](https://github.com/unicode-org/cldr/blob/90aaf561d1827ce06b1e9c4173a70c018665c7d2/common/bcp47/variant.xml#L19-L22))
+	- value `caqc` ([Quebec](https://github.com/unicode-org/cldr/blob/90aaf561d1827ce06b1e9c4173a70c018665c7d2/common/subdivisions/ca.xml#L404))
+
+See [IETF language tag - Wikipedia](https://en.wikipedia.org/wiki/IETF_language_tag#Extension_U_%28Unicode_Locale%29) and [Unicode Extensions for BCP 47 - CLDR - Unicode Common Locale Data Repository](http://cldr.unicode.org/index/bcp47-extension)
+
 - [Language localisation — Wikipedia](https://en.wikipedia.org/wiki/Language_localisation)
 - [Territory — Wikipedia](https://en.wikipedia.org/wiki/Territory)
 - [Region — Wikipedia](https://en.wikipedia.org/wiki/Region)
@@ -15,7 +25,7 @@
 	- `001`: World
 	- `021`: Northern America (group of `BM`, `CA`, `GL`, `PM` and `US`)
 	- etc.
-	
+
 	- `fr`: French
 	- `und`: Unknown language
 - languages from http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
@@ -79,7 +89,7 @@ Locale tree
 
 - United Nations Standard country or area codes and geographical - geographical regions, sub-regions, and selected economic and other groupings. Use ISO 3166-1 alpha-3 codes and UN M.49 codes
 	- [United Nations Statistics Division- Standard Country and Area Codes Classifications (M49)](https://millenniumindicators.un.org/unsd/methods/m49/m49.htm)
-	- [United Nations Statistics Division- Standard Country and Area Codes Classifications (M49)](https://millenniumindicators.un.org/unsd/methods/m49/m49regin.htm) - Composition of macro geographical (continental) regions, geographical sub-regions, and selected economic and other groupings 
+	- [United Nations Statistics Division- Standard Country and Area Codes Classifications (M49)](https://millenniumindicators.un.org/unsd/methods/m49/m49regin.htm) - Composition of macro geographical (continental) regions, geographical sub-regions, and selected economic and other groupings
 	- [United Nations Statistics Division- Standard Country and Area Codes Classifications (M49)](https://millenniumindicators.un.org/unsd/methods/m49/m49alpha.htm) - Countries or areas, codes and abbreviations
 - Unicode Common Locale Data Repository (CLDR) - Locale rules: date, time format, currency, plurial, etc. Use UN M.49 classification for territories
 	- [Common Locale Data Repository — Wikipedia](https://en.wikipedia.org/wiki/Common_Locale_Data_Repository)
@@ -99,9 +109,9 @@ Note: Not just translation, localization too, not necessary the same meaning, ju
 - [IETF language tag — Wikipedia](https://en.wikipedia.org/wiki/IETF_language_tag) - language codes + country codes. Allow different schemes to define languages and countries codes
 - UN M.49
 	- [UN M.49 — Wikipedia](https://en.wikipedia.org/wiki/UN_M.49)
-	
+
 	See also:
-	
+
 	- [ISO 3166-1 numeric — Wikipedia](https://en.wikipedia.org/wiki/ISO_3166-1_numeric)
 - ISO 3166 - codes for the names of countries, dependent territories, special areas of geographical interest, and their principal subdivisions (e.g., provinces or states)
 	- [ISO - Publications and e-products](http://www.iso.org/iso/home/store/publication_item.htm?pid=PUB500001%3aen) - list of contries
@@ -109,14 +119,14 @@ Note: Not just translation, localization too, not necessary the same meaning, ju
 	- [Online Browsing Platform (OBP)](https://www.iso.org/obp/ui/#search)
 
 	See also:
-	
+
 	- [ISO 3166-1 alpha-2 — Wikipedia](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) - two-letter country codes
 	- [ISO 3166-1 alpha-3 — Wikipedia](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) - three-letter country codes
 - [ISO 639 — Wikipedia](https://en.wikipedia.org/wiki/ISO_639) - Language and language groups
 - [ISO 4217 — Wikipedia](https://en.wikipedia.org/wiki/ISO_4217) - currency and funds codes
- 
+
 	Region
-	
+
 	Commonwealth of Independent States:
 	am=cis
 	az=cis
@@ -127,7 +137,7 @@ Note: Not just translation, localization too, not necessary the same meaning, ju
 	tm=cis
 	uz=cis
 	ge=cis
-	
+
 	Middle East:
 	dz=middle_east
 	bh=middle_east
@@ -153,7 +163,7 @@ Note: Not just translation, localization too, not necessary the same meaning, ju
 	tn=middle_east
 	ae=middle_east
 	ye=middle_east
-	
+
 	Latin America:
 	cl=latin_america
 	do=latin_america
@@ -173,7 +183,7 @@ Note: Not just translation, localization too, not necessary the same meaning, ju
 	pa=latin_america
 	gq=latin_america
 	pr=latin_america
-	
+
 	country codes to language names:
 	bg=bg
 	br=pt-BR

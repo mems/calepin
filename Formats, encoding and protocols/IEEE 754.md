@@ -6,6 +6,7 @@ Workaround precision: use BigNumber or Unum (universal number)
 
 - [IEEE 754 - Wikipedia](https://en.wikipedia.org/wiki/IEEE_754)
 - [IEEE-754 Analysis](https://babbage.cs.qc.cuny.edu/IEEE-754/index.xhtml)
+- [Exposing Floating Point – Bartosz Ciechanowski](https://web.archive.org/web/20201107230224/https://ciechanow.ski/exposing-floating-point/)
 - [Kahan summation algorithm - Wikipedia](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)
 - [Classes.Binary Parser - JSFromHell.com: JavaScript Repository](http://jsfromhell.com/classes/binary-parser)
 - [The Floating-Point Guide - What Every Programmer Should Know About Floating-Point Arithmetic](http://floating-point-gui.de/)

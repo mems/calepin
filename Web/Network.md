@@ -1131,7 +1131,7 @@ Examples:
 Paging:
 
 - `Link` header with rel `next`, `prev`, `last`, `first`
-- [GitHub API v3 | GitHub Developer Guide](https://developer.github.com/v3/#pagination)
+- [Resources in the REST API - GitHub Docs](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#pagination)
 - [RFC 5988 - Web Linking](https://tools.ietf.org/html/rfc5988#page-6)
 - page cursor (works well for non user paging, or only for "load more") [API pagination design](https://web.archive.org/web/20201228003649/https://solovyov.net/blog/2020/api-pagination-design/) [API pagination design | Hacker News](https://news.ycombinator.com/item?id=25547716)
 - [What's good about offset pagination; designing parallel cursor-based web APIs — brandur.org](https://web.archive.org/web/20210104103214/https://brandur.org/fragments/offset-pagination)

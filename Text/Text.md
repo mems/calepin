@@ -751,3 +751,9 @@ See [Sample data](../Data/Sample%20data/Sample%20data.md)
 - [Block Elements - Wikipedia](https://en.wikipedia.org/wiki/Block_Elements)
 - [Box-drawing character - Wikipedia](https://en.wikipedia.org/wiki/Box-drawing_character)
 - [Braille Patterns - Wikipedia](https://en.wikipedia.org/wiki/Braille_Patterns)
+
+## Salutation
+
+Aka formule de politesse, formule de sortie
+
+- [Cordialement, bien à vous... les 10 formules pour bien finir un mail pro | LCI](https://web.archive.org/web/20201129025648/https://www.lci.fr/entreprises/cordialement-bien-a-vous-les-10-formules-pour-bien-finir-un-mail-pro-2080824.html)

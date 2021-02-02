@@ -845,6 +845,7 @@ Line break [Flex-grow 9999 Hack](http://joren.co/flex-grow-9999-hack/)
 ### Table
 
 - [Tables, CSS Display Properties, and ARIA | Adrian Roselli](https://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html)
+- [Fixed Table Headers | Adrian Roselli](https://web.archive.org/web/20210113070647/https://adrianroselli.com/2020/01/fixed-table-headers.html)
 - [Styling HTML Tables: How to Apply Margin, Border and z-index on Table Elements - Markus Oberlehner](https://web.archive.org/web/20201207192927/https://markus.oberlehner.net/blog/styling-html-tables-how-to-apply-margins-borders-and-z-index-on-table-elements/) - Table with margin, rounded borders and z-index, see [the result](https://web.archive.org/web/20201212134936/https://wo9cc.csb.app/)
 - [Table with Rounded Corners](https://codepen.io/chris22smith/pen/RwGRGEv)
 

@@ -467,3 +467,23 @@ Conseils de Chef Damien :
 
 - Vous pouvez ajouter quelques pluches de coriandre frais à la fin pour apporter un peu de fraîcheur au plat.
 - J'aime aussi ajouter un petit peu de gingembre haché.
+
+## Financier
+
+Pour 10 portions :
+
+- 90g de poudre d'amandes
+- 100 g de beurre
+- 90 g de farine
+- 150 g de sucre (glace)
+- 4 blancs d’oeufs
+
+1. préchauffer le four à 200°C (thermostat 6-7)
+2. beurrer le moule à financiers
+3. mélanger dans un récipient la poudre d'amandes, le sucre, la farine fluide et la vanille
+4. monter les blancs en neige ferme avec une pincée de sel et l'ajouter au mélange précédent
+5. faire fondre le beurre dans une casserole et l'ajoute à la pâte
+6. verser dans le moule et mettre au four 15 à 20 min
+
+- [Financiers : Recette de Financiers - Marmiton](https://www.marmiton.org/recettes/recette_financiers_13690.aspx)
+- [Recette - Le financier en vidéo](https://www.750g.com/le-financier-r24244.htm)

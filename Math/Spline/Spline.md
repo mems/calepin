@@ -23,27 +23,27 @@ A bezier spline is an aggregation of bezier curves (could be have different poly
 See also [Reduce points - Polyline simplification](Reduce points - Polyline simplification)
 
 - (see comments) [blog.rails2u.com » Blog Archive » Accurate bezier special property for Tweener](http://wayback.archive.org/web/20080518175320/http://blog.rails2u.com/2007/10/03/accurate-bezier-special-property-for-tweener/)
- 
+
 	var anchor1:Point;
 	var anchor2:Point;
 	var control1:Point;
 	var control2:Point;
 	var position:Number; // between 0 and 1
-	
+
 	var posX : Number = Math.pow(position, 3) * (anchor2.x + 3 * (control1.x - control2.x) - anchor1.x)
 		+ 3 * Math.pow(positie, 2) * (anchor1.x - 2 * control1.x + control2.x)
 		+ 3 * position * (control1.x - anchor1.x) + anchor1.x;
-	
+
 	var posY : Number = Math.pow(position, 3) * (anchor2.y + 3 * (control1.y - control2.y) - anchor1.y)
 		+ 3 * Math.pow(position, 2) * (anchor1.y - 2 * control1.y + control2.y)
-		+ 3 * position * (control1.y - anchor1.y) + anchor1.y;	
+		+ 3 * position * (control1.y - anchor1.y) + anchor1.y;
 
 	# given points p0, p0Out, and p1In, and p1, and t varying from 0.0 to 1.0...
 	a0 = (1 - t) ** 3
 	a1 = 3 * (1 - t) ** 2 * t
 	a2 = 3 * (1 - t) * t ** 2
 	a3 = t ** 3
-	
+
 	# calculate x and y
 	x = a0 * p0.x + a1 * p0.xOut + a2 * p1.xIn + a3 * p1.x
 	y = a0 * p0.y + a1 * p0.yOut + a2 * p1.yIn + a3 * p1.y
@@ -61,7 +61,7 @@ Curves (Bezier)
 - [Exploring Bezier Curves](https://richardfuhr.neocities.org/BusyBCurves.html)
 - [Solving Quadratics with a Ruler and Compass](http://loopspace.mathforge.org/CountingOnMyFingers/QuadraticCompass/)
 - [graphics - bezier path widening - Stack Overflow](https://stackoverflow.com/questions/3205819/bezier-path-widening)
-- [Drawing Bézier Curves - Bartosz Ciechanowski](http://ciechanowski.me/blog/2014/02/18/drawing-bezier-curves/)
+- [Drawing Bézier Curves – Bartosz Ciechanowski](https://web.archive.org/web/20201112015848/https://ciechanow.ski/drawing-bezier-curves/)
 - [Drawing a cubic bezier curve using actionscript 3 | Paul Tondeur](http://wayback.archive.org/web/20160712042256/http://blog.paultondeur.com/2008/03/09/drawing-a-cubic-bezier-curve-using-actionscript-3)
 - [Constant speed following bezier curve - math & physics - Devmaster Forum](http://forum.devmaster.net/t/constant-speed-following-bezier-curve/7963) and [Spin-X Engine Community - Constant Speed Cubic Spline Interpolation](http://wayback.archive.org/web/20130805215911/http://community.spinxengine.com/content/19-constant-speed-cubic-spline-interpolation.html)
 - [Bézier Path Algorithms | Dev.Mag](http://devmag.org.za/2011/06/23/bzier-path-algorithms/)
@@ -114,17 +114,17 @@ Based on "Resolution Independent Curve Rendering using Programmable Graphics Har
 Length of bezier cubic
 
 > > It's surprisingly easy. An approximate length of a 3D cubic Bezier curve is the average of its chord length and the sum of the lengths of its control net sides. This approximated average converges on the true arc length very quickly as the parametric domain is reduced.
-> > 
+> >
 > > In English: the chord length is the length of the line segment between the arc endpoints. The control net is the three line segments that define the cubic Bezier. The sum of the lengths of those three line segments, added to the chord length, and divided by two, gives a good approximation to true cubic Bezier arc length.
-> > 
-> > To get a better approximation, split the cubic Bezier into several smaller cubic Beziers, and perform the operation I described above on each of them, and sum their lengths for the arc length of the entire cubic Bezier. 
+> >
+> > To get a better approximation, split the cubic Bezier into several smaller cubic Beziers, and perform the operation I described above on each of them, and sum their lengths for the arc length of the entire cubic Bezier.
 > — [3D Cubic Bezier Segment Length](https://www.opengl.org/discussion_boards/showthread.php/172373-3D-Cubic-Bezier-Segment-Length?p=1209064&viewfull=1#post1209064)
-> 
+>
 > 	Bezier bezier = Bezier (p0, p1, p2, p3);
-> 	
+>
 > 	chord = (p3-p0).Length;
 > 	cont_net = (p0 - p1).Length + (p2 - p1).Length + (p3 - p2).Length;
-> 	
+>
 > 	app_arc_length = (cont_net + chord) / 2;
 — [c - Cheap way of calculating cubic bezier length - Stack Overflow](https://stackoverflow.com/questions/29438398/cheap-way-of-calculating-cubic-bezier-length/37862545#37862545)
 
@@ -154,7 +154,7 @@ For segmentation, dashes, text on curve or motion keyframes
 - [javascript - dotted stroke in \<canvas\> - Stack Overflow](https://stackoverflow.com/questions/4576724/dotted-stroke-in-canvas)
 - [17/02/26](https://bit101.github.io/lab/dailies/170226.html) and [170227](https://bit101.github.io/lab/dailies/170227.html) - Use the "Segmentize" checkbox. See https://github.com/bit101/lab/blob/master/dailies/170226.js and https://github.com/bit101/lab/blob/master/dailies/170227.js
 
-Path like car on road or train on trailroad / rail tracks 
+Path like car on road or train on trailroad / rail tracks
 
 - Lot of infos [Curved Paths](http://www.redblobgames.com/articles/curved-paths/), [Road Building Applet](http://theory.stanford.edu/~amitp/game-programming/road-applet/roads.html) and [Blobs in Games: Road building applet](http://simblob.blogspot.fr/2004/10/road-building-applet.html)
 - [The Starting Point for a Train Game with Freeform Tracks | Learn & Master Cocos2D Game Development](http://www.learn-cocos2d.com/2012/07/starting-point-train-game-freeform-tracks/) https://github.com/LearnCocos2D/LearnCocos2D/tree/master/RailCarDrivingOnTrackTest
