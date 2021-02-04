@@ -46,7 +46,7 @@ More infos about frames:
 
 Videos codec often don't support alpha, often used for entertainment or support that dont need alpha channel.
 
-Use a dedicated format like: WebM with codecs: VP8, VP8 or MOV with codecs: PNG (FourCC: `png `), QuickTime None (FourCC: `v408`) or QuickTime Animation (FourCC: `rle `) or FLV/F4V
+Use a dedicated format like: WebM with codecs: VP8, VP9 or MOV with codecs: PNG (FourCC: `png `), QuickTime None (FourCC: `v408`) or QuickTime Animation (FourCC: `rle `) or FLV/F4V
 
 Or use side by side (or 2 files) for channels (RGB + A) videos. See [Side by side channels](Image#side-by-side-channels)
 

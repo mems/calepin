@@ -6958,26 +6958,30 @@ The workaround is use `eval(anchor.href)` instead.
 
 ## Why return undefined for `javascript:` URIs
 
-	javascript:void window.open("http://example.com/");
+```
+javascript:void window.open("http://example.com/");
+```
 
 - http://speakingjs.com/es5/ch09.html#_what_is_void_used_for
 
 ## Catch global errors
 
-	window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
-		if (errorMsg.indexOf("Script error.") > -1) {
-			return;
-		}
-		//alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber
-			+ ' Column: ' + column + ' StackTrace: ' +  errorObj);
+```js
+window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+	if (errorMsg.indexOf("Script error.") > -1) {
+		return;
 	}
+	//alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber
+		+ ' Column: ' + column + ' StackTrace: ' +  errorObj);
+}
 
-	window.error = function(message, url){
-		/* critical error or same host script */
-		if(message.match("Uncaught TypeError") || url.includes(location.host)){
-			/*show fallback content*/
-		}
+window.onerror = function(message, url){
+	/* critical error or same host script */
+	if(message.match("Uncaught TypeError") || url.includes(location.host)){
+		/*show fallback content*/
 	}
+}
+```
 
 - [Daniel Grant on Twitter: "Considering if it would be a good idea to pessimistically fallback to non-JS layout whenever there' a seriou error… "](https://twitter.com/djgrant_/status/734438032716271616)
 - [Capture and Report JavaScript Error with window.onerror — SitePoint](https://www.sitepoint.com/capture-and-report-javascript-errors-with-window-onerror/#browsercompatibility)
@@ -7149,87 +7153,93 @@ Like click but with touch only (not mousedown, mouseup)
 
 **TODO**
 
-	// Touch simili hover
-	var countries = document.querySelectorAll(".dsp-country-wrp");
-	var currentTouchedCountry = null;
-	var startTouchedTarget = null;
-	function documentTouchStart(event){
-		startTouchedTarget = event.target;
-	}
-	function documentTouchEnd(event){
-		var target = event.target;
-		var touchedCountry = null;
-		if(event.type == "touchend"){
-			for(var i = 0; i < countries.length; i++){
-				var pos = target.compareDocumentPosition(countries[i]);
-				if(pos == 0 || pos & 8){//self || Node.DOCUMENT_POSITION_CONTAINS
-					touchedCountry = countries[i];
-					break;
-				}
-			}
-		}
-
-		if(currentTouchedCountry == touchedCountry){
-			return;// don't click twice
-		}
-
-		// Like click but with touches
-		if(touchedCountry == startTouchedTarget && touchedCountry != currentTouchedCountry){
-			country.classList.add("dsp-country-wrp--active");
-		}else{
-			lastCountryTouched.classList.remove("dsp-country-wrp--active");
-		}
-
-		currentTouchedCountry = touchedCountry;
-	}
-	document.addEventListener("touchstart", documentTouchEnd);
-	document.addEventListener("touchcancel", documentTouchEnd);
-	document.addEventListener("touchend", documentTouchEnd);
-
-Or simply use touchstart only:
-
-	var countries = document.querySelectorAll(".dsp-country-wrp");
-	var currentTouchedCountry = null;
-	function documentTouchStart(event){
-		var touchedCountry = null;
-
+```js
+// Touch simili hover
+var countries = document.querySelectorAll(".dsp-country-wrp");
+var currentTouchedCountry = null;
+var startTouchedTarget = null;
+function documentTouchStart(event){
+	startTouchedTarget = event.target;
+}
+function documentTouchEnd(event){
+	var target = event.target;
+	var touchedCountry = null;
+	if(event.type == "touchend"){
 		for(var i = 0; i < countries.length; i++){
-			var pos = event.target.compareDocumentPosition(countries[i]);
+			var pos = target.compareDocumentPosition(countries[i]);
 			if(pos == 0 || pos & 8){//self || Node.DOCUMENT_POSITION_CONTAINS
 				touchedCountry = countries[i];
 				break;
 			}
 		}
-
-		if(touchedCountry === currentTouchedCountry){
-			return;
-		}
-
-		if(currentTouchedCountry){
-			currentTouchedCountry.classList.remove("dsp-country-wrp--active");
-		}
-		if(touchedCountry){
-			touchedCountry.classList.add("dsp-country-wrp--active");
-		}
-		currentTouchedCountry = touchedCountry;
 	}
-	document.addEventListener("touchstart", documentTouchStart);
+
+	if(currentTouchedCountry == touchedCountry){
+		return;// don't click twice
+	}
+
+	// Like click but with touches
+	if(touchedCountry == startTouchedTarget && touchedCountry != currentTouchedCountry){
+		country.classList.add("dsp-country-wrp--active");
+	}else{
+		lastCountryTouched.classList.remove("dsp-country-wrp--active");
+	}
+
+	currentTouchedCountry = touchedCountry;
+}
+document.addEventListener("touchstart", documentTouchEnd);
+document.addEventListener("touchcancel", documentTouchEnd);
+document.addEventListener("touchend", documentTouchEnd);
+```
+
+Or simply use touchstart only:
+
+```js
+var countries = document.querySelectorAll(".dsp-country-wrp");
+var currentTouchedCountry = null;
+function documentTouchStart(event){
+	var touchedCountry = null;
+
+	for(var i = 0; i < countries.length; i++){
+		var pos = event.target.compareDocumentPosition(countries[i]);
+		if(pos == 0 || pos & 8){//self || Node.DOCUMENT_POSITION_CONTAINS
+			touchedCountry = countries[i];
+			break;
+		}
+	}
+
+	if(touchedCountry === currentTouchedCountry){
+		return;
+	}
+
+	if(currentTouchedCountry){
+		currentTouchedCountry.classList.remove("dsp-country-wrp--active");
+	}
+	if(touchedCountry){
+		touchedCountry.classList.add("dsp-country-wrp--active");
+	}
+	currentTouchedCountry = touchedCountry;
+}
+document.addEventListener("touchstart", documentTouchStart);
+```
 
 ## Localize data
 
-	let options = {month: 'long', day: 'numeric', year: 'numeric'};
-	(new Date()).toLocaleString('en-us', options);// -> "October 5, 2016"
-	(new Date()).toLocaleString('en', options);// -> "October 5, 2016"
-	(new Date()).toLocaleString('de', options);// -> "5. Oktober 2016"
-	(new Date()).toLocaleString('fr', options);// -> "5 octobre 2016"
-	(new Date()).toLocaleString('hi', options);// -> "5 अक्तूबर 2016"
-	(new Date()).toLocaleString('zh-Hans-CN', options);// -> "2016年10月5日"
+```js
+let options = {month: 'long', day: 'numeric', year: 'numeric'};
+(new Date()).toLocaleString('en-us', options);// -> "October 5, 2016"
+(new Date()).toLocaleString('en', options);// -> "October 5, 2016"
+(new Date()).toLocaleString('de', options);// -> "5. Oktober 2016"
+(new Date()).toLocaleString('fr', options);// -> "5 octobre 2016"
+(new Date()).toLocaleString('hi', options);// -> "5 अक्तूबर 2016"
+(new Date()).toLocaleString('zh-Hans-CN', options);// -> "2016年10月5日"
 
-	let amount = 1034532;
-	let options = {style: "currency", currency: "CAD"};
-	amount.toLocaleString("en-US", options);// -> "CA$1,034,532.00"
-	amount.toLocaleString("de-DE", options);// -> "1.034.532,00 CA$"
-	amount.toLocaleString("ar-EG", options);// -> "CA$ ١٬٠٣٤٬٥٣٢٫٠٠"
+let amount = 1034532;
+let options = {style: "currency", currency: "CAD"};
+amount.toLocaleString("en-US", options);// -> "CA$1,034,532.00"
+amount.toLocaleString("de-DE", options);// -> "1.034.532,00 CA$"
+amount.toLocaleString("ar-EG", options);// -> "CA$ ١٬٠٣٤٬٥٣٢٫٠٠"
+```
 
 - [Date.prototype.toLocaleString() - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
 - [JavaScript Internationalization API | WebKit](https://webkit.org/blog/6978/javascript-internationalization-api/)
@@ -7374,17 +7384,17 @@ https://gist.github.com/joelambert/1002116#gistcomment-1953925
 - non standardized methods (but valid)
 	Send chunks of data over the same [persistent connection](https://en.wikipedia.org/wiki/HTTP_persistent_connection)
 
-	* `multipart/x-mixed-replace`
-	* chunk encoding
-	* [long polling](https://en.wikipedia.org/wiki/Push_technology#Long_polling) see [How to implement COMET with PHP](http://www.zeitoun.net/articles/comet_and_php/start)
+	- `multipart/x-mixed-replace`
+	- chunk encoding
+	- [long polling](https://en.wikipedia.org/wiki/Push_technology#Long_polling) see [How to implement COMET with PHP](http://www.zeitoun.net/articles/comet_and_php/start)
 - Server-sent events / SSE
-	* [Server-sent events](https://en.wikipedia.org/wiki/Server-sent_events)
-	* [Using server-sent events - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
-	* [Stream Updates with Server-Sent Events - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/eventsource/basics/)
-	* [Server-Sent Events: The simplest realtime browser spec](https://segment.com/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/)
-	* [Server-Sent Events | HTML5 Doctor](http://html5doctor.com/server-sent-events/)
-	* [Server-sent Events](https://www.sitepoint.com/server-sent-events/)
-	* [php - Server sent events - text/event-stream ocasionally misenterpreted as text/html by chrome and firefox - Stack Overflow](https://stackoverflow.com/questions/31430839/server-sent-events-text-event-stream-ocasionally-misenterpreted-as-text-html-b)
+	- [Server-sent events](https://en.wikipedia.org/wiki/Server-sent_events)
+	- [Using server-sent events - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+	- [Stream Updates with Server-Sent Events - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/eventsource/basics/)
+	- [Server-Sent Events: The simplest realtime browser spec](https://segment.com/blog/2014-04-03-server-sent-events-the-simplest-realtime-browser-spec/)
+	- [Server-Sent Events | HTML5 Doctor](http://html5doctor.com/server-sent-events/)
+	- [Server-sent Events](https://www.sitepoint.com/server-sent-events/)
+	- [php - Server sent events - text/event-stream ocasionally misenterpreted as text/html by chrome and firefox - Stack Overflow](https://stackoverflow.com/questions/31430839/server-sent-events-text-event-stream-ocasionally-misenterpreted-as-text-html-b)
 - Websocket
 - WebRTC
 
@@ -7418,14 +7428,16 @@ iframe, window, worker, etc.
 
 > `MessageChannel` is basically a 2-way communication pipe. Think of it as an alternative to `window.postMessage` / `window.onmessage` - but a somewhat easier and more configurable.
 
-	const ch = new MessageChannel();
+```js
+const ch = new MessageChannel();
 
-	ch.port1.addEventListener('message', …);
-	ch.port1.start();
+ch.port1.addEventListener('message', …);
+ch.port1.start();
 
-	//vs
-	ch.port1.onmessage = …;
-	//ch.port1.start(); is automatically called
+//vs
+ch.port1.onmessage = …;
+//ch.port1.start(); is automatically called
+```
 
 Note: if you listen an iframe with `sandbox` attribute that dispatch `message` events, you need to add `allow-same-origin`, else `event.origin` will always be equal to `"null"`. See [javascript - PostMessage from a sandboxed iFrame to the main window, origin is always null - Stack Overflow](https://stackoverflow.com/questions/37838875/postmessage-from-a-sandboxed-iframe-to-the-main-window-origin-is-always-null)
 
@@ -7481,9 +7493,11 @@ Screen sharing:
 
 See [Bookmarklet](Web#bookmarklet)
 
-	javascript:{code;undefined}
+```
+javascript:{code;undefined}
 
-	javascript:(s=>{s=`Hello ${s}!`;alert(s)})("World")
+javascript:(s=>{s=`Hello ${s}!`;alert(s)})("World")
+```
 
 Last instruction should return undefined (like `undefined` or `void(0)`), or the current page will navigate to a page with the result as HTML body. Ex: `javascript:"<b>Bold text</b>"`
 

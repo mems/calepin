@@ -319,6 +319,9 @@ Audio & video types:
 - RAW AAC `.aac` `audio/aac` (no MP4 container)
 - HLS `application/x-mpegURL; codecs="avc1.42E01E"`
 
+- [encoding - What audio formats and codecs are used for YouTube videos? - Sound Design Stack Exchange](https://sound.stackexchange.com/questions/39175/what-audio-formats-and-codecs-are-used-for-youtube-videos/39176#39176)
+- [Web video codec guide - Web media technologies | MDN](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs)
+- [The "codecs" parameter in common media types - Web media technologies | MDN](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter)
 - [ffmpeg - What is the difference between M4A and AAC Audio Files? - Stack Overflow](https://stackoverflow.com/questions/18110399/what-is-the-difference-between-m4a-and-aac-audio-files/18111039#18111039)
 - [Video type parameters - WHATWG Wiki](https://wiki.whatwg.org/wiki/Video_type_parameters)
 - [html5 video tag codecs attribute - Stack Overflow](https://stackoverflow.com/questions/16363167/html5-video-tag-codecs-attribute)
@@ -350,1159 +353,1163 @@ Audio & video types:
 
 `/etc/mime.types`:
 
-	# audio
-	audio/ogg oga ogg
+```
+# audio
+audio/ogg oga ogg
 
-	# video
-	video/ogg ogv
-	video/mp4 mp4
-	video/webm webm
+# video
+video/ogg ogv
+video/mp4 mp4
+video/webm webm
 
-	# SVG
-	image/svg+xml svg svgz
+# SVG
+image/svg+xml svg svgz
 
-	# webfonts
-	application/vnd.ms-fontobject eot
-	font/truetype ttf
-	font/opentype otf
-	font/woff woff
-	font/woff2 woff2
+# webfonts
+application/vnd.ms-fontobject eot
+font/truetype ttf
+font/opentype otf
+font/woff woff
+font/woff2 woff2
 
-	# assorted types
-	image/vnd.microsoft.icon ico
-	image/webp webp
-	text/cache-manifest manifest
-	text/x-component htc
-	application/x-chrome-extension crx
-	application/x-xpinstall xpi
-	application/octet-stream safariextz
+# assorted types
+image/vnd.microsoft.icon ico
+image/webp webp
+text/cache-manifest manifest
+text/x-component htc
+application/x-chrome-extension crx
+application/x-xpinstall xpi
+application/octet-stream safariextz
 
-	text/plain md markdown mdown txt
+text/plain md markdown mdown txt
 
-	audio/ogg oga
-	audio/x-wav wav
-	application/ogg ogg
-	application/x-javascript js
-	application/ecmascript js
-	application/javascript js
-	text/ecmascript js
-	text/javascript js
-	application/xhtml+xml xhtml xht
-	image/gif gif
-	image/png png
-	image/jpeg jpg jpeg
-	image/svg+xml svg
-	text/css css
-	text/html html htm
-	text/xml xml
-	video/ogg ogv
+audio/ogg oga
+audio/x-wav wav
+application/ogg ogg
+application/x-javascript js
+application/ecmascript js
+application/javascript js
+text/ecmascript js
+text/javascript js
+application/xhtml+xml xhtml xht
+image/gif gif
+image/png png
+image/jpeg jpg jpeg
+image/svg+xml svg
+text/css css
+text/html html htm
+text/xml xml
+video/ogg ogv
 
-	text/h323	323
-	video/3gpp2	3g2
-	video/3gpp2	3gp2
-	video/3gpp	3gp
-	video/3gpp	3gpp
-	audio/aac	aac
-	application/octet-stream	aaf
-	application/octet-stream	aca
-	application/msaccess	accdb
-	application/msaccess	accde
-	application/msaccess	accdt
-	application/internet-property-stream	acx
-	audio/vnd.dlna.adts	adt
-	audio/vnd.dlna.adts	adts
-	application/octet-stream	afm
-	application/postscript	ai
-	audio/x-aiff	aif
-	audio/aiff	aifc
-	audio/aiff	aiff
-	text/cache-manifest	appcache
-	application/x-ms-application	application
-	image/x-jg	art
-	application/octet-stream	asd
-	video/x-ms-asf	asf
-	application/octet-stream	asi
-	text/plain	asm
-	video/x-ms-asf	asr
-	video/x-ms-asf	asx
-	application/atom+xml	atom
-	audio/basic	au
-	video/msvideo	avi
-	application/olescript	axs
-	text/plain	bas
-	application/x-bcpio	bcpio
-	application/octet-stream	bin
-	image/bmp	bmp
-	text/plain	c
-	application/vnd.ms-cab-compressed	cab
-	application/vnd.ms-office.calx	calx
-	application/vnd.ms-pki.seccat	cat
-	application/x-cdf	cdf
-	application/octet-stream	chm
-	application/x-java-applet	class
-	application/x-msclip	clp
-	image/x-cmx	cmx
-	text/plain	cnf
-	image/cis-cod	cod
-	application/x-cpio	cpio
-	text/plain	cpp
-	application/x-mscardfile	crd
-	application/pkix-crl	crl
-	application/x-x509-ca-cert	crt
-	application/x-csh	csh
-	text/css	css
-	application/octet-stream	csv
-	application/octet-stream	cur
-	application/x-director	dcr
-	application/octet-stream	deploy
-	application/x-x509-ca-cert	der
-	image/bmp	dib
-	application/x-director	dir
-	text/xml	disco
-	application/x-msdownload	dll
-	text/xml	dll.config
-	text/dlm	dlm
-	application/msword	doc
-	application/vnd.ms-word.document.macroEnabled.12	docm
-	application/vnd.openxmlformats-officedocument.wordprocessingml.document	docx
-	application/msword	dot
-	application/vnd.ms-word.template.macroEnabled.12	dotm
-	application/vnd.openxmlformats-officedocument.wordprocessingml.template	dotx
-	application/octet-stream	dsp
-	text/xml	dtd
-	application/x-dvi	dvi
-	video/x-ms-dvr	dvr-ms
-	drawing/x-dwf	dwf
-	application/octet-stream	dwp
-	application/x-director	dxr
-	message/rfc822	eml
-	application/octet-stream	emz
-	application/vnd.ms-fontobject	eot
-	application/postscript	eps
-	text/x-setext	etx
-	application/envoy	evy
-	application/octet-stream	exe
-	text/xml	exe.config
-	application/vnd.fdf	fdf
-	application/fractals	fif
-	application/octet-stream	fla
-	x-world/x-vrml	flr
-	video/x-flv	flv
-	image/gif	gif
-	application/x-gtar	gtar
-	application/x-gzip	gz
-	text/plain	h
-	application/x-hdf	hdf
-	text/x-hdml	hdml
-	application/x-oleobject	hhc
-	application/octet-stream	hhk
-	application/octet-stream	hhp
-	application/winhlp	hlp
-	application/mac-binhex40	hqx
-	application/hta	hta
-	text/x-component	htc
-	text/html	htm
-	text/html	html
-	text/webviewhtml	htt
-	text/html	hxt
-	image/x-icon	ico
-	text/calendar	ics
-	image/ief	ief
-	application/x-iphone	iii
-	application/octet-stream	inf
-	application/x-internet-signup	ins
-	application/x-internet-signup	isp
-	video/x-ivf	IVF
-	application/java-archive	jar
-	application/octet-stream	java
-	application/liquidmotion	jck
-	application/liquidmotion	jcz
-	image/pjpeg	jfif
-	application/octet-stream	jpb
-	image/jpeg	jpe
-	image/jpeg	jpeg
-	image/jpeg	jpg
-	application/javascript	js
-	application/json	json
-	application/ld+json	jsonld
-	text/jscript	jsx
-	application/x-latex	latex
-	text/css	less
-	application/x-ms-reader	lit
-	application/octet-stream	lpk
-	video/x-la-asf	lsf
-	video/x-la-asf	lsx
-	application/octet-stream	lzh
-	application/x-msmediaview	m13
-	application/x-msmediaview	m14
-	video/mpeg	m1v
-	video/vnd.dlna.mpeg-tts	m2ts
-	audio/x-mpegurl	m3u
-	audio/mp4	m4a
-	video/mp4	m4v
-	application/x-troff-man	man
-	application/x-ms-manifest	manifest
-	text/plain	map
-	application/x-msaccess	mdb
-	application/octet-stream	mdp
-	application/x-troff-me	me
-	message/rfc822	mht
-	message/rfc822	mhtml
-	audio/mid	mid
-	audio/mid	midi
-	audio/mid	smf
-	application/octet-stream	mix
-	# SMAF audio
-	application/x-smaf	mmf
-	text/xml	mno
-	application/x-msmoney	mny
-	video/quicktime	mov
-	video/x-sgi-movie	movie
-	video/mpeg	mp2
-	audio/mpeg	mp3
-	video/mp4	mp4
-	video/mp4	mp4v
-	video/mpeg	mpa
-	video/mpeg	mpe
-	video/mpeg	mpeg
-	video/mpeg	mpg
-	application/vnd.ms-project	mpp
-	video/mpeg	mpv2
-	application/x-troff-ms	ms
-	application/octet-stream	msi
-	application/octet-stream	mso
-	application/x-msmediaview	mvb
-	application/x-miva-compiled	mvc
-	application/x-netcdf	nc
-	video/x-ms-asf	nsc
-	message/rfc822	nws
-	application/octet-stream	ocx
-	application/oda	oda
-	text/x-ms-odc	odc
-	application/oleobject	ods
-	audio/ogg	oga
-	video/ogg	ogg
-	video/ogg	ogv
-	application/onenote	one
-	application/onenote	onea
-	application/onenote	onetoc
-	application/onenote	onetoc2
-	application/onenote	onetmp
-	application/onenote	onepkg
-	application/opensearchdescription+xml	osdx
-	font/otf	otf
-	application/pkcs10	p10
-	application/x-pkcs12	p12
-	application/x-pkcs7-certificates	p7b
-	application/pkcs7-mime	p7c
-	application/pkcs7-mime	p7m
-	application/x-pkcs7-certreqresp	p7r
-	application/pkcs7-signature	p7s
-	image/x-portable-bitmap	pbm
-	application/octet-stream	pcx
-	application/octet-stream	pcz
-	application/pdf	pdf
-	application/octet-stream	pfb
-	application/octet-stream	pfm
-	application/x-pkcs12	pfx
-	image/x-portable-graymap	pgm
-	application/vnd.ms-pki.pko	pko
-	application/x-perfmon	pma
-	application/x-perfmon	pmc
-	application/x-perfmon	pml
-	application/x-perfmon	pmr
-	application/x-perfmon	pmw
-	image/png	png
-	image/x-portable-anymap	pnm
-	image/png	pnz
-	application/vnd.ms-powerpoint	pot
-	application/vnd.ms-powerpoint.template.macroEnabled.12	potm
-	application/vnd.openxmlformats-officedocument.presentationml.template	potx
-	application/vnd.ms-powerpoint.addin.macroEnabled.12	ppam
-	image/x-portable-pixmap	ppm
-	application/vnd.ms-powerpoint	pps
-	application/vnd.ms-powerpoint.slideshow.macroEnabled.12	ppsm
-	application/vnd.openxmlformats-officedocument.presentationml.slideshow	ppsx
-	application/vnd.ms-powerpoint	ppt
-	application/vnd.ms-powerpoint.presentation.macroEnabled.12	pptm
-	application/vnd.openxmlformats-officedocument.presentationml.presentation	pptx
-	application/pics-rules	prf
-	application/octet-stream	prm
-	application/octet-stream	prx
-	application/postscript	ps
-	application/octet-stream	psd
-	application/octet-stream	psm
-	application/octet-stream	psp
-	application/x-mspublisher	pub
-	video/quicktime	qt
-	application/x-quicktimeplayer	qtl
-	application/octet-stream	qxd
-	audio/x-pn-realaudio	ra
-	audio/x-pn-realaudio	ram
-	application/octet-stream	rar
-	image/x-cmu-raster	ras
-	image/vnd.rn-realflash	rf
-	image/x-rgb	rgb
-	application/vnd.rn-realmedia	rm
-	audio/mid	rmi
-	application/x-troff	roff
-	audio/x-pn-realaudio-plugin	rpm
-	application/rtf	rtf
-	text/richtext	rtx
-	application/x-msschedule	scd
-	text/scriptlet	sct
-	application/octet-stream	sea
-	application/set-payment-initiation	setpay
-	application/set-registration-initiation	setreg
-	text/sgml	sgml
-	application/x-sh	sh
-	application/x-shar	shar
-	application/x-stuffit	sit
-	application/vnd.ms-powerpoint.slide.macroEnabled.12	sldm
-	application/vnd.openxmlformats-officedocument.presentationml.slide	sldx
-	audio/x-smd	smd
-	application/octet-stream	smi
-	audio/x-smd	smx
-	audio/x-smd	smz
-	audio/basic	snd
-	application/octet-stream	snp
-	application/x-pkcs7-certificates	spc
-	application/futuresplash	spl
-	audio/ogg	spx
-	application/x-wais-source	src
-	application/streamingmedia	ssm
-	application/vnd.ms-pki.certstore	sst
-	application/vnd.ms-pki.stl	stl
-	application/x-sv4cpio	sv4cpio
-	application/x-sv4crc	sv4crc
-	image/svg+xml	svg
-	image/svg+xml	svgz
-	application/x-shockwave-flash	swf
-	application/x-troff	t
-	application/x-tar	tar
-	application/x-tcl	tcl
-	application/x-tex	tex
-	application/x-texinfo	texi
-	application/x-texinfo	texinfo
-	application/x-compressed	tgz
-	application/vnd.ms-officetheme	thmx
-	application/octet-stream	thn
-	image/tiff	tif
-	image/tiff	tiff
-	application/octet-stream	toc
-	application/x-troff	tr
-	application/x-msterminal	trm
-	video/vnd.dlna.mpeg-tts	ts
-	text/tab-separated-values	tsv
-	application/octet-stream	ttf
-	video/vnd.dlna.mpeg-tts	tts
-	text/plain	txt
-	application/octet-stream	u32
-	text/iuls	uls
-	application/x-ustar	ustar
-	text/vbscript	vbs
-	text/x-vcard	vcf
-	text/plain	vcs
-	application/vnd.ms-visio.viewer	vdx
-	text/xml	vml
-	application/vnd.visio	vsd
-	application/vnd.visio	vss
-	application/vnd.visio	vst
-	application/x-ms-vsto	vsto
-	application/vnd.visio	vsw
-	application/vnd.visio	vsx
-	application/vnd.visio	vtx
-	audio/wav	wav
-	audio/x-ms-wax	wax
-	image/vnd.wap.wbmp	wbmp
-	application/vnd.ms-works	wcm
-	application/vnd.ms-works	wdb
-	video/webm	webm
-	application/vnd.ms-works	wks
-	video/x-ms-wm	wm
-	audio/x-ms-wma	wma
-	application/x-ms-wmd	wmd
-	application/x-msmetafile	wmf
-	text/vnd.wap.wml	wml
-	application/vnd.wap.wmlc	wmlc
-	text/vnd.wap.wmlscript	wmls
-	application/vnd.wap.wmlscriptc	wmlsc
-	video/x-ms-wmp	wmp
-	video/x-ms-wmv	wmv
-	video/x-ms-wmx	wmx
-	application/x-ms-wmz	wmz
-	font/x-woff	woff
-	application/font-woff2	woff2
-	application/vnd.ms-works	wps
-	application/x-mswrite	wri
-	x-world/x-vrml	wrl
-	x-world/x-vrml	wrz
-	text/xml	wsdl
-	video/x-ms-wtv	wtv
-	video/x-ms-wvx	wvx
-	application/directx	x
-	x-world/x-vrml	xaf
-	application/xaml+xml	xaml
-	application/x-silverlight-app	xap
-	application/x-ms-xbap	xbap
-	image/x-xbitmap	xbm
-	text/plain	xdr
-	application/xhtml+xml	xht
-	application/xhtml+xml	xhtml
-	application/vnd.ms-excel	xla
-	application/vnd.ms-excel.addin.macroEnabled.12	xlam
-	application/vnd.ms-excel	xlc
-	application/vnd.ms-excel	xlm
-	application/vnd.ms-excel	xls
-	application/vnd.ms-excel.sheet.binary.macroEnabled.12	xlsb
-	application/vnd.ms-excel.sheet.macroEnabled.12	xlsm
-	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet	xlsx
-	application/vnd.ms-excel	xlt
-	application/vnd.ms-excel.template.macroEnabled.12	xltm
-	application/vnd.openxmlformats-officedocument.spreadsheetml.template	xltx
-	application/vnd.ms-excel	xlw
-	text/xml	xml
-	x-world/x-vrml	xof
-	image/x-xpixmap	xpm
-	application/vnd.ms-xpsdocument	xps
-	text/xml	xsd
-	text/xml	xsf
-	text/xml	xsl
-	text/xml	xslt
-	application/octet-stream	xsn
-	application/octet-stream	xtp
-	image/x-xwindowdump	xwd
-	application/x-compress	z
-	application/x-zip-compressed	zip
+text/h323	323
+video/3gpp2	3g2
+video/3gpp2	3gp2
+video/3gpp	3gp
+video/3gpp	3gpp
+audio/aac	aac
+application/octet-stream	aaf
+application/octet-stream	aca
+application/msaccess	accdb
+application/msaccess	accde
+application/msaccess	accdt
+application/internet-property-stream	acx
+audio/vnd.dlna.adts	adt
+audio/vnd.dlna.adts	adts
+application/octet-stream	afm
+application/postscript	ai
+audio/x-aiff	aif
+audio/aiff	aifc
+audio/aiff	aiff
+text/cache-manifest	appcache
+application/x-ms-application	application
+image/x-jg	art
+application/octet-stream	asd
+video/x-ms-asf	asf
+application/octet-stream	asi
+text/plain	asm
+video/x-ms-asf	asr
+video/x-ms-asf	asx
+application/atom+xml	atom
+audio/basic	au
+video/msvideo	avi
+application/olescript	axs
+text/plain	bas
+application/x-bcpio	bcpio
+application/octet-stream	bin
+image/bmp	bmp
+text/plain	c
+application/vnd.ms-cab-compressed	cab
+application/vnd.ms-office.calx	calx
+application/vnd.ms-pki.seccat	cat
+application/x-cdf	cdf
+application/octet-stream	chm
+application/x-java-applet	class
+application/x-msclip	clp
+image/x-cmx	cmx
+text/plain	cnf
+image/cis-cod	cod
+application/x-cpio	cpio
+text/plain	cpp
+application/x-mscardfile	crd
+application/pkix-crl	crl
+application/x-x509-ca-cert	crt
+application/x-csh	csh
+text/css	css
+application/octet-stream	csv
+application/octet-stream	cur
+application/x-director	dcr
+application/octet-stream	deploy
+application/x-x509-ca-cert	der
+image/bmp	dib
+application/x-director	dir
+text/xml	disco
+application/x-msdownload	dll
+text/xml	dll.config
+text/dlm	dlm
+application/msword	doc
+application/vnd.ms-word.document.macroEnabled.12	docm
+application/vnd.openxmlformats-officedocument.wordprocessingml.document	docx
+application/msword	dot
+application/vnd.ms-word.template.macroEnabled.12	dotm
+application/vnd.openxmlformats-officedocument.wordprocessingml.template	dotx
+application/octet-stream	dsp
+text/xml	dtd
+application/x-dvi	dvi
+video/x-ms-dvr	dvr-ms
+drawing/x-dwf	dwf
+application/octet-stream	dwp
+application/x-director	dxr
+message/rfc822	eml
+application/octet-stream	emz
+application/vnd.ms-fontobject	eot
+application/postscript	eps
+text/x-setext	etx
+application/envoy	evy
+application/octet-stream	exe
+text/xml	exe.config
+application/vnd.fdf	fdf
+application/fractals	fif
+application/octet-stream	fla
+x-world/x-vrml	flr
+video/x-flv	flv
+image/gif	gif
+application/x-gtar	gtar
+application/x-gzip	gz
+text/plain	h
+application/x-hdf	hdf
+text/x-hdml	hdml
+application/x-oleobject	hhc
+application/octet-stream	hhk
+application/octet-stream	hhp
+application/winhlp	hlp
+application/mac-binhex40	hqx
+application/hta	hta
+text/x-component	htc
+text/html	htm
+text/html	html
+text/webviewhtml	htt
+text/html	hxt
+image/x-icon	ico
+text/calendar	ics
+image/ief	ief
+application/x-iphone	iii
+application/octet-stream	inf
+application/x-internet-signup	ins
+application/x-internet-signup	isp
+video/x-ivf	IVF
+application/java-archive	jar
+application/octet-stream	java
+application/liquidmotion	jck
+application/liquidmotion	jcz
+image/pjpeg	jfif
+application/octet-stream	jpb
+image/jpeg	jpe
+image/jpeg	jpeg
+image/jpeg	jpg
+application/javascript	js
+application/json	json
+application/ld+json	jsonld
+text/jscript	jsx
+application/x-latex	latex
+text/css	less
+application/x-ms-reader	lit
+application/octet-stream	lpk
+video/x-la-asf	lsf
+video/x-la-asf	lsx
+application/octet-stream	lzh
+application/x-msmediaview	m13
+application/x-msmediaview	m14
+video/mpeg	m1v
+video/vnd.dlna.mpeg-tts	m2ts
+audio/x-mpegurl	m3u
+audio/mp4	m4a
+video/mp4	m4v
+application/x-troff-man	man
+application/x-ms-manifest	manifest
+text/plain	map
+application/x-msaccess	mdb
+application/octet-stream	mdp
+application/x-troff-me	me
+message/rfc822	mht
+message/rfc822	mhtml
+audio/mid	mid
+audio/mid	midi
+audio/mid	smf
+application/octet-stream	mix
+# SMAF audio
+application/x-smaf	mmf
+text/xml	mno
+application/x-msmoney	mny
+video/quicktime	mov
+video/x-sgi-movie	movie
+video/mpeg	mp2
+audio/mpeg	mp3
+video/mp4	mp4
+video/mp4	mp4v
+video/mpeg	mpa
+video/mpeg	mpe
+video/mpeg	mpeg
+video/mpeg	mpg
+application/vnd.ms-project	mpp
+video/mpeg	mpv2
+application/x-troff-ms	ms
+application/octet-stream	msi
+application/octet-stream	mso
+application/x-msmediaview	mvb
+application/x-miva-compiled	mvc
+application/x-netcdf	nc
+video/x-ms-asf	nsc
+message/rfc822	nws
+application/octet-stream	ocx
+application/oda	oda
+text/x-ms-odc	odc
+application/oleobject	ods
+audio/ogg	oga
+video/ogg	ogg
+video/ogg	ogv
+application/onenote	one
+application/onenote	onea
+application/onenote	onetoc
+application/onenote	onetoc2
+application/onenote	onetmp
+application/onenote	onepkg
+application/opensearchdescription+xml	osdx
+font/otf	otf
+application/pkcs10	p10
+application/x-pkcs12	p12
+application/x-pkcs7-certificates	p7b
+application/pkcs7-mime	p7c
+application/pkcs7-mime	p7m
+application/x-pkcs7-certreqresp	p7r
+application/pkcs7-signature	p7s
+image/x-portable-bitmap	pbm
+application/octet-stream	pcx
+application/octet-stream	pcz
+application/pdf	pdf
+application/octet-stream	pfb
+application/octet-stream	pfm
+application/x-pkcs12	pfx
+image/x-portable-graymap	pgm
+application/vnd.ms-pki.pko	pko
+application/x-perfmon	pma
+application/x-perfmon	pmc
+application/x-perfmon	pml
+application/x-perfmon	pmr
+application/x-perfmon	pmw
+image/png	png
+image/x-portable-anymap	pnm
+image/png	pnz
+application/vnd.ms-powerpoint	pot
+application/vnd.ms-powerpoint.template.macroEnabled.12	potm
+application/vnd.openxmlformats-officedocument.presentationml.template	potx
+application/vnd.ms-powerpoint.addin.macroEnabled.12	ppam
+image/x-portable-pixmap	ppm
+application/vnd.ms-powerpoint	pps
+application/vnd.ms-powerpoint.slideshow.macroEnabled.12	ppsm
+application/vnd.openxmlformats-officedocument.presentationml.slideshow	ppsx
+application/vnd.ms-powerpoint	ppt
+application/vnd.ms-powerpoint.presentation.macroEnabled.12	pptm
+application/vnd.openxmlformats-officedocument.presentationml.presentation	pptx
+application/pics-rules	prf
+application/octet-stream	prm
+application/octet-stream	prx
+application/postscript	ps
+application/octet-stream	psd
+application/octet-stream	psm
+application/octet-stream	psp
+application/x-mspublisher	pub
+video/quicktime	qt
+application/x-quicktimeplayer	qtl
+application/octet-stream	qxd
+audio/x-pn-realaudio	ra
+audio/x-pn-realaudio	ram
+application/octet-stream	rar
+image/x-cmu-raster	ras
+image/vnd.rn-realflash	rf
+image/x-rgb	rgb
+application/vnd.rn-realmedia	rm
+audio/mid	rmi
+application/x-troff	roff
+audio/x-pn-realaudio-plugin	rpm
+application/rtf	rtf
+text/richtext	rtx
+application/x-msschedule	scd
+text/scriptlet	sct
+application/octet-stream	sea
+application/set-payment-initiation	setpay
+application/set-registration-initiation	setreg
+text/sgml	sgml
+application/x-sh	sh
+application/x-shar	shar
+application/x-stuffit	sit
+application/vnd.ms-powerpoint.slide.macroEnabled.12	sldm
+application/vnd.openxmlformats-officedocument.presentationml.slide	sldx
+audio/x-smd	smd
+application/octet-stream	smi
+audio/x-smd	smx
+audio/x-smd	smz
+audio/basic	snd
+application/octet-stream	snp
+application/x-pkcs7-certificates	spc
+application/futuresplash	spl
+audio/ogg	spx
+application/x-wais-source	src
+application/streamingmedia	ssm
+application/vnd.ms-pki.certstore	sst
+application/vnd.ms-pki.stl	stl
+application/x-sv4cpio	sv4cpio
+application/x-sv4crc	sv4crc
+image/svg+xml	svg
+image/svg+xml	svgz
+application/x-shockwave-flash	swf
+application/x-troff	t
+application/x-tar	tar
+application/x-tcl	tcl
+application/x-tex	tex
+application/x-texinfo	texi
+application/x-texinfo	texinfo
+application/x-compressed	tgz
+application/vnd.ms-officetheme	thmx
+application/octet-stream	thn
+image/tiff	tif
+image/tiff	tiff
+application/octet-stream	toc
+application/x-troff	tr
+application/x-msterminal	trm
+video/vnd.dlna.mpeg-tts	ts
+text/tab-separated-values	tsv
+application/octet-stream	ttf
+video/vnd.dlna.mpeg-tts	tts
+text/plain	txt
+application/octet-stream	u32
+text/iuls	uls
+application/x-ustar	ustar
+text/vbscript	vbs
+text/x-vcard	vcf
+text/plain	vcs
+application/vnd.ms-visio.viewer	vdx
+text/xml	vml
+application/vnd.visio	vsd
+application/vnd.visio	vss
+application/vnd.visio	vst
+application/x-ms-vsto	vsto
+application/vnd.visio	vsw
+application/vnd.visio	vsx
+application/vnd.visio	vtx
+audio/wav	wav
+audio/x-ms-wax	wax
+image/vnd.wap.wbmp	wbmp
+application/vnd.ms-works	wcm
+application/vnd.ms-works	wdb
+video/webm	webm
+application/vnd.ms-works	wks
+video/x-ms-wm	wm
+audio/x-ms-wma	wma
+application/x-ms-wmd	wmd
+application/x-msmetafile	wmf
+text/vnd.wap.wml	wml
+application/vnd.wap.wmlc	wmlc
+text/vnd.wap.wmlscript	wmls
+application/vnd.wap.wmlscriptc	wmlsc
+video/x-ms-wmp	wmp
+video/x-ms-wmv	wmv
+video/x-ms-wmx	wmx
+application/x-ms-wmz	wmz
+font/x-woff	woff
+application/font-woff2	woff2
+application/vnd.ms-works	wps
+application/x-mswrite	wri
+x-world/x-vrml	wrl
+x-world/x-vrml	wrz
+text/xml	wsdl
+video/x-ms-wtv	wtv
+video/x-ms-wvx	wvx
+application/directx	x
+x-world/x-vrml	xaf
+application/xaml+xml	xaml
+application/x-silverlight-app	xap
+application/x-ms-xbap	xbap
+image/x-xbitmap	xbm
+text/plain	xdr
+application/xhtml+xml	xht
+application/xhtml+xml	xhtml
+application/vnd.ms-excel	xla
+application/vnd.ms-excel.addin.macroEnabled.12	xlam
+application/vnd.ms-excel	xlc
+application/vnd.ms-excel	xlm
+application/vnd.ms-excel	xls
+application/vnd.ms-excel.sheet.binary.macroEnabled.12	xlsb
+application/vnd.ms-excel.sheet.macroEnabled.12	xlsm
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet	xlsx
+application/vnd.ms-excel	xlt
+application/vnd.ms-excel.template.macroEnabled.12	xltm
+application/vnd.openxmlformats-officedocument.spreadsheetml.template	xltx
+application/vnd.ms-excel	xlw
+text/xml	xml
+x-world/x-vrml	xof
+image/x-xpixmap	xpm
+application/vnd.ms-xpsdocument	xps
+text/xml	xsd
+text/xml	xsf
+text/xml	xsl
+text/xml	xslt
+application/octet-stream	xsn
+application/octet-stream	xtp
+image/x-xwindowdump	xwd
+application/x-compress	z
+application/x-zip-compressed	zip
 
-	# From https://github.com/apache/flex-sdk/blob/develop/modules/compiler/src/java/flex2/compiler/util/MimeMappings.java
-	text/mxml									mxml
-	text/as										as
-	text/fxg									fxg
-	application/x-actionscript-bytecode			abc
-	text/css									css
-	text/properties								properties
-	image/jpeg									jpg jpeg
-	image/jpg									jpg jpeg
-	image/png									png
-	image/gif									gif
-	image/svg									svg svgz
-	#image/svg-xml
-	audio/mpeg									mp3
-	application/x-shockwave-flash				swf
-	text/xml									xml
-	# Fonts; Depreciated, use font/*: font/truetype, font/opentype, font/woff and font/woff2
-	application/x-font-truetype					ttf
-	application/x-font-truetype-collection		ttc
-	application/x-font-opentype					otf
-	#application/x-font
-	application/x-dfont							dfont
-	application/x-pbj							pbj
-	image/tiff									tiff tif
+# From https://github.com/apache/flex-sdk/blob/develop/modules/compiler/src/java/flex2/compiler/util/MimeMappings.java
+text/mxml									mxml
+text/as										as
+text/fxg									fxg
+application/x-actionscript-bytecode			abc
+text/css									css
+text/properties								properties
+image/jpeg									jpg jpeg
+image/jpg									jpg jpeg
+image/png									png
+image/gif									gif
+image/svg									svg svgz
+#image/svg-xml
+audio/mpeg									mp3
+application/x-shockwave-flash				swf
+text/xml									xml
+# Fonts; Depreciated, use font/*: font/truetype, font/opentype, font/woff and font/woff2
+application/x-font-truetype					ttf
+application/x-font-truetype-collection		ttc
+application/x-font-opentype					otf
+#application/x-font
+application/x-dfont							dfont
+application/x-pbj							pbj
+image/tiff									tiff tif
 
-	# https://en.wikipedia.org/wiki/MPEG-4_Part_14#.MP4_versus_.M4A
-	video/mp4									mp4 m4a m4p m4b m4r m4v
-	# https://en.wikipedia.org/wiki/Ogg
-	video/ogg									ogg ogv ogx ogm
-	audio/ogg									oga spx opus
+# https://en.wikipedia.org/wiki/MPEG-4_Part_14#.MP4_versus_.M4A
+video/mp4									mp4 m4a m4p m4b m4r m4v
+# https://en.wikipedia.org/wiki/Ogg
+video/ogg									ogg ogv ogx ogm
+audio/ogg									oga spx opus
 
-	# https://en.wikipedia.org/wiki/Advanced_Systems_Format
-	audio/x-ms-wma								wma
-	video/x-ms-asf								wmv
-	application/vnd.ms-asf						asf
-	application/vnd.ms-asf						asr
-	application/vnd.ms-asf						asx
+# https://en.wikipedia.org/wiki/Advanced_Systems_Format
+audio/x-ms-wma								wma
+video/x-ms-asf								wmv
+application/vnd.ms-asf						asf
+application/vnd.ms-asf						asr
+application/vnd.ms-asf						asx
+```
 
 Unkown source, could be incorrect:
 
-	# Plain text files
-	text/plain							txt text def list log in
-	# Source files
-	text/x-asm							s asm
-	text/x-c							c cc cxx cpp h hh dic
-	text/x-fortran						f for f77 f90
-	text/x-pascal						p pas
-	text/x-java-source					java
-	text/x-php							php
-	application/x-php					php
-	application/x-httpd-php				php
-	text/x-setext						etx
-	text/plain							bas
-	text/plain							php phtml php5 phps
-	text/plain							asp aspx
-	text/plain							pl pm
-	text/plain							py pyw pyc pyo pyd
-	text/plain							rb rbw
-	application/x-wais-source			src
-	text/plain							make
-	application/x-sh					sh
-	text/csv							csv
-	text/tab-separated-values			tsv
-	# Configuration files
-	text/plain							cnf conf ini inf
-	# Manual / Documentation files
-	application/vndms-htmlhelp			chm
-	application/winhlp					hlp
-	text/troff							t tr roff man me ms
-	application/x-troff-man				man
-	application/x-font-ghostscript		gsf
-	application/x-font-linux-psf		psf
-	application/x-font-otf				otf
-	application/x-font-pcf				pcf
-	application/x-font-snf				snf
-	application/x-font-ttf				ttf ttc
-	application/x-font-type1			pfa pfb pfm afm
-	# HyperText Markup Language (HTML) markup
-	text/html							html htm
-	# eXtensible HyperText Markup Language (XHTML) markup
-	application/xhtml+xml				xhtml xht
-	# Handheld Device Markup Language (HDML) markup
-	text/x-hdml							hdml
-	# Wireless Markup Language (WML) markup
-	text/vndwapwml						wml
-	application/vndwapwmlc				wmlc
-	# Wireless Markup Language Script (WMLScript) (WLMS) markup
-	text/vndwapwmlscript				wmls
-	application/vndwapwmlscriptc		wmlsc
-	# WAP Binary XML (WBXML) markup
-	application/vndwapwbxml				wbxml
-	# Standard Generalized Markup Language (SGML) markup
-	application/sgml					sgml sgm
-	text/sgml							sgml sgm
-	# MIME HyperText Markup Language (MHTML) markup
-	message/rfc822						mhtml mht
-	multipart/related					mhtml mht
-	# application/maff+zip				maff maf
-	# application/x-maff				maff maf
-	# HyperText Markup Language Application (HTA) markup
-	application/x-hta					hta
-	# Server parsed HyperText Markup Language/Server Side Includes (SHTML/SSI) markup
-	text/x-server-parsed-html			shtml shtm stm ssi
-	# Extensible Markup Language (XML) markup
-	application/xml						xml xsl xsf xsd
-	text/xml							xml xsl xsf xsd
-	text/xsl							xsl
-	text/xml-external-parsed-entity		xml
-	application/xml-dtd					dtd
-	# Extensible Stylesheet Language Transformations (XSLT) markup
-	application/xslt+xml				xslt
-	# Web Services Description Language (WSDL) markup
-	application/wsdl+xml				wsdl
-	# Resource Description Framework (RDF) markup
-	application/rdf+xml					rdf
-	# Really Simple Syndicatio (RSS) markup
-	application/rss+xml					rss
-	# Atom Syndication Format (ATOM) markup
-	application/atom+xml				atom
-	# Cascading Style Sheets (CSS) markup
-	text/css							css
-	# ECMAScript (ES) markup
-	application/ecmascript				es ecma as
-	# JavaScript (JS) markup
-	application/javascript				js mjs
-	application/x-javascript			js
-	text/javascript						js mjs
-	application/json					json
-	# VBScript (VBS) markup
-	text/x-vbscript						vbs vbe wsf wsc
-	# Tcl, TeX and LaTeX markup
-	application/x-tcl					tcl
-	application/x-tex					tex
-	application/x-latex					latex
-	# Texinfo (TEXI) markup
-	application/x-texinfo				texi texinfo
-	# Mathematical Markup Language (MathML) markup
-	text/mathml							mml
-	text/mathml-renderer				mml
-	application/mathml+xml				mathml
-	# Mathematica (MA) markup
-	application/mathematica				ma nb mb
-	# Extensible Markup Language User Interface Language (XUL) markup
-	application/vndmozillaxul+xml		xul
-	# Magic eXtensible Markup Language (MXML)
-	application/x-mxml+xml				mxml
-	# Microsoft Extensible Application Markup Language (XAML) markup
-	application/xaml+xml				xaml
-	# Google Earth, Keyhole Markup Language (KML) markup
-	application/vndgoogle-earthkml+xml	kml
-	application/vndgoogle-earthkmz			kmz
-	# vCard (VCF) calendar
-	text/x-vcard							vcf vcard
-	# vCalendar (VCS) calendar
-	text/x-vcalendar										vcs
-	# iCalendar (ICS) calendar
-	text/calendar											ics ifb ical icalendar
-	# Microsft E-Mail Message (EML) document
-	message/rfc822											eml
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): document (ODT)
-	application/vndoasisopendocumenttext					odt
-	application/vndoasisopendocumenttext-template			ott
-	application/vndoasisopendocumenttext-master				otm
-	application/vndoasisopendocumenttext-web				oth
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): presentation (ODP)
-	application/vndoasisopendocumentpresentation			odp
-	application/vndoasisopendocumentpresentation-template	otp
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): spreadsheet (ODS)
-	application/vndoasisopendocumentspreadsheet				ods
-	application/vndoasisopendocumentspreadsheet-template	ots
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): graphics (ODG)
-	application/vndoasisopendocumentgraphics				odg
-	application/vndoasisopendocumentgraphics-template		otg
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): database (ODB)
-	application/vndoasisopendocumentdatabase				odb
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): formula (ODF)
-	application/vndoasisopendocumentformula					odf
-	application/vndoasisopendocumentformula-template		odft
-	# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): others ()
-	application/vndoasisopendocumentchart					odc
-	application/vndoasisopendocumentchart-template			otc
-	application/vndoasisopendocumentimage					odi
-	application/vndoasisopendocumentimage-template			oti
-	application/vndopenofficeorgextension					oxt
-	# OpenOfficeorg 1, StarOffice 6-7, Binary format: document (SXW)
-	application/vndsunxmlwriter								sxw
-	application/vndsunxmlwritertemplate						stw
-	application/vndsunxmlwriterglobal						sxg
-	# OpenOfficeorg 1, StarOffice 6-7, Binary format: presentation (SXI)
-	application/vndsunxmlimpress							sxi
-	application/vndsunxmlimpresstemplate					sti
-	# OpenOfficeorg 1, StarOffice 6-7, Binary format: spreadsheet (SXC)
-	application/vndsunxmlcalc								sxc
-	application/vndsunxmlcalctemplate						stc
-	# OpenOfficeorg 1, StarOffice 6-7, Binary format: graphics (SXD)
-	application/vndsunxmldraw								sxd
-	application/vndsunxmldrawtemplate						std
-	# OpenOfficeorg 1, StarOffice 6-7, Binary format: formula (SXM)
-	application/vndsunxmlmath							sxm
-	# StarOffice 5, Binary format: document (SDW)
-	application/vndstardivisionwriter							sdw
-	application/vndstardivisionwriter							vor
-	application/vndstardivisionwriter-global							sgl
-	# StarOffice 5, Binary format: presentation (SDD)
-	application/vndstardivisionimpress							sdd
-	application/vndstardivisionimpress-packed							sdp
-	# StarOffice 5, Binary format: spreadsheet (SDC)
-	application/vndstardivisioncalc							sdc
-	# StarOffice 5, Binary format: graphics (SDA)
-	application/vndstardivisiondraw							sda
-	# StarOffice 5, Binary format: formula (SMF)
-	application/vndstardivisionmath							smf
-	# StarOffice 5, Binary format: others ()
-	application/vndstardivisionchart							sds
-	application/vndstardivisionmail							sdm
-	# StarOffice 1-4, Binary format: document (SDW)
-	application/x-starwriter							sdw
-	# StarOffice 1-4, Binary format: presentation (SDD)
-	application/x-starimpress							sdd
-	# StarOffice 1-4, Binary format: spreadsheet (SDC)
-	application/x-starcalc							sdc
-	# StarOffice 1-4, Binary format: graphics (SDA)
-	application/x-stardraw							sda
-	# StarOffice 1-4, Binary format: formula (SMF)
-	application/x-starmath							smf
-	# StarOffice 1-4, Binary format: others ()
-	application/x-starchart							sds
-	# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): document (DOCX)
-	application/vndopenxmlformats-officedocumentwordprocessingmldocument							docx
-	application/vndopenxmlformats-officedocumentwordprocessingmltemplate							dotx
-	application/vndms-worddocumentmacroEnabled12							docm
-	application/vndms-wordtemplatemacroEnabled12							dotm
-	# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): presentation (PPTX)
-	application/vndopenxmlformats-officedocumentpresentationmlpresentation							pptx
-	application/vndopenxmlformats-officedocumentpresentationmltemplate							potx
-	application/vndopenxmlformats-officedocumentpresentationmlslideshow							ppsx
-	application/vndms-powerpointpresentationmacroEnabled12							pptm
-	application/vndms-powerpointtemplatemacroEnabled12							potm
-	application/vndms-powerpointslideshowmacroEnabled12							ppsm
-	application/vndms-powerpointaddinmacroEnabled12							ppam
-	# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): spreadsheet (XLSX)
-	application/vndopenxmlformats-officedocumentspreadsheetmlsheet							xlsx
-	application/vndopenxmlformats-officedocumentspreadsheetmltemplate							xltx
-	application/vndms-excelsheetmacroEnabled12							xlsm
-	application/vndms-exceltemplatemacroEnabled12							xltm
-	application/vndms-exceladdinmacroEnabled12							xlam
-	application/vndms-excelsheetbinarymacroEnabled12							xlsb
-	# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): database (ACCDB)
-	application/msaccess							accdb accdt accde accdr
-	# Microsoft Office 1-11, Binary format: document (DOC)
-	application/msword							doc dot
-	# Microsoft Office 1-11, Binary format: presentation (PPT)
-	application/vndms-powerpoint							ppt pot pps ppa
-	application/vndms-powerpointaddinmacroenabled12							ppam
-	application/vndms-powerpointpresentationmacroenabled12							pptm
-	application/vndms-powerpointslidemacroenabled12							sldm
-	application/vndms-powerpointslideshowmacroenabled12							ppsm
-	application/vndms-powerpointtemplatemacroenabled12							potm
-	# Microsoft Office 1-11, Binary format: spreadsheet (XLS)
-	application/vndms-excel							xls xlt xlm xlw xla xlc xlk xlb xld xlv xll
-	application/vndms-exceladdinmacroenabled12							xlam
-	application/vndms-excelsheetbinarymacroenabled12							xlsb
-	application/vndms-excelsheetmacroenabled12							xlsm
-	application/vndms-exceltemplatemacroenabled12							xltm
-	# Microsoft Office 1-11, Binary format: database (MDB)
-	application/x-msaccess							mdb mdn mde mda mdt mdf mdw
-	application/x-msaccess							adp adn ade
-	# Microsoft Office 1-11, Binary format: others ()
-	application/vndms-project							mpp mpt
-	# Microsoft Works, Binary format ()
-	application/vndms-works							wps wks wk1 wcm wdb
-	# Microsoft Rich Text Format (RTF) document
-	application/rtf							rtf
-	text/rtf							rtf
-	text/richtext							rtx
-	# Wordperfect document (WPD)
-	application/vndwordperfect							wpd
-	# Lotus 1-2-3 spreadsheet (123)
-	application/vndlotus-1-2-3							123
-	# SYLK (SLK) spreadsheet
-	application/x-excel							slk
-	# dBASE (DBF) database
-	application/x-dbase							dbf
-	application/x-dbf							dbf
-	# QuarkXpress (QXD) document
-	application/vndquarkquarkxpress							qxd qxt qwd qwt qxl qxb
-	# Microsoft Favicon (ICO) lossless icon
-	image/vndmicrosofticon							ico
-	image/x-icon							ico
-	# X BitMap (XBM) lossless icon
-	image/x-xbitmap							xbm
-	image/x-xbm							xbm
-	# X Pixmap (XPM) lossless icon
-	image/x-xpixmap							xpm
-	image/x-xpm							xpm
-	# Portable Network Graphics (PNG) raster lossless image
-	image/png							png
-	# Portable Pixmap Format (PPM) lossless image
-	image/x-portable-pixmap							ppm
-	# Portable Graymap Format (PGM) lossless image
-	image/x-portable-graymap							pgm
-	# Portable Bitmap Format (PBM) lossless image
-	image/x-portable-bitmap							pbm
-	# Portable Anymap Format (PNM) lossless image
-	image/x-portable-anymap							pnm
-	# Microsoft Bitmap (BMP) raster lossless image
-	image/bmp							bmp dib
-	image/x-bmp							bmp dib
-	image/x-ms-bmp							bmp dib
-	# Apple MacPaint image (PNTG) raster lossless image
-	image/x-macpaint							pnt pntg mac
-	# Apple Quicktime image (QTIF) raster lossless image
-	image/x-quicktime							qti qtif
-	# PC Paintbrush/Personal Computer eXchange (PCX) raster lossless image
-	image/x-pcx							pcx
-	# Truevision TGA/Targa (TGA) raster lossless image
-	image/x-tga							targa tga tpic
-	image/x-targa							targa tga tpic
-	# Silicon Graphics Image (SGI) raster lossless image
-	image/x-sgi							sgi
-	image/x-rgb							rgb
-	# InterLeaved BitMap (ILBM) raster lossless image
-	image/x-ilbm							ilbm
-	# Sun Raster Graphic (RAS) raster lossless image
-	image/x-ras							# WebP, VP8 (WEBP) raster lossy image
-	image/webp							webp
-	# JPEG raster lossy image
-	image/jpeg							jpeg jpg jpe jif jfif jfi
-	# JPEG 2000 raster lossy image
-	image/jp2							jp2 j2k
-	image/jpx							jpx jpf
-	image/jpm							jpm
-	# JPEG XR raster lossy/lossless image
-	image/vndms-photo							hdp jxr wdp
-	# Microsoft Windows Media Photo (WMP) raster lossy image
-	video/x-ms-wmp							wmp
-	# Kodak PhotoCD (PCD) raster lossy image
-	image/x-pcd							pcd
-	image/x-photo-cd							pcd
-	# Animated Portable Network Graphics (APNG) animated raster lossless image
-	image/png							apng
-	# Multiple-image Network Graphics (MNG) animated raster lossless image
-	video/x-mng							mng
-	# Graphics Interchange Format (GIF) animated raster lossless image
-	image/gif							gif
-	# Scalable Vector Graphics (SVG) vector graphic
-	image/svg+xml							svg svgz
-	# Adobe Illustrator Artwork (AI) vector graphic
-	application/postscript							ai
-	# Macromedia Freehand (FH) vector graphic
-	image/x-freehand							fh fhc fh4 fh5 fh7
-	# Corel Draw (CDR) vector graphic
-	image/x-cdr							cdr
-	application/x-cdr							cdr
-	application/x-coreldraw							cdr
-	# Xara (XAR) vector graphic
-	application/vndxara							xar
-	# Microsoft Enhanced Metafile (EMF) vector graphic
-	image/x-emf							emf emz
-	# Microsoft Windows Metafile (WMF) vector graphic
-	application/x-msmetafile							wmf
-	image/x-wmf							wmf wmz
-	# Apple Picture (PICT) raster/vector graphic
-	image/x-pict							pict pct pic
-	# Computer Graphics Metafile (CGM) vector graphic
-	image/cgm							cgm
-	# eXperimental Computing Facility (XCF) graphic
-	image/x-xcf							xcf
-	# Tagged Image File Format (TIFF) graphic
-	image/tiff							tiff tif
-	image/tiff-fx							tiff tif
-	# Corel PhotoPaint (CPT) graphic
-	application/mac-compactpro							cpt
-	# PostScript (PS) compound image
-	application/postscript							ps
-	# Encapsulated PostScript (EPS) compound image
-	application/postscript							eps epsf epsi
-	# Adobe Photoshop (PSD) compound image
-	image/vndadobephotoshop							psd
-	image/x-photoshop							psd
-	image/x-psd							psd
-	# Dejavu/DjVu (DJVU) compound image
-	image/vnddjvu							djvu djv
-	image/x-djvu							djvu djv
-	# Adobe Portable Document Format (PDF) compound image
-	application/pdf							pdf
-	application/x-pdf							pdf
-	application/x-bzpdf							pdf
-	application/x-gzpdf							pdf
-	# Microsoft Open XML Paper Specification (OpenXPS) (XPS) document
-	application/oxps							oxps
-	application/vndms-xpsdocument							xps
-	# AutoCAD Drawing (DWG/DXF) drawing
-	image/vnddwg							dwg
-	image/x-dwg							dwg
-	application/x-dwg							dwg
-	image/vnddxf							dxf
-	image/x-dxf							dxf
-	application/x-dxf							dxf
-	model/vnddwf							dwf
-	image/x-dwf							dwf
-	application/x-dwf							dwf
-	application/x-autocad							dwg dxf dwf
-	# Initial Graphics Exchange Specification (IGES) drawing
-	model/iges							igs iges
-	# 3D Mesh Model (MESH) 3D model
-	model/mesh							msh mesh silo
-	# Extensible 3D Graphics (X3D) 3D graphic
-	model/x3d+vrml							x3d x3dz
-	model/x3d+xml							x3dv x3dvz
-	model/x3d+binary							x3db x3dbz
-	# Virtual Reality Modeling Language (VRML) 3D graphic
-	model/vrml							wrl wrz vrml
-	x-world/x-vrml							wrl wrz vrml
-	application/x-cc3d							wrl wrz vrml
-	# Synchronized Multimedia Integration Language (SMIL) markup
-	application/smil+xml							smi smil
-	# Xiphorg XML Shareable Playlist Format (XSPF) playlist
-	application/xspf+xml							xspf
-	# Winamp playlist (M3U/PLS) playlist
-	audio/x-mpegurl							m3u
-	application/vndapplempegurl							m3u8
-	video/vndmpegurl							mxu m4u
-	application/pls+xml							pls
-	audio/x-scpls							pls
-	# Foobar2000 playlist (FPL) playlist
-	application/octet-stream							fpl
-	# Microsoft Windows Media Player Playlist (WPL) playlist
-	application/vndms-wpl							wpl
-	# Microsoft Advanced Stream Redirector (ASX/LSX) playlist
-	video/x-ms-asf							asx
-	video/x-la-asf							lsx
-	# Microsoft Windows Media Video Redirector (WVX) shortcut
-	video/x-ms-wmx							wmx
-	audio/x-ms-wax							wax
-	video/x-ms-wvx							wvx
-	# MPEG (M3A) playlist
-	audio/mpeg							m3a
-	# WebM, VP8/Vorbis (WEBM) multimedia container
-	video/webm							webm
-	audio/webm							webm
-	# Matroska Multimedia Container (MKV/MKA/MKS) multimedia container
-	audio/x-matroska							mka
-	video/x-matroska							mkv mks
-	# Xiphorg Vorbis (OGX/OGG) multimedia container
-	application/ogg							ogx
-	audio/ogg							ogg
-	video/ogg							ogg
-	# Nullsoft Streaming Video (NSV) audio/video container
-	application/x-winamp							nsv nsa
-	# RealMedia Variable Bitrate (RMVB) audio/video container
-	application/vndrn-realmedia-vbr							rmvb
-	# RealMedia (RM) audio/video container
-	application/vndrn-realmedia							rm
-	audio/x-pn-realaudio-plugin							rmp
-	# Adobe Flash Video (FLV) audio/video container
-	audio/x-f4a							f4a f4b
-	audio/mp4							f4a f4b
-	video/x-f4v							f4v f4p
-	video/mp4							f4v f4p
-	video/x-fli							fli
-	video/x-flv							flv
-	video/x-m4v							m4v
-	# Third Generation Partnership Project (3GPP) multimedia container
-	audio/3gpp							3gp 3ggp
-	audio/3gpp2							3g2 3gp2
-	video/3gpp							3gp 3ggp
-	video/3gpp2							3g2 3gp2
-	# MPEG-4 Part 14, MP4 file format, MPEG-4 file format version 2 (MP4) multimedia container
-	application/mp4							mp4 mpg4 mp4s
-	audio/mp4							mp4 mpg4
-	video/mp4							mp4 mpg4
-	# Microsoft Advanced Systems Format (ASF) audio/video container
-	application/vndms-asf							asf
-	video/x-ms-asf							asf
-	video/x-la-asf							lsf
-	# Microsoft Audio Video Interleave (AVI) audio/video container
-	video/vndavi							avi
-	video/avi							avi
-	video/msvideo							avi
-	video/x-msvideo							avi
-	# Musical Instrument Digital Interface (MIDI) synthetized music
-	audio/midi							mid midi kar rmi
-	# Xiphorg Speex (OGA/OGG) lossy speech
-	audio/speex							spx
-	audio/ogg							spx
-	# Adaptive Multi-Rate Wideband (AMR-WB) lossy speech
-	audio/amr-wb							awb
-	# Adaptive Multi-Rate (AMR/AMR-NB) lossy speech
-	audio/amr							amr
-	# Xiphorg Free Lossless Audio Codec (FLAC) lossless audio
-	audio/x-flac							flac
-	# WavPack (WV) lossless audio
-	audio/x-wavpack							wv
-	# True Audio (TTA) lossless audio
-	audio/x-tta							tta
-	# Monkey's Audio (APE) lossless audio
-	audio/x-ape							ape apl
-	# Apple Lossless Audio Codec (ALAC) lossless audio
-	audio/x-alac							m4a
-	# Microsoft Windows Media Audio Lossless (WMA) lossless audio
-	audio/x-ms-wma							wma
-	# Sony Adaptive Transform Acoustic Coding (ATRAC) Advanced Lossless (AA3) lossless audio
-	audio/atrac-advanced-lossless							aa3 at3
-	# Shorten (SHN) lossless audio
-	audio/x-shorten							shn
-	# Apple Audio Interchange File Format (AIFF) lossless audio
-	audio/x-aiff							aif aiff aifc
-	audio/aiff							aif aiff aifc
-	# Adaptive Differential Pulse Code Modulation (ADPCM) lossless audio
-	audio/adpcm							adp adpcm
-	# Linear Pulse Code Modulation (LPCM) lossless audio
-	audio/l16							pcm l16
-	audio/l8							pcm
-	audio/l20							pcm
-	audio/l24							pcm
-	# Microsoft Waveform Audio File Format (WAVE) lossless audio
-	audio/vnd.wave							wav wave
-	audio/wav							wav wave
-	audio/wave							wav wave
-	audio/x-wav							wav wave
-	# Xiphorg Vorbis (OGA/OGG) lossy audio
-	audio/ogg							oga
-	audio/vorbis							oga
-	audio/vorbis-config							oga
-	# MusePack (MPC) lossy audio
-	audio/x-musepack							mpc mp+ mpp
-	audio/musepack							mpc mp+ mpp
-	# RealAudio (RA) lossy audio
-	audio/x-pn-realaudio							ra ram
-	# Microsoft Windows Media Audio (WMA) lossy audio
-	audio/x-ms-wma							wma
-	# Sony Adaptive Transform Acoustic Coding (ATRAC) (AA3) lossy audio
-	audio/atrac-x							aa3 at3
-	audio/atrac3							aa3 at3
-	audio/x-oma							oma
-	# DTS Theater System (DTS) lossy audio
-	audio/vnddts							dts
-	audio/vnddtshd							dtshd
-	# Dolby Digital (AC3) lossy audio
-	audio/ac3							ac3
-	# MPEG-4 Part 3, Audio, High-Efficiency Advanced Audio Coding (HE-AAC) (AAC) lossy audio
-	audio/aacp							aac
-	# MPEG-4 Part 3, Audio, Advanced Audio Coding (AAC) lossy audio
-	audio/x-aac							aac
-	audio/aac							aac
-	audio/mp4							aac
-	# MPEG-4 Part 3, Audio, various formats (M4A) lossy audio
-	audio/mp4							m4a mp4a m4p m4b m4r
-	audio/mp4a-latm							m4a
-	audio/mpeg4-generic							m4a
-	# MPEG-2 Part 3, Audio, Layer I/II/II (M2A) lossy audio
-	audio/mpeg							m2a mp2a
-	# MPEG-1 Part 3, Audio, Layer III (MP3) lossy audio
-	audio/mpeg							mp3
-	audio/mpa							mp3
-	audio/mpa-robust							mp3
-	# MPEG-1 Part 3, Audio, Layer II (MP2) lossy audio
-	audio/mpeg							mp2 mpa mpga mpega
-	audio/mpa							mp2 mpa mpga mpega
-	# MPEG-1 Part 3, Audio, Layer I (MP1) lossy audio
-	audio/mpeg							mp1 m1a mpa mpga mpega
-	audio/mpa							mp1 m1a mpa mpga mpega
-	# Sun Au file format (AU/SND) lossy audio
-	audio/basic							au snd
-	# Xiphorg Theora, VP3 (OGV/OGG) lossy video
-	video/ogg							ogv
-	# RealVideo (RV) lossy video
-	video/x-pn-realvideo							rv
-	video/x-rn-realvideo							rv
-	# Apple QuickTime File Format (QTFF) (QT/MOV) lossy video
-	video/quicktime							mov qt
-	video/x-sgi-movie							movie
-	# Microsoft Windows Media Video, VC-1 (WMV) lossy video
-	video/x-ms-wm							wm
-	video/x-ms-wmv							wmv
-	video/x-ms-wmx							wmx
-	video/x-ms-wvx							wvx
-	# MPEG-4 Part 10, Advanced Video Coding (AVC), H264 lossy video
-	video/h264							h264
-	# VCEG H261/H263 lossy video
-	video/h261							h261
-	video/h263							h263
-	# MPEG-4 Part 2, Visual, Advanced Simple Profile (ASP), Xvid/DivX lossy video
-	video/x-divx							xvid divx
-	# MPEG-4 Part 2/10/14, Video, various formats (M4V) video
-	video/mp4							m4v mp4v 3gp 3g2
-	video/mpeg4-generic							m4v
-	# MPEG-2 Part 2, Video, H262/DVD (M2V/VOB) lossy video
-	video/mpeg							m2v mpv2 vob
-	# MPEG-1 Part 2, Video, VideoCD (M1V) lossy video
-	video/mpeg							m1v mpv mpe mpg mpeg
-	video/mpv							m1v mpv mpe mpg mpeg
-	# Motion JPEG 2000 (M-JPEG2K) (MJ2) lossy/lossless video
-	video/mj2							mj2 mjp2
-	video/jpeg2000							mj2 mjp2
-	# Motion JPEG (M-JPEG) (MJPG) lossy video
-	video/x-motion-jpeg							mjpg
-	video/jpeg							jpgv
-	# Digital Video (DV) DV-DIF raw video (DV/DIF) lossy video
-	video/dv							dv dif
-	video/x-dv							dv dif
-	# RAD Game Tools Bink Video (BIK) lossy video
-	video/x-bink							bik
-	# RAD Game Tools Smacker Video (SMK) lossy video
-	video/x-smacker							smk
-	# Mozilla XPInstall (Cross-Platform Install) (XPI) application
-	application/x-xpinstall							xpi
-	# Adobe Adobe Integrated Runtime (AIR) application
-	application/vndadobeair-application-installer-package+zip							air
-	# Adobe Flash (SWF) application
-	application/x-shockwave-flash							swf
-	# Adobe Director (DIR) application
-	application/x-director							dir dcr dxr cst cct cxt w3d fgd swa
-	# Microsoft Silverlight (XAP) application
-	application/x-silverlight-app							xap
-	application/x-ms-xbap							xbap
-	# Java binaries
-	application/octet-stream							java
-	application/java-archive							jar
-	application/java-serialized-object							ser
-	application/java-vm							class
-	application/x-java-jnlp-file							jnlp
-	# Windows binaries
-	application/x-msdownload							exe dll ocx com bat msi mso
-	application/x-ms-manifest							manifest
-	# Linux / Mac OS binaries
-	application/octet-stream							bin dms lrf so o elf dist distz pkg bpk dump elc deploy
-	# Signatures
-	application/pgp-encrypted							pgp
-	application/pgp-signature							asc sig
-	# BinHex (HQX) encoding
-	application/mac-binhex40							hqx
-	application/mac-binhex							hqx
-	application/binhex							hqx
-	# UUEncode (UU) encoding
-	text/x-uuencode							uu
-	# Multi-Purpose Internet Mail Extension (MIME) encoding
-	message/rfc822							mime
-	# Encryption
-	application/pkcs10							p10
-	application/x-pkcs12							p12 pfx
-	application/pkcs7-mime							p7m p7c
-	application/pkcs7-signature							p7s
-	application/x-pkcs7-certificates							p7b spc
-	application/x-pkcs7-certreqresp							p7r
-	application/pkix-cert							cer
-	application/pkix-crl							crl
-	application/pkix-pkipath							pkipath
-	application/pkixcmp							pki
-	application/vndms-pkipko							pko
-	application/vndms-pkicertstore							sst
-	application/vndms-pkiseccat							cat
-	application/vndms-pkistl							stl
-	application/x-x509-ca-cert							der crt
-	# BitTorrent metadata (TORRENT) download
-	application/x-bittorrent							torrent
-	# Tape (TAR) archives
-	application/x-tar							tar
-	application/x-gtar							gtar
-	# Gzip (GZ) archives
-	application/x-gzip							gz tgz
-	application/x-compressed							tgz
-	# Bzip (BZ) archives
-	application/x-bzip							bz tbz
-	application/x-bzip2							bz2 boz tbz2 tb2
-	# Compress (Z) archives
-	application/x-compress							Z taz
-	# LZMA (LZMA) archives
-	application/x-lzma							lzma tlz
-	# LZMA2 (XZ) archives
-	application/x-xz							xz txz
-	# LZIP (LZ) archives
-	application/x-lzip							lz
-	# LHA and LZH archives
-	application/x-lzh-compressed							lha lzh
-	# LZX archives
-	application/x-lzx							lzx
-	# Disk Archiver (DAR) archives
-	application/x-dar							dar
-	# Compact File Set (CFS) archives
-	application/x-cfs-compressed							cfs
-	# 7-ZIP (7z) archives
-	application/x-7z-compressed							7z
-	# ZIP archives
-	application/zip							zip zipx
-	# RAR files
-	application/x-rar-compressed							rar rev r00 r01 r02 r03 r04 r05
-	# Cabinet (CAB) archives
-	application/vndms-cab-compressed							cab
-	# Stuffit (SIT) archives
-	application/x-stuffit							sit
-	application/x-stuffitx							sitx
-	# Debian (DEB) archives
-	application/x-debian-package							deb udeb
-	# Apple DiskImage (DMG) archive
-	application/x-apple-diskimage							dmg smi img
-	# ISO 9660 (ISO) archive
-	application/x-iso9660-image							iso
+```
+# Plain text files
+text/plain							txt text def list log in
+# Source files
+text/x-asm							s asm
+text/x-c							c cc cxx cpp h hh dic
+text/x-fortran						f for f77 f90
+text/x-pascal						p pas
+text/x-java-source					java
+text/x-php							php
+application/x-php					php
+application/x-httpd-php				php
+text/x-setext						etx
+text/plain							bas
+text/plain							php phtml php5 phps
+text/plain							asp aspx
+text/plain							pl pm
+text/plain							py pyw pyc pyo pyd
+text/plain							rb rbw
+application/x-wais-source			src
+text/plain							make
+application/x-sh					sh
+text/csv							csv
+text/tab-separated-values			tsv
+# Configuration files
+text/plain							cnf conf ini inf
+# Manual / Documentation files
+application/vndms-htmlhelp			chm
+application/winhlp					hlp
+text/troff							t tr roff man me ms
+application/x-troff-man				man
+application/x-font-ghostscript		gsf
+application/x-font-linux-psf		psf
+application/x-font-otf				otf
+application/x-font-pcf				pcf
+application/x-font-snf				snf
+application/x-font-ttf				ttf ttc
+application/x-font-type1			pfa pfb pfm afm
+# HyperText Markup Language (HTML) markup
+text/html							html htm
+# eXtensible HyperText Markup Language (XHTML) markup
+application/xhtml+xml				xhtml xht
+# Handheld Device Markup Language (HDML) markup
+text/x-hdml							hdml
+# Wireless Markup Language (WML) markup
+text/vndwapwml						wml
+application/vndwapwmlc				wmlc
+# Wireless Markup Language Script (WMLScript) (WLMS) markup
+text/vndwapwmlscript				wmls
+application/vndwapwmlscriptc		wmlsc
+# WAP Binary XML (WBXML) markup
+application/vndwapwbxml				wbxml
+# Standard Generalized Markup Language (SGML) markup
+application/sgml					sgml sgm
+text/sgml							sgml sgm
+# MIME HyperText Markup Language (MHTML) markup
+message/rfc822						mhtml mht
+multipart/related					mhtml mht
+# application/maff+zip				maff maf
+# application/x-maff				maff maf
+# HyperText Markup Language Application (HTA) markup
+application/x-hta					hta
+# Server parsed HyperText Markup Language/Server Side Includes (SHTML/SSI) markup
+text/x-server-parsed-html			shtml shtm stm ssi
+# Extensible Markup Language (XML) markup
+application/xml						xml xsl xsf xsd
+text/xml							xml xsl xsf xsd
+text/xsl							xsl
+text/xml-external-parsed-entity		xml
+application/xml-dtd					dtd
+# Extensible Stylesheet Language Transformations (XSLT) markup
+application/xslt+xml				xslt
+# Web Services Description Language (WSDL) markup
+application/wsdl+xml				wsdl
+# Resource Description Framework (RDF) markup
+application/rdf+xml					rdf
+# Really Simple Syndicatio (RSS) markup
+application/rss+xml					rss
+# Atom Syndication Format (ATOM) markup
+application/atom+xml				atom
+# Cascading Style Sheets (CSS) markup
+text/css							css
+# ECMAScript (ES) markup
+application/ecmascript				es ecma as
+# JavaScript (JS) markup
+application/javascript				js mjs
+application/x-javascript			js
+text/javascript						js mjs
+application/json					json
+# VBScript (VBS) markup
+text/x-vbscript						vbs vbe wsf wsc
+# Tcl, TeX and LaTeX markup
+application/x-tcl					tcl
+application/x-tex					tex
+application/x-latex					latex
+# Texinfo (TEXI) markup
+application/x-texinfo				texi texinfo
+# Mathematical Markup Language (MathML) markup
+text/mathml							mml
+text/mathml-renderer				mml
+application/mathml+xml				mathml
+# Mathematica (MA) markup
+application/mathematica				ma nb mb
+# Extensible Markup Language User Interface Language (XUL) markup
+application/vndmozillaxul+xml		xul
+# Magic eXtensible Markup Language (MXML)
+application/x-mxml+xml				mxml
+# Microsoft Extensible Application Markup Language (XAML) markup
+application/xaml+xml				xaml
+# Google Earth, Keyhole Markup Language (KML) markup
+application/vndgoogle-earthkml+xml	kml
+application/vndgoogle-earthkmz			kmz
+# vCard (VCF) calendar
+text/x-vcard							vcf vcard
+# vCalendar (VCS) calendar
+text/x-vcalendar										vcs
+# iCalendar (ICS) calendar
+text/calendar											ics ifb ical icalendar
+# Microsft E-Mail Message (EML) document
+message/rfc822											eml
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): document (ODT)
+application/vndoasisopendocumenttext					odt
+application/vndoasisopendocumenttext-template			ott
+application/vndoasisopendocumenttext-master				otm
+application/vndoasisopendocumenttext-web				oth
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): presentation (ODP)
+application/vndoasisopendocumentpresentation			odp
+application/vndoasisopendocumentpresentation-template	otp
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): spreadsheet (ODS)
+application/vndoasisopendocumentspreadsheet				ods
+application/vndoasisopendocumentspreadsheet-template	ots
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): graphics (ODG)
+application/vndoasisopendocumentgraphics				odg
+application/vndoasisopendocumentgraphics-template		otg
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): database (ODB)
+application/vndoasisopendocumentdatabase				odb
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): formula (ODF)
+application/vndoasisopendocumentformula					odf
+application/vndoasisopendocumentformula-template		odft
+# OpenOfficeorg 2+, StarOffice 8+, Open Document Format (ODF): others ()
+application/vndoasisopendocumentchart					odc
+application/vndoasisopendocumentchart-template			otc
+application/vndoasisopendocumentimage					odi
+application/vndoasisopendocumentimage-template			oti
+application/vndopenofficeorgextension					oxt
+# OpenOfficeorg 1, StarOffice 6-7, Binary format: document (SXW)
+application/vndsunxmlwriter								sxw
+application/vndsunxmlwritertemplate						stw
+application/vndsunxmlwriterglobal						sxg
+# OpenOfficeorg 1, StarOffice 6-7, Binary format: presentation (SXI)
+application/vndsunxmlimpress							sxi
+application/vndsunxmlimpresstemplate					sti
+# OpenOfficeorg 1, StarOffice 6-7, Binary format: spreadsheet (SXC)
+application/vndsunxmlcalc								sxc
+application/vndsunxmlcalctemplate						stc
+# OpenOfficeorg 1, StarOffice 6-7, Binary format: graphics (SXD)
+application/vndsunxmldraw								sxd
+application/vndsunxmldrawtemplate						std
+# OpenOfficeorg 1, StarOffice 6-7, Binary format: formula (SXM)
+application/vndsunxmlmath							sxm
+# StarOffice 5, Binary format: document (SDW)
+application/vndstardivisionwriter							sdw
+application/vndstardivisionwriter							vor
+application/vndstardivisionwriter-global							sgl
+# StarOffice 5, Binary format: presentation (SDD)
+application/vndstardivisionimpress							sdd
+application/vndstardivisionimpress-packed							sdp
+# StarOffice 5, Binary format: spreadsheet (SDC)
+application/vndstardivisioncalc							sdc
+# StarOffice 5, Binary format: graphics (SDA)
+application/vndstardivisiondraw							sda
+# StarOffice 5, Binary format: formula (SMF)
+application/vndstardivisionmath							smf
+# StarOffice 5, Binary format: others ()
+application/vndstardivisionchart							sds
+application/vndstardivisionmail							sdm
+# StarOffice 1-4, Binary format: document (SDW)
+application/x-starwriter							sdw
+# StarOffice 1-4, Binary format: presentation (SDD)
+application/x-starimpress							sdd
+# StarOffice 1-4, Binary format: spreadsheet (SDC)
+application/x-starcalc							sdc
+# StarOffice 1-4, Binary format: graphics (SDA)
+application/x-stardraw							sda
+# StarOffice 1-4, Binary format: formula (SMF)
+application/x-starmath							smf
+# StarOffice 1-4, Binary format: others ()
+application/x-starchart							sds
+# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): document (DOCX)
+application/vndopenxmlformats-officedocumentwordprocessingmldocument							docx
+application/vndopenxmlformats-officedocumentwordprocessingmltemplate							dotx
+application/vndms-worddocumentmacroEnabled12							docm
+application/vndms-wordtemplatemacroEnabled12							dotm
+# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): presentation (PPTX)
+application/vndopenxmlformats-officedocumentpresentationmlpresentation							pptx
+application/vndopenxmlformats-officedocumentpresentationmltemplate							potx
+application/vndopenxmlformats-officedocumentpresentationmlslideshow							ppsx
+application/vndms-powerpointpresentationmacroEnabled12							pptm
+application/vndms-powerpointtemplatemacroEnabled12							potm
+application/vndms-powerpointslideshowmacroEnabled12							ppsm
+application/vndms-powerpointaddinmacroEnabled12							ppam
+# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): spreadsheet (XLSX)
+application/vndopenxmlformats-officedocumentspreadsheetmlsheet							xlsx
+application/vndopenxmlformats-officedocumentspreadsheetmltemplate							xltx
+application/vndms-excelsheetmacroEnabled12							xlsm
+application/vndms-exceltemplatemacroEnabled12							xltm
+application/vndms-exceladdinmacroEnabled12							xlam
+application/vndms-excelsheetbinarymacroEnabled12							xlsb
+# Microsoft Office 12+, Office Open XML (OOXML/OpenXML): database (ACCDB)
+application/msaccess							accdb accdt accde accdr
+# Microsoft Office 1-11, Binary format: document (DOC)
+application/msword							doc dot
+# Microsoft Office 1-11, Binary format: presentation (PPT)
+application/vndms-powerpoint							ppt pot pps ppa
+application/vndms-powerpointaddinmacroenabled12							ppam
+application/vndms-powerpointpresentationmacroenabled12							pptm
+application/vndms-powerpointslidemacroenabled12							sldm
+application/vndms-powerpointslideshowmacroenabled12							ppsm
+application/vndms-powerpointtemplatemacroenabled12							potm
+# Microsoft Office 1-11, Binary format: spreadsheet (XLS)
+application/vndms-excel							xls xlt xlm xlw xla xlc xlk xlb xld xlv xll
+application/vndms-exceladdinmacroenabled12							xlam
+application/vndms-excelsheetbinarymacroenabled12							xlsb
+application/vndms-excelsheetmacroenabled12							xlsm
+application/vndms-exceltemplatemacroenabled12							xltm
+# Microsoft Office 1-11, Binary format: database (MDB)
+application/x-msaccess							mdb mdn mde mda mdt mdf mdw
+application/x-msaccess							adp adn ade
+# Microsoft Office 1-11, Binary format: others ()
+application/vndms-project							mpp mpt
+# Microsoft Works, Binary format ()
+application/vndms-works							wps wks wk1 wcm wdb
+# Microsoft Rich Text Format (RTF) document
+application/rtf							rtf
+text/rtf							rtf
+text/richtext							rtx
+# Wordperfect document (WPD)
+application/vndwordperfect							wpd
+# Lotus 1-2-3 spreadsheet (123)
+application/vndlotus-1-2-3							123
+# SYLK (SLK) spreadsheet
+application/x-excel							slk
+# dBASE (DBF) database
+application/x-dbase							dbf
+application/x-dbf							dbf
+# QuarkXpress (QXD) document
+application/vndquarkquarkxpress							qxd qxt qwd qwt qxl qxb
+# Microsoft Favicon (ICO) lossless icon
+image/vndmicrosofticon							ico
+image/x-icon							ico
+# X BitMap (XBM) lossless icon
+image/x-xbitmap							xbm
+image/x-xbm							xbm
+# X Pixmap (XPM) lossless icon
+image/x-xpixmap							xpm
+image/x-xpm							xpm
+# Portable Network Graphics (PNG) raster lossless image
+image/png							png
+# Portable Pixmap Format (PPM) lossless image
+image/x-portable-pixmap							ppm
+# Portable Graymap Format (PGM) lossless image
+image/x-portable-graymap							pgm
+# Portable Bitmap Format (PBM) lossless image
+image/x-portable-bitmap							pbm
+# Portable Anymap Format (PNM) lossless image
+image/x-portable-anymap							pnm
+# Microsoft Bitmap (BMP) raster lossless image
+image/bmp							bmp dib
+image/x-bmp							bmp dib
+image/x-ms-bmp							bmp dib
+# Apple MacPaint image (PNTG) raster lossless image
+image/x-macpaint							pnt pntg mac
+# Apple Quicktime image (QTIF) raster lossless image
+image/x-quicktime							qti qtif
+# PC Paintbrush/Personal Computer eXchange (PCX) raster lossless image
+image/x-pcx							pcx
+# Truevision TGA/Targa (TGA) raster lossless image
+image/x-tga							targa tga tpic
+image/x-targa							targa tga tpic
+# Silicon Graphics Image (SGI) raster lossless image
+image/x-sgi							sgi
+image/x-rgb							rgb
+# InterLeaved BitMap (ILBM) raster lossless image
+image/x-ilbm							ilbm
+# Sun Raster Graphic (RAS) raster lossless image
+image/x-ras							# WebP, VP8 (WEBP) raster lossy image
+image/webp							webp
+# JPEG raster lossy image
+image/jpeg							jpeg jpg jpe jif jfif jfi
+# JPEG 2000 raster lossy image
+image/jp2							jp2 j2k
+image/jpx							jpx jpf
+image/jpm							jpm
+# JPEG XR raster lossy/lossless image
+image/vndms-photo							hdp jxr wdp
+# Microsoft Windows Media Photo (WMP) raster lossy image
+video/x-ms-wmp							wmp
+# Kodak PhotoCD (PCD) raster lossy image
+image/x-pcd							pcd
+image/x-photo-cd							pcd
+# Animated Portable Network Graphics (APNG) animated raster lossless image
+image/png							apng
+# Multiple-image Network Graphics (MNG) animated raster lossless image
+video/x-mng							mng
+# Graphics Interchange Format (GIF) animated raster lossless image
+image/gif							gif
+# Scalable Vector Graphics (SVG) vector graphic
+image/svg+xml							svg svgz
+# Adobe Illustrator Artwork (AI) vector graphic
+application/postscript							ai
+# Macromedia Freehand (FH) vector graphic
+image/x-freehand							fh fhc fh4 fh5 fh7
+# Corel Draw (CDR) vector graphic
+image/x-cdr							cdr
+application/x-cdr							cdr
+application/x-coreldraw							cdr
+# Xara (XAR) vector graphic
+application/vndxara							xar
+# Microsoft Enhanced Metafile (EMF) vector graphic
+image/x-emf							emf emz
+# Microsoft Windows Metafile (WMF) vector graphic
+application/x-msmetafile							wmf
+image/x-wmf							wmf wmz
+# Apple Picture (PICT) raster/vector graphic
+image/x-pict							pict pct pic
+# Computer Graphics Metafile (CGM) vector graphic
+image/cgm							cgm
+# eXperimental Computing Facility (XCF) graphic
+image/x-xcf							xcf
+# Tagged Image File Format (TIFF) graphic
+image/tiff							tiff tif
+image/tiff-fx							tiff tif
+# Corel PhotoPaint (CPT) graphic
+application/mac-compactpro							cpt
+# PostScript (PS) compound image
+application/postscript							ps
+# Encapsulated PostScript (EPS) compound image
+application/postscript							eps epsf epsi
+# Adobe Photoshop (PSD) compound image
+image/vndadobephotoshop							psd
+image/x-photoshop							psd
+image/x-psd							psd
+# Dejavu/DjVu (DJVU) compound image
+image/vnddjvu							djvu djv
+image/x-djvu							djvu djv
+# Adobe Portable Document Format (PDF) compound image
+application/pdf							pdf
+application/x-pdf							pdf
+application/x-bzpdf							pdf
+application/x-gzpdf							pdf
+# Microsoft Open XML Paper Specification (OpenXPS) (XPS) document
+application/oxps							oxps
+application/vndms-xpsdocument							xps
+# AutoCAD Drawing (DWG/DXF) drawing
+image/vnddwg							dwg
+image/x-dwg							dwg
+application/x-dwg							dwg
+image/vnddxf							dxf
+image/x-dxf							dxf
+application/x-dxf							dxf
+model/vnddwf							dwf
+image/x-dwf							dwf
+application/x-dwf							dwf
+application/x-autocad							dwg dxf dwf
+# Initial Graphics Exchange Specification (IGES) drawing
+model/iges							igs iges
+# 3D Mesh Model (MESH) 3D model
+model/mesh							msh mesh silo
+# Extensible 3D Graphics (X3D) 3D graphic
+model/x3d+vrml							x3d x3dz
+model/x3d+xml							x3dv x3dvz
+model/x3d+binary							x3db x3dbz
+# Virtual Reality Modeling Language (VRML) 3D graphic
+model/vrml							wrl wrz vrml
+x-world/x-vrml							wrl wrz vrml
+application/x-cc3d							wrl wrz vrml
+# Synchronized Multimedia Integration Language (SMIL) markup
+application/smil+xml							smi smil
+# Xiphorg XML Shareable Playlist Format (XSPF) playlist
+application/xspf+xml							xspf
+# Winamp playlist (M3U/PLS) playlist
+audio/x-mpegurl							m3u
+application/vndapplempegurl							m3u8
+video/vndmpegurl							mxu m4u
+application/pls+xml							pls
+audio/x-scpls							pls
+# Foobar2000 playlist (FPL) playlist
+application/octet-stream							fpl
+# Microsoft Windows Media Player Playlist (WPL) playlist
+application/vndms-wpl							wpl
+# Microsoft Advanced Stream Redirector (ASX/LSX) playlist
+video/x-ms-asf							asx
+video/x-la-asf							lsx
+# Microsoft Windows Media Video Redirector (WVX) shortcut
+video/x-ms-wmx							wmx
+audio/x-ms-wax							wax
+video/x-ms-wvx							wvx
+# MPEG (M3A) playlist
+audio/mpeg							m3a
+# WebM, VP8/Vorbis (WEBM) multimedia container
+video/webm							webm
+audio/webm							webm
+# Matroska Multimedia Container (MKV/MKA/MKS) multimedia container
+audio/x-matroska							mka
+video/x-matroska							mkv mks
+# Xiphorg Vorbis (OGX/OGG) multimedia container
+application/ogg							ogx
+audio/ogg							ogg
+video/ogg							ogg
+# Nullsoft Streaming Video (NSV) audio/video container
+application/x-winamp							nsv nsa
+# RealMedia Variable Bitrate (RMVB) audio/video container
+application/vndrn-realmedia-vbr							rmvb
+# RealMedia (RM) audio/video container
+application/vndrn-realmedia							rm
+audio/x-pn-realaudio-plugin							rmp
+# Adobe Flash Video (FLV) audio/video container
+audio/x-f4a							f4a f4b
+audio/mp4							f4a f4b
+video/x-f4v							f4v f4p
+video/mp4							f4v f4p
+video/x-fli							fli
+video/x-flv							flv
+video/x-m4v							m4v
+# Third Generation Partnership Project (3GPP) multimedia container
+audio/3gpp							3gp 3ggp
+audio/3gpp2							3g2 3gp2
+video/3gpp							3gp 3ggp
+video/3gpp2							3g2 3gp2
+# MPEG-4 Part 14, MP4 file format, MPEG-4 file format version 2 (MP4) multimedia container
+application/mp4							mp4 mpg4 mp4s
+audio/mp4							mp4 mpg4
+video/mp4							mp4 mpg4
+# Microsoft Advanced Systems Format (ASF) audio/video container
+application/vndms-asf							asf
+video/x-ms-asf							asf
+video/x-la-asf							lsf
+# Microsoft Audio Video Interleave (AVI) audio/video container
+video/vndavi							avi
+video/avi							avi
+video/msvideo							avi
+video/x-msvideo							avi
+# Musical Instrument Digital Interface (MIDI) synthetized music
+audio/midi							mid midi kar rmi
+# Xiphorg Speex (OGA/OGG) lossy speech
+audio/speex							spx
+audio/ogg							spx
+# Adaptive Multi-Rate Wideband (AMR-WB) lossy speech
+audio/amr-wb							awb
+# Adaptive Multi-Rate (AMR/AMR-NB) lossy speech
+audio/amr							amr
+# Xiphorg Free Lossless Audio Codec (FLAC) lossless audio
+audio/x-flac							flac
+# WavPack (WV) lossless audio
+audio/x-wavpack							wv
+# True Audio (TTA) lossless audio
+audio/x-tta							tta
+# Monkey's Audio (APE) lossless audio
+audio/x-ape							ape apl
+# Apple Lossless Audio Codec (ALAC) lossless audio
+audio/x-alac							m4a
+# Microsoft Windows Media Audio Lossless (WMA) lossless audio
+audio/x-ms-wma							wma
+# Sony Adaptive Transform Acoustic Coding (ATRAC) Advanced Lossless (AA3) lossless audio
+audio/atrac-advanced-lossless							aa3 at3
+# Shorten (SHN) lossless audio
+audio/x-shorten							shn
+# Apple Audio Interchange File Format (AIFF) lossless audio
+audio/x-aiff							aif aiff aifc
+audio/aiff							aif aiff aifc
+# Adaptive Differential Pulse Code Modulation (ADPCM) lossless audio
+audio/adpcm							adp adpcm
+# Linear Pulse Code Modulation (LPCM) lossless audio
+audio/l16							pcm l16
+audio/l8							pcm
+audio/l20							pcm
+audio/l24							pcm
+# Microsoft Waveform Audio File Format (WAVE) lossless audio
+audio/vnd.wave							wav wave
+audio/wav							wav wave
+audio/wave							wav wave
+audio/x-wav							wav wave
+# Xiphorg Vorbis (OGA/OGG) lossy audio
+audio/ogg							oga
+audio/vorbis							oga
+audio/vorbis-config							oga
+# MusePack (MPC) lossy audio
+audio/x-musepack							mpc mp+ mpp
+audio/musepack							mpc mp+ mpp
+# RealAudio (RA) lossy audio
+audio/x-pn-realaudio							ra ram
+# Microsoft Windows Media Audio (WMA) lossy audio
+audio/x-ms-wma							wma
+# Sony Adaptive Transform Acoustic Coding (ATRAC) (AA3) lossy audio
+audio/atrac-x							aa3 at3
+audio/atrac3							aa3 at3
+audio/x-oma							oma
+# DTS Theater System (DTS) lossy audio
+audio/vnddts							dts
+audio/vnddtshd							dtshd
+# Dolby Digital (AC3) lossy audio
+audio/ac3							ac3
+# MPEG-4 Part 3, Audio, High-Efficiency Advanced Audio Coding (HE-AAC) (AAC) lossy audio
+audio/aacp							aac
+# MPEG-4 Part 3, Audio, Advanced Audio Coding (AAC) lossy audio
+audio/x-aac							aac
+audio/aac							aac
+audio/mp4							aac
+# MPEG-4 Part 3, Audio, various formats (M4A) lossy audio
+audio/mp4							m4a mp4a m4p m4b m4r
+audio/mp4a-latm							m4a
+audio/mpeg4-generic							m4a
+# MPEG-2 Part 3, Audio, Layer I/II/II (M2A) lossy audio
+audio/mpeg							m2a mp2a
+# MPEG-1 Part 3, Audio, Layer III (MP3) lossy audio
+audio/mpeg							mp3
+audio/mpa							mp3
+audio/mpa-robust							mp3
+# MPEG-1 Part 3, Audio, Layer II (MP2) lossy audio
+audio/mpeg							mp2 mpa mpga mpega
+audio/mpa							mp2 mpa mpga mpega
+# MPEG-1 Part 3, Audio, Layer I (MP1) lossy audio
+audio/mpeg							mp1 m1a mpa mpga mpega
+audio/mpa							mp1 m1a mpa mpga mpega
+# Sun Au file format (AU/SND) lossy audio
+audio/basic							au snd
+# Xiphorg Theora, VP3 (OGV/OGG) lossy video
+video/ogg							ogv
+# RealVideo (RV) lossy video
+video/x-pn-realvideo							rv
+video/x-rn-realvideo							rv
+# Apple QuickTime File Format (QTFF) (QT/MOV) lossy video
+video/quicktime							mov qt
+video/x-sgi-movie							movie
+# Microsoft Windows Media Video, VC-1 (WMV) lossy video
+video/x-ms-wm							wm
+video/x-ms-wmv							wmv
+video/x-ms-wmx							wmx
+video/x-ms-wvx							wvx
+# MPEG-4 Part 10, Advanced Video Coding (AVC), H264 lossy video
+video/h264							h264
+# VCEG H261/H263 lossy video
+video/h261							h261
+video/h263							h263
+# MPEG-4 Part 2, Visual, Advanced Simple Profile (ASP), Xvid/DivX lossy video
+video/x-divx							xvid divx
+# MPEG-4 Part 2/10/14, Video, various formats (M4V) video
+video/mp4							m4v mp4v 3gp 3g2
+video/mpeg4-generic							m4v
+# MPEG-2 Part 2, Video, H262/DVD (M2V/VOB) lossy video
+video/mpeg							m2v mpv2 vob
+# MPEG-1 Part 2, Video, VideoCD (M1V) lossy video
+video/mpeg							m1v mpv mpe mpg mpeg
+video/mpv							m1v mpv mpe mpg mpeg
+# Motion JPEG 2000 (M-JPEG2K) (MJ2) lossy/lossless video
+video/mj2							mj2 mjp2
+video/jpeg2000							mj2 mjp2
+# Motion JPEG (M-JPEG) (MJPG) lossy video
+video/x-motion-jpeg							mjpg
+video/jpeg							jpgv
+# Digital Video (DV) DV-DIF raw video (DV/DIF) lossy video
+video/dv							dv dif
+video/x-dv							dv dif
+# RAD Game Tools Bink Video (BIK) lossy video
+video/x-bink							bik
+# RAD Game Tools Smacker Video (SMK) lossy video
+video/x-smacker							smk
+# Mozilla XPInstall (Cross-Platform Install) (XPI) application
+application/x-xpinstall							xpi
+# Adobe Adobe Integrated Runtime (AIR) application
+application/vndadobeair-application-installer-package+zip							air
+# Adobe Flash (SWF) application
+application/x-shockwave-flash							swf
+# Adobe Director (DIR) application
+application/x-director							dir dcr dxr cst cct cxt w3d fgd swa
+# Microsoft Silverlight (XAP) application
+application/x-silverlight-app							xap
+application/x-ms-xbap							xbap
+# Java binaries
+application/octet-stream							java
+application/java-archive							jar
+application/java-serialized-object							ser
+application/java-vm							class
+application/x-java-jnlp-file							jnlp
+# Windows binaries
+application/x-msdownload							exe dll ocx com bat msi mso
+application/x-ms-manifest							manifest
+# Linux / Mac OS binaries
+application/octet-stream							bin dms lrf so o elf dist distz pkg bpk dump elc deploy
+# Signatures
+application/pgp-encrypted							pgp
+application/pgp-signature							asc sig
+# BinHex (HQX) encoding
+application/mac-binhex40							hqx
+application/mac-binhex							hqx
+application/binhex							hqx
+# UUEncode (UU) encoding
+text/x-uuencode							uu
+# Multi-Purpose Internet Mail Extension (MIME) encoding
+message/rfc822							mime
+# Encryption
+application/pkcs10							p10
+application/x-pkcs12							p12 pfx
+application/pkcs7-mime							p7m p7c
+application/pkcs7-signature							p7s
+application/x-pkcs7-certificates							p7b spc
+application/x-pkcs7-certreqresp							p7r
+application/pkix-cert							cer
+application/pkix-crl							crl
+application/pkix-pkipath							pkipath
+application/pkixcmp							pki
+application/vndms-pkipko							pko
+application/vndms-pkicertstore							sst
+application/vndms-pkiseccat							cat
+application/vndms-pkistl							stl
+application/x-x509-ca-cert							der crt
+# BitTorrent metadata (TORRENT) download
+application/x-bittorrent							torrent
+# Tape (TAR) archives
+application/x-tar							tar
+application/x-gtar							gtar
+# Gzip (GZ) archives
+application/x-gzip							gz tgz
+application/x-compressed							tgz
+# Bzip (BZ) archives
+application/x-bzip							bz tbz
+application/x-bzip2							bz2 boz tbz2 tb2
+# Compress (Z) archives
+application/x-compress							Z taz
+# LZMA (LZMA) archives
+application/x-lzma							lzma tlz
+# LZMA2 (XZ) archives
+application/x-xz							xz txz
+# LZIP (LZ) archives
+application/x-lzip							lz
+# LHA and LZH archives
+application/x-lzh-compressed							lha lzh
+# LZX archives
+application/x-lzx							lzx
+# Disk Archiver (DAR) archives
+application/x-dar							dar
+# Compact File Set (CFS) archives
+application/x-cfs-compressed							cfs
+# 7-ZIP (7z) archives
+application/x-7z-compressed							7z
+# ZIP archives
+application/zip							zip zipx
+# RAR files
+application/x-rar-compressed							rar rev r00 r01 r02 r03 r04 r05
+# Cabinet (CAB) archives
+application/vndms-cab-compressed							cab
+# Stuffit (SIT) archives
+application/x-stuffit							sit
+application/x-stuffitx							sitx
+# Debian (DEB) archives
+application/x-debian-package							deb udeb
+# Apple DiskImage (DMG) archive
+application/x-apple-diskimage							dmg smi img
+# ISO 9660 (ISO) archive
+application/x-iso9660-image							iso
 
-	application/java-archive									jar
-	application/mathematica										nb
-	application/msword											doc dot
+application/java-archive									jar
+application/mathematica										nb
+application/msword											doc dot
 
-	# Mobile XMF (Extensible Music Format)
-	audio/mobile-xmf											mxmf xmf
-	# NRT (Nokia Ring Tone)
-	audio/x-nrt													nrt
-	# Nokia ringtone
-	audio/x-rtx													rtx
-	# Nokia ringtone
-	audio/x-rt													rt
-	# Nokia ringtone
-	audio/x-dm													dm
-	# Nokia Monophonic ringtone
-	application/vnd.nokia.ringing-tone							rng
-	# Core Audio Format
-	audio/x-caf													caf
-	# Siemens Ringtone
-	audio/x-srt													srt
+# Mobile XMF (Extensible Music Format)
+audio/mobile-xmf											mxmf xmf
+# NRT (Nokia Ring Tone)
+audio/x-nrt													nrt
+# Nokia ringtone
+audio/x-rtx													rtx
+# Nokia ringtone
+audio/x-rt													rt
+# Nokia ringtone
+audio/x-dm													dm
+# Nokia Monophonic ringtone
+application/vnd.nokia.ringing-tone							rng
+# Core Audio Format
+audio/x-caf													caf
+# Siemens Ringtone
+audio/x-srt													srt
 
-																wwd
-	# Motorola Motomixer
-	audio/x-bas													bas
-	# Nokia MIDI
-	audio/x-spmid												spmid
-	# LG ringtones
-	audio/x-jet													jet
+															wwd
+# Motorola Motomixer
+audio/x-bas													bas
+# Nokia MIDI
+audio/x-spmid												spmid
+# LG ringtones
+audio/x-jet													jet
+```
 
 ### Protocole specific media type
 

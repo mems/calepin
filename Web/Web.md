@@ -806,6 +806,57 @@ Some browsers usally try to get the following resource: `/favicon.ico`
 - [Favicon — Wikipedia](https://en.wikipedia.org/wiki/Favicon)
 - [(1) Lea Verou on Twitter: "Now that all modern browsers support SVG favicons, here's how to turn any emoji into a favicon.svg: &lt;svg xmlns="https://t.co/TJalgdayix" viewBox="0 0 100 100"&gt; &lt;text y=".9em" font-size="90"&gt;💩&lt;/text&gt; &lt;/svg&gt; Useful for quick apps when you can't be bothered to design a favicon! https://t.co/S2F8IQXaZU" / Twitter](https://twitter.com/LeaVerou/status/1241619866475474946)
 
+## WebIDL
+
+`.webidl`, `.widl`, `.idl`
+
+- [Web IDL — Wikipedia](https://en.wikipedia.org/wiki/Web_IDL)
+- [WebIDL - MDN Web Docs Glossary: Definitions of Web-related terms | MDN](https://developer.mozilla.org/en-US/docs/Glossary/WebIDL)
+- [Newest 'webidl' Questions - Stack Overflow](https://stackoverflow.com/questions/tagged/webidl)
+- [WebIDL bindings - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/WebIDL_bindings)
+- [WebIDL — Firefox Source Docs documentation](https://firefox-source-docs.mozilla.org/dom/bindings/webidl/index.html)
+- [Web IDL in Blink - The Chromium Projects](https://www.chromium.org/blink/webidl)
+- [Implementing a JS-based WebIDL binding in Gecko](https://gist.github.com/marcoscaceres/13af01281730b5279ad6)
+
+Tools:
+
+- [ncannasse/webidl: Haxe support for WebIDL](https://github.com/ncannasse/webidl)
+- [w3c/webidl2.js: WebIDL parser](https://github.com/w3c/webidl2.js/)
+- [bindings - mozsearch](https://searchfox.org/mozilla-central/source/dom/bindings/)
+- [WebIDL Binder — Emscripten 2.0.12 documentation](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/WebIDL-Binder.html)
+- [microsoft/TypeScript-DOM-lib-generator: Tool for generating dom related TypeScript and JavaScript library files](https://github.com/microsoft/TypeScript-DOM-lib-generator/tree/master/inputfiles/idl) - generated from [WebIDL Sources](https://github.com/microsoft/TypeScript-DOM-lib-generator/blob/master/inputfiles/idlSources.json) with [idlfetcher](https://github.com/microsoft/TypeScript-DOM-lib-generator/blob/master/src/idlfetcher.ts) and Microsoft Edge Platform internally generated WebIDL (`browser.webidl.json`, from sources?)
+- [Closure Compiler compatible externs from IDL files generator](https://code.google.com/archive/p/closureidl/)
+- [saschanaz/webidl-serializer: A converter for WebIDL to Microsoft webidl.xml](https://github.com/saschanaz/webidl-serializer)
+
+Format:
+
+- [WebIDL Level 1](https://www.w3.org/TR/WebIDL/) and [Web IDL](https://heycam.github.io/webidl/) (Second Edition)
+- [Web IDL: Defining Web APIs and Implementing JavaScript Bindings](https://mcc.id.au/2013/lca-webidl/)
+- [WebKitIDL – WebKit](https://trac.webkit.org/wiki/WebKitIDL)
+- [Web IDL in Blink - The Chromium Projects](https://www.chromium.org/blink/webidl)
+- [WebIDL bindings - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/WebIDL_bindings)
+- [Information contained in a WebIDL file - The MDN project | MDN](https://developer.mozilla.org/en-US/docs/MDN/Contribute/Howto/Write_an_API_reference/Information_contained_in_a_WebIDL_file)
+- [wpt/WebIDL at master · web-platform-tests/wpt](https://github.com/web-platform-tests/wpt/tree/master/WebIDL)
+
+WebIDL Sources:
+
+- [Where to find WebIDL files](https://developer.mozilla.org/en-US/docs/MDN/Contribute/Howto/Write_an_API_reference/Information_contained_in_a_WebIDL_file#where_to_find_webidl_files)
+- [Web IDL - W3C Wiki](https://www.w3.org/wiki/Web_IDL#Dependent_Specifications)
+- http://www.w3.org/TR/2011/REC-SVG11-20110816/svg.idl https://dev.w3.org/SVG/profiles/1.1F2/publish/idl.html
+- [webidl - mozsearch](https://searchfox.org/mozilla-central/source/dom/webidl/) https://github.com/mozilla/gecko-dev/tree/aade4252608ed43047e975217e8a39c2a71b0728/dom/webidl
+- [Révision 267813 – WebKit](https://trac.webkit.org/changeset/267813/webkit)
+- [bindings - mozsearch](https://searchfox.org/mozilla-central/source/dom/bindings/)
+- [webidl - mozsearch](https://searchfox.org/mozilla-central/source/dom/webidl/)
+- [Révision 267813 – WebKit](https://trac.webkit.org/changeset/267813/webkit) - A commit that list all `.idl` used by WebKit
+- [core_idl_files.gni - Chromium Code Search](https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/core_idl_files.gni)
+
+See also:
+
+- [tc39/proposal-idl: Investigation into using an Interface Description Language (IDL) in the ECMAScript standard](https://github.com/tc39/proposal-idl)
+- [TypeScript/src/lib at master · microsoft/TypeScript](https://github.com/microsoft/TypeScript/tree/master/src/lib) -
+- [DefinitelyTyped/DefinitelyTyped: The repository for high quality TypeScript type definitions.](https://github.com/DefinitelyTyped/DefinitelyTyped) - `@types/*`
+- [How to parse typescript definition to json? - Stack Overflow](https://stackoverflow.com/questions/39588436/how-to-parse-typescript-definition-to-json)
+
 ## Browsers
 
 ### Browsers version fragmentation
