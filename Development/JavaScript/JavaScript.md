@@ -88,6 +88,27 @@ Object.defineProperties(document.scrollingElement, {
 	scrollTop: {set: console.trace, get: () => 55},
 	scrollLeft: {set: console.trace, get: () => 55}
 });
+
+const waitForGlobalProp = new Promise((resolve, reject) => {
+	const propName = "OneTrust";
+	if(self[propName]){
+		resolve(self[propName]);
+		return;
+	}
+
+	const timeoutID = setTimeout(() => reject(`${propName} timeout`), 1000);
+
+	// Property proxy
+	Object.defineProperty(self, propName, {
+		set: (value) => {
+			clearTimeout(timeoutID);
+			Object.defineProperty(self, propName, {value, configurable: true, writable: true, enumerable: true});// Equivalent to self[propName] = value but required or we will get a recursive call (the setter call himeself)
+			resolve(value);
+		}
+		get: () => undefined,
+		configurable: true
+	});
+});
 ```
 
 - [Set a conditional breakpoint - Firefox Developer Tools | MDN](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Set_a_conditional_breakpoint)
@@ -7293,7 +7314,7 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 ```js
 // Read one cookie
-var value = (document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/) || ["", ""])[1];// es5
+var value = (document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/) || [, ""])[1];// es5
 //const [, value = ""] = document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/];// es6
 
 // const value = !!document.cookie.split(";").find(pair => /cookiename(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "cookiename=true"

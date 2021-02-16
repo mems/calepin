@@ -872,10 +872,14 @@ For HTML, use:
 
 About XSS and service workers:
 
-- [XSS with ServiceWorkers · Learning Man](https://blog.sari3l.com/posts/a62f29f1/)
-- [RootkitXSS之ServiceWorker - 先知社区](https://xz.aliyun.com/t/3228)
-- [ServiceWorker is dangerous](https://alf.nu/ServiceWorker)
-- [Frederik Braun : Challenge Write-up: Subresource Integrity in Service Workers](https://frederik-braun.com/sw-sri-challenge.html)
+- [XSS with ServiceWorkers · Learning Man](https://web.archive.org/web/20201026092419/https://blog.sari3l.com/posts/a62f29f1/)
+- [RootkitXSS之ServiceWorker - 先知社区](https://web.archive.org/web/20201123225328/https://xz.aliyun.com/t/3228)
+- [ServiceWorker is dangerous](https://web.archive.org/web/20200511110244/https://alf.nu/ServiceWorker)
+- [Frederik Braun : Challenge Write-up: Subresource Integrity in Service Workers](https://web.archive.org/web/20201108182026/https://frederik-braun.com/sw-sri-challenge.html)
+- [Hack Patch!: Nonce-based CSP + Service Worker = CSP bypass?](https://web.archive.org/web/20191208005617/https://shhnjk.blogspot.com/2019/09/nonce-based-csp-service-worker-csp.html)
+- [XSS persistence using JSONP and serviceWorkers – c0nradsc0rner](https://web.archive.org/web/20201204071806/https://c0nradsc0rner.com/2016/06/17/xss-persistence-using-jsonp-and-serviceworkers/)
+- [Service Worker Security FAQ](https://chromium.googlesource.com/chromium/src/+/master/docs/security/service-worker-security-faq.md#If-a-site-has-an-XSS-vulnerability_can-the-attacker-permanently-compromise-that-origin-for-me)
+- [Is it possible to serve service workers from CDN/remote origin? · Issue #940 · w3c/ServiceWorker](https://github.com/w3c/ServiceWorker/issues/940)
 
 For JSON, use (affect only old browsers):
 

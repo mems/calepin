@@ -4,38 +4,14 @@
 
 ## Hardware
 
-	cat /proc/cpuinfo | more
-	lscpu
-	uname --machine
-	dmesg
+```sh
+cat /proc/cpuinfo | more
+lscpu
+uname --machine
+dmesg
+```
 
 - [What kind of CPU does my Synology NAS have?](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General/What_kind_of_CPU_does_my_NAS_have)
-
-### Disk info
-
-	sudo smartctl -a /dev/sdX | grep "^SATA"
-	dmesg | grep -i sata | grep 'link up'
-	sudo hdparm -I /dev/sdX
-
-- [Is DS1815+ Native SATA III - Synology Forum](https://forum.synology.com/enu/viewtopic.php?t=95139) - SATA version and speed repartition (first ones support higher speed)
-- [Mounting old Synology volumes in new hardware - Code, Rinse, Repeat](https://coderinserepeat.com/2017/05/13/mounting-existing-synology-volumes/)
-
-### Replace disk
-
-Aka repair disk
-
-RAID mirror disks: remove a disk and rebuild volume
-
-RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Command%20line/Command%20line%20%28Unix%29.md#clone-disk)
-
-- [Replace Drives to Expand Storage Capacity | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk)
-- [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
-- [Adding a new disk drive to a Synology 2-bay drive - Super User](https://superuser.com/questions/575408/adding-a-new-disk-drive-to-a-synology-2-bay-drive)
-- [Upgrading disks in a RAID1 Synology 2-bay drive - Super User](https://superuser.com/questions/469325/upgrading-disks-in-a-raid1-synology-2-bay-drive)
-- [How to upgrade HDD for one bay model - SynologyWiki](https://web.archive.org/web/20160304194224/http://forum.synology.com/wiki/index.php/How_to_upgrade_HDD_for_one_bay_model)
-- [Synology two-bay NAS with existing data? - Super User](https://superuser.com/questions/1060602/synology-two-bay-nas-with-existing-data)
-- [Etendre Une Partition Sur Un Nouveau Disque Dur (Non Raid) - Installation, Démarrage et Configuration - NAS-Forum](http://www.nas-forum.com/forum/topic/44795-etendre-une-partition-sur-un-nouveau-disque-dur-non-raid/)
-- [How can I recover data on my Synology NAS using a PC? | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/How_can_I_recover_data_from_my_DiskStation_using_a_PC)
 
 ### DSM on a PC
 
@@ -101,10 +77,6 @@ Inspiration of OSX: [OS X Yosemite: Share files with others who use your Mac](ht
 `launchParam` value is a URI encoded key value pairs (where values are also URI encoded)
 
 - [Upload files on your Synology with a link and no access rights – Synoguide](https://synoguide.com/2016/04/15/upload-files-on-your-synology-with-a-link-and-no-access-rights/)
-
-## Notifications
-
-- [Support for "Custom Notifications" - Synology Forum](https://forum.synology.com/enu/viewtopic.php?f=3&t=92727)
 
 ## Applications
 
@@ -273,6 +245,7 @@ sudo synopkg install_from_server PythonModule
 In case of an app fait to install from package center (`failed to download`, `/var/log/messages` contains `synoscgi_SYNO.Core.Package.Installation_1_install[26887]: pkgserver.cpp:708 Failed to download package, httpResponseCode=403, url=https://global.download.synology.com/download/Package/spk/SynologyDrive/2.0.2-11076/SynologyDrive-x86_64-2.0.2-11076.spk, mode=install`, like this version is not available in all regions)
 
 - [Install or Buy Packages | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/install_buy)
+- [Capture a Synology Package during installation | Beatifica Bytes](https://web.archive.org/web/20210208001514/https://www.beatificabytes.be/capture-a-synology-package-during-installation/)
 
 ### Create application
 
@@ -303,6 +276,8 @@ GUI ExtJS
 - `https://NAS:5001/webman/index.cgi?launchApp=$APP_ID` where `$APP_ID` is like `SYNO.SDS.AudioStation` or `SYNO.SDS.App.FileStation3.Instance` (see app JSON `/config` file for `"type":"app"`). See also [Application Portal | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/application_appportalias)
 - https://github.com/PrometeoFX/fire/blob/master/synoSDSjslib/sds.js [ecoreos/dsm6theme](https://github.com/ecoreos/dsm6theme) (`webman/*`) - files from DSM?
 - [Search · SYNO.SDS.AppWindow](https://github.com/search?p=9&q=SYNO.SDS.AppWindow&type=Code&utf8=%E2%9C%93)
+- [vletroye/Mods: Mods can be used to Create or Open/Edit and Generate packages for Synology](https://github.com/vletroye/Mods) - See [Add Custom URL Shortcuts into Synology's DSM Start Menu or on DSM's Desktop | Beatifica Bytes](https://web.archive.org/web/20190320152119/http://www.beatificabytes.be/add-custom-url-shortcuts-into-synologys-dsm-start-menu-or-on-dsms-desktop)
+- [vletroye/SynoPackages: Various Synology Packages built with Mods Packager](https://github.com/vletroye/SynoPackages)
 
 Dev environnement and tools:
 
@@ -415,6 +390,32 @@ Rename `dms.dmslog` to `dms.tar.gz`
 
 - `/var/packages/$APP_NAME`
 
+### Disk info
+
+	sudo smartctl -a /dev/sdX | grep "^SATA"
+	dmesg | grep -i sata | grep 'link up'
+	sudo hdparm -I /dev/sdX
+
+- [Is DS1815+ Native SATA III - Synology Forum](https://forum.synology.com/enu/viewtopic.php?t=95139) - SATA version and speed repartition (first ones support higher speed)
+- [Mounting old Synology volumes in new hardware - Code, Rinse, Repeat](https://coderinserepeat.com/2017/05/13/mounting-existing-synology-volumes/)
+
+### Replace disk
+
+Aka repair disk
+
+RAID mirror disks: remove a disk and rebuild volume
+
+RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Command%20line/Command%20line%20%28Unix%29.md#clone-disk)
+
+- [Replace Drives to Expand Storage Capacity | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk)
+- [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
+- [Adding a new disk drive to a Synology 2-bay drive - Super User](https://superuser.com/questions/575408/adding-a-new-disk-drive-to-a-synology-2-bay-drive)
+- [Upgrading disks in a RAID1 Synology 2-bay drive - Super User](https://superuser.com/questions/469325/upgrading-disks-in-a-raid1-synology-2-bay-drive)
+- [How to upgrade HDD for one bay model - SynologyWiki](https://web.archive.org/web/20160304194224/http://forum.synology.com/wiki/index.php/How_to_upgrade_HDD_for_one_bay_model)
+- [Synology two-bay NAS with existing data? - Super User](https://superuser.com/questions/1060602/synology-two-bay-nas-with-existing-data)
+- [Etendre Une Partition Sur Un Nouveau Disque Dur (Non Raid) - Installation, Démarrage et Configuration - NAS-Forum](http://www.nas-forum.com/forum/topic/44795-etendre-une-partition-sur-un-nouveau-disque-dur-non-raid/)
+- [How can I recover data on my Synology NAS using a PC? | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/How_can_I_recover_data_from_my_DiskStation_using_a_PC)
+
 ### Disk operations
 
 ```sh
@@ -436,6 +437,7 @@ sudo lvextend -l +100%FREE /dev/md2
 
 - [Volume Checking On DiskStation NAS - Synology Forum](https://forum.synology.com/enu/viewtopic.php?t=66550) - see also for unmount a disk
 - [Tech blog of Anton Keks: How I upgraded my Synology NAS to a bigger disk](http://blog.azib.net/2013/12/how-i-upgraded-my-synology-nas-to.html)
+- [Shrink a SHR Volume and remove disks from a Synology | Beatifica Bytes](https://web.archive.org/web/20200924054338/https://www.beatificabytes.be/shrink-a-shr-volume-and-remove-disks-from-a-synology/)
 
 ### List files
 
@@ -770,6 +772,11 @@ or use Download station, (support FTP) (can use RSS as source list)
 
 - [How to backup FTP to Synology Station - Evotec](https://evotec.xyz/how-to-backup-ftp-to-synology/)
 
+## Packages
+
+- [Home - synopackage.com](https://search.synopackage.com/home)
+- [PulseStation's repository](https://www.pulse-station.com/repo/)
+
 ## oPKG
 
 Aka Optware iPKG (Entware oPKG is a fork of iPKG)
@@ -852,7 +859,18 @@ Reset to factory default the admin password and network settings. Data will rema
 
 - [DiskStation Manager - Knowledge Base | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General/How_to_reset_your_Synology_NAS)
 
+## Scheduled tasks
+
+- [Synology's Scheduled Tasks | Beatifica Bytes](https://web.archive.org/web/20210208000645/https://www.beatificabytes.be/synologys-scheduled-tasks/)
+- [Run a command as root on Synology with any user | Beatifica Bytes](https://web.archive.org/web/20210208001120/https://www.beatificabytes.be/run-a-command-as-root-on-synology-with-any-user/)
+
 ## Notifications
+
+- [Send Custom Notifications from scripts running on a Synology \[new\] | Beatifica Bytes](https://web.archive.org/web/20201111165308/https://www.beatificabytes.be/send-custom-notifications-from-scripts-running-on-a-synology-new/)
+- [Send Custom (email) Notifications from scripts running on a Synology | Beatifica Bytes](https://web.archive.org/web/20191019063754/http://www.beatificabytes.be/send-custom-email-notifications-from-scripts-running-on-a-synology/)
+- [Synology Forum • View topic - Support for "Custom Notifications"](https://web.archive.org/web/20151002085113/http://forum.synology.com/enu/viewtopic.php?f=3&t=92727)
+
+### SMS API
 
 Free Mobile (l'option doit être activée dans le compte)
 
@@ -871,11 +889,11 @@ L2TP/IPSec: Manual DNS: check it the default value (defined by Configuration App
 - https://ppp.samba.org/pppd.html
 - https://www.synology.com/en-global/knowledgebase/DSM/help/VPNCenter/vpn_setup
 
-For routing traffic to LAN of the VPN server, need to add route
+For routing traffic to LAN of the VPN server, need to **add route** (on the router, or on the LAN client that what to see VPN clients)
 
 > OpenVPN support the concept of bridging
 
-> but it requires the client side being able to do TAP (and the router needs to be set up as OpenVPN server with two routers and do layer-2 bridging  with GRE and IPsec)
+> but it requires the client side being able to do TAP (and the router needs to be set up as OpenVPN server with two routers and do layer-2 bridging with GRE and IPsec)
 
 Which means broadcast messages (like NetBIOS hostname, mDNS) on VPN server can be delivered to VPN client too. You can cheat it by write in hosts file
 
@@ -891,36 +909,43 @@ Shouldn't conflict with DHCP IP ranges. Don't forget to stop and start VPN Appli
 
 On macOS pour l'auto routing:
 
-	# or without -n
-	netstat -rn
-	ifconfig
-	#see ppp0 gateway
-	# Use 255.255.255.0 as subnet mask
-	sudo route add -net 192.168.3 -interface ppp0
-	# Delete the route. It's remove when the interface is deconnected (?)
-	sudo route -n delete -net 192.168.3 -interface ppp0
+```
+# or without -n
+netstat -rn
+ifconfig
+#see ppp0 gateway
+# Use 255.255.255.0 as subnet mask
+sudo route add -net 192.168.3 -interface ppp0
+# Delete the route. It's remove when the interface is deconnected (?)
+sudo route -n delete -net 192.168.3 -interface ppp0
+```
 
-	# You can create a route when the VPN connect, by create a file /etc/ppp/ip-up same for /etc/ppp/ip-down
-	# chmod 0755 /etc/ppp/ip-up
+```
+# You can create a route when the VPN connect, by create a file /etc/ppp/ip-up same for /etc/ppp/ip-down
+# chmod 0755 /etc/ppp/ip-up
+```
 
+```
+# Client setting (same as server setting):
+# Use the same setting as you are using on
+# the server.
+# On most systems, the VPN will not function
+# unless you partially or fully disable
+# the firewall for the TUN/TAP interface.
+dev tap
+;dev tun
+# routed=tun bridge=tap
+# https://openvpn.net/index.php/open-source/documentation/howto.html#vpntype
+# https://docs.openvpn.net/docs/openvpn-connect/openvpn-connect-ios-faq.html tap is not supported by iOS client
+```
 
-	# Client setting (same as server setting):
-	# Use the same setting as you are using on
-	# the server.
-	# On most systems, the VPN will not function
-	# unless you partially or fully disable
-	# the firewall for the TUN/TAP interface.
-	dev tap
-	;dev tun
-	# routed=tun bridge=tap
-	# https://openvpn.net/index.php/open-source/documentation/howto.html#vpntype
-	# https://docs.openvpn.net/docs/openvpn-connect/openvpn-connect-ios-faq.html tap is not supported by iOS client
-
-	# "dev tun" will create a routed IP tunnel,
-	# "dev tap" will create an ethernet tunnel.
-	# Use "dev tap0" if you are ethernet bridging
-	# and have precreated a tap0 virtual interface
-	# and bridged it with your ethernet interface.
+```
+# "dev tun" will create a routed IP tunnel,
+# "dev tap" will create an ethernet tunnel.
+# Use "dev tap0" if you are ethernet bridging
+# and have precreated a tap0 virtual interface
+# and bridged it with your ethernet interface.
+```
 
 - https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Application/How_to_connect_to_Synology_s_VPN_Server_using_a_Windows_PC_or_Mac#t4
 - https://serverfault.com/questions/274882/cant-resolve-host-through-vpn-connection-from-mac-os-x

@@ -337,3 +337,13 @@ Software and hardware:
 	- [Les polices de caractères incorporées dans des outils comme Office pourraient servir d'indicateurs, pour détecter les fraudeurs](https://www.developpez.com/actu/149640/Les-polices-de-caracteres-incorporees-dans-des-outils-comme-Office-pourraient-servir-d-indicateurs-pour-detecter-les-fraudeurs/)
 	- [Dani Rodrik's weblog: Did Microsoft steal its fonts from the Turkish army?](http://rodrik.typepad.com/dani_rodriks_weblog/2012/10/did-microsoft-steal-its-fonts-from-the-turkish-army.html)
 	- [How Microsoft’s Calibri font doomed Sharif family in Panama Case – Daily Pakistan](https://en.dailypakistan.com.pk/pakistan/how-microsofts-calibri-font-doomed-sharif-family-in-panama-case/)
+
+## Email hash
+
+For CRM matching often use email hash (MD5 or SHA256).
+
+Email hash shouldn't be considered as pseudonymised data. It's an identifier ("personal data" as GDPR sens).
+
+- [hash - Anonymous Gravatar Problem - Cryptography Stack Exchange](https://crypto.stackexchange.com/questions/22936/anonymous-gravatar-problem)
+- [Four cents to deanonymize: Companies reverse hashed email addresses](https://web.archive.org/web/20210113201618/https://freedom-to-tinker.com/2018/04/09/four-cents-to-deanonymize-companies-reverse-hashed-email-addresses/)
+- [Gravatar - Globally Recognized Avatars](https://en.gravatar.com/site/implement/hash/) - Gravatar use MD5 email hashes

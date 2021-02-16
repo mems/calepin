@@ -2631,7 +2631,7 @@ fi
 # NodeJS
 # Note: nodejs and npm without version specified are not the lastest available
 # sudo port install nodejs npm
-sudo port install nodejs13 npm6
+sudo port install nodejs15 npm6
 # Add to profile node config
 if ! grep -q "export NODE_PATH=" ~/.profile
 then
@@ -2653,10 +2653,11 @@ fi
 # To update global packages, use `npm update -g`
 
 # Install PHP and composer (PHP package manager)
-sudo port install php php74-intl php74-openssl
-#sudo port select --set php php74
+sudo port install php
+sudo port install php80-intl php80-openssl
+#sudo port select --set php php80
 # Create PHP config (dev only)
-sudo cp /opt/local/etc/php74/php.ini-development /opt/local/etc/php74/php.ini
+sudo cp /opt/local/etc/php80/php.ini-development /opt/local/etc/php80/php.ini
 
 # [#42344 (new composer port request) – MacPorts](https://trac.macports.org/ticket/42344)
 sudo port install php74-iconv php74-mbstring
@@ -2666,10 +2667,10 @@ sudo ln -s composer.phar /opt/local/bin/composer
 # Will install packages in ./vendor
 
 # Install python and pip (Python package manager)
-sudo port install python38 py38-pip
-sudo port select --set python python38
-sudo port select --set python3 python38
-sudo port select --set pip pip38
+sudo port install python39 py39-pip
+sudo port select --set python python39
+sudo port select --set python3 python39
+sudo port select --set pip pip39
 # Or for OSX's default python come with easy_install
 #sudo easy_install pip
 #pip install --user package
@@ -2713,13 +2714,15 @@ then
 fi
 
 # Java / Open JDK
-sudo port install openjdk14
+sudo port install openjdk15
 ```
 
 ## Preference pane
 
-	~/Library/PreferencePanes/
-	/Library/PreferencePanes/
+```
+~/Library/PreferencePanes/
+/Library/PreferencePanes/
+```
 
 Right click to remove prefpane
 
@@ -2728,9 +2731,9 @@ Right click to remove prefpane
 - [hschmidt/EnvPane: EnvPane - An OS X preference pane for environment variables](https://github.com/hschmidt/EnvPane) - Change environment variables
 - [specialunderwear/Hosts.prefpane: a Cocoa GUI for /etc/hosts](https://github.com/specialunderwear/Hosts.prefpane) - Change hosts files (works with SIP enabled)
 - [Lord-Kamina/SwiftDefaultApps: Replacement for RCDefaultApps, written in Swift.](https://github.com/Lord-Kamina/SwiftDefaultApps)
-- (old) [Rubicode - RCDefaultApp](http://www.rubicode.com/Software/RCDefaultApp/)  - "allows a user to set the default application used for various URL schemes, file extensions, file types, MIME types, and [Uniform Type Identifiers / UTIs](#uniform-type-identifier)"
+- (old, replace by SwiftDefaultApps) [Rubicode - RCDefaultApp](https://web.archive.org/web/20200312011847/http://www.rubicode.com/Software/RCDefaultApp/)  - "allows a user to set the default application used for various URL schemes, file extensions, file types, MIME types, and [Uniform Type Identifiers / UTIs](#uniform-type-identifier)"
 - [Arcana Research - StartupSound.prefPane](http://www5e.biglobe.ne.jp/~arcana/StartupSound/index.en.html) - "controls the volume of the startup sound of your Macintosh computer"
-- `/System/Library/CoreServices/Archive Utility.app/Contents/Resources/Archives.prefPane`
+- `/System/Library/CoreServices/Applications/Archive Utility.app/Contents/Resources/Archives.prefPane`
 
 ## Quicklook generators
 
