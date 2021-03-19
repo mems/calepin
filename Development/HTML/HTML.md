@@ -4414,7 +4414,13 @@ You can use `&quot;` in attribute value `style="background: url(&quot;image.png&
 
 ## Language attribute
 
-Special subtags:
+> HTML actually defines a *correct* way for you to indicate that the language of content is unknown. It is `lang=""` (empty string).
+> — [Amelia Bellamy-Royds on Twitter: "Fun fact! HTML actually defines a *correct* way for you to indicate that the language of content is unknown. It is lang="" (empty string). https://t.co/4WcLazcxrV (Also, you should ask your content creators to specify language when possible instead of using algorithms to guess.)" / Twitter](https://twitter.com/AmeliasBrain/status/1336037514096697344)
+
+> If the resulting value is the empty string, then it must be interpreted as meaning that the language of the node is explicitly unknown.
+> — [HTML Standard](https://html.spec.whatwg.org/multipage/dom.html#the-lang-and-xml:lang-attributes)
+
+Special subtags, but don't use them in HTML lang attribute:
 
 - `mis`: Uncoded languages
 - `mul`: Multiple languages

@@ -12,6 +12,7 @@
 - [tildeio/simple-html-tokenizer: A lightweight JavaScript library for tokenizing non-`\<script\>` HTML expected to be found in the `\<body\>` of a document](https://github.com/tildeio/simple-html-tokenizer)
 - [lddubeau/saxes: An evented streaming XML parser in JavaScript](https://github.com/lddubeau/saxes) - used by jsdom and [svgo's svg2js](https://github.com/svg/svgo/blob/master/lib/svgo/svg2js.js) (see also [js2svg](https://github.com/svg/svgo/blob/master/lib/svgo/js2svg.js))
 - [libxmljs/libxmljs: libxml bindings for v8 javascript engine](https://github.com/libxmljs/libxmljs) - Read and write XML (native)
+- [rgrove/parse-xml: A fast, safe, compliant XML parser for Node.js and browsers.](https://github.com/rgrove/parse-xml) - Read XML
 - [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip) - Read and write ZIP asynchronously
 - [csstree/csstree: Fast detailed CSS parser with syntax validation](https://github.com/csstree/csstree) - Read and write CSS
 - [http-auth/src at master · http-auth/http-auth](https://github.com/http-auth/http-auth/tree/master/src) - Basic and Digest HTTP Authentification (express)

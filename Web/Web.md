@@ -1048,6 +1048,21 @@ Dev tools:
 
 - [WebInspectorUI dans webkit/trunk/Source. – WebKit](http://trac.webkit.org/browser/trunk/Source/WebInspectorUI)
 
+#### WebKit on Windows
+
+- [Running WebKit on Windows | fujii.github.io](https://web.archive.org/web/20201218060747/https://fujii.github.io/2019/07/05/webkit-on-windows/)
+- [WebKit on Windows | WebKit](https://webkit.org/webkit-on-windows/)
+- [How to run the latest WebKit ( Safari ) on Windows | by olexandr | Medium](https://web.archive.org/web/20210305163839/https://medium.com/@alSkachkov/how-to-load-the-latest-webkit-on-windows-962a9219c1e1)
+
+From [playwright](https://github.com/microsoft/playwright) (a [NPM library](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)) WebKit Windows builds:
+
+- `https://playwright2.blob.core.windows.net/builds/webkit/{version}/webkit-win64.zip` where `version` is [one of the WebKit version supported](https://github.com/microsoft/playwright/blob/e56f56c11e60636011a2d2861d30d6afdff39331/browsers.json#L16) (see also [`browser_patches/webkit/BUILD_NUMBER`](https://github.com/microsoft/playwright/blob/e56f56c11e60636011a2d2861d30d6afdff39331/browser_patches/webkit/BUILD_NUMBER#L1))
+- [`browser_patches/tools/check_cdn.sh`](https://github.com/microsoft/playwright/blob/e56f56c11e60636011a2d2861d30d6afdff39331/browser_patches/tools/check_cdn.sh)
+- [`src/install/browserFetcher.ts`](https://github.com/microsoft/playwright/blob/e56f56c11e60636011a2d2861d30d6afdff39331/src/install/browserFetcher.ts)
+- WinCairo, 64 bits only
+- browsers pre-builds binaries are fetched when you `npm install playwright`.
+- Webkit can be downloaded and started with `npx playwright wk https://example.com/` (with NPM) or exec `Playwright.exe` (require to download it manually)
+
 ### Chrome
 
 - [List of Chromium Command Line Switches « Peter Beverloo](https://peter.sh/experiments/chromium-command-line-switches/)
@@ -1702,13 +1717,14 @@ Tools:
 Other:
 
 - tools for browser for users or authors: zoom and font size settings, [reduce motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion), [custom font](https://www.dyslexiefont.com/en/chrome-extension/), screen reader, [colors inversion](http://adrianroselli.com/2017/11/os-high-contrast-versus-inverted-colors.html), video sub titles, keyboard navigation, [etc.](https://chrome.google.com/webstore/category/collection/accessibility))
-- advice against using web accessibility overlay tools / add-on accessibility / plug and play solutions ([accessiBe](https://en.wikipedia.org/wiki/AccessiBe), Facil'iti)
+- accessibility overlay tools / add-on accessibility / plug and play solutions ([accessiBe](https://en.wikipedia.org/wiki/AccessiBe), Facil'iti)
     - [Web accessibility overlay tools: lies and gum balls - Le Lutin du Web](https://www.lelutinduweb.fr/en/web-accessibility-overlays-lies-gum-balls/)
     - [Be Wary of Add-on Accessibility | Adrian Roselli](https://web.archive.org/web/20201111022804/https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
     - [#accessiBe Will Get You Sued | Adrian Roselli](https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html)
     - [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
     - [Web Accessibility Overlays Don't Work](https://web.archive.org/web/20201005172019/https://blog.tenon.io/web-accessibility-overlays-dont-work)
     - [Les outils de surcouche d’accessibilité web : mensonges et boules de gomme - La Lutine du Web](https://web.archive.org/web/20201015162302/https://www.lalutineduweb.fr/surcouche-accessibilite-web-mensonges-boules-gommes/)
+	- [Should I Use An Accessibility Overlay?](https://web.archive.org/web/20210303164744/https://shouldiuseanaccessibilityoverlay.com/)
 - [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
 - [thetuttingtutor/accessibility-disability-justice: Accessibility and disability justice resources](https://github.com/thetuttingtutor/accessibility-disability-justice)
 - [WebAIM: Articles](https://webaim.org/articles/)

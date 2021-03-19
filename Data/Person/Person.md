@@ -11,16 +11,20 @@
 Name(s):
 
 - can be long. ex.:
-	* Keihanaikukauakahihulihe'ekahaunaele
-	* Bithurasdinhournimlousgon Kleslinfarjilpourginjdesher
-	* [Hubert Blaine Wolfeschlegelsteinhausenbergerdorff, Sr.](https://en.wikipedia.org/wiki/Hubert_Blaine_Wolfeschlegelsteinhausenbergerdorff,_Sr.) also named Wolfe+585, Senior
-	* [Pablo Diego José Francisco de Paula Juan Nepomuceno María de los Remedios Cipriano de la Santísima Trinidad Ruiz y Picasso](https://en.wikipedia.org/wiki/Pablo_Picasso#Early_life)
-- can be short: [Wu Yi](https://en.wikipedia.org/wiki/Wu_Yi), Val Head, Ed Mol
-- can be an (or contains) insult/profanity/slang in some languages: Babcock
-- can be a computer word: Format (no ref found), [Blank (surname) — Wikipedia](https://en.wikipedia.org/wiki/Blank_%28surname%29), Test, [Null](https://en.wikipedia.org/wiki/Keith_Null), [True](https://en.wikipedia.org/wiki/True_(surname)), [Nan](https://en.wikipedia.org/wiki/Nan_(surname)), [Void](https://lastnames.myheritage.com/last-name/Void), Root
+	- Bithurasdinhournimlousgon Kleslinfarjilpourginjdesher
+	- Janice Keihanaikukauakahihulihe'ekahaunaele
+	- [Melissa Zoe Pontes Da Costa Granja James Y Savill](https://web.archive.org/web/20201101021723if_/https://www.bbc.com/news/world-us-canada-24097775) (displayed "Pontes D C G J Y S" on her passport)
+	- [Hubert Blaine Wolfeschlegelsteinhausenbergerdorff, Sr.](https://en.wikipedia.org/wiki/Hubert_Blaine_Wolfeschlegelsteinhausenbergerdorff,_Sr.) also named Wolfe+585, Senior
+	- [Pablo Diego José Francisco de Paula Juan Nepomuceno María de los Remedios Cipriano de la Santísima Trinidad Ruiz y Picasso](https://en.wikipedia.org/wiki/Pablo_Picasso#Early_life)
+	- [other examples](https://web.archive.org/web/20201101021723if_/https://www.bbc.com/news/world-us-canada-24097775)
+- can be short: [Wu Yi](https://en.wikipedia.org/wiki/Wu_Yi), Val Head, Ed Mol, [Stephen O](https://web.archive.org/web/20201210074918mp_/https://www.nytimes.com/1991/08/28/us/why-o-why-doesn-t-that-name-compute.html) (saved as "S. O. Stephen." or "Mr. blank-blank O" or "Ostephen.")
+- can be an (or contains) insult/profanity/slang in some languages: Babcock, [Fuk-yu (馥瑜)](https://web.archive.org/web/20210119105619/https://qz.com/1249588/how-i-learned-to-live-with-a-name-thats-a-constant-source-of-humiliation/), [John Graham-Cumming](https://web.archive.org/web/20201109000822/https://blog.jgc.org/2010/06/your-last-name-contains-invalid.html)
+	- ['Phuc Dat Bich' reveals name a hoax](https://web.archive.org/web/20210228114109/https://www.sbs.com.au/news/phuc-dat-bich-reveals-name-a-hoax) and [Facebook real-name policy controversy - Wikipedia](https://en.wikipedia.org/wiki/Facebook_real-name_policy_controversy#Vietnamese)
+- can be a computer word: Format (no ref found), [Blank (surname) — Wikipedia](https://en.wikipedia.org/wiki/Blank_%28surname%29), Test, [Null](https://en.wikipedia.org/wiki/Keith_Null), [Christopher Null](https://web.archive.org/web/20201108091644/http://www.wired.com/2015/11/null/), [True](https://en.wikipedia.org/wiki/True_(surname)), [Nan](https://en.wikipedia.org/wiki/Nan_(surname)), [Void](https://lastnames.myheritage.com/last-name/Void), Root
+	- [Rachel True](https://twitter.com/RachelTrue/status/1365461618977476610)
 - can be Christian or Islam
 - can have a middle name
-- can be written in other alphabet or just have dashes, accent marks, apostrophes, tildes, cedillas, numbers, parentheses: [Gijs in 't Veld](https://twitter.com/gintveld/status/730317679886794752), [Jennifer 8. Lee](https://en.wikipedia.org/wiki/Jennifer_8._Lee), [Sylvia (4) Silva Baez](https://www.geni.com/people/Sylvia-4-Silva-Baez/6000000036175753990), O’Donnell
+- can be written in other alphabet or just have dashes, accent marks, apostrophes, tildes, cedillas, numbers, parentheses: [Gijs in 't Veld](https://twitter.com/gintveld/status/730317679886794752), [Jennifer 8. Lee](https://en.wikipedia.org/wiki/Jennifer_8._Lee), [Sylvia (4) Silva Baez](https://www.geni.com/people/Sylvia-4-Silva-Baez/6000000036175753990), O’Donnell, [Angel (6) de la Cruz](https://web.archive.org/web/20150912135401/http://www.wikitree.com/g2g/177917/my-name-contains-a-number-and-cannot-create-profile)
 - can be a [mononym](https://en.wikipedia.org/wiki/Mononymous_person) or single Name
 - can be composed (multiple words for each parts of name, hypenated): Jean-Paul
 - can be multiple ex.: Spanish family name, Middle names (know also as second, third, etc. given names)
@@ -47,14 +51,14 @@ Patrick McKenzie is problematic in Japan where Japanese name with more than four
 - [flex - How do I correctly pass the string "Null" (an employee's proper surname) to a SOAP web service from ActionScript 3? - Stack Overflow](https://stackoverflow.com/questions/4456438/how-do-i-correctly-pass-the-string-null-an-employees-proper-surname-to-a-so)
 - [The The - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/The_The)
 - [Your last name contains invalid characters](https://web.archive.org/web/20201109000822/https://blog.jgc.org/2010/06/your-last-name-contains-invalid.html)
-- [My name contains a number and cannot create profile. - WikiTree G2G](https://web.archive.org/web/20150912135401/http://www.wikitree.com/g2g/177917/my-name-contains-a-number-and-cannot-create-profile)
 - [Falsehoods Programmers Believe About Names | Kalzumeus Software](https://web.archive.org/web/20201109025208/https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
 - [Naming customs from the Iberian Peninsula, Why do they use two surnames? : AskHistorians](https://web.archive.org/web/20201110095711if_/https://www.reddit.com/r/AskHistorians/comments/2ycelk/naming_customs_from_the_iberian_peninsula_why_do/)
 - [Personal name — Wikipedia](https://en.wikipedia.org/wiki/Personal_name)
 - [Turkish Airline remove spaces in names](https://www.google.com/search?q=turkish+airline+remove+name+spaces) (where name "must be entered as shown on the passport"): Valeria Marisol Gonzalez -> Valeriamarisol Gonzalez, Robin van Hees -> Robin Vanhees
 - [People's Names That Break Websites | CSS-Tricks](https://css-tricks.com/peoples-names-break-websites/)
 - [Wikipedia:Naming conventions (people) — Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Naming_conventions_%28people%29)
-- [Hello, I'm Mr. Null. My Name Makes Me Invisible to Computers | WIRED](https://web.archive.org/web/20201108091644/http://www.wired.com/2015/11/null/)
+- [Winnie Wu's answer to What is the most catastrophic mistake made by an intern at a company? - Quora](https://archive.is/bGwjQ) - Winnie Wu internal username was "www"
+- [xkcd: Exploits of a Mom](https://xkcd.com/327/)
 
 ### Prefixes, suffixes, titles and honorifics
 

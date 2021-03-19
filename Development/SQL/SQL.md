@@ -301,3 +301,7 @@ SELECT GROUP_CONCAT(k SEPARATOR ',') FROM (SELECT CONCAT(col1, ':', col2) AS k F
 ## JSON with SQLite
 
 - [SQLite as a document database](https://web.archive.org/web/20201129072300/https://dgl.cx/2020/06/sqlite-json-support)
+
+## Merge data
+
+- [dolthub/dolt: Dolt – It's Git for Data](https://github.com/dolthub/dolt)

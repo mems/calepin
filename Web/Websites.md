@@ -2732,3 +2732,23 @@ localStorage.setItem("usage-data-by-id", JSON.stringify({
 ```
 
 - [Additional browser usage sources/functionality · Issue #1724 · Fyrd/caniuse](https://github.com/Fyrd/caniuse/issues/1724#issuecomment-497950671)
+
+## Outlook
+
+See `navigator.registerProtocolHandler("mailto", "https://mail.google.com/mail/?extsrc=mailto&url=%s", "Gmail")`
+
+`navigator.registerProtocolHandler("mailto", "https://outlook.office.com/mail/deeplink/compose?mailtouri=%s", "Outlook");`
+
+```
+@echo off
+set address=%1
+set address=%address:~7%
+rundll32 URL.DLL,FileProtocolHandler "https://outlook.office.com/?path=/mail/action/compose&to=%address%"
+```
+
+- `https://outlook.office.com/mail/deeplink/compose?to={to}&subject={subject}&body={body}&cc={cc}`
+- `https://outlook.office.com/owa/?rru=compose&to={to}&subject={subject}&body={body}&cc={cc}`
+- [jonroig/MailtOWA: Chrome extension, opens mailto: links by default in by Microsoft Office 365 / Outlook Web Application (OWA)](https://github.com/jonroig/MailtOWA)
+- [How to set the default Mailto to outlook.live.com - and have it actually WORK | Firefox Support Forum | Mozilla Support](https://support.mozilla.org/en-US/questions/1126241)
+- [WesleyBranton/Outlook.com-mailto: Add Outlook.com as a default email provider for all mailto links in Firefox.](https://github.com/WesleyBranton/Outlook.com-mailto)
+- [Set Office365 Outlook as mailto handler in Chrome - Spiceworks](https://web.archive.org/web/20190818054619/https://community.spiceworks.com/topic/1212102-set-office365-outlook-as-mailto-handler-in-chrome)

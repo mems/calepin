@@ -117,3 +117,15 @@ phonological, grammatical, lexical
 ## Argot
 
 - [Blazz Dictionnaire](https://blazz.fr/)
+
+## Soundex
+
+- [Soundex - Wikipedia](https://en.wikipedia.org/wiki/Soundex)
+- [Les petits papiers de SQLPro - L'art des Soundex](https://web.archive.org/web/20210211225525/https://sqlpro.developpez.com/cours/soundex/)
+- [Soundex Français - mind.dump()](https://web.archive.org/web/20181211101556/http://blog.mymind.fr/blog/2007/03/15/soundex-francais/)
+- [Soundex en francais : algorithme d’extraction de racine phonétique pour moteur de recherche | Octopuce](https://web.archive.org/web/20201029104114/https://www.octopuce.fr/soundex-en-francais-algorithme-dextraction-de-racine-phonetique-pour-moteur-de-recherche/)
+- [Les SOUNDEX](https://web.archive.org/web/20200203131713/http://info.univ-lemans.fr/~carlier/recherche/soundex.html)
+- [Introduction à la phonétique française](https://web.archive.org/web/20200110112341/http://www.u.arizona.edu/~ayoun/manuel%20phonetique.pdf)
+- [SOUNDEX (Transact-SQL) - SQL Server | Microsoft Docs](https://docs.microsoft.com/en-us/sql/t-sql/functions/soundex-transact-sql?view=sql-server-ver15)
+- [libindic/soundex: Soundex Phonetic Code Algorithm Demo for Indian Languages. Supports all indian languages and English. Provides intra-indic string comparison](https://github.com/libindic/soundex)
+- [php:recherche_floue \[Wiki de sebsauvage.net\]](https://web.archive.org/web/20201001231907/https://sebsauvage.net/wiki/doku.php?id=php:recherche_floue)

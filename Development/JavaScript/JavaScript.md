@@ -32,6 +32,7 @@ Style guide, code conventions:
 
 - [Simple Techniques for Writing More Semantic and Maintainable JavaScript Apps — Space Camp — Medium](https://medium.com/space-camp/three-simple-techniques-for-writing-more-semantic-and-maintainable-javascript-apps-206b4fb89f15)
 
+- [Don't use functions as callbacks unless they're designed for it - JakeArchibald.com](https://web.archive.org/web/20210224194223/https://jakearchibald.com/2021/function-callback-risks/)
 - [JavaScript Patterns](https://shichuan.github.io/javascript-patterns/)
 - [Learning JavaScript Design Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 - [Don't use these examples](http://code-de-porc.tumblr.com)
@@ -39,12 +40,20 @@ Style guide, code conventions:
 
 Design JavaScript APIs:
 
-- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard)
+- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard) - W3C design principles
 - [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
+- event names:
+	- use the present form, not the past form: `paste` (not `pasted`)
+	- cancellability: `selectstart` (cancellable) -> `selectionchange` (not cancellable)
+	- name in lowercase
+	- See other event names: [Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
+
 
 ## Documentation
 
 See also [Documentation](../ECMAScript/ECMAScript.md#documentation)
+
+
 
 ## Tools
 
@@ -2998,7 +3007,7 @@ requestAnimationFrame(() => {
 (async () => {
 	// do something...
 	while(true){
-		const time = await new Promise(requestAnimationFrame);
+		const now = await new Promise((resolve) => requestAnimationFrame(resolve));
 		// do something just before repaint
 	}
 })()
@@ -3979,12 +3988,14 @@ See also [Parse HTML using the native parser](#parse-html-using-the-native-parse
 
 ### Read text
 
-	htmlScriptElement.text;//htmlStyleElement don't have that property
-	htmlScriptElement.innerText;// trigger reflow to handle hidden elements
-	htmlScriptElement.textContent;// return all text nodes (even in hidden elements)
+- `element.text` HTMLStyleElement don't have that property
+- `element.innerText` trigger reflow to handle hidden elements, return trimmed text with space collapsed
+- `element.textContent` return all text nodes (even in hidden elements), keep all spaces
 
 - [The poor, misunderstood innerText — Perfection Kills](http://perfectionkills.com/the-poor-misunderstood-innerText/)
 - [JSON Miller 🦊⚛ on Twitter: "Demo: https://t.co/Bzi5OTohaR… "](https://twitter.com/_developit/status/1064548728906964994)
+- [The difference between the Node.textContent and Element.innerText properties in vanilla JS | Go Make Things](https://web.archive.org/web/20210203180413/https://gomakethings.com/the-difference-between-the-node.textcontent-and-element.innertext-properties-in-vanilla-js/)
+- [Andrea Giammarchi 🍥 on Twitter: "as both Chrome \[0\] and Safari \[1\] share pretty much the same Node.cpp file, you might like to know that node.textContent is *always* a safe bet, in terms of intent, while node.nodeValue is a CharacterData.cpp only matter 1/2 \[0\] https://t.co/tBHKDPlR77 \[1\] https://t.co/bzep1Mv6Sa" / Twitter](https://twitter.com/WebReflection/status/1361742040833400832)
 
 ### Element visibility
 
@@ -5116,7 +5127,7 @@ Table section: tbody, thead, tfoot
 
 > `.focus()`, `.blur()`, `.click()`, `.reset()` - triggered a DOM-event. All with the exception of the `.submit()` method, which did not trigger a DOM-event when invoked programmatically.
 
-> DOM-methods don't always lead to DOM-events. For example, if I call .focus() on an element that is already focused, then there is no subsequent "focus" event. Same with the "blur" event.
+> DOM-methods don't always lead to DOM-events. For example, if I call `.focus()` on an element that is already focused, then there is no subsequent "focus" event. Same with the "blur" event.
 
 > user-triggered events and system-triggered events
 
@@ -5369,7 +5380,7 @@ Some browsers (Chrome) don't dispatch load event for iframe contains attachment 
 >
 > 1. Look for the GET/POST field in the request.
 > 2. If it has a non-empty value, drop a cookie (e.g. "filedl_" + token), and set its value to anything (like "1").
-— https://stackoverflow.com/a/4168965/470117
+> — https://stackoverflow.com/a/4168965/470117
 
 Use `Transfer-Encoding: chunked` to serve the file and set cookie in trailer. **Shouldn't work because `Set-Cookie` is forbidden in trailer (and because some client don't read trailers)**. https://en.wikipedia.org/wiki/Chunked_transfer_encoding#Applicability.
 
@@ -7310,7 +7321,7 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 - `letter-spacing: 0`
 
-## Read / write cookies
+## Read and write cookies
 
 ```js
 // Read one cookie

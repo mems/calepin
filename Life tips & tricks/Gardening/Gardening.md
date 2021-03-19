@@ -2,16 +2,17 @@
 
 Anti-cochenille, mouche blanche ([Aleurode](https://fr.wikipedia.org/wiki/Aleurode), seul le savon noir peu suffire):
 
+> Diluer dans 1 litre d'eau :
+>
+> - 1 cuillère à café de savon noir liquide
+> - 1 cuillère à café d'alcool à 90°
+> - 1 cuillère à café d'huile de paraffine ou huile de colza
+>
+> A appliquer au pulvérisateur 3 fois à 30 minutes d'intervalle, répéter l'opération 8 jours plus tard
+
 > vous pouvez préparer la recette d'un traitement naturel en mélangeant une cuillère à café d’alcool à brûler, une cuillère à café d’huile d’olive ou d'huile végétale et une cuillère à café de savon noir qu'il faudra diluer dans un litre d’eau pour pulvériser sur les parties colonisées par les cochenilles 2 fois de suite (à environ 1/2 heure d'écart), puis une semaine après et encore à 7 jours d'écart, le but étant de venir à bout non seulement des cochenilles mais également des larves et oeufs pondus.
 >
 > — [Cochenille farineuse : lutte, traitement et recette pour s'en débarasser](https://jardinage.lemonde.fr/dossier-624-cochenille-connaitre-lutter-contre.html)
-
-> Alcool médical
-
-> Diluer dans 1 litre d'eau :
-> - 1 cuillère à café de savon noir liquide
-> - 1 cuillère à café d'alcool à 90°
-> - 1 cuillère à café d'huile de paraffine
 
 > pour un litre d'eau tiède:
 > Une (ou deux) cuillère à soupe de savon noir.
@@ -28,6 +29,7 @@ Anti-cochenille, mouche blanche ([Aleurode](https://fr.wikipedia.org/wiki/Aleuro
 >
 > A ceux qui disent de pulvériser de l'huile , directement de l'huile, le voudrais leur demander dans quel état est leur pulvérisateur après... Si c'est de l'huile vendue pour, elle est rendue hydrosoluble ,alors là d'accord.
 
+- [TOUT SUR LE FAMEUX ANTI-COCHENILLES MIOUMIOU, SOLUTION NATURELLE ET RADICALE - YouTube](https://www.youtube.com/watch?v=wIyCF8CtcRg)
 - [Maladie sur laurier-sauce - Au jardin, forum de jardinage](https://www.aujardin.org/viewtopic.php?t=128886#p2400614)
 - [La recette naturelle anti-cochenilles du 24 août 2013 - France Inter](https://www.franceinter.fr/emissions/la-main-verte/la-main-verte-24-aout-2013)
 

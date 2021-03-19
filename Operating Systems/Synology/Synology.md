@@ -882,6 +882,10 @@ Free Mobile (l'option doit être activée dans le compte)
 
 ## VPN
 
+### VPN Server
+
+- `/var/log/openvpn.log`
+
 **Don't forget to open port in firewall (see Configuration Application > External Access > Router Configuration, then create a new rule based on Application)**
 
 L2TP/IPSec: Manual DNS: check it the default value (defined by Configuration Application > Network > General > Configure manually DNS server) is not an IPv6, not supported by PPPD (ms-dns), else you will get `invalid address parameter 'AAAA:AAAA:AAAA::AAAA' for ms-dns option`
@@ -956,6 +960,26 @@ dev tap
 - http://hints.macworld.com/article.php?story=20080626194901370
 - http://kcpolymath.blogspot.fr/2012/09/wire-to-wire-emulation-with-proxy-arp.html
 - [NAT tricks for VPN with clients in private address ranges](http://www.nimlabs.org/dirtynat.html)
+
+### VPN Client
+
+- `/usr/syno/etc/synovpnclient/openvpn/ovpnclient.conf` - Synology OpenVPN client connections
+- `/usr/syno/etc/synovpnclient/openvpn/client_*` - Synology OpenVPN client configuration (OpenVPN config file)
+
+Add to `/usr/syno/etc/synovpnclient/openvpn/ovpnclient.conf` (at the top):
+
+```
+# Enable logging
+log-append /var/log/openvpn.log
+# Change verbosity
+;verb 3
+```
+
+- `cat /var/log/messages | grep openvpn`
+- [How to configure Synology 5.1 NAS | NordVPN Support](https://support.nordvpn.com/Connectivity/NAS/1049322482/How-to-configure-Synology-5-1-NAS.htm)
+- [How to Create an OpenVPN Network Interface on a Synology NAS!](https://web.archive.org/web/20210218083203/https://www.wundertech.net/how-to-create-an-openvpn-network-interface-on-a-synology-nas/)
+- [HOWTO setup OpenVPN server and client configuration files using EasyRSA](https://web.archive.org/web/20201202040600/https://www.alanbonnici.com/2018/01/howto-setup-openvpn-server-and-client.html)
+- [How To Guide: Set Up & Configure OpenVPN client/server VPN | OpenVPN](https://openvpn.net/community-resources/how-to/) - [sample-config-files](https://github.com/OpenVPN/openvpn/tree/master/sample/sample-config-files)
 
 ## Slow SMB Shares
 
