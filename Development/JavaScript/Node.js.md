@@ -513,7 +513,8 @@ powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.j
 :: Note the difference of path case between constructors of a and b
 :: A and b should be the same object, have the same constructor from ./Class.js
 :: It's because the case of the instance is not the same: != path case -> != modules
-:: Compare without "-WorkingDirectory $(Get-Loca..."
+:: Compare  with:
+powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait
 ```
 
 - [windows - What is the difference between NTFS Junction Points and Symbolic Links? - Stack Overflow](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946)

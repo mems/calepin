@@ -4,6 +4,7 @@
 - [IPSec](https://en.wikipedia.org/wiki/IPsec) (aka Cisco IPSec), port [IKE](https://en.wikipedia.org/wiki/Internet_Key_Exchange): UDP 500, port [NAT](https://en.wikipedia.org/wiki/Network_address_translation): UDP 4500
 - [IKEv2/IPSec](https://en.wikipedia.org/wiki/Internet_Key_Exchange#Improvements_with_IKEv2), same ports as IPSec **Recommended over IKEv1 for its ability to reconnect very quickly in the event that your VPN connection gets disrupted and strong encryption (AES 128, AES 192, AES 256)**
 - [OpenVPN](https://en.wikipedia.org/wiki/OpenVPN), port UDP 1194
+- [VPN over SSH? The SOCKS Proxy. Some resources on the internet might be… | by Cory Chu | Mar, 2021 | GWLab](https://web.archive.org/web/20210330001349/https://blog.gwlab.page/vpn-over-ssh-the-socks-proxy-8a8d7bdc7028?gi=bcc2ddfe330a)
 
 - [PPTP vs L2TP vs OpenVPN vs SSTP vs IKEv2 - BestVPN.com](https://www.bestvpn.com/blog/4147/pptp-vs-l2tp-vs-openvpn-vs-sstp-vs-ikev2/)
 - [Setting up an L2TP/IPSec server on Debian - aa-asterisk.org.uk wiki](https://www.aa-asterisk.org.uk/Setting_up_an_L2TP/IPSec_server_on_Debian)

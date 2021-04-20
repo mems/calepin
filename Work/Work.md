@@ -44,7 +44,7 @@ Be a good senior dev:
 > Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour. Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés.
 > Et ne nous laisse pas entrer en tentation mais délivre-nous du freelancing.
 > Amen.
-> 
+>
 > Au nom du scrum, du git et du saint projet...
 > Amen
 > - [noredine69 on Twitter: "@gregalexandre @neur0nia Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour.Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés." / Twitter](https://twitter.com/noredine69/status/1295077783593418756?s=12)
@@ -52,9 +52,9 @@ Be a good senior dev:
 ## Entreprise lifecycle
 
 > Il existe depuis longtemps un cycle de vie pour les entreprises : les jeunes entreprises innovent, sont avides de cash et se cherchent désespérément des financements. Certaines y parviennent, vendent leurs produits et se retrouvent à gagner plus d'argent qu'elles n'en ont besoin. Les grandes entreprises prennent cet argent et l'investissent dans des produits encore meilleurs, emmenant l'entreprise vers de nouveaux sommets. [...]
-> 
+>
 > Mais, inévitablement, les technologies des entreprises deviennent standardisées et banalisées. De nouvelles technologies, plus brûlantes, prennent leur place, et l'entreprise n'attire plus les meilleurs travailleurs, parce que, justement, elle ne représente plus la prochaine chose à la mode. Les nouveaux produits connaissent une perte de vitesse, les vieux produits ne sont plus aussi rentables que par le passé (car les concurrents comprennent comment faire quelque chose de mieux), et les marchés et les consommateurs passent à autre chose.
-> 
+>
 > — Mark Roe [Les Echos - Le problème de cash-flow d’Apple - Archives](http://archives.lesechos.fr/archives/cercle/2013/04/19/cercle_70889.htm)
 
 ## Fullstack Developper
@@ -89,7 +89,7 @@ Not for team or at least without expertise requirements
 ## Management
 
 > ## The Joel Test
-> 
+>
 > - Do you use source control?
 > - Can you make a build in one step?
 > - Do you make daily builds?
@@ -102,7 +102,7 @@ Not for team or at least without expertise requirements
 > - Do you have testers?
 > - Do new candidates write code during their interview?
 > - Do you do hallway usability testing?
-> 
+>
 > — [The Joel Test: 12 Steps to Better Code – Joel on Software](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/)
 
 See also
@@ -239,7 +239,7 @@ Aka freelances, independents
 Aka career path
 
 > Passer de développeur à chef de projet n'est pas une évolution mais une reconversion.
-> 
+>
 > — [BOUDOUX Aurélien on Twitter: "Passer de développeur à chef de projet n'est pas une évolution mais une reconversion." / Twitter](https://twitter.com/AurelienBoudoux/status/1224724331906859008)
 
 - [Les développeurs ne veulent pas tous devenir des managers, soutient l'ingénieure logiciel Meriam Kharbat qui encourage les entreprises à mieux définir les profils de carrière pour retenir les talents](https://www.developpez.com/actu/294226/Les-developpeurs-ne-veulent-pas-tous-devenir-des-managers-soutient-l-ingenieure-logiciel-Meriam-Kharbat-qui-encourage-les-entreprises-a-mieux-definir-les-profils-de-carriere-pour-retenir-les-talents/)
@@ -250,13 +250,13 @@ Aka career path
 
 > Donner plus de sens à un emploi : contribuer à la société
 
-> Les dirigeants du fabricant John Deere invitent les employés qui 
-> construisent les tracteurs à rencontrer les agriculteurs qui achètent ces 
-> tracteurs ; les dirigeants de Facebook proposent aux développeurs de Software 
-> d'écouter les utilisateurs qui ont retrouvé de vieux amis et des membres de leur 
-> famille perdus de vue grâce au site ; et les dirigeants de Wells Fargo 
-> enregistrent des vidéos de leurs clients expliquant comment les prêts à taux bas 
-> les ont sauvés de la dette. Quand on voit les effets directs de notre travail 
+> Les dirigeants du fabricant John Deere invitent les employés qui
+> construisent les tracteurs à rencontrer les agriculteurs qui achètent ces
+> tracteurs ; les dirigeants de Facebook proposent aux développeurs de Software
+> d'écouter les utilisateurs qui ont retrouvé de vieux amis et des membres de leur
+> famille perdus de vue grâce au site ; et les dirigeants de Wells Fargo
+> enregistrent des vidéos de leurs clients expliquant comment les prêts à taux bas
+> les ont sauvés de la dette. Quand on voit les effets directs de notre travail
 > sur les autres, on trouve un sens à notre activité
 
 - [What is one way to showcase that every employee is unique and adds value to the company in a different way? I thought that creating a logo for each employee helped capture the sentiment. —  Brett Miller at Kodiak Cakes](https://www.linkedin.com/posts/brettpmiller_kodiakcakes-activity-6653487570430885888-VpST/)
@@ -394,11 +394,11 @@ Défaut de paiement
 > — [if you pay peanuts, you get monkeys - Wiktionary](https://en.wiktionary.org/wiki/if_you_pay_peanuts,_you_get_monkeys)
 
 > **a reminder that you should never, ever work for free, and never accept propositions like these.**
-> 
+>
 > ![Renaud Forestié - Email 1](Renaud%20Forestié%20-%20email%201.jpg)
 > ![Renaud Forestié - Email 2](Renaud%20Forestié%20-%20email%202.jpg)
 > ![Renaud Forestié - Email 3](Renaud%20Forestié%20-%20email%203.jpg)
-> 
+>
 > it's a "big" French book publisher, asking for free illustrations to see if I could be a good "fit"...
 > for a book they're making. And if they happen to like it they may hire me for the book. Funny thing is I've done very similar illustrations.
 > but apparently it's not enough. And the book is gonna be a best seller! So why shouldn't I do it?
@@ -435,19 +435,19 @@ Régie / prix unitaire / à débours (direct labour hours, timework, sous-traita
 
 > CABINETS DE RECRUTEMENT, CHASSEURS DE TÊTES, DRH,
 > À LIRE AVANT TOUT CONTACT MERCI :
-> 
+>
 > 1. JE SUIS FREELANCE, et à ce titre ne cherche pas de poste salarié, inutile de m'envoyer vos propositions de CDD/CDI. Par contre j'accueille naturellement les missions freelances avec plaisir.
-> 
+>
 > 2. NE M'ENVOYEZ PAS VOS OFFRES DE MISSION DÉVELOPPEUR ANGULAR (pitié). Je ne fais pas de développement JavaScript (Backbone, Angular, React…), j’utilise JavaScript essentiellement pour dynamiser mes pages (avec jQuery le plus souvent) et non pour traiter de la donnée.
-> 
+>
 > 3. JE NE FAIS PAS NON PLUS DE PHP/MySQL NI DE BACK-END. Inutile de me proposer des missions sur ce type de périmètre, il y 0% de chances que ça colle. Je fais du HTML/CSS/JS et du web design.
-> 
+>
 > 4. NE ME DEMANDEZ PAS DE FAIRE SUIVRE VOTRE DEMANDE « À MON ENTOURAGE ». Chasseur de têtes c'est votre job, pas le mien. Si vous voulez que je le fasse à votre place, payez-moi grassement.
-> 
+>
 > 5. JE NE FAIS PAS DE MISSION SUR SITE À PUTEAUX/MASSY/ETC., je collabore avec mes clients en télétravail depuis Paris et ne vais les voir en personne que quand des réunions sont nécessaires.
-> 
+>
 > 6. JE PASSE RAREMENT ICI. Pour me contacter, préférez un email direct : chris [at] stpo [dot] fr.
-> 
+>
 > Merci !
 > — [Christophe ANDRIEU | LinkedIn](https://www.linkedin.com/in/christophe-andrieu-9901575)
 
@@ -489,7 +489,7 @@ The 10x engineer myth:
 > — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
 
 > Making artwork, on its own, is challenging. If you want to develop the business side of that, it's a whole other thing. You need to be prepared to dedicate time to things like:
-> 
+>
 > - Building a website
 > - Ordering prints
 > - Buying shipping materials
@@ -511,7 +511,7 @@ The 10x engineer myth:
 > - Delivering your work in person
 > - Reading about all the things you don't know about running a business, like marketing, accounting, and sales
 > - Writing about your work, including about a dozen variations of an artist's statement, which is possibly the least fun thing to write
-> 
+>
 > This adds up to a large percentage of your time, often more time than you get to spend creating artwork.
 > — [Reflections on Five Years of Making Art Through Programming — TYLER HOBBS](https://tylerxhobbs.com/essays/2019/reflections-on-five-years-of-making-art-through-programming)
 
@@ -537,11 +537,11 @@ See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-r
 - [Feature #3595: Evidence Based Scheduling - Redmine](http://www.redmine.org/issues/3595)
 - [Evidence-based Scheduling - evidence-based_scheduling.pdf](https://www.csie.ntu.edu.tw/~hsinmu/courses/_media/ada_11fall/evidence-based_scheduling.pdf)
 
-### Difficulty time estimation
+### Time estimation difficulty
 
 > I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs".
-> 
+>
 > > This was a 30 tab problem. I had to go in deep.
-> 
+>
 > > I solved that one with only 1 tab.
 > – [Uncle Cal on Twitter: "I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs". "This was a 30 tab problem. I had to go in deep." "I solved that one with only 1 tab. " :)"](https://twitter.com/calevans/status/1024371268118872070?s=12)

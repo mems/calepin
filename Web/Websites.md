@@ -49,9 +49,18 @@ This can also impact dependencies like styles, fonts, images, video, scripts (li
 Aka [identicon](https://en.wikipedia.org/wiki/Identicon)
 
 - [Gravatar - Globally Recognized Avatars](https://en.gravatar.com/site/implement/images/)
+- [Libravatar :: federated avatar hosting service](https://www.libravatar.org/)
 - [Jdenticon - Open source identicon generator](https://jdenticon.com/)
+- [Creating Sigils - Urbit](https://web.archive.org/web/20210419224026/https://urbit.org/blog/creating-sigils/)
+	- [urbit-ob/co.js at master · urbit/urbit-ob](https://github.com/urbit/urbit-ob/blob/master/src/internal/co.js)
+	- [urbit/sigil-js: ~4.2 billion default profile pics](https://github.com/urbit/sigil-js)
 - [Volosh1n/github-avatar-generator: Simple script, which generates GitHub's avatar-style images.](https://github.com/Volosh1n/github-avatar-generator)
 - [How is the default user avatar generated? - Meta Stack Exchange](https://meta.stackexchange.com/questions/17443/how-is-the-default-user-avatar-generated/17444#17444)
+- [WP_MonsterID – WordPress plugin | WordPress.org](https://wordpress.org/plugins/wp-monsterid/)
+- [Avatars, identicons, and hash visualization](https://web.archive.org/web/20210123140238/https://barro.github.io/2018/02/avatars-identicons-and-hash-visualization/)
+- [Representing SHA-256 Hashes As Avatars | François Best](https://web.archive.org/web/20210419115426if_/https://francoisbest.com/posts/2021/hashvatars)
+- [drhus/awesome-identicons: A curated list of "Visual Hashs" (Identicon, Avatar, Fractal, RandomArt and general Hash Visualization)](https://github.com/drhus/awesome-identicons)
+- [Moji - The advent of large identifiers and howto conquer them as human. by Michael Luggen](https://web.archive.org/web/20210419224030/https://exascale.info/assets/pdf/students/MSc_Thesis_-_Michael_Luggen__14_09_2012.pdf)
 
 ## Intent URLs
 

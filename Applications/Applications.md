@@ -1806,6 +1806,23 @@ Or in `$USERDATA/sources.xml`:
 - [MySQL/Setting up Kodi - Official Kodi Wiki](http://kodi.wiki/view/MySQL/Setting_up_Kodi#Make_files_accessible_over_the_network)
 - [MySQL/Sync other parts of Kodi - Official Kodi Wiki](http://kodi.wiki/view/MySQL/Sync_other_parts_of_Kodi#Network_share_passwords)
 
+### Addons
+
+Indigo
+
+1. Enable unknown sources: From home screen > Add-Ons > Settings > Enable Unknown Sources
+2. Add Fusion repository: From home screen > File Manager > Add Source > Enter `https://fusion.tvaddons.co` and name it "Fusion" > OK
+3. Install add-on: From home screen > Add-Ons > Install from zip file > select "Fusion" > select `begin-here`
+
+- [Category:Add-on development - Official Kodi Wiki](https://kodi.wiki/view/Category:Add-on_development)
+
+### Issues
+
+Cleanup thumbnails:
+
+- /sdcard/Android/data/org.xbmc.kodi/files/.kodi/userdata/Database/Textures*.db
+- /sdcard/Android/data/org.xbmc.kodi/files/.kodi/userdata/Thumbnails
+
 ## TinyMediaManager
 
 You need to donate to unlock Kodi Scraper. See https://github.com/tinyMediaManager/tinyMediaManager/blob/master/src/main/java/org/tinymediamanager/core/License.java

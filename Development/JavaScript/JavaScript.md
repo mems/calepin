@@ -38,22 +38,9 @@ Style guide, code conventions:
 - [Don't use these examples](http://code-de-porc.tumblr.com)
 - [Superhero.js](https://web.archive.org/web/20201108135951/http://superherojs.com/)
 
-Design JavaScript APIs:
-
-- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard) - W3C design principles
-- [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
-- event names:
-	- use the present form, not the past form: `paste` (not `pasted`)
-	- cancellability: `selectstart` (cancellable) -> `selectionchange` (not cancellable)
-	- name in lowercase
-	- See other event names: [Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
-
-
 ## Documentation
 
 See also [Documentation](../ECMAScript/ECMAScript.md#documentation)
-
-
 
 ## Tools
 
@@ -471,12 +458,12 @@ function init() {
 
 		for (var i = 0; i < 100; i++) {
 			var sprite = new THREE.Sprite (new THREE.SpriteMaterial ({
-				color: Math.floor (0xffffff * Math.random ())
+				color: Math.floor (0xffffff * Math.random())
 			}));
 			sprite.position.set (
-				500 * (Math.random () - Math.random ()),
-				500 * (Math.random () - Math.random ()),
-				500 * (Math.random () - Math.random ())
+				500 * (Math.random() - Math.random()),
+				500 * (Math.random() - Math.random()),
+				500 * (Math.random() - Math.random())
 			);
 			sprite.scale.multiplyScalar (100);
 			mesh.add (sprite);
@@ -939,7 +926,7 @@ handleReset()
 
 ### Naming convention
 
-Aka case style, casing
+Aka case style, casing, Design JavaScript APIs
 
 Examples of native functions/methods or properties:
 
@@ -961,7 +948,40 @@ Are browser-specific additions (by Microsoft for Internet Explorer):
 - `onreadystatechange` should be `onReadyStateChange`
 - `onclick` should be `onClick`
 
+Event names:
+
+- multiple element dispatch the same event: [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) is dispatched by `<input>`, `<select>`, `<textarea>`
+- use the present form, not the past form: [`paste`](https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event) (not `pasted`):
+	- `addtrack`
+	- `slotchange`
+	- `canplaythrough`
+	- `canplay`
+	- `playing` (right name?)
+	- `play`
+	- `beforeinput` and `input`
+	- `animationcancel`
+	- `animationend`
+	- `transitioncancel`
+- cancellability:
+	- [`selectstart`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectstart_event) (cancellable) -> [`selectionchange`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event) (not cancellable)
+	- (subbmitter) [`mousedown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event) (cancellable) -> (subbmitter) [`mouseup`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event) (cancellable) -> (subbmitter) [`click`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) (cancellable) -> (form) [`submit`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event) (cancellable) -> (window) [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) (cancellable) -> (window) [`unload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event) (not cancellable)
+- related information:
+	- [`selectionchange`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event): [`document.getSelection()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getSelection)
+	- [`submit`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event): [`event.submitter`](https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent/submitter)
+	- focus events: [`event.relatedTarget`](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent/relatedTarget)
+	- mouse events: [`event.relatedTarget`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/relatedTarget)
+	- keyboard events: [`event.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key) (and [other properties](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#properties))
+	- mutation events ([depreciated](https://dom.spec.whatwg.org/#mutationevent)): [`event.prevValue` and `event.newValue`](https://www.w3.org/TR/DOM-Level-3-Events/#interface-mutationevent)
+	- [touch events](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events): [`event.changedTouches`](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/changedTouches)
+- workflow:
+	- `new PaymentRequest()` -> `paymentRequest.show(details)` -> [`paymentmethodchange` event](https://developer.mozilla.org/en-US/docs/Web/API/PaymentRequest/paymentmethodchange_event) -> `event.updateWith(details)` (if details/errors need to be updated) -> `paymentRequest.show()` promise resolved
+- event name in lowercase
+- see other event names: [Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
+- [Input Event Order](https://www.w3.org/TR/DOM-Level-3-Events/#events-inputevent-event-order): `beforeinput` -> (DOM element is updated) -> `input`
+
 Examples: `userId` and `profileURL`
+
+See also:
 
 - [Why String.prototype.startsWith but not String.prototype.startWith? : javascript](https://www.reddit.com/r/javascript/comments/a2etsp/why_stringprototypestartswith_but_not/eaxnxip/) - "String starts with?" ('Does "foobar" start with "foo"?' → '"Foobar" starts with "foo"')
 - [Web Platform Design Principles](https://www.w3.org/TR/design-principles/#casing-rules)
@@ -970,6 +990,8 @@ Examples: `userId` and `profileURL`
 - [wp-calypso/javascript.md at master · Automattic/wp-calypso](https://github.com/Automattic/wp-calypso/blob/master/docs/coding-guidelines/javascript.md#naming-conventions)
 - [Coding Standards: Naming conventions for abbreviated camel-case · Issue #2511 · WordPress/gutenberg](https://github.com/WordPress/gutenberg/issues/2511)
 - [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)
+- [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard) - W3C design principles
+- [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
 
 See [Naming convention](Development#naming-convention)
 
@@ -3879,25 +3901,35 @@ Or use (used in jQuery):
 
 Get max value:
 
-	Math.max( document.body.scrollHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight) - window.innerHeight
+```js
+Math.max( document.body.scrollHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight) - window.innerHeight
+```
 
-	document.documentElement.scrollHeight - document.documentElement.clientHeight;//it's fine with webkit too
+```js
+document.documentElement.scrollHeight - document.documentElement.clientHeight;//it's fine with webkit too
+```
 
 #### Scrollable element
 
 other than viewport
 
-`element.scrollTop`
+```js
+element.scrollTop
+```
 
 Get max value:
 
-`element.scrollTop - element.clientHeight`
+```js
+element.scrollTop - element.clientHeight
+```
 
 ### Scroll to
 
 #### Viewport (window)
 
-`window.scroll(x, y)`
+```js
+window.scroll(x, y)
+```
 
 jQuery: `$(window).scrollTop(offset)` or `$("html,body").scrollTop(offset)` or `$("html,body").animate({scrollTop: offset})`. Be carefull complete callback is **called twice**
 
@@ -3910,18 +3942,26 @@ jQuery: `$(window).scrollTop(offset)` or `$("html,body").scrollTop(offset)` or `
 
 ## `NodeList` or `HTMLCollection` (as static) to `Array`
 
-	let nodes = Array.from(document.querySelectorAll("*"));
+```js
+let nodes = Array.from(document.querySelectorAll("*"));
+```
 
-	let nodes = [...document.querySelectorAll("*")];
+```js
+let nodes = [...document.querySelectorAll("*")];
+```
 
-	// slice()
-	let nodes = Array.prototype.slice.call(document.querySelectorAll("*"));
+```js
+// slice()
+let nodes = Array.prototype.slice.call(document.querySelectorAll("*"));
+```
 
-	// Regular loop
-	let nodes = new Array(nodeList.length);
-	for(let nodeIndex = 0; nodeIndex < nodeList.length; nodeIndex++){
-		nodes.push(nodeList[i]);
-	}
+```js
+// Regular loop
+let nodes = new Array(nodeList.length);
+for(let nodeIndex = 0; nodeIndex < nodeList.length; nodeIndex++){
+	nodes.push(nodeList[i]);
+}
+```
 
 Others: http://jsperf.com/nodelist-to-array/63
 
@@ -3963,10 +4003,12 @@ See [JavaScript selectors](HTML#javascript-selectors)
 
 ### Create node
 
-	var div = Object.assign(document.createElement("div"), {
-		id: "foo",
-		className: "bar",
-	});
+```js
+var div = Object.assign(document.createElement("div"), {
+	id: "foo",
+	className: "bar",
+});
+```
 
 ### Insert node
 

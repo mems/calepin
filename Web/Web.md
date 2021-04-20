@@ -1725,6 +1725,7 @@ Other:
     - [Web Accessibility Overlays Don't Work](https://web.archive.org/web/20201005172019/https://blog.tenon.io/web-accessibility-overlays-dont-work)
     - [Les outils de surcouche d’accessibilité web : mensonges et boules de gomme - La Lutine du Web](https://web.archive.org/web/20201015162302/https://www.lalutineduweb.fr/surcouche-accessibilite-web-mensonges-boules-gommes/)
 	- [Should I Use An Accessibility Overlay?](https://web.archive.org/web/20210303164744/https://shouldiuseanaccessibilityoverlay.com/)
+	- [AccessiByeBye](https://www.accessibyebye.org/) and [PneumaSolutions/accessibyebye-extension](https://github.com/PneumaSolutions/accessibyebye-extension) - WebExtension that remove accessibility overlays
 - [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
 - [thetuttingtutor/accessibility-disability-justice: Accessibility and disability justice resources](https://github.com/thetuttingtutor/accessibility-disability-justice)
 - [WebAIM: Articles](https://webaim.org/articles/)

@@ -29,7 +29,9 @@ Regular Expression engines always find the cheapest (simpliest, shortest) first 
 - [Regexper](https://regexper.com/)
 - [txt2re: headache relief for programmers :: regular expression generator](https://www.txt2re.com/index_php3.html) - Regular expression from text
 - [Refiddle](http://refiddle.com/)
+- [Regular expression compilation visualized](https://web.archive.org/web/20210322073534/https://compiler.org/reason-re-nfa/src/index.html) - [joelonsql/reason-re-nfa: ReasonML code to construct an NFA from a regular expression](https://github.com/joelonsql/reason-re-nfa)
 
+- [pemistahl/grex: A command-line tool and library for generating regular expressions from user-provided test cases](https://github.com/pemistahl/grex) - Generate regular expression from strings
 - [VerbalExpressions](https://github.com/VerbalExpressions) - "Regular Expressions made easy" with library to build regular expression: `VerEx().startOfLine().then("http").maybe("s").then("://").maybe("www.").anythingBut(" ").endOfLine()` gives `/^(http)(s)?(\:\/\/)(www\.)?([^\ ]*)$/`
 - [Understanding and Using Regular Expressions](https://www.infoq.com/presentations/regex) - [Understanding and Using Regular Expressions by Damian Conway](https://videoh.infoq.com/presentations/14-mar-regularexpressions-B.mp4?Key-Pair-Id=APKAIMZVI7QH4C5YKH6Q&Signature=BZMZnJA751nsDqL5iT7mtyspeSDzrQZTYeuh363H~ijASn11EL0e1~SehHoWaylFeCxwqjXgECdcff6blWouQR16ZsHkYRQHYPrqPzSxp27UHzA1Y3O-aNJF6RlADXuDW5TUPAbTROm8ByJN1vGldfF0Qe8tIQ7-k7ALqZK9mgs_&Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6IioiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0ODg5NzI1Mzh9LCJJcEFkZHJlc3MiOnsiQVdTOlNvdXJjZUlwIjoiMC4wLjAuMC8wIn19fV19)
 - [Regex Crossword](https://regexcrossword.com/) - Game with regexp
@@ -100,13 +102,14 @@ Use `([^\W\d]+?\d*,)*` or `(((?!\d)\w)+?\d*,)*` instead to always select char (n
 
 See [Catastrophic Backtracking ‒ When Regular Expressions Explode on Vimeo](https://vimeo.com/112065252)
 
-- [Infinite backtracking problem | JavaScript Tutorial](http://javascript.info/tutorial/infinite-backtracking-problem)
+- [Catastrophic backtracking](https://web.archive.org/web/20210111094636/https://javascript.info/regexp-catastrophic-backtracking)
 - [javascript - How can I make this regular expression not result in "catastrophic backtracking"? - Stack Overflow](https://stackoverflow.com/questions/10218594/how-can-i-make-this-regular-expression-not-result-in-catastrophic-backtracking)
-- [Backtracking in Regular Expressions](https://msdn.microsoft.com/en-us/library/dsy130b4(v=vs.110).aspx)
-- [Flagrant Badassery » Performance of Greedy vs. Lazy Regex Quantifiers](http://blog.stevenlevithan.com/archives/greedy-lazy-performance)
+- [Backtracking in .NET Regular Expressions | Microsoft Docs](https://web.archive.org/web/20201112013515/https://docs.microsoft.com/en-us/dotnet/standard/base-types/backtracking-in-regular-expressions)
+- [Flagrant Badassery » Performance of Greedy vs. Lazy Regex Quantifiers](https://web.archive.org/web/20201111081201/http://blog.stevenlevithan.com/archives/greedy-lazy-performance)
 - [Simple Regex Engine in JavaScript (Backtracking Algorithm)](https://github.com/richardartoul/regex-engine)
-- [Catastrophic Backtracking—Exponential Matches—ReDos](http://www.rexegg.com/regex-explosive-quantifiers.html)
-- [Runaway Regular Expressions: Catastrophic Backtracking](http://www.regular-expressions.info/catastrophic.html)
+- [Catastrophic Backtracking—Exponential Matches—ReDos](https://web.archive.org/web/20201111164409/https://www.rexegg.com/regex-explosive-quantifiers.html)
+- [Runaway Regular Expressions: Catastrophic Backtracking](https://web.archive.org/web/20210316042555/https://www.regular-expressions.info/catastrophic.html)
+- [Regexploit: DoS-able Regular Expressions · Doyensec's Blog](https://web.archive.org/web/20210322050715/https://blog.doyensec.com/2021/03/11/regexploit.html)
 
 ## Comments
 

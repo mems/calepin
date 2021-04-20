@@ -750,9 +750,12 @@ function fancyCount2(str){
 
 ### String is an array-like of chars
 
-	Array.prototype.join.call("abc", "-")// "a-b-c"
-	Array.prototype.filter.call("abc", char => char != "b")// ["a", "c"]
-	Array.prototype.reduce.call("abc", (result, char) => result + char.charCodeAt(0), 0)// 294
+```js
+Array.prototype.join.call("abc", "-")// "a-b-c"
+Array.prototype.filter.call("abc", char => char != "b")// ["a", "c"]
+Array.prototype.reduce.call("abc", (result, char) => result + char.charCodeAt(0), 0)// 294
+Array.from("abc")// ["a", "b", "c"]
+```
 
 - [javascript - What does Array.prototype.join.call do in the background for a string? - Stack Overflow](https://stackoverflow.com/questions/33981796/what-does-array-prototype-join-call-do-in-the-background-for-a-string/33981853#33981853)
 
