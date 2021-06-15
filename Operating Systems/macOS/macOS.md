@@ -815,6 +815,7 @@ VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Confi
 - [Notes on getting macOS Sierra running in Virtualbox on a Windows 10 host](https://gist.github.com/rob-smallshire/0c4403afb0523dd57c9f4b3693344f14)
 - [mac - Install macOS High Sierra as VirtualBox guest (on macOS High Sierra)? - Ask Different](https://apple.stackexchange.com/questions/307099/install-macos-high-sierra-as-virtualbox-guest-on-macos-high-sierra)
 - [Install macOS Sierra on VirtualBox? - Ask Different](https://apple.stackexchange.com/questions/290643/install-macos-sierra-on-virtualbox)
+- [GitHub - paolo-projects/auto-unlocker: Unlocker for VMWare macOS](https://github.com/paolo-projects/auto-unlocker) - Allow macOS to be selected during VM creation + other fixes
 
 ### Bootable USB
 

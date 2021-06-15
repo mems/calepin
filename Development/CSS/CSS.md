@@ -2664,6 +2664,8 @@ a[hreflang|="en"]::after {
 
 ### Range selector
 
+In some case use the HTML classes instead
+
 `:nth-child( [cycle size] n + [offset] )`
 
 `:first-child` == `:nth-child(1)`

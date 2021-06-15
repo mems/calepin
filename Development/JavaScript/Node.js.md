@@ -41,8 +41,11 @@ Aka is subdir
 
 ```js
 const path = require('path');
-const relative = path.relative(parent, dir);
-const isSubdir = !!relative && relative.split(path.sep)[0] !== ".." && !path.isAbsolute(relative);
+
+function isParentPath(parent, filepath){
+	const relative = path.relative(parent, filepath);
+	return !!relative && relative.split(path.sep, 1)[0] !== ".." && !path.isAbsolute(relative);
+}
 ```
 
 - [javascript - Determine if a path is subdirectory of another in Node.js - Stack Overflow](https://stackoverflow.com/questions/37521893/determine-if-a-path-is-subdirectory-of-another-in-node-js/45242825#comment81433484_45242825)
@@ -233,7 +236,6 @@ req.ip
 - [node.js - Difference between npm install and npm run build - Stack Overflow](https://stackoverflow.com/questions/43664200/difference-between-npm-install-and-npm-run-build)
 - [`npm install` modifies `package-lock`! (changes resolved url protocol!) · Issue #20106 · npm/npm](https://github.com/npm/npm/issues/20106) - npm install issue that update `package-lock.json` by changing `https://` to `http://`. To fix it, use `rm -rf node_modules/ && npm cache clean --force && npm i`. See also [Some packages have dist.tarball as http and not https - 🐞 bugs - npm forum](https://npm.community/t/some-packages-have-dist-tarball-as-http-and-not-https/285/15)
 - `NODE_OPTIONS=--max-old-space-size=4096 npm run myscript`, see [Best way to set --max-old-space-size when running npm? · Issue #12238 · npm/npm](https://github.com/npm/npm/issues/12238)
-- sort `package.json` with `npx sort-package-json` - [npm - Is there a way to alphabetize package.json without installing a package? - Stack Overflow](https://stackoverflow.com/questions/34438465/is-there-a-way-to-alphabetize-package-json-without-installing-a-package/51773989#51773989)
 
 Updates:
 
@@ -249,6 +251,29 @@ npm update --latest
 
 - `yarn upgrade-interactive --latest`
 - [npm-upgrade - npm](https://www.npmjs.com/package/npm-upgrade)
+
+### Format and lint package JSON
+
+- sort `package.json` with `npx sort-package-json` - [npm - Is there a way to alphabetize package.json without installing a package? - Stack Overflow](https://stackoverflow.com/questions/34438465/is-there-a-way-to-alphabetize-package-json-without-installing-a-package/51773989#51773989)
+- [matzkoh/prettier-plugin-packagejson: Prettier plugin for package.json](https://github.com/matzkoh/prettier-plugin-packagejson) use `sort-package-json`
+- [tclindner/npm-package-json-lint: Configurable linter for package.json files](https://github.com/tclindner/npm-package-json-lint)
+
+Prettier config to override default / projet config for package JSONs:
+
+```json
+{
+	"overrides": [
+		{
+			"files": "**/(package|package-lock).json",
+			"options": {
+				"tabWidth": 2,
+				"useTabs": false,
+				"endOfLine": "lf"
+			}
+		}
+	]
+}
+```
 
 ### Inspect package
 ```sh
@@ -469,7 +494,7 @@ module.exports.someDepreciatedFunction = util.deprecate(() => {
 
 ## Path case sensitivity on Windows
 
-Node handle well case of insensitity on Windows. But if a module use a [symbolic link or a junction](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946) and the working directory doesn't match the case of that path (`d:\mydir` instead of `D:\MyDir`) Node load the same module twice, for each path case. Note: NPM use junction for [local path modules](https://docs.npmjs.com/files/package.json#local-paths).
+Node handle pretty well path case insensibility on Windows. But if a module use a [symbolic link or a junction](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946) and the working directory doesn't match the case of that path (`d:\mydir` instead of `D:\MyDir`) Node load the same module twice, for each path case. Note: NPM use junction for [local path modules](https://docs.npmjs.com/files/package.json#local-paths).
 
 See an example:
 

@@ -62,3 +62,11 @@ Use towel (multiple layers)
 ## Painting
 
 - [PEINDRE: LES 20 ERREURS DE DÉBUTANT - YouTube](https://www.youtube.com/watch?v=WYMX6pwJiFE)
+
+## Plomberie, carrelage
+
+- boucher trous robinets (dans le carrelage) avec silicone
+- avant de faire les joins silicone, remplir la baignoire
+- pour renforcer ou partir d'une base plane pour carreler, utiliser plaque a carreler (aussi appelé wedy)
+- montage a blanc des tuyaux avant sertissage ou soudage
+- ciment prompt pour bouger les orifices d'évacuation (raccord entre PVC et fonte/SME), il sèche très vite

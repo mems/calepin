@@ -175,9 +175,14 @@ Aka partial checkout
 
 ### Commit for other author
 
-	--author=<author>
+```
 
-	From:
+--author=<author>
+```
+
+```
+From:
+```
 
 ```sh
 git commit --amend --author="Author Name <email@address.com>"
@@ -234,9 +239,17 @@ Note `*` will also exclude folder, to exclude only files use `*.*`:
 !*.c
 ```
 
+```sh
+# by default it's $XDG_CONFIG_HOME/git/ignore or ~/.config/git/ignore
+git config --global core.excludesFile '~/.gitignore'
+```
+
 - [Git - gitignore Documentation](https://git-scm.com/docs/gitignore)
+- [Global Git ignore - Stack Overflow](https://stackoverflow.com/questions/7335420/global-git-ignore)
 - [git - gitignore - only allow certain extensions and files - Stack Overflow](https://stackoverflow.com/questions/11852558/gitignore-only-allow-certain-extensions-and-files/11853075#11853075)
 - [gitignore - Is there a way to tell git to only include certain files instead of ignoring certain files? - Stack Overflow](https://stackoverflow.com/questions/1279533/is-there-a-way-to-tell-git-to-only-include-certain-files-instead-of-ignoring-cer/43438694#43438694)
+- [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
+- https://www.gitignore.io/
 
 ## Commit empty folder
 

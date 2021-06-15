@@ -12,6 +12,12 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Building a Modern End Table // Side Table // Plans Available - YouTube](https://www.youtube.com/watch?v=GFiaN12bM_E)
 - [Making a folding spindle moulder fence - YouTube](https://www.youtube.com/watch?v=P7JsJF5VizI)
 
+## Materials
+
+Aka wood
+
+- [Comment Acheter du Bois de QUALITÉ sans se RUINER ? - YouTube](https://www.youtube.com/watch?v=meseh9JmF4s)
+
 ## Tools
 
 - [Shop - Paoson Woodworking](https://www.paoson.com/en/)

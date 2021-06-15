@@ -838,27 +838,7 @@ Aka git secrets
 
 Aka Git commit message.
 
-Use verbes:
-
-- Add: Create a capability e.g. feature, test, dependency
-- Cut: Remove a capability e.g. feature, test, dependency
-- Fix: Fix an issue e.g. bug, typo, accident, misstatement
-- Bump: Increase the version of something e.g. dependency
-- Make: Change the build process, or tooling, or infra
-- Start: Begin doing something; e.g. create a feature flag
-- Stop: End doing something; e.g. remove a feature flag
-- Refactor: A code change that MUST be just a refactoring
-- Reformat: Refactor of formatting, e.g. omit whitespace
-- Optimize: Refactor of performance, e.g. speed up code
-- Document: Refactor of documentation, e.g. help files
-
-- [How to write the perfect pull request - The GitHub Blog](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/)
-- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
-- [joelparkerhenderson/git_commit_message: Git commit message: how to write a good git commit message](https://github.com/joelparkerhenderson/git_commit_message)
-- [Bug Prediction at Google](https://google-engtools.blogspot.fr/2011/12/bug-prediction-at-google.html) - Use Git version message to predict spot bugs
-- [How to Write a Git Commit Message (2014) | Hacker News](https://news.ycombinator.com/item?id=13889155)
-- [Karma - Git Commit Msg](http://karma-runner.github.io/1.0/dev/git-commit-msg.html)
-- [How to Get More Out of Your Git Commit Message - datree](https://datree.io/blog/git-commit-message-conventions-for-readable-git-log/)
+See [Version message](../Development/Git/Git.md#version-message)
 
 ## Indentation
 

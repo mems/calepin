@@ -78,7 +78,7 @@ You can use PNG8 by reduce color.
 
 Aka retina revolution
 
-**Not adviced due to ×4 memory usage**
+**Not adviced due to ×4 memory usage**. Works with image compression like JPEG, because it use
 
 > More detail with less kilobytes
 
@@ -92,9 +92,10 @@ Example:
 
 For JPEG it's better for quality above 90% (non scaled image with Q > 90% are better)
 
+- [Serving sharp images to high density screens - JakeArchibald.com](https://jakearchibald.com/2021/serving-sharp-images-to-high-density-screens/)
 - [Compressive Image Revisited - TimKadlec.com](https://timkadlec.com/remembers/2018-03-22-compressive-images-revisited/)
-- [Retina revolution - Netvlies](https://www.netvlies.nl/tips-updates/design-interactie/design-interactie/retina-revolution/) - [Retina Revolution - smaller images with better quality | Hacker News](https://news.ycombinator.com/item?id=4623160)
-- [Retina revolutie follow up - Netvlies](https://www.netvlies.nl/tips-updates/algemeen/algemeen/retina-revolutie-follow-up/)
+- [Retina revolution - Netvlies](https://web.archive.org/web/20200920194201/https://www.netvlies.nl/tips-updates/design-interactie/design-interactie/retina-revolution/?ref=bestwebsite.gallery) - [Retina Revolution - smaller images with better quality | Hacker News](https://news.ycombinator.com/item?id=4623160)
+- [Retina revolutie follow up | Netvlies](https://web.archive.org/web/20210614093821/https://www.netvlies.nl/blogs/retina-revolutie-follow)
 - [Compressive Images | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/compressive-images.html)
 - [Retina Trick ou Compressive Images : des images en haute résolution partout - Alsacreations](https://www.alsacreations.com/astuce/lire/1730-retina-trick-compressive-images-resolution-picture-img-srcset-responsive.html)
 - [Image Compression for Web Developers - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/speed/img-compression/)

@@ -979,7 +979,7 @@ Event names:
 - see other event names: [Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
 - [Input Event Order](https://www.w3.org/TR/DOM-Level-3-Events/#events-inputevent-event-order): `beforeinput` -> (DOM element is updated) -> `input`
 
-Examples: `userId` and `profileURL`
+Examples: `userID` and `profileURL`
 
 See also:
 

@@ -2250,12 +2250,12 @@ requestAnimationFrame(() => console.log("requestAnimationFrame 2"));
 // (5 and 6 could instead be executed here)
 ```
 
+- [Tasks, microtasks, queues and schedules - JakeArchibald.com](https://web.archive.org/web/20210419055331/https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [The Node.js Event Loop, Timers, and process.nextTick() | Node.js](https://web.archive.org/web/20201117083749/https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [Philip Roberts Help I'm stuck in an event loop - YouTube](https://www.youtube.com/watch?v=6MXRNXXgP_0)
 - [Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014 - YouTube](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 - [Jake Archibald: In The Loop - JSConf.Asia - YouTube](https://www.youtube.com/watch?v=cCOL7MC4Pl0&feature=youtu.be)
 - [Event loop processing model - HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)
-- [Tasks, microtasks, queues and schedules - JakeArchibald.com](https://web.archive.org/web/20201128115739/https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [⭐️🎀 JavaScript Visualized: Promises & Async/Await - DEV](https://web.archive.org/web/20201127083654/https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke#tasks)
 
 - [How JavaScript works: memory management + how to handle 4 common memory leaks | by Alexander Zlatkov | SessionStack Blog](https://web.archive.org/web/20201115130752/https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec?gi=e35da23f4d92)

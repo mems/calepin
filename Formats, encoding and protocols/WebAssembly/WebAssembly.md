@@ -9,3 +9,4 @@
 - [Decoding WebAssembly](https://jarombek.com/blog/jan-7-2019-web-assembly)
 - [WebAssembly for Java developers | Blog](https://web.archive.org/web/20200805154639/http://blog.dmitryalexandrov.net/webassembly-for-java-developers/)
 - [bytecodealliance/wizer: The WebAssembly Pre-Initializer](https://github.com/bytecodealliance/wizer) - "Snapshot an initialized Wasm instance and save the result as a new, pre-initialized  Wasm module" [fitzgen on Twitter: "I wrote a tool to snapshot an initialized Wasm instance and save the result as a new, pre-initialized Wasm module. Up to 6x faster start ups on some workloads I tested! https://t.co/3OE1cNcRAS" / Twitter](https://twitter.com/fitzgen/status/1341096767979364352)
+- [Pyodide Spin Out and 0.17 Release - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2021/04/pyodide-spin-out-and-0-17-release/) - CPython interpreter compiled to WebAssembly
