@@ -1636,6 +1636,7 @@ or:
 
 ### Bootcamp
 
+- [Start up your Mac in Windows or macOS with Boot Camp - Apple Support](https://support.apple.com/guide/bootcamp-control-panel/bcmp29b8ac66/mac) - hold the Option key
 - Windows: Configuration pannel > System & Security > Power management > Choose when the screen close (works only in native, not in a VM)
 - Windows: `Compact.exe /CompactOS:always` to compact (`Compact.exe /CompactOS:never` to restore); `powercfg /h /type reduced` to reduce hibernation file size (`powercfg /h /size 100` to restore)
 - Keyboard with Mac layout: Settings > Time & language > Region & language > select current language > Options > Add keyboard > select the same language layout but with "(Apple)" > optionaly you can remove the previous layout or a keyboard layout selector in taskbar will appears
@@ -1646,6 +1647,14 @@ or:
 - [Launching your Boot Camp partition in VMware Fusion (1014618)](https://kb.vmware.com/s/article/1014618)
 - [How to Free Resize Bootcamp Partition without Deleting Windows](https://www.partitionwizard.com/partitionmagic/reszie-boot-camp-partition.html)
 - [windows - Bootcamp Not enough space but nothing helps! - Ask Different](https://apple.stackexchange.com/questions/335076/bootcamp-not-enough-space-but-nothing-helps)
+- graphics:
+	- [Update AMD graphics drivers for Windows in Boot Camp - Apple Support](https://support.apple.com/en-us/HT208908)
+	- [Apple Boot Camp Software Graphics Drivers | AMD](https://www.amd.com/en/support/kb/release-notes/apple-boot-camp)
+- drivers:
+	- [Resolving INACCESSIBLE_BOOT_DEVICE Error after restoring Winclone image – Twocanoes Software](https://web.archive.org/web/20210507032351/https://twocanoes.com/knowledge-base/resolving-inaccessible_boot_device-error-after-restoring-winclone-image/)
+	- if you can start bootcamp OS (ex mounted in a Virtual Machine), install manually (download first: [Download and install Windows support software on your Mac - Apple Support](https://support.apple.com/en-us/HT204923#download)) by right click on each INF files, then "Install" (`*\WindowsSupport\$WinPEDriver$\*\*.inf`) (driver files will be copied in `C:\WINDOWS\inf\*.inf`, `C:\WINDOWS\System32\drivers\*.sys` and `C:\WINDOWS\System32\DriverStore\FileRepository\*\*.*`)
+- [Installing Windows 10 on a Mac without Bootcamp](https://web.archive.org/web/20201112081147/https://fgimian.github.io/blog/2016/03/12/installing-windows-10-on-a-mac-without-bootcamp/)
+- [Backup and Restore Boot Camp on a new mac for free - benchodroff.com](https://web.archive.org/web/20210506194350/https://www.benchodroff.com/2017/02/15/backup-and-restore-boot-camp-on-a-new-mac-for-free/)
 
 ## Network
 

@@ -1215,6 +1215,7 @@ else normal
 fi
 ```
 
+- [.bashrc generator: create your .bashrc PS1 with a drag and drop interface](http://bashrcgenerator.com/)
 - [How to: Change / Setup bash custom prompt (PS1)](http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html)
 
 ### Shell config

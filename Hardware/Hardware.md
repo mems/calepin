@@ -77,3 +77,9 @@ AHJ/OMTP interface:
 - [Best Robotic Vacuums of 2020 - Consumer Reports](https://www.consumerreports.org/robotic-vacuums/best-robotic-vacuums-of-the-year/)
 - [The Best Robot Vacuums of 2020: Roomba | Reviews by Wirecutter](https://www.nytimes.com/wirecutter/reviews/best-robot-vacuum/)
 - [Best robot vacuums to clean your home in 2020 | TechRadar](https://www.techradar.com/news/best-robot-vacuums)
+
+## CAD
+
+Aka [Computer-aided design](https://en.wikipedia.org/wiki/Computer-aided_design)
+
+- [EleotleCram/blender-cad-tools: a collection of Blender addons to make CAD design with Blender even more enjoyable](https://github.com/EleotleCram/blender-cad-tools)

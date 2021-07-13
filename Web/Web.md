@@ -602,7 +602,9 @@ To isolate a third party script (or DOM access, geolocation, modal APIs, etc.), 
 
 - iframe with a cross origin (third party origin or null), ex: iframe with sandbox attribute but without `allow-same-origin`
 - a virutal machine like [QuickJS](https://bellard.org/quickjs/) ([bellard/quickjs](https://github.com/bellard/quickjs)) or [Duktape](https://github.com/svaarala/duktape) or [any other JS engine](https://github.com/GoogleChromeLabs/jsvu#supported-engines-per-os) (that could be cross-compiled to WebAssembly)
-    - [maple3142/wasm-jseval: A safe eval library based on WebAssembly and Duktape/QuickJS.](https://github.com/maple3142/wasm-jseval)
+	- [GitHub - maple3142/wasm-jseval: A safe eval library based on WebAssembly and Duktape/QuickJS.](https://github.com/maple3142/wasm-jseval)
+	- [GitHub - justjake/quickjs-emscripten: Javascript/Typescript bindings for QuickJS, a modern Javascript interpreter written in C by Fabrice Bellard.](https://github.com/justjake/quickjs-emscripten)
+	- [GitHub - ftk/quickjspp: QuickJS C++ wrapper](https://github.com/ftk/quickjspp)
 - use the [Realm API](https://www.npmjs.com/package/realms-shim) (similar to `with(proxy){}`)
 
 See also:

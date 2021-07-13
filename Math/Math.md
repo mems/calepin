@@ -59,14 +59,6 @@ public static function atan2(y:Number, x:Number):Number {
 
 - [Geometry, Surfaces, Curves, Polyhedra](http://paulbourke.net/geometry/) - resources for "Intersection of a Line and a Sphere (or circle)", "Intersection of two spheres", "Distributing Points on a Sphere", etc.
 
-## Matrix
-
-- [Matrices in Codea](http://loopspace.mathforge.org/HowDidIDoThat/Codea/Matrices/)
-- [Matrix Multiplication](http://matrixmultiplication.xyz/)
-- [A Programmer’s Intuition for Matrix Multiplication – BetterExplained](https://betterexplained.com/articles/matrix-multiplication/)
-- [CleVR Actionscript 3 Library](https://github.com/ascorbic/clevrlib) - This library provides some classes for linear algebra. It's ported from the NIST's JAMA Java Matrix library
-- [JAMA: Java Matrix Package](http://math.nist.gov/javanumerics/jama/) -
-
 ## Pythagorean Theorem
 
 - [My Favourite Proof](http://loopspace.mathforge.org/CountingOnMyFingers/FavouriteProof/)
@@ -75,6 +67,15 @@ public static function atan2(y:Number, x:Number):Number {
 ## Trigonometric
 
 - [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/sincos/sincos.htm) - a sin/cos trick
+- [LucasVB (1ucasvb) on Twitter: "Here's all the trigonometric functions in a way things actually make sense all around the circle. All the main identities are obvious in this geometric interpretation. https://t.co/2CT0YcFa0Q" / Twitter](https://twitter.com/LucasVB/status/1378529237322334208)
+
+## Matrix
+
+- [Matrices in Codea](http://loopspace.mathforge.org/HowDidIDoThat/Codea/Matrices/)
+- [Matrix Multiplication](http://matrixmultiplication.xyz/)
+- [A Programmer’s Intuition for Matrix Multiplication – BetterExplained](https://betterexplained.com/articles/matrix-multiplication/)
+- [CleVR Actionscript 3 Library](https://github.com/ascorbic/clevrlib) - This library provides some classes for linear algebra. It's ported from the NIST's JAMA Java Matrix library
+- [JAMA: Java Matrix Package](http://math.nist.gov/javanumerics/jama/) -
 
 ## 3D
 

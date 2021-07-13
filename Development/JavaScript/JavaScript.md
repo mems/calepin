@@ -2314,6 +2314,7 @@ Formatting examples:
 
 See also: `input.selectionStart`, `input.selectionEnd` and `input.selectionDirection`
 
+- [\[Proposal\] Input Masking - APIs - WICG](https://discourse.wicg.io/t/proposal-input-masking/5408)
 - (method on blur show a formatted element) https://css-tricks.com/input-masking/#article-header-id-3 and https://github.com/filamentgroup/politespace
 - [datalist experiment](http://demo.agektmr.com/datalist/)
 - https://github.com/kenkeiter/skeuocard

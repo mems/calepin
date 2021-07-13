@@ -2699,6 +2699,7 @@ See also:
 - [:nth-child - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child)
 - [How CSS pseudo-classes work, explained with code and lots of diagrams](https://medium.freecodecamp.com/explained-css-pseudo-classes-cef3c3177361)
 - [Some Extremely Handy `:nth-child` Recipes as Sass Mixins | CSS-Tricks](https://css-tricks.com/extremely-handy-nth-child-recipes-sass-mixins/)
+- [:nth-child Between Two Fixed Indexes | CSS-Tricks](https://css-tricks.com/nth-child-between-two-fixed-indexes/)
 
 ### Link to a specific URL
 

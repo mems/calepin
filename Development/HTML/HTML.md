@@ -2291,6 +2291,10 @@ Some workarounds:
 - [Issue 352347 - chromium - Don't autofill passwords where confirmation is required - An open-source project to help move the web forward. - Google Project Hosting](https://code.google.com/p/chromium/issues/detail?id=352347)
 - [web application - Should websites be allowed to disable autocomplete on forms or fields? - Information Security Stack Exchange](http://security.stackexchange.com/questions/49326/should-websites-be-allowed-to-disable-autocomplete-on-forms-or-fields)
 
+### Field pattern
+
+- [HTML5Pattern is a source of regularly used Input-Patterns](https://www.html5pattern.com/)
+
 ### Field type
 
 Don't use number type thing that use digit like identifier (credit card number, CCV, ISBN, barcode, activation/product key, etc.), postcode, date, phone number, social security number, etc.

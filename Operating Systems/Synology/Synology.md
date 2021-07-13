@@ -378,7 +378,7 @@ More ?
 
 ## Logs
 
-`/var/log/messages`
+`tail -f /var/log/messages`
 
 `dms.dmslog` file
 
@@ -743,6 +743,24 @@ The default Openstack container is `default`. For other container: `https://hubi
 
 - [How to back up Linux computer to Synology NAS | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Backup/How_to_back_up_Linux_computer_to_Synology_NAS)
 
+To fix the timeout error (`rsync: [sender] write error: Broken pipe (32)`), edit configuration for rsync server `/etc/ssh/sshd_config`:
+
+```
+ClientAliveInterval 60
+ClientAliveCountMax 10
+```
+
+And for client `~/.ssh/config` (or `/etc/ssh/ssh_config`):
+
+```
+Host *
+	# Keep connection living
+	# https://askubuntu.com/questions/127369/how-to-prevent-write-failed-broken-pipe-on-ssh-connection
+	TCPKeepAlive yes
+	ServerAliveInterval 60
+	ServerAliveCountMax 10
+```
+
 ## Time Machine
 
 Can only have 1 folder for all machines (will contains all sparse bundles).
@@ -1030,7 +1048,10 @@ cat /etc/cups/cupsd.conf
 synoservice --restart cupsd
 ```
 
-- [Setting up a CUPS server with Docker on a Synology NAS for my Brother printer](http://www.theghostbit.com/2016/10/setting-up-cups-server-with-docker-on.html) - see [RoryQ/Docker-CUPS-for-Synology: Scripts for setting up CUPS server in Docker running on Synology Diskstation for Brother HL-1110](https://github.com/RoryQ/Docker-CUPS-for-Synology)
+- [Setting up a CUPS server with Docker on a Synology NAS for my Brother printer](https://web.archive.org/web/20210515080823/http://www.theghostbit.com/2016/10/setting-up-cups-server-with-docker-on.html) - see [RoryQ/Docker-CUPS-for-Synology: Scripts for setting up CUPS server in Docker running on Synology Diskstation for Brother HL-1110](https://github.com/RoryQ/Docker-CUPS-for-Synology)
+	- https://web.archive.org/web/20210218143710/https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.2-2.gz
+	- [AirPrint-HLL2300D.service · GitHub](https://web.archive.org/web/20210303085556/https://gist.github.com/ghostbitmeta/00c9470a07f310fc0bfa3c4c4db94731)
+	-
 - [maxandersen/aircups: Cups print server with airprint enabled, works well with Synology](https://github.com/maxandersen/aircups)
 	Based on [quadportnick/docker-cups-airprint: Docker image for CUPS intended as an AirPrint relay on Synology DSM](https://github.com/quadportnick/docker-cups-airprint)
 - [mnbf9rca/cups-google-print: a CUPS printer with Google Cloud Print enabled](https://github.com/mnbf9rca/cups-google-print)

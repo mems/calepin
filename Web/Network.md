@@ -461,10 +461,18 @@ About ranges and chunked transfert encoding:
 
 See [Request content encoding](#request-content-encoding)
 
-base64 or `multipart/form-data`
+base64 or `multipart/form-data` + use a "pointer" that data [field name](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#multipart-form-data)
 
 - [Binary Data in JSON String. Something better than Base64 - Stack Overflow](https://stackoverflow.com/questions/1443158/binary-data-in-json-string-something-better-than-base64/28080392#28080392)
 - [javascript - fetch post with multipart form data - Stack Overflow](https://stackoverflow.com/questions/35192841/fetch-post-with-multipart-form-data)
+
+### Prevent form replay
+
+**Always provide a way for the user to keep provided values, in case the submit form data fail.** Show an error message and fill fields with provided values: `<input value="Value provided by the user that is not used until the error is fixed">`
+
+- [Post/Redirect/Get - Wikipedia](https://en.wikipedia.org/wiki/Post/Redirect/Get)
+- [Cross-site request forgery - Wikipedia](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
+- [Prevent form resubmit after Browser Back button click - Webmasters Stack Exchange](https://webmasters.stackexchange.com/questions/87468/prevent-form-resubmit-after-browser-back-button-click/87488#87488)
 
 ### WebRTC
 
