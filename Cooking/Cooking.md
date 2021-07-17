@@ -487,3 +487,11 @@ Pour 10 portions :
 
 - [Financiers : Recette de Financiers - Marmiton](https://www.marmiton.org/recettes/recette_financiers_13690.aspx)
 - [Recette - Le financier en vidéo](https://www.750g.com/le-financier-r24244.htm)
+
+## Confiture de melon
+
+1. Coupez la chair de melon en morceaux. Dans un saladier, mélangez la chair de melon avec le sucre et le jus des citrons. Couvez avec du film plastique et laissez macérer un minimum de 6 h.
+2. Chauffez le mélange. Comptez une vingtaine de minutes (N.D.L.R. plutôt 1h) à partir de l’ébullition. Vérifiez la cuisson de la confiture en déposant quelques goutes sur une assiette. Celles-ci doivent figer. Poursuivez la cuisson si nécessaire. Ajoutez en fin de cuisson les graines de sésame (ou les graines raclées d’une gousse de vanille).
+3. Versez la confiture dans des pots à ras-bord. Fermez-les et retournez-le le temps que la confiture refroidisse.
+
+- [Confiture de melon facile : découvrez les recettes de Cuisine Actuelle](https://web.archive.org/web/20201020233823/https://www.cuisineactuelle.fr/recettes/confiture-de-melon-331599)

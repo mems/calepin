@@ -27,7 +27,14 @@ Bicarbonate de soude pour nettoyer un four (12 heures)
 
 - eau + papersand très fin
 
-## Vente en ligne
+Boule de papier aluminium + coca pour nettoyer les taches de rouille (du chrome, etc)
+Voir aussi pour le dentifrice pour le polish
+
+## Vente / achat
+
+- [Véhicules d'occasion : 5 conseils pour acheter tranquille | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/achat-vehicules-occasion-conseils)
+
+### Vente en ligne
 
 - Regarder l'orthographe, le style d'écriture, les adresses emails, l'origine des emails (toujours se rendre sur les sites directement, sans suivre les liens fournis dans les emails).
 - Si nécéssaire appeler un numéro de téléphone portable.
@@ -53,7 +60,7 @@ Paypal prend une commission pour la réception d'argent: [3,4% + 0,25€](https:
 
 ### Ebay
 
-lancer une annonce 10j le jeudi à 20h pour finir la semaine suivante le dimanche à 20h
+Lancer une annonce 10j le jeudi à 20h pour finir la semaine suivante le dimanche à 20h
 
 # Health
 
@@ -102,8 +109,31 @@ Si présence de fièvre ou si au bout de quelques jours, il n'y a aucun signe d'
 
 ## Emménagement
 
+Aka déménagement
+
+- banques, services financiers
+- assurances, mutuelles
+- commerce (paiement et livraison) : Paypal, Ebay, Paypal, iTunes
+- électricité, eau, gaz
+- téléphone, internet (déménagement de ligne, portabilité)
+- liste électorale ([Demande d'inscription en ligne sur les listes électorales](https://www.service-public.fr/particuliers/vosdroits/R16396))
+- impôts ([Je déménage | impots.gouv.fr](https://www.impots.gouv.fr/portail/particulier/je-demenage))
+- carte d’identité
+- passport
+- carte grise ([Calculer le coût de la carte grise](https://www.service-public.fr/particuliers/vosdroits/R39696), [Carte grise : changement d'adresse - ANTS - Site Immatriculation](https://immatriculation.ants.gouv.fr/Vos-demarches/Changement-d-adresse))
+- permis de conduire
+- organismes sociaux (santé, retraite) : caisses de sécurité sociale et de retraite, assurance maladie, pôle emploi, CPAM, CAF, caisse de retraite
+- autres services et abonnements : transport, dons, etc.
+- La Poste (redirection de courrier)
+
 Électricité:
 
 - avant qu'une ligne soit coupée (par ERDF) il est possible de disposer d'électricité (énergie en libre service) qui est accordé par ERDF afin de permettre à un nouvel occupant de pouvoir emménager (mais c'est pas toujours le cas, surtout avec les compteurs électronique type Linky)
 - [Déménager de mon logement | Enedis](https://www.enedis.fr/demenager-de-mon-logement#etape-emmenager)
 - [Contacter le service client EDF par téléphone ou en ligne](https://particulier.edf.fr/fr/accueil/aide-et-contact/contact/contacter-edf.html)
+
+See also:
+
+- [Changement d'adresse en ligne (Service en ligne) | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/R11193)
+- [Carte d'identité / Passeport : quel justificatif de domicile ? | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F14807)
+- [Déclaration de changement de coordonnées - Mon service public](https://web.archive.org/web/20130123081928/https://mdel.mon.service-public.fr/je-change-de-coordonnees.html) (archive)

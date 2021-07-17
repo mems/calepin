@@ -85,6 +85,7 @@ Not for team or at least without expertise requirements
 - [I Don’t Believe in Full-Stack Engineering • Robin Rendle](https://robinrendle.com/notes/i-dont-believe-in-full-stack-engineering/)
 - [Développeur full stack — Wikipédia](https://fr.wikipedia.org/wiki/D%C3%A9veloppeur_full_stack)
 - [CSS](../Development/CSS/CSS.md) - "faire de l'UI c'est facile, c'est même pas un vrai métier"
+- [HTML](../Developement/HTML/HTML.md#choose-the-right-tag-and-attribute) - "HTML is not an assumed skill", "Semantic Web"
 
 ## Management
 
@@ -152,6 +153,7 @@ See also:
 - [Front-end-developer-interview-questions by h5bp](http://h5bp.github.io/Front-end-Developer-Interview-Questions/) - see [A list of helpful front-end related questions you can use to interview potential candidates, test yourself or completely ignore](https://github.com/h5bp/Front-end-Developer-Interview-Questions)
 - [What if companies interviewed translators the way they interview coders?](https://medium.freecodecamp.com/welcome-to-the-software-interview-ee673bc5ef6)
 - [If companies interviewed tech recruiters the way they interview programmers](https://medium.com/@NTDF9/if-companies-interviewed-tech-recruiters-the-way-they-interview-programmers-f18e1a980cdd)
+- [Recrutement : comment réussir vos entretiens d'embauche ? | economie.gouv.fr](https://www.economie.gouv.fr/entreprises/recrutement-reussir-entretien-embauche)
 
 ### Stagiaire
 
@@ -376,6 +378,10 @@ jour/homme -> jour/personne
 > If you meant the following… then it would be X hours. If this is not what you are aiming to do, then could you clarify…
 
 > You wouldn’t expect an accurate quote from a contractor if you said “I want a house with a kitchen, bathroom, and living room – how much will that cost me?”
+
+- Versement d'un acompte de 30% à la commande
+- Paiement de 60% a la livraison
+- versement des 10% restant à la facture
 
 ##### Non-payment
 

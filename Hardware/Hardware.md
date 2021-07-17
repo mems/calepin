@@ -78,8 +78,31 @@ AHJ/OMTP interface:
 - [The Best Robot Vacuums of 2020: Roomba | Reviews by Wirecutter](https://www.nytimes.com/wirecutter/reviews/best-robot-vacuum/)
 - [Best robot vacuums to clean your home in 2020 | TechRadar](https://www.techradar.com/news/best-robot-vacuums)
 
+## Air conditioner
+
+- [Portable Air Conditioners - Why you shouldn't like them - YouTube](https://www.youtube.com/watch?v=_-mBeYC2KGc)
+- [Climatiseur split - Guide d'achat - UFC-Que Choisir](https://www.quechoisir.org/guide-d-achat-climatiseur-split-n78727/)
+
+## Dishwasher
+
+- [Lave-vaisselle : quels produits et dosage utiliser pour bien fonctionner ?](https://web.archive.org/web/20210715153722/https://www.beko.fr/page-editoriale/pastilles-ou-gel-liquide-de-rincage-et-sel-quels-produits-pour-mon-lave-vaisselle)
+- [Detergent packs are kinda wishy-washy (Dishwashers Explained) - YouTube](https://www.youtube.com/watch?v=_rBO8neWw04)
+
 ## CAD
 
 Aka [Computer-aided design](https://en.wikipedia.org/wiki/Computer-aided_design)
 
 - [EleotleCram/blender-cad-tools: a collection of Blender addons to make CAD design with Blender even more enjoyable](https://github.com/EleotleCram/blender-cad-tools)
+- SOLIDWORKS
+	- [SOLIDWORKS](https://www.solidworks.com/)
+	- [Community Download | SOLIDWORKS](https://www.solidworks.com/support/community-download#no-back)
+- [Fusion 360 for Personal Use | Fusion 360 | Autodesk](https://www.autodesk.com/products/fusion-360/personal)
+- [OpenSCAD - The Programmers Solid 3D CAD Modeller](https://openscad.org/)
+- [LibreCAD - Free Open Source 2D CAD](https://librecad.org/)
+- [KiCad EDA - Schematic Capture & PCB Design Software](https://www.kicad.org/)
+- [FreeCAD: Your own 3D parametric modeler](https://www.freecadweb.org/)
+- [Onshape Free Plan | Onshape](https://www.onshape.com/en/products/free)
+
+See also:
+
+- [LeoCAD - Virtual LEGO CAD Software](https://www.leocad.org/)

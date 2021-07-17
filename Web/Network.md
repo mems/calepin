@@ -1303,3 +1303,10 @@ Aka postback, pixel
 - [WebSub](https://www.w3.org/TR/websub/) - Open protocol for distributed pub–sub communication on the internet
 - [WebSub Rocks!](https://websub.rocks/)
 - [Postback - Wikipedia](https://en.wikipedia.org/wiki/Postback)
+
+See also [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events):
+
+- [Server-Sent Events - API Graph](https://developers.facebook.com/docs/graph-api/server-sent-events/)
+- [Give me /events, not webhooks | Hacker News](https://news.ycombinator.com/item?id=27823109)
+
+Or SMTP

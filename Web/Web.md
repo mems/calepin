@@ -587,14 +587,21 @@ Examples, using differents methods:
 
 ## Third parties
 
+and widgets
+
 > Don't trust your third parties
 
 See also [Third parties webperf](./Optimizations%20and%20performances.md#third-parties-webperf)
 
-Comments services alternatives:
+Comments services:
 
 - [Replacing Disqus with Github Comments · Gazoo.vrv](http://donw.io/post/github-comments/)
 - [Comments - Social Plugins](https://developers.facebook.com/docs/plugins/comments/)
+
+Source code embed:
+
+- [yetanother-blog/indiepen: An independent and privacy-friendly solution to embed HTML, CSS and JS code examples](https://github.com/yetanother-blog/indiepen/)
+- [Embedded Pens - CodePen Blog](https://blog.codepen.io/documentation/embedded-pens/)
 
 ### Website JS plugins
 
@@ -675,6 +682,10 @@ See Do Not Track https://www.eff.org/dnt-policy [`navigator.doNotTrack`](https:/
 - [Cookies - European commission](http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm)
 - [5 steps to make sure you are compliant with the EU Cookie Directive | Reason Digital](http://reasondigital.com/advice-and-training/5-steps-to-make-sure-you-are-compliant-with-the-eu-cookie-directive/)
 - [Europe is planning to finally scrap those annoying cookie pop-ups on websites](http://www.businessinsider.fr/us/europe-plans-remove-cookie-pop-ups-banners-websites-leaked-law-draft-consent-2016-12/)
+
+Cookie banner:
+
+- [I don't care about cookies 3.3.1](https://www.i-dont-care-about-cookies.eu/) - WebExtension to block cookies banner
 
 ## Cookies
 

@@ -102,20 +102,20 @@ Aka icon
 - `title` and `desc` tags can be added within the `<symbol>` and they kinda "come along for the ride" when the symbol gets used, making accessibility easier to do right.
 - Symbols don't display as you define them, so no need for a `<defs>` block.
 - This is probably what `<symbol>` was invented for anyway
- 
+
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 	  <symbol id="symbol-1" viewBox="214.7 0 182.6 792">
-	  	<title>symbol's-title</title> 
+	  	<title>symbol's-title</title>
 	    <desc>symbol's-desc</desc>
-	    <!-- <path>s and whatever other shapes in here -->  
+	    <!-- <path>s and whatever other shapes in here -->
 	  </symbol>
 	  <symbol id="symbol-2" viewBox="0 26 100 48">
-	  	<title>symbol's-title</title> 
+	  	<title>symbol's-title</title>
 	    <desc>symbol's-desc</desc>
-	    <!-- <path>s and whatever other shapes in here -->  
+	    <!-- <path>s and whatever other shapes in here -->
 	  </symbol>
 	</svg>
-	
+
 	<svg class="icon">
 	  <use xlink:href="#symbol-1" />
 	</svg>
@@ -151,33 +151,33 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 
 	<!--
 	http://codepen.io/niorad/pen/xmfza
-	Convert SVG-Shapes into paths so they can be animated. 
+	Convert SVG-Shapes into paths so they can be animated.
 	The script converts all non-path-elements to paths so the stroke-dashoffset-trick works.
 	Note: this doesn't implement all syntaxes allowed by SVG specs
 	-->
-	
+
 	<script>
 		//inspired by http://product.voxmedia.com/post/68085482982/polygon-feature-design-svg-animations-for-fun-and
-		
+
 		//If you want to add SVG to the DOM, jQuery won't do
 		//http://www.benknowscode.com/2012/09/using-svg-elements-with-jquery_6812.html
-		
+
 		function SVG(tag) {
 		    return document.createElementNS('http://www.w3.org/2000/svg', tag);
 		}
-		
+
 		function replaceRectsWithPaths(parentElement) {
 		    var rects = $(parentElement).find('rect');
-			
+
 		    $.each(rects, function() {
 		        var rectX = $(this).attr('x');
 		        var rectY = $(this).attr('y');
-				
+
 		        var rectX2 = parseFloat(rectX) + parseFloat($(this).attr('width'));
 		        var rectY2 = parseFloat(rectY) + parseFloat($(this).attr('height'));
-				
+
 		        var convertedPath = 'M' + rectX + ',' + rectY + ' ' + rectX2 + ',' + rectY + ' ' + rectX2 + ',' + rectY2 + ' ' + rectX + ',' + rectY2 + ' ' + rectX + ',' + rectY;
-				
+
 		        $(SVG('path'))
 		        .attr('d', convertedPath)
 		        .attr('fill', $(this).attr('fill'))
@@ -185,22 +185,22 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        .attr('stroke-width', $(this).attr('stroke-width'))
 		        .insertAfter(this);
 		    });
-			
+
 		    $(rects).remove();
 		}
-		
+
 		function replaceLinesWithPaths(parentElement) {
 		    var lines = $(parentElement).find('line');
-			
+
 		    $.each(lines, function() {
 		        var lineX1 = $(this).attr('x1');
 		        var lineY1 = $(this).attr('y1');
-				
+
 		        var lineX2 = $(this).attr('x2');
 		        var lineY2 = $(this).attr('y2');
-				
+
 		        var convertedPath = 'M' + lineX1 + ',' + lineY1 + ' ' + lineX2 + ',' + lineY2;
-				
+
 		        $(SVG('path'))
 		        .attr('d', convertedPath)
 		        .attr('fill', $(this).attr('fill'))
@@ -208,21 +208,21 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        .attr('stroke-width', $(this).attr('stroke-width'))
 		        .insertAfter(this);
 		    });
-			
+
 		    $(lines).remove();
 		}
-		
+
 		function replaceCirclesWithPaths(parentElement) {
 		    var circles = $(parentElement).find('circle');
-			
+
 		    $.each(circles, function() {
 		        var cX = $(this).attr('cx');
 		        var cY = $(this).attr('cy');
 		        var r = $(this).attr('r');
 		        var r2 = parseFloat(r * 2);
-				
+
 		        var convertedPath = 'M' + cX + ', ' + cY + ' m' + (-r) + ', 0 ' + 'a ' + r + ', ' + r + ' 0 1,0 ' + r2 + ',0 ' + 'a ' + r + ', ' + r + ' 0 1,0 ' + (-r2) + ',0 ';
-				
+
 		        $(SVG('path'))
 		        .attr('d', convertedPath)
 		        .attr('fill', $(this).attr('fill'))
@@ -230,21 +230,21 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        .attr('stroke-width', $(this).attr('stroke-width'))
 		        .insertAfter(this);
 		    });
-			
+
 		    $(circles).remove();
 		}
-		
+
 		function replaceEllipsesWithPaths(parentElement) {
 		    var ellipses = $(parentElement).find('ellipse');
-			
+
 		    $.each(ellipses, function() {
 		        var cX = $(this).attr('cx');
 		        var cY = $(this).attr('cy');
 		        var rX = $(this).attr('rx');
 		        var rY = $(this).attr('ry');
-				
+
 		        var convertedPath = 'M' + cX + ', ' + cY + ' m' + (-rX) + ', 0 ' + 'a ' + rX + ', ' + rY + ' 0 1,0 ' + rX*2 + ',0 ' + 'a ' + rX + ', ' + rY + ' 0 1,0 ' + (-rX*2) + ',0 ';
-				
+
 		        $(SVG('path'))
 		        .attr('d', convertedPath)
 		        .attr('fill', $(this).attr('fill'))
@@ -252,19 +252,19 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        .attr('stroke-width', $(this).attr('stroke-width'))
 		        .insertAfter(this);
 		    });
-			
+
 		    $(ellipses).remove();
 		}
-		
+
 		function replacePolygonsWithPaths(parentElement) {
 		    var polygons = $(parentElement).find('polygon');
-			
+
 			// https://www.w3.org/TR/SVG/shapes.html#PointsBNF
 		    $.each(polygons, function() {
 		        var points = $(this).attr('points');
 		        var polyPoints = points.split(/[ ,]+/);
 		        var endPoint = polyPoints[0] + ', ' + polyPoints[1];
-				
+
 		        $(SVG('path'))
 		        .attr('d', 'M' + points + ' ' + endPoint)
 		        .attr('fill', $(this).attr('fill'))
@@ -272,16 +272,16 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        .attr('stroke-width', $(this).attr('stroke-width'))
 		        .insertAfter(this);
 		    });
-			
+
 		    $(polygons).remove();
 		}
-		
+
 		function replacePolylinesWithPaths(parentElement) {
 		    var polylines = $(parentElement).find('polyline');
-			
+
 		    $.each(polylines, function() {
 		        var points = $(this).attr('points');
-				
+
 		        $(SVG('path'))
 		        .attr('d', 'M' + points)
 		        .attr('fill', $(this).attr('fill'))
@@ -289,18 +289,18 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        .attr('stroke-width', $(this).attr('stroke-width'))
 		        .insertAfter(this);
 		    });
-			
+
 		    $(polylines).remove();
 		}
-		
+
 		function hideSVGPaths(parentElement) {
 		    var paths = $(parentElement).find('path');
-			
+
 		    //for each PATH..
 		    $.each( paths, function() {
 		        //get the total length
 		        var totalLength = this.getTotalLength();
-				
+
 		        //set PATHs to invisible
 		        $(this).css({
 		            'stroke-dashoffset': totalLength,
@@ -308,21 +308,21 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        });
 		    });
 		}
-		
+
 		function drawSVGPaths(_parentElement, _timeMin, _timeMax, _timeDelay) {
 		    var paths = $(_parentElement).find('path');
-			
+
 		    //for each PATH..
 		    $.each( paths, function(i) {
 		        //get the total length
 		        var totalLength = this.getTotalLength();
-				
+
 		        //set PATHs to invisible
 		        $(this).css({
 		            'stroke-dashoffset': totalLength,
 		            'stroke-dasharray': totalLength + ' ' + totalLength
 		        });
-				
+
 		        //animate
 		        $(this).delay(_timeDelay*i).animate({
 		            'stroke-dashoffset': 0
@@ -332,24 +332,24 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 		        });
 		    });
 		}
-		
+
 		function replaceWithPaths(parentElement) {
 		    replaceRectsWithPaths(parentElement);
 		    replaceLinesWithPaths(parentElement);
 		    replaceEllipsesWithPaths(parentElement);
 		    replaceCirclesWithPaths(parentElement);
 		    replacePolygonsWithPaths(parentElement);
-		    replacePolylinesWithPaths(parentElement);    
+		    replacePolylinesWithPaths(parentElement);
 		}
-		
+
 		function startSVGAnimation(parentElement) {
 		    drawSVGPaths(parentElement, 1000, 2000, 50);
 		}
-		
+
 		replaceWithPaths($('svg'));
 		startSVGAnimation($('svg'));
 	</script>
-	
+
 	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	     width="800px" height="800px" viewBox="0 0 800 800" enable-background="new 0 0 800 800" xml:space="preserve">
 	<circle fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="115.5" cy="119.5" r="55.5"/>
@@ -357,7 +357,7 @@ Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2
 	<rect x="403" y="71" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="98" height="97"/>
 	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M672,158c0,5.523-4.477,10-10,10h-82
 	    c-5.523,0-10-4.477-10-10V81c0-5.523,4.477-10,10-10h82c5.523,0,10,4.477,10,10V158z"/>
-	<polyline fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="66,292 115.5,239 171,321 194,251 
+	<polyline fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="66,292 115.5,239 171,321 194,251
 	    236,280 268,251 318,291 343,239 368,275 "/>
 	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M452,293c0,0,0-61,72-44c0,0-47,117,81,57
 	    s5-110,10-67s-51,77.979-50,33.989"/>
@@ -580,7 +580,7 @@ CSS animations applied on elements used by `use` can be realy bad and not recomm
 ## Case sensitivity
 
 Since SVG is XML, node's name are case sensitive. Be carefull when create element in XML stream or via DOM (`createElement()`).
- 
+
 - http://ejohn.org/blog/nodename-case-sensitivity/
 
 ## Gradient
@@ -954,7 +954,7 @@ const HTML_ENTITIES = {
 };
 
 const SVG_DOCTYPE = `<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [ 
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
 	${Object.entries(HTML_ENTITIES).map(([name, value]) => `<!ENTITY ${name} "&#${value};">`).join("\n\t")}
 ]>`;
 ```
@@ -973,3 +973,9 @@ const SVG_DOCTYPE = `<?xml version="1.0" standalone="no"?>
 ```
 
 - [Arbitrary `data` attributes in XML by Taylor Hunt on CodePen](https://codepen.io/tigt/post/arbitrary-data-attributes-in-xml)
+
+## Graphics Canvas
+
+Aka WebGL
+
+- [WebGL in SVG via foreignObject](https://gist.github.com/spite/6675ac4622a39cc7a75449215603fe4d?short_path=65bbefd)

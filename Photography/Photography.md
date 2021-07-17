@@ -1,3 +1,5 @@
+> 1 seconde de prise, une photo pour la vie
+
 Lumière diffue:
 
 - softbox

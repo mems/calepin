@@ -38,9 +38,15 @@ Instead of
 
 ## Choose the right tag and attribute
 
+> Semantic web
+> Semantic HTML
+
+> HTML is not an assumed skill
+
 See [Accessibility](#accessibility) and [Patterns, markup, semantics and snippets](#patterns-markup-semantics-and-snippets)
 
-- http://html5doctor.com/i-b-em-strong-element/
+- [The i, b, em, &amp; strong elements | HTML5 Doctor](https://html5doctor.com/i-b-em-strong-element/)
+- [Khôi on Twitter: "@deanleigh @meodai @ShawnAxsom https://t.co/ZZ0dZgpANM" / Twitter](https://twitter.com/KeeTraxx/status/1414890349030518806)
 
 > When there are multiple instances of a particular landmark role on a page, provide a unique accessible name for each landmark with the same role to enable users to differentiate among them.
 

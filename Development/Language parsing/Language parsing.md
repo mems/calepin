@@ -29,6 +29,7 @@ About parsing and transpiling:
 - [Drawings of How Compilers Work – Chelsea Troy](https://chelseatroy.com/2019/10/17/drawings-of-how-compilers-work/)
 - [Stuff I Wrote About Programming Languages – journal.stuffwithstuff.com](http://journal.stuffwithstuff.com/category/language/)
 - [JSON Parser with JavaScript | Tan Li Hau](https://lihautan.com/json-parser-with-javascript/) - [Write a parser with JavaScript | Hacker News](https://news.ycombinator.com/item?id=21772336)
+- [esbuild/architecture.md at master · evanw/esbuild](https://github.com/evanw/esbuild/blob/master/docs/architecture.md) - esbuild bundler architecture
 
 Concepts:
 
@@ -77,12 +78,12 @@ Examples:
 - [Jsmn is a world fastest JSON parser/tokenizer](https://github.com/zserge/jsmn/blob/master/jsmn.c)
 - [Very low footprint JSON parser written in portable ANSI C](https://github.com/udp/json-parser/blob/master/json.c)
 - [Super-fast Java JSON parser](https://github.com/mitchhentges/json-parse/blob/master/src/main/java/ca/fuzzlesoft/JsonParse.java)
-- [MBED3 port of Lightweight Embedded JSON Parser](https://github.com/warmcat/lejp/blob/master/source/lejp.c) 
+- [MBED3 port of Lightweight Embedded JSON Parser](https://github.com/warmcat/lejp/blob/master/source/lejp.c)
 - [A fast and small JSON parser and writer for Java](https://github.com/ralfstx/minimal-json/blob/master/com.eclipsesource.json/src/main/java/com/eclipsesource/json/JsonParser.java)
 - [pvdz/tenko: An 100% spec compliant ES2020 JavaScript parser written in JS](https://github.com/pvdz/tenko)
 
 Use `goto`s, "This is called computed (or assigned) goto and is a GCC extension"
-- https://github.com/quartzjer/js0n/blob/master/src/js0n.c 
+- https://github.com/quartzjer/js0n/blob/master/src/js0n.c
 - https://gcc.gnu.org/onlinedocs/gcc/Labels-as-Values.html
 - https://news.ycombinator.com/item?id=4387156
 
@@ -98,7 +99,7 @@ Syntax exemples:
 	maths : /^/ <expression> /$/;
 
 	// so c so c so c so c so c so c so c so c so c
-	// wow c so language such book 
+	// wow c so language such book
 	adjective : "wow" | "many" | "so" | "such";
 	noun      : "lisp" | "language" | "c" | "book" | "build";
 	phrase    : <adjective> <noun>;
@@ -108,17 +109,17 @@ Syntax exemples:
 	number    : /[0-9]+/ ;
 	character : /'.'/ ;
 	string    : /\"(\\\\.|[^\"])*\"/ ;
-	
+
 	factor    : '(' <lexp> ')'
 	          | <number>
 	          | <character>
 	          | <string>
 	          | <ident> '(' <lexp>? (',' <lexp>)* ')'
 	          | <ident> ;
-	
+
 	term      : <factor> (('*' | '/' | '%') <factor>)* ;
 	lexp      : <term> (('+' | '-') <term>)* ;
-	
+
 	stmt      : '{' <stmt>* '}'
 	          | \"while\" '(' <exp> ')' <stmt>
 	          | \"if\"    '(' <exp> ')' <stmt>
@@ -126,14 +127,14 @@ Syntax exemples:
 	          | \"print\" '(' <lexp>? ')' ';'
 	          | \"return\" <lexp>? ';'
 	          | <ident> '(' <ident>? (',' <ident>)* ')' ';' ;
-	
+
 	exp       : <lexp> '>' <lexp>
 	          | <lexp> '<' <lexp>
 	          | <lexp> \">=\" <lexp>
 	          | <lexp> \"<=\" <lexp>
 	          | <lexp> \"!=\" <lexp>
 	          | <lexp> \"==\" <lexp> ;
-	
+
 	typeident : (\"int\" | \"char\") <ident> ;
 	decls     : (<typeident> ';')* ;
 	args      : <typeident>? (',' <typeident>)* ;
@@ -147,7 +148,7 @@ Syntax exemples:
 	leaf : /bar/;
 	input : /^/ <node> /$/;
 
-	
+
 	number  \"number\"  : /[0-9]+/ ;
 	symbol  \"symbol\"  : /[a-zA-Z0-9_+\\-*\\/\\\\=<>!&]+/ ;
 	string  \"string\"  : /\"(\\\\.|[^\"])*\"/ ;
@@ -170,7 +171,7 @@ Syntax exemples:
 	resource       : '[' (<rtype> <rname>) ']' <inner_block> ;
 		rtype       : /[*]*/ ;
 		rname       : <qstring> ;
-	
+
 	inner_block    : (<comment> | <statement>)* ;
 		statement   : <function> '(' (<comment> | <parameter> | <block>)* ')'  <seperator> ;
 		function    : <qstring> ;
@@ -178,11 +179,11 @@ Syntax exemples:
 			literal  : (<number> | <qstring>) <seperator> ;
 		block       : '{' <inner_block> '}' ;
 		seperator   : ',' | \"\" ;
-	
+
 	qstring        : (<complexstr> | <simplestr>) <qstring>* ;
 		simplestr   : /[a-zA-Z0-9_!@#$%^&\\*_+\\-\\.=\\/<>]+/ ;
 		complexstr  : (/\"[^\"]*\"/ | /'[^']*'/) ;
-	
+
 	number         : (<float> | <int>) ;
 		float       : /[-+]?[0-9]+\\.[0-9]+/ ;
 		int         : /[-+]?[0-9]+/ ;

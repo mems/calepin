@@ -384,6 +384,7 @@ See also [Case styles](#case-styles)
 - prefix, suffix
 - behaviour
 - computation
+- tool, wizard, manager
 - tulpe "a data structure consisting of multiple parts. (in a relational database) an ordered set of data constituting a record." See also destructuring
 - nonempty ["Not empty" set in one word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/102771/not-empty-set-in-one-word)
 - edges (endpoints) and fields

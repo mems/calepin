@@ -4437,3 +4437,8 @@ function isEmpty(o) {
 ```js
 String(function(){console.log("Hello")}).slice(11, -1);// console.log("Hello")
 ```
+
+
+## Tree traversal
+
+- [Tree traversal with ES6 generator - Hemanth.HM](https://h3manth.com/new/blog/2014/tree-traversal-with-es6-generator/)
