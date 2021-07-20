@@ -31,6 +31,8 @@ Toolcraft, Facom (cher), Wolfcraft
 ## USB-C
 
 - [Converting devices to USB Type-C - YouTube](https://www.youtube.com/watch?v=V-vFtiDYiIw)
+- [Now how many USB-C™ to USB-C™ cables are there? (USB4™ Update, September 12, 2019) — Benson Leung](https://people.kernel.org/bleung/now-how-many-usb-c-to-usb-c-cables-are-there-usb4-update-september-12)
+- [usb-c cable colour codes](https://sa.lj.am/usbccccc/) - Paint cable ends with nail polish to differentiate type. [salman on Twitter: "there are 8 (!) types of usb-c to usb-c cables and they all look identical. i kept confusing them so i colour coded them with nail polish. here's my colour scheme: https://t.co/JhE8NaSOkJ https://t.co/KLAzZfAfir" / Twitter](https://twitter.com/_saljam/status/1416763470247247879)
 
 ## Sensor data
 

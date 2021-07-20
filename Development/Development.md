@@ -310,6 +310,10 @@ Notes:
 
 - [Programming Idioms](https://www.programming-idioms.org/)
 
+## Code diff
+
+- [afnanenayet/diffsitter: A tree-sitter based AST difftool to get meaningful semantic diffs](https://github.com/afnanenayet/diffsitter)
+
 ## Slugify
 
 Normalize first ("NFD"), remove all non A-Za-z chars

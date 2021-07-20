@@ -129,3 +129,14 @@ phonological, grammatical, lexical
 - [SOUNDEX (Transact-SQL) - SQL Server | Microsoft Docs](https://docs.microsoft.com/en-us/sql/t-sql/functions/soundex-transact-sql?view=sql-server-ver15)
 - [libindic/soundex: Soundex Phonetic Code Algorithm Demo for Indian Languages. Supports all indian languages and English. Provides intra-indic string comparison](https://github.com/libindic/soundex)
 - [php:recherche_floue \[Wiki de sebsauvage.net\]](https://web.archive.org/web/20201001231907/https://sebsauvage.net/wiki/doku.php?id=php:recherche_floue)
+
+## Sentiment
+
+- [AFINN](https://www2.imm.dtu.dk/pubdb/pubs/6010-full.html)
+- [thisandagain/sentiment: AFINN-based sentiment analysis for Node.js.](https://github.com/thisandagain/sentiment)
+- [johnthillaye/sentiment: AFINN-based sentiment analysis for Node.js, in French !](https://github.com/johnthillaye/sentiment) - use AFINN dataset translated with Google Translate
+- [dmarman/lorca: Natural Language Processing for Spanish in Node.js. Stemmer, sentiment analysis, readability, tf-idf with batteries, concordance and more!](https://github.com/dmarman/lorca)
+- [owsas/sentiment-multilang: AFINN-based multilanguage sentiment analysis for Node.js](https://github.com/owsas/sentiment-multilang)
+- [Lexicoder Sentiment Dictionary (in French) | POLTEXT - Données textuelles pour l'analyse des politiques](https://www.poltext.org/en/donnees-et-analyses/lexicoder)
+- [FEEL: French Expanded Emotion Lexicon](http://advanse.lirmm.fr/feel.php)
+- [Data | Lexicoder - Stuart Soroka](http://www.snsoroka.com/data-lexicoder/)

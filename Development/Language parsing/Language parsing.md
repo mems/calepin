@@ -59,7 +59,7 @@ Generators:
 
 Examples:
 
-- [tree-sitter/tree-sitter: An incremental parsing system for programming tools](https://github.com/tree-sitter/tree-sitter)
+- [tree-sitter/tree-sitter: An incremental parsing system for programming tools](https://github.com/tree-sitter/tree-sitter) - Create a grammar and generate a parser
 - [retextjs/retext: Natural language processor powered by plugins based on @unifiedjs (and @vfile, @syntax-tree)](https://github.com/retextjs/retext) - Natural language parser (latin, english, etc.)
 - [shift-regexp-acceptor-js/index.js at es2016 · shapesecurity/shift-regexp-acceptor-js](https://github.com/shapesecurity/shift-regexp-acceptor-js/blob/es2016/src/index.js)
 - [Esprima](http://esprima.org/) - ECMAScript parser written in ECMAScript. See https://github.com/jquery/esprima
@@ -89,6 +89,7 @@ Use `goto`s, "This is called computed (or assigned) goto and is a GCC extension"
 
 Syntax exemples:
 
+```
 	foobar : "foo" | "bar";
 
 	// (4 * 2 * 11 + 2) - 5

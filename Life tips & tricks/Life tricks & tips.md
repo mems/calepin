@@ -137,3 +137,16 @@ See also:
 - [Changement d'adresse en ligne (Service en ligne) | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/R11193)
 - [Carte d'identité / Passeport : quel justificatif de domicile ? | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F14807)
 - [Déclaration de changement de coordonnées - Mon service public](https://web.archive.org/web/20130123081928/https://mdel.mon.service-public.fr/je-change-de-coordonnees.html) (archive)
+
+## Naissance
+
+- état civil ([Déclaration de naissance](https://www.service-public.fr/particuliers/vosdroits/F961))
+- impôt
+	- [Naissance, adoption | impots.gouv.fr](https://www.impots.gouv.fr/portail/particulier/naissance-adoption)
+	- [J'ai eu un enfant, quelles démarches dois-je accomplir? | impots.gouv.fr](https://www.impots.gouv.fr/portail/particulier/questions/jai-eu-un-enfant-quelles-demarches-dois-je-accomplir)
+	- [Je viens d'avoir un enfant | impots.gouv.fr](https://www.impots.gouv.fr/portail/particulier/je-viens-davoir-un-enfant)
+- CAF https://lc.caf.fr/sut/08q30000100dfj
+- crèche
+- CPAM ([Déclarer une naissance](https://www.ameli.fr/paris/assure/adresses-et-contacts/un-changement-de-situation/maternite-et-paternite/declarer-une-naissance))
+- mutuelle
+- employeur

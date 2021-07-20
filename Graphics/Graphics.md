@@ -1139,6 +1139,7 @@ Usefull functions:
 
 ### Pixel shaders examples and libraries
 
+- [patriciogonzalezvivo/lygia: lygia, it's a granular and multi-language shader library designed for performance and flexibility](https://github.com/patriciogonzalezvivo/lygia)
 - [Minions Art is creating Game Art Tips and Astro Kat, a Catventure game! | Patreon](https://www.patreon.com/minionsart) - A collection of sharers, examples, tips, etc.
 - [Shadertoys](http://evasion.imag.fr/~Fabrice.Neyret/demos/Shadertoy/indexImages.html)
 - [Poetic Computational Sunset by Baku Hashimoto](http://player.thebookofshaders.com/?log=161116214458)
