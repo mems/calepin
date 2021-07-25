@@ -1634,27 +1634,231 @@ or:
 - [How to Re-Run the OS X Setup Assistant - The Instructional](http://www.theinstructional.com/guides/how-to-re-run-the-os-x-setup-assistant)
 - [OSX Tips Setting-up a new Mac from an old one, its Backups, or a PC](http://pondini.org/OSX/Setup.html)
 
-### Bootcamp
+### Boot Camp
 
 - [Start up your Mac in Windows or macOS with Boot Camp - Apple Support](https://support.apple.com/guide/bootcamp-control-panel/bcmp29b8ac66/mac) - hold the Option key
 - Windows: Configuration pannel > System & Security > Power management > Choose when the screen close (works only in native, not in a VM)
 - Windows: `Compact.exe /CompactOS:always` to compact (`Compact.exe /CompactOS:never` to restore); `powercfg /h /type reduced` to reduce hibernation file size (`powercfg /h /size 100` to restore)
-- Keyboard with Mac layout: Settings > Time & language > Region & language > select current language > Options > Add keyboard > select the same language layout but with "(Apple)" > optionaly you can remove the previous layout or a keyboard layout selector in taskbar will appears
-    - [Change the Windows regional settings to modify the appearance of some data types - Access](https://support.office.com/en-us/article/change-the-windows-regional-settings-to-modify-the-appearance-of-some-data-types-edf41006-f6e2-4360-bc1b-30e9e8a54989)
-    - [The Microsoft Keyboard Layout Creator](https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator)
 - macOS: Sytem preferences > Startup > Choose the disk you want to use at each startup (you still can use opt key to Start up to [Startup Manager](https://support.apple.com/en-us/HT202796))
-- [Install Windows 10 on your Mac with Boot Camp Assistant - Apple Support](https://support.apple.com/en-us/HT201468)
 - [Launching your Boot Camp partition in VMware Fusion (1014618)](https://kb.vmware.com/s/article/1014618)
-- [How to Free Resize Bootcamp Partition without Deleting Windows](https://www.partitionwizard.com/partitionmagic/reszie-boot-camp-partition.html)
-- [windows - Bootcamp Not enough space but nothing helps! - Ask Different](https://apple.stackexchange.com/questions/335076/bootcamp-not-enough-space-but-nothing-helps)
+- [Enabling Virtualization Support in Boot Camp with rEFInd | Chris Warrick](https://web.archive.org/web/20210724173225/https://chriswarrick.com/blog/2021/01/31/enabling-virtualization-support-in-boot-camp-with-refind/)
+
+Windows boot `INACCESSIBLE_BOOT_DEVICE` error (after Windows Updates):
+
+- [partitioning - Windows BSOD 'Inaccessible boot device' on Bootcamp/Macbook - Super User](https://superuser.com/questions/922752/windows-bsod-inaccessible-boot-device-on-bootcamp-macbook)
+- [INACCESSIBLE_BOOT_DEVICE (SOLVED!) Mac Pro 2018 - Twocanoes Forum](https://web.archive.org/web/20181227213520/http://community.twocanoes.com/t/inaccessible-boot-device-solved-mac-pro-2018/2043)
+- [You receive error: Stop error code 0x0000007B (INACCESSIBLE_BOOT_DEVICE) after you install Windows Updates](https://support.microsoft.com/en-us/topic/you-receive-error-stop-error-code-0x0000007b-inaccessible-boot-device-after-you-install-windows-updates-7cc844e4-4daf-a71c-cd23-f99b50d53e31)
+
+How to install Windows:
+
+- `/System/Applications/Utilities/Boot Camp Assistant.app`
+- How it's work, Boot Camp Assistant automatically create 2 partition:
+	1. `OSXRESERVED` (Microsoft Basic Data / ExFAT, ~10GB, contains [WinPE files](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro), plus drivers in `\$WinPEDriver$` and installer in `\Bootcamp`), which will be removed after the install of Windows is complete
+	2. `BOOTCAMP` (Microsoft Basic Data) partition where Windows is installed of the size the user gave
+
+	- [Apple Boot Camp No Longer Requires USB Flash Drive to Install Windows in El Capitan – Twocanoes Software](https://web.archive.org/web/20210506205544/https://twocanoes.com/apple-boot-camp-no-longer-requires-usb-flash-drive/)
+- [3 Ways to Use Boot Camp - wikiHow](https://web.archive.org/web/20210725114642/https://www.wikihow.com/Use-Boot-Camp)
+- [Fix: Please Wait While Boot Camp Assistant is Removing The Partitions it Created](https://web.archive.org/web/20210228114803/https://www.doncaprio.com/fix-please-wait-while-boot-camp-assistant-is-removing-the-partitions-it-created/)
+- [Install Windows 10 on your Mac with Boot Camp Assistant - Apple Support](https://support.apple.com/en-us/HT201468)
+- [Installing Windows 10 on a Mac without Bootcamp - Fotsies Technology Blog](https://web.archive.org/web/20210725115728/https://fgimian.github.io/blog/2016/03/12/installing-windows-10-on-a-mac-without-bootcamp/)
+- Use USB drive to install Windows could not work with recent macbook because the USB3 is used, and Windows 10 (at least) don't support keyboard and pad in same time (which use USB 3 too) (WinPE will load, but couldn't use the keyboard or mouse): [If your keyboard or trackpad stop responding while installing Windows 8 on your Mac - Apple Support](https://support.apple.com/en-us/HT203755)
+- [Advanced advice for Stop error 7B, Inaccessible_Boot_Device - Windows Client Management | Microsoft Docs](https://docs.microsoft.com/en-us/windows/client-management/troubleshoot-inaccessible-boot-device)
+- [Windows Recovery Environment (Windows RE) | Microsoft Docs](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference)
+
+Drivers:
+
+- open Boot Camp Assistant > Action (menu) > Download Windows Support Software
+- [Download and install Windows support software on your Mac - Apple Support](https://support.apple.com/en-us/HT204923)
+- [Apple - Support - Downloads](https://support.apple.com/downloads/boot-camp)
 - graphics:
 	- [Update AMD graphics drivers for Windows in Boot Camp - Apple Support](https://support.apple.com/en-us/HT208908)
 	- [Apple Boot Camp Software Graphics Drivers | AMD](https://www.amd.com/en/support/kb/release-notes/apple-boot-camp)
-- drivers:
-	- [Resolving INACCESSIBLE_BOOT_DEVICE Error after restoring Winclone image – Twocanoes Software](https://web.archive.org/web/20210507032351/https://twocanoes.com/knowledge-base/resolving-inaccessible_boot_device-error-after-restoring-winclone-image/)
-	- if you can start bootcamp OS (ex mounted in a Virtual Machine), install manually (download first: [Download and install Windows support software on your Mac - Apple Support](https://support.apple.com/en-us/HT204923#download)) by right click on each INF files, then "Install" (`*\WindowsSupport\$WinPEDriver$\*\*.inf`) (driver files will be copied in `C:\WINDOWS\inf\*.inf`, `C:\WINDOWS\System32\drivers\*.sys` and `C:\WINDOWS\System32\DriverStore\FileRepository\*\*.*`)
-- [Installing Windows 10 on a Mac without Bootcamp](https://web.archive.org/web/20201112081147/https://fgimian.github.io/blog/2016/03/12/installing-windows-10-on-a-mac-without-bootcamp/)
+- [timsutton/brigadier: Fetch and install Boot Camp ESDs with ease.](https://github.com/timsutton/brigadier) - `brigadier -m MacBookPro11,1 -o Bootcamp-MBP11.1`
+- [Resolving INACCESSIBLE_BOOT_DEVICE Error after restoring Winclone image – Twocanoes Software](https://web.archive.org/web/20210507032351/https://twocanoes.com/knowledge-base/resolving-inaccessible_boot_device-error-after-restoring-winclone-image/)
+- if you can start bootcamp OS (ex mounted in a Virtual Machine), install manually (download first: [Download and install Windows support software on your Mac - Apple Support](https://support.apple.com/en-us/HT204923#download)) by right click on each INF files, then "Install" (`*\WindowsSupport\$WinPEDriver$\*\*.inf`) (driver files will be copied in `C:\WINDOWS\inf\*.inf`, `C:\WINDOWS\System32\drivers\*.sys` and `C:\WINDOWS\System32\DriverStore\FileRepository\*\*.*`)
+- `D:\$WinPEDriver$` [Limitations of $WinPeDriver$ - Windows Client | Microsoft Docs](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/limitations-dollar-sign-winpedriver-dollar-sign)
+- inject in [WIM images](https://en.wikipedia.org/wiki/Windows_Imaging_Format) `D:\sources\boot.wim` and `D:\sources\install.wim`: [Inject Drivers into a Winclone Image – Twocanoes Software](https://web.archive.org/web/20210410143206/https://twocanoes.com/knowledge-base/inject-drivers-into-a-winclone-image/). See also [Create a Windows 10 Bootable USB Flash Drive on a Mac – Twocanoes Software](https://web.archive.org/web/20210506152206/https://twocanoes.com/create-a-windows-10-bootable-usb-flash-drive-on-a-mac/)
+
+Partitions:
+
+- [Create a new partition after Bootcamp - Ask Different](https://apple.stackexchange.com/questions/187718/create-a-new-partition-after-bootcamp)
+- [How to Free Resize Bootcamp Partition without Deleting Windows](https://www.partitionwizard.com/partitionmagic/reszie-boot-camp-partition.html)
+- [windows - Bootcamp Not enough space but nothing helps! - Ask Different](https://apple.stackexchange.com/questions/335076/bootcamp-not-enough-space-but-nothing-helps)
 - [Backup and Restore Boot Camp on a new mac for free - benchodroff.com](https://web.archive.org/web/20210506194350/https://www.benchodroff.com/2017/02/15/backup-and-restore-boot-camp-on-a-new-mac-for-free/)
+- [macos - Can't reduce size of OSX partition in bootcamp - Ask Different](https://apple.stackexchange.com/questions/170702/cant-reduce-size-of-osx-partition-in-bootcamp)
+- [bootcamp - How can I adjust the size of the OSXRESERVED partition that Boot Camp Assistant uses? - Ask Different](https://apple.stackexchange.com/questions/347756/how-can-i-adjust-the-size-of-the-osxreserved-partition-that-boot-camp-assistant)
+
+Install on external drive:
+
+- [bootcamp - Can I install and use Windows on an external USB 3 drive in Boot Camp - Ask Different](https://apple.stackexchange.com/questions/165214/can-i-install-and-use-windows-on-an-external-usb-3-drive-in-boot-camp#165242)
+- [Tech Tip: How to Use Boot Camp on an External Drive](https://web.archive.org/web/20210508133846/https://eshop.macsales.com/blog/40947-tech-tip-how-to-use-boot-camp-on-an-external-drive/)
+- set `HKLM\SYSTEM\HardwareConfig\{...uuid...}\BootDriverFlags` to `0x14`: [Booting unmodified Windows 10 over USB](https://web.archive.org/web/20210224002009/http://blog.zorinaq.com/boot-win10-over-usb/)
+
+### Apple keyboard layout
+
+See also [Keyboard layout](../Windows/Windows.md#keyboard-layout)
+
+Useful when you use a remote desktop connection. The host doesn't have the Apple keyboard layout.
+
+```reg
+Windows Registry Editor Version 5.00
+
+; Layouts installed by Boot Camp Support driver package
+; Layout files are relative to "C:\Windows\System32"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts]
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000404]
+"Layout Component ID"="7F611C89DF564F01AE5B4A405192D1FB"
+"Layout File"="ChinaTA.dll"
+"Layout ID"="00e2"
+"Layout Text"="Chinese Traditional (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000405]
+"Layout Component ID"="0C8DA389245B4792B4960E336F62AC3E"
+"Layout File"="CzechA.dll"
+"Layout ID"="00d4"
+"Layout Text"="Czech (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000406]
+"Layout Component ID"="C3996498F423440FB9CE2732A821E7D9"
+"Layout File"="DanishA.dll"
+"Layout ID"="00cc"
+"Layout Text"="Danish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000407]
+"Layout Component ID"="B616E2191BF048D4A554E5C6BE224AB4"
+"Layout File"="GermanA.dll"
+"Layout ID"="00c3"
+"Layout Text"="German (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000409]
+"Layout Component ID"="B422390FE3C04f3a917D15AD1ACD710F"
+"Layout File"="USA.dll"
+"Layout ID"="00d1"
+"Layout Text"="United States (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040a]
+"Layout Component ID"="C3364C7C44BC444A88A50459135D35B5"
+"Layout File"="SpanishA.dll"
+"Layout ID"="00c5"
+"Layout Text"="Spanish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040b]
+"Layout Component ID"="ECE9937799D242F5AE0CAA446EDEDC62"
+"Layout File"="FinnishA.dll"
+"Layout ID"="00cb"
+"Layout Text"="Finnish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040c]
+"Layout Component ID"="2ECD3C77364749B18E910F9196B420FA"
+"Layout File"="FrenchA.dll"
+"Layout ID"="00c2"
+"Layout Text"="French (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040e]
+"Layout Component ID"="725BE97D2AD14042BA539D96030F93AA"
+"Layout File"="HungaryA.dll"
+"Layout ID"="00d5"
+"Layout Text"="Hungarian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000410]
+"Layout Component ID"="6401AAA6058F431181B445C26BEF22D9"
+"Layout File"="ItalianA.dll"
+"Layout ID"="00c4"
+"Layout Text"="Italian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000413]
+"Layout Component ID"="3844B95343FB43D68E9695D6E88F016E"
+"Layout File"="DutchA.dll"
+"Layout ID"="00c1"
+"Layout Text"="Dutch (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000414]
+"Layout Component ID"="74BE397ABD8143E4960D38111394D1A3"
+"Layout File"="NorwayA.dll"
+"Layout ID"="00c9"
+"Layout Text"="Norwegian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000415]
+"Layout Component ID"="D3D2841618E34D09ABBCA0DA34A60FAE"
+"Layout File"="PolishA.dll"
+"Layout ID"="00cf"
+"Layout Text"="Polish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000416]
+"Layout Component ID"="326773935C8C4597B0738FE2084D44AD"
+"Layout File"="PortuguA.dll"
+"Layout ID"="00ce"
+"Layout Text"="Portuguese (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000419]
+"Layout Component ID"="B0F62A69BE9446488ED502E800DBC36C"
+"Layout File"="RussianA.dll"
+"Layout ID"="00c8"
+"Layout Text"="Russian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000041d]
+"Layout Component ID"="8CC8067A1BFF4A0FAD38708DE4CD4BF1"
+"Layout File"="SwedishA.dll"
+"Layout ID"="00c7"
+"Layout Text"="Swedish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000041f]
+"Layout Component ID"="2513D09A670B4d9bA8F1BDAAAA32176F"
+"Layout File"="TurkeyQA.dll"
+"Layout ID"="00d3"
+"Layout Text"="Turkish Q (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000804]
+"Layout Component ID"="472ECFB106AE4249B0ADCF62F91D8AEE"
+"Layout File"="ChinaSA.dll"
+"Layout ID"="00e1"
+"Layout Text"="Chinese Simplified (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000809]
+"Layout Component ID"="1A4D378083AD454BB4FE02F208614EB6"
+"Layout File"="BritishA.dll"
+"Layout ID"="00c0"
+"Layout Text"="United Kingdom (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000813]
+"Layout Component ID"="D70C1682E8F24ED4B5B70AAD37B1BA42"
+"Layout File"="BelgiumA.dll"
+"Layout ID"="00cd"
+"Layout Text"="Belgian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000c0c]
+"Layout Component ID"="517A729DDEC543E3A7F392E3F130C25F"
+"Layout File"="CanadaA.dll"
+"Layout ID"="00ca"
+"Layout Text"="Canadian Multilingual (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000100c]
+"Layout Component ID"="CE4C7E2419DE400B8A553E1A5C3DCD04"
+"Layout File"="SwissA.dll"
+"Layout ID"="00c6"
+"Layout Text"="Swiss (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0020409]
+"Layout Component ID"="241A34D0-06DB-405e-8B4E-8CA2FC34D1C7"
+"Layout File"="IntlEngA.dll"
+"Layout ID"="00d0"
+"Layout Text"="United States-International (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a100041f]
+"Layout Component ID"="D1502D2EF02F4e4b8D313D3C0B0457D0"
+"Layout File"="TurkeyA.dll"
+"Layout ID"="00d2"
+"Layout Text"="Turkish F (Apple)"
+```
+
+- Keyboard with Mac layout: Settings > Time & language > Region & language > select current language > Options > Add keyboard > select the same language layout but with "(Apple)" > optionaly you can remove the previous layout or a keyboard layout selector in taskbar will appears
+    - [Change the Windows regional settings to modify the appearance of some data types - Access](https://support.office.com/en-us/article/change-the-windows-regional-settings-to-modify-the-appearance-of-some-data-types-edf41006-f6e2-4360-bc1b-30e9e8a54989)
+    - [The Microsoft Keyboard Layout Creator](https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator)
+- [Utiliser un clavier Apple avec Connexion Bureau à distance* – i3idouille](https://web.archive.org/web/20200914101629/https://www.i3idouille.fr/index.php/2011/12/sys-utiliser-un-clavier-apple-avec-connexion-bureau-a-distance/)
+- [Use your Apple Keyboard in Windows with Boot Camp - Apple Support](https://support.apple.com/en-us/HT202676)
+- [Keyboard mappings using a PC keyboard on a Macintosh](https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh)
 
 ## Network
 
@@ -2988,6 +3192,11 @@ echo "test" | pbcopy
 pbpaste
 pbpaste > file.txt
 ```
+
+
+## Simulate UI clicks from CLI
+
+- [osx - How do I simulate a mouse click through the mac terminal? - Stack Overflow](https://stackoverflow.com/questions/4230867/how-do-i-simulate-a-mouse-click-through-the-mac-terminal/26687223)
 
 ## Corrupted executable script
 

@@ -90,6 +90,21 @@ AHJ/OMTP interface:
 - [Lave-vaisselle : quels produits et dosage utiliser pour bien fonctionner ?](https://web.archive.org/web/20210715153722/https://www.beko.fr/page-editoriale/pastilles-ou-gel-liquide-de-rincage-et-sel-quels-produits-pour-mon-lave-vaisselle)
 - [Detergent packs are kinda wishy-washy (Dishwashers Explained) - YouTube](https://www.youtube.com/watch?v=_rBO8neWw04)
 
+## Washing Machine
+
+Adoucissant:
+
+- utile pour les [eaux dures](https://fr.wikipedia.org/wiki/Duret%C3%A9_de_l%27eau), pour réduire le calcaire
+- n'a pas d'effet (autre que odorant) sur les textiles synthétiques
+- peut être remplacé par du vinaigre (mais pur, attaque les joins, et les élastiques) ou de l'acide citrique
+- peut être remplacé par une boule anti-calcaire / balle de lavage
+- réduit le pouvoir absorbant du coton
+- [Le lave linge ne prend pas l'adoucissant : réparer en 10 minutes](https://mesnotices.20minutes.fr/pieces-detachees-electromenager/panne/lave-linge/le-lave-linge-ne-prend-pas-l-adoucissant;5079.html)
+- [Adoucissant - Guide d'achat - UFC-Que Choisir](https://www.quechoisir.org/guide-d-achat-adoucissant-n10353/)
+- [Tuto : comment fabriquer un adoucissant maison](https://www.aufeminin.com/deco-pro/adoucissant-maison-s4012655.html) - 1 cuillère à soupe de bicarbonate de soude, 150 ml de vinaigre blanc, 250 ml d’eau distillée, 20 gouttes d’huile essentielle ou 250 ml de vinaigre blanc, 500ml d’eau distillée, 10 gouttes d’huile essentielle; adoucissant basse température ou plus : 125 g d’acide citrique, 350 ml d’eau déminéralisée, 20 gouttes d’huile essentielle
+- [Le Biowashball : la lessive perd la boule - Sciences et Avenir](https://www.sciencesetavenir.fr/decryptage/le-biowashball-la-lessive-perd-la-boule_37016)
+- [Comment adoucir le linge de façon naturelle: 11 étapes](https://fr.wikihow.com/adoucir-le-linge-de-fa%C3%A7on-naturelle)
+
 ## CAD
 
 Aka [Computer-aided design](https://en.wikipedia.org/wiki/Computer-aided_design)

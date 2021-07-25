@@ -1359,6 +1359,14 @@ cyan_red_prompt
 - [TIL: Moving the terminal cursor](https://ddfreyne.github.io/til/2016/12-03-terminal-cursor-movement/)
 - [danyspin97's site - Colorize your CLI](https://danyspin97.org/blog/colorize-your-cli/)
 
+### Mouse position and click
+
+Aka mouse tracking escape sequences
+
+- [Zach Lloyd on Twitter: "💡TIL: Terminals—just like web browsers—have a “user agent” that tells apps running on them (like vim) what capabilities they have. To enable mouse reporting, Warp needed to “tell” vim that it supports mouse reporting! 👇 A thread on how we learned this!"](https://web.archive.org/web/20210724160228/https://twitter.com/zachlloydtweets/status/1417952481296986117?s=12)
+- [linux - how to get MouseMove and MouseClick in bash? - Stack Overflow](https://stackoverflow.com/questions/5966903/how-to-get-mousemove-and-mouseclick-in-bash)
+- [ctlseqs(ms)](https://web.archive.org/web/20210721210616/https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Mouse-Tracking)
+
 ### Command alias
 
 ```sh

@@ -380,6 +380,12 @@ function trackOutboundLink(url) {
 
 - [Track outbound links - Analytics Help](https://support.google.com/analytics/answer/1136920?hl=en)
 
+#### CNAME cloaking
+
+- [Characterizing CNAME cloaking-based tracking | APNIC Blog](https://web.archive.org/web/20210422062626/https://blog.apnic.net/2020/08/04/characterizing-cname-cloaking-based-tracking/)
+- [CNAME Cloaking, the dangerous disguise of third-party trackers | by Romain Cointepas | NextDNS | Medium](https://web.archive.org/web/20210614233046/https://medium.com/nextdns/cname-cloaking-the-dangerous-disguise-of-third-party-trackers-195205dc522a)
+- [Le déguisement des trackers par Cname – La Quadrature du Net](https://web.archive.org/web/20210713082250/https://www.laquadrature.net/2020/10/05/le-deguisement-des-trackers-par-cname/)
+
 #### Tracking virtual pageviews
 
 Ex: Ajax pages of Single Page Application (SPA)
@@ -1746,6 +1752,7 @@ Other:
 - [Home - The A11Y Project](https://www.a11yproject.com/)
 - [An Alphabet of Accessibility Issues](https://the-pastry-box-project.net/anne-gibson/2014-july-31) - Blind, color blind, epilepsy, poor hearing, vertigo, fractured multiple fingers
 - [Mobile Dyslexic – Get this Extension for 🦊 Firefox (en-US)](https://addons.mozilla.org/en-US/firefox/addon/mobile-dyslexic/) - "Mobile Dyslexic replaces all fonts of all web pages with carefully crafted special font which is easier to read by people with dyslexia."
+- [luminance and contrast](../Graphics/Graphics.md#luminance-and-contrast)
 
 ## Screensaver
 

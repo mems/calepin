@@ -1115,7 +1115,6 @@ See [Don't override native logic](#dont-override-native-logic)
 - [HTML: Why does Android browser show "Go" instead of "Next" in keyboard? - Stack Overflow](https://stackoverflow.com/questions/6545086/html-why-does-android-browser-show-go-instead-of-next-in-keyboard)
 - [android - Replace Go button on soft keyboard with Next in Phonegap - Stack Overflow](https://stackoverflow.com/questions/23470439/replace-go-button-on-soft-keyboard-with-next-in-phonegap)
 
-
 ### Submit form with AJAX
 
 Use `FormData` but require to use `POST` and content type `multipart/form-data`.
@@ -1136,24 +1135,6 @@ if(submitter.name !== ""){
 xhr.open(method, action);
 //xhr.setRequestHeader("Content-Type", enctype);//see enctype
 xhr.send(data);
-```
-
-Or use `FormDataReader` and `FormDataEncoder` or any other reader/encoder:
-
-```js
-import FormDataReader from "syk/FormDataReader.js"
-import FormDataEncoder from "syk/FormDataEncoder.js"
-//...
-let entries = FormDataReader.getEntries(form);
-if(submitter.name !== ""){
-	entries.push(new FormDataEntry(submitter.name, submitter.value, "submit"));
-}
-var formEncoder = new FormDataEncoder();
-//...
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-formEncoder.encode(entries);
-// when formEncoder.readyState == FormDataEncoder.DONE:
-xhr.send(formEncoder.result);
 ```
 
 ### Form validation
@@ -1203,6 +1184,40 @@ xhr.send(formEncoder.result);
 - [Files for form validation presentation - ppk](https://quirksmode.org/forms/)
 - [Constraint Validation: Native Client Side Validation for Web Forms - HTML5 Rocks](http://www.html5rocks.com/en/tutorials/forms/constraintvalidation/)
 
+### Prevent form submittion
+
+```html
+<form action="https://httpbin.org/delay/10" method="post">
+  <input type="text" name="name">
+  <input type="submit">
+</form>
+
+<form action="https://httpbin.org/delay/10" method="post">
+  <input type="text" name="name">
+  <input type="submit">
+</form>
+
+<script>
+var locks = new WeakSet();
+document.addEventListener("submit", function(e){
+  var form = e.target;
+  if (locks.has(form)) {
+    console.warn("Form already submitted", form);
+    e.preventDefault();
+    return;
+  }
+
+  locks.add(form);
+  setTimeout(function(){
+    locks.delete(form);
+    console.log("Auto-release form lock", form);
+  }, 2000);
+});
+</script>
+```
+
+Use [event delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
+
 ### Autoresize form fields
 
 ```js
@@ -1232,6 +1247,18 @@ Aka (inverse of) dirty
 el.value == el.defaultvalue;
 el.checked == el.defaultChecked;
 ```
+
+## Reflecting attributes in properties
+
+- `id` property reflect `id` attribute, `className` for `class`, `htmlFor` for `for`: `<div id="bar"></div>`, `div.getAttribute("id") === div.id`
+- `type` property reflect `type` attribute but with limited values: `<input type="foo">`, `input.getAttribute("type") === "foo" && input.type === "text"`
+- `value` property is the _current value_ (text-content inside the input box): `<input value="bar">`, `input.value = "foo"`, `input.getAttribute("value") === "bar" && input.value === "foo" && input.defaultValue === "bar"`
+
+- [javascript - What is the difference between properties and attributes in HTML? - Stack Overflow](https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html/6004028#6004028)
+- [HTML Standard](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflect)
+- https://github.com/wayfair-archive/tungstenjs/blob/42535b17e4894e866abf5711be2266458bc4d508/src/template/template_to_vdom.js#L118-L140 - A list of attribute to property name
+
+See also [Stale field](#stale-field)
 
 ## Communication between tabs and windows (same origin)
 
@@ -3557,25 +3584,27 @@ function touchEnd(event){
 
 Drag and drop an interactive element, start drag & stop drag
 
-	add listeners on target element: mousedown->pointerDown and touchstart->pointerDown
+```
+add listeners on target element: mousedown->pointerDown and touchstart->pointerDown
 
-	pointerDown:
-		// note: will be called by events from element: mousedown and touchstart
-		// filter to handle only event.button === 0 (match left button or right button on left handed mouse)
-		// add listeners on document: mousemove->dragMove, touchmove->dragMove, mouseup->pointerUp, touchend->pointerUp and touchcancel->pointerUp
-		// store event.clientX|Y or event.offsetX|Y if drag relative to the element
+pointerDown:
+	// note: will be called by events from element: mousedown and touchstart
+	// filter to handle only event.button === 0 (match left button or right button on left handed mouse)
+	// add listeners on document: mousemove->dragMove, touchmove->dragMove, mouseup->pointerUp, touchend->pointerUp and touchcancel->pointerUp
+	// store event.clientX|Y or event.offsetX|Y if drag relative to the element
 
-	pointerMove:
-		// note: will be called by events from document/window: mousemove and touchmove
-		// move your draggable element, etc. ex.: apply offset between last stored value and the new value (new - prev)
-		// store event.clientX|Y or event.offsetX|Y
+pointerMove:
+	// note: will be called by events from document/window: mousemove and touchmove
+	// move your draggable element, etc. ex.: apply offset between last stored value and the new value (new - prev)
+	// store event.clientX|Y or event.offsetX|Y
 
-	pointerUp:
-		// note: will be called by events from document/window: mouseup, touchend and touchcancel
-		// remove listeners on document: pointerMove and pointerUp
-		// note: you can use event.preventDefault() but will dispatch mouseevent on touch devices
+pointerUp:
+	// note: will be called by events from document/window: mouseup, touchend and touchcancel
+	// remove listeners on document: pointerMove and pointerUp
+	// note: you can use event.preventDefault() but will dispatch mouseevent on touch devices
 
-		// ease to final position using lastPointerVelocity * 300, where (in pointerMove) lastPointerVelocity = (clientX - lastPointerX|Y) / (now - lastPointerTime)
+	// ease to final position using lastPointerVelocity * 300, where (in pointerMove) lastPointerVelocity = (clientX - lastPointerX|Y) / (now - lastPointerTime)
+```
 
 Note: listen mousemove, touchmove, mouseup, touchend, touchcancel on document or window makes no differences. Because it bubbling events.
 
@@ -3871,29 +3900,41 @@ For all browsers, window is the main scrollable. But some browsers use the body 
 
 Use `document.scrollingElement` for that. Note: a [polyfill](https://github.com/mathiasbynens/document.scrollingElement) exist for that.
 
-	document.documentElement.scrollTop || document.body.scrollTop
+```js
+document.documentElement.scrollTop || document.body.scrollTop
+```
 
 jQuery: `$(window).scrollTop()`
 
 `window.scrollY`
 
-	var x = window.scrollX//window.pageXOffset is an alias
-	var y = window.scrollY//window.pageYOffset is an alias
-	// Or use document.documentElement.scrollLeft or document.body.scrollLeft as fallback
+```js
+var x = window.scrollX//window.pageXOffset is an alias
+var y = window.scrollY//window.pageYOffset is an alias
+// Or use document.documentElement.scrollLeft or document.body.scrollLeft as fallback
+```
 
 For fallback (old IE < Edge):
 
-	var supportPageOffset = window.pageXOffset !== undefined;//IE < 9
-	var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+```js
+var supportPageOffset = window.pageXOffset !== undefined;//IE < 9
+var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+```
 
-	var x = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
-	var y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+```js
+var x = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
+var y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+```
 
-	var x = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollLeft;
+```js
+var x = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollLeft;
+```
 
-Or use (used in jQuery):
+Or use (like jQuery):
 
-	var x = (window.pageXOffset || document.documentElement.scrollLeft) - (document.documentElement.clientLeft || 0)
+```js
+var x = (window.pageXOffset || document.documentElement.scrollLeft) - (document.documentElement.clientLeft || 0)
+```
 
 `clientLeft` substraction used to correct for situations where you have applied a border (not padding or margin, but actual border) to the root element, and at that, possibly only in certain browsers.
 
@@ -3980,21 +4021,23 @@ See [JavaScript selectors](HTML#javascript-selectors)
 
 ### DOM Relations
 
-	node.compareDocumentPosition(otherNode);
+```js
+node.compareDocumentPosition(otherNode);
 
-	node.contains(otherNode);
+node.contains(otherNode);
 
-	node.parentNode;
-	node.parentElement;
+node.parentNode;
+node.parentElement;
 
-	node.firstChild
-	node.lastChild
-	node.childNodes
+node.firstChild
+node.lastChild
+node.childNodes
 
-	node.previousSibling
-	node.nextSibling
+node.previousSibling
+node.nextSibling
 
-	...
+//...
+```
 
 - [Node.compareDocumentPosition() - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node.compareDocumentPosition)
 
@@ -4052,23 +4095,31 @@ See also [Parse HTML using the native parser](#parse-html-using-the-native-parse
 
 To get class(es):
 
-	node.getAttribute("class");
+```js
+node.getAttribute("class");
+```
 
 or
 
-	typeof SVGAnimatedString !== "undefined" && node.className instanceof SVGAnimatedString ? node.className.animVal : node.className;
+```js
+typeof SVGAnimatedString !== "undefined" && node.className instanceof SVGAnimatedString ? node.className.animVal : node.className;
+```
 
 To set class(es):
 
-	node.setAttribute("class", value);
+```js
+node.setAttribute("class", value);
+```
 
 or
 
-	if(typeof SVGAnimatedString !== "undefined" && node.className instanceof SVGAnimatedString){
-		node.className.baseVal = value;
-	}else{
-		node.className = value;
-	}
+```js
+if(typeof SVGAnimatedString !== "undefined" && node.className instanceof SVGAnimatedString){
+	node.className.baseVal = value;
+}else{
+	node.className = value;
+}
+```
 
 ### DOM clobbering
 
@@ -5097,9 +5148,11 @@ node.nodeType === Node.COMMENT_NODE;//8
 
 ### Access to the script element's content
 
-	script.text;
-	script.textContent;
-	script.normalize();script.firstChild.nodeValue;
+```js
+script.text;
+script.textContent;
+script.normalize();script.firstChild.nodeValue;
+```
 
 - [4.11 Scripting — HTML5](http://www.w3.org/TR/html5/scripting-1.html#dom-script-text)
 
@@ -5180,7 +5233,9 @@ Table section: tbody, thead, tfoot
 
 Lossy parse float attribute
 
-	var val = parseFloat(element.getAttribute("data-length")) || 0;
+```js
+var val = parseFloat(element.getAttribute("data-length")) || 0;
+```
 
 if attr not exist `getAttribute` returns null. parseFloat return `NaN` for invalid float (like null) with the OR condition 0 will be returned.
 
@@ -6532,33 +6587,43 @@ Equivalent APIs to use as beacon:
 
 For the given data:
 
-	const data = {
-		foo: 1,
-		bar: 2
-	};
+```js
+const data = {
+	foo: 1,
+	bar: 2
+};
+```
 
 Send using search query
 
-	const url = new URL("https://example.com");
-	for(const [key, value] of Object.entries(data)){
-		url.searchParams.set(key, value);
-	}
-	navigator.sendBeacon(url);
+```js
+const url = new URL("https://example.com");
+for(const [key, value] of Object.entries(data)){
+	url.searchParams.set(key, value);
+}
+navigator.sendBeacon(url);
+```
 
 Send as URL encoded form:
 
-	// In Chrome ?-64-? the Content-Type is incorrectly set to text/plain;charset=UTF-8
-	navigator.sendBeacon("/log", new URLSearchParams(data));
-	// In Chrome ?-64-? the request payload doesn't appreas in the Developer Tools (but sent)
-	navigator.sendBeacon("/log", new Blob([new URLSearchParams(data)], {type: "application/x-www-form-urlencoded;charset=UTF-8"}));
+```js
+// In Chrome ?-64-? the Content-Type is incorrectly set to text/plain;charset=UTF-8
+navigator.sendBeacon("/log", new URLSearchParams(data));
+// In Chrome ?-64-? the request payload doesn't appreas in the Developer Tools (but sent)
+navigator.sendBeacon("/log", new Blob([new URLSearchParams(data)], {type: "application/x-www-form-urlencoded;charset=UTF-8"}));
+```
 
 Send as [multipart form data](https://developer.mozilla.org/en-US/docs/Web/API/FormData) with `FormData`:
 
-	navigator.sendBeacon("/log", Object.entries(data).reduce((formData, [key, value]) => (formData.set(key, value), formData), new FormData()));
+```js
+navigator.sendBeacon("/log", Object.entries(data).reduce((formData, [key, value]) => (formData.set(key, value), formData), new FormData()));
+```
 
 Send as JSON (doesn't work in Chrome 64, throw an [error](https://bugs.chromium.org/p/chromium/issues/detail?id=490015)):
 
-	navigator.sendBeacon("/log", new Blob([JSON.stringify(data)], {type: "application/json"}));
+```js
+navigator.sendBeacon("/log", new Blob([JSON.stringify(data)], {type: "application/json"}));
+```
 
 Note: send a TypedArray will not send `Content-Type` header
 Note: it is better that the server return a response with the code [`204 No Content`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
@@ -6572,26 +6637,32 @@ Note: it is better that the server return a response with the code [`204 No Cont
 
 Send and forget request with fetch and opaque request:
 
-	fetch("https://www.example/destination", {mode: "no-cors"})
+```js
+fetch("https://www.example/destination", {mode: "no-cors"})
+```
 
 or with a form and an iframe:
 
-	<form id="form" target="iframe" action="https://www.example/destination" method="POST" style="position: fixed; visibility: hidden;">
-		<iframe id="iframe" name="iframe" src="about:blank" sandbox=""></iframe>
-	</form>
-	<script>
-		let form = document.getElementById("form");
-		form.submit();
-	</script>
+```html
+<form id="form" target="iframe" action="https://www.example/destination" method="POST" style="position: fixed; visibility: hidden;">
+	<iframe id="iframe" name="iframe" src="about:blank" sandbox=""></iframe>
+</form>
+<script>
+	let form = document.getElementById("form");
+	form.submit();
+</script>
+```
 
 ### Image can be synchronously complete
 
-	img.onload = () => console.log("script image onload");
-	img.src = "image.png";
-	console.log("script after set src");
-	// Could be:
-	// 1. "script after set src" then "script image onload"
-	// 2. "script image onload" then "script after set src"
+```js
+img.onload = () => console.log("script image onload");
+img.src = "image.png";
+console.log("script after set src");
+// Could be:
+// 1. "script after set src" then "script image onload"
+// 2. "script image onload" then "script after set src"
+```
 
 > The value of `complete` can thus change while a script is executing.
 — http://www.w3.org/TR/html5/embedded-content-0.html#the-img-element
@@ -6601,16 +6672,18 @@ NOTE: complete will be true if the image has no src so best to check if the src 
 
 For some browsers, loading data URI will be synchronous and won't trigger the `load` event event if it's set before `src`.
 
-	img.src = "..."
+```js
+img.src = "..."
+if(img.complete){
+	// image is loaded
+}else{
+	img.onload = image.onerror = image load event handler
 	if(img.complete){
+		img.onload = image.onerror = null
 		// image is loaded
-	}else{
-		img.onload = image.onerror = image load event handler
-		if(img.complete){
-			img.onload = image.onerror = null
-			// image is loaded
-		}
 	}
+}
+```
 
 - `image.src = canvas.toDataURL("image/png")` is async in Chrome 57+ [514206 - Data URI image resource should be loaded async - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=514206)
 - [Why does the value of img.complete can thus change while a script is executing? · Issue #1055 · whatwg/html](https://github.com/whatwg/html/issues/1055)
@@ -6651,6 +6724,7 @@ fetch is a very explicit API:
 - POST data must be a string (you must set the `Content-Type` header)
 - abortable (using [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal))
 - promise will reject only for network error or CORS misconfiguration: [Using Fetch - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful)
+- ``await (await fetch(`data:,\uFEFF{"text":"hello world!"}`)).json()``
 
 ```js
 fetch(url)
@@ -6703,23 +6777,27 @@ fetch('https://example.com', {
 
 jQuery can handle automatically the callback name
 
-	$.getJSON("http://example.com/api.php?format=json&callback=?", function(data) {
-		console.log(data);
-	});
+```js
+$.getJSON("http://example.com/api.php?format=json&callback=?", function(data) {
+	console.log(data);
+});
+```
 
 ### Stop resource loading
 
 **Not recommended:**
 
-	if (window.stop !== undefined) {
-		window.stop();
+```js
+if (window.stop !== undefined) {
+	window.stop();
+}
+else if (document.execCommand !== undefined) {
+	try{
+		document.execCommand("Stop", false);
 	}
-	else if (document.execCommand !== undefined) {
-		try{
-			document.execCommand("Stop", false);
-		}
-		catch(error){}
-	}
+	catch(error){}
+}
+```
 
 Will stop all images, scripts, stylesheet, xhr and all dependencies
 
@@ -6735,13 +6813,11 @@ If top domain is shared, update `document.domain`
 
 ### Parse URL
 
-	new URL(location);
+```js
+new URL(location);
+```
 
 If not supported on old browser, you can use an `HTMLAnchorElement` (`document.createElement('a')`) to parse the URL (see `a.protocol`, `a.hostname`, `a.host`, `a.port`, `a.search`, `a.pathname`, `a.href`, `a.getAttribute("href")`)
-
-	// don't support parameter array nor multiple param with same names
-	let params = url.split("#", 1)[0].split("?").slice(1).join("?").split("&").reduce((params, pair) => {let [key, ...value] = pair.split("="); return params.set(key, decodeURIComponent(value.join("=")))}, new Map());
-	let params = url.split("#", 1)[0].split("?").slice(1).join("?").split("&").reduce((params, pair) => {let [key, ...value] = pair.split("="); params[key] = decodeURIComponent(value.join("=")); return params}, {});
 
 - [URL - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/URL)
 - https://github.com/allmarkedup/purl
@@ -6756,6 +6832,13 @@ new URLSearchParams(location.search)
 ```js
 let params = {};
 let search = Object.keys(params).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(params[key])).join("&");
+```
+
+```js
+// On browsers that don't support URLSearchParams
+// don't support parameter array nor multiple param with same names
+let params = url.split("#", 1)[0].split("?").slice(1).join("?").split("&").reduce((params, pair) => {let [key, ...value] = pair.split("="); return params.set(key, decodeURIComponent(value.join("=")))}, new Map());
+let params = url.split("#", 1)[0].split("?").slice(1).join("?").split("&").reduce((params, pair) => {let [key, ...value] = pair.split("="); params[key] = decodeURIComponent(value.join("=")); return params}, {});
 ```
 
 - [Javascript Madness: Query String Parsing](http://unixpapa.com/js/querystring.html)
@@ -6777,52 +6860,56 @@ Like [WSSE](http://www.xml.com/pub/a/2003/12/17/dive.html)
 
 ### Upload a generated binary data
 
-	function upload(blobOrFile) {
-		var xhr = new XMLHttpRequest();
-		xhr.open('POST', 'https://httpbin.org/post', true);
-		xhr.onload = e => {
-			alert('Fully uploaded');
-		};
+```js
+function upload(blobOrFile) {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'https://httpbin.org/post', true);
+	xhr.onload = e => {
+		alert('Fully uploaded');
+	};
 
-		var progressBar = document.querySelector('progress');
-		xhr.upload.onprogress = e => { // track upload progress
-			if (e.lengthComputable) {
-				progressBar.value = (e.loaded / e.total) * 100;
-			}
-		};
+	var progressBar = document.querySelector('progress');
+	xhr.upload.onprogress = e => { // track upload progress
+		if (e.lengthComputable) {
+			progressBar.value = (e.loaded / e.total) * 100;
+		}
+	};
 
-		xhr.send(blobOrFile);
-	}
+	xhr.send(blobOrFile);
+}
 
-	button.addEventListener("click", () => {
-		//upload(new File(["Hello world!"], "data.txt", {type: "text/plain"}));
+button.addEventListener("click", () => {
+	//upload(new File(["Hello world!"], "data.txt", {type: "text/plain"}));
 
-		let mediatype = "image/png";
-		let extension = ".png"
-		canvas.toBlob(blob => {
-			upload(new File([blob], `image${extension}`, {type: mediatype}));
-		}, mediatype)
+	let mediatype = "image/png";
+	let extension = ".png"
+	canvas.toBlob(blob => {
+		upload(new File([blob], `image${extension}`, {type: mediatype}));
+	}, mediatype)
 
-	});
+});
+```
 
 ### Network cache
 
 Use blob to store RAW data
 
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", imageURL, true);
-	xhr.responseType = "arraybuffer";
-	xhr.onload = function() {
-		var img = new Image();
-		img.onload = function() {
-			URL.revokeObjectURL(this.src);
-			var tex = new THREE.Texture(this);
-			//do something with this texture...
-		};
-		var blob = new Blob([xhr.response], {type : xhr.getResponseHeader("Content-Type") || 'application/octet-binary'});
-		img.src = URL.createObjectURL(blob);
+```js
+var xhr = new XMLHttpRequest();
+xhr.open("GET", imageURL, true);
+xhr.responseType = "arraybuffer";
+xhr.onload = function() {
+	var img = new Image();
+	img.onload = function() {
+		URL.revokeObjectURL(this.src);
+		var tex = new THREE.Texture(this);
+		//do something with this texture...
 	};
-	xhr.send(null);
+	var blob = new Blob([xhr.response], {type : xhr.getResponseHeader("Content-Type") || 'application/octet-binary'});
+	img.src = URL.createObjectURL(blob);
+};
+xhr.send(null);
+```
 
 See also cache API:
 
@@ -6911,39 +6998,43 @@ Aka URLStream
 
 With `XMLHttpRequest`:
 
-	var xhr = new XMLHttpRequest();
-	var bytesLoaded = 0;
-	xhr.open("GET", "streamed_data");
-	xhr.overrideMimeType("text/plain; charset=x-user-defined");// if loaded content should be read as bytes, else remove it
-	// because, for xhr.response: "If state is not done, return null." (for `xhr.responseType = "arraybuffer";`). See https://xhr.spec.whatwg.org/#dom-xmlhttprequest-response
-	xhr.addEventListener("progress", event => {
-		var chunk = xhr.response.slice(bytesLoaded);
-		// process data chunk
-		// ex: var firstChunkByte = chunk.charCodeAt(0);
+```js
+var xhr = new XMLHttpRequest();
+var bytesLoaded = 0;
+xhr.open("GET", "streamed_data");
+xhr.overrideMimeType("text/plain; charset=x-user-defined");// if loaded content should be read as bytes, else remove it
+// because, for xhr.response: "If state is not done, return null." (for `xhr.responseType = "arraybuffer";`). See https://xhr.spec.whatwg.org/#dom-xmlhttprequest-response
+xhr.addEventListener("progress", event => {
+	var chunk = xhr.response.slice(bytesLoaded);
+	// process data chunk
+	// ex: var firstChunkByte = chunk.charCodeAt(0);
 
-		bytesLoaded = xhr.response.length;
-	});
-	xhr.send();
+	bytesLoaded = xhr.response.length;
+});
+xhr.send();
+```
 
 With `ReadableStream`:
 
 Using [Newline delimited JSON (NDJSON)](http://specs.okfnlabs.org/ndjson/)
 
-	// each lines are a JSON data
-	const response = await fetch("comments.ndjson");
-	const comments = response.body
-		// From bytes to text:
-		.pipeThrough(new TextDecoder())
-		// Buffer until newlines:
-		.pipeThrough(splitStream("\n"))
-		// Parse chunks as JSON:
-		.pipeThrough(parseJSON());
+```
+// each lines are a JSON data
+const response = await fetch("comments.ndjson");
+const comments = response.body
+	// From bytes to text:
+	.pipeThrough(new TextDecoder())
+	// Buffer until newlines:
+	.pipeThrough(splitStream("\n"))
+	// Parse chunks as JSON:
+	.pipeThrough(parseJSON());
 
-	for await (const comment of comments) {
-		// Process each comment and add it to the page:
-		// (via whatever template or VDOM you're using)
-		addCommentToPage(comment);
-	}
+for await (const comment of comments) {
+	// Process each comment and add it to the page:
+	// (via whatever template or VDOM you're using)
+	addCommentToPage(comment);
+}
+```
 
 - [Fun hacks for faster content - JakeArchibald.com](https://jakearchibald.com/2016/fun-hacks-faster-content/#newline-delimited-json)
 
@@ -6951,34 +7042,38 @@ Using [Newline delimited JSON (NDJSON)](http://specs.okfnlabs.org/ndjson/)
 
 Note: **get a resource with `Range` header doesn't mean you will always get a response 206 and only the chunk you ask for**. Can be more data than requested (all, or a larger chunk)
 
-	var xhr = new XMLHttpRequest;
-	xhr.responseType = "arraybuffer";
-	xhr.addEventListener("load", event => {
-		console.log(xhr.status, xhr.getResponseHeader("Content-Range") || "no Content-Range header received", `${xhr.response.length} bytes (${xhr.getResponseHeader("Content-Length") || "no Content-Length head received"})`);
-		// If no Content-Range header: all content is available, else read A-B/X (where X is the total bytes available)
-	});
+```js
+var xhr = new XMLHttpRequest;
+xhr.responseType = "arraybuffer";
+xhr.addEventListener("load", event => {
+	console.log(xhr.status, xhr.getResponseHeader("Content-Range") || "no Content-Range header received", `${xhr.response.length} bytes (${xhr.getResponseHeader("Content-Length") || "no Content-Length head received"})`);
+	// If no Content-Range header: all content is available, else read A-B/X (where X is the total bytes available)
+});
 
-	xhr.open("GET", "image.png");
-	xhr.setRequestHeader('Range', 'bytes=0-101'); // the 101 first bytes
-	xhr.send(null);
+xhr.open("GET", "image.png");
+xhr.setRequestHeader('Range', 'bytes=0-101'); // the 101 first bytes
+xhr.send(null);
+```
 
 - [javascript - XMLHttpRequest 206 Partial Content - Stack Overflow](https://stackoverflow.com/questions/15561508/xmlhttprequest-206-partial-content)
 
 ### WebSocket keep alive
 
-	let timerId = 0;
-	function keepAlive() {
-		let timeout = 20000;
-		if (webSocket.readyState == webSocket.OPEN) {
-			webSocket.send('');
-		}
-		timerId = setTimeout(keepAlive, timeout);
+```js
+let timerId = 0;
+function keepAlive() {
+	let timeout = 20000;
+	if (webSocket.readyState == webSocket.OPEN) {
+		webSocket.send('');
 	}
-	function cancelKeepAlive() {
-		if (timerId) {
-			cancelTimeout(timerId);
-		}
+	timerId = setTimeout(keepAlive, timeout);
+}
+function cancelKeepAlive() {
+	if (timerId) {
+		cancelTimeout(timerId);
 	}
+}
+```
 
 ### WebRTC
 
@@ -7215,12 +7310,14 @@ setTimeout(() => console.log("Timeout say hello!"));
 
 ## Page focus
 
-	document.defaultView.addEventListener("blur", pageStateChange);
-	document.defaultView.addEventListener("focus", pageStateChange);
-	document.addEventListener("visibilitychange", pageStateChange);// listen also webkitvisibilitychange
-	function pageStateChange(){
-		var inactive = document.hidden || !this._document.hasFocus();
-	}
+```js
+document.defaultView.addEventListener("blur", pageStateChange);
+document.defaultView.addEventListener("focus", pageStateChange);
+document.addEventListener("visibilitychange", pageStateChange);// listen also webkitvisibilitychange
+function pageStateChange(){
+	var inactive = document.hidden || !this._document.hasFocus();
+}
+```
 
 ## Click with touch
 

@@ -495,3 +495,7 @@ Pour 10 portions :
 3. Versez la confiture dans des pots à ras-bord. Fermez-les et retournez-le le temps que la confiture refroidisse.
 
 - [Confiture de melon facile : découvrez les recettes de Cuisine Actuelle](https://web.archive.org/web/20201020233823/https://www.cuisineactuelle.fr/recettes/confiture-de-melon-331599)
+
+## Caviar d'aubergine
+
+- [Caviar d'aubergine véritable](https://cuisine.journaldesfemmes.fr/recette/356778-le-caviar-d-aubergine)

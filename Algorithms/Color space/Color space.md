@@ -17,6 +17,7 @@
 - [Color FAQ - Abstract](http://www.poynton.com/ColorFAQ.html) - Frequently Asked Questions about Colour (Color). See http://www.poynton.com/PDFs/ColorFAQ.pdf
 - [Color: From Hexcodes to Eyeballs](http://jamie-wong.com/post/color/#color-spaces)
 - [Color JS library](https://gist.github.com/westc/e2830febf6f2bc31ac16aa3a2cc39023)
+- [Dan Hollick 🇿🇦 on Twitter: "TIL that when you convert a colour from RGB to HSL you're actually doing some geometry. 🤯… "](https://web.archive.org/web/20210724143806/https://twitter.com/DanHollick/status/1418621199760855043)
 
 ```
 YUV conversion - (ColorMatrix ?) YUV is the same as YCbCr and the matrix for that is: Y’ = 16 + ( 65.481 * R’ + 128.553 * G’ + 24.966 * B’)

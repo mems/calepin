@@ -35,6 +35,8 @@ Anti-cochenille, mouche blanche ([Aleurode](https://fr.wikipedia.org/wiki/Aleuro
 
 ## Frangipanier
 
+Aka plumeria
+
 Pour l'engrais n'en mettre que très peu
 
 
@@ -61,10 +63,22 @@ Orientation sud (pour les pays type France métropolitaine), exterieur ou très 
 > - En été on arrose régulièrement, de préférence avec de l’eau de pluie non calcaire (ou eau minérale)
 — http://www.jardiner-malin.fr/fiche/frangipanier.html
 
+- [Résultats de recherche pour « plumeria » – LaJardin](https://lajardin.info/?s=plumeria)
 - http://www.gerbeaud.com/jardin/fiches/frangipanier-plante-exotique-interieur,1164.html
 - http://www.seedsplants.com/Plumerias_fv.htm
 - [Comment bouturer un frangipanier: 12 étapes - wikiHow](http://fr.wikihow.com/bouturer-un-frangipanier)
 - [La culture des frangipaniers. Nos frangipaniers.](http://doigtsvertsjardin.forumgratuit.org/t593-la-culture-des-frangipaniers-nos-frangipaniers)
+- [AMPHONESINH Saysamone - Le frangipanier : fleurs des temples, fleurs de Paksé champassak, fleurs du laos](https://web.archive.org/web/20161127172707/http://www.amphonesinh.info/champa/index.php?whoiam=desc)
+- [frangipanier, plumeria : comment et ou le cultiver ? de Saysamone AMPHONESINH](https://web.archive.org/web/20161127172702/http://www.amphonesinh.info/champa/index.php?whoiam=cult)
+- [frangipanier, plumeria : prograpagation (bouture, semis, greffe, marcottage)](https://web.archive.org/web/20161127172201/http://www.amphonesinh.info/champa/index.php?whoiam=mult)
+- [Fleur du frangipanier et plumeria : caractéristique - Saysamone AMPHONESINH](https://web.archive.org/web/20161127195147/http://www.amphonesinh.info/champa/index.php?whoiam=carac)
+- [Techniques de taille du plumeria – Apprenez à ramener le plumeria à la ramification – LaJardin](https://lajardin.info/techniques-de-taille-du-plumeria-apprenez-a-ramener-le-plumeria-a-la-ramification/)
+- [Comment bouturer un frangipanier (avec images) - wikiHow](https://fr.wikihow.com/bouturer-un-frangipanier)
+
+Bourgeon et bouture :
+
+- [Wayback Machine](https://web.archive.org/web/20170628051246/http://www.relations-publiques.pro/wp-content/uploads/2015/06/20150622222311-p3-document-bdvt.jpg)
+- [FRANGIPANIER conseils](https://plantes-passion.forumactif.fr/t5004-frangipanier-conseils)
 
 ### Achat
 

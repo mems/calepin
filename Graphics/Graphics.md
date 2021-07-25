@@ -2247,6 +2247,7 @@ See also [cloud](#cloud), [water](#water), [flame](#flame), [distortion](#distor
 - [Electricity](http://sketches.vlucendo.com/electricity/)
 - [Interactive Particles with Three.js | Codrops](https://tympanus.net/codrops/2019/01/17/interactive-particles-with-three-js/)
 - [Mouse Trail - Noah Yamamoto](https://noahyamamoto.com/blog/mousetrailanimation)
+- [Vanishing Suzanne - adinunzio](https://adinunz.io/vanishingsuzanne/) - Fade effect with particles
 
 - [Fluid - Experiments - Yuichiroh Arai](https://www.yuichiroharai.com/experiments/fluid/)
 - [Fluid Particles](http://david.li/fluid/) - https://github.com/dli/fluid
@@ -2791,6 +2792,23 @@ On Photoshop with color proofing:
 
 - [Tim Soret on Twitter: "Desaturating in Photoshop doesn't accurately portray brightness at all. https://t.co/9XxTt8SMNQ" / Twitter](https://twitter.com/timsoret/status/1251764345538781185)
 - [Luminosity function - Wikipedia](https://en.wikipedia.org/wiki/Luminosity_function)
+- [Dan Hollick 🇿🇦 on Twitter: "Okay, that's cool and all but why does this goof up in some cases? Well the first problem is the way we figure out how bright a particular RGB colour is, using this equation: Luminance = 0.2126*R + 0.7152*G + 0.0722*B"](https://web.archive.org/web/20210721171212/https://twitter.com/DanHollick/status/1417895175494373381)
+
+## Luminance and contrast
+
+```
+Luminance = 0.299*R + 0.587*G + 0.114*B
+// previously l0uminance = 0.2126*R + 0.7152*G + 0.0722*B
+// Weight the channels differently to better accommodate for human perception
+
+Contrast = (L1 + 0.05) / (L2 + 0.05)
+// Where L1 and L2 are the luminance values of the respective colours.
+// the +0.05 is a gamma correction
+// See also CIE ∆E*
+```
+
+- [Dan Hollick 🇿🇦 on Twitter: "💡Have you ever wondered why the WCAG colour contrast ratio doesn't always seem to work?💡 Well it actually has to do with how we calculate colour contrast and is super interesting. Hold on to your butts, this is a 🧵… https://t.co/b9fuaO010h"](https://web.archive.org/web/20210724143809/https://twitter.com/danhollick/status/1417895151003865090?s=12)
+- [Contrast Ratio Math and Related Visual Issues · Issue #695 · w3c/wcag](https://github.com/w3c/wcag/issues/695)
 
 ## Contours
 

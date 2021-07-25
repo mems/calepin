@@ -1987,6 +1987,27 @@ Split tunnel is configurable only by the VPN admin, not by the client only.
 - `anyconnect-macos-Y.X.ZZZZZ-webdeploy-k9.pkg` > open as zip > mount `(zip root)/binaries/anyconnect-macos-Y.X.ZZZZZ-core-vpn-webdeploy-k9.dmg` > open `anyconnect-macos-X.Y.ZZZZZ-core-vpn-webdeploy-k9.pkg`
 - [Split tunneling in Cisco VPN and AnyConnect Client – karneliuk.com](https://karneliuk.com/2016/02/split-tunneling-in-cisco-vpn-client-and-cisco-anyconnect/)
 
+## Pulse Secure
+
+VPN Protocol: Juniper Network Connect
+
+```
+Form action (remediate.cgi) likely indicates that TNCC/Host Checker failed.
+Unknown form (name 'frm', id 'frm_142')
+Authentication error; cannot obtain cookie
+```
+
+- [OpenConnect VPN projects / OpenConnect GUI · GitLab](https://gitlab.com/openconnect/openconnect-gui) - see "Snapshot builds"
+- [Openconnect init script](https://gist.github.com/rtgibbons/ae083457d0962bd3fe3f)
+
+
+> OpenConnect does not yet support all of the authentication options used by Pulse, nor does it support Host Checker/TNCC with Pulse
+
+- [add TNCC support for Pulse protocol (#206) · Issues · OpenConnect VPN projects / OpenConnect · GitLab](https://gitlab.com/openconnect/openconnect/-/issues/206)
+
+- [Client Download | Pulse Secure](https://www.pulsesecure.net/trynow/client-download/)
+- [Get Pulse Secure - Microsoft Store](https://www.microsoft.com/en-us/p/pulse-secure/9nblggh3b0bp#activetab=pivot:overviewtab) - as VPN service in Windows, not work with all server configurations (and doesn't support "TNCC/Host Checker"?)
+
 ## Outlook
 
 - [How to delete Skype for Business Contacts from Outlook - Sean Wallbridge - BrainLitter](https://itgroove.net/brainlitter/2016/06/10/7835/)
@@ -1997,9 +2018,22 @@ Split tunnel is configurable only by the VPN admin, not by the client only.
 
 ## WhatsApp
 
-Backup WhatsApp data from iOS
+Backup WhatsApp data for iOS
 
 - `AppDomainGroup group.net.whatsapp.WhatsApp.shared/ChatStorage.sqlite`
 - [4 Ways to Transfer WhatsApp from iPhone to Android](https://web.archive.org/web/20210121165501/https://mobiletrans.wondershare.com/whatsapp/transfer-whatsapp-from-iphone-to-android.html)
 - [lbalogh/WhatsAppDBReader: Open a WhatsApp database and display conversations](https://github.com/lbalogh/WhatsAppDBReader)
 - [wiggin15/whatsapp_history: Get full chat history from Whatsapp and SMS/iMessage](https://github.com/wiggin15/whatsapp_history)
+
+## Saved games and profiles
+
+- GTA V: `%USERPROFILE%\Documents\Rockstar Games\GTA V\Profiles\<8 hexadecimals>` or in `%PROGRAMDATA%\Socialclub\<8 hexadecimals>` or in `%USERPROFILE%\Documents\Rockstar Games\Social Club\Profiles\<8 hexadecimals>` and contains
+	- `cfg.dat`
+	- `pc_settings.bin`
+	- `SGTA50000`
+	- `SGTA50000.bak`
+	- `SGTA50015`
+	- `SGTA50015.bak`
+- Age of Empires: Definitive Edition: `%USERPROFILE%\Games\Age of Empires DE\Users\<user name>\Saved Games\*.aoe2spgame`
+- Age of Empires 2: Definitive Edition: `%USERPROFILE%\Games\Age of Empires 2 DE\<17 digits>\savegame\*.aoe2spgame`
+- World War Z: `%LOCALAPPDATA%\Saber\WWZ\client\storage`

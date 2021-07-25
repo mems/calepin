@@ -742,7 +742,7 @@ Prefetch: load this resource after all other resources (very low priority), will
 
 Preload will be started immediately and prefetch will be started only after the main page finishes loading.
 
-**Note: using this only for small media files (< 5 MB).**
+Preload should be rarely used and only used for small media files (< 5 MB). It's often used as band-aid for an underlying issue. See [The cost of preload](https://web.archive.org/web/20210616120610/https://docs.google.com/document/u/0/d/1ZEi-XXhpajrnq8oqs5SiW-CXR3jMc20jWIzN5QRy1QA/mobilebasic)
 
 Don't use both preload and prefetch in same time: `<link rel="preload prefetch" as="style" href="style.css">` because they don't have the same purpose. This create potentially 2 requests.
 

@@ -2261,9 +2261,9 @@ To force the SVG to auto scale (not using default sizes)
 
 Set `width: 100%` on `img` or `object` or `embed` (for IE)
 
-### Preload img with CSS
+### Preload image with CSS
 
-See [Preload and prefetch](Web#preload-and-prefetch)
+See [Preload and prefetch](../Web/Web.md#preload-and-prefetch)
 
 ```css
 body::after {
@@ -4318,3 +4318,7 @@ Use `animation: randomCard 1000ms steps(51, end) infinite;
   animation-play-state: paused;
 
 - [Creating randomness with pure CSS | by Adir SL | Dec, 2020 | UX Collective](https://web.archive.org/web/20201221140729/https://uxdesign.cc/creating-randomness-with-pure-css-a990dafcd569?gi=25a8edfffed2)
+
+## Custom cursor
+
+This is generally bad for accessibility because a custom mouse cursor overrides any cursor modifications made by the user in the OS (increasing the cursor's size, making it high contract, etc.)

@@ -9,6 +9,7 @@ Add a uncompressed file without attributes then file `zip -0 -X doc.odt mimetype
 - [Adobe Flash Platform * ByteArray example: Reading a .zip file](http://help.adobe.com/en_US/as3/dev/WS5b3ccc516d4fbf351e63e3d118666ade46-7d53.html)
 - [Zip (file format) — Wikipedia](https://en.wikipedia.org/wiki/Zip_%28file_format%29)
 - [format - How to find the position of Central Directory in a Zip file? - Stack Overflow](https://stackoverflow.com/questions/8593904/how-to-find-the-position-of-central-directory-in-a-zip-file)
+- [Zip - How not to design a file format.](https://web.archive.org/web/20210723100354/https://games.greggman.com/game/zip-rant/) - [Hacker News comments](https://news.ycombinator.com/item?id=27925393)
 
 ## Decompression Bomb
 
@@ -20,6 +21,6 @@ Add a uncompressed file without attributes then file `zip -0 -X doc.odt mimetype
 
 Is a ZIP file that contains an exact copy of itself. See [LZ77](Algorithms#lz77)
 
-- [ZIP Quine](https://alf.nu/ZipQuine)
+- [ZIP Quine](https://web.archive.org/web/20210511010306/https://alf.nu/ZipQuine)
 - [Quine.zip](https://wgreenberg.github.io/quine.zip/) - See https://github.com/wgreenberg/quine.zip
 - [research!rsc: Zip Files All The Way Down](https://research.swtch.com/zip)
