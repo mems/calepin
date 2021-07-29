@@ -1678,6 +1678,11 @@ Drivers:
 - if you can start bootcamp OS (ex mounted in a Virtual Machine), install manually (download first: [Download and install Windows support software on your Mac - Apple Support](https://support.apple.com/en-us/HT204923#download)) by right click on each INF files, then "Install" (`*\WindowsSupport\$WinPEDriver$\*\*.inf`) (driver files will be copied in `C:\WINDOWS\inf\*.inf`, `C:\WINDOWS\System32\drivers\*.sys` and `C:\WINDOWS\System32\DriverStore\FileRepository\*\*.*`)
 - `D:\$WinPEDriver$` [Limitations of $WinPeDriver$ - Windows Client | Microsoft Docs](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/limitations-dollar-sign-winpedriver-dollar-sign)
 - inject in [WIM images](https://en.wikipedia.org/wiki/Windows_Imaging_Format) `D:\sources\boot.wim` and `D:\sources\install.wim`: [Inject Drivers into a Winclone Image – Twocanoes Software](https://web.archive.org/web/20210410143206/https://twocanoes.com/knowledge-base/inject-drivers-into-a-winclone-image/). See also [Create a Windows 10 Bootable USB Flash Drive on a Mac – Twocanoes Software](https://web.archive.org/web/20210506152206/https://twocanoes.com/create-a-windows-10-bootable-usb-flash-drive-on-a-mac/)
+- inject product key by create a file `D:\sources\ID.txt` that contains:
+	```ini
+	[PID]
+	Value=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+	```
 
 Partitions:
 
