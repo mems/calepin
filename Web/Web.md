@@ -2007,7 +2007,7 @@ Allow multiple popup, or open popup from non user action:
 
 ## End-to-end tests
 
-Use ID to traget elements: [IDs for robots](../HTML/HTML.md#ids-for-robots)
+Use ID to traget elements: [IDs for robots](../Development/HTML/HTML.md#ids-for-robots)
 
 To find an element with specific classname token `foo`, do not use `//*[@class='foo']` nor `//*[starts-with(@class,'foo')]`, but:
 
