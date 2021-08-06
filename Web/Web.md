@@ -2004,3 +2004,17 @@ Allow multiple popup, or open popup from non user action:
 - first party: the host, the application
 - second party: CDN (substitution)
 - [third parties](#third-parties)
+
+## End-to-end tests
+
+To find an element with specific classname token `foo`, do not use `//*[@class='foo']` nor `//*[starts-with(@class,'foo')]`, but:
+
+- `//*[contains-token(@class, 'foo')]` (XPath 3.1)
+- `//*[count(index-of(tokenize(@class), 'foo')) >= 1]` (XPath 2.0)
+- `//*[contains(concat(' ', normalize-space(@class), ' '), concat(' ', 'foo', ' '))]` (XPath 1.0)
+
+See also:
+
+- [SeleniumHQ Browser Automation](https://www.selenium.dev/)
+- [XPath | MDN](https://developer.mozilla.org/en-US/docs/Web/XPath)
+- [CSS Selector to XPath conversion | hakre on wordpress](https://hakre.wordpress.com/2012/03/18/css-selector-to-xpath-conversion/)
