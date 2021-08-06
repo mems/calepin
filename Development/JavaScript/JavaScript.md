@@ -952,7 +952,7 @@ Are browser-specific additions (by Microsoft for Internet Explorer):
 Event names:
 
 - multiple element dispatch the same event: [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) is dispatched by `<input>`, `<select>`, `<textarea>`
-- use the present form, not the past form: [`paste`](https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event) (not `pasted`):
+- use the present form, not the past form: ["on paste"](https://developer.mozilla.org/en-US/docs/Web/API/Element/paste_event) (not "on pasted"):
 	- `addtrack`
 	- `slotchange`
 	- `canplaythrough`
@@ -963,6 +963,7 @@ Event names:
 	- `animationcancel`
 	- `animationend`
 	- `transitioncancel`
+	- [`languagechange`](https://developer.mozilla.org/en-US/docs/Web/API/Window/languagechange_event)
 - cancellability:
 	- [`selectstart`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectstart_event) (cancellable) -> [`selectionchange`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event) (not cancellable)
 	- (subbmitter) [`mousedown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event) (cancellable) -> (subbmitter) [`mouseup`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event) (cancellable) -> (subbmitter) [`click`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) (cancellable) -> (form) [`submit`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event) (cancellable) -> (window) [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) (cancellable) -> (window) [`unload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event) (not cancellable)
@@ -976,9 +977,10 @@ Event names:
 	- [touch events](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events): [`event.changedTouches`](https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent/changedTouches)
 - workflow:
 	- `new PaymentRequest()` -> `paymentRequest.show(details)` -> [`paymentmethodchange` event](https://developer.mozilla.org/en-US/docs/Web/API/PaymentRequest/paymentmethodchange_event) -> `event.updateWith(details)` (if details/errors need to be updated) -> `paymentRequest.show()` promise resolved
-- event name in lowercase
+- event name in lowercase without special chars
 - see other event names: [Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
 - [Input Event Order](https://www.w3.org/TR/DOM-Level-3-Events/#events-inputevent-event-order): `beforeinput` -> (DOM element is updated) -> `input`
+- before and after event for asynchronous events [`beforeinput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event) -> `input`, [`beforeprint`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeprint_event) -> [`afterprint`](https://developer.mozilla.org/en-US/docs/Web/API/Window/afterprint_event), [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) -> `unload`
 
 Examples: `userID` and `profileURL`
 
