@@ -318,6 +318,8 @@ IDs could be used, but (could be) often changed by frontend developers. Instead 
 - [Making your UI tests resilient to change – kentcdodds](https://blog.kentcdodds.com/making-your-ui-tests-resilient-to-change-d37a6ee37269)
 - [View · React Native](https://facebook.github.io/react-native/docs/view.html#testid) - "`testID`: Used to locate this view in end-to-end tests."
 - [Configuration · Testing Library](https://testing-library.com/docs/dom-testing-library/api-configuration#configuration) - "`testIdAttribute`: [...] Defaults to `data-testid`"
+- [eslint-plugin-testing-library/consistent-data-testid.md at main · testing-library/eslint-plugin-testing-library](https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/rules/consistent-data-testid.md)
+- [Can you rename `data-testid` to `data-test-id` because I am OCD? · Issue #204 · testing-library/react-testing-library](https://github.com/testing-library/react-testing-library/issues/204)
 
 ### Validity of CSS class names and ids
 
