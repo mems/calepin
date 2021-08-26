@@ -2379,21 +2379,22 @@ For `24:40` (`24/40`) the greatest common factor is 8:
 
 ## Duplicate values
 
-Aka unique values
+Aka unique values, remove duplicated values
 
 ```js
-var uniq = [... new Set([1, 2, 3, 4, 5, 1, 2, 6])]
+const uniq = [... new Set([1, 2, 3, 4, 5, 1, 2, 6])];
 ```
 
 ```js
-var hasDup = ![1, 2, 3, 4, 5, 1, 2, 6].every((value, index, array) => !array.includes(value, index + 1));//true
+const hasDup = ![1, 2, 3, 4, 5, 1, 2, 6].every((value, index, array) => array.indexOf(value) === index);//true
+const hasDup = array.length !== new Set(array).size;
 ```
 
 ```js
-// Remove duplicate first
-var uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => !array.includes(value, index + 1));//[3, 4, 5, 1, 2, 6]
 // Remove duplicate after
-var uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => index === 0 || array.lastIndexOf(value, index - 1) < 0);//[1, 2, 3, 4, 5, 6]
+const uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => index === 0 || array.indexOf(value) === index);//[1, 2, 3, 4, 5, 6]
+// Remove duplicate first
+const uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => !array.includes(value, index + 1));//[3, 4, 5, 1, 2, 6]
 ```
 
 ```js
