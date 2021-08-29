@@ -1113,6 +1113,13 @@ Is the same as use `transform-origin: bottom center;`
 
 Aka banner, hero, bust-outs, takeover, full bleed
 
+With CSS grid:
+
+- [Ryan Mulligan on Twitter: "A fun layout challenge: Align the start position of a horizontal scrolling gallery to a parent container's max-width while allowing its overflow to span the entire viewport. There is a way, my friends 😮 Check it out on @CodePen: https://t.co/AijPnju7qS https://t.co/091hgpF6Kj" / Twitter](https://twitter.com/hexagoncircle/status/1422559196088737797?s=12) - using grid [Horizontal scrolling in a centered max-width container](https://codepen.io/hexagoncircle/pen/gOWjwme)
+- [CSS Grid full-bleed layout tutorial](https://www.joshwcomeau.com/css/full-bleed/)
+- [Use CSS Subgrid to layout full-width content stripes in an article template - bryanlrobinson.com](https://bryanlrobinson.com/blog/use-css-subgrid-laying-out-full-width-article-stripes/)
+- [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
+
 With `margin: auto` and `max-width` and `*:not()`:
 
 ```css
@@ -1126,11 +1133,7 @@ body > *:not(img):not(video) {
 ```
 
 - [Full bleed layout using simple CSS | Kilian Valkhof](https://web.archive.org/web/20201115114700/https://kilianvalkhof.com/2020/css-html/full-bleed-layout-using-simple-css/)
-
-With CSS grid:
-
-- [Use CSS Subgrid to layout full-width content stripes in an article template - bryanlrobinson.com](https://bryanlrobinson.com/blog/use-css-subgrid-laying-out-full-width-article-stripes/)
-- [Breaking Out With CSS Grid Layout - Cloud Four](https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/)
+- [Hassle-free Full Bleed with *:not() - daverupert.com](http://daverupert.com/2017/03/full-bleed-with-not/)
 
 With viewport units:
 
@@ -1155,94 +1158,13 @@ With viewport units:
 
 Note: Using 100vw will display horizontal scrollbar if the document height is higher than the viewport
 
-Use padding:
-
-```html
-<style>
-.simple-page{
-	margin: 0 auto;
-	max-width: 1044px;
-	position: relative;
-
-	/*decorations*/
-	font-family: sans-serif;
-	/*end of decorations*/
-}
-.content{
-	/*decorations*/
-	background: green;
-	padding: 20px;
-	/*end of decorations*/
-}
-/* Some content of simple page overflow for full width */
-.content-overflow{
-	margin-left: calc(50% - 50vw);
-	width: 100vw;
-	min-width: 100%;
-	padding: 0 calc(50vw - 50%);
-	margin-right: calc(100% - 50vw);/* break line for flex parent */
-	box-sizing: border-box;
-
-	/*decorations*/
-	background: gray;
-	/*end of decorations*/
-}
-</style>
-<div class="simple-page">
-	<p class="content">Content</p>
-	<div class="content-overflow">
-		<p class="content">Full width content</p>
-	</div>
-</div>
-```
-
-Use a pseudo element. Fix issue if content larger than viewport
-
-```html
-<style>
-.simple-page{
-	margin: 0 auto;
-	max-width: 1044px;
-
-	/*decorations*/
-	font-family: sans-serif;
-	/*end of decorations*/
-}
-.content{
-	/*decorations*/
-	background: green;
-	padding: 20px;
-	/*end of decorations*/
-}
-/* Some content of simple page overflow for full width */
-.content-overflow{
-	position: relative;
-}
-.content-overflow::before{
-	content: "";
-	height: 100%;
-	width: 100vw;
-	left: calc(-50vw + 50%);
-	position: absolute;
-	margin-right: calc(100% - 50vw);/* break line for flex parent */
-	z-index: -1;
-
-	/*decorations*/
-	background: gray;
-	/*end of decorations*/
-}
-</style>
-<div class="simple-page">
-	<p class="content">Content</p>
-	<div class="content-overflow">
-		<p class="content">Full width content</p>
-	</div>
-</div>
-```
-
-- [Hassle-free Full Bleed with *:not() - daverupert.com](http://daverupert.com/2017/03/full-bleed-with-not/)
 - [Bust elements out of their containers with one line of CSS by Taylor Hunt on CodePen](https://codepen.io/tigt/post/bust-elements-out-of-containers-with-one-line-of-css)
 - [Full Width Containers in Limited Width Parents | CSS-Tricks](https://css-tricks.com/full-width-containers-limited-width-parents/)
+
+With padding, with a pseudo element
+
+See also:
+
 - [Full Browser Width Bars | CSS-Tricks](https://css-tricks.com/full-browser-width-bars/)
 
 ### Z-index

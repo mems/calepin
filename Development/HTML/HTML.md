@@ -2608,6 +2608,8 @@ Key-value can be on same line (using `float: left` and `clear: left;` for dt) an
 
 Don't use it for [Conversations](#conversations), use `p` instead.
 
+- [On the \<dl\>](https://benmyers.dev/blog/on-the-dl/)
+
 ### `p` element
 
 ```html

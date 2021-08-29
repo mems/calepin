@@ -499,3 +499,27 @@ Pour 10 portions :
 ## Caviar d'aubergine
 
 - [Caviar d'aubergine véritable](https://cuisine.journaldesfemmes.fr/recette/356778-le-caviar-d-aubergine)
+
+## Guacamole
+
+Pour 4 personnes :
+
+- 2 à 3 avocats bien mûrs
+- 2 tomates Roma (allongées)
+- 1 oignon
+- 1 bouquet de coriandre
+- 1 citron vert
+- 1 piment serrano
+- sel, poivre
+
+> 1. Les avocats: on les prend mûrs, c’est-à-dire qu’ils sont assez mous mais pas trop. La couleur doit être bien noire. Si on n’en trouve pas: on en prend des verts et on les met au soleil 3-4 jours dans du journal.
+> 	On ouvre les avocats, on enlève les noyaux et avec une cuillère on récupère la chair. Puis on fait une bonne purée avec un mortier ou une fourchette.
+> 	L’avocat a tendance à s’oxyder (noircir). Pour éviter ça, on rajoute une dose d’acide citrique, i.e. le jus d’un citron vert pressé (choisissez ceux qui ont une couleur vert éclatant).
+> 2. Les tomates: des tomates Roma, allongées. Elles n’ont pas trop de goût, mais sont parfaites pour l’accompagnement. On enlève les pépins et on coupe la chair en petits cubes. On rajoute à l’avocat.
+> 3. L’oignon: normalement un oignon blanc, mais en fonction des goûts on peut mette un oignon violet ou, je préfère personnellement, un oignon de Roscoff, assez doux. On coupe en petits carrés et on rajoute.
+> 4. La coriandre: si vous n’aimez pas parce que vous êtes un mutant OR2A6, n’en mettez pas. Sinon, vous enlevez les feuilles et vous ciselez tout au couteau. Puis vous rajoutez cette divine épice.
+> 5. Le piment: difficile en France de trouver des piments serranos. Soit vous prenez des jalapeños en conserve, soit vous prenez des piments de Cayenne (un peu plus forts). On enlève les nervures et les graines et on coupe en dés.
+> 	On se lave bien les mains après \[...\].
+> 6. Une fois qu’on a tout mis, on mélange bien. On sale et on poivre et voilà! \[...\]
+>
+> — [Jelipe del Intestino on Twitter: "#23h l’heure de me défouler sur la pire des choses ici: ce que certaines personnes appellent un guacamole. SVP, ne faites pas ça 🔽 Thread culinaire… https://t.co/36N25ImJLk"](https://web.archive.org/web/20210817195354/https://twitter.com/ElVeider_FDV/status/1423395666831753224)

@@ -135,7 +135,7 @@ Examples:
 - [Makefile](https://gist.github.com/joho/7297517)
 - https://github.com/es-shims/es-shim-api/blob/master/Makefile
 - https://github.com/const-io/numeric-constants/blob/master/Makefile
- 
+
  ```make
 # scripts and map
 scripts.js scripts.js.map: js-and-map
@@ -351,6 +351,11 @@ https://github.com/sethp-jive/homebrew/blob/0f0a86819d8f5bd53251f263a26ae8119f88
 
 Exist as a variant of jruby: https://trac.macports.org/ticket/20552
 
+## Bundling
+
+- [Modern web apps without JavaScript bundling or transpiling](https://world.hey.com/dhh/modern-web-apps-without-javascript-bundling-or-transpiling-a20f2755)
+- [Webpack](#webpack)
+
 ## Webpack
 
 - [How webpack works - sokra](https://github.com/sokra/slides/blob/master/data/how-webpack-works.pdf)
@@ -398,7 +403,7 @@ page.evaluateOnNewDocument(() => {
 	});
 });
 ```
-	
+
 ```js
 page.evaluateOnNewDocument(() => {
 	// Return fake list of plugins
@@ -416,13 +421,13 @@ page.evaluateOnNewDocument(() => {
 		0: {value: mimetype},
 	});
 	Object.defineProperty(mimetype, "enabledPlugin", {value: plugin});
-	
+
 	const pluginsArray = Object.create(PluginArray.prototype, {
 		0: {value: plugin},
 		[plugin.name]: {value: plugin},
 		length: {value: 1},
 	});
-	
+
 	// Fix item/namedItem listing
 	for(const [{prototype}, type] of [[PluginArray, Plugin], [Plugin, MimeType]]){
 		Object.defineProperties(prototype, {
@@ -435,7 +440,7 @@ page.evaluateOnNewDocument(() => {
 			}},
 		});
 	}
-	
+
 	// TODO:
 	// - implement iterator protocol on plugin array
 	// - set correctly object properties descriptions (enumerable, configurable)

@@ -3,6 +3,7 @@
 - [catamphetamine/libphonenumber-js: A simpler (and smaller) rewrite of Google Android's libphonenumber library](https://github.com/catamphetamine/libphonenumber-js)
 - [Long number - Wikipedia](https://en.wikipedia.org/wiki/Long_number)
 - [Short code - Wikipedia](https://en.wikipedia.org/wiki/Short_code)
+- [Falsehoods Programmers Believe About Phone Numbers](https://github.com/google/libphonenumber/blob/master/FALSEHOODS.md)
 
 ## Fictional numbers
 

@@ -119,7 +119,7 @@ Note: Unless compliance demands it, levels 5, 6 and 7 are not required and will 
 
 ## Technical dept
 
-> ## Non breacking release of Webpack 4
+> ## Non breaking release of Webpack 4
 >
 > - **4.0.0**, 4.0.1, **4.1.0**, 4.1.1, **4.2.0**, **4.3.0**, **4.4.0**, 4.4.1, [...]
 > - 33 **minor** releases
@@ -320,6 +320,7 @@ Normalize first ("NFD"), remove all non A-Za-z chars
 
 - [slugify/Resources/rules at master · cocur/slugify](https://github.com/cocur/slugify/tree/master/Resources/rules)
 - [String.prototype.normalize() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
+- [Clean URL - Wikipedia](https://en.wikipedia.org/wiki/Clean_URL#Slug)
 
 ## Naming
 
@@ -934,11 +935,15 @@ Aka CLI
 > Short flags are a command line shortcut, and they do belong there, but if you’re not writing the command in a prompt, do yourself (and anyone else that may someday be reading your code) a favor and be more verbose.
 > Because this:
 >
-> 	curl --silent checkip.dyndns.org | grep --extended-regexp --only-matching '[0-9\.]+'
+> ```sh
+curl --silent checkip.dyndns.org | grep --extended-regexp --only-matching '[0-9\.]+'
+```
 >
 > is a lot easier for a human to understand than this:
 >
-> 	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+> ```sh
+curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+```
 >
 > — [Use long flags when scripting |\> News and podcasts for developers |\> Changelog](https://changelog.com/posts/use-long-flags-when-scripting)
 
@@ -947,8 +952,10 @@ Aka CLI
 > A much simpler solution is to comment your code:
 > [...]
 >
-> 	# Get my IP address by checking dyndns.org
-> 	curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+> ```sh
+# Get my IP address by checking dyndns.org
+curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+```
 >
 > — [Use long flags when scripting | Hacker News](https://news.ycombinator.com/item?id=5164354)
 
@@ -1009,8 +1016,9 @@ See also:
 - [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 - [Why not use GraphQL? | wundergraph](https://web.archive.org/web/20201108045427/https://wundergraph.com/blog/why_not_use_graphql)
 - [HTTP API](../Web/Network.md#http-api)
+- [Good Design is Imperfect Design Part 1: Honest Names - Domain Language](https://web.archive.org/web/20210806131059/https://www.domainlanguage.com/articles/good-design-is-imperfect-design-part-1-honest-names/)
 
-### API documentaiton
+### API documentation
 
 - [API documentation](../Documentation/Documentation.md#api)
 - [Error messages documentation](../Documentation/Documentation.md#error-messages)

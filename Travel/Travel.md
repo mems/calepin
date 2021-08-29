@@ -10,10 +10,15 @@ Pour les retards de plus de 2 ou 3h, la compagnie doit :
 Voir aussi :
 
 - [Vol retardé ou annulé, refus d'embarquement | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F10977)
+- [Annulation ou retard d'un d'avion : quel remboursement pouvez-vous obtenir ? | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/annulation-retard-billet-avion-remboursement)
 - [Votre vol est en retard au départ ou à l'arrivée - Qualité Transports - Autorité de la qualité de service dans les transports (AQST)](http://www.qualitetransports.gouv.fr/votre-vol-est-en-retard-au-depart-ou-a-l-arrivee-r90.html)
 - [mtv – MTV](http://www.mtv.travel/) - Médiation Tourisme et Voyage, association, experte et indépendante des companies, a pour vocation d'analyser les dossiers afin d'en favoriser un dénouement rapide
 - [RS 0.748.410 Convention du 12 octobre 1929 pour l’unification de certaines règles relatives au transport aérien international (avec prot. add.)](https://www.admin.ch/opc/fr/classified-compilation/19290056/index.html#a19)
 - [Vol annulé, retardé: quels sont vos droits? Loi, indemnisation, réclamation](https://retardvol.fr/retard-vol-vos-droits/)
+
+## Perte de bagage
+
+- [Bagage perdu ou endommagé...la compagnie aérienne vous doit des comptes ! | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/bagage-perdu-endommage-aerien-indemnisation)
 
 ## Tacite reconduction
 

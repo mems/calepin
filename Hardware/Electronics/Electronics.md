@@ -20,3 +20,18 @@
 
 - [Apprendre à souder sur de bonnes bases - Bulb Zone](http://learn.bulbzone.net/cours/apprendre-a-souder-de-bonnes-bases/)
 - [Tutoriel sur la soudure : tout savoir pour bien souder, un guide pour le débutant](https://web.archive.org/web/20210121081500/https://www.framboise314.fr/comment-bien-souder-un-tutoriel-sur-la-soudure/)
+
+## Battery
+
+BMS (Battery Management System) as "gatekeeper" between, charger and battery: regulate charge, cut if voltage too low.
+
+- balance charging
+- short-circuit protection
+- overcharge and overdischarge protection
+
+Or some charger (balanced) handle that (via cable interface) but need settings for chemical type of battery, number of cells, etc.
+
+The BMS quality is important: < 2$/cells-in-series is too cheap/risky
+
+- [Do you NEED a BMS for DIY Li-ion Batteries? - YouTube](https://www.youtube.com/watch?v=c3tUuiXXA1Y)
+- [Battery management system - Wikipedia](https://en.wikipedia.org/wiki/Battery_management_system)

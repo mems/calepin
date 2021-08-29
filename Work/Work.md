@@ -133,6 +133,7 @@ Possible tests:
 
 - [bradfrost/frontend-guidelines-questionnaire: A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.](https://github.com/bradfrost/frontend-guidelines-questionnaire)
 - [C# Bad Practices: Learn How to Make Good Code by Using Examples of Bad Code - CodeProject](https://www.codeproject.com/Articles/1083348/Csharp-Bad-Practices-Learn-How-to-Make-Good-Code-b)
+- [Ebazhanov/linkedin-skill-assessments-quizzes: Full reference of LinkedIn answers 2021 for skill assessments, LinkedIn test, questions and answers (aws-lambda, rest-api, javascript, react, git, html, jquery, mongodb, java, css, python, machine-learning, power-point) linkedin excel test lösungen, linkedin machine learning test](https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes)
 
 See also:
 

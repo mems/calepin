@@ -71,6 +71,7 @@ https://kev.inburke.com/kevin/invalid-username-or-password-useless/
 - [Creating Secure Password Resets With JSON Web Tokens – Smashing Magazine](https://www.smashingmagazine.com/2017/11/safe-password-resets-with-json-web-tokens/) - Password reset workflow
 
 - [AgileBits Blog | Security](https://blog.agilebits.com/category/security/)
+- [The 1Password Emergency Kit: Version 3.0 - Productivityist](https://productivityist.com/1password-emergency-kit-3/) - Emergency Kit for recover passwords and keys (ex: in case something happen to you)
 
 Be carefull with renew password links send by email. See [Password-less login problems](#password-less-login).
 

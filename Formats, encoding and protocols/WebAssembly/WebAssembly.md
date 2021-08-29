@@ -1,3 +1,28 @@
+Aka WASM
+
+Usage examples:
+
+- compression
+- games
+- video editing
+- text editors
+- data visualisation
+- deep learning
+- stream processing
+- data validation
+- cryptography
+- path finding
+- encoding and decoding
+- parallelisation
+- transcoding
+- custom file formats
+
+See also:
+
+- [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
+- [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
+- [Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
+- [What’s in that .wasm? Introducing: wasm-decompile · V8](https://v8.dev/blog/wasm-decompile)
 - [WebAssembly Explorer](http://mbebenita.github.io/WasmExplorer/) - see https://github.com/mbebenita/WasmExplorer/
 - [Writing WebAssembly By Hand](https://blog.scottlogic.com/2018/04/26/webassembly-by-hand.html)
 - [rhmoller/wasm-by-hand: Small cookbook examples of writing WebAssembly by hand in .wast format](https://github.com/rhmoller/wasm-by-hand#references)

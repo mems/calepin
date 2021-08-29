@@ -208,5 +208,22 @@ dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /StartComponentCleanup /Reset
 
 ## Registry
 
+> The Windows Registry API is an incomplete wrapper over the NT Registry API. The windows API uses null-terminated string, whereas the NT API (and the underlying file format) use length-prefixed strings. This means you can effectively hide keys and values from software using the normal Windows API.
+
 - `regedit`
 - [Accessing Another Windows Computer’s Registry from a Disk in Windows 8.1 | Outside the Asylum](https://web.archive.org/web/20201112015409/https://jchornsey.wordpress.com/2015/03/11/accessing-another-windows-computers-registry-from-a-disk-in-windows-8-1/)
+- [Process Monitor - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) - Registry activity
+- [O&O RegEditor](https://www.oo-software.com/en/ooregeditor)
+- [Resplendence Software - Registrar Registry Manager](https://www.resplendence.com/registrar) - Registry editor (exist in free verion) that can perform regex searches and open .reg files for editing
+
+## Processes activity
+
+- [Process Explorer - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
+- [processhacker/processhacker: A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware.](https://github.com/processhacker/processhacker)
+- [hfiref0x/WinObjEx64: Windows Object Explorer 64-bit](https://github.com/hfiref0x/WinObjEx64)
+- [Fleex255/PolicyPlus: Local Group Policy Editor plus more, for all Windows editions](https://github.com/Fleex255/PolicyPlus) - open offline and live registry hives
+
+## Utilities
+
+- [microsoft/PowerToys: Windows system utilities to maximize productivity](https://github.com/microsoft/PowerToys)
+- [Windows Sysinternals - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/)

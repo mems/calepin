@@ -30,6 +30,10 @@ About parsing and transpiling:
 - [Stuff I Wrote About Programming Languages – journal.stuffwithstuff.com](http://journal.stuffwithstuff.com/category/language/)
 - [JSON Parser with JavaScript | Tan Li Hau](https://lihautan.com/json-parser-with-javascript/) - [Write a parser with JavaScript | Hacker News](https://news.ycombinator.com/item?id=21772336)
 - [esbuild/architecture.md at master · evanw/esbuild](https://github.com/evanw/esbuild/blob/master/docs/architecture.md) - esbuild bundler architecture
+- Let's write a compiler
+	- [Let's write a compiler, part 1: Introduction, selecting a language, and doing some planning - Brian Robert Callahan](https://web.archive.org/web/20210816200544/https://briancallahan.net/blog/20210814.html)
+	- [Let's write a compiler, part 2: A lexer - Brian Robert Callahan](https://web.archive.org/web/20210816132602/https://briancallahan.net/blog/20210815.html)
+	- [Let's write a compiler, part 3: A parser - Brian Robert Callahan](https://web.archive.org/web/20210817031925/https://briancallahan.net/blog/20210816.html)
 
 Concepts:
 

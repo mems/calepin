@@ -970,9 +970,9 @@ Exception of inline script and style can be made with `script-src` and `style-sr
 - [Implementing Content Security Policy ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2016/02/implementing-content-security-policy/)
 - [Content Security Policy CSP Reference & Examples](https://content-security-policy.com/)
 
-### SPF
+### SPF, DKIM and DMARC
 
-Aka Sender Policy Framework, email authentication
+Aka Sender Policy Framework, spoof, email authentication
 
 Example:
 
@@ -986,6 +986,8 @@ where:
 - `include:`: authorizes mail to be sent on behalf of the domain from `google.com`
 - `~all`: denotes that this list is all inclusive, and no other servers are allowed to send e-mail
 
+- [I figured out how DMARC works, and it almost broke me | Simon Andrews](https://web.archive.org/web/20210817150808if_/https://simonandrews.ca/articles/how-to-set-up-spf-dkim-dmarc)
+- [Email Authenticity 101: DKIM, DMARC, and SPF — Alex Blackie](https://web.archive.org/web/20210817005547/https://www.alexblackie.com/articles/email-authenticity-dkim-spf-dmarc/)
 - [Sender Policy Framework - Wikipedia](https://en.wikipedia.org/wiki/Sender_Policy_Framework)
 - [How To use an SPF Record to Prevent Spoofing &amp; Improve E-mail Reliability | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-an-spf-record-to-prevent-spoofing-improve-e-mail-reliability)
 - [RFC 4408 - Sender Policy Framework (SPF) for Authorizing Use of Domains in E-Mail, Version 1](https://tools.ietf.org/html/rfc4408)

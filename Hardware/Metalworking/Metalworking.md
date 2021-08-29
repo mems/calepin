@@ -8,7 +8,12 @@ Renshape 460 for the pattern and Petrobond (BOND) for the sand cast
 - [FPI - Foundry Products Incorporated](http://www.foundryproductsonline.com/)
 - [myfordboy - YouTube](https://www.youtube.com/channel/UCNC9gjgYrzLfyMQmp31DnjA)
 
-## Brasage
+## Braze and weld
+
+Aka brazing and welding
+
+- soudure : joindre par fusion de plusieurs parties en les faisant fondre (à  la joinction)
+- brasure : apport d'un autre materiaux pour faire la jonction entre les parties (température plus basse)
 
 Utiliser un décapant (pâte ou graisse, appelé aussi flux ou [crème à braser](https://fr.wikipedia.org/wiki/Cr%C3%A8me_%C3%A0_braser) pour l'électronique). Attention le décapant utilisé en plomberie est trop acide pour l'utilisation pour l'électronique.
 Il permet de nettoyer la surface
@@ -17,6 +22,7 @@ Un fois la soudure réalisée, nettoyer avec du white spirit ou de l'eau ou de l
 
 - [Technique pour souder un bijou en laiton](http://metal-connexion.fr/forum/technique-pour-souder-un-bijou-en-laiton-t2183.html#p25920)
 - [TR3Rallye](http://www.trregisterfrance.com/TR3rallye/TR3Rallye_caisse2/TR3rallye_caisse2_1.htm) - Utiliser de l'étain pour reboucher des trous dans une carroserie / restauration de veilles voitures, avec un conseil (étain sur acier) : d'abord "étamer"
+- [Location de poste à souder : louer un poste à souder](https://poste-a-souder.ooreka.fr/comprendre/location-poste-a-souder)
 
 ### Plomberie
 

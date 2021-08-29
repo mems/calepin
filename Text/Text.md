@@ -859,3 +859,10 @@ See [Sample data](../Data/Sample%20data/Sample%20data.md)
 Aka formule de politesse, formule de sortie
 
 - [Cordialement, bien à vous... les 10 formules pour bien finir un mail pro | LCI](https://web.archive.org/web/20201129025648/https://www.lci.fr/entreprises/cordialement-bien-a-vous-les-10-formules-pour-bien-finir-un-mail-pro-2080824.html)
+
+## Letter case
+
+Aka upper-case
+
+- [Dotted and dotless I - Wikipedia](https://en.wikipedia.org/wiki/Dotted_and_dotless_I)
+- [Letter case - Wikipedia](https://en.wikipedia.org/wiki/Letter_case)

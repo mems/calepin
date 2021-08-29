@@ -771,6 +771,10 @@ See
 - [Don't override native logic](UI - UX#dont-override-native-logic)
 - [The disadvantages of single page applications | Adam Silver | UX design, Front-end Engineering and Strategy | London, UK.](http://adamsilver.io/articles/the-disadvantages-of-single-page-applications/)
 
+### Don't extends the DOM
+
+- [What's wrong with extending the DOM — Perfection Kills](https://web.archive.org/web/20210529220659/http://perfectionkills.com/whats-wrong-with-extending-the-dom/)
+
 ### Progressive enhancement
 
 Aka unobtrusive JavaScript, polyfill, shim. What happen if script fail to load?
@@ -895,7 +899,7 @@ Baking CSS and templates into scripts will increase the memory footprint of your
 
 ### Don't use `event.stopPropagation()` or `event.stopImmediatePropagation()`
 
-Use `event.preventDefault()` instead
+Use `event.preventDefault()` instead and `event.target.closest("selector")` or `element.contains(event.target)`
 
 ### Events
 
@@ -957,13 +961,24 @@ Event names:
 	- `slotchange`
 	- `canplaythrough`
 	- `canplay`
-	- `playing` (right name?)
+	- `playing` (exception?)
 	- `play`
 	- `beforeinput` and `input`
 	- `animationcancel`
 	- `animationend`
 	- `transitioncancel`
 	- [`languagechange`](https://developer.mozilla.org/en-US/docs/Web/API/Window/languagechange_event)
+	- `fullscreenchange`
+	- [`touchmove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchmove_event)
+	- [`copy`](https://developer.mozilla.org/en-US/docs/Web/API/Element/copy_event)
+	- [`fullscreenerror`](https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenerror_event)
+	- [`gamepadconnected`](https://developer.mozilla.org/en-US/docs/Web/API/Window/gamepadconnected_event)
+	- [`unhandledrejection`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unhandledrejection_event) (exception?)
+	- [`rejectionhandled`](https://developer.mozilla.org/en-US/docs/Web/API/Window/rejectionhandled_event) (exception?)
+	- [`signalingstatechange`](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/signalingstatechange_event)
+	- [`notificationclick`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event)
+	- [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) and [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event)
+	- [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event) (exception?)
 - cancellability:
 	- [`selectstart`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectstart_event) (cancellable) -> [`selectionchange`](https://developer.mozilla.org/en-US/docs/Web/API/Document/selectionchange_event) (not cancellable)
 	- (subbmitter) [`mousedown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousedown_event) (cancellable) -> (subbmitter) [`mouseup`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseup_event) (cancellable) -> (subbmitter) [`click`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) (cancellable) -> (form) [`submit`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event) (cancellable) -> (window) [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) (cancellable) -> (window) [`unload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/unload_event) (not cancellable)
@@ -1001,6 +1016,14 @@ See [Naming convention](Development#naming-convention)
 ## Custom elements
 
 - [Progressive Enhancement](https://remysharp.com/2019/07/24/progressive-enhancement#web-components)
+
+## Template
+
+```html
+<template id="t1"><section><h1 id="name" title="{lastName}, {firstName}">{name}</h1>Email: <a id="link" href="{emailAddress}">{email}</a></section></template>
+```
+
+- [webcomponents/DOM-Parts.md at gh-pages · WICG/webcomponents](https://github.com/WICG/webcomponents/blob/gh-pages/proposals/DOM-Parts.md)
 
 # Tips & snippets
 
@@ -3583,9 +3606,15 @@ function touchEnd(event){
 }
 ```
 
-### Mouse and touch drag and drop
+### Canvas virtual viewport
 
-Drag and drop an interactive element, start drag & stop drag
+- [Creating a Zoom UI](https://web.archive.org/web/20210805174003/https://www.steveruiz.me/posts/zoom-ui)
+- [zoom-ui-example (canvas) - CodeSandbox](https://codesandbox.io/s/zoom-ui-example-canvas-6j3wo)
+- [zoom-ui-example (svg) - CodeSandbox](https://codesandbox.io/s/zoom-ui-example-ep0cf)
+
+### Drag and drop
+
+Aka drag and drop an interactive element with mouse and touch, start drag & stop drag
 
 ```
 add listeners on target element: mousedown->pointerDown and touchstart->pointerDown
@@ -7221,31 +7250,13 @@ or
 
 ## WebAssembly
 
-- [Extending the browser with WebAssembly  |  Web  |  Google Developers](https://developers.google.com/web/updates/2018/08/wasm-av1)
-- [Build your own WebAssembly Compiler](https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html)
-- [Strings in WebAssembly (Wasm) - Wasm - Medium](https://medium.com/wasm/strings-in-webassembly-wasm-57a05c1ea333)
-- [What’s in that .wasm? Introducing: wasm-decompile · V8](https://v8.dev/blog/wasm-decompile)
-
-Usage examples:
-
-- compression
-- games
-- video editing
-- text editors
-- data visualisation
-- deep learning
-- stream processing
-- data validation
-- cryptography
-- path finding
-- encoding and decoding
-- parallelisation
-- transcoding
-- custom file formats
+- [Why WASM is not the future of Babylon.js | by Babylon.js | Aug, 2021 | Medium](https://web.archive.org/web/20210807105530/https://babylonjs.medium.com/why-wasm-is-not-the-future-of-babylon-js-5832b09c9b10)
 
 ### Shared memory can be used by pure JavaScript
 
-Note: "When memory block is reallocated, the old ArrayBuffer gets invalidated, because the memory block it was pointing to might be no longer valid.". "the .grow doesn't invalidate old data, it just reallocates it to fit a new size."
+> When memory block is reallocated, the old ArrayBuffer gets invalidated, because the memory block it was pointing to might be no longer valid.
+
+> the `.grow()` doesn't invalidate old data, it just reallocates it to fit a new size.
 
 ```js
 // Create a Worker we want to share memory with:
@@ -7267,31 +7278,6 @@ m.grow(1);
 
 // ... within 5 seconds you should see SharedArrayBuffer(131072) in the console
 // This demonstrates that the previously shared memory object auto-updates on growth.
-```
-
-### asm.js
-
-Note: asm.js is replaced by WebAssembly
-
-```js
-a = x + y | 0// integer arithmetic x: int32, y: int32
-a = +(x + y)// double arithmetic x: float64, y: float64
-(a >>> 0) < (b >>> 0) // unsigned comparison
-```
-
-```js
-var buffer = new ArrayBuffer(16 * 1024 * 1024);
-function module(buffer, stdlib) {
-  “use asm”;
-  var heap8 = new Int8Array(buffer);
-  function foo(a) {
-	a = a | 0;
-	return heap8[a] + 1 | 0;
-  }
-  return {foo: foo}
-}
-var mod = module(buffer, {print: print});
-mod.foo(100);
 ```
 
 ## Passive Event Listeners

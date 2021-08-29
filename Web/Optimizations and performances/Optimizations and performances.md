@@ -247,6 +247,7 @@ Congestion window: initial cwnd size is 10; 14.6KB = 10 packets of 1460 Bytes.
 **TODO: where "148 kb" come from?**
 
 - [TCP Slow-start](https://en.wikipedia.org/wiki/Slow-start)
+- [Napkin Problem 15: Increase HTTP Performance by Fitting In the Initial TCP Slow Start Window](https://sirupsen.com/napkin/problem-15/)
 - [Networking 101: Building Blocks of TCP - High Performance Browser Networking (O'Reilly)](https://hpbn.co/building-blocks-of-tcp/#slow-start)
 - [Reduce the size of the above-the-fold content  |  PageSpeed Insights  |  Google Developers](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent)
 - [Mobile Analysis in PageSpeed Insights  |  PageSpeed Insights  |  Google Developers](https://developers.google.com/speed/docs/insights/mobile)

@@ -767,6 +767,7 @@ But may not support this.
 ### HTTP/3
 
 - [Web Performance Calendar » Head-of-Line Blocking in QUIC and HTTP/3: The Details](https://web.archive.org/web/20201208205628/https://calendar.perfplanet.com/2020/head-of-line-blocking-in-quic-and-http-3-the-details/)
+- [HTTP/3 From A To Z: Core Concepts (Part 1) — Smashing Magazine](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
 
 ## URI/URL
 
@@ -866,7 +867,7 @@ See [RESTful](Development#restful) and [API](Development#api)
 - [Choosing between www and non-www URLs - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Choosing_between_www_and_non-www_URLs#Using_%3Clink_relcanonical%3E)
 - [Set your preferred domain (www or non-www) - Search Console Help](https://support.google.com/webmasters/answer/44231?hl=en)
 - [How To Create Your Own URL Scheme | CSS-Tricks](https://css-tricks.com/create-url-scheme/)
-- Slug [Semantic URL — Wikipedia](https://en.wikipedia.org/wiki/Semantic_URL#Slug)
+- Slug [Clean URL - Wikipedia](https://en.wikipedia.org/wiki/Clean_URL#Slug)
 - [URLs are UI - Scott Hanselman](https://www.hanselman.com/blog/URLsAreUI.aspx)
 - https://restpatterns.mindtouch.us/Articles/Designing_URIs
 

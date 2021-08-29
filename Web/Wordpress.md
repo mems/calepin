@@ -1,5 +1,6 @@
 - [How To Make WordPress Hard For Clients To Mess Up – Smashing Magazine](https://www.smashingmagazine.com/2016/07/how-to-make-wordpress-hard-for-clients-to-mess-up/)
 - [WordPress Developer Resources | Official WordPress Developer Resources](https://developer.wordpress.org/)
+- [Using Web Components in WordPress is Easier Than You Think | CSS-Tricks](https://css-tricks.com/using-web-components-in-wordpress-is-easier-than-you-think/)
 
 ## Install and maintain
 
@@ -88,7 +89,7 @@ UPDATE wp_postmeta SET meta_value = replace(meta_value,@curent,@next);
 UPDATE wp_usermeta SET meta_value = replace(meta_value, @curent,@next);
 UPDATE wp_links SET link_url = replace(link_url, @curent,@next);
 UPDATE wp_comments SET comment_content = replace(comment_content , @curent,@next);
-# For images inside posts 
+# For images inside posts
 UPDATE wp_posts SET post_content = replace(post_content, @curent, @next);
 # For images linked in old link manager
 UPDATE wp_links SET link_image = replace(link_image, @curent, @next);
