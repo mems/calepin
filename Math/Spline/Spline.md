@@ -24,32 +24,37 @@ See also [Reduce points - Polyline simplification](Reduce points - Polyline simp
 
 - (see comments) [blog.rails2u.com » Blog Archive » Accurate bezier special property for Tweener](http://wayback.archive.org/web/20080518175320/http://blog.rails2u.com/2007/10/03/accurate-bezier-special-property-for-tweener/)
 
-	var anchor1:Point;
-	var anchor2:Point;
-	var control1:Point;
-	var control2:Point;
-	var position:Number; // between 0 and 1
+```js
+const anchor1 = {x: 0, y: 0};
+const anchor2 = {x: 100, y: 0};
+const control1 = {x: 0, y: -100};
+const control2 = {x: 100, y: -100};
+const position = 0.5; // between 0 and 1
 
-	var posX : Number = Math.pow(position, 3) * (anchor2.x + 3 * (control1.x - control2.x) - anchor1.x)
-		+ 3 * Math.pow(positie, 2) * (anchor1.x - 2 * control1.x + control2.x)
-		+ 3 * position * (control1.x - anchor1.x) + anchor1.x;
+const posX = Math.pow(position, 3) * (anchor2.x + 3 * (control1.x - control2.x) - anchor1.x)
+	+ 3 * Math.pow(positie, 2) * (anchor1.x - 2 * control1.x + control2.x)
+	+ 3 * position * (control1.x - anchor1.x) + anchor1.x;
 
-	var posY : Number = Math.pow(position, 3) * (anchor2.y + 3 * (control1.y - control2.y) - anchor1.y)
-		+ 3 * Math.pow(position, 2) * (anchor1.y - 2 * control1.y + control2.y)
-		+ 3 * position * (control1.y - anchor1.y) + anchor1.y;
+const posY = Math.pow(position, 3) * (anchor2.y + 3 * (control1.y - control2.y) - anchor1.y)
+	+ 3 * Math.pow(position, 2) * (anchor1.y - 2 * control1.y + control2.y)
+	+ 3 * position * (control1.y - anchor1.y) + anchor1.y;
+```
 
-	# given points p0, p0Out, and p1In, and p1, and t varying from 0.0 to 1.0...
-	a0 = (1 - t) ** 3
-	a1 = 3 * (1 - t) ** 2 * t
-	a2 = 3 * (1 - t) * t ** 2
-	a3 = t ** 3
+```
+// given points p0, p0Out, and p1In, and p1, and t varying from 0.0 to 1.0...
+a0 = (1 - t) ** 3
+a1 = 3 * (1 - t) ** 2 * t
+a2 = 3 * (1 - t) * t ** 2
+a3 = t ** 3
 
-	# calculate x and y
-	x = a0 * p0.x + a1 * p0.xOut + a2 * p1.xIn + a3 * p1.x
-	y = a0 * p0.y + a1 * p0.yOut + a2 * p1.yIn + a3 * p1.y
+// calculate x and y
+x = a0 * p0.x + a1 * p0.xOut + a2 * p1.xIn + a3 * p1.x
+y = a0 * p0.y + a1 * p0.yOut + a2 * p1.yIn + a3 * p1.y
+```
 
 Curves (Bezier)
 
+- [The Beauty of Bézier Curves - YouTube](https://www.youtube.com/watch?v=aVwxzDHniEw)
 - [A Primer on Bézier Curves](https://pomax.github.io/bezierinfo/) and https://github.com/pomax/BezierInfo-2
 - [Approximating Cubic Bezier Curves in Flash MX](http://timotheegroleau.com/Flash/articles/cubic_bezier_in_flash.htm)
 - [Bezier Curves: The Math](http://www.moshplant.com/direct-or/bezier/math.html)

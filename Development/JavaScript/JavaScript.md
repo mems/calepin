@@ -5332,6 +5332,13 @@ Boolean(element.ownerDocument.compareDocumentPosition(element) & Node.DOCUMENT_P
 
 ## Parse JavaScript using the native parser
 
+> – in general, it’s best to avoid `eval()`.
+> – if you have to use it:
+>   – never `eval(str)`
+>   – always `eval​.call(null, str)` or `eval​.call(undefined, str)`
+>   – `new Function(···)` is another good alternative.
+> — [Callable values • JavaScript for impatient programmers (ES2021 edition)](https://exploringjs.com/impatient-js/ch_callables.html#eval)
+
 - [`HTMLScriptElement#src=x`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement/href) via URI of a resource contains script code
 - for a script element [`Node#innerText`](https://developer.mozilla.org/en-US/docs/Web/API/Node/innerText), [`Node#textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) (with a newly created script element)
 - [HTMLScriptElement#text=x](https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement#text_property) (with a newly created script element)

@@ -8,9 +8,9 @@ Renshape 460 for the pattern and Petrobond (BOND) for the sand cast
 - [FPI - Foundry Products Incorporated](http://www.foundryproductsonline.com/)
 - [myfordboy - YouTube](https://www.youtube.com/channel/UCNC9gjgYrzLfyMQmp31DnjA)
 
-## Braze and weld
+## Brazing and welding
 
-Aka brazing and welding
+Aka braze and weld
 
 - soudure : joindre par fusion de plusieurs parties en les faisant fondre (à  la joinction)
 - brasure : apport d'un autre materiaux pour faire la jonction entre les parties (température plus basse)
@@ -23,6 +23,8 @@ Un fois la soudure réalisée, nettoyer avec du white spirit ou de l'eau ou de l
 - [Technique pour souder un bijou en laiton](http://metal-connexion.fr/forum/technique-pour-souder-un-bijou-en-laiton-t2183.html#p25920)
 - [TR3Rallye](http://www.trregisterfrance.com/TR3rallye/TR3Rallye_caisse2/TR3rallye_caisse2_1.htm) - Utiliser de l'étain pour reboucher des trous dans une carroserie / restauration de veilles voitures, avec un conseil (étain sur acier) : d'abord "étamer"
 - [Location de poste à souder : louer un poste à souder](https://poste-a-souder.ooreka.fr/comprendre/location-poste-a-souder)
+- [Choix du diamètre de fil en rapport avec l'épaisseur - tableau aide memoire](https://www.soudeurs.com/les-novices-les-neophytes-et-les-bricoleurs-soudeurs/3609-tableau-aide-memoire.html)
+- [Portail Soudeurs.com - Site Technique francophone de référence du soudeur](https://www.soudeurs.com/)
 
 ### Plomberie
 

@@ -1455,6 +1455,12 @@ window.onunload = function()
 - [Microsoft Edge - AddressBar Spoof](http://www.cracking.com.ar/demos/edgespoof/2/)
 - https://mobile.twitter.com/magicmac2000/status/779339530872692737
 
+### Abusing developer tools
+
+- [Javascript Anti Debugging — Some Next Level Sh*t (Part 1 — Abusing SourceMappingURL) | by Gal Weizman](https://web.archive.org/web/20210905160801/https://weizman.github.io/?javascript-anti-debugging-some-next-level-shit-part-1)
+- [Javascript Anti Debugging — Some Next Level Sh*t (Part 2— Abusing Chromium Devtools Scope Pane) | by Gal Weizman](https://web.archive.org/web/20210904125310/https://weizman.github.io/?javascript-anti-debugging-some-next-level-shit-part-2)
+
+
 ### DNS rebinding
 
 - [DNS rebinding — Wikipedia](https://en.wikipedia.org/wiki/DNS_rebinding)

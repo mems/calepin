@@ -892,7 +892,9 @@ Aka Spaces vs tabs
 
 See [Release note](../Documentation/Documentation.md#release-note)
 
-## Game dev
+## Game development
+
+Aka game dev
 
 - Use a framerate, and compute all physics on that in each frames, compute the number of frames must be computed with the delta time or within a loop (for replay, as anti-cheat method)
 - store all account activity (connections, change status/state, name, email, password, login, logout, rights, game start, game end, etc.)
@@ -914,6 +916,19 @@ For replay, be sure:
 - be sure sorted items are stable (what happend when 2 elements have the same compared value)
 - consider all external values that could modify states
 - record input and all values (objects position, states)
+
+Interactive elements:
+
+- [Why video game doors are so hard to get right - YouTube](https://www.youtube.com/watch?v=AYEWsLdLmcc)
+- [“The Door Problem” – Liz England](https://web.archive.org/web/20210830075110/https://lizengland.com/blog/2014/04/the-door-problem/)
+- [Video Game Ladders Suck. Here's Why that Matters | EGM](https://web.archive.org/web/20210830172446/https://egmnow.com/video-game-ladders-suck-heres-why-that-matters/)
+- [Putting Doors in Video Games Is a Nightmare, Say Developers - IGN](https://web.archive.org/web/20210823144141/https://www.ign.com/articles/putting-doors-in-video-games-is-a-nightmare-say-developers)
+- [The Door Problem of Combat Design | Andrew Yoder](https://web.archive.org/web/20210827013348/https://andrewyoderdesign.blog/2019/08/04/the-door-problem-of-combat-design/)
+- [Why are the doors so big in video games? Some developers explain | GamesRadar+](https://web.archive.org/web/20210808120733/https://www.gamesradar.com/why-are-the-doors-so-big-in-video-games-some-developers-explain/)
+- [Stephan Hövelbrinks on Twitter: "Doors #gamedev… "](https://web.archive.org/web/20210902055523/https://twitter.com/talecrafter/status/1369153361270935554)
+- [Damion Schubert, Zen Designer on Twitter: "Let's talk about doors in games because a throwaway comment I made yesterday apparently touched a chord. Doors suck, devs hate them, and if your game doesn't absolutely need doors, don't implement them. 1/thread… https://t.co/czqigXNbhI"](https://web.archive.org/web/20210818073042/https://twitter.com/ZenOfDesign/status/1369336758211608583)
+
+See also:
 
 - [Game Programming Patterns](http://gameprogrammingpatterns.com/) - [munificent/game-programming-patterns: Source repo for the book](https://github.com/munificent/game-programming-patterns)
 
