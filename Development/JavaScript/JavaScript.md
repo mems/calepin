@@ -172,8 +172,12 @@ jQuery: `$('.foo > .bar')` is way faster than `$fooEl.find('> .bar')` because jQ
 
 - [vladocar/nanoJS: Minimal standalone JS library for DOM manipulation](https://github.com/vladocar/nanoJS)
 - [You Don't Need](https://github.com/you-dont-need)
+- [Vanilla JS](http://vanilla-js.com/)
+- [Umbrella JS](https://umbrellajs.com/)
 - [dgraham/eslint-plugin-jquery: Disallow jQuery functions with native equivalents.](https://github.com/dgraham/eslint-plugin-jquery)
+- [sachinchoolur/replace-jquery: Automatically finds jQuery methods from existing projects and generates vanilla js alternatives.](https://github.com/sachinchoolur/replace-jquery)
 - [You Might Not Need jQuery](http://youmightnotneedjquery.com/)
+- [fabiospampinato/cash: An absurdly small jQuery alternative for modern browsers.](https://github.com/fabiospampinato/cash)
 - [Thou shalt not depend on me: analysing the use of outdated JavaScript libraries on the web | the morning paper](https://blog.acolyer.org/2017/03/07/thou-shalt-not-depend-on-me-analysing-the-use-of-outdated-javascript-libraries-on-the-web/)
 - [You \(probably\) don't need a JavaScript framework | Slack](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
 - [nefe/You-Dont-Need-jQuery: Examples of how to do query, style, dom, ajax, event etc like jQuery with plain javascript.](https://github.com/nefe/You-Dont-Need-jQuery)
@@ -5301,6 +5305,7 @@ This property is not intended to be use as a storage. **Use `sessionStorage` to 
 
 - [Web Components | MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
 - [HTML Standard](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name)
+- [w3c/webcomponents-cg: Web Components community group](https://github.com/w3c/webcomponents-cg)
 - [html - W3C validation for \<ui-select\> - Stack Overflow](https://stackoverflow.com/questions/28508533/w3c-validation-for-ui-select/28711028#28711028) - W3C HTML Checker (validator) support Web components
 - [Web Components will replace your frontend framework](https://medium.com/@drmoerkerke/web-components-will-replace-your-frontend-framework-3b17a580831c)
 - [Shadow DOM v1: Self-Contained Web Components  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/web-components/shadowdom)

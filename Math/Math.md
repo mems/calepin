@@ -85,6 +85,8 @@ public static function atan2(y:Number, x:Number):Number {
 
 - [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/spherefunctions/spherefunctions.htm) - sphere functions
 - [on ray-sphere | el trastero](http://www.iquilezles.org/blog/?p=2411) - Sphere Intersection
+- [How to evenly distribute points on a sphere more effectively than the canonical Fibonacci Lattice | Extreme Learning](https://web.archive.org/web/20210901181405/http://extremelearning.com.au/how-to-evenly-distribute-points-on-a-sphere-more-effectively-than-the-canonical-fibonacci-lattice/)
+- [Random Position On The Surface Of A Sphere | David Lochhead](https://web.archive.org/web/20210908081512/https://blog.davidlochhead.xyz/posts/2017-10-12-random-position-on-the-surface-of-a-sphere.html#first-try-%E2%80%94-random-vector-with-setlength)
 
 ### 3D orientation
 

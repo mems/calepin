@@ -1456,6 +1456,7 @@ sudo ln {/path1,/path2}/file
 File pointer and file redirection
 
 - [BashGuide/InputAndOutput - Greg's Wiki](http://mywiki.wooledge.org/BashGuide/InputAndOutput#Redirection)
+- [Illustrated Redirection Tutorial \[Bash Hackers Wiki\]](https://web.archive.org/web/20210906140116/https://wiki.bash-hackers.org/howto/redirection_tutorial)
 - [I/O Redirection](http://tldp.org/LDP/abs/html/io-redirection.html)
 - [Bash scripting quirks & safety tips - Julia Evans](http://jvns.ca/blog/2017/03/26/bash-quirks/)
 - named pipe (`mkfifo`)
@@ -1488,6 +1489,7 @@ diff <(cd dir1; ls) <(cd dir2; ls)
 	echo bye
 ) | lftp -f /dev/stdin >> lftp.log 2>&1
 ```
+
 Here-doc & here-string:
 
 ```sh

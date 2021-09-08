@@ -97,3 +97,7 @@ ASP.NET Core:
 - [c# - How to pass objects into an attribute constructor - Stack Overflow](https://stackoverflow.com/questions/1235617/how-to-pass-objects-into-an-attribute-constructor)
 - [c# - Lambda expression in attribute constructor - Stack Overflow](https://stackoverflow.com/questions/16809294/lambda-expression-in-attribute-constructor)
 - [c# - Attribute with action/condition - Stack Overflow](https://stackoverflow.com/questions/21902812/attribute-with-action-condition)
+
+## Compilation
+
+- [MichalStrehovsky/zerosharp: Demo of the potential of C# for systems programming with the .NET native ahead-of-time compilation technology.](https://github.com/MichalStrehovsky/zerosharp)

@@ -59,7 +59,13 @@ Particles can be use for additional effect, smoke, etc.
 
 Possible implementation: physical model is based on repulsion. Overlapping bodies in a grid cell add a repulsion force to each other
 
-## Friction
+## Motion
+
+Aka velocity, acceleration, force, torque
+
+- [Description of Motion](https://web.archive.org/web/20210629104702/http://hyperphysics.phy-astr.gsu.edu/hbase/mot.html#mot2)
+
+### Friction
 
 - [math - Simple physics-based movement - Stack Overflow](https://stackoverflow.com/questions/667034/simple-physics-based-movement/667090#667090)
 - [physics - Find coefficient of static friction if given initial velocity and distance? - Mathematics Stack Exchange](https://math.stackexchange.com/questions/534717/find-coefficient-of-static-friction-if-given-initial-velocity-and-distance)
@@ -71,180 +77,184 @@ Possible implementation: physical model is based on repulsion. Overlapping bodie
 - [Calculating average velocity or speed (video) | Khan Academy](https://www.khanacademy.org/science/physics/one-dimensional-motion/displacement-velocity-time/v/calculating-average-velocity-or-speed)
 
 From [Math time: Resting position · Metafizzy blog](https://metafizzy.co/blog/math-time-resting-position/):
- 
-	function baseLog( a, b ) {
-		return Math.log( b ) / Math.log( a );
+
+```js
+function baseLog( a, b ) {
+	return Math.log( b ) / Math.log( a );
+}
+
+class Particle{
+	constructor( x, y ) {
+		this.x = x;
+		this.y = y;
+		this.velocity = 0;
+		this.accel = 0;
+		this.friction = 0.2;
 	}
-	
-	class Particle{
-		constructor( x, y ) {
-			this.x = x;
-			this.y = y;
-			this.velocity = 0;
-			this.accel = 0;
-			this.friction = 0.2;
+
+	update() {
+		this.velocity += this.accel;
+		this.velocity *= ( 1 - this.friction );
+		this.x += this.velocity;
+		this.accel = 0;
+	}
+
+	applyForce( force ) {
+		this.accel += force;
+	}
+
+	// Euler method
+	getRestingPosition() {
+		// little simulation where thing will rest
+		let restingVelo = 0.07;
+		let velo = this.velocity;
+		let restX = this.x;
+		while ( Math.abs( velo ) > restingVelo ) {
+			velo *= 1 - this.friction;
+			restX += velo;
 		}
-		
-		update() {
-			this.velocity += this.accel;
-			this.velocity *= ( 1 - this.friction );
-			this.x += this.velocity;
-			this.accel = 0;
-		}
-		
-		applyForce( force ) {
-			this.accel += force;
-		}
-		
-		// Euler method
-		getRestingPosition() {
-			// little simulation where thing will rest
-			let restingVelo = 0.07;
-			let velo = this.velocity;
-			let restX = this.x;
-			while ( Math.abs( velo ) > restingVelo ) {
-				velo *= 1 - this.friction;
-				restX += velo;
-			}
-			return restX;
-		}
-		
-		// Math version
-		getRestingPosition() {
-			// get how many ticks until velocity is slow
-			var restingVelo = 0.07; // ideally, this is 0, but that would take infinite amount of ticks
-			var fFriction = 1 - this.friction;
-			var ticks = baseLog( fFriction, restingVelo / Math.abs( this.velocity ) );
-			// integrate to determine resting position
-			var sum = ( Math.pow( fFriction, ticks + 1 ) - 1 ) / ( fFriction - 1 );
-			// additional fFriction to account for initial tick
-			return this.x + this.velocity * fFriction * sum;
-		}
+		return restX;
 	}
-	
-	let estimateX = 0;
-	let canvas = document.createElement("canvas");
-	let ctx = canvas.getContext('2d');
-	let canvasW = canvas.width = window.innerWidth - 20;
-	let canvasH = canvas.height = window.innerHeight - 80;
-	document.body.appendChild(canvas);
-	canvas.addEventListener( 'mousedown', onMousedown, false );
-	let particle = new Particle( canvasW / 2, canvasH / 2 );
-	
-	// -------------------------- animate, render, update -------------------------- //
-	function animate() {
-		particle.update();
-		// wrap around
-		if ( !isDragging ) {
-		  particle.x = ( particle.x + canvasW ) % canvasW;
-		}
-		render();
-		requestAnimationFrame( animate );
+
+	// Math version
+	getRestingPosition() {
+		// get how many ticks until velocity is slow
+		var restingVelo = 0.07; // ideally, this is 0, but that would take infinite amount of ticks
+		var fFriction = 1 - this.friction;
+		var ticks = baseLog( fFriction, restingVelo / Math.abs( this.velocity ) );
+		// integrate to determine resting position
+		var sum = ( Math.pow( fFriction, ticks + 1 ) - 1 ) / ( fFriction - 1 );
+		// additional fFriction to account for initial tick
+		return this.x + this.velocity * fFriction * sum;
 	}
-	
-	function render() {
-		ctx.clearRect( 0, 0, canvasW, canvasH );
-		
-		// render particle
-		ctx.fillStyle = 'hsla(0, 100%, 50%, 0.5)';
-		circle( particle.x, particle.y, 15 );
-		
-		// render estimate
-		ctx.fillStyle = 'hsla(150, 100%, 25%, 0.5)';
-		// wrap around
-		estimateX = ( estimateX + canvasW ) % canvasW;
-		circle( estimateX, canvasH / 2, 10 );
+}
+
+let estimateX = 0;
+let canvas = document.createElement("canvas");
+let ctx = canvas.getContext('2d');
+let canvasW = canvas.width = window.innerWidth - 20;
+let canvasH = canvas.height = window.innerHeight - 80;
+document.body.appendChild(canvas);
+canvas.addEventListener( 'mousedown', onMousedown, false );
+let particle = new Particle( canvasW / 2, canvasH / 2 );
+
+// -------------------------- animate, render, update -------------------------- //
+function animate() {
+	particle.update();
+	// wrap around
+	if ( !isDragging ) {
+	  particle.x = ( particle.x + canvasW ) % canvasW;
 	}
-	
-	function circle( x, y, radius ) {
-		ctx.beginPath();
-		ctx.arc( x, y, radius, 0, Math.PI * 2, true );
-		ctx.fill();
-		ctx.closePath();
+	render();
+	requestAnimationFrame( animate );
+}
+
+function render() {
+	ctx.clearRect( 0, 0, canvasW, canvasH );
+
+	// render particle
+	ctx.fillStyle = 'hsla(0, 100%, 50%, 0.5)';
+	circle( particle.x, particle.y, 15 );
+
+	// render estimate
+	ctx.fillStyle = 'hsla(150, 100%, 25%, 0.5)';
+	// wrap around
+	estimateX = ( estimateX + canvasW ) % canvasW;
+	circle( estimateX, canvasH / 2, 10 );
+}
+
+function circle( x, y, radius ) {
+	ctx.beginPath();
+	ctx.arc( x, y, radius, 0, Math.PI * 2, true );
+	ctx.fill();
+	ctx.closePath();
+}
+
+// -------------------------- mouse -------------------------- //
+let isDragging = false;
+
+function onMousedown( event ) {
+	event.preventDefault();
+	isDragging = true;
+	window.addEventListener( 'mousemove', onMousemove, false );
+	window.addEventListener( 'mouseup', onMouseup, false );
+	particle.x = event.pageX;
+	particle.velocity = 0;
+}
+
+let previousX;
+let previousTime;
+let currentTime;
+
+function onMousemove( event ) {
+	// previous
+	previousX = particle.x;
+	previousTime = currentTime;
+	// current
+	particle.x = event.pageX;
+	currentTime = new Date();
+}
+
+function onMouseup( event ) {
+	if ( previousX ) {
+		particle.velocity = ( particle.x - previousX ) / ( currentTime - previousTime );
+		particle.velocity *= 17;
+		estimateX = particle.getRestingPosition();
+		previousX = null;
 	}
-	
-	// -------------------------- mouse -------------------------- //
-	let isDragging = false;
-	
-	function onMousedown( event ) {
-		event.preventDefault();
-		isDragging = true;
-		window.addEventListener( 'mousemove', onMousemove, false );
-		window.addEventListener( 'mouseup', onMouseup, false );
-		particle.x = event.pageX;
-		particle.velocity = 0;
-	}
-	
-	let previousX;
-	let previousTime;
-	let currentTime;
-	
-	function onMousemove( event ) {
-		// previous
-		previousX = particle.x;
-		previousTime = currentTime;
-		// current
-		particle.x = event.pageX;
-		currentTime = new Date();
-	}
-	
-	function onMouseup( event ) {
-		if ( previousX ) {
-			particle.velocity = ( particle.x - previousX ) / ( currentTime - previousTime );
-			particle.velocity *= 17;
-			estimateX = particle.getRestingPosition();
-			previousX = null;
-		}
-		
-		isDragging = false;
-		window.removeEventListener( 'mousemove', onMousemove, false );
-		window.removeEventListener( 'mousemove', onMouseup, false );
-	}
-	
-	animate();
+
+	isDragging = false;
+	window.removeEventListener( 'mousemove', onMousemove, false );
+	window.removeEventListener( 'mousemove', onMouseup, false );
+}
+
+animate();
+```
 
 Pulse:
 
-	/***********************************************
-	 * PULSE (by Michael Herf)
-	 ***********************************************/
-	
-	/**
-	 * Viscous fluid with a pulse for part and decay for the rest.
-	 * - Applies a fixed force over an interval (a damped acceleration), and
-	 * - Lets the exponential bleed away the velocity over a longer interval
-	 * - Michael Herf, http://stereopsis.com/stopping/
-	 */
-	function pulse_(x) {
-		var val, start, expx;
-		// test
-		x = x * options.pulseScale;
-		if (x < 1) { // acceleartion
-			val = x - (1 - Math.exp(-x));
-		} else {	 // tail
-			// the previous animation ended here:
-			start = Math.exp(-1);
-			// simple viscous drag
-			x -= 1;
-			expx = 1 - Math.exp(-x);
-			val = start + (expx * (1 - start));
-		}
-		return val * options.pulseNormalize;
+```js
+/***********************************************
+ * PULSE (by Michael Herf)
+ ***********************************************/
+
+/**
+ * Viscous fluid with a pulse for part and decay for the rest.
+ * - Applies a fixed force over an interval (a damped acceleration), and
+ * - Lets the exponential bleed away the velocity over a longer interval
+ * - Michael Herf, http://stereopsis.com/stopping/
+ */
+function pulse_(x) {
+	var val, start, expx;
+	// test
+	x = x * options.pulseScale;
+	if (x < 1) { // acceleartion
+		val = x - (1 - Math.exp(-x));
+	} else {	 // tail
+		// the previous animation ended here:
+		start = Math.exp(-1);
+		// simple viscous drag
+		x -= 1;
+		expx = 1 - Math.exp(-x);
+		val = start + (expx * (1 - start));
 	}
-	
-	function pulse(x) {
-		if (x >= 1) return 1;
-		if (x <= 0) return 0;
-		
-		if (options.pulseNormalize == 1) {
-			options.pulseNormalize /= pulse_(1);
-		}
-		return pulse_(x);
+	return val * options.pulseNormalize;
+}
+
+function pulse(x) {
+	if (x >= 1) return 1;
+	if (x <= 0) return 0;
+
+	if (options.pulseNormalize == 1) {
+		options.pulseNormalize /= pulse_(1);
 	}
+	return pulse_(x);
+}
+```
 
 - [stereopsis : How to make things stop](http://stereopsis.com/stopping/)
 
-## Gravity
+### Gravity
 
 - https://www.reddit.com/r/programming/comments/4sc5wz/i_finished_my_gravity_simulator_it_is_now_open/ and https://github.com/larsXYZ/Gravity-Simulator
 
@@ -253,9 +263,9 @@ Pulse:
 > 	if (dist != 0) aks = G * pListe[p].getmass() / (dist*dist);
 > 	pListe[i].getxv() += cos(angle) * aks * tidsskritt;
 > 	pListe[i].getyv() += sin(angle) * aks * tidsskritt;
-> 
+>
 > Why all these atan, cos and sin? Isn't just `cos(angle) = dx / dist`?
-> 
+>
 > Also, you don't conserve momentum when there are any explosions. If some planet explodes you break the loop and forget to think about the following planets and their influence.
 
 Use euler integration
@@ -276,13 +286,13 @@ Use euler integration
 - [what power](https://codepen.io/ge1doot/pen/LpLLQa) - rag doll
 - [Simple Verlet Physics Engine](https://codepen.io/ge1doot/pen/doXvge) - Simple Verlet Physics Engine
 
-### Tower of Lire
+#### Tower of Lire
 
 - [How a Tower of Lire works - GIF on Imgur](http://imgur.com/gallery/iBm7kXA)
 - [Book Stacking Problem -- from Wolfram MathWorld](http://mathworld.wolfram.com/BookStackingProblem.html)
 - [MathCS.org - Real Analysis: Example 4.1.10: The Leaning Tower of Lire](http://www.mathcs.org/analysis/reals/numser/answers/lire_tower.html)
 
-## Kinetic energy
+### Kinetic energy
 
 ```
 K = (1/2) M v²

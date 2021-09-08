@@ -457,6 +457,7 @@ input[type="checkbox"]:checked + label {
 
 - [position: sticky is Amazing](https://gedd.ski/post/position-sticky/)
 - [The stacking context - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+- [What does 100% mean in CSS?](https://web.archive.org/web/20210907190759/https://wattenberger.com/blog/css-percents)
 
 ### Float
 
@@ -2204,6 +2205,7 @@ Note: Declarations in a keyframe that are qualified with `!important` are ignore
 
 - [javascript - Restart animation in CSS3: any better way than removing the element? - Stack Overflow](https://stackoverflow.com/questions/6268508/restart-animation-in-css3-any-better-way-than-removing-the-element)
 
+- [An Interactive Guide to CSS Keyframe Animations with @keyframes](https://web.archive.org/web/20210905100809/https://www.joshwcomeau.com/animation/keyframe-animations/)
 - [Animatable: One property, two values, endless possibilities](http://leaverou.github.io/animatable/)
 - [Myth Busting: CSS Animations vs. JavaScript | CSS-Tricks](https://css-tricks.com/myth-busting-css-animations-vs-javascript/)
 - [The ultimate guide to Web animation | Webdesigner Depot](http://www.webdesignerdepot.com/2015/05/the-ultimate-guide-to-web-animation/)
