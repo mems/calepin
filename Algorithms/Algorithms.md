@@ -60,7 +60,7 @@ PNG use Adam7 algorithm:
 	functions or macros defined elsewhere in the code:
 		visit(), min()
  */
- 
+
 int starting_row[7]  = { 0, 0, 4, 0, 2, 0, 1 };
 int starting_col[7]  = { 0, 4, 0, 2, 0, 1, 0 };
 int row_increment[7] = { 8, 8, 8, 4, 4, 2, 2 };
@@ -107,6 +107,7 @@ while (pass < 7)
 - [A paper algorithm notation](http://canonical.org/~kragen/sw/dev3/paperalgo)
 - [Jam3/math-as-code: a cheat-sheet for mathematical notation in code form](https://github.com/Jam3/math-as-code)
 - [How to Read a Paper](http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf)
+- [Freya Holmér on Twitter: "btw these large scary math symbols are just for-loops https://t.co/Kq6dcihPp4" / Twitter](https://twitter.com/freyaholmer/status/1436696408506212353?s=12)
 
 ## Language detection
 
@@ -136,13 +137,13 @@ uint wang_hash(uint seed)
 
 ```glsl
 // float hash
-hash(float x) 
-{ 
+hash(float x)
+{
 	const float e = 1234.5678;
 	return frac(frac(x*e)-x*e);
 }
 
-hash(vec2 xy) 
+hash(vec2 xy)
 {
 	return hash(hash(xy.x)+xy.y);
 }
@@ -165,23 +166,23 @@ hash(vec2 xy)
 
 - [R-tree — Wikipedia](https://en.wikipedia.org/wiki/R-tree)
 - [Tree Traversal in C without Recursion | Dr Dobb's](http://www.drdobbs.com/tree-traversal-in-c-without-recursion/184401260)
-	
+
 	```c
 	void tree_depth_traversal1 (struct t_node *root, void (*process)(struct t_node *node, int first_flag))
 	{
 		// TRUE  1st exploration of node,  continue with 1st subnode
 		// FALSE node completely explored, continue with sibling
 		int dir_flag = TRUE;
-		
+
 		// the current node during exploration
 		struct t_node *current = root;
-		
+
 		//----- no tree or no user function , nothing to do
 		if ((root == NULL) || (process == NULL)) return;
-		
+
 		//----- the root pre order
 		(* process) (root, TRUE);
-		
+
 		if (has_sub(root))
 		{
 			//----- the exploration loop
@@ -190,9 +191,9 @@ hash(vec2 xy)
 				&& ((current != root) || (dir_flag == TRUE)))
 			{
 				//--- process the node : TRUE prefix, FALSE postfix
-				
+
 				(* process) (current, dir_flag);
-				
+
 				//--- 1st expl. of the node, continue with 1st subnode
 				// or stay for 2nd part of the process
 				if (dir_flag == TRUE)
@@ -204,17 +205,17 @@ hash(vec2 xy)
 					// go to 2nd exploration of the current node
 					dir_flag = FALSE;
 				}
-				
+
 				//--- second expl. of the node, continue with sibling
 				// or the parent if no sibling
 				else
 				{
 					if (has_sibling(current))
 					{
-						// goto 1st exploration of the sibling 
+						// goto 1st exploration of the sibling
 						// (now current)
 						current = get_sibling(current);
-						
+
 						dir_flag = TRUE;
 					}
 					else
@@ -223,7 +224,7 @@ hash(vec2 xy)
 			}
 			// ASSERT ((current == root) && (dir_flag == FALSE));
 		}
-		
+
 		//----- the root post order
 		(* process) (root, FALSE);
 	}
@@ -245,11 +246,11 @@ double rsqrt( double number )
 	std::int64_t i;
 	double x2, y;
 	const double threehalfs = 1.5;
-	
+
 	x2 = number * 0.5;
 	y = number;
 	i = *(std::int64_t *) &y;// evil floating point bit level hacking
-	i = 0x5fe6eb50c7b537a9 - (i >> 1);// what the fuck? 
+	i = 0x5fe6eb50c7b537a9 - (i >> 1);// what the fuck?
 	y = *(double *) &i;
 	y = y * ( threehalfs - ( x2 * y * y ) );// 1st iteration
 //	y = y * ( threehalfs - ( x2 * y * y ) );// 2nd iteration, this can be removed
@@ -301,20 +302,20 @@ See also [nearest neighbor search](#nearest-neighbor-search)
 ```js
 // From http://wayback.archive.org/web/20131006181606/http://www.brooksandrus.com/blog/2008/11/12/improve-flash-mpeg-4-avc-seeking-with-binary-search/#comment-49096 Improve Flash MPEG-4 AVC Seeking With Binary Search | Brooks Andrus
 /**
-* Loops through an array of seekpoints to find a requested time. 
-* If the value is found within the array of seekpoints the index at which 
-* the value is found is returned. If an exact match is not found, -1 is returned 
-* and the the upper and lower indices between which the value falls are set 
-* (so you can determine the closest indice, or seek to to the nearest indexed 
+* Loops through an array of seekpoints to find a requested time.
+* If the value is found within the array of seekpoints the index at which
+* the value is found is returned. If an exact match is not found, -1 is returned
+* and the the upper and lower indices between which the value falls are set
+* (so you can determine the closest indice, or seek to to the nearest indexed
 * time behind or forward in the array of seekpoints.
-* 
+*
 * Seekpoints array must be sorted.
-* 
+*
 * @param {number} value	the requested seek time to find
 * @param {Array} range the array of seekpoints collected from an MPEG-4 AVC NetStream metadata event
 * @param {number} the low index within the range we'd like to scan
 * @param {number} the high index within the range we'd like to scan
-* 
+*
 */
 function binarySearch(value, range, low, high)
 {
@@ -369,7 +370,7 @@ function binarySearch(value, range, low, high)
 - <https://github.com/slightlyoff/cassowary.js>
 - [UW Cassowary Constraint Solving Toolkit](http://constraints.cs.washington.edu/cassowary/)
 - [Quadrilateral demo - Cassowary Javascript](http://www.badros.com/greg/cassowary/js/quaddemo.html) - <http://www.badros.com/greg/cassowary/js/quaddemo.js>
-- <http://cassowary.cvs.sourceforge.net/viewvc/cassowary/cassowary/js/> 
+- <http://cassowary.cvs.sourceforge.net/viewvc/cassowary/cassowary/js/>
 
 ## Diamond-square
 
@@ -401,15 +402,15 @@ function test( value ) {
 		nDigit = 0,
 		bEven = false,
 		n, cDigit;
-	
+
 	value = value.replace( /\D/g, "" );
-	
+
 	// Basing min and max length on
 	// http://developer.ean.com/general_info/Valid_Credit_Card_Types
 	if ( value.length < 13 || value.length > 19 ) {
 		return false;
 	}
-	
+
 	for ( n = value.length - 1; n >= 0; n--) {
 		cDigit = value.charAt( n );
 		nDigit = parseInt( cDigit, 10 );
@@ -421,7 +422,7 @@ function test( value ) {
 		nCheck += nDigit;
 		bEven = !bEven;
 	}
-	
+
 	return ( nCheck % 10 ) === 0;
 }
 ```
@@ -451,12 +452,12 @@ function luhnChk(luhn) {
 	let length = luhn.length,
 	let mul = 0;
 	let sum = 0;
-	
+
 	while (length--) {
 		sum += prodArr[mul][parseInt(luhn.charAt(length), 10)];
 		mul ^= 1;
 	}
-	
+
 	return sum % 10 === 0 && sum > 0;
 }
 ```
@@ -469,18 +470,18 @@ function luhnChk(luhn) {
 ## Point in polygon
 
 > traverse the path from the perspective of a point and add up the amount of turning along the way
-> 
+>
 > if it made a full turn, it's inside
 > if it wound back to 0, it's outside
 > [...]
 > this is one of my favorite techniques, because it works not only for convex paths, but for concave ones too, which, is kinda rare and beautiful
-> 
+>
 > plus it's real fast if you measure quadrant traversal rather than real angles~
 > [...]
 > for self-intersecting paths, you will alternate between inside/outside for each nested loop
 > [...]
 > it's more complicated in 3D! the surface-ray intersection method works better there
-> 
+>
 > — [Freya Holmér on Twitter: "my favorite way to see if a point is inside or outside a path, is using its winding number🍥 traverse the path from the perspective of a point and add up the amount of turning along the way if it made a full turn, it's inside if it wound back to 0, it's outside it's so neat~💖 https://t.co/oDGxq697cI" / Twitter](https://twitter.com/FreyaHolmer/status/1232826293902888960)
 
 - [Inclusion of a Point in a Polygon](http://geomalgorithms.com/a03-_inclusion.html)

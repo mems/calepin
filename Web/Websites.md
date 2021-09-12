@@ -2143,29 +2143,20 @@ else {
 
 ## Twitter
 
-Default profile picture: `https://abs.twimg.com/sticky/default_profile_images/default_profile_1_400×400.png` where `1` can be changed
+- [Obfusc-a-tweet reloaded](http://xem.github.io/articles/#obfuscatweet_url_en)
+- [API changelog](https://www.hitchhq.com/twitter/activities)
+- [Big GIFs welcome: Twitter increases maximum GIF size to 15MB on web | Ars Technica](http://arstechnica.com/business/2016/07/big-gifs-welcome-twitter-increases-maximum-gif-size-to-15mb-on-web/)
 
-**Note: [player card](https://dev.twitter.com/cards/types/player) require HTTPS and must be approved.** It's composed as an iframe playing a stream (video/audio). `twitter:player:stream` support only MP4 (H.264 and/or AAC)
-
-Note: Twitter use meta `twitter:image` and remove mention to `twitter:image:src`, but only the lastest works (or have the precedence). See https://twittercommunity.com/t/twitter-image-src-or-twitter-image/16085/7
-Note: Use `twitter:image:alt` to provide alternative text content. Equivalent of `alt` attribute of an `img` element. See [Twitter Has Alt Text! (with some caveats) | Adrian Roselli](http://adrianroselli.com/2016/03/twitter-has-alt-text-with-some-caveats.html)
-Note: For Summary card with large image, the aspect ratio is 2:1. See [Advertiser creative specifications](https://business.twitter.com/en/help/campaign-setup/advertiser-card-specifications.html)
+### Fetch tweets
 
 - [Twitter timeline in true chronological order include retweets](https://twitter.com/search?f=tweets&vertical=default&q=filter%3Afollows%20-filter%3Areplies%20include%3Anativeretweets) (click "Latest" on mobile)
 - [Twitter timeline in true chronological order without retweets, liked tweets](https://twitter.com/search?f=tweets&q=filter%3Afollows%20-filter%3Areplies&src=typd)
 - Exemple of complex search: https://twitter.com/search?f=tweets&vertical=default&q=to%3Awaxpancake%20-from%3Awaxpancake%20%28irony%20OR%20ironic%20OR%20%22else%27s%20retweet%22%20OR%20%22have%20found%22%20OR%20%22someone%20i%20follow%22%29%20since%3A2018-06-06%20-from%3Aadambanksdotcom&src=typd
-- [Obfusc-a-tweet reloaded](http://xem.github.io/articles/#obfuscatweet_url_en)
-- [API changelog](https://www.hitchhq.com/twitter/activities)
-- [Big GIFs welcome: Twitter increases maximum GIF size to 15MB on web | Ars Technica](http://arstechnica.com/business/2016/07/big-gifs-welcome-twitter-increases-maximum-gif-size-to-15mb-on-web/)
-- [Card Validator | Twitter Developers](https://cards-dev.twitter.com/validator)
-- [Advertiser creative specifications](https://business.twitter.com/en/help/campaign-setup/advertiser-card-specifications.html)
 
-- `https://pbs.twimg.com/media/MEDIA_ID?format=png&name=large`, `https://pbs.twimg.com/media/MEDIA_ID.png:large` (`.jpg`, without `:large`)
+URL: `https://twitter.com/i/profiles/show/{user}/timeline/tweets?include_available_features=1&include_entities=1&include_new_items_bar=true`
 
-**Image at maximum resolution**, right-click -> View in new tab -> add `:orig` after the `.jpg` in the URL
+Optional: `max_position={last_tweet_id}`
 
-Tweets: `https://twitter.com/i/profiles/show/{user}/timeline/tweets?include_available_features=1&include_entities=1&include_new_items_bar=true`
-	max_position={last_tweet_id}
 Headers:
 
 ```http
@@ -2179,23 +2170,46 @@ X-Requested-With: XMLHttpRequest
 Response:
 
 ```
-"items_html"
-https://github.com/kennethreitz/twitter-scraper/blob/master/twitter_scraper.py
+{"items_html": "..."}
 ```
+
+- [bisguzar/twitter-scraper: Scrape the Twitter Frontend API without authentication.](https://github.com/bisguzar/twitter-scraper)
+
+### Card
+
+Note: Twitter use meta `twitter:image` and remove mention to `twitter:image:src`, but only the lastest works (or have the precedence). See https://twittercommunity.com/t/twitter-image-src-or-twitter-image/16085/7
+Note: Use `twitter:image:alt` to provide alternative text content. Equivalent of `alt` attribute of an `img` element. See [Twitter Has Alt Text! (with some caveats) | Adrian Roselli](http://adrianroselli.com/2016/03/twitter-has-alt-text-with-some-caveats.html)
+Note: For Summary card with large image, the aspect ratio is 2:1. See [Advertiser creative specifications](https://business.twitter.com/en/help/campaign-setup/advertiser-card-specifications.html)
+
+**Note: [player card](https://dev.twitter.com/cards/types/player) require HTTPS and must be approved.** It's composed as an iframe playing a stream (video/audio). `twitter:player:stream` support only MP4 (H.264 and/or AAC)
+
+- [Card Validator | Twitter Developers](https://cards-dev.twitter.com/validator)
+- [Advertiser creative specifications](https://business.twitter.com/en/help/campaign-setup/advertiser-card-specifications.html)
+
+### Profile image
+
+Default profile picture: `https://abs.twimg.com/sticky/default_profile_images/default_profile_1_400×400.png` where `1` can be changed
+
+### Download media
+
+Aka image
+
+- `https://pbs.twimg.com/media/MEDIA_ID?format=png&name=large`, `https://pbs.twimg.com/media/MEDIA_ID.png:large` (`.jpg`, without `:large`)
+
+**Image at maximum resolution**, right-click -> View in new tab -> add `:orig` after the `.jpg` in the URL
 
 Media video:
 
-Use same APIs used by `https://mobile.twitter.com`:
-`https://api.twitter.com/2/timeline/conversation/{tweet_id}.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&include_mute_edge=1&include_can_dm=1&include_can_media_tag=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_alt_text=true&include_reply_count=1&tweet_mode=extended&include_entities=true&include_user_entities=true&include_ext_media_color=true&send_error_codes=true&count=20&ext=mediaStats%2ChighlightedLabel`
-Require header `authorization: Bearer ....`
-Read the JSON, as `root[0].globalObjects.tweets[${TWEET_ID}].extended_entities.media[0].video_info.variants`
-Previously, in `https://api.twitter.com/1.1/conversation/show.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_media_color=true&tweet_mode=extended&id={tweet_id}&max_id={tweet_id}`:
-Read the JSON, as `roor[0].extended_entities.media[0].video_info.variants`
+1. load:
+	`https://api.twitter.com/2/timeline/conversation/{tweet_id}.json?include_profile_interstitial_type=1&include_blocking=1&include_blocked_by=1&include_followed_by=1&include_want_retweets=1&include_mute_edge=1&include_can_dm=1&include_can_media_tag=1&skip_status=1&cards_platform=Web-12&include_cards=1&include_ext_alt_text=true&include_reply_count=1&tweet_mode=extended&include_entities=true&include_user_entities=true&include_ext_media_color=true&send_error_codes=true&count=20&ext=mediaStats%2ChighlightedLabel`
+	Require header `authorization: Bearer ....`
+2. read the JSON, as `root[0].globalObjects.tweets[${TWEET_ID}].extended_entities.media[0].video_info.variants`
 
-Or APIs used by
-`https://api.twitter.com/1.1/videos/tweet/config/{tweet_id}.json`
-Require header `authorization: Bearer ....`
-Read the JSON as `root.track.playbackUrl`
+Or
+
+1. load `https://api.twitter.com/1.1/videos/tweet/config/{tweet_id}.json`
+	Require header `authorization: Bearer ....`
+2. read the JSON as `root.track.playbackUrl`
 
 Or use jDownloader with `https://twitter.com/{user}/status/{tweet_id}/video/1`
 

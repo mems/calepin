@@ -243,4 +243,13 @@ https://www.budget.fr/budget-FR/fr_FR/country-terms-condition.html
 
 https://www.ada.fr/conditions/location.html
 
+## Visa
 
+> L'attestation d'assistance est nécessaire notamment dans les cas suivants :
+>
+> - une demande de visa pour certains pays.
+> - une demande de visa pour la Fédération de Russie (attention cet Etat est particulièrement vigilant quant à la concordance des dates de voyage aller et retour figurant sur votre demande de visa et votre attestation d'assistance)
+> - une demande émanant d'une structure organisatrice de voyages (une école, un établissement d'enseignement, une association, une agence de voyages…)
+> - Cuba exige la preuve d'une "couverture rapatriement" aux points d'entrées du pays (aéroports, ports ...)
+
+- [Nos services d'assistance - Le Groupe IMA](https://ima.eu/fr/services-en-ligne/assistance-ima.php)
