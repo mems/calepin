@@ -6854,6 +6854,7 @@ Cross domain errors can't be catched in JS with Safari
 If top domain is shared, update `document.domain`
 
 - [Document.domain - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/domain)
+- [Simon Pieters 💉💉 on Twitter: "What is document.domain? What does it do? Why is it bad? (Thread)"](https://web.archive.org/web/20210918131641/https://twitter.com/zcorpan/status/1202958734949060608?s=12)
 
 ### Parse URL
 

@@ -2208,14 +2208,18 @@ Other:
 
 ### Icons and Cursors
 
-	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/Resources/cursors
-	/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
+```
+/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/Resources/cursors
+/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources
+```
 
 ### Sounds
 
-	/System/Library/Sounds/
-	/Library/Sounds/
-	~/Library/Sounds/
+```
+/System/Library/Sounds/
+/Library/Sounds/
+~/Library/Sounds/
+```
 
 ### AFPS
 
@@ -2234,7 +2238,7 @@ Use NTFS-3G or use exFAT instead (supported natively)
 
 ### Mount file system
 
-- [Home - FUSE for macOS](https://osxfuse.github.io/) (successor of MacFUSE)
+- [Home - macFUSE](https://osxfuse.github.io/) (successor of MacFUSE)
 
 #### Mount AFP share online
 
@@ -2369,6 +2373,27 @@ See [Automator](#automator)
 - [macos - OSX: Execute bash script when file appears in folder - Stack Overflow](https://stackoverflow.com/questions/21385105/osx-execute-bash-script-when-file-appears-in-folder)
 - [macos - How do I use OSX's Folder Actions to execute a command in Terminal when a file is added to a folder? - Stack Overflow](https://stackoverflow.com/questions/52770684/how-do-i-use-osxs-folder-actions-to-execute-a-command-in-terminal-when-a-file-i)
 - [bash - Folder action not triggering shell script - Stack Overflow](https://stackoverflow.com/questions/38665137/folder-action-not-triggering-shell-script)
+
+### Test disk speed
+
+aka test USB thumb speed
+
+```sh
+# Write 1GB of zero to tsfile
+dd if=/dev/zero bs=1024k of=tstfile count=1024
+# Will output (if locale is english):
+# 1024+0 records in
+# 1024+0 records out
+# 1073741824 bytes (1.1 GB) copied, 2.27431 s, 472 MB/s
+
+# Read tsfile (1GB)
+dd if=tstfile bs=1024k of=/dev/null count=1024
+# Remove tsfile
+rm tstfile
+```
+
+- [Benchmark your SSD or hard disk speed - Mac OS X Hints](https://web.archive.org/web/20200924161550/https://hints.macworld.com/article.php?story=20120704113548693)
+- [‎Blackmagic Disk Speed Test on the Mac App Store](https://apps.apple.com/us/app/id425264550?mt=12)
 
 ## Startup and login
 
@@ -2507,7 +2532,9 @@ Lift the restriction for Terminal: [Operation not permitted - Mojave security?](
 
 ### App Sandbox
 
-	~/Library/Containers
+```
+~/Library/Containers
+```
 
 - [Objective-See](https://objective-see.com/blog/blog_0x10.html)
 

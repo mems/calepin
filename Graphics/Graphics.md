@@ -2123,11 +2123,13 @@ Aka fire
 
 Aka sand dune
 
-See [Water](#water)
+See [Liquid](#liquid)
 
 - [Nighttime Sand Dunes](https://www.shadertoy.com/view/XtySRm)
 
 ### Liquid
+
+Aka water
 
 - [Left 4 Dead 2 – Puke | Simon schreibt.](https://simonschreibt.de/gat/left-4-dead-2-puke/)
 - [No particles. Gerstner Wave shader + analytical splashes - YouTube](https://www.youtube.com/watch?v=OQ3D0Q5BlOs) - gerstner wave shader, utilizing distance fields for analytical splashes. All splashes are a single mesh here, using a masked flipbook texture. Splash flipbook texture. [Ryan Brucks on Twitter: "Test using distance fields for analytical splashes. No particles are enabled here, all splashes are from 1 mesh. https://t.co/2o7dSBxt4S" / Twitter](https://twitter.com/ShaderBits/status/827969354121805824)
@@ -2144,6 +2146,7 @@ See [Water](#water)
 - Unity liquid shader, aka Wobble: [Quick Game Art Tips - Unity Liquid Shader | Minions Art on Patreon](https://www.patreon.com/posts/quick-game-art-18245226)
 - [Macoron/Unity-Simple-Liquid: Simple high-performance liquids simulation for Unity3d](https://github.com/Macoron/Unity-Simple-Liquid)
 - [Simulating Liquids in Bottles with a Shader](https://80.lv/articles/simulating-liquids-in-a-bottle-with-a-shader/)
+- [Ian Hubert on Twitter: "This is one of those things I've wondered about for like 10 years- can you just map footage of a waterfall onto waterfallish geometry? Was exploring a mountain river yesterday with Kaitlin and decided to shoot some footage to find out. It's pretty forgiving! #b3d… https://t.co/fsgx8E33jG"](https://web.archive.org/web/20210917054728/https://twitter.com/Mrdodobird/status/1276422592069419010)
 
 ![Unity liquid shader](https://c10.patreonusercontent.com/3/eyJ3Ijo2MjB9/patreon-media/p/post/18245226/db9cc3b3c3a649788900464d416eae9f/1.gif?token-time=1591883850&token-hash=QyNle-lEchyr3TAekNeRKqGgY7MnizmSfVWMmNIeBYA%3D)
 

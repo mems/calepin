@@ -429,8 +429,14 @@ git branch --merged | egrep -v "(^\*|main|master|develop)" | xargs git branch -d
 ```sh
 # Get the commit hash that delete the file
 git rev-list -n 1 HEAD -- <file_path>
+
+# List all commits that involved that file path
+git log --all -- <file_path>
+
 # List all deleted files
 git ls-files -d
+git log --diff-filter=D --summary | grep delete
+
 # Restore the
 git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
 ```

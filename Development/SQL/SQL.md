@@ -1,5 +1,6 @@
 - [SQL style guide by Simon Holywell](http://www.sqlstyle.guide/)
 - [The annotated table of contents](http://use-the-index-luke.com/sql/table-of-contents)
+- [CheatSheets/SQL-V1.pdf at main · ABZ-Aaron/CheatSheets](https://github.com/ABZ-Aaron/CheatSheets/blob/main/SQL-V1.pdf)
 
 Tables names:
 

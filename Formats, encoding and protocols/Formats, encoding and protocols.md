@@ -1576,6 +1576,11 @@ Use `multipart/related`?
 - https://www.iana.org/assignments/media-types/text/directory
 - [Unified system](https://specifications.freedesktop.org/shared-mime-info-spec/latest/ar01s02.html#idm140622087696400)
 
+## File system
+
+- [Another Forensics Blog: Mounting an APFS image in Linux](https://web.archive.org/web/20210531025605/https://az4n6.blogspot.com/2018/01/mounting-apfs-image-in-linux.html)
+- [sgan81/apfs-fuse: FUSE driver for APFS (Apple File System)](https://github.com/sgan81/apfs-fuse)
+
 ## Reverse engineering data
 
 - [Protocol Buffers](./Protocol%20Buffers/Protocol%20Buffers.md)
@@ -1652,6 +1657,7 @@ video.src = "data:video/webm;base64,GkXfowEAAAAAAAAfQoaBAUL3gQFC8oEEQvOBCEKChHdl
 ### Sample filesystem hierarchy
 
 - [generate a tree of diverse file names](https://github.com/jakeogh/angryfiles)
+- [petrosagg/wtfiles: Files that make you go WTF!](https://github.com/petrosagg/wtfiles)
 
 ### Images
 

@@ -684,7 +684,13 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
 
 See [Relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
-## Reduce CPU/GPU
+## Reduce CPU/GPU usage
+
+- prefer server-side rendering for primary content
+- lazy load third party resources with facades
+- deliver ES6 modules to up-to-date browsers
+
+- [Small Bundles, Fast Pages: What To Do With Too Much JavaScript | Calibre](https://calibreapp.com/blog/bundle-size-optimization)
 
 Code markup:
 
@@ -692,6 +698,7 @@ Client side: Serve HTML + CSS + JS + Execute JS
 Server side: Serve HTML (gzipped, a tiny tiny bit more) + CSS
 
 - [Jake Archibald on Twitter: "I took the code examples from https://t.co/Oyiax6163l and compared with highlighting markup, and without (https://t.co/oIYkvupr2D). After gzip: With highlighting markup: 900b. Without highlighting markup: 723b. PrismJS: 5.2k.… https://t.co/0xcp53jdrB"](https://twitter.com/jaffathecake/status/1113017397655547905)
+
 
 ## Control loading
 

@@ -36,7 +36,12 @@ See [Maildir](Maildir)
 
 [Since few versions](https://bugzilla.mozilla.org/show_bug.cgi?id=365879), Thunderbird OSX don't include "Unix Mailspool" account type.
 
-The workaround is get the file [`movemail.rdf`](https://github.com/mozilla/releases-comm-central/blob/master/mailnews/base/ispdata/movemail.rdf) and install it in `Thunderbird.app/Contents/MacOS/isp`. Then follow [the instructions to configure an "Unix Mailspool" account](http://askubuntu.com/questions/1916/how-can-i-access-system-mail-in-var-mail-via-thunderbird)
+[Thunderbird version 91.0 release note](https://www.thunderbird.net/en-US/thunderbird/91.0/releasenotes/): "Movemail support removed". See [Bug 1625741](https://bugzilla.mozilla.org/show_bug.cgi?id=1625741)
+
+The workaround is get the file [`movemail.rdf`](https://github.com/mozilla/releases-comm-central/blob/master/mailnews/base/ispdata/movemail.rdf) and install it in `Thunderbird.app/Contents/MacOS/isp`. Then follow [the instructions to configure an "Unix Mailspool" account](http://askubuntu.com/questions/1916/how-can-i-access-system-mail-in-var-mail-via-thunderbird).
+See also:
+- [RDF file support drop for direct implementation](https://github.com/mozilla/releases-comm-central/commit/9dfcbbfccada85731e849005e7aa83713580754e#diff-98446bcd20f1b8a4e15ac68e4df90a4912cd03cb91a9d91dc95ea442a8da69a6)
+- [Alternative method of reading spool file in Thunderbird without movemail support? : Thunderbird](https://www.reddit.com/r/Thunderbird/comments/pptgvo/alternative_method_of_reading_spool_file_in/)
 
 For `Mail.app`, follow these intructions: [Access local mail via Mail.app - Mac OS X Hints](http://hints.macworld.com/article.php?story=20040313194905606)
 

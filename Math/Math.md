@@ -93,6 +93,13 @@ public static function atan2(y:Number, x:Number):Number {
 - [deviceorientation - quaternion & rotation matrix manipulation - w/ three.js](http://rawgit.com/richtr/threeVR/master/examples/vr_basic.html) - see [An orientation-aware Virtual Reality controller for web browsers built on top of three.js](https://github.com/richtr/threeVR/)
 - [FULLTILT DeviceOrientation three.js test page](http://rawgit.com/adtile/Full-Tilt/master/examples/vr_test.html) - see https://github.com/adtile/Full-Tilt
 
+### Traveling Salesman Problem
+
+- [DiegoVicen/som-tsp: Solving the Traveling Salesman Problem using Self-Organizing Maps](https://github.com/DiegoVicen/som-tsp)
+- [Using Self-Organizing Maps to solve the Traveling Salesman Problem](https://web.archive.org/web/20210906072152/https://diego.codes/post/som-tsp/)
+- [(2) Matt Dzugan on Twitter: "📣 Fun Puzzle: How can we take advantage of the widely researched “Traveling-Salesman-Problem” tools and algorithms to solve a related “Single-Pickup, Multi-Dropoff” problem? spoiler (and code) in thread🧵 https://t.co/PuEOM9ORHf" / Twitter](https://twitter.com/MattDzugan/status/1438927293661995012)
+- [Solving Single-Pickup Multi-Dropoff as Traveling Salesman Problem / Matt Dzugan / Observable](https://observablehq.com/@mattdzugan/solving-single-pickup-multi-dropoff-as-traveling-salesman)
+
 ## Circle outer tangent
 
 Circle outer tangent of 2 circles

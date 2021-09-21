@@ -2439,6 +2439,8 @@ Get Markdown of Wiki:
 For home page `https://github.com/msndevs/protocol-docs/wiki` go to `https://github.com/msndevs/protocol-docs/wiki/Home.md` (redirect to `https://raw.githubusercontent.com/wiki/msndevs/protocol-docs/Home.md`)
 For other page `https://github.com/msndevs/protocol-docs/wiki/Authentication` go to `https://github.com/msndevs/protocol-docs/wiki/Authentication.md` (redirect to `https://raw.githubusercontent.com/wiki/msndevs/protocol-docs/Authentication.md`)
 
+Found commit that delete file: `https://github.com/{username}/{repository}/commits/{branch}/{filepath}`. Branch could be `main` (or `master`)
+
 - `https://api.github.com/repos/{username}/{repository}/commits/{branch}`
 - `https://gist.github.com/{gist_id}{/revision_id}{/filename}` (`revision_id` and `filename` are optional)
 - `https://gist.githubusercontent.com/{gist_id}/raw{/revision_id}{/filename}` (`revision_id` and `filename` are optional)

@@ -1,3 +1,6 @@
+- [Errata Security: Falsehoods programmers believe about networks](https://web.archive.org/web/20210411013500/https://blog.erratasec.com/2012/06/falsehoods-programmers-believe-about.html#.YHJSSHnS9qs)
+- [BBR: Congestion-Based Congestion Control - ACM Queue](https://queue.acm.org/detail.cfm?id=3022184)
+
 ## DNS
 
 ```
@@ -25,7 +28,7 @@ RR:
 	DNS Resource Record
 
 > A DNS zone file contains the list of all Resource Records in the DNS zone. Format is defined in RFC1035 page 33 with an addendum in RFC2308. A unique SOA RR and at least one NS RR for the zone name are required. A complete RR is a quintuplet {FQDN_NAME, TTL, CLASS, TYPE, RDATA} which can be in abbreviated form in some cases.
-> 
+>
 > - Comments start with a semicolon `;` and go to the end of line.
 > - Empty lines are allowed; any combination of tabs and spaces acts as a delimiter.
 > - RR are defined line by line as :
@@ -35,23 +38,23 @@ RR:
 > 	- if `Name` is not dot-terminated (non FQDN), the default domain name defined by `$ORIGIN` directives is concatenated to `Name`
 > 	- if no `TTL`, the TTL is defined by `$TTL` directives.
 > 	- if no `CLASS`, the CLASS is taken from the last stated RR
-> 	- `TTL` and `CLASS` can be exchanged. 
+> 	- `TTL` and `CLASS` can be exchanged.
 > - `$TTL integer_value` sets the default value of TTL for following RRs in file (RFC2308, bind>8.1)
 > - `$ORIGIN fqdn_name` sets the default value of domain name for following RRs in file. Initially, in BIND, the value is set to the current zone name.
 > - `$INCLUDE filename` inserts the named file into the current file. NB: be careful about value of `$TTL` or `$ORIGIN` after a `$INCLUDE`
 > - `@` is used to denote the current default domain name.
 > - `(` and `)` are used to group data that crosses a line boundary. Line terminations are not recognized within parentheses
-> - `\` is used to quote special characters. Ex : `\.` can be used to place a dot character in a label; `\223` is the 8-bit character corresponding to decimal value 223. 
-> 
+> - `\` is used to quote special characters. Ex : `\.` can be used to place a dot character in a label; `\223` is the 8-bit character corresponding to decimal value 223.
+>
 > Stylistic hints:
-> 
+>
 > - Organize RR : Start with SOA, NS and MX of the zone, continue with delegation (NS) and glue. Group RR by names.
 > - Comments are useful
 > - Use spaces or tabulations for vertical alignment
 > - Start file with a `$ORIGIN` and a `$TTL`
 > - Try to avoid writing of the zone name in the file
 > - Generate serial number in SOA as : year/month/day/version 4+2+2+2.
-> - **BE CAREFUL**: Modify the serial number each time the master file is modified 
+> - **BE CAREFUL**: Modify the serial number each time the master file is modified
 
 `CNAME` can't be used for apex domain (aka bare domain or naked domain, ex: example.com):
 

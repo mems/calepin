@@ -367,7 +367,7 @@ function binarySearch(value, range, low, high)
 
 ## Constraint solver
 
-- <https://github.com/slightlyoff/cassowary.js>
+- https://github.com/slightlyoff/cassowary.js
 - [UW Cassowary Constraint Solving Toolkit](http://constraints.cs.washington.edu/cassowary/)
 - [Quadrilateral demo - Cassowary Javascript](http://www.badros.com/greg/cassowary/js/quaddemo.html) - <http://www.badros.com/greg/cassowary/js/quaddemo.js>
 - <http://cassowary.cvs.sourceforge.net/viewvc/cassowary/cassowary/js/>

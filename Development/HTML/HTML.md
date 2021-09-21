@@ -925,6 +925,12 @@ Aka a11y
 
 ![Persona Spectrum - Inclusive, A Microsoft Design Toolkit](Persona%20Spectrum.png)
 
+> the biggest barriers that have easiest fixes:
+> - images w/o  alt text
+> - lack of landmarks, eg `<main>`, `<nav>` etc
+> - not using semantic HTML, eg `<div>` instead of `<button>`
+> — [Bruce Lawson on Twitter: "At work, that nice @LeonieWatson came and told our devs about screen readers. She answered the Q "what are the biggest barriers that have easiest fixes: - images w/o alt text - lack of landmarks, eg \<main\>, \<nav\> etc - not using semantic HTML, eg \<div\> instead of \<button\>"](https://web.archive.org/web/20210910184043/https://twitter.com/brucel/status/1436387758700892180)
+
 > Attention to detail is important. Especially where a11y is concerned.
 
 > Programmers program for the person they know best
@@ -1275,6 +1281,7 @@ See [Details and summary](#details-and-summary)
 
 Note: Ideally, expandable items should be following the item that expands and collapses them
 
+- [Details / Summary Are Not \[insert control here\] | Adrian Roselli](https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html)
 - [Using aria-expanded to indicate the state of a collapsible element - WCAG WG](https://www.w3.org/WAI/GL/wiki/Using_aria-expanded_to_indicate_the_state_of_a_collapsible_element)
 - [Using the WAI-ARIA aria-expanded state to mark expandable and collapsible regions - WCAG WG](https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions)
 - [Example 22 - Hide/Show: Region is exclusive](http://oaa-accessibility.org/example/22/)
@@ -1465,7 +1472,7 @@ Firefox: scrollable elements are focusable (via keytab) without `tabindex` attri
 
 ## Extra text ease accessibility
 
-For Text Alternative Computation
+For text alternative computation
 
 Use `aria-label` (better):
 
@@ -1566,6 +1573,7 @@ Ex. Firefox reader view detect presence of some nodes types to enable it
 - [WebAIM: Web Accessibility and SEO](http://webaim.org/blog/web-accessibility-and-seo/)
 - [High Accessibility Is Effective Search Engine Optimization · An A List Apart Article](http://alistapart.com/article/accessibilityseo)
 
+- [Can I include a tag to a tag? Based on HTML Spec WHATWG](https://caninclude.glitch.me/)
 - http://www.w3.org/html/wg/drafts/html/master/common-idioms.html
 - http://html5doctor.com/element-index/
 - http://patterns.alistapart.com/
@@ -3718,7 +3726,7 @@ See also [forum post](#forum-post)
 ```
 
 - [How do you mark up an accordion? — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/accordion-markup/)
-- [Details / Summary Are Not \[insert control here\] | Adrian Roselli](https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html)
+- [Details / Summary Are Not \[insert control here\] | Adrian Roselli](https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html)r
 - [Why \<details\> is Not an Accordion - daverupert.com](https://daverupert.com/2019/12/why-details-is-not-an-accordion/)
 
 ## Forum post

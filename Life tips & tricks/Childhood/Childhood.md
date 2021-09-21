@@ -12,3 +12,4 @@ Le régime sans gluten sans caséine efficace en cas de dysfonctionnement digest
 - [Home | Prodigy Education](https://www.prodigygame.com/main-en/) - "Make learning math fun at home or at school"
 - [Singapore Math | The world's top PK-8 math education.](https://www.singaporemath.com/)
 - [Math Problems for children from 5 to 15 (2004) \[pdf\] | Hacker News](https://news.ycombinator.com/item?id=27884973)
+- [Le calendrier scolaire - data.gouv.fr](https://www.data.gouv.fr/fr/datasets/le-calendrier-scolaire/)

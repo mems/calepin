@@ -384,6 +384,13 @@ Arab is more calligraphy art than western scripts, it's right to left:
 - [Taking A Closer Look At Arabic Calligraphy – Smashing Magazine](https://www.smashingmagazine.com/2014/03/taking-a-closer-look-at-arabic-calligraphy/)
 - [Writing Systems And Calligraphy Of The World – Smashing Magazine](https://www.smashingmagazine.com/2010/05/the-beauty-of-typography-writing-systems-and-calligraphy-of-the-world/)
 
+Symbol signification:
+
+- in Finland, ✓ often stands for väärin, i.e., "wrong"
+- [Thumb signal - Wikipedia](https://en.wikipedia.org/wiki/Thumb_signal#International_usage) - "The sign \[thumbs up signal\] is said to have a pejorative meaning in countries including Iraq[5] and Iran"
+- [OK gesture - Wikipedia](https://en.wikipedia.org/wiki/OK_gesture#White_power_symbol)
+- [Per Axbom on Twitter: "Struggling with an icon (as one does). The struggle here is that the check mark is common for "ok/ready/done". In Sweden it has historically been used to mark wrong answers on tests. The opposite, really. So now I need more understanding on how big of a conflict this really is. https://t.co/C49NPrr9oP" / Twitter](https://twitter.com/axbom/status/1437687684508659713?s=12)
+
 Others:
 
 - [Why Do Russians Never Smile? - The Atlantic](http://www.theatlantic.com/science/archive/2016/05/culture-and-smiling/483827/)

@@ -1588,6 +1588,7 @@ console.log(secretInfos);
 ### Redirection to untrusted website
 
 - [CWE - CWE-601: URL Redirection to Untrusted Site ('Open Redirect') (4.2)](https://cwe.mitre.org/data/definitions/601.html)
+- [The danger of open redirects!](https://web.archive.org/web/20210917111032/https://scotthelme.co.uk/the-danger-of-open-redirects/)
 
 ### Carpet-bombing
 
