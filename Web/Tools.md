@@ -19,16 +19,21 @@ Only for Safari, or webview in application **developper version only** (installe
 
 At least works with iOS 11.4:
 
-1. install iTunes, because usbmuxd can't configure correcly USB devices on Windows: [ios - Why are Windows binaries of libimobiledevice dependent on iTunes? - Stack Overflow](https://stackoverflow.com/questions/48851719/why-are-windows-binaries-of-libimobiledevice-dependent-on-itunes)
-2. install `ios-webkit-debug-proxy` (win64 release comes with libimobiledevice) [Releases · google/ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy/releases)
-3. start `ios_webkit_debug_proxy.exe`
-4. open chrome://inspect/#devices in Chrome
+1. connect iOS device with a cable
+2. install iTunes, because usbmuxd can't configure correcly USB devices on Windows: [ios - Why are Windows binaries of libimobiledevice dependent on iTunes? - Stack Overflow](https://stackoverflow.com/questions/48851719/why-are-windows-binaries-of-libimobiledevice-dependent-on-itunes)
+3. start iTunes and allow paring (iTunes show an alert)
+4. "trust this computer" (iOS show an alert). See [Apple Support page](https://support.apple.com/en-ca/HT202778)
+5. install `ios-webkit-debug-proxy` (win64 release comes with libimobiledevice) [Releases · google/ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy/releases)
+6. allow Web Inpsector on iOS: Settings > Safari > Advanced > Web Inspector = ON
+7. start `ios_webkit_debug_proxy.exe`
+8. open chrome://inspect/#devices in Chrome
 
 - [How to build libimobiledevice on Windows? · Issue #582 · libimobiledevice/libimobiledevice](https://github.com/libimobiledevice/libimobiledevice/issues/582)
 - [libimobiledevice-win32/libimobiledevice: A cross-platform protocol library to communicate with iOS devices](https://github.com/libimobiledevice-win32/libimobiledevice)
 - [google/ios-webkit-debug-proxy: A DevTools proxy (Chrome Remote Debugging Protocol) for iOS devices (Safari Remote Web Inspector).](https://github.com/google/ios-webkit-debug-proxy#installation)
 - [RemoteDebug/remotedebug-ios-webkit-adapter: Debug Safari and WebViews on iOS from tools like VS Code, Chrome DevTools, Mozilla Debugger.html](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) - Not required if you use ios-webkit-debug-proxy and Chrome
 - [Install Quamotion iMobileDevice for Windows — Quamotion WebDriver 0.1 documentation](http://docs.quamotion.mobi/en/latest/imobiledevice/install.html)
+- [Inspect docs](https://inspectdev.notion.site/Inspect-docs-ce34803e95d04b48ac5fe1255c0c3f6f)
 
 Install a Fiddler proxy certificate:
 
