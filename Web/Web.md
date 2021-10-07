@@ -1123,6 +1123,14 @@ Enable Chrome developer tools experiments:
 3. webdev tools "Experiment" tab
 4. press "Shift" 6 times to show more experiments
 
+Update error "An error occurred while checking for updates: Update check failed to start (error code 4: 0x80070005 – system level)" on Windows (one of):
+
+- run Chrome browser as administrator
+- start `Google Update Service (gupdate)` (`services.msc`) then update `start up type`: `Automatic` or `Manual`
+- reinstall Chrome browser (without uninstall it)
+- in `C:\Program Files\Google\Chrome\Application` or `C:\Program Files\Google\Chrome Beta\Application`, rename `new_chrome.exe` to `chrome.exe` and `new_chrome_proxy.exe` to `chrome_proxy.exe`
+- `"%USERPROFILE%\Local Settings\Application Data\Google\Chrome\Application\0.4.154.25\Installer\setup.exe" --rename-chrome-exe --verbose-logging`
+
 #### Network debug
 
 NetLog log:

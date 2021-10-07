@@ -132,6 +132,64 @@ add_filter('json_jsonp_enabled', '__return_false');
 - [Handbook – Make WordPress Themes](https://make.wordpress.org/themes/handbook/)
 - [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
 
+### Nav menu
+
+Aka navigation menu
+
+```php
+// .sub-menu
+add_filter( 'nav_menu_submenu_css_class', function ( $classes, $args, $depth ) {
+	if($args->theme_location == 'primary') $classes = array($depth == 0 ? 'ns-main-nav-subsections' : 'ns-main-nav-items');
+	return $classes;
+}, 10, 3);
+// .menu-item > a
+add_filter( 'nav_menu_link_attributes', function ( $atts, $item, $args, $depth ) {
+	if($args->theme_location == 'primary') $atts['class'] = $depth == 0 ? 'ns-main-nav-section-link' : 'ns-main-nav-link';
+	return $atts;
+}, 10, 4);
+// .menu-item
+add_filter( 'nav_menu_css_class', function ( $classes, $item, $args, $depth ) {
+	if($args->theme_location == 'primary'){
+		switch ($depth){
+			case 0:
+				$class = 'ns-main-nav-section';
+				break;
+			case 1:
+				$class = 'ns-main-nav-subsection';
+				break;
+			default:
+				$class = 'ns-main-nav-item';
+				break;
+		}
+		$classes = array($class);
+	}
+	return $classes;
+}, 10, 4);
+
+// Add wrapper to .sub-menu
+//class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+//	public function start_lvl( &$output, $depth = 0, $args = null ) {
+//		if($depth == 0) $output .= '<div class="mcp-main-nav-subsections-wrapper">';
+//		parent::start_lvl($output, $depth, $args);
+//	}
+//	public function end_lvl( &$output, $depth = 0, $args = null ) {
+//		parent::end_lvl($output, $depth, $args);
+//		if($depth == 0) $output .= '</div>';
+//	}
+//}
+
+// Render the nav menu
+wp_nav_menu(
+	array(
+		'container'  => '',
+		'menu_class'  => 'ns-main-nav-sections',
+		'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		'theme_location' => 'primary',
+//		'walker' => new Custom_Walker_Nav_Menu(),
+	)
+);
+```
+
 ## Performance / optimisation
 
 Use [OPcache](http://php.net/manual/en/book.opcache.php)
@@ -166,6 +224,17 @@ Some:
 - [Meta Box - WordPress Custom Fields and Custom Meta Boxes Framework](https://metabox.io/)
 - [justintadlock/butterbean: A neat little post meta framework.](https://github.com/justintadlock/butterbean)
 - [CMB2/CMB2: CMB2 is a developer's toolkit for building metaboxes, custom fields, and forms for WordPress that will blow your mind.](https://github.com/CMB2/CMB2)
+
+## Custom post types
+
+- [Custom Post Types | Apprendre WordPress](https://learn.wordpress.org/lesson-plan/custom-post-types/)
+- [Registering Custom Post Types | Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/).
+
+## Custom plugin
+
+- [Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/)
+- [Must Use Plugins | WordPress.org](https://wordpress.org/support/article/must-use-plugins/)
+- [Plugins in mu-plugins folder are not loaded - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/26337/plugins-in-mu-plugins-folder-are-not-loaded)
 
 ## Regenerate thumbnails
 

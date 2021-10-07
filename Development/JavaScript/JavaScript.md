@@ -698,9 +698,9 @@ See [Language](../ECMAScript/ECMAScript.md#language)
 
 - [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
 
-### Reference to the global scope
+### Global scope reference
 
-Use `self` instead `window`. It's available in Web Workers
+Use `self` instead `window`. It's available in [Web Workers](#web-worker)
 
 - [Window.self - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/self)
 
@@ -905,9 +905,8 @@ Baking CSS and templates into scripts will increase the memory footprint of your
 
 Use `event.preventDefault()` instead and `event.target.closest("selector")` or `element.contains(event.target)`
 
-### Events
+### Event listener
 
-Event handler: `el.onload = func;`. Note: when func has its scope to `eventTarget` and its `this` value. Ex: `onload="console.log(prop===this.prop)"`, properties can be used without `this` (but not functions). See [DOM on-event handlers - Developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers#Event_handler's_parameters_this_binding_and_the_return_value) and [HTML Standard - "callback this value"](https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm) and [HTML Standard - "internal raw uncompiled handler FunctionCreate Scope"](https://html.spec.whatwg.org/multipage/webappapis.html#internal-raw-uncompiled-handler)
 Event listener: `el.addEventListener("load", listener);`, where listener is a `function` or an object (`EventListener`) implement `handleEvent` method
 
 ```js
@@ -921,6 +920,50 @@ handleReset()
 
 - [DOM on-event handlers - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)
 - [EventListener - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventListener)
+
+### DOM 0 event listener scopes
+
+Event handler: `el.onload = func;`. Note: when func has its scope to `eventTarget`, form owner if any, and document. Ex: `onload="console.log(onload===this.onload,body===document.body)"`, properties can be used without `this` (but not functions).
+
+See [DOM on-event handlers - Developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers#Event_handler's_parameters_this_binding_and_the_return_value) and [HTML Standard - "callback this value"](https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm) and [HTML Standard - "internal raw uncompiled handler FunctionCreate Scope"](https://html.spec.whatwg.org/multipage/webappapis.html#internal-raw-uncompiled-handler)
+
+Inlined event listener in HTML:
+
+```html
+<img src="about:error" onerror="console.log(this,onerror,body,src)">
+```
+
+Scope is defined with something like:
+
+```
+"use strict";
+event = <event>;
+if(<is error event handler on window>){
+	source = <source>;
+	lineno = <lineno>;
+	colno = <colno>;
+	error = <error>;
+}
+this = <element>;
+with(document){
+	if(<has form owner>){
+		with(<form owner>){
+			with(<element>){
+				<code>
+			}
+		}
+	}else{
+		with(<element>){
+			<code>
+		}
+	}
+}
+```
+
+- [HTML 5.2: 7. Web application APIs](https://www.w3.org/TR/html5/webappapis.html#getting-the-current-value-of-the-event-handler)
+- [Event handler scope](http://www.findmeat.org/tutorials/javascript/x607190.htm)
+- [DOM on-event handlers - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)
+- [ECMAScript® 2018 Language Specification](https://tc39.github.io/ecma262/#sec-newobjectenvironment) - `NewObjectEnvironment`
 
 ### Global scope
 
@@ -1033,18 +1076,20 @@ See [Naming convention](Development#naming-convention)
 
 - [JavaScript | CSS-Tricks](https://css-tricks.com/snippets/javascript/)
 
-## Worker
+## Web Worker
 
 ```js
 navigator.hardwareConcurrency
 ```
 
+- [Global scope reference](#global-scope-reference)
+- [Context messaging](#context-messaging)
 - [navigator.hardwareConcurrency - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorConcurrentHardware/hardwareConcurrency)
 - [web worker - Get number of CPU cores in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/3289465/get-number-of-cpu-cores-in-javascript)
 - [ES proposal: Shared memory and atomics](http://2ality.com/2017/01/shared-array-buffer.html)
 - [A crash course in memory management ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/)
 
-### Inline worker
+### Inline web worker
 
 ```js
 function worker() {
@@ -1069,6 +1114,22 @@ workerInstance.onmessage = function(m) {
 - [The Basics of Web Workers - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/workers/basics/#toc-inlineworkers)
 - https://stackoverflow.com/questions/10343913/how-to-create-a-web-worker-from-a-string
 - [Using Web Workers - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers#Embedded_workers)
+
+### Synchronous DOM access
+
+1. the web worker make a synchronous XHR request
+2. the service worker handle the fetch request: `responseWith(promise)` and `postMessage` the page
+3. the page handle the message: execute the command then `postMessage` the service worker with the result
+4. the service worker handle the message: resolve the fetch response with the result
+
+See also:
+
+- use [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer#updating_and_synchronizing_shared_memory_with_atomic_operations) to share the result natively between the page and web worker (need bytes serialization), see also: [A Taste of JavaScript's New Parallel Primitives - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2016/05/a-taste-of-javascripts-new-parallel-primitives/), [Using JavaScript SharedArrayBuffers and Atomics - Blog Title](https://blogtitle.github.io/using-javascript-sharedarraybuffers-and-atomics/) and [Avoiding race conditions in SharedArrayBuffers with Atomics - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2017/06/avoiding-race-conditions-in-sharedarraybuffers-with-atomics/)
+- partytown:
+	1. [sync XHR](https://github.com/BuilderIO/partytown/blob/69a8c8487a5c22b1f603210b08df1a8959018e67/src/lib/web-worker/worker-proxy.ts#L76-L83)
+	2. [service worker fetch handler](https://github.com/BuilderIO/partytown/blob/f1028a741668d1e0357d3e0e1e8bbfe5b0ca75c8/src/lib/service-worker/fetch.ts#L19)
+	3. [service worker postMessage the page and handle the result](https://github.com/BuilderIO/partytown/blob/9dcb9143a4a2b46d75ae5a74dc2ca13cf306934a/src/lib/service-worker/sw-message.ts#L53-L59)
+- [Rich Harris sur Twitter : "sync XHR saving the web from main-thread-blocking third party scripts is a plot twist i did not see coming (explanation: partytown uses sync XHR under the hood via a proxy to facilitate DOM access from a worker. some truly next-level mad scientist shit)" / Twitter](https://twitter.com/rich_harris/status/1441101927798820869?s=12)
 
 ## Components
 
@@ -7598,7 +7659,7 @@ Others APIs like `localStorage` can't have their cross domain origin relaxed lik
 
 ## Context messaging
 
-iframe, window, worker, etc.
+iframe, window, [worker](#web-worker), etc.
 
 > `MessageChannel` is basically a 2-way communication pipe. Think of it as an alternative to `window.postMessage` / `window.onmessage` - but a somewhat easier and more configurable.
 

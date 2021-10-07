@@ -5,7 +5,7 @@
 - [An SVG Primer for Today's Browsers](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 - [A Practical Guide to SVGs on the web](https://svgontheweb.com/)
 - [How Designers Should Think About SVG – Design + Sketch – Medium](https://medium.com/sketch-app-sources/how-designers-should-think-about-svg-b2b92efc4d77)
-- [A simple pie chart in SVG](https://hackernoon.com/a-simple-pie-chart-in-svg-dbdd653b6936)
+- [A simple pie chart in SVG. Learning the trigonometry trio — sin… | by David Gilbertson | HackerNoon.com | Medium](https://web.archive.org/web/20210517191254/https://medium.com/hackernoon/a-simple-pie-chart-in-svg-dbdd653b6936)
 - [The SVG `path` Syntax: An Illustrated Guide | CSS-Tricks](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
 - [Tools to Visualize and Edit SVG Paths (Kinda!) | CSS-Tricks](https://css-tricks.com/tools-visualize-edit-svg-paths-kinda/)
 - [Tips for Creating and Exporting Better SVGs for the Web](https://sarasoueidan.com/blog/svg-tips-for-designers/)
@@ -42,7 +42,7 @@ Only `img`, `iframe` and `object` can provide alternative content. `img` only pr
 
 ## Restrictions
 
-| SVG Embed Technique											 | External resources (styles, images)		 | Scripts		 | Interactivity (links, etc.)		 | CSS Animations		 | [CSS Inheritance][css-inheritance]	 |
+| SVG Embed Technique											 | External resources (styles, images)		 | Scripts		 | Interactivity (links, etc.)		 | CSS Animations		 | [CSS Inheritance][css-inheritance]	  |
 |----------------------------------------------------------------|-------------------------------------------|---------------|-----------------------------------|-----------------------|---------------------------------------|
 | `<svg> … </svg>` (inlined)									 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
 | `<svg><use xlink:href="image.svg"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
@@ -80,11 +80,15 @@ Related bugs:
 
 ## Fragment identifier and SVG stack
 
-	<img src="sprite.svg#instagram-icon" alt="Instagram icon">
+```html
+<img src="sprite.svg#instagram-icon" alt="Instagram icon">
+```
 
-	<svg>
-		<view id="instagram-icon" viewBox="64 0 32 32" />
-	</svg>
+```svg
+<svg>
+	<view id="instagram-icon" viewBox="64 0 32 32" />
+</svg>
+```
 
 - [An Overview of SVG Sprite Creation Techniques ◆ 24 ways](https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/)
 - https://bugs.webkit.org/show_bug.cgi?id=91790
@@ -103,22 +107,24 @@ Aka icon
 - Symbols don't display as you define them, so no need for a `<defs>` block.
 - This is probably what `<symbol>` was invented for anyway
 
-	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-	  <symbol id="symbol-1" viewBox="214.7 0 182.6 792">
-	  	<title>symbol's-title</title>
-	    <desc>symbol's-desc</desc>
-	    <!-- <path>s and whatever other shapes in here -->
-	  </symbol>
-	  <symbol id="symbol-2" viewBox="0 26 100 48">
-	  	<title>symbol's-title</title>
-	    <desc>symbol's-desc</desc>
-	    <!-- <path>s and whatever other shapes in here -->
-	  </symbol>
-	</svg>
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="symbol-1" viewBox="214.7 0 182.6 792">
+  	<title>symbol's-title</title>
+    <desc>symbol's-desc</desc>
+    <!-- <path>s and whatever other shapes in here -->
+  </symbol>
+  <symbol id="symbol-2" viewBox="0 26 100 48">
+  	<title>symbol's-title</title>
+    <desc>symbol's-desc</desc>
+    <!-- <path>s and whatever other shapes in here -->
+  </symbol>
+</svg>
 
-	<svg class="icon">
-	  <use xlink:href="#symbol-1" />
-	</svg>
+<svg class="icon">
+  <use xlink:href="#symbol-1" />
+</svg>
+```
 
 - [Comment travailler avec des icônes en SVG](https://la-cascade.io/comment-travailler-avec-des-icones-en-svg/)
 - [SVG `symbol` a Good Choice for Icons | CSS-Tricks](https://css-tricks.com/svg-symbol-good-choice-icons/)
@@ -149,219 +155,221 @@ See `MorphSVGPlugin.convertToPath` (require to be Club GreenSock membership)
 
 Polyline to path: `<polygon points="x1,y1 x2,y2 x3,y3"/>` as `<path d="Mx1,y1 x2,y2 x3,y3Z"/>`
 
-	<!--
-	http://codepen.io/niorad/pen/xmfza
-	Convert SVG-Shapes into paths so they can be animated.
-	The script converts all non-path-elements to paths so the stroke-dashoffset-trick works.
-	Note: this doesn't implement all syntaxes allowed by SVG specs
-	-->
+```html
+<!--
+http://codepen.io/niorad/pen/xmfza
+Convert SVG-Shapes into paths so they can be animated.
+The script converts all non-path-elements to paths so the stroke-dashoffset-trick works.
+Note: this doesn't implement all syntaxes allowed by SVG specs
+-->
 
-	<script>
-		//inspired by http://product.voxmedia.com/post/68085482982/polygon-feature-design-svg-animations-for-fun-and
+<script>
+	//inspired by http://product.voxmedia.com/post/68085482982/polygon-feature-design-svg-animations-for-fun-and
 
-		//If you want to add SVG to the DOM, jQuery won't do
-		//http://www.benknowscode.com/2012/09/using-svg-elements-with-jquery_6812.html
+	//If you want to add SVG to the DOM, jQuery won't do
+	//http://www.benknowscode.com/2012/09/using-svg-elements-with-jquery_6812.html
 
-		function SVG(tag) {
-		    return document.createElementNS('http://www.w3.org/2000/svg', tag);
-		}
+	function SVG(tag) {
+	    return document.createElementNS('http://www.w3.org/2000/svg', tag);
+	}
 
-		function replaceRectsWithPaths(parentElement) {
-		    var rects = $(parentElement).find('rect');
+	function replaceRectsWithPaths(parentElement) {
+	    var rects = $(parentElement).find('rect');
 
-		    $.each(rects, function() {
-		        var rectX = $(this).attr('x');
-		        var rectY = $(this).attr('y');
+	    $.each(rects, function() {
+	        var rectX = $(this).attr('x');
+	        var rectY = $(this).attr('y');
 
-		        var rectX2 = parseFloat(rectX) + parseFloat($(this).attr('width'));
-		        var rectY2 = parseFloat(rectY) + parseFloat($(this).attr('height'));
+	        var rectX2 = parseFloat(rectX) + parseFloat($(this).attr('width'));
+	        var rectY2 = parseFloat(rectY) + parseFloat($(this).attr('height'));
 
-		        var convertedPath = 'M' + rectX + ',' + rectY + ' ' + rectX2 + ',' + rectY + ' ' + rectX2 + ',' + rectY2 + ' ' + rectX + ',' + rectY2 + ' ' + rectX + ',' + rectY;
+	        var convertedPath = 'M' + rectX + ',' + rectY + ' ' + rectX2 + ',' + rectY + ' ' + rectX2 + ',' + rectY2 + ' ' + rectX + ',' + rectY2 + ' ' + rectX + ',' + rectY;
 
-		        $(SVG('path'))
-		        .attr('d', convertedPath)
-		        .attr('fill', $(this).attr('fill'))
-		        .attr('stroke', $(this).attr('stroke'))
-		        .attr('stroke-width', $(this).attr('stroke-width'))
-		        .insertAfter(this);
-		    });
+	        $(SVG('path'))
+	        .attr('d', convertedPath)
+	        .attr('fill', $(this).attr('fill'))
+	        .attr('stroke', $(this).attr('stroke'))
+	        .attr('stroke-width', $(this).attr('stroke-width'))
+	        .insertAfter(this);
+	    });
 
-		    $(rects).remove();
-		}
+	    $(rects).remove();
+	}
 
-		function replaceLinesWithPaths(parentElement) {
-		    var lines = $(parentElement).find('line');
+	function replaceLinesWithPaths(parentElement) {
+	    var lines = $(parentElement).find('line');
 
-		    $.each(lines, function() {
-		        var lineX1 = $(this).attr('x1');
-		        var lineY1 = $(this).attr('y1');
+	    $.each(lines, function() {
+	        var lineX1 = $(this).attr('x1');
+	        var lineY1 = $(this).attr('y1');
 
-		        var lineX2 = $(this).attr('x2');
-		        var lineY2 = $(this).attr('y2');
+	        var lineX2 = $(this).attr('x2');
+	        var lineY2 = $(this).attr('y2');
 
-		        var convertedPath = 'M' + lineX1 + ',' + lineY1 + ' ' + lineX2 + ',' + lineY2;
+	        var convertedPath = 'M' + lineX1 + ',' + lineY1 + ' ' + lineX2 + ',' + lineY2;
 
-		        $(SVG('path'))
-		        .attr('d', convertedPath)
-		        .attr('fill', $(this).attr('fill'))
-		        .attr('stroke', $(this).attr('stroke'))
-		        .attr('stroke-width', $(this).attr('stroke-width'))
-		        .insertAfter(this);
-		    });
+	        $(SVG('path'))
+	        .attr('d', convertedPath)
+	        .attr('fill', $(this).attr('fill'))
+	        .attr('stroke', $(this).attr('stroke'))
+	        .attr('stroke-width', $(this).attr('stroke-width'))
+	        .insertAfter(this);
+	    });
 
-		    $(lines).remove();
-		}
+	    $(lines).remove();
+	}
 
-		function replaceCirclesWithPaths(parentElement) {
-		    var circles = $(parentElement).find('circle');
+	function replaceCirclesWithPaths(parentElement) {
+	    var circles = $(parentElement).find('circle');
 
-		    $.each(circles, function() {
-		        var cX = $(this).attr('cx');
-		        var cY = $(this).attr('cy');
-		        var r = $(this).attr('r');
-		        var r2 = parseFloat(r * 2);
+	    $.each(circles, function() {
+	        var cX = $(this).attr('cx');
+	        var cY = $(this).attr('cy');
+	        var r = $(this).attr('r');
+	        var r2 = parseFloat(r * 2);
 
-		        var convertedPath = 'M' + cX + ', ' + cY + ' m' + (-r) + ', 0 ' + 'a ' + r + ', ' + r + ' 0 1,0 ' + r2 + ',0 ' + 'a ' + r + ', ' + r + ' 0 1,0 ' + (-r2) + ',0 ';
+	        var convertedPath = 'M' + cX + ', ' + cY + ' m' + (-r) + ', 0 ' + 'a ' + r + ', ' + r + ' 0 1,0 ' + r2 + ',0 ' + 'a ' + r + ', ' + r + ' 0 1,0 ' + (-r2) + ',0 ';
 
-		        $(SVG('path'))
-		        .attr('d', convertedPath)
-		        .attr('fill', $(this).attr('fill'))
-		        .attr('stroke', $(this).attr('stroke'))
-		        .attr('stroke-width', $(this).attr('stroke-width'))
-		        .insertAfter(this);
-		    });
+	        $(SVG('path'))
+	        .attr('d', convertedPath)
+	        .attr('fill', $(this).attr('fill'))
+	        .attr('stroke', $(this).attr('stroke'))
+	        .attr('stroke-width', $(this).attr('stroke-width'))
+	        .insertAfter(this);
+	    });
 
-		    $(circles).remove();
-		}
+	    $(circles).remove();
+	}
 
-		function replaceEllipsesWithPaths(parentElement) {
-		    var ellipses = $(parentElement).find('ellipse');
+	function replaceEllipsesWithPaths(parentElement) {
+	    var ellipses = $(parentElement).find('ellipse');
 
-		    $.each(ellipses, function() {
-		        var cX = $(this).attr('cx');
-		        var cY = $(this).attr('cy');
-		        var rX = $(this).attr('rx');
-		        var rY = $(this).attr('ry');
+	    $.each(ellipses, function() {
+	        var cX = $(this).attr('cx');
+	        var cY = $(this).attr('cy');
+	        var rX = $(this).attr('rx');
+	        var rY = $(this).attr('ry');
 
-		        var convertedPath = 'M' + cX + ', ' + cY + ' m' + (-rX) + ', 0 ' + 'a ' + rX + ', ' + rY + ' 0 1,0 ' + rX*2 + ',0 ' + 'a ' + rX + ', ' + rY + ' 0 1,0 ' + (-rX*2) + ',0 ';
+	        var convertedPath = 'M' + cX + ', ' + cY + ' m' + (-rX) + ', 0 ' + 'a ' + rX + ', ' + rY + ' 0 1,0 ' + rX*2 + ',0 ' + 'a ' + rX + ', ' + rY + ' 0 1,0 ' + (-rX*2) + ',0 ';
 
-		        $(SVG('path'))
-		        .attr('d', convertedPath)
-		        .attr('fill', $(this).attr('fill'))
-		        .attr('stroke', $(this).attr('stroke'))
-		        .attr('stroke-width', $(this).attr('stroke-width'))
-		        .insertAfter(this);
-		    });
+	        $(SVG('path'))
+	        .attr('d', convertedPath)
+	        .attr('fill', $(this).attr('fill'))
+	        .attr('stroke', $(this).attr('stroke'))
+	        .attr('stroke-width', $(this).attr('stroke-width'))
+	        .insertAfter(this);
+	    });
 
-		    $(ellipses).remove();
-		}
+	    $(ellipses).remove();
+	}
 
-		function replacePolygonsWithPaths(parentElement) {
-		    var polygons = $(parentElement).find('polygon');
+	function replacePolygonsWithPaths(parentElement) {
+	    var polygons = $(parentElement).find('polygon');
 
-			// https://www.w3.org/TR/SVG/shapes.html#PointsBNF
-		    $.each(polygons, function() {
-		        var points = $(this).attr('points');
-		        var polyPoints = points.split(/[ ,]+/);
-		        var endPoint = polyPoints[0] + ', ' + polyPoints[1];
+		// https://www.w3.org/TR/SVG/shapes.html#PointsBNF
+	    $.each(polygons, function() {
+	        var points = $(this).attr('points');
+	        var polyPoints = points.split(/[ ,]+/);
+	        var endPoint = polyPoints[0] + ', ' + polyPoints[1];
 
-		        $(SVG('path'))
-		        .attr('d', 'M' + points + ' ' + endPoint)
-		        .attr('fill', $(this).attr('fill'))
-		        .attr('stroke', $(this).attr('stroke'))
-		        .attr('stroke-width', $(this).attr('stroke-width'))
-		        .insertAfter(this);
-		    });
+	        $(SVG('path'))
+	        .attr('d', 'M' + points + ' ' + endPoint)
+	        .attr('fill', $(this).attr('fill'))
+	        .attr('stroke', $(this).attr('stroke'))
+	        .attr('stroke-width', $(this).attr('stroke-width'))
+	        .insertAfter(this);
+	    });
 
-		    $(polygons).remove();
-		}
+	    $(polygons).remove();
+	}
 
-		function replacePolylinesWithPaths(parentElement) {
-		    var polylines = $(parentElement).find('polyline');
+	function replacePolylinesWithPaths(parentElement) {
+	    var polylines = $(parentElement).find('polyline');
 
-		    $.each(polylines, function() {
-		        var points = $(this).attr('points');
+	    $.each(polylines, function() {
+	        var points = $(this).attr('points');
 
-		        $(SVG('path'))
-		        .attr('d', 'M' + points)
-		        .attr('fill', $(this).attr('fill'))
-		        .attr('stroke', $(this).attr('stroke'))
-		        .attr('stroke-width', $(this).attr('stroke-width'))
-		        .insertAfter(this);
-		    });
+	        $(SVG('path'))
+	        .attr('d', 'M' + points)
+	        .attr('fill', $(this).attr('fill'))
+	        .attr('stroke', $(this).attr('stroke'))
+	        .attr('stroke-width', $(this).attr('stroke-width'))
+	        .insertAfter(this);
+	    });
 
-		    $(polylines).remove();
-		}
+	    $(polylines).remove();
+	}
 
-		function hideSVGPaths(parentElement) {
-		    var paths = $(parentElement).find('path');
+	function hideSVGPaths(parentElement) {
+	    var paths = $(parentElement).find('path');
 
-		    //for each PATH..
-		    $.each( paths, function() {
-		        //get the total length
-		        var totalLength = this.getTotalLength();
+	    //for each PATH..
+	    $.each( paths, function() {
+	        //get the total length
+	        var totalLength = this.getTotalLength();
 
-		        //set PATHs to invisible
-		        $(this).css({
-		            'stroke-dashoffset': totalLength,
-		            'stroke-dasharray': totalLength + ' ' + totalLength
-		        });
-		    });
-		}
+	        //set PATHs to invisible
+	        $(this).css({
+	            'stroke-dashoffset': totalLength,
+	            'stroke-dasharray': totalLength + ' ' + totalLength
+	        });
+	    });
+	}
 
-		function drawSVGPaths(_parentElement, _timeMin, _timeMax, _timeDelay) {
-		    var paths = $(_parentElement).find('path');
+	function drawSVGPaths(_parentElement, _timeMin, _timeMax, _timeDelay) {
+	    var paths = $(_parentElement).find('path');
 
-		    //for each PATH..
-		    $.each( paths, function(i) {
-		        //get the total length
-		        var totalLength = this.getTotalLength();
+	    //for each PATH..
+	    $.each( paths, function(i) {
+	        //get the total length
+	        var totalLength = this.getTotalLength();
 
-		        //set PATHs to invisible
-		        $(this).css({
-		            'stroke-dashoffset': totalLength,
-		            'stroke-dasharray': totalLength + ' ' + totalLength
-		        });
+	        //set PATHs to invisible
+	        $(this).css({
+	            'stroke-dashoffset': totalLength,
+	            'stroke-dasharray': totalLength + ' ' + totalLength
+	        });
 
-		        //animate
-		        $(this).delay(_timeDelay*i).animate({
-		            'stroke-dashoffset': 0
-		        }, {
-		            duration: Math.floor(Math.random() * _timeMax) + _timeMin
-		            ,easing: 'easeInOutQuad'
-		        });
-		    });
-		}
+	        //animate
+	        $(this).delay(_timeDelay*i).animate({
+	            'stroke-dashoffset': 0
+	        }, {
+	            duration: Math.floor(Math.random() * _timeMax) + _timeMin
+	            ,easing: 'easeInOutQuad'
+	        });
+	    });
+	}
 
-		function replaceWithPaths(parentElement) {
-		    replaceRectsWithPaths(parentElement);
-		    replaceLinesWithPaths(parentElement);
-		    replaceEllipsesWithPaths(parentElement);
-		    replaceCirclesWithPaths(parentElement);
-		    replacePolygonsWithPaths(parentElement);
-		    replacePolylinesWithPaths(parentElement);
-		}
+	function replaceWithPaths(parentElement) {
+	    replaceRectsWithPaths(parentElement);
+	    replaceLinesWithPaths(parentElement);
+	    replaceEllipsesWithPaths(parentElement);
+	    replaceCirclesWithPaths(parentElement);
+	    replacePolygonsWithPaths(parentElement);
+	    replacePolylinesWithPaths(parentElement);
+	}
 
-		function startSVGAnimation(parentElement) {
-		    drawSVGPaths(parentElement, 1000, 2000, 50);
-		}
+	function startSVGAnimation(parentElement) {
+	    drawSVGPaths(parentElement, 1000, 2000, 50);
+	}
 
-		replaceWithPaths($('svg'));
-		startSVGAnimation($('svg'));
-	</script>
+	replaceWithPaths($('svg'));
+	startSVGAnimation($('svg'));
+</script>
 
-	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	     width="800px" height="800px" viewBox="0 0 800 800" enable-background="new 0 0 800 800" xml:space="preserve">
-	<circle fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="115.5" cy="119.5" r="55.5"/>
-	<ellipse fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="284" cy="123" rx="69" ry="23"/>
-	<rect x="403" y="71" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="98" height="97"/>
-	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M672,158c0,5.523-4.477,10-10,10h-82
-	    c-5.523,0-10-4.477-10-10V81c0-5.523,4.477-10,10-10h82c5.523,0,10,4.477,10,10V158z"/>
-	<polyline fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="66,292 115.5,239 171,321 194,251
-	    236,280 268,251 318,291 343,239 368,275 "/>
-	<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M452,293c0,0,0-61,72-44c0,0-47,117,81,57
-	    s5-110,10-67s-51,77.979-50,33.989"/>
-	</svg>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="800px" height="800px" viewBox="0 0 800 800" enable-background="new 0 0 800 800" xml:space="preserve">
+<circle fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="115.5" cy="119.5" r="55.5"/>
+<ellipse fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="284" cy="123" rx="69" ry="23"/>
+<rect x="403" y="71" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="98" height="97"/>
+<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M672,158c0,5.523-4.477,10-10,10h-82
+    c-5.523,0-10-4.477-10-10V81c0-5.523,4.477-10,10-10h82c5.523,0,10,4.477,10,10V158z"/>
+<polyline fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="66,292 115.5,239 171,321 194,251
+    236,280 268,251 318,291 343,239 368,275 "/>
+<path fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M452,293c0,0,0-61,72-44c0,0-47,117,81,57
+    s5-110,10-67s-51,77.979-50,33.989"/>
+</svg>
+```
 
 ## Transform
 
@@ -395,10 +403,12 @@ Animation as a huge impact on performance, especially on mobile. Rasterization i
 
 Can't make multiple transform in the same time. Don't have an equivalent of `transform-orign` (it's the fault of SVG transform)
 
-	<!-- Animate element's translate -->
-	<animateTransform attributeName="transform" attributeType="XML" type="translate" from="589 122" to="580 -57" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
-	<!-- Animate opacity -->
-	<animate class="target" attributeName="opacity" attributeType="XML" from="1" to="0" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
+```svg
+<!-- Animate element's translate -->
+<animateTransform attributeName="transform" attributeType="XML" type="translate" from="589 122" to="580 -57" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
+<!-- Animate opacity -->
+<animate class="target" attributeName="opacity" attributeType="XML" from="1" to="0" dur="250ms" fill="freeze" calcMode="spline" keySplines="0.43 0 0 1"/>
+```
 
 Control it with JS: Add `begin="indefinite"` to `animate*` element, and `element.beginElement()` or `element.endElement()` (and few others methods) to control it.
 
@@ -473,12 +483,14 @@ percentage (5%) = viewport
 
 Don't forget the SVG namespace:
 
-	var image = document.createElementNS("http://www.w3.org/2000/svg", "image");
-	image.setAttributeNS("http://www.w3.org/2000/svg", "style", "opacity: 0.5");
-	// Use the default NS
-	image.setAttributeNS(null, "style", "opacity: 0.5");
-	image.setAttribute("style", "opacity: 0.5");
-	image.setAttributeNS('http://www.w3.org/1999/xlink', "href", "");
+```js
+var image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+image.setAttributeNS("http://www.w3.org/2000/svg", "style", "opacity: 0.5");
+// Use the default NS
+image.setAttributeNS(null, "style", "opacity: 0.5");
+image.setAttribute("style", "opacity: 0.5");
+image.setAttributeNS('http://www.w3.org/1999/xlink', "href", "");
+```
 
 ## Filter
 
@@ -592,23 +604,29 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients
 > - Vertical gradients are created when x1 and x2 are equal and y1 and y2 differ
 > - Angular gradients are created when x1 and x2 differ and y1 and y2 differ
 
-	<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'>
-		<linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='0%'>
-			<stop offset='0%' stop-color='rgba(255,255,255,0.5)'/>
-			<stop offset='100%' stop-color='rgba(255,255,255,0.8)'/>
-		</linearGradient>
-		<rect fill='url(#g)' width='100' height='100'/>
-	</svg>
+```svg
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1' preserveAspectRatio='none'>
+	<linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='0%'>
+		<stop offset='0%' stop-color='rgba(255,255,255,0.5)'/>
+		<stop offset='100%' stop-color='rgba(255,255,255,0.8)'/>
+	</linearGradient>
+	<rect fill='url(#g)' width='100' height='100'/>
+</svg>
+```
 
 - [How To Apply SVG Linear Gradients To A Fill Or Stroke - Vanseo Design](http://vanseodesign.com/web-design/svg-linear-gradients/)
 
 ### Gardient — Left to right
 
-	<linearGradient id="g">
+```svg
+<linearGradient id="g">
+```
 
 ### Gardient — Top to bottom
 
-	<linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+```svg
+<linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+```
 
 ## Coordinates, position and viewport
 

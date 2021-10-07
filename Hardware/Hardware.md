@@ -64,6 +64,12 @@ AHJ/OMTP interface:
 - [Apple Headphone is Not Working On Android or Windows Phone](https://mashtips.com/apple-headphone-on-android-or-windows/)
 - [Phone connector (audio) - Wikipedia](https://en.wikipedia.org/wiki/Phone_connector_%28audio%29#TRRS_standards)
 
+## Headphones
+
+- [Headphones - Wikipedia](https://en.wikipedia.org/wiki/Headphones)
+- [How your in-ears fit matters a lot - SoundGuys](https://web.archive.org/web/20211003174819/https://www.soundguys.com/how-your-in-ears-fit-matters-a-lot-21686/)
+- [Ear tips: How to find the right ones for that perfect sound - SoundGuys](https://web.archive.org/web/20211002054453/https://www.soundguys.com/finding-ear-tips-17148/)
+
 ## Robot vacuum
 
 - [BEST Robot Vacuums 2020 Edition - Vacuum Wars - YouTube](https://www.youtube.com/watch?v=bYjlDwY9wPo)
@@ -89,6 +95,7 @@ AHJ/OMTP interface:
 
 - [Lave-vaisselle : quels produits et dosage utiliser pour bien fonctionner ?](https://web.archive.org/web/20210715153722/https://www.beko.fr/page-editoriale/pastilles-ou-gel-liquide-de-rincage-et-sel-quels-produits-pour-mon-lave-vaisselle)
 - [Detergent packs are kinda wishy-washy (Dishwashers Explained) - YouTube](https://www.youtube.com/watch?v=_rBO8neWw04)
+- [I messed up. You're using too much detergent. - YouTube](https://www.youtube.com/watch?v=Ll6-eGDpimU)
 
 ## Washing Machine
 

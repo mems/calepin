@@ -144,6 +144,11 @@ Alternatively you can use also:
 	Not updated since 2003
 	But sh (zsh) doesn't work propely
 
+See also:
+
+- [git - Msysgit bash is horrendously slow in Windows 7 - Stack Overflow](https://stackoverflow.com/questions/2835775/msysgit-bash-is-horrendously-slow-in-windows-7)
+- [Git/Bash is extremely slow in Windows 7 x64 - Stack Overflow](https://stackoverflow.com/questions/4485059/git-bash-is-extremely-slow-in-windows-7-x64)
+
 For write to clipboard:
 
 `clip` (from `C:\Windows\system32\clip.exe`)

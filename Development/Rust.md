@@ -1,1 +1,2 @@
 - [Rust for JS Developers](https://rustforjs.dev/)
+- [Rust for JavaScript Developers - Functions and Control Flow](https://web.archive.org/web/20210907183618/http://www.sheshbabu.com/posts/rust-for-javascript-developers-functions-and-control-flow/)

@@ -111,38 +111,6 @@ Purée romarin + ciboulette ? + beurre (bcp)
 
 A tangy blend of ground dried lemons and limes, fresh ground pepper, sea salt, sumac, herbs & garlic. Contains a small amount of Rice flour. It is delicious on Seafood or chicken. It does not contain any artificial souring agents. Store in an airtight container
 
-## Porc au caramel
-
-4 personnes
-
-Ingrédients
-
-800 gr d'échines de porc avec os ou 600 gr sans os
-1 oignon (rouge de préférence)
-2 cuillères à soupe d’huile
-3 gousses d’ail
-4 cuillères à soupe de sucre en poudre
-5 cuillères à soupe de Nuoc man
-1 grosse cuillère à soupe Sauce soja
-
-
-Préparation
-
-1 Désosser les échines et les couper en dés d'1 cm environ. emincer finement l'oignon et l'ail.
-2 Dans une cocotte, faites revenir le porc dans un fond d'huile  avec l'ail et l'oignon. Ajouter un peu de sel.
-3 Quand le porc est doré, retirez le, puis ajoutez dans le récipient de cuisson le sucre en poudre (à votre convenance, moi je mets l'équivalent de 4 grosses cuillères à soupe). Laissez caraméliser.
-4 Baisser le feu et ajouter 1 grosse cuillère à soupe de sauce soja et 5 autres de nuoc man. Rajoutez la viande.
-5 Ajouter de l'eau (à hauteur de la viande). couvrer à moitié et laisser mijoter environ 40 minutes.
-
-
-Conseils
-
-Verifier régulièrement la caramélisation, le plat ne doit être ni trop sec ni trop liquide. Accompagner d'un riz blanc. Pour les amateurs, proposer un jus de citron, l'acidité du citron se marie très bien avec la douceur du plat.
-
-Conseils de Chef Damien :
-- Vous pouvez ajouter quelques pluches de coriandre frais à la fin pour apporter un peu de fraîcheur au plat.
-- J'aime aussi ajouter un petit peu de gingembre haché.
-
 ## Oeuf coque
 
 3min au micro-onde
@@ -440,6 +408,8 @@ L'insérer de façon équitable au tour de l'insert
 
 ## Porc au caramel
 
+Pour 4 personnes
+
 Ingrédients
 
 - 800 gr d'échines de porc avec os ou 600 gr sans os
@@ -457,14 +427,11 @@ Préparation
 2. dans une cocotte, faites revenir le porc dans un fond d'huile  avec l'ail et l'oignon. Ajouter un peu de sel.
 3. quand le porc est doré, retirez le, puis ajoutez dans le récipient de cuisson le sucre en poudre (à votre convenance, moi je mets l'équivalent de 4 grosses cuillères à soupe). Laissez caraméliser.
 4. baisser le feu et ajouter 1 grosse cuillère à soupe de sauce soja et 5 autres de nuoc man. Rajoutez la viande.
-5. ajouter de l'eau (à hauteur de la viande). couvrer à moitié et laisser mijoter environ 40 minutes.
+5. ajouter de l'eau (à hauteur de la viande). couvrir à moitié et laisser mijoter environ 40 minutes.
 
 Conseils
 
-Verifier régulièrement la caramélisation, le plat ne doit être ni trop sec ni trop liquide. Accompagner d'un riz blanc. Pour les amateurs, proposer un jus de citron, l'acidité du citron se marie très bien avec la douceur du plat.
-
-Conseils de Chef Damien :
-
+- Verifier régulièrement la caramélisation, le plat ne doit être ni trop sec ni trop liquide. Accompagner d'un riz blanc. Pour les amateurs, proposer un jus de citron, l'acidité du citron se marie très bien avec la douceur du plat.
 - Vous pouvez ajouter quelques pluches de coriandre frais à la fin pour apporter un peu de fraîcheur au plat.
 - J'aime aussi ajouter un petit peu de gingembre haché.
 
@@ -500,6 +467,21 @@ Pour 10 portions :
 
 - [Caviar d'aubergine véritable](https://cuisine.journaldesfemmes.fr/recette/356778-le-caviar-d-aubergine)
 
+## Caviar de poivron
+
+- faire rotir les poivrons et une aubergine (au four)
+- ôter la peau
+- mixer pas trop fin
+- ajouter un peu de sucre
+
+- [Caviar de poivron rouge en conserve - du bio dans mon bento](https://web.archive.org/web/20210124124002/https://dubiodansmonbento.com/caviar-de-poivron-rouge-en-conserve/)
+- [Recette de caviar de poivrons rouges](https://web.archive.org/web/20210126121527/https://www.marciatack.fr/caviar-poivrons-rouges/)
+
+## Gateau chinois
+
+- [Chinois (gâteau) — Wikipédia](https://fr.wikipedia.org/wiki/Chinois_%28g%C3%A2teau%29)
+- [Recettes de gâteaux chinois | Les recettes les mieux notées](https://www.750g.com/recettes_gateaux_chinois.htm)
+
 ## Guacamole
 
 Pour 4 personnes :
@@ -523,3 +505,7 @@ Pour 4 personnes :
 > 6. Une fois qu’on a tout mis, on mélange bien. On sale et on poivre et voilà! \[...\]
 >
 > — [Jelipe del Intestino on Twitter: "#23h l’heure de me défouler sur la pire des choses ici: ce que certaines personnes appellent un guacamole. SVP, ne faites pas ça 🔽 Thread culinaire… https://t.co/36N25ImJLk"](https://web.archive.org/web/20210817195354/https://twitter.com/ElVeider_FDV/status/1423395666831753224)
+
+## Riz pilav
+
+- [Comment faire du riz pilav comme en Turquie ? - Ma Cuisine Turque](https://web.archive.org/web/20210411151110/https://macuisineturque.fr/riz-pilav-faire-cuire-le-riz-a-la-turque)

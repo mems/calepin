@@ -278,6 +278,8 @@ Aka A/B testing
 - QA (Quality Assurance) is a process to ensure adherence to the quality. Tests done by automated systems, testing teams running a test case periodically to test the various aspects of the product/software. Its generally technical people behind the test, find bugs report bugs.
 - UAT (User acceptance Testing) is when the customer or the users who will be using this software test the product. Does it work for them. Does it provide them the easy of use, or the the expected output which they are looking for. Or the solution that they were looking on the first place.
 
+- [Why We Killed Our End-to-End Test Suite - Building Nubank](https://web.archive.org/web/20210925045723/https://building.nubank.com.br/why-we-killed-our-end-to-end-test-suite/)
+
 ## Web project
 
 - [JavaScript Project checklist](http://bitovi.github.io/checklist/) - Project bootstrap: collect all project informations
@@ -350,8 +352,11 @@ See [Stars and Stripes and ISO Codes · An A List Apart Column](http://alistapar
 
 ### Localization
 
+> falsehood xxx believe about language: some people cannot speak or read the local (or the most commonly-used) language, like new international students, foreign workers, immigrants and refugees
+
 See [localization](../Development/Development.md#localization)
 
+- [Translation](#translation)
 - [L’internationalisation, c’est long et dur (et ça racle le fond) | Sam & Max](http://sametmax.com/linternationalisation-cest-long-et-dur-et-ca-racle-le-fond/)
 - [Localizing PHP Applications "The Right Way" — SitePoint](https://www.sitepoint.com/series/localizing-php-applications-the-right-way/)
 - [Internationalization in PHP 5.3 - Zend Developer Zone](https://devzone.zend.com/1500/internationalization-in-php-53/)

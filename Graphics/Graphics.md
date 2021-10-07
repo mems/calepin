@@ -121,7 +121,7 @@ See also [draw & paint](#draw--paint)
 
 ## Vector
 
-See also [Rendering text](#rendering-text), [Bezier](Bezier)
+See also [Rendering text](#rendering-text), [Bézier](../Math/Spline/Spline.md#Bezier)
 
 ![Vertexes To Vector](Vector/Vertexes%20to%20vector.jpg)
 
@@ -131,6 +131,13 @@ See also [Rendering text](#rendering-text), [Bezier](Bezier)
 - [Paper.js](https://github.com/paperjs/paper.js) - Vector Graphics Scripting – Scriptographer ported to JavaScript
 - [veltman/flubber: Tools for smoother shape animations.](https://github.com/veltman/flubber) - shape transition
 - [Flow uses specialist GPU rendering to get excellent graphics performance](https://www.ekioh.com/devblog/gpu-filling-vector-paths/)
+
+Draw vector shapes:
+
+- [gl-vis/regl-line2d: Draw 2d polyline with regl](https://github.com/gl-vis/regl-line2d)
+- [nanjizal/Trilateral: Code for drawing lines and shapes with Triangles.](https://github.com/nanjizal/Trilateral) and [nanjizal/TrilateralXtra: TrilateralXtra provides non core features for Trilateral a triangle contour engine for Haxe cross target.](https://github.com/nanjizal/TrilateralXtra/)
+- [Instanced Line Rendering Part I](https://wwwtyro.net/2019/11/18/instanced-lines.html)
+- [Instanced Line Rendering Part II: Alpha blending](https://wwwtyro.net/2021/10/01/instanced-lines-part-2.html)
 
 ### Vectorization
 

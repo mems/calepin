@@ -24,6 +24,12 @@
 
 ### DNS Record
 
+```dns-zone
+bar.example.com.        CNAME  foo.example.com.
+foo.example.com.        A      192.0.2.23
+@                  IN   TXT    "some text"
+```
+
 RR:
 	DNS Resource Record
 

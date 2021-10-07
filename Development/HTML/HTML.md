@@ -538,59 +538,63 @@ From [C# Controls abbreviation](https://gist.github.com/andyyou/3052671) and [ab
 
 And from [What are the naming guidelines for ASP.NET controls? - Stack Overflow](https://stackoverflow.com/questions/181597/what-are-the-naming-guidelines-for-asp-net-controls/25086425#25086425):
 
-	STANDARD CONTROLS:
-	btn Button
-	cb CheckBox
-	cbl CheckBoxList
-	ddl DropDownList
-	fu FileUpload
-	hdn HiddenField
-	lnk Hyperlink
-	img Image
-	ibtn(btn) ImageButton
-	lbl Label
-	lbtn(btn) LinkButton
-	lb ListBox
-	lit Literal
-	mv MultiView
-	pnl Panel
-	ph PlaceHolder
-	rb RadioButton
-	rbl RadioButtonList
-	tbl Table
-	txt TextBox
-	v View
+STANDARD CONTROLS:
 
-	DATA CONTROLS
-	dtl DataList
-	dp DataPager
-	dtv DetailsView
-	ets EntityDataSource
-	fv FormView
-	gv GridView
-	lds LinqDataSource
-	lv - ListView
-	ods ObjectDataSource
-	qe QueryExtender
-	rpt Repeater
-	smd SiteMapDataSource
-	sds SqlDataSource
-	xds XmlDataSource
+- btn Button
+- cb CheckBox
+- cbl CheckBoxList
+- ddl DropDownList
+- fu FileUpload
+- hdn HiddenField
+- lnk Hyperlink
+- img Image
+- ibtn(btn) ImageButton
+- lbl Label
+- lbtn(btn) LinkButton
+- lb ListBox
+- lit Literal
+- mv MultiView
+- pnl Panel
+- ph PlaceHolder
+- rb RadioButton
+- rbl RadioButtonList
+- tbl Table
+- txt TextBox
+- v View
 
-	VALIDATION CONTROLS
-	cpv CompareValidator
-	ctv CustomValidator
-	rv RangeValidator
-	rev RegularExpressionValidator
-	rfv RequiredFieldValidator
-	vs ValidationSummary
+DATA CONTROLS:
 
-	VALIDATION CONTROLS:
-	cpv // CompareValidator
-	ctv CustomValidator
-	rv RangeValidator
-	rev RegularExpressionValidator
-	rfv RequiredFieldValidator
+- dtl DataList
+- dp DataPager
+- dtv DetailsView
+- ets EntityDataSource
+- fv FormView
+- gv GridView
+- lds LinqDataSource
+- lv - ListView
+- ods ObjectDataSource
+- qe QueryExtender
+- rpt Repeater
+- smd SiteMapDataSource
+- sds SqlDataSource
+- xds XmlDataSource
+
+VALIDATION CONTROLS
+
+- cpv CompareValidator
+- ctv CustomValidator
+- rv RangeValidator
+- rev RegularExpressionValidator
+- rfv RequiredFieldValidator
+- vs ValidationSummary
+
+VALIDATION CONTROLS:
+
+- cpv // CompareValidator
+- ctv CustomValidator
+- rv RangeValidator
+- rev RegularExpressionValidator
+- rfv RequiredFieldValidator
 
 Sequences:
 
@@ -971,6 +975,7 @@ Aka a11y
 	* [Accessibility Usertest: Select2 – Make WordPress Accessible](https://make.wordpress.org/accessibility/2015/09/07/accessibility-usertest-select2/)
 	* https://github.com/select2/select2/search?q=accessibility&type=Issues&utf8=%E2%9C%93
 - question mark key should open keyboard shortcut help (see Twitter)
+- text shouldn't be on image, see: [Is your HTML email translatable? | Hussein Al Hammad](https://web.archive.org/web/20211003141905/https://hussein-alhammad.com/blog/2021/10/translatable-html-email/)
 
 - [Accessibility according to actual people with disabilities - Axess Lab](https://axesslab.com/accessibility-according-to-pwd/) - First issue: media captions
 - [Web Accessibility Perspectives Videos: Explore the Impact and Benefits for Everyone](https://www.w3.org/WAI/perspectives/)

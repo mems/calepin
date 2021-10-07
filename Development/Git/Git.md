@@ -7,6 +7,48 @@
 - [Explain Git with D3](https://onlywei.github.io/explain-git-with-d3/) - Visualizing Git Concepts
 - [alaingilbert/git2graph: Generate a git graph structure from linear git history](https://github.com/alaingilbert/git2graph)
 
+
+```sh
+# List files in commit
+git diff-tree --no-commit-id --name-only -r <commit>
+
+# List files in stash
+git stash show -p stash@{0} --name-only
+
+# Apply stach as a patch (if git stash apply fail)
+#git stash show -p | git apply --apply --index --whitespace=fix --reject
+git stash show -p | git am -3
+
+# Export stash as patch file
+git stash show "stash@{0}" -p > ~/Desktop/changes.patch
+git archive "stash@{0}" | gzip >whatever.tgz
+
+# Apply a patch file
+#git apply --index --3way --binary --verbose /path/to/changes.patch
+#git apply --index --3way --binary --whitespace=fix /path/to/changes.patch
+git apply --apply --index --whitespace=fix --reject /path/to/changes.patch
+# Then list rejected files
+find -name *.rej
+
+# Create a branch from stash
+git stash branch stashed_changes_branch
+
+# Get file stats (list files per number of commit change it)
+git log --pretty=format: --name-only | sort | uniq -c | grep -vE '/path/to/ignore|/path/to/file/to/ignore' | sort -rg | head -40
+
+# Rollback commit as patch
+git diff --binary $COMMIT_HASH $COMMIT_HASH^ > /path/to/mypatch.patch
+
+# Create a patch from staged changes
+git diff --cached --binary > /path/to/mypatch.patch
+
+# Create a patch from working directory (uncommitted modifications)
+git diff --binary HEAD > /path/to/mypatch.patch
+
+# Create an archive include files changes between 2 commits
+LAST_COMMIT_HASH=<newest-commit-id-to-include>; FIRST_COMMIT_HASH=<oldest-commit-id-to-include>; git archive --prefix=some_path_prefix/ -o ~/Desktop/patch.zip $LAST_COMMIT_HASH:src_path $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $FIRST_COMMIT_HASH^:src_path $LAST_COMMIT_HASH:src_path)
+```
+
 ## User infos
 
 Aka author, identity (or identities), accounts
@@ -39,6 +81,31 @@ git reset --hard origin/master && git clean -f -d
 - [githook - change default git hook - Stack Overflow](https://stackoverflow.com/questions/1977610/change-default-git-hooks)
 - [Putting git hooks into repository - Stack Overflow](https://stackoverflow.com/questions/3462955/putting-git-hooks-into-repository/3464399#3464399)
 - [Missing git hooks documentation | Mark's Blog](http://longair.net/blog/2011/04/09/missing-git-hooks-documentation/)
+- [git - pre-receive hook on server-side that refuse any push to master which ha any non-linear history - Stack Overflow](https://stackoverflow.com/questions/5488442/pre-receive-hook-on-server-side-that-refuse-any-push-to-master-which-has-any-non)
+- [githook - git server side hook - only specific branche will be pushed - Stack Overflow](https://stackoverflow.com/questions/47201157/git-server-side-hook-only-specific-branches-will-be-pushed)
+- [Git - Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks#_server_side_hooks)
+- [Git - git-receive-pack Documentation](https://git-scm.com/docs/git-receive-pack#_pre_receive_hook)
+- [Git - githook Documentation](https://git-scm.com/docs/githooks)
+- [platform-samples/pre-receive-hook at master · github/platform-samples](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)
+- [platform-samples/commit-current-user-check.sh at master · github/platform-samples](https://github.com/github/platform-samples/blob/master/pre-receive-hooks/commit-current-user-check.sh)
+- [githook - git: who pushed in post-receive hook - Stack Overflow](https://stackoverflow.com/questions/3762012/git-who-pushed-in-post-receive-hook)
+- [git/hooks--update.sample at master · git/git](https://github.com/git/git/blob/master/templates/hooks--update.sample)
+- [git/update-hook-example.txt at master · git/git](https://github.com/git/git/blob/master/Documentation/howto/update-hook-example.txt)
+- bare repo hooks: `repo.git/hook/update`
+- [Git post-receive hook not working? - Stack Overflow](https://stackoverflow.com/questions/49728213/git-post-receive-hook-not-working) - post-receive hook has no lock mecanism
+- [How Not to Write Your Git Update Hooks - DZone DevOps](https://dzone.com/articles/how-not-to-write-your-git-update-hooks)
+- https://schacon.github.io/git/howto/update-hook-example.txt
+- [githooks - Git hook: add a new file to repo if a new branch is created - Stack Overflow](https://stackoverflow.com/questions/18323175/git-hook-add-a-new-file-to-repo-if-a-new-branch-is-created/18325201#18325201)
+- [One-click App Deployment with Server-side Git Hooks — SitePoint](https://www.sitepoint.com/one-click-app-deployment-server-side-git-hooks/)
+- [git - View commits on a new branch in the update hook - Stack Overflow](https://stackoverflow.com/questions/18723219/view-commits-on-a-new-branch-in-the-update-hook/18726025#18726025)
+- [Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)
+- [I there a way to configure git repository to reject 'git push --force'? - Stack Overflow](https://stackoverflow.com/questions/1754491/is-there-a-way-to-configure-git-repository-to-reject-git-push-force)
+
+How Git hooks works:
+
+- [Are git pre-receive/update hook serialized? - DevOp Stack Exchange](https://devops.stackexchange.com/questions/431/are-git-pre-receive-update-hooks-serialized/439#439)
+- [Git - git-receive-pack Documentation](https://git-scm.com/docs/git-receive-pack#_quarantine_environment)
+- [How To Use Git Hooks To Automate Development and Deployment Tasks | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks)
 
 ## Branching
 
@@ -442,3 +509,11 @@ git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
 ```
 
 - [How to find and restore a deleted file in a Git repository - Stack Overflow](https://stackoverflow.com/questions/953481/how-to-find-and-restore-a-deleted-file-in-a-git-repository)
+
+## Worktree
+
+- Git 2.5+
+- [How to clone a specific Git branch? - Stack Overflow](https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch)
+- [Multiple working directorie with Git? - Stack Overflow](https://stackoverflow.com/questions/6270193/multiple-working-directories-with-git/30185564#30185564)
+- [Git - git-worktree Documentation](https://git-scm.com/docs/git-worktree)
+- [Parallelize Development Using Git Worktrees](https://spin.atomicobject.com/2016/06/26/parallelize-development-git-worktrees/)

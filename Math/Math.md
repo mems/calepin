@@ -66,8 +66,68 @@ public static function atan2(y:Number, x:Number):Number {
 
 ## Trigonometric
 
-- [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/sincos/sincos.htm) - a sin/cos trick
+Aka sine, cosine, tangent
+
+- [Trigonometric functions - Wikipedia](https://en.wikipedia.org/wiki/Trigonometric_functions)
+- [Inigo Quilez :: fractals, computer graphics, mathematics, shaders, demoscene and more](https://web.archive.org/web/20200915070946/https://www.iquilezles.org/www/articles/sincos/sincos.htm) - a sin/cos trick
+- [How does C compute sin() and other math functions? - Stack Overflow](https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions)
 - [LucasVB (1ucasvb) on Twitter: "Here's all the trigonometric functions in a way things actually make sense all around the circle. All the main identities are obvious in this geometric interpretation. https://t.co/2CT0YcFa0Q" / Twitter](https://twitter.com/LucasVB/status/1378529237322334208)
+- [ZX Sine | Arkeoblog](https://web.archive.org/web/20210918105239/https://albertveli.wordpress.com/2015/01/10/zx-sine/) - Compute `sin()` and `cos()` using Chebyshev polynomials
+- [Arduino/AVR and ZX Spectrum: sin() routines. – Niels Moseley's bloggy bits](https://web.archive.org/web/20211007150920/https://namoseley.wordpress.com/2012/09/26/arduinoavr-and-zx-spectrum-sin-routines/)
+
+Taylor series:
+
+```
+// AVR C lib
+C0 = 1.0000000000;
+C1 = -0.1666666664;
+C2 = 0.0083333315;
+C3 = -0.0001984090;
+C4 = 0.0000027526;
+C5 = -0.0000000239;
+
+P(x) = c_0\cdot x + c_1\cdot x^3 + c_2\cdot x^5 + c_3\cdot x^7 + c_4\cdot x^9 + c_5\cdot x^{11}.
+```
+
+[Z80 / ZX Spectrum version](https://web.archive.org/web/20210918105239/https://albertveli.wordpress.com/2015/01/10/zx-sine/):
+
+```
+#define T0(x) ( 1 )
+#define T1(x) ( x )
+#define T2(x) ( 2 * x*x - 1 )
+#define T3(x) ( 4 * x*x*x - 3 * x )
+#define T4(x) ( 8 * x*x*x*x - 8 * x*x + 1 )
+#define T5(x) ( 16 * x*x*x*x*x - 20 * x*x*x + 5 * x )
+
+#define C0 1.276278962f
+#define C1 -.285261569f
+#define C2 0.009118016f
+#define C3 -.000136587f
+#define C4 0.000001185f
+#define C5 -.000000007f
+
+#define P(z) ( C0 * T0(z) + C1 * T1(z) + C2 * T2(z) + C3 * T3(z) + C4 * T4(z) + C5 * T5(z) )
+
+float zx_sin(float x)
+{
+   double w = 4 * x;
+   double z = 2 * w * w - 1;
+
+   return P(z) * w;
+}
+
+/*
+Coefficients for cos:
+#define C0 0.472001216
+#define C1 -0.499403258
+#define C2 0.027992080
+#define C3 -0.000596695
+#define C4 0.000006704
+#define C5 -0.000000047
+
+Coefficients for arctan, arcsin, arceos, e^x, e^-x, log(1+x) see https://web.archive.org/web/20210918105351/http://www.ams.org/journals/mcom/1954-08-047/S0025-5718-1954-0063487-2/S0025-5718-1954-0063487-2.pdf
+*/
+```
 
 ## Matrix
 

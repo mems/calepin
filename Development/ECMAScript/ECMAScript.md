@@ -2667,7 +2667,9 @@ Java `org.jctools.util.Pow2.roundToPowerOfTwo()`
 
 ### Round of two
 
-	Math.ceil(value / 2) * 2;
+```js
+Math.ceil(value / 2) * 2;
+```
 
 See [Round to multiple](#round-to-multiple)
 
@@ -3259,15 +3261,17 @@ value > 0 ? Math.round(value) : -Math.round(-value)
 ### Round precision
 
 ```js
-function round(value, precision){
-	let exponent = Math.pow(10, precision);
+function round(value, precision = 32){
+	const exponent = Math.pow(10, precision);
 	return Math.round(value * exponent) / exponent;
 }
+
 round(123.45, 1);// => 123.5
 round(123.5, 0);// => 124
 round(125, -1);// => 130
 ```
 
+- [Math.trunc() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/trunc)
 - [Math.ceil() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil#Decimal_adjustment)
 - [Number.EPSILON - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON)
 

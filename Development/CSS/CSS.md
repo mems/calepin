@@ -2977,10 +2977,11 @@ Chrome display focus ring when button are clicked not only tabbed
 border-radius: 9999px;/*border will not overlap and will make an half circle*/
 ```
 
-- How border radius: [Boxed Into Corners: Shapes, Boxes, and Corner Radii](http://hansmuller-webkit.blogspot.fr/2014/01/boxed-into-corners-shapes-boxes-and.html)
-- Border curves overlap: [css - Border-radius in percentage (%) and pixels (px) - Stack Overflow](https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px/29966500#29966500) and [CSS Backgrounds and Borders Module Level 3](https://www.w3.org/TR/css3-border/#corner-overlap)
+- [Boxed Into Corners: Shapes, Boxes, and Corner Radii](http://hansmuller-webkit.blogspot.fr/2014/01/boxed-into-corners-shapes-boxes-and.html) - How border radius
+- [css - Border-radius in percentage (%) and pixels (px) - Stack Overflow](https://stackoverflow.com/questions/29966499/border-radius-in-percentage-and-pixels-px/29966500#29966500) and [CSS Backgrounds and Borders Module Level 3](https://www.w3.org/TR/css3-border/#corner-overlap) - Border curves overlap
 - [CSS Border-Radius Can Do That? | IO 9elements](https://9elements.com/io/css-border-radius/)
-- https://drafts.csswg.org/css-backgrounds-3/#corner-overlap
+- [Conditional Border Radius In CSS - Ahmad Shadeed](https://web.archive.org/web/20211006021402/https://ishadeed.com/article/conditional-border-radius/) and [Conditional Border Radius In CSS | CSS-Tricks](https://css-tricks.com/conditional-border-radius-in-css/) - Conditional border radius value
+- [CSS Backgrounds and Borders Module Level 3](https://www.w3.org/TR/css-backgrounds-3/#corner-overlap) - Overlapping Curves
 
 ### Jagged edges
 
