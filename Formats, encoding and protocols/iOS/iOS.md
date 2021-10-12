@@ -1,5 +1,6 @@
 - [How to manage/sync your iOS 7 device under Linux (natively)](http://blog.xenodesystems.com/2014/03/how-to-managesync-your-ios-7-device.html)
 - [Apple forensic: advanced look onto Apple security – HackMag](https://hackmag.com/security/apple-forensic/#logical-retrieval)
+- […Won’t you back that thing up: a glimpse of ios 13 artifacts | Smarter Forensics](https://smarterforensics.com/2019/09/wont-you-back-that-thing-up-a-glimpse-of-ios-13-artifacts/)
 
 - [libimobiledevice - A cross-platform software library and tools to communicate with iOS devices natively](http://www.libimobiledevice.org/)
 - [libimobiledevice](https://github.com/libimobiledevice)

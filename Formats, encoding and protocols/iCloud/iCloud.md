@@ -45,23 +45,23 @@ Via cal and card DAV
 [long string] like 91C0A18D-8889-44E2-8DB6-5774C9FCA6F2
 [iCloud ID] like 1325673149
 
+```
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/notification/
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/tasks/
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/inbox/
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/home/
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/work/
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/principal/
+https://p[server id]-caldav.icloud.com:443/[iCloud ID]/wcs/
 
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/notification/
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/tasks/
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/inbox/
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/home/
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/calendars/work/
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/principal/
-	https://p[server id]-caldav.icloud.com:443/[iCloud ID]/wcs/
-	
-	https://p[server id]-contacts.icloud.com:443/[iCloud ID]/carddavhome/card/[long string].vcf
-	
-	https://p[server id]-contacts.icloud.com:443/[iCloud ID]/carddavhome/addressbook/
-	
-	https://p[server id]-contactsws.icloud.com/co/mecard/?dsid=[iCloud ID]
-	
-	https://p[server id]-caldav.icloud.com/[iCloud ID]/calendars/91C0A18D-8889-44E2-8DB6-5774C9FCA6F2/70aaeba9-9d4d-450b-bcf2-4bec2153094e.ics
+https://p[server id]-contacts.icloud.com:443/[iCloud ID]/carddavhome/card/[long string].vcf
 
+https://p[server id]-contacts.icloud.com:443/[iCloud ID]/carddavhome/addressbook/
+
+https://p[server id]-contactsws.icloud.com/co/mecard/?dsid=[iCloud ID]
+
+https://p[server id]-caldav.icloud.com/[iCloud ID]/calendars/91C0A18D-8889-44E2-8DB6-5774C9FCA6F2/70aaeba9-9d4d-450b-bcf2-4bec2153094e.ics
+```
 
 AppleID:Passwort
 BASIC REALM
@@ -71,7 +71,9 @@ BASIC REALM
 
 If "Document & Data" is enabled in iCloud Sync
 
-	~/Library/Mobile Documents/
+```
+~/Library/Mobile Documents/
+```
 
 iCloud drive files: `~/Library/Mobile Documents/com~apple~CloudDocs`
 
@@ -81,8 +83,10 @@ Bookmarks, opened tabs, etc.
 
 If Safari is enabled in iCloud Sync
 
-	~/Library/SyncedPreferences/com.apple.Safari.plist
-	~/Library/SyncedPreferences/com.apple.syncedpreferences.plist
+```
+~/Library/SyncedPreferences/com.apple.Safari.plist
+~/Library/SyncedPreferences/com.apple.syncedpreferences.plist
+```
 
 This folder is backup by TimeMachine
 
@@ -94,14 +98,18 @@ And reading list (stored as bookmarks)
 
 If Safari is enabled in iCloud Sync. Updated by `/System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS/SafariBookmarksSyncAgent`
 
-	~/Library/SyncedPreferences/com.apple.Safari.plist
-	~/Library/Safari/Bookmarks.plist
-	# SQLite updated when iCloud is sync
-	~/Library/Safari/CloudTabs.db
+```
+~/Library/SyncedPreferences/com.apple.Safari.plist
+~/Library/Safari/Bookmarks.plist
+# SQLite updated when iCloud is sync
+~/Library/Safari/CloudTabs.db
+```
 
 The field `position` of table `cloud_tabs` in `CloudTabs.db` is deflate (zlib) of JSON like:
 
-	{"sortValues":[{"changeID":0,"sortValue":2000,"deviceIdentifier":"72E06CBB-9C58-479B-AD70-92BE116AE0E5"}]}
+```
+{"sortValues":[{"changeID":0,"sortValue":2000,"deviceIdentifier":"72E06CBB-9C58-479B-AD70-92BE116AE0E5"}]}
+```
 
 You can export then decode with `openssl zlib -d < position.dat`.
 See `-[NSData safari_dataByDecompressingData]` in `/System/Library/PrivateFrameworks/SafariCore.framework/SafariCore`
@@ -112,8 +120,10 @@ Order in the database doesn't match the order of tabs are opened. No logical ord
 
 Device name should match:
 
-	scutil --get LocalHostName
-	scutil --get ComputerName
+```
+scutil --get LocalHostName
+scutil --get ComputerName
+```
 
 See [Generate a markdown links list from iCloud tabs](https://gist.github.com/mems/2c96233708c6b5b44ed1a26cb0ec5a0e)
 
@@ -121,8 +131,10 @@ The history timestamp `visit_time` is seconds from 2001-01-01 00:00:00
 
 Tab title with "Favoris" (fr) / "Favorites" (en) by the URL, is often a PDF document
 
-	# bookmarks to JSON using only
-	plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | php('php://stdin','SimpleXMLElement',LIBXML_NOCDATA));"
+```
+# bookmarks to JSON using only
+plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | php('php://stdin','SimpleXMLElement',LIBXML_NOCDATA));"
+```
 
 - [Rebuilding iCloud Bookmarks | Sheep Systems](http://www.sheepsystems.com/files/support_articles/bkmx/rebuilding-icloud-bookmarks.html)
 - [safari - iCloud tabs only shows one iOS device at a time - Ask Different](https://apple.stackexchange.com/questions/137029/icloud-tabs-only-shows-one-ios-device-at-a-time/275457#275457)
@@ -135,7 +147,9 @@ Tab title with "Favoris" (fr) / "Favorites" (en) by the URL, is often a PDF docu
 
 ## Photo Stream
 
-	~/Library/Application Support/iLifeAssetManagement/assets/sub/[subfolder]/*.png|*.jpg
+```
+~/Library/Application Support/iLifeAssetManagement/assets/sub/[subfolder]/*.png|*.jpg
+```
 
 Where subfolder call something like 013184d3f181aa175db7e48b08817861eff8cac25a (long hexa name).
 

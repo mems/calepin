@@ -101,7 +101,6 @@ Any command can be preceded by *#, ** or ##.
 *#5005#                 "Error performing request - No Network Service" - Note 2
 ##5005*22*12345678#     Function unknown, displays "please wait"...; power-off to exit.
 
-'
 Note 1: It may be necessary to change the prefix from the set of (*#, **, ##) to
         initiate a new log dump.  The logs are not "tail" able, since this is a single
         dump, with no additional data written.  So far, these logs appear to always
@@ -371,8 +370,10 @@ For videos
 1. Add files (`.jpg`, `.m4v`, `.mov`?, `.png`?) in `~/Library/$DATA_PATH/Media/DCIM/100APPLE/`.
 2. And delete these files
 
-		~/Library/$DATA_PATH/Media/PhotoData/Photos.sqlite-shm
-		~/Library/Application Support/$DATA_PATH/Media/PhotoData/Photos.sqlite-wal
+	```
+	~/Library/$DATA_PATH/Media/PhotoData/Photos.sqlite-shm
+	~/Library/Application Support/$DATA_PATH/Media/PhotoData/Photos.sqlite-wal
+	```
 
 	Maybe the folder `PhotoData` can be delete too.
 

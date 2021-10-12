@@ -64,3 +64,4 @@ From OpentType 1.8
 - [Axis-Praxis: typesetting with variable fonts (OpenType Variations)](http://www.axis-praxis.org/)
 - [DECOVAR](https://github.com/typenetwork/fb-decovar) - A variable decorative sans by David Berlow
 - [OpenType Font Variations Overview](https://www.microsoft.com/typography/otspec180/otvaroverview.htm)
+- [Variable Fonts – Support](https://v-fonts.com/support/) - Application support of variable fonts

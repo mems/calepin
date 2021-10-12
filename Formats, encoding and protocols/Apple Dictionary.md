@@ -1,0 +1,8 @@
+- [Reverse-Engineering Apple Dictionary (2020) | Hacker News](https://news.ycombinator.com/item?id=28505406)
+- [dictionary-api/convertDicts.js at master · nikvdp/dictionary-api](https://github.com/nikvdp/dictionary-api/blob/master/convertDicts.js)
+- [MacOSX-SDKs/IndexedSearch.h at master · phracker/MacOSX-SDKs](https://github.com/phracker/MacOSX-SDKs/blob/master/MacOSX10.7.sdk/usr/include/IndexedSearch.h)
+- [takumakei/osx-dictionary: CLI for OSX Dictionary.app](https://github.com/takumakei/osx-dictionary)
+- [Reverse engineering Apple Dictionaries](https://web.archive.org/web/20210507031518/https://josephg.com/blog/reverse-engineering-apple-dictionaries/)
+- [Apple dictionaries, part 2](https://web.archive.org/web/20210507004413/https://josephg.com/blog/apple-dictionaries-part-2/)
+- [Apple dictionaries · GitHub](https://web.archive.org/web/20210913010840/https://gist.github.com/josephg/5e134adf70760ee7e49d)
+- [Reverse-Engineering Apple Dictionary](https://web.archive.org/web/20210915121311/https://fmentzer.github.io/posts/2020/dictionary/)

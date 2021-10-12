@@ -228,3 +228,9 @@ Aka satellite imagery
 	See also print as a PDF with 1200ppi (use a PDF printer). See [Save or Print High Resolution Images from Google Earth - Dylan Brown Designs](http://dylanbrowndesigns.com/tutorials/how-to-save-or-print-high-resolution-images-from-google-earth/)
 - [High Resolution Satellite Imagery | Harris Geospatial](https://www.harrisgeospatial.com/Data-Imagery/Satellite-Imagery/High-Resolution)
 - [How to access data / Observing the Earth / Our Activities / ESA](http://www.esa.int/Our_Activities/Observing_the_Earth/How_to_access_data)
+
+## Flag
+
+- [hampusborgos/country-flags: SVG and PNG renders of all countries' flags.](https://github.com/hampusborgos/country-flags)
+- [Category:SVG flags by country - Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:SVG_flags_by_country)
+- [Gallery of sovereign state flags - Wikipedia](https://en.wikipedia.org/wiki/Gallery_of_sovereign_state_flags)
