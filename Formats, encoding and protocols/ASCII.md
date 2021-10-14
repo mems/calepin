@@ -1,2 +1,3 @@
 - [ASCII character set - Lammert Bies](https://web.archive.org/web/20200814221340/https://www.lammertbies.nl/comm/info/ascii-characters)
+- [Four Column ASCII](https://web.archive.org/web/20210924112351/https://garbagecollected.org/2017/01/31/four-column-ascii/)
 - `man ascii`

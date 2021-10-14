@@ -86,6 +86,11 @@ See [Management](../Management/Management.md)
 - [agile testing - Does anyone know of a good bug matrix or defect management process? - Software Quality Assurance & Testing Stack Exchange](https://sqa.stackexchange.com/questions/17386/does-anyone-know-of-a-good-bug-matrix-or-defect-management-process)
 - [manageevents - risk](https://manageevents.wikispaces.com/risk)
 
+## Productivity
+
+- [5 tips for dealing with meeting overload | The Way We Work, a TED series - YouTube](https://www.youtube.com/watch?v=Mp3Msfw90BE)
+- [The Way We Work, a TED series - YouTube](https://www.youtube.com/playlist?list=PLOGi5-fAu8bFhSzuOjTmHJwLHUxxIoGr4)
+
 ## Position
 
 - [Time estimation](#time-estimation)

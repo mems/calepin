@@ -353,7 +353,6 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 - `filter_var($input, FILTER_VALIDATE_EMAIL)`
 - [Data Validation « WordPress Codex](https://codex.wordpress.org/Data_Validation)
 - use dedicated domain for hosting third party documents/resources (image, HTML, CSS, JS). For proxing, etc.
-- [minimaxir/big-list-of-naughty-strings: The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.](https://github.com/minimaxir/big-list-of-naughty-strings)
 - [The Hitchhiker's Guide to SQL Injection prevention](https://phpdelusions.net/sql_injection)
 - text, URL, link, 2D/3D data can contains offencive (insult, nudity, obscenity, etc.) text, scene, symbol, gesture, etc. in an image, 3D object, points on a map, ASCII text image
 	**Text: Don't think you can manage the problem with just a blacklist of words** (what about lookalike, slang, backward-slang?)
@@ -363,6 +362,16 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 
 	See [User generated content problems](Conception#User generated content problems)
 
+	- [minimaxir/big-list-of-naughty-strings: The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.](https://github.com/minimaxir/big-list-of-naughty-strings)
+	- [The naughty username checking system used by Twitch](https://web.archive.org/web/20211009214236/https://ghostbin.com/57bCm/raw) - [The naughty username checking system used by Twitch | Hacker News](https://news.ycombinator.com/item?id=28779566)
+	- Wikipedia/Wikimedia filters:
+		- [Editing filter - Wikipedia](https://en.wikipedia.org/wiki/Special:AbuseFilter/384)
+		- [Edit filter configuration - Wikipedia](https://en.wikipedia.org/wiki/Special:AbuseFilter) - listing all filters Wikipedia use, which also have uses other than detecting abuse
+			- `https://{LOCALE}.wikipedia.org/wiki/Special:AbuseFilter`
+			- [Configuration du filtre anti-erreur — Wikipédia](https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Filtre_antiabus)
+			- [Beheer van filters - Wikipedia](https://nl.wikipedia.org/wiki/Speciaal:Filter)
+		- [MediaWiki:Titleblacklist - Wikipedia](https://en.wikipedia.org/wiki/MediaWiki:Titleblacklist)
+		- [Title blacklist - Meta](https://meta.wikimedia.org/wiki/Title_blacklist)
 	- [Scunthorpe problem — Wikipedia](https://en.wikipedia.org/wiki/Scunthorpe_problem)
 	- [Text transform](Text#Text transform)
 	- [shortened URLs](https://en.wikipedia.org/wiki/URL_shortening#Shortcomings)

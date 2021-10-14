@@ -4,6 +4,7 @@
 - [petersalomonsen/wasm-git: GIT for nodejs and the browser using https://libgit2.org compiled to WebAssembly with https://emscripten.org](https://github.com/petersalomonsen/wasm-git)
 - [~sircmpwn/shit - sourcehut git](https://git.sr.ht/~sircmpwn/shit) - An implementation of git in (almost) pure POSIX shell
 - [nayuki/Git-library-Java: Low-level Java library to read/write Git repositories.](https://github.com/nayuki/Git-library-Java)
+- [djanderson/aho: A git implementation in awk](https://github.com/djanderson/aho)
 
 ## How git works
 
@@ -46,7 +47,6 @@ diff --git a/path/file-old.ext b/path/file.ext
 similarity index 100%
 rename from path/file-old.ext
 rename to path/file.ext
-
 ```
 
 ```c

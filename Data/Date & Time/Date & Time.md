@@ -24,10 +24,11 @@ Due to leap second, it's possible to have 61 seconds or only 59 seconds in 1 min
 > As of the start of 1918, the Gregorian calendar was 13 days ahead of the Julian calendar, which was relegated that February to use only by churches after Russia adopted the Gregorian calendar.
 — [1918 — Wikipedia](https://en.wikipedia.org/wiki/1918)
 
-- [Falsehoods programmers believe about time: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)
-- [More falsehoods programmers believe about time;...: @noahsussman: Infinite Undo](http://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time)
-- [How and why the leap second affected Cloudflare DNS](https://blog.cloudflare.com/how-and-why-the-leap-second-affected-cloudflare-dns/#afalsehoodprogrammersbelieveabouttime)
-- [Official Google Blog: Time, technology and leaping seconds](https://googleblog.blogspot.fr/2011/09/time-technology-and-leaping-seconds.html)
+- [Your calendrical fallacy is thinking…](https://web.archive.org/web/20210515141515/https://yourcalendricalfallacyis.com/)
+- [Falsehoods programmers believe about time: @noahsussman: Infinite Undo](https://web.archive.org/web/20210926080918/https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)
+- [More falsehoods programmers believe about time;...: @noahsussman: Infinite Undo](https://web.archive.org/web/20210911153048/https://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time)
+- [How and why the leap second affected Cloudflare DNS](https://web.archive.org/web/20211011051658/https://blog.cloudflare.com/how-and-why-the-leap-second-affected-cloudflare-dns/#afalsehoodprogrammersbelieveabouttime)
+- [Official Google Blog: Time, technology and leaping seconds](https://web.archive.org/web/20211003082114/https://googleblog.blogspot.com/2011/09/time-technology-and-leaping-seconds.html)
 - [Maz Jovanovich on Twitter: "Any European country: “Multiple time zones in one country are weird” Australia during daylight savings: “Hold my beer”… https://t.co/Mx7oVQWKfX"](https://web.archive.org/web/20201101183658/https://twitter.com/maz_jovanovich/status/1312620947472556034?s=12)
 
 - [Parse Natural Language Dates with Dateparser | The Scrapinghub Blog](http://blog.scrapinghub.com/2015/11/09/parse-natural-language-dates-with-dateparser/)

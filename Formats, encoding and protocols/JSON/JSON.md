@@ -1,4 +1,4 @@
-- [seriot.ch - Parsing JSON is a Minefield 💣](http://seriot.ch/parsing_json.html)
+- [Parsing JSON is a Minefield](https://web.archive.org/web/20211012051215/http://seriot.ch/projects/parsing_json.html)
 - Convert JSON to C data literals. https://github.com/orangeduck/json2c
 - [mikechambers/as3corelib: An ActionScript 3 Library that contains a number of classes and utilities for working with ActionScript? 3. These include classes for MD5 and SHA 1 hashing, Image encoders, and JSON serialization as well as general String, Number and Date APIs.](https://github.com/mikechambers/as3corelib)
 - [We released simdjson 0.3: the fastest JSON parser in the world is even better! – Daniel Lemire's blog](https://lemire.me/blog/2020/03/31/we-released-simdjson-0-3-the-fastest-json-parser-in-the-world-is-even-better/) - [Simdjson 0.3: Faster JSON parser | Hacker News](https://news.ycombinator.com/item?id=22745351)

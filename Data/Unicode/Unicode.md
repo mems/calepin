@@ -1,14 +1,9 @@
 > The characters “U+” are an ASCIIfied version of the MULTISET UNION “⊎” U+228E character (the U-like union symbol with a plus sign inside it), which was meant to symbolize Unicode as the union of character sets
-— https://stackoverflow.com/questions/1273693/why-is-u-used-to-designate-a-unicode-code-point/8891122#8891122
+>
+> — [codepoint - Why is 'U+' used to designate a Unicode code point? - Stack Overflow](https://stackoverflow.com/questions/1273693/why-is-u-used-to-designate-a-unicode-code-point/8891122#8891122)
 
 - [A Programmer’s Introduction to Unicode – Nathan Reed’s coding blog](http://reedbeta.com/blog/programmers-intro-to-unicode/)
 - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!) – Joel on Software](https://web.archive.org/web/20201212114246/https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
-
-Fix encoding:
-
-- [ftfy - fix unicode that's broken in various ways](https://ftfy.now.sh/)
-- [simonw/ftfy-web: Paste in some broken unicode text and FTFY will tell you how to fix it!](https://github.com/simonw/ftfy-web)
-- [LuminosoInsight/python-ftfy: Given Unicode text, make its representation consistent and possibly less broken.](https://github.com/LuminosoInsight/python-ftfy)
 
 ## Composite and Precomposed Characters
 
@@ -25,9 +20,9 @@ Fix encoding:
 - [How to normalise strings, and a new command tool to help – The Eclectic Light Company](https://eclecticlight.co/2017/04/10/how-to-normalise-strings-and-a-new-command-tool-to-help/)
 - Apfelstrudel, [Downloads – The Eclectic Light Company](https://eclecticlight.co/downloads/)
 
-Normalization forms
+Normalization forms:
 
-NFC - Precomposed string with canonical mapping
-NFD - Decomposed string with canonical mapping
-NFKC - Precomposed string with compatibility mapping
-NFKD - Decomposed string with compatibility mapping
+- NFC: Precomposed string with canonical mapping
+- NFD: Decomposed string with canonical mapping
+- NFKC: Precomposed string with compatibility mapping
+- NFKD: Decomposed string with compatibility mapping

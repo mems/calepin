@@ -532,6 +532,10 @@ See also [complexity](#complexity).
 >
 > — [The Art of Code Comments - Sarah Drasner | JSConf Hawaii 2020 - YouTube](https://www.youtube.com/watch?v=yhF7OmuIILc)
 
+> I’ve found that adding TODO comments that are associated with Jira tickets flagged as “tech debt” is a good way to get a handle on that urge. It doesn’t take long for an entire backlog to fill up with such tickets and then you have a visible / accountable way to approach them.
+>
+> — [Dave Sag on Twitter: "@laurieontech I’ve found that adding TODO comments that are associated with Jira tickets flagged as “tech debt” is a good way to get a handle on that urge. It doesn’t take long for an entire backlog to fill up with such tickets and then you have a visible / accountable way to approach them." / Twitter](https://twitter.com/davesag/status/1446633961476669442?s=12)
+
 Can be used to descript the purpose of specific regexp or usage of unexpected API/syntax (for bugs workaround or undocumented features need to be used)
 
 But add comment that is not well maintained is "bad documentation can be worst than no documentation". The comment is part of the code and maintenance too.
@@ -590,6 +594,8 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 >
 > — [“My Code is Self-Documenting” — Eric Holscher - Surfing in Kansas](http://ericholscher.com/blog/2017/jan/27/code-is-self-documenting/)
 
+- [Things every developer should know](#things-every-developer-should-know)
+- [Premature optimization](#premature-optimization)
 - [Code Tells You How, Comments Tell You Why](https://web.archive.org/web/20201112032711/https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
 - [Thoughts on Self-Documenting CSS](https://web.archive.org/web/20201109032904/https://keithjgrant.com/posts/2017/06/self-documenting-css/)
 - [La notion de code source autodescriptif relèverait d'un mythe entretenu par les programmeurs qui n'ont pas saisi la portée de « documenter »](https://www.developpez.com/actu/150976/La-notion-de-code-source-autodescriptif-releverait-d-un-mythe-entretenu-par-les-programmeurs-qui-n-ont-pas-saisi-la-portee-de-documenter/)

@@ -14,3 +14,5 @@
 - [AirPlay Mirroring without Apple TV (using RPi)](http://www.instructables.com/id/AirPlay-Mirroring-without-Apple-TV-using-RPi/)
 - [Unofficial AirPlay Protocol Specification](http://nto.github.io/AirPlay.html)
 - [reverse engineering - Ha anyone reversed engineered the protocol used by Apple' iOS Remote app for controlling an Apple TV over IP? - Stack Overflow](https://stackoverflow.com/questions/35355807/has-anyone-reversed-engineered-the-protocol-used-by-apples-ios-remote-app-for-c)
+- [rahul-thakoor/air-pi-play: Turn a Raspberry Pi into an Airplay server using RPiPlay to enable screen mirroring on tvs, monitors and projectors.](https://github.com/rahul-thakoor/air-pi-play) - use RpiPlay
+- [FD-/RPiPlay: An open-source AirPlay mirroring server for the Raspberry Pi. Supports iOS 9 and up.](https://github.com/FD-/RPiPlay)

@@ -237,9 +237,23 @@ See [Burger menu](UI - UX#burger-menu)
 - [Quotes and Accents](https://web.archive.org/web/20201203101820/http://quotesandaccents.com/)
 - https://github.com/yvg/js-replace-diacritics/blob/master/replace-diacritics.js [Script to remove diacritics | lehelk.com](http://web.archive.org/web/20121231230126/http://lehelk.com/2011/05/06/script-to-remove-diacritics/)
 
-## Clean text
+## Encoding
 
-> Mojibake is the garbled text that is the result of text being decoded using an unintended character encoding.
+- [Binary-to-text encoding — Wikipedia](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
+- [ASCII](../Formats,%20encoding%20and%20protocols/ASCII.md)
+- [Ascii85](../Formats,%20encoding%20and%20protocols/Ascii85.md)
+- [Base64](../Formats,%20encoding%20and%20protocols/Base64/Base64.md)
+- [Base91](../Formats,%20encoding%20and%20protocols/Base91/Base91.md)
+- [Base122](../Formats,%20encoding%20and%20protocols/Base122/Base122.md)
+- [VQL encoding](../Formats,%20encoding%20and%20protocols/VQL%20encoding.md)
+- [Unicode Transformation Formats - UTF-8](../Formats,%20encoding%20and%20protocols/Unicode%20Transformation%20Formats%20-%20UTF-8/UTF-8.md)
+- [Unicode](../Data/Unicode/Unicode.md)
+
+### Clean text
+
+Aka "�"
+
+> Mojibake \[and krakozyabry\] is the garbled text that is the result of text being decoded using an unintended character encoding.
 >
 > — [Mojibake - Wikipedia](https://en.wikipedia.org/wiki/Mojibake)
 
@@ -249,11 +263,16 @@ Example:
 UTF-8: é è à ï ô ç ê
 Binary UTF-8: C3 A9 20 C3 A8 20 C3 A0 20 C3 AF 20 C3 B4 20 C3 A7 20 C3 AA
 ISO 8859-1: Ã© Ã¨ Ã  Ã¯ Ã´ Ã§ Ãª
+ISO 8859-1 as UTF-8: � ÿ
 ```
 
 Fix encoding:
 
 - [ftfy - fix unicode that's broken in various ways](https://ftfy.now.sh/)
+- [simonw/ftfy-web: Paste in some broken unicode text and FTFY will tell you how to fix it!](https://github.com/simonw/ftfy-web)
+- [LuminosoInsight/python-ftfy: Given Unicode text, make its representation consistent and possibly less broken.](https://github.com/LuminosoInsight/python-ftfy)
+
+See also:
 
 - [Detergent.io](https://detergent.io/)
 
