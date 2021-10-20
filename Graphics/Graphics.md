@@ -1139,6 +1139,7 @@ Aka Fragment Shaders
 - [The Book of Shaders](http://thebookofshaders.com/)
 - [alphablending - How to use pre-multiplied during image convolution to solve alpha bleed problem? - Stack Overflow](https://stackoverflow.com/questions/4854839/how-to-use-pre-multiplied-during-image-convolution-to-solve-alpha-bleed-problem)
 - [Vanilla WebGL Shader - basic mouse move](https://codepen.io/desandro/pen/GzvbJN) - pixel shader 2D example
+- [stackgl/shader-school: A workshopper for GLSL shaders and graphics programming](https://github.com/stackgl/shader-school)
 
 Usefull functions:
 

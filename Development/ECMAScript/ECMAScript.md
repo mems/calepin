@@ -146,6 +146,13 @@ Are optional, but required in some cases
 - [blog.izs.me](https://blog.izs.me/2010/12/an-open-letter-to-javascript-leaders-regarding)
 - [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)
 
+## Types
+
+Use JSDoc used for type check
+
+- `tsc --noEmit false --emitDeclarationOnly true`
+- [JSDoc typings: all the benefits of TypeScript, with none of the drawbacks](https://web.archive.org/web/20210924000224/https://gils-blog.tayar.org/posts/jsdoc-typings-all-the-benefits-none-of-the-drawbacks/)
+
 ## Prototype
 
 - [Document Object Model Prototypes, Part 1](https://msdn.microsoft.com/en-us/library/dd282900%28v=vs.85%29.aspx)
@@ -357,6 +364,8 @@ var chars = [..."test"];
 // range
 [...new Array(4).keys()]// [0, 1, 2, 3]
 ```
+
+- [Defining Basic JavaScript Terms: map, filter, and reduce - Jim Nielsen’s Blog](https://web.archive.org/web/20210907154620/https://blog.jim-nielsen.com/2021/defining-basic-javascript-terms/) - "Understanding why APIs are named the way they are in a language is another plane of understanding code. It enhances your understanding in a way that experiential knowledge alone cannot."
 
 ### Spread operator
 
@@ -722,31 +731,33 @@ function fancyCount2(str){
 
 ### Template literal
 
-	const tmpl = addrs => `
-		<table>
-		${addrs.map(addr => `
-			<tr><td>${addr.first}</td></tr>
-			<tr><td>${addr.last}</td></tr>
-		`).join('')}
-		</table>
-	`;
+```js
+const tmpl = addrs => `
+	<table>
+	${addrs.map(addr => `
+		<tr><td>${addr.first}</td></tr>
+		<tr><td>${addr.last}</td></tr>
+	`).join('')}
+	</table>
+`;
 
-	const data = [
-		{ first: '<Jane>', last: 'Bond' },
-		{ first: 'Lars', last: '<Croft>' },
-	];
+const data = [
+	{ first: '<Jane>', last: 'Bond' },
+	{ first: 'Lars', last: '<Croft>' },
+];
 
-	console.log(tmpl(data));
-	// Output:
-	// <table>
-	//
-	// 	<tr><td><Jane></td></tr>
-	// 	<tr><td>Bond</td></tr>
-	//
-	// 	<tr><td>Lars</td></tr>
-	// 	<tr><td><Croft></td></tr>
-	//
-	// </table>
+console.log(tmpl(data));
+// Output:
+// <table>
+//
+// 	<tr><td><Jane></td></tr>
+// 	<tr><td>Bond</td></tr>
+//
+// 	<tr><td>Lars</td></tr>
+// 	<tr><td><Croft></td></tr>
+//
+// </table>
+```
 
 ### String is an array-like of chars
 
@@ -2197,6 +2208,7 @@ Usefull for [arrow function](#arrow-function): `x => (a(), b())`
 ## Engines
 
 - [cesanta/mjs: Embedded JavaScript engine for C/C++](https://github.com/cesanta/mjs)
+- [cesanta/elk: A low footprint JavaScript engine for embedded systems](https://github.com/cesanta/elk)
 - [XS7 @ TC-39](https://www.moddable.com/XS7-TC-39.php)
 - [QuickJS Javascript Engine](https://bellard.org/quickjs/) - [bellard/quickjs](https://github.com/bellard/quickjs)
 - [List of ECMAScript engines - Wikipedia](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)

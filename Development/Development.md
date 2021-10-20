@@ -985,6 +985,7 @@ curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 - [danyspin97's site - Colorize your CLI](https://web.archive.org/web/20201101020353/https://danyspin97.org/blog/colorize-your-cli/)
 - [Command Line Interface Guidelines](https://web.archive.org/web/20201210232149/https://clig.dev/)
 - [Use long flags when scripting |\> Changelog](https://web.archive.org/web/20201111204522if_/https://changelog.com/posts/use-long-flags-when-scripting)
+- [mdk.fr – How APT does its fancy progress bar](https://web.archive.org/web/20211013181755/https://mdk.fr/blog/how-apt-does-its-fancy-progress-bar.html)
 
 ### Command line documentation
 

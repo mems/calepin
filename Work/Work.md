@@ -93,8 +93,11 @@ See [Management](../Management/Management.md)
 
 ## Position
 
+Aka salary
+
 - [Time estimation](#time-estimation)
 - [Salaire brut / net : le convertisseur Urssaf - Mon-entreprise](https://mon-entreprise.fr/simulateurs/salaire-brut-net)
+- [The 10 commandments of salary negotiation - by Lenny Rachitsky - Lenny's Newsletter](https://web.archive.org/web/20211010073846/https://www.lennysnewsletter.com/p/negotiating-comp)
 
 ## Self-employed
 

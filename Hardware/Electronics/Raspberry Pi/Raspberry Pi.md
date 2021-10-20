@@ -1,0 +1,3 @@
+- [rust-embedded/rust-raspberrypi-OS-tutorials: Learn to write an embedded OS in Rust](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
+- [RayViljoen/Raspberry-PI-SD-Installer-OS-X: Shell Script for creating Raspberry PI SD card on OS X.](https://github.com/RayViljoen/Raspberry-PI-SD-Installer-OS-X)
+- [Cable d'interface pour Raspberry Pi - Fait Main Magazine](https://web.archive.org/web/20190417185643/http://faitmain.org/volume-1/cable-gpio.html)

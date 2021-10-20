@@ -2,6 +2,13 @@ Aka geometry
 
 See also [Algorithms](../Algorithms/Algorithms.md#resources), [Easing](../Animation/Animation.md#easing)
 
+
+> Pour atteindre 1% des emissions actuelles, il sur 30 ans il faut une réduction relative de -14%/an:
+>
+> ```
+exp(ln(1/100)/30)-1=-0.1423
+```
+
 ## Resources
 
 - [Optimized pow() approximation for Java, C / C++, and C# – Martin Ankerl](http://martin.ankerl.com/2007/10/04/optimized-pow-approximation-for-java-and-c-c/)

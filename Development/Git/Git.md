@@ -6,7 +6,7 @@
 - List of commands in plain english: [Oh Shit, Git!?!](https://ohshitgit.com/)
 - [Explain Git with D3](https://onlywei.github.io/explain-git-with-d3/) - Visualizing Git Concepts
 - [alaingilbert/git2graph: Generate a git graph structure from linear git history](https://github.com/alaingilbert/git2graph)
-
+- [cecton/git-tools: Git subcommands to help with your workflow](https://github.com/cecton/git-tools/#git-try-merge) - "`git try-merge` does like a `git merge origin/main` but helps you resolve the conflicting commits one by one instead than having to solve them altogether like `git merge`"
 
 ```sh
 # List files in commit

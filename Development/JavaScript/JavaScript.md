@@ -3492,7 +3492,7 @@ window.addEventListener("scroll", function() {
 
 See also:
 
-- Use CSS instead of JS: [Parallax effect](CSS#parallax-effect)
+- Use CSS instead of JS: [Parallax effect](../CSS/CSS.md#parallax-effect)
 - [scroll](#scroll)
 - Scroll with momentum / kinetic scrolling: [JavaScript Kinetic Scrolling: Part 2](http://ariya.ofilabs.com/2013/11/javascript-kinetic-scrolling-part-2.html)
 - Horizontal swipe + parallax effect: [JavaScript Kinetic Scrolling: Part 4](http://ariya.ofilabs.com/2013/12/javascript-kinetic-scrolling-part-4.html)
@@ -3610,46 +3610,50 @@ A few notes about this event:
 
 - [pointercancel - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/pointercancel)
 
-### Lock drag to scroll in one direction (vertical | horizontal)
+### Lock drag to scroll in one direction
 
-Allow 2 axis scroll degree free, but once the user start to scroll in one direction (s)he can't scroll in same time over the other axis
+Allow 2 axis scroll degree free, but once the user start to scroll in one direction (vertical or horizontal) (s)he can't scroll in same time over the other axis
 
 Example with iOS's Springboard (home):
 
 - horizontal: scroll between screens
 - vertical (to bottom): display Spotlight input field
 
-When scroll outside bounds (spring effect), use diffWithBound / 2
+When scroll outside bounds (spring effect), use `diffWithBound / 2`
+
+Do not use [CSS `touch-action`](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) on the `element` or it's parent (or the browser that disable all native capabilities like scrolling).
+
+Need to support multitouch (to ignore zoom, etc.). See also [Multi-touch interaction - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Multi-touch_interaction).
 
 ```js
-var touchDirectionLock;
-var touchStartX;
-var touchStartY;
+let touchDirectionLock;
+let touchStartX;
+let touchStartY;
 element.addEventListener("touchstart", touchStart);
 
-function touchStart(event){
+function touchStart({touches}){
+	const {clientX, clientY} = touches[0];
+	touchStartX = clientX;
+	touchStartY = clientY;
 	touchDirectionLock = null;//Reset
-	var firstTouch = event.touches[0];
-	touchStartX = firstTouch.clientX;
-	touchStartY = firstTouch.clientY;
 
 	window.addEventListener("touchmove", touchMove);
 	window.addEventListener("touchend", touchEnd);
 	window.addEventListener("touchcancel", touchEnd);
 }
 function touchMove(event){
-	var firstTouch = event.touches[0];
-	var diffX = firstTouch.clientX - touchStartX;
-	var diffY = firstTouch.clientY - touchStartY;
-	var distance = Math.sqrt(diffX * diffX + diffY * diffY);//absolute distance from touchStartX and Y
+	const {clientX, clientY} = event.touches[0];
+	const diffX = clientX - touchStartX;
+	const diffY = clientY - touchStartY;
+	const distance = Math.sqrt(diffX * diffX + diffY * diffY);//absolute distance from touchStartX and Y
 
 	// If the lock direction not defined yet and touch moves enough to determine it
 	// Require at least 20px distance
 	if(touchDirectionLock === null && distance >= 20){
 		touchDirectionLock = Math.abs(diffX) < Math.abs(diffY) ? "vertical" : "horizontal";
 		// reset touchStartX|Y to current pos.
-		touchStartX = firstTouch.clientX;
-		touchStartY = firstTouch.clientY;
+		touchStartX = clientX;
+		touchStartY = clientY;
 	}
 
 	// No direction lock determined yet
@@ -3660,14 +3664,26 @@ function touchMove(event){
 
 	// Prevent event default's action here (eg. scroll by touch drag)
 	console.log("Touch direction lock", touchDirectionLock);
+	// if(touchDirectionLock === "horizontal") event.preventDefault();
 }
-function touchEnd(event){
+function touchEnd({touches}){
+	window.removeEventListener("touchmove", touchMove);
+	window.removeEventListener("touchend", touchEnd);
+	window.removeEventListener("touchcancel", touchEnd);
+
+	const {clientX, clientY} = touches[0];
+	const diffX = clientX - touchStartX;
+	const diffY = clientY - touchStartY;
+
 	if(touchDirectionLock === null){
 		console.log("Can't determine touch direction lock");
 		return;
 	}
 
 	console.log("Touch direction lock", touchDirectionLock);
+
+	// if(touchDirectionLock === "vertical") return;
+	// if(diffX !== 0) pan(diffX < 0 ? "right" : "left");// pan-left means the user is dragging their finger to the right
 }
 ```
 

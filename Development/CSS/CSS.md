@@ -1903,6 +1903,8 @@ But still accessible (and selectable)
 
 - [Hiding DOM elements - ally.js](https://allyjs.io/tutorials/hiding-elements.html#hiding-dom-elements)
 - [WebAIM: CSS in Action - Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+- [A new (and easy) way to hide content accessibly | Zell Liew](https://zellwk.com/blog/hide-content-accessibly/)
+- [Cache-cache CSS – La vie en #ffoodd](https://web.archive.org/web/20210303215312/https://www.ffoodd.fr/cache-cache-css/) - details about role of each used properties
 
 #### `padding-top`
 
@@ -3435,6 +3437,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 - [Variables: The Backbone Of CSS Architecture – Smashing Magazine](https://www.smashingmagazine.com/2016/01/variables-in-css-architecture/)
 - [Using CSS variables correctly - Mike Riethmuller](https://madebymike.com.au/writing/using-css-variables/)
 - [DRY Switching with CSS Variables: The Difference of One Declaration | CSS-Tricks](https://css-tricks.com/dry-switching-with-css-variables-the-difference-of-one-declaration/)
+- [Custom property linear range mapping](https://codepen.io/leaverou/pen/bGRmQKv) - Tool to compute clamping map: "When `--p` is `-1`, we want to output `.2em`. When `--p` is `1`, we want to output `.8em`."
 
 ## Color `currentColor` keyword
 

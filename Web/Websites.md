@@ -2146,6 +2146,7 @@ else {
 - [Obfusc-a-tweet reloaded](http://xem.github.io/articles/#obfuscatweet_url_en)
 - [API changelog](https://www.hitchhq.com/twitter/activities)
 - [Big GIFs welcome: Twitter increases maximum GIF size to 15MB on web | Ars Technica](http://arstechnica.com/business/2016/07/big-gifs-welcome-twitter-increases-maximum-gif-size-to-15mb-on-web/)
+- [Oisín Moran | How I Made a Self-Quoting Tweet](https://web.archive.org/web/20211010081904/https://oisinmoran.com/quinetweet)
 
 ### Fetch tweets
 

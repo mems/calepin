@@ -799,6 +799,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 - [Uniform Resource Identifier (URI) Schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml)
 - https://github.com/sidorares/node-mysql2/blob/9218f055ceeb95ae7205348e06c07b89b799d031/lib/connection_config.js#L88-L118
 - [IPv4 - Wikipedia](https://en.wikipedia.org/wiki/IPv4#Addressing)
+- [In search of the perfect URL validation regex](https://mathiasbynens.be/demo/url-regex)
 
 Note: https://-inevitablelament.tumblr.com/ is a valid URL (subdomain start with minus char), see [Bug #668926 “can't resolve domain names starting with a dash (mi...” : Bugs : resolvconf package : Ubuntu](https://bugs.launchpad.net/ubuntu/+source/resolvconf/+bug/668926)
 
