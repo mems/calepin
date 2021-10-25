@@ -33,6 +33,8 @@ Due to leap second, it's possible to have 61 seconds or only 59 seconds in 1 min
 
 - [Parse Natural Language Dates with Dateparser | The Scrapinghub Blog](http://blog.scrapinghub.com/2015/11/09/parse-natural-language-dates-with-dateparser/)
 
+- [RFC 3339 vs ISO 8601](https://ijmacd.github.io/rfc3339-iso8601/)
+- https://github.com/IJMacD/rfc3339-iso8601/blob/209ee5a6843f48c55e015fff41c7cf3cf6d2e0ab/src/format.js
 - [ISO week date — Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
 - [Time Zones](http://everytimezone.com/)
 - [dmfilipenko/timezones.json: Full list of timezones](https://github.com/dmfilipenko/timezones.json)

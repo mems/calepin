@@ -279,6 +279,7 @@ Aka A/B testing
 - UAT (User acceptance Testing) is when the customer or the users who will be using this software test the product. Does it work for them. Does it provide them the easy of use, or the the expected output which they are looking for. Or the solution that they were looking on the first place.
 
 - [Why We Killed Our End-to-End Test Suite - Building Nubank](https://web.archive.org/web/20210925045723/https://building.nubank.com.br/why-we-killed-our-end-to-end-test-suite/)
+- [The Day My Script Killed 10,000 Phones in South America](https://web.archive.org/web/20211020142832/https://new.pythonforengineers.com/blog/the-day-i/)
 
 ## Web project
 

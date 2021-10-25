@@ -1666,6 +1666,7 @@ video.src = "data:video/webm;base64,GkXfowEAAAAAAAAfQoaBAUL3gQFC8oEEQvOBCEKChHdl
 - [Welcome to Para-Dice in Sight - Compression DataBase](http://wayback.archive.org/web/20140617090355/http://cdb.paradice-insight.us/)
 - [TID2008: TAMPERE IMAGE DATABASE 2008 | Computer Vision Online](http://www.computervisiononline.com/dataset/tid2008-tampere-image-database-2008)
 
+- [Lorem.space - placeholder image generator](https://lorem.space/)
 - [Dynamic Dummy Image Generator - DummyImage.com](https://dummyimage.com/)
 - [Placeholder.com: Placeholder.com – The Free Image Placeholder Service Favoured By Designers](https://placeholder.com/)
 - [LoremFlickr: free placeholder images](https://loremflickr.com/)

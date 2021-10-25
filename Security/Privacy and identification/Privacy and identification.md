@@ -263,6 +263,14 @@ User:
 - vocal inflexions
 - room ambiance (sound)
 - reflex delay
+- interesets
+- name
+- birth date
+- living area
+
+See also:
+
+- [Facebook: 'Nanotargeting' Users Based Solely on Their Perceived Interests - Unite.AI](https://web.archive.org/web/20211021165832/https://www.unite.ai/facebook-nanotargeting-users-based-solely-on-their-perceived-interests/)
 
 Software and hardware:
 

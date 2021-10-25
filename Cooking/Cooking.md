@@ -509,3 +509,22 @@ Pour 4 personnes :
 ## Riz pilav
 
 - [Comment faire du riz pilav comme en Turquie ? - Ma Cuisine Turque](https://web.archive.org/web/20210411151110/https://macuisineturque.fr/riz-pilav-faire-cuire-le-riz-a-la-turque)
+
+## Moussaka
+
+- 2 grosses aubergines
+- 500 ml de coulis de tomate
+- 200 gr d'emmental râpé
+- 200 gr de protéines de soja
+
+1. faire tremper les protéines de soja dans de l'eau au moins 30 minutes
+2. couper les aubergines en tranches fines (~5-7mm)
+3. faire dégorger 30 minutes les tranches
+4. dorer les tranches dans une poêle avec de l'huile d'olive, les laisser s'attendrir
+5. faire chauffer le coulis de tomate et y ajouter un cuillère à soupe d'huile d'olive, de l'ail, de l'oignon, du sel et du poivre
+6. dans un plat pour aller au four, étaler en couche la sauce, du formage, des tranches d'aubergine
+7. enfourner pendant 30 minutes à 220°C
+
+- [Moussaka — Wikipédia](https://fr.wikipedia.org/wiki/Moussaka)
+- [Aubergine à la parmesane : recette de Aubergine à la parmesane](https://www.marmiton.org/recettes/recette_aubergine-a-la-parmesane_11318.aspx)
+- [Sauce Bolognaise : recette de Sauce Bolognaise](https://www.marmiton.org/recettes/recette_sauce-bolognaise_24157.aspx)

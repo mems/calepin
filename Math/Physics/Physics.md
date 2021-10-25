@@ -305,3 +305,7 @@ P = K/t
 ```
 
 - [Can the teardrops that fall after reading bad science writing generate renewable electricity? Yes, they can. – The Eighteenth Elephant](https://eighteenthelephant.com/2020/02/12/can-the-teardrops-that-fall-after-reading-bad-science-writing-generate-renewable-electricity-yes-they-can/)
+
+## Character motion
+
+- [Code vs Data Driven Displacement](https://web.archive.org/web/20211019165039/https://theorangeduck.com/page/code-vs-data-driven-displacement) - [orangeduck/Motion-Matching: Source code for the article "Code vs Data Driven Displacement"](https://github.com/orangeduck/Motion-Matching)

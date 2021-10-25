@@ -231,6 +231,7 @@ And Virtual DOM
 
 - [date-fns - modern JavaScript date utility library](https://date-fns.org/)
 - https://github.com/datejs/Datejs
+- https://github.com/IJMacD/rfc3339-iso8601/blob/209ee5a6843f48c55e015fff41c7cf3cf6d2e0ab/src/format.js - date format
 
 ### Video
 
@@ -1602,7 +1603,7 @@ if ((window.chrome || window.safari)) {
 
 - [WebGL progressive texture](#webgl-progressive-texture)
 
-## WebGL, Canvas2D
+## WebGL, WebGPU, Canvas2D
 
 Chrome `chrome://gpu/`
 
@@ -1620,6 +1621,7 @@ Chrome `chrome://gpu/`
 - [Some aspects of WebGL optimisation | codedoc's notes](https://codedoc255.wordpress.com/2015/06/29/some-aspects-of-webgl-optimisation/)
 - [WebGL Masking & Composition – Your Majesty Co. – Medium](https://medium.com/@Zadvorsky/webgl-masking-composition-75b82dd4cdfd#)
 - [Thoughts On Fast Bitmap Image Rendering · openlayers/openlayers Wiki](https://github.com/openlayers/openlayers/wiki/Thoughts-On-Fast-Bitmap-Image-Rendering)
+- [WebGPU \<img\>, \<canvas\>, and \<video\> texture best practices | webgpu-best-practices](https://web.archive.org/web/20211020131241/https://toji.github.io/webgpu-best-practices/img-textures.html)
 
 - [Thinking in WebGL: Reducing Memory Usage | Goo Learn](https://goocreate.com/learn/reducing-memory-usage/)
 - [Thinking in WebGL: Reducing Draw Calls | Goo Learn](https://goocreate.com/learn/reducing-draw-calls/)
@@ -6889,6 +6891,54 @@ fetch('https://example.com', {
 ```
 
 **Note: I you store in cache API (via [Service Worker](#service-worker)) an opaque response is padded and count for around 7MB (Chrome) in quota limit. See [796060 - Cache Storage value rises on each refresh when Analytics code is in the html - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=796060#c17)**
+
+```js
+async function fetchWithRetries(url, { maxRetries = 3, ...options } = {}) {
+	for(let i = 0;; i++){
+		try {
+			return await fetch(url, options);
+		} catch (error) {
+			// if the retryCount has not been exceeded, try again
+			if (i < maxRetries) {
+				continue;
+			}
+			// max retries exceeded
+			throw error;
+		}
+	}
+}
+
+// Create a promise that rejects after
+// `timeout` milliseconds
+function throwOnTimeout(timeout) {
+	return new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), timeout));
+}
+
+function fetchWithTimeout(url, { timeout, ...options } = {}) {
+  if (timeout) {
+    return Promise.race([
+      fetch(url, options),
+      throwOnTimeout(timeout)
+    ]);
+  }
+  return fetch(url, options);
+}
+
+/**
+ * @example
+ * const {promise, cancel} = fetchWithCancel('https://cataas.com/cat?json=true');
+ * const response = await promise;
+ * // ...
+ * cancel();
+ */
+function fetchWithCancel(url, options = {}) {
+	const controller = new AbortController();
+	return {
+		promise: fetch(url, { ...options, signal: controller.signal }),
+		cancel: () => controller.abort()
+	};
+};
+```
 
 - [CORS](#cors)
 - [Using Fetch - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful)

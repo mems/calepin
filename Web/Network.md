@@ -3,6 +3,63 @@
 - [How DNS works](https://howdns.works/)
 - [linux - Force dig to resolve without using cache - Server Fault](https://serverfault.com/questions/372066/force-dig-to-resolve-without-using-cache/372071#372071)
 
+### Encrypted DNS
+
+macOS and iOS configuration profiles:
+
+- [paulmillr/encrypted-dns: Configuration profiles for DNS HTTPS and DNS over TLS for iOS 14 and MacOS Big Sur](https://github.com/paulmillr/encrypted-dns)
+- [Encrypted DNS Party](https://encrypted-dns.party/) - [nitrohorse / encrypted-dns-configs · GitLab](https://gitlab.com/nitrohorse/ios14-encrypted-dns-mobileconfigs)
+- [iOS 14, mobileconfig, DNS over HTTPS with DNSDomainMatch whitelist support - Stack Overflow](https://stackoverflow.com/questions/64053593/ios-14-mobileconfig-dns-over-https-with-dnsdomainmatch-whitelist-support)
+- [DNS Resolver Selection in iOS 14 and macOS 11 – OpenDNS](https://web.archive.org/web/20211008065505/https://support.opendns.com/hc/en-us/articles/360049861971-DNS-Resolver-Selection-in-iOS-14-and-macOS-11)
+- [DNS Profile Creator](https://web.archive.org/web/20211006235219/https://dns.notjakob.com/) - [fyr77/dns-mobileconfig: A simple website to create DoH and DoT config files for iOS](https://github.com/fyr77/dns-mobileconfig)
+
+DNS over HTTPS aka DoH:
+
+- show information in Firefox: `about:networking`
+- `application/dns-message` content type
+- RFC8484
+- [DNS over HTTPS — Wikipedia](https://en.wikipedia.org/wiki/DNS_over_HTTPS)
+- [DNS-over-HTTPS (DoH)  |  Public DNS  |  Google Developers](https://developers.google.com/speed/public-dns/docs/doh/)
+
+```php
+<?php
+if (!isset($_GET['token']) || $_GET['token'] != 'some-random-token')
+{
+	die('Invalid token');
+}
+
+// From https://github.com/NotMikeDEV/DoH
+if (isset($_SERVER['CONTENT_TYPE']) && $_SERVER['CONTENT_TYPE'] == 'application/dns-message')
+{
+        $request = file_get_contents("php://input");
+        header("Content-Type: application/dns-message");
+        $s = fsockopen("udp://127.0.0.1", 53, $errno, $errstr);
+        if ($s)
+        {
+                fwrite($s, $request);
+                echo fread($s, 4096);
+                fclose($s);
+        }
+}
+else if (isset($_GET['dns']))
+{
+        $request = base64_decode(str_replace(array('-', '_'), array('+', '/'), $_GET['dns']));
+        header("Content-Type: application/dns-message");
+        $s = fsockopen("udp://127.0.0.1", 53, $errno, $errstr);
+        if ($s)
+        {
+                fwrite($s, $request);
+                echo fread($s, 4096);
+                fclose($s);
+        }
+}
+?>
+```
+
+DNS over TLS aka DoT:
+
+- [DNS over TLS — Wikipedia](https://en.wikipedia.org/wiki/DNS_over_TLS)
+
 ### DNS records
 
 Names (exemples for `example.com`):
