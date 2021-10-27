@@ -802,6 +802,12 @@ const {a, a: {b}} = {a: {b: "hi"}};
 ```
 
 ```js
+// Dynamically get / remove a key from an object
+const key = 'name';
+const { [key]: keyValue, ...rest } = obj;
+```
+
+```js
 let {options: {value1, value2}} = param;// same as let value1 = param.options.value1, value2 = param.options.value2;
 ```
 
@@ -837,6 +843,20 @@ const obj = {
 const arr = [
 	...condition && ["a"] || [],// need a default value or it will throw a type error: boolean false is not iterable
 ];
+```
+
+```js
+const x = {a: 1, b: 2};
+const y = {};
+for ([k, y[k]] of Object.entries(x));
+y // {a: 1, b: 2}
+/*
+// Equivalent to:
+for (let entry of Object.entries()) {
+  k = entry[0];
+  y[k] = entry[1];
+}
+*/
 ```
 
 - [10. Destructuring](http://exploringjs.com/es6/ch_destructuring.html)

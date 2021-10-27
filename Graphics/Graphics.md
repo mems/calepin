@@ -2456,6 +2456,7 @@ Draw 3D model from 2D sketch:
 - [Toon Shader Tutorial - Part 2 - How to Make Dynamic Outlines (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=hp4V-9oFmnM)
 - [Toon Shader Tutorial - Part 3 - How to Make a Metallic Material (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=VmyMbgMh-eQ)
 - [Toon Shader Tutorial - Part 4 - How to Make Anisotropic Hair (Blender 2.8/EEVEE) - YouTube](https://www.youtube.com/watch?v=kxWWBmIUxbc)
+- [Contours](#contours)
 
 ## Parallax
 
@@ -2827,6 +2828,8 @@ Contrast = (L1 + 0.05) / (L2 + 0.05)
 Aka border, outline, marching square algorithm, edge
 
 - [marching squares – Youpi !](https://web.archive.org/web/20171128171351/http://barradeau.com/blog/?p=391)
+- [Toon Shader](#toon-shader)
+- [5 ways to draw an outline](https://web.archive.org/web/20211024161621/https://alexanderameye.github.io/notes/rendering-outlines/)
 
 ## Procedural geomerty
 

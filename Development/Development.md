@@ -934,6 +934,14 @@ Interactive elements:
 - [Stephan Hövelbrinks on Twitter: "Doors #gamedev… "](https://web.archive.org/web/20210902055523/https://twitter.com/talecrafter/status/1369153361270935554)
 - [Damion Schubert, Zen Designer on Twitter: "Let's talk about doors in games because a throwaway comment I made yesterday apparently touched a chord. Doors suck, devs hate them, and if your game doesn't absolutely need doors, don't implement them. 1/thread… https://t.co/czqigXNbhI"](https://web.archive.org/web/20210818073042/https://twitter.com/ZenOfDesign/status/1369336758211608583)
 
+Networking:
+
+- [Client-Server Game Architecture - Gabriel Gambetta](https://web.archive.org/web/20211027060542/https://www.gabrielgambetta.com/client-server-game-architecture.html)
+- [Client-Side Prediction and Server Reconciliation - Gabriel Gambetta](https://web.archive.org/web/20211011061530/https://www.gabrielgambetta.com/client-side-prediction-server-reconciliation.html)
+- [Entity Interpolation - Gabriel Gambetta](https://web.archive.org/web/20211010171306/https://www.gabrielgambetta.com/entity-interpolation.html)
+- [Lag Compensation - Gabriel Gambetta](https://web.archive.org/web/20211011152759/https://www.gabrielgambetta.com/lag-compensation.html)
+- [Fast-Paced Multiplayer: Sample Code and Live Demo - Gabriel Gambetta](https://web.archive.org/web/20211010171259/https://www.gabrielgambetta.com/client-side-prediction-live-demo.html)
+
 See also:
 
 - [Game Programming Patterns](http://gameprogrammingpatterns.com/) - [munificent/game-programming-patterns: Source repo for the book](https://github.com/munificent/game-programming-patterns)
