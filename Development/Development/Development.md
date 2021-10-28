@@ -43,6 +43,7 @@ Aka prejudice and falsehoods about things
 - [Things you should test: @noahsussman: Infinite Undo](https://web.archive.org/web/20200917062624/https://infiniteundo.com/post/25230828820/things-you-should-test)
 - [Falsehoods programmers believe about geography – Thias の blog](https://web.archive.org/web/20200924143222/https://wiesmann.codiferes.net/wordpress/?p=15187&lang=en)
 - [The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!) – Joel on Software](https://web.archive.org/web/20201212114246/https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+- [136 facts every web dev should know before they burn out and turn to landscape painting or nude modelling – Baldur Bjarnason](https://web.archive.org/web/20211025192455/https://www.baldurbjarnason.com/2021/100-things-every-web-developer-should-know/)
 
 Due to cultural context
 
@@ -936,11 +937,15 @@ Interactive elements:
 
 Networking:
 
-- [Client-Server Game Architecture - Gabriel Gambetta](https://web.archive.org/web/20211027060542/https://www.gabrielgambetta.com/client-server-game-architecture.html)
-- [Client-Side Prediction and Server Reconciliation - Gabriel Gambetta](https://web.archive.org/web/20211011061530/https://www.gabrielgambetta.com/client-side-prediction-server-reconciliation.html)
-- [Entity Interpolation - Gabriel Gambetta](https://web.archive.org/web/20211010171306/https://www.gabrielgambetta.com/entity-interpolation.html)
-- [Lag Compensation - Gabriel Gambetta](https://web.archive.org/web/20211011152759/https://www.gabrielgambetta.com/lag-compensation.html)
-- [Fast-Paced Multiplayer: Sample Code and Live Demo - Gabriel Gambetta](https://web.archive.org/web/20211010171259/https://www.gabrielgambetta.com/client-side-prediction-live-demo.html)
+- Fast-Paced Multiplayer by Gabriel Gambetta:
+	- [Client-Server Game Architecture - Gabriel Gambetta](https://web.archive.org/web/20211027060542/https://www.gabrielgambetta.com/client-server-game-architecture.html)
+	- [Fast-Paced Multiplayer (Part I): Client-Server Game Architecture | Hacker News](https://news.ycombinator.com/item?id=29003727)
+	- [Client-Side Prediction and Server Reconciliation - Gabriel Gambetta](https://web.archive.org/web/20211011061530/https://www.gabrielgambetta.com/client-side-prediction-server-reconciliation.html)
+	- [Entity Interpolation - Gabriel Gambetta](https://web.archive.org/web/20211010171306/https://www.gabrielgambetta.com/entity-interpolation.html)
+	- [Lag Compensation - Gabriel Gambetta](https://web.archive.org/web/20211011152759/https://www.gabrielgambetta.com/lag-compensation.html)
+	- [Fast-Paced Multiplayer: Sample Code and Live Demo - Gabriel Gambetta](https://web.archive.org/web/20211010171259/https://www.gabrielgambetta.com/client-side-prediction-live-demo.html)
+- [Fighting Latency on Call of Duty: Black Ops III - YouTube](https://www.youtube.com/watch?v=EtLHLfNpu84)
+- [Button To Pixel - BF 4 Input Lag on PC - YouTube](https://www.youtube.com/watch?v=4GnKsqDAmgY)
 
 See also:
 

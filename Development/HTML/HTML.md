@@ -325,6 +325,24 @@ IDs could be used, but (could be) often changed by frontend developers. Instead 
 
 **Double hyphen within the comment `--` is perceived as part of the comment and therefore its presence lead to error during document validation.** See [8 The HTML syntax — HTML5](https://www.w3.org/TR/html5/syntax.html#comments)
 
+> CSS and documents (HTML, XML, SVG) handle (parse and serialize) differently classes and id and have particularities in some cases:
+>
+> - space chars (https://infra.spec.whatwg.org/#ascii-whitespace) are allowed in classname, but document's space-separated tokens for class attribute without the possibility to escape it (see https://stackoverflow.com/a/50836070/470117 and https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#set-of-space-separated-tokens) It's the same for SVG document in the begin animation timing attribute where a space (only one?) can be placed optionally at the start of a value (just after a ";") https://www.w3.org/TR/SVG11/animate.html#BeginValueListSyntax
+> - ";" are allowed in IDs, but SVG document use it in the begin animation timing attribute as a list separator without the possibility to escape it https://www.w3.org/TR/SVG11/animate.html#BeginValueListSyntax & https://svgwg.org/specs/animations/#BeginValueListSyntax
+> - "." are allowed in IDs, but SVG document use it in the begin animation timing attribute as a Id-value terminator without the possibility to escape it https://www.w3.org/TR/SVG11/animate.html#BeginValueListSyntax & https://svgwg.org/specs/animations/#BeginValueListSyntax
+> - "\0" (null char) are allowed in classname and ID, but CSS serialize it to "\uFFFD" (replacement char) but also decode escaped code point of surrogates and code points greater that U+10FFFF as "\uFFFD" https://drafts.csswg.org/cssom/#serialize-an-identifier & https://www.w3.org/TR/css-syntax-3/#consume-an-escaped-code-point
+> - numbers and "-" at the begining of identifiers and some other chars require escape (ex: classname and id selector) https://drafts.csswg.org/cssom/#serialize-an-identifier
+> - special chars need encoding in CSS, means for one char you need at least 2 chars
+> - SVG elements have more restricted allowed chars, it's based on XML: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id https://svgwg.org/svg2-draft/struct.html#IDAttribute https://www.w3.org/TR/xml/#NT-Name
+> - DOM can be affected by IDs (DOM clobbering) https://html.spec.whatwg.org/multipage/window-object.html#named-access-on-the-window-object
+>
+> See also:
+>
+> - https://mathiasbynens.be/notes/html5-id-class
+> - https://mathiasbynens.be/notes/css-escapes
+> - https://mathiasbynens.be/demo/crazy-class
+> - https://stackoverflow.com/a/6732899/470117
+
 - https://stackoverflow.com/questions/448981/what-characters-are-valid-in-css-class-selectors
 - [CSS character escape sequences · Mathias Bynens](https://mathiasbynens.be/notes/css-escapes)
 - http://www.w3.org/TR/CSS21/grammar.html#scanner
