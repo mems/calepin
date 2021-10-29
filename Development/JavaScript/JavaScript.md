@@ -6536,7 +6536,7 @@ function dataURItoBytes(uri){
 		throw new URIError("Invalid data URI");
 	}
 
-	const [, uriWithoutHash, hash = ""] = /(^[^#]+)(?:#(.*))?/.exec(uri);
+	const [, uriWithoutHash, hash = ""] = /(^[^#]+)(#.*)?/.exec(uri);
 
 	// TODO RFC2397: As a shorthand, "text/plain" can be omitted but the charset parameter supplied.
 	const [, rawMediaType = 'text/plain;charset=US-ASCII', encoding, rawData = ""] = /^data:([^;,]+(?:;[^=]+=[^;,]+)*)?(?:;(base64))?,(.*)/.exec(uriWithoutHash) || [];
