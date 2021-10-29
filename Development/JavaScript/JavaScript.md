@@ -6525,6 +6525,30 @@ xhr.send(null);
 Decode directly, see [As base64](#as-base64)
 
 ```js
+/**
+ * @example dataURItoBytes("data:,A%20brief%20note")
+ * @example dataURItoBytes("data:text/plain;charset=iso-8859-7,%be%fg%be")
+ * @example dataURItoBytes("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%2F%3E")
+	<svg xmlns='http://www.w3.org/2000/svg'/>
+ */
+function dataURItoBytes(uri){
+	if(!uri.startWidth("data:")){
+		throw new URIError("Invalid data URI");
+	}
+
+	const [, uriWithoutHash, hash = ""] = /(^[^#]+)(?:#(.*))?/.exec(uri);
+
+	// TODO RFC2397: As a shorthand, "text/plain" can be omitted but the charset parameter supplied.
+	const [, rawMediaType = 'text/plain;charset=US-ASCII', encoding, rawData = ""] = /^data:([^;,]+(?:;[^=]+=[^;,]+)*)?(?:;(base64))?,(.*)/.exec(uriWithoutHash) || [];
+	// RFC2397: the "quoted-string" representation would be awkward, since the quote mark is itself not a valid urlchar. For this reason, parameter values should use the URL Escaped encoding instead of quoted string if the parameter values contain any "tspecial""
+	const [mediaType, mediaTypeParams] = rawMediaType
+		.split(";")
+		.map((raw, index) => (index === 0 ? raw : raw.split("=").map((v) => decodeURIComponent(v))));
+	return encoding === 'base64' ? atob(rawData) : decodeURIComponent(rawData); // TODO decode with charset (mediaTypeParams.find(([name]) => name === "charset") || [])[1] || "UTF-8"
+}
+```
+	
+```js
 // https://github.com/graingert/datauritoblob/blob/master/dataURItoBlob.js
 // https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
 // https://stackoverflow.com/questions/10412299/whats-the-difference-between-blobbuilder-and-the-new-blob-constructor
