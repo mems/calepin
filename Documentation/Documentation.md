@@ -17,6 +17,7 @@ API references, guides, tutorials, and blog posts
 - [Where the Wild Docs Are | Stoplight API Intersection](https://stoplight.io/blog/open-source-documentation/)
 - [Google developer documentation style guide  |  Google Developers](https://developers.google.com/style)
 - [PharkMillups/beautiful-docs: Pointers to useful, well-written, and otherwise beautiful documentation.](https://github.com/PharkMillups/beautiful-docs)
+- [Em Dash: What it is and When to use it - Writer](https://web.archive.org/web/20210228192127/https://writer.com/blog/em-dash-what-it-is-and-when-to-use-it/)
 
 ## Specification
 
@@ -156,3 +157,49 @@ Use verbes:
 ## Naming
 
 See also [../Development/Development.md](#naming)
+
+## Title capitalization
+
+- [Headline Capitalization for UX: Title Case vs. Sentence Case | Herosmyth](https://web.archive.org/web/20211006163719/https://www.herosmyth.com/article/headline-capitalization-ux-title-case-vs-sentence-case)
+- [Sentence case: meaning, examples, and checkers - Writer](https://web.archive.org/web/20211028211147/https://writer.com/blog/sentence-case/)
+- [A brief guide to capitalization rules - Writer](https://web.archive.org/web/20211028211600/https://writer.com/blog/capitalization-rules/)
+- [Title Case Converter – A Smart Title Capitalization Tool](https://titlecaseconverter.com/)
+- [Title Capitalization Rules | Title Case Converter](https://web.archive.org/web/20211026044013/https://titlecaseconverter.com/rules/)
+- [APA Style 6th Edition Blog: Title Case and Sentence Case Capitalization in APA Style](https://web.archive.org/web/20210814164806/https://blog.apastyle.org/apastyle/2012/03/title-case-and-sentence-case-capitalization-in-apa-style.html)
+
+## Style guide
+
+Aka stylebook
+
+Examples:
+
+- [Voice and tone - Shopify Polaris](https://web.archive.org/web/20210317115928/https://polaris.shopify.com/content/voice-and-tone)
+- [Skype brandbook](https://web.archive.org/web/20211002032642/https://download.skype.com/share/blogskin/press/skype_brandbook.pdf)
+- [LinkedIn Brand Guidelines | LinkedIn](https://web.archive.org/web/20211023161239/https://brand.linkedin.com/en-us)
+- [Voice & tone guidelines - Salesforce](https://web.archive.org/web/20211007141033/https://www.lightningdesignsystem.com/assets/downloads/salesforce-voice-and-tone.pdf)
+- [Copywriting — Zendesk Brandland](https://web.archive.org/web/20211027040428/https://brandland.zendesk.com/copywriting#story)
+
+Style guides:
+
+- [Associated Press Stylebook](https://www.apstylebook.com/)
+- [The Chicago Manual of Style](https://www.chicagomanualofstyle.org/home.html)
+- [MLA Handbook](https://style.mla.org/)
+- [APA Style](https://apastyle.apa.org/)
+- [APA Style 6th Edition Blog: How-to](https://blog.apastyle.org/apastyle/how-to/)
+
+See also:
+
+- [Style guide — Wikipedia](https://en.wikipedia.org/wiki/Style_guide)
+- [AP style of writing: a comprehensive guide | AP styleguide - Writer](https://web.archive.org/web/20211020220157/https://writer.com/blog/a-comprehensive-guide-to-the-ap-style-of-writing/)
+- [Welcome - Microsoft Style Guide | Microsoft Docs](https://web.archive.org/web/20210403071232/https://docs.microsoft.com/en-us/style-guide/welcome/)
+- [Mailchimp styleguide: the anatomy of a perfect content styleguide - Writer](https://web.archive.org/web/20210228193019/https://writer.com/blog/mailchimp-styleguide-the-anatomy-of-a-perfect-content-styleguide/)
+- [Build a content styleguide for your team - Writer](https://web.archive.org/web/20210228200031/https://writer.com/blog/build-a-content-style-guide-for-your-team/)
+- [5 decisions to make before you create a styleguide - Writer](https://web.archive.org/web/20210228190834/https://writer.com/blog/5-decisions-to-make-before-you-create-a-style-guide/)
+- [How to Create a Writing Styleguide for Your Brand | Writer](https://web.archive.org/web/20210228195002/https://writer.com/blog/create-writing-style-guide/)
+- [How to Write Better: 15 Ways to Improve Your Writing Skills | Writer](https://web.archive.org/web/*/https://web.archive.org/web/20210228191734/https://writer.com/blog/how-to-write-better/)
+- [How well do you know your writing styleguide? - Writer](https://web.archive.org/web/*/https://writer.com/blog/how-well-do-you-know-your-writing-style-guide/)
+- [What is plagiarism? The act of plagiarizing explained - Writer](https://web.archive.org/web/*/https://writer.com/blog/plagiarism/)
+- [What is self-plagiarism and how to avoid it - Writer](https://web.archive.org/web/*/https://writer.com/blog/self-plagiarism/)
+- [99 most common grammar mistakes and how to avoid them - Writer](https://web.archive.org/web/*/https://writer.com/blog/a-live-grammar-checklist-the-most-common-grammar-mistakes/)
+- [How to avoid plagiarism in 5 simple steps - Writer](https://web.archive.org/web/*/https://writer.com/blog/how-to-avoid-plagiarism/)
+- [20 of the most common writing errors at work - Writer](https://web.archive.org/web/*/https://writer.com/blog/20-writing-errors-at-work/)

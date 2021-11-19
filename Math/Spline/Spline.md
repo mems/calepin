@@ -181,7 +181,7 @@ Aka bézier patch, bézier plane
 ![Tws](Bézier%20surface/tws.gif)
 ![Bezier Surface](bezier-surface.gif)
 
+- [Curves and Surfaces – Bartosz Ciechanowski](https://web.archive.org/web/20211111051947/https://ciechanow.ski/curves-and-surfaces/)
 - [Bézier surface — Wikipedia](https://en.wikipedia.org/wiki/B%C3%A9zier_surface)
-- [Synthetic surfaces](http://designer.mech.yzu.edu.tw/articlesystem/article/compressedfile/%282010-11-18%29%20Synthetic%20surfaces.aspx?ArchID=1614)
-- [CS184 Spline Guest lecture #1](https://people.eecs.berkeley.edu/~sequin/CS184/GuestLecture_05/SplineLect1.html) and [CS184 Spline Guest lecture #2](https://people.eecs.berkeley.edu/~sequin/CS184/GuestLecture_05/SplineLect2.html)
+- [CS184 Spline Guest lecture #1](https://web.archive.org/web/20170307093802/https://people.eecs.berkeley.edu/~sequin/CS184/GuestLecture_05/SplineLect1.html) and [CS184 Spline Guest lecture #2](https://web.archive.org/web/20170307093801/https://people.eecs.berkeley.edu/~sequin/CS184/GuestLecture_05/SplineLect2.html)
 - [Envelope Distort with ActionScript | Neuro Productions](http://wayback.archive.org/web/20160322114832/http://www.neuroproductions.be/experiments/envelope-distort-with-actionscript/)

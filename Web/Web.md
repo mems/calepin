@@ -1918,10 +1918,16 @@ Datasets:
 
 Aka source map, VLQ, variable-length quantity
 
+Inspect:
+
+- [SourceMap Inspector](http://libsass.ocbnet.ch/srcmap/)
+- [source-map-visualization](https://sokra.github.io/source-map-visualization/#custom)
+- [source-map-visualization](https://sokra.github.io/source-map-visualization/) - To drag and drop custom both source and map files: name it `*.js` (even if the content is not JS) and `*.map` unless the source map contains the field `file` that match the dragged source filename. See https://github.com/sokra/source-map-visualization/blob/9b1e3adc1ca8e03006ccb4c4e0c4c0bc897203f9/app/app.js#L248-L257
+- [Source Mapper](https://sourcemaps.info/)
+
 For CSS and JavaScript
 
 - [DIY source maps / Stoyan's phpied.com](https://www.phpied.com/diy-source-maps/)
-- [Source Mapper](https://sourcemaps.info/)
 - [Source Map Revision 3 Proposal](https://sourcemaps.info/spec.html)
 - [mozilla/source-map: Consume and generate source maps.](https://github.com/mozilla/source-map)
 - [Introduction to JavaScript Source Maps - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/)
@@ -1931,7 +1937,6 @@ For CSS and JavaScript
 - [Yet another explanation on sourcemap - NGUYEN Trung - Medium](https://medium.com/@trungutt/yet-another-explanation-on-sourcemap-669797e418ce)
 - [SourceMap - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/SourceMap)
 - [Rich-Harris/sourcemap-codec: Encode/decode sourcemap mappings](https://github.com/Rich-Harris/sourcemap-codec)
-- [source-map-visualization](https://sokra.github.io/source-map-visualization/)
 - [lydell/source-map-visualize: Quickly open an online source map visualization with local files](https://github.com/lydell/source-map-visualize)
 
 ## PWA

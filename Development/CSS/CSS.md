@@ -2215,6 +2215,7 @@ Note: Declarations in a keyframe that are qualified with `!important` are ignore
 - ["will-change" must change? Animators beware. | GreenSock](https://greensock.com/will-change)
 - [Codevember 11 #bike gsap svg stroke animation](https://codepen.io/alaricweb/pen/vWxPyp)
 - [Animate pseudo element instead of box-shadow](#animate-pseudo-element-instead-of-box-shadow)
+- [Free Practical Guide to Web Animation](https://web.archive.org/web/20211114075105/https://tilda.education/en/web-animation-course)
 
 For accessibility, disable animations / transitions with:
 

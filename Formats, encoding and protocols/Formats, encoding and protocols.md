@@ -1704,6 +1704,7 @@ video.src = "data:video/webm;base64,GkXfowEAAAAAAAAfQoaBAUL3gQFC8oEEQvOBCEKChHdl
 - [SIPI Image Database - Misc](http://sipi.usc.edu/database/database.php?volume=misc)
 - [The Rest of the Lenna Story](http://www.cs.cmu.edu/~chuck/lennapg/lenna.shtml)
 - [Test Images for the ZaaIL project](https://github.com/ZaaLabs/ZaaIL-TestImages)
+- [Katsushika Hokusai | The Art Institute of Chicago](https://www.artic.edu/collection?artist_ids=Katsushika%20Hokusai&page=1) - `https://www.artic.edu/iiif/2/{id}/full/max/0/default.jpg` (see https://iiif.io/api/image/#4-image-requests)
 
 See also [Compare image](../Algorithms/Compare%20data/Compare%20data.md#compare-image)
 

@@ -177,6 +177,23 @@ console.log(new SubSub())// {isBase: true, isSub: true, isSubSub: true}
 
 ### Async instanciation
 
+```js
+class SomeClass {
+	constructor() {
+		if (someShortcutCondition) {
+			return Promise.resolve(this);
+		}
+
+		return this.#init().then(() => this);
+	}
+	async #init(){
+		await Promise.resolve('loading');
+	}
+}
+
+await new SomeClass();
+```
+
 Use static factory method:
 
 ```js

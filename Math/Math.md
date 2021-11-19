@@ -66,6 +66,10 @@ public static function atan2(y:Number, x:Number):Number {
 
 - [Geometry, Surfaces, Curves, Polyhedra](http://paulbourke.net/geometry/) - resources for "Intersection of a Line and a Sphere (or circle)", "Intersection of two spheres", "Distributing Points on a Sphere", etc.
 
+## Vector
+
+- [What is the Inverse of a Vector?](https://web.archive.org/web/20211104094642/https://mattferraro.dev/posts/geometric-algebra)
+
 ## Pythagorean Theorem
 
 - [My Favourite Proof](http://loopspace.mathforge.org/CountingOnMyFingers/FavouriteProof/)
@@ -142,7 +146,7 @@ Coefficients for arctan, arcsin, arceos, e^x, e^-x, log(1+x) see https://web.arc
 - [Matrix Multiplication](http://matrixmultiplication.xyz/)
 - [A Programmer’s Intuition for Matrix Multiplication – BetterExplained](https://betterexplained.com/articles/matrix-multiplication/)
 - [CleVR Actionscript 3 Library](https://github.com/ascorbic/clevrlib) - This library provides some classes for linear algebra. It's ported from the NIST's JAMA Java Matrix library
-- [JAMA: Java Matrix Package](http://math.nist.gov/javanumerics/jama/) -
+- [JAMA: Java Matrix Package](http://math.nist.gov/javanumerics/jama/)
 
 ## 3D
 

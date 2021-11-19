@@ -30,6 +30,7 @@ Regular Expression engines always find the cheapest (simpliest, shortest) first 
 - [txt2re: headache relief for programmers :: regular expression generator](https://www.txt2re.com/index_php3.html) - Regular expression from text
 - [Refiddle](http://refiddle.com/)
 - [Regular expression compilation visualized](https://web.archive.org/web/20210322073534/https://compiler.org/reason-re-nfa/src/index.html) - [joelonsql/reason-re-nfa: ReasonML code to construct an NFA from a regular expression](https://github.com/joelonsql/reason-re-nfa)
+- [Regexly | Chipto](https://regexly.js.org/)
 
 - [pemistahl/grex: A command-line tool and library for generating regular expressions from user-provided test cases](https://github.com/pemistahl/grex) - Generate regular expression from strings
 - [VerbalExpressions](https://github.com/VerbalExpressions) - "Regular Expressions made easy" with library to build regular expression: `VerEx().startOfLine().then("http").maybe("s").then("://").maybe("www.").anythingBut(" ").endOfLine()` gives `/^(http)(s)?(\:\/\/)(www\.)?([^\ ]*)$/`

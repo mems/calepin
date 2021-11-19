@@ -2392,7 +2392,7 @@ dd if=tstfile bs=1024k of=/dev/null count=1024
 rm tstfile
 ```
 
-- [Benchmark your SSD or hard disk speed - Mac OS X Hints](https://web.archive.org/web/20200924161550/https://hints.macworld.com/article.php?story=20120704113548693)
+- [Benchmark your SSD or hard disk speed - Mac OS X Hints](https://web.archive.org/web/20200924161550/https://hints.macworld.com/article.php?story=20120704113548693):
 - [‎Blackmagic Disk Speed Test on the Mac App Store](https://apps.apple.com/us/app/id425264550?mt=12)
 
 ## Startup and login
@@ -3183,6 +3183,7 @@ Most post 2013 printers implement [IPP Everywhere](https://www.pwg.org/ipp/every
 
 - [VueScan Scanner Software for Windows, macOS Catalina and Linux](https://www.hamrick.com/) - scanner application support old scanners
 - [Printer and scanner drivers for Mac - Apple Support](https://support.apple.com/en-us/HT201465) - list of old devices that don't implement IPP that macOS can auto install required drivers
+- [Making an old USB printer support Apple AirPrint using a Raspberry Pi](https://web.archive.org/web/20211112203434/https://blog.jgc.org/2021/11/making-old-usb-printer-support-apple.html)
 
 ### Print on Windows shared printer
 
@@ -3279,13 +3280,20 @@ Use cron or launchd
 
 - [Remove hidden core dump files to restore drive space - Mac OS X Hints](http://hints.macworld.com/article.php?story=20031001203255412)
 
-## Custom screen resolution or HiDPI
+## Screens and monitors
+
+- [MonitorControl/MonitorControl: 🖥 Control your display's brightness & volume on your Mac as if it was a native Apple Display. Use Apple Keyboard keys or custom shortcuts. Shows the native macOS OSDs.](https://github.com/MonitorControl/MonitorControl)
+- [waydabber/BetterDummy: Software Dummy Display Adapter for Apple Silicon/Intel Macs to Have Custom HiDPI Resolutions.](https://github.com/waydabber/BetterDummy) - also useful for headless Macs (servers)
+
+### Custom screen resolution or HiDPI
 
 [OSCAR LCD Panel 1024 × 768 (HiDPI) fix](https://gist.github.com/mems/2a4b5b180a7d04c9a967)
 
 Find screen DisplayVendorID and DisplayProductID
 
-	ioreg -l -w0 -d0 -r -c AppleDisplay
+```sh
+ioreg -l -w0 -d0 -r -c AppleDisplay
+```
 
 Or in IORegistryExplorer (`/Developer/Applications/Utilities/IORegistryExplorer.app`) or IOJones, something like `IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/P0P2@1/IOPP/GFX0@0/NVDA,Display-B@1/NVDA/display0/AppleDisplay`
 

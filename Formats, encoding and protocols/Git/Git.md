@@ -15,6 +15,11 @@
 - [blob - How to DEFLATE with a command line tool to extract a git object? - Stack Overflow](https://stackoverflow.com/questions/3178566/how-to-deflate-with-a-command-line-tool-to-extract-a-git-object)
 - [Some of git internals (updated)](https://web.archive.org/web/20201226115731/https://yurichev.com/news/20201220_git/)
 
+How stash works:
+
+- [how does stashing work in git - internals - Stack Overflow](https://stackoverflow.com/questions/18527171/how-does-stashing-work-in-git-internals)
+- [Stashing and the reflog | Git from the Bottom Up](https://web.archive.org/web/20211020074957/https://jwiegley.github.io/git-from-the-bottom-up/4-Stashing-and-the-reflog.html)
+
 ### Hash of a file
 
 Content of `blob FILE_SIZE\0FILE_CONTENT`

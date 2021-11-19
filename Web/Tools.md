@@ -374,10 +374,9 @@ Webpack use enhanced-resolve
 
 Import a file that is not in the filesystem:
 
-- [Is it possible to load a non-existent file? · Issue #3633 · webpack/webpack](https://github.com/webpack/webpack/issues/3633)
-- [rmarscher/virtual-module-webpack-plugin: Adds the contents of a virtual file to webpack's cached file system without writing it to disk](https://github.com/rmarscher/virtual-module-webpack-plugin)
-- [renanhangai/virtual-file-loader: Virtual file loader for webpack](https://github.com/renanhangai/virtual-file-loader)
-- [egoist/import-http: Import modules from URL instead of local node_modules](https://github.com/egoist/import-http/)
+- data URI, or loader without resource but with [inline matchResource](https://webpack.js.org/api/loaders/#inline-matchresource)
+- [v5 module dep invalidation not working in cases that do in v4 · Issue #11074 · webpack/webpack](https://github.com/webpack/webpack/issues/11074#issuecomment-648658214)
+- use a custom scheme [reactjs - Module build failed: UnhandledSchemeError: Reading from "alias:/path" is not handled by plugins (Unhandled scheme) - Stack Overflow](https://stackoverflow.com/questions/66278241/module-build-failed-unhandledschemeerror-reading-from-alias-path-is-not-han)
 
 Loaders:
 

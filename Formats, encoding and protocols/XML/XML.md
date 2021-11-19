@@ -1,3 +1,5 @@
+## XPath
+
 XPath tools (command line):
 
 - `xmlstarlet`
@@ -11,4 +13,6 @@ XPath tools (command line):
 
 See also:
 
+- [XPath — Wikipedia](https://en.wikipedia.org/wiki/XPath)
+- [Xpath cheatsheet](https://web.archive.org/web/20211018121311/https://devhints.io/xpath)
 - [xml - How to execute XPath one-liners from shell? - Stack Overflow](https://stackoverflow.com/questions/15461737/how-to-execute-xpath-one-liners-from-shell)
