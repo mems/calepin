@@ -55,6 +55,8 @@ And LibreOffice
 
 **LibreOffice use `;` as values separator in formulas.** And base on language/locale used, the decimal separator could be `.` or `,`
 
+- [Using Flash Fill in Excel](https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7)
+
 Conditional Formatting:
 
 - [Excel: Change the row color based on cell value](https://www.ablebits.com/office-addins-blog/2013/10/29/excel-change-row-background-color/)

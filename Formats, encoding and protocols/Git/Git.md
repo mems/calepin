@@ -14,6 +14,7 @@
 - [The Architecture of Open Source Applications (Volume 2): Git](http://aosabook.org/en/git.html)
 - [blob - How to DEFLATE with a command line tool to extract a git object? - Stack Overflow](https://stackoverflow.com/questions/3178566/how-to-deflate-with-a-command-line-tool-to-extract-a-git-object)
 - [Some of git internals (updated)](https://web.archive.org/web/20201226115731/https://yurichev.com/news/20201220_git/)
+- [Git - Git SCM Wiki](https://web.archive.org/web/20210815164513/https://git.wiki.kernel.org/index.php/Git#Implementation)
 
 How stash works:
 
