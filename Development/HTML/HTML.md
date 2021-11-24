@@ -2423,6 +2423,27 @@ Use `<select>`. If you want to use a custom widget use `aria-activedescendant` i
 - [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/)
 - [Combo box — Wikipedia](https://en.wikipedia.org/wiki/Combo_box)
 
+### Nested forms
+
+> Content model: Flow content, but with no form element descendants.
+
+Some (all major) browsers support:
+
+```html
+<form action="https://example.com/parent">
+	<form><!-- dummy form the browser will remove --></form>
+	<form action="https://example.com/child1">
+		<button>Submit child form 1</button>
+	</form>
+	<form action="https://example.com/child2">
+		<button>Submit child form 2</button>
+	</form>
+	<button>Submit parent form</button>
+ </form>
+```
+
+- [Can you nest html forms? - Stack Overflow](https://stackoverflow.com/questions/379610/can-you-nest-html-forms/11440422#11440422)
+
 ## Anchor element
 
 Aka `a` element

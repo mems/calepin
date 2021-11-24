@@ -967,6 +967,15 @@ See also as example GitHub ultra strict CSP.
 
 Exception of inline script and style can be made with `script-src` and `style-src` by using a checksum/hash of source code of inlined script. Note: nonce can also be used, but not recommended. See [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/#script-src-hash-usage)
 
+About inline scripts:
+
+- [Why It's Bad to Use 'unsafe-inline' in script-src](https://web.archive.org/web/20210812143928/https://csper.io/blog/no-more-unsafe-inline)
+- [Removing Inline Resources](https://web.archive.org/web/20211123160922/https://csper.io/docs/guide-removing-inline)
+- [CSP: script-src - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script)
+
+See also:
+
+- [Content Security Policy (CSP) Evaluator](https://csper.io/generator) - [csper-io/csp-generator: Browser extension for Generating Content Security Policy (CSP)](https://github.com/csper-io/csp-generator)
 - [Subresource checksum](../Web/Web.md#subresource-checksum)
 - [Content-Security-Policy - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 - [Making CSP great again! - Michele Spagnuolo and Lukas Weichselbaum // Speaker Deck](https://speakerdeck.com/mikispag/making-csp-great-again-michele-spagnuolo-and-lukas-weichselbaum)
@@ -978,6 +987,9 @@ Exception of inline script and style can be made with `script-src` and `style-sr
 - [Content Security Policy — Wikipedia](https://en.wikipedia.org/wiki/Content_Security_Policy)
 - [Implementing Content Security Policy ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2016/02/implementing-content-security-policy/)
 - [Content Security Policy CSP Reference & Examples](https://content-security-policy.com/)
+- [CSP-useful/csp-wtf at master · nico3333fr/CSP-useful](https://github.com/nico3333fr/CSP-useful/tree/master/csp-wtf)
+- [Twitter's CSP Report Collector](https://web.archive.org/web/20201028192335/https://matatall.com/csp/twitter/2014/07/25/twitters-csp-report-collector-design.html)
+- [Report URI: Generate your Content Security Policy](https://report-uri.com/home/generate)
 
 ### SPF, DKIM and DMARC
 

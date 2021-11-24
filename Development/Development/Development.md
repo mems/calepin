@@ -15,7 +15,7 @@
 
 ## REPL
 
-Aka Read–eval–print loop
+Aka Read–eval–print loop, playground
 
 - [codepad](http://codepad.org/) - Python, Ruby, Lua, C++, PHP, etc.
 - [repl.it - Online REPL, Compiler & IDE](https://repl.it/) - Python, Ruby, C#, Java, C++, PHP, JS, etc.
@@ -28,6 +28,7 @@ Aka Read–eval–print loop
 - [RunKit + npm: {PACKAGE_NAME}](https://npm.runkit.com/{PACKAGE_NAME})
 - [SQL Fiddle](http://sqlfiddle.com/)
 - [C# Online Compiler | .NET Fiddle](https://dotnetfiddle.net/)
+- [SQLime - SQLite Playground](https://sqlime.org/)
 
 - [Read–eval–print loop — Wikipedia](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)
 
@@ -946,6 +947,7 @@ Networking:
 	- [Fast-Paced Multiplayer: Sample Code and Live Demo - Gabriel Gambetta](https://web.archive.org/web/20211010171259/https://www.gabrielgambetta.com/client-side-prediction-live-demo.html)
 - [Fighting Latency on Call of Duty: Black Ops III - YouTube](https://www.youtube.com/watch?v=EtLHLfNpu84)
 - [Button To Pixel - BF 4 Input Lag on PC - YouTube](https://www.youtube.com/watch?v=4GnKsqDAmgY)
+- [1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond](https://web.archive.org/web/20211023194747/https://www.gamedeveloper.com/programming/1500-archers-on-a-28-8-network-programming-in-age-of-empires-and-beyond)
 
 See also:
 

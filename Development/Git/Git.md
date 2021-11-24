@@ -1,4 +1,5 @@
 - [Git - Documentation](https://git-scm.com/doc)
+- [Git Explorer](https://gitexplorer.com/) - "Find the right commands you need without digging through the web"
 - [Version Control Best Practices](https://www.git-tower.com/blog/version-control-best-practices/)
 - [Introducing Git Submodule in Tower](https://www.git-tower.com/blog/introducing-git-submodules-in-tower/)
 - [version control - Git for beginners: The definitive practical guide - Stack Overflow](https://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide)

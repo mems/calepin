@@ -391,9 +391,10 @@ Other:
 
 ## Puppeteer
 
-See also [microsoft/playwright: Node library to automate Chromium, Firefox and WebKit browsers](https://github.com/microsoft/playwright)
+See also [playwright](https://github.com/microsoft/playwright)
 
 - [puppeteer/examples at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/tree/master/examples)
+- [Migrating from Puppeteer to Playwright | Checkly](https://web.archive.org/web/20211116174819/https://www.checklyhq.com/guides/puppeteer-to-playwright/)
 
 ### Update DOM objects
 

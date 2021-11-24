@@ -67,6 +67,7 @@ Possible tests:
 
 See also:
 
+- [Don’t Do Interviews, Do Discussions! - by Mayank Verma - Thinking Through](https://web.archive.org/web/20211119005526/https://thinkingthrough.substack.com/p/dont-do-interviews-do-discussions)
 - [The Guerrilla Guide to Interviewing – Joel on Software](https://www.joelonsoftware.com/2000/03/23/the-guerrilla-guide-to-interviewing/)
 - [If Your Boss Could Do Your Job, You’re More Likely to Be Happy at Work](https://hbr.org/2016/12/if-your-boss-could-do-your-job-youre-more-likely-to-be-happy-at-work?utm_campaign=harvardbiz&utm_source=twitter&utm_medium=social)
 - [21 management things I learned at Imgur — Medium](https://medium.com/@gerstenzang/21-management-things-i-learned-at-imgur-7abb72bdf8bf)

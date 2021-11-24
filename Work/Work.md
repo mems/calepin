@@ -93,9 +93,10 @@ See [Management](../Management/Management.md)
 
 ## Position
 
-Aka salary
+Aka salary, salaire
 
 - [Time estimation](#time-estimation)
+- [Salaire brut/net - Code du travail numérique](https://code.travail.gouv.fr/outils/simulateur-embauche)
 - [Salaire brut / net : le convertisseur Urssaf - Mon-entreprise](https://mon-entreprise.fr/simulateurs/salaire-brut-net)
 - [The 10 commandments of salary negotiation - by Lenny Rachitsky - Lenny's Newsletter](https://web.archive.org/web/20211010073846/https://www.lennysnewsletter.com/p/negotiating-comp)
 
@@ -330,6 +331,7 @@ See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-r
 
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
 - [Ton estimation de temps est une blague - Je suis un dev](https://www.jesuisundev.com/ton-estimation-de-temps-est-une-blague/) - "Donne toujours une fourchette de temps [...] D’avoir une vue sur les risques de ta tâche [...] toujours donner une mise à jour en temps réel sur ton estimation"
+- [Always Multiply Your Estimates by π - 推酷](https://web.archive.org/web/20170603123809/http://www.tuicool.com:80/articles/7niyym) - [Always Multiply Your Estimates by π (2013) | Hacker News](https://news.ycombinator.com/item?id=28667174)
 
 ### Evidence based scheduling
 

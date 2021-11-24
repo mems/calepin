@@ -131,8 +131,7 @@ Length of bezier cubic
 > 	cont_net = (p0 - p1).Length + (p2 - p1).Length + (p3 - p2).Length;
 >
 > 	app_arc_length = (cont_net + chord) / 2;
-— [c - Cheap way of calculating cubic bezier length - Stack Overflow](https://stackoverflow.com/questions/29438398/cheap-way-of-calculating-cubic-bezier-length/37862545#37862545)
-
+> — [c - Cheap way of calculating cubic bezier length - Stack Overflow](https://stackoverflow.com/questions/29438398/cheap-way-of-calculating-cubic-bezier-length/37862545#37862545)
 
 - [Arc length — Wikipedia](https://en.wikipedia.org/wiki/Arc_length)
 - Arc length [A Primer on Bézier Curves](https://pomax.github.io/bezierinfo/#arclength)
@@ -149,11 +148,38 @@ Length of bezier cubic
 
 ### Points distribution on bézier
 
+```csharp
+// Arc lenght parameterization (numerical approxumation using a lookup table)
+// Normalized position on bézier curve (no impacted by curvature, for equal distance)
+// For equally spaced distances (vs equally "t" values)
+// From https://youtu.be/aVwxzDHniEw?t=1094
+// By Freya Holmér
+public float DistToT( float[] LUT, float distance ) {
+	float arcLength = LUT[LUT.Length - 1];	// total arc length
+	int n = LUT.Length;						// n = sample count
+
+	if( distance.Between( 0, arcLength ) ) {				// check if the value is within the length of the curve
+		for( int i = 0; i < n - 1; i++ ) {					// iterate through the list to find which segment our distance lies within
+			if( distance.Within( LUT[i], LUT[i + 1] ) ) {	// check if our input distance lies between the two distances
+				return distance.Remap(	// remap the distance range to the t-value range
+					LUT[i],				// prev dist
+					LUT[i + 1],			// next dist
+					i/ (n - 1f ),		// prev t-value
+					(i+1) / (n - 1f )	// next t-value
+				);
+			}
+		}
+	}
+
+	return distance / arcLength; // distance is outside the length of the curve - extrapolate values outside
+}
+```
+
 For segmentation, dashes, text on curve or motion keyframes
 
 > Distributing points on a Bezier curve is challenging. The curve is created with a t value that goes from 0 to 1. Using that for distribution of points gives you areas of wide spacing, and other areas of high density points.
 > One solution is to convert the path into a bunch of very small, roughly equal sized line segments and use those for the distribution. It's an approximation, but much improved.
-— Keith Peters (aka bit101) [17/02/26](https://bit101.github.io/lab/dailies/170226.html)
+> — Keith Peters (aka bit101) [17/02/26](https://bit101.github.io/lab/dailies/170226.html)
 
 - [javascript - Dashed Curves on Html5 Canvas Bezier - Stack Overflow](https://stackoverflow.com/questions/7352769/dashed-curves-on-html5-canvas-bezier)
 - [javascript - dotted stroke in \<canvas\> - Stack Overflow](https://stackoverflow.com/questions/4576724/dotted-stroke-in-canvas)
