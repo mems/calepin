@@ -27,7 +27,7 @@ Aka Read–eval–print loop, playground
 - [GLSL Sandbox Gallery](http://glslsandbox.com/) - Shader (GLSL)
 - [RunKit + npm: {PACKAGE_NAME}](https://npm.runkit.com/{PACKAGE_NAME})
 - [SQL Fiddle](http://sqlfiddle.com/)
-- [C# Online Compiler | .NET Fiddle](https://dotnetfiddle.net/)
+- [C# Online Compiler | .NET Fiddle](https://dotnetfiddle.net/), [Try .NET | Runnable .NET code on your site](https://dotnet.microsoft.com/platform/try-dotnet)
 - [SQLime - SQLite Playground](https://sqlime.org/)
 
 - [Read–eval–print loop — Wikipedia](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)
@@ -1402,3 +1402,17 @@ namespace CommandPattern
 - [Bit Twiddling Hacks](https://web.archive.org/web/20201205153143/http://graphics.stanford.edu/~seander/bithacks.html)
 - [Bitwise conversion of doubles using only floating-point multiplication and addition | dougallj](https://web.archive.org/web/20201130171059/https://dougallj.wordpress.com/2020/05/10/bitwise-conversion-of-doubles-using-only-floating-point-multiplication-and-addition/)
 - [Bit manipulation - Wikipedia](https://en.wikipedia.org/wiki/Bit_manipulation)
+
+## Pagination
+
+Aka paging
+
+- [Pagination - UI - UX](../../User%20Interface%20and%20experience/UI%20-%20UX.md)
+- [Pagination — Wikipedia](https://en.wikipedia.org/wiki/Pagination)
+
+- page index: 1-based (start at 1)
+- page size: 1-based (start at 1)
+- total count: `totalRecords`
+- total pages: `ceil(totalRecords / pageSize)`, `(totalRecords - 1) / pageSize + 1` or `(totalRecords % pageSize == 0) ? (totalRecords / pageSize) : (totalRecords / pageSize + 1)`
+
+- [Calculating item offset for pagination - Stack Overflow](https://stackoverflow.com/questions/3520996/calculating-item-offset-for-pagination)

@@ -434,6 +434,9 @@ Alternative Idea: Complex Grids
 
 ## Pagination
 
+Aka paging
+
+- [Pagination - Development](../Development/Development/Development.md)
 - [Infinite scroll](#infinite-scroll)
 - [Pagination Best Practices](http://babich.biz/pagination-best-practices/)
 

@@ -43,6 +43,7 @@ Data test or tools:
 - [FakerPHP/Faker: Faker is a PHP library that generates fake data for you](https://github.com/FakerPHP/Faker/tree/main/src/Faker/Provider)
 - [Marak/faker.js: generate massive amounts of realistic fake data in Node.js and the browser](https://github.com/Marak/faker.js)
 - [Faker · PyPI](https://pypi.org/project/Faker/)
+- [Générateur de Lorraine Hipseaume](https://lorraine-hipseau.me/)
 
 Patrick McKenzie is problematic in Japan where Japanese name with more than four characters are very rare
 

@@ -1270,7 +1270,8 @@ JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
 
 > Nearly up to date! Relaunch Google Chrome to finish updating.
 
-- [How to fix chrome update loop "Nearly up-to-date! Relaunch Google Chrome to finish updating. Relaunch" - Tech Antidote](https://techantidote.com/fix-problem-nearly-up-to-date-relaunch-google-chrome-to-finish-updating-relaunch/)
+- [How to fix chrome update loop "Nearly up-to-date! Relaunch Google Chrome to finish updating. Relaunch" - Tech Antidote](https://web.archive.org/web/20210410151933/https://techantidote.com/fix-problem-nearly-up-to-date-relaunch-google-chrome-to-finish-updating-relaunch/)
+- start as Administrator
 
 ### How a web browser works
 

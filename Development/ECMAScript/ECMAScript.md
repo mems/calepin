@@ -3031,8 +3031,8 @@ Note: Switch without break will do all instructions from the matching case and c
 ## Clamp
 
 ```js
-function clamp(num, min, max) {
-	return Math.min(Math.max(num, min), max);
+function clamp(value, min, max) {
+	return Math.min(Math.max(min, value), max);
 }
 ```
 
