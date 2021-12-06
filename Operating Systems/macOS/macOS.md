@@ -33,6 +33,7 @@ purge
 - [I learned all about Time (Machine) so you don't have to | The Occasional Blog](http://mike.peay.us/blog/archives/248)
 - [Mass Deploying Time Machine in Mac OS X Lion | krypted.com](http://krypted.com/mac-security/mass-deploying-time-machine/)
 - [Time Machine 10.8 – Part 3 – Advanced Features > Amsys](http://www.amsys.co.uk/2013/04/time-machine-10-8-part-3-advanced-features/)
+- `sudo log stream --predicate 'subsystem=="com.apple.TimeMachine"' --info` (to exit: enter `exit` + return)
 - automount remote disk at `/Volumes/.timemachine/{remote-machine-name}`
 - TM process name: `com.apple.backupd`.
 - Open `system.log` with Console.app, search for `backupd`
@@ -396,8 +397,10 @@ Use "InnoDB File-Per-Table Tablespaces":
 
 In `my.cnf`
 
-	[mysqld]
-	innodb_file_per_table=1
+```
+[mysqld]
+innodb_file_per_table=1
+```
 
 - [database - How to shrink/purge ibdata1 file in MySQL - Stack Overflow](https://stackoverflow.com/questions/3456159/how-to-shrink-purge-ibdata1-file-in-mysql)
 
@@ -667,13 +670,18 @@ This format is often created to backup on a shared network volume (that is not H
 
 Mount it (db click in Finder) and
 
-	sudo tmutil setdestination /Volumes/name-of-the-mounted-sparsebundle
+
+```sh
+sudo tmutil setdestination /Volumes/name-of-the-mounted-sparsebundle
+```
 
 SparseBundle sould be at the root of the volume. A workaround is to create a symbolic link `ln -s /volume1/backups/subfolder/subfolder/BackupImage.sparsebundle BackupImage.sparsebundle`, but only supported on OSX (Unix folder symlink are forbidden)
 
 Can be required
 
-	sudo diskutil enableOwnership /dev/disk2s2
+```sh
+sudo diskutil enableOwnership /dev/disk2s2
+```
 
 - [Using Time Machine on unsupported volumes - Mac OS X Hints](http://hints.macworld.com/article.php?story=20140415132734925)
 - http://pondini.org/TM/18.html#id18
