@@ -528,3 +528,21 @@ Pour 4 personnes :
 - [Moussaka — Wikipédia](https://fr.wikipedia.org/wiki/Moussaka)
 - [Aubergine à la parmesane : recette de Aubergine à la parmesane](https://www.marmiton.org/recettes/recette_aubergine-a-la-parmesane_11318.aspx)
 - [Sauce Bolognaise : recette de Sauce Bolognaise](https://www.marmiton.org/recettes/recette_sauce-bolognaise_24157.aspx)
+
+## Aubergine farcie
+
+- grosse(s) aubergine(s)
+- tomates ou purée de tomates
+- chair a saucisse ou champignons
+- gruyère râpé
+
+1. couper l'aubergine en deux dans le sens de la longueur. Avec un couteau, fendre la chair de l'aubergine en faisant des "X" (pour que ça cuise à l'intérieur).
+2. faire couler un filez d'huile d'olive sur la surface, et enfourner à 250°C pendant une demi heure.
+3. avec une cuillère à soupe, retirer la chair des aubergines
+4. faire blanchir les oignons à feu doux pendant un bon quart d'heure sans les faire griller... au bout de 5 min, ajouter de la chair à saucisse ou les champignons
+5. ajouter la tomate coupée en petits dés ou la purée de tomates et l'ail, en laissant à feu très doux.
+6. ajouter la chair d'aubergine et assaisonner. Ajouter le persil et le basilic et l'oeuf battu.
+7. mélanger bien le tout et remplisser les demi-aubergines. Recouvrir de gruyère râpé.
+8. replacer au four pendant 5 à 10 mn dans le four encore chaud.
+
+- https://www.marmiton.org/recettes/recette_aubergines-farcies-aux-legumes-ou-mixte_17955.aspx
