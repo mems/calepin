@@ -1,9 +1,17 @@
 - Bánh bao
-- Bánh mì
+- Bánh Mì (sandwich vietnamien)
+- Rosé pamplemousse
+- Gougères
+- Gaufres de Liège
+
+Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est
+
+Poisson cru (type colin) cuit par du citron, avec lait coco et échalotes, coriandre
 
 Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C max:
 
 > La température maximale supportée par les produits dont les boutons de couvercle sont en phénolique noire est de 200°C / 392°F / thermostat 5 (en Europe thermostat 6 pour les fours à gaz)
+>
 > — [Conseils d'utilisation](https://www.lecreuset.fr/conseils-d-utilisation/)
 
 - [World Food Atlas: Discover 11,062 Local Dishes & Ingredients](https://www.tasteatlas.com/)
@@ -77,17 +85,6 @@ Voir aussi :
 40min 200ºC
 
 https://www.papillesetpupilles.fr/2019/12/des-de-butternut-rotis-au-four-au-zaatar.html/
-
-Cooking
-
-Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est
-
-Rosé pamplemousse
-Gougères
-Gaufres de Liège
-Bánh Mì (sandwich vietnamien)
-
-Poisson cru (type colin) cuit par du citron, avec lait coco et échalotes, coriandre
 
 ## Apéro à la Ben
 
@@ -260,6 +257,26 @@ http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-plante
 
 - [Pâte à pizza fine : Recette de Pâte à pizza fine - Marmiton](https://www.marmiton.org/recettes/recette_pate-a-pizza-fine_29544.aspx) - 3 boules de pâte pour un plaque de 40x40
 - [Comment réussir une bonne pizza](https://www.750g.com/comment-reussir-une-bonne-pizza-a13047.htm)
+
+> Pour une plaque de pizza de taille "domestique" (environ 35 par 40 cm - soit une pizza pour 6 à 8 belles portions)
+> - 400 gr de farine de type 65, 80 ou 110
+> - 1 belle cuillère à café de sel fin
+> - 22 cl (env.) d'eau tiède
+> - 1 cuillère à soupe d'huile d'olive
+> - un "levain sur levure" constitué de :
+> 	soit :
+> 	- 1 cuillère à café de levure de boulangerie sèche
+> 	- 1 pincée de sucre
+> 	- 2 cuillère à soupe d'eau bien tiède
+> 	ou :
+> 	- 10 à 15 gr de levure de boulangerie fraîche émiettée
+> 	1 pincée de sucre
+> 	1 cuillère à soupe rase de farine
+> 	3 cuillère à soupe d'eau bien tiède.
+>
+> 1. mélanger les ingrédients du levain et laisser reposer au moins 5 min
+> 2. mettre la farine dans un saladier et y mélanger le sel; creuser un puits; mélanger l'huile d'olive au levain et le verser dans le puits
+> 3. faire la pâte en ajoutant peu à peu au levain la farine et l'eau tiède; finir en prenant la pâte à la main et en la pétrissant quelques minutes sur le plan de travail; rajouter de la farine si la pâte est trop collante mais le moins possible... Laisser reposer cette pâte 45' à 1 H (pendant que vous préparez les légumes de garniture par exemple).
 
 > ## Neapolitan pizza dough recipe
 > By Ciro Salvo of 50 Kalò
@@ -546,3 +563,8 @@ Pour 4 personnes :
 8. replacer au four pendant 5 à 10 mn dans le four encore chaud.
 
 - https://www.marmiton.org/recettes/recette_aubergines-farcies-aux-legumes-ou-mixte_17955.aspx
+
+## Mousse au chocolat
+
+- 8 blancs d'oeuf
+- 260 gr de chocolat pâtissier (56% min de cacao)

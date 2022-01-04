@@ -981,6 +981,31 @@ with(document){
 
 Aka case style, casing, Design JavaScript APIs
 
+> |                                                                               | Casing rule                                                   | Examples                                  |
+> |-------------------------------------------------------------------------------|---------------------------------------------------------------|-------------------------------------------|
+> | Methods and properties (Web IDL attributes, operations, and dictionary keys)  | Camel case                                                    | `createAttribute()`, `compatMode`         |
+> | Classes and mixins (Web IDL interfaces)                                       | Pascal case                                                   | `NamedNodeMap`, `NonElementParentNode`    |
+> | Initialisms in APIs                                                           | All caps, except when the first word in a method or property  | `HTMLCollection`, `innerHTML`, `bgColor`  |
+> | Repeated initialisms in APIs                                                  | Follow the same rule                                          | `HTMLHRElement`, `RTCDTMFSender`          |
+> | The abbreviation of "identity"                                                | `Id`, except when the first word in a method or property      | `getElementById()`, `pointerId`, `id`     |
+> | Enumeration values                                                            | Lowercase, dash-delimited                                     | `"no-referrer-when-downgrade"`            |
+> | Events                                                                        | Lowercase, concatenated                                       | `canplaythrough`, `languagechange`        |
+> | HTML elements and attributes                                                  | Lowercase, concatenated                                       | `figcaption`, `maxlength`                 |
+> | JSON keys                                                                     | Lowercase, underscore-delimited                               | `short_name`                              |
+>
+> — Use casing rules consistent with existing APIs - [Web Platform Design Principles](https://www.w3.org/TR/design-principles/#casing-rules)
+
+Where "identifier"/"identity" is treated differenty that other initialisms:
+
+- [`PointerEvent.pointerId`](https://w3c.github.io/pointerevents/#dom-pointereventinit-pointerid)
+- [`FetchEvent.clientId`](https://w3c.github.io/ServiceWorker/#ref-for-dom-fetchevent-clientid)
+- [`ExtendableMessageEvent.lastEventId`](https://w3c.github.io/ServiceWorker/#ref-for-dom-extendablemessageevent-lasteventid)
+- [`PaymentResponse.requestId`](https://w3c.github.io/payment-request/#ref-for-dom-paymentresponse-requestid-1)
+- [`TextTrackCueList.getCueById()`](https://html.spec.whatwg.org/multipage/media.html#text-track-api:dom-texttrackcuelist-getcuebyid)
+- [`RTCIceCandidatePairStats.localCandidateId`](https://w3c.github.io/webrtc-stats/#ref-for-dom-rtcicecandidatepairstats-localcandidateid-1)
+- [`MediaTrackCapabilities.groupId`](https://w3c.github.io/mediacapture-main/#idl-def-mediatrackcapabilities-groupid)
+- [`MediaTrackCapabilities.deviceId`](https://w3c.github.io/mediacapture-main/#idl-def-mediatrackcapabilities-deviceid)
+
 Examples of native functions/methods or properties:
 
 - `encodeURIComponent`
@@ -1045,21 +1070,24 @@ Event names:
 - [Input Event Order](https://www.w3.org/TR/DOM-Level-3-Events/#events-inputevent-event-order): `beforeinput` -> (DOM element is updated) -> `input`
 - before and after event for asynchronous events [`beforeinput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event) -> `input`, [`beforeprint`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeprint_event) -> [`afterprint`](https://developer.mozilla.org/en-US/docs/Web/API/Window/afterprint_event), [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) -> `unload`
 
-Examples: `userID` and `profileURL`
+Examples: `userId` and `profileURL`
 
 See also:
 
 - [Why String.prototype.startsWith but not String.prototype.startWith? : javascript](https://www.reddit.com/r/javascript/comments/a2etsp/why_stringprototypestartswith_but_not/eaxnxip/) - "String starts with?" ('Does "foobar" start with "foo"?' → '"Foobar" starts with "foo"')
-- [Web Platform Design Principles](https://www.w3.org/TR/design-principles/#casing-rules)
-- [javascript - Why does XMLHttpRequest not seem to follow a naming convention? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/157375/why-does-xmlhttprequest-not-seem-to-follow-a-naming-convention)
+- [Naming convention for multi-word identifiers with initialisms](https://mail.mozilla.org/pipermail/es-discuss/2017-July/048425.html)
+- [javascript - Why does XMLHttpRequest not seem to follow a naming convention? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/157375/why-does-xmlhttprequest-not-seem-to-follow-a-naming-convention) - "Microsoft said `XMLHttpRequest` in [August 1999](https://web.archive.org/web/19990828184122/http://msdn.microsoft.com/xml/reference/scriptref/XMLHttpRequest_Object.asp), a month before
+[feature request for Mozilla](https://bugzilla.mozilla.org/show_bug.cgi?id=15119) - https://mail.mozilla.org/pipermail/es-discuss/2017-July/048461.html"
 - [coding style - Acronyms in CamelCase - Stack Overflow](https://stackoverflow.com/questions/15526107/acronyms-in-camelcase)
 - [wp-calypso/javascript.md at master · Automattic/wp-calypso](https://github.com/Automattic/wp-calypso/blob/master/docs/coding-guidelines/javascript.md#naming-conventions)
 - [Coding Standards: Naming conventions for abbreviated camel-case · Issue #2511 · WordPress/gutenberg](https://github.com/WordPress/gutenberg/issues/2511)
-- [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)
 - [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard) - W3C design principles
 - [HTML APIs: What They Are And How To Design A Good One — Smashing Magazine](https://www.smashingmagazine.com/2017/02/designing-html-apis/)
+- [JavaScript guidelines - The MDN project | MDN](https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Code_guidelines/JavaScript)
+- [airbnb/javascript: JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions) - Naming conventions
+- [language agnostic - Acronyms in CamelCase - Stack Overflow](https://stackoverflow.com/questions/15526107/acronyms-in-camelcase)
 
-See [Naming convention](Development#naming-convention)
+See [Naming convention](../Development.md#naming-convention)
 
 ## Custom elements
 
@@ -6547,7 +6575,7 @@ function dataURIToBytes(uri){
 	return encoding === 'base64' ? atob(rawData) : decodeURIComponent(rawData); // TODO decode with charset (mediaTypeParams.find(([name]) => name === "charset") || [])[1] || "UTF-8"
 }
 ```
-	
+
 ```js
 // https://github.com/graingert/datauritoblob/blob/master/dataURItoBlob.js
 // https://stackoverflow.com/questions/6850276/how-to-convert-dataurl-to-file-object-in-javascript
@@ -7130,11 +7158,9 @@ See also cache API:
 - can be used for polyfill Client Hints
 - [Service Worker & HTTP Client Hints](https://gist.github.com/deanhume/c04478df744ce833925c) - Rewrite URL if WebP is supported
 - [Using Service Worker for server-side adaption based on network type - Tales of a Developer Advocate by Paul Kinlan](https://paul.kinlan.me/using-service-worker-server-side-adaption-based-on-network-type/) - Example (but shouldn't used as is) to send client Hint network infos
-- [Service Workers — Gotchas — Medium](https://medium.com/@boopathi/service-workers-gotchas-44bec65eab3f)
 - [delapuente/service-workers-101: An infographic to summarize the most important parts of the Service Workers' API](https://github.com/delapuente/service-workers-101/)
 - [Service Worker, what are you? - Mariko Kosaka](http://kosamari.com/notes/Service-Worker-what-are-you)
 - [javascript - What limitations apply to opaque responses? - Stack Overflow](https://stackoverflow.com/questions/39109789/what-limitations-apply-to-opaque-responses/39109790#39109790)
-- [Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/) - A framework to handle cache in service worker
 - [javascript - Understanding Service Worker scope - Stack Overflow](https://stackoverflow.com/questions/35780397/understanding-service-worker-scope) - `Service-Worker-Allowed` HTTP header to define the max scope
 
 Avoid changing the URL of service worker script:
@@ -7187,6 +7213,12 @@ addEventListener("install", event => {
 ```
 
 See [Proposal: pass custom params in ServiceWorkerRegistration for future use · Issue #1157 · w3c/ServiceWorker](https://github.com/w3c/ServiceWorker/issues/1157#issuecomment-306469745) and [Fix the ServiceWorker mode to create the event handlers on the initial evaluation of the script · Issue #189 · kiwix/kiwix-js](https://github.com/kiwix/kiwix-js/issues/189)
+
+See also:
+
+- [Service Workers — Gotchas — Medium](https://medium.com/@boopathi/service-workers-gotchas-44bec65eab3f)
+- [Workbox  |  Google Developers](https://developers.google.com/web/tools/workbox/) - A framework to handle cache in service worker
+- [Stuff I wish I'd known sooner about service workers](https://gist.github.com/Rich-Harris/fd6c3c73e6e707e312d7c5d7d0f3b2f9)
 
 ### Streamed data
 

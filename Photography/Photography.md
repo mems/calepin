@@ -23,4 +23,5 @@ https://www.reddit.com/r/space/comments/arer0k/comment/egn6mbz
 ## Lenses
 
 - [Cameras and Lenses – Bartosz Ciechanowski](https://web.archive.org/web/20210112170311/https://ciechanow.ski/cameras-and-lenses/)
-- [Focal Length Finder](https://joachimesque.github.io/focal-length-finder/)
+- [Focal Length Finder](https://web.archive.org/web/20210119025759/https://joachimesque.github.io/focal-length-finder/)
+- [Lens Calculator](https://web.archive.org/web/20211203010019/https://www.jvsg.com/calculators/cctv-lens-calculator/)

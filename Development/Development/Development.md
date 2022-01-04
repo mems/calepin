@@ -1001,6 +1001,7 @@ curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 - [Command Line Interface Guidelines](https://web.archive.org/web/20201210232149/https://clig.dev/)
 - [Use long flags when scripting |\> Changelog](https://web.archive.org/web/20201111204522if_/https://changelog.com/posts/use-long-flags-when-scripting)
 - [mdk.fr – How APT does its fancy progress bar](https://web.archive.org/web/20211013181755/https://mdk.fr/blog/how-apt-does-its-fancy-progress-bar.html)
+- [Tips on Adding JSON Output to Your CLI App - Brazil's Blog](https://web.archive.org/web/20211206085426/https://blog.kellybrazil.com/2021/12/03/tips-on-adding-json-output-to-your-cli-app/)
 
 ### Command line documentation
 
@@ -1416,3 +1417,12 @@ Aka paging
 - total pages: `ceil(totalRecords / pageSize)`, `(totalRecords - 1) / pageSize + 1` or `(totalRecords % pageSize == 0) ? (totalRecords / pageSize) : (totalRecords / pageSize + 1)`
 
 - [Calculating item offset for pagination - Stack Overflow](https://stackoverflow.com/questions/3520996/calculating-item-offset-for-pagination)
+
+## Privacy by design
+
+Aka PbD
+
+- [Privacy by design — Wikipedia](https://en.wikipedia.org/wiki/Privacy_by_design)
+- [Guide RGPD du développeur](https://lincnil.github.io/Guide-RGPD-du-developpeur/#Guide_RGPD_du_d%C3%A9veloppeur)
+- [OWASP Top 10 Privacy Risks](https://owasp.org/www-project-top-10-privacy-risks/)
+- [Adding Privacy by Design in Secure Application Development](https://owasp.org/www-pdf-archive//TOREON_Adding_Privacy_by_Design_in_Secure_Application_Development_v20180412.pdf)

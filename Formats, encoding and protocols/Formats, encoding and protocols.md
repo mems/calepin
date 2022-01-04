@@ -6,6 +6,7 @@ File format, identification:
 
 Infos, tools and code for some formats / protocols / encodings
 
+- [Sustainability of Digital Formats: Planning for Library of Congress Collections](https://www.loc.gov/preservation/digital/formats/index.html)
 - [Comparison of data serialization formats — Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_data_serialization_formats)
 - [Formats/binary posters](https://github.com/corkami/pics#binary-posters) see also https://github.com/Invoke-IR/ForensicPosters
 - [ForensicsWiki](https://web.archive.org/web/20190921172115/http://www.forensicswiki.org/wiki/Main_Page)

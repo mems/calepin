@@ -1707,6 +1707,49 @@ Install on external drive:
 - [Tech Tip: How to Use Boot Camp on an External Drive](https://web.archive.org/web/20210508133846/https://eshop.macsales.com/blog/40947-tech-tip-how-to-use-boot-camp-on-an-external-drive/)
 - set `HKLM\SYSTEM\HardwareConfig\{...uuid...}\BootDriverFlags` to `0x14`: [Booting unmodified Windows 10 over USB](https://web.archive.org/web/20210224002009/http://blog.zorinaq.com/boot-win10-over-usb/)
 
+Bluetooth Apple keyboard:
+
+- to connect tap on the keyboard the PIN code the OS provide then tap enter
+
+Bluetooth dual boot:
+
+- [Releases · headkaze/Hackintool](https://github.com/headkaze/Hackintool/releases) - Tab "Utilities" > Button (at bottom with a Bluetooth logo) "Generate Windows Bluetooth Registry File", the import in Windows the file from regedit `psexec -s -i regedit` (`psexec` from [PsTools - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools))
+	See https://github.com/headkaze/Hackintool/blob/279644d917bd45241c85d13198a7ca4bacb320fd/Hackintool/AppDelegate.m#L10825-L10954 and https://github.com/headkaze/Hackintool/blob/279644d917bd45241c85d13198a7ca4bacb320fd/Hackintool/AppDelegate.m#L10713-L10755
+- [macOS Monterey and Windows Bluetooth pairing : hackintosh](https://www.reddit.com/r/hackintosh/comments/p5ost3/macos_monterey_and_windows_bluetooth_pairing/)
+- [How to fix Apple Bluetooth Wireless Keyboard (Windows 10)](https://gist.github.com/mcandre/a1c6915d2e338fef6a42e54655d28062)
+- [digitalbirdo/BT-LinkkeySync: Scripts to synchronize bluetooth link keys from mac OSX to windows](https://github.com/digitalbirdo/BT-LinkkeySync)
+- [dual boot - How can I avoid having to pair my bluetooth mouse all the time? - Ask Ubuntu](https://askubuntu.com/questions/253949/how-can-i-avoid-having-to-pair-my-bluetooth-mouse-all-the-time)
+- [How-to bluetooth pair an Apple Magic Mouse in a Dual Boot System with Fedora 27 Linux and macOS 10.13 High Sierra](https://gist.github.com/ekuester/a573abbbd055766337f314a79b623fa4)
+- `/Library/Preferences/com.apple.Bluetooth.plist`, `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys`
+- Bluetooth Classic use Link Key (LK)
+- Bluetooth Low Energy (4.0 & 4.1), LE legacy pairing
+	- use Short Term Key (STK), Identity Resolving Key (IRK), Encrypted Diversifier (EDIV), Random Number (RAND)
+	- [bluetooth lowenergy - Need details about EDIV and Rand - Stack Overflow](https://stackoverflow.com/questions/48165520/need-details-about-ediv-and-rand)
+	- [How to fix BLE devices · Issue #12 · digitalbirdo/BT-LinkkeySync · GitHub](https://web.archive.org/web/20211214212125/https://github.com/digitalbirdo/BT-LinkkeySync/issues/12)
+	- [Keep Bluetooth4.0/LE devices paired once between Mac/Windows | tonymacx86.com](https://web.archive.org/web/20211214211816/https://www.tonymacx86.com/threads/keep-bluetooth4-0-le-devices-paired-once-between-mac-windows.284441/)
+	- [console.systems | How to pair a Low Energy (LE) Bluetooth device in dual boot with Windows & Linux](https://web.archive.org/web/20210507025858/https://console.systems/2014/09/how-to-pair-low-energy-le-bluetooth.html) and [Using bluetooth mouse in windows/linux dual boot machine with out re-pairing – Balakrishna Vanka's blog](https://web.archive.org/web/20210514011513/https://www.balakrishnavanka.com/using-bluetooth-mouse-in-windowslinux-dual-boot-machine-with-out-re-pairing/)
+- Bluetooth Low Energy (4.2), LE Secure Connections use Long Term Key (LTK)
+- `sudo pkill bluetoothd`
+- `/Library/Bluetooth/Library/Preferences/com.apple.MobileBluetooth.devices.plist`
+- `/private/var/root/Library/Preferences/com.apple.bluetoothd.plist` (High Sierra +)
+- `/private/var/root/Library/Preferences/blued.plist`
+- `sudo /usr/bin/defaults read com.apple.Bluetoothd.plist LinkKeys`
+- `/Library/Preferences/com.apple.Bluetooth.plist`
+- `/Library/Preferences/com.apple.airport.bt.plist`
+- [core bluetooth - How can I clear the CoreBluetooth cache on MacOS? - Stack Overflow](https://stackoverflow.com/questions/20553957/how-can-i-clear-the-corebluetooth-cache-on-macos)
+- [Bluetooth Pairing on Dual Boot of Windows & Linux Mint/Ubuntu - Stop having to Pair Devices - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/255509/bluetooth-pairing-on-dual-boot-of-windows-linux-mint-ubuntu-stop-having-to-p)
+- [Bluetooth mouse in dual boot of Windows 10 and Linux | DesktopI18N's Blog](https://web.archive.org/web/20210420045334/https://desktopi18n.wordpress.com/2018/02/02/bluetooth-mouse-in-dual-boot-of-windows-10-and-linux/)
+- [Bluetooth mouse in dual boot of Windows 10 and Linux #2 | DesktopI18N's Blog](https://web.archive.org/web/20201126074122/https://desktopi18n.wordpress.com/2020/05/13/bluetooth-mouse-in-dual-boot-of-windows-10-and-linux-2/)
+- [Dual Boot Bluetooth Pairing Solved - Page 2 - OSx86 10.7 (Lion) | InsanelyMac](https://web.archive.org/web/20211214213807/https://www.insanelymac.com/forum/topic/268837-dual-boot-bluetooth-pairing-solved/page/2/?tab=comments)
+- [Keep Bluetooth devices paired on macOS and Windows · profzei/Matebook-X-Pro-2018 Wiki](https://github.com/profzei/Matebook-X-Pro-2018/wiki/Keep-Bluetooth-devices-paired-on-macOS-and-Windows)
+- [encryption - How is LTK formed in Bluetooth Low Energy connections? - Stack Overflow](https://stackoverflow.com/questions/50508258/how-is-ltk-formed-in-bluetooth-low-energy-connections)
+- [MagicPairing: Apple’s Take on Securing Bluetooth Peripherals](https://wisec2020.ins.jku.at/proceedings/wisec20-28.pdf)
+- [BLE Pairing and Bonding - a Primer | Kynetics](https://web.archive.org/web/20200805045150/https://www.kynetics.com/docs/2018/BLE_Pairing_and_bonding/)
+- [Bluetooth Pairing Part 1 -Pairing Feature Exchange | Bluetooth® Technology Website](https://web.archive.org/web/20210908212200/https://www.bluetooth.com/blog/bluetooth-pairing-part-1-pairing-feature-exchange/)
+- [Bluetooth Pairing Part 2Key Generation Methods | Bluetooth® Technology Website](https://web.archive.org/web/20210506161102/https://www.bluetooth.com/blog/bluetooth-pairing-part-2-key-generation-methods/)
+- [Bluetooth Pairing Part 3 -Low Energy LegacyPairing Passkey Entry | Bluetooth® Technology Website](https://web.archive.org/web/20211214220910/https://www.bluetooth.com/blog/bluetooth-pairing-passkey-entry/)
+- [Bluetooth Pairing Part 4:Bluetooth Low EnergySecure Connections -Numeric Comparison | Bluetooth® Technology Website](https://web.archive.org/web/20210425073720/https://www.bluetooth.com/blog/bluetooth-pairing-part-4/)
+
 ### Apple keyboard layout
 
 See also [Keyboard layout](../Windows/Windows.md#keyboard-layout)

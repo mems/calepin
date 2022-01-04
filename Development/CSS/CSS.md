@@ -14,6 +14,8 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 >
 > — [Jake Archibald](https://twitter.com/jaffathecake/status/832228132446990339)
 
+## No, CSS is not easy
+
 > [CSS is] declarative language: describe _intent_ rather than specific steps
 >
 > — [Why Is CSS So Weird? - YouTube](https://www.youtube.com/watch?v=aHUtMbJw8iA)
@@ -56,6 +58,8 @@ See also [CSS](../../Formats,%20encoding%20and%20protocols/CSS/CSS.md)
 > - et ton interface avec beaucoup de contenus/très peu de contenus, ça roule ?
 >
 > — [Nicolas Hoffmann on Twitter: "Bah, #CSS et faire de l'UI c'est facile, c'est même pas un vrai métier : #thread - tu as testé en dark mode ? - en "light" mode ? - avec un fort zoom ? - avec un fort zoom texte ? - avec une combinaison des précédents ? - si ton viewport est petit ?" / Twitter](https://twitter.com/Nico3333fr/status/1245641136011538437)
+
+- [Tailwind and the Femininity of CSS](https://thoughtbot.com/blog/tailwind-and-the-femininity-of-css)
 
 ## Definition
 
@@ -624,6 +628,7 @@ Usefull for sliders, etc. see [Slider](#slider)
 - Change layout of lastest elements with [`nth-child()`](#range-selector) [Quantity queries and Flexbox part 2 | Charlotte Jackson, Front-end developer](http://www.lottejackson.com/learning/quantity-queries-and-flexbox-part-2)
 - [Quick Tip: How z-index and Auto Margins Work in Flexbox](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
 - (decision tree) [My incomplete mental model for flexbox's main axis](https://excalidraw.com/#json=5387559236534272,IXmodlSiZ935NXIs7I0CYg) - [Rodrigo Pombo on Twitter: "My incomplete mental model for flexbox's main axis https://t.co/Vi2bvmyRCn" / Twitter](https://twitter.com/pomber/status/1281339741682753542)
+- [Breaking to a new row with flexbox | Tobias Ahlin](https://tobiasahlin.com/blog/flexbox-break-to-new-row/)
 
 Notes:
 
