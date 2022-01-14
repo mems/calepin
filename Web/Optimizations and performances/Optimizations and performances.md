@@ -857,7 +857,7 @@ Aka Lazyload, LOD, defered loading
 Use `<noscript>` tags, or handle it with Service Worker (replace all `<img>` by a placeholder). See [`<noscript>` and search engines](#noscript-and-search-engines)
 
 - [`<noscript>` and search engines](#noscript-and-search-engines)
-- [Image lazyload](#image-lazyload) and [Non-blocking stylesheets](#non-blocking-stylesheet)
+- [Image lazyload](#image-lazyload) and [Non-blocking stylesheet](#non-blocking-stylesheet)
 - [Extensible Web Resource Loading Manifesto - igvita.com](https://www.igvita.com/2014/10/02/extensible-web-resource-loading-manifesto/)
 - [google - Is this a good approach to image Lazy Loading for SEO? - Webmasters Stack Exchange](http://webmasters.stackexchange.com/questions/26190/is-this-a-good-approach-to-image-lazy-loading-for-seo)
 - [Redefining Lazy Loading With Lazy Load XT - Smashing Magazine](http://www.smashingmagazine.com/2015/02/03/redefining-lazy-loading-with-lazy-load-xt/)
@@ -1436,10 +1436,21 @@ At the bottom: Use the script as blocking script. Should be executed after all p
 
 ##### Non-blocking stylesheet
 
+Aka async stylesheet
+
+```html
+<link rel="preload" href="/path/to/my.css" as="style"><!-- optional, set fetch at highest priority -->
+<link rel="stylesheet" href="/path/to/my.css" media="print" onload="media='all'">
+```
+
+Depreciated:
+
 ```html
 <link rel="preload" href="styles.css" as="style" onload="rel='stylesheet';onload=0">
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
 ```
+
+- [The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.](https://www.filamentgroup.com/lab/load-css-simpler/#can%E2%80%99t-rel%3Dpreload-do-this-too%3F)
 
 ## Reduce media memory usage
 

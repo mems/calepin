@@ -38,6 +38,19 @@ Style guide, code conventions:
 - [Don't use these examples](http://code-de-porc.tumblr.com)
 - [Superhero.js](https://web.archive.org/web/20201108135951/http://superherojs.com/)
 
+## Less JavaScript
+
+Aka no need for JavaScript
+
+- don't try to recreate native elements (input fields, select), see [Form fields](../CSS/CSS.md#form-fields)
+- use native feature (ex: [`<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), [`<form>` APIs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement), [properties of elements related to the parent form](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#properties), [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog), [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData), [Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl), etc.)
+- render server side (no load of JSON + render client with a template)
+
+- [Maybe we could tone down the JavaScript / fuzzy notepad](https://web.archive.org/web/20220102171109/https://eev.ee/blog/2016/03/06/maybe-we-could-tone-down-the-javascript/)
+- [Progressive enhancement](#progressive-enhancement)
+- [Styling web forms - Why is styling form widgets challenging?](https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms#why_is_styling_form_widgets_challenging)
+- [Don't rewrite native logic](../../Materials/User%20Interface%20and%20experience/UI%20-%20UX.md#don-t-rewrite-native-logic)
+
 ## Documentation
 
 See also [Documentation](../ECMAScript/ECMAScript.md#documentation)
@@ -5030,6 +5043,7 @@ document.head.appendChild(s);
 
 See [tree traversal stack](../../Algorithms/Tree%20traversal/Tree%20traversal.md#stack)
 
+**TODO replace with iterator of rulesets**
 **The loop does not support modifications (insert/delete)**
 
 Stylesheet rule walker:
@@ -5195,9 +5209,9 @@ function removeSelector(rulesSet, filter){
 		var keep = true;
 		switch(rule.type){
 			case 1://CSSRule.STYLE_RULE:
-				// /!\ "," can be ecaped, see https://mathiasbynens.be/notes/css-escapes
+				// /!\ "," can be ecaped as "\," or "\2c", see https://mathiasbynens.be/notes/css-escapes
 				// should be selectorText.split(/(?<=[^\\](?:\\\\)*),/)
-				// but look behind is not well supported, simplify by hope escaped "," is not used by this stylesheet
+				// but look behind is not well supported, simplify by the fact that "," is not used by this stylesheet
 				var selector = rule.selectorText = rule.selectorText.trim().split(/\s*,\s*/).filter(filter).join(", ");
 				keep = selector.length > 0;
 				break;
@@ -5227,6 +5241,39 @@ function removeSelector(rulesSet, filter){
 removeSelector(style.sheet, function(selector){
 	return true;
 });
+```
+
+```js
+/**
+ * Update ID selectors
+ * @example
+ * <style id="style">div{border: 1px solid blue}div::before{content: "<div id=\""attr(id)"\">"}#\3A hover\3A focus\3A active, #\#fake-id, #\,, #©{border: 1px solid green}</style>
+ * <div id=":hover:focus:active"></div><div id="#fake-id"></div><div id=","></div><div id="©"></div>
+ * <div id="_:hover:focus:active"></div><div id="_#fake-id"></div><div id="_,"></div><div id="_©"></div>
+ * <script>onload=function(){prefixCSSRuleset(document.getElementById("style").sheet, "_")}</script>
+ * Where selectorText === "#\\3A hover\\3A focus\\3A active, #\\#fake-id, #\\,, #©" and prefix === "_"
+ * The result will be <style>#_\3A hover\3A focus\3A active, #_\#fake-id, #_\,, #_© {border: 1px solid red}</style>
+ * @see https://github.com/csstree/csstree/blob/5b0000945c2969d4d662a6247fe5b7b1ef33409d/lib/tokenizer/utils.js#L119
+ * @see https://mathiasbynens.be/notes/css-escapes
+ * @param {CSSStyleSheet|CSSGroupingRule|CSSKeyframesRule} ruleset
+ * @param {string} prefix
+ */
+function prefixCSSRuleset(ruleset, prefix) {
+  for (const rule of ruleset.cssRules) {
+    if (rule.selectorText) {
+      // Note: this regex will match `.class\\#id{}` (`<div class="class\" id="id">`) and `.class\\\\#id{}` (`<div class="class\\" id="id">`) but not `.class\#test{}` (`<div class="class#test">`) nor `.class\\\#test{}` (`<div class="class\#test">`)
+      rule.selectorText = rule.selectorText.replace(
+        /(?<=(?:^|[^\\])(?:\\\\)*)#((?:[A-Za-z_0-9-\u0080-\ufeff]|\\(?:[A-Za-z0-9]{1,6}|[^\n\r\0])[\n\r\f \t]?)+)/g,
+        `#${prefix}$1`
+      );
+
+	  prefixStyle(rule.style, prefix);
+    }
+    if (rule.cssRules) {
+      prefixCSSRuleset(rule, prefix);
+    }
+  }
+}
 ```
 
 ### Remove all children
@@ -7350,11 +7397,23 @@ It's navigation
 
 **Never use link with `javascript:` protocol.**
 
-The workaround is use `eval(anchor.href)` instead.
+To execute synchronously use instead:
+
+```js
+// In a click default prevented event listener:
+try{
+	const result = new Function(anchor.href)();
+	if(typeof result === "string"){
+		location = result;
+	}
+}
+```
 
 - [HTML Standard](https://html.spec.whatwg.org/multipage/browsers.html#navigating-across-documents:javascript-protocol) - Navigating across documents: "javascript" url scheme
 
 ## Why return undefined for `javascript:` URIs
+
+To avoid return a string that will be used to navigate to (as URL)
 
 ```
 javascript:void window.open("http://example.com/");
@@ -7479,7 +7538,8 @@ m.grow(1);
 ## Passive Event Listeners
 
 > onscroll is async, so passive is unnecessary. Only needed for touch* and wheel events.
-— Paul Irish https://twitter.com/paul_irish/status/755175394140053505
+>
+> — Paul Irish https://twitter.com/paul_irish/status/755175394140053505
 
 There no drawback when using passive even if not necessary.
 
@@ -7999,3 +8059,9 @@ Arrow keys, WASD or ZQSD
 
 - [Some subtleties of keyboard inputs in JS games - Maxime Euzière](https://xem.github.io/articles/jsgamesinputs.html)
 - [Arrow keys - Wikipedia](https://en.wikipedia.org/wiki/Arrow_keys#WASD_keys)
+
+## Don't attach to `document.body`
+
+Modals, dialogs, popins, tooltips, etc.
+
+- [Don’t attach tooltips to document.body - Atif Afzal](https://web.archive.org/web/20211121085143/https://atfzl.com/don-t-attach-tooltips-to-document-body)

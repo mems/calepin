@@ -741,6 +741,7 @@ And what about forward compatibility: you ovewrite the current logic not the fut
 - ![Input date difference on mobile](input%20date%20difference%20on%20mobile.png)
 - [The disadvantages of single page applications | Adam Silver | UX design, Front-end Engineering and Strategy | London, UK.](http://adamsilver.io/articles/the-disadvantages-of-single-page-applications/)
 - [CodePen - Scrolljacking is interfacejacking](http://codepen.io/gunderson/full/GJJPpV/)
+- [Interface Hall of Shame - Visual Elements](https://web.archive.org/web/20021009021738/http://www.iarchitect.com/visual.htm)
 
 ### Scroll and zoom
 

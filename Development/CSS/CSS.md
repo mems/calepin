@@ -2685,10 +2685,23 @@ Use `@support` if it's supported, or use a JS lib like modernizr
 
 ## Form fields
 
+Aka form controls, form elements
+
 Don't hide `input[type=file]`, it support natively drag and drop. Just use opacity (maybe non-zero)
 
 Resizable textarea: `resize: vertical;` https://developer.mozilla.org/en-US/docs/Web/CSS/resize
 
+- [Styling web forms - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms)
+- [Advanced form styling - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms/Advanced_form_styling)
+- [Custom Styling Form Inputs With Modern CSS Features | CSS-Tricks - CSS-Tricks](https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/)
+- [Styling Cross-Browser Compatible Range Inputs with CSS | CSS-Tricks - CSS-Tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
+- [Custom File Input Styling | CSS-Tricks - CSS-Tricks](https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/)
+- [Pure CSS Custom Checkbox Style | Modern CSS Solutions](https://web.archive.org/web/20220104005526/https://moderncss.dev/pure-css-custom-checkbox-style/)
+- [Pure CSS Custom Styled Radio Buttons | Modern CSS Solutions](https://web.archive.org/web/20211126095917/https://moderncss.dev/pure-css-custom-styled-radio-buttons/)
+- [Custom Select Styles with Pure CSS | Modern CSS Solutions](https://web.archive.org/web/20211119013300/https://moderncss.dev/custom-select-styles-with-pure-css/)
+- [Custom CSS Styles for Form Inputs and Textareas | Modern CSS Solutions](https://web.archive.org/web/20211122195137/https://moderncss.dev/custom-css-styles-for-form-inputs-and-textareas/)
+- [The Current State of Styling Selects in 2019 | CSS-Tricks](https://web.archive.org/web/20210421130626/https://css-tricks.com/the-current-state-of-styling-selects-in-2019/)
+- [Standardizing \<select\> And Beyond: The Past, Present And Future Of Native HTML Form Controls — Smashing Magazine](https://www.smashingmagazine.com/2020/11/standardizing-select-native-html-form-controls/)
 - [Designing with Pseudo Elements in IE10 | Jonathan Sampson](http://sampsonblog.com/615/ie10s-pseudo-elements)
 - [Creative Form & Input Field Design Examples — Medium](https://medium.com/@saijogeorge/creative-form-input-field-design-examples-bfe5dd50808a)
 - [WTF, forms?](http://wtfforms.com/) https://github.com/mdo/wtf-forms
@@ -2696,14 +2709,15 @@ Resizable textarea: `resize: vertical;` https://developer.mozilla.org/en-US/docs
 - [A Closer Look At The Select Element](http://wayback.archive.org/web/20150913113152/http://www.hanseri.no/a-closer-look-at-the-select-element/) Hybrid (only the selector) or native or fully custom (but not a `<select>`, only for few elements, < 6)
 - [List of Pseudo-Elements to Style Form Controls - TJ VanToll - Tutorials, Thoughts, and Ramblings on Front-End Development](http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/)
 - [iOS 6 switch style checkboxes with pure CSS | Lea Verou](http://lea.verou.me/2013/03/ios-6-switch-style-checkboxes-with-pure-css/)
-- [When to Override Native UI Components - Articles - Baymard Institute](http://baymard.com/blog/custom-vs-native-ui)
+- [When to Override Native UI Components – Articles – Baymard Institute](https://web.archive.org/web/20211221204650/https://baymard.com/blog/custom-vs-native-ui)
 - [CSS Contact Form | CodyHouse](http://codyhouse.co/gem/css-contact-form)
 - [Stuff you can do with the "Checkbox Hack" | CSS-Tricks](https://css-tricks.com/the-checkbox-hack/)
 - [Styling and scripting sliders - QuirksBlog](http://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)
 - [Advanced styling for HTML forms - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Advanced_styling_for_HTML_forms)
 - [Form Validation UX in HTML and CSS | CSS-Tricks](https://css-tricks.com/form-validation-ux-html-css/)
 - [Under-Engineered Custom Radio Buttons and Checkboxen | Adrian Roselli](http://adrianroselli.com/2017/05/under-engineered-custom-radio-buttons-and-checkboxen.html)
-- [Customize Radio Buttons without Compromising Accessibility](https://blog.bitsrc.io/customise-radio-buttons-without-compromising-accessibility-b03061b5ba93)
+- [Customize Radio Buttons without Compromising Accessibility | by Chen Hui Jing | Bits and Pieces](https://web.archive.org/web/20201109092134/https://blog.bitsrc.io/customise-radio-buttons-without-compromising-accessibility-b03061b5ba93?gi=521476af50f5)
+- [One last time: custom styling radio buttons and checkboxes | scottohara.me](https://web.archive.org/web/20211207065628/https://www.scottohara.me//blog/2021/09/24/custom-radio-checkbox-again.html)
 
 Examples:
 
@@ -2727,7 +2741,7 @@ Examples:
 - http://tylergaw.com/articles/fun-with-html-form-validation-styles
 - http://webdesign.tutsplus.com/tutorials/bring-your-forms-up-to-date-with-css3-and-html5-validation--webdesign-4738
 - http://thereforei.am/2011/07/01/css-selectors-for-html5-input-validation/
-- [Cross Browser Styling of HTML5 Forms — Even In Older Browsers.](http://www.useragentman.com/blog/2012/05/17/cross-browser-styling-of-html5-forms-even-in-older-browsers/)
+- [Cross Browser Styling of HTML5 Forms — Even In Older Browsers.](https://web.archive.org/web/20210510113405/http://www.useragentman.com/blog/2012/05/17/cross-browser-styling-of-html5-forms-even-in-older-browsers/)
 
 Accessibility:
 

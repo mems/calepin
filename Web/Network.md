@@ -2,6 +2,7 @@
 
 - [How DNS works](https://howdns.works/)
 - [linux - Force dig to resolve without using cache - Server Fault](https://serverfault.com/questions/372066/force-dig-to-resolve-without-using-cache/372071#372071)
+- [What's in a hostname?](https://web.archive.org/web/20211125064950/https://www.netmeister.org/blog/hostnames.html)
 
 ### Encrypted DNS
 

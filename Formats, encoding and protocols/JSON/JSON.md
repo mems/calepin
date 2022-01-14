@@ -59,11 +59,11 @@ function decode (value) {
 
 ## Comments
 
-Comment syntax not exist in JSON (like `/* ... */` or `// ...`). Use a field for that (could start with `$`, `@`, `#`, `//`, etc.)
+Comment syntax does not exist in JSON (like `/* ... */` or `// ...`). Use a field for that, which could start with `$`, `@`, `#`, `//`, etc.
 
 You should not use duplicated keys. It's could be supported by parser/writer but it's not standard.
 
-Format used by [JSON Schema](https://json-schema.org/understanding-json-schema/reference/generic.html#comments)
+Format used by [JSON Schema](https://json-schema.org/understanding-json-schema/reference/generic.html#comments):
 
 ```json
 {
@@ -76,7 +76,9 @@ Format used by [JSON Schema](https://json-schema.org/understanding-json-schema/r
 - [javascript - Can I comment a JSON file? - Stack Overflow](https://stackoverflow.com/questions/244777/can-i-comment-a-json-file)
 - [seriot.ch - Parsing JSON is a Minefield 💣](http://seriot.ch/parsing_json.html#41)
 
-## Command line tool jq
+## Tools
 
-- [jq](https://stedolan.github.io/jq/)
-- [Extracting objects recursively with jq | Simon Willison’s TILs](https://til.simonwillison.net/jq/extracting-objects-recursively)
+- CLI [jq](https://stedolan.github.io/jq/)
+	- [stedolan/jq: Command-line JSON processor](https://github.com/stedolan/jq)
+	- [Extracting objects recursively with jq | Simon Willison’s TILs](https://til.simonwillison.net/jq/extracting-objects-recursively)
+- [antonmedv/fx: Command-line tool and terminal JSON viewer 🔥](https://github.com/antonmedv/fx)

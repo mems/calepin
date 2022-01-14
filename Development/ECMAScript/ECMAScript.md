@@ -3229,7 +3229,7 @@ var createUUID = R.createUUID = (function(uuidRegEx, uuidReplacer) {
 
 - [Universally unique identifier - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 
-## Random Identifier
+## Random identifier
 
 ```js
 Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)// > "5lv1liy34k"
@@ -3615,13 +3615,21 @@ var page = ({ people, isAdmin }) => template`
 page({ isAdmin: true, people: ['Keith', 'Dave', 'Amy' ] });
 ```
 
-## Regex dot don't match new line char
+## Regex
+
+### Dot match all chars
+
+Aka dotall, dot doesn't match new line char
 
 ```js
-/foo.bar/.test('foo\nbar');// false
-// A workaround:
-/foo[^]bar/.test('foo\nbar');// true
+"foo\nbar".match(/.*/)// ["foo"]
+"foo\nbar".match(/.*/s)// ["foo\nbar"]
+"foo\nbar".match(/[^]*/)// ["foo\nbar"]
+// match all chars range could be: [^] (aka "match any character that is not nothing"), [\s\S], [\w\W], [\d\D]
 ```
+
+- [javascript - how to use dotall flag for regex.exec() - Stack Overflow](https://stackoverflow.com/questions/23455614/how-to-use-dotall-flag-for-regex-exec/36006948#36006948)
+- [RegExp.prototype.dotAll - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll#browser_compatibility)
 
 ## Never loop with float
 

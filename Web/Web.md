@@ -1062,6 +1062,9 @@ Source code:
 
 - [trunk dans webkit. – WebKit](http://trac.webkit.org/browser/webkit/trunk)
 - https://sourcegraph.com/search?q=repo%3Awebkit%2Fwebkit+%s
+- [Debugging WebKit for iOS - Guy Lewin's Blog](https://web.archive.org/web/20211019205331/https://lewin.co.il/debugging-webkit-for-ios/)
+- [Debugging WebKit | WebKit](https://webkit.org/debugging-webkit/)
+- [CrackerCat/WasmFuzz: Fuzz testing on JavaScriptCore and WebAssembly in WebKit](https://github.com/CrackerCat/WasmFuzz#2-deploy-and-setup)
 
 Dev tools:
 
@@ -1766,6 +1769,8 @@ Other:
 
 ## Screensaver
 
+Create a screensaver from a web page:
+
 1. télécharger l’application « HTML Screen Saver » sur http://myweb.tiscali.co.uk/djmclean/htmlscreensaver.html
 2. l’installer l’application
 3. ouvrir le panneau de configuration (du système) (click droit sur le bureau → personaliser)
@@ -1813,6 +1818,22 @@ SMS and phone call (voice):
 - [Communication APIs for SMS, Voice, Video and Authentication](https://www.twilio.com/)
 - [AWS | Amazon SNS - Service d'envoi de SMS et notifications push](https://aws.amazon.com/fr/sns/)
 - [578 Telephony, SMS, and MMS APIs - Google Sheets](https://docs.google.com/spreadsheets/d/1BshonTqZfYcSBRA7bs4DsQ6PChdAeNRn9LV4tMgwEeo/edit#gid=0)
+
+## Transfert files
+
+- [Snapdrop](https://snapdrop.net/) - [RobinLinus/snapdrop: A Progressive Web App for local file sharing](https://github.com/RobinLinus/snapdrop)
+- [ShareDrop](https://www.sharedrop.io/) - [szimek/sharedrop: Easy P2P file transfer powered by WebRTC - inspired by Apple AirDrop](https://github.com/szimek/sharedrop)
+- [FilePizza - Your files, delivered.](https://file.pizza/) - [kern/filepizza: Peer-to-peer file transfers in your browser](https://github.com/kern/filepizza)
+- [WebWormhole](https://webwormhole.io/) - [saljam/webwormhole: Peer authenticated WebRTC.](https://github.com/saljam/webwormhole)
+- [Wormhole - Simple, private file sharing](https://wormhole.app/)
+- [Send](https://send.vis.ee/) - [timvisee/send: Simple, private file sharing. Mirror of https://gitlab.com/timvisee/send](https://github.com/timvisee/send)
+
+## Digital signature
+
+Trusted third party
+
+- [Trusted third party — Wikipedia](https://en.wikipedia.org/wiki/Trusted_third_party)
+- [La signature électronique : un outil devenu incontournable | France Num, Portail de la transformation numérique des entreprises](https://web.archive.org/web/20210822102446/https://www.francenum.gouv.fr/comprendre-le-numerique/la-signature-electronique-un-outil-devenu-incontournable)
 
 ## Advertising
 

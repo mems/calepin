@@ -755,6 +755,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		- https://github.com/reinderien/mimic and https://github.com/reinderien/mimic/wiki/Character-Set
 		- [JavaScript variable name validator](https://mothereff.in/js-variables)
 		- https://mathiasbynens.be/notes/javascript-identifiers-es6 and https://github.com/mathiasbynens/mothereff.in/tree/master/js-variables and https://stackoverflow.com/questions/1661197/what-characters-are-valid-for-javascript-variable-names
+		- [Unicode Utilities: Confusables](https://util.unicode.org/UnicodeJsps/confusables.jsp)
 
 	* Use RLO (Right-to-Left Override) or Bidi chars:
 
@@ -954,7 +955,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 	* C `main(){printf(&unix["\021%six\012\0"], (unix)["have"]+"fun"-0x60);}` print `unix` when compiled on unix [`main(){printf(&unix\["\021%six\012\0"\], (unix)["have"]+"fun"-0x60);}` - faehnri.ch](http://faehnri.ch/have-fun/)
 	* Auto expand, in HTML `<table><td></td></table>` is parsed as `<HTML><HEAD></HEAD><BODY><TABLE><TBODY><TR><TD></TD></TR></TBODY></TABLE></BODY></HTML>`. See also HTML5 with non closed tags
 	* HTML head and its children are not display by default, but can be `head,meta,title,link,script,style,base{display: block !important;min-width: 50px;min-height: 20px;overflow: visible;}`
-	* Retro compatibility of ECMAScript RegExps [The madness of parsing real world JavaScript regexps](https://hackernoon.com/the-madness-of-parsing-real-world-javascript-regexps-d9ee336df983#.pm1rfh4zy)
+	* Retro compatibility of ECMAScript RegExps [The madness of parsing real world JavaScript regexps | Hacker Noon](https://web.archive.org/web/20200829130541/https://hackernoon.com/the-madness-of-parsing-real-world-javascript-regexps-d9ee336df983)
 	* ActionScript
 
 		```as3

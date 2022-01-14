@@ -1,5 +1,8 @@
 Best pratices: specs, common (bad or good) (see also http://www.w3.org/TR/html5/text-level-semantics.html examples etc.)
 
+- [html/FAQ.md at main · whatwg/html](https://github.com/whatwg/html/blob/main/FAQ.md)
+- [FAQ — WHATWG](https://whatwg.org/faq)
+
 # Best pratices — Coding conventions
 
 - http://mdo.github.io/code-guide/#html
@@ -951,17 +954,20 @@ Aka a11y
 > - images w/o  alt text
 > - lack of landmarks, eg `<main>`, `<nav>` etc
 > - not using semantic HTML, eg `<div>` instead of `<button>`
+>
 > — [Bruce Lawson on Twitter: "At work, that nice @LeonieWatson came and told our devs about screen readers. She answered the Q "what are the biggest barriers that have easiest fixes: - images w/o alt text - lack of landmarks, eg \<main\>, \<nav\> etc - not using semantic HTML, eg \<div\> instead of \<button\>"](https://web.archive.org/web/20210910184043/https://twitter.com/brucel/status/1436387758700892180)
 
 > Attention to detail is important. Especially where a11y is concerned.
 
 > Programmers program for the person they know best
-— Jim Allen
+>
+> — Jim Allen
 
 > Accessibility techniques don’t just benefit disabled users either — for example:
 > - Pages that are more accessible to screen readers are also more accessible to search engine algorithms. Simple accessibility techniques such as using alt-text on images, using descriptive text in links, using CSS for style only (never for meaning), and using HTML5’s semantic tags improve the overall SEO of a page.
 > - Transcripts of video content aren’t just good for people with auditory impairments — they are also useful for users on mobile devices in low bandwidth areas that can’t download the video, and people in noisy environments that can’t hear the video. And more text content means more opportunity for relevant keywords, so again, more SEO.
-— https://hacks.mozilla.org/2016/07/make-the-web-work-for-everyone/
+>
+> — https://hacks.mozilla.org/2016/07/make-the-web-work-for-everyone/
 
 > Valid HTML isn't always accessible
 
@@ -997,6 +1003,7 @@ Aka a11y
 
 - [Accessibility according to actual people with disabilities - Axess Lab](https://axesslab.com/accessibility-according-to-pwd/) - First issue: media captions
 - [Web Accessibility Perspectives Videos: Explore the Impact and Benefits for Everyone](https://www.w3.org/WAI/perspectives/)
+- [Accessibility Myths](https://a11ymyths.com/)
 
 > build a ramp instead of a staircase
 >
@@ -1788,6 +1795,8 @@ Note: Use SVG if srcset not supported
 
 ## Form
 
+Aka form elements, form fields, form controls
+
 Empty `action` attribute: [web standards - Is it a good practice to use an empty URL for a HTML form's action attribute? (action="") - Stack Overflow](https://stackoverflow.com/questions/1131781/is-it-a-good-practice-to-use-an-empty-url-for-a-html-forms-action-attribute-a)
 
 ```html
@@ -1981,6 +1990,8 @@ The Read Only Attribute:
 - https://html.spec.whatwg.org/multipage/forms.html#the-readonly-attribute
 
 ### Fields
+
+Aka controls, form elements
 
 `ul>li`, `ol>li`, `p`, `span`, etc.?
 
@@ -2824,8 +2835,8 @@ It's could be required to duplicate it with an HTML comment (for compatibility r
 <noscript><img src="image.jpg"></noscript>
 ```
 
-- [`<noscript>` and search engines](Web#noscript-and-search-engines)
-- [Lazyload and async load stylesheets and imgs](JavaScript#lazyload-and-async-load-stylesheets-and-imgs)
+- [`<noscript>` and search engines](../../Web/Web.md#noscript-and-search-engines)
+- [Non-blocking stylesheet](../../Web/Optimizations%20and%20performances/Optimizations%20and%20performances.md#non-blocking-stylesheet)
 
 ## Quote
 
