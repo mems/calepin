@@ -1652,7 +1652,7 @@ openuserjs:
 
 ## Bookmarklet
 
-See [Bookmarklet](JavaScript#bookmarklet)
+See [Bookmarklet](../Development/JavaScript/JavaScript.md#bookmarklet)
 
 Note: Bookmarklets are blocked by CSP in Firefox, where bookmarklet = `unsale-inline` script
 
@@ -1676,8 +1676,6 @@ copy("javascript:" + prompt().replace(/[\s%]/g, match => `%${match.charCodeAt(0)
 - [Bookmarklet - Wikipedia](https://en.wikipedia.org/wiki/Bookmarklet)
 
 ## Accessibility
-
-Permanant,
 
 See [Accessibility](../Development/HTML/HTML.md#accessibility)
 
@@ -1818,6 +1816,7 @@ SMS and phone call (voice):
 - [Communication APIs for SMS, Voice, Video and Authentication](https://www.twilio.com/)
 - [AWS | Amazon SNS - Service d'envoi de SMS et notifications push](https://aws.amazon.com/fr/sns/)
 - [578 Telephony, SMS, and MMS APIs - Google Sheets](https://docs.google.com/spreadsheets/d/1BshonTqZfYcSBRA7bs4DsQ6PChdAeNRn9LV4tMgwEeo/edit#gid=0)
+- [Email to SMS - Send Free SMS via Email](https://email2sms.info/) - [mfitzp/List_of_SMS_gateways: This content was previously available on WikiPedia but deleted as not really encylopaedia-worthy. Since an article of mine was originally a major source for the data in the page, I took a copy for posterity. It's now here on Github, reformatted as an editable CSV file and publicly editable by all.](https://github.com/mfitzp/List_of_SMS_gateways)
 
 ## Transfert files
 

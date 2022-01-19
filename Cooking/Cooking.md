@@ -17,6 +17,10 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 - [World Food Atlas: Discover 11,062 Local Dishes & Ingredients](https://www.tasteatlas.com/)
 - [Index des recettes -](http://lesgourmandsdisentdarmelle.fr/2017/01/index-recettes.html)
 
+## Sharpen knives
+
+- [The Best Way To Sharpen & Clean Knives (And The Worst) | Epicurious - YouTube](https://www.youtube.com/watch?app=desktop&v=t-_qzsMF8RM)
+
 ## Other
 
 - [5 Mouth-Watering Rib Recipes by Tasty](https://tasty.co/compilation/5-mouth-watering-rib-recipes)
@@ -568,3 +572,12 @@ Pour 4 personnes :
 
 - 8 blancs d'oeuf
 - 260 gr de chocolat pâtissier (56% min de cacao)
+
+## Houmous
+
+- tahin, le jus de citron, l'ail et le sel et de l'huile d'olive
+- possible d'ajouter du cummin, du piment, pistache en poudre ou d'huile de sésame
+
+## Patidou cocotte
+
+- [Patidou cocotte (ludique et gourmand) - Au Fil du Thym](https://web.archive.org/web/20210119181827/https://aufilduthym.fr/patidou-cocotte-patidou-oeuf/)

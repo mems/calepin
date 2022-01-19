@@ -561,6 +561,7 @@ Forbid (rewrite) `robots.txt` as username: `domain.ext/username` (use `robots-tx
 - [A list of domains for disposable and temporary email addresses. Useful for filtering your email list to increase open rates (sending email to these domains likely will not be opened).](https://gist.github.com/adamloving/4401361)
 - [Detect temporary mails - Block Disposable Email Addresses - IsTempMail](https://www.istempmail.com/)
 - [List of temporary email domains as of 2018-02-06 and disposable email detection, fake user prevention](https://www.block-disposable-email.com/cms/)
+- [disposable-email-domains/disposable-email-domains: a list of disposable and temporary email address domains](https://github.com/disposable-email-domains/disposable-email-domains)
 
 ### Hash and keys
 
@@ -1098,6 +1099,7 @@ EOM
 sudo fs_usage -w -f filesys | grep "file_used.ext"
 ```
 
+- [Frida • A world-class dynamic instrumentation framework | Inject JavaScript to explore native apps on Windows, macOS, GNU/Linux, iOS, Android, and QNX](https://frida.re/)
 - [Cracking Sublime Text 3](http://blog.fernandodominguez.me/cracking-sublime-text-3/)
 - [A collection of resources for linux reverse engineering](https://github.com/michalmalik/linux-re-101)
 - [How to Crack Just About Any Mac App (and How to Prevent It)](http://lifehacker.com/5736101/how-to-crack-just-about-any-mac-app-and-how-to-prevent-it)

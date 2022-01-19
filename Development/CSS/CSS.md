@@ -2696,6 +2696,8 @@ Resizable textarea: `resize: vertical;` https://developer.mozilla.org/en-US/docs
 - [Custom Styling Form Inputs With Modern CSS Features | CSS-Tricks - CSS-Tricks](https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/)
 - [Styling Cross-Browser Compatible Range Inputs with CSS | CSS-Tricks - CSS-Tricks](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [Custom File Input Styling | CSS-Tricks - CSS-Tricks](https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/)
+- [Styling a Select Like It’s 2019 | Filament Group, Inc.](https://web.archive.org/web/20211124033635/https://www.filamentgroup.com/lab/select-css.html) - [Select styles with CSS only](https://web.archive.org/web/20210521232601/https://filamentgroup.github.io/select-css/demo/)
+- [Styling form controls](https://web.archive.org/web/20220114161404/https://web.dev/learn/forms/styling-form-controls/)
 - [Pure CSS Custom Checkbox Style | Modern CSS Solutions](https://web.archive.org/web/20220104005526/https://moderncss.dev/pure-css-custom-checkbox-style/)
 - [Pure CSS Custom Styled Radio Buttons | Modern CSS Solutions](https://web.archive.org/web/20211126095917/https://moderncss.dev/pure-css-custom-styled-radio-buttons/)
 - [Custom Select Styles with Pure CSS | Modern CSS Solutions](https://web.archive.org/web/20211119013300/https://moderncss.dev/custom-select-styles-with-pure-css/)

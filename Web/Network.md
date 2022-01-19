@@ -831,11 +831,11 @@ But may not support this.
 
 URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org/html/rfc6570)
 
-- absolute URL: `http://domain/path/to/some/resource` https://url.spec.whatwg.org/#concept-absolute-url
-- scheme-relative (or Network-path reference or protocol-relative) URL : `//domain/path/to/some/resource` https://url.spec.whatwg.org/#concept-scheme-relative-url
-	Use it but http://www.paulirish.com/2010/the-protocol-relative-url/
-- absolute-path-relative URL: `/path/to/some/resource` https://url.spec.whatwg.org/#concept-absolute-path-relative-url
-- path-relative URL: `path/to/some/resource`, `../path/to/some/resource` https://url.spec.whatwg.org/#concept-path-relative-url
+- absolute URL: `http://domain/path/to/some/resource` https://url.spec.whatwg.org/#absolute-url-string
+- scheme-relative (or Network-path reference or protocol-relative) URL : `//domain/path/to/some/resource` https://url.spec.whatwg.org/#scheme-relative-special-url-string
+	It usage is discouraged: [The protocol-relative URL - Paul Irish](https://web.archive.org/web/20220114020538/https://www.paulirish.com/2010/the-protocol-relative-url/)
+- absolute-path-relative URL: `/path/to/some/resource` https://url.spec.whatwg.org/#path-absolute-url-string
+- path-relative URL: `path/to/some/resource`, `../path/to/some/resource` https://url.spec.whatwg.org/#path-relative-scheme-less-url-string
 
 - origin-form: path and query string of the URI. The query string may or may not be present.
 - absolute-form: an absolute URI.

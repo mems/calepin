@@ -1450,7 +1450,7 @@ Depreciated:
 <noscript><link rel="stylesheet" href="styles.css"></noscript>
 ```
 
-- [The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.](https://www.filamentgroup.com/lab/load-css-simpler/#can%E2%80%99t-rel%3Dpreload-do-this-too%3F)
+- [The Simplest Way to Load CSS Asynchronously | Filament Group, Inc.](https://web.archive.org/web/20211201142536/https://www.filamentgroup.com/lab/load-css-simpler/#can%E2%80%99t-rel%3Dpreload-do-this-too%3F)
 
 ## Reduce media memory usage
 

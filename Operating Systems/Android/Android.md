@@ -48,8 +48,7 @@ Setup Proxy (when using Emulator, or not) http://www.techverse.net/how-to-setup-
 
 ## APK
 
-APK is a ZIP
-
+- [APK](../../Formats,%20encoding%20and%20protocols/APK/APK.md)
 - [processor - How to tell what architecture an APK is intended for? - Android Enthusiasts Stack Exchange](https://android.stackexchange.com/questions/168302/how-to-tell-what-architecture-an-apk-is-intended-for)
 - [How do you install an APK file in the Android emulator? - Stack Overflow](https://stackoverflow.com/questions/3480201/how-do-you-install-an-apk-file-in-the-android-emulator/3480235#3480235)
 

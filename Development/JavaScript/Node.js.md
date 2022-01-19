@@ -466,6 +466,11 @@ module.exports = m.exports;
 - [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L781-L816)
 - [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L945-L948)
 - [Load node.js module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory/17585470#17585470)
+- [Package override](#package-override)
+
+## Package override
+
+- [package.json | npm Docs](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides)
 
 ## Warning
 
