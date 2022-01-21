@@ -1383,6 +1383,8 @@ el.checked == el.defaultChecked;
 
 ## Reflecting attributes in properties
 
+> An attribute is the initial state when rendered in the DOM. A property is the current state.
+
 - `id` property reflect `id` attribute, `className` for `class`, `htmlFor` for `for`: `<div id="bar"></div>`, `div.getAttribute("id") === div.id`
 - `type` property reflect `type` attribute but with limited values: `<input type="foo">`, `input.getAttribute("type") === "foo" && input.type === "text"`
 - `value` property is the _current value_ (text-content inside the input box): `<input value="bar">`, `input.value = "foo"`, `input.getAttribute("value") === "bar" && input.value === "foo" && input.defaultValue === "bar"`

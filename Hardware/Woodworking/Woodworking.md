@@ -12,6 +12,15 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Building a Modern End Table // Side Table // Plans Available - YouTube](https://www.youtube.com/watch?v=GFiaN12bM_E)
 - [Making a folding spindle moulder fence - YouTube](https://www.youtube.com/watch?v=P7JsJF5VizI)
 
+Quincaillerie :
+
+- glissière, coulisseau, coulisse : ouverture de tiroirs
+- charnière : ouverture de porte
+- goujon, goujon en bois (cheville), goujon avec came (et came excentrique ou boitier excentrique) ou excentrique avec goujon, lamelle, tenon de bois, ferrure d'assemblage : assemblage de 2 panneaux
+- levier à came, tenseur : serrer mais reste démontable
+
+- [Le chef de file en quincaillerie spécialisée - Quincaillerie Richelieu](https://www.richelieu.com/intl/fr/)
+
 ## Materials
 
 Aka wood
