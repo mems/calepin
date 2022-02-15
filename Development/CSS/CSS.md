@@ -3353,13 +3353,13 @@ blockquote::after {
 
 ## Round values
 
-- [Using decimal percentage values in responsive design | Divya Manian](http://nimbupani.com/using-decimal-percentage-values-in-responsive-design.html)
+- [Using decimal percentage values in responsive design | Divya Manian](https://web.archive.org/web/20210212191957/http://nimbupani.com/using-decimal-percentage-values-in-responsive-design.html)
 
 ## Gradient
 
 ```css
 element {
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
 }
 ```
 
@@ -3373,59 +3373,26 @@ element {
 ```css
 element {
 	background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201%201'%20preserveAspectRatio='none'%3E%3ClinearGradient%20id='g'%20x1='0%25'%20y1='0%25'%20x2='0%25'%20y2='100%25'%3E%3Cstop%20offset='0%25'%20stop-color='rgba(0,0,0,0)'/%3E%3Cstop%20offset='100%25'%20stop-color='rgba(0,0,0,0.4)'/%3E%3C/linearGradient%3E%3Crect%20fill='url(%23g)'%20width='1'%20height='1'/%3E%3C/svg%3E");/* IE9 SVG */
-	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
 }
 ```
 
 Gradient border (use SVG):
 
-- [How To Apply SVG Linear Gradients To A Fill Or Stroke - Vanseo Design](http://vanseodesign.com/web-design/svg-linear-gradients/)
+- [How To Apply SVG Linear Gradients To A Fill Or Stroke - Vanseo Design](https://web.archive.org/web/20210525151711/https://vanseodesign.com/web-design/svg-linear-gradients/)
 
-See [SVG/Gradient](SVG#gradient)
+See [SVG gradient](../Development/SVG.md#gradient)
 
 ## Variables
-
-Conditions:
-
-```css
-element {
-    --big: 1;/* or 0 */
-    prop: calc(25px * var(--big));/* when is big */
-    prop: calc(25px * (1 - var(--big)));/* when is not big */
-}
-```
-
-```css
-/*
-Possible conditions, but all can't be with CSS calc()
-eq: 1 - abs(sign(a - b))
-neq: abs(sign(a - b))
-gt: max(sign(a - b), 0)
-lt: max(sign(b - a), 0)
-ge: 1 - lt(a, b)
-le: 1 - gt(a, b)
-and: a * b
-or: min(a + b, 1)
-xor (a + b) % 2
-not: 1 - a
-*/
-```
 
 ```css
 @supports (color: var(--)) { ... }
 /*
 Notes:
-- Can use any property (i.e. not color)
-- Don't have to include an actual variable name, var(--) works
+- can use any property (i.e. not only color)
+- don't have to include an actual variable name, var(--) works
 */
 ```
-
-Note: be carefull with the length of `calc()`:
-
-> UAs must support `calc()` expressions of at least 20 terms, where each `NUMBER`, `DIMENSION`, or `PERCENTAGE` is a term. If a `calc()` expression contains more than the supported number of terms, it must be treated as if it were invalid.
-— https://drafts.csswg.org/css-values-3/#calc-syntax
-
-Note: `calc()` is not supported in all properties (like in `rgba()` channels)
 
 For colors, use explicit named color name `--light-blue` (`$light-blue`). **Don't use the context for variable name (ex: `blue-text`, `red-title`).** This allow minor adjustements.
 If you need to use an other color globally, rename the variable to match to the new color name. Otherwise (the color is needed locally), create a new variable an use it.
@@ -3461,15 +3428,70 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 - [DRY Switching with CSS Variables: The Difference of One Declaration | CSS-Tricks](https://css-tricks.com/dry-switching-with-css-variables-the-difference-of-one-declaration/)
 - [Custom property linear range mapping](https://codepen.io/leaverou/pen/bGRmQKv) - Tool to compute clamping map: "When `--p` is `-1`, we want to output `.2em`. When `--p` is `1`, we want to output `.8em`."
 
+### Conditional variable
+
+```css
+element {
+	--big: 1;/* or 0 */
+	prop: calc(25px * var(--big));/* 25px when is big */
+	// or
+	prop: calc(25px * (1 - var(--big)));/* 25px when is not big */
+}
+```
+
+```css
+/*
+Possible conditions, but all can't be with CSS calc()
+- equality (eq): 1 - abs(sign(a - b))
+- not equality (neq): abs(sign(a - b))
+- greater-than (gt): max(sign(a - b), 0)
+- less-than (lt): max(sign(b - a), 0)
+- greater-than or equal (ge): 1 - lt(a, b)
+- less-than or equal (le): 1 - gt(a, b)
+- and: a * b
+- or: min(a + b, 1)
+- xor (a + b) % 2
+- not: 1 - a
+*/
+```
+
+Note: be carefull with the length of `calc()`:
+
+> UAs must support `calc()` expressions of at least 20 terms, where each `NUMBER`, `DIMENSION`, or `PERCENTAGE` is a term. If a `calc()` expression contains more than the supported number of terms, it must be treated as if it were invalid.
+>
+> — https://drafts.csswg.org/css-values-3/#calc-syntax
+
+Note: `calc()` is not supported in all properties (like in `rgba()` channels)
+
+### Variable fallback
+
+```css
+/*
+Instead:
+.button {
+	--button-color-fallback: black;
+	color: var(--button-color, var(--button-color-fallback));
+	border-color: var(--button-color, var(--button-color-fallback));
+}
+*/
+.button {
+	--_button-color: var(--button-color, black);
+	color: var(--_button-color);
+	border-color: var(--_button-color);
+}
+```
+
+- [Custom properties with defaults: 3+1 strategies – Lea Verou](https://lea.verou.me/2021/10/custom-properties-with-defaults/)
+
 ## Color `currentColor` keyword
 
 It's a keyword but act like a [variable](#variables)
 
-Like a inherited color but used by border-color or background-color
+Like a inherited color but used by `border-color` or `background-color`
 
 Supported by all major browser (include IE9+)
 
-- https://stackoverflow.com/questions/23936150/issues-with-css-currentcolor-keyword-in-ios-and-safari
+- [Issues with CSS `currentColor` keyword in iOS and Safari - Stack Overflow](https://stackoverflow.com/questions/23936150/issues-with-css-currentcolor-keyword-in-ios-and-safari)
 - [\<color\> - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentColor_keyword)
 - [Difference between currentColor & Custom Properties | Mike Riethmuller](https://www.madebymike.com.au/writing/currentcolor-and-custom-properties/)
 

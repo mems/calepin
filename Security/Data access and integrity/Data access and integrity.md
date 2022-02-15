@@ -1035,6 +1035,11 @@ Find hidden data of faked data (ex: image):
 - [Ghiro - automated digital image forensics tool](http://www.getghiro.org/) - see https://github.com/ghirensics/ghiro
 - [An Overview on Image Forensics](https://www.hindawi.com/journals/isrn/2013/496701/)
 
+### Letterlocking
+
+- [Letterlocking — Wikipedia](https://en.wikipedia.org/wiki/Letterlocking)
+- [Letterlocking : Categories](https://letterlocking.org/categories)
+
 ## Reaction to violation
 
 And recover, hijacking, pirated, hacked

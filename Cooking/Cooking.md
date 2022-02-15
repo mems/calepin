@@ -581,3 +581,12 @@ Pour 4 personnes :
 ## Patidou cocotte
 
 - [Patidou cocotte (ludique et gourmand) - Au Fil du Thym](https://web.archive.org/web/20210119181827/https://aufilduthym.fr/patidou-cocotte-patidou-oeuf/)
+
+## Pain perdu
+
+- 6 tranches de brioche ou de toast
+- 2 oeufs
+- 100ml de lait
+- 2 cuillères à soupe de sucre
+- beurre
+- sucre glace

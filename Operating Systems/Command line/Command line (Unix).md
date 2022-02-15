@@ -502,8 +502,8 @@ add_hostdir=off
 cd /dst/dir
 WGETRC=/dst/dir.wget wget ftp://www.mydomain.tld/
 # Clean up obselete files
-find . -type f -name ".listing" -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | while read file; do rm $(basename "$file"); done;' \;
-# find . -type f -name ".listing" -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | xargs -r rm' \;
+find . -name ".listing" -type f -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | while read file; do rm $(basename "$file"); done;' \;
+# find .-name ".listing" -type f  -exec bash -c 'cd $(dirname "{}"); find . -maxdepth 0 ! -name ".listing" -printf "%P\n" | fgrep -vf ".listing" | xargs -r rm' \;
 ```
 
 Note: if you set password in URL don't forget to encode special chars: `mypass#gh647` to `mypass%23gh647`
@@ -1683,6 +1683,7 @@ Find support [shell pattern](https://www.gnu.org/software/findutils/manual/html_
 - `*.ext`
 - `*/file.*`
 
+- ["always run `-type` after `-name` in find commands, since calls to `stat` to get the type are expensive"](https://unix.stackexchange.com/questions/89925/how-to-delete-directories-based-on-find-output#comment318287_89929)
 - [bash - How do I make find fail if -exec fails? - Ask Different](https://apple.stackexchange.com/questions/49042/how-do-i-make-find-fail-if-exec-fails)
 
 ```sh
@@ -1909,7 +1910,8 @@ find . -type f -printf "%P\n" ! -name "list.txt" | fgrep -vf list.txt | xargs -r
 
 # Remove empty dir
 find <path> -type d -empty -delete
-find <path> -type d -empty -print0 | xargs -0 -I {} rmdir "{}"
+# Can also use (not recommanded)
+find <path> -type d -empty -print0 | xargs -0 -I{} rmdir "{}"
 find <path> -type d -print0 | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
 # Handle trailing dot rmdir error: rmdir -p "./test" -> rmdir: failed to remove directory '.': Invalid argument
 find -mindepth 1 -type d -printf '%P\0' | xargs -0 -r rmdir -p --ignore-fail-on-non-empty
@@ -1919,8 +1921,10 @@ find -mindepth 1 -type d -print0 | tac -s $'\0' | xargs -0 -r rmdir --ignore-fai
 # Delete all Unix hidden files
 # All files or folders that start with `.`, like `.htaccess` or `.DS_STORE`
 rm -rf .[^.]*
-# All files dir `.git`
-find . -type d -name ".git" -exec rm -rf {} +
+# All dir `.git`
+find . -name ".git" -type d -prune -exec rm -rf {} +
+# All dir `node_modules` (which can recusively contains `node_modules` dirs; Use `-prune` for that)
+find . -name "node_modules" -type d -prune -exec rm -rf {} +
 ```
 
 - http://www.cyberciti.biz/faq/linux-bash-delete-all-files-in-directory-except-few/
@@ -2672,7 +2676,7 @@ Search an replace in files
 #/bin/bash
 
 # Search files that match some pre conditions then apply remplacements
-# find . -type f -iname "*.aspx" -exec grep -q -i -E "Page Language=\"VB\"" {} \; -exec grep -q -i -E "<Fnac:HtmlFooter" {} \; -exec ./substitute.sh {} \; -exec unix2dos -q {} \; -print
+# find . -iname "*.aspx" -type f -exec grep -q -i -E "Page Language=\"VB\"" {} \; -exec grep -q -i -E "<Fnac:HtmlFooter" {} \; -exec ./substitute.sh {} \; -exec unix2dos -q {} \; -print
 
 REGEXP='<Fnac:HtmlFooter\s+ID="HtmlFooter"\s+runat="server"(\s+Omniture="Default")?\s+OmnitureEVar2="([^"]*)"(\s+OmniturePageName="([^"]*)")?(\s+TagCommander="Default")?\s+TagCommanderIdentifier="1"\s+TagCommanderTemplateType="([^"]*)"\s+TagCommanderTemplateName="([^"]*)"\s+/>'
 

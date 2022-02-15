@@ -1,6 +1,10 @@
 - [Parsing JSON is a Minefield](https://web.archive.org/web/20211012051215/http://seriot.ch/projects/parsing_json.html)
-- Convert JSON to C data literals. https://github.com/orangeduck/json2c
+- [orangeduck/json2c: Convert JSON to C data literals](https://github.com/orangeduck/json2c)
 - [mikechambers/as3corelib: An ActionScript 3 Library that contains a number of classes and utilities for working with ActionScript? 3. These include classes for MD5 and SHA 1 hashing, Image encoders, and JSON serialization as well as general String, Number and Date APIs.](https://github.com/mikechambers/as3corelib)
+- [The Workbench: JSON Compression : Transpose & Binary](https://web.archive.org/web/20220210192810/https://mainroach.blogspot.com/2013/08/json-compression-transpose-binary.html)
+
+## Parser
+
 - [We released simdjson 0.3: the fastest JSON parser in the world is even better! – Daniel Lemire's blog](https://lemire.me/blog/2020/03/31/we-released-simdjson-0-3-the-fastest-json-parser-in-the-world-is-even-better/) - [Simdjson 0.3: Faster JSON parser | Hacker News](https://news.ycombinator.com/item?id=22745351)
 
 ## JSON Schema
@@ -18,6 +22,10 @@ Data generator from schema:
 - [andreineculau/json-schema-random: Given a JSON Schema, provide a random valid instance](https://github.com/andreineculau/json-schema-random)
 - [jonahkagan/schematic-ipsum: A simple service that generates fake JSON data in accordance with a JSON Schema](https://github.com/jonahkagan/schematic-ipsum)
 - [Humanstate/json-schema-tojson: Convert JSON Schema definitions to "fake" JSON structures for emulation and testing](https://github.com/Humanstate/json-schema-tojson)
+
+## Related formats
+
+- [ndjson/ndjson-spec: Specification](https://github.com/ndjson/ndjson-spec) - Newline delimited JSON
 
 ## Binary data
 

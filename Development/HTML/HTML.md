@@ -3768,6 +3768,8 @@ See also [forum post](#forum-post)
 
 ## Details and summary
 
+Aka disclosure
+
 ```html
 <details>
 	<summary>W Group Site Navigation</summary>
@@ -3781,6 +3783,7 @@ See also [forum post](#forum-post)
 ```
 
 - [How do you mark up an accordion? — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/accordion-markup/)
+- [Disclosure Widgets — Adrian Roselli](https://adrianroselli.com/2020/05/disclosure-widgets.html)
 - [Details / Summary Are Not \[insert control here\] | Adrian Roselli](https://adrianroselli.com/2019/04/details-summary-are-not-insert-control-here.html)r
 - [Why \<details\> is Not an Accordion - daverupert.com](https://daverupert.com/2019/12/why-details-is-not-an-accordion/)
 
@@ -4183,7 +4186,7 @@ Use a table or articles. But not list and list-items
 ## Popup menu
 
 ```html
-<button aria-haspopup="true">Account</button>
+<button type="button" aria-haspopup="true">Account</button>
 <div></div>
 ```
 
@@ -4336,7 +4339,7 @@ Enhanced to (with JS):
 
 ```html
 <nav id="navigation">
-	<button aria-expanded="false">Menu</button>
+	<button type="button" aria-expanded="false" aria-label="Open the menu">Some icon</button>
 	<ul hidden>
 		<li><a href="/">Home</a></li>
 		<li><a href="/about">About</a></li>
@@ -4345,12 +4348,11 @@ Enhanced to (with JS):
 	</ul>
 </nav>
 <!--
-var navButton = document.querySelector('#navigation button');
-navButton.addEventListener('click', function() {
-  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-  this.setAttribute('aria-expanded', !expanded);
-  let menu = this.nextElementSibling;
-  menu.hidden = !menu.hidden;
+document.querySelector('#navigation button').addEventListener('click', ({currentTarget}) => {
+	const expanded = currentTarget.getAttribute('aria-expanded') === 'true';
+	currentTarget.setAttribute('aria-expanded', !expanded);
+	const menu = currentTarget.nextElementSibling;
+	menu.hidden = !menu.hidden;
 });
 -->
 ```

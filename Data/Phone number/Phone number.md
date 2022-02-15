@@ -3,7 +3,27 @@
 - [catamphetamine/libphonenumber-js: A simpler (and smaller) rewrite of Google Android's libphonenumber library](https://github.com/catamphetamine/libphonenumber-js)
 - [Long number - Wikipedia](https://en.wikipedia.org/wiki/Long_number)
 - [Short code - Wikipedia](https://en.wikipedia.org/wiki/Short_code)
+
+Falsehoods:
+
+> some countries have prepaid SIMs that are regularly reassigned to new SIMs...as soon as 6 months after the last "refill" of the card.
+> [...]
+> 2FA via SMS is useless. Avoid phone numbers like the plague, everywhere.
+>
+> — [Note that some countries have prepaid SIMs that are regularly reassigned to new ... | Hacker News](https://news.ycombinator.com/item?id=30304229)
+
+> I have a Google Voice number that I ported to a physical device, and Discord won't let me use it as a 2FA backup number.
+> [...]
+> The opposite is also true. I have a Google Voice number that originally came from a cell phone, so many sites that otherwise block VoIP numbers let me use it.
+>
+> — [What's more fun is that companies have bad databases and won't fix them. I have ... | Hacker News](https://news.ycombinator.com/item?id=30304345)
+
+> You can port your mobile phone number into Google Voice or port your Google Voice number out to a mobile service provider. You can also transfer your Google Voice number from one Google Account to another.
+>
+> — [Port or transfer your personal number - Google Voice Help](https://web.archive.org/web/20220107020847/https://support.google.com/voice/answer/1065667?hl=en)
+
 - [Falsehoods Programmers Believe About Phone Numbers](https://github.com/google/libphonenumber/blob/master/FALSEHOODS.md)
+- [Time-of-check to time-of-use — Wikipedia](https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use)
 
 ## Fictional numbers
 

@@ -8,11 +8,53 @@
 - [docker-basicLearning/README.md at master · championshuttler/docker-basicLearning](https://github.com/championshuttler/docker-basicLearning/blob/master/README.md)
 - [How to Use a Remote Docker Server to Speed Up Your Workflow | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-a-remote-docker-server-to-speed-up-your-workflow)
 
-## Dockerfile
+## Best-practices
+
+Aka optimizations
 
 - [hexops/dockerfile: Dockerfile best-practices for writing production-worthy Docker images.](https://github.com/hexops/dockerfile)
 - [Best practices for writing Dockerfiles | Docker Documentation](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 - [aquasecurity/trivy: A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI](https://github.com/aquasecurity/trivy)
+- [Optimizing Dockerfile for Node.js (Part 1) - js.io](https://web.archive.org/web/20200913150039/https://js.io/optimizing-dockerfile-for-node-js-part-1)
+- [Optimizing Docker image size and why it matters - contains.dev](https://web.archive.org/web/20220109024111/https://contains.dev/blog/optimizing-docker-image-size)
+- [Optimizing Docker image size and why it matters | Hacker News](https://news.ycombinator.com/item?id=29828386)
+
+> Perform your add & remove operations in the same RUN command. Doing them separately creates two separate layers which inflates the image size.
+>
+> This creates two image layers - the first layer has all the added foo, including any intermediate artifacts. Then the second layer removes the intermediate artifacts, but that's saved as a diff against the previous layer:
+>
+> ```docker
+RUN ./install-foo
+RUN ./cleanup-foo
+```
+>
+> Instead, you need to do them in the same RUN command:
+>
+> ```docker
+RUN ./insall-foo && ./cleanup-foo
+```
+>
+> This creates a single layer which has only the foo artifacts you need.
+>
+> This why the [official Dockerfile best practices show](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#run) the apt cache being cleaned up in the same RUN command:
+>
+> ```docker
+RUN apt-get update && apt-get install -y \
+	package-bar \
+	package-baz \
+	package-foo  \
+	&& rm -rf /var/lib/apt/lists/*
+```
+>
+> — [A common mistake that's not covered in this article is the need to perform your ... | Hacker News](https://news.ycombinator.com/item?id=29830364)
+
+```docker
+RUN <<EOF
+	apt-get update
+	apt-get install -y foo bar baz
+	etc...
+EOF
+```
 
 Lint and security:
 
@@ -55,10 +97,6 @@ Aka LAMP, Linux Apache MySQL PHP
 - [PHP, Apache, MySQL within Docker containers | Cloudreach](https://www.cloudreach.com/en/resources/blog/ct-apache-docker-containers/)
 - [docker-compose with php/mysql/phpmyadmin/apache](https://gist.github.com/jcavat/2ed51c6371b9b488d6a940ba1049189b)
 - [nystudio107 | An Annotated Docker Config for Frontend Web Development](https://nystudio107.com/blog/an-annotated-docker-config-for-frontend-web-development)
-
-## Optimizations
-
-- [Optimizing Dockerfile for Node.js (Part 1) - js.io](https://web.archive.org/web/20200913150039/https://js.io/optimizing-dockerfile-for-node-js-part-1)
 
 ## Virtual Machine
 

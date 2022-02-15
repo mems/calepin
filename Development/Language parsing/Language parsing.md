@@ -1,14 +1,10 @@
-- [RFC 5234 - Augmented BNF for Syntax Specifications: ABNF](https://tools.ietf.org/html/rfc5234)
-- [Extended Backus–Naur form — Wikipedia](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form)
-- [Augmented Backus–Naur form — Wikipedia](https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form)
 - [Java SE Specifications](https://docs.oracle.com/javase/specs/)
 - [PHP: List of Parser Tokens - Manual](http://www.php.net/manual/en/tokens.php)
 - BNF for specific URL schemes [RFC 1738 - A Gopher URL Format](https://tools.ietf.org/html/rfc1738#section-5) (see also RFC updates [RFC 1738](https://datatracker.ietf.org/doc/rfc1738/))
-- [Antidote 9 | Druide informatique inc.](http://www.antidote.info/antidote/caracteristiques)
 - [GOLD Parsing System - Grammar Downloads](http://goldparser.org/grammars/index.htm)
 - [Syntax (programming languages) — Wikipedia](https://en.wikipedia.org/wiki/Syntax_%28programming_languages%29)
 
-About parsing and transpiling:
+## Parsing and transpiling
 
 - [jamiebuilds/the-super-tiny-compiler: Possibly the smallest compiler ever](https://github.com/jamiebuilds/the-super-tiny-compiler)
 - [Compiling Java and C# to SWF – blog.joa-ebert.com - Blog of Joa Ebert](https://blog.joa-ebert.com/2009/09/28/compiling-java-and-c-to-swf/)
@@ -28,14 +24,14 @@ About parsing and transpiling:
 - [Building a Parser – Chelsea Troy](https://chelseatroy.com/2019/11/11/building-a-parser/)
 - [Drawings of How Compilers Work – Chelsea Troy](https://chelseatroy.com/2019/10/17/drawings-of-how-compilers-work/)
 - [Stuff I Wrote About Programming Languages – journal.stuffwithstuff.com](http://journal.stuffwithstuff.com/category/language/)
-- [JSON Parser with JavaScript | Tan Li Hau](https://lihautan.com/json-parser-with-javascript/) - [Write a parser with JavaScript | Hacker News](https://news.ycombinator.com/item?id=21772336)
+- [JSON Parser with JavaScript | Tan Li Hau](https://web.archive.org/web/20211127092026/https://lihautan.com/json-parser-with-javascript/) - [Write a parser with JavaScript | Hacker News](https://news.ycombinator.com/item?id=21772336)
 - [esbuild/architecture.md at master · evanw/esbuild](https://github.com/evanw/esbuild/blob/master/docs/architecture.md) - esbuild bundler architecture
 - Let's write a compiler
 	- [Let's write a compiler, part 1: Introduction, selecting a language, and doing some planning - Brian Robert Callahan](https://web.archive.org/web/20210816200544/https://briancallahan.net/blog/20210814.html)
 	- [Let's write a compiler, part 2: A lexer - Brian Robert Callahan](https://web.archive.org/web/20210816132602/https://briancallahan.net/blog/20210815.html)
 	- [Let's write a compiler, part 3: A parser - Brian Robert Callahan](https://web.archive.org/web/20210817031925/https://briancallahan.net/blog/20210816.html)
 
-Concepts:
+## Concepts
 
 **Long switch in a loop, can be used for state machine, but it's not adviced to use long switch for parsing,** because it's often need multiple states (to restore previous ones). Use [recursive descent parser](https://en.wikipedia.org/wiki/Recursive_descent_parser) instead.
 
@@ -49,7 +45,7 @@ Concepts:
 - [CSS parsing: performance tips & tricks](https://www.slideshare.net/basisjs/css-parsing-performance-tips-tricks)
 - [postcss/architecture.md at master · postcss/postcss](https://github.com/postcss/postcss/blob/master/docs/architecture.md)
 
-Generators:
+## Generators
 
 - [Comparison of parser generators — Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_parser_generators)
 - [PEG.js – Parser Generator for JavaScript](https://pegjs.org/) - see [PEG.js: Parser generator for JavaScript](https://github.com/pegjs/pegjs)
@@ -61,7 +57,7 @@ Generators:
 - [tree-sitter/tree-sitter: An incremental parsing system for programmings tools](https://github.com/tree-sitter/tree-sitter)
 - [SAP/chevrotain: Parser Building Toolkit for JavaScript](https://github.com/SAP/chevrotain)
 
-Examples:
+## Parser examples
 
 - [tree-sitter/tree-sitter: An incremental parsing system for programming tools](https://github.com/tree-sitter/tree-sitter) - Create a grammar and generate a parser
 - [retextjs/retext: Natural language processor powered by plugins based on @unifiedjs (and @vfile, @syntax-tree)](https://github.com/retextjs/retext) - Natural language parser (latin, english, etc.)
@@ -94,101 +90,119 @@ Use `goto`s, "This is called computed (or assigned) goto and is a GCC extension"
 Syntax exemples:
 
 ```
-	foobar : "foo" | "bar";
+foobar : "foo" | "bar";
 
-	// (4 * 2 * 11 + 2) - 5
-	// 29 + 2 * 3 - 99 - (5 + 5 + 2) / 100
-	expression : <product> (('+' | '-') <product>)*;
-	product : <value>   (('*' | '/')   <value>)*;
-	value : /[0-9]+/ | '(' <expression> ')';
-	maths : /^/ <expression> /$/;
+// (4 * 2 * 11 + 2) - 5
+// 29 + 2 * 3 - 99 - (5 + 5 + 2) / 100
+expression : <product> (('+' | '-') <product>)*;
+product : <value>   (('*' | '/')   <value>)*;
+value : /[0-9]+/ | '(' <expression> ')';
+maths : /^/ <expression> /$/;
 
-	// so c so c so c so c so c so c so c so c so c
-	// wow c so language such book
-	adjective : "wow" | "many" | "so" | "such";
-	noun      : "lisp" | "language" | "c" | "book" | "build";
-	phrase    : <adjective> <noun>;
-	doge      : /^/ <phrase>* /$/;
+// so c so c so c so c so c so c so c so c so c
+// wow c so language such book
+adjective : "wow" | "many" | "so" | "such";
+noun      : "lisp" | "language" | "c" | "book" | "build";
+phrase    : <adjective> <noun>;
+doge      : /^/ <phrase>* /$/;
 
-	ident     : /[a-zA-Z_][a-zA-Z0-9_]*/ ;
-	number    : /[0-9]+/ ;
-	character : /'.'/ ;
-	string    : /\"(\\\\.|[^\"])*\"/ ;
+ident     : /[a-zA-Z_][a-zA-Z0-9_]*/ ;
+number    : /[0-9]+/ ;
+character : /'.'/ ;
+string    : /\"(\\\\.|[^\"])*\"/ ;
 
-	factor    : '(' <lexp> ')'
-	          | <number>
-	          | <character>
-	          | <string>
-	          | <ident> '(' <lexp>? (',' <lexp>)* ')'
-	          | <ident> ;
+factor    : '(' <lexp> ')'
+          | <number>
+          | <character>
+          | <string>
+          | <ident> '(' <lexp>? (',' <lexp>)* ')'
+          | <ident> ;
 
-	term      : <factor> (('*' | '/' | '%') <factor>)* ;
-	lexp      : <term> (('+' | '-') <term>)* ;
+term      : <factor> (('*' | '/' | '%') <factor>)* ;
+lexp      : <term> (('+' | '-') <term>)* ;
 
-	stmt      : '{' <stmt>* '}'
-	          | \"while\" '(' <exp> ')' <stmt>
-	          | \"if\"    '(' <exp> ')' <stmt>
-	          | <ident> '=' <lexp> ';'
-	          | \"print\" '(' <lexp>? ')' ';'
-	          | \"return\" <lexp>? ';'
-	          | <ident> '(' <ident>? (',' <ident>)* ')' ';' ;
+stmt      : '{' <stmt>* '}'
+          | \"while\" '(' <exp> ')' <stmt>
+          | \"if\"    '(' <exp> ')' <stmt>
+          | <ident> '=' <lexp> ';'
+          | \"print\" '(' <lexp>? ')' ';'
+          | \"return\" <lexp>? ';'
+          | <ident> '(' <ident>? (',' <ident>)* ')' ';' ;
 
-	exp       : <lexp> '>' <lexp>
-	          | <lexp> '<' <lexp>
-	          | <lexp> \">=\" <lexp>
-	          | <lexp> \"<=\" <lexp>
-	          | <lexp> \"!=\" <lexp>
-	          | <lexp> \"==\" <lexp> ;
+exp       : <lexp> '>' <lexp>
+          | <lexp> '<' <lexp>
+          | <lexp> \">=\" <lexp>
+          | <lexp> \"<=\" <lexp>
+          | <lexp> \"!=\" <lexp>
+          | <lexp> \"==\" <lexp> ;
 
-	typeident : (\"int\" | \"char\") <ident> ;
-	decls     : (<typeident> ';')* ;
-	args      : <typeident>? (',' <typeident>)* ;
-	body      : '{' <decls> <stmt>* '}' ;
-	procedure : (\"int\" | \"char\") <ident> '(' <args> ')' <body> ;
-	main      : \"main\" '(' ')' <body> ;
-	includes  : (\"#include\" <string>)* ;
-	smallc    : /^/ <includes> <decls> <procedure>* <main> /$/ ;
+typeident : (\"int\" | \"char\") <ident> ;
+decls     : (<typeident> ';')* ;
+args      : <typeident>? (',' <typeident>)* ;
+body      : '{' <decls> <stmt>* '}' ;
+procedure : (\"int\" | \"char\") <ident> '(' <args> ')' <body> ;
+main      : \"main\" '(' ')' <body> ;
+includes  : (\"#include\" <string>)* ;
+smallc    : /^/ <includes> <decls> <procedure>* <main> /$/ ;
 
-	node : '(' <node> ',' /foo/ ',' <node> ')' | <leaf>;
-	leaf : /bar/;
-	input : /^/ <node> /$/;
+node : '(' <node> ',' /foo/ ',' <node> ')' | <leaf>;
+leaf : /bar/;
+input : /^/ <node> /$/;
 
 
-	number  \"number\"  : /[0-9]+/ ;
-	symbol  \"symbol\"  : /[a-zA-Z0-9_+\\-*\\/\\\\=<>!&]+/ ;
-	string  \"string\"  : /\"(\\\\.|[^\"])*\"/ ;
-	comment             : /;[^\\r\\n]*/ ;
-	sexpr               : '(' <expr>* ')' ;
-	qexpr               : '{' <expr>* '}' ;
-	expr                : <number>  | <symbol> | <string>
-	                    | <comment> | <sexpr>  | <qexpr> ;
-	lispy               : /^/ <expr>* /$/ ;
+number  \"number\"  : /[0-9]+/ ;
+symbol  \"symbol\"  : /[a-zA-Z0-9_+\\-*\\/\\\\=<>!&]+/ ;
+string  \"string\"  : /\"(\\\\.|[^\"])*\"/ ;
+comment             : /;[^\\r\\n]*/ ;
+sexpr               : '(' <expr>* ')' ;
+qexpr               : '{' <expr>* '}' ;
+expr                : <number>  | <symbol> | <string>
+                    | <comment> | <sexpr>  | <qexpr> ;
+lispy               : /^/ <expr>* /$/ ;
 
-	// #line 10 "test"
-	number        : /[0-9]+/ ;
-	quoted_string : /\"(\\.|[^\"])*\"/ ;
-	linepragma    : <line> <number> <quoted_string>;
-	parser        : /^/ (<linepragma>)* /$/ ;
+// #line 10 "test"
+number        : /[0-9]+/ ;
+quoted_string : /\"(\\.|[^\"])*\"/ ;
+linepragma    : <line> <number> <quoted_string>;
+parser        : /^/ (<linepragma>)* /$/ ;
 
-	// [my_func]\n  echo (a b c)\n
-	qscript        : /^/ (<comment> | <resource>)* /$/ ;
-		comment     : '#' /[^\\n]*/ ;
-	resource       : '[' (<rtype> <rname>) ']' <inner_block> ;
-		rtype       : /[*]*/ ;
-		rname       : <qstring> ;
+// [my_func]\n  echo (a b c)\n
+qscript        : /^/ (<comment> | <resource>)* /$/ ;
+	comment     : '#' /[^\\n]*/ ;
+resource       : '[' (<rtype> <rname>) ']' <inner_block> ;
+	rtype       : /[*]*/ ;
+	rname       : <qstring> ;
 
-	inner_block    : (<comment> | <statement>)* ;
-		statement   : <function> '(' (<comment> | <parameter> | <block>)* ')'  <seperator> ;
-		function    : <qstring> ;
-		parameter   : (<statement> | <literal>) ;
-			literal  : (<number> | <qstring>) <seperator> ;
-		block       : '{' <inner_block> '}' ;
-		seperator   : ',' | \"\" ;
+inner_block    : (<comment> | <statement>)* ;
+	statement   : <function> '(' (<comment> | <parameter> | <block>)* ')'  <seperator> ;
+	function    : <qstring> ;
+	parameter   : (<statement> | <literal>) ;
+		literal  : (<number> | <qstring>) <seperator> ;
+	block       : '{' <inner_block> '}' ;
+	seperator   : ',' | \"\" ;
 
-	qstring        : (<complexstr> | <simplestr>) <qstring>* ;
-		simplestr   : /[a-zA-Z0-9_!@#$%^&\\*_+\\-\\.=\\/<>]+/ ;
-		complexstr  : (/\"[^\"]*\"/ | /'[^']*'/) ;
+qstring        : (<complexstr> | <simplestr>) <qstring>* ;
+	simplestr   : /[a-zA-Z0-9_!@#$%^&\\*_+\\-\\.=\\/<>]+/ ;
+	complexstr  : (/\"[^\"]*\"/ | /'[^']*'/) ;
 
-	number         : (<float> | <int>) ;
-		float       : /[-+]?[0-9]+\\.[0-9]+/ ;
-		int         : /[-+]?[0-9]+/ ;
+number         : (<float> | <int>) ;
+	float       : /[-+]?[0-9]+\\.[0-9]+/ ;
+	int         : /[-+]?[0-9]+/ ;
+```
+
+## Syntax formats
+
+- Backus-Naur (Backus–Naur) form:
+- Augmented Backus-Naur form (Augmented BNF):
+	- [RFC 5234 - Augmented BNF for Syntax Specifications: ABNF](https://tools.ietf.org/html/rfc5234)
+	- [Extended Backus–Naur form — Wikipedia](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form)
+	- [Augmented Backus–Naur form — Wikipedia](https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form)
+- McKeeman form
+	- [McKeeman Form](https://www.crockford.com/mckeeman.html)
+	- [grammars-v4/mckeeman-form at master · antlr/grammars-v4](https://github.com/antlr/grammars-v4/tree/master/mckeeman-form)
+
+### Railroad diagram
+
+- [bnf - Tool for generating railroad diagram used on json.org - Stack Overflow](https://stackoverflow.com/questions/796824/tool-for-generating-railroad-diagram-used-on-json-org)
+- [BNF notation to SVG railroad diagram - Stack Overflow](https://stackoverflow.com/questions/8292148/bnf-notation-to-svg-railroad-diagram)
+- [tabatkins/railroad-diagrams: A small JS+SVG library for drawing railroad syntax diagrams, like on JSON.org. Now with a Python port!](https://github.com/tabatkins/railroad-diagrams)

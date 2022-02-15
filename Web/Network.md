@@ -1160,6 +1160,7 @@ See also [API](../Development/Development.md#api)
 
 Infos and docs:
 
+- [Common HTTP Implementation Problems](https://www.w3.org/TR/chips/)
 - [How to design a REST API | OCTO Talks !](https://blog.octo.com/en/design-a-rest-api/)
 - [Web API - Wikipedia](https://en.wikipedia.org/wiki/Web_API)
 - [API designs for low-connectivity | OCTO Talks !](https://blog.octo.com/en/api-designs-for-low-connectivity/) - How to handle API calls when the network fail

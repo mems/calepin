@@ -18,8 +18,6 @@ Loading, parsing, rendering, etc.
 >
 > — [Liz Fong-Jones (方禮真) sur Twitter : "Monitoring is your bank telling you you're overdrawn. Observability is the ability to tell you're running out of money because you're spending too much money on chocolates, cakes and sweets because you've recorded data on what you spent your money on throughout the month. https://t.co/kQcvlUWqqV" / Twitter](https://twitter.com/lizthegrey/status/1230979460708499456?s=12)
 
-- [The Impact of Web Performance | Simplified.](https://simplified.dev/performance/impact-of-web-performance)
-- [SpeedCurve on Twitter: "200ms start render = 16% bounce rate 1.8s start render = 49% bounce rate See how user engagement charts show you correlations between #webperf and #UX: https://t.co/Nz6ilYOuaA… https://t.co/fIPquBIH2P"](https://twitter.com/SpeedCurve/status/938877356386611201)
 - [High Performance Browser Networking (O'Reilly)](https://hpbn.co/)
 - [Front-End Performance Checklist 2019 \[PDF, Apple Pages, MS Word\] — Smashing Magazine](https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/)
 - [Improving Smashing Magazine's Performance: A Case Study](https://www.smashingmagazine.com/2014/09/improving-smashing-magazine-performance-case-study/)
@@ -42,6 +40,8 @@ Loading, parsing, rendering, etc.
 - [Turbocharging Walmart.com: Speed without compromise - Speaker Deck](https://speakerdeck.com/vasa/turbocharging-walmart-dot-com-speed-without-compromise)
 
 > Progressive JPEGs decode slower than Baseline ones. [..] decoding a progressive JPEG takes about 3.3× as long as a baseline one. (I would still absolutely recommend using progressive, because they feel a lot faster than their baseline counterparts.)
+>
+> — [Base64 Encoding & Performance, Part 2: Gathering Data – CSS Wizardry – Web Performance Optimisation](https://web.archive.org/web/20220109053656/https://csswizardry.com/2017/02/base64-encoding-and-performance-part-2/#some-interesting-things-i-learned)
 
 See also [Images](Images), [Content Security Policy](Security#content-security-policy)
 
@@ -75,6 +75,13 @@ Tools (audit, checklist, benchmark, best practices, etc.):
 ## Control your content
 
 - [The Washington Post cuts off ad tech vendors slowing its site - Digiday](https://digiday.com/media/washington-post-vendors/)
+
+## Impacts
+
+To mesure impacts ([KPI](https://en.wikipedia.org/wiki/Performance_indicator): [bounce rate](https://en.wikipedia.org/wiki/Bounce_rate), [conversion rate](https://en.wikipedia.org/wiki/Conversion_marketing#Conversion_rate)): use [A/B testing](https://en.wikipedia.org/wiki/A/B_testing)
+
+- [The Impact of Web Performance | Simplified.](https://web.archive.org/web/20210814233129/https://simplified.dev/performance/impact-of-web-performance)
+- [SpeedCurve on Twitter: "200ms start render = 16% bounce rate 1.8s start render = 49% bounce rate See how user engagement charts show you correlations between #webperf and #UX: https://t.co/Nz6ilYOuaA https://t.co/CpX5FRZ5xm" / Twitter](https://web.archive.org/web/20220125093206/https://twitter.com/SpeedCurve/status/938877356386611201)
 
 ## Mobile
 
@@ -1059,6 +1066,7 @@ Aka blocking dependencies, critical resources
 To find blocking points / bottlenecks / critical rendering path
 
 > A critical request is one that contains an asset that is essential to the content within the users viewport
+>
 > — [Ben Schwarz](https://speakerdeck.com/benschwarz/the-critical-request?slide=26)
 
 - [Progressive Web Apps with React.js: Part 2 — Page Load Performance – Medium](https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-2-page-load-performance-33b932d97cf2#.w02rdqvxt)
@@ -1242,7 +1250,7 @@ Aka wireframe of a webpage
 **Note: always render document server side. All the document content must be delivered.**
 JavaScript (client side) can be used to enhance experience (loading, UI elements, etc.). See [Progressive Enhancement](#progressive-enhancement)
 
-**Have things (critical content) before 1000ms.** See [responsiveness](UI - UX#responsiveness)
+**Have things (critical content) before 1000ms.** See [responsiveness](../../UI%20-%20UX/UI%20-%20UX.md#responsiveness)
 
 Anatomy/wireframe of a webpage:
 
@@ -1261,7 +1269,7 @@ Inlined scripts below, can be files if pushed with HTTP/2 server push before the
 		-->
 		<meta charset="utf-8"><!-- First, must be within the first 1024 bytes. Required or use a BOM or charset parameter in Content-Type header -->
 		<meta http-equiv="..." content="...">
-		<base ...><!-- if base is used, not adviced -->
+		<base ...><!-- if base is used, but not recommended -->
 
 		<!--
 		Meta viewport and title
@@ -1277,22 +1285,24 @@ Inlined scripts below, can be files if pushed with HTTP/2 server push before the
 		<script>/*inlined script*/</script>
 
 		<!--
+		Critical script
+		Script for critical content: display a loader, handle critical content interaction/layout while the non critical content is loading.
+		Before critical styles to not block JS execution
+		See [Critical rendering path](#critical-rendering-path)
+		-->
+		<script>/*inlined script*/</script>
+		<script src="..."></script><!-- Only if pushed with HTTP/2.0 server push before the HTML document -->
+
+		<!--
 		Critical styles
 		Style for critical content: above floating line (main nav, header, hero image, article) or show a loader, while the rest is loading.
 		Shouldn't be used to display aside content: comments, commercial components/ads, popular content, related content, sharing widgets, etc.
+		Do not use @import, it's a not recommended as Chrome have an issue with it https://bugs.chromium.org/p/chromium/issues/detail?id=1224629
 		See [Critical rendering path](#critical-rendering-path)
 		-->
 		<style>/*inlined style*/</style>
 		<link rel="stylesheet" href="..."><!-- Only if pushed with HTTP/2 server push -->
 		<style>.icon{width:1em;height:1em}</style><!-- Use to prevent inlined SVG icons be unscaled -->
-
-		<!--
-		Critical script
-		Script for critical content: display a loader, handle critical content interaction/layout while the non critical content is loading.
-		See [Critical rendering path](#critical-rendering-path)
-		-->
-		<script>/*inlined script*/</script>
-		<script src="..."></script><!-- Only if pushed with HTTP/2.0 server push before the HTML document -->
 
 		<!--
 		Resources hint (dns-prefetch, preconnect and preload)
@@ -1310,16 +1320,14 @@ Inlined scripts below, can be files if pushed with HTTP/2 server push before the
 		Non blocking resource (styles and scripts)
 		See also [Non-blocking stylesheet](#non-blocking-stylesheet) and [Blocking resources](#blocking-resources)
 		-->
-		<noscript>
-			<link rel="stylesheet" href="styles.css">
-			<!-- script that inject other SVGs icons (symbols) -->
-			<script src="..."></script><!-- other scripts -->
-			<link rel="preload" href="..." as="style"><!-- for images, fonts, etc. Attributes type="" and media="" can also be used -->
-		</noscript>
-		<script>/*script that listen DOMContentLoaded then inject the content of the noscript (resource are inserted as non blocking)*/</script>
+		<script src="" async></script>
+		<script src="" defer></script>
+		<script src="" type="module"></script>
+		<link rel="stylesheet" href="/path/to/my.css" media="print" onload="media='all'"><!-- /path/to/my.css have a previous preload link tag -->
 
 		<!--
-		Metadata, manifest, document relationship, future navigation hint (prefetch, next, prerender), etc.
+		Metadata, manifest, document relationship, future navigation hint (prefetch, next, prerender), other SEO related tags, Open Graph, etc.
+		Some Open Graph fetcher read only first 32k of the page: [Barry Pollard auf Twitter: "So unless your HEAD is more than 32k (in which case have a word with yourself will you!) you should be fine.… "](https://web.archive.org/web/20210211161623/https://twitter.com/tunetheweb/status/1359898874115145729)
 		Others things that should be in the header
 		See https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
 		See https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
@@ -1384,6 +1392,7 @@ if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
 ?>
 ```
 
+- [Get Your Head Straight - Speaker Deck](https://web.archive.org/web/20211104095209/https://speakerdeck.com/csswizardry/get-your-head-straight?slide=39) - [Smashing Magazine on Twitter: "🔖 For the bookmarks: Optimum \<head\> order for performance: \<meta /\> \<title\> preconnect \<script async\>\</script\> CSS with @imports sync JS sync CSS preload \<script defer\>\</script\> prefetch / prerender everything else (SEO, icons, open graph) via @csswizardry #webexpo #webperf https://t.co/Xar1kAjCY5" / Twitter](https://web.archive.org/web/20220123115517/https://twitter.com/smashingmag/status/1440697011985018881?s=12)
 - [Understanding Critical CSS – Smashing Magazine](https://www.smashingmagazine.com/2015/08/understanding-critical-css/)
 - https://github.com/bocoup/critical-css-boilerplate
 - [DOMContentLoaded and stylesheets · molily](http://molily.de/domcontentloaded/#appendix)
@@ -1398,6 +1407,7 @@ if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
 #### Blocking resources
 
 > Browser requests the HTML document Begins parsing and constructing DOM Discovers CSS/JS Waits for CSS response Constructs CSSOM Combines CSSOM and DOM intro render tree Font requests are dispatched after the render tree indicates which font variants are needed to render the specified text on the page.
+>
 > — Slide 16 of [To push, or not to push?!](https://noti.st/patrickhamann/ocAYxy/to-push-or-not-to-push) by Patrick Hamann
 
 ![To Push, Or Not To Push   Slide 16](Optimizations%20and%20performances/To%20push,%20or%20not%20to%20push%20-%20slide%2016.jpg)
@@ -1520,7 +1530,8 @@ See JavaScript [Performance API](https://developer.mozilla.org/en-US/docs/Web/AP
 > on Google Search on mobile [...] Pretty much anything that page needs to render is **preloaded**, whether you actually open it not.
 > [...]
 > > The AMP page, which we all believe to be super fast and optimized for slow mobiles because it is AMP, isn’t that fast. Its true speed comes from preloading.
-— [AMP: the missing controversy – Ferdy Christant](https://ferdychristant.com/amp-the-missing-controversy-3b424031047)
+>
+> — [AMP: the missing controversy – Ferdy Christant](https://ferdychristant.com/amp-the-missing-controversy-3b424031047)
 
 Cache:
 

@@ -1102,9 +1102,14 @@ See also:
 
 See [Naming convention](../Development.md#naming-convention)
 
-## Custom elements
+## Custom element
 
 - [Progressive Enhancement](https://remysharp.com/2019/07/24/progressive-enhancement#web-components)
+
+About why customized built-in elements won't be supported by Safari:
+
+- [othermaciej on Twitter: "That's not to say we absolutely wouldn't implement `is`. But it's definitely within our rights to have an opinion and give feedback.… https://t.co/xmxeGdKoWl"](https://web.archive.org/web/20210906045507/https://twitter.com/othermaciej/status/1217986028989894656?s=21)
+- [The is="" attribute is confusing? Maybe we should encourage only ES6 class-based extension. · Issue #509 · WICG/webcomponents](https://github.com/WICG/webcomponents/issues/509#issuecomment-230700060)
 
 ## Template
 
@@ -3547,7 +3552,7 @@ See also:
 
 ### Detect touch device
 
-See [detect touch device](CSS#detect-touch-device)
+See [detect touch device](../CSS/CSS.md#detect-touch-device)
 
 > We found that some sites are assuming that “if this web browser supports touch events, then it shouldn’t support mouse events at the same time.” e.g. Apple.com and Wells Fargo.
 >
@@ -3819,7 +3824,7 @@ Drag image should be visible (on Chrome). Create a top level clone with a negati
 - [Drag Operation - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#droptargets)
 - http://www.kryogenix.org/code/browser/custom-drag-image.html
 
-### Double click/tap
+### Double click or tap
 
 ```js
 var time = Number.NEGATIVE_INFINITY;
@@ -3843,10 +3848,10 @@ document.addEventListener("touchend", click);
 - [doubletap event for jquery](https://gist.github.com/asgeo1/1652946)
 - [Handling Events](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW12)
 
-### Mouseup+mousedown on a translating element don't dispatch click event
+### `mousedown` then `mouseup` on a translating element don't dispatch click event
 
 Because your element contains sub-elements. Since translating is like moving the pointer, mousedown and mouseup occur on different elements (`event.target`).
-Could happend when there is an css transform transition at hover state of the element.
+Could happend when there is an css `transform` transition at hover state of the element.
 
 To prevent that, use `pointer-events: none;` on sub elements or listen `mouseup` instead of `click`.
 
@@ -3861,7 +3866,7 @@ element.addEventListener("click", linkClick.bind(this), false);
 
 function _linkClick(event){
 	// Only left button
-	if(event.button != 0/*event.buttons != 1*/){
+	if(event.button !== 0/*event.buttons !== 1*/){
 		return;
 	}
 
@@ -3890,11 +3895,12 @@ const isTouch = "touches" in event;
 const clientX = isTouch ? event.touches[0].clientX : event.clientX;
 ```
 
-To compute `offsetX|Y` use: `event(.touches[0]).clientX|Y - .getBoundingClientRect().left|right`, be carefull this add the border width (`offsetX|Y` should be relative to the padding-box)
+To compute `offsetX|Y` use: `event.touches[0].clientX - el.getBoundingClientRect().left` (`clientX - right`), be carefull this add the border width (`offsetX|Y` should be relative to the padding-box)
 
 - [Cross-browser mouse positioning](http://www.jacklmoore.com/notes/mouse-position/)
+- [GoogleChromeLabs/pointer-tracker: Track mouse/touch/pointer events for a given element.](https://github.com/GoogleChromeLabs/pointer-tracker)
 
-### Pinch (for zoom/dezoom)
+### Pinch to zoom
 
 1. start: store as _start distance_ the distance between points (`event.touches[0]` and `event.touches[1]`)
 2. move: diff _current distance_ and _start distance_
@@ -3902,10 +3908,15 @@ To compute `offsetX|Y` use: `event(.touches[0]).clientX|Y - .getBoundingClientRe
 ```js
 export default function getPointerEventsDistance(point1, point2){
 	return Math.sqrt(
-		Math.pow(point1.clientX - point2.clientX, 2) + Math.pow(point1.clientY - point2.clientY, 2)
+		(point1.clientX - point2.clientX) ** 2 + (point1.clientY - point2.clientY) ** 2
 	);
 }
 ```
+
+- [Pointer position](#pointer-position)
+- [GoogleChromeLabs/pinch-zoom](https://github.com/GoogleChromeLabs/pinch-zoom)
+- [Jake Archibald on Twitter: "@tomayac @simevidas Ah yeah, the maths doesn't work out if you prevent the child of \<pinch-zoom\> from scaling. However, as a workaround you can use the pinch-zoom as a proxy https://t.co/XLLmhScSSD" / Twitter](https://web.archive.org/web/20220123155647/https://twitter.com/jaffathecake/status/1480852583128477697?s=12)
+- [SVG pinch zoom demo](https://web.archive.org/web/20220111104828/https://static-misc-3.glitch.me/svg-pinch-zoom/)
 
 ### Mouse wheel
 
@@ -4029,7 +4040,7 @@ Behaviors:
 - autoscroll to the anchor despite it's ID/name changed for history back/forward. For Chrome, IE and Firefox
 - IE scroll to anchor async (define location.hash don't jump directly)
 
-- [Anchor hash tag behaviour](Web#anchor-hash-tag-behaviour)
+- [Anchor hash tag behaviour](../../Web/Web.md#anchor-hash-tag-behaviour)
 - [javascript - Modifying document.location.hash without page scrolling - Stack Overflow](https://stackoverflow.com/questions/1489624/modifying-document-location-hash-without-page-scrolling)
 - [Jump links and viewport positioning – Nicolas Gallagher](http://nicolasgallagher.com/jump-links-and-viewport-positioning/)
 
@@ -4671,7 +4682,7 @@ See jQuery [`$.parseHTML()`](https://github.com/jquery/jquery/blob/master/src/co
 ##### A (detached) root node
 
 ```js
-var node = document.createElement("html");
+const node = document.createElement("html");
 // html element will be striped (ignored, but not its content)
 // head and body will be generated
 // scripts, link, meta and title elements will be append to head
@@ -4696,7 +4707,7 @@ Note: Scripts elements (inline or external) will not be executed.
 
 ```js
 element.innerHTML = htmlString;
-let nodes = element.childNodes;
+const nodes = element.childNodes;
 ```
 
 ##### As `DocumentFragment`
@@ -4704,9 +4715,9 @@ let nodes = element.childNodes;
 Note: Scripts elements will be executed, only after been appended (like `document.createElement("script").textContent = "alert('inline script')"`). Images start loading immediatly (like `(new Image()).src = "image.png"`)
 
 ```js
-let range = document.createRange();
+const range = document.createRange();
 range.selectNode(parent);// set the context element for the parser not required, by default it's will be document.body
-let nodes = range.createContextualFragment(htmlString);
+const nodes = range.createContextualFragment(htmlString);
 ```
 
 - [Range.createContextualFragment() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/range/createContextualFragment)
@@ -4723,7 +4734,7 @@ With `document.write()`
 
 ```js
 // iframe must be added to an online document
-var frameDoc = iframe.contentWindow.document;
+const frameDoc = iframe.contentWindow.document;
 frameDoc.open();
 //Note: update iframe content force new history record.
 frameDoc.write('<html><head><title>' + document.title + '</title><script>var frameHash="' + _hash + '";</script></head><body>&nbsp;</body></html>');
@@ -5403,10 +5414,10 @@ Table section: tbody, thead, tfoot
 
 ### Empty document
 
-- about:blank
-- data:text/html;,<!doctype html>
+- `about:blank`
+- `data:text/html;,<!doctype html>`
 - `iframe srcdoc=""`
-- javascript:false javascript:undefined
+- `javascript:false` `javascript:undefined` (all that is not a string)
 
 - [Jake Archibald on Twitter: "The fact that about:blank, LITERALLY AN EMPTY PAGE, is full of weird edge cases, is the most 'web' thing."](https://twitter.com/jaffathecake/status/926097042140815360)
 - [The Joy of about:blank](https://hsivonen.fi/about-blank/)
@@ -5628,7 +5639,7 @@ For inaccessible crossorigin scripts errors (`Script Error.` or `Script Error, L
 - [What the heck is "Script error"?](https://blog.sentry.io/2016/05/17/what-is-script-error)
 - [Script Error: JavaScript Forensics](https://trackjs.com/blog/script-error-javascript-forensics/)
 
-See also [Tracking scripts errors](Web#tracking-scripts-errors)
+See also [Tracking scripts errors](../../Web/Web.md#tracking-scripts-errors)
 
 - [Capture and report JavaScript errors with window.onerror](https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html)
 - [GlobalEventHandlers.onerror - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror)
@@ -7383,7 +7394,7 @@ The endpoint is related to (provided by) the browser vendor (["There is only one
 
 ### WebSocket and streaming
 
-See [Web — Streaming](Web#streaming)
+See [Web — Streaming](../../Web/Web.md#streaming)
 
 ### CORS
 
@@ -7418,6 +7429,7 @@ try{
 To avoid return a string that will be used to navigate to (as URL)
 
 ```
+javascript:{window.open("http://example.com/");}
 javascript:void window.open("http://example.com/");
 ```
 
@@ -7712,15 +7724,14 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 ```js
 // Read one cookie
-var value = (document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/) || [, ""])[1];// es5
-//const [, value = ""] = document.cookie.match(/(?:^|;\s*)cookiename=([^;]*?)(?:\s*;)/];// es6
+var value = decodeURIComponent((document.cookie.match(/(?:^|;\s)cookiename=("?)(.*?)\1(?:;\s|$)/) || [, ""])[1]);
 
 // const value = !!document.cookie.split(";").find(pair => /cookiename(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
 
-// Read cookies (returns Map)
-const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key, , ...valueChunks] = pair.trim().split(/\s*(=)\s*/); return cookies.set(key, decodeURIComponent(valueChunks.join("")))}, new Map());// cookie-pair *( ";" SP cookie-pair )
-// Read cookies (returns Object)
-const cookies = document.cookie.split(";").reduce((cookies, pair) => {const [key, , ...valueChunks] = pair.trim().split(/\s*(=)\s*/); cookies[key] = decodeURIComponent(valueChunks.join("")); return cookies}, {});// cookie-pair *( ";" SP cookie-pair )
+// Read cookies
+const entries = document.cookie.split(/; ?/).map(s => /^([^=]*)=("?)(.*?)\2$/.exec(s)).map(([, k, , v]) => [k, v != null ? decodeURIComponent(v) : v]);
+//const entries = [...document.cookie.matchAll(/(?<=^|(?:; ))([!#-'*+-.0-9A-Z^-z|~]+)=(("?)[!#-+--:<-\[\]-~]*\3)(?=;|$)/g)].map(([, k, v]) => [k, v != null ? decodeURIComponent(v) : v]);
+const cookies = new Map(entries);// as Map Object.fromEntries(entries)
 
 // erase a cookie
 document.cookie = "cookiename=;domain=example.com;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
@@ -7760,6 +7771,30 @@ maxAge,//relative max age of the cookie from when the client receives it (second
 domain//domain for the cookie
 secure
 httpOnly
+```
+
+```
+set-cookie-string = cookie-pair *( ";" SP cookie-av )
+cookie-pair       = cookie-name "=" cookie-value
+cookie-name       = token
+cookie-value      = *cookie-octet / ( DQUOTE *cookie-octet DQUOTE )
+cookie-octet      = %x21 / %x23-2B / %x2D-3A / %x3C-5B / %x5D-7E
+                      ; US-ASCII characters excluding CTLs,
+                      ; whitespace DQUOTE, comma, semicolon,
+                      ; and backslash
+
+token          = 1*<any CHAR except CTLs or separators>
+separators     = "(" | ")" | "<" | ">" | "@"
+               | "," | ";" | ":" | "\" | <">
+               | "/" | "[" | "]" | "?" | "="
+               | "{" | "}" | SP | HT
+CHAR           = <any US-ASCII character (octets 0 - 127)>
+CTL            = <any US-ASCII control character
+                        (octets 0 - 31) and DEL (127)>
+SP             = <US-ASCII SP, space (32)>
+HT             = <US-ASCII HT, horizontal-tab (9)>
+
+DQUOTE         =  %x22
 ```
 
 - Detect if cookies are enabled https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cookies.js (Note: Server side scripts need a redirection to check if cookies are enabled)
@@ -7910,7 +7945,7 @@ Screen sharing:
 
 ## Bookmarklet
 
-See [Bookmarklet](Web#bookmarklet)
+See [Bookmarklet](../../Web/Web.md#bookmarklet)
 
 ```
 javascript:{code;undefined}

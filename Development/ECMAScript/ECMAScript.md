@@ -40,12 +40,13 @@ Project documentation:
 
 ## Libaries
 
-- standard libraries from php, c, python, etc. ported to JavaScript (previously called phpjs) [kvz/locutus: All your standard libraries will be assimilated into our JavaScript collective. Resistance is futile.](https://github.com/kvz/locutus)
+- [locutusjs/locutus: Bringing stdlibs of other programming languages to JavaScript for educational purposes](https://github.com/locutusjs/locutus) - standard libraries from php, c, python, etc. ported to JavaScript (previously called phpjs)
 - [YourJS - Your Very Own JS Library](https://www.yourjs.com/)
 - [dhurlburtusa/YourJS: A JS library you can use in YOUR chosen namespace.](https://github.com/dhurlburtusa/YourJS)
-- serialize/deserialize data (binary) efficiently [google/flatbuffers: Memory Efficient Serialization Library](https://github.com/google/flatbuffers)
+- [google/flatbuffers: Memory Efficient Serialization Library](https://github.com/google/flatbuffers) - serialize/deserialize data (binary) efficiently
 - [epoberezkin/ajv: The fastest JSON Schema Validator. Supports draft-04/06/07](https://github.com/epoberezkin/ajv)
 - [Benchmark.js](https://benchmarkjs.com/) - A benchmarking library that supports high-resolution timers & returns statistically significant results.
+- [whitequark/ipaddr.js: IP address manipulation library in JavaScript](https://github.com/whitequark/ipaddr.js/)
 
 ## Formatting
 
@@ -491,6 +492,17 @@ const table = {
 >
 > Always slice (never substr or substring)
 > shift = how bash accesses args (left to right)
+
+Split long string ([Long literal strings - String - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#long_literal_strings))
+
+```js
+// With string concatenation
+const str1 = "a"
+	+ "b";
+// With line continuation
+const str2 = "a\
+b";
+```
 
 See [quotes](#quotes)
 
@@ -3213,20 +3225,24 @@ Or use a specific library: https://github.com/spiritit/timezonecomplete
 
 - [Daylight saving time — Wikipedia](https://en.wikipedia.org/wiki/Daylight_saving_time)
 
-## UUID
+## Random UUID
 
 ```js
-var createUUID = R.createUUID = (function(uuidRegEx, uuidReplacer) {
-	return function() {
-		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(uuidRegEx, uuidReplacer).toUpperCase();
-	};
-})(/[xy]/g, function(c) {
-	var r = Math.random() * 16 | 0,
-		v = c == "x" ? r : (r & 3 | 8);
-	return v.toString(16);
-});
+crypto.randomUUID();
 ```
 
+```js
+// version 4 RFC-4122
+function randomUUID(){
+	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+		const r = Math.random() * 16 | 0x0;
+		return (c === "x" ? r : (r & 0x3 | 0x8)).toString(16);
+	}).toUpperCase()
+}
+```
+
+- [Crypto.randomUUID() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID)
+- [uuidjs/uuid: Generate RFC-compliant UUIDs in JavaScript](https://github.com/uuidjs/uuid)
 - [Universally unique identifier - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 
 ## Random identifier
@@ -4051,6 +4067,81 @@ function timeClip(time) {
 }
 ```
 
+## Pretty date
+
+```js
+/*
+ * JavaScript Pretty Date
+ * Copyright (c) 2008 John Resig (jquery.com)
+ * Licensed under the MIT license.
+ */
+
+/**
+ * Takes an date and returns a string representing how long ago the date represents
+ * @param {Date} date
+ */
+function prettyDate(date) {
+	const diff = (Date.now() - date.getTime()) / 1000;
+	const dayDiff = Math.floor(diff / 86400);
+
+	if (isNaN(dayDiff) || dayDiff < 0 || dayDiff >= 31) return "";
+
+	if (dayDiff === 0) {
+		if (diff < 60) return "just now";
+		if (diff < 120) return "1 minute ago";
+		if (diff < 3600) return Math.floor(diff / 60) + " minutes ago";
+		if (diff < 7200) return "1 hour ago";
+		return Math.floor(diff / 3600) + " hours ago";
+	}
+
+	if (dayDiff === 1) return "Yesterday";
+	if (dayDiff < 7) return dayDiff + " days ago";
+	return Math.ceil(dayDiff / 7) + " weeks ago";
+}
+```
+```js
+const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+console.log(rtf.format(-2, "day"));
+```
+
+- [Intl.RelativeTimeFormat - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)
+
+## Format date
+
+```js
+// https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
+// https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-timespan-format-strings
+// https://source.dot.net/#System.Private.CoreLib/DateTimeFormat.cs,2fd25af5cf3e592e
+// https://source.dot.net/#System.Private.CoreLib/TimeSpanFormat.cs,f2ad6faffa42da52
+function format(date, format){
+	return format.replace(/\\.|".+?"|'.+?'|%[dHM]|[dHM]+/g, function(match){
+		switch(match.charAt(0)){
+			// Escaped char
+			case "\\": return match.charAt(1);
+			// Literal string
+			case '"':
+			case "'": return match.substr(1, match.length - 2);
+			// Single Custom Format Specifiers.
+			case "%": match = match.substr(1); break;
+			// fix length of custom format specifiers:
+			case "H": match = match.substring(0, 2); break;
+			case "d":
+			case "M": match = match.substring(0, 4); break;
+		}
+
+		switch(match){
+			case "dd": return String(date.getDate()).padStart(2, "0");
+			case "HH": return String(date.getHours()).padStart(2, "0");
+			case "MM": return String(date.getMonth() + 1).padStart(2, "0");
+		}
+		return "";// others, not implemented
+	});
+}
+
+format(new Date(), "dd/MM");
+format(new Date(), "HH\\h");
+```
+
 ## Create range array
 
 ```js
@@ -4074,6 +4165,9 @@ if(a(), b){c()}									a(); if(b){c();}
 1 == a ? b() : 2 == a ? c() : 3 == a && d()		switch(a){case 1: b(); break; case 2: c(); break; case 3: d(); break;}
 for (; 0 > a;) b()								while(a < 0){ b() }
 ```
+
+- [mishoo/UglifyJS: JavaScript parser / mangler / compressor / beautifier toolkit](https://github.com/mishoo/UglifyJS)
+- [eth-sri/UnuglifyJS: A simpler open-source version of JavaScript deobfuscator JSNice](https://github.com/eth-sri/UnuglifyJS)
 
 ## Reduce by common divisor
 

@@ -2185,6 +2185,24 @@ defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-ty
 killall Dock
 ```
 
+### Media keys start `Music.app`
+
+Aka media keys start `iTunes.app`, remote control daemon (RCD), play/pause keys (or bluetooth) auto-starting Music/iTunes, apple remote, connecting bluetooth headset/headphone
+
+**Note: looklike the side effects is media keys (of the keyboard or touchbar) stop working**
+
+```sh
+launchctl stop com.apple.rcd
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
+
+# Revert
+launchctl start com.apple.rcd
+launchctl load -w /System/Library/LaunchAgents/com.apple.rcd.plist
+```
+
+- [rpendleton/spotify-rcd: macOS tweak that allows the media keys to open Spotify rather than iTunes](https://github.com/rpendleton/spotify-rcd)
+- [mac - Prevent iTunes from opening when connecting bluetooth headset - Ask Different](https://apple.stackexchange.com/questions/86315/prevent-itunes-from-opening-when-connecting-bluetooth-headset/145394#145394)
+
 ### Continuity with Android
 
 - [KDE Connect is Now Available for macOS (Updated) - OMG! Ubuntu!](https://www.omgubuntu.co.uk/2019/07/kde-connect-mac-os-integrate-android)
@@ -2202,6 +2220,16 @@ See [FileVault](#filevault)
 ### Extended attribute
 
 Aka quarantine, icons, thumbnail, `xattr`
+
+> - `com.apple.FinderInfo`, which sets some general flags for Finder, and can be used to assign a single Finder Tag;
+> - `com.apple.metadata:_kMDItemUserTags`, which contains Finder Tag settings;
+> - `com.apple.metadata:kMDItemDownloadedDate`, which contains the datestamp for when this item was downloaded;
+> - `com.apple.metadata:kMDItemFinderComment`, which contains the text from the Finder Comment but does not actually set it;
+> - `com.apple.metadata:kMDItemWhereFroms`, which contains the URL of the location from which the item was downloaded;
+> - `com.apple.quarantine`, which forms the quarantine flag to determine if Gatekeeper should perform a full check when an app is first run.
+>
+> — [Where did that metadata come from? – The Eclectic Light Company](https://web.archive.org/web/20211002161349/https://eclecticlight.co/2018/01/10/where-did-that-metadata-come-from/)
+
 
 See also [Spotlight](#spotlight) and [Uniform Type Identifier](#uniform-type-identifier)
 
@@ -2233,7 +2261,7 @@ mdfind kMDItemFSInvisible=1 -onlyin .
 # Add custom colors and tags to a file
 # https://eclecticlight.co/2017/12/27/xattr-com-apple-metadata_kmditemusertags-finder-tags/
 xattr -wx com.apple.metadata:_kMDItemUserTags "62706c69 73743030 a3010203 584f7261 6e67650a 37585965 6c6c6f77 0a355949 6d706f72 74616e74 080c151e 00000000 00000101 00000000 00000004 00000000 00000000 00000000 00000028" filename
-xattr -wx com.apple.metadata:_kMDItemUserTags "$(echo '["Orange\n7","Yellow\n5","Important"]' | plutil -convert binary1 -o - - | xxd -p)" filename
+xattr -wx com.apple.metadata:_kMDItemUserTags "$(echo '["Orange\n7","Yellow\n5","Important"]' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
 xattr -w com.apple.metadata:_kMDItemUserTags '("Red\n6","new tag")' filename
 xattr -w com.apple.metadata:_kMDItemUserTags '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><array>...</array></plist>' filename
 # Metadata see by Spotlight backend (metadata server)
@@ -2241,14 +2269,24 @@ mdls -plist - -name _kMDItemUserTags
 
 # Set custom application association
 # Even if the type is the default "public.data"
-xattr -wx com.apple.LaunchServices.OpenWith "$(echo '{"version":0,"path":"\/Applications\/Hex Fiend.app","bundleidentifier":"com.ridiculousfish.HexFiend"}' | plutil -convert binary1 -o - - | xxd -p)" filename
+xattr -wx com.apple.LaunchServices.OpenWith "$(echo '{"version":1.0,"path":"\/Applications\/Hex Fiend.app","bundleidentifier":"com.ridiculousfish.HexFiend"}' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
 # Get custom application association
 xattr -p com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p - | plutil -convert json -o - -
 #xattr -p com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p - | plutil -convert json -o - -
+
+# Set the URL from which the file was downloaded
+xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '["http://example.com"]' | plutil -convert binary1 -o - - | xxd -p)" filename
+xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '["http://example.com/origin","http://example.com/referrer"]' | plutil -convert binary1 -o - - | xxd -p)" filename
+xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '<plist><array><string>http://example.com</string></array></plist>' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
+# Set the date when the file was downloaded
+# Note can't convert from JSON because date
+xattr -wx com.apple.metadata:kMDItemDownloadedDate "$(echo "<plist><array><date>$(date +%Y-%m-%dT%H:%M:%SZ)</date></array></plist>" | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
 ```
 
 Other:
 
+- [Exclude drives, folders and files](#exclude-drives-folders-and-files)
+- [Downloaded file quarantine](#downloaded-file-quarantine)
 - [xattred, Sandstrip & xattr tools – The Eclectic Light Company](https://eclecticlight.co/xattred-sandstrip-xattr-tools/)
 - [An introduction to extended attributes, xattrs – The Eclectic Light Company](https://web.archive.org/web/20200316222605/https://eclecticlight.co/2017/12/11/an-introduction-to-extended-attributes-xattrs/)
 - [How to preserve metadata stored in a custom extended attribute – The Eclectic Light Company](https://web.archive.org/web/20200414045618/https://eclecticlight.co/2019/10/01/how-to-preserve-metadata-stored-in-a-custom-extended-attribute/)
@@ -2446,6 +2484,21 @@ rm tstfile
 - [Benchmark your SSD or hard disk speed - Mac OS X Hints](https://web.archive.org/web/20200924161550/https://hints.macworld.com/article.php?story=20120704113548693):
 - [‎Blackmagic Disk Speed Test on the Mac App Store](https://apps.apple.com/us/app/id425264550?mt=12)
 
+### Clone to disk image
+
+```sh
+diskutil list
+
+diskutil info disk4
+
+sudo gdd if=/dev/rdisk4 of=sd_backup.dmg status=progress bs=16M
+#photorec sd_backup.dmg
+#testdisk sd_backup.dmg
+```
+
+- [The fastest way to clone an SD card on macOS – Jaimyn's Blog](https://web.archive.org/web/20211006094250/https://blog.jaimyn.dev/the-fastest-way-to-clone-sd-card-macos/)
+- [Create a disk image using Disk Utility on Mac - Apple Support](https://support.apple.com/guide/disk-utility/create-a-disk-image-dskutl11888/mac)
+
 ## Startup and login
 
 ### Startup chime
@@ -2475,7 +2528,7 @@ Aka login screen text
 
 Control+Command+Q
 
-- [How to set a lock message on the login window of your Mac - Apple Support](https://support.apple.com/en-us/HT203580) - Settings > security and privacy > (unlock with padlock) > Show a message when the screen is locked
+- [How to set a lock message on the login window of your Mac - Apple Support](https://support.apple.com/en-us/HT203580) - Settings > Security and privacy > (unlock with padlock) > Show a message when the screen is locked
 - [Onyx](https://www.titanium-software.fr/) - Settings > Session > Login screen message
 - [How and Why You Should Customise Your Mac's Login Screen](https://computers.tutsplus.com/tutorials/how-and-why-you-should-customise-your-macs-login-screen--mac-56657)
 
@@ -2487,39 +2540,85 @@ See also [Change the language used at the login screen on your Mac - Apple Suppo
 
 ### Start up item
 
-Create in `/Library/LaunchDaemons` a file called like `info.mamp.start.apache.plist` contains
+With `crontab -e`:
+
+```cron
+@reboot /path/to/script
+```
+
+With a shell script (as login item only):
+
+In `mystartupitem.command` ([why as `*.command`?](https://stackoverflow.com/questions/25580918/open-a-shell-script-in-terminal-mac-no-matter-what-the-default-application-for))
+
+```sh
+#!/bin/bash
+
+echo "Do something"
+```
+
+An add it to login items (System Preferences → Users and Groups → Login items)
+
+With a `plist`:
+
+Create in `/Library/LaunchDaemons` (see also [What are the differences between LaunchAgents and LaunchDaemons?](https://apple.stackexchange.com/questions/290945/what-are-the-differences-between-launchagents-and-launchdaemons/290946#290946)) a file called like `local.mydaemon.plist` contains:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>Label</key>
-    <string>info.mamp.start.apache</string>
-    <key>ProgramArguments</key>
-    <array>
-      <string>/path/to/binary</string>
-      <string>arg1</string>
-	  <string>arg2=value</string>
-	  <string>arg3</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-	<!-- Use this user to launch daemon, remove if not defined -->
-	<key>UserName</key>
-	<string>YOUR_USERNAME</string>
-	<!-- -->
-  </dict>
+	<dict>
+		<key>Label</key>
+		<string>local.mydaemon</string>
+
+		<key>ProgramArguments</key>
+		<array>
+			<string>/path/to/binary</string>
+			<string>arg1</string>
+			<string>arg2=value</string>
+			<string>arg3</string>
+		</array>
+
+		<key>RunAtLoad</key>
+		<true/>
+
+		<!-- Use this for a script that runs once -->
+		<key>LaunchOnlyOnce</key>
+		<true/>
+
+		<!-- Use this user and/or group to launch daemon, remove if not defined -->
+		<key>UserName</key>
+		<string>SOME_USERNAME</string>
+		<key>GroupName</key>
+		<string>SOME_GROUP</string>
+
+		<!-- Save standard error to, remove if not needed -->
+		<key>StandardErrorPath</key>
+		<string>/dev/null</string>
+
+		<!-- Save standard output to, remove if not needed -->
+		<key>StandardOutPath</key>
+		<string>/dev/null</string>
+
+		<!-- Change start inverval, remove if not needed. See also LaunchOnlyOnce -->
+		<key>StartInterval</key>
+		<integer>30</integer>
+	</dict>
 </plist>
 ```
 
-`Label` must reflect filename without `plist` extension.
+Note: `Label` must reflect filename without `plist` extension.
+Note: binary can be an executable (`chmod +x /path/to/shellscript`) shell script
 
-	sudo chown root:wheel /Library/LaunchDaemons/info.mamp.start.apache.plist
+```sh
+sudo chown root:wheel /path/to/local.mydaemon.plist
+launchctl load /path/to/local.mydaemon.plist
+launchctl list
+```
 
+- [mac osx - Use an environment variable in a launchd script - Server Fault](https://serverfault.com/questions/111391/use-an-environment-variable-in-a-launchd-script)
 - [A launchd Tutorial](http://launchd.info/)
-- http://en.wikipedia.org/wiki/Launchd
-- http://developer.apple.com/library/mac/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+- [launchd — Wikipedia](https://en.wikipedia.org/wiki/Launchd)
+- [Creating Launch Daemons and Agents](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html#//apple_ref/doc/uid/10000172i-SW7-BCIEDDBJ)
 
 ### Change/fix login keyboard layout
 
@@ -2606,6 +2705,42 @@ Disable
 ```sh
 defaults write com.apple.LaunchServices LSQuarantine -bool NO
 ```
+
+```sh
+# Set com.apple.quarantine attribute
+# Quarantine state flags (as 4 hexdigits):
+# 0. ?
+# 1. ?
+# 2. ?
+# 3. ?
+# 4. ?
+# 5. App was opened
+# 6. "Verified by Gatekeeper"
+# 7. ?
+# 8. ?
+# 15. ?
+# See also:
+# - https://stackoverflow.com/questions/59974353/checking-if-macos-app-has-ever-been-un-quarantined-and-fully-launched
+# - https://eclecticlight.co/2017/08/15/quarantined-more-about-the-quarantine-extended-attribute/
+# - https://stackoverflow.com/questions/46198557/understanding-output-of-xattr-p-com-apple-quarantine
+flags=$(printf "%04x;" "$((2#0000000000000010))")
+uuid=$(uuidgen)
+application="Firefox"
+# application="Google\x20Chrome"
+date=$(printf %x $(date +%s))
+attr -w com.apple.quarantine "${flags};${date};${application};${uuid}" filename
+# Insert UUID into Database
+date=$(($(date +%s) - 978307200))
+download_url="http://example.com/file.zip"
+# fields of LSQuarantineEvent: LSQuarantineEventIdentifier, LSQuarantineTimeStamp, LSQuarantineAgentBundleIdentifier, LSQuarantineAgentName, LSQuarantineDataURLString, LSQuarantineSenderName, LSQuarantineSenderAddress, LSQuarantineTypeNumber, LSQuarantineOriginTitle, LSQuarantineOriginURLString, LSQuarantineOriginAlias
+# see also https://web.archive.org/web/20210506210117/http://www.zoharbabin.com/hey-mac-i-dont-appreciate-you-spying-on-me-hidden-downloads-log-in-os-x
+sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2 "INSERT INTO \"LSQuarantineEvent\" VALUES('${uuid}',${date},NULL,'${application}','${download_url}',NULL,NULL,0,NULL,'${url}',NULL);"
+# Check if UUID exists in Database
+sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2 "SELECT * FROM LSQuarantineEvent WHERE LSQuarantineEventIdentifier == '${uuid}'"
+```
+
+- [Add quarantine attribute to downloads · Issue #22388 · Homebrew/homebrew-cask](https://github.com/Homebrew/homebrew-cask/issues/22388)
+- [Extended attribute](#extended-attribute)
 
 ### Certificats
 
@@ -2799,6 +2934,7 @@ xattr -dr http://com.apple.quarantine /path/to/My.app
 Crtl + Click on the App > click on "Open" button to add the app to the approved list
 Right click > Open
 
+- [Extended attribute](#extended-attribute)
 - [How to Allow Apps from Anywhere in macOS Sierra Gatekeeper](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/)
 - [Quick Tip: Override Gatekeeper with one click - Six Colors](https://sixcolors.com/post/2016/02/override-gatekeeper-with-one-click/)
 
@@ -2877,7 +3013,7 @@ sudo port uninstall inactive
 
 Install ports:
 
-```
+```sh
 # 1. Install Xcode Command Line Tools: `xcode-select --install`
 # 2. Accept Xcode licence: `sudo xcodebuild -license`
 # 3. Check installed version (newer version can exist for php, node, python, perl, ruby, JDK, etc.)
@@ -2965,9 +3101,9 @@ sudo ln -s composer.phar /opt/local/bin/composer
 
 # Install python and pip (Python package manager)
 sudo port install python39 py39-pip
-sudo port select --set python python39
-sudo port select --set python3 python39
-sudo port select --set pip pip39
+#sudo port select --set python python39
+#sudo port select --set python3 python39
+#sudo port select --set pip pip39
 # Or for OSX's default python come with easy_install
 #sudo easy_install pip
 #pip install --user package
@@ -2998,7 +3134,7 @@ sudo port install testdisk
 
 # Ruby and gems (Ruby package manager)
 sudo port install ruby27 rb-rubygems
-sudo port select --set ruby ruby27
+#sudo port select --set ruby ruby27
 
 # Add to profile user's gems folder
 if ! grep -q "export GEM_HOME=" ~/.profile
@@ -3013,6 +3149,12 @@ fi
 # Java / Open JDK
 sudo port install openjdk15
 ```
+
+How to fix "Failed to build osxfuse: command execution failed":
+
+- [install builded version](https://github.com/osxfuse/osxfuse/releases) then create a symlink to `fuse.pc`: `sudo ln -s /usr/local/lib/pkgconfig/fuse.pc /opt/local/lib/pkgconfig/fuse.pc`
+- [note: osxfuse is no longer an open source project since version 3.9.0](https://github.com/osxfuse/osxfuse/issues/590)
+- [#59316 (osxfuse @3.8.3: Assertion 'common_is_variable DEFAULT_SDK_10_15_ARCHITECURES' failed) – MacPorts](https://trac.macports.org/ticket/59316#comment:52)
 
 ## Preference pane
 

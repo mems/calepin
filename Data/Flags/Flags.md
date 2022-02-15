@@ -1,0 +1,3 @@
+- [hampusborgos/country-flags: SVG and PNG renders of all countries' flags.](https://github.com/hampusborgos/country-flags)
+- [lipis/flag-icons: A curated collection of all country flags in SVG — plus the CSS for easier integration](https://github.com/lipis/flag-icons)
+- [Gallery of sovereign state flags — Wikipedia](https://en.wikipedia.org/wiki/Gallery_of_sovereign_state_flags)

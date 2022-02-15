@@ -202,6 +202,31 @@ Tracking and analytics
 
 Use [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)
 
+### Data layer
+
+> Customer Experience Digital Data Layer (CEDDL): This is a data layer specification developed by the World Wide Web Consortium (W3C). It is declared as a key-value JavaScript object. However, it has pretty much been discarded/deprecated/ignored because of its static interface that does not work well with modern web frameworks.
+>
+> Event-Driven Data Layer (EDDL): A general term referring to any data layer that is designed to respond to data that is pushed into it, where each push is termed an "event". There's a good write-up about this at https://jimalytics.com/tag-management/the-event-driven-data-layer/. Google Tag Manager's dataLayer is a common implementation of a EDDL.
+>
+> Adobe Client Data Layer (ACDL): Adobe's implementation of a EDDL. It has been integrated into AEM and some Adobe products, but can be used as a standalone data layer in any website by including its JavaScript library. See https://github.com/adobe/adobe-client-data-layer for more info.
+>
+> Direct Call Rule (DCR): This is a feature that is specific to Adobe Launch (or what is now called Adobe Experience Platform Data Collection Tags). By running _satellite.track("identifier") anywhere in a web page, you can trigger a Rule in Adobe Launch that listens for that Direct Call event with the "identifier" value. You can read more about how to use it at https://experienceleague.adobe.com/docs/experience-platform/tags/extensions/adobe/core/overview.html?lang=en#other-events
+>
+> — [Hi, can any one help me to understand the differen... - Adobe Experience League Community - 438861](https://experienceleaguecommunities.adobe.com/t5/adobe-analytics-questions/hi-can-any-one-help-me-to-understand-the-difference-between-a/td-p/438861#M35834)
+
+- [Adobe Client Data Layer](https://github.com/adobe/adobe-client-data-layer/wiki)
+- [adobe/xdm: Experience Data Model](https://github.com/adobe/xdm)
+- [The Event-Driven Data Layer - Jim Gordon's Blog](https://web.archive.org/web/20210522054600/https://jimalytics.com/tag-management/the-event-driven-data-layer/)
+- [Adobe Launch Release Standards - DEV Community](https://web.archive.org/web/20211222133121/https://dev.to/alcazes/adobe-launch-release-standards-2c9m)
+- [Adobe Launch Coding Standards - DEV Community](https://web.archive.org/web/20211221131218/https://dev.to/alcazes/adobe-launch-coding-standards-e22)
+- [Adobe Launch Tagging Standards - DEV Community](https://web.archive.org/web/20211221131534/https://dev.to/alcazes/adobe-launch-tagging-standards-3aak)
+- [Generic Data Layer - DEV Community](https://web.archive.org/web/20220118082041/https://dev.to/alcazes/generic-data-layer-1i90)
+
+### Adobe Launch
+
+- [Solved: Re: Adobe Launch private extension code editor - Adobe Experience League Community - 431993](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-platform/adobe-launch-private-extension-code-editor/m-p/432164#M330)
+- [Using Best Practices when Tracking Single Page Applications (SPA) in Adobe Analytics | Adobe Analytics](https://experienceleague.adobe.com/docs/analytics-learn/tutorials/implementation/spa-pages/using-best-practices-when-tracking-spa.html?lang=en)
+
 ### Tracking data
 
 - page view
@@ -905,6 +930,7 @@ Apple Shortcuts App: `Shortcuts/700 CFNetwork/974.2.1 Darwin/18.0.0`
 
 See [Detection](#detection)
 
+- [Browser Capabilities Project](https://browscap.org/ua-lookup)
 - [WebAIM: History of the browser user-agent string](http://webaim.org/blog/user-agent-string-history/)
 - [User agent - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/User_agent)
 - [The Mobile Web should just work for everyone - IEBlog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/ie/archive/2014/07/31/the-mobile-web-should-just-work-for-everyone.aspx)
@@ -2055,3 +2081,21 @@ See also:
 - [SeleniumHQ Browser Automation](https://www.selenium.dev/)
 - [XPath | MDN](https://developer.mozilla.org/en-US/docs/Web/XPath)
 - [CSS Selector to XPath conversion | hakre on wordpress](https://hakre.wordpress.com/2012/03/18/css-selector-to-xpath-conversion/)
+
+## Website analysis
+
+Aka technology sniffing
+
+For:
+
+- technologies
+- framworks
+- libraries
+- tools, CDN, CMS
+- providers of services, etc.
+- plugins
+
+- [Find out what websites are built with - Wappalyzer](https://www.wappalyzer.com/)
+- [justjavac/ChromeSnifferPlus: Sniff web framework and javascript libraries run on browsing website.](https://github.com/justjavac/ChromeSnifferPlus)
+- [BuiltWith Technology Lookup](https://builtwith.com/)
+- [WhatRuns — Discover What Runs a Website](https://www.whatruns.com/)

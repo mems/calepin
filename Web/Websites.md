@@ -1232,17 +1232,21 @@ getNextPage();
 3. You’ll be prompted to save a CRX file. Drag this file to a Chrome window and proceed with installation
 
  ```
-version = 10000 | 32.0
-os = mac | win | android | cros | openbsd | Linux
+product_version = 91.0.4442.4 | 32.0
+os = mac | win | android | cros | openbsd | linux
 product_channel = unknown
-product_id = chromecrx | chromiumcrx
-nacl_arch = arch = arm | x86-64 | x86-32
-https://clients2.google.com/service/update2/crx?response=redirect&os={os}&arch={arch}&nacl_arch={nacl_arch}&prod={product_id}&prodchannel={product_channel}&prodversion={version}&x=id%3D{EXT_ID}%26uc
+product_id = chromium
+nacl_arch =  arm | x86-64 | x86-32
+arch = x64
+os_arch = x86_64
+language = en-US
+accept_format = crx2,crx3
+https://clients2.google.com/service/update2/crx?response=redirect&os={os}&arch={arch}&os_arch={os_arch}&nacl_arch={nacl_arch}&prod={product_id}&prodchannel={product_channel}&prodversion={product_version}&lang={language}&acceptformat={accept_format}&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc
+https://clients2.google.com/service/update2/crx?response=redirect&os=linux&arch=x64&os_arch=x86_64&nacl_arch=x86-64&prod=chromium&prodchannel=unknown&prodversion=91.0.4442.4&lang=en-US&acceptformat=crx2,crx3&x=id%3Daedmpdookgbneegaeajpoldpnpfbpmlb%26installsource%3Dondemand%26uc
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion={product_version}&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc
 ```
 
 Or:
-
-- http://chrome-extension-downloader.com/
 
 - https://addons.opera.com/en/extensions/details/download-chrome-extension-9/
 

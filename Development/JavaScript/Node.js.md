@@ -4,21 +4,11 @@
 
 ## Libraries
 
-- [NaturalIntelligence/fast-xml-parser: Validate XML, Parse XML to JS/JSON and vise versa, or parse XML to Nimn rapidly without C/C++ based libraries and no callback](https://github.com/NaturalIntelligence/fast-xml-parser) - Read and write XML with a DOM (pure JS), an alternative to jindw/xmldom
-- [xmldom/xmldom: A pure JavaScript W3C standard-based (XML DOM Level 2 Core) DOMParser and XMLSerializer module.](https://github.com/xmldom/xmldom) - from [jindw/xmldom](https://github.com/jindw/xmldom) (dead project)
-- [fb55/htmlparser2: Forgiving html and xml parser](https://github.com/fb55/htmlparser2/)
-- [inikulin/parse5: HTML parsing/serialization toolset for Node.js. WHATWG HTML Living Standard (aka HTML5)-compliant.](https://github.com/inikulin/parse5)
-- [jsdom/jsdom: A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js](https://github.com/jsdom/jsdom) - use parse5 and saxes
-- [tildeio/simple-html-tokenizer: A lightweight JavaScript library for tokenizing non-`\<script\>` HTML expected to be found in the `\<body\>` of a document](https://github.com/tildeio/simple-html-tokenizer)
-- [lddubeau/saxes: An evented streaming XML parser in JavaScript](https://github.com/lddubeau/saxes) - used by jsdom and [svgo's svg2js](https://github.com/svg/svgo/blob/master/lib/svgo/svg2js.js) (see also [js2svg](https://github.com/svg/svgo/blob/master/lib/svgo/js2svg.js))
-- [libxmljs/libxmljs: libxml bindings for v8 javascript engine](https://github.com/libxmljs/libxmljs) - Read and write XML (native)
-- [rgrove/parse-xml: A fast, safe, compliant XML parser for Node.js and browsers.](https://github.com/rgrove/parse-xml) - Read XML
+- [Server-side Libraries](https://github.com/dexteryy/spellbook-of-modern-webdev#server-side-libraries-nodejs)
+
+Unorganized:
+
 - [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip) - Read and write ZIP asynchronously
-- [csstree/csstree: Fast detailed CSS parser with syntax validation](https://github.com/csstree/csstree) - Read and write CSS
-- [http-auth/src at master · http-auth/http-auth](https://github.com/http-auth/http-auth/tree/master/src) - Basic and Digest HTTP Authentification (express)
-- [jshttp/basic-auth: Generic basic auth Authorization header field parser](https://github.com/jshttp/basic-auth) - Basic HTTP Authentification (generic)
-- [auth0/node-jsonwebtoken: JsonWebToken implementation for node.js](https://github.com/auth0/node-jsonwebtoken) - JSON Token generation and verification (for access token)
-- [kelektiv/node.bcrypt.js: bcrypt for NodeJs](https://github.com/kelektiv/node.bcrypt.js) - bcrypt hash generation and verification (for password storage)
 - [expressjs/session: Simple session middleware for Express](https://github.com/expressjs/session) - Handle clients sessions
 - [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
@@ -26,7 +16,26 @@
 - parse [configuration file](https://en.wikipedia.org/wiki/Configuration_file) / [run commands](https://en.wikipedia.org/wiki/Run_command): [rc](https://www.npmjs.com/package/rc)
 - load environnement variable (from `.env` file): ~~[dotenv](https://www.npmjs.com/package/dotenv)~~; do it view the command line instead: [bash - Set environment variables from file of key/value pairs - Stack Overflow](https://stackoverflow.com/questions/19331497/set-environment-variables-from-file-of-key-value-pairs/20909045#20909045)
 
-- [Server-side Libraries](https://github.com/dexteryy/spellbook-of-modern-webdev#server-side-libraries-nodejs)
+Parse DOM (HTML, XML, SVG) and CSSOM:
+
+- [jsdom/jsdom: A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js](https://github.com/jsdom/jsdom) - use parse5 and saxes
+- [WebReflection/linkedom: A triple-linked lists based DOM implementation.](https://github.com/WebReflection/linkedom)
+- [fb55/htmlparser2: Forgiving html and xml parser](https://github.com/fb55/htmlparser2/)
+- [inikulin/parse5: HTML parsing/serialization toolset for Node.js. WHATWG HTML Living Standard (aka HTML5)-compliant.](https://github.com/inikulin/parse5)
+- [xmldom/xmldom: A pure JavaScript W3C standard-based (XML DOM Level 2 Core) DOMParser and XMLSerializer module.](https://github.com/xmldom/xmldom) - from [jindw/xmldom](https://github.com/jindw/xmldom) (dead project)
+- [lddubeau/saxes: An evented streaming XML parser in JavaScript](https://github.com/lddubeau/saxes) - used by jsdom and [svgo's svg2js](https://github.com/svg/svgo/blob/master/lib/svgo/svg2js.js) (see also [js2svg](https://github.com/svg/svgo/blob/master/lib/svgo/js2svg.js))
+- [NaturalIntelligence/fast-xml-parser: Validate XML, Parse XML to JS/JSON and vise versa, or parse XML to Nimn rapidly without C/C++ based libraries and no callback](https://github.com/NaturalIntelligence/fast-xml-parser) - Read and write XML with a DOM (pure JS), an alternative to jindw/xmldom
+- [tildeio/simple-html-tokenizer: A lightweight JavaScript library for tokenizing non-`\<script\>` HTML expected to be found in the `\<body\>` of a document](https://github.com/tildeio/simple-html-tokenizer)
+- [libxmljs/libxmljs: libxml bindings for v8 javascript engine](https://github.com/libxmljs/libxmljs) - Read and write XML (native)
+- [rgrove/parse-xml: A fast, safe, compliant XML parser for Node.js and browsers.](https://github.com/rgrove/parse-xml) - Read XML
+- [csstree/csstree: Fast detailed CSS parser with syntax validation](https://github.com/csstree/csstree) - Read and write CSS
+
+Security:
+
+- [http-auth/src at master · http-auth/http-auth](https://github.com/http-auth/http-auth/tree/master/src) - Basic and Digest HTTP Authentification (express)
+- [jshttp/basic-auth: Generic basic auth Authorization header field parser](https://github.com/jshttp/basic-auth) - Basic HTTP Authentification (generic)
+- [auth0/node-jsonwebtoken: JsonWebToken implementation for node.js](https://github.com/auth0/node-jsonwebtoken) - JSON Token generation and verification (for access token)
+- [kelektiv/node.bcrypt.js: bcrypt for NodeJs](https://github.com/kelektiv/node.bcrypt.js) - bcrypt hash generation and verification (for password storage)
 
 ## Relative path
 
