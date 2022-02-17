@@ -1,5 +1,9 @@
 Aka QRCode, Quick Response Code
 
+
+See also:
+
+- [Magnetic ink character recognition — Wikipedia](https://en.wikipedia.org/wiki/Magnetic_ink_character_recognition)
 - [QR code — Wikipedia](https://en.wikipedia.org/wiki/QR_code)
 - [WTF QR CODES](http://wtfqrcodes.com/)
 - [Barcode](../Barcode/Barcode.md)

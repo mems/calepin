@@ -16,7 +16,7 @@
 ## Nothing to hide argument
 
 - [Facebook Graph Shortcuts](http://graph.tips/)
-- [Je n'ai rien à cacher.](http://jenairienacacher.fr/)
+- [Je n'ai rien à cacher.](https://web.archive.org/web/20220204024429/https://jenairienacacher.fr/)
 - [Rien à cacher (argument) — Wikipédia](https://fr.wikipedia.org/wiki/Rien_%C3%A0_cacher_%28argument%29)
 - [Lettre ouverte à ceux qui n’ont rien à cacher | InternetActu.net](http://www.internetactu.net/2010/05/21/lettre-ouverte-a-ceux-qui-nont-rien-a-cacher/)
 - [Google Analytics In Real Life - Online Checkout - YouTube](https://www.youtube.com/watch?v=3Sk7cOqB9Dk)
@@ -33,42 +33,64 @@ Referrer (correct spelling)
 
 ## Any data can contains private information
 
+Aka redacted, pixelated, unclassified, black box
+
 Uploading a document can expose/leak private data. This data and metadata should be stripped if exposed publicly.
 
 - Any file:
-	* File name: [More Than Meets The Eye - The Hacker Factor Blog](http://www.hackerfactor.com/blog/index.php?/archives/565-More-Than-Meets-The-Eye.html) - generator, last used tool/service
+	- File name: [More Than Meets The Eye - The Hacker Factor Blog](http://www.hackerfactor.com/blog/index.php?/archives/565-More-Than-Meets-The-Eye.html) - generator, last used tool/service
 - Picture:
-	* (EXIF) author
-	* (EXIF) location
-	* (EXIF) editor
-	* human faces
-	* plate number
-	* serial number
-	* credit card number
-	* phone number
-	* human fingerprint / eye iris
-	* user name / account
-	* address
+	- (EXIF) author
+	- (EXIF) location
+	- (EXIF) editor
+	- human faces
+	- plate number
+	- serial number
+	- credit card number
+	- phone number
+	- human fingerprint / eye iris
+	- user name / account
+	- address
+	- transparent pixels (of format that support it like `*.png`) could kept original color information, put transparency to 0% reveal original content
 
 	Directly or in reflects
 - Word document:
-	* author
-	* [changes](https://support.office.com/en-us/article/Track-changes-while-you-edit-024158a3-7e62-4f05-8bb7-dc3ecf0295c4), etc.
+	- author
+	- [changes](https://support.office.com/en-us/article/Track-changes-while-you-edit-024158a3-7e62-4f05-8bb7-dc3ecf0295c4), etc.
+- PDF document:
+	- original OCR data:
 - HTTP protocol:
-	* Some ISP add specific headers. See [Header Enrichment or ISP Enrichment? Emerging Privacy Threats in Mobile Networks - headerenrichment15.pdf](https://www.icsi.berkeley.edu/pubs/networking/headerenrichment15.pdf)
+	- Some ISP add specific headers. See [Header Enrichment or ISP Enrichment? Emerging Privacy Threats in Mobile Networks - headerenrichment15.pdf](https://www.icsi.berkeley.edu/pubs/networking/headerenrichment15.pdf)
 
 Metadata:
 
 - [Metadata](Image#medata)
+- [Image Scrubber](https://everestpipkin.github.io/image-scrubber/) - [everestpipkin/image-scrubber: A tool for anonymizing photographs taken at protests](https://github.com/everestpipkin/image-scrubber)
 - [Metadata removal tool - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metadata_removal_tool)
 - [Remove hidden data and personal information by inspecting documents - Office Support](https://support.office.com/en-us/article/Remove-hidden-data-and-personal-information-by-inspecting-documents-356b7b5d-77af-44fe-a07f-9aa4d085966f)
 - [Document Metadata Extraction - ForensicsWiki](http://www.forensicswiki.org/wiki/Document_Metadata_Extraction)
 - [Exchangeable image file format - Wikipedia, the free encyclopedia - Privacy and security](https://en.wikipedia.org/wiki/Exchangeable_image_file_format#Privacy_and_security)
 - [FotoForensics](http://fotoforensics.com/tutorial-meta.php)
 
-Example of leak:
+Pixelated text:
 
-- [Le dragueur trahi par sa clef USB - virtualabs.fr](http://www.virtualabs.fr/Le-dragueur-trahi-par-sa-clef-USB)
+- [Never Use Text Pixelation To Redact Sensitive Information | Bishop Fox](https://web.archive.org/web/20220216230121/https://bishopfox.com/blog/unredacter-tool-never-pixelation)
+- [beurtschipper/Depix: Recovers passwords from pixelized screenshots](https://github.com/beurtschipper/Depix)
+
+See also:
+
+- [virtualabs.fr - Le dragueur trahi par sa clef USB](https://web.archive.org/web/20200122223609/https://virtualabs.fr/Le-dragueur-trahi-par-sa-clef-USB.html):
+- [Source Protection: Sensitive Document Checklist | Global Investigative Journalism Network](https://web.archive.org/web/20171124154646/https://gijn.org/2017/06/19/protecting-sources-when-releasing-sensitive-documents/)
+- [Deblur / deconvolution](/Users/mems/Materials/Algorithms/Deblur/Deblur.md)
+- [Forensically, free online photo forensics tools - 29a.ch](https://29a.ch/photo-forensics/#forensic-magnifier)
+- [AT&#38;T leaks sensitive info in NSA suit - CNET](https://web.archive.org/web/20220217001954/https://www.cnet.com/tech/tech-industry/at-38t-leaks-sensitive-info-in-nsa-suit/)
+- https://en.wikipedia.org/wiki/Sanitization_(classified_information)
+- [firstlookmedia/pdf-redact-tools: a set of tools to help with securely redacting and stripping metadata from documents before publishing](https://github.com/firstlookmedia/pdf-redact-tools)
+- [Let’s Enhance! How we found @rogerkver’s $1,000 wallet obfuscated private key](https://web.archive.org/web/20220131013122/https://www.freecodecamp.org/news/lets-enhance-how-we-found-rogerkver-s-1000-wallet-obfuscated-private-key-8514e74a5433/) - "they showed a few images unblurred of parts of the QR code and the plain text code. The rest was brute forced and reconstructed from the QR code format."
+- [Deconstructing Swirl Face | MatzJB](https://web.archive.org/web/20210611023556/https://matzjb.se/2015/07/26/deconstructing-swirl-face/)
+- [Why blurring sensitive information is a bad idea | dheera.net | Dheera Venkatraman's web site](https://web.archive.org/web/20140714183916/http://dheera.net/projects/blur)
+- [Cryptologists decipher a term censored in a CIA "memo" to George Bush](https://web.archive.org/web/20210915051747/https://cryptome.org/cia-decrypt.htm)
+- [forensics - How secure is 'blacking out' sensitive information using MS Paint? - Information Security Stack Exchange](https://security.stackexchange.com/questions/126932/how-secure-is-blacking-out-sensitive-information-using-ms-paint)
 
 ## Fingerprinting
 

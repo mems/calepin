@@ -220,7 +220,7 @@ Sources:
 - https://gerrit.googlesource.com/gerrit/+/master/gerrit-server/src/main/resources/com/google/gerrit/server/mime/mime-types.properties
 - [Apache common media types](http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types) http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=markup
 - https://github.com/liluo/mime/tree/master/mime/types
-- List of blacklisted types by MediaWiki [Manual talk:$wgMimeTypeBlacklist - MediaWiki](https://www.mediawiki.org/wiki/Manual_talk:$wgMimeTypeBlacklist#Default_changed_in_1.17)
+- List of blocklisted types by MediaWiki [Manual talk:$wgMimeTypeBlacklist - MediaWiki](https://www.mediawiki.org/wiki/Manual_talk:$wgMimeTypeBlacklist#Default_changed_in_1.17)
 - https://github.com/mime-types/mime-types-data
 - [nginx media types](http://hg.nginx.org/nginx/raw-file/default/conf/mime.types)
 - [python media types](https://github.com/python/cpython/blob/master/Lib/mimetypes.py)

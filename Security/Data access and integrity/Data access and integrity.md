@@ -151,7 +151,7 @@ Content submission: bots create account, add review, video, message / post (SPAM
 - check emptyness and validate values. See [Third party data](#third-party-data)
 - use time as a limit (lifespan)
 - denunciation / reporting
-- blacklist or whitelists of IPs (or ranges), browsers, clients names, words, etc.
+- denylist/blocklist or allowlist/safelist of IPs (or ranges), browsers, clients names, words, etc.
 - use `/robots.txt`:
 	```
 	User-agent: *
@@ -355,7 +355,7 @@ Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all heade
 - use dedicated domain for hosting third party documents/resources (image, HTML, CSS, JS). For proxing, etc.
 - [The Hitchhiker's Guide to SQL Injection prevention](https://phpdelusions.net/sql_injection)
 - text, URL, link, 2D/3D data can contains offencive (insult, nudity, obscenity, etc.) text, scene, symbol, gesture, etc. in an image, 3D object, points on a map, ASCII text image
-	**Text: Don't think you can manage the problem with just a blacklist of words** (what about lookalike, slang, backward-slang?)
+	**Text: Don't think you can manage the problem with just a blocklist of words** (what about lookalike, slang, backward-slang?)
 	Forbidden/profanity words domains: Politic, racism, religious, sex, insults, drogs, weight (related to food industry), competing/rival companies...
 
 	> If it can be killed, people will kill it. If it can't be killed, people will try and may succeed. If it can be destroyed, it will always be broken. If it can be moved, people will draw dongs or write obscenities with it.
@@ -475,8 +475,7 @@ See also:
 	- [How nginx processes a request](http://nginx.org/en/docs/http/request_processing.html#how_to_prevent_undefined_server_names)
 	- [server-configs-nginx/no-default at master · h5bp/server-configs-nginx](https://github.com/h5bp/server-configs-nginx/blob/master/sites-available/no-default)
 
-	```
-	# Ngnix
+	```ngnix
 	# no default server
 	# prevent host header attacks, or other potential problems when an unknown servername is used in a request, drop the request
 	server {
@@ -511,7 +510,7 @@ See [Unsafe filename](#unsafe-filename)
 
 - check upload file type with magic number:
 	* [Remote code execution vulnerability in ImageMagick | Hacker News](https://news.ycombinator.com/item?id=11624056)
-	* List of blacklisted types by MediaWiki [Manual talk:$wgMimeTypeBlacklist - MediaWiki](https://www.mediawiki.org/wiki/Manual_talk:$wgMimeTypeBlacklist#Default_changed_in_1.17)
+	* List of blocklisted types by MediaWiki [Manual talk:$wgMimeTypeBlacklist - MediaWiki](https://www.mediawiki.org/wiki/Manual_talk:$wgMimeTypeBlacklist#Default_changed_in_1.17)
 	* [HTML/SVG/XML vulnerabilities](#htmlsvgxml-vulnerabilities)
 - check upload file content:
 	- [Secure user uploads and exploiting served user content](https://opensourcehacker.com/2013/07/31/secure-user-uploads-and-exploiting-served-user-content/)
@@ -888,10 +887,10 @@ About XSS and service workers:
 - [Frederik Braun : Challenge Write-up: Subresource Integrity in Service Workers](https://web.archive.org/web/20201108182026/https://frederik-braun.com/sw-sri-challenge.html)
 - [Hack Patch!: Nonce-based CSP + Service Worker = CSP bypass?](https://web.archive.org/web/20191208005617/https://shhnjk.blogspot.com/2019/09/nonce-based-csp-service-worker-csp.html)
 - [XSS persistence using JSONP and serviceWorkers – c0nradsc0rner](https://web.archive.org/web/20201204071806/https://c0nradsc0rner.com/2016/06/17/xss-persistence-using-jsonp-and-serviceworkers/)
-- [Service Worker Security FAQ](https://chromium.googlesource.com/chromium/src/+/master/docs/security/service-worker-security-faq.md#If-a-site-has-an-XSS-vulnerability_can-the-attacker-permanently-compromise-that-origin-for-me)
+- [If a site has an XSS vulnerability, can the attacker permanently compromise that origin for me? - Service Worker Security FAQ](https://web.archive.org/web/20220216234831/https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/service-worker-security-faq.md#If-a-site-has-an-XSS-vulnerability_can-the-attacker-permanently-compromise-that-origin-for-me)
 - [Is it possible to serve service workers from CDN/remote origin? · Issue #940 · w3c/ServiceWorker](https://github.com/w3c/ServiceWorker/issues/940)
 
-For JSON, use (affect only old browsers):
+For JSON, use (affect only old browsers that don't check media type for JavaScript source):
 
 - proper headers: `Content-Type: application/json` and `x-content-type-options: nosniff`
 - [AJAX Security Cheat Sheet - OWASP](https://www.owasp.org/index.php/AJAX_Security_Cheat_Sheet#Protect_against_JSON_Hijacking_for_Older_Browsers)
@@ -1161,7 +1160,7 @@ Use (abuse) special cases where the data storage have different (better) quota l
 Inject data ZIP at the end of a valid image, for platform that don't reencode/destroy appended data to images (ex: GIF)
 
 - [How to Use Your New Terabyte of Free Flickr Storage for More Than Just Photos Using This Hack « Digiwonk :: Gadget Hacks](https://digiwonk.gadgethacks.com/how-to/use-your-new-terabyte-free-flickr-storage-for-more-than-just-photos-using-hack-0147022/)
-- [At the risk of "ruining" it for some users, Amazon doesn't appear to validate no... | Hacker News](https://news.ycombinator.com/item?id=13998534)
+- [At the risk of "ruining" it for some users, Amazon doesn't appear to validate nor re-compress uploaded images... | Hacker News](https://news.ycombinator.com/item?id=13998534)
 - [GmailFS - Gmail Filesystem](https://web.archive.org/web/20060424165737/http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html)
 - [dzhang314/YouTubeDrive: Store files as YouTube videos == infinite disk space](https://github.com/dzhang314/YouTubeDrive)
 - [stewartmcgown/uds: Unlimited Drive Storage by splitting binary files into base64](https://github.com/stewartmcgown/uds)
@@ -1215,7 +1214,7 @@ About fuzzing test with JPEG data:
 — [Pulling JPEGs out of thin air | Hacker News](https://news.ycombinator.com/item?id=8571879)
 
 - [Fuzzing — Wikipedia](https://en.wikipedia.org/wiki/Fuzzing)
-- [lcamtuf's blog: Pulling JPEGs out of thin air](https://lcamtuf.blogspot.fr/2014/11/pulling-jpegs-out-of-thin-air.html) - Use genetic algorithm to generate data that test vulneratilities. See [american fuzzy lop](http://lcamtuf.coredump.cx/afl/)
+- [lcamtuf's blog: Pulling JPEGs out of thin air](https://archive.is/https://lcamtuf.blogspot.nl/2014/11/pulling-jpegs-out-of-thin-air.html) - Use genetic algorithm to generate data that test vulneratilities. See [american fuzzy lop](http://lcamtuf.coredump.cx/afl/)
 
 Four General Attack-Vectors:
 
@@ -1666,7 +1665,7 @@ Deny from all
 </Files>
 ```
 
-Or DDoS by using pingbacks or xmlrpc. Disable it or whitelisted IPs in `.htaccess`
+Or DDoS by using pingbacks or xmlrpc. Disable it or safelisted IPs in `.htaccess`
 
 - [Attacking WordPress | HackerTarget.com](https://hackertarget.com/attacking-wordpress/)
 

@@ -110,7 +110,7 @@ An other version:
 		RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
 	</IfModule>
 	</IfModule>
-	
+
 	<IfModule version.c>
 	<IfModule filter_module.c>
 	<IfVersion >= 2.4>
@@ -304,7 +304,7 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 ```apache
 <IfModule mod_rewrite.c>
 	RewriteEngine on
-	
+
 	# Determine the RewriteBase automatically and set it as environment variable.
 	# If you are using Apache aliases to do mass virtual hosting or installed the
 	# project in a subdirectory, the base path will be prepended to allow proper
@@ -314,7 +314,7 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 	# the following 2 lines to eliminate the overhead.
 	RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
 	RewriteRule ^(.*) - [E=BASE:%1]
-	
+
 	RewriteCond %{REQUEST_URI} !^%{ENV:BASE}/subfolder/
 	RewriteRule ^(.*)$ %{ENV:BASE}/subfolder/$1 [L]
 </IfModule>
@@ -323,12 +323,12 @@ curl -Ls -w %{url_effective} -o /dev/null https://example.com/?redirect
 ```apache
 <IfModule rewrite_module>
 	RewriteEngine on
-	
+
 	RewriteCond %{DOCUMENT_ROOT} ^(.*)$ [NC]
 	RewriteRule ^ - [E=doc_root:%1]
 	# Will add an header `X-Debug` with value equal DOCUMENT_ROOT (see the syntax `%{xxxx}e`)
 	Header append X-Debug "%{doc_root}e"
-	
+
 	# Add cookie `test` to `1`
 	RewriteRule ^ - [CO=test:1:%{HTTP_HOST}]
 
@@ -444,8 +444,8 @@ RewriteRule ^(index.html)*$ index.wml [L]
 ```
 
 ```apache
-# http://www.mysite.com/keyword/j1_1/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j1=1&j2=2&j4=4&j5=5&j7=7... 
-# http://www.mysite.com/keyword/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j2=2&j4=4&j5=5&j7=7... 
+# http://www.mysite.com/keyword/j1_1/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j1=1&j2=2&j4=4&j5=5&j7=7...
+# http://www.mysite.com/keyword/j2_2/j3_3/j4_4/j5_5/j6_6/j7_7/... -> http://www.mysite.com/index.php?j2=2&j4=4&j5=5&j7=7...
 # Skip following section if not a "keyword/" request
 rewriterule !^keyword/ - [S=9]
 #
@@ -477,7 +477,7 @@ rewriterule !^(keyword|date|category) - [skip=4]
 RewriteRule ^(keyword|date|category).*$ - [env=tmpQuery:%{ENV:tmpQuery}method=$1]
 RewriteRule ^(keyword|date|category)/([^/]*).*$ - [env=tmpQuery:%{ENV:tmpQuery}&criteria=$2]
 RewriteRule ^(keyword|date|category)/([^/]*)/page(\d+).*$ - [env=tmpQuery:%{ENV:tmpQuery}&page=$3]
-# Rewrite the URL-path to data.php query format 
+# Rewrite the URL-path to data.php query format
 rewriterule ^(keyword|date|category).* /data.php?%{ENV:tmpQuery} [last]
 # http://www.dracos.co.uk/code/apache-rewrite-problem/
 ```
@@ -565,7 +565,7 @@ RewriteRule ^(.*) index.php?cur_url=/$1&my_variable=my+value?%{QUERY_STRING}
 ## Echo all header back
 
 ```apache
-Header echo ^.*	
+Header echo ^.*
 ```
 
 ## Caching
@@ -574,7 +574,7 @@ Header echo ^.*
 <IfModule mod_expires.c>
 ExpiresActive on
 
-# Perhaps better to whitelist expires rules? Perhaps.
+# Perhaps better to allowlist expires rules? Perhaps.
 ExpiresDefault                          "access plus 1 month"
 
 # cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
@@ -828,7 +828,7 @@ print_r($infos);
 - [apache - Set an environment variable in .htaccess and retrieve it in PHP - Stack Overflow](https://stackoverflow.com/questions/17550223/set-an-environment-variable-in-htaccess-and-retrieve-it-in-php)
 - [Server alert you of File Not Found and other Errors | Lerner Consulting](http://website-tech.glerner.com/2013-server-alert-you-file-not-found-errors/)
 
-## 
+##
 
 From drupal:
 
@@ -919,7 +919,7 @@ Potential solution: use flag `B` or double URL encoding `?`
 ## Bots
 
 ```apache
-# redirect bots to one page 
+# redirect bots to one page
 RewriteEngine on
 RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Facebot [NC,OR]

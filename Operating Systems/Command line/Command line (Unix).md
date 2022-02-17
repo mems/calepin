@@ -1367,6 +1367,88 @@ Aka mouse tracking escape sequences
 - [linux - how to get MouseMove and MouseClick in bash? - Stack Overflow](https://stackoverflow.com/questions/5966903/how-to-get-mousemove-and-mouseclick-in-bash)
 - [ctlseqs(ms)](https://web.archive.org/web/20210721210616/https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Mouse-Tracking)
 
+### Command arguments
+
+```sh
+usage() {
+	cat <<EOT
+Usage: ${basename $0} [-a value] [-h] value...
+
+Options:
+-h          Print this help
+-a value    Print something
+EOT
+}
+
+while getopts ":ha:" opt; do
+	case $opt in
+		a)
+			echo "-a with value: $OPTARG"
+			;;
+		h)
+			usage
+			exit 0
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" >&2
+			usage
+			exit 1
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument." >&2
+			usage
+			exit 1
+			;;
+	esac
+done
+
+shift $((OPTIND-1))
+
+others=($@)
+
+echo "${others[@]}"
+echo "$@"
+```
+
+- [shell - An example of how to use getopts in bash - Stack Overflow](https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash)
+- [bash - Using getopts to process long and short command line options - Stack Overflow](https://stackoverflow.com/questions/402377/using-getopts-to-process-long-and-short-command-line-options)
+- [Propagate all arguments in a bash shell script - Stack Overflow](https://stackoverflow.com/questions/4824590/propagate-all-arguments-in-a-bash-shell-script)
+- [Small getopts tutorial \[Bash Hackers Wiki\]](https://web.archive.org/web/20220123025630/https://wiki.bash-hackers.org/howto/getopts_tutorial)
+- [Check if a string matches a regex in Bash script - Stack Overflow](https://stackoverflow.com/questions/21112707/check-if-a-string-matches-a-regex-in-bash-script)
+- [What's the difference between \[ and \[\[ in Bash? - Stack Overflow](https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash)
+
+### Temporary file
+
+```sh
+temp_file=$(mktemp)
+# Remove the file when the script exit
+trap "rm -f $temp_file" 0
+
+# do something with the file
+echo "Hello World!" > $temp_file
+cat $temp_file
+# Remove the file now (optional)
+rm -f "$temp_file"
+
+# Do something else
+```
+
+- [tmp - How create a temporary file in shell script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/181937/how-create-a-temporary-file-in-shell-script) - See example with file descriptor
+
+### Prefix a list of paths
+
+If `sed` pattern come from variable, some escaping is needed: `sed "s/$BRE/$REPL/"`
+
+Instead use awk with variables:
+
+```sh
+prefix=/some/path/to/
+# awk sub() can be use to replace with regex
+find -printf '%P\0' | awk -v prefix="$prefix" 'BEGIN {RS = "\0"; ORS = "\0"} {print prefix $0}' | do_something_with_null_sep_list
+```
+
+- [What characters do I need to escape when using sed in a sh script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/32907/what-characters-do-i-need-to-escape-when-using-sed-in-a-sh-script/33005#33005)
+
 ### Command alias
 
 ```sh
@@ -1450,6 +1532,33 @@ sudo ln {/path1,/path2}/file
 ```
 
 - [Bash Reference Manual: Brace Expansion](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html)
+
+Strings:
+
+```sh
+echo "The current user (\$USER) \"$USER\" use the shell (\$SHELL) \"$SHELL\""
+echo 'The current user ($USER) "'"$USER"'" use the shell ($SHELL) "'"$SHELL"'"'
+```
+
+Shell parameter expansion:
+
+```sh
+# Remove trailing slash for all arguments `a/ b/c/ d /` output `a b/c d`
+echo ${@%/}
+
+# myvar=a/b/// output `a/b`
+shopt extglob
+echo ${myvar%%+(/)}
+
+somevar=$(echo "$value" | sed 's:/*$::')
+echo $somebar
+
+dir=/a/b///
+echo $(realpath -s --canonicalize-missing $dir)
+```
+
+- [Bash Reference Manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Parameter-Expansion)
+- [Patterns and pattern matching \[Bash Hackers Wiki\]](https://wiki.bash-hackers.org/syntax/pattern)
 
 ### Redirection
 
@@ -2610,6 +2719,7 @@ comm -1 file1 file2
 comm -2 file1 file2
 # Compare contents of two files by deleting only the lines that appear on both files
 comm -3 file1 file2
+# Compare with awk: https://stackoverflow.com/questions/15065818/compare-files-with-awk
 
 # Find differences between two files
 diff file1 file2

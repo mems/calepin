@@ -110,7 +110,7 @@ Implementation:
 - show advices and use detection rules to show warnings
 - long password (at least 8 chars, never max at least 30 chars)
 - don't allow password be equal to the username or the email address
-- check against a blacklist:
+- check against a blocklist:
 	- top used password (like "12345678", etc.) [password top 10](https://www.google.com/search?q=password+top+10)
 	- common keys/chars combinations (`:)`, `¯\_(ツ)_/¯`, words and words combinations/phrases, keyboard patterns eg. "123456"/"qwertyuiop")
 - be carefull with precomposed characters:

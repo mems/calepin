@@ -1033,7 +1033,7 @@ About tiled rendering architectures:
 >
 > ![Trace view from Snapdragon Profiler from a frame of Pinball FX2 VR](Pinball%20FX2%20VR%20render%20frame.jpg)
 >
-> — [John Carmack - These two simple tips can speed up your rendering...](https://www.facebook.com/permalink.php?story_fbid=1923486231219218&id=100006735798590)
+> — [John Carmack - These two simple tips can speed up your rendering...](https://www.facebook.com/permalink.php?id=100006735798590)
 
 ## Primite
 

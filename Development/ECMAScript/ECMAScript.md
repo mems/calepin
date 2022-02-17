@@ -2593,10 +2593,19 @@ Aka RegExp
 
 - [Regular Expressions - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 - [RegExr: Learn, Build, & Test RegEx](http://regexr.com/)
-- [ES proposal: RegExp Unicode property escapes](http://2ality.com/2017/07/regexp-unicode-property-escapes.html)
 
 - number: `/^[-+]?(\d*\.?\d+|\d+\.)$/` (-1, .05, +1000, 3.1415925)
-- backref: `/('|").+?\1/g` `/('|")(\\?.)*?\1/g` `/<([a-z]+)>[^<]*<\/\1>/`
+- backref: ```/('|").+?\1/s.exec(`"a\nb"`)[0]``` ```/<([a-z]+)>[^<]*<\/\1>/.exec(`<a>abc</a>`)[0]```
+
+Escape char in regexp (see [Regular expressions - Escaping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#escaping)), but [it's need special care](https://github.com/tc39/proposal-regex-escaping/issues/37):
+
+```js
+new RegExp(
+	"a*c".replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+		.replace(/\\\*/, ".*?")
+)
+	.test("abc")
+```
 
 See also [RegExp](RegExp)
 

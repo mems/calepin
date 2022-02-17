@@ -6,13 +6,13 @@ Object listing
 
 Volume d’information utile à capter sur un film argentique:
 
-Format de film			Gris 8 bits		RVB 24 bits		Résolution d’analyse
-Vue d’un film 35 mm		7 Mo			20 Mo			4 000 ppi
-Film 24 × 36 mm			20 Mo			60 Mo			4 000 ppi
-Film 6 × 6 cm			40 Mo			120 Mo			3 000 ppi
-Film 4 × 5 pouces		50 Mo			150 Mo			1 800 ppi
-Film 8 × 10 pouces		130 Mo			4 000 Mo		1 400 ppi
-
+| Format de film      | Gris 8 bits | RVB 24 bits | Résolution d’analyse |
+|---------------------|-------------|-------------|----------------------|
+| Vue d’un film 35 mm | 7 Mo        | 20 Mo       | 4 000 ppi            |
+| Film 24 × 36 mm     | 20 Mo       | 60 Mo       | 4 000 ppi            |
+| Film 6 × 6 cm       | 40 Mo       | 120 Mo      | 3 000 ppi            |
+| Film 4 × 5 pouces   | 50 Mo       | 150 Mo      | 1 800 ppi            |
+| Film 8 × 10 pouces  | 130 Mo      | 4 000 Mo    | 1 400 ppi            |
 
 ## Objectif
 
@@ -28,7 +28,7 @@ Exemple : le listing d'une voiture, cela permet :
 - de rechercher, filtrer en fonction de critères basé sur les données parmi un ensemble d'objets numérisés
 
 Exemple : la numérisation un document, cela permet :
- 
+
 - d'y faire référence de façon numérique (document : page → line ou anchor)
 - de lier des données comme le contexte, la date de réception, le type de document (facture, devis, contrat, etc.)...
 - transmettre, copier ça représentation numérique de façon infinie, sans contraintes physique (un document est une représentation physique d'informations)
@@ -104,7 +104,7 @@ Ces données sont :
 - (si type = collection) sous ensemble (parties séparables physiquement dans les conditions normal d'utilisation)
 - (si type = numérique, Dataset) données : textes, multimédia (images, 3D, videos, sons), etc.
 - autres métadonnés :
-	
+
 	* identifiants et codes bar donnés par un tiers
 	* dimension, taille, forme
 	* tout autre métadonnés provenant des données
@@ -123,30 +123,34 @@ Plus d'informations :
 #### Dublin Core
 
 `http://purl.org/dc/dcmitype/PhysicalObject`
- 
-	<!-- Example: Image -->
-	<rdfs:Class rdf:about="http://purl.org/dc/dcmitype/Image">
-		<rdfs:label>Image</rdfs:label>
-		<rdfs:isDefinedBy rdf:resource="http://purl.org/dc/dcmitype/"/>
-		<rdfs:seeAlso rdf:resource="http://dublincore.org/documents/dcmi-type-vocabulary/"/>
-		<rdfs:comment>
-		An image is a primarily symbolic visual representation other than text.
-		For example - images and photographs of physical objects, paintings,
-		prints, drawings, other images and graphics, animations and moving
-		pictures, film, diagrams, maps, mu
-		sical notation. Note that image may
-		include both electronic
-		and physical representations.
-		</rdfs:comment>
-		<rdf:type rdf:resource="http://purl.org/dc/dcmitype/DCMIType"/>
-	</rdfs:Class>
 
-	<?xml version="1.0"?>
-	<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcq="http://purl.org/dc/terms/">
-		<dcq:Image>
-			<dc:creator>Carl</dc:creator>
-		</dcq:Image>
-	</rdf:RDF>
+```xml
+<!-- Example: Image -->
+<rdfs:Class rdf:about="http://purl.org/dc/dcmitype/Image">
+	<rdfs:label>Image</rdfs:label>
+	<rdfs:isDefinedBy rdf:resource="http://purl.org/dc/dcmitype/"/>
+	<rdfs:seeAlso rdf:resource="http://dublincore.org/documents/dcmi-type-vocabulary/"/>
+	<rdfs:comment>
+	An image is a primarily symbolic visual representation other than text.
+	For example - images and photographs of physical objects, paintings,
+	prints, drawings, other images and graphics, animations and moving
+	pictures, film, diagrams, maps, mu
+	sical notation. Note that image may
+	include both electronic
+	and physical representations.
+	</rdfs:comment>
+	<rdf:type rdf:resource="http://purl.org/dc/dcmitype/DCMIType"/>
+</rdfs:Class>
+```
+
+```
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcq="http://purl.org/dc/terms/">
+	<dcq:Image>
+		<dc:creator>Carl</dc:creator>
+	</dcq:Image>
+</rdf:RDF>
+```
 
 - https://en.wikipedia.org/wiki/Dublin_Core
 - http://www.bnf.fr/documents/oai_dublincore.pdf
@@ -162,9 +166,11 @@ L'identifiant est un URI (URN) contenant soit un EPC (Pure identity), soit UUID 
 
 Différents exemples :
 
-	urn:epc:id:sgtin:0037000.030241.1041970
-	urn:epc:id:sscc:123456.00000010146
-	urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66 (UUID)
+```
+urn:epc:id:sgtin:0037000.030241.1041970
+urn:epc:id:sscc:123456.00000010146
+urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66 (UUID)
+```
 
 Cette donnée ne doit pas évoluer dans le temps et rester lié à l'objet.
 
