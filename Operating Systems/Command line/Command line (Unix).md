@@ -1188,6 +1188,7 @@ xdg-open .
 - [Minimal safe Bash script template | Better Dev](https://web.archive.org/web/20201225070311/https://betterdev.blog/minimal-safe-bash-script-template/)
 - [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
 - [dylanaraps/pure-bash-bible: 📖 A collection of pure bash alternatives to external processes.](https://github.com/dylanaraps/pure-bash-bible)
+- [BashPitfalls - Greg's Wiki](https://web.archive.org/web/20220215122427/http://mywiki.wooledge.org/BashPitfalls)
 
 The default shell is defined for a specific user by the file `/etc/passwd`
 
@@ -1446,8 +1447,6 @@ prefix=/some/path/to/
 # awk sub() can be use to replace with regex
 find -printf '%P\0' | awk -v prefix="$prefix" 'BEGIN {RS = "\0"; ORS = "\0"} {print prefix $0}' | do_something_with_null_sep_list
 ```
-
-- [What characters do I need to escape when using sed in a sh script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/32907/what-characters-do-i-need-to-escape-when-using-sed-in-a-sh-script/33005#33005)
 
 ### Command alias
 
@@ -2779,6 +2778,7 @@ See also:
 - [regular expression - How can I use sed to replace a multi-line string? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/26284/how-can-i-use-sed-to-replace-a-multi-line-string/235016#235016)
 - [sed - Remove multi-line comments - Stack Overflow](https://stackoverflow.com/questions/13061785/remove-multi-line-comments)
 - [Multiline techniques (sed, a stream editor)](https://www.gnu.org/software/sed/manual/html_node/Multiline-techniques.html)
+- [What characters do I need to escape when using sed in a sh script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/32907/what-characters-do-i-need-to-escape-when-using-sed-in-a-sh-script/33005#33005)
 
 Search an replace in files
 

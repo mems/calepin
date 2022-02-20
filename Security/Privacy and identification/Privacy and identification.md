@@ -33,7 +33,7 @@ Referrer (correct spelling)
 
 ## Any data can contains private information
 
-Aka redacted, pixelated, unclassified, black box
+Aka redacted, pixelated, unclassified, black box, leak sensitive information
 
 Uploading a document can expose/leak private data. This data and metadata should be stripped if exposed publicly.
 
@@ -75,7 +75,9 @@ Metadata:
 Pixelated text:
 
 - [Never Use Text Pixelation To Redact Sensitive Information | Bishop Fox](https://web.archive.org/web/20220216230121/https://bishopfox.com/blog/unredacter-tool-never-pixelation)
+	- [BishopFox/unredacter: Never ever ever use pixelation as a redaction technique](https://github.com/BishopFox/unredacter)
 - [beurtschipper/Depix: Recovers passwords from pixelized screenshots](https://github.com/beurtschipper/Depix)
+- [Recovering passwords from pixelized screenshots](https://web.archive.org/web/20220214181823/https://www.linkedin.com/pulse/recovering-passwords-from-pixelized-screenshots-sipke-mellema/)
 
 See also:
 
@@ -91,6 +93,9 @@ See also:
 - [Why blurring sensitive information is a bad idea | dheera.net | Dheera Venkatraman's web site](https://web.archive.org/web/20140714183916/http://dheera.net/projects/blur)
 - [Cryptologists decipher a term censored in a CIA "memo" to George Bush](https://web.archive.org/web/20210915051747/https://cryptome.org/cia-decrypt.htm)
 - [forensics - How secure is 'blacking out' sensitive information using MS Paint? - Information Security Stack Exchange](https://security.stackexchange.com/questions/126932/how-secure-is-blacking-out-sensitive-information-using-ms-paint)
+- [Video Enhancement Examples | Amped FIVE](https://ampedsoftware.com/five-samples)
+- [Guidance on Redacting Personal Data Identifiers in Electronically Filed Documents](https://web.archive.org/web/20211228191250/http://www.cadc.uscourts.gov/internet/home.nsf/Content/Guidance%20on%20Redacting%20Personal%20Data%20Identifiers%20in%20Electronically%20Filed%20Documents/$FILE/ECF%20Redaction%20Guide.pdf)
+- [forensics - Secure way of masking out sensitive information in screenshots? - Information Security Stack Exchange](https://security.stackexchange.com/questions/184099/secure-way-of-masking-out-sensitive-information-in-screenshots)
 
 ## Fingerprinting
 
