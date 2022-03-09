@@ -1201,6 +1201,8 @@ See [Know your weaknesses](#know-your-weaknesses)
 - [Hostile Subdomain Takeover using Heroku/Github/Desk + more](https://labs.detectify.com/2014/10/21/hostile-subdomain-takeover-using-herokugithubdesk-more/) - hacked via DNS subdomain takeover via DNS entries for a domain people aren’t aware of.
 - [Broken Browser – Fun with Browser Vulnerabilities](http://www.brokenbrowser.com/)
 - [Exploits Database by Offensive Security](https://www.exploit-db.com/)
+- [s1r1us - Prototype Pollution](https://web.archive.org/web/20220304063408/https://blog.s1r1us.ninja/research/PP) - bypassing client-side HTML sanitizers with prototype pollution
+- ["Zero-Days" Without Incident - Compromising Angular via Expired npm Publisher Email Domains – The Hacker Blog](https://web.archive.org/web/20220222213535/https://thehackerblog.com/zero-days-without-incident-compromising-angular-via-expired-npm-publisher-email-domains-7kZplW4x/) - custom domains used for registered accounts email can expire, that allow ownership takeover
 
 Fuzzing test
 

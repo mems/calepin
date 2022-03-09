@@ -37,8 +37,9 @@ Lightroom infos:
 - [How does JPEG actually work? – Developing for Developers](https://blogs.msdn.microsoft.com/devdev/2006/04/12/how-does-jpeg-actually-work/)
 - [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU&start=66&end=616) - How JPEG works
 - PDF uses JPEG2000
-- [Unraveling The JPEG](https://parametric.press/issue-01/unraveling-the-jpeg/)
+- [Unraveling The JPEG](https://web.archive.org/web/20220307165614/https://parametric.press/issue-01/unraveling-the-jpeg/)
 - [Finally understanding JPG – Compress-Or-Die](https://compress-or-die.com/Understanding-JPG/)
+- [OmarShehata/jpeg-sandbox: Interactively edit individual DCT blocks in any JPEG image in the browser.](https://github.com/OmarShehata/jpeg-sandbox)
 
 Luminance, Chroma Blue, Chroma Red
 

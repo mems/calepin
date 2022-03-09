@@ -547,6 +547,8 @@ https://docs.google.com/document/d/1eBix6HvKSXihGhSbhd3Ld7AGTMXGfqXleu1XKSFtKWQ/
 
 Or proxy's IP
 
+Note: `X-Forwarded-For` header can be spoofed, see [The perils of the “real” client IP | adam-p](https://web.archive.org/web/20220306085205/https://adam-p.ca/blog/2022/03/x-forwarded-for/)
+
 - [wp-geoip-detect/api.php at d48a2d6134a4edf9843d5e4c7c0e4bfd8c4e139d · yellowtree/wp-geoip-detect](https://github.com/yellowtree/wp-geoip-detect/blob/d48a2d6134a4edf9843d5e4c7c0e4bfd8c4e139d/api.php#L177-L220)
 
 - [X-Forwarded-For — Wikipedia](https://en.wikipedia.org/wiki/X-Forwarded-For)
@@ -579,24 +581,6 @@ if(!empty($iptype)){
 	}else if(preg_match("/^([0-9]{1,3}\.){3}[0-9]{1,3}$/", $ip) != 0){
 		$iptype = 'IPv4';
 	}
-}
-?>
-```
-
-IPv4 to number & number to IPv4:
-
-```php
-<?php
-function ipv4ToNumberumber($ip) {
-	list($a, $b, $c, $d) = explode('.', $ip);
-	return (double) ($a*16777216)+($b*65536)+($c*256)+($d);
-}
-function numberToIPv4($number) {
-	$a = ($number/16777216)%256;
-	$b = ($number/65536)%256;
-	$c = ($number/256)%256;
-	$d = ($number)%256;
-	return $a.'.'.$b.'.'.$c.'.'.$d;
 }
 ?>
 ```
@@ -829,6 +813,15 @@ But may not support this.
 
 ## URI/URL
 
+> Cool URIs don't change
+>
+> > What makes a cool URI?
+> > A cool URI is one which does not change.
+> > What sorts of URI change?
+> > _URIs don't change: people change them._
+>
+> — [Hypertext Style: Cool URIs don't change.](https://www.w3.org/Provider/Style/URI.html)
+
 URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org/html/rfc6570)
 
 - absolute URL: `http://domain/path/to/some/resource` https://url.spec.whatwg.org/#absolute-url-string
@@ -849,7 +842,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 `scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]`
 
 - [How many ways can you slice a URL and name the pieces? - Tantek](https://web.archive.org/web/20201031030005/http://tantek.com/2011/238/b1/many-ways-slice-url-name-pieces)
-- `http://[::1]:80/`, `http://[::]:80/`, `http://0.0.0.0:80/`, `http://127.0.0.1/`, `http://localhost/`, `http://3232235778/` (IP decimal notation, is the same as `http://192.168.1.2/` [how to convert](https://www.mkyong.com/java/java-convert-ip-address-to-decimal-number/))
+- `http://[::1]:80/`, `http://[::]:80/`, `http://0.0.0.0:80/`, `http://127.0.0.1/`, `http://127.0.0.1/`, `http://127.1/`, `http://127.40.89.34/` (loopback too), `http://localhost/`, `http://3232235778/` (see [IP address representation](#ip-address-representation))
 - `mysql://user:pass@host/mydatabase`
 - `smtps://username:password@smtp.example.com/?pool=true`
 - `memcached://localhost:11211/meta`
@@ -858,8 +851,43 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 - https://github.com/sidorares/node-mysql2/blob/9218f055ceeb95ae7205348e06c07b89b799d031/lib/connection_config.js#L88-L118
 - [IPv4 - Wikipedia](https://en.wikipedia.org/wiki/IPv4#Addressing)
 - [In search of the perfect URL validation regex](https://mathiasbynens.be/demo/url-regex)
+- [Trailing Slashes on URLs: Contentious or Settled?—zachleat.com](https://web.archive.org/web/20220228014040/https://www.zachleat.com/web/trailing-slash/)
 
 Note: https://-inevitablelament.tumblr.com/ is a valid URL (subdomain start with minus char), see [Bug #668926 “can't resolve domain names starting with a dash (mi...” : Bugs : resolvconf package : Ubuntu](https://bugs.launchpad.net/ubuntu/+source/resolvconf/+bug/668926)
+
+
+### IP address representation
+
+aka IP address as number, aka IP decimal notation
+
+> `1.1.1` will interpret to `1.1.0.1` and not `1.1.1.0` or `0.1.1.1`
+
+`http://3232235778/` and `http://192.168.1.2/` are equivalent
+`http://2130706433/` and `http://127.0.0.1/` are equivalent
+
+```php
+<?php
+function ipv4ToNumberumber($ip) {
+	list($a, $b, $c, $d) = explode('.', $ip);
+	return (double) ($a*16777216)+($b*65536)+($c*256)+($d);
+}
+function numberToIPv4($number) {
+	$a = ($number/16777216)%256;
+	$b = ($number/65536)%256;
+	$c = ($number/256)%256;
+	$d = ($number)%256;
+	return $a.'.'.$b.'.'.$c.'.'.$d;
+}
+?>
+```
+
+- [Dot-decimal notation — Wikipedia](https://en.wikipedia.org/wiki/Dot-decimal_notation)
+- [IPv6 address — Wikipedia](https://en.wikipedia.org/wiki/IPv6_address#Representation)
+- [ip - Why does pinging 192.168.072 (only 2 dots) return a response from 192.168.0.58? - Super User](https://superuser.com/questions/486788/why-does-pinging-192-168-072-only-2-dots-return-a-response-from-192-168-0-58/486904#486904)
+- [WTFriday: http://2915189091 « Super User Blog](https://web.archive.org/web/20210304102711/https://blog.superuser.com/2012/02/10/wtfriday-http2915189091/)
+- [There’s more than one way to write an IP address](https://web.archive.org/web/20220114122139/https://ma.ttias.be/theres-more-than-one-way-to-write-an-ip-address/)
+- [Java - Convert IP address to Decimal Number - Mkyong.com](https://web.archive.org/web/20210902014354/https://mkyong.com/java/java-convert-ip-address-to-decimal-number/)
+- [Php convert ipv6 to number - Stack Overflow](https://stackoverflow.com/questions/18276757/php-convert-ipv6-to-number)
 
 ### Scheme-relative URLs
 

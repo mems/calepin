@@ -1,4 +1,0 @@
-- http://skype:skype@wiki.epycs.ru/index.php/Main_Page
-- https://github.com/skypeopensource/epycs
-- http://wayback.archive.org/web/20140517003215/http://skype-open-source.blogspot.fr/
-- http://web.archive.org/web/20100726032427/http://www.enrupt.com/index.php/2010/07/07/skype-biggest-secret-revealed

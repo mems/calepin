@@ -181,12 +181,15 @@ Windows Registry Editor Version 5.00
 "IgnoreRemoteKeyboardLayout"=dword:00000001
 ```
 
+In [Start > Settings > Time & language > Language & region > Preferred languages](https://support.microsoft.com/en-us/windows/manage-display-language-settings-in-windows-219f28b0-9881-cd4c-75ca-dba919c52321), edit the first entry to add new/change keyboards. Then the keyboard layout can be change in the taskbar
+
 - [c# - Extracting keyboard layouts from windows - Stack Overflow](https://stackoverflow.com/questions/661722/extracting-keyboard-layouts-from-windows/44392188#44392188)
 - [randyrants/sharpkeys: SharpKeys is a utility that manages a Registry key that allows Windows to remap one key to any other key.](https://github.com/randyrants/sharpkeys)
 - [Keyboard Manager Overview · microsoft/PowerToys Wiki](https://github.com/microsoft/PowerToys/wiki/Keyboard-Manager-Overview)
 
+- `%SystemRoot%\System32\*.dll`
 - Microsoft Keyboard Layout Creator use .Net
-- [grompe/kbdasm: Assembler/disassembler of Windows keyboard layouts in flat assembler](https://github.com/grompe/kbdasm) - Disassemble kayboard layout DLLs
+- [grompe/kbdasm: Assembler/disassembler of Windows keyboard layouts in flat assembler](https://github.com/grompe/kbdasm) - Disassemble keyboard layout DLLs
 - [ijprest/keyboard-layout-editor: Web application to enable the design & editing of keyboard layouts](https://github.com/ijprest/keyboard-layout-editor)
 - [Windows-driver-samples/input/layout at master · microsoft/Windows-driver-samples](https://github.com/Microsoft/Windows-driver-samples/tree/master/input/layout)
 - [HOWTO: Build keyboard layouts for Windows x64 - Levicki's Tech Spot - levicki.net](https://web.archive.org/web/20200211103320/https://levicki.net/articles/2006/09/29/HOWTO_Build_keyboard_layouts_for_Windows_x64.php)
@@ -232,3 +235,14 @@ dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /StartComponentCleanup /Reset
 
 - [microsoft/PowerToys: Windows system utilities to maximize productivity](https://github.com/microsoft/PowerToys)
 - [Windows Sysinternals - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/)
+
+## Environnement variables
+
+- [Is there a list of Windows special directories/shortcuts (like %TEMP%)? - Super User](https://superuser.com/questions/217504/is-there-a-list-of-windows-special-directories-shortcuts-like-temp)
+- [List of Environment Variables in Windows Operating System – AskVG](https://www.askvg.com/list-of-environment-variables-in-windows-xp-vista-and-7/)
+- [Windows Environment Variables - Windows CMD - SS64.com](https://ss64.com/nt/syntax-variables.html)
+
+## Special directories
+
+- [Is there a list of Windows special directories/shortcuts (like %TEMP%)? - Super User](https://superuser.com/questions/217504/is-there-a-list-of-windows-special-directories-shortcuts-like-temp)
+- [File path formats on Windows systems | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/standard/io/file-path-formats)

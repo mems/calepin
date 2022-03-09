@@ -15,6 +15,8 @@ Aka writing
 - [Grammar and Punctuation – The Writing Center – UW–Madison](https://writing.wisc.edu/handbook/grammarpunct/)
 - [Butterick’s Practical Typography](https://web.archive.org/web/20201227000555/https://practicaltypography.com/)
 - [Règles de typographie française - A propos du site - Framasoft](http://www.framasoft.net/article2225.html)
+- [RAMAT TYPOGRAPHIE](https://www.ramat.ca/)
+- [Charte orthotypographique du Journal officiel Lois et décrets](https://web.archive.org/web/20210813051606/https://www.legifrance.gouv.fr/contenu/Media/Files/autour-de-la-loi/legislatif-et-reglementaire/charte_typographique_jo_janvier_2021.pdf)
 
 ### Capitalization
 

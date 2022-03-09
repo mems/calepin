@@ -1756,11 +1756,13 @@ See also [Keyboard layout](../Windows/Windows.md#keyboard-layout)
 
 Useful when you use a remote desktop connection. The host doesn't have the Apple keyboard layout.
 
+DLL files are in `%SystemRoot%\System32`, copy them from [Boot Camp drivers](#boot-camp)
+
 ```reg
 Windows Registry Editor Version 5.00
 
 ; Layouts installed by Boot Camp Support driver package
-; Layout files are relative to "C:\Windows\System32"
+; Layout files are relative to "%SystemRoot%\System32"
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts]
 
@@ -3584,3 +3586,10 @@ And mostly POSIX-compatible
 
 - [Some Differences between macOS and Common Unix Systems](https://web.archive.org/web/20201226003512/https://www.dyx.name/posts/macunix.html)
 - [Darwin (operating system) - Wikipedia](https://en.wikipedia.org/wiki/Darwin_%28operating_system%29)
+
+## Screen capture
+
+Aka screen cast, screenshot
+
+- [keycastr/keycastr: KeyCastr, an open-source keystroke visualizer](https://github.com/keycastr/keycastr)
+- [Take a screenshot on your Mac - Apple Support](https://support.apple.com/en-us/HT201361)

@@ -1230,7 +1230,7 @@ export PS1="\[\033[0m\]\[\033[0;30;47m\] \u\[\033[0m\]\[\033[0;30;47m\]@\h\[\033
 export PS1="[${LOGNAME}@$(hostname)]"
 ```
 
-Defined by (in order):
+Profile files, defined by (in order, but also if the shell is interactive and/or a login):
 
 1. (global system) `/etc/profile`
 2. (global system) `/etc/bashrc`
@@ -1246,7 +1246,7 @@ To reload a configuration file (here the file `~/.bashrc`)
 
 ```sh
 source ~/.bashrc
-# or
+# or use dot command:
 . ~/.bashrc
 ```
 
@@ -1254,6 +1254,14 @@ By convention, the prompt ends with `$` for users and by `#` for root
 
 - [Bash prompt basics](http://linuxconfig.org/Bash_prompt_basics)
 - [Shell startup scripts — flowblok’s blog](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html)
+- [Bash Startup Files - Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html#Bash-Startup-Files)
+- [Zsh/Bash startup files loading order (.bashrc, .zshrc etc.) | The Lumber Room](https://web.archive.org/web/20220117094551/https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/)
+- [bash - Difference between .bashrc and .bash_profile - Super User](https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980)
+- [Bourne shell: what does it execute on interactive, non-login? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/340837/bourne-shell-what-does-it-execute-on-interactive-non-login/340840#340840)
+- [How to check if a shell is login/interactive/batch - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/26676/how-to-check-if-a-shell-is-login-interactive-batch/26782#26782)
+- [bash - How to pass environment variables to a non-interactive shell (with example)? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/158117/how-to-pass-environment-variables-to-a-non-interactive-shell-with-example/158120#158120)
+- [How to permanently set environmental variables - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables/117470#117470)
+- [How To Read and Set Environmental and Shell Variables on Linux | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 
 ### Command alias
 
@@ -2074,6 +2082,8 @@ rename 'y/A-Z/a-z/' *
 
 # Copying a file
 cp file1 file2
+# Copy all files in dir1 to dir2 (recursively)
+cp -R dir1/. dir2/
 # Copy all files of a directory within the current work directory
 cp dir/* .
 # Copy a directory within the current work directory

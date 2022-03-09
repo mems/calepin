@@ -160,8 +160,11 @@ Ex: A ↔︎ B refactored to A → B, with B that use the [observer pattern](htt
 
 ## Multiple users
 
-Aka multiplayer game, streaming, RTS game
+Aka multiplayer game, streaming, RTS game, collaborative software, conflict resolution
 
+- [Braid: Synchronization for HTTP](https://braid.org/)
+- [Operational transformation — Wikipedia](https://en.wikipedia.org/wiki/Operational_transformation)
+- [Conflict-free replicated data type — Wikipedia](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type)
 - [How Figma’s multiplayer technology works](https://web.archive.org/web/20200829094142/https://www.figma.com/blog/how-figmas-multiplayer-technology-works/) - About implementation of multiple user editor
 - [pfrazee/crdt_notes](https://github.com/pfrazee/crdt_notes)
 - [Gamasutra - 1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond](http://www.gamasutra.com/view/feature/131503/1500_archers_on_a_288_network_.php)
@@ -940,6 +943,7 @@ Interactive elements:
 
 Networking:
 
+- [Multiple users](#multiple-users)
 - Fast-Paced Multiplayer by Gabriel Gambetta:
 	- [Client-Server Game Architecture - Gabriel Gambetta](https://web.archive.org/web/20211027060542/https://www.gabrielgambetta.com/client-server-game-architecture.html)
 	- [Fast-Paced Multiplayer (Part I): Client-Server Game Architecture | Hacker News](https://news.ycombinator.com/item?id=29003727)
@@ -966,7 +970,7 @@ See also:
 - [Permissive software license - Wikipedia](https://en.wikipedia.org/wiki/Permissive_software_license)
 - [License compatibility - Wikipedia](https://en.wikipedia.org/wiki/License_compatibility)
 
-## Command line
+## Command line interface
 
 Aka CLI
 
@@ -1004,6 +1008,7 @@ curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 - [Use long flags when scripting |\> Changelog](https://web.archive.org/web/20201111204522if_/https://changelog.com/posts/use-long-flags-when-scripting)
 - [mdk.fr – How APT does its fancy progress bar](https://web.archive.org/web/20211013181755/https://mdk.fr/blog/how-apt-does-its-fancy-progress-bar.html)
 - [Tips on Adding JSON Output to Your CLI App - Brazil's Blog](https://web.archive.org/web/20211206085426/https://blog.kellybrazil.com/2021/12/03/tips-on-adding-json-output-to-your-cli-app/)
+- [NO_COLOR: disabling ANSI color output in various Unix commands](https://no-color.org/)
 
 ### Command line documentation
 

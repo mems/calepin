@@ -18,6 +18,10 @@ Aka optimizations
 - [Optimizing Dockerfile for Node.js (Part 1) - js.io](https://web.archive.org/web/20200913150039/https://js.io/optimizing-dockerfile-for-node-js-part-1)
 - [Optimizing Docker image size and why it matters - contains.dev](https://web.archive.org/web/20220109024111/https://contains.dev/blog/optimizing-docker-image-size)
 - [Optimizing Docker image size and why it matters | Hacker News](https://news.ycombinator.com/item?id=29828386)
+- [Docker optimization guide: the 5 best tips to optimize Docker development speed](https://web.archive.org/web/20220227213557/https://www.augmentedmind.de/2022/01/09/optimize-docker-development-speed/)
+- [Docker optimization guide: optimize build speed in CI pipelines](https://web.archive.org/web/20220220192205/https://www.augmentedmind.de/2022/01/23/optimize-docker-build-speed-in-ci/)
+- [Docker optimization guide: 8 tricks to optimize your Docker image size](https://web.archive.org/web/20220220191209/https://www.augmentedmind.de/2022/02/06/optimize-docker-image-size/)
+- [Docker optimization guide: the 12 best tips to optimize Docker image security](https://web.archive.org/web/20220220192213/https://www.augmentedmind.de/2022/02/20/optimize-docker-image-security/)
 
 > Perform your add & remove operations in the same RUN command. Doing them separately creates two separate layers which inflates the image size.
 >
@@ -61,6 +65,14 @@ Lint and security:
 - [Docker Security Best Practices from the Dockerfile](https://web.archive.org/web/20210104021357/https://cloudberry.engineering/article/dockerfile-security-best-practices/)
 - [goodwithtech/dockle: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start](https://github.com/goodwithtech/dockle)
 - [hadolint/hadolint: Dockerfile linter, validate inline bash, written in Haskell](https://github.com/hadolint/hadolint)
+
+## Docker compose
+
+Aka `compose.yaml` (or `docker-compose.yml` or `compose.yml`)
+
+- [YAML is a superset of JSON](../Formats%2C%20encoding%20and%20protocols/YAML/YAML.md#yaml-is-a-superset-of-json)
+- [bucherfa/docker-compose-converter: Convert docker run/create commands to docker-compose.yml files.](https://github.com/bucherfa/docker-compose-converter)
+- [Compose file | Docker Documentation](https://docs.docker.com/compose/compose-file/)
 
 ## Alpine
 
@@ -110,3 +122,7 @@ If the host is not Linux or the image use on other OS use a virtual machine cont
 
 - [sickcodes/docker-osx - Docker Image | Docker Hub](https://hub.docker.com/r/sickcodes/docker-osx) - [sickcodes/Docker-OSX: Run Mac in a Docker! Run near native OSX-KVM in Docker! X11 Forwarding! CI/CD for OS X!](https://github.com/sickcodes/Docker-OSX)
 - [Install on Virtual Machine](../Operating%20Systems/macOS/macOS.md#install-on-virtual-machine)
+
+## Volumes
+
+- [How to list the content of a named volume in docker 1.9+? - Stack Overflow](https://stackoverflow.com/questions/34803466/how-to-list-the-content-of-a-named-volume-in-docker-1-9)

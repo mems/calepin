@@ -121,10 +121,15 @@ add_filter('json_enabled', '__return_false');
 add_filter('json_jsonp_enabled', '__return_false');
 ```
 
+- https://github.com/WordPress/WordPress/blob/master/wp-content/themes/twentyfourteen
 - [WordPress/WordPress: WordPress, Git-ified. Synced via SVN every 15 minutes, including branches and tags! This repository is just a mirror of the WordPress subversion repository. Please do not send pull requests. Submit patches to https://core.trac.wordpress.org/ instead.](https://github.com/WordPress/WordPress/)
 - [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
 - [roots/sage: WordPress starter theme with a modern development workflow](https://github.com/roots/sage)
 - [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
+
+### Template hierarchy
+
+- [Template Hierarchy | Theme Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/themes/basics/template-hierarchy/)
 
 ### Theme development
 
@@ -190,7 +195,7 @@ wp_nav_menu(
 );
 ```
 
-## Performance / optimisation
+## Performance and optimisation
 
 Use [OPcache](http://php.net/manual/en/book.opcache.php)
 
@@ -210,6 +215,7 @@ Plugins:
 - [How to Optimize MySQL Queries - WPML](https://wpml.org/faq/how-to-optimize-mysql-queries/)
 - [How to Debug Performance Problems - WPML](https://wpml.org/faq/how-to-debug-performance-problems/)
 - [Performance Optimization for Multilingual WordPress Sites with WPML](https://wpml.org/2012/01/can-your-site-run-faster/)
+- [Nginx + WordPress + fastcgi_cache with conditional purging](https://easyengine.io/wordpress-nginx/tutorials/single-site/fastcgi-cache-with-purging/) - [How to Setup FastCGI Caching with Nginx on your VPS | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-setup-fastcgi-caching-with-nginx-on-your-vps)
 
 ## Custom fields
 
@@ -235,6 +241,18 @@ Some:
 - [Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/)
 - [Must Use Plugins | WordPress.org](https://wordpress.org/support/article/must-use-plugins/)
 - [Plugins in mu-plugins folder are not loaded - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/26337/plugins-in-mu-plugins-folder-are-not-loaded)
+
+## Taxonomy
+
+Aka categories, tags
+
+- [Categories vs. Tags – WordPress.com Support](https://wordpress.com/support/posts/categories-vs-tags/)
+
+## Rewrite
+
+- call `flush_rewrite_rules()`
+- Settings > Permalinks > Save changes
+- [Flushing Rewrite on Activation](https://developer.wordpress.org/reference/functions/register_post_type/#flushing-rewrite-on-activation)
 
 ## Regenerate thumbnails
 

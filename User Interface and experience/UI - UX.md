@@ -742,6 +742,7 @@ And what about forward compatibility: you ovewrite the current logic not the fut
 - [The disadvantages of single page applications | Adam Silver | UX design, Front-end Engineering and Strategy | London, UK.](http://adamsilver.io/articles/the-disadvantages-of-single-page-applications/)
 - [CodePen - Scrolljacking is interfacejacking](http://codepen.io/gunderson/full/GJJPpV/)
 - [Interface Hall of Shame - Visual Elements](https://web.archive.org/web/20021009021738/http://www.iarchitect.com/visual.htm)
+- [You can't capture the nuance of my form fields](https://web.archive.org/web/20220303122823/https://drewdevault.com/2021/06/27/You-cant-capture-the-nuance.html)
 
 ### Scroll and zoom
 

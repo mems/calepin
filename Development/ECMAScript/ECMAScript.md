@@ -1341,6 +1341,13 @@ y = (x >>> offset) & (Math.pow(2, numBits) - 1);
 
 ## Promises
 
+- pending: neither fulfilled nor rejected
+- settled:
+	- fulfilled: operation was completed successfully
+	- rejected: operation failed
+
+resolved promise: settled or ["locked-in" to match the state of another promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
 Use async/await with destructuring
 
 Note: until the first `await` is met, the begining of an async function body is sync. [javascript - Does async make everything inside it asynchronous? - Stack Overflow](https://stackoverflow.com/questions/51201786/does-async-make-everything-inside-it-asynchronous/51201849#51201849)
@@ -1393,6 +1400,14 @@ function promiseTimeout(ms, promise) {
 **Note: Promise-returning functions should never synchronously throw errors**
 
 ```js
+async function asyncFunc() {
+	doSomethingSync();// call immediately
+	await doSomethingAsync();
+	//···
+}
+```
+
+```js
 function asyncFunc() {
 	return Promise.resolve()
 	.then(() => {
@@ -1402,14 +1417,6 @@ function asyncFunc() {
 	.then(result => {
 		//···
 	});
-}
-```
-
-```js
-async function asyncFunc() {
-	doSomethingSync();// call immediately
-	await doSomethingAsync();
-	//···
 }
 ```
 
@@ -1687,14 +1694,17 @@ Private properties or methods use specific [name convention](#scoped-variable) l
 ### Data properties on prototype
 
 > A class body can only contain methods, no data properties. Prototypes having data properties is generally considered an anti-pattern, so this just enforces a best practice
-— [Classes in ECMAScript 6 (final semantics)](http://www.2ality.com/2015/02/es6-classes-final.html)
+>
+> — [Classes in ECMAScript 6 (final semantics)](http://www.2ality.com/2015/02/es6-classes-final.html)
 
 > Avoid prototype properties with initial values for instance properties
-— [Data in prototype properties](http://www.2ality.com/2013/09/data-in-prototypes.html)
+>
+> — [Data in prototype properties](http://www.2ality.com/2013/09/data-in-prototypes.html)
 
 > Class declarations to declare and define the capabilities of a class. Not its members. An ES6 class declaration defines its contract for its user.
 > [...] a class definition defines prototype methods
-— [javascript - ES6 class variable alternatives - Stack Overflow](https://stackoverflow.com/questions/22528967/es6-class-variable-alternatives/22986568#22986568)
+>
+> — [javascript - ES6 class variable alternatives - Stack Overflow](https://stackoverflow.com/questions/22528967/es6-class-variable-alternatives/22986568#22986568)
 
 So define in constructor, always in the same order without any condition
 
@@ -2239,8 +2249,9 @@ Don't add expando properties (eg.: `object.newProperty = "value"`). Use `WeakMap
 
 Unless it's to backport the features of newers ECMAscript engines (like `Array.forEach`).
 
-- [What's wrong with extending the DOM — Perfection Kills](http://perfectionkills.com/whats-wrong-with-extending-the-dom/)
+- [What's wrong with extending the DOM — Perfection Kills](https://web.archive.org/web/20220303154336/http://perfectionkills.com/whats-wrong-with-extending-the-dom/)
 - [Inheritance and the prototype chain - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#Bad_practice.3A_Extension_of_native_prototypes)
+- [JavaScript naming conflicts: How existing code can force proposed features to be renamed](https://web.archive.org/web/20220307155300/https://2ality.com/2022/03/naming-conflicts.html)
 
 ## Comma operator
 
