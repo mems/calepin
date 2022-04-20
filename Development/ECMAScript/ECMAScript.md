@@ -77,14 +77,14 @@ function myfunction(){}
 Not:
 
 ```js
-var mufunction = function(){};
+const mufunction = function(){};
 ```
 
 Name all function. Debug will be easer with stack traces contains those names
 
 ```js
 function renameFunction(func, name){
-  return Object.defineProperty(func, "name", {value: name});// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name
+	return Object.defineProperty(func, "name", {value: name});// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name
 }
 ```
 
@@ -107,7 +107,7 @@ Convert a function in strict mode to a function in sloppy (non-strict) mode (if 
 
 ```js
 function sloppify(func) {
-    return new Function('return ' + func)();
+	return new Function('return ' + func)();
 }
 ```
 
@@ -116,7 +116,7 @@ function sloppify(func) {
 Give uppercase name :
 
 ```js
-var MY_CONST_NAME = "value";
+const MY_CONST_NAME = "value";
 ```
 
 Use [JSDoc comment](#comments) like:
@@ -127,12 +127,8 @@ Use [JSDoc comment](#comments) like:
  * @const
  * @type {string}
  */
-var MY_CONST_NAME = "value";
+const MY_CONST_NAME = "value";
 ```
-
-or
-
-- https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Statements/const
 
 ### Induction variable
 
@@ -413,8 +409,10 @@ See also [Destructuring](#destructuring)
 
 ### Array fill
 
-	Array.from({length: 3})// => [undefined, undefined, undefined]
-	Array.from({length: 3}, (value, index, array) => 2 + index * 2)// => [2, 4, 6]
+```js
+Array.from({length: 3})// => [undefined, undefined, undefined]
+Array.from({length: 3}, (value, index, array) => 2 + index * 2)// => [2, 4, 6]
+```
 
 See [Array holes](#array-holes)
 
@@ -870,7 +868,7 @@ const obj = {
 };
 
 const arr = [
-	...condition && ["a"] || [],// need a default value or it will throw a type error: boolean false is not iterable
+	...condition ? ["a"] : [],// need a default value or it will throw a type error: boolean false is not iterable
 ];
 ```
 
@@ -905,27 +903,33 @@ function({a = "foo", b = "bar"} = {}){
 
 If `expr` is falsy
 
-	const x = expr || "default";
+```js
+const x = expr || "default";
+```
 
 If `expr` is undefined:
 
-	const x = x === undefined ? "default" : expr;
-	const [x = "default"] = [expr];
+```js
+const x = x === undefined ? "default" : expr;
+const [x = "default"] = [expr];
+```
 
 ## Object literal declaration
 
-	let key3name = "key3";
-	let ref = {key4: "Four"}
-	let obj = {
-		key1: "One",
-		key2: "Two",
-		[key3name]: "Three"
-		property([parameters]) {},
-		get property() {},
-		set property(value) {},
-		* generator() {},
-		...ref
-	};
+```js
+let key3name = "key3";
+let ref = {key4: "Four"}
+let obj = {
+	key1: "One",
+	key2: "Two",
+	[key3name]: "Three"
+	property([parameters]) {},
+	get property() {},
+	set property(value) {},
+	* generator() {},
+	...ref
+};
+```
 
 - [Object initializer - JavaScript | MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 
@@ -947,18 +951,24 @@ Or "dispatched method call" for `obj.foo()` and "direct method call" for `func.c
 
 Return without return keyword, use the [comma operator](#comma-operator)
 
-	(param1) => (doSomething(), param1)
+```js
+(param1) => (doSomething(), param1)
+```
 
 Equivalent to
 
-	(param1) => {
-		doSomething();
-		return param1;
-	}
+```js
+(param1) => {
+	doSomething();
+	return param1;
+}
+```
 
 Return an object
 
-	(param) => ({attr1: "value1", attr1: "value2"})
+```js
+(param) => ({attr1: "value1", attr1: "value2"})
+```
 
 ### Function name
 
@@ -981,10 +991,14 @@ if (!(function f() {}).name) {
 
 ## Ternary
 
-	var result = value > 10 ? getA() || getB()
+```js
+const result = value > 10 ? getA() : getB();
+```
 
-	// If getA() return a "falsy" value, getB() will be the result
-	var result = value > 10 && getA() || getB()
+```js
+// If getA() return a "falsy" value, getB() will be the result
+const result = value > 10 && getA() || getB();
+```
 
 ## Performance and optimization
 
@@ -4618,3 +4632,17 @@ String(function(){console.log("Hello")}).slice(11, -1);// console.log("Hello")
 ## Tree traversal
 
 - [Tree traversal with ES6 generator - Hemanth.HM](https://h3manth.com/new/blog/2014/tree-traversal-with-es6-generator/)
+
+## Slug
+
+```js
+// For browsers that don't support normalization (IE<=11), ignore it
+// slug('Cómics más vendidos') === 'co-mics-ma-s-vendidos'
+// It's not the same as https://github.com/Trott/slug but it's way smaller
+const slug = (value) =>
+	(String(value).normalize?.('NFD') ?? String(value))
+		.replace(/\s+/g, ' ')
+		.trim()
+		.replace(/[^\w]/g, '-')
+		.toLowerCase();
+```

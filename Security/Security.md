@@ -2,17 +2,17 @@ The protection resistance is matter of time, money or opportunities. Anything is
 
 > on ne peut chiffrer ou déchiffrer une donnée, l'inscrire ou la supprimer d'une mémoire sans apporter et déposer une trace sur l'ordinateur, sans modifier et prendre quelque chose qui s'y trouvait auparavant.
 >
-> — [Zythom: Le principe de l'échange de Locard](http://zythom.blogspot.fr/2007/08/le-principe-de-lchange-de-locard.html)
+> — [Zythom: Le principe de l'échange de Locard](https://web.archive.org/web/20140219092935/http://zythom.blogspot.com/2007/08/le-principe-de-lchange-de-locard.html)
 
 > It's cheaper to get hacked than build strong IT defenses
 >
-> — [Sad reality: It's cheaper to get hacked than build strong IT defenses • The Register](http://www.theregister.co.uk/2016/09/23/if_your_company_has_terrible_it_security_that_could_be_a_rational_business_decision/)
+> — [Sad reality: It's cheaper to get hacked than build strong IT defenses • The Register](https://web.archive.org/web/20220322215311/https://www.theregister.com/2016/09/23/if_your_company_has_terrible_it_security_that_could_be_a_rational_business_decision/)
 
 ![door keypad where some keys are worn](CmF_ddwWMAEX7xv.jpg) [I sense a weak password](https://twitter.com/jcolman/status/748019163831074816)
 
 > areoplanes include strict systems to separate the cabin from the cockpit [...] concept of "security domains"
 >
-> — [Peak Internet of Shit - All But One "Watch Dogs 2" Hack Works in REAL LIFE – LearntEmail](https://learntemail.sam.today/blog/peak-internet-of-shit-all-but-one-watch-dogs-2-hack-works-in-real-life/)
+> — [When fictional worlds are an accurate representations of IoT security – LearntEmail](https://web.archive.org/web/20171002095731/https://learntemail.sam.today/blog/peak-internet-of-shit-all-but-one-watch-dogs-2-hack-works-in-real-life/)
 
 > We had cryptographic potatoes for dinner. They were salted and hashed.
 >
@@ -20,7 +20,7 @@ The protection resistance is matter of time, money or opportunities. Anything is
 
 > Don't trust anyone
 
-- [The Bare Minimum of Security](http://nothingofvalue.org/)
+- [The Bare Minimum of Security](https://web.archive.org/web/20201022063546/https://nothingofvalue.org/)
 
 ## Resources
 

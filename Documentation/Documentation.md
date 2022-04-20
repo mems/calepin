@@ -54,6 +54,12 @@ Don't use words like "easy", "simple", "trivial", and "not hard".
 - [As a Designer I want better Release Notes](https://uxdesign.cc/design-better-release-notes-3e8c8c785231)
 - [Keep a Changelog](https://keepachangelog.com/)
 
+## Versioning
+
+Aka semver, semantic versioning
+
+- [Semantic Versioning 2.0.0 | Semantic Versioning](https://semver.org/spec/v2.0.0.html)
+
 ## API
 
 - [API](../Development/Development.md#api)

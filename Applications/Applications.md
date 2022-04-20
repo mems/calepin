@@ -440,6 +440,8 @@ Aka WebStorm, PhpStorm, IntelliJ IDEA
 
 Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by the app: [Grunt feedback : WEB-11713](https://youtrack.jetbrains.com/issue/WEB-11713#comment=27-718038)
 
+[Shell Script](https://plugins.jetbrains.com/plugin/13122-shell-script) Task Run/Debug Configuration (see [Shell scripts | IntelliJ IDEA](https://www.jetbrains.com/help/idea/shell-scripts.html)) on Windows without "Execute in the terminal" enabled generate the error `Error running '<task_name>': Cannot run program "\bin\sh" (in directory "<task_working_directory>"): CreateProcess error=2, The system cannot find the file specified`. To fix this issue, create a junction: `mklink /J "C:\bin" "C:\Program Files\Git\bin"`. See also https://youtrack.jetbrains.com/issue/IDEA-277486
+
 - Command keyboard shortcut match only US layout: [National keyboard layouts support : IDEA-165950](https://youtrack.jetbrains.com/issue/IDEA-165950#comment=27-2053321)
 - Support ANSI sequences in Run tool (use terminal for NodeJS registry key, at least in PhpStorm 2018.3 and WebStorm 2018.2): [Console output manipulation is not supported when using WebStorm Run : IDEA-154313](https://youtrack.jetbrains.com/issue/IDEA-154313#focus=streamItem-27-2842206.0-0)
 - Help > Find Action > Check "UML support" on, right click on file or folder > Diagram. [Module Dependency Diagrams - Help | PhpStorm](https://www.jetbrains.com/help/phpstorm/module-dependency-diagram.html)

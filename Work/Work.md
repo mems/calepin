@@ -14,17 +14,21 @@ Be a good senior dev:
 ## Quotes
 
 > Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.
+>
 > — Sénèque
 
 > Rendre l'expérience utilisateur audacieuse
 
 > A user interface is like a joke. If you have to explain it, it’s not that good.
+>
 > — Martin LeBlanc
 
 > pour être efficace, l'important n'est pas de savoir faire tout ce que tu peux faire avec tes outils, mais plutôt de connaître tous les outils existants, leurs avantages et leurs inconvénients; connaître leur utilisation viendra en temps voulu.
+>
 > — [Les inconnues inconnues – HTeuMeuLeu](http://www.hteumeuleu.fr/les-inconnues-inconnues/#comment-3545)
 
 > je vais chercher l’argent où il se trouve (dans la pub) et je m’achète du temps libre
+>
 > — Nicolas Barradeau dans une [interview de devmag](http://devmag.fr/nicolas-barradeau-le-dinosaure-des-creative-dev-parisiens/)
 
 > Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour. Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés.
@@ -33,7 +37,8 @@ Be a good senior dev:
 >
 > Au nom du scrum, du git et du saint projet...
 > Amen
-> - [noredine69 on Twitter: "@gregalexandre @neur0nia Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour.Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés." / Twitter](https://twitter.com/noredine69/status/1295077783593418756?s=12)
+>
+> — [noredine69 on Twitter: "@gregalexandre @neur0nia Au forfait comme en régis, que ton chiffrage soit sanctifié, que ta livraison vienne et que ta facture soit faite. Donne-nous aujourd’hui nos features de ce jour.Pardonne-nous nos bugs,comme nous pardonnons aussi aux projects owner qui nous ont offensés." / Twitter](https://twitter.com/noredine69/status/1295077783593418756?s=12)
 
 ## Entreprise lifecycle
 

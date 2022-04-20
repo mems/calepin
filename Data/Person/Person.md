@@ -224,3 +224,21 @@ Aka sex
 - [National identification number - Wikipedia](https://en.wikipedia.org/wiki/National_identification_number)
 - [Numéro d'immatriculation fiscale — Wikipédia](https://fr.wikipedia.org/wiki/Num%C3%A9ro_d%27immatriculation_fiscale)
 - [NIF, NIE, CIF](https://generadordni.es/#dni)
+- NIF - Número de Identificación Fiscal (ex [CIF - Código de identificación fiscal](https://es.wikipedia.org/wiki/C%C3%B3digo_de_identificaci%C3%B3n_fiscal))
+
+NIF (CIF):
+
+|           Names          |     ID    |
+|:------------------------:|:---------:|
+|                          | E00000000 |
+|                          | A58818501 |
+
+### Passport
+
+| Country |           Names          |     ID    |
+|:-------:|:------------------------:|:---------:|
+| FRA     | SPECIMEN NATACHA         | 6DRF19342 |
+| FRA     | DUPUIS JEAN              | 00ZB00000 |
+| GBR     | MARTIN SARAH             | ZE0005098 |
+| AUS     | CITIZEN JOHN             | M0993353  |
+| ESP     | ESPANOLA ESPANOLA CARMEN | ZAB000254 |

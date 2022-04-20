@@ -101,6 +101,11 @@ UPDATE wp_posts SET guid = replace(guid, @curent, @next);
 - [WP Migrate DB – WordPress plugin | WordPress.org](https://wordpress.org/plugins/wp-migrate-db/) - Free version handle metadata PHP serialization trouble
 - [Changing The Site URL | WordPress.org](https://wordpress.org/support/article/changing-the-site-url/)
 
+## Plugins
+
+- [Proxy Cache Purge](https://fr.wordpress.org/plugins/varnish-http-purge/)
+- [WP Statistics](https://fr.wordpress.org/plugins/wp-statistics/)
+
 ## Rest API
 
 - [Reference | REST API Handbook | WordPress Developer Resources](https://developer.wordpress.org/rest-api/reference/)
@@ -219,6 +224,12 @@ Plugins:
 
 ## Custom fields
 
+Fields starts with `_` are not visible defaut meta box for custom field
+
+Gutenberg editor plugins can be written with JSX/ES6 or ES5 (without compilation)
+
+- [Custom Fields – WordPress.org Forums](https://wordpress.org/support/article/custom-fields/)
+- [How to Add Post Meta Fields to Gutenberg Document Sidebar - A White Pixel](https://awhitepixel.com/blog/how-to-add-post-meta-fields-to-gutenberg-document-sidebar/)
 - [Compare WP - Plugin Comparison - Content Type / Custom Fields - Google Sheets](https://docs.google.com/spreadsheets/d/1mSqienVYxLopTFGLPK0lGCJst2knKzXDtLQRgwjeBN8/edit#gid=3)
 - [ACF to REST API – WordPress plugin | WordPress.org](https://wordpress.org/plugins/acf-to-rest-api/)
 

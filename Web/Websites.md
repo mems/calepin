@@ -72,6 +72,8 @@ Some social network have a direct access to share an URL, text or to prefill a m
 
 Test with [URI template online tester](https://codepen.io/mmems/pen/oNxxRvN)
 
+- [bradvin/social-share-urls: Social Share URLs](https://github.com/bradvin/social-share-urls)
+
 ### Twitter
 
 URL template: `https://twitter.com/intent/tweet{?url,text,via,related,hashtags}`

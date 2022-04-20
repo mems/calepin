@@ -494,3 +494,12 @@ function luhnChk(luhn) {
 ## Compare data
 
 See [Compare data](./Compare%20data/Compare%20data.md)
+
+## Sensor adjustment
+
+Aka: GPS, accelerometers, gyroscopes adjustment
+
+- [ceres-solver/ceres-solver: A large scale non-linear optimization library](https://github.com/ceres-solver/ceres-solver)
+	- [Ceres Solver — A Large Scale Non-linear Optimization Library](http://ceres-solver.org/)
+	- [Street View sensor fusion with Ceres Solver - YouTube](https://www.youtube.com/watch?v=z00ORu4bU-A)
+- [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/gpo/wikis/GPO.wiki)

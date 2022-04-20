@@ -852,6 +852,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 - [IPv4 - Wikipedia](https://en.wikipedia.org/wiki/IPv4#Addressing)
 - [In search of the perfect URL validation regex](https://mathiasbynens.be/demo/url-regex)
 - [Trailing Slashes on URLs: Contentious or Settled?—zachleat.com](https://web.archive.org/web/20220228014040/https://www.zachleat.com/web/trailing-slash/)
+- [.aspx considered harmful – Jon Udell](https://web.archive.org/web/20210518101412/https://blog.jonudell.net/2008/01/17/aspx-considered-harmful/)
 
 Note: https://-inevitablelament.tumblr.com/ is a valid URL (subdomain start with minus char), see [Bug #668926 “can't resolve domain names starting with a dash (mi...” : Bugs : resolvconf package : Ubuntu](https://bugs.launchpad.net/ubuntu/+source/resolvconf/+bug/668926)
 
@@ -931,7 +932,16 @@ Note: [public suffix](https://en.wikipedia.org/wiki/Public_Suffix_List) aka effe
 	- [Omnibox - The Chromium Projects](https://www.chromium.org/user-experience/omnibox#TOC-Input-Types-and-Examples)
 - [Mettre un tiret dans mon nom de domaine ? | Gandi News](https://news.gandi.net/fr/2020/08/dois-je-mettre-un-tiret-dans-mon-nom-de-domaine/)
 - Suffixes, like `.com`, `.co.uk`, `pvt.k12.ma.us`, etc. [Public Suffix List](https://publicsuffix.org/)
+
+#### Second-level domain
+
 - [Second-level domain — Wikipedia](https://en.wikipedia.org/wiki/Second-level_domain)
+- https://gist.github.com/rubengersons/0ff87fd457c958a503ab
+- https://gist.github.com/danallison/905746161b23832b9cd8029ca6919b51
+- https://github.com/projectbtle/BLE-GUUIDE/blob/10fdd3f3fa7ca077e0ba5a3efa2c2ac83455cb1a/resources/common/slds.json
+- https://github.com/gavingmiller/second-level-domains
+- https://github.com/medialize/URI.js/blob/master/src/SecondLevelDomains.js
+- https://github.com/adblockplus/adblockpluscore/blob/next/lib/url.js + https://github.com/adblockplus/adblockpluscore/blob/next/build/updatepsl.js / https://github.com/adblockplus/adblockpluscore/blob/next/data/publicSuffixList.json
 
 ### Password
 

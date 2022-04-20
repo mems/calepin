@@ -861,7 +861,7 @@ See [Version message](../Development/Git/Git.md#version-message)
 
 ## Indentation
 
-Aka Spaces vs tabs
+Aka tabs vs spaces, spaces vs tabs
 
 - (accessibility) people can set the indentation render size (aka tab-width) to whatever they prefer in a way that doesn't affect other users (2-space indentation can be hard to read)
 - it's faster to move around only using the keyboard (IDE can handle that)
@@ -889,17 +889,17 @@ Aka Spaces vs tabs
 > Tabs, when you want the reader to be in control the layout.
 > Spaces, when you want the author be in control the layout.
 
-- [Tabs versus Spaces](https://www.jwz.org/doc/tabs-vs-spaces.html)
+- [Why tabs are clearly superior – Lea Verou](https://web.archive.org/web/20210703112314/https://lea.verou.me/2012/01/why-tabs-are-clearly-superior/) - see also links
+- [Tabs versus Spaces](https://web.archive.org/web/20220107131506/https://www.jwz.org/doc/tabs-vs-spaces.html)
 - [Nobody talks about the real reason to use Tabs over Spaces : javascript](https://www.reddit.com/r/javascript/comments/c8drjo/nobody_talks_about_the_real_reason_to_use_tabs/)
-- [Why tabs are clearly superior | Lea Verou](http://lea.verou.me/2012/01/why-tabs-are-clearly-superior/) - see also links
-- [Tabs or Spaces](https://ukupat.github.io/tabs-or-spaces/)
+- [Tabs or Spaces](https://web.archive.org/web/20211117040123/https://ukupat.github.io/tabs-or-spaces/)
 - [Indent style — Wikipedia](https://en.wikipedia.org/wiki/Indent_style)
 - [Indentation (typesetting) — Wikipedia](https://en.wikipedia.org/wiki/Indentation_%28typesetting%29#Indentation_in_programming)
 - [Tab key — Wikipedia](https://en.wikipedia.org/wiki/Tab_key)
-- [Death to the Space Infidels!](https://blog.codinghorror.com/death-to-the-space-infidels/)
+- [Death to the Space Infidels!](https://web.archive.org/web/20220207122630/https://blog.codinghorror.com/death-to-the-space-infidels/)
 - [Joonathan Mägi's answer to Why would a coder use spaces over tabs? - Quora](https://www.quora.com/Why-would-a-coder-use-spaces-over-tabs/answer/Joonathan-M%C3%A4gi)
 - [Developers who use spaces make more money than those who use tabs | Hacker News](https://news.ycombinator.com/item?id=14560042) - it's incorrect interpretation of data, see [Tabs, spaces and your salary - how is it really?](http://evelinag.com/blog/2017/06-20-stackoverflow-tabs-spaces-and-salary/index.html)
-- [tom tom dot com on Twitter: ""Spaces or tabs?" "Semicolons." @aisamanra https://t.co/QmiH4t79gN"](https://twitter.com/pelotom/status/779134762283732992) - C with semicolons as indentation char
+- [eumemic 🟥 on Twitter: ""Spaces or tabs?" "Semicolons." @aisamanra… "](https://web.archive.org/web/20220125173208/https://twitter.com/dysmemic/status/779134762283732992) - C with semicolons as indentation char
 
 ## Release note
 
@@ -1023,6 +1023,11 @@ Dependency = risk
 ## Plugins
 
 - [What are the advantages and disadvantages of plug-in based architecture? - Stack Overflow](https://stackoverflow.com/questions/2818415/what-are-the-advantages-and-disadvantages-of-plug-in-based-architecture/2851880#2851880)
+
+## Bugs
+
+- [Code quality](#code-quality)
+- [The Pontiac that was Allergic to Vanilla Ice Cream](https://web.archive.org/web/20010304093737/http://plant-maintenance.com/articles/pontiac.shtml)
 
 # Concepts and Methodology
 

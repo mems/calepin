@@ -24,6 +24,7 @@ Due to leap second, it's possible to have 61 seconds or only 59 seconds in 1 min
 > As of the start of 1918, the Gregorian calendar was 13 days ahead of the Julian calendar, which was relegated that February to use only by churches after Russia adopted the Gregorian calendar.
 — [1918 — Wikipedia](https://en.wikipedia.org/wiki/1918)
 
+- [Storing UTC is not a silver bullet | Jon Skeet's coding blog](https://web.archive.org/web/20220316103159/https://codeblog.jonskeet.uk/2019/03/27/storing-utc-is-not-a-silver-bullet/) - [Storing UTC is not a silver bullet (2019) | Hacker News](https://news.ycombinator.com/item?id=30659164)
 - [Your calendrical fallacy is thinking…](https://web.archive.org/web/20210515141515/https://yourcalendricalfallacyis.com/)
 - [Falsehoods programmers believe about time: @noahsussman: Infinite Undo](https://web.archive.org/web/20210926080918/https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time)
 - [More falsehoods programmers believe about time;...: @noahsussman: Infinite Undo](https://web.archive.org/web/20210911153048/https://infiniteundo.com/post/25509354022/more-falsehoods-programmers-believe-about-time)
@@ -34,9 +35,28 @@ Due to leap second, it's possible to have 61 seconds or only 59 seconds in 1 min
 - [Parse Natural Language Dates with Dateparser | The Scrapinghub Blog](http://blog.scrapinghub.com/2015/11/09/parse-natural-language-dates-with-dateparser/)
 
 - [RFC 3339 vs ISO 8601](https://ijmacd.github.io/rfc3339-iso8601/)
-- https://github.com/IJMacD/rfc3339-iso8601/blob/209ee5a6843f48c55e015fff41c7cf3cf6d2e0ab/src/format.js
+- [RFC 3339 and ISO 8601 date formating](https://github.com/IJMacD/rfc3339-iso8601/blob/209ee5a6843f48c55e015fff41c7cf3cf6d2e0ab/src/format.js)
 - [ISO week date — Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
 - [Time Zones](http://everytimezone.com/)
 - [dmfilipenko/timezones.json: Full list of timezones](https://github.com/dmfilipenko/timezones.json)
 
 - [Time.is](https://time.is/)
+
+## Calendars
+
+Aka ICS, webcal
+
+- Apple iCloud calendars
+	- [Use iCloud calendar subscriptions - Apple Support](https://support.apple.com/en-us/HT202361)
+	- https://calendars.icloud.com/holiday/FR_fr.ics
+	- https://calendars.icloud.com/holiday/GB_en-GB.ics
+- Thunderbird calendars
+	- [Holiday Calendars — Thunderbird](https://www.thunderbird.net/en-US/calendar/holidays/)
+	- https://www.thunderbird.net/media/caldata/calendars.json
+	- https://www.thunderbird.net/media/caldata/FrenchHolidays.ics
+- [Le calendrier scolaire - data.gouv.fr](https://www.data.gouv.fr/en/datasets/le-calendrier-scolaire/)
+- [Jours fériés en France - data.gouv.fr](https://www.data.gouv.fr/fr/datasets/jours-feries-en-france/)
+- [Calendrier des vacances scolaires - Dates des vacances - service-public.fr](https://www.service-public.fr/simulateur/calcul/Dates_Vacances_Scolaires)
+- [Subscription contents | WebCal.Guru](https://www.webcal.guru/en/subscription_contents?payment_type=free_account)
+- [Welcome to iCalShare](http://icalshare.com/)
+- [iCalendar Validator](https://icalendar.org/validator.html)

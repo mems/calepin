@@ -39,3 +39,6 @@ See also:
 - [diekmann/wasm-fizzbuzz: WebAssembly from Scratch: From FizzBuzz to DooM.](https://github.com/diekmann/wasm-fizzbuzz) - "Wizer instantiates your WebAssembly module, executes its initialization function, and then snapshots the initialized state out into a new WebAssembly module"
 - [WAPM - WebAssembly Package Manager](https://wapm.io/)
 - [WebAssembly/binaryen: Compiler infrastructure and toolchain library for WebAssembly](https://github.com/WebAssembly/binaryen) - [gonowa/wasm-opt: the easiest way to run wasm-opt](https://github.com/gonowa/wasm-opt)
+- [Reducing WebAssembly size by exploring all executions in LLVM](https://web.archive.org/web/20220316162019/https://leaningtech.com/reducing-webassembly-size-by-exploring-all-executions-in-llvm/) - [PartialExecuter: Reducing WebAssembly size by exploring all executions in LLVM | Hacker News](https://news.ycombinator.com/item?id=30686919)
+- [ern0/howto-wasm-minimal: How to create minimal wasm module](https://github.com/ern0/howto-wasm-minimal) - [Show HN: How to compile C/C++ for WASM, pure Clang, no libs, no framework | Hacker News](https://news.ycombinator.com/item?id=30991235)
+- [WebAssembly Studio](https://webassembly-studio.kamenokosoft.com/)

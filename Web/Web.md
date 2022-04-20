@@ -1506,6 +1506,8 @@ $date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
 	- some HTML element like images or video with keywords like "publicité" (in URL or title) don't appears on some browsers
 	- Firefox with the Tracking Protection block the Facebook SDK in private mode (by default)
 	- Adblock block IDs starts with `ad`
+	- ex: http://example.com/images/AD/AD/9F/D2/13803437-3-1520-3.jpg is blocked by easylist, see https://github.com/easylist/easylist/blob/536e287/easylist/easylist_general_block.txt#L268
+	- [uBlock/assets.json at a4376e950067d301beb89af26e9ef9a58e3862f3 · gorhill/uBlock](https://github.com/gorhill/uBlock/blob/a4376e9/assets/assets.json) - uBlock lists enabled by default
 	- [Class and ID to avoid because of AdBlock](https://gist.github.com/spyesx/42fe84c0ef757d1c38a4) https://github.com/easylist/easylist (IDs start with `###`, classes start with `##.`)
 	- [Remove hint on beacon.js as it's apparently a bad name · ntzwrk/beacon@17c2042](https://github.com/ntzwrk/beacon/commit/17c20422b2912bed0c414093ebaaf672e1ea2a57)
 	- [Don't use "ad" as a class · Issue #139 · rtsao/styletron](https://github.com/rtsao/styletron/issues/139)
@@ -1773,15 +1775,16 @@ Other:
 
 - tools for browser for users or authors: zoom and font size settings, [reduce motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion), [custom font](https://www.dyslexiefont.com/en/chrome-extension/), screen reader, [colors inversion](http://adrianroselli.com/2017/11/os-high-contrast-versus-inverted-colors.html), video sub titles, keyboard navigation, [etc.](https://chrome.google.com/webstore/category/collection/accessibility))
 - accessibility overlay tools / add-on accessibility / plug and play solutions ([accessiBe](https://en.wikipedia.org/wiki/AccessiBe), Facil'iti)
-    - [Web accessibility overlay tools: lies and gum balls - Le Lutin du Web](https://www.lelutinduweb.fr/en/web-accessibility-overlays-lies-gum-balls/)
-    - [Be Wary of Add-on Accessibility | Adrian Roselli](https://web.archive.org/web/20201111022804/https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
-    - [#accessiBe Will Get You Sued | Adrian Roselli](https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html)
-    - [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
-    - [Web Accessibility Overlays Don't Work](https://web.archive.org/web/20201005172019/https://blog.tenon.io/web-accessibility-overlays-dont-work)
-    - [Les outils de surcouche d’accessibilité web : mensonges et boules de gomme - La Lutine du Web](https://web.archive.org/web/20201015162302/https://www.lalutineduweb.fr/surcouche-accessibilite-web-mensonges-boules-gommes/)
+	- [Web accessibility overlay tools: lies and gum balls - Le Lutin du Web](https://www.lelutinduweb.fr/en/web-accessibility-overlays-lies-gum-balls/)
+	- [Be Wary of Add-on Accessibility | Adrian Roselli](https://web.archive.org/web/20201111022804/https://adrianroselli.com/2015/11/be-wary-of-add-on-accessibility.html)
+	- [#accessiBe Will Get You Sued | Adrian Roselli](https://adrianroselli.com/2020/06/accessibe-will-get-you-sued.html)
+	- [2019 Review: AccessiBe Automatic Website Solution Accessibility Using AI | Kris Rivenburgh](https://krisrivenburgh.com/2019-review-accessibe-automatic-website-solution-accessibility-using-ai/)
+	- [Web Accessibility Overlays Don't Work](https://web.archive.org/web/20201005172019/https://blog.tenon.io/web-accessibility-overlays-dont-work)
+	- [Les outils de surcouche d’accessibilité web : mensonges et boules de gomme - La Lutine du Web](https://web.archive.org/web/20201015162302/https://www.lalutineduweb.fr/surcouche-accessibilite-web-mensonges-boules-gommes/)
 	- [Should I Use An Accessibility Overlay?](https://web.archive.org/web/20210303164744/https://shouldiuseanaccessibilityoverlay.com/)
 	- [AccessiByeBye](https://www.accessibyebye.org/) and [PneumaSolutions/accessibyebye-extension](https://github.com/PneumaSolutions/accessibyebye-extension) - WebExtension that remove accessibility overlays
 	- [Why accessibility overlays do not improve site accessibility | The Big Hack](https://web.archive.org/web/20210903171639/https://bighack.org/why-accessibility-overlays-and-widgets-do-not-improve-your-website-accessibility/)
+	- [Overlay Fact Sheet](https://web.archive.org/web/20220227150032/https://overlayfactsheet.com/)
 - [Accessibility: The Missing Ingredient – A List Apart](https://alistapart.com/article/accessibility-the-missing-ingredient/)
 - [thetuttingtutor/accessibility-disability-justice: Accessibility and disability justice resources](https://github.com/thetuttingtutor/accessibility-disability-justice)
 - [WebAIM: Articles](https://webaim.org/articles/)

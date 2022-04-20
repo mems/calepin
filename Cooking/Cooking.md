@@ -590,3 +590,31 @@ Pour 4 personnes :
 - 2 cuillères à soupe de sucre
 - beurre
 - sucre glace
+
+## Maffé
+
+Pour 4 personnes:
+
+- 4 c.à.s de beurre de cacahuètes
+- 1 c.à.s de concentré de tomates
+- 1 c.à.s de sucre
+- 1 c.à.s d'huile d'arachide
+- poivre
+- sel
+- 1 oignon
+- 4 cuisses de poulet
+- 3 patates douces et/ou du riz
+- piment de Cayenne
+
+1. peler et émincer les oignons
+2. faire dorer le poulet avec l'huile dans une "cocotte" pendant 10 min et réserver
+3. baisser le feu sous la "cocotte" et y plonger les oignons
+4. dans un petit bol, mélanger le concentré de tomate, le sucre, l'eau, le sel et le poivre ainsi que le piment
+5. verser la préparation sur les oignons et mélanger
+6. ajouter le beurre de cacahuète et mélanger à nouveau
+7. remettre le poulet dans la cocotte et mélanger une dernière fois en laissant sur feu moyen
+8. verser de l'eau bouillante (un bon fond mais pas à niveau) sur la préparation et laisser cuire à petit bouillon 35 min sans couvrir
+9. pendant ce temps, laver les patates douces et les couper en 4 ou 5 morceaux selon leur taille. Les faire cuire avec la peau 30 min maxi à la vapeur
+10. une fois cuites, peler les patates et les servir en accompagnement du poulet
+
+- [Maffé de poulet (Afrique) : recette de Maffé de poulet (Afrique)](https://www.marmiton.org/recettes/recette_maffe-de-poulet-afrique_18461.aspx)

@@ -1,0 +1,2 @@
+- [Global Positioning System — Wikipedia](https://en.wikipedia.org/wiki/Global_Positioning_System)
+- [GPS – Bartosz Ciechanowski](https://web.archive.org/web/20220403020846/https://ciechanow.ski/gps/)

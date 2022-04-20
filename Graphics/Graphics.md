@@ -1138,14 +1138,13 @@ Aka Fragment Shaders
 - [Shaders](http://loopspace.mathforge.org/HowDidIDoThat/Codea/Shaders/)
 - [Shader — Wikipedia](https://en.wikipedia.org/wiki/Shader)
 - [The Book of Shaders](http://thebookofshaders.com/)
-- [alphablending - How to use pre-multiplied during image convolution to solve alpha bleed problem? - Stack Overflow](https://stackoverflow.com/questions/4854839/how-to-use-pre-multiplied-during-image-convolution-to-solve-alpha-bleed-problem)
 - [Vanilla WebGL Shader - basic mouse move](https://codepen.io/desandro/pen/GzvbJN) - pixel shader 2D example
 - [stackgl/shader-school: A workshopper for GLSL shaders and graphics programming](https://github.com/stackgl/shader-school)
 - [The Shader Permutation Problem - Part 1: How Did We Get Here?](https://web.archive.org/web/20211014071421/https://therealmjp.github.io/posts/shader-permutations-part1/)
 
 Usefull functions:
 
-- [Easing](Animation#easing)
+- [Easing](../Animation/Animation.md#easing)
 
 ### Pixel shaders examples and libraries
 
@@ -2642,6 +2641,8 @@ Compute blend mode: (image A and image B): [Photoshop math with GLSL shaders](ht
 
 ### Premultiplied alpha
 
+Aka pre-multiplied alpha
+
 Premultiplied (matted) vs straight alpha (unmatted)
 
 > The reason to do this is performance. The image processing algorithm to **composite two bitmaps always requires that the alpha channels are being multplied into the color information**, so if you have a tool that needs to do a lot of compositing it simply saves you a good amount of time if you don't have to do these multiplications for every pixel.
@@ -2731,6 +2732,9 @@ map.setPixel32(0,0,0x20fcfcfc);
 trace( map.getPixel32(0,0).toString(16)) // traces 0x20ffffff
 ```
 
+- [Alpha compositing — Wikipedia](https://en.wikipedia.org/wiki/Alpha_compositing)
+- [What is Pre-multiplied Alpha and Why Does it Matter? « The blog at the bottom of the sea](https://web.archive.org/web/20211226082704/https://blog.demofox.org/2015/06/19/what-is-pre-multiplied-alpha-and-why-does-it-matter/)
+- [alphablending - How to use pre-multiplied during image convolution to solve alpha bleed problem? - Stack Overflow](https://stackoverflow.com/questions/4854839/how-to-use-pre-multiplied-during-image-convolution-to-solve-alpha-bleed-problem)
 - [Quasimondo - Mario Klingemann's Flash Blog: The Dirty Secrets of Premultiplied Alpha](http://www.quasimondo.com/archives/000665.php)
 - [Premultiplied alpha – Shawn Hargreaves Blog](https://blogs.msdn.microsoft.com/shawnhar/2009/11/06/premultiplied-alpha/)
 - [Premultiplied alpha and image composition – Shawn Hargreaves Blog](https://blogs.msdn.microsoft.com/shawnhar/2009/11/07/premultiplied-alpha-and-image-composition/)
@@ -2744,6 +2748,7 @@ trace( map.getPixel32(0,0).toString(16)) // traces 0x20ffffff
 - [Messy Alpha Problem - White around edges - Unity Answers](http://answers.unity3d.com/questions/10302/messy-alpha-problem-white-around-edges.html)
 - [Unreal Cascade: Making Proper Alpha Channels for VFX - YouTube](https://www.youtube.com/watch?v=oh2WGL8hvPo)
 - Fragment shader with non-premultiplied alpha [opengl - Fragment shader and coloring a texture - Stack Overflow](https://stackoverflow.com/questions/18783752/fragment-shader-and-coloring-a-texture)
+- [What is Premultiplied Alpha? A Primer for Artists. - Limnu](https://web.archive.org/web/20210411125931/https://limnu.com/premultiplied-alpha-primer-artists/)
 
 ## Line
 

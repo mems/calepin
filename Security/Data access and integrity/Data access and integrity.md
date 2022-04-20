@@ -833,6 +833,7 @@ Firefox:
 `sudo tcpdump -i en0 -s 0 tcp port https -w ~/Desktop/capture.pcap`
 Chrome [`--ssl-key-log-file=file`](https://peter.sh/experiments/chromium-command-line-switches/#ssl-key-log-file)
 
+- [Decrypting your own HTTPS traffic with Wireshark – Trickster Dev](https://web.archive.org/web/20220322032940/https://www.trickster.dev/post/decrypting-your-own-https-traffic-with-wireshark/)
 - [NSS Key Log Format - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format)
 - [Decrypting TLS Browser Traffic With Wireshark – The Easy Way! | Jim Shaver](https://jimshaver.net/2015/02/11/decrypting-tls-browser-traffic-with-wireshark-the-easy-way/)
 - [TLS Master Secrets — mitmproxy 2.0.2 documentation](https://mitmproxy.readthedocs.io/en/v2.0.2/dev/sslkeylogfile.html)
@@ -841,7 +842,7 @@ Chrome [`--ssl-key-log-file=file`](https://peter.sh/experiments/chromium-command
 - [Article: K10209 - Overview of packet tracing with the ssldump utility](https://support.f5.com/csp/article/K10209)
 - [Chrome not Firefox are not dumping to SSLKEYLOGFILE variable - Stack Overflow](https://stackoverflow.com/questions/42332792/chrome-not-firefox-are-not-dumping-to-sslkeylogfile-variable)
 - [CertPinning - Fiddler](http://fiddler.wikidot.com/certpinning)
-- [Bypassing OpenSSL Certificate Pinning in iOS Apps](https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2015/january/bypassing-openssl-certificate-pinning-in-ios-apps/) - Doesn't work on recent iOS versions
+- [8 Different Ways to Bypass SSL Pinning in iOS application](https://web.archive.org/web/20211217083612/https://www.appknox.com/blog/bypass-ssl-pinning-in-ios-app)
 
 ### Cookie-to-Header Token
 

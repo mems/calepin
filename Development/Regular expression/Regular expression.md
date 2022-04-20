@@ -1,5 +1,10 @@
 Aka regex, regexp
 
+> \[about `/[$(-+.?[-^{|}]/g` vs `/[$()*+.?[\\]^{|}]/g`, used to escape special chars in regex\]
+> I'd rather see the characters explicitly here; we're not playing code golf
+>
+> — [regex - Is there a RegExp.escape function in JavaScript? - Stack Overflow](https://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript#comment80383853_3561711)
+
 A regex is a function with subroutines (instruction)
 
 - [devongovett/regexgen: Generate regular expressions that match a set of strings](https://github.com/devongovett/regexgen)

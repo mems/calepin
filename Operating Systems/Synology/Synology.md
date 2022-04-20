@@ -993,6 +993,8 @@ log-append /var/log/openvpn.log
 ;verb 3
 ```
 
+Because the option "Reconnect when the VPN connection is lost" is not reliable, you can use this method: [Reconnecting a failed VPN connection on Synology DSM 6 | SysBlog](https://web.archive.org/web/20220129142504/https://blog.harrier.us/reconnecting-a-failed-vpn-connection-on-synology-dsm-6) https://web.archive.org/*/https://raw.githubusercontent.com/ianharrier/synology-scripts/master/reconnect-vpn.sh
+
 - `cat /var/log/messages | grep openvpn`
 - [How to configure Synology 5.1 NAS | NordVPN Support](https://support.nordvpn.com/Connectivity/NAS/1049322482/How-to-configure-Synology-5-1-NAS.htm)
 - [How to Create an OpenVPN Network Interface on a Synology NAS!](https://web.archive.org/web/20210218083203/https://www.wundertech.net/how-to-create-an-openvpn-network-interface-on-a-synology-nas/)

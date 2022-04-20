@@ -15,11 +15,17 @@ Aditional compression can be applied:
 
 [ATF](#atf) use this technique
 
+## Premultiplied alpha
+
 To premultiply alpha (for formats that don't use it) of an PNG image:
 
 ```sh
 convert RGBA.png \( +clone -alpha Extract \) -channel RGB -compose Multiply -composite RGBA_premultiplied.png
 ```
+
+See also:
+
+- [Premultiplied alpha](../../Graphics/Graphics.md#premultiplied-alpha)
 
 ## Optimizations
 
@@ -34,9 +40,9 @@ Reduce artifacts
 	See also bleed edges and [Color bleed](../../Graphics/Color%20bleed/Color%20bleed.md).
 
 	Happend when textures when transform is applyed (scale, rotation, perspective).
-	
+
 	Remove white/dark outlines/borders/halos/fringing.
-	
+
 	Defringe / dilate RGB
 	These color values can reduce artifacts around sprites and removes dark halos at transparent borders. This feature is also known as "Alpha bleeding".
 	This only works only when the alpha is not pre-multiplied (aka premultiplied alpha), `glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);` it will produce black outlines
@@ -44,7 +50,7 @@ Reduce artifacts
 	See [TexturePacker Online Documentation](https://www.codeandweb.com/texturepacker/documentation)
 	Should be aligned to few blocks (texture compression blocks) aways
 	Fully transparent pixels are often filled with `rgba(1.0, 1.0, 1.0, 0.0)`
-	
+
 	- [Unity - Manual: How do I Import Alpha Textures?](https://docs.unity3d.com/Manual/HOWTO-alphamaps.html) and `AlphaUtility.atn`
 	- [PNG transparency has white border/halo - Unity Answers](http://answers.unity3d.com/questions/238922/png-transparency-has-white-borderhalo.html#answer-949217)
 	- [Messy Alpha Problem - White around edges - Unity Answers](http://answers.unity3d.com/questions/10302/messy-alpha-problem-white-around-edges.html)
@@ -54,7 +60,7 @@ Reduce artifacts
 - align to compression blocks
 - use [dithering](../../Algorithms/Random,%20noise%20and%20dithering/Random,%20noise%20and%20dithering.md#dithering):
 	Add noise pre-processing (before compression) depends algorithm used to compress (especially for gradient with PVRTC1). See [Making the quality of PVRTC textures higher | Heyworks Blog](http://wayback.archive.org/web/20160406130348/http://blog.heyworks.com/making-the-quality-of-pvrtc-textures-higher/) or [Избавление от артефактов сжатия PVRTC текстур / Хабрахабр](https://habrahabr.ru/post/158963/)
-	
+
 	- nearest-neighbour, has the least color error but color distribution leads to less contrast than linear.
 	- linear color distribution with some color error but better contrast than nearest-neighbour.
 	- Floyd-Steinberg
@@ -63,7 +69,7 @@ Reduce artifacts
 	- Atkinson with alpha values.
 - use channel swizzle (require shader when it's not supported): [Texture swizzling in OpenGL, OpenGL ES and WebGL](https://www.g-truc.net/post-0734.html)
 	Add more precision to defined channels
-	
+
 	- https://www.opengl.org/wiki/Texture#Swizzle_mask
 - [How to get the best out of PVRTC for iOS - Kruger Heavy Industries Devlog](http://www.krugerheavyindustries.com/pebble/2012/04/02/1333338720000.html)
 - [Dimensionality reduction for image and texture set compression | Bart Wronski](https://bartwronski.com/2020/05/21/dimensionality-reduction-for-image-and-texture-set-compression/) - Use multiple channels to compress PBR textures, an experiment
@@ -140,7 +146,7 @@ Block Compression:
 > - OpenGL ES 3.1 has in core: ETC2/EAC, plus extensions for PVRTC, ASTC, and other proprietary formats.
 > - WebGL 1.0 has no compressed formats in core, plus an extension for S3TC/BC1&2&3 (plus pending ratifications for ATC/BC4&5, ETC1 and PVRTC, plus drafts for ETC2/EAC and ASTC).
 > - Less than 2 years before S3 patent expiration for S3TC/BC1&2&3.
-> 
+>
 > [^1]: There is no reference to whether some compressed format where optional, but the last phrase before listing 9 seems to imply that all Mantle devices support "read-only access of optimally tiled images" for all BCn formats.
 — [Some compressed texture formats in "core"? : vulkan](https://www.reddit.com/r/vulkan/comments/3xvl3m/some_compressed_texture_formats_in_core/)
 
@@ -175,7 +181,7 @@ sRGB colorspace and S3TC [S3 Texture Compression - OpenGL.org](https://www.openg
 > UNORM	Unsigned normalized integer, meaning that for an n-bit number, all 0's means 0.0f, and all 1's means 1.0f. A sequence of evenly spaced floating point values from 0.0f to 1.0f are represented. e.g. a 2-bit UNORM represents 0.0f, 1/3, 2/3, and 1.0f.
 > SRGB	Similar to UNORM, in that for an n-bit number, all 0's means 0.0f and all 1's means 1.0f. However unlike UNORM, with SRGB the sequence of unsigned integer encodings between all 0's to all 1's represent a nonlinear progression in the floating point interpretation of the numbers, between 0.0f to 1.0f. Roughly, if this nonlinear progression, SRGB, is displayed as a sequence of colors, it would appear as a linear ramp of luminosity levels to an "average" observer, under "average" viewing conditions, on an "average" display. For complete detail, refer to the SRGB color standard, IEC 61996-2-1, at IEC (International Electrotechnical Commission).
 > ````
-> 
+>
 > - [Data Conversion Rules - Windows applications | Microsoft Docs](https://docs.microsoft.com/fr-fr/windows/desktop/direct3d10/d3d10-graphics-programming-guide-resources-data-conversion)
 
 Fixed channels or float channels
@@ -487,7 +493,7 @@ UINT8 * LoadKTX(const CHAR * strFileName , UINT32 *pWidth , UINT32 * pHeight , U
 	//
 	fseek(file,(long)header.bytesOfKeyValueData,SEEK_CUR);
 	fread(&faceLodSize,sizeof(faceLodSize),1,file);
-	
+
 	faceLodSizeRounded = (faceLodSize + 3) & ~(UINT32)3;
 	data = (UINT8 *)malloc(faceLodSizeRounded);
 
@@ -525,12 +531,12 @@ ATC is AMD's proprietary compression algorithm for compressing textures for hand
 
 Implemented Qualcomm (and previously ATI then AMD). See https://en.wikipedia.org/wiki/Adreno#History
 
-Called AXT because it is very similar to DXT codec: 
+Called AXT because it is very similar to DXT codec:
 
 - [2012.Converting.DXTC.to.ATC.pdf](http://www.guildsoftware.com/papers/2012.Converting.DXTC.to.ATC.pdf)
 - https://twitter.com/p1xelcoder/status/394863589367902208
 
-For the texture: 
+For the texture:
 
 One 4x4 bloc, use ATC explicit (ATCA), with following pixels:
 
@@ -592,7 +598,7 @@ p3_3 = 11 => color1
 Qualcomm adapted version of ATC used by Manila/Mode9
 
 > Find an x, with which a following expression has a minimum value (of F):
-> 
+>
 > ````
 > F(x) = 30 * (r - R)^2 + 59 * (g - G)^2 + 11 * (b - B)^2
 > where
@@ -602,7 +608,7 @@ Qualcomm adapted version of ATC used by Manila/Mode9
 > ````
 >
 > Basically, we need to find a function MinX(R, G, B, r1, g1, b1, r2, g2, b2) which value will turn F(x) into minimum value, and 0 <= MinX <= 1
-> 
+>
 > I guess in the last equation all r and g should be replaced by b.
 > In that case, according to Maple, the solution of dF(x)/dx = 0 is:
 > ````
@@ -610,34 +616,34 @@ Qualcomm adapted version of ATC used by Manila/Mode9
 > 59*g2^2+59*G*g1-59*G*g2-11*b2*b1+11*b2^2+
 > 11*B*b1-11*B*b2)/
 > (30*r1^2-60*r2*r1+30*r2^2+59*g1^2-118*g2*g1+
-> 59*g2^2+11*b1^2-22*b2*b1+11*b2^2) 
+> 59*g2^2+11*b1^2-22*b2*b1+11*b2^2)
 > ````
 
 > 0x0000: xx xx xx xx xx xx xx xx - transparency data. 1-byte/pixel. But you may ask: hey! there're 16 pixels per chunk! Wtf? Sorry guys, QTC image is actually halved by width and restored via interpolation during decoding.
 > Bytes are drawn in this order:
-> 
+>
 > ````
 > [i2][0][i][1]
 > [i2][2][i][3]
 > [i2][4][i][5]
 > [i2][6][i][7]
 > ````
-> 
+>
 > "i" means interpolated pixel, "i2" means pixel, interpolated between 2 chunks
 > also, FYI, tflo3d wrap's image around during edge interpolation
-> 
+>
 > ````
 > 0x0008: xx xx - color non-uniformity info. see next. also, dunno how it works yet
-> 
+>
 > 0x000a: BB RG - key chunk color in RGB format (8 bits for blue, and 4+4 bits for red+green). Yes, pixels in chunk have shared color, modified by previous 2 and next 4 bytes
-> 
+>
 > 0x000c: 21 43 65 87 - ligthness values for each drawn pixel (number corresponds to pixel #), 4bits each
 > ````
 
 > . QTC files
 > They're non-compressed bitmaps, but encoding used there is completely retarded.
 > As ryujakk *almost* correctly stated, header is:
-> 
+>
 > ````
 > 0x0000: 51 54 43 31 01(?) - magic bytes signature
 > 0x0008: xx xx xx xx - UINT32 image width
@@ -645,20 +651,20 @@ Qualcomm adapted version of ATC used by Manila/Mode9
 > 0x0010: .... some metadata goes here, maybe encoding type too, dunno yet
 > 0x0020: image data
 > 0x......: last ~500 bytes are padded with zeros for some reason (> QTC files are padded up to multiples of 512. For faster loading, i reckon.)
-> 
+>
 > 0x0008: xx xx - Key color 1. Color is calculated by adding values from 4 LUTs (lookup tables) for each 4 bits. Each LUT holds RGB values
-> 
+>
 > 0x000a: xx xx - Key color 2. Same as key color 1, but different LUTs
-> 
+>
 > 0x000c: 21 43 65 87 - mixdown coefficients for each drawn pixel (number corresponds to pixel #), 4bits each. see next
 > ````
-> 
+>
 > As i wrote earlier, pixels in chunk have shared master colors. The resulting is calulated as:
-> 
+>
 > ````
 > color = mixdown * key_color_2 + (1 - mixdown) * key_color_1
 > ````
-> 
+>
 > Note 1. Mixdown value is normalized to 1
 > Note 2. Mixdown operation s/b done for each color channel distinctly
 
@@ -848,11 +854,11 @@ The `xSize`, `ySize`, and `zSize` fields are 24-bit quantities, each encoded as 
 // from https://github.com/libgdx/libgdx/blob/155fd6972e7084862ccdba9b12894538685416ff/gdx/jni/gdx2d/gdx2d.c#L52-L83
 static inline uint32_t to_format(uint32_t format, uint32_t color) {
 	uint32_t r, g, b, a, l;
-	
+
 	switch(format) {
-		case GDX2D_FORMAT_ALPHA: 
+		case GDX2D_FORMAT_ALPHA:
 			return color & 0xff;
-		case GDX2D_FORMAT_LUMINANCE_ALPHA: 
+		case GDX2D_FORMAT_LUMINANCE_ALPHA:
 			r = (color & 0xff000000) >> 24;
 			g = (color & 0xff0000) >> 16;
 			b = (color & 0xff00) >> 8;
@@ -863,7 +869,7 @@ static inline uint32_t to_format(uint32_t format, uint32_t color) {
 			return color >> 8;
 		case GDX2D_FORMAT_RGBA8888:
 			return color;
-		case GDX2D_FORMAT_RGB565: 
+		case GDX2D_FORMAT_RGB565:
 			r = (((color & 0xff000000) >> 27) << 11) & 0xf800;
 			g = (((color & 0xff0000) >> 18) << 5) & 0x7e0;
 			b = ((color & 0xff00) >> 11) & 0x1f;
@@ -874,7 +880,7 @@ static inline uint32_t to_format(uint32_t format, uint32_t color) {
 			b = (((color & 0xff00) >> 12) << 4) & 0xf0;
 			a = ((color & 0xff) >> 4) & 0xf;
 			return r | g | b | a;
-		default: 
+		default:
 			return 0;
 	}
 }
@@ -1054,19 +1060,19 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 - [Intel® Texture Works Plugin for Photoshop* | Intel® Software](https://software.intel.com/en-us/articles/intel-texture-works-plugin), https://github.com/GameTechDev/Intel-Texture-Works-Plugin http://gametechdev.github.io/Intel-Texture-Works-Plugin/ BC1, BC1_SRGB, BC3, BC3_SRGB, BC6H_FAST, BC6H_FINE,BC7_FAST, BC7_FINE, BC7_SRGB_FAST, BC7_SRGB_FINE, BC4, BC5, NONE
 - [Compressonator - AMD](https://github.com/GPUOpen-Tools/Compressonator) ASTC, DDS, EXR, KTX, TGA; DXT1, DXT3, DXT5, DXT5_xGBR, DXT5_RxBG, DXT5_RBxG, DXT5_xRBG, DXT5_RGxB, DXT5_xGxR, ATI1N, ATI2N, ATI2N/ATI2N_XY, ATI2N_DXT5, ATC_RGB, ATC_RGBA_Explicit, ATC_RGBA_Interpolated, ETC_RGB, ETC2_RGB, BC6H, BC7, ASTC, GT
 	See [Compressonator - GPUOpen](http://gpuopen.com/gaming-product/compressonator/)
-	
+
 	Use it (2.3.2953+) with Wine (1.8+):
 	Require winetrick "C++ runtime Libraries" `vcrun2015`. CLI require DLLs from GUI (in same folder)
 	Need to add DLL override `api-ms-win-crt-time-l1-1-0` (use native first). See winecfg
-	
+
 	```sh
 	CompressonatorCLI.exe -nomipmap -fd DXT5 image.png image_dxt5.dds
 	CompressonatorCLI.exe -nomipmap -fd ATC_RGBA_Explicit image.png image_atca.dds
 	```
-	
+
 	Note: ATC codec incorrectly swizzling R and B channels (BGR instead of RGB): https://github.com/GPUOpen-Tools/Compressonator/issues/19
 	To fix that you can use ImageMagick:
-	
+
 	```sh
 	convert image.png -channel rgba -alpha on -set colorspace RGB -separate -swap 0,2 -combine -define png:color-type=6 image_bgra.png
 	```
@@ -1081,21 +1087,21 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 - [Adreno Texture Compression and Visualization Tool](https://developer.qualcomm.com/software/adéreno-gpu-sdk/tools): 3Dc (single-component and two-component), ASTC (LDR and HDR), ATC RGBA (explicit, interpolated), EAC (single-component and two-component), ETC1 RGB8, ETC2 (RGBA8, RGB8, RGB8 Punchthrough Alpha), S3TC (DXT1 RGBA, DXT3 RGBA, DXT5 RGBA)
 
 	Note: in SDK v5.0 the FOURCC of ATC is incorrect for ATC Interpolated and ATC Explicit (ATCI and ATCA are inversed):
-	
+
 	- [Texture Tool does not code FOURCC code correctly in DDS files - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/26480)
 	- [Adreno Texture Tool's bug? (in AdrenoSDK 3.0) - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/18926)
 	- `Adreno SDK/Docs/QCompress/QCompress.pdf` "Developer Notes"
-	
+
 	`QCompress` (Adreno Texture Tool) is GUI only. For CLI command, create you own with TextureConverter lib included in the SDK
-	
+
 	Note: An other existing bug:
-	
+
 	- [KTX swap Red Channel and Blue Channel in Adreno Texture tool - Qualcomm Developer Network](https://developer.qualcomm.com/forum/qdevnet-forums/mobile-gaming-graphics-optimization-adreno/14993)
 - [Mali GPU Texture Compression Tool - Mali Developer Center](http://malideveloper.arm.com/resources/tools/mali-gpu-texture-compression-tool/) ASTC, ETC1, ETC2 / EAC (Java Application)
 - Lib (see texgenpack) [Low-level library for decompression and manipulation of texture blocks compressed](https://github.com/hglm/detex) KTX, DDS, BC1/DXT1/S3TC, BC2-BC3, BC4/RGTC1, BC5/RGTC2, BC6 (BPTC_FLOAT), BC7 (BPTC), ETC1/2
 - Skia lib write/read https://skia.googlesource.com/skia and https://github.com/google/skia PKM, ARTC, KTX, LATC, R11_EAC, ETC1
 - ImageMagick module [Texture compress modules for ImageMagick](https://github.com/Perlmint/MagickCompress) PKM, ETC1, pvrtc-4bpp-rgb, pvrtc-4bpp-rgba
-- [PVRTexTool - Imagination Community](https://community.imgtec.com/developers/powervr/tools/pvrtextool/) PVR (v3, v2 with `-pvrlegacy`); PVRTC, ETC1-2, EAC, ASTC, DXT 
+- [PVRTexTool - Imagination Community](https://community.imgtec.com/developers/powervr/tools/pvrtextool/) PVR (v3, v2 with `-pvrlegacy`); PVRTC, ETC1-2, EAC, ASTC, DXT
 	- [Download the PowerVR Tools and SDK - Imagination](https://www.imgtec.com/developers/powervr-sdk-tools/installers/)
 	https://community.imgtec.com/developers/powervr/offline-installers/
 	http://cdn.imgtec.com/sdk/PVRTexTool.xml
@@ -1103,7 +1109,7 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 	See [PowerVR Downloads - Imagination Community](https://community.imgtec.com/developers/powervr/installers/)
 	See [PVRTexTool - PVRTexTool.User+Manual.pdf](http://cdn.imgtec.com/sdk-documentation/PVRTexTool.User+Manual.pdf#29)
 	PVRTexLib usage examples: https://github.com/TermiT/mkpack https://github.com/KTXSoftware/kraffiti-pvrtc
-	
+
 	```sh
 	/Applications/Imagination/PowerVR_Graphics/PowerVR_Tools/PVRTexTool/CLI/OSX_x86/PVRTexToolCLI -m -flip y,flag -f PVRTC1_4  -q pvrtcbest -i image.png
 	/Applications/Imagination/PowerVR_Graphics/PowerVR_Tools/PVRTexTool/CLI/OSX_x86/PVRTexToolCLI -i atlas.png -o atlas.pvr -m -l -f PVRTC1_4 -q pvrtcbest -mfilter cubic
@@ -1112,7 +1118,7 @@ See https://www.adobe.com/fr/products/gaming-sdk.html
 	For PVRTC, use PVRTexTool instead (quicker and better results)
 	- [Using texturetool to Compress Textures](https://developer.apple.com/library/content/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/TextureTool/TextureTool.html)
 	- [Technical Q&A QA1611: Creating textures in the PVRTC compression format](https://developer.apple.com/library/ios/qa/qa1611/_index.html)
-	
+
 	```sh
 	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool -e ASTC --compression-mode-exhaustive --bits-per-pixel-4 -f PVR -o image.pvr image.png
 	/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/texturetool -e PVRTC --channel-weighting-perceptual -f PVR -o image.pvrtc image.png
