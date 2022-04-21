@@ -362,6 +362,11 @@ Validate input (sanitization), escape on output (esc-out):
 - [Escape Output, by Ben Ramsey](https://web.archive.org/web/20201223213408/https://benramsey.com/articles/escape-output/)
 - [Don’t try to sanitize input. Escape output.](https://web.archive.org/web/20220409093437/https://benhoyt.com/writings/dont-sanitize-do-escape/)
 - [Keeping Web Users Safe By Sanitizing Input Data — Smashing Magazine](https://www.smashingmagazine.com/2011/01/keeping-web-users-safe-by-sanitizing-input-data/)
+- [php - How is character encodings used to bypass XSS sanitizers? - Information Security Stack Exchange](https://security.stackexchange.com/questions/180680/how-is-character-encodings-used-to-bypass-xss-sanitizers)
+- `<scr<script>ipt>alert(1)</script>` pass if sanitize is not recusrive
+- `<scr<object>ipt>alert(1)</script>` pass if sanitize scripts then objects
+- [DOMPurify bypass: XSS via HTML namespace confusion – A2Z Facts](https://web.archive.org/web/20220421134539/https://a2zfacts.net/articles/dompurify-bypass-xss-via-html-namespace-confusion/)
+- [XSS Filter Evasion - OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html)
 
 And also:
 
