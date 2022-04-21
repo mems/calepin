@@ -347,6 +347,24 @@ It's unsafe data. You need to handle care and isolate it.
 **Never rely the data comes from outside your application (user inputs, front application messages, thrid party server messages).**
 Clean it depends it usage. Ex.: when send a mail, remove all "\n\r" of all header fields
 
+Validate input (sanitization), escape on output (esc-out):
+
+- [Injection Theory | OWASP Foundation](https://owasp.org/www-community/Injection_Theory)
+- [DOM based XSS Prevention - OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)
+- [Cross Site Scripting Prevention - OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- [validation - Input Sanitization vs Output Sanitization - Information Security Stack Exchange](https://security.stackexchange.com/questions/95325/input-sanitization-vs-output-sanitization/95330#95330)
+- [web application - Filter user input before the database or upon display? - Information Security Stack Exchange](https://security.stackexchange.com/questions/9415/filter-user-input-before-the-database-or-upon-display)
+- [model view controller - HTML/XSS escape on input vs output - Stack Overflow](https://stackoverflow.com/questions/11253532/html-xss-escape-on-input-vs-output)
+- [Secure Coding - Developer Guide - CiviCRM Documentation](https://web.archive.org/web/20210511231254/https://docs.civicrm.org/dev/en/latest/security/#strategy)
+- [Double Encoding | OWASP Foundation](https://owasp.org/www-community/Double_Encoding)
+- [XSS: Bypass Filters & Sanitization](https://web.archive.org/web/20220309013323/https://www.secjuice.com/xss-arithmetic-operators-chaining-bypass-sanitization/)
+- [Why escape-on-input is a bad idea - lukeplant.me.uk](https://web.archive.org/web/20220318032105/https://lukeplant.me.uk/blog/posts/why-escape-on-input-is-a-bad-idea/)
+- [Escape Output, by Ben Ramsey](https://web.archive.org/web/20201223213408/https://benramsey.com/articles/escape-output/)
+- [Don’t try to sanitize input. Escape output.](https://web.archive.org/web/20220409093437/https://benhoyt.com/writings/dont-sanitize-do-escape/)
+- [Keeping Web Users Safe By Sanitizing Input Data — Smashing Magazine](https://www.smashingmagazine.com/2011/01/keeping-web-users-safe-by-sanitizing-input-data/)
+
+And also:
+
 - don't use native deserialization. Use XML, JSON or [Query string](https://en.wikipedia.org/wiki/Query_string) formats. [Deserialization of untrusted data - OWASP](https://www.owasp.org/index.php/Deserialization_of_untrusted_data)
 - [escape character](https://en.wikipedia.org/wiki/Escape_character)
 - `intval($input)`
