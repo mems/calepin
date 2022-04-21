@@ -148,7 +148,7 @@ See [Usurpation & social engineering](#usurpation-social-engineering)
 black hat trolling, social sabotage, guerilla
 
 - [Simple Sabotage Field Manual by United States. Office of Strategic Services - Ebook libre](http://www.gutenberg.org/ebooks/26184?msg=welcome_stranger) - Declassified OSS document
-- [L'art du sabotage social par Horizon Gull - Montbazon 2016 - YouTube](https://www.youtube.com/watch?v=hSXSdr9hoMk) - see [Être stupide, où l’art du sabotage social selon les leçons de la CIA](http://www.hacking-social.com/2016/05/09/etre-stupide-ou-lart-du-sabotage-social-selon-les-lecons-de-la-cia/) and [CIA-conseil-sabotage-social.pdf](http://www.hacking-social.com/wp-content/uploads/2016/05/CIA-conseil-sabotage-social.pdf)
+- [L'art du sabotage social par Horizon Gull - Montbazon 2016 - YouTube](https://www.youtube.com/watch?v=hSXSdr9hoMk) - see [Être stupide, où l’art du sabotage social selon les leçons de la CIA](https://web.archive.org/web/20220309100159/https://www.hacking-social.com/2016/05/09/etre-stupide-ou-lart-du-sabotage-social-selon-les-lecons-de-la-cia/) and [CIA-conseil-sabotage-social.pdf](http://www.hacking-social.com/wp-content/uploads/2016/05/CIA-conseil-sabotage-social.pdf)
 
 ## Backup
 
