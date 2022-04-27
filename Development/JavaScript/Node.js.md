@@ -120,9 +120,15 @@ find /path/to/projects -type d  -path '*node_modules/*' -prune -o -type d -name 
 
 ## Debug
 
+- `node inspect server.js`
+- [Debugging - Getting Started | Node.js](https://nodejs.org/en/docs/guides/debugging-getting-started/#inspector-clients) - Inspector Clients (Chrome, Edge)
+- `NODE_ENV=development`
+- `node --trace-warnings servefr.js`
 - [evanw/node-source-map-support: Adds source map support to node.js (for stack traces)](https://github.com/evanw/node-source-map-support)
 - [Remote Debugging Node.js in Docker – SENSEI Developer Blog – Medium](https://medium.com/sensei-developer-blog/remote-debugging-node-js-in-docker-1936eb4ef522)
 - [The Definitive Guide for Monitoring Node.js Applications | @RisingStack](https://blog.risingstack.com/monitoring-nodejs-applications-nodejs-at-scale/)
+- [Diagnostic report | Node.js v17.9.0 Documentation](https://nodejs.org/docs/latest-v17.x/api/report.html)
+- [loglevel - npm](https://www.npmjs.com/package/loglevel)
 
 ### Send log infos client side
 

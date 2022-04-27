@@ -235,13 +235,7 @@ Aka partial checkout
 
 ## Commit
 
-- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.4/)
-
-### Don't commit generated files
-
-- [Why I don’t commit generated files to master — Medium](https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564)
-
-### Commit for other author
+### Commit as other author
 
 ```
 
@@ -264,7 +258,7 @@ Do it only for non pushed commits
 
 - [How to Batch Update Git Commit Messages](https://davidwalsh.name/update-git-commit-messages)
 
-## Removing a file from every commit
+### Removing a file from every commit
 
 For pushed commit, **this change the history**
 

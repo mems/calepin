@@ -1705,6 +1705,13 @@ copy("javascript:" + prompt().replace(/[\s%]/g, match => `%${match.charCodeAt(0)
 
 ## Accessibility
 
+> A benefit of descriptive links is that screenreader users can pull all the links on a page together into a list and find what they need. ‘Click here’ doesn’t describe where you are linking to and means nothing without textual context!
+> Eg. Instead of “Our school has X many students and does Y and Z. For more information, *click here*” to link to your About Us page, use: “Our school has X many students and does Y and Z. Read more *About Us*”
+> Ps. If you do this you will not only make life easier for people who use screen readers but you also have a really simple way to improve your Search Engine Optimisation. Nobody Googles “Click here.”
+> (the [WCAG 2.1: 2.4](https://www.w3.org/WAI/WCAG21/Understanding/link-purpose-in-context.html) rule - Ed.)
+>
+> — [Emily Smith on Twitter: "A benefit of descriptive links is that screenreader users can pull all the links on a page together into a list and find what they need. ‘Click here’ doesn’t describe where you are linking to and means nothing without textual context! (2)" / Twitter](https://twitter.com/Em1lySm/status/1516741015239069702)
+
 See [Accessibility](../Development/HTML/HTML.md#accessibility)
 
 - EU: [ETSI EN 301 549](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/02.01.02_60/en_301549v020102p.pdf "ETSI EN 301 549 – Accessibility requirements for ICT products and services"), require WCAG 2.1 Level AA

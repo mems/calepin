@@ -26,17 +26,21 @@
 ```
 
 ```php
+<?php
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/wordpress/');
 
 /** Absolute path to the WordPress wp-content directory, which holds your themes, plugins, and uploads */
 //define( 'WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content' );
+?>
 ```
 
 ```php
+<?php
 include_once './vendor/autoload.php';
 require( './wordpress/wp-blog-header.php' );
+?>
 ```
 
 ### Docker
@@ -48,6 +52,7 @@ require( './wordpress/wp-blog-header.php' );
 ### Config
 
 ```php
+<?php
 /*
 Automatic Url + Content Dir/Url Detection for Wordpress
 Based on https://gist.github.com/CMCDragonkai/7578784#gistcomment-1237365 and https://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
@@ -74,6 +79,7 @@ $wp_content_url = $scheme . $host . $port . $wp_content_url;
 define('WP_HOME', $root_url); //url to index.php
 define('WP_SITEURL', $wp_url); //url to wordpress installation
 define('WP_CONTENT_URL', $wp_content_url); //wp-content url
+?>
 ```
 
 - [Editing wp-config.php « WordPress Codex](https://codex.wordpress.org/Editing_wp-config.php)
@@ -116,6 +122,7 @@ UPDATE wp_posts SET guid = replace(guid, @curent, @next);
 Simple/cleared theme: [BlankSlate — Free WordPress Themes](https://wordpress.org/themes/blankslate/)
 
 ```php
+<?php
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'wp_shortlink_wp_head');
@@ -124,6 +131,7 @@ remove_action('wp_head', array( $sitepress, 'meta_generator_tag', 20 ) );
 add_filter('xmlrpc_enabled', '__return_false');
 add_filter('json_enabled', '__return_false');
 add_filter('json_jsonp_enabled', '__return_false');
+?>
 ```
 
 - https://github.com/WordPress/WordPress/blob/master/wp-content/themes/twentyfourteen
@@ -147,6 +155,7 @@ add_filter('json_jsonp_enabled', '__return_false');
 Aka navigation menu
 
 ```php
+<?php
 // .sub-menu
 add_filter( 'nav_menu_submenu_css_class', function ( $classes, $args, $depth ) {
 	if($args->theme_location == 'primary') $classes = array($depth == 0 ? 'ns-main-nav-subsections' : 'ns-main-nav-items');
@@ -198,6 +207,7 @@ wp_nav_menu(
 //		'walker' => new Custom_Walker_Nav_Menu(),
 	)
 );
+?>
 ```
 
 ## Performance and optimisation
@@ -233,6 +243,17 @@ Gutenberg editor plugins can be written with JSX/ES6 or ES5 (without compilation
 - [Compare WP - Plugin Comparison - Content Type / Custom Fields - Google Sheets](https://docs.google.com/spreadsheets/d/1mSqienVYxLopTFGLPK0lGCJst2knKzXDtLQRgwjeBN8/edit#gid=3)
 - [ACF to REST API – WordPress plugin | WordPress.org](https://wordpress.org/plugins/acf-to-rest-api/)
 
+Validation / sanitization / authorization:
+
+- [sanitize_{$object_type}_meta_{$meta_key}_for_{$object_subtype} | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/sanitize_object_type_meta_meta_key_for_object_subtype/)
+- [sanitize_{$object_type}_meta_{$meta_key} | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/sanitize_object_type_meta_meta_key/)
+- [auth_{$object_type}_meta_{$meta_key}_for_{$object_subtype} | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/auth_object_type_meta_meta_key_for_object_subtype/)
+- [auth_{$object_type}_meta_{$meta_key} | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/auth_object_type_meta_meta_key/)
+- [`sanitize_callback` and `auth_callback` arguments](https://developer.wordpress.org/reference/functions/register_meta/) are depreciated
+- [update_{$meta_type}_metadata_by_mid | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/update_meta_type_metadata_by_mid/) - see also
+- [update_{$meta_type}_metadata | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/update_meta_type_metadata/)
+- [add_{$meta_type}_metadata | Hook | WordPress Developer Resources](https://developer.wordpress.org/reference/hooks/add_meta_type_metadata/)
+
 Some:
 
 - [Home - Carbon Fields](https://carbonfields.net/)
@@ -242,15 +263,22 @@ Some:
 - [justintadlock/butterbean: A neat little post meta framework.](https://github.com/justintadlock/butterbean)
 - [CMB2/CMB2: CMB2 is a developer's toolkit for building metaboxes, custom fields, and forms for WordPress that will blow your mind.](https://github.com/CMB2/CMB2)
 
+See also:
+
+- [Metadata | Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/metadata/)
+
 ## Custom post types
 
 - [Custom Post Types | Apprendre WordPress](https://learn.wordpress.org/lesson-plan/custom-post-types/)
 - [Registering Custom Post Types | Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/).
 
-## Custom plugin
+## Custom plugins
+
+mu-plugins aka multi user plugins, must-use plugins
 
 - [Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/)
 - [Must Use Plugins | WordPress.org](https://wordpress.org/support/article/must-use-plugins/)
+- [Traduire vos extensions WordPress - Alsacreations](https://www.alsacreations.com/tuto/lire/1840-traduire-extension-wordpress.html)
 - [Plugins in mu-plugins folder are not loaded - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/26337/plugins-in-mu-plugins-folder-are-not-loaded)
 
 ## Taxonomy
@@ -340,8 +368,73 @@ Note: Has a performance impact
 
 ## Localization
 
+Use full locale name in `.mo` filenames
+For mu-plugins (see [`load_muplugin_textdomain()`](https://developer.wordpress.org/reference/functions/load_muplugin_textdomain/)):
+
+```php
+<?php
+// In wp-content/mu-plugins/<pluginslug>/<pluginslug>.php (with a "loader" `wp-content/mu-plugins/<somename>.php`: `require WPMU_PLUGIN_DIR . '/<pluginslug>/<pluginslug>.php';`)
+add_action('muplugins_loaded', fn() => load_muplugin_textdomain('textdomain', dirname(plugin_basename(__FILE__)) . '/languages'));
+// This will try to load `<WP_LANG_DIR>/plugins/<textdomain>-<locale>.mo` else `wp-content/mu-plugins/<pluginslug>/languages/<textdomain>-<locale>.mo`
+// Where `WP_LANG_DIR` is usually `wp-content/languages`
+?>
+```
+
+For plugins (see [`load_plugin_textdomain()`](https://developer.wordpress.org/reference/functions/load_plugin_textdomain/)):
+
+```php
+<?php
+// In wp-content/plugins/<pluginslug>/<pluginslug>.php
+add_action('init', fn() => load_plugin_textdomain('textdomain', false, dirname(plugin_basename(__FILE__)) . '/languages'));
+// This will try to load `<WP_LANG_DIR>/plugins/<textdomain>-<locale>.mo` else `wp-content/plugins/<pluginslug>/languages/<textdomain>-<locale>.mo`
+// Where `WP_LANG_DIR` is usually `wp-content/languages`
+?>
+```
+
+For theme (see [`load_theme_textdomain()`](https://developer.wordpress.org/reference/functions/load_theme_textdomain/)):
+
+```php
+<?php
+// In wp-content/themes/<themeslug>/functions.php
+add_action('after_setup_theme', fn() => load_theme_textdomain('textdomain', get_template_directory() . '/languages'));
+// This will try to load `<WP_LANG_DIR>/themes/<textdomain>-<locale>.mo` else `wp-content/themes/<themeslug>/languages/<locale>.mo`
+// Where `WP_LANG_DIR` is usually `wp-content/languages`
+?>
+```
+
+See also [_get_plugin_data_markup_translate()](https://developer.wordpress.org/reference/functions/_get_plugin_data_markup_translate/), for a plugin with meta comment `Domain Path: /languages` (default to empty) and `Text Domain: text-domain` (require, or no text domain will be (auto-)loaded) will load `wp-content/plugin/<pluginslug><domainpath>/<textdomain>-<locale>.mo`.
+
+To debug which `.mo` files are loaded:
+
+```php
+<?php
+$debuginfo_textdomain_mofiles = [];
+add_filter('load_textdomain_mofile', function ($mofile, $domain) {
+	global $debug_textdomain_mofiles;
+	$is_mofile_readable = is_readable($mofile);
+	$mo = new MO();
+	$e = new Exception();
+	$debug_textdomain_mofiles[] = array(
+		'filename' => $mofile,
+		'domain' => $domain,
+		'readable' => $is_mofile_readable,
+		'trace' => $e->getTraceAsString(),
+		'importable' => $is_mofile_readable && $mo->import_from_file($mofile)
+	);
+	return $mofile;
+}, 10, 2);
+// Then later in page:
+//var_dump($debuginfo_textdomain_mofiles);
+?>
+```
+
+- [wp i18n make-pot | WP-CLI Command | WordPress Developer Resources](https://developer.wordpress.org/cli/commands/i18n/make-pot/) - "Create a POT file for a WordPress project."
+- [How to Internationalize Your Plugin | Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/)
+- [filesystem - What is the difference between the .po .mo and .pot localization files? - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/227822/what-is-the-difference-between-the-po-mo-and-pot-localization-files/227829#227829)
+- [I18n for WordPress Developers « WordPress Codex](https://codex.wordpress.org/I18n_for_WordPress_Developers)
 - [Codestyling Localization – WordPress plugin | WordPress.org](https://wordpress.org/plugins/codestyling-localization/#screenshots)
 - [Easy Translator – WordPress plugin | WordPress.org](https://wordpress.org/plugins/easy-translator-lite/#screenshots)
+- [What's the difference between __(), _e(), _x(), and _ex()? - WP Engineer](https://web.archive.org/web/20220420165809/https://wpengineer.com/2237/whats-the-difference-between-__-_e-_x-and-_ex/)
 
 ## SVG
 
@@ -456,3 +549,27 @@ bash check-wporg-themes.sh 100
 
 - [Theme Unit Test « WordPress Codex](https://codex.wordpress.org/Theme_Unit_Test)
 - [WordPress | Lando](https://docs.lando.dev/config/wordpress.html)
+
+## OOP
+
+In `wp-content/themes/<themeslug>/functions.php`:
+
+```php
+<?php
+class My_Theme
+{
+	public function __construct()
+	{
+		add_action('init', fn() => $this->init());
+		//or add_action('init', Closure::fromCallable([$this, 'init']));
+	}
+
+	private function init()
+	{
+		// ...
+	}
+}
+
+$my_theme = new My_Theme();
+?>
+```

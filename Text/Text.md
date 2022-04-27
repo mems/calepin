@@ -887,3 +887,18 @@ Aka upper-case
 
 - [Dotted and dotless I - Wikipedia](https://en.wikipedia.org/wiki/Dotted_and_dotless_I)
 - [Letter case - Wikipedia](https://en.wikipedia.org/wiki/Letter_case)
+
+## Editor note
+
+Aka NDR (Note Du Rédacteur), NDLR (Note de la rédaction), Ed., Editor Note
+
+> John Smith (the brother of the accused - Ed.) appeared in court
+
+> He [the artist's son - Ed.] did not...
+
+- [Editor's note — Wikipedia](https://en.wikipedia.org/wiki/Editor%27s_note)
+- [Note de la rédaction — Wikipédia](https://fr.wikipedia.org/wiki/Note_de_la_r%C3%A9daction)
+
+See also:
+
+- [Note du traducteur — Wikipédia](https://fr.wikipedia.org/wiki/Note_du_traducteur)

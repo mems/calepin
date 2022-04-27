@@ -278,3 +278,28 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag]
 "ThisPCPolicy"="Hide"
 ```
+
+## Powershell
+
+`powershell` = `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
+
+Run as admin:
+
+```shell
+# Run as administrator
+powershell -Command "Start-Process powershell \"-ExecutionPolicy Bypass -NoProfile -NoExit -Command `\"echo \`\"some path: a\b\`\"`\"\" -Verb RunAs"
+powershell -Command "Start-Process -Verb RunAs cmd -ArgumentList '/c whoami /groups | find \"S-1-16-12288\" > null && echo As admin || echo As non-admin & pause'"
+
+# PSSessions can be used to execute a command as administrator and get its output in same console.
+# But need PSRemoting
+# Something like: powershell -Command "Invoke-Command -ComputerName localhost -ScriptBlock {echo Hello}"
+# See https://stackoverflow.com/questions/65022178/run-invoke-command-in-remote-computer-as-administrator
+```
+
+```shell
+# Execute a PS1 script with args (here Arg1=Val1)
+powershell -File '..\SomeScript.ps1' -Arg1 'Val1'
+```
+
+- [Start-Process (Microsoft.PowerShell.Management) - PowerShell | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process?view=powershell-5.1)
+- [Verb RunAs in a Start-Process Powershell command causes an error - Stack Overflow](https://stackoverflow.com/questions/25725925/verb-runas-in-a-start-process-powershell-command-causes-an-error) - `-NoNewWindow` and `-Verb RunAs` can't be combined. See also [Multiple inputs into new prompt & Powershell -run as and -nonewwindow issue - Stack Overflow](https://stackoverflow.com/questions/69243757/multiple-inputs-into-new-prompt-powershell-run-as-and-nonewwindow-issue/69247548#69247548)

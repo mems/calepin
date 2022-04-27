@@ -830,10 +830,11 @@ Ex: App Code + precompiled lib/binaries submodule (will be used to include thrid
 If images are part of the software:
 App Code + (exported) PNGs or AppCode + design (PSD) submodule (will be used to generate icons automatically, etc.)
 
+- - [Why I don’t commit generated files to master — Medium](https://web.archive.org/web/20160409025913/https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564)
 - [version control - Managing large binary files with Git - Stack Overflow](https://stackoverflow.com/questions/540535/managing-large-binary-files-with-git)
 - [version control - Should images be stored in a git repository? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/80962/should-images-be-stored-in-a-git-repository)
-- [Working with large files - GitHub Help](https://help.github.com/en/github/managing-large-files/working-with-large-files)
-- [How to ignore changes in git submodules | /bb|\[ˆb\]{2}/](http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules) (add `ignore = dirty` for each submodule in `.gitmodules`)
+- [Managing large files - GitHub Docs](https://web.archive.org/web/20220414225244/https://docs.github.com/en/repositories/working-with-files/managing-large-files)
+- [How to ignore changes in git submodules | /bb|\[ˆb\]{2}/](https://web.archive.org/web/20200808000111/http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules) (add `ignore = dirty` for each submodule in `.gitmodules`)
 
 ### Store secrets
 
@@ -857,7 +858,9 @@ Aka git secrets
 
 Aka Git commit message.
 
-See [Version message](../Development/Git/Git.md#version-message)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [How to Write a Git Commit Message](https://web.archive.org/web/20220426220055/https://cbea.ms/git-commit/)
+- [Commit](../Development/Git/Git.md#commit)
 
 ## Indentation
 

@@ -991,6 +991,21 @@ Add to `/usr/syno/etc/synovpnclient/openvpn/ovpnclient.conf` (at the top):
 log-append /var/log/openvpn.log
 # Change verbosity
 ;verb 3
+# For log rotate, see /etc/logrotate.conf
+# If the instruction "include" exist (with path like /etc/logrotate.d), create a file "openvpn" in the target dir with following, else append it directly to the logrotate.conf
+# /var/log/openvpn.log {
+# 	missingok
+# 	weekly
+# 	compress
+# 	rotate 8
+# }
+# or
+# /var/log/openvpn.log {
+# 	rotate 5
+# 	missingok
+# 	copytruncate
+# 	size 10M
+# }
 ```
 
 Because the option "Reconnect when the VPN connection is lost" is not reliable, you can use this method: [Reconnecting a failed VPN connection on Synology DSM 6 | SysBlog](https://web.archive.org/web/20220129142504/https://blog.harrier.us/reconnecting-a-failed-vpn-connection-on-synology-dsm-6) https://web.archive.org/*/https://raw.githubusercontent.com/ianharrier/synology-scripts/master/reconnect-vpn.sh
