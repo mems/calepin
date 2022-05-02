@@ -132,7 +132,3 @@ Aka [Computer-aided design](https://en.wikipedia.org/wiki/Computer-aided_design)
 - [KiCad EDA - Schematic Capture & PCB Design Software](https://www.kicad.org/)
 - [FreeCAD: Your own 3D parametric modeler](https://www.freecadweb.org/)
 - [Onshape Free Plan | Onshape](https://www.onshape.com/en/products/free)
-
-See also:
-
-- [LeoCAD - Virtual LEGO CAD Software](https://www.leocad.org/)

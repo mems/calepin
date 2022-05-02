@@ -120,14 +120,32 @@ Could be use in campaign:
 - [Coca-Cola demande des GIF pour sa promo, et arrive ce qui devait arriver | Big Browser](http://bigbrowser.blog.lemonde.fr/2016/01/29/coca-cola-demande-des-gif-pour-sa-promo-et-arrive-ce-qui-devait-arriver/#xtor=RSS-3208)
 - [Things You Can’t Talk About in a Coca-Cola Ad - The Atlantic](http://www.theatlantic.com/technology/archive/2016/01/things-you-cant-talk-about-in-a-coca-cola-ad/431628/)
 
+> Funny story - we were asked to make dong detection software for LEGO Universe too. We found it to be utterly impossible at any scale.
+> Players would hide the dongs where the filtering couldn't see, or make them only visible from one angle / make multi-part penis sculptures.
+> The moderation costs of LEGO Universe were a big issue in general. They wanted a creative building MMO with a promise of zero penises seen.
+> They actually had a huge moderation team that got a bunch of screenshots of every model, every property. Entirely whitelist-based building.
+> YOU could build whatever you wanted, but strangers could never see your builds until we'd had the team do a penis sweep on it.
+> It was all automated, but the human moderators were IIRC the single biggest cost center for LEGO Universe's operational costs. Or close to.
+> And "that" is why Trove/etc were able to make better building MMOs. They didn't have to worry about little kids seeing dongs. We REALLY did.
+> We even had an employee very nearly fired for building a penis. It was on his own property, but a kid wandered into it during a kid test.
+> We're talking "test operator rushed forward, blocks the monitor, slams the game closed, four alarm fire to find who built the penis" here.
+> After which a memo went out indicating our new absolute zero tolerance policy on building penises of any kind, anywhere, in the game.
+> This is all obvious, simple stuff, and is why dealing w/ COPPA (which protects kids) is so damn hard in online games. Even DEVS build dongs.
+> This is a roundabout way of saying "never build an online game for kids / I have no idea how Minecraft hasn't been sued over this yet"
+> People saying "well just allow dicks" - LEGO's brand is utterly trusted by parents. We had to uphold that trust. Which meant zero tolerance.
+> I'm.... relatively positive I can talk about this stuff. The agreements signed when the studio shut down had more to do with defamatio, etc.
+> Anyways, "all of that" is why every single successor to LEGO Universe has been small and missing build play. LEGO knows how expensive it is.
+> And they basically can't compete with Minecraft, because Minecraft can just shrug that entire problem off. So they've focused elsewhere.
+> I expect stories of the sunk costs gone into LEGO Universe are told to young LEGO execs at bed time, as cautionary tales to never try again.
+>
+> — [Megan Fox on Twitter: "Funny story - we were asked to make dong detection software for LEGO Universe too. We found it to be utterly impossible at any scale." / Twitter](https://twitter.com/glassbottommeg/status/604407061380640768)
+
 Or in search engine autocomplete:
 
 ![Castorma autocomplete with suggestions of previous user in the search engine](castorama_fail.jpg)
 
 - [Le moteur de recherche de Castorama piraté](http://www.20minutes.fr/insolite/1861771-20160608-moteur-recherche-castorama-pirate)
 - [Le site de Castorama indisponible à la suite du détournement de son moteur de recherche](http://www.lemonde.fr/pixels/article/2016/06/08/le-site-de-castorama-indisponible-a-la-suite-du-detournement-de-son-moteur-de-recherche_4943352_4408996.html)
-- [SwiftOnSecurity on Twitter: "Former LEGO developer @glassbottommeg explains why penises are such a hard problem in games https://t.co/r3aJKSHOcS"](https://twitter.com/SwiftOnSecurity/status/772648870169890816)
-
 - [Incivility — Wikipedia](https://en.wikipedia.org/wiki/Incivility)
 - [Obscenity — Wikipedia](https://en.wikipedia.org/wiki/Obscenity)
 - [Modesty — Wikipedia](https://en.wikipedia.org/wiki/Modesty)
