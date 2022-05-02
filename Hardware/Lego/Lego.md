@@ -1,0 +1,2 @@
+- [Illegal LEGO Techniques - YouTube](https://www.youtube.com/watch?app=desktop&v=jWtZUzkvQ2E)
+- [LeoCAD - Virtual LEGO CAD Software](https://www.leocad.org/)
