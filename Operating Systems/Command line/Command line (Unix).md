@@ -1763,7 +1763,7 @@ cd "/path/to/playlists"
 cat "playlist1.m3u" "playlist1.m3u" "playlist3.m3u" | grep "^[^# \t]" | tr -s '\n' | while read -r line; do cp --parent -v "$line" /destination; done
 
 # Get extensions of all files
-find . -type f | while read file; do filename=$(basename "$file"); ext=$([[ "$filename" = *.* ]] && echo ".${filename##*.}" || echo ''); echo $ext; done | sort | uniq
+find . -type f -printf "%f\n" | grep -o -E '(\.[^\.]*)$' | sort | uniq
 
 # File checksum SHA256, used in chef cookbooks
 openssl dgst -sha256 path/to/myfile
