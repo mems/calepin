@@ -1684,12 +1684,6 @@ Installed files:
 /usr/local/google_appengine.old
 ```
 
-## TotalFinder
-
-Finder Replacement, https://asepsis.binaryage.com/
-
-Asepsis feature store `.DS_Store` files in `/usr/local/.dscache/`
-
 ## Kodi
 
 Add-on dev:
@@ -2046,3 +2040,15 @@ Backup WhatsApp data for iOS
 - Age of Empires: Definitive Edition: `%USERPROFILE%\Games\Age of Empires DE\Users\<user name>\Saved Games\*.aoe2spgame`
 - Age of Empires 2: Definitive Edition: `%USERPROFILE%\Games\Age of Empires 2 DE\<17 digits>\savegame\*.aoe2spgame`
 - World War Z: `%LOCALAPPDATA%\Saber\WWZ\client\storage`
+
+## JDownloader
+
+(re)create a self contained macOS application (that no more the case since ???):
+
+1. install JDownloader 2
+2. copy `/Applications/JDownloader 2/JDownloader2.app` to `/Applications/JDownloader.app`
+3. in `/Applications/JDownloader 2/JDownloader2.app/Contents/Info.plist` replace `$APP_PACKAGE/..` by `$APP_PACKAGE/Contents/Resources/java`
+4. create a directory in `/Applications/JDownloader.app/Contents/Resources/java`
+5. copy the content of `/Applications/JDownloader 2` into `/Applications/JDownloader.app/Contents/Resources/java` (you can omit the files `JDownloader2.app` and `Uninstall JDownloader.app`)
+
+Only the content of `/Applications/JDownloader.app/Contents/Resources/java` will be updated

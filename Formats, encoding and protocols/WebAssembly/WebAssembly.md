@@ -42,3 +42,4 @@ See also:
 - [Reducing WebAssembly size by exploring all executions in LLVM](https://web.archive.org/web/20220316162019/https://leaningtech.com/reducing-webassembly-size-by-exploring-all-executions-in-llvm/) - [PartialExecuter: Reducing WebAssembly size by exploring all executions in LLVM | Hacker News](https://news.ycombinator.com/item?id=30686919)
 - [ern0/howto-wasm-minimal: How to create minimal wasm module](https://github.com/ern0/howto-wasm-minimal) - [Show HN: How to compile C/C++ for WASM, pure Clang, no libs, no framework | Hacker News](https://news.ycombinator.com/item?id=30991235)
 - [WebAssembly Studio](https://webassembly-studio.kamenokosoft.com/)
+- [Porting Zelda Classic to the Web](https://web.archive.org/web/20220504105855/https://hoten.cc/blog/porting-zelda-classic-to-the-web/)

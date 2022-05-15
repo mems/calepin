@@ -123,7 +123,6 @@ Re check torrents, aka resume torrent:
 - [A CLI for Synology Download Station](http://downloadstation.jroene.de/) http://downloadstation.jroene.de/downloadstation
 - https://gitorious.org/synology/synology-script/source/master?p=synology:synology-script.git;a=summary
 - [Optimize Your Synology NAS for Downloading | kvz.io](http://kvz.io/blog/2011/02/28/optimize-your-synology-for-downloading/)
-- [\[Tuto\] Synology-Se proteger des déconnexions VPN ou Coupure de courant. - Forum de t411.li](http://forum.t411.li/index.php?p=/discussion/65956/tuto-synology-se-proteger-des-deconnexions-vpn-ou-coupure-de-courant.)
 - [SynoBoost - Download Station Search Modules for Synology NAS](http://www.synoboost.com/)
 
 #### Blocklist
@@ -1009,8 +1008,10 @@ log-append /var/log/openvpn.log
 ```
 
 Because the option "Reconnect when the VPN connection is lost" is not reliable, you can use this method: [Reconnecting a failed VPN connection on Synology DSM 6 | SysBlog](https://web.archive.org/web/20220129142504/https://blog.harrier.us/reconnecting-a-failed-vpn-connection-on-synology-dsm-6) https://web.archive.org/*/https://raw.githubusercontent.com/ianharrier/synology-scripts/master/reconnect-vpn.sh
+See also [\[Tuto\] Synology-Se proteger des déconnexions VPN ou Coupure de courant. - Forum de t411.li](https://web.archive.org/web/20170313094007/http://forum.t411.li/index.php?p=/discussion/65956/tuto-synology-se-proteger-des-deconnexions-vpn-ou-coupure-de-courant.)
 
 - `cat /var/log/messages | grep openvpn`
+- [OpenVPN Client Options](https://github.com/OpenVPN/openvpn/blob/47671d6d6814eadb3dd5e742ebc40c6f21038224/doc/man-sections/client-options.rst)
 - [How to configure Synology 5.1 NAS | NordVPN Support](https://support.nordvpn.com/Connectivity/NAS/1049322482/How-to-configure-Synology-5-1-NAS.htm)
 - [How to Create an OpenVPN Network Interface on a Synology NAS!](https://web.archive.org/web/20210218083203/https://www.wundertech.net/how-to-create-an-openvpn-network-interface-on-a-synology-nas/)
 - [HOWTO setup OpenVPN server and client configuration files using EasyRSA](https://web.archive.org/web/20201202040600/https://www.alanbonnici.com/2018/01/howto-setup-openvpn-server-and-client.html)

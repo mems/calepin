@@ -603,6 +603,7 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 
 - [Things every developer should know](#things-every-developer-should-know)
 - [Premature optimization](#premature-optimization)
+- [Using TODO For Everything | Hacker News](https://news.ycombinator.com/item?id=31235289)
 - [Code Tells You How, Comments Tell You Why](https://web.archive.org/web/20201112032711/https://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/)
 - [Thoughts on Self-Documenting CSS](https://web.archive.org/web/20201109032904/https://keithjgrant.com/posts/2017/06/self-documenting-css/)
 - [La notion de code source autodescriptif relèverait d'un mythe entretenu par les programmeurs qui n'ont pas saisi la portée de « documenter »](https://www.developpez.com/actu/150976/La-notion-de-code-source-autodescriptif-releverait-d-un-mythe-entretenu-par-les-programmeurs-qui-n-ont-pas-saisi-la-portee-de-documenter/)
@@ -1018,6 +1019,7 @@ curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 - [man page - Wikipedia](https://en.wikipedia.org/wiki/Man_page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Command%20manual%20page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Colors%20and%20control%20sequences)
+- write reStructuredText (`*.rst`) and generate man-page using `rst2man` (python-docutils). Example: the OpenVPN documentation [written as reStructuredText](https://github.com/OpenVPN/openvpn/tree/47671d6d6814eadb3dd5e742ebc40c6f21038224/doc/man-sections) [generate man-pages with `rst2man`](https://github.com/OpenVPN/openvpn/blob/976e6caf0e161d3c787e1378cec44608c17b292a/doc/Makefile.am#L82)
 
 ## Libraries
 

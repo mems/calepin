@@ -1562,10 +1562,18 @@ echo $somebar
 
 dir=/a/b///
 echo $(realpath -s --canonicalize-missing $dir)
+
+# Construct command parts as an array
+mycommand=(/some/command "$PATH_NAME")
+# Print the command
+printf '%s\n' "${mycommand[*]}"
+# Execute command
+"${mycommand[@]}"
 ```
 
 - [Bash Reference Manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Parameter-Expansion)
 - [Patterns and pattern matching \[Bash Hackers Wiki\]](https://wiki.bash-hackers.org/syntax/pattern)
+- [CodeSnippets: Remove leading & trailing whitespace from a Bash variable \[shell\] \[osx\] \[mac\] \[bash\] \[unix\] \[whitespace\] \[Space\] \[variable\]](https://web.archive.org/web/20121022051228/http://codesnippets.joyent.com/posts/show/1816)
 
 ### Redirection
 
@@ -1636,7 +1644,9 @@ line 2
 EOF
 
 # Here-doc to var
-read -r -d '' MYVAR <<'EOF'
+# Use `IFS=` otherwise any leading and trailing spaces will be trimmed
+# Use `<<'EOF'` instead `<<EOF` to ignore variables tokens
+IFS= read -r -d '' MYVAR <<'EOF'
 abc'asdf"
 $(dont-execute-this)
 foo"bar"''
@@ -1707,6 +1717,12 @@ PATH=$PATH:/path/bindir bash -c 'command1 | command2'
 Pour l'ajouter de façon permanente, l'écrire dans `~/.profile` ou `~/.bashrc`
 
 - [Path (variable) - Wikipedia](http://en.wikipedia.org/wiki/Path_%28variable%29)
+
+### Automatic error detection
+
+Instead `|| exit 1` after each important command.
+
+- [Why doesn't set -e (or set -o errexit, or trap ERR) do what I expected?](https://web.archive.org/web/20220427223316/https://mywiki.wooledge.org/BashFAQ/105)
 
 ### Dotfiles
 
@@ -1836,6 +1852,7 @@ find -maxdepth 1 -type f | xargs grep -F 'example'
 # Process each item with multiple commands (in while loop)
 find -maxdepth 1 -type d | while read dir; do echo $dir; echo cmd2; done
 
+# Get filename (without the extension)
 find ./ -name "tile_*.png" -exec bash -c 'filename="$1";echo "${filename%.*}"' _ {} \;
 
 # search files with `.bin` extension within directory `/home/user1`
@@ -1870,6 +1887,13 @@ du -a /var | sort -n -r | head -n 10
 
 # Quickly search (sorted) dictionary for prefix
 look reference
+
+# Append to each files
+find -type f -exec sh -c 'echo "something" >> "$1"' _ {} \;
+find -type f -print0 | while IFS= read -r -d '' file; do echo "something" >> "$file"; done
+find -type f -exec bash -c 'for file; do echo "something" >> "$file"; done' _ {} \+
+
+# See also https://serverfault.com/questions/343705/how-do-i-append-a-specific-number-of-null-bytes-to-a-file/
 ```
 
 - [bash - Find and replace filename recursively in a directory - Stack Overflow](https://stackoverflow.com/questions/9393607/find-and-replace-filename-recursively-in-a-directory/9394625#9394625)

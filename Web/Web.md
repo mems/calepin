@@ -130,11 +130,18 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 - [Browserhacks](http://browserhacks.com/)
 - [User Agent String](#user-agent-string)
 - [Detect touch device](JavaScript#detect-touch-device)
+- `Accept` headers:
+	- [Content negotiation - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
+	- [Accept - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept)
+	- [Accept-Encoding - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+	- [Accept-Language - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language)
+	- [TE - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/TE)
+- [User-Agent Client Hints](https://wicg.github.io/ua-client-hints/) - Alternative to user agent string parsing to detect potential features supported
 - [peter.michaux.ca - Feature Detection: State of the Art Browser Scripting](http://peter.michaux.ca/articles/feature-detection-state-of-the-art-browser-scripting)
 - [Browser Detection (and What to Do Instead)](http://jibbering.com/faq/notes/detect-browser/)
 - [Same Markup: Writing Cross-Browser Code - IEBlog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/ie/archive/2010/04/14/same-markup-writing-cross-browser-code.aspx)
 - http://detectmobilebrowsers.com/ - Simplified (support lot of language) and not up-to-date UA detection.
-- [Browser detection using the user agent | MDN](https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent)
+- [Browser detection using the user agent - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent)
 - [4 Bad Reasons To Detect Mobile Browsers](http://markonphp.com/4-bad-reasons-to-detect-mobile-browsers/)
 - [Mobile Grade (A, B, C)](http://jquerymobile.com/browser-support/)
 	* A-grade: Full enhanced experience with Ajax-based animated page transitions.
@@ -931,7 +938,10 @@ Apple Shortcuts App: `Shortcuts/700 CFNetwork/974.2.1 Darwin/18.0.0`
 See [Detection](#detection)
 
 - [Browser Capabilities Project](https://browscap.org/ua-lookup)
-- [WebAIM: History of the browser user-agent string](http://webaim.org/blog/user-agent-string-history/)
+- [WebAIM: History of the browser user-agent string](https://web.archive.org/web/20220505052440/https://webaim.org/blog/user-agent-string-history/)
+- [UA gotta be kidding](https://web.archive.org/web/20220503060106/https://bkardell.com/blog/UAGottaBeKidding.html)
+- [User-Agent Reduction](https://web.archive.org/web/20220429135912/https://www.chromium.org/updates/ua-reduction/) - Chrome reduce and freeze informations given by the UA string. See also [Intent to Deprecate and Freeze: The User-Agent string](https://web.archive.org/web/20220309030335mp_/https://groups.google.com/a/chromium.org/g/blink-dev/c/-2JIRNMWJ7s/m/yHe4tQNLCgAJ)
+- [Version 100 in Chrome and Firefox - Mozilla Hacks - the Web developer blog](https://web.archive.org/web/20220505190705/https://hacks.mozilla.org/2022/02/version-100-in-chrome-and-firefox/)
 - [User agent - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/User_agent)
 - [The Mobile Web should just work for everyone - IEBlog - Site Home - MSDN Blogs](http://blogs.msdn.com/b/ie/archive/2014/07/31/the-mobile-web-should-just-work-for-everyone.aspx)
 - [Tech Stuff - Browser ID Strings (a.k.a. User Agent ID)](http://www.zytrax.com/tech/web/browser_ids.htm)
