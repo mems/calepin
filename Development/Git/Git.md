@@ -313,15 +313,9 @@ git config --global core.excludesFile '~/.gitignore'
 - [github/gitignore: A collection of useful .gitignore templates](https://github.com/github/gitignore)
 - https://www.gitignore.io/
 
-## Commit empty folder
+## Commit empty directory
 
-Add an empty file `.gitkeep`:
-
-```sh
-touch .gitkeep
-```
-
-Or use a `.gitignore`:
+Use an empty `.gitignore` in the empty directory, or with a list of files that should be ignored:
 
 ```gitignore
 # Ignore everything in this directory
@@ -330,8 +324,13 @@ Or use a `.gitignore`:
 !.gitignore
 ```
 
+Or create a file like `.keep` or `.gitkeep` (the name is not important, it's not a feature of Git) in the empty directory.
+
 - [What is .gitkeep? Differences between .gitignore and .gitkeep - Apply Head](https://applyhead.com/gitkeep-vs-gitignore/)
 - [How can I add an empty directory to a Git repository? - Stack Overflow](https://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository)
+- [Git FAQ - Git SCM Wiki](https://git.wiki.kernel.org/index.php/Git_FAQ#Can_I_add_empty_directories.3F)
+- [What is .gitkeep? How to Track and Push Empty Folders in Git](https://web.archive.org/web/20211218035743/https://www.freecodecamp.org/news/what-is-gitkeep/)
+- [git - What are the differences between .gitignore and .gitkeep? - Stack Overflow](https://stackoverflow.com/questions/7229885/what-are-the-differences-between-gitignore-and-gitkeep)
 
 ## Include version
 

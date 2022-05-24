@@ -2563,19 +2563,18 @@ Note: `!important` can take the precedence, but for some CSS engines animation/t
 `element:not(#id)`, have higher specificity than `element` (because `#id` = 10)
 
 - [Eric Meyer, CSS Nerd sur Twitter : "@chriscoyier That buries active styles for any focused link, though. LVHFA or LVFHA are what I always recommend—unless you’re using chained pseudos like :focus:active and :visited:hover, in which case the order rarely matters." / Twitter](https://twitter.com/meyerweb/status/1279053893440282625)
-- [The CSS Cascade](https://wattenberger.com/blog/css-cascade)
+- [The CSS Cascade](https://web.archive.org/web/20220516003616/https://wattenberger.com/blog/css-cascade)
 - [Specificity Visualizer](https://isellsoap.github.io/specificity-visualizer/)
-- [More important than !important – The Sea of Ideas](https://paulbakaus.com/2017/07/27/more-important-than-important/)
+- [More important than !important - Paul Bakaus' blog](https://web.archive.org/web/20210820164954/https://paulbakaus.com/2017/07/27/more-important-than-important/)
 - [Strategies for Keeping CSS Specificity Low | CSS-Tricks](http://css-tricks.com/strategies-keeping-css-specificity-low/)
-- [Controlling the Specificity](https://www.kizu.ru/controlling-the-specificity/)
-- [CSS specificity graphs | Blog | Decade City](https://decadecity.net/blog/2014/11/26/css-specificity-graphs)
+- [Controlling the Specificity](https://web.archive.org/web/20211207210051/https://www.kizu.ru/controlling-the-specificity/)
+- [CSS specificity graphs in practice | Blog | Decade City](https://web.archive.org/web/20200925204728/https://decadecity.net/blog/2014/11/26/css-specificity-graphs)
 - [Assigning property values, Cascading, and Inheritance](https://www.w3.org/TR/CSS2/cascade.html#specificity)
-- [CSS Specificity](http://cssspecificity.com/)
 - [Specificity - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
-- [Specificity Calculator](https://specificity.keegan.st/)
-- [Batificity](http://batificity.com/)
-- [Specifishity :: Specificity with Fish](https://specifishity.com/)
-- [CSS Specificity Wars | Stuff & Nonsense blog](https://stuffandnonsense.co.uk/archives/css_specificity_wars.html) - [css-specificity-wars.png](https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png)
+- [Specifishity :: Specificity with Fish](https://web.archive.org/web/20220330023427/https://specifishity.com/)
+- [CSS Specificity Wars |  Blog archives | Stuff & Nonsense, Wales, UK](https://web.archive.org/web/20220318163436/https://stuffandnonsense.co.uk/archives/css_specificity_wars.html) - https://web.archive.org/web/20220318163436/https://stuffandnonsense.co.uk/archives/images/css-specificity-wars.png
+- [Specificity Calculator](https://specificity.keegan.st/) - Note: [Selectors Level 4 aren't supported](https://github.com/keeganstreet/specificity/issues/45)
+- [Batificity](https://web.archive.org/web/20220315221355/http://batificity.com/) - Selector specificity as comics
 
 ### Selector based on language
 

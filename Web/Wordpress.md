@@ -428,6 +428,16 @@ add_filter('load_textdomain_mofile', function ($mofile, $domain) {
 ?>
 ```
 
+```php
+<?php
+printf(
+	/* translators: %s: Price amount. */
+	__('Price: %s', 'my-text-domain'),
+	get_product_price()
+);
+?>
+```
+
 - [wp i18n make-pot | WP-CLI Command | WordPress Developer Resources](https://developer.wordpress.org/cli/commands/i18n/make-pot/) - "Create a POT file for a WordPress project."
 - [How to Internationalize Your Plugin | Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/)
 - [filesystem - What is the difference between the .po .mo and .pot localization files? - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/227822/what-is-the-difference-between-the-po-mo-and-pot-localization-files/227829#227829)
@@ -435,6 +445,19 @@ add_filter('load_textdomain_mofile', function ($mofile, $domain) {
 - [Codestyling Localization – WordPress plugin | WordPress.org](https://wordpress.org/plugins/codestyling-localization/#screenshots)
 - [Easy Translator – WordPress plugin | WordPress.org](https://wordpress.org/plugins/easy-translator-lite/#screenshots)
 - [What's the difference between __(), _e(), _x(), and _ex()? - WP Engineer](https://web.archive.org/web/20220420165809/https://wpengineer.com/2237/whats-the-difference-between-__-_e-_x-and-_ex/)
+
+### Plurals
+
+```php
+<?php
+printf( _n( '%s person', '%s people', $count, 'text-domain' ), number_format_i18n( $count ) );
+?>
+```
+
+
+- [_n() | Function | WordPress Developer Resources](https://developer.wordpress.org/reference/functions/_n/)
+- [WordPress Localization - How plural forms work](https://web.archive.org/web/20220204122947/https://www.cssigniter.com/wordpress-localization-plural-forms-work/)
+- [I18n for WordPress Developers « WordPress Codex](https://codex.wordpress.org/I18n_for_WordPress_Developers#Plurals)
 
 ## SVG
 
@@ -573,3 +596,7 @@ class My_Theme
 $my_theme = new My_Theme();
 ?>
 ```
+
+## Code
+
+- [WordPress/WordPress-Coding-Standards: PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions](https://github.com/WordPress/WordPress-Coding-Standards)

@@ -863,6 +863,398 @@ Aka Git commit message.
 - [How to Write a Git Commit Message](https://web.archive.org/web/20220426220055/https://cbea.ms/git-commit/)
 - [Commit](../Development/Git/Git.md#commit)
 
+> > This will come back to bite us
+>
+> > I forgot how to squash, so here's another commit
+>
+> > Worked it and twerked it
+>
+> > it works, but shouldn't. plz help
+>
+> > No, THIS is the final commit
+>
+> > Didn't like it but had to commit this
+>
+> > Somebody fix this.
+>
+> > God only knows.. I don't
+>
+> > Revert fix typo
+>
+> > Regaining order, saving sanity, and moving towards a brighter future
+>
+> > Dave breaks it Steve fixes it that's our workflow
+>
+> > This is the ninth attempt at rebasing
+>
+> > Ok I promise this time it will work
+>
+> > Nothing to see here, move along
+>
+> > This should not be committed but can not argue with manager
+>
+> > Fix bug but its not work
+>
+> > This change may not work for everyone.
+>
+> > Now fixed for real
+>
+> > Removed all errors
+>
+> > This works... trust my instincts
+>
+> > crossing fingers, toes, and anything inbetween!
+>
+> > Reverting the reversion of the reversion
+>
+> > Decreasing Coverage threshold, will increase back, promise.
+>
+> > explain me if you understood my code
+>
+> > yoloing this b/c its friday!
+>
+> > fix not sure
+>
+> > If it breaks, it breaks
+>
+> > Well you can tell by the way I use my threads I'm synchronized, no time to spin.
+>
+> > Fixed xxx again, please don't unfix it anymore.
+>
+> > Unset tripple negative false
+>
+> > fine, you win rubocop
+>
+> > and then a miracle occurred.
+>
+> > Once more, with feeling!
+>
+> > Hello, please merge!!!
+>
+> > bugfix: I really don't know what I was thinking at the time
+>
+> > Fixing the stuff I broke earlier
+>
+> > I don’t know why I had to commit this
+>
+> > I don’t know why it works, but it does
+>
+> > Does some stuff idk it works now
+>
+> > Dont worry, this will not break the prod
+>
+> > I've broken all unit tests and by passed the commit hooks
+>
+> > don't know why but its fixed
+>
+> > Cha cha changes
+>
+> > Beautified code in the desperate hope of improving app performance through increased self-esteem.
+>
+> > Well that's not gonna work
+>
+> > fixed for real
+>
+> > DOH! undo that
+>
+> > It was already broken when I arrived.
+>
+> > IDK just push changes
+>
+> > Jerry reserves the right to say "I told you so"
+>
+> > For the sake of my sanity, just ignore this…
+>
+> > I don't know what i've done, but it works now
+>
+> > Scott was here
+>
+> > semi-final commit
+>
+> > short hack, don't forget to refactor later!
+>
+> > Maybe this time
+>
+> > fixed it, again, the 3rd time
+>
+> > Faster loading time by decreasing countdown timer
+>
+> > i'll explain later
+>
+> > no one will read this anyway
+>
+> > I was forced to write this crap
+>
+> > assumption is the first bug
+>
+> > Copy-paste to fix previous copy-paste.
+>
+> > This work but not compile
+>
+> > I am committed
+>
+> > made irreparable improvements
+>
+> > devs don’t let devs commit drunk— at least not alone
+>
+> > I didn't this
+>
+> > This Is Why We Don't Push To Production On Fridays
+>
+> > I hope this works, this time
+>
+> > undo initial commit
+>
+> > Well that should work
+>
+> > I don't understand how this works, just don't revert this one
+>
+> > fixed the fix
+>
+> > I hope this pig will fly
+>
+> > hand-coded... updated, all shiny and new
+>
+> > This time real real v2
+>
+> > Do not merge this
+>
+> > test commit please ignore
+>
+> > Ignite the flames
+>
+> > I'm so so sorry about this
+>
+> > Literally nothing. Need to trigger pipeline again.
+>
+> > Semiblind attempt to fix customer's issue
+>
+> > One small step for me, one giant mess for the project lead.
+>
+> > Fixed some bugs, added some new bugs to be fixed later.
+>
+> > Build working, for real this time.
+>
+> > hot fix of hot fix
+>
+> > chore: embellish code
+>
+> > Today I could finally see the banana
+>
+> > This should work, merge to production
+>
+> > I did this the other way.
+>
+> > This will fix definitely fix it v3
+>
+> > Drunk, fix later
+>
+> > Fix this on monday
+>
+> > Hallelujah!
+>
+> > No, really, dates are fixed this time!
+>
+> > If you think there are no more bugs left, you have to fix the bugs left.
+>
+> > this one should work
+>
+> > bunch of sad tests are happy now
+>
+> > Stupid demand, but have to do it
+>
+> > You have successfully completed you task. You deserve a badge because you did your best.
+>
+> > this'll fix everything
+>
+> > [HOTFIX] Revert pointing all configs at production
+>
+> > Revert: Revert: Revert: Revert: …
+>
+> > OK, take #23. It's 5am... and it works. For real.
+>
+> > Hopefully, maybe, fix X, please?
+>
+> > Change this and get your tires slashed
+>
+> > What could have been done with a few lines of code we have instead replaced with a pile of Javascript
+>
+> > So long and thanks for all the fish
+>
+> > not sure what I added here lol
+>
+> > yolo
+>
+> > final.final.final commit
+>
+> > I broke a thing... but it works.
+>
+> > Fixes #2446, but I don’t know why
+>
+> > Fix Skynet attack
+>
+> > goddammit david
+>
+> > Fixes all the bugs (deletes all files in repo)
+>
+> > Fixed all the broken things
+>
+> > Remove all tests
+>
+> > Don't look - Just approve!
+>
+> > Do Not do this Again!
+>
+> > I have done the needful
+>
+> > Finally, it's working, now I may sleep…
+>
+> > if this breaks anything, breakfast is on me
+>
+> > final, final, final, final candidate
+>
+> > Oh god, how did this ever work before
+>
+> > Proper functionality should now throw errors.
+>
+> > Rolling back because I made a terrible mistake
+>
+> > This wasn't me
+>
+> > I don’t care anymore
+>
+> > fixed some bugs, added more bugs
+>
+> > jQuery makes Jake weary
+>
+> > Fixing the typo introduced in the previous fixing the typo commit
+>
+> > Let's YOLO this thing, I trust my skills.
+>
+> > TODO: Fix this later
+>
+> > The thing now does the thing that the previous thing thought the thing did (bugfix)
+>
+> > At some point we'll make Jenkins happy. That day is not today.
+>
+> > Revert: fix for the fix
+>
+> > Not my fault
+>
+> > Fix cat walking over the keyboard
+>
+> > Oops i did it again
+>
+> > Fixed the fix…again
+>
+> > You are here
+>
+> > If this doesn't work, find me at the bar. If it works, find me at the beach.
+>
+> > Now witness the power of this fully armed and operational web hooks battle station. Fire at will, commander.
+>
+> > Fix banana bug.
+>
+> > really fix danger for this time
+>
+> > My name is Ozymandias, king of kings. Look upon my changes ye mighty and despair
+>
+> > Revert previous revert again
+>
+> > It was hard to write so it should be hard to read.
+>
+> > Dear future fellow developer: Don't blame me
+>
+> > I apologize now to the future maintainer
+>
+> > Note to future self: take a week and fix this.
+>
+> > I'm leaving so it doesn't matter
+>
+> > Now that I'm in charge around here, there's going to be some changes
+>
+> > I accidentaly destroyed the solution
+>
+> > this is the revert to the previous revert and the other revert
+>
+> > i have no idea how doing this makes it work.
+>
+> > Actually, actually fixed
+>
+> > See previous.
+>
+> > This will never work
+>
+> > This might fix that thing
+>
+> > I'm not very sure what I've done here
+>
+> > Abandon hope all ye who enter here
+>
+> > Ahhhh! Undo last undo.
+>
+> > Undo past mistakes
+>
+> > All of the bugs have been changed
+>
+> > Im probably going to regret this one in the morning.
+>
+> > Become a developer they said, it will be fun they said…
+>
+> > Fixed the previously  fixed fix that was already fixed
+>
+> > Wear short trousers
+>
+> > Don't ask me why, just merge it
+>
+> > Not sure why but it foxes things
+>
+> > Grabbing the plunger
+>
+> > mistakes were made
+>
+> > Probably works, maybe not, only the Calendar/Date gods know
+>
+> > Have to leave this bug in because customers actually expect this behavior
+>
+> > I'm tired, I need you work already
+>
+> > Fix it again again
+>
+> > Commited from my iphone
+>
+> > Making the sauce for the spaghetti code
+>
+> > Let's wrap it up. It's weekend!
+>
+> > thanks for your time
+>
+> > if you're reading this, then something is broken and you're looking for someone to blame
+>
+> > don't trust this commit
+>
+> > Let there be change
+>
+> > Unfortunately, it is successful
+>
+> > Fire alarm went off, have to push quickly
+>
+> > This is why you don’t do commits at 1am
+>
+> > Un-oopsing the oops
+>
+> > good luck debugging this
+>
+> > This will be a problem with the year 2000, but I would not be there to see...
+>
+> > They made me do that
+>
+> > Adding comment for future self (next week, when I have forgotten)
+>
+> > This'll do, I'm going to bed
+>
+> — [Mac Dev Survey 2022 Results | Tower Blog](https://www.git-tower.com/blog/mac-dev-survey-2022-results/)
+
 ## Indentation
 
 Aka tabs vs spaces, spaces vs tabs

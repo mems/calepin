@@ -2784,6 +2784,10 @@ paste -d '+' file1 file2
 
 # Find differences between two files and merge interactively alike `diff`
 sdiff file1 file2
+
+# Find in files with a multile regex
+# See https://stackoverflow.com/a/7167115/470117
+find ./path/to/files -type f -exec grep -Pazo '(?s)<control>.*?</control>' {} \+
 ```
 
 ### Sed

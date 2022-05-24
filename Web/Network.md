@@ -850,7 +850,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 - [Uniform Resource Identifier (URI) Schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml)
 - https://github.com/sidorares/node-mysql2/blob/9218f055ceeb95ae7205348e06c07b89b799d031/lib/connection_config.js#L88-L118
 - [IPv4 - Wikipedia](https://en.wikipedia.org/wiki/IPv4#Addressing)
-- [In search of the perfect URL validation regex](https://mathiasbynens.be/demo/url-regex)
+- [Email address format](../Data/Email.md#format)
 - [Trailing Slashes on URLs: Contentious or Settled?—zachleat.com](https://web.archive.org/web/20220228014040/https://www.zachleat.com/web/trailing-slash/)
 - [.aspx considered harmful – Jon Udell](https://web.archive.org/web/20210518101412/https://blog.jonudell.net/2008/01/17/aspx-considered-harmful/)
 
