@@ -1927,7 +1927,7 @@ Use `padding-top` to push down the content:
 
 #### `text-indent`
 
-**This method is not recommanded (see links below)**
+**This method is not recommended (see links below)**
 
 ```css
 *{
@@ -1940,9 +1940,10 @@ Use `padding-top` to push down the content:
 
 Use `px` for `text-indent` with great value instead of `%` because percentages not work correctly every times (and don't require relative computations)
 
-- [HTML “text-indent: -9999px” and holding the line | Maile Ohye: Love & Technology](http://maileohye.com/html-text-indent-not-messing-up-your-rankings/)
+- [HTML “text-indent: -9999px” and holding the line | Maile Ohye: Love & Technology](https://web.archive.org/web/20220317140132/http://maileohye.com/html-text-indent-not-messing-up-your-rankings/)
 - [Disallow negative text indent · CSSLint/csslint Wiki](https://github.com/CSSLint/csslint/wiki/Disallow-negative-text-indent)
-- [Replacing the -9999px hack (new image replacement) | Jeffrey Zeldman Presents The Daily Report: Web Design News & Insights Since 1995](http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
+- [Replacing the -9999px hack (new image replacement) - Zeldman on Web and Interaction Design](https://web.archive.org/web/20220509151823/https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
+- [WebCompat PSA: Please don't use negative `text-indent`s for hidden labels. - Dennis Schubert](https://web.archive.org/web/20211019040238/https://overengineer.dev/blog/2021/05/26/webcompat-text-indent.html)
 
 #### Text size or color
 
@@ -2166,10 +2167,23 @@ Prefer using SVG. Font it's realy hard to get a consitent (pixel) align correctl
 > 5. Better accessibility! Plus fallbacks! - Fool-proof, once you set it up well
 > 6. Better semantics! - `<svg>` = "image" / `<span>` = "nothing"
 > 7. Ease of use - Easy to manage individual icons, instant build processes.
+>
 > — Sarah Drasner, Chris Coyier, Seren Davies
 
 > icon fonts do not use progressive enhancement by default
-— [Performance Calendar » No @font-face Syntax will ever be Bulletproof, Nor Should It Be](http://calendar.perfplanet.com/2016/no-font-face-bulletproof-syntax/#addendum_okay_but_what_about_icon_fonts)
+>
+> — [Performance Calendar » No @font-face Syntax will ever be Bulletproof, Nor Should It Be](http://calendar.perfplanet.com/2016/no-font-face-bulletproof-syntax/#addendum_okay_but_what_about_icon_fonts)
+
+> SVG was made to do what icon fonts are hacked to do.
+> [...]
+> Use SVG. It's better for #a11y too.
+>
+> — [Sara Soueidan on Twitter: "yep, still a hack SVG was made to do what icon fonts are hacked to do. Many reasons to not use icon fonts that don't fit in a tweet or two. Use SVG. It's better for #a11y too." / Twitter](https://twitter.com/sarasoueidan/status/1529057473214152705?s=12&t=3M2lla8ODx-qknezeIfS-w)
+
+> [about embedding all symbold into one compressed file (WOFF2 use Brotli)]
+> Only if every page that uses the icon font uses _all_ of the icons. Otherwise it's downloading redundant data.
+>
+> — [Jake Archibald on Twitter: "@ScottKellum @PixelAmbacht Only if every page that uses the icon font uses _all_ of the icons. Otherwise it's downloading redundant data." / Twitter](https://twitter.com/jaffathecake/status/1528753722175762432)
 
 - [Ten reasons we switched from an icon font to SVG - Ian Feather](http://ianfeather.co.uk/ten-reasons-we-switched-from-an-icon-font-to-svg/)
 - [» Seriously, Don’t Use Icon Fonts Cloud Four Blog](http://blog.cloudfour.com/seriously-dont-use-icon-fonts/)
@@ -2180,6 +2194,7 @@ Prefer using SVG. Font it's realy hard to get a consitent (pixel) align correctl
 - (not sure Custom Elements is the best solution, but explain others solutions) [The Road to SVG and Custom Elements in Clarity Icons – Clarity Design System – Medium](https://medium.com/claritydesignsystem/the-road-to-svg-and-custom-elements-in-clarity-icons-1d691c6cc91#.2anohjioj)
 - [Making the Switch Away from Icon Fonts to SVG: Converting Font Icons to SVG — Sara Soueidan – Freelance-Front-End UI/UX Developer](https://www.sarasoueidan.com/blog/icon-fonts-to-svg/)
 - [How I learnt to stop using icon fonts (and love SVG) – Triggers & Sparks](https://triggersandsparks.com/talks/svg-icons/)
+- [font-display is Incompatible with Icon Fonts—zachleat.com](https://web.archive.org/web/20211104044111/https://www.zachleat.com/web/font-display-icon-fonts/)
 
 Align SVG icon with text:
 
@@ -3426,6 +3441,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 - [Using CSS variables correctly - Mike Riethmuller](https://madebymike.com.au/writing/using-css-variables/)
 - [DRY Switching with CSS Variables: The Difference of One Declaration | CSS-Tricks](https://css-tricks.com/dry-switching-with-css-variables-the-difference-of-one-declaration/)
 - [Custom property linear range mapping](https://codepen.io/leaverou/pen/bGRmQKv) - Tool to compute clamping map: "When `--p` is `-1`, we want to output `.2em`. When `--p` is `1`, we want to output `.8em`."
+- [The Big Gotcha With Custom Properties | CSS-Tricks - CSS-Tricks](https://css-tricks.com/the-big-gotcha-with-custom-properties/)
 
 ### Conditional variable
 

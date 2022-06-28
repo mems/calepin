@@ -108,8 +108,8 @@ Or:`cmd /c set HOME=%USERPROFILE% & set MSYSTEM=MINGW64 & bash.exe --login -i` w
 Alternatively you can use also:
 
 - Cygwin
-    - [Cygwin Packages](https://www.cygwin.com/packages/)
-    - to choose which package to (re)install, use the setup: [Cygwin Installation](https://cygwin.com/install.html)
+	- [Cygwin Packages](https://www.cygwin.com/packages/)
+	- to choose which package to (re)install, use the setup: [Cygwin Installation](https://cygwin.com/install.html)
 - Git for Windows comes with MinGW64 (`%GIT_INSTALL_PATH%/usr/bin`, `%GIT_INSTALL_PATH%/bin`, `%GIT_INSTALL_PATH%/mingw64/bin`)
 	- [Git for Windows](https://gitforwindows.org/)
 	- [The difference between MINGW and MSYS2 · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/The-difference-between-MINGW-and-MSYS2)
@@ -138,12 +138,13 @@ Alternatively you can use also:
 	- [windows 7 - Git: Open Git-Bash in specific directory - Super User](https://superuser.com/questions/1310814/git-open-git-bash-in-specific-directory)
 	- [FAQ · git-for-windows/git Wiki](https://github.com/git-for-windows/git/wiki/FAQ#what-is-the-relationship-between-git-for-windows-and-msysgit)
 	- [git-for-windows/build-extra: Additional files and scripts to help build Git for Windows on MSYS2.](https://github.com/git-for-windows/build-extra#msys2)
-- MinGW64 http://mingw-w64.org/doku.php/start
-- MinGW "MSYS" package https://sourceforge.net/projects/mingw/
-- GnuWin https://sourceforge.net/projects/gnuwin32/
-- Unxutils (check or update env var PATH for both `%WHERE_UNXUTILS_IS%\bin` and `%WHERE_UNXUTILS_IS%\usr\local\wbin`) http://unxutils.sourceforge.net/ `C:\Program Files (x86)\UnxUtils`
-	Not updated since 2003
-	But sh (zsh) doesn't work propely
+- [MinGW-w64](https://www.mingw-w64.org/)
+- [MinGW - Minimalist GNU for Windows download | SourceForge.net](https://sourceforge.net/projects/mingw/) - MinGW "MSYS" package
+- [GnuWin](https://sourceforge.net/projects/gnuwin32/)
+- [win-bash - bash port for Windows](http://win-bash.sourceforge.net/)
+- [Unxutils - Native Win32 ports of some GNU utilities](http://unxutils.sourceforge.net/) (check or update env var PATH for both `%UNXUTILS_PATH%\bin` and `%UNXUTILS_PATH%\usr\local\wbin`) `C:\Program Files (x86)\UnxUtils`
+	- not updated since 2003
+	- sh (zsh) doesn't work propely
 
 See also:
 
@@ -195,7 +196,7 @@ In [Start > Settings > Time & language > Language & region > Preferred languages
 - [Windows-driver-samples/input/layout at master · microsoft/Windows-driver-samples](https://github.com/Microsoft/Windows-driver-samples/tree/master/input/layout)
 - [HOWTO: Build keyboard layouts for Windows x64 - Levicki's Tech Spot - levicki.net](https://web.archive.org/web/20200211103320/https://levicki.net/articles/2006/09/29/HOWTO_Build_keyboard_layouts_for_Windows_x64.php)
 - [KbdEdit - The Best Keyboard Layout Editor For Windows 10, 8, 7, Vista, XP and 2003 (32- and 64-bit)](http://kbdedit.com/)
-
+- [Apple keyboard layout on Windows](../macOS/macOS.md#apple-keyboard-layout-on-windows)
 
 ## Minimal Install
 
@@ -224,13 +225,14 @@ dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /StartComponentCleanup /Reset
 - [Process Monitor - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) - Registry activity
 - [O&O RegEditor](https://www.oo-software.com/en/ooregeditor)
 - [Resplendence Software - Registrar Registry Manager](https://www.resplendence.com/registrar) - Registry editor (exist in free verion) that can perform regex searches and open .reg files for editing
+- [zodiacon/TotalRegistry: Total Registry - enhanced Registry editor/viewer](https://github.com/zodiacon/TotalRegistry)
+- [Fleex255/PolicyPlus: Local Group Policy Editor plus more, for all Windows editions](https://github.com/Fleex255/PolicyPlus) - open offline and live registry hives
 
 ## Processes activity
 
 - [Process Explorer - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
-- [processhacker/processhacker: A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware.](https://github.com/processhacker/processhacker)
 - [hfiref0x/WinObjEx64: Windows Object Explorer 64-bit](https://github.com/hfiref0x/WinObjEx64)
-- [Fleex255/PolicyPlus: Local Group Policy Editor plus more, for all Windows editions](https://github.com/Fleex255/PolicyPlus) - open offline and live registry hives
+- [processhacker/processhacker: A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware.](https://github.com/processhacker/processhacker)
 
 ## Utilities
 
@@ -303,3 +305,13 @@ powershell -File '..\SomeScript.ps1' -Arg1 'Val1'
 
 - [Start-Process (Microsoft.PowerShell.Management) - PowerShell | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process?view=powershell-5.1)
 - [Verb RunAs in a Start-Process Powershell command causes an error - Stack Overflow](https://stackoverflow.com/questions/25725925/verb-runas-in-a-start-process-powershell-command-causes-an-error) - `-NoNewWindow` and `-Verb RunAs` can't be combined. See also [Multiple inputs into new prompt & Powershell -run as and -nonewwindow issue - Stack Overflow](https://stackoverflow.com/questions/69243757/multiple-inputs-into-new-prompt-powershell-run-as-and-nonewwindow-issue/69247548#69247548)
+
+## Unix tools
+
+- [Win32 Un*x Utility Ports](http://www.tedfelix.com/SupaSoft/wuup.htm)
+- [GnuWin32](http://gnuwin32.sourceforge.net/)
+- [Native Win32 ports of some GNU utilities](http://unxutils.sourceforge.net/)
+- [GnuWin download | SourceForge.net](https://sourceforge.net/projects/gnuwin32/)
+- [MinGW - Minimalist GNU for Windows download | SourceForge.net](https://sourceforge.net/projects/mingw/)
+
+See also [Bash shell on Windows](#bash-shell-on-windows)

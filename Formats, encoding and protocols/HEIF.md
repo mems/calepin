@@ -1,0 +1,1 @@
+- [strukturag/libheif: libheif is an HEIF and AVIF file format decoder and encoder.](https://github.com/strukturag/libheif)

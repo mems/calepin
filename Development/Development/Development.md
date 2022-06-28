@@ -70,6 +70,37 @@ See also:
 - [Postal address](../Data/Postal%20address.md)
 - [Unicode](../Data/Unicode/Unicode.md)
 
+### Numbers every developer should know
+
+Aka speed numbers, latency numbers, delays
+
+> I didn't know what a billion was. I don't think most of those men downtown know what a billion is, either. And if you don't know what a billion is, how on earth do you know what a billionth is?
+>
+> I fussed and fumed.
+>
+> Finally one morning, in total desperation, I called over to the engineering building, and said “please cut off a nanosecond and send it over to me”, and I brought you some today.
+>
+> Now what I wanted when I asked for a nanosecond was, I wanted a piece of wire which would represent the maximum distance that electricity could travel in a billionth of a second.
+>
+> Of course, it wouldn’t really be through wire. It’d be out in space, velocity of light, so if you start with the velocity of light and use your friendly computer, you’ll discover that a nanosecond is 11.8 inches long. The maximum limiting distance that electricity can travel in a billionth of a second.
+>
+> Finally, again in about a week I called back and said “I need something to compare this to. Could I please have a microsecond?”
+>
+> I’ve only got one microsecond, so I can’t give you each one. Here’s a microsecond. Nine hundred and eighty-four feet. I sometimes think we ought to hang one over every programmer’s desk, or around their neck, so they know what they’re throwing away when they throw away microseconds.
+>
+>
+> Now I hope you all get your nanoseconds. They’re absolutely marvellous for explaining to wives and husbands and children, and admirals, and generals, people like that. An admiral wanted to know why it took so damn long to send a message via satellite, and I had to point out that between here and the satellite were a very large number of nanoseconds.
+>
+> You see, you can explain these things, it’s really very helpful, so be sure to get your nanoseconds.
+>
+> — Grace Hopper, 25 April 1985, MIT Lincoln Laboratory, Lexington, Massachusetts, USA
+
+- [The Infinite Space Between Words](https://blog.codinghorror.com/the-infinite-space-between-words/)
+- [Numbers Every Programmer Should Know By Year](https://web.archive.org/web/20220514192844/https://colin-scott.github.io/personal_website/research/interactive_latency.html)
+- [GitHub - sirupsen/napkin-math: Techniques and numbers for estimating system's performance from first-principles](https://github.com/sirupsen/napkin-math)
+- [Slow Software](https://web.archive.org/web/20220507201551/https://www.inkandswitch.com/slow-software/#latency-not-throughput)
+- [One second code: Do YOU know how much your computer can do in a second?](https://computers-are-fast.github.io/)
+
 ## Development skill
 
 1. can I do this?
@@ -79,7 +110,10 @@ See also:
 
 ## Reasons why code breaks
 
-> QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.
+> A QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.
+> \[...\] Tries to exit without paying
+> First real customer walks in and asks where the bathroom is. The bar bursts into flames, killing everyone.
+> The bar was built by ex-Volkswagen engineers and a special case to ensure passing results for sfdeljknesv was hard-coded \[refer to [Volkswagen emissions scandal](https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal)\]
 
 - code is untested: back your code with **automated tests**!
 - code does not report errors: use **exception reporting** mechanisms like services that collect live crash reports
@@ -152,11 +186,51 @@ Monolith to separate modules / files.
 
 Ex: A ↔︎ B refactored to A → B, with B that use the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern).
 
-## Latency numbers
+## Do one thing and do it well
 
-- [The Infinite Space Between Words](https://blog.codinghorror.com/the-infinite-space-between-words/)
-- [Numbers Every Programmer Should Know By Year](https://people.eecs.berkeley.edu/~rcs/research/interactive_latency.html)
-- [Numbers Every Programmer Should Know By Year](https://people.eecs.berkeley.edu/%7Ercs/research/interactive_latency.html)
+Aka DOTADIW, libraries vs frameworks
+
+> Mechanical engineers don’t attempt to have “one part that does everything”
+
+> The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.
+>
+> — Robert C. Martin
+
+> Coding like poetry should be short and concise.
+>
+> — Santosh Kalwar
+
+> One function must do only one thing
+
+- [Kiss Principle](../../Project/Project.md#kiss-principle)
+- [Frameworks and libraries](#frameworks-and-libraries)
+- [Unix philosophy — Wikipedia](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well)
+- [Clean Code: Fundamentals, Episode 3 - Functions, by Robert "Uncle Bob" Martin](https://cleancoders.com/episode/clean-code-episode-3)
+- [Single-responsibility principle — Wikipedia](https://en.wikipedia.org/wiki/Single-responsibility_principle)
+- [Don't repeat yourself — Wikipedia](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (DRY) - "Every piece of knowledge must have a single, unambiguous, authoritative representation within a system"
+- [You aren't gonna need it — Wikipedia](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) (YAGNI)
+
+See also:
+
+- [Complexity](#complexity)
+
+## Inversion of control
+
+- [Inversion of control — Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
+- [terminology - Framework vs. Toolkit vs. Library - Stack Overflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library/3057818#3057818)
+
+See also [Frameworks and libraries](#frameworks-and-libraries)
+
+## Frameworks and libraries
+
+> when you call a library, you are in control. But with a framework, the control is inverted: the framework calls you. (This is called the Hollywood Principle: Don't call Us, We'll call You. [aka inversion of control])
+> [...]
+> Basically, all the control flow is already in the framework, and there's just a bunch of predefined white spots that you can fill out with your code.
+
+- [language agnostic - What is the difference between a framework and a library? - Stack Overflow](https://stackoverflow.com/questions/148747/what-is-the-difference-between-a-framework-and-a-library)
+- [terminology - Framework vs. Toolkit vs. Library - Stack Overflow](https://stackoverflow.com/questions/3057526/framework-vs-toolkit-vs-library)
+
+See also [Inversion of control](#inversion-of-control)
 
 ## Multiple users
 
@@ -181,12 +255,18 @@ Aka multiplayer game, streaming, RTS game, collaborative software, conflict reso
 ## Complexity
 
 > The more things you have to special case, the worse your code is
-— [Lea Verou](https://twitter.com/LeaVerou/status/816271623619825664)
+>
+> — [Lea Verou](https://twitter.com/LeaVerou/status/816271623619825664)
 
 Magic = complexity. With react, JSX is magic
 
 - [Pourquoi les développeurs détestent-ils le low-code ? - Le Monde Informatique](https://web.archive.org/web/20200105104803/https://www.lemondeinformatique.fr/actualites/lire-pourquoi-les-developpeurs-detestent-ils-le-low-code-76497.html)
 - [Le monde du logiciel est en train de se détruire... Manifeste pour un développement plus durable - Greenspector](https://web.archive.org/web/20201211081957/https://greenspector.com/fr/le-monde-du-logiciel-est-en-train-de-se-detruire-manifeste-pour-un-developpement-plus-durable/)
+
+See also:
+
+- [Do one thing and do it well](#do-one-thing-and-do-it-well)
+- [The wrong way](#the-wrong-way)
 
 ## The wrong way
 
@@ -201,7 +281,7 @@ Often due to [complexity](#complexity) or [misconceptions and falsehoods](#false
 - [The Inner JSON Effect - The Daily WTF](https://web.archive.org/web/20201120111520/http://thedailywtf.com/articles/the-inner-json-effect) - A story about some weird enterprise framework "JDSL" using SVN revisions to do store code fragments, and reference it later by the revision ID.
 - [Project from Hell | Project Failures](https://web.archive.org/web/20201202113953/https://projectfailures.wordpress.com/2008/06/24/project-from-hell/) - How a big projet doing wrong
 - [How To Write Unmaintainable Code](https://github.com/Droogans/unmaintainable-code)
-- [Pourquoi réécrire un projet en partant de zéro ? Parce que l'ancien code est un fatra ou qu'il est plu facile d'écrire que de lire un code ?](https://www.developpez.com/actu/200958/Pourquoi-reecrire-un-projet-en-partant-de-zero-Parce-que-l-ancien-code-est-un-fatras-ou-qu-il-est-plus-facile-d-ecrire-que-de-lire-un-code/)
+- [Pourquoi réécrire un projet en partant de zéro ? Parce que l'ancien code est un fatra ou qu'il est plu facile d'écrire que de lire un code ?](https://www.developpez.com/actu/200958/Pourquoi-reecrire-un-projet-en-partant-de-zero-Parce-que-l-ancien-code-est-un-fatras-ou-qu-il-est-plus-facile-d-ecrire-que-de-lire-un-code/) - "It's easier to write than to read code"
 - [Things You Should Never Do, Part I – Joel on Software](https://web.archive.org/web/20201211193918/https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
 
 ## Performance and optimization
@@ -331,16 +411,40 @@ Normalize first ("NFD"), remove all non A-Za-z chars
 
 Aka naming things, few words
 
+- avoid noise words: The (prefix), info, data, variable, object, manager, interface, (type: string, array, list, boolean, etc.). Ex: `UserInfo` to `User`, `BookData` to `Book`
+- use pronounceable names: `yyyymmdstr` vs `currentDate`
+- be consistent, ex: do not use _fetch_, _retrieve_, and _get_ for the same operation in different classes
+- use intention revealing names, ex: `const rf = 5000; //the rental fee paid by the tenant` vs `const rentalFee = 5000;`. "The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name is not intention revealing.". See also [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
+- don’t append type information, ex: `const firstNameString;` vs `const firstName;`
+- replace magic numbers with named constants, ex: `const totalLoanDays = gracePeriod + 7;` vs `const NUMBER_OF_DAYS_IN_WEEK = 7; const totalLoanDays = gracePeriod + NUMBER_OF_DAYS_IN_WEEK;`
+- use pronounceable and searchable names, ex: `Date modymdhms;` vs `Date modificationTimestamp;`
+- methods/functions should have verb or verb phrase names, ex: `deleteApplication`, `createUser`
+
+> When naming things like tables, always future proof
+>
+> If you sell wine, calling a table “wines” will be confusing when expanding to beer
+>
+> “Beverages” will be confusing when you sell ice
+>
+> “Products” confusing when expand to services
+>
+> recommend tables be called “stuff” or “table1”
+>
+> — [Seth Rosen on Twitter: "When naming things like tables, always future proof If you sell wine, calling a table “wines” will be confusing when expanding to beer “Beverages” will be confusing when you sell ice “Products” confusing when expand to services recommend tables be called “stuff” or “table1”" / Twitter](https://twitter.com/sethrosen/status/1428692052968185863)
+
 > There are only two hard things in Computer Science: cache invalidation and naming things.
 >
 > — Phil Karlton
 
-- [Is naming things really that hard?](http://wade.be/development/2017/03/03/naming-things.html)
-- [Naming Things | DevIQ](http://deviq.com/naming-things/)
-- [Naming Guidelines](https://msdn.microsoft.com/en-us/library/ms229002%28v=vs.110%29.aspx)
-- [Sensible Interfaces](http://verraes.net/2013/09/sensible-interfaces/)
-- [Rob Pike: Notes on Programming in C](https://www.lysator.liu.se/c/pikestyle.html)
+- [I Shall Call It.. SomethingManager](https://web.archive.org/web/20220511052512/https://blog.codinghorror.com/i-shall-call-it-somethingmanager/)
+- [Is naming things really that hard? - jpswade](https://web.archive.org/web/20201112002226/https://wade.be/development/2017/03/03/naming-things.html)
+- [Naming Things | DevIQ](https://web.archive.org/web/20210509075345/https://deviq.com/practices/naming-things/)
+- [Naming Guidelines - Framework Design Guidelines | Microsoft Docs](https://web.archive.org/web/20220420172834/https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines)
+- [Sensible Interfaces](https://web.archive.org/web/20211115164731/https://verraes.net/2013/09/sensible-interfaces/)
+- [Rob Pike: Notes on Programming in C](https://web.archive.org/web/20220530233118/http://www.lysator.liu.se/c/pikestyle.html)
 - [Naming principles - Web Platform Design Principles](https://www.w3.org/TR/design-principles/#naming-is-hard)
+- [Glossary](https://web.archive.org/web/20220503201110/http://www.catb.org/jargon/html/go01.html)
+- [Find Similar or Opposite words at WordHippo](http://www.wordhippo.com/)
 
 > Local variables
 >
@@ -358,7 +462,7 @@ Aka naming things, few words
 > Longer names may help in long functions, or functions with many local variables.
 > (But often this just means you should refactor.)
 >
-> — [What's in a name?](https://talks.golang.org/2014/names.slide#6)
+> — [What's in a name?](https://web.archive.org/web/20220518033629/https://talks.golang.org/2014/names.slide#6)
 
 > Junior devs, variable naming is SO important.
 >
@@ -413,9 +517,6 @@ See also [Case styles](#case-styles)
 - credentials - [Username + password = one word - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/309008/username-password-one-word)
 - authentication [nouns - Is "authentification" a real word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/7844/is-authentification-a-real-word)
 
-- [Glossary](http://catb.org/jargon/html/go01.html)
-- [Find Similar or Opposite words at WordHippo](http://www.wordhippo.com/)
-
 > \#python tip: Avoid property() setters when the effect of the setting isn't obvious:
 >
 > 	bill.price = 1.15
@@ -444,6 +545,7 @@ See also [Case styles](#case-styles)
 > Alternatives for get: create, build, make, acquire, allocate, find, locate, fetch, request, retrieve, pull, derive, calculate, format, ...
 >
 > — [Chris Oldwood](https://twitter.com/chrisoldwood/status/693398223705260033)
+
 See also read, inspect,...
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
@@ -503,7 +605,27 @@ Aka case style, casing
 - [Letter case — Wikipedia](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles)
 - [Naming convention for multi-word identifiers with initialisms](https://esdiscuss.org/topic/naming-convention-for-multi-word-identifiers-with-initialisms)
 
-## Write readable code
+## Code quality
+
+Time spend vs quality / technical debt
+
+Organization complexity is predictor of bugs (more preople + more departments + higer turnover = worse code): [The Influence of Organizational Structure On Software Quality: An Empirical Case Study - Microsoft Research](https://www.microsoft.com/en-us/research/publication/the-influence-of-organizational-structure-on-software-quality-an-empirical-case-study/)
+
+![How unchecked technical debt ruins codebases - Mike Carter](How%20unchecked%20technical%20debt%20ruins%20codebases%20-%20mcarterj.png)
+
+- [The Wall of Technical Debt](https://verraes.net/2020/01/wall-of-technical-debt/)
+- [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
+- [Mike Carter on Twitter: "How unchecked technical debt ruins codebases. See if any of these are familiar to you! 🎭 #webdev https://t.co/d4KteXzcoH" / Twitter](https://mobile.twitter.com/mcarterj/status/1265223134711631872)
+
+### Write readable code
+
+> Any fool can write code that a computer can understand. Good programmers write code that humans can understand
+>
+> — Martin fowler
+
+> Coding like poetry should be short and concise.
+>
+> — Santosh Kalwar
 
 See also [complexity](#complexity).
 
@@ -525,7 +647,19 @@ See also [complexity](#complexity).
 >
 > — [Brian Hilson on Twitter: "Writing code that others will read (including your future self) is about making yourself easy to understand. It's not about: - being clever - showing how much you know - using this new thing you just learned about - typing the fewest characters possible https://t.co/ythAeaw1XJ" / Twitter](https://twitter.com/brianhilson/status/1220296329517322240?s=12)
 
-### Comments
+- if a function has too many arguments it is either doing to many things or there is an encapsulation missing (extract the arguments into an object as the argument)
+- do one thing
+- avoid side effects, ex: a `readFile()` function that reads the content of a file shouldn't deletes that file without notifying the user
+- remove dead code; a `checkPassword()` function that checking the password, but when the password is valid, it is also initializing the session which is a side-effect, or rename it as `checkPasswordAndInitializeSession()`
+- command query separation: a function should either ask something or do something, but not both
+- remove duplicate code (but it's could be OK do have duplicate code, when portion are small)
+- know your language's conventions, ex: `camelCase` in Java but `snake_case` in Python (see [Naming convention](#naming-convention)), opening braces on a new line in C# but put them on the same line in Java and JavaScript
+
+- [PEP 8 – Style Guide for Python Code | peps.python.org](https://peps.python.org/pep-0008/)
+- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+- [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+
+#### Comments
 
 > TOneverDO
 
@@ -608,18 +742,6 @@ Comments should complement the code. Maybe add notes on how to test, where the s
 - [Thoughts on Self-Documenting CSS](https://web.archive.org/web/20201109032904/https://keithjgrant.com/posts/2017/06/self-documenting-css/)
 - [La notion de code source autodescriptif relèverait d'un mythe entretenu par les programmeurs qui n'ont pas saisi la portée de « documenter »](https://www.developpez.com/actu/150976/La-notion-de-code-source-autodescriptif-releverait-d-un-mythe-entretenu-par-les-programmeurs-qui-n-ont-pas-saisi-la-portee-de-documenter/)
 - [What is the best comment in source code you have ever encountered? - Stack Overflow](https://stackoverflow.com/questions/184618/what-is-the-best-comment-in-source-code-you-have-ever-encountered)
-
-## Code quality
-
-Time spend vs quality / technical debt
-
-Organization complexity is predictor of bugs (more preople + more departments + higer turnover = worse code): [The Influence of Organizational Structure On Software Quality: An Empirical Case Study - Microsoft Research](https://www.microsoft.com/en-us/research/publication/the-influence-of-organizational-structure-on-software-quality-an-empirical-case-study/)
-
-![How unchecked technical debt ruins codebases - Mike Carter](How%20unchecked%20technical%20debt%20ruins%20codebases%20-%20mcarterj.png)
-
-- [The Wall of Technical Debt](https://verraes.net/2020/01/wall-of-technical-debt/)
-- [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
-- [Mike Carter on Twitter: "How unchecked technical debt ruins codebases. See if any of these are familiar to you! 🎭 #webdev https://t.co/d4KteXzcoH" / Twitter](https://mobile.twitter.com/mcarterj/status/1265223134711631872)
 
 ### Testing
 
@@ -781,9 +903,13 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 
 ## Team work
 
-- [How to do a code review | eng-practices](https://google.github.io/eng-practices/review/reviewer/)
 - lint
 - [bradfrost/frontend-guidelines-questionnaire: A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.](https://github.com/bradfrost/frontend-guidelines-questionnaire)
+
+Code review:
+
+- [How to do a code review | eng-practices](https://google.github.io/eng-practices/review/reviewer/)
+- [The Code Review Pyramid - Gunnar Morling](https://web.archive.org/web/20220529113907/https://www.morling.dev/blog/the-code-review-pyramid/)
 
 ## Lifecycle
 
@@ -831,7 +957,7 @@ Ex: App Code + precompiled lib/binaries submodule (will be used to include thrid
 If images are part of the software:
 App Code + (exported) PNGs or AppCode + design (PSD) submodule (will be used to generate icons automatically, etc.)
 
-- - [Why I don’t commit generated files to master — Medium](https://web.archive.org/web/20160409025913/https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564)
+- [Why I don’t commit generated files to master — Medium](https://web.archive.org/web/20160409025913/https://medium.com/@kentcdodds/why-i-don-t-commit-generated-files-to-master-a4d76382564)
 - [version control - Managing large binary files with Git - Stack Overflow](https://stackoverflow.com/questions/540535/managing-large-binary-files-with-git)
 - [version control - Should images be stored in a git repository? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/80962/should-images-be-stored-in-a-git-repository)
 - [Managing large files - GitHub Docs](https://web.archive.org/web/20220414225244/https://docs.github.com/en/repositories/working-with-files/managing-large-files)
@@ -858,6 +984,10 @@ Aka git secrets
 ### Version message
 
 Aka Git commit message.
+
+Use the imperative mood in the subject line: "if applied, this commit will _imperative sentence_", that match Git's own language pattern.
+
+One commit doesn't necessarily mean a feature change, there could be multiple atomic commits that form part of one feature change. Use PR titles to describe feature changes. The changelog could be essentially a list of PR titles.
 
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [How to Write a Git Commit Message](https://web.archive.org/web/20220426220055/https://cbea.ms/git-commit/)
@@ -1458,6 +1588,11 @@ Simplicity matters, [KISS](../Conception/Conception.md#kiss)
 >
 > — [desmarkie 🇮🇪 on Twitter: "Framework guide: Can an idiot decipher your errors? Can an idiot read the code? Can an idiot make something quickly without a tutorial?"](https://web.archive.org/web/20201112102307/https://twitter.com/desmarkie/status/557864491153907712)
 
+Pagination:
+
+- [Paginating Requests in APIs. | Medium](https://web.archive.org/web/20220529224356/https://ignaciochiazzo.medium.com/paginating-requests-in-apis-d4883d4c1c4c)
+- [Paginating Requests in APIs (2020) | Hacker News](https://news.ycombinator.com/item?id=31541070)
+
 See also:
 
 - [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
@@ -1618,19 +1753,6 @@ bindedFunction.call(object, param1);
 - https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind
 
 ### Blocking, non blocking (usage of events)
-
-### DRY (Don't repeat yourself)
-
-- [Don't repeat yourself - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
-
-### YAGNI (You aren't gonna need it)
-
-- http://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it
-
-### KISS (Keep It Simple, Stupid)
-
-- [KISS principle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/KISS_principle)
-- [The Kiss Principle](http://people.apache.org/~fhanik/kiss.html)
 
 ## Sub-language/template
 

@@ -59,6 +59,22 @@ git config --global user.name John Doe
 git config --global user.email john@doe.name
 ```
 
+```
+＃ In ~/.gitconfig:
+[user]
+	name = Sebastian Bille
+	email = personal@example.com
+
+# Include custom .gitconfig if in work folder
+[includeIf "gitdir:~/code/work/"]
+	path = ~/code/work/.gitconfig
+
+# --------
+# In ~/code/work/.gitconfig:
+[user]
+	email = work@example.com
+```
+
 - [Eric Williams - Conditional Includes For Git Config](https://web.archive.org/web/20201105224149/https://www.motowilliams.com/conditional-includes-for-git-config)
 
 ## Merge and rebase
@@ -511,3 +527,11 @@ git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
 - [Multiple working directorie with Git? - Stack Overflow](https://stackoverflow.com/questions/6270193/multiple-working-directories-with-git/30185564#30185564)
 - [Git - git-worktree Documentation](https://git-scm.com/docs/git-worktree)
 - [Parallelize Development Using Git Worktrees](https://spin.atomicobject.com/2016/06/26/parallelize-development-git-worktrees/)
+
+## Tags
+
+- [Proper use of Git tags | Dan Aloni](https://web.archive.org/web/20220531024440/https://blog.aloni.org/posts/proper-use-of-git-tags/) - [Proper use of Git tags | Hacker News](https://news.ycombinator.com/item?id=31480306)
+
+## Map name and emails
+
+- [Git - gitmailmap Documentation](https://git-scm.com/docs/gitmailmap)

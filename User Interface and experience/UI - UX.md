@@ -1036,7 +1036,7 @@ Text with background, readability, accessibility, etc.
 - [Colour Contrast Analyser (CCA) | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/resources/contrastanalyser/)
 - [Accessible color palette builder](https://toolness.github.io/accessible-color-matrix/)
 - [Check My Colours - Analyse the color contrast of your web pages](http://www.checkmycolours.com/)
-- [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/)
+- [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) - [Tanaguru/Contrast-Finder: Find valid background / foreground color contrast for accessibility (a11y, WCAG)](https://github.com/Tanaguru/Contrast-Finder)
 
 ## 3D actions
 

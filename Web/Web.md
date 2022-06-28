@@ -1101,6 +1101,9 @@ Source code:
 - [Debugging WebKit for iOS - Guy Lewin's Blog](https://web.archive.org/web/20211019205331/https://lewin.co.il/debugging-webkit-for-ios/)
 - [Debugging WebKit | WebKit](https://webkit.org/debugging-webkit/)
 - [CrackerCat/WasmFuzz: Fuzz testing on JavaScriptCore and WebAssembly in WebKit](https://github.com/CrackerCat/WasmFuzz#2-deploy-and-setup)
+- web developer tools:
+	- front-end: [WebKit/Source/WebInspectorUI at main · WebKit/WebKit](https://github.com/WebKit/WebKit/tree/main/Source/WebInspectorUI)
+	- back-end: [WebKit/Source/WebCore/inspector at main · WebKit/WebKit](https://github.com/WebKit/WebKit/tree/main/Source/WebCore/inspector)
 
 Dev tools:
 

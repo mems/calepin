@@ -44,6 +44,7 @@ Aka JavaScript (ECMAScript + DOM and Web APIs),
 - [webkit/Source/JavaScriptCore/parser at master · WebKit/webkit](https://github.com/WebKit/webkit/tree/master/Source/JavaScriptCore/parser)
 - [KFlash/seafox: A blazing fast 100% spec compliant, self-hosted javascript parser written in Typescript](https://github.com/KFlash/seafox)
 - [babel/packages/babel-parser at master · babel/babel](https://github.com/babel/babel/tree/master/packages/babel-parser) - Babel JS parser (previously Babylon), [@babel/parser · Babel](https://babeljs.io/docs/en/babel-parser)
+- [swc-project/swc: Rust-based platform for the Web](https://github.com/swc-project/swc)
 
 ## Engine
 

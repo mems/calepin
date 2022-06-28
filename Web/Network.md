@@ -853,6 +853,7 @@ URI Template format definition: [RFC 6570 - URI Template](https://tools.ietf.org
 - [Email address format](../Data/Email.md#format)
 - [Trailing Slashes on URLs: Contentious or Settled?—zachleat.com](https://web.archive.org/web/20220228014040/https://www.zachleat.com/web/trailing-slash/)
 - [.aspx considered harmful – Jon Udell](https://web.archive.org/web/20210518101412/https://blog.jonudell.net/2008/01/17/aspx-considered-harmful/)
+- [Four Cool URLs - Alex Pounds' Blog](https://web.archive.org/web/20220414225514/http://alexpounds.com/blog/2018/12/29/four-cool-urls)
 
 Note: https://-inevitablelament.tumblr.com/ is a valid URL (subdomain start with minus char), see [Bug #668926 “can't resolve domain names starting with a dash (mi...” : Bugs : resolvconf package : Ubuntu](https://bugs.launchpad.net/ubuntu/+source/resolvconf/+bug/668926)
 
@@ -1217,6 +1218,7 @@ Infos and docs:
 Tools:
 
 - [Home - OpenAPI Initiative](https://www.openapis.org/)
+- [GitHub - alufers/mitmproxy2swagger: Automagically reverse-engineer REST APIs via capturing traffic](https://github.com/alufers/mitmproxy2swagger)
 - [JSON:API — A specification for building APIs in JSON](https://jsonapi.org/)
 - [API Documentation & Design Tools for Teams | Swagger](https://swagger.io/)
 - [Welcome | RAML](https://raml.org/) - "RESTful API Modeling Language (RAML) makes it easy to manage the whole API lifecycle from design to sharing."
@@ -1269,15 +1271,15 @@ Aka REST, Hypermedia API
 
 CRUD:
 
-- create: `PUT` / `POST` (`201 Created` / `202 Accepted` + `Location: <URI to created resource>` or `303 See Other` + `Location: <URI to related resource>`)
-- read (retrieve): `GET` (`200 OK`)
-- update (modify): `PUT` / `POST` / `PATCH` (`200 OK`, `204 No Content`)
-- delete (destroy): `DELETE`
-
-Note: `PUT` is a 'replace' operation. It dictates what URI to use.
+- create: `POST` request, response with `201 Created` / `202 Accepted` + `Location: <URI to created resource>` or `303 See Other` + `Location: <URI to related resource>`
+- read (retrieve): `GET` request, response with `200 OK`
+- update (modify, replace): `PUT` request, response with `200 OK`
+- update (modify, partial): `PATCH` request, response with `200 OK`
+- delete (destroy): `DELETE` request, response with `204 No Content`
 
 Could use `422 Unprocessable Entity` instead of `400 Bad Request` when the request body is valid (syntax is valid), but the server is unable to process the instruction. See [rest - 400 vs 422 response to POST of data - Stack Overflow](https://stackoverflow.com/questions/16133923/400-vs-422-response-to-post-of-data)
 
+- [Best practices for REST API design - Stack Overflow Blog](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/#h-name-collections-with-plural-nouns)
 - [REST API Tutorial](http://www.restapitutorial.com/)
 - [Create, read, update and delete - Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
 - [api - Call a Server-side Method on a Resource in a RESTful Way - Stack Overflow](https://stackoverflow.com/questions/16877968/call-a-server-side-method-on-a-resource-in-a-restful-way)
@@ -1307,6 +1309,28 @@ Could use `422 Unprocessable Entity` instead of `400 Bad Request` when the reque
 - [api-guidelines/Guidelines.md at master · Microsoft/api-guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md)
 - [Introduction · HTTP API Design](https://geemus.gitbooks.io/http-api-design/content/en/) - [interagent/http-api-design: HTTP API design guide extracted from work on the Heroku Platform API](https://github.com/interagent/http-api-design)
 - [HTTP status code for update and delete? - Stack Overflow](https://stackoverflow.com/questions/2342579/http-status-code-for-update-and-delete)
+
+#### Patch
+
+```http
+PATCH /my/data HTTP/1.1
+Host: example.org
+Content-Length: 326
+Content-Type: application/json-patch+json
+If-Match: "abc123"
+
+[
+ { "op": "test", "path": "/a/b/c", "value": "foo" },
+ { "op": "remove", "path": "/a/b/c" },
+ { "op": "add", "path": "/a/b/c", "value": [ "foo", "bar" ] },
+ { "op": "replace", "path": "/a/b/c", "value": 42 },
+ { "op": "move", "from": "/a/b/c", "path": "/a/b/d" },
+ { "op": "copy", "from": "/a/b/d", "path": "/a/b/e" }
+]
+```
+
+- [RFC 6902: JavaScript Object Notation (JSON) Patch](https://www.rfc-editor.org/rfc/rfc6902)
+- [RFC 7396: JSON Merge Patch](https://www.rfc-editor.org/rfc/rfc7396)
 
 #### Documentation formats
 

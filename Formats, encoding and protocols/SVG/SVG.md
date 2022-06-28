@@ -6,6 +6,8 @@
 - [SVGCleaner](https://github.com/RazrFalcon/SVGCleaner)
 - https://github.com/scour-project/scour
 - [Save Cleaned SVG - Inkscape Wiki](http://wiki.inkscape.org/wiki/index.php/Save_Cleaned_SVG)
+- [SVGcode—Convert raster images to SVG vector graphics](https://svgco.de/)
+- [SVGOMG - SVGO's Missing GUI](https://jakearchibald.github.io/svgomg/)
 
 - https://github.com/AndyA/as3svgrendererlib
 
@@ -13,7 +15,7 @@
 
 ## Path
 
-smooth-curveto (S | s) and smooth-quadratic-bezier-curveto (T | t) are hard to implement
+`smooth-curveto: ("S" | "s")` and `smooth-quadratic-bezier-curveto: ("T" | "t")` are hard to implement
 
 ```
 svg-path:

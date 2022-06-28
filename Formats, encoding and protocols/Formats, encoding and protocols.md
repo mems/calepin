@@ -1737,3 +1737,9 @@ Test page, test card, test pattern
 ### Random data
 
 - [thinkbroadband :: Download Test Files](http://www.thinkbroadband.com/download.html)
+
+## Endianness
+
+Aka little endian and big endian
+
+- [On Endianness - 🪄 Technical Sourcery](https://web.archive.org/web/20220525075029/https://www.technicalsourcery.net/posts/on-endianness/)

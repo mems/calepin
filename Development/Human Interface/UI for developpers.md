@@ -157,3 +157,19 @@ Works easily for [declarative code](https://en.wikipedia.org/wiki/Declarative_pr
 > Declarative programming contrasts with imperative and procedural programming. Declarative programming is a non-imperative style of programming in which programs describe their desired results without explicitly listing commands or steps that must be performed
 
 - [javascript - What is the difference between Hot Reloading and Live Reloading in React Native? - Stack Overflow](https://stackoverflow.com/questions/41428954/what-is-the-difference-between-hot-reloading-and-live-reloading-in-react-native/41429055#41429055)
+
+## Breadcrumbs
+
+- [Breadcrumb navigation — Wikipedia](https://en.wikipedia.org/wiki/Breadcrumb_navigation)
+- [Code Navigation in Visual Studio Code](https://code.visualstudio.com/docs/editor/editingevolved#_breadcrumbs)
+- [Breadcrumbs | IntelliJ IDEA](https://www.jetbrains.com/help/idea/settings-editor-breadcrumbs.html)
+
+## Sticky context
+
+Or sticky scope
+
+See also [breadcrumbs](#breadcrumbs)
+
+- [Luna 💙 on Twitter: "I have been wanting this sort of thing for years, and while I don’t use Xcode, I hope other editor vendors will follow suit" / Twitter](https://twitter.com/lunasorcery/status/1533899690479058950?s=12&t=SkNGL_Dv1RwrUZnkPz6JBQ)
+- [wellle/context.vim: Vim plugin that shows the context of the currently visible buffer contents](https://github.com/wellle/context.vim)
+- [minibuffer - Display the beginning of a scope when it is out of screen - Emacs Stack Exchange](https://emacs.stackexchange.com/questions/3145/display-the-beginning-of-a-scope-when-it-is-out-of-screen/3148#3148)

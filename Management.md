@@ -59,6 +59,14 @@ Developers don't remember all APIs details, algorithms, they use online docs. Ex
 
 Ask them about concept, not details by heart
 
+> > In advance, every candidate was sent the questions. I’ve never been more impressed. It made a huge difference and really enabled more thoughtful and thorough answers. It also minimised anxiety which enabled people to shine.
+>
+> The candidates aren’t as nervous, which is also helpful to getting to know a person.
+>
+> You still see how people think through a problem, and it’s not about how they handle “performing on the spot”
+>
+> — [Sarah Drasner on Twitter: "We implemented this at my last job and it was great. You still see how people think through a problem, and it’s not about how they handle “performing on the spot” The candidates aren’t as nervous, which is also helpful to getting to know a person." / Twitter](https://twitter.com/sarah_edo/status/1528078775153414144?s=12&t=0qoVCFyUzaOWGHxL6c6DaA)
+
 Possible tests:
 
 - [bradfrost/frontend-guidelines-questionnaire: A one-page questionnaire to help your team establish effective frontend guidelines, so that you can write consistent & cohesive code together.](https://github.com/bradfrost/frontend-guidelines-questionnaire)

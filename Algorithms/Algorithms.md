@@ -96,18 +96,20 @@ while (pass < 7)
 
 - [Adam7 algorithm — Wikipedia](https://en.wikipedia.org/wiki/Adam7_algorithm)
 - [PNG Adam7 interlacing](http://www.schaik.com/png/adam7.html)
-- <http://www.w3.org/TR/PNG/#8Interlace>
-- <http://www.w3.org/TR/PNG/#4Concepts.Encoding>
-- <http://www.w3.org/TR/PNG/#13Progressive-display>
+- http://www.w3.org/TR/PNG/#8Interlace
+- http://www.w3.org/TR/PNG/#4Concepts.Encoding
+- http://www.w3.org/TR/PNG/#13Progressive-display
 
 ## Algorithm/math formula in scientific papier
 
-- [How to implement an algorithm from a scientific paper | Code Capsule](http://codecapsule.com/2012/01/18/how-to-implement-a-paper/)
+- [Mathematical Notation for JavaScript Developers Explained](https://web.archive.org/web/20220608152624/https://runjs.app/blog/mathematical-notation-for-javascript-developers-explained)
+- [How to implement an algorithm from a scientific paper | Code Capsule](https://web.archive.org/web/20210814153247/https://codecapsule.com/2012/01/18/how-to-implement-a-paper/)
 - [a cheat-sheet for mathematical notation in code form](https://github.com/Jam3/math-as-code)
-- [A paper algorithm notation](http://canonical.org/~kragen/sw/dev3/paperalgo)
-- [Jam3/math-as-code: a cheat-sheet for mathematical notation in code form](https://github.com/Jam3/math-as-code)
+- [A paper algorithm notation](https://web.archive.org/web/20220420213247/http://canonical.org/%7Ekragen/sw/dev3/paperalgo)
+- [GitHub - Jam3/math-as-code: a cheat-sheet for mathematical notation in code form](https://web.archive.org/web/20220519143320/https://github.com/Jam3/math-as-code)
 - [How to Read a Paper](http://blizzard.cs.uwaterloo.ca/keshav/home/Papers/data/07/paper-reading.pdf)
-- [Freya Holmér on Twitter: "btw these large scary math symbols are just for-loops https://t.co/Kq6dcihPp4" / Twitter](https://twitter.com/freyaholmer/status/1436696408506212353?s=12)
+- [Freya Holmér on Twitter: "btw these large scary math symbols are just for-loops… "](https://web.archive.org/web/20220528052032/https://twitter.com/FreyaHolmer/status/1436696408506212353)
+- [xtinacomputes on Twitter: "its super common to open a math, computer science, or physics textbook and have mathematical symbols thrown at you that you never even learned how to read. here's a list of logical symbols that can help you improve your math comprehension!"](https://web.archive.org/web/20220510181736/https://twitter.com/xtinacomputes/status/1524091240043622400)
 
 ## Language detection
 
@@ -503,3 +505,7 @@ Aka: GPS, accelerometers, gyroscopes adjustment
 	- [Ceres Solver — A Large Scale Non-linear Optimization Library](http://ceres-solver.org/)
 	- [Street View sensor fusion with Ceres Solver - YouTube](https://www.youtube.com/watch?v=z00ORu4bU-A)
 - [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/gpo/wikis/GPO.wiki)
+
+## 3D rotation
+
+- [Exponentially Better Rotations – Max Slater – Computer Graphics, Programming, and Math](https://web.archive.org/web/20220512150400/https://thenumbat.github.io/Exponential-Rotations/)

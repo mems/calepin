@@ -1,6 +1,6 @@
 # Optimizations and performances
 
-Aka WebPerfs, Web Perf
+Aka webperf, web perf
 
 > respecting the medium
 
@@ -666,10 +666,6 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time()) . ' GMT');
 
 #### Cache partitioning
 
-- Chrome 86: [910708 - Split Disk Cache Meta Bug - chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=910708)
-- Safari 6.1, Safari iOS 7 (WebKit 537.32): [110269 – Optionally partition cache to prevent using cache for tracking](https://bugs.webkit.org/show_bug.cgi?id=110269)
-- Firefox 72 (supported by 70): [1590107 - \[meta\] Top-level site partitioning](https://bugzilla.mozilla.org/show_bug.cgi?id=1590107)
-
 - [Time to Say Goodbye to Google Fonts](https://web.archive.org/web/20201210165352/https://wicki.io/posts/2020-11-goodbye-google-fonts/)
 - [Gaining security and privacy by partitioning the cache  |  Web](https://web.archive.org/web/20201202112031/https://developers.google.com/web/updates/2020/10/http-cache-partitioning)
 - [Double-keyed HTTP cache · Issue #904 · whatwg/fetch](https://github.com/whatwg/fetch/issues/904)
@@ -700,13 +696,16 @@ See [Relayout, repaint, reflow](JavaScript#relayout-repaint-reflow)
 
 - [Small Bundles, Fast Pages: What To Do With Too Much JavaScript | Calibre](https://calibreapp.com/blog/bundle-size-optimization)
 
-Code markup:
+Ex., code markup:
 
-Client side: Serve HTML + CSS + JS + Execute JS
-Server side: Serve HTML (gzipped, a tiny tiny bit more) + CSS
+- client side: Serve HTML + CSS + JS + Execute JS
+- server side: Serve HTML (gzipped, a tiny tiny bit more) + CSS
 
-- [Jake Archibald on Twitter: "I took the code examples from https://t.co/Oyiax6163l and compared with highlighting markup, and without (https://t.co/oIYkvupr2D). After gzip: With highlighting markup: 900b. Without highlighting markup: 723b. PrismJS: 5.2k.… https://t.co/0xcp53jdrB"](https://twitter.com/jaffathecake/status/1113017397655547905)
+- [Jake Archibald on Twitter: "I took the code examples from https://t.co/Oyiax6163l and compared with highlighting markup, and without (https://t.co/oIYkvupr2D). After gzip: With highlighting markup: 900b. Without highlighting markup: 723b. PrismJS: 5.2k.… https://t.co/0xcp53jdrB"](https://twitter.com/jaffathecake/status/1113017397655547905) - About syntax highlighting (in a blog post, example, etc.)
 
+Other:
+
+- [Don’t attach tooltips to document.body - Atif Afzal](https://web.archive.org/web/20220315215147/https://atfzl.com/don-t-attach-tooltips-to-document-body) - to invalidated a smaller subtree
 
 ## Control loading
 
@@ -735,6 +734,11 @@ Use [cache](#cache)
 > The simple summary is
 > - preload: when you use on the **same** page
 > - prefetch: for future use (**next** page)
+
+### `<img>` vs `background-image`
+
+- [Ivan Akulov 🇺🇦 on Twitter: "Moral: don’t use `background-image` for images that are important. They will download too late. More (non-perf) differences between \<img\> and background-image: https://t.co/DK5hbDtCNB"](https://web.archive.org/web/20220318130104/https://twitter.com/iamakulov/status/1504804851854704666)
+- [html - When to use IMG vs. CSS background-image? - Stack Overflow](https://stackoverflow.com/questions/492809/when-to-use-img-vs-css-background-image)
 
 ### Buffering
 

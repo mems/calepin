@@ -8,6 +8,7 @@
 - https://gist.github.com/evandrix/3694955
 - Python BeautifulSoup [Parser du HTML et XML avec python et la bibliothèque BeautifulSoup - Python Programmation Cours Tutoriel Informatique Apprendre](http://apprendre-python.com/page-beautifulsoup-html-parser-python-library-xml) and [How to scrape websites with Python and BeautifulSoup](https://medium.freecodecamp.com/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe)
 - [tbodt/v8py: Write Python APIs, then call them from JavaScript using the V8 engine.](https://github.com/tbodt/v8py)
+- [lwthiker/curl-impersonate: curl-impersonate: A special compilation of curl that makes it impersonate Chrome & Firefox](https://github.com/lwthiker/curl-impersonate) - handle TLS handshake fingerprint
 
 See also
 
@@ -27,7 +28,7 @@ JSON template with CSS selectors: http://www.jamapi.xyz/
 	{
 	  "title": "title",
 	  "logo": ".nav-logo img",
-	  "paragraphs": [{ "elem": ".home-post h1", "value": "text"}], 
+	  "paragraphs": [{ "elem": ".home-post h1", "value": "text"}],
 	  "links": [{"elem": ".home-post > a:first-of-type", "location": "href"}]
 	}
 
@@ -984,7 +985,7 @@ https://fr.wikipedia.org/wiki/Liste_des_caisses_r%C3%A9gionales_de_Cr%C3%A9dit_a
 - Touraine et Poitou
 - Val de France
 
-#### Liste des codes banques du Réseau Crédit Agricole 
+#### Liste des codes banques du Réseau Crédit Agricole
 
 [LstBq_reseauCA - liste_banques_reseau_ca.pdf](https://www.aspone.fr/files/aspone/banques/liste_banques_reseau_ca.pdf)
 

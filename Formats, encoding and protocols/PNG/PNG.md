@@ -24,7 +24,8 @@ See also MNG
 - https://github.com/HaxeFoundation/format/tree/master/format/png
 - [Performance Calendar » PNG that works](http://calendar.perfplanet.com/2010/png-that-works/)
 - [photopea/UPNG.js: Fast and advanced PNG decoder](https://github.com/photopea/UPNG.js)
-- [Finally understanding PNG – Compress-Or-Die](https://compress-or-die.com/Understanding-PNG/)
+- [Finally understanding PNG](https://web.archive.org/web/20220601215008/https://compress-or-die.com/Understanding-PNG)
+- [PNG file chunk inspector](https://www.nayuki.io/page/png-file-chunk-inspector)
 
 ## Fireworks PNG
 
@@ -69,7 +70,7 @@ Compared to other formats:
 - [FRDX - PNG vs WebP](http://frdx.free.fr/png_vs_webp.htm)
 
 > *The Jared Wilcurt* compiled this list of image optimization resources. He has spent years crafting the following recipe for maximum png compression without loss of quality. He recommends the following:
-> 
+>
 > 1. Use **TruePNG** first to convert to the [correct type of PNG](http://www.css-ig.net/png-test-corpus.html) format using:`TruePNG /o4 0.png /out 0.t.png`
 > 2. Run your png(s) through **PngOptimizer**, it's pretty fast and does a good job. [My settings](http://imgur.com/eLXcMD3).
 > 3. Then run it in **zopflipng** with it set to test all modes. This will by far take the longest amount of time. Settings: `zopflipng --iterations=1000 --splitting=3 --filters=01234mepb --lossy_transparent 0.png 0.zopfli.png`
@@ -108,7 +109,7 @@ Tools and infos:
 - [Comparison of lossless PNG compression tools](http://www.olegkikin.com/png_optimizers/)
 - [PNGOut vs PNGWolf+zopfli](https://encode.su/threads/1703-pngout-vs-pngwolf-zopfli) https://github.com/MrKrzYch00/zopfli
 - [Test d'organisation de palette pour les PNG8](http://css-ig.net/articles/test-organisation-palette-png8)
-- [pngthermal](http://frdx.free.fr/png.htm) use to view compression efficiency (similar too gzthermal) (see also [the Thread about it on encode.su](https://encode.su/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency))
+- [pngthermal](http://frdx.free.fr/png.htm) use to view compression efficiency (like `gzthermal`) (see also [the Thread about it on encode.su](https://encode.su/threads/1725-pngthermal-pseudo-thermal-view-of-PNG-compression-efficiency)), see also [deflate-analyzer](https://0b5vr.com/gzip-analyzer/) (similar tool, but online)
 - [Impact of palette order](http://css-ig.net/articles/outil-couleurs-palette)
 - [Reduce PNG32 weight](http://css-ig.net/articles/diminuer-poids-png32)
 - [PNG can be a lossy format](http://pngmini.com/lossypng.html)
@@ -178,49 +179,49 @@ Decode:
 	#  Axel E. Brzostowski
 	#  http://www.axelbrz.com.ar/
 	#  axelbrz@gmail.com
-	# 
+	#
 	# References:
 	#  http://iphone.fiveforty.net/wiki/index.php/PNG_Images
 	#  http://www.libpng.org/pub/png/spec/1.2/PNG-Contents.html
-	# 
+	#
 	# This program is free software: you can redistribute it and/or modify
 	# it under the terms of the GNU General Public License as published by
 	# the Free Software Foundation, either version 3 of the License.
-	# 
+	#
 	# This program is distributed in the hope that it will be useful,
 	# but WITHOUT ANY WARRANTY; without even the implied warranty of
 	# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	# GNU General Public License for more details.
-	# 
+	#
 	#---
-	
+
 	from struct import *
 	from zlib import *
 	import stat
 	import sys
 	import os
-	
+
 	def getNormalizedPNG(filename):
 		pngheader = "\x89PNG\r\n\x1a\n"
-	
+
 		file = open(filename, "rb")
 		oldPNG = file.read()
 		file.close()
-	
+
 		if oldPNG[:8] != pngheader:
 			return None
-	
+
 		newPNG = oldPNG[:8]
-	
+
 		chunkPos = len(newPNG)
-	
+
 		idatAcc = ""
 		breakLoop = False
-	
-		# For each chunk in the PNG file	
+
+		# For each chunk in the PNG file
 		while chunkPos < len(oldPNG):
 			skip = False
-		
+
 			# Reading chunk
 			chunkLength = oldPNG[chunkPos:chunkPos+4]
 			chunkLength = unpack(">L", chunkLength)[0]
@@ -229,36 +230,36 @@ Decode:
 			chunkCRC = oldPNG[chunkPos+chunkLength+8:chunkPos+chunkLength+12]
 			chunkCRC = unpack(">L", chunkCRC)[0]
 			chunkPos += chunkLength + 12
-	
+
 			# Parsing the header chunk
 			if chunkType == "IHDR":
 				width = unpack(">L", chunkData[0:4])[0]
 				height = unpack(">L", chunkData[4:8])[0]
-	
+
 			# Parsing the image chunk
 			if chunkType == "IDAT":
 				# Store the chunk data for later decompression
 				idatAcc += chunkData
 				skip = True
-	
-			# Removing CgBI chunk		
+
+			# Removing CgBI chunk
 			if chunkType == "CgBI":
 				skip = True
-	
+
 			# Add all accumulated IDATA chunks
 			if chunkType == "IEND":
 				try:
 					# Uncompressing the image chunk
 					bufSize = width * height * 4 + height
 					chunkData = decompress( idatAcc, -15, bufSize)
-				
+
 				except Exception, e:
 					# The PNG image is normalized
 					print e
 					return None
-	
+
 				chunkType = "IDAT"
-	
+
 				# Swapping red & blue bytes for each pixel
 				newdata = ""
 				for y in xrange(height):
@@ -270,7 +271,7 @@ Decode:
 						newdata += chunkData[i+1]
 						newdata += chunkData[i+0]
 						newdata += chunkData[i+3]
-	
+
 				# Compressing the image chunk
 				chunkData = newdata
 				chunkData = compress( chunkData )
@@ -279,7 +280,7 @@ Decode:
 				chunkCRC = crc32(chunkData, chunkCRC)
 				chunkCRC = (chunkCRC + 0x100000000) % 0x100000000
 				breakLoop = True
-	
+
 			if not skip:
 				newPNG += pack(">L", chunkLength)
 				newPNG += chunkType
@@ -288,9 +289,9 @@ Decode:
 				newPNG += pack(">L", chunkCRC)
 			if breakLoop:
 				break
-		
+
 		return newPNG
-	
+
 	def updatePNG(filename):
 		data = getNormalizedPNG(filename)
 		if data != None:
@@ -299,17 +300,17 @@ Decode:
 			file.close()
 			return True
 		return data
-	
+
 	def getFiles(base):
 		global _dirs
 		global _pngs
 		if base == ".":
 			_dirs = []
 			_pngs = []
-		
+
 		if base in _dirs:
 			return
-	
+
 		files = os.listdir(base)
 		for file in files:
 			filepath = os.path.join(base, file)
@@ -317,19 +318,19 @@ Decode:
 				st = os.lstat(filepath)
 			except os.error:
 				continue
-		
+
 			if stat.S_ISDIR(st.st_mode):
 				if not filepath in _dirs:
 					getFiles(filepath)
 					_dirs.append( filepath )
-				
+
 			elif file[-4:].lower() == ".png":
 				if not filepath in _pngs:
 					_pngs.append( filepath )
-			
+
 		if base == ".":
 			return _dirs, _pngs
-	
+
 	print "-----------------------------------"
 	print " iPhone PNG Images Normalizer v1.0"
 	print "-----------------------------------"
@@ -337,12 +338,12 @@ Decode:
 	print "[+] Searching PNG files...",
 	dirs, pngs = getFiles(".")
 	print "ok"
-	
+
 	if len(pngs) == 0:
 		print " "
 		print "[!] Alert: There are no PNG files found. Move this python file to the folder that contains the PNG files to normalize."
 		exit()
-	
+
 	print " "
 	print " -  %d PNG files were found at this folder (and subfolders)." % len(pngs)
 	print " "
@@ -350,7 +351,7 @@ Decode:
 		normalize = raw_input("[?] Do you want to normalize all images (Y/N)? ").lower()
 		if len(normalize) > 0 and (normalize[0] == "y" or normalize[0] == "n"):
 			break
-	
+
 	normalized = 0
 	if normalize[0] == "y":
 		for ipng in xrange(len(pngs)):

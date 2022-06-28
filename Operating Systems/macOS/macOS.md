@@ -824,6 +824,7 @@ VBoxManage setextradata "Virtual Machine Name" "VBoxInternal/Devices/smc/0/Confi
 - [mac - Install macOS High Sierra as VirtualBox guest (on macOS High Sierra)? - Ask Different](https://apple.stackexchange.com/questions/307099/install-macos-high-sierra-as-virtualbox-guest-on-macos-high-sierra)
 - [Install macOS Sierra on VirtualBox? - Ask Different](https://apple.stackexchange.com/questions/290643/install-macos-sierra-on-virtualbox)
 - [GitHub - paolo-projects/auto-unlocker: Unlocker for VMWare macOS](https://github.com/paolo-projects/auto-unlocker) - Allow macOS to be selected during VM creation + other fixes
+- [paolo-projects/auto-unlocker: Unlocker for VMWare macOS](https://github.com/paolo-projects/auto-unlocker)
 
 ### Bootable USB
 
@@ -1707,9 +1708,10 @@ Install on external drive:
 - [Tech Tip: How to Use Boot Camp on an External Drive](https://web.archive.org/web/20210508133846/https://eshop.macsales.com/blog/40947-tech-tip-how-to-use-boot-camp-on-an-external-drive/)
 - set `HKLM\SYSTEM\HardwareConfig\{...uuid...}\BootDriverFlags` to `0x14`: [Booting unmodified Windows 10 over USB](https://web.archive.org/web/20210224002009/http://blog.zorinaq.com/boot-win10-over-usb/)
 
-Bluetooth Apple keyboard:
+Keyboard:
 
-- to connect tap on the keyboard the PIN code the OS provide then tap enter
+- to connect bluetooth Apple keyboard, tap on the keyboard the PIN code the OS provide, then tap enter
+- [Apple keyboard layout on Windows](#apple-keyboard-layout-on-windows)
 
 Bluetooth dual boot:
 
@@ -1749,174 +1751,6 @@ Bluetooth dual boot:
 - [Bluetooth Pairing Part 2Key Generation Methods | Bluetooth® Technology Website](https://web.archive.org/web/20210506161102/https://www.bluetooth.com/blog/bluetooth-pairing-part-2-key-generation-methods/)
 - [Bluetooth Pairing Part 3 -Low Energy LegacyPairing Passkey Entry | Bluetooth® Technology Website](https://web.archive.org/web/20211214220910/https://www.bluetooth.com/blog/bluetooth-pairing-passkey-entry/)
 - [Bluetooth Pairing Part 4:Bluetooth Low EnergySecure Connections -Numeric Comparison | Bluetooth® Technology Website](https://web.archive.org/web/20210425073720/https://www.bluetooth.com/blog/bluetooth-pairing-part-4/)
-
-### Apple keyboard layout
-
-See also [Keyboard layout](../Windows/Windows.md#keyboard-layout)
-
-Useful when you use a remote desktop connection. The host doesn't have the Apple keyboard layout.
-
-DLL files are in `%SystemRoot%\System32`, copy them from [Boot Camp drivers](#boot-camp)
-
-```reg
-Windows Registry Editor Version 5.00
-
-; Layouts installed by Boot Camp Support driver package
-; Layout files are relative to "%SystemRoot%\System32"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts]
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000404]
-"Layout Component ID"="7F611C89DF564F01AE5B4A405192D1FB"
-"Layout File"="ChinaTA.dll"
-"Layout ID"="00e2"
-"Layout Text"="Chinese Traditional (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000405]
-"Layout Component ID"="0C8DA389245B4792B4960E336F62AC3E"
-"Layout File"="CzechA.dll"
-"Layout ID"="00d4"
-"Layout Text"="Czech (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000406]
-"Layout Component ID"="C3996498F423440FB9CE2732A821E7D9"
-"Layout File"="DanishA.dll"
-"Layout ID"="00cc"
-"Layout Text"="Danish (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000407]
-"Layout Component ID"="B616E2191BF048D4A554E5C6BE224AB4"
-"Layout File"="GermanA.dll"
-"Layout ID"="00c3"
-"Layout Text"="German (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000409]
-"Layout Component ID"="B422390FE3C04f3a917D15AD1ACD710F"
-"Layout File"="USA.dll"
-"Layout ID"="00d1"
-"Layout Text"="United States (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040a]
-"Layout Component ID"="C3364C7C44BC444A88A50459135D35B5"
-"Layout File"="SpanishA.dll"
-"Layout ID"="00c5"
-"Layout Text"="Spanish (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040b]
-"Layout Component ID"="ECE9937799D242F5AE0CAA446EDEDC62"
-"Layout File"="FinnishA.dll"
-"Layout ID"="00cb"
-"Layout Text"="Finnish (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040c]
-"Layout Component ID"="2ECD3C77364749B18E910F9196B420FA"
-"Layout File"="FrenchA.dll"
-"Layout ID"="00c2"
-"Layout Text"="French (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040e]
-"Layout Component ID"="725BE97D2AD14042BA539D96030F93AA"
-"Layout File"="HungaryA.dll"
-"Layout ID"="00d5"
-"Layout Text"="Hungarian (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000410]
-"Layout Component ID"="6401AAA6058F431181B445C26BEF22D9"
-"Layout File"="ItalianA.dll"
-"Layout ID"="00c4"
-"Layout Text"="Italian (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000413]
-"Layout Component ID"="3844B95343FB43D68E9695D6E88F016E"
-"Layout File"="DutchA.dll"
-"Layout ID"="00c1"
-"Layout Text"="Dutch (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000414]
-"Layout Component ID"="74BE397ABD8143E4960D38111394D1A3"
-"Layout File"="NorwayA.dll"
-"Layout ID"="00c9"
-"Layout Text"="Norwegian (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000415]
-"Layout Component ID"="D3D2841618E34D09ABBCA0DA34A60FAE"
-"Layout File"="PolishA.dll"
-"Layout ID"="00cf"
-"Layout Text"="Polish (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000416]
-"Layout Component ID"="326773935C8C4597B0738FE2084D44AD"
-"Layout File"="PortuguA.dll"
-"Layout ID"="00ce"
-"Layout Text"="Portuguese (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000419]
-"Layout Component ID"="B0F62A69BE9446488ED502E800DBC36C"
-"Layout File"="RussianA.dll"
-"Layout ID"="00c8"
-"Layout Text"="Russian (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000041d]
-"Layout Component ID"="8CC8067A1BFF4A0FAD38708DE4CD4BF1"
-"Layout File"="SwedishA.dll"
-"Layout ID"="00c7"
-"Layout Text"="Swedish (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000041f]
-"Layout Component ID"="2513D09A670B4d9bA8F1BDAAAA32176F"
-"Layout File"="TurkeyQA.dll"
-"Layout ID"="00d3"
-"Layout Text"="Turkish Q (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000804]
-"Layout Component ID"="472ECFB106AE4249B0ADCF62F91D8AEE"
-"Layout File"="ChinaSA.dll"
-"Layout ID"="00e1"
-"Layout Text"="Chinese Simplified (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000809]
-"Layout Component ID"="1A4D378083AD454BB4FE02F208614EB6"
-"Layout File"="BritishA.dll"
-"Layout ID"="00c0"
-"Layout Text"="United Kingdom (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000813]
-"Layout Component ID"="D70C1682E8F24ED4B5B70AAD37B1BA42"
-"Layout File"="BelgiumA.dll"
-"Layout ID"="00cd"
-"Layout Text"="Belgian (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000c0c]
-"Layout Component ID"="517A729DDEC543E3A7F392E3F130C25F"
-"Layout File"="CanadaA.dll"
-"Layout ID"="00ca"
-"Layout Text"="Canadian Multilingual (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000100c]
-"Layout Component ID"="CE4C7E2419DE400B8A553E1A5C3DCD04"
-"Layout File"="SwissA.dll"
-"Layout ID"="00c6"
-"Layout Text"="Swiss (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0020409]
-"Layout Component ID"="241A34D0-06DB-405e-8B4E-8CA2FC34D1C7"
-"Layout File"="IntlEngA.dll"
-"Layout ID"="00d0"
-"Layout Text"="United States-International (Apple)"
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a100041f]
-"Layout Component ID"="D1502D2EF02F4e4b8D313D3C0B0457D0"
-"Layout File"="TurkeyA.dll"
-"Layout ID"="00d2"
-"Layout Text"="Turkish F (Apple)"
-```
-
-- Keyboard with Mac layout: Settings > Time & language > Region & language > select current language > Options > Add keyboard > select the same language layout but with "(Apple)" > optionaly you can remove the previous layout or a keyboard layout selector in taskbar will appears
-    - [Change the Windows regional settings to modify the appearance of some data types - Access](https://support.office.com/en-us/article/change-the-windows-regional-settings-to-modify-the-appearance-of-some-data-types-edf41006-f6e2-4360-bc1b-30e9e8a54989)
-    - [The Microsoft Keyboard Layout Creator](https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator)
-- [Utiliser un clavier Apple avec Connexion Bureau à distance* – i3idouille](https://web.archive.org/web/20200914101629/https://www.i3idouille.fr/index.php/2011/12/sys-utiliser-un-clavier-apple-avec-connexion-bureau-a-distance/)
-- [Use your Apple Keyboard in Windows with Boot Camp - Apple Support](https://support.apple.com/en-us/HT202676)
-- [Keyboard mappings using a PC keyboard on a Macintosh](https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh)
 
 ## Network
 
@@ -2127,7 +1961,173 @@ macOS on a MacBook (without special keys like page up/down keys):
 - Del : fn + backspace
 - Enter (num) : fn + return
 
-See also [Apple keyboard layout on Windows](../Windows/Windows.md#apple-keyboard-layout)
+#### Apple keyboard layout on Windows
+
+See also [Keyboard layout](../Windows/Windows.md#keyboard-layout)
+
+Useful when you use a remote desktop connection. The host doesn't have the Apple keyboard layout.
+
+DLL files are in `%SystemRoot%\System32`, copy them from [Boot Camp drivers](#boot-camp)
+
+```reg
+Windows Registry Editor Version 5.00
+
+; Layouts installed by Boot Camp Support driver package
+; Layout files are relative to "%SystemRoot%\System32"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts]
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000404]
+"Layout Component ID"="7F611C89DF564F01AE5B4A405192D1FB"
+"Layout File"="ChinaTA.dll"
+"Layout ID"="00e2"
+"Layout Text"="Chinese Traditional (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000405]
+"Layout Component ID"="0C8DA389245B4792B4960E336F62AC3E"
+"Layout File"="CzechA.dll"
+"Layout ID"="00d4"
+"Layout Text"="Czech (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000406]
+"Layout Component ID"="C3996498F423440FB9CE2732A821E7D9"
+"Layout File"="DanishA.dll"
+"Layout ID"="00cc"
+"Layout Text"="Danish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000407]
+"Layout Component ID"="B616E2191BF048D4A554E5C6BE224AB4"
+"Layout File"="GermanA.dll"
+"Layout ID"="00c3"
+"Layout Text"="German (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000409]
+"Layout Component ID"="B422390FE3C04f3a917D15AD1ACD710F"
+"Layout File"="USA.dll"
+"Layout ID"="00d1"
+"Layout Text"="United States (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040a]
+"Layout Component ID"="C3364C7C44BC444A88A50459135D35B5"
+"Layout File"="SpanishA.dll"
+"Layout ID"="00c5"
+"Layout Text"="Spanish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040b]
+"Layout Component ID"="ECE9937799D242F5AE0CAA446EDEDC62"
+"Layout File"="FinnishA.dll"
+"Layout ID"="00cb"
+"Layout Text"="Finnish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040c]
+"Layout Component ID"="2ECD3C77364749B18E910F9196B420FA"
+"Layout File"="FrenchA.dll"
+"Layout ID"="00c2"
+"Layout Text"="French (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000040e]
+"Layout Component ID"="725BE97D2AD14042BA539D96030F93AA"
+"Layout File"="HungaryA.dll"
+"Layout ID"="00d5"
+"Layout Text"="Hungarian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000410]
+"Layout Component ID"="6401AAA6058F431181B445C26BEF22D9"
+"Layout File"="ItalianA.dll"
+"Layout ID"="00c4"
+"Layout Text"="Italian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000413]
+"Layout Component ID"="3844B95343FB43D68E9695D6E88F016E"
+"Layout File"="DutchA.dll"
+"Layout ID"="00c1"
+"Layout Text"="Dutch (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000414]
+"Layout Component ID"="74BE397ABD8143E4960D38111394D1A3"
+"Layout File"="NorwayA.dll"
+"Layout ID"="00c9"
+"Layout Text"="Norwegian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000415]
+"Layout Component ID"="D3D2841618E34D09ABBCA0DA34A60FAE"
+"Layout File"="PolishA.dll"
+"Layout ID"="00cf"
+"Layout Text"="Polish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000416]
+"Layout Component ID"="326773935C8C4597B0738FE2084D44AD"
+"Layout File"="PortuguA.dll"
+"Layout ID"="00ce"
+"Layout Text"="Portuguese (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000419]
+"Layout Component ID"="B0F62A69BE9446488ED502E800DBC36C"
+"Layout File"="RussianA.dll"
+"Layout ID"="00c8"
+"Layout Text"="Russian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000041d]
+"Layout Component ID"="8CC8067A1BFF4A0FAD38708DE4CD4BF1"
+"Layout File"="SwedishA.dll"
+"Layout ID"="00c7"
+"Layout Text"="Swedish (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000041f]
+"Layout Component ID"="2513D09A670B4d9bA8F1BDAAAA32176F"
+"Layout File"="TurkeyQA.dll"
+"Layout ID"="00d3"
+"Layout Text"="Turkish Q (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000804]
+"Layout Component ID"="472ECFB106AE4249B0ADCF62F91D8AEE"
+"Layout File"="ChinaSA.dll"
+"Layout ID"="00e1"
+"Layout Text"="Chinese Simplified (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000809]
+"Layout Component ID"="1A4D378083AD454BB4FE02F208614EB6"
+"Layout File"="BritishA.dll"
+"Layout ID"="00c0"
+"Layout Text"="United Kingdom (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000813]
+"Layout Component ID"="D70C1682E8F24ED4B5B70AAD37B1BA42"
+"Layout File"="BelgiumA.dll"
+"Layout ID"="00cd"
+"Layout Text"="Belgian (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0000c0c]
+"Layout Component ID"="517A729DDEC543E3A7F392E3F130C25F"
+"Layout File"="CanadaA.dll"
+"Layout ID"="00ca"
+"Layout Text"="Canadian Multilingual (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a000100c]
+"Layout Component ID"="CE4C7E2419DE400B8A553E1A5C3DCD04"
+"Layout File"="SwissA.dll"
+"Layout ID"="00c6"
+"Layout Text"="Swiss (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a0020409]
+"Layout Component ID"="241A34D0-06DB-405e-8B4E-8CA2FC34D1C7"
+"Layout File"="IntlEngA.dll"
+"Layout ID"="00d0"
+"Layout Text"="United States-International (Apple)"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\a100041f]
+"Layout Component ID"="D1502D2EF02F4e4b8D313D3C0B0457D0"
+"Layout File"="TurkeyA.dll"
+"Layout ID"="00d2"
+"Layout Text"="Turkish F (Apple)"
+```
+
+- Keyboard with Mac layout: Settings > Time & language > Region & language > select current language > Options > Add keyboard > select the same language layout but with "(Apple)" > optionaly you can remove the previous layout or a keyboard layout selector in taskbar will appears
+    - [Change the Windows regional settings to modify the appearance of some data types - Access](https://support.office.com/en-us/article/change-the-windows-regional-settings-to-modify-the-appearance-of-some-data-types-edf41006-f6e2-4360-bc1b-30e9e8a54989)
+    - [The Microsoft Keyboard Layout Creator](https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator)
+- [Utiliser un clavier Apple avec Connexion Bureau à distance* – i3idouille](https://web.archive.org/web/20200914101629/https://www.i3idouille.fr/index.php/2011/12/sys-utiliser-un-clavier-apple-avec-connexion-bureau-a-distance/)
+- [Use your Apple Keyboard in Windows with Boot Camp - Apple Support](https://support.apple.com/en-us/HT202676)
+- [Keyboard mappings using a PC keyboard on a Macintosh](https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh)
 
 ### Mouse acceleration
 
@@ -2640,6 +2640,8 @@ See you current keyboard layout: `~/Library/Preferences/com.apple.HIToolbox.plis
 - [macos - Change OSX keyboard layout("input source") programmatically via terminal or AppleScript? - Stack Overflow](https://stackoverflow.com/questions/23729704/change-osx-keyboard-layoutinput-source-programmatically-via-terminal-or-appl.)
 
 ## Security
+
+- [Hardening macOS](https://web.archive.org/web/20220625101913/https://www.bejarano.io/hardening-macos/)
 
 ### System Integrity Protection
 
@@ -3536,13 +3538,14 @@ Aka camera as webcam
 
 - [Cam Link 4K | elgato.com](https://www.elgato.com/en/gaming/cam-link-4k) - Hardware HDMI-to-USB Webcam
 - [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
-- [How to use your DSLR as a Webcam | Crowdcast Docs](https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-as-a-webcam)
+- [How to Use Your DSLR Camera as a Webcam | Crowdcast Docs](https://web.archive.org/web/20220220111637/https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-camera-as-a-webcam)
 - [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)
 - [v002/v002-Camera-Live: Live Syphon Camera](https://github.com/v002/v002-Camera-Live)
-- [Using a DSLR as a Webcam - A guide & tutorial — OBS.Live | Open Broadcaster Software Streaming Knowledge Base](https://www.obs.live/articles/2019/6/7/using-a-dslr-as-a-webcam-a-guide-amp-tutorial)
+- [Using a DSLR as a Webcam - A guide & tutorial — OBS.Live | Open Broadcaster Software Streaming Knowledge Base](https://web.archive.org/web/20210503042208/https://www.obs.live/articles/2019/6/7/using-a-dslr-as-a-webcam-a-guide-amp-tutorial)
 - [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
 - [works for me 1 time but then doesn't let me select the camera on zoom/others · Issue #102 · v002/v002-Camera-Live](https://github.com/v002/v002-Camera-Live/issues/102#issuecomment-618312892)
-- [Using a Canon DSLR as a webcam on macOS with Zoom – Nicholas Sherlock](https://www.nicksherlock.com/2020/04/using-a-canon-dslr-as-a-webcam-with-zoom-us/)
+- [Using a Canon DSLR as a webcam on macOS with Zoom – Nicholas Sherlock](https://web.archive.org/web/20220120171102/https://www.nicksherlock.com/2020/04/using-a-canon-dslr-as-a-webcam-with-zoom-us/)
+- [Laurence Tratt: Using a "Proper" Camera as a Webcam](https://web.archive.org/web/20220531061531/https://tratt.net/laurie/blog/2022/using_a_proper_camera_as_a_webcam.html)
 
 - [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
 - [Open Broadcaster Software®️ | OBS](https://obsproject.com/)
@@ -3593,3 +3596,12 @@ Aka screen cast, screenshot
 
 - [keycastr/keycastr: KeyCastr, an open-source keystroke visualizer](https://github.com/keycastr/keycastr)
 - [Take a screenshot on your Mac - Apple Support](https://support.apple.com/en-us/HT201361)
+
+## Virtualization
+
+- [Running Windows/ARM on Apple Silicon Macs via UTM](https://web.archive.org/web/20220604191517/https://2ality.com/2022/06/windows-on-macs-via-utm.html)
+
+See also:
+
+- [Install macOS on Virtual Machine](#install-on-virtual-machine)
+- [Boot Camp](#boot-camp)

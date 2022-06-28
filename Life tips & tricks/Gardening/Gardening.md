@@ -95,3 +95,12 @@ Bourgeon et bouture :
 - [Vanillier, vanille : conseils de culture](http://www.aujardin.info/plantes/vanillier.php)
 - [Vanille : suspension, Autres marques - Jardinerie TRUFFAUT](http://www.truffaut.com/produit/vanille-suspension/19354/10593)
 - [Orchidée vanille culture et entretien - Jardinerie Truffaut conseils Orchidées Truffaut](http://www.truffaut.com/jardin/plantes-interieur/orchidees/Pages/conseil-entretien-fructification-orchidee-vanille.aspx)
+
+## Tomatoes
+
+> 130 mg of calicylic acid (uncoated aspirin) per L
+> Spray the Aspirin every two weeks!
+> [phytohormone produced by tomatoes is similar to salicylic acid to "signaling, mediating plant defense against pathogens"]
+
+- [Grow Lots of Tomatoes... Not Leaves // Complete Growing Guide - YouTube](https://www.youtube.com/watch?v=9w-7RoH_uic)
+- [Salicylic acid — Wikipedia](https://en.wikipedia.org/wiki/Salicylic_acid#Plant_hormone) - Plant hormone

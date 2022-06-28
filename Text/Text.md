@@ -648,9 +648,9 @@ Reversed pseudoalphabet (backwards) (better with Capitals)
 - [Shapecatcher: Draw the Unicode character you want!](http://shapecatcher.com/) - Character recognition. http://api.shapecatcher.com/
 - [Translate with handwriting or virtual keyboard - Computer - Google Translate Help](https://support.google.com/translate/answer/6142469)
 
-## Letter Closings and E-mail Goodbyes
+## Letter closings and e-mail goodbyes
 
-- https://github.com/desbenoit/ChallengeDuBerger
+- [desbenoit/ChallengeDuBerger: Améliorer nos relations en variant nos signatures emails](https://github.com/desbenoit/ChallengeDuBerger)
 - [List of Letter Closings and E-mail Goodbyes](https://suite.io/chloe-ernst/1aqd2m3)
 - [Supprimer le cordialement : trois ans après - Notes, Sébastien Desbenoit](http://notes.desbenoit.net/Supprimer-le-cordialement-trois)
 
@@ -753,10 +753,10 @@ Other:
 Technical informations:
 
 - [You, Me And The Emoji: Character Sets, Encoding And Emoji – Smashing Magazine](https://www.smashingmagazine.com/2016/11/character-sets-encoding-emoji/#emoji-os-support-sec)
-- http://www.alanwood.net/unicode/transport-and-map-symbols.html
-- http://www.alanwood.net/unicode/emoticons.html
-- http://www.alanwood.net/unicode/miscellaneous-symbols-and-pictographs.html
-- https://github.com/iamcal/emoji-data and [PHP Emoji conversion library](https://github.com/iamcal/php-emoji)
+- [Transport and Map Symbols – Test for Unicode support in Web browsers](https://web.archive.org/web/20220129074535/http://www.alanwood.net/unicode/transport-and-map-symbols.html)
+- [Emoticons – Test for Unicode support in Web browsers](https://web.archive.org/web/20220520173404/http://alanwood.net/unicode/emoticons.html)
+- [Miscellaneous Symbols and Pictographs – Test for Unicode support in Web browsers](https://web.archive.org/web/20220520173408/http://alanwood.net/unicode/miscellaneous-symbols-and-pictographs.html)
+- [iamcal/emoji-data: Easy to parse data and spritesheets for emoji](https://github.com/iamcal/emoji-data) and [PHP Emoji conversion library](https://github.com/iamcal/php-emoji)
 
 Codes: HTML entity, Unicode, etc.
 Render (native show an image)

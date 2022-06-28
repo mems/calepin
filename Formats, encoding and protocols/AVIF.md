@@ -1,0 +1,2 @@
+- [Kagami/avif.js: AVIF polyfill for the browser](https://github.com/Kagami/avif.js)
+- [strukturag/libheif: libheif is an HEIF and AVIF file format decoder and encoder.](https://github.com/strukturag/libheif)

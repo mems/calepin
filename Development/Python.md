@@ -1,0 +1,1 @@
+- [GitHub - satwikkansal/wtfpython: What the f*ck Python? 😱](https://github.com/satwikkansal/wtfpython)

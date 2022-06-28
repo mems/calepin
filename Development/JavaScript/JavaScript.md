@@ -1102,6 +1102,19 @@ See also:
 
 See [Naming convention](../Development.md#naming-convention)
 
+### Comments
+
+```js
+console.log("before");
+<!--
+console.log("ignored");
+-->
+console.log("after");
+```
+
+- [HTML comments work in JavaScript too](https://web.archive.org/web/20220513105753/https://smitop.com/post/js-html-comments/)
+- [ECMAScript® 2023 Language Specification](https://tc39.es/ecma262/#prod-annexB-Comment) - "B.1.1 HTML-like Comments"
+
 ## Custom element
 
 - [Progressive Enhancement](https://remysharp.com/2019/07/24/progressive-enhancement#web-components)
@@ -6330,6 +6343,9 @@ Use `DataView` (by default use big endian / network byte order) to read received
 
 Aka embed binary data
 
+- [DecompressionStreamでJSを解凍します - 0b5vr](https://web.archive.org/web/20220420140108/https://scrapbox.io/0b5vr/DecompressionStream%E3%81%A7JS%E3%82%92%E8%A7%A3%E5%87%8D%E3%81%97%E3%81%BE%E3%81%99)
+	Create an HTML file start with `<script>fetch("#").then(t=>t.blob()).then(t=>new Response(t.slice(156).stream().pipeThrough(new DecompressionStream("deflate"))).text()).then(eval)</script>` then append bytes of zlib compressed JavaScript code. The HTML will execute the script tag, which fetch itself, use bytes (skip "header" part), decode it as compressed data and eval
+
 #### Store bytes in JS source as unicode string
 
 Use UTF-8 encoding (natively supported by JS, use UTF-16, 16 bits in memory to store on char) to encode special chars code 0 >= n >= 127 (0b01111111, 0x7F). Use 2 bytes plus escape special chars (newline, carriage return, `\` and `"` or `'`)
@@ -7724,7 +7740,7 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 ```js
 // Read one cookie
-var value = decodeURIComponent((document.cookie.match(/(?:^|;\s)cookiename=("?)(.*?)\1(?:;\s|$)/) || [, ""])[1]);
+const value = decodeURIComponent((document.cookie.match(/(?:^|;\s)cookiename=("?)(.*?)\1(?:;\s|$)/) ?? [, ""])[2]);
 
 // const value = !!document.cookie.split(";").find(pair => /cookiename(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
 

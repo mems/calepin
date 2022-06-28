@@ -12,7 +12,6 @@ Unorganized:
 - [expressjs/session: Simple session middleware for Express](https://github.com/expressjs/session) - Handle clients sessions
 - [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
-- parse command line arguments : [command-line-args](https://www.npmjs.com/package/command-line-args), [arg](https://www.npmjs.com/package/arg), [minimist](https://www.npmjs.com/package/minimist) / [commander](https://www.npmjs.com/package/commander) / [yargs](https://www.npmjs.com/package/yargs)
 - parse [configuration file](https://en.wikipedia.org/wiki/Configuration_file) / [run commands](https://en.wikipedia.org/wiki/Run_command): [rc](https://www.npmjs.com/package/rc)
 - load environnement variable (from `.env` file): ~~[dotenv](https://www.npmjs.com/package/dotenv)~~; do it view the command line instead: [bash - Set environment variables from file of key/value pairs - Stack Overflow](https://stackoverflow.com/questions/19331497/set-environment-variables-from-file-of-key-value-pairs/20909045#20909045)
 
@@ -170,6 +169,15 @@ Syntax check without executing:
 node --check file.js
 ```
 
+Parse command line arguments:
+
+- [node:util parseArgs](https://nodejs.org/api/util.html#utilparseargsconfig)
+- [command-line-args package](https://www.npmjs.com/package/command-line-args)
+- [arg package](https://www.npmjs.com/package/arg)
+- [minimist package](https://www.npmjs.com/package/minimist)
+- [commander package](https://www.npmjs.com/package/commander)
+- [yargs package](https://www.npmjs.com/package/yargs)
+
 ## Express
 
 Test server capacity with [mcollina/autocannon: fast HTTP/1.1 benchmarking tool written in Node.js](https://github.com/mcollina/autocannon)
@@ -291,6 +299,7 @@ Prettier config to override default / projet config for package JSONs:
 ```
 
 ### Inspect package
+
 ```sh
 # Extract package from cache
 npm pack somepackagename | tail -n 1 | xargs tar -zxzf

@@ -999,10 +999,12 @@ watch -n1 'cat /proc/interrupts'
 
 # Show shared libraries required by ssh program
 ldd /usr/bin/ssh
-```
 
+# See also
 auditctl
 inotify
+```
+
 - [monitoring - List the files accessed by a program - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/18844/list-the-files-accessed-by-a-program)
 - [How to determine which process is creating a file? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/13776/how-to-determine-which-process-is-creating-a-file)
 - [linux - how to list files that are NOT open using find command - Server Fault](http://serverfault.com/questions/359945/how-to-list-files-that-are-not-open-using-find-command)
@@ -1425,6 +1427,7 @@ echo "$@"
 - [Small getopts tutorial \[Bash Hackers Wiki\]](https://web.archive.org/web/20220123025630/https://wiki.bash-hackers.org/howto/getopts_tutorial)
 - [Check if a string matches a regex in Bash script - Stack Overflow](https://stackoverflow.com/questions/21112707/check-if-a-string-matches-a-regex-in-bash-script)
 - [What's the difference between \[ and \[\[ in Bash? - Stack Overflow](https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash)
+- [matejak/argbash: Bash argument parsing code generator](https://github.com/matejak/argbash)
 
 ### Temporary file
 
@@ -1506,6 +1509,7 @@ $CURRENT_DIR/script.sh
 
 - [Shebang (Unix) - Wikipedia](https://en.wikipedia.org/wiki/Shebang_%28Unix%29)
 - [scripting - Universal Node.js shebang? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/65235/universal-node-js-shebang)
+- [What the #! shebang really does - DEV Community](https://web.archive.org/web/20220505144958/https://dev.to/meleu/what-the-shebang-really-does-and-why-it-s-so-important-in-your-shell-scripts-2755)
 
 ### Shell script syntax
 

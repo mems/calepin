@@ -371,6 +371,14 @@ More ?
 - `samsungtv`
 - `transmp3`
 
+## Remote access
+
+- [Synology QuickConnect](https://www.quickconnect.to/)
+- [Access your Synology NAS over the Internet and share files | Get Started With DSM - Synology Knowledge Center](https://kb.synology.com/en-us/DSM/help/DSM/Tutorial/cloud_set_up_quickconnect?version=6) - for DSM 6
+- [QuickConnect | DSM - Synology Knowledge Center](https://kb.synology.com/en-us/DSM/help/DSM/AdminCenter/connection_quickconnect?version=7) - for DSM 7
+- [Synology QuickConnect White Paper](https://global.download.synology.com/download/Document/Software/WhitePaper/Firmware/DSM/All/enu/Synology_QuickConnect_White_Paper.pdf)
+- [What are the differences between QuickConnect and DDNS? - Synology Knowledge Center](https://kb.synology.com/en-us/DSM/tutorial/What_are_the_differences_between_QuickConnect_and_DDNS#x_anchor_id3)
+
 ## Reverse proxy
 
 - [Reverse Proxy sur Nas Synology et SSL - La Domotique de Sarakha63](http://sarakha63-domotique.fr/reverse-proxy-sur-nas-synology-ssl/)

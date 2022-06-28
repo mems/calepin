@@ -618,3 +618,33 @@ Pour 4 personnes:
 10. une fois cuites, peler les patates et les servir en accompagnement du poulet
 
 - [Maffé de poulet (Afrique) : recette de Maffé de poulet (Afrique)](https://www.marmiton.org/recettes/recette_maffe-de-poulet-afrique_18461.aspx)
+
+## Crêpes
+
+> la meilleure façon de faire des crêpes est bien de placer la pâte au centre de la poêle, la pencher pour faire couler jusqu'à un bord, tourner la poêle et répandre sur toute sa surface. 83% de réussite.
+
+- [Using fluid dynamics to perfect crêpe cooking techniques](https://web.archive.org/web/20211029094855/https://phys.org/news/2019-06-fluid-dynamics-crpe-cooking-techniques.html)
+
+## Flan
+
+pour 8 parts
+
+- 1 pâte brisée
+- 1 l de lait
+- 150 g de sucre en poudre
+- 90 g de maïzena
+- 1 gousse de vanille
+- 4 oeufs
+
+1. faire bouillir le lait avec la gousse de vanille fendue (dans le sens de la longueur).
+2. pendant ce temps, mélanger la Maïzena (tamisée, c'est mieux) avec le sucre, et ajouter les oeufs bien battus.
+3. mélanger le tout (bien homogène) et ajouter le lait bouillant (sans la gousse)
+4. cuire la préparation à feu doux sans cesser de remuer pendant environ 1 à 2 min
+5. préchauffer le four à 200°C (thermostat 6-7). Foncer un plat rectangulaire ou rond préalablement beurré avec la pâte brisée.
+6. piquer le fond.
+7. y verser la préparation.
+8. lisser la surface.
+9. cuire pendant environ 30 à 40 min.
+10. laisser refroidir.
+
+- [Flan pâtissier traditionnel : recette de Flan pâtissier traditionnel](https://www.marmiton.org/recettes/recette_flan-patissier-traditionnel_15330.aspx)

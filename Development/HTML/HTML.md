@@ -1756,7 +1756,7 @@ Image alternative
 - [Writing for all people: how to use alternative text well — Shopify UX — Medium](https://medium.com/shopify-ux/writing-for-all-people-how-to-use-alternative-text-well-1205a18307a1#)
 - [Alternative Text and Images](https://bitsofco.de/alternative-text-and-images/)
 - [Images Concepts • Images • WAI Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/images/)
-- https://stackoverflow.com/questions/492809/when-to-use-img-vs-css-background-image
+- [html - When to use IMG vs. CSS background-image? - Stack Overflow](https://stackoverflow.com/questions/492809/when-to-use-img-vs-css-background-image)
 - [F3: Failure of Success Criterion 1.1.1 due to using CSS to include images that convey important information | Techniques for WCAG 2.0](http://www.w3.org/TR/WCAG20-TECHS/F3.html)
 - [mezzoblue § Testing Grounds](http://www.mezzoblue.com/tests/revised-image-replacement/)
 - [Axess Lab | Alt-texts: The Ultimate Guide](https://web.archive.org/web/20201107223531/https://axesslab.com/alt-texts/)
@@ -1770,6 +1770,7 @@ Image alternative
 - [It's Time to Be Honest about Image Replacement Techniques](https://www.sitepoint.com/its-time-to-be-honest-about-image-replacement-techniques/)
 - [More Than Just Pretty: How Imagery Drives User Experience – Smashing Magazine](https://www.smashingmagazine.com/2017/01/more-than-just-pretty-how-imagery-drives-user-experience/)
 - [Alternate text for background images, alt text accessibility](http://davidmacd.com/blog/alternate-text-for-css-background-images.html)
+- [Writing great alt text: Emotion matters - JakeArchibald.com](https://web.archive.org/web/20220529194501/https://jakearchibald.com/2021/great-alt-text/)
 
 ## Responsive image
 
@@ -2042,7 +2043,6 @@ Use the fieldset when you have:
 - several questions relating to the same topic (like text boxes, or any other type of field). ("Your address" = Street + Town or city + County + Postcode)
 
 Don't use fieldset when you have a single form field that asks for a single piece of information.
-
 
 And for self explanatory choices (radios, like gender), without fieldset:
 

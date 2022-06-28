@@ -13,6 +13,7 @@ Compress gzip without save filename and timestamp `gzip -9 -n -k -f file`
 - [Defluff](https://encode.su/tags.php?tag=defluff)
 - [ScriptGZIP](http://css-ig.net/scriptgzip) (Win CMD)
 - [gzthermal](http://frdx.free.fr/def.htm) use to view compression efficiency (see also [the Thread about it on encode.su](https://encode.su/threads/1889-gzthermal-pseudo-thermal-view-of-Gzip-Deflate-compression-efficiency))
+- [deflate-analyzer](https://0b5vr.com/gzip-analyzer/) - same as `gzthermal` but online
 
 - [zlib Technical Details](http://www.zlib.net/zlib_tech.html)
 

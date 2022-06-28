@@ -67,6 +67,7 @@ Not for team or at least without expertise requirements
 > Full stack devs originate from startups where you have to get your hands dirty in all the fields if you want to succeed, but as soon as you're able, you have to hire specialists if you want to have your product follow the highest security, efficiency and design standards, packed in a good, presentable but not bloated UI.
 
 > A full stack developer is “A developer who can introduce a bug to every layer of the software stack.”
+>
 > — [Dimitar Christoff ✩ sur Twitter : "A full stack developer is “A developer who can introduce a bug to every layer of the software stack.”"](https://twitter.com/D_mitar/status/727643751552815104)
 
 - [The Rise And Fall Of The Full Stack Developer | TechCrunch](http://techcrunch.com/2014/11/08/the-rise-and-fall-of-the-full-stack-developer/)
@@ -77,6 +78,10 @@ Not for team or at least without expertise requirements
 - [Développeur full stack — Wikipédia](https://fr.wikipedia.org/wiki/D%C3%A9veloppeur_full_stack)
 - [CSS](../Development/CSS/CSS.md) - "faire de l'UI c'est facile, c'est même pas un vrai métier"
 - [HTML](../Developement/HTML/HTML.md#choose-the-right-tag-and-attribute) - "HTML is not an assumed skill", "Semantic Web"
+
+## Roles
+
+- [Front-of-the-front-end and back-of-the-front-end web development | Brad Frost](https://web.archive.org/web/20220425074402/https://bradfrost.com/blog/post/front-of-the-front-end-and-back-of-the-front-end-web-development/)
 
 ## Management
 
@@ -96,7 +101,7 @@ See [Management](../Management/Management.md)
 - [5 tips for dealing with meeting overload | The Way We Work, a TED series - YouTube](https://www.youtube.com/watch?v=Mp3Msfw90BE)
 - [The Way We Work, a TED series - YouTube](https://www.youtube.com/playlist?list=PLOGi5-fAu8bFhSzuOjTmHJwLHUxxIoGr4)
 
-## Position
+## Salary
 
 Aka salary, salaire
 
@@ -134,10 +139,10 @@ Cela répond au besoin de flexibilité de paiement dont le client se réclame.
 
 - Définition du besoin
 - Description technique
-    - nouvelle apis / modification api
-    - doc technique partenaire ?
-    - AB test ?
-    - mobile / desktop (responsive)
+	- nouvelle apis / modification api
+	- doc technique partenaire ?
+	- AB test ?
+	- mobile / desktop (responsive)
 - Wireframe
 - Spec, Contract interface back/front
 - Maquette
@@ -152,6 +157,7 @@ It discourages people who aren’t the target market.
 It's also about opening a dialogue with your users/customers to learn more about them. But it's maybe not what the target what first.
 
 > I always interpret "Request a Quote" to mean "too expensive, find a competitor with pricing listed on their site".
+>
 > — [Kyle Drake sur Twitter : ""](https://twitter.com/kyledrake/status/728990900076969984)
 
 SpaceX or Boeing list prices of expensive vehicles. There's no excuse for the lack of price transparency
@@ -162,6 +168,7 @@ SpaceX or Boeing list prices of expensive vehicles. There's no excuse for the la
 Luxury:
 
 > If your first question is how much does it cost, you're not the customer we want
+>
 > — CEO of Timeshare Resorts Inc.
 
 #### Budget and payment
@@ -199,6 +206,7 @@ jour/homme -> jour/personne
 Défaut de paiement
 
 > money later, money never
+>
 > — Julien Moya (Yamo)
 
 - [Work for Fame](http://workforfame.instapage.com/)
@@ -208,6 +216,7 @@ Défaut de paiement
 > Start for free then maybe...
 
 > If you pay peanuts, you get monkeys
+>
 > — [if you pay peanuts, you get monkeys - Wiktionary](https://en.wiktionary.org/wiki/if_you_pay_peanuts,_you_get_monkeys)
 
 > **a reminder that you should never, ever work for free, and never accept propositions like these.**
@@ -219,6 +228,7 @@ Défaut de paiement
 > it's a "big" French book publisher, asking for free illustrations to see if I could be a good "fit"...
 > for a book they're making. And if they happen to like it they may hire me for the book. Funny thing is I've done very similar illustrations.
 > but apparently it's not enough. And the book is gonna be a best seller! So why shouldn't I do it?
+>
 > — [Renaud Forestié](https://twitter.com/Reuno/status/827180680995934208)
 
 - [Compétition = Rémunération](http://competitionremuneration.metiers-graphiques.fr/)
@@ -266,6 +276,7 @@ Régie / prix unitaire / à débours (direct labour hours, timework, sous-traita
 > 6. JE PASSE RAREMENT ICI. Pour me contacter, préférez un email direct : chris [at] stpo [dot] fr.
 >
 > Merci !
+>
 > — [Christophe ANDRIEU | LinkedIn](https://www.linkedin.com/in/christophe-andrieu-9901575)
 
 ## Time estimation
@@ -275,22 +286,27 @@ Aka Chiffrage
 <video src="Estimating software projects.mp4"></video>
 
 > Fact: it takes 2 days to hack an idea. 2 weeks to prove it works. 2 months to make it production ready. And 2 years to see it succeed.
+>
 > — [Inigo Quilez](https://twitter.com/iquilezles/status/716475533836455936)
 
 > f(nombre de codeurs) = Temps pour coder le projet
+>
 > — http://www.commitstrip.com/fr/2016/06/17/fnumber-of-coders-time-to-code-project/
 
 > nine women can't make a baby in one month
+>
 > — Brooks’ law — https://en.wikipedia.org/wiki/Brooks%E2%80%99_law https://fr.wikipedia.org/wiki/Le_Mythe_du_mois-homme
 
 The 10x engineer myth:
 
 > 10x Engineer: a developer who incurs technical debt so fast he appears more productive than the 10 developers tasked w/ cleaning his mess up
+>
 > — [Sam Bhagwat](https://twitter.com/calcsam/status/652360672827674624)
 
 - [The mythical 10x programmer - \<antirez\>](http://antirez.com/news/112)
 
 > Can you give me an estimate on how long it will take you to fix this bug? That's like asking how long it will take to find my keys.
+>
 > — https://twitter.com/_honza/status/758328245355962372
 
 - [development process - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
@@ -303,6 +319,7 @@ The 10x engineer myth:
 - [How many Microsoft employees does it take to change a lightbulb? – Fabulous Adventures In Coding](https://blogs.msdn.microsoft.com/ericlippert/2003/10/28/how-many-microsoft-employees-does-it-take-to-change-a-lightbulb/)
 
 > Hofstadter's Law: It always takes longer than you expect, even when you take into account Hofstadter's Law.
+>
 > — Douglas Hofstadter, [Hofstadter's law — Wikipedia](https://en.wikipedia.org/wiki/Hofstadter%27s_law)
 
 > Making artwork, on its own, is challenging. If you want to develop the business side of that, it's a whole other thing. You need to be prepared to dedicate time to things like:
@@ -330,6 +347,7 @@ The 10x engineer myth:
 > - Writing about your work, including about a dozen variations of an artist's statement, which is possibly the least fun thing to write
 >
 > This adds up to a large percentage of your time, often more time than you get to spend creating artwork.
+>
 > — [Reflections on Five Years of Making Art Through Programming — TYLER HOBBS](https://tylerxhobbs.com/essays/2019/reflections-on-five-years-of-making-art-through-programming)
 
 See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-reworks)
@@ -337,15 +355,18 @@ See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-r
 - [project management - How to respond when you are asked for an estimate? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/648/how-to-respond-when-you-are-asked-for-an-estimate)
 - [Ton estimation de temps est une blague - Je suis un dev](https://www.jesuisundev.com/ton-estimation-de-temps-est-une-blague/) - "Donne toujours une fourchette de temps [...] D’avoir une vue sur les risques de ta tâche [...] toujours donner une mise à jour en temps réel sur ton estimation"
 - [Always Multiply Your Estimates by π - 推酷](https://web.archive.org/web/20170603123809/http://www.tuicool.com:80/articles/7niyym) - [Always Multiply Your Estimates by π (2013) | Hacker News](https://news.ycombinator.com/item?id=28667174)
+- [Ça vaut le coup ?](https://cvlc.fr/15-secondes-5-fois-par-jour)
 
 ### Evidence based scheduling
 
 > The estimation system takes 100 velocities calculated from the developers history. Each velocity is the ratio between estimated time and actual time for a given task.
 > [...]
 > It just means that because the interruption affects the velocity for a certain percentage of the tasks, the interruption will be appropriately represented in estimates that are based on 100 random velocities from the developers history.
+>
 > — [Misunderstanding about "Evidence Based Scheduling" in estimation tasks - Software Engineering Stack Exchange](http://softwareengineering.stackexchange.com/questions/291553/misunderstanding-about-evidence-based-scheduling-in-estimation-tasks)
 
 > Break down the milestones as much as possible
+>
 > — [project management - Evidence-Based-Scheduling - are estimations only as accurate as the work-plan they're based on? - Stack Overflow](https://stackoverflow.com/questions/540816/evidence-based-scheduling-are-estimations-only-as-accurate-as-the-work-plan-th)
 
 - [Evidence Based Scheduling - Joel on Software](http://www.joelonsoftware.com/items/2007/10/26.html)
@@ -362,4 +383,5 @@ See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-r
 > > This was a 30 tab problem. I had to go in deep.
 >
 > > I solved that one with only 1 tab.
+>
 > – [Uncle Cal on Twitter: "I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs". "This was a 30 tab problem. I had to go in deep." "I solved that one with only 1 tab. " :)"](https://twitter.com/calevans/status/1024371268118872070?s=12)

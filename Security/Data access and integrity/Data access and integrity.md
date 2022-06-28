@@ -587,7 +587,7 @@ Forbid (rewrite) `robots.txt` as username: `domain.ext/username` (use `robots-tx
 
 ### Hash and keys
 
-**Never make your own cryptography library.**
+**Never make your own cryptography library unless you are a security expert.**
 **Hash: always use salt**
 
 - [How data encryption software creates one way hash files using the sha1 hashing algorithm.](http://www.metamorphosite.com/one-way-hash-encryption-sha1-data-software)
@@ -703,6 +703,7 @@ TLS JavaScript Implementation
 Note: Root certificate can be compromises (by a malware, by the manufacturer, etc.) on the client machine.
 
 - [SSL Server Test (Powered by Qualys SSL Labs)](https://www.ssllabs.com/ssltest/)
+- [/bin/bash based SSL/TLS tester: testssl.sh](https://testssl.sh/)
 - [HTTPS encryption on the web – Google Transparency Report](https://transparencyreport.google.com/https/certificates?cert_search_auth=&cert_search_cert=&cert_search=include_expired:true;include_subdomains:false&lu=cert_search)
 - [Reparlons de Let’s Encrypt - LinuxFr.org](https://linuxfr.org/news/reparlons-de-let-s-encrypt#lauthentification-http-01)
 - [Challenge Types - Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/docs/challenge-types/)
@@ -1063,6 +1064,12 @@ Find hidden data of faked data (ex: image):
 - [Letterlocking — Wikipedia](https://en.wikipedia.org/wiki/Letterlocking)
 - [Letterlocking : Categories](https://letterlocking.org/categories)
 
+### Random mosaic
+
+Use pattern formed with small objects (grains, colored salt, kinetic sand, etc.) to detect physical access (with optical comparaison of secured transmited images)
+
+- [dys2p](https://web.archive.org/web/20220628041058/https://dys2p.com/en/2021-12-tamper-evident-protection.html)
+
 ## Reaction to violation
 
 And recover, hijacking, pirated, hacked
@@ -1194,6 +1201,7 @@ Inject data ZIP at the end of a valid image, for platform that don't reencode/de
 - [Usenet — Wikipedia](https://en.wikipedia.org/wiki/Usenet#Binary_content)
 - [DNSFS. Store your files in others DNS resolver caches](https://blog.benjojo.co.uk/post/dns-filesystem-true-cloud-storage-dnsfs) - [DNSFS – Store files in others' DNS resolver caches | Hacker News](https://news.ycombinator.com/item?id=16134041)
 - [WarrenGreen/InfiniteDrop: Distributed FileSystem across Dropbox accounts](https://github.com/WarrenGreen/InfiniteDrop)
+- [dzhang314/YouTubeDrive: Store files as YouTube videos == infinite disk space](https://github.com/dzhang314/YouTubeDrive) - [YouTubeDrive: Store files as YouTube videos | Hacker News](https://news.ycombinator.com/item?id=31495049)
 
 ## Vulnerabilities
 
@@ -1322,10 +1330,11 @@ An implicit id can't have the same name as a protected JS keyword and can't over
 - [DOMLint - Test suite against HTML/DOM conflicts](https://kangax.github.io/domlint/)
 - [Microsoft/JSanity: A secure-by-default, performance, cross-browser client-side HTML sanitization library](https://github.com/Microsoft/JSanity)
 - [JavaScript variable names you shouldn’t use - NCZOnline](https://www.nczonline.net/blog/2007/06/03/javascript-variable-names-you-shouldn-t-use/)
-- [Unsafe Names for HTML Form Controls](http://www.jibbering.com/faq/names/)
+- [Unsafe Names for HTML Form Controls](https://web.archive.org/web/20220316223109/http://jibbering.com/faq/names/)
 - [Implicit getElementById's](https://xem.github.io/articles/getelementbyid.html)
 - [Clobbering the clobbered — Advanced DOM Clobbering - terjanq - Medium](https://medium.com/@terjanq/dom-clobbering-techniques-8443547ebe94)
 - [JSLR](http://www.thespanner.co.uk/2012/06/05/jslr/)
+- [DOMLint - Test suite against HTML/DOM conflicts](https://web.archive.org/web/20220401210231/http://kangax.github.io/domlint/)
 
 ### Bypass XSS sanitizer
 

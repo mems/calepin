@@ -154,13 +154,14 @@ Or in search engine autocomplete:
 - [Copyright — Wikipedia](https://en.wikipedia.org/wiki/Copyright)
 - [Sin — Wikipedia](https://en.wikipedia.org/wiki/Sin)
 
-## KISS
+## Kiss Principle
 
 Aka Keep It Simple, Stupid
 
 - [KISS principle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/KISS_principle)
-- [The Kiss Principle](http://people.apache.org/~fhanik/kiss.html)
+- [The Kiss Principle](https://web.archive.org/web/20220409022251/https://people.apache.org/~fhanik/kiss.html)
 - [Simplicity Isn’t Simple - FINCH](http://archived.getfinch.com/2012/04/simplicity-isnt-simple/)
+- [Do one thing and do it well](../Development/Development/Development.md#do-one-thing-and-do-it-well)
 
 ## Design
 
@@ -536,7 +537,8 @@ Symbol signification:
 
 Others:
 
-- [Why Do Russians Never Smile? - The Atlantic](http://www.theatlantic.com/science/archive/2016/05/culture-and-smiling/483827/)
+- [Why Do Russians Never Smile? - The Atlantic](https://web.archive.org/web/20220417130153/https://www.theatlantic.com/science/archive/2016/05/culture-and-smiling/483827/)
+- [Why Russians do not smile](https://web.archive.org/web/20210625010125/https://www.chicagomaroon.com/2002/04/12/why-russians-do-not-smile/)
 
 See also:
 

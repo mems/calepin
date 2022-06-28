@@ -5,21 +5,29 @@
 - https://github.com/blueimp/JavaScript-Canvas-to-Blob
 - https://github.com/beatgammit/base64-js
 - https://github.com/dankogai/js-base64
+-
+- [Base64 Encoding: A Visual Explanation - Lucidchart](https://web.archive.org/web/20220412180343/https://www.lucidchart.com/techblog/2017/10/23/base64-encoding-a-visual-explanation/)
 
 Encode to base64:
 
 `recode ../b64 < file.png`, `base64 -w 0 < file.png`, `openssl enc -base64 < file.png | tr -d '\n'` or `uuencode`. add ` | pbcopy` to copy in clipboard (OSX) or ` > file.b64`
 
-	base64 -w 0 < file.png | pbcopy
+```sh
+base64 -w 0 < file.png | pbcopy
+```
 
-	function dataurl() {
-		local mimeType=$(file -b --mime-type "$1");
-		if [[ $mimeType == text/* ]]; then
-			mimeType="${mimeType};charset=utf-8";
-		fi
-		echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
-	}
+```sh
+function dataurl() {
+	local mimeType=$(file -b --mime-type "$1");
+	if [[ $mimeType == text/* ]]; then
+		mimeType="${mimeType};charset=utf-8";
+	fi
+	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}
+```
 
 Decode from base64:
 
-	pbpaste | base64 -d > file.png
+```sh
+pbpaste | base64 -d > file.png
+```

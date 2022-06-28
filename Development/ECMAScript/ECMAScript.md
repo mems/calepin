@@ -2188,17 +2188,19 @@ function test(param = 0){
 
 ```js
 class MyClass {
+	#total;
+	#store;
 	constructor(n){
-		this._total = n;
-		this._store = [];
+		this.#total = n;
+		this.#store = [];
 	}
 	add(n) {
-		this._store.push(n); // or whatever you need to store n
-		this._total += n; // update the total sum
+		this.#store.push(n); // or whatever you need to store n
+		this.#total += n; // update the total sum
 	}
 	get sum() {
-		// could use return this._store.reduce((prev, cur) => prev + cur, 0)
-		return this._total;
+		// could use return this.#store.reduce((prev, cur) => prev + cur, 0)
+		return this.#total;
 	}
 	// ...
 }
@@ -2343,6 +2345,7 @@ requestAnimationFrame(() => console.log("requestAnimationFrame 2"));
 - [Jake Archibald: In The Loop - JSConf.Asia - YouTube](https://www.youtube.com/watch?v=cCOL7MC4Pl0&feature=youtu.be)
 - [Event loop processing model - HTML Standard](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)
 - [⭐️🎀 JavaScript Visualized: Promises & Async/Await - DEV](https://web.archive.org/web/20201127083654/https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke#tasks)
+- "ResizeObserver normally would run inbetween layout and paint"
 
 - [How JavaScript works: memory management + how to handle 4 common memory leaks | by Alexander Zlatkov | SessionStack Blog](https://web.archive.org/web/20201115130752/https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec?gi=e35da23f4d92)
 - [Concurrency model and Event Loop - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
@@ -3283,6 +3286,8 @@ function randomUUID(){
 
 ```js
 Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)// > "5lv1liy34k"
+BigInt(Math.round(Math.random() * Number.MAX_SAFE_INTEGER));
+Math.round(Math.random() * (36**digits)).toString(36);
 ```
 
 ## Rounding numbers
