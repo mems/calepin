@@ -3294,3 +3294,13 @@ gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dColorConversionStrategy=/LeaveC
 mail -s "Hello" localusername </dev/null
 ```
 
+## UUID
+
+```sh
+# UUID (but violates the UUID specification)
+od -x /dev/urandom | head -1 | awk '{OFS="-"; print $2$3,$4,$5,$6,$7$8$9}'
+# UUID v4
+od -x /dev/urandom | head -1 | awk '{OFS="-"; srand($6); sub(/./,"4",$5); sub(/./,substr("89ab",rand()*4,1),$6); print $2$3,$4,$5,$6,$7$8$9}'
+```
+
+- [How to create a UUID in bash? - Server Fault](https://serverfault.com/questions/103359/how-to-create-a-uuid-in-bash)
