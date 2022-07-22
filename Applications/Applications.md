@@ -440,6 +440,8 @@ Aka WebStorm, PhpStorm, IntelliJ IDEA
 
 Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by the app: [Grunt feedback : WEB-11713](https://youtrack.jetbrains.com/issue/WEB-11713#comment=27-718038)
 
+Use Bash shell on Windows: in "Tools > Terminal" set "Shell path" to `C:\Program Files\Git\bin\bash.exe --login -i`
+
 [Shell Script](https://plugins.jetbrains.com/plugin/13122-shell-script) Task Run/Debug Configuration (see [Shell scripts | IntelliJ IDEA](https://www.jetbrains.com/help/idea/shell-scripts.html)) on Windows without "Execute in the terminal" enabled generate the error `Error running '<task_name>': Cannot run program "\bin\sh" (in directory "<task_working_directory>"): CreateProcess error=2, The system cannot find the file specified`. To fix this issue, create a junction: `mklink /J "C:\bin" "C:\Program Files\Git\bin"`. See also https://youtrack.jetbrains.com/issue/IDEA-277486
 
 - Command keyboard shortcut match only US layout: [National keyboard layouts support : IDEA-165950](https://youtrack.jetbrains.com/issue/IDEA-165950#comment=27-2053321)
