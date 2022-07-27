@@ -23,6 +23,7 @@ See also [Math](../Math/Math.md)
 - [Algorithms \[Algorithm Wiki\]](http://will.thimbleby.net/algorithms/doku.php)
 - [sherxon/AlgoDS: Implementation of Algorithms and Data Structures, Interview Questions and Answers](https://github.com/sherxon/AlgoDS/)
 - [10 Common Data Structures Explained with Videos + Exercises](https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b)
+- [Visualizing Algorithms](https://web.archive.org/web/20220703173926/https://bost.ocks.org/mike/algorithms/)
 
 ## GPU computing
 
@@ -504,7 +505,7 @@ Aka: GPS, accelerometers, gyroscopes adjustment
 - [ceres-solver/ceres-solver: A large scale non-linear optimization library](https://github.com/ceres-solver/ceres-solver)
 	- [Ceres Solver — A Large Scale Non-linear Optimization Library](http://ceres-solver.org/)
 	- [Street View sensor fusion with Ceres Solver - YouTube](https://www.youtube.com/watch?v=z00ORu4bU-A)
-- [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/gpo/wikis/GPO.wiki)
+- [Google Pose Optimizer - Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/gpo/wikis/GPO.wiki)
 
 ## 3D rotation
 

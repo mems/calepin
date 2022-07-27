@@ -18,6 +18,7 @@
 - [Color: From Hexcodes to Eyeballs](http://jamie-wong.com/post/color/#color-spaces)
 - [Color JS library](https://gist.github.com/westc/e2830febf6f2bc31ac16aa3a2cc39023)
 - [Dan Hollick 🇿🇦 on Twitter: "TIL that when you convert a colour from RGB to HSL you're actually doing some geometry. 🤯… "](https://web.archive.org/web/20210724143806/https://twitter.com/DanHollick/status/1418621199760855043)
+- [Color.js: Let’s get serious about color](https://colorjs.io/) - [LeaVerou/color.js: Color conversion & manipulation library by the editors of the CSS Color specifications](https://github.com/LeaVerou/color.js)
 
 ```
 YUV conversion - (ColorMatrix ?) YUV is the same as YCbCr and the matrix for that is: Y’ = 16 + ( 65.481 * R’ + 128.553 * G’ + 24.966 * B’)

@@ -1108,8 +1108,9 @@ Is the same as use `transform-origin: bottom center;`
 - keyboard navigation should use full height minus sticky header height
 - anchor scroll position shifted with header height
 
-- [Sticky headers — Medium](https://medium.com/@adactio/sticky-headers-fe9537519c83)
+- [Adactio: Journal—Sticky headers](https://web.archive.org/web/20210801192434/https://adactio.com/journal/10877)
 - [Autoscroll to anchors](JavaScript#autoscroll-to-anchors)
+- [Peekaboo header](https://codepen.io/jaffathecake/pen/OJvbpRZ)
 
 ### Size
 

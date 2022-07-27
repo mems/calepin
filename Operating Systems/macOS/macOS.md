@@ -111,7 +111,7 @@ GUI for rsync
 
 ### Include files and folders
 
-Included by default
+Included by default:
 
 From `$IBACKUP_APP/Contents/Resources/System Settings/` [iBackup](http://grapefruit.ch/iBackup/)
 
@@ -1869,6 +1869,68 @@ Menulets are of small icons located at the upper right corner of the Menu Bar
 `/System/Library/CoreServices/Menu Extras/*.menu`
 
 - [Menu extra - Wikipedia](https://en.wikipedia.org/wiki/Menu_extra)
+
+### Services
+
+Aka quick actions
+
+Located at `~/Library/Services/` and `/System/Library/Services`, packages `*.workflow`
+
+Preferences > Extensions panel
+
+To test a workflow with files, insert "Get Specified Finder Items" at the beginning
+
+To assign a keyboard shortcut, in 10.6:
+
+1. open System Preferences > Keyboard > pane Keyboard Shortcuts
+2. select "Services" in the left pane
+3. scroll down to General in the right pane
+4. double-click to the right of the Automator workflow you just created
+5. press the keys you want to use, and switch panes to ensure the new shortcut is saved
+
+- [Mac OS X Automation: Services](https://macosxautomation.com/services/index.html)
+- [Change Extensions preferences on Mac - Apple Support](https://support.apple.com/guide/mac-help/change-extensions-preferences-mchl8baf92fe/12.0/mac/12.3)
+- `/usr/bin/automator "/path/to/some action.workflow"`
+- [Shortcuts](#shortcuts)
+
+For "Create a new file" quick action:
+
+- [macos - AppleScript Focus / Rename File (and clicking anywhere) - Stack Overflow](https://stackoverflow.com/questions/6114834/applescript-focus-rename-file-and-clicking-anywhere)
+- [macos - Creating an automator service to create a new document in the current directory - Stack Overflow](https://stackoverflow.com/questions/12183967/creating-an-automator-service-to-create-a-new-document-in-the-current-directory)
+- [Create a new (.txt) File in Finder - Keyboard Shortcut - Ask Different](https://apple.stackexchange.com/questions/129699/create-a-new-txt-file-in-finder-keyboard-shortcut/129948#129948)
+- [macos - Automator: Change to selected directory and run shell script - Ask Different](https://apple.stackexchange.com/questions/121995/automator-change-to-selected-directory-and-run-shell-script)
+- [macos - OS X Snow Leopard: Finder automator item for creating a new text file - Super User](https://superuser.com/questions/106943/os-x-snow-leopard-finder-automator-item-for-creating-a-new-text-file)
+- [finder - Quickest way to save new text file to a folder - Ask Different](https://apple.stackexchange.com/questions/130530/quickest-way-to-save-new-text-file-to-a-folder)
+- `delay 0.1` is required to let Finder create a new file and later hit return key to edit it's name
+- [OscarGodson/New-File: Adds support for a right click -\> new file context menu on Mac OS X like on Windows and Linux](https://github.com/OscarGodson/New-File)
+
+```applescript
+tell application "Finder"
+	set selection to make new file at (get insertion location)
+end tell
+
+tell application "System Events"
+	tell process "Finder"
+		keystroke return
+	end tell
+end tell
+```
+
+Convert :
+
+- use builtin quick action "Convert Image" (from macOS 12): file context menu > Quick Actions > Convert Image
+- [finder - Convert image and save to same folder in Automator - Ask Different](https://apple.stackexchange.com/questions/379987/convert-image-and-save-to-same-folder-in-automator/379989#379989)
+- [Convert images to JPEG on Finder // memo@ecpplus](https://web.archive.org/web/20210127170753/https://memo.ecp.plus/convert_to_jpeg_on_finder/)
+
+### Shortcuts
+
+An PList file
+
+- `Shortcuts.app`
+- [python-shortcuts/shortcuts at master · alexander-akhmetov/python-shortcuts](https://github.com/alexander-akhmetov/python-shortcuts)
+- [FifiTheBulldog/shortcuts-permissions: Determine the permissions for a shortcut](https://github.com/FifiTheBulldog/shortcuts-permissions)
+- [Run shortcuts from the command line - Apple Support](https://support.apple.com/guide/shortcuts-mac/run-shortcuts-from-the-command-line-apd455c82f02/mac)
+- [Shortcuts (app) — Wikipedia](https://en.wikipedia.org/wiki/Shortcuts_%28app%29)
 
 ### Finder view preferences System-wide
 

@@ -1969,12 +1969,12 @@ void keyPressed() {
 ### Find the darkest points
 
 ```as3
-    	/*
-    	https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/FindDarkestPointsByNeighborhood/FindDarkestPointsByNeighborhood.pde
-    	FIND DARKEST POINTS BY NEIGHBORHOOD/DISTANCE
-    	 Jeff Thompson | 2013 | www.jeffreythompson.org
+/*
+https://github.com/jeffThompson/ProcessingTeachingSketches/blob/master/ImageProcessingAndOpenCV/FindDarkestPointsByNeighborhood/FindDarkestPointsByNeighborhood.pde
+FIND DARKEST POINTS BY NEIGHBORHOOD/DISTANCE
+ Jeff Thompson | 2013 | www.jeffreythompson.org
 
-    	 An algorithm to find the darkest points in an image.
+ An algorithm to find the darkest points in an image.
 
  While a true centroid algorithm would likely be better, and is possible in Processing
  (and likely easiest using OpenCV), this is either computationally expensive (ie: slow)

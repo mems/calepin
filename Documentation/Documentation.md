@@ -2,10 +2,13 @@ Aka documentation style guide, write documentation
 
 Write all, make reports, about choice has been mades
 
+Conciseness
+
 API references, guides, tutorials, and blog posts
 
-- when communicating on a project, use clear and accessible language for people who didn’t grow up speaking English, or read less-than-fluently.
-- [avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”](../Development/Development.md#inclusive-terminology) - or use "blocklist" and "safelist". See [Inclusive terminology](../Development/Development/Development.md#inclusive-terminology)
+> Writers should value their readers' time — and always try to get to the point.
+
+> The only thing worse than no documentation is incorrect documentation, because no documentation means I go somewhere else to look for it. Incorrect documentation wastes my time.
 
 - [Bus factor — Wikipedia](https://en.wikipedia.org/wiki/Bus_factor)
 - [Code comments](../Development/Development.md#comments)
@@ -18,6 +21,7 @@ API references, guides, tutorials, and blog posts
 - [Google developer documentation style guide  |  Google Developers](https://developers.google.com/style)
 - [PharkMillups/beautiful-docs: Pointers to useful, well-written, and otherwise beautiful documentation.](https://github.com/PharkMillups/beautiful-docs)
 - [Em Dash: What it is and When to use it - Writer](https://web.archive.org/web/20210228192127/https://writer.com/blog/em-dash-what-it-is-and-when-to-use-it/)
+- [Talk - Mason Egger: Write Docs Devs Love: Ten Tips To Level Up Your Tech Writing - YouTube](https://www.youtube.com/watch?v=9WobKoE9OPI)
 
 ## Specification
 
@@ -35,7 +39,9 @@ API references, guides, tutorials, and blog posts
 
 Aka "It's not simple for everyone"
 
-Don't use words like "easy", "simple", "trivial", and "not hard".
+Don't use words like "easy", "simple", "trivial", and "not hard", because it's not.
+
+> what is "simple" or "easy" to someone might be challenging to someone else
 
 > After you do something dozens of times, it is understandable that something is “easy” to you. However, what about someone who’s never seen the UI or feature before?
 > [...]
@@ -44,6 +50,27 @@ Don't use words like "easy", "simple", "trivial", and "not hard".
 > — [Writing Documentation When You Aren't A Technical Writer — Part Two | Stoplight API Intersection](https://stoplight.io/blog/writing-documentation-when-you-arent-a-technical-writer-part-two-59997587cc2a/#oversimplification)
 
 - [Don’t tell me it’s easy – BI Polar](https://ssbipolar.com/2020/05/01/dont-tell-me-its-easy/)
+
+## Content
+
+- examples
+- tutorials
+- list of possible parameters/properties with their meaning, type and possible values
+
+## Wording
+
+Aka sentence structure, inclusive documentation
+
+- make documentation explicit, not implicit: no acronyms or assuming context
+- no marketing or self-promotion: your code is not fast, efficient, reliable, convenient or secure because you say so
+- no humor: if it's 3 AM and you are debugging a problem, and you are being forced to read lame jokes to understand what some code does, you are going to get frustrated as hell.
+- avoiding alienating terms like "noobs" or even judgmental words like ["simple" or "easy"](#it-s-not-easy-for-everyone)
+- gendered language should also be avoided, and use second-person pronouns like "you."
+- avoid figures of speech and pop culture references, which may not be familiar to a global audience
+- when communicating on a project, use clear and accessible language for people who didn’t grow up speaking English, or read less-than-fluently.
+- [avoid accidental racism by using “denylist” and “allowlist,” instead of “blacklist” and “whitelist”](../Development/Development.md#inclusive-terminology) - or use "blocklist" and "safelist"
+- [inclusive terminology](../Development/Development/Development.md#inclusive-terminology)
+- writing out the full name the first time an acronym is used, you can even links acronyms to their definition at the beginning or end of the document ("define things before talking about them")
 
 ## Checklist
 

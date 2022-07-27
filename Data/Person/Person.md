@@ -38,7 +38,8 @@ Name(s):
 	- [Lightning Talks – Session 2 (BlinkOn 13) - YouTube](https://www.youtube.com/watch?v=q8XCMFhHkvQ&t=1785s)
 - can be [Daesh or ISIS](https://en.wikipedia.org/wiki/Islamic_State_of_Iraq_and_the_Levant), [Gaylord](https://en.wiktionary.org/wiki/Gaylord), [Cumming](https://en.wikipedia.org/wiki/Cumming_(surname))
 - last name (family name) can be a name usually used as first name (Ruth John, "John" is not her firstname) [Ruth John on Twitter: "I appreciate the prompt but this is so confusing for me!… "](https://web.archive.org/web/20201110095609/https://twitter.com/rumyra/status/779320504343814148)
-- contains or not upper/lower case letters: [Bartholomeus van der Helst](https://en.wikipedia.org/wiki/Bartholomeus_van_der_Helst), [Ian Stephen McCulloch](https://en.wikipedia.org/wiki/Ian_McCulloch_(singer))
+- contains or not upper/lower case letters: [Bartholomeus van der Helst](https://en.wikipedia.org/wiki/Bartholomeus_van_der_Helst), [Ian McCulloch](https://en.wikipedia.org/wiki/Ian_McCulloch_%28singer%29)
+- first name be the same as last name: [Wilson Wilson on Twitter: "Can devs please chill 😐 https://t.co/xz5XhVz2rt" / Twitter](https://web.archive.org/web/20220622074731/https://twitter.com/euboid/status/1539157673765130240)
 
 Data test or tools:
 
