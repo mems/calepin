@@ -71,37 +71,39 @@ help:
 
 **Note: Makefile don't support indentation cause the following snippet hard to read**
 
+```makefile
 	ifeq (Windows_NT,$(OS))
-	CCFLAGS += -D WIN32
-	ifeq (AMD64,$(PROCESSOR_ARCHITEW6432))
-	CCFLAGS += -D AMD64
-	else
-	ifeq (AMD64,$(PROCESSOR_ARCHITECTURE))
-	CCFLAGS += -D AMD64
-	endif
-	ifeq (x86,$(PROCESSOR_ARCHITECTURE))
-	CCFLAGS += -D IA32
-	endif
-	endif
-	else
-	UNAME_S := $(shell uname -s)
-	ifeq (Linux,$(UNAME_S))
-	CCFLAGS += -D LINUX
-	endif
-	ifeq (Darwin,$(UNAME_S))
-	CCFLAGS += -D OSX
-	endif
-	UNAME_P := $(shell uname -p)
-	ifeq (x86_64,$(UNAME_P))
-	CCFLAGS += -D AMD64
-	endif
-	ifneq (,$(filter %86,$(UNAME_P)))
-	CCFLAGS += -D IA32
-	endif
-	ifneq (,$(filter arm%,$(UNAME_P)))
-	CCFLAGS += -D ARM
-	endif
-	endif
+CCFLAGS += -D WIN32
+ifeq (AMD64,$(PROCESSOR_ARCHITEW6432))
+CCFLAGS += -D AMD64
+else
+ifeq (AMD64,$(PROCESSOR_ARCHITECTURE))
+CCFLAGS += -D AMD64
+endif
+ifeq (x86,$(PROCESSOR_ARCHITECTURE))
+CCFLAGS += -D IA32
+endif
+endif
+else
+UNAME_S := $(shell uname -s)
+ifeq (Linux,$(UNAME_S))
+CCFLAGS += -D LINUX
+endif
+ifeq (Darwin,$(UNAME_S))
+CCFLAGS += -D OSX
+endif
+UNAME_P := $(shell uname -p)
+ifeq (x86_64,$(UNAME_P))
+CCFLAGS += -D AMD64
+endif
+ifneq (,$(filter %86,$(UNAME_P)))
+CCFLAGS += -D IA32
+endif
+ifneq (,$(filter arm%,$(UNAME_P)))
+CCFLAGS += -D ARM
+endif
+endif
+```
 
 - [os agnostic - OS detecting makefile - Stack Overflow](https://stackoverflow.com/questions/714100/os-detecting-makefile/12099167#12099167)
 - [Sebastien Kramm: Writing portable makefiles](http://skramm.blogspot.fr/2013/04/writing-portable-makefiles.html)
@@ -112,27 +114,35 @@ Debug targets, dependencies, etc. `make target --debug=b`
 
 ## Test availablility of third party program
 
-	CONVERT := convert
-	ifeq (, $(shell command -v $(CONVERT) 2> /dev/null))
-	$(error "ImageMagick is not found. Install it via 'sudo brew install imagemagick', 'sudo port install ImageMagick', 'sudo apt-get install imagemagick' or from http://imagemagick.org/script/binary-releases.php.")
-	endif
+```makefile
+CONVERT := convert
+ifeq (, $(shell command -v $(CONVERT) 2> /dev/null))
+$(error "ImageMagick is not found. Install it via 'sudo brew install imagemagick', 'sudo port install ImageMagick', 'sudo apt-get install imagemagick' or from http://imagemagick.org/script/binary-releases.php.")
+endif
+```
 
 - [Command line - Find the location of a command](Command line (Unix)#find-the-location-of-a-command)
 - [gnu make - Check if a program exists from a Makefile - Stack Overflow](https://stackoverflow.com/questions/5618615/check-if-a-program-exists-from-a-makefile)
 
 ## Generic
 
-	files = foo.md bar.md
+```makefile
+files = foo.md bar.md
+```
 
-	$(files): %.md: %.txt
-		 cat $< > $@
+```makefile
+$(files): %.md: %.txt
+	 cat $< > $@
+```
 
 - [GNU make: Static Usage](https://www.gnu.org/software/make/manual/html_node/Static-Usage.html#Static-Usage)
 
 ## Error in recipe
 
-	clean:
-		-rm -f *.o
+```makefile
+clean:
+	-rm -f *.o
+```
 
 - [GNU make](https://www.gnu.org/software/make/manual/make.html#Errors)
 
@@ -146,13 +156,17 @@ In rule `$$i` will be `$i` in sh.
 
 Useful when the result of a command create multiple files
 
-	all: foo-new.txt bar-new.txt
+```makefile
+all: foo-new.txt bar-new.txt
+```
 
-	foo-new.txt bar-new.txt: bundle
-	.INTERMEDIATE: bundle
-	bundle: foo.txt bar.txt
-		cat foo.txt > foo-new.txt
-		cat bar.txt > bar-new.txt
+```makefile
+foo-new.txt bar-new.txt: bundle
+.INTERMEDIATE: bundle
+bundle: foo.txt bar.txt
+	cat foo.txt > foo-new.txt
+	cat bar.txt > bar-new.txt
+```
 
 To fix parallel problem, use `.SECONDARY` instead.
 
@@ -165,23 +179,28 @@ Each time on or both foo.txt or bar.txt will be changed, or each time on or both
 
 Or use pattern rule
 
-	# Create both .c and .h from .y
-	%.tab.c %.tab.h: %.y
-		bison -d $<
+
+```makefile
+# Create both .c and .h from .y
+%.tab.c %.tab.h: %.y
+	bison -d $<
+```
 
 An other technique is to use an intermediary file to keep track changes.
 
 - use a folder as prerequisite : because "a directory is considered "changed" whenever directory members are added or removed"
 - `echo 'content' | cmp -s - $@ || echo 'content' > $@` where `$@` is the tracking file contains timestamp of files and `content` is list of file in folder using `date -r <file> +"%s%N"`
 
-		#!/usr/bin/env bash
-		# Write index of folder content timestamps, only if timestamps has been changed or a file has been removed
-		# Usage: $0 <folder> <timestampsindex>
-		timestamps=""
-		if [ -d "$1" ]; then
-			timestamps=`find $1 -type f -exec date -r '{}' +"%s%N" \;`
-		fi
-		echo -n $timestamps | cmp -s - $2 || echo -n $timestamps > $2
+	```sh
+#!/usr/bin/env bash
+# Write index of folder content timestamps, only if timestamps has been changed or a file has been removed
+# Usage: $0 <folder> <timestampsindex>
+timestamps=""
+if [ -d "$1" ]; then
+	timestamps=`find $1 -type f -exec date -r '{}' +"%s%N" \;`
+fi
+echo -n $timestamps | cmp -s - $2 || echo -n $timestamps > $2
+```
 - Create a TAR file of outputed files
 
 What about a broken state:

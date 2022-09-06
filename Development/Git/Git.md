@@ -83,6 +83,13 @@ git config --global user.email john@doe.name
 - [git merge v git rebase: Avoiding Rebase Hell - Jarrod Spillers](http://www.jarrodspillers.com/git/2009/08/19/git-merge-vs-git-rebase-avoiding-rebase-hell.html)
 - [Why you should stop using Git rebase – Fredrik V. Mørken – Medium](https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1)
 
+## Merge two repositories
+
+- [Merging two GitHub repositories without losing commit history - Mozilla Hacks - the Web developer blog](https://web.archive.org/web/20220901104756/https://hacks.mozilla.org/2022/08/merging-two-github-repositories-without-losing-commit-history/)
+- [merge - Moving Git repository content to another repository preserving history - Stack Overflow](https://stackoverflow.com/questions/17371150/moving-git-repository-content-to-another-repository-preserving-history)
+- [Moving A Git Repository To A New Server — Smashing Magazine](https://web.archive.org/web/20220427155227/https://www.smashingmagazine.com/2014/05/moving-git-repository-new-server/)
+- [Merging Two Git Repositories Into One Repository Without Losing File History – SaintGimp](https://web.archive.org/web/20220809084011/https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/)
+
 ## Reset
 
 ```sh

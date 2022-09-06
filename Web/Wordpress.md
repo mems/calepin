@@ -139,6 +139,7 @@ add_filter('json_jsonp_enabled', '__return_false');
 - [Theme Development « WordPress Codex](https://codex.wordpress.org/Theme_Development)
 - [roots/sage: WordPress starter theme with a modern development workflow](https://github.com/roots/sage)
 - [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
+- [get_header() | Function | WordPress Developer Resources](https://developer.wordpress.org/reference/functions/get_header/)
 
 ### Template hierarchy
 
@@ -368,6 +369,8 @@ Note: Has a performance impact
 
 ## Localization
 
+Aka translation
+
 Use full locale name in `.mo` filenames
 For mu-plugins (see [`load_muplugin_textdomain()`](https://developer.wordpress.org/reference/functions/load_muplugin_textdomain/)):
 
@@ -440,6 +443,7 @@ printf(
 
 - [wp i18n make-pot | WP-CLI Command | WordPress Developer Resources](https://developer.wordpress.org/cli/commands/i18n/make-pot/) - "Create a POT file for a WordPress project."
 - [How to Internationalize Your Plugin | Plugin Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/)
+- [Internationalization | Theme Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/themes/functionality/internationalization/#descriptions)
 - [filesystem - What is the difference between the .po .mo and .pot localization files? - WordPress Development Stack Exchange](https://wordpress.stackexchange.com/questions/227822/what-is-the-difference-between-the-po-mo-and-pot-localization-files/227829#227829)
 - [I18n for WordPress Developers « WordPress Codex](https://codex.wordpress.org/I18n_for_WordPress_Developers)
 - [Codestyling Localization – WordPress plugin | WordPress.org](https://wordpress.org/plugins/codestyling-localization/#screenshots)
@@ -450,14 +454,20 @@ printf(
 
 ```php
 <?php
+/* translators: %d: number of people. */
 printf( _n( '%s person', '%s people', $count, 'text-domain' ), number_format_i18n( $count ) );
+
+/* translators: 1: WordPress version number, 2: number of bugs. */
+printf( _n( '<strong>Version %1$s</strong> addressed %2$d bug.', '<strong>Version %1$s</strong> addressed %2$d bugs.', $bugs_count, 'text-domain' ), $wp_version, $bugs_count );
 ?>
 ```
-
 
 - [_n() | Function | WordPress Developer Resources](https://developer.wordpress.org/reference/functions/_n/)
 - [WordPress Localization - How plural forms work](https://web.archive.org/web/20220204122947/https://www.cssigniter.com/wordpress-localization-plural-forms-work/)
 - [I18n for WordPress Developers « WordPress Codex](https://codex.wordpress.org/I18n_for_WordPress_Developers#Plurals)
+- [GNU gettext utilities: Plural forms](https://www.gnu.org/savannah-checkouts/gnu/gettext/manual/html_node/Plural-forms.html)
+- [Plural Forms — Localization Guide 0.9.0 documentation](https://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html?id=l10n/pluralforms)
+- [Add checking for translators comments to the I18n sniff. by jrfnl · Pull Request #742 · WordPress/WordPress-Coding-Standards · GitHub](https://github.com/WordPress/WordPress-Coding-Standards/pull/742/files)
 
 ## SVG
 
