@@ -173,3 +173,9 @@ See also [breadcrumbs](#breadcrumbs)
 - [Luna 💙 on Twitter: "I have been wanting this sort of thing for years, and while I don’t use Xcode, I hope other editor vendors will follow suit" / Twitter](https://twitter.com/lunasorcery/status/1533899690479058950?s=12&t=SkNGL_Dv1RwrUZnkPz6JBQ)
 - [wellle/context.vim: Vim plugin that shows the context of the currently visible buffer contents](https://github.com/wellle/context.vim)
 - [minibuffer - Display the beginning of a scope when it is out of screen - Emacs Stack Exchange](https://emacs.stackexchange.com/questions/3145/display-the-beginning-of-a-scope-when-it-is-out-of-screen/3148#3148)
+
+## Code vision
+
+> contextual information and navigation displayed at the top of classes, interfaces, and members
+
+- [Code Vision in Rider: Enriching the Editor with Contextual Information and Navigation | The .NET Tools Blog](https://blog.jetbrains.com/dotnet/2018/12/10/code-vision-rider-enriching-editor-contextual-information-navigation/)

@@ -2,13 +2,18 @@
 
 Win:
 
-	clip < file
+```shell
+clip < file
+```
 
 Mac:
 
-	pbcopy < file
+```sh
+pbcopy < file
+```
 
-GNU/Linux (requires xclip):
+GNU/Linux (requires `xclip`):
 
-	xclip -sel clip < file
-
+```sh
+xclip -sel clip < file
+```

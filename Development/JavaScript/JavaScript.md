@@ -934,8 +934,14 @@ handleReset()
 
 - [DOM on-event handlers - Web developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)
 - [EventListener - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventListener)
+- [Event handling (overview) - Event reference | MDN](https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers#registering_event_handlers)
+- [HTML attribute reference - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#event_handler_attributes)
+- [Introduction to events - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#other_event_listener_mechanisms)
+- [Event-Driven JavaScript Development](https://web.archive.org/web/20220717150637/https://whistlr.info/2022/event-driven-js/)
 
 ### DOM 0 event listener scopes
+
+Aka "onevent"
 
 Event handler: `el.onload = func;`. Note: when func has its scope to `eventTarget`, form owner if any, and document. Ex: `onload="console.log(onload===this.onload,body===document.body)"`, properties can be used without `this` (but not functions).
 
@@ -949,7 +955,7 @@ Inlined event listener in HTML:
 
 Scope is defined with something like:
 
-```
+```js
 "use strict";
 event = <event>;
 if(<is error event handler on window>){
@@ -3875,16 +3881,14 @@ To prevent that, use `pointer-events: none;` on sub elements or listen `mouseup`
 No more right click or middle click. Only the left click (or right button of left-handed mouses).
 
 ```js
-element.addEventListener("click", linkClick.bind(this), false);
-
-function _linkClick(event){
+element.addEventListener("click", (event) => {
 	// Only left button
 	if(event.button !== 0/*event.buttons !== 1*/){
 		return;
 	}
 
 	// Do stuff
-}
+});
 ```
 
 See also:
@@ -5614,7 +5618,7 @@ eval("/*code*/\n//# sourceURL=script-eval.js")
 Catch error, then send [beacon](#beacon)
 
 ```js
-window.addEventListener("error", event => {
+window.addEventListener("error", (event) => {
 	//ErrorEvent
 	const data = event.message.startsWith("Script error") ? {
 		// Script error from inaccessible crossorigin script, values (filename, line, col, error, etc.) are not available
@@ -5644,21 +5648,21 @@ window.onerror = function (message, name, lineno, colno, error) {
 };
 ```
 
-And wrap addEventListener, setTimeout, setInterval callback
-
 For inaccessible crossorigin scripts errors (`Script Error.` or `Script Error, Line 0`):
 
 - [Cryptic "Script Error." reported in Javascript in Chrome and Firefox - Stack Overflow](https://stackoverflow.com/questions/5913978/cryptic-script-error-reported-in-javascript-in-chrome-and-firefox)
-- [What the heck is "Script error"?](https://blog.sentry.io/2016/05/17/what-is-script-error)
-- [Script Error: JavaScript Forensics](https://trackjs.com/blog/script-error-javascript-forensics/)
+- [What the heck is "Script error"? | Product Blog • Sentry](https://web.archive.org/web/20220704234706/https://blog.sentry.io/2016/05/17/what-is-script-error)
+- [Script Error: JavaScript Forensics - TrackJS](https://web.archive.org/web/20210418235606/https://trackjs.com/blog/script-error-javascript-forensics/)
 
-See also [Tracking scripts errors](../../Web/Web.md#tracking-scripts-errors)
+See also:
 
-- [Capture and report JavaScript errors with window.onerror](https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html)
+- [Tracking scripts errors](../../Web/Web.md#tracking-scripts-errors)
+- [Wayback Machine](https://web.archive.org/web/20220708213742/https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror/)
 - [GlobalEventHandlers.onerror - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onerror)
 - [Javascript global error handling - Stack Overflow](https://stackoverflow.com/questions/951791/javascript-global-error-handling/10556743#10556743)
-- [Debug Rendering Problems | Search | Google Developers](https://developers.google.com/search/docs/guides/debug-rendering)
+- [Fix Search-Related JavaScript Problems | Google Search Central  |  Documentation  |  Google Developers](https://web.archive.org/web/20220407122845/https://developers.google.com/search/docs/advanced/javascript/fix-search-javascript)
 - [Sentry | Error Tracking Software — JavaScript, Python, PHP, Ruby, more](https://sentry.io/welcome/)
+- [reportError() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/reportError)
 
 ## Global resource error handler
 
