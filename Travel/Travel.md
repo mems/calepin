@@ -6,6 +6,7 @@ Pour les retards de plus de 2 ou 3h, la compagnie doit :
 
 - indemniser chaque passager de 250€ ou plus (en fonction de la distance) : [CE 261/2004 Art. 7 p. 1 point a](https://eur-lex.europa.eu/legal-content/FR/TXT/HTML/?uri=CELEX:32004R0261&from=FR)
 - indemniser les préjudices subis par le retard [Décret 2004-578 Art. 19](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000801353&fastPos=3&fastReqId=80817431&categorieLien=id&oldAction=rechTexte#JORFSCTA000000894753) et la [convention de Varsovie du 12 octobre 1929 Art. 19](https://fr.wikipedia.org/wiki/Convention_de_Varsovie#Responsabilit%C3%A9_en_cas_de_retard)
+- demander réparation des conséquences de l'inexécution [Code civil Art. 1217 - L'inexécution du contrat](https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070721/LEGISCTA000006150254/?anchor=LEGIARTI000036829854#LEGIARTI000036829854)
 
 Voir aussi :
 
@@ -13,8 +14,20 @@ Voir aussi :
 - [Annulation ou retard d'un d'avion : quel remboursement pouvez-vous obtenir ? | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/annulation-retard-billet-avion-remboursement)
 - [Votre vol est en retard au départ ou à l'arrivée - Qualité Transports - Autorité de la qualité de service dans les transports (AQST)](http://www.qualitetransports.gouv.fr/votre-vol-est-en-retard-au-depart-ou-a-l-arrivee-r90.html)
 - [mtv – MTV](http://www.mtv.travel/) - Médiation Tourisme et Voyage, association, experte et indépendante des companies, a pour vocation d'analyser les dossiers afin d'en favoriser un dénouement rapide
+- [AME - Association des Médiateurs Européens - Centre de Médiation du Barreau de Paris](https://www.mediateurseuropeens.org/)
 - [RS 0.748.410 Convention du 12 octobre 1929 pour l’unification de certaines règles relatives au transport aérien international (avec prot. add.)](https://www.admin.ch/opc/fr/classified-compilation/19290056/index.html#a19)
 - [Vol annulé, retardé: quels sont vos droits? Loi, indemnisation, réclamation](https://retardvol.fr/retard-vol-vos-droits/)
+- [Votre avion est arrivé avec un retard d’au moins trois heures | Institut national de la consommation](https://www.inc-conso.fr/content/votre-avion-est-arrive-avec-un-retard-dau-moins-trois-heures) - Demander à sa compagnie aérienne une indemnité en cas de retard de vol important (Modèle de lettre)
+- [Vous avez un litige non résolu avec une compagnie aérienne | Institut national de la consommation](https://www.inc-conso.fr/content/vous-avez-un-litige-non-resolu-avec-une-compagnie-aerienne)
+- [Assistant formulaire passagers aériens](http://enqueteur.dgac.developpement-durable.gouv.fr/index.php/51924)
+- [Quand l’avion se transforme en galère | 60 Millions de Consommateurs](https://www.60millions-mag.com/2013/07/08/quand-l-avion-se-transforme-en-galere-9733#:~:text=par%20%C2%AB%20vol%20europeen%20%C2%BB%2C%20il%20faut%20comprendre%20%3A) - "Qu'est qu'un vol européen ?"
+- [Glossaire aérien - Qualité Transports - Autorité de la qualité de service dans les transports (AQST)](http://www.qualitetransports.gouv.fr/glossaire-aerien-r142.html)
+- [Voyager en avion : vos droits - Votre vol est annulé | Institut national de la consommation](https://www.inc-conso.fr/content/voyager-en-avion#:~:text=23%20--,votre%20vol%20est%20annule,-%3E%C2%A0Voir%20le)
+- [Retard avion - Ekie](https://www.ekie.co/retard-avion) - "Vos droits en cas de retard d'avion et votre indemnisation en cas de retard d'avion"
+
+## Autres moyens de transport
+
+- [Les médiateurs - Qualité Transports - Autorité de la qualité de service dans les transports (AQST)](http://www.qualitetransports.gouv.fr/les-mediateurs-r23.html)
 
 ## Perte de bagage
 
