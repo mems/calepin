@@ -136,8 +136,8 @@ Collections:
 
 Some libraries:
 
-- Angular 1 scope can be accessed by any JS, with `angular.element(domElement).scope()` (an read: `scope.myVar`, `scope.$parent.myOtherVar` or update: `scope.$apply()`)
-    For Angular 2 `ng.probe($0)._debugInfo._view.changeDetectorRef.detectChanges()` `ng.probe($0).componentInstance` `ng.probe($0).triggerEventHandler('click')`, `ng.getComponent(...)`
+- AngularJS (Angular 1) scope can be accessed by any JS, with `angular.element(domElement).scope()` (an read: `scope.$root`, `scope.prop`, `scope.$parent.prop`, `angular.element(document.body).injector().get('$rootScope')` or update: `scope.$apply(() => {scope.prop = "value"})`, and `scope.$on("$viewContentLoaded", () => {})`, `angular.module(name).requires`, `angular.element(document.body).injector().modules`, `angular.getComponent(appComponentSelector)`, `angular.reloadWithDebugInfo()`)
+    For Angular 2 `ng.probe($0)._debugInfo._view.changeDetectorRef.detectChanges()` `ng.probe($0).componentInstance` `ng.probe($0).triggerEventHandler('click')`, `ng.getComponent(domElement)` (`ng == angular`?)
     For Angular 9 `$0.__ngContext__` (human readable only when debug mode is enabled with debug view `$0.__ngContext__.debug`)
 - https://github.com/michalsnik/aos - scroll trigger **-> use `IntersectionObserver`**
 - [Svelte • The magical disappearing UI framework](https://svelte.technology/)
