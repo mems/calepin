@@ -4150,35 +4150,291 @@ console.log(rtf.format(-2, "day"));
 ```js
 // https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 // https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-timespan-format-strings
-// https://source.dot.net/#System.Private.CoreLib/DateTimeFormat.cs,2fd25af5cf3e592e
-// https://source.dot.net/#System.Private.CoreLib/TimeSpanFormat.cs,f2ad6faffa42da52
-function format(date, format){
-	return format.replace(/\\.|".+?"|'.+?'|%[dHM]|[dHM]+/g, function(match){
-		switch(match.charAt(0)){
-			// Escaped char
-			case "\\": return match.charAt(1);
-			// Literal string
-			case '"':
-			case "'": return match.substr(1, match.length - 2);
-			// Single Custom Format Specifiers.
-			case "%": match = match.substr(1); break;
-			// fix length of custom format specifiers:
-			case "H": match = match.substring(0, 2); break;
-			case "d":
-			case "M": match = match.substring(0, 4); break;
+// https://source.dot.net/#System.Private.CoreLib/src/libraries/System.Private.CoreLib/src/System/Globalization/DateTimeFormat.cs,440
+// https://source.dot.net/#System.Private.CoreLib/src/libraries/System.Private.CoreLib/src/System/Globalization/TimeSpanFormat.cs,303
+// This implementation don't handle calendar types (japanese, hebrew) nor locale (see Intl.DateTimeFormat().resolvedOptions())
+// TODO: it's work in progress
+function formatDate(date, format){
+	const realFormat = getRealFormat(format);
+	return customFormat(date, realFormat);
+
+	function getRealFormat(format = "") {
+		if(format.length > 1) {
+			return format;
 		}
 
-		switch(match){
-			case "dd": return String(date.getDate()).padStart(2, "0");
-			case "HH": return String(date.getHours()).padStart(2, "0");
-			case "MM": return String(date.getMonth() + 1).padStart(2, "0");
+		if(format == ""){
+			return "'[TODO <empty>]'";
 		}
-		return "";// others, not implemented
-	});
+
+		// TODO implement predefined format, use Intl.DateTimeFormat
+		// https://source.dot.net/#System.Private.CoreLib/src/libraries/System.Private.CoreLib/src/System/Globalization/DateTimeFormat.cs,99 ExpandPredefinedFormat and GetRealFormat
+		// Or like .Net, get format based on locale (DateTimeFormatInfo) then customFormat(date, localeFormat)
+		switch(format){
+			case "d":
+				return `'[TODO ${format}]'`;
+			case "D":
+				return `'[TODO ${format}]'`;
+			case "f":
+				return `'[TODO ${format}]'`;
+			case "g":
+				return `'[TODO ${format}]'`;
+			case "G":
+				return `'[TODO ${format}]'`;
+			case "m":
+			case "M":
+				return `'[TODO ${format}]'`;
+			case "o":
+			case "O":
+				return "yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK";
+			case "r":
+			case "R":
+				return "ddd, dd MMM yyyy HH':'mm':'ss 'GMT'";
+			case "s":
+				return "yyyy-MM-dd'T'HH:mm:ss";
+			case "t":
+				return `'[TODO ${format}]'`;
+			case "T":
+				return `'[TODO ${format}]'`;
+			case "u":
+				return "yyyy'-'MM'-'dd HH':'mm':'ss'Z'";
+			case "U":
+				return `'[TODO ${format}]'`;
+			case "y":
+			case "Y":
+				return `'[TODO ${format}]'`;
+			default:
+				throw new Error("Input string was not in a correct format.");
+		}
+	}
+
+	function customFormat(date, format) {
+		let index = 0;
+		let result = "";
+		while(index < format.length) {
+			const char = format[index];
+			let nextChar;
+			let tokenLength;
+			switch(char) {
+				case "g":
+					tokenLength = readRepeatedChar(format, index);
+					// TODO implement era
+					result += `[TODO ${char.repeat(tokenLength)}]`;
+					break;
+				case "h":
+					tokenLength = readRepeatedChar(format, index);
+					let hour12 = date.getHours() % 12;
+					if (hour12 == 0) {
+						hour12 = 12;
+					}
+					result += hour12.toString().padStart(tokenLength, "0");
+					break;
+				case "H":
+					tokenLength = readRepeatedChar(format, index);
+					result += date.getHours().toString().padStart(tokenLength, "0");
+					break;
+				case "m":
+					tokenLength = readRepeatedChar(format, index);
+					result += date.getMinutes().toString().padStart(tokenLength, "0");
+					break;
+				case "s":
+					tokenLength = readRepeatedChar(format, index);
+					result += date.getSeconds().toString().padStart(tokenLength, "0");
+					break;
+				case "f":
+				case "F":
+					tokenLength = readRepeatedChar(format, index);
+					// date.getMilliseconds()
+					// TODO implement fraction
+					result += `[TODO ${char.repeat(tokenLength)}]`;
+					break;
+				case "t":
+					tokenLength = readRepeatedChar(format, index);
+					// TODO implement AM PM designator
+					result += `[TODO ${char.repeat(tokenLength)}]`;
+					break;
+				case "d":
+					// tokenLength == 1 : Day of month as digits with no leading zero.
+					// tokenLength == 2 : Day of month as digits with leading zero for single-digit months.
+					// tokenLength == 3 : Day of week as a three-letter abbreviation.
+					// tokenLength >= 4 : Day of week as its full name.
+					tokenLength = readRepeatedChar(format, index);
+					if (tokenLength <= 2) {
+						result += date.getDate().toString().padStart(tokenLength, "0");
+					} else {
+						// TODO implement tokenLength >= 3 day of week name date.getDay()
+						result += `[TODO ${char.repeat(tokenLength)}]`;
+					}
+					break;
+				case "M":
+					// tokenLength == 1 : Month as digits with no leading zero.
+					// tokenLength == 2 : Month as digits with leading zero for single-digit months.
+					// tokenLength == 3 : Month as a three-letter abbreviation.
+					// tokenLength >= 4 : Month as its full name.
+					tokenLength = readRepeatedChar(format, index);
+					const monthIndex = date.getMonth();// 0 - 11
+					if (tokenLength <= 2) {
+						result += (monthIndex + 1).toString().padStart(tokenLength, "0");
+					} else {
+						// TODO implement tokenLength >= 3 month name
+						result += `[TODO ${char.repeat(tokenLength)}]`;
+					}
+					break;
+				case "y":
+					// Notes about .Net behavior:
+					// y: Always print (year % 100). No leading zero.
+					// yy: Always print (year % 100) with leading zero.
+					// yyy/yyyy/yyyyy/... : Print year value. With leading zero.
+					tokenLength = readRepeatedChar(format, index);
+					const year = date.getFullYear();
+					if (tokenLength <= 2) {
+						result += (year % 100).toString().padStart(tokenLength, "0");
+					} else {
+						result += year.toString().padStart(tokenLength, "0");
+					}
+					break;
+				case "z":
+					tokenLength = readRepeatedChar(format, index);
+					// TODO implement timezone
+					result += `[TODO ${char.repeat(tokenLength)}]`;
+					break;
+				case "K":
+					tokenLength = 1;
+					// TODO implement rountrip timezone
+					result += `[TODO ${char.repeat(tokenLength)}]`;
+					break;
+				case ":":
+					tokenLength = 1;
+					result += ":";// time separator
+					// TODO implement local aware (is it possible with JS and Intl?)
+					break;
+				case "/":
+					tokenLength = 1;
+					result += "/";// date separator
+					// TODO implement local aware (is it possible with JS and Intl?)
+					break;
+				case "'":
+				case "\"":
+					const {length, value} = readQuotedString(format, index);
+					tokenLength = length;
+					result += value;
+					break;
+				case "%": {
+					// Optional format character.
+					// For example, format string "%d" will print day of month
+					// without leading zero.  Most of the cases, "%" can be ignored.
+
+					const nextChar = readNextChar(format, index);
+					// This means that '%' is at the end of the format string or "%%" appears in the format string.
+					if(nextChar == null || nextChar == "%") {
+						throw new Error("Input string was not in a correct format.");
+					}
+
+					tokenLength = 2;
+					result += customFormat(date, nextChar);
+					break;
+				}
+				case "\\": {
+					// Escaped character.  Can be used to insert a character into the format string.
+					// For example, "\d" will insert the character 'd' into the string.
+
+					// Note: this could be removed if only quoted string are used
+					const nextChar = readNextChar(format, index);
+					// This means that '\' is at the end of the formatting string.
+					if(nextChar == null) {
+						throw new Error("Input string was not in a correct format.");
+					}
+
+					tokenLength = 2;
+					result += nextChar;
+					break;
+				}
+				default:
+					// Note: this could be removed if only quoted string are used
+					tokenLength = 1;
+					result += char;
+					break;
+			}
+			index += tokenLength;
+		}
+
+		return result;
+	}
+
+	function readRepeatedChar(format, startIndex) {
+		let index = startIndex;
+		const char = format[index++];
+		while (index < format.length && format[index] == char) {
+			index++;
+		}
+		return index - startIndex;
+	}
+
+	function readQuotedString(format, startIndex) {
+		let value = "";
+		let index = startIndex;
+		const quoteChar = format[index++];
+		let foundQuote = false;
+		while(index < format.length) {
+			const char = format[index++];
+			if(char == quoteChar) {
+				foundQuote = true;
+				break;
+			}
+			// The following are used to support escaped character.
+			// Escaped character is also supported in the quoted string.
+			// Therefore, someone can use a format like "'minute:' mm'\"'" to display:
+			//  minute: 45"
+			// because the second double quote is escaped.
+			else if (char == "\\") {
+
+				// This means that '\' is at the end of the formatting string.
+				if(index >= format.length) {
+					throw new Error("Input string was not in a correct format.");
+				}
+
+				value += format[index++];
+			} else {
+				value += char;
+			}
+		}
+
+		// Here we can't find the matching quote.
+		if (!foundQuote) {
+			throw new Error(`Cannot find a matching quote character for the character '${quoteChar}'.`);
+		}
+
+		// Return the character count including the begin/end quote characters and enclosed string.
+		return {value, length: index - startIndex};
+	}
+
+	function readNextChar(format, index) {
+		return index < format.length - 1 ? format[index + 1] : null;
+	}
 }
 
-format(new Date(), "dd/MM");
-format(new Date(), "HH\\h");
+{
+	const date = new Date("2011-10-05T14:48:12.345");// Omit leading "Z" to ignore timezone for tests
+	const map = {
+		"dd/MM": "05/10",
+		"HH\\h": "14h",
+		"yyyy-MM-ddTHH:mm:ss.fffZ": "2011-10-05T14:48:12.[TODO fff]Z",
+		"u": "2011-10-05 14:48:12Z",
+		"yyyy'-'MM'-'dd HH':'mm':'ss'Z'": "2011-10-05 14:48:12Z",
+		"s": "2011-10-05T14:48:12",
+		"%s": "12",
+		"ddd, dd MMM yyyy HH':'mm':'ss 'GMT'": "[TODO ddd], 05 [TODO MMM] 2011 14:48:12 GMT",
+		"o": "2011-10-05T14:48:12.[TODO fffffff][TODO K]",
+		"O": "2011-10-05T14:48:12.[TODO fffffff][TODO K]",
+		"%o": "o",
+		"yyyy-MM-ddTHH:mm:ss.fffffffK": "2011-10-05T14:48:12.[TODO fffffff][TODO K]"
+	};
+	for(const [format, expected] of Object.entries(map)){
+		const value = formatDate(date, format);
+		console.log(`"%s" gives "%s"`, format, value);
+		console.assert(value === expected, `formatDate(%o, %s) should return "%s" but return "%s" instead`, date, JSON.stringify(format), expected, value);
+	}
+}
 ```
 
 ## Create range array

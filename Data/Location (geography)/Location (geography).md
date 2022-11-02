@@ -158,6 +158,7 @@ See Geocoder
 - Some countries don't have a postal code https://en.wikipedia.org/wiki/List_of_postal_codes
 - division name can be short: [Y](https://en.wikipedia.org/wiki/Y,_Somme)
 - division name can be long: [Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch](https://en.wikipedia.org/wiki/Llanfairpwllgwyngyll)
+- [List of long place names - Wikipedia](https://en.wikipedia.org/wiki/List_of_long_place_names)
 
 > A. P. Croll & Son 2299 Lewes-Georgetown Hwy, Georgetown, DE 19947
 > 11522 Shawnee Road, Greenwood DE 19950
