@@ -458,10 +458,11 @@ See also [Bash shell on Windows](../../Operating%20Systems/Windows/Windows.md#ba
 
 ### Credentials helper
 
-Use the native Windows credentials manager (saved as generic credentials like "git:https://mygitrepo"):
+Use the native [Windows credentials manager (manager-core)](https://github.com/GitCredentialManager/git-credential-manager/tree/release) (saved as generic credentials like "git:https://mygitrepo"):
 
 ```sh
-git config --global credential.helper manager
+# On Windows you usally don't need to do that, it's the default credential helper installed with Git for Windows
+git config --global credential.helper manager-core
 ```
 
 - `explorer shell:::{1206F5F1-0569-412C-8FEC-3204630DFB70}` - access to Credential Manager, then go to "Windows Credentials"
@@ -473,6 +474,7 @@ About Explorer CLSIDs:
 - [CLSID Key (GUID) Shortcuts List for Windows 10 | Tutorials](https://www.tenforums.com/tutorials/3123-clsid-key-guid-shortcuts-list-windows-10-a.html)
 - [Control Panel (Windows) - Wikipedia](https://en.wikipedia.org/wiki/Control_Panel_%28Windows%29)
 - [List of Control Panel Command Line Commands](https://www.lifewire.com/command-line-commands-for-control-panel-applets-2626060)
+- [git-credential-manager/install.md at release · GitCredentialManager/git-credential-manager](https://github.com/GitCredentialManager/git-credential-manager/blob/release/docs/install.md#git-for-windows-star)
 
 ## Diff and merge tools
 

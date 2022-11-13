@@ -1553,8 +1553,11 @@ Dependency = risk
 
 ## Bugs
 
+Bugs can be linked to unreleated things.
+
 - [Code quality](#code-quality)
 - [The Pontiac that was Allergic to Vanilla Ice Cream](https://web.archive.org/web/20010304093737/http://plant-maintenance.com/articles/pontiac.shtml)
+- [GZIP exceptions, but only on hot or rainy days | alexyorke.github.io](https://web.archive.org/web/20221113050920/https://alexyorke.github.io//2022/11/11/gzip-exceptions-but-only-on-hot-or-rainy-days/)
 
 # Concepts and Methodology
 

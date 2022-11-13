@@ -1097,3 +1097,10 @@ Responsive Data Table:
 ## Switch control
 
 - [State-Switch Controls: The Infamous Case of the "Mute" Button](https://web.archive.org/web/20201109234218/https://www.nngroup.com/articles/state-switch-buttons/)
+
+## Text legibility
+
+Aka font
+
+- [B612 – The font family](https://b612-font.com/)
+- [Typography of code - UI for developpers](../Development/Human%20Interface/UI%20for%20developpers.md#typography%20of%20code)

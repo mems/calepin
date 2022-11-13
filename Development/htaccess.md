@@ -661,6 +661,165 @@ FileETag None
 
 - https://gist.github.com/FlorianKromer/aa08762387183404a506#file-htaccess-L180-L241
 
+## Serve pre-encoded resources
+
+Aka serve precompressed files
+
+> This limitation of `mod_deflate` is prominently mentioned in the documentation, [which recommends](https://httpd.apache.org/docs/2.4/mod/mod_deflate.html#precompressed) using [`mod_rewrite`](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html) to rewrite requests to their compressed alternatives when appropriate. Although this method can work [...] it has the major drawback that you are reimplementing content negotiation (which [`mod_negotiation`](https://httpd.apache.org/docs/2.4/mod/mod_negotiation.html) was designed to do) and are likely to get it wrong and lack features supported by `mod_negotiation`. Some common problems and pitfalls with this approach:
+> - Sending an incorrect or missing `Content-Encoding` header.
+> - Not sending the `Vary` header or setting it incorrectly (overwriting previous values for other headers which cause the response to vary).
+> - Sending `Content-Type: application/x-gzip` instead of the underlying type.
+> - Sending double-gzipped content due to forgetting to set `no-gzip` in the environment to exclude the response from `mod_deflate`.
+> - Not respecting client preferences (i.e. quality values/qvalues). According to [RFC 7231](https://tools.ietf.org/html/rfc7231#section-5.3.4) (and [RFC 2616](https://tools.ietf.org/html/rfc2616#section-14.3) before it) clients can send a numeric value between 0 and 1 (inclusive) to express their relative preference for each encoding. An `Accept-Encoding: gzip;q=0` header would signify that the client wants “anything but gzip”. Most `mod_rewrite` implementations would send them gzip. A more realistic example would be a client that sends `Accept-Encoding: br;q=1, gzip;q=0.5, deflate;q=0.1` to signify that they prefer Brotli, then gzip, then deflate. Writing `mod_rewrite` rules which properly handle these sorts of expressed preferences is extremely difficult.
+>
+> - [Serving Pre-Compressed Files with Apache MultiViews - Kevin Locke's Homepage](https://web.archive.org/web/20200829235117/https://kevinlocke.name/bits/2016/01/20/serving-pre-compressed-files-with-apache-multiviews/#non-multiviews-methods)
+
+- Serving pre-compressed content [mod_deflate - Apache HTTP Server Version 2.4](http://httpd.apache.org/docs/current/en/mod/mod_deflate.html#precompressed)
+- [Getting more out of GZIP for web content](http://mainroach.blogspot.fr/2013/09/getting-more-out-of-gzip-for-web-content.html)
+- [Code Grill: How To Serve Pre-Compressed Static Files in Apache](http://blog.codegrill.org/2009/07/how-to-pre-compress-static-files-in.html)
+- [caching - How to force Apache to use manually pre-compressed gz file of CSS and JS files? - Stack Overflow](https://stackoverflow.com/questions/9076752/how-to-force-apache-to-use-manually-pre-compressed-gz-file-of-css-and-js-files)
+- [javascript - How to host static content pre-compressed in apache? - Stack Overflow](https://stackoverflow.com/questions/16883241/how-to-host-static-content-pre-compressed-in-apache)
+- [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-simple-gzip-support-for-apache-with-mod_rewrite.html)
+- [apache - How to configure mod_deflate to serve gzipped assets prepared with assets:precompile - Stack Overflow](https://stackoverflow.com/questions/7509501/how-to-configure-mod-deflate-to-serve-gzipped-assets-prepared-with-assetsprecom)
+- [Gzip Your CSS and JavaScript | ODLAN](http://odlan.com/gzip-your-css-and-js/)
+- [Optimizing Mendix for low bandwidth - Using Compression](https://forum.mendixcloud.com/link/questions/3475)
+- [Simple gzip Support for Apache with mod_rewrite - CraveDIY](http://www.cravediy.com/59-Simple-gzip-Support-for-Apache-with-mod_rewrite.html)
+- [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x)
+- [w3-total-cache-fixed/Minify_Environment.php at d7c4e8f9648f6dde232430feec27d241359761f1 · szepeviktor/w3-total-cache-fixed](https://github.com/szepeviktor/w3-total-cache-fixed/blob/d7c4e8f9648f6dde232430feec27d241359761f1/Minify_Environment.php#L395-L398)
+- [Serving Pre-Compressed Files with Apache MultiViews - Kevin Locke's Homepage](https://kevinlocke.name/bits/2016/01/20/serving-pre-compressed-files-with-apache-multiviews/)
+
+### Serve pre-encoded resources with `mod_rewrite`
+
+- [`mod_rewrite`](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html)
+
+```apache
+# If the browser accepts gzip/br and the requested file exists under pre-encoded version, then serve that version directly.
+<IfModule mod_rewrite.c>
+	<IfModule mod_headers.c>
+		# Brotli
+		<IfModule mod_brotli.c>
+			RewriteEngine On
+			RewriteCond %{HTTP:Accept-Encoding} br
+			RewriteCond %{REQUEST_FILENAME}.br -f
+			RewriteRule (.*) $1.br [L,E=no-brotli:1,E=PRE_ENCODED_CODING:br]
+		</IfModule>
+
+		# Deflate / Gzip
+		<IfModule mod_deflate.c>
+			RewriteEngine On
+
+			RewriteCond %{HTTP:Accept-Encoding} gzip
+			RewriteCond %{REQUEST_FILENAME}.gz -f
+			RewriteRule (.*) $1.gz [L,E=no-gzip:1,E=PRE_ENCODED_CODING:gzip]
+
+			# Special case for *.svg -> *.svgz
+			RewriteCond %{HTTP:Accept-Encoding} gzip
+			RewriteCond %{REQUEST_FILENAME} .svg$
+			RewriteCond %{REQUEST_FILENAME}z -f
+			RewriteRule (.*) $1z [L,E=no-gzip:1,E=PRE_ENCODED_CODING:gzip]
+		</IfModule>
+
+		# Special case for internal redirection (pre encoded) response only
+		# For "REDIRECT_" env var prefix see https://stackoverflow.com/questions/3050444
+		# Some directives support env vars conditions (Header does, but RemoveType doesn't)
+		<If "-n env('REDIRECT_PRE_ENCODED_CODING')">
+			# Debian (and related distributions) set AddType application/x-gzip gz in their default conf (/etc/apache2/mods-available/mime.conf)
+			# or you the Content-Type will be override to application/x-gzip
+			RemoveType gz
+			Header always set Content-Encoding %{REDIRECT_PRE_ENCODED_CODING}e
+			# Apache already append Accept-Encoding to Vary http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
+		</If>
+	</IfModule>
+</IfModule>
+```
+
+## Serve pre-encoded resources with `MultiViews`
+
+- `MultiViews` comes from [`mod_negotiation`](https://httpd.apache.org/docs/current/mod/mod_negotiation.html)
+
+To handle content encoding.
+
+`MultiViews` allow to list all files (recognized by [`mod_mime`](https://httpd.apache.org/docs/current/mod/mod_mime.html#multiviewsmatch)) in the same folder for the given name:
+
+```console
+> curl --header "Accept: example/*; q=1.0" -s -D - -o /dev/null https://example.com/test
+HTTP/1.1 406 Not Acceptable
+Date: Sat, 19 Sep 2020 18:36:20 GMT
+Server: Apache/2.4.38 (Debian)
+Alternates: {"test.html" 1 {type text/html} {length 13}}, {"test.html.gz" 1 {type text/html} {encoding gzip} {length 38}}, {"test.php" 1 {type application/x-httpd-php} {length 59}}
+Vary: negotiate,accept,accept-encoding
+
+```
+
+You need to restrict content negotiation by include directives in [a `<Directory>`, `<Files>` or `.htaccess`](https://httpd.apache.org/docs/current/sections.html) for a subset of directories, file types.
+
+The major drawback, [only requests for files which do not exist are negotiated](https://httpd.apache.org/docs/current/mod/mod_negotiation.html#multiviews). That means you need to rename uncompressed files for an additional extension (ex: `index.html.html` and `index.html.gz` for `https://example.com/index.html`) which is not pratical.
+
+```apache
+# Let Apache choose media type, encoding, etc. based on client preferences.
+# Need rewrite to force use pre encoded version because MultiViews only negotiates requests for files which do not exist.
+<IfModule mod_mime.c>
+	<IfModule mod_rewrite.c>
+		# Brotli
+		<IfModule mod_brotli.c>
+			Options +MultiViews
+			RewriteEngine On
+
+			# Note: BR is a RFC 3066 language
+			RemoveLanguage br
+			AddEncoding br br
+		</IfModule>
+
+		# Deflate / Gzip
+		<IfModule mod_deflate.c>
+			Options +MultiViews
+			RewriteEngine On
+
+			# Case for * -> *.gz
+			# Debian (and related distributions) set AddType application/x-gzip gz in their default conf (/etc/apache2/mods-available/mime.conf)
+			RemoveType .gz
+			AddEncoding gzip gz
+
+			# Case for *.svg -> .svgz
+			AddEncoding gzip svgz
+		</IfModule>
+	</IfModule>
+</IfModule>
+```
+
+- [http - How can I pre-compress files with mod_deflate in Apache 2.x? - Stack Overflow](https://stackoverflow.com/questions/75482/how-can-i-pre-compress-files-with-mod-deflate-in-apache-2-x/34932031#34932031)
+
+### Precompressed files and type maps
+
+- `type maps` comes from [`mod_negotiation`](https://httpd.apache.org/docs/current/mod/mod_negotiation.html#typemaps)
+
+```apache
+# Treat not as application/gzip type
+RemoveType .gz
+# Handle type maps
+AddHandler type-map .var
+
+RewriteCond %{REQUEST_FILENAME}.var -f
+RewriteRule (.*) $1.var [QSA]
+```
+
+Exemple, for `test.html` `test.html.gz` and `test.html.br`, create a file `test.var`, for a request `/test`
+```
+URI: test
+
+Content-type: text/html; qs=0.7
+Content-Encoding: gzip
+URI: index.html.gz
+
+Content-type: text/html; qs=0.8
+Content-Encoding: br
+URI: index.html.br
+```
+
+- [50848 – Content Negotiation type map file precedence could be clarified](https://bz.apache.org/bugzilla/show_bug.cgi?id=50848)
+- [Apache HTTP encoding negotiation notes | mrclay.org](https://web.archive.org/web/20161009225339/http://www.mrclay.org/2008/05/25/apache-http-encoding-negotiation-notes/)
+- [Pre-encoding vs. mod_deflate | mrclay.org](https://web.archive.org/web/20161010115837/http://www.mrclay.org/2008/06/03/pre-encoding-vs-mod_deflate/)
+
 ## Variables
 
 `.htaccess`:
@@ -828,7 +987,7 @@ print_r($infos);
 - [apache - Set an environment variable in .htaccess and retrieve it in PHP - Stack Overflow](https://stackoverflow.com/questions/17550223/set-an-environment-variable-in-htaccess-and-retrieve-it-in-php)
 - [Server alert you of File Not Found and other Errors | Lerner Consulting](http://website-tech.glerner.com/2013-server-alert-you-file-not-found-errors/)
 
-##
+## Other
 
 From drupal:
 

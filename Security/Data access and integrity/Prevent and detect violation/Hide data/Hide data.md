@@ -820,7 +820,7 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 	* ECMAScript `Number("") === 0` `Number(" ") === 0` `Number("\u00A0") === 0`
 	* ECMAScript `"--undefined--".search(undefined) == 0` `"--undefined--".search("undefined") == 2` `"--undefined--".search("a") == -1`
 	* ECMAscript, [11 Ways to Invoke a Function](https://gist.github.com/myshov/05800f083a0afce56e0f782314a103eb)
-	* ECMAScript, `[Function("console.log(this)")][0]()` `this` is the array itself. `const arr = [function(){return this === arr}]; arr[0]();// true` It's a method call (JS quirk of Array elements being properties). `arr` is an object, `0` is a method name, `this` is bound to arr
+	* ECMAScript, `[Function("console.log(this)")][0]()` `this` is the array itself. `const arr = [function(){return this === arr}]; arr[0]();// true` It's a method call (JS quirk of Array elements being properties). `arr` is an object, `0` is a method name, `this` is bound to `arr`
 	* ECMAScript `var \u{61};` (valid in ES6)
 	* ECMAScript `let n1 = 123,456,789;// 789`
 	* ECMAScript `12 === 0xC === 0b1100 === 9+3`
@@ -892,6 +892,22 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 		+{valueOf() alert`1`}	// method shorthand
 		`hello`-alert`1`-`goodbye`	// concatenation
 		`hello${alert(1)}goodbye`	// expression interpolation
+
+		Function`$${atob`YWxlcnQoMSk`}```
+		/*
+		atob`YWxlcnQoMSk`
+		// Note: the end "=" padding can be dropped
+		// decodes to string to:
+		// "alert(1)"
+
+		`$${"alert(1)"}`
+		// results in the tag components:
+		// ["$", ""], "alert(1)"
+
+		Function(["$", ""], "alert(1)")
+		// creates an anonymous function
+		// function($,) {alert(1)}
+		*/
 		```
 	* ECMAScript:
 
@@ -925,7 +941,20 @@ Pirates bypass anti-viruses. Client integrity — prevent client to modify instr
 	* C, `#define true false`, `#define if(x) if((rand % 10) ? (x) : !(x))`, `#define if(x) if((x) && ( ((double)rand()*10.0 / (double)RAND_MAX) < 1.0))`
 	* PHP `$func = 'foo';$func();// This calls foo()`: [PHP: Variable functions - Manual](http://php.net/manual/en/functions.variable-functions.php)
 	* HTML: `<a href="#">Link</a href="#">` where the tag name is `a href="#"` where space is EN QUAD (U+2000) [#HTMLQuiz](http://html5te.st/quiz/)
-	* This code is valid for both PHP and Java: https://gist.github.com/forairan/b1143f42883b3b0ee1237bc9bd0b7b2c
+	* [The following code](https://gist.github.com/avafloww/b1143f42883b3b0ee1237bc9bd0b7b2c) is syntactically valid in both PHP and Java:
+		```
+		/*<?php
+		//*/public class PhpJava { public static void main(String[] args) { System.out.printf("/*%s",
+		//\u000A\u002F\u002A
+		class PhpJava {
+		    static function main() {
+		        echo(//\u000A\u002A\u002F
+		        "Hello World!");
+		}}
+		//\u000A\u002F\u002A
+		PhpJava::main();
+		//\u000A\u002A\u002F
+		```
 	* Math phenomens:
 		- `1/99980001 = 1/Math.pow(9999, 2) = 0.00000001000200030004000500060007…9994999599969997999900000001000200030004…` (but without 9998)
 		- `1/998001 = 1/Math.pow(999, 2) = 0.000001002003004005006007…994995996997999000001002003004…` (but without 998)

@@ -35,6 +35,7 @@ The protection resistance is matter of time, money or opportunities. Anything is
 - Free OS X Security Tools [Objective-See](https://objective-see.com/products.html)
 - IP lists of suspicious activities (some lists are non-free) [I-BlockList | Home](https://www.iblocklist.com/)
 - [Wiki Pages - html5security - HTML5 Security Cheatsheet - Google Project Hosting](https://code.google.com/p/html5security/w/list)
+- [CS253 - Web Security](https://web.archive.org/web/20221004035555/https://web.stanford.edu/class/cs253/) - Stanford course for a comprehensive overview of web security
 
 ### Web security
 

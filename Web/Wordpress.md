@@ -141,6 +141,12 @@ add_filter('json_jsonp_enabled', '__return_false');
 - [Theme Check — WordPress Plugins](https://fr.wordpress.org/plugins/theme-check/)
 - [get_header() | Function | WordPress Developer Resources](https://developer.wordpress.org/reference/functions/get_header/)
 
+### Block theme
+
+Aka `theme.json`
+
+- [Managing CSS Styles in a WordPress Block Theme | CSS-Tricks - CSS-Tricks](https://css-tricks.com/managing-css-styles-in-a-wordpress-block-theme/)
+
 ### Template hierarchy
 
 - [Template Hierarchy | Theme Developer Handbook | WordPress Developer Resources](https://developer.wordpress.org/themes/basics/template-hierarchy/)

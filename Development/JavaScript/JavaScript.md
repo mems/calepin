@@ -8122,3 +8122,107 @@ Arrow keys, WASD or ZQSD
 Modals, dialogs, popins, tooltips, etc.
 
 - [Don’t attach tooltips to document.body - Atif Afzal](https://web.archive.org/web/20211121085143/https://atfzl.com/don-t-attach-tooltips-to-document-body)
+
+## ExtendableEvent
+
+Event that handle async listeners (aka `event.waitUntil(promise)`)
+
+```js
+/*
+ * Like DOM ExtendableEvent interface, implement waitUntil()
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent
+ * @see https://w3c.github.io/ServiceWorker/#extendableevent-interface
+ *
+ * @example:
+ * const target = new EventTarget();
+ * target.addEventListener('test', (event) => {
+ * 	event.waitUntil(Promise.resolve(0));
+ * 	event.waitUntil(new Promise((resolve) => setTimeout(() => resolve(1), 1000)));
+ * 	event.waitUntil(new Promise((resolve) => setTimeout(() => resolve(2), 2000)));
+ * 	event.waitUntil(new Promise((resolve) => setTimeout(() => resolve(2), 2000)));
+ * });
+ * const timeout = 1000;
+ *
+ * let waitForExtensions;
+ * if (!target.dispatchEvent(new ExtendableEvent('test', (w) => waitForExtensions = w, { timeout, bubbles: true }))) {
+ * 	console.log(performance.now() - now, "prevented");
+ * } else {
+ * 	waitForExtensions().then((...args) => console.log('fulfilled', args), (...args) => console.log('rejected', args));
+ * }
+ */
+export default class ExtendableEvent extends Event {
+	#timeout = NaN;
+	#timedOut = false;
+	#pendingPromises = 0;
+	#timeoutID = 0;
+	#resolve;
+	#reject;
+	#resultPromise;
+	#promises = new Set();
+
+	constructor(type, executor, { timeout, ...eventInit } = {}) {
+		super(type, eventInit);
+		this.#timeout = timeout == null ? NaN : Number(timeout);
+		// Use a promise that will be resolved later, returned by waitForExtensions()
+		this.#resultPromise = new Promise((resolve, reject) => {
+			// Note: call resolve() or reject() for a already settled (resolved or rejected) promise is ignored
+			this.#resolve = resolve;
+			this.#reject = reject;
+		});
+		// IsCallable https://tc39.es/ecma262/multipage/abstract-operations.html#sec-iscallable
+		if (typeof executor != 'function') {
+			throw new TypeError(`ExtendableEvent resolver ${executor} is not a function`);
+		}
+		executor(this.#waitForExtensions);
+	}
+
+	// https://w3c.github.io/ServiceWorker/#dom-extendableevent-waituntil
+	waitUntil(promise) {
+		// If not active state
+		if (!this.#active) {
+			throw new DOMException(null, 'InvalidStateError');
+		}
+
+		if (!Number.isNaN(this.#timeout) && this.#timeoutID === 0) {
+			this.#timeoutID = setTimeout(() => this.#timeoutHandler(), this.#timeout);
+		}
+
+		this.#pendingPromises++;
+		this.#promises.add(promise);
+		promise.finally(() => this.#promiseSettledHandler());
+	}
+
+	#waitForExtensions = () => {
+		// Needed in case there is no extensions
+		this.#tryResolveResultPromise();
+
+		return this.#resultPromise;
+	};
+
+	#promiseSettledHandler() {
+		this.#pendingPromises--;
+
+		this.#tryResolveResultPromise();
+	}
+
+	#tryResolveResultPromise() {
+		// There is still pending promises to wait
+		if (this.#pendingPromises > 0) {
+			return;
+		}
+
+		// Note: No need to check if resolve() has been already called, the Promise API do this for us
+		this.#resolve(Promise.allSettled(this.#promises));
+	}
+
+	#timeoutHandler() {
+		this.#timedOut = true;
+		this.#reject();
+	}
+
+	// https://w3c.github.io/ServiceWorker/#ref-for-extendableevent-timed-out-flag
+	get #active() {
+		return !this.#timedOut && (this.#pendingPromises > 0 || this.target !== null); // e.target != null after first dispatchEvent(e) call
+	}
+}
+```

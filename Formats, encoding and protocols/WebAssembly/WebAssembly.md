@@ -51,3 +51,4 @@ See also:
 - [kg/polyfill-prototype-2: JavaScript polyfill for WebAssembly](https://github.com/kg/polyfill-prototype-2)
 - [Wasmtime — a small and efficient runtime for WebAssembly & WASI](https://wasmtime.dev/)
 - [Wasmer - The Universal WebAssembly Runtime](https://wasmer.io/)
+- [I turned JS into a compiled language (for fun and Wasm) — surma.dev](https://web.archive.org/web/20221030033817/https://surma.dev/things/compile-js/)

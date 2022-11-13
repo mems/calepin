@@ -24,7 +24,7 @@ Global overview of code
 
 ## Typography of code
 
-Aka Code color sheme
+Aka Code color sheme, coding font, typeface for developers
 
 Color and fonts
 
@@ -42,8 +42,8 @@ Sticky blocks / smart folding (context, label, compound):
 
 Use font size, style and weight to make differences and differents glyphs for better reading
 
-- [Programming Fonts - Test Drive](https://www.programmingfonts.org/)
-- [JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams](https://www.jetbrains.com/lp/mono/)
+- [Programming Fonts - Test Drive](https://web.archive.org/web/20221113030422/https://www.programmingfonts.org/)
+- [JetBrains Mono: A free and open source typeface for developers | JetBrains: Developer Tools for Professionals and Teams](https://web.archive.org/web/20221111185733/https://www.jetbrains.com/lp/mono/)
 - [microsoft/cascadia-code: This is a fun, new monospaced font that includes programming ligatures and is designed to enhance the modern look and feel of the Windows Terminal.](https://github.com/microsoft/cascadia-code)
 - [tonsky/FiraCode: Monospaced font with programming ligatures](https://github.com/tonsky/FiraCode)
 - [Typography of Code at Adobe Max - YouTube](https://www.youtube.com/watch?v=r2JePjrDggE)

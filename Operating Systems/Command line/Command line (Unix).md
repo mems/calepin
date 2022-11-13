@@ -1690,6 +1690,16 @@ Pipe:
 
 - [Pipeline (Unix) — Wikipedia](https://en.wikipedia.org/wiki/Pipeline_%28Unix%29)
 
+#### Network with redirection
+
+Use instead specialized tools like `netcat` or `socat`
+
+- `/dev/tcp/<host>/<port>` and `/dev/udp/<host>/<port>`
+- `{ echo -e "GET / HTTP/1.0\r\nHost: www.example.com\r\n\r" >&3; cat <&3 ; } 3<> /dev/tcp/www.example.com/80`
+- [bash - /dev/tcp listen instead of nc listen - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/49936/dev-tcp-listen-instead-of-nc-listen/49947#49947) - port listing is not possible
+- [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html#Redirections)
+- [GitHub - caquino/redis-bash: REDIS-BASH - Bash library to access Redis](https://github.com/caquino/redis-bash) - Example of what can be made with network redirection
+
 ### Fork process
 
 Execute in background

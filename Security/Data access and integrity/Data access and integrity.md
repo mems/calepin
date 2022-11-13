@@ -338,7 +338,7 @@ See also [Hacking](#hacking)
 
 ### Hide data
 
-See [Hide data](./Hide%20data/Hide%20data.md)
+See [Hide data](./Prevent%20and%20detect%20violation/Hide%20data/Hide%20data.md)
 
 ### Third party data
 

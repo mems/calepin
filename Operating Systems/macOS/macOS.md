@@ -734,8 +734,6 @@ See also if it use SMB Shares, it could be slow itself (due to protocol version 
 
 ### Time Machine Volume on Network
 
-On non Mac Machine (AFP) or other network protocols
-
 > Sparsebundle disk images cannot, however, be saved on SMB volumes and a handful of other filesystems due to their lack of support for "F_FULLFSYNC", which is a filesystem command that instructs the disk to write data from cache to media.
 
 > If you are using Netatalk version 2.0.5 or better, this has the special new features added to avoid Time Machine disk corruption. If you have a version of Netatalk earlier than 2.0.5 (e.g. Ubuntu 9.10 currently has 2.0.4) [..]
@@ -3599,20 +3597,24 @@ Icon can be change be changed in `/System/Library/Displays/Overrides/Icons.plist
 Aka camera as webcam
 
 - [Cam Link 4K | elgato.com](https://www.elgato.com/en/gaming/cam-link-4k) - Hardware HDMI-to-USB Webcam
-- [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
 - [How to Use Your DSLR Camera as a Webcam | Crowdcast Docs](https://web.archive.org/web/20220220111637/https://docs.crowdcast.io/en/articles/1935406-how-to-use-your-dslr-camera-as-a-webcam)
-- [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)
-- [v002/v002-Camera-Live: Live Syphon Camera](https://github.com/v002/v002-Camera-Live)
 - [Using a DSLR as a Webcam - A guide & tutorial — OBS.Live | Open Broadcaster Software Streaming Knowledge Base](https://web.archive.org/web/20210503042208/https://www.obs.live/articles/2019/6/7/using-a-dslr-as-a-webcam-a-guide-amp-tutorial)
-- [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
 - [works for me 1 time but then doesn't let me select the camera on zoom/others · Issue #102 · v002/v002-Camera-Live](https://github.com/v002/v002-Camera-Live/issues/102#issuecomment-618312892)
-- [Using a Canon DSLR as a webcam on macOS with Zoom – Nicholas Sherlock](https://web.archive.org/web/20220120171102/https://www.nicksherlock.com/2020/04/using-a-canon-dslr-as-a-webcam-with-zoom-us/)
 - [Laurence Tratt: Using a "Proper" Camera as a Webcam](https://web.archive.org/web/20220531061531/https://tratt.net/laurie/blog/2022/using_a_proper_camera_as_a_webcam.html)
 
 - [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
 - [Open Broadcaster Software®️ | OBS](https://obsproject.com/)
 
-Linux: gphoto2 -> ffmpeg -> [v4l2loopback](https://github.com/umlaeute/v4l2loopback)
+For Linux use gphoto2 -> ffmpeg -> [v4l2loopback](https://github.com/umlaeute/v4l2loopback)
+
+Old, use Camtwist and Syphon or an OBS plugin:
+
+- [Using your Canon EOS DSLR as a webcam/capture... - Oldershaw](https://web.archive.org/web/20150104173056/http://blog.oldershaw.org/post/54830169911/using-your-canon-eos-dslr-as-a-webcam-capture)
+- [barrabinfc/camtwist-syphon: Pipe Syphon Video to/from virtual web cam](https://github.com/barrabinfc/camtwist-syphon)
+- [v002/v002-Camera-Live: Live Syphon Camera](https://github.com/v002/v002-Camera-Live)
+- [GitHub - johnboiles/obs-mac-virtualcam: ARCHIVED! This plugin is officially a part of OBS as of version 26.1. See note below for info on upgrading. 🎉🎉🎉Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
+- [GitHub - v002/v002-Camera-Live: Live Syphon Camera](https://github.com/v002/v002-Camera-Live)
+- [Using a Canon DSLR as a webcam on macOS with Zoom – Nicholas Sherlock](https://web.archive.org/web/20220120171102/https://www.nicksherlock.com/2020/04/using-a-canon-dslr-as-a-webcam-with-zoom-us/)
 
 ## Java
 

@@ -497,3 +497,30 @@ Use an exposed function ([`Page.exposeFunction()`](https://github.com/GoogleChro
 
 - [javascript - Puppeteer: How to listen to object events - Stack Overflow](https://stackoverflow.com/questions/47107465/puppeteer-how-to-listen-to-object-events/56173142#56173142)
 - [puppeteer/custom-event.js at master · GoogleChrome/puppeteer](https://github.com/GoogleChrome/puppeteer/blob/master/examples/custom-event.js)
+
+## Extending tools
+
+### Extending ESLint
+
+Aka write a plugin for ESLint
+
+- [javascript - How to forbid a specific named function with ESlint - Stack Overflow](https://stackoverflow.com/questions/40977713/how-to-forbid-a-specific-named-function-with-eslint/40979625#40979625)
+
+### Extending Prettier
+
+Aka write a plugin for Prettier
+
+TODO
+
+### Extending Babel
+
+Aka write a plugin for Babel
+
+TODO
+
+### Extending webpack
+
+Aka write a plugin for webpack, write a loader for webpack
+
+- [Writing a Plugin | webpack](https://webpack.js.org/contribute/writing-a-plugin/#root)
+- [Writing a Loader | webpack](https://webpack.js.org/contribute/writing-a-loader/)

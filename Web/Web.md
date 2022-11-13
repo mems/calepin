@@ -1897,10 +1897,11 @@ See also:
 
 ## A/B testing
 
-![Lifecycle of client-side vs server-side experimentations](https://blog.optimizely.com/wp-content/uploads/2017/05/fullstackblog3.png)
+![Lifecycle of client-side vs server-side experimentations](https://web.archive.org/web/20221025230622im_/https://www.optimizely.com/contentassets/14f7bb6071ef4ea7886f146067d77edf/fullstackblog3-700x425.png)
 
-- [Why Experiment Server-Side? - DZone Web Dev](https://dzone.com/articles/why-experiment-server-side)
+- [Why Experiment Server-Side? - DZone Web Dev](https://web.archive.org/web/20180301171006/https://dzone.com/articles/why-experiment-server-side)
 - [A/B testing - Wikipedia](https://en.wikipedia.org/wiki/A/B_testing)
+- [Caveats and Limitations of A/B Testing at Growth Tech Companies – r y x, r](https://web.archive.org/web/20221112171528/https://ryxcommar.com/2022/11/07/caveats-and-limitations-of-a-b-testing-at-growth-tech-companies/)
 
 ## Content blocking
 
