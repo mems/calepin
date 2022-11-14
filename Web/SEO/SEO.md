@@ -187,6 +187,7 @@ All crawler engines can't execute JS. Even Google Bot (one of the most advanced 
 - [Can Google Properly Crawl and Index JavaScript Frameworks? A JavaScript SEO Experiment. | Elephate](https://www.elephate.com/blog/javascript-seo-experiment/)
 - [What version of Chrome is Google actually using for rendering? - DeepCrawl](https://www.deepcrawl.com/blog/news/what-version-of-chrome-is-google-actually-using-for-rendering/)
 - [We Tested How Googlebot Crawls Javascript And Here's What We Learned](https://searchengineland.com/tested-googlebot-crawls-javascript-heres-learned-220157)
+- [Google Needs 9X More Time To Crawl JS Than HTML | Onely](https://web.archive.org/web/20221111092513/https://www.onely.com/blog/google-needs-9x-more-time-to-crawl-js-than-html/)
 
 ### `<noscript>` and search engines
 

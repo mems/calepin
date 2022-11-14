@@ -3605,7 +3605,7 @@ Aka camera as webcam
 - [johnboiles/obs-mac-virtualcam: Creates a virtual webcam device from the output of OBS. Especially useful for streaming smooth, composited video into Zoom, Hangouts, Jitsi etc. Like CatxFish/obs-virtualcam but for macOS.](https://github.com/johnboiles/obs-mac-virtualcam)
 - [Open Broadcaster Software®️ | OBS](https://obsproject.com/)
 
-For Linux use gphoto2 -> ffmpeg -> [v4l2loopback](https://github.com/umlaeute/v4l2loopback)
+For Linux use gphoto2 -> ffmpeg -> [v4l2loopback](https://github.com/umlaeute/v4l2loopback). See [How to use your DSLR from 2008 as a webcam in 2022 (NixOS)](https://web.archive.org/web/20221113121140/https://www.tomoliver.net/posts/using-an-slr-as-a-webcam-nixos) (see also [this post on Hacker News](https://news.ycombinator.com/item?id=33581708))
 
 Old, use Camtwist and Syphon or an OBS plugin:
 

@@ -1743,10 +1743,12 @@ See [Restrictions](SVG#restrictions)
 - `new XMLSerializer().serializeToString(svgnode)`
 - [Drawing DOM objects into a canvas - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas) - [Drawing DOM objects into a canvas - Web APIs | MDN](https://web.archive.org/web/20181006205840/https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas) (archive)
 - [cburgmer/rasterizeHTML.js: Renders HTML into the browser's canvas](https://github.com/cburgmer/rasterizeHTML.js)
-- https://github.com/niklasvh/html2canvas http://html2canvas.hertzen.com/
-- [gabelerner/canvg](https://github.com/gabelerner/canvg)
+- [niklasvh/html2canvas: Screenshots with JavaScript](https://github.com/niklasvh/html2canvas) - [html2canvas - Screenshots with JavaScript](https://html2canvas.hertzen.com/)
+- [canvg/canvg: JavaScript SVG parser and renderer on Canvas](https://github.com/canvg/canvg)
 - [DasSur.ma – DOM2Texture: Abusing Arcane APIs](http://dassur.ma/things/dom2texture/)
 - [trevorlinton/webkit.js: Pure JavaScript Port of WebKit](https://github.com/trevorlinton/webkit.js)
+- [gliffy/canvas2svg: Translates HTML5 Canvas draw commands to SVG](https://github.com/gliffy/canvas2svg)
+- [felixfbecker/dom-to-svg: Library to convert a given HTML DOM node into an accessible SVG "screenshot".](https://github.com/felixfbecker/dom-to-svg)
 
 ### Draw with Canvas2D
 

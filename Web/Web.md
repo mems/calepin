@@ -731,7 +731,7 @@ See also [Privacy](#privacy)
 
 - [Cookie Status :: Current Status Of Browser Tracking Prevention | cookiestatus.com](https://www.cookiestatus.com/)
 
-## App Download Interstitials
+## App Download interstitials
 
 - [Google+: A case study on App Download Interstitials](http://googlewebmastercentral.blogspot.ca/2015/07/google-case-study-on-app-download-interstitials.html)
 - [Mobile-friendly web pages using app banners](http://googlewebmastercentral.blogspot.ca/2015/09/mobile-friendly-web-pages-using-app.html)
@@ -745,7 +745,7 @@ See also [Privacy](#privacy)
 - [URL schemes for iOS and Android (1/2)](https://gist.github.com/FokkeZB/6340484) - [URL schemes for iOS and Android (1/2) | Fokke Zandbergen](https://fokkezb.nl/2013/08/26/url-schemes-for-ios-and-android-1/)
 - [URL schemes for iOS and Android (2/2)](https://gist.github.com/FokkeZB/6635236) - [URL schemes for iOS and Android (2/2) | Fokke Zandbergen](https://fokkezb.nl/2013/09/20/url-schemes-for-ios-and-android-2/)
 
-### App Install Banner
+### App install banner
 
 ```html
 <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
@@ -768,7 +768,7 @@ See also [Privacy](#privacy)
 - [Promoting Apps with Smart App Banners](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html)
 - [Increasing Engagement with Web App Install Banners  |  Web  |  Google Developers](https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android#native)
 
-### Android App Links
+### Android app links
 
 Android App Link: `https://<domain>/.well-known/assetlinks.json`
 
@@ -776,7 +776,7 @@ Android App Link: `https://<domain>/.well-known/assetlinks.json`
 - [Verify Android App Link  |  Android Developers](https://developer.android.com/training/app-links/verify-site-associations#the-difference)
 - http://example.digitalassetlinks.org/.well-known/assetlinks.json
 
-### Apple App Site Association
+### Apple app site association
 
 Aka AASA or Universal Links
 
@@ -969,17 +969,17 @@ See [Detection](#detection)
 
 ### Browsers extension
 
-#### Web Extensions
+Aka Web Extensions
 
-Chrome, Firefox, Edge, Safari
+- [Impact of extension privileges | Almost Secure](https://web.archive.org/web/20221020162022/https://palant.info/2022/08/17/impact-of-extension-privileges/)
 
-#### Safari Extensions
+### Safari Extensions
 
-##### Safari App Extension
+#### Safari App Extension
 
 - [Safari App Extension | Apple Developer Documentation](https://developer.apple.com/documentation/safariservices/safari_app_extensions)
 
-##### Safari Extension
+#### Safari Extension
 
 Depreciated by Safari 12
 

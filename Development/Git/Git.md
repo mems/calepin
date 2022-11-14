@@ -85,6 +85,7 @@ git config --global user.email john@doe.name
 
 ## Merge two repositories
 
+- [How do you merge two Git repositories? - Stack Overflow](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories)
 - [Merging two GitHub repositories without losing commit history - Mozilla Hacks - the Web developer blog](https://web.archive.org/web/20220901104756/https://hacks.mozilla.org/2022/08/merging-two-github-repositories-without-losing-commit-history/)
 - [merge - Moving Git repository content to another repository preserving history - Stack Overflow](https://stackoverflow.com/questions/17371150/moving-git-repository-content-to-another-repository-preserving-history)
 - [Moving A Git Repository To A New Server — Smashing Magazine](https://web.archive.org/web/20220427155227/https://www.smashingmagazine.com/2014/05/moving-git-repository-new-server/)
