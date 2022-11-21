@@ -71,7 +71,7 @@ Names (exemples for `example.com`):
 - `test.www` subsubdomain (`test.www.example.com`)
 - `*.www` fallback subsubdomain (`*.www.example.com`)
 
-`* CNAME @` is not possible with all DNS servers, and not recommanded (need 2 DNS requests to resolve subdomain)
+`* CNAME @` is not possible with all DNS servers, and not recommended (need 2 DNS requests to resolve subdomain)
 
 ```dns-zone
 @ IN A 192.0.2.1

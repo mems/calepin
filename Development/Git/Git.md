@@ -16,9 +16,9 @@ git diff-tree --no-commit-id --name-only -r <commit>
 # List files in stash
 git stash show -p stash@{0} --name-only
 
-# Apply stach as a patch (if git stash apply fail)
-#git stash show -p | git apply --apply --index --whitespace=fix --reject
-git stash show -p | git am -3
+# Apply stach as a patch (as 3 way, useful if git stash apply fail)
+git stash show "stash@{0}" -p | git apply --index --3way --binary --whitespace=fix
+#git stash show "stash@{0}" -p | git am -3
 
 # Export stash as patch file
 git stash show "stash@{0}" -p > ~/Desktop/changes.patch
@@ -26,10 +26,10 @@ git archive "stash@{0}" | gzip >whatever.tgz
 
 # Apply a patch file
 #git apply --index --3way --binary --verbose /path/to/changes.patch
-#git apply --index --3way --binary --whitespace=fix /path/to/changes.patch
-git apply --apply --index --whitespace=fix --reject /path/to/changes.patch
+git apply --index --3way --binary --whitespace=fix /path/to/changes.patch
+#git apply --apply --index --whitespace=fix --reject /path/to/changes.patch
 # Then list rejected files
-find -name *.rej
+#find -name *.rej
 
 # Create a branch from stash
 git stash branch stashed_changes_branch
@@ -85,7 +85,7 @@ git config --global user.email john@doe.name
 
 ## Merge two repositories
 
-- [How do you merge two Git repositories? - Stack Overflow](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories)
+- [How do you merge two Git repositories? - Stack Overflow](https://stackoverflow.com/questions/1425892/how-do-you-merge-two-git-repositories) - see also [merge - How to import existing Git repository into another? - Stack Overflow](https://stackoverflow.com/questions/1683531/how-to-import-existing-git-repository-into-another) and [git subtree - Merge two Git repositories without breaking file history - Stack Overflow](https://stackoverflow.com/questions/13040958/merge-two-git-repositories-without-breaking-file-history)
 - [Merging two GitHub repositories without losing commit history - Mozilla Hacks - the Web developer blog](https://web.archive.org/web/20220901104756/https://hacks.mozilla.org/2022/08/merging-two-github-repositories-without-losing-commit-history/)
 - [merge - Moving Git repository content to another repository preserving history - Stack Overflow](https://stackoverflow.com/questions/17371150/moving-git-repository-content-to-another-repository-preserving-history)
 - [Moving A Git Repository To A New Server — Smashing Magazine](https://web.archive.org/web/20220427155227/https://www.smashingmagazine.com/2014/05/moving-git-repository-new-server/)

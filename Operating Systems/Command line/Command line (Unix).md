@@ -1429,37 +1429,6 @@ echo "$@"
 - [What's the difference between \[ and \[\[ in Bash? - Stack Overflow](https://stackoverflow.com/questions/3427872/whats-the-difference-between-and-in-bash)
 - [matejak/argbash: Bash argument parsing code generator](https://github.com/matejak/argbash)
 
-### Temporary file
-
-```sh
-temp_file=$(mktemp)
-# Remove the file when the script exit
-trap "rm -f $temp_file" 0
-
-# do something with the file
-echo "Hello World!" > $temp_file
-cat $temp_file
-# Remove the file now (optional)
-rm -f "$temp_file"
-
-# Do something else
-```
-
-- [tmp - How create a temporary file in shell script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/181937/how-create-a-temporary-file-in-shell-script) - See example with file descriptor
-- [Mktemp with suffix/extension | Gawen's blog](https://web.archive.org/web/20211017095036/http://hauweele.net/~gawen/blog/?p=2529) - Use temp dir instead of temp file
-
-### Prefix a list of paths
-
-If `sed` pattern come from variable, some escaping is needed: `sed "s/$BRE/$REPL/"`
-
-Instead use awk with variables:
-
-```sh
-prefix=/some/path/to/
-# awk sub() can be use to replace with regex
-find -printf '%P\0' | awk -v prefix="$prefix" 'BEGIN {RS = "\0"; ORS = "\0"} {print prefix $0}' | do_something_with_null_sep_list
-```
-
 ### Command alias
 
 ```sh
@@ -2103,15 +2072,19 @@ do
 done
 
 # Change file extension
-for j in *; do mv "$j" "$n.bin"; done;
+for f in *; do mv "$f" "$f.bin"; done;
 
 # Rename `Ref_00001.jpg` to `anim001.jpg`
-for i in 'Ref_00'*.jpg; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
-find . -name 'Ref_00*.jpg' -prune -print | while read i; do mv $i $(echo $i | sed 's/Ref_00/anim/'); done;
+find . -name 'Ref_00*.jpg' -print0 | awk 'BEGIN {RS = "\0"; ORS = "\0"} {print; gsub(/\/Ref_00/,"/anim"); print }' | xargs -0 -n2 mv
+# Or use bash+sed directly, but less performant
+for i in 'Ref_00'*.jpg; do mv "$i" "$(echo $i | sed 's/^Ref_00/anim/')"; done;
+# To test, replace find by: `echo -en "Ref_00001.jpg\0Ref_00002.jpg\0Ref_00002.jpg"` and replace xargs with `xargs -0 -n2 echo`
 
-# Rename `sprite1.png` to `sprite0.png` (if change the offset, be careful of sort order)
-find . -maxdepth 1 -type f -exec mv "{}" "{}.tmp" \; -print | awk 'match($0,"^(.*atlas-)([0-9]+)(.*)$",a){print "\""a[1]a[2]a[3]".tmp\" \""a[1]a[2]-1a[3]"\""}' | while read args; do eval "mv $args"; done
+# Rename `sprite1.png` to `sprite0.png`, `sprite2.png` to `sprite1.png`, etc.
+find . -maxdepth 1 -type f -exec mv "{}" "{}.tmp" \; -print0 | awk 'BEGIN {RS = "\0"; ORS = "\0"} {match($0,/^(.*sprite)([0-9]+)(.*)$/,a); print a[1]a[2]a[3]".tmp"; print a[1]a[2]-1a[3] }' | xargs -0 -n2 mv
+# To test, replace find by: `echo -en "sprite1.png\0sprite2.png\0sprite3.png"` and replace xargs with `xargs -0 -n2 echo`
 
+# Use Perl rename (util-linux rename.ul, perl prename, p5-file-rename)
 # Rename *.JPG to *.jpg
 rename 's/\.JPG/\.jpg/' *.JPG
 # Strip spaces
@@ -2689,6 +2662,37 @@ echo -n 0x20AC | recode ucs-2/x2..latin-9/x
 
 # Show utf-8 encoding
 echo -n 0x20AC | recode ucs-2/x2..utf-8/x
+```
+
+### Temporary file
+
+```sh
+temp_file=$(mktemp)
+# Remove the file when the script exit
+trap "rm -f $temp_file" 0
+
+# do something with the file
+echo "Hello World!" > $temp_file
+cat $temp_file
+# Remove the file now (optional)
+rm -f "$temp_file"
+
+# Do something else
+```
+
+- [tmp - How create a temporary file in shell script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/181937/how-create-a-temporary-file-in-shell-script) - See example with file descriptor
+- [Mktemp with suffix/extension | Gawen's blog](https://web.archive.org/web/20211017095036/http://hauweele.net/~gawen/blog/?p=2529) - Use temp dir instead of temp file
+
+### Prefix a list of paths
+
+If `sed` pattern come from variable, some escaping is needed: `sed "s/$BRE/$REPL/"`
+
+Instead use awk with variables:
+
+```sh
+prefix=/some/path/to/
+# awk sub() can be use to replace with regex
+find -printf '%P\0' | awk -v prefix="$prefix" 'BEGIN {RS = "\0"; ORS = "\0"} {print prefix $0}' | do_something_with_null_sep_list
 ```
 
 ## Relative path

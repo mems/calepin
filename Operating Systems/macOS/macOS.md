@@ -45,7 +45,7 @@ purge
 - [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/) - T2M2 (TheTimeMachineMechanic) summarise TM logs, Mints
 - [TM-Utilities  - Arthur Rosel, Ltd.](http://7clinton.com/TM-UtilitiesHelp.html)
 
-Time Machine backup fiability:
+Time Machine backup reliability:
 
 - [Why I Don’t Rely on Time Machine](https://joeontech.net/why-i-dont-rely-on-time-machine.html)
 - [Do you trust TimeMachine as backup/archival storage? : osx](https://www.reddit.com/r/osx/comments/4a8qtz/do_you_trust_timemachine_as_backuparchival_storage/)
@@ -734,15 +734,20 @@ See also if it use SMB Shares, it could be slow itself (due to protocol version 
 
 ### Time Machine Volume on Network
 
+Via AFP (depreciated) or SMB protocols
+
 > Sparsebundle disk images cannot, however, be saved on SMB volumes and a handful of other filesystems due to their lack of support for "F_FULLFSYNC", which is a filesystem command that instructs the disk to write data from cache to media.
 
 > If you are using Netatalk version 2.0.5 or better, this has the special new features added to avoid Time Machine disk corruption. If you have a version of Netatalk earlier than 2.0.5 (e.g. Ubuntu 9.10 currently has 2.0.4) [..]
 >
 > If you have Netatalk 2.0.5 installed, you should add the option “tm” to any share you use for Time Machine, in the AppleVolumes.default config file.
-— [Using Ubuntu for Time Machine in Snow Leopard – Delivering Quality](http://www.markdeepwell.com/2009/11/using-ubuntu-for-time-machine-in-snow-leopard/#comment-513)
+>
+> — [Using Ubuntu for Time Machine in Snow Leopard – Delivering Quality](http://www.markdeepwell.com/2009/11/using-ubuntu-for-time-machine-in-snow-leopard/#comment-513)
 
 `sudo tmutil setdestination -p smb://user@Server._smb._tcp.local./Mount` or `sudo tmutil setdestination -p afp://user@Server.local/Mount`
 
+- [mbentley/docker-timemachine: Docker image to run netatalk (compatible Time Machine for OS X)](https://github.com/mbentley/docker-timemachine)
+- [Use a Raspberry Pi 4 for Time Machine (works with macOS 12 Monterey) | by Sascha Eggenberger | Medium](https://web.archive.org/web/20220903114009/https://saschaeggi.medium.com/use-a-raspberry-pi-4-for-time-machine-works-with-big-sur-1e66a9650789)
 - 10.11 `tmutil version 4.0.0 (built Oct  3 2015)` appears to not support SMB but only AFP. 10,13 `tmutil version 4.0.0 (built Jul 15 2017)` does
 - Time Machine use an SMB extension `F_FullfSync` available in SMB3 (SAMBA 4.1 implement it) to ensure that data is actually written to disk. See [MacOS Sierra support Time Machine via SMB- but how? : apple](https://www.reddit.com/r/apple/comments/53upnj/macos_sierra_supports_time_machine_via_smb_but_how/)
 - [Time Machine Over SMB Specification](https://developer.apple.com/library/content/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/index.html)
@@ -755,14 +760,22 @@ See also if it use SMB Shares, it could be slow itself (due to protocol version 
 - [backup - What is a safe way to back up a sparsebundle that is exported via afpd? - Server Fault](http://serverfault.com/questions/594939/what-is-a-safe-way-to-back-up-a-sparsebundle-that-is-exported-via-afpd)
 - [Time Machine Server Requirements](https://developer.apple.com/library/mac/documentation/NetworkingInternetWeb/Conceptual/TimeMachineNetworkInterfaceSpecification/TimeMachineRequirements/TimeMachineRequirements.html#//apple_ref/doc/uid/TP40008951-CH100-SW1)
 
+macOS Monterey have issues with TimeMachine to mount volume over SMB. Try use AFP instead.
+
+- add `.local` to `afp://machinename` could be required (for local network)
+- in Finder connect first to the server and choose the right share (where sparsebundle will be), go to Time Machine settings and select the share. Unmount the share.
+- [Time Machine backup fails as disk image could not be accessed (error 19) | Synology Community](https://web.archive.org/web/20220516200348/https://community.synology.com/enu/forum/1/post/150054?page=3&sort=oldest)
+- [Time Machine backups failing 6.10 rc8 "Failed to attach using DiskImages2" - Prereleases - Unraid](https://web.archive.org/web/20220627184917/https://forums.unraid.net/bug-reports/prereleases/time-machine-backups-failing-610-rc8-failed-to-attach-using-diskimages2-r1881/)
+- [12380 – vfs_fruit support for Time Machine over SMB](https://bugzilla.samba.org/show_bug.cgi?id=12380)
+
 iSCSI initiator
 
 But how to restore, since iSCSI is not supported natively?
 
-- https://github.com/iscsi-osx/iSCSIInitiator
-- [Droboshare Dashboard for Mac includes free Xtend SAN iSCSI Initiator (kind of) | Justus Beyer](https://justus.berlin/2014/01/droboshare-dashboard-for-mac-includes-free-xtend-san-iscsi-initiator-kind-of/)
-- [Using Time Machine over iSCSI for Mac OS clients – daemonchild.com](https://daemonchild.com/2015/01/30/using-time-machine-over-iscsi-for-mac-os-clients/)
-- [how to use iscsi to support an apple time machine](https://wiki.netbsd.org/tutorials/how_to_use_iscsi_to_support_an_apple_time_machine/)
+- [iscsi-osx/iSCSIInitiator: iSCSI Initiator for macOS](https://github.com/iscsi-osx/iSCSIInitiator)
+- [how to use iscsi to support an apple time machine](https://web.archive.org/web/20221010232831/http://wiki.netbsd.org/tutorials/how_to_use_iscsi_to_support_an_apple_time_machine/)
+- [Droboshare Dashboard for Mac includes free Xtend SAN iSCSI Initiator (kind of) | Justus Beyer](https://web.archive.org/web/20220518171600/https://justus.berlin/2014/01/droboshare-dashboard-for-mac-includes-free-xtend-san-iscsi-initiator-kind-of/)
+- [Using Time Machine over iSCSI for Mac OS clients – daemonchild.com](https://web.archive.org/web/20160809180402/https://daemonchild.com/2015/01/30/using-time-machine-over-iscsi-for-mac-os-clients/)
 
 ### Large modified files
 
@@ -2387,17 +2400,22 @@ Use NTFS-3G or use exFAT instead (supported natively)
 
 - [howto/Ntfs3gFinder – MacPorts](https://trac.macports.org/wiki/howto/Ntfs3gFinder)
 
-### Mount file system
+### WebDav
 
-- [Home - macFUSE](https://osxfuse.github.io/) (successor of MacFUSE)
+- [macos - How to mount WebDav filesystem on Mac? - Super User](https://superuser.com/questions/699271/how-to-mount-webdav-filesystem-on-mac)
+- [childrss/webdav: How to keep a webdav network drive mounted (tested on 10.10.5)](https://github.com/childrss/webdav)
 
-#### Mount AFP share online
+### Mount unsupported file system
 
-**Don't do that! It's not secure (same for NFS, CIFS, SMB). Use it over a VPN (or a SSH tunnel) or use SFTP** (use https://github.com/osxfuse/osxfuse/wiki/SSHFS)
+- [Home - macFUSE](https://osxfuse.github.io/) (successor of osxFUSE)
 
-Can contains Time Machine backups
+### Mount AFP share online
 
-Mount afp://ip_address/TIMEMACHINE
+**Don't do that! It's not secure (same for NFS, SMB/CIFS, iSCSI, etc.). Use it over a VPN (or a SSH tunnel) or use a secured protocol like SFTP** (use https://github.com/osxfuse/osxfuse/wiki/SSHFS)
+
+Can contains Time Machine backups.
+
+Mount afp://ip_address/timemachine_share
 
 Port 548 should be open (and forwarded (TCP) to the target if the server is behind a router). **Don't allow guest access**
 
@@ -3669,3 +3687,16 @@ See also:
 
 - [Install macOS on Virtual Machine](#install-on-virtual-machine)
 - [Boot Camp](#boot-camp)
+
+## Troubleshooting
+
+### ANS2 Recoverable Panic
+
+```
+panic(cpu 0 caller 0xfffffff025234744): ANS2 Recoverable Panic - assert failed: [14083]:low wA f7 i2070711 s3131392 n16 d0 w1.5 tGC6 tL30, d:0x12401, a2:0x42f0000, a3:0x60000000 - power(13)
+assert failed: [14083]:low wA f7 i2070711 s3131392 n16 d0 w1.5 tGC6 tL30, d:0x12401, a2:0x42f0000, a3:0x60000000
+RTKit: RTKit_iOS-1827.140.2.release - Client: t8012.release-AppleStorageProcessorANS2-1274.100.6~1055~1274.100.6~1055
+```
+
+- [macOS Panic: ANS2 Recoverable Panic - Ask Different](https://apple.stackexchange.com/questions/445287/macos-panic-ans2-recoverable-panic/448523#448523)
+- [MacBook Pro crash - ANS2 recoverable Panic - Apple Community](https://discussions.apple.com/thread/251195823)

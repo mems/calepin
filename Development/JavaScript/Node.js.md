@@ -1,5 +1,7 @@
 ["Node.js" (written and spoken guidelines)](https://twitter.com/bitandbang/status/1087359646367731719)
 
+![Written and spkoen guidelines](./Node.js%20written%20and%20spkoen%20guidelines.jpg)
+
 - [Node.js Security Checklist | @RisingStack](https://blog.risingstack.com/node-js-security-checklist/)
 
 ## Libraries
@@ -14,6 +16,7 @@ Unorganized:
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
 - parse [configuration file](https://en.wikipedia.org/wiki/Configuration_file) / [run commands](https://en.wikipedia.org/wiki/Run_command): [rc](https://www.npmjs.com/package/rc)
 - load environnement variable (from `.env` file): ~~[dotenv](https://www.npmjs.com/package/dotenv)~~; do it view the command line instead: [bash - Set environment variables from file of key/value pairs - Stack Overflow](https://stackoverflow.com/questions/19331497/set-environment-variables-from-file-of-key-value-pairs/20909045#20909045)
+- [davidtheclark/cosmiconfig: Find and load configuration from a package.json property, rc file, or CommonJS module](https://github.com/davidtheclark/cosmiconfig)
 
 Parse DOM (HTML, XML, SVG) and CSSOM:
 

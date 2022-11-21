@@ -364,6 +364,7 @@ See also [80/20 rule](#8020-rule)
 > 4. User asks for help with Y.
 > 5. Others try to help user with Y, but are confused because Y seems like a strange problem to want to solve.
 > 6. After much interaction and wasted time, it finally becomes clear that the user really wants help with X, and that Y wasn't even a suitable solution for X.
+>
 > — [XyProblem - Greg's Wiki](http://mywiki.wooledge.org/XyProblem)
 
 ## Solve problems, not exploiting it
@@ -375,9 +376,9 @@ AirBnB, Uber like
 
 ## Never rely on third-party service
 
-Base you product on an external service is dangerous. What its provider decide to discontinue it?
+Base you product on an external service is risky. What happend if the provider (have to) discontinue it?
 
-- [SiliconANGLE](http://siliconangle.com/blog/2017/01/09/google-quietly-discontinues-support-hangouts-api/)
+- [Google quietly ends support for Hangouts-based apps - SiliconANGLE](https://web.archive.org/web/20201112025222/https://siliconangle.com/2017/01/09/google-quietly-discontinues-support-hangouts-api/)
 
 ## Unsolicited reworks
 
@@ -390,16 +391,21 @@ Could also be a prototype
 > No you did NOT replicate an $86 million dollar project, not even close. You replicated a single solitary feature of the project.
 > ...
 > No. What you developed is not the replica of an 86 million project… It’s the functional equivalent of the prototype for that project. And it’s OK.
+>
 > – [How I replicated an $86 million project in 57 lines of code](https://medium.freecodecamp.org/how-i-replicated-an-86-million-project-in-57-lines-of-code-277031330ee9)
 
-"Easy! I can make a clone of Tweeter in one week". Maybe if you ignore all features and related services: [Je peux faire un clone de Twitter en un week end | Sam & Max](http://sametmax.com/je-peux-faire-un-clone-de-twitter-en-un-week-end/)
+> Easy! I can make a clone of Tweeter in one week". Maybe if you ignore all features and related services
+>
+> — [Je peux faire un clone de Twitter en un week end | Sam & Max](http://sametmax.com/je-peux-faire-un-clone-de-twitter-en-un-week-end/)
 
 > Man, no matter how easy something seems, the "nearly complete" prototype is only ever like 1% of the time it takes to actually ship
+>
 > – [Jeremy Cowles](https://twitter.com/MoldyMagnet/status/905640968103247875)
 
 > When Hacker News commenters say "I could build that app in a weekend!" I think of this chart of how Slack decides to send a notification.
 >
 > ![Slack Notification Decision Chart](Slack%20notification%20decision%20chart.jpg)
+>
 > — [Matt Haughey‏](https://twitter.com/mathowie/status/837735473745289218)
 
 It's like unsolicited "redesign" website or app (without real constraints). See [Wikipedia:Unsolicited redesigns — Wikipedia](https://en.wikipedia.org/wiki/Wikipedia:Unsolicited_redesigns#Why_unsolicited_redesigns_can_be_problematic)

@@ -121,7 +121,7 @@ See also [draw & paint](#draw--paint)
 
 ## Vector
 
-See also [Rendering text](#rendering-text), [Bézier](../Math/Spline/Spline.md#Bezier)
+See also [Rendering text](#rendering-text), [Bézier](../Math/Curve/Curve.md#Bezier)
 
 ![Vertexes To Vector](Vector/Vertexes%20to%20vector.jpg)
 
@@ -726,7 +726,7 @@ Aka spritesheet
 
 ## Rendering text
 
-See also [spline rasterization](Spline#rasterization)
+See also [spline rasterization](../Math/Curve/Curve.md#rasterization)
 
 > Microsoft did patent the Loop-Blinn curve-filling technique, but a quick read makes it look like it only applies to outlines defined in part by cubic Bezier curves (http://www.google.com/patents/US20070097123).
 

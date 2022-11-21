@@ -616,6 +616,93 @@ Organization complexity is predictor of bugs (more preople + more departments + 
 - [The Wall of Technical Debt](https://verraes.net/2020/01/wall-of-technical-debt/)
 - [Technical debt](https://en.wikipedia.org/wiki/Technical_debt)
 - [Mike Carter on Twitter: "How unchecked technical debt ruins codebases. See if any of these are familiar to you! 🎭 #webdev https://t.co/d4KteXzcoH" / Twitter](https://mobile.twitter.com/mcarterj/status/1265223134711631872)
+- [Codebase - Wikipedia](https://en.wikipedia.org/wiki/Codebase#monolithic_codebase) - Distinct and monolithic codebases
+
+About choice to microservices vs monolith (or in between)
+
+> I'm convinced that one of the biggest architectural mistakes of the past decade was going full microservice
+>
+> On a spectrum of monolith to microservices, I suggest the following:
+>
+> Monolith > apps > services > microservices
+>
+> So, some thoughts
+>
+> First, these are thoughts, not rules. Anyone that has built a large distributed system knows they don't really work that way and have to adapt with it
+>
+> Second, stage will be important. If you are reading this at a 5-50 person company...just stick with a monolith. Trust me
+>
+> If you are reading this at a 10k person company, likely have all of these to some degree but here is where my quick thoughts might differ from what has been done in the past
+>
+> Now, diversion. Let's talk definitions. There exist no exact definitions for these all
+>
+> So instead of bike shedding over definitions, I typically just think of it this way
+>
+> - monolith - http://xyz.com
+> - apps - http://abc.xyz.com, major things of value or value creation, possible core proposition, limited to a few apps
+> - services - supporting apps/monoliths, core infra pieces, needed by lots of surface area, core compliance func, possibly not written by app teams (infra maintains them)
+> - microservices - few hundred lines of code, mostly one-offs, likely could/should be library or SDK
+>
+> Ok, with all that out of the way, let's talk why
+>
+> My thinking basically goes like this
+>
+> Speed & risk
+>
+> 1. It's generally easier for entire engineering teams to work inside one big app (think entire site in Rails app) than to reason about the ways in which microservices will fail
+> 2. distributed systems, which you will have as you grow no matter what, are hard enough to reason about with introducing dozens let alone hundreds of microservices that have their own risk profiles
+> 3. as you go fully micro, you need to introduce new concepts to handle the sprawl
+> 4. A big one. Each bespoke infra service or microservice is an extreme version of debt IMV. Code is debt, but services are extreme versions of that. Really think about about what that means for you. Prefer your debt to be literal points of highest leverage not nice to haves
+>
+> I think a challenge we dist systems engineers have is we really like to not have duplication so we see something being done in a few places and think "let's just pull this out and make a microservice out of it".
+>
+> In theory this is fine. And if done for a few tens of instances, it is fine. When it goes to several dozen microservices or...way worse...across massive company boundaries (think one color service for all of Microsoft/Google/Apple) it becomes less technical and more org challenge
+>
+> And I know what I'm presenting so many feels like some false dichotomies but in practice I find there are definite tech challenges with microservices, but there are even more org challenges with them
+>
+> And of all the things I worry about it's this
+>
+> First, infra (unless company is led by unusually with-it CEO) almost always gets short end of priority stick
+>
+> Second, too many services typically leads to a lack of ownership problem and boundary issues
+>
+> Third, you introduce even more tooling to deal with too many microservices
+>
+> And most importantly, each microservice that could/should have been a library or sdk or something introduces production risk
+>
+> more code is indeed overhead, more services is customer facing prod/experience risk. Both approaches have overhead/risk but the % distribution is diff
+>
+> So this is typically what I recommend
+>
+> 1. Be a monolith as long as possible
+> 2. Services start in infra for infra reasons, not app eng typically
+> 3. If breaking out mono, break to large apps, not small services
+> 4. Think that each new app is a virtual wall in your company
+> 5. Prefer libraries to microservices where possible
+>
+> The classic "we introduced a color service" is my favorite extreme example of where I would choose a library over a service. Yes extreme example but hey, it gets very talked about as quintessential example
+>
+> "But Jason, what about Amazon and Uber and ..?"
+>
+> 1. Hey, you do you. I'm just saying what I've gone through in experience
+> 2. If you have the success of Amazon when that mandate came down for services, go nuts
+> 3. These are more guidelines than rules
+>
+> 90% of all companies in the world could probably just be a monolith running against a primary db cluster with db backups, some caches and proxies and be done with it
+>
+> For the 10% of companies that hit planet scale (no pun intended here Sam) it's gonna be art figuring this out
+>
+> Distributed systems combined with scaling companies is so complex and so few people have done it that it's hard to draw specific lessons from those companies. Each context and instance is different. What I'm talking about here is more thoughts on how to approach the problems
+>
+> And going back to this
+>
+> Monolith > apps > services > microservices
+>
+> It's basically an approach to scale: be one big thing for as long as possible. Never overcorrect to too small of things, go through it as you grow (even hyper growth). This is for org and tech
+>
+> Again, it's art
+>
+> — [Jason Warner on Twitter: "I'm convinced that one of the biggest architectural mistakes of the past decade was going full microservice On a spectrum of monolith to microservices, I suggest the following: Monolith &gt; apps &gt; services &gt; microservices So, some thoughts" / Twitter](https://web.archive.org/web/20221115222740/https://twitter.com/jasoncwarner/status/1592227285024636928)
 
 ### Write readable code
 
@@ -1558,6 +1645,15 @@ Bugs can be linked to unreleated things.
 - [Code quality](#code-quality)
 - [The Pontiac that was Allergic to Vanilla Ice Cream](https://web.archive.org/web/20010304093737/http://plant-maintenance.com/articles/pontiac.shtml)
 - [GZIP exceptions, but only on hot or rainy days | alexyorke.github.io](https://web.archive.org/web/20221113050920/https://alexyorke.github.io//2022/11/11/gzip-exceptions-but-only-on-hot-or-rainy-days/)
+
+## Architecture
+
+- [Architectural pattern - Wikipedia](https://en.wikipedia.org/wiki/Architectural_pattern)
+- [Frontend and backend - Wikipedia](https://en.wikipedia.org/wiki/Frontend_and_backend)
+- [Software architecture - Wikipedia](https://en.wikipedia.org/wiki/Software_architecture)
+- [BFF - Wikipedia](https://en.wikipedia.org/wiki/BFF) - "Backend for Frontend" pattern, a client-oriented design of web and mobile API in frontend and backend development
+- [Monolithic application - Wikipedia](https://en.wikipedia.org/wiki/Monolithic_application)
+- [Microservices - Wikipedia](https://en.wikipedia.org/wiki/Microservices)
 
 # Concepts and Methodology
 

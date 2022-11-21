@@ -128,6 +128,12 @@ See also
 - [Fingerprinting Firefox users with cached intermediate CA certificates (#fiprinca) - shift or die](https://shiftordie.de/blog/2017/02/21/fingerprinting-firefox-users-with-cached-intermediate-ca-certificates-fiprinca/)
 - [Printers | Electronic Frontier Foundation](https://www.eff.org/issues/printers) - Pinter watermarks
 - [Pixel Perfect: Fingerprinting Canvas in HTML5](https://hovav.net/ucsd/dist/canvas.pdf)
+- hidden data (watermark) in document can be used to identify a leak
+	- [Hide data](../Data%20access%20and%20integrity/Prevent%20and%20detect%20violation/Hide%20data/Hide%20data.md)
+	- [Genius: We Caught Google 'Red Handed' Stealing Lyrics Data | PCMag](https://web.archive.org/web/20221116145315/https://www.pcmag.com/news/genius-we-caught-google-red-handed-stealing-lyrics-data)
+	- [Elon Musk on Twitter: "@NASAEarthMars That is quite an interesting story. We sent what appeared to be identical emails to all, but each was actually coded with either one or two spaces between sentences, forming a binary signature that identified the leaker." / Twitter](https://web.archive.org/web/20221111173320/https://twitter.com/elonmusk/status/1579101966453858305) - "Tesla has used space characters in internal emails to identify leaks"
+	- [Canary trap - Wikipedia](https://en.wikipedia.org/wiki/Canary_trap#cite_ref-4)
+	- [Tesla CEO in Digital Witch Hunt](https://web.archive.org/web/20131020092330/http://gawker.com/5164035/tesla-ceo-in-digital-witch-hunt)
 
 Other
 

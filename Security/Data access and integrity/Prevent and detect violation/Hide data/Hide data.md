@@ -205,6 +205,7 @@ In document, user's comment, chat message, source code / script, source code's c
 	- [You’ll never guess where Russian spies are hiding their control servers | Ars Technica](https://arstechnica.com/security/2017/06/russian-hackers-turn-to-britney-spears-for-help-concealing-espionage-malware/)
 - `snow` append whitespaces to the end of lines
 - ```` Function`$${atob`YWxlcnQoMSk`}``` /*same as: alert(1)*/ ```` - [Martin Kleppe on Twitter: "Here is a quick explanation: atob`YWxlcnQoMSk=` // decodes to string to: // "alert(1)" `$${"alert(1)"}` // results in the tag components: // \["$", ""\], "alert(1)" Function(\["$", ""\], "alert(1)") // creates an anonymous function // function($,) {alert(1)}" / Twitter](https://twitter.com/aemkei/status/1240399576487600128)
+- typo, repeated chars, smiliar words, synonym, etc.
 
 ### Hide data by using permissively
 

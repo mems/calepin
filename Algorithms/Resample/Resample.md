@@ -28,30 +28,32 @@ Often used for image resizing or for perspective texture correction
 - [Cubic interpolation - Paulinternet.nl](http://www.paulinternet.nl/?page=bicubic) - Java and C++ Implementations
 - [Réduction de BitmapData & Smoothing : Pourquoi c'est pas beau (et comment améliorer) - envrac.org](http://wayback.archive.org/web/20110903152621/http://www.envrac.org/index.php/2008/06/23/181-reduction-de-bitmapdata-smoothing-pourquoi-c-est-pas-beau-et-comment-ameliorer) - use bilinear iteratively/recursively using `scale * 2` until final size:
 	See `BitmapManager.as`
-	
-		public static function resampleBitmapData (bmp:BitmapData, ratio:Number):BitmapData {
-			if (ratio >= 1) {
-				return (BitmapManager.resizeBitmapData(bmp, ratio));//do bilinear resample
-			}
-			else {
-				var bmpData:BitmapData = bmp.clone();
-				var appliedRatio:Number = 1;
-		
-				do {
-					if (ratio < 0.5 * appliedRatio) {
-						bmpData = BitmapManager.resizeBitmapData(bmpData, 0.5);
-						appliedRatio = 0.5 * appliedRatio;
-					}
-					else {
-						bmpData = BitmapManager.resizeBitmapData(bmpData, ratio / appliedRatio);
-						appliedRatio = ratio;
-					}
-				} while (appliedRatio != ratio);
-		
-				return (bmpData);
-			}
+
+	```as3
+	public static function resampleBitmapData (bmp:BitmapData, ratio:Number):BitmapData {
+		if (ratio >= 1) {
+			return (BitmapManager.resizeBitmapData(bmp, ratio));//do bilinear resample
 		}
-	
+		else {
+			var bmpData:BitmapData = bmp.clone();
+			var appliedRatio:Number = 1;
+
+			do {
+				if (ratio < 0.5 * appliedRatio) {
+					bmpData = BitmapManager.resizeBitmapData(bmpData, 0.5);
+					appliedRatio = 0.5 * appliedRatio;
+				}
+				else {
+					bmpData = BitmapManager.resizeBitmapData(bmpData, ratio / appliedRatio);
+					appliedRatio = ratio;
+				}
+			} while (appliedRatio != ratio);
+
+			return (bmpData);
+		}
+	}
+	```
+
 	See [How to resize an image with ActionScript (update) at Jozef Chúťka's blog](http://blog.yoz.sk/2010/01/how-to-resize-an-image-with-actionscript/)
 - [b4wind User's Guide - Interpolation](https://www.grc.nasa.gov/WWW/winddocs/utilities/b4wind_guide/interpolation.html) and [b4wind User's Guide - Trilinear Interpolation](https://www.grc.nasa.gov/WWW/winddocs/utilities/b4wind_guide/trilinear.html)
 - [Bicubic resampling by Pixel Bender - Andy Li’s Blog](https://blog.onthewings.net/2009/08/25/bicubic-resampling-by-pixel-bender/)
@@ -68,81 +70,83 @@ Aka correct color blending
 
 > of course nobody is using it - three sqrt per pixel
 
-	// From http://codepen.io/quasimondo/pen/VLaYjx Correct Color Blending
-	var width = 1600;
-	var colorLeft = 0x8f3080;
-	var colorRight = 0xc0ff00;
-	
-	
-	function blendColorsCorrectly(a, b, data) {
-		var ar = (a >> 16) & 0xff;
-		ar *= ar;
-		var ag = (a >> 8) & 0xff;
-		ag *= ag;
-		var ab = a & 0xff;
-		ab *= ab;
-		
-		var br = (b >> 16) & 0xff;
-		br *= br;
-		var bg = (b >> 8) & 0xff;
-		bg *= bg;
-		var bb = b & 0xff;
-		bb *= bb;
-		
-		var l = data.length;
-		var il = 1 / (l*l);
-		for (var i = 0; i < l; i++) 
-		{
-			var li = (l-1)-i;
-			var r = (0.5 + Math.sqrt(il * (li*li * ar + i * i *br))) | 0;
-			var g = (0.5 + Math.sqrt(il * (li*li * ag + i * i *bg))) | 0;
-			var b = (0.5 + Math.sqrt(il * (li*li * ab + i * i *bb))) | 0;
-			data[i] = 0xff000000 | r << 16 | g << 8 | b;
-		}
-		return data;
+```js
+// From http://codepen.io/quasimondo/pen/VLaYjx Correct Color Blending
+var width = 1600;
+var colorLeft = 0x8f3080;
+var colorRight = 0xc0ff00;
+
+
+function blendColorsCorrectly(a, b, data) {
+	var ar = (a >> 16) & 0xff;
+	ar *= ar;
+	var ag = (a >> 8) & 0xff;
+	ag *= ag;
+	var ab = a & 0xff;
+	ab *= ab;
+
+	var br = (b >> 16) & 0xff;
+	br *= br;
+	var bg = (b >> 8) & 0xff;
+	bg *= bg;
+	var bb = b & 0xff;
+	bb *= bb;
+
+	var l = data.length;
+	var il = 1 / (l*l);
+	for (var i = 0; i < l; i++)
+	{
+		var li = (l-1)-i;
+		var r = (0.5 + Math.sqrt(il * (li*li * ar + i * i *br))) | 0;
+		var g = (0.5 + Math.sqrt(il * (li*li * ag + i * i *bg))) | 0;
+		var b = (0.5 + Math.sqrt(il * (li*li * ab + i * i *bb))) | 0;
+		data[i] = 0xff000000 | r << 16 | g << 8 | b;
 	}
-	
-	function blendColorsIncorrectly(a, b, data) {
-		var ar = (a >> 16) & 0xff;
-		var ag = (a >> 8) & 0xff;
-		var ab = a & 0xff;
-		var br = (b >> 16) & 0xff;
-		var bg = (b >> 8) & 0xff;
-		var bb = b & 0xff;
-		
-		var l = data.length;
-		var il = 1 / l;
-		for (var i = 0; i < l; i++) 
-		{
-			var r = (0.5 + (il * ((l-1-i) * ar + i * br))) | 0;
-			var g = (0.5 + (il * ((l-1-i) * ag + i * bg))) | 0;
-			var b = (0.5 + (il * ((l-1-i) * ab + i * bb))) | 0;
-			data[i] = 0xff000000 | r << 16 | g << 8 | b;
-		
-		}
-		return data;
+	return data;
+}
+
+function blendColorsIncorrectly(a, b, data) {
+	var ar = (a >> 16) & 0xff;
+	var ag = (a >> 8) & 0xff;
+	var ab = a & 0xff;
+	var br = (b >> 16) & 0xff;
+	var bg = (b >> 8) & 0xff;
+	var bb = b & 0xff;
+
+	var l = data.length;
+	var il = 1 / l;
+	for (var i = 0; i < l; i++)
+	{
+		var r = (0.5 + (il * ((l-1-i) * ar + i * br))) | 0;
+		var g = (0.5 + (il * ((l-1-i) * ag + i * bg))) | 0;
+		var b = (0.5 + (il * ((l-1-i) * ab + i * bb))) | 0;
+		data[i] = 0xff000000 | r << 16 | g << 8 | b;
+
 	}
-	
-	var buffer = new ArrayBuffer(width * 4);
-	var u32 = new Uint32Array(buffer);
-	var u8 = new Uint8ClampedArray(buffer);
-	var canvas = document.createElement("canvas");
-	canvas.width = width;
-	canvas.height = 200;
-	document.body.appendChild(canvas);
-	var ctx = canvas.getContext("2d");
-	var imgData = ctx.getImageData(0, 0, width, 200);
-	
-	blendColorsCorrectly(colorLeft, colorRight, u32);
-	for (var i = 0; i < 100; i++) {
-		imgData.data.set(u8, i * width * 4);
-	}
-	
-	blendColorsIncorrectly(colorLeft, colorRight, u32);
-	for (var i = 100; i < 200; i++) {
-		imgData.data.set(u8, i * width * 4);
-	}
-	ctx.putImageData(imgData, 0, 0);
+	return data;
+}
+
+var buffer = new ArrayBuffer(width * 4);
+var u32 = new Uint32Array(buffer);
+var u8 = new Uint8ClampedArray(buffer);
+var canvas = document.createElement("canvas");
+canvas.width = width;
+canvas.height = 200;
+document.body.appendChild(canvas);
+var ctx = canvas.getContext("2d");
+var imgData = ctx.getImageData(0, 0, width, 200);
+
+blendColorsCorrectly(colorLeft, colorRight, u32);
+for (var i = 0; i < 100; i++) {
+	imgData.data.set(u8, i * width * 4);
+}
+
+blendColorsIncorrectly(colorLeft, colorRight, u32);
+for (var i = 100; i < 200; i++) {
+	imgData.data.set(u8, i * width * 4);
+}
+ctx.putImageData(imgData, 0, 0);
+```
 
 - [Computer Color is Broken - YouTube](https://www.youtube.com/watch?v=LKnqECcg6Gw)
 - https://twitter.com/quasimondo/status/598174439314972673

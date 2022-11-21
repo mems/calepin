@@ -1,6 +1,6 @@
-Aka curve, bézier
+Aka spline, bézier
 
-See also [Rendering text](Graphics#rendering-text)
+See also [Rendering text](Graphics.md#rendering-text)
 
 > Catmull–Rom splines are frequently used to get smooth interpolated motion between key frames. For example, most camera path animations generated from discrete key-frames are handled using Catmull–Rom splines
 
@@ -11,6 +11,7 @@ See also [Rendering text](Graphics#rendering-text)
 - [Spline Interpolation](http://scaledinnovation.com/analytics/splines/splines.html) and [About Spline Interpolation](http://scaledinnovation.com/analytics/splines/aboutSplines.html)
 - [Vizutil.js is a utility library for working with basic 2D geometry.](https://noelb.github.io/vizutil.js/) - Catmull–Rom spline. See https://github.com/noelb/vizutil.js
 - [Centripetal Catmull–Rom spline — Wikipedia](https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline)
+- [Coding Curves – BIT-101](https://web.archive.org/web/20221113184223/https://www.bit-101.com/blog/2022/11/coding-curves/)
 
 ## Rasterization
 
