@@ -286,7 +286,7 @@ Windows Registry Editor Version 5.00
 
 ## Powershell
 
-`powershell` = `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
+`powershell` command refer to `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
 
 Run as admin:
 
@@ -318,3 +318,11 @@ powershell -File '..\SomeScript.ps1' -Arg1 'Val1'
 - [MinGW - Minimalist GNU for Windows download | SourceForge.net](https://sourceforge.net/projects/mingw/)
 
 See also [Bash shell on Windows](#bash-shell-on-windows)
+
+## Rundll32
+
+- register file protocol: `rundll32 URL.DLL,FileProtocolHandler "https://outlook.office.com/?path=/mail/action/compose&to=%address%"`
+- [How to use Rundll32 to execute DLL Function? - Stack Overflow](https://stackoverflow.com/questions/3207365/how-to-use-rundll32-to-execute-dll-function)
+- [windows - ClearMyTracksByProcess - all options? - Super User](https://superuser.com/questions/450014/clearmytracksbyprocess-all-options)
+- [Rundll32 Commands List for Windows 10 | Tutorials](https://web.archive.org/web/20221108104346/https://www.tenforums.com/tutorials/77458-rundll32-commands-list-windows-10-a.html)
+- [Windows 10 Rundll32 Commands - the complete list](https://web.archive.org/web/20210603204050/https://winaero.com/windows-10-rundll32-command-list/)

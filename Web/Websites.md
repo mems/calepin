@@ -2767,11 +2767,14 @@ localStorage.setItem("usage-data-by-id", JSON.stringify({
 
 ## Outlook
 
-See `navigator.registerProtocolHandler("mailto", "https://mail.google.com/mail/?extsrc=mailto&url=%s", "Gmail")`
+Execute in a console of Outlook page:
 
-`navigator.registerProtocolHandler("mailto", "https://outlook.office.com/mail/deeplink/compose?mailtouri=%s", "Outlook");`
-
+```js
+navigator.registerProtocolHandler("mailto", "https://outlook.office.com/mail/deeplink/compose?mailtouri=%s", "Outlook");
+// Like navigator.registerProtocolHandler("mailto", "https://mail.google.com/mail/?extsrc=mailto&url=%s", "Gmail")
 ```
+
+```cmd
 @echo off
 set address=%1
 set address=%address:~7%
