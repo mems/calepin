@@ -230,29 +230,32 @@ Citron
 
 43
 
+### Punch
+
+- [Les 3 secrets pour un bon punch planteur - Standblog](https://web.archive.org/web/20220709045929/https://www.standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-planteur)
+
 ## Poulet ala KFC (4 pers)
 
-150 gr de farine
-2/3 d'une cuillère à soupe de sel
-1/2 cuillère à soupe de thym
-1/2 cuillère à soupe de basilic
-1/3 d'une cuillère à soupe d’origan
-1 cuillère à soupe de sel de céleri
-1 cuillère à soupe de poivre noir
-1 cuillère à soupe de moutarde séchée (nous avons testé avec de la moutarde tout court)
-4 cuillères à soupe de paprika
-2 cuillères à soupe de sel d'ail (nous avons testé avec de l'ail déshydraté)
-1 cuillère à soupe de gingembre
-3 cuillères à soupe de poivre blanc
-40 cL de babeurre (ou lait ribot)(dans notre recette, cela fonctionnait très bien avec de la crème liquide entière)
-2 œufs
-1 poulet découpé en coupant les morceaux de poitrine en deux (nous avions de quoi assaisonner 1,5kg de pilons et cuisses de poulet)
-Mélanger la farine à toutes les herbes et les épices dans un saladier
-Mélanger les oeufs et le babeurre dans un autre récipient. Faire mariner le poulet dans cette mixture pendant 20 à 30 minutes, à température ambiante.
-Retirer le poulet de la mixture et le recouvrir des épices sur tous les côtés. Laisser reposer sur une grille recouverte d'un papier de cuisson pendant 20 minutes.
-Pendant ce temps, faire chauffer 7 centimètres d'huile dans un grand fait-tout à 170 degrés celsius. Quand la température est atteinte, laisser la casserole à feu doux pour maintenir la température. Faire frire 3 ou 4 morceaux de poulet à la fois. Laisser le poulet frire jusqu'à ce qu'il-prenne une couleur dorée (15 à 18 minutes), penser à retourner les morceaux une fois. Déposer le poulet sur un plat recouvert de papier absorbant. S'assurer que l'huile retourne à la bonne température avant de frire les morceaux suivants.
+- 150 gr de farine
+- 2/3 d'une cuillère à soupe de sel
+- 1/2 cuillère à soupe de thym
+- 1/2 cuillère à soupe de basilic
+- 1/3 d'une cuillère à soupe d’origan
+- 1 cuillère à soupe de sel de céleri
+- 1 cuillère à soupe de poivre noir
+- 1 cuillère à soupe de moutarde séchée (nous avons testé avec de la moutarde tout court)
+- 4 cuillères à soupe de paprika
+- 2 cuillères à soupe de sel d'ail (nous avons testé avec de l'ail déshydraté)
+- 1 cuillère à soupe de gingembre
+- 3 cuillères à soupe de poivre blanc
+- 40 cL de babeurre (ou lait ribot)(dans notre recette, cela fonctionnait très bien avec de la crème liquide entière)
+- 2 œufs
+- 1 poulet découpé en coupant les morceaux de poitrine en deux (nous avions de quoi assaisonner 1,5kg de pilons et cuisses de poulet)
 
-http://standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-planteur
+1. Mélanger la farine à toutes les herbes et les épices dans un saladier
+2. Mélanger les oeufs et le babeurre dans un autre récipient. Faire mariner le poulet dans cette mixture pendant 20 à 30 minutes, à température ambiante.
+3. Retirer le poulet de la mixture et le recouvrir des épices sur tous les côtés. Laisser reposer sur une grille recouverte d'un papier de cuisson pendant 20 minutes.
+4. Pendant ce temps, faire chauffer 7 centimètres d'huile dans un grand fait-tout à 170 degrés celsius. Quand la température est atteinte, laisser la casserole à feu doux pour maintenir la température. Faire frire 3 ou 4 morceaux de poulet à la fois. Laisser le poulet frire jusqu'à ce qu'il-prenne une couleur dorée (15 à 18 minutes), penser à retourner les morceaux une fois. Déposer le poulet sur un plat recouvert de papier absorbant. S'assurer que l'huile retourne à la bonne température avant de frire les morceaux suivants.
 
 ## Pizza
 

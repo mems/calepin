@@ -629,6 +629,7 @@ Usefull for sliders, etc. see [Slider](#slider)
 - [Quick Tip: How z-index and Auto Margins Work in Flexbox](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
 - (decision tree) [My incomplete mental model for flexbox's main axis](https://excalidraw.com/#json=5387559236534272,IXmodlSiZ935NXIs7I0CYg) - [Rodrigo Pombo on Twitter: "My incomplete mental model for flexbox's main axis https://t.co/Vi2bvmyRCn" / Twitter](https://twitter.com/pomber/status/1281339741682753542)
 - [Breaking to a new row with flexbox | Tobias Ahlin](https://tobiasahlin.com/blog/flexbox-break-to-new-row/)
+- [An Interactive Guide to Flexbox in CSS](https://web.archive.org/web/20221123235746/https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)
 
 Notes:
 
