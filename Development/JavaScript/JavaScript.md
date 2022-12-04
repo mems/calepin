@@ -3439,6 +3439,8 @@ See:
 
 ## Animation
 
+Aka transition
+
 Animation should be based on **elapsed time**, not on iterations (`requestAnimationFrame`, `setInterval` or `setTimeout`), else if the framerate is low, the movement will be slower than 60fps
 
 Round iteration base animation:
@@ -3472,6 +3474,7 @@ var invert = first.top - last.top;
 // Invert.
 el.style.transform = 'translateY(' + invert + 'px)';
 // Wait for the next frame so we know all the style changes have taken hold.
+// See note outside this code fragment
 requestAnimationFrame(function() {
   // Switch on animations.
   el.classList.add('animate-on-transforms');
@@ -3481,6 +3484,15 @@ requestAnimationFrame(function() {
 // Capture the end with transitionend
 el.addEventListener('transitionend', tidyUpAnimations);
 ```
+
+Note: about wait next frame:
+
+> Two nested requestAnimationFrame function calls (“double rAF”) is the generic way to run code after the browser has painted the next frame. Waiting for the next frame is necessary when applying a CSS transition to an element that has just been added to the DOM. If there isn’t a frame between the initial and final states, the browser won’t animate the transition and just render the final state.
+
+- [Need cheap paint? Use getComputedStyle().opacity - Webventures](https://web.archive.org/web/20220923234859/https://webventures.rejh.nl/blog/2022/getcomputedstyle-element-opacity/)
+- [Šime (ˈshe-meh) on Twitter: "@RGadellaa I don’t know if I’m doing something wrong, but I’ve copy-pasted the code from the article, and it doesn’t work unless I add a second rAF wrapper: https://t.co/lXRHOnzLGk https://t.co/GB3qaT5nyE" / Twitter](https://web.archive.org/web/20220827030145/https://twitter.com/simevidas/status/1563222845546586114)
+
+About FLIP:
 
 - [Aerotwist - FLIP Your Animations](https://aerotwist.com/blog/flip-your-animations/)
 - [Animating Layouts with the FLIP Technique | CSS-Tricks](https://css-tricks.com/animating-layouts-with-the-flip-technique/)

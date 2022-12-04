@@ -1,15 +1,15 @@
 - [URI scheme - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/URI_scheme)
 - [Uniform Resource Identifier (URI) Schemes](http://www.iana.org/assignments/uri-schemes/uri-schemes.xml)
-- [Testing registerProtocolHandler and the web+ scheme prefix – http://lookout.net](http://web.lookout.net/2012/01/testing-registerprotocolhandler-and-web.html)
 - [RFC 4395 - Guidelines and Registration Procedures for New URI Schemes](http://tools.ietf.org/html/rfc4395)
 - [handleOpenURL, Shared Interapp Communication on iOS](http://handleopenurl.com/)
 - [Google Maps URL Scheme   |   Google Maps SDK for iOS   |   Google Developers](https://developers.google.com/maps/documentation/ios/urlscheme)
 - [About Apple URL Schemes](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007891-SW1)
 - [christopherdwhite/iosWorkflows: This is a collection of bookmarklets, scripts and custom URL scheme actions that help bridge apps and manipulate the data you can send between them.](https://github.com/christopherdwhite/iosWorkflows)
+- [Register protocol handler](../../Web/Websites.md#register-protocol-handler)
 
 See also [URI/URL](../../Web/Web.md#uriurl)
 
-## Mobile Application URL Schemes 
+## Mobile Application URL Schemes
 
 iOS and/or Android
 

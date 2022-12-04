@@ -236,6 +236,7 @@ dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /StartComponentCleanup /Reset
 - [Process Explorer - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 - [hfiref0x/WinObjEx64: Windows Object Explorer 64-bit](https://github.com/hfiref0x/WinObjEx64)
 - [processhacker/processhacker: A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware.](https://github.com/processhacker/processhacker)
+- [How To Know Which Process is Using a File or Folder in Windows | Dariawan](https://web.archive.org/web/20221028121120/https://www.dariawan.com/tutorials/windows/how-know-which-process-using-file-or-folder-windows/) - Find process by handle
 
 ## Utilities
 

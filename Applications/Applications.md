@@ -595,17 +595,156 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Proces
 
 ## Adobe
 
+### Adobe Creative Cloud
+
 - install the app from Adobe Creative Cloud app "try", but do not open it untill Adobe Zii patch applied
 - [Download Adobe Creative Cloud apps | Free Adobe Creative Cloud trial](https://www.adobe.com/creativecloud/desktop-app.html)
-- [Adobe Zii Universal Patcher – Adobe Zii](https://www.adobezii.com/universal-patcher/) - [Adobe Zii](https://www.reddit.com/r/AdobeZii/)
-- [CCMaker Download Version 1.3.7 For Windows & Mac \[2020\]](https://official-ccmaker.com/)
-- `sudo xattr -cr "MyApp.app"` (remove quarantie attribute)
+- [Adobe Zii](https://www.reddit.com/r/AdobeZii/)
+	- [\[v4.5.0, v5.3.2, v6.1.7, v7.0.0\] Adobe Zii – Easiest Adobe CC all products Universal crack patcher for Mac | AppNee Freeware Group.](https://appnee.com/adobe-zii/)
+	- [Adobe Zii for macOS – Adobe Zii](https://tntzii.com/mainhome-latestij/)
+- CCMaker
+- "MyApp.app is corrupted, can't be opened, you should move it to the trash" and "from unidentified developers" prompts: `sudo xattr -cr "MyApp.app"` (remove quarantie attribute)
+- Adobe Creative Cloud Desktop on macOS create secured notes in keychains. "Open Keychain Access, click on Login on the left, then Secure Notes at the top. Select and delete anything with Adobe in the name. Should stop the popups for a while."
+- [Use the Creative Cloud Cleaner tool to solve installation problems](https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html#anameruncccleanertoolformacaUseCreativeCloudCleanertoolformacOS) - Creative Cloud Cleaner tool
+- `sudo /usr/bin/codesign –force –deep –sign – /path/to/MyApp.app` `sudo codesign -fs – /Applications/Adobe\ Premiere\ Pro\ 2022/Adobe\ Premiere\ Pro\ 2022.app/Contents/Frameworks/Registration.framework/Versions/A/Registration`
+- [Download Adobe Creative Cloud apps | Free Adobe Creative Cloud trial](https://www.adobe.com/creativecloud/desktop-app.html)
 
-For Adobe Lightroom Classic 10.0:
+For RiD versions (ex: [Adobe Photoshop 2023 - Cmacked](https://cmacked.com/adobe-photoshop-2023/)):
 
-- Adobe Lightroom Classic 10.0 [202010011851-ef6045e0] + Adobe Zii 2021 6.0.1 (need the account to be logged in) no need to block any network connection
-- [Lightroom Classic v10.0 Download Link : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/jyj7vz/lightroom_classic_v100_download_link/)
-- [Another Solution for Lightroom v10 : AdobeZii](https://www.reddit.com/r/AdobeZii/comments/jvz8ru/another_solution_for_lightroom_v10/)
+1. use Creative Cloud cleaner Tool to remove previous version
+2. install AntiCC
+3. install the app (can require to execute directly `Install.app/Contents/MacOS/Install` if you get "Error The installation cannot continue as the installer file may be damaged. Download the installer file again.")
+4. if the trial was not started, open the app then start the trial (as business team don't require credit card)
+4. install the patch
+
+Use firewall bock `Core Sync.app`, `CCXProcess.app`, `CC Troubleshooter.app`, `CCLibrary.app`, `Creative Cloud.app`, `Creative Cloud Helper.app`. See [Block connections to your Mac with a firewall - Apple Support](https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac).
+
+- [Camera Raw plug-in installer](https://helpx.adobe.com/camera-raw/kb/camera-raw-plug-in-installer.html)
+
+```
+# From https://www.reddit.com/r/AdobeZii/comments/z67rpm/potential_fix_for_adobe_genuine_software_popup_on/
+127.0.0.1 ic.adobe.io
+127.0.0.1 52.6.155.20
+127.0.0.1 52.10.49.85
+127.0.0.1 23.22.30.141
+127.0.0.1 34.215.42.13
+127.0.0.1 52.84.156.37
+127.0.0.1 65.8.207.109
+127.0.0.1 3.220.11.113
+127.0.0.1 3.221.72.231
+127.0.0.1 3.216.32.253
+127.0.0.1 3.208.248.199
+127.0.0.1 3.219.243.226
+127.0.0.1 13.227.103.57
+127.0.0.1 34.192.151.90
+127.0.0.1 34.237.241.83
+127.0.0.1 44.240.189.42
+127.0.0.1 52.20.222.155
+127.0.0.1 52.208.86.132
+127.0.0.1 54.208.86.132
+127.0.0.1 63.140.38.120
+127.0.0.1 63.140.38.160
+127.0.0.1 63.140.38.169
+127.0.0.1 63.140.38.219
+127.0.0.1 wip.adobe.com
+127.0.0.1 adobeereg.com
+127.0.0.1 18.228.243.121
+127.0.0.1 18.230.164.221
+127.0.0.1 54.156.135.114
+127.0.0.1 54.221.228.134
+127.0.0.1 54.224.241.105
+127.0.0.1 100.24.211.130
+127.0.0.1 162.247.242.20
+127.0.0.1 wip1.adobe.com
+127.0.0.1 wip2.adobe.com
+127.0.0.1 wip3.adobe.com
+127.0.0.1 wip4.adobe.com
+127.0.0.1 3dns.adobe.com
+127.0.0.1 ereg.adobe.com
+127.0.0.1 199.232.114.137
+127.0.0.1 bam.nr-data.net
+127.0.0.1 practivate.adobe
+127.0.0.1 ood.opsource.net
+127.0.0.1 crl.verisign.net
+127.0.0.1 3dns-1.adobe.com
+127.0.0.1 3dns-2.adobe.com
+127.0.0.1 3dns-3.adobe.com
+127.0.0.1 3dns-4.adobe.com
+127.0.0.1 hl2rcv.adobe.com
+127.0.0.1 genuine.adobe.com
+127.0.0.1 www.adobeereg.com
+127.0.0.1 www.wip.adobe.com
+127.0.0.1 www.wip1.adobe.com
+127.0.0.1 www.wip2.adobe.com
+127.0.0.1 www.wip3.adobe.com
+127.0.0.1 www.wip4.adobe.com
+127.0.0.1 ereg.wip.adobe.com
+127.0.0.1 ereg.wip.adobe.com
+127.0.0.1 activate.adobe.com
+127.0.0.1 adobe-dns.adobe.com
+127.0.0.1 ereg.wip1.adobe.com
+127.0.0.1 ereg.wip2.adobe.com
+127.0.0.1 ereg.wip3.adobe.com
+127.0.0.1 ereg.wip4.adobe.com
+127.0.0.1 ereg.wip1.adobe.com
+127.0.0.1 ereg.wip2.adobe.com
+127.0.0.1 ereg.wip3.adobe.com
+127.0.0.1 ereg.wip4.adobe.com
+127.0.0.1 cc-api-data.adobe.io
+127.0.0.1 practivate.adobe.ntp
+127.0.0.1 practivate.adobe.ipp
+127.0.0.1 practivate.adobe.com
+127.0.0.1 adobe-dns-1.adobe.com
+127.0.0.1 adobe-dns-2.adobe.com
+127.0.0.1 adobe-dns-3.adobe.com
+127.0.0.1 adobe-dns-4.adobe.com
+127.0.0.1 lm.licenses.adobe.com
+127.0.0.1 hlrcv.stage.adobe.com
+127.0.0.1 prod.adobegenuine.com
+127.0.0.1 practivate.adobe.newoa
+127.0.0.1 activate.wip.adobe.com
+127.0.0.1 activate-sea.adobe.com
+127.0.0.1 uds.licenses.adobe.com
+127.0.0.1 k.sni.global.fastly.net
+127.0.0.1 activate-sjc0.adobe.com
+127.0.0.1 activate.wip1.adobe.com
+127.0.0.1 activate.wip2.adobe.com
+127.0.0.1 activate.wip3.adobe.com
+127.0.0.1 activate.wip4.adobe.com
+127.0.0.1 na1r.services.adobe.com
+127.0.0.1 lmlicenses.wip4.adobe.com
+127.0.0.1 na2m-pr.licenses.adobe.com
+127.0.0.1 wwis-dubc1-vip60.adobe.com
+127.0.0.1 workflow-ui-prod.licensingstack.com
+127.0.0.1 1b9khekel6.adobe.io
+127.0.0.1 adobe-dns-01.adobe.com
+127.0.0.1 adobe.demdex.net
+127.0.0.1 adobe.tt.omtrdc.net
+127.0.0.1 adobedc.demdex.net
+127.0.0.1 adobeid-na1.services.adobe.com
+127.0.0.1 assets.adobedtm.com
+127.0.0.1 auth-cloudfront.prod.ims.adobejanus.com
+127.0.0.1 auth.services.adobe.com
+127.0.0.1 cai-splunk-proxy.adobe.io
+127.0.0.1 cc-cdn.adobe.com
+127.0.0.1 cc-cdn.adobe.com.edgekey.net
+127.0.0.1 cclibraries-defaults-cdn.adobe.com
+127.0.0.1 cclibraries-defaults-cdn.adobe.com.edgekey.net
+127.0.0.1 cn-assets.adobedtm.com.edgekey.net
+127.0.0.1 crlog-crcn.adobe.com
+127.0.0.1 crs.cr.adobe.com
+127.0.0.1 edgeproxy-irl1.cloud.adobe.io
+127.0.0.1 ethos.ethos02-prod-irl1.ethos.adobe.net
+127.0.0.1 geo2.adobe.com
+127.0.0.1 lcs-cops.adobe.io
+127.0.0.1 pv2bqhsp36w.prod.cloud.adobe.io
+127.0.0.1 services.prod.ims.adobejanus.com
+127.0.0.1 ssl-delivery.adobe.com.edgekey.net
+127.0.0.1 sstats.adobe.com
+127.0.0.1 stls.adobe.com-cn.edgesuite.net
+127.0.0.1 stls.adobe.com-cn.edgesuite.net.globalredir.akadns.net
+127.0.0.1 use-stls.adobe.com.edgesuite.net
+```
 
 ### Offline packages
 
@@ -914,6 +1053,7 @@ await search({
 });
 ```
 
+- [Drovosek01/adobe-packager: Script that allows to download portable installers of different versions Adobe software for macOS](https://github.com/Drovosek01/adobe-packager)
 - [autopkg/adobe-ccp-recipes: Autopkg recipes for Creative Cloud Packager workflows](https://github.com/autopkg/adobe-ccp-recipes/blob/master/Adobe/CreativeCloudFeed.py) - See also [mosen/ccp-recipes](https://github.com/mosen/ccp-recipes)
 - [timsutton/adobe-ccp-automation: Experimenting with automating CCP](https://github.com/timsutton/adobe-ccp-automation)
 - https://github.com/Homebrew/homebrew-cask/blob/master/Casks/adobe-creative-cloud.rb

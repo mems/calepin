@@ -1239,7 +1239,7 @@ Profile files, defined by (in order, but also if the shell is interactive and/or
 3. (user) `~/.bash_profile`
 4. (user) `~/.bash_login`
 5. (user) `~/.profile`
-6. (user) `~/.bashrc`
+6. (user) `~/.bashrc` (not used by some OS like macOS for login shell)
 7. (user) `~/.bash_logout` au logout
 
 (and `/etc/bash.bashrc`, `/etc/bash.bashrc.local`?)
@@ -1251,6 +1251,8 @@ source ~/.bashrc
 # or use dot command:
 . ~/.bashrc
 ```
+
+> initialisation at the session level (`.bash_profile`) and initialisation at each shell level (`.bashrc`)
 
 By convention, the prompt ends with `$` for users and by `#` for root
 
@@ -1264,6 +1266,7 @@ By convention, the prompt ends with `$` for users and by `#` for root
 - [bash - How to pass environment variables to a non-interactive shell (with example)? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/158117/how-to-pass-environment-variables-to-a-non-interactive-shell-with-example/158120#158120)
 - [How to permanently set environmental variables - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables/117470#117470)
 - [How To Read and Set Environmental and Shell Variables on Linux | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
+- [terminal - Why doesn't .bashrc run automatically? - Ask Different](https://apple.stackexchange.com/questions/12993/why-doesnt-bashrc-run-automatically/13019#13019) - add `if [ -s ~/.bashrc ]; then source ~/.bashrc; fi` to `~/.bash_profile`
 
 ### Command alias
 

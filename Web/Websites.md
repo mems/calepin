@@ -2787,3 +2787,10 @@ rundll32 URL.DLL,FileProtocolHandler "https://outlook.office.com/?path=/mail/act
 - [How to set the default Mailto to outlook.live.com - and have it actually WORK | Firefox Support Forum | Mozilla Support](https://support.mozilla.org/en-US/questions/1126241)
 - [WesleyBranton/Outlook.com-mailto: Add Outlook.com as a default email provider for all mailto links in Firefox.](https://github.com/WesleyBranton/Outlook.com-mailto)
 - [Set Office365 Outlook as mailto handler in Chrome - Spiceworks](https://web.archive.org/web/20190818054619/https://community.spiceworks.com/topic/1212102-set-office365-outlook-as-mailto-handler-in-chrome)
+
+## Register protocol handler
+
+- [Detecting if a URL scheme can be handled](https://web.archive.org/web/20221121231529/https://paul.kinlan.me/detecting-if-a-url-scheme-can-be-handled/)
+- [Testing registerProtocolHandler and the web+ scheme prefix · lookout.net](https://web.archive.org/web/20161019081928/http://web.lookout.net:80/2012/01/testing-registerprotocolhandler-and-web.html)
+- [Web-based protocol handlers - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler/Web-based_protocol_handlers)
+- [protocol_handlers - Web app manifests | MDN](https://developer.mozilla.org/en-US/docs/Web/Manifest/protocol_handlers)
