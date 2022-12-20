@@ -241,6 +241,7 @@ Aka multiplayer game, streaming, RTS game, collaborative software, conflict reso
 - [Conflict-free replicated data type — Wikipedia](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type)
 - [How Figma’s multiplayer technology works](https://web.archive.org/web/20200829094142/https://www.figma.com/blog/how-figmas-multiplayer-technology-works/) - About implementation of multiple user editor
 - [pfrazee/crdt_notes](https://github.com/pfrazee/crdt_notes)
+- [CRDTs go brrr](https://web.archive.org/web/20221208050523/https://josephg.com/blog/crdts-go-brrr/)
 - [Gamasutra - 1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond](http://www.gamasutra.com/view/feature/131503/1500_archers_on_a_288_network_.php)
 - [Gamasutra - Opinion: Synchronous RTS Engines And A Tale of Desyncs](http://www.gamasutra.com/view/news/126022/Opinion_Synchronous_RTS_Engines_And_A_Tale_of_Desyncs.php)
 - [A Beginner's Guide to Scaling to 11 Million+ Users on Amazon's AWS - High Scalability -](http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html) http://wayback.archive.org/web/20160304044912/http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html
@@ -1654,6 +1655,11 @@ Bugs can be linked to unreleated things.
 - [BFF - Wikipedia](https://en.wikipedia.org/wiki/BFF) - "Backend for Frontend" pattern, a client-oriented design of web and mobile API in frontend and backend development
 - [Monolithic application - Wikipedia](https://en.wikipedia.org/wiki/Monolithic_application)
 - [Microservices - Wikipedia](https://en.wikipedia.org/wiki/Microservices)
+
+### Micro-frontend
+
+- [Behind leroymerlin.fr: Micro Frontends | by Julien De Sousa | ADEO Tech Blog | Medium](https://web.archive.org/web/20220226195425/https://medium.com/adeo-tech/behind-leroymerlin-fr-micro-frontends-47fd7c53f99d)
+- [Ludovic Lagatie & Bertrand Laot – L’architecture Micro-Front, un levier pour la webperf ? – WLS 2021 - YouTube](https://www.youtube.com/watch?v=jzbZESyuIhA&list=PLqQ-opbi5cUPbrabX0IcnpoSrOiwwnf8V&t=360s)
 
 # Concepts and Methodology
 

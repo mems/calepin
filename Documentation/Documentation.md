@@ -98,6 +98,8 @@ Aka semver, semantic versioning
 - [man page - Wikipedia](https://en.wikipedia.org/wiki/Man_page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Command%20manual%20page)
 - [Command manual page](../Operating%20Systems/Command%20line/Command%20line%20%28Unix%29.md#Colors%20and%20control%20sequences)
+- [asciinema - Record and share your terminal sessions, the simple way](https://asciinema.org/) + [marionebl/svg-term: Share terminal sessions via SVG and CSS](https://github.com/marionebl/svg-term):
+	- https://github.com/Schniz/fnm/blob/d3841ad2929dd9c688777c1d63a6a70e5197cc2b/.ci/record_screen.sh that generate an [animated SVG](https://raw.githubusercontent.com/Schniz/fnm/77e948de6be445ce30b09bdad8d2ea0ce9edfb96/docs/fnm.svg) of commands
 
 ## Error messages
 

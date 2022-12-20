@@ -15,6 +15,7 @@ purge
 - [Startup key combinations for Mac - Apple Support](https://support.apple.com/en-us/HT201255)
 - [Macs – The Eclectic Light Company](https://eclecticlight.co/category/macs/)
 - [Mac OS X - ForensicsWiki](http://www.forensicswiki.org/wiki/Mac_OS_X)
+- [awesome-macos-command-line - Use your macOS terminal shell to do awesome things.](https://git.herrbischoff.com/awesome-macos-command-line/about/)
 
 ## Time Machine
 
@@ -428,7 +429,7 @@ Change:
 Or use an app:
 
 - Time Machine Destination Manager: https://github.com/dustinrue/Tedium and [Tedium for Mac | MacUpdate](http://www.macupdate.com/app/mac/41700/tedium)
-- [TimeMachineEditor](http://tclementdev.com/timemachineeditor/)
+- [TimeMachineEditor](https://tclementdev.com/timemachineeditor/)
 - [TimeMachineScheduler - set the backup interval of Time Machine](http://www.klieme.com/TimeMachineScheduler.html) or [TimeMachineEditor](http://timesoftware.free.fr/timemachineeditor/) or update `sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 3600` (for 1 hours, 7200 = 2 hours, etc.)
 - Use cron task
 	By controling when enable/disable/start it:

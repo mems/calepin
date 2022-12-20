@@ -477,10 +477,20 @@ printf( _n( '<strong>Version %1$s</strong> addressed %2$d bug.', '<strong>Versio
 
 ## SVG
 
-- [SVG uploads in WordPress (the Inconvenient Truth)](https://bjornjohansen.no/svg-in-wordpress)
+```php
+// In functions.php
+function add_svg_to_upload_mimes( $upload_mimes ) {
+	$upload_mimes['svg'] = 'image/svg+xml';
+	$upload_mimes['svgz'] = 'image/svg+xml';
+	return $upload_mimes;
+}
+add_filter( 'upload_mimes', 'add_svg_to_upload_mimes', 10, 1 );
+```
+
+- [SVG uploads in WordPress (the Inconvenient Truth)](https://web.archive.org/web/20220808020944/https://www.bjornjohansen.com/svg-in-wordpress)
+- [SVG Support – WordPress plugin | WordPress.org](https://wordpress.org/plugins/svg-support/)
 - [Safe SVG — WordPress Plugins](https://wordpress.org/plugins/safe-svg/)
 - Improving SVG Display in the Media Library [WordPress SVG Support: How to Enable SVGs in WordPress](https://www.sitepoint.com/wordpress-svg/#improving-svg-display-in-the-media-library)
-- [SVG uploads in WordPress (the Inconvenient Truth)](https://bjornjohansen.no/svg-in-wordpress)
 
 ## Security
 

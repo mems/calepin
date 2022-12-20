@@ -7758,9 +7758,14 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 ```js
 // Read one cookie
-const value = decodeURIComponent((document.cookie.match(/(?:^|;\s)cookiename=("?)(.*?)\1(?:;\s|$)/) ?? [, ""])[2]);
+//const value = decodeURIComponent((document.cookie.match(/(?:^|;\s)cookiename=("?)(.*?)\1(?:;\s|$)/) ?? [, ""])[2]);
+//const found = document.cookie.split(/; ?/).find(pair => pair === "cookiename=true");
+//const found = document.cookie.match(/(?:^|;\s)cookiename=true(?:;|$)/);
+const name = "cookiename";
+//const value = decodeURIComponent((document.cookie.match(new RegExp(`(?:^|;\\s)${name.replaceAll(/\[\]\\\^\$\.\|\?\*\+\(\)\{\}/, "\\$&")}=("?)(.*?)\\1(?:;\\s|$)`)) ?? [, ""])[2]);
+const value = decodeURIComponent((document.cookie.match(new RegExp(`(?:^|;\\s)${name.replaceAll(/\[\]\\\^\$\.\|\?\*\+\(\)\{\}/, "\\$&")}=("?)(.*?)\\1(?:;\\s|$)`)) || [, ""])[2]);
 
-// const value = !!document.cookie.split(";").find(pair => /cookiename(\s*=\s*true|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
+// const value = !!document.cookie.split(";").find(pair => /cookiename=true(;|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
 
 // Read cookies
 const entries = document.cookie.split(/; ?/).map(s => /^([^=]*)=("?)(.*?)\2$/.exec(s)).map(([, k, , v]) => [k, v != null ? decodeURIComponent(v) : v]);
@@ -7794,8 +7799,6 @@ if (cookieDesc && cookieDesc.configurable) {
     });
 }
 ```
-
-**TODO write:**
 
 ```
 name[=value];
@@ -7833,7 +7836,8 @@ DQUOTE         =  %x22
 
 - Detect if cookies are enabled https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cookies.js (Note: Server side scripts need a redirection to check if cookies are enabled)
 - [RFC 6265 - HTTP State Management Mechanism](https://tools.ietf.org/html/rfc6265)
-- https://github.com/jshttp/cookie
+- [jshttp/cookie: HTTP server cookie parsing and serialization](https://github.com/jshttp/cookie)
+- [js-cookie/js-cookie: A simple, lightweight JavaScript API for handling browser cookies](https://github.com/js-cookie/js-cookie)
 
 ## Ready state
 
@@ -8239,4 +8243,32 @@ export default class ExtendableEvent extends Event {
 		return !this.#timedOut && (this.#pendingPromises > 0 || this.target !== null); // e.target != null after first dispatchEvent(e) call
 	}
 }
+```
+
+### Set stringified SVG root id attribute
+
+```js
+const id = "root";
+
+// Instead of use a parser like sax (used by svgo), we just use a regexp to set the root SVG element id
+// Note: non-global regexp match only the first occurence (the root svg tag)
+return String(content).replace(/(<svg)(.*?)(\/?>)/s, (match, tagBegin, attributes, tagEnd) => {
+	// Don't add id attribute if it already exist, replace it
+	// Note: XMl support only `attr="val"` and `attr='val'` (without spaces around value quotes, an no `attr` or `attr=val`). See https://www.w3.org/TR/xml/#NT-AttValue
+	// `a="" id="test" b=""` -> `test`, 9
+	const { 0: value, index } = /(?<=(?:^|\s)id=(["']))(.*?)(?=\1)/s.exec(attributes) || {
+		index: -1,
+	};
+
+	// Replace only the current id attribute value, don't touch quotes, spaces, etc.
+	// `<svg a="" b=''/>` -> `<svg a="" b='' id="_"/>`
+	// `<svg a="" id='' b="" />` -> `<svg a="" id='_' b="" />`
+	// Or add id attribute
+	const attributesWithId =
+		index >= 0
+			? `${attributes.substr(0, index)}${id}${attributes.substr(index + value.length)}`
+			: `${attributes} id="${id}"`;
+
+	return `${tagBegin}${attributesWithId}${tagEnd}`;
+});
 ```

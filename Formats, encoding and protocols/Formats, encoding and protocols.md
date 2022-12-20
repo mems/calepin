@@ -266,6 +266,7 @@ Audio & video types:
 	Examples:
 
 	- `video/webm; codecs=vp8`
+	- `video/webm; codecs=av01.0.08M.08.0.110.01.01.01.1`
 
 	Video codecs:
 
@@ -330,6 +331,7 @@ Audio & video types:
 - [Media type - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Media_type)
 - [RFC 2231 - MIME Parameter Value and Encoded Word Extensions: Character Sets, Languages, and Continuations](https://tools.ietf.org/html/rfc2231)
 - [RFC 6381 - The 'Codecs' and 'Profiles' Parameters for "Bucket" Media Types](https://tools.ietf.org/html/rfc6381)
+- [Getting the correct HTML codecs parameter for an AV1 video - JakeArchibald.com](https://web.archive.org/web/20221219225421/https://jakearchibald.com/2022/html-codecs-parameter-for-av1/)
 
 - `audio/opus`
 - `.m4b`

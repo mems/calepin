@@ -317,20 +317,33 @@ npm view somepackagename
 
 ### Package variables
 
+Aka environment variables
+
 ```json
 {
-	...
+	"name": "test",
 	"main": "server/index.js",
 	"scripts": {
-		"start": "node $npm_package_main",
-		"start-dev": "NODE_ENV=dev node $npm_package_main"
+		"start": "node $npm_package_main $pm_package_config_port",
+		"start-dev": "NODE_ENV=dev node $npm_package_main $pm_package_config_port"
 	},
-	...
 	"engines": {
 		"node": ">=9.0"
+	},
+	"config": {
+		"port": "8080"
 	}
 }
 ```
+
+```js
+const mainEntry = process.env.npm_package_main;
+const port = process.env.pm_package_config_port;
+```
+
+- [scripts | npm Docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#packagejson-vars)
+- [package.json | npm Docs](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#config)
+- [config | npm Docs](https://docs.npmjs.com/cli/v9/using-npm/config#environment-variables)
 
 ### Install for continuous integration
 
@@ -590,8 +603,8 @@ npm view <packagename> dist.tarball
 ```sh
 # update your package.json to add:
 # "engines": {
-#   "npm": ">=6.6.0",
-#   "node": ">=12.0.0"
+# 	"npm": ">=6.6.0",
+# 	"node": ">=12.0.0"
 # },
 npm config set engine-strict false --userconfig ./.npmrc
 ```
@@ -613,3 +626,102 @@ Note: that doesn't work for [`npm ci`](https://github.com/npm/cli/issues/1219) t
 
 - [npm-config | npm Documentation](https://docs.npmjs.com/misc/config#engine-strict)
 - [npm-package.json | npm Documentation](https://docs.npmjs.com/files/package.json#engines)
+
+## Crossplatform scripts
+
+```json
+{
+	"name": "myapp",
+	"config": { "port" : "3000" },
+	"scripts": {
+		"start": "ver && node --harmony app.js %npm_package_config_port% || node --harmony app.js $npm_package_config_port"
+	}
+}
+```
+
+Note: `ver` only exist in `cmd.exe` (default shell used on Windows). The last part (after `||`) will be executed in other shell (usally `/bin/sh` on POSIX)
+
+Write scripts like npm do for bins (in `node_modules/.bin/`):
+
+`mycommand`:
+
+```sh
+#!/bin/sh
+basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
+
+case `uname` in
+    *CYGWIN*|*MINGW*|*MSYS*) basedir=`cygpath -w "$basedir"`;;
+esac
+
+if [ -x "$basedir/node" ]; then
+  exec "$basedir/node"  "$basedir/../path/to/mycommand_nodescript" "$@"
+else
+  exec node  "$basedir/../path/to/mycommand_nodescript" "$@"
+fi
+```
+
+`mycommand.cmd`:
+
+```cmd
+@ECHO off
+GOTO start
+:find_dp0
+SET dp0=%~dp0
+EXIT /b
+:start
+SETLOCAL
+CALL :find_dp0
+
+IF EXIST "%dp0%\node.exe" (
+  SET "_prog=%dp0%\node.exe"
+) ELSE (
+  SET "_prog=node"
+  SET PATHEXT=%PATHEXT:;.JS;=;%
+)
+
+endLocal & goto #_undefined_# 2>NUL || title %COMSPEC% & "%_prog%"  "%dp0%\..\path\to\mycommand_nodescript" %*
+```
+
+`mycommand.ps1`:
+
+```pwsh
+#!/usr/bin/env pwsh
+$basedir=Split-Path $MyInvocation.MyCommand.Definition -Parent
+
+$exe=""
+if ($PSVersionTable.PSVersion -lt "6.0" -or $IsWindows) {
+  # Fix case when both the Windows and Linux builds of Node
+  # are installed in the same directory
+  $exe=".exe"
+}
+$ret=0
+if (Test-Path "$basedir/node$exe") {
+  # Support pipeline input
+  if ($MyInvocation.ExpectingInput) {
+    $input | & "$basedir/node$exe"  "$basedir/../path/to/mycommand_nodescript" $args
+  } else {
+    & "$basedir/node$exe"  "$basedir/../path/to/mycommand_nodescript" $args
+  }
+  $ret=$LASTEXITCODE
+} else {
+  # Support pipeline input
+  if ($MyInvocation.ExpectingInput) {
+    $input | & "node$exe"  "$basedir/../path/to/mycommand_nodescript" $args
+  } else {
+    & "node$exe"  "$basedir/../path/to/mycommand_nodescript" $args
+  }
+  $ret=$LASTEXITCODE
+}
+exit $ret
+```
+
+See also:
+
+- [Creating cross-platform shell scripts • Shell scripting with Node.js](https://web.archive.org/web/20221128122630/https://exploringjs.com/nodejs-shell-scripting/ch_creating-shell-scripts.html)
+- [ver | Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ver)
+- [npm-run-script | npm Docs](https://docs.npmjs.com/cli/v9/commands/npm-run-script#script-shell)
+- [Writing cross-platform Node.js | George Ornbo](https://web.archive.org/web/20221123000204/https://shapeshed.com/writing-cross-platform-node/#scripts-in-packagejson)
+- [Cross-platform Node.js | Alan Norbauer](https://web.archive.org/web/20221207005516/https://alan.norbauer.com/articles/cross-platform-nodejs#scripts-in-packagejson)
+- [charlesguse/run-script-os: run-script-os will let you use OS specific operations in npm scripts without specifying which OS you are on. It's not magic though... you still have to write OS specific scripts.](https://github.com/charlesguse/run-script-os)
+- [kentcdodds/cross-env: 🔀 Cross platform setting of environment scripts](https://github.com/kentcdodds/cross-env)
+- https://github.com/npm/cmd-shim/blob/49ab03fae831a5727c30c37d11ba94fa5700100f/lib/index.js

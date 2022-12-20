@@ -77,6 +77,10 @@ Tools (audit, checklist, benchmark, best practices, etc.):
 
 - [The Washington Post cuts off ad tech vendors slowing its site - Digiday](https://digiday.com/media/washington-post-vendors/)
 
+## Organization
+
+- [Web Performance Calendar » A Performance Maturity Matrix](https://calendar.perfplanet.com/2022/a-performance-maturity-matrix/)
+
 ## Impacts
 
 To mesure impacts ([KPI](https://en.wikipedia.org/wiki/Performance_indicator): [bounce rate](https://en.wikipedia.org/wiki/Bounce_rate), [conversion rate](https://en.wikipedia.org/wiki/Conversion_marketing#Conversion_rate)): use [A/B testing](https://en.wikipedia.org/wiki/A/B_testing)
@@ -183,7 +187,7 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 		- [PNG - Compression](PNG#Compression)
 		- [Image - Compression and optimisation](Image#Compression and optimisation) and [Image - Mixed formats](Image#Mixed formats)
 		- [Video - Compression and optimisation](Video#Compression and optimisation)
-		- [compression by upscaling](Formats and protocols/Images#Compression by upscaling) technique
+		- [Compression by downscaling](../../Formats%20and%20protocols/Image/Image.md#Compression%20by%20downscaling) technique
 		- [ImageOptim](https://imageoptim.com/)
 
 		Use other (experimental) formats like [BPG](BPG) or [FLIF](FLIF)

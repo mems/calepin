@@ -1,4 +1,4 @@
-Aka WASM
+Aka wasm
 
 Usage examples:
 
@@ -52,3 +52,4 @@ See also:
 - [Wasmtime — a small and efficient runtime for WebAssembly & WASI](https://wasmtime.dev/)
 - [Wasmer - The Universal WebAssembly Runtime](https://wasmer.io/)
 - [I turned JS into a compiled language (for fun and Wasm) — surma.dev](https://web.archive.org/web/20221030033817/https://surma.dev/things/compile-js/)
+- [Docker+Wasm (Beta) | Docker Documentation](https://docs.docker.com/desktop/wasm/)

@@ -37,9 +37,10 @@ See also https://github.com/WPO-Foundation/webpagetest/blob/4234baa351eb1cb9d6b0
 - [ahmadnassri/node-har-validator: Extremely fast HTTP Archive (HAR) validator using JSON Schema](https://github.com/ahmadnassri/node-har-validator)
 - [request/request: 🏊🏾 Simplified HTTP request client.](https://github.com/request/request#support-for-har-12)
 - [Archive::Har - Provides an interface to HTTP Archive (HAR) files - metacpan.org](https://metacpan.org/pod/Archive::Har)
-- https://github.com/ahmadnassri/har
+- [ahmadnassri/node-har: HTTP Archive (HAR) Dynamic Object](https://github.com/ahmadnassri/node-har)
 - [HTTP Archive (HAR) format](https://w3c.github.io/web-performance/specs/HAR/Overview.html)
 - [benchlab - Browse /Archives/HarLib at SourceForge.net](http://sourceforge.net/projects/benchlab/files/Archives/HarLib/)
-- [Generating HAR files and Analyzing Web Requests - Atlassian Documentation](https://confluence.atlassian.com/kb/generating-har-files-and-analysing-web-requests-720420612.html)
+- [Generating HAR files and Analyzing Web Requests - Atlassian Documentation](https://web.archive.org/web/20220820123435/https://confluence.atlassian.com/kb/generating-har-files-and-analysing-web-requests-720420612.html)
 - [andrewf/pcap2har: A convertor from .pcap network capture files to HTTP Archive files.](https://github.com/andrewf/pcap2har)
-- [Generating HAR files and Analyzing Web Requests - Atlassian Documentation](https://confluence.atlassian.com/kb/generating-har-files-and-analysing-web-requests-720420612.html)
+- [HAR Analyzer](https://toolbox.googleapps.com/apps/har_analyzer/)
+- [Save all network requests to a HAR file - Network features reference - Chrome Developers](https://developer.chrome.com/docs/devtools/network/reference/#save-as-har)

@@ -126,3 +126,9 @@ If the host is not Linux or the image use on other OS use a virtual machine cont
 ## Volumes
 
 - [How to list the content of a named volume in docker 1.9+? - Stack Overflow](https://stackoverflow.com/questions/34803466/how-to-list-the-content-of-a-named-volume-in-docker-1-9)
+
+## WebAssembly
+
+Aka wasm
+
+- [Docker+Wasm (Beta) | Docker Documentation](https://docs.docker.com/desktop/wasm/)
