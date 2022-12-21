@@ -17,11 +17,12 @@ git diff-tree --no-commit-id --name-only -r <commit>
 git stash show -p stash@{0} --name-only
 
 # Apply stach as a patch (as 3 way, useful if git stash apply fail)
-git stash show "stash@{0}" -p | git apply --index --3way --binary --whitespace=fix
+git stash show "stash@{0}" -p | git apply --index --3way --whitespace=fix
+# If this doesn't work try to create a patch file and apply it: git stash show "stash@{0}" -p > /path/to/changes.patch; git apply --index --3way --binary --whitespace=fix /path/to/changes.patch
 #git stash show "stash@{0}" -p | git am -3
 
 # Export stash as patch file
-git stash show "stash@{0}" -p > ~/Desktop/changes.patch
+git stash show "stash@{0}" -p > /path/to/changes.patch
 git archive "stash@{0}" | gzip >whatever.tgz
 
 # Apply a patch file
