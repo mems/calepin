@@ -45,7 +45,8 @@ Only `img`, `iframe` and `object` can provide alternative content. `img` only pr
 | SVG Embed Technique											 | External resources (styles, images)		 | Scripts		 | Interactivity (links, etc.)		 | CSS Animations		 | [CSS Inheritance][css-inheritance]	  |
 |----------------------------------------------------------------|-------------------------------------------|---------------|-----------------------------------|-----------------------|---------------------------------------|
 | `<svg> … </svg>` (inlined)									 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
-| `<svg><use xlink:href="image.svg"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
+| `<svg><use xlink:href="#id"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
+| `<svg><use xlink:href="image.svg#id"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes?				 | Yes									 |
 | `<object type="image/svg+xml" data="image.svg"></object>`		 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
 | `<embed type="image/svg+xml" src="image.svg">`				 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
 | `<iframe src="image.svg"></iframe>`							 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
