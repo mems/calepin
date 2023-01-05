@@ -46,7 +46,7 @@ Only `img`, `iframe` and `object` can provide alternative content. `img` only pr
 |----------------------------------------------------------------|-------------------------------------------|---------------|-----------------------------------|-----------------------|---------------------------------------|
 | `<svg> … </svg>` (inlined)									 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
 | `<svg><use xlink:href="#id"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes					 | Yes									 |
-| `<svg><use xlink:href="image.svg#id"></svg>` [^1]				 | Yes										 | Yes			 | Yes								 | Yes?				 | Yes									 |
+| `<svg><use xlink:href="image.svg#id"></svg>`				 | Yes										 | Yes			 | Yes								 | Yes? ([look like it's not the case](https://bugs.chromium.org/p/chromium/issues/detail?id=1345231))	 | Yes									 |
 | `<object type="image/svg+xml" data="image.svg"></object>`		 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
 | `<embed type="image/svg+xml" src="image.svg">`				 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
 | `<iframe src="image.svg"></iframe>`							 | Yes										 | Yes			 | Yes								 | Yes, only inlined	 | No									 |
