@@ -1724,13 +1724,14 @@ Keyboard:
 
 - to connect bluetooth Apple keyboard, tap on the keyboard the PIN code the OS provide, then tap enter
 - [Apple keyboard layout on Windows](#apple-keyboard-layout-on-windows)
+- [How to fix Apple Bluetooth Wireless Keyboard (Windows 10)](https://gist.github.com/mcandre/a1c6915d2e338fef6a42e54655d28062)
+- reboot if necessary
 
 Bluetooth dual boot:
 
 - [Releases · headkaze/Hackintool](https://github.com/headkaze/Hackintool/releases) - Tab "Utilities" > Button (at bottom with a Bluetooth logo) "Generate Windows Bluetooth Registry File", the import in Windows the file from regedit `psexec -s -i regedit` (`psexec` from [PsTools - Windows Sysinternals | Microsoft Docs](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools))
 	See https://github.com/headkaze/Hackintool/blob/279644d917bd45241c85d13198a7ca4bacb320fd/Hackintool/AppDelegate.m#L10825-L10954 and https://github.com/headkaze/Hackintool/blob/279644d917bd45241c85d13198a7ca4bacb320fd/Hackintool/AppDelegate.m#L10713-L10755
 - [macOS Monterey and Windows Bluetooth pairing : hackintosh](https://www.reddit.com/r/hackintosh/comments/p5ost3/macos_monterey_and_windows_bluetooth_pairing/)
-- [How to fix Apple Bluetooth Wireless Keyboard (Windows 10)](https://gist.github.com/mcandre/a1c6915d2e338fef6a42e54655d28062)
 - [digitalbirdo/BT-LinkkeySync: Scripts to synchronize bluetooth link keys from mac OSX to windows](https://github.com/digitalbirdo/BT-LinkkeySync)
 - [dual boot - How can I avoid having to pair my bluetooth mouse all the time? - Ask Ubuntu](https://askubuntu.com/questions/253949/how-can-i-avoid-having-to-pair-my-bluetooth-mouse-all-the-time)
 - [How-to bluetooth pair an Apple Magic Mouse in a Dual Boot System with Fedora 27 Linux and macOS 10.13 High Sierra](https://gist.github.com/ekuester/a573abbbd055766337f314a79b623fa4)
