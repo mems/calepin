@@ -2162,6 +2162,8 @@ lotOfStatments: {
 
 ### Return condition
 
+Aka shortcut, early return
+
 See [Block condition](#block-condition)
 
 Filter first, use less conditional blocks
@@ -2169,7 +2171,7 @@ Filter first, use less conditional blocks
 ```js
 function test(param = 0){
 	if(param == 0){
-		return
+		return;
 	}
 
 	// do stuff

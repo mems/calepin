@@ -8245,10 +8245,10 @@ export default class ExtendableEvent extends Event {
 }
 ```
 
-### Set stringified SVG root id attribute
+### Set root id attribute to SVG source
 
 ```js
-const id = "root";
+const id = "root";// should be already XML encoded
 
 // Instead of use a parser like sax (used by svgo), we just use a regexp to set the root SVG element id
 // Note: non-global regexp match only the first occurence (the root svg tag)
@@ -8272,3 +8272,32 @@ return String(content).replace(/(<svg)(.*?)(\/?>)/s, (match, tagBegin, attribute
 	return `${tagBegin}${attributesWithId}${tagEnd}`;
 });
 ```
+
+### Template string
+
+```js
+const REGEXP = /\[\\*([\w-]+)\\*\]/gi;
+/**
+ * @example fromTemplate("a[b]c", new Map([["b"], () => "b"]))
+ */
+// Borrow from https://github.com/webpack/webpack/blob/4b4ca3bb53f36a5b8fc6bc1bd976ed7af161bd80/lib/TemplatedPathPlugin.js#L313-L326
+// See also https://github.com/webpack/webpack/blob/4b4ca3bb53f36a5b8fc6bc1bd976ed7af161bd80/lib/ModuleFilenameHelpers.js#L176-L224
+function fromTemplate(template, replacements){
+	return template.replace(REGEXP, (match, content) => {
+		if (content.length + 2 === match.length) {
+			const contentMatch = /^(\w+)(?::(\w+))?$/.exec(content);
+			if (!contentMatch) return match;
+			const [, kind, arg] = contentMatch;
+			const replacer = replacements.get(kind);
+			if (replacer !== undefined) {
+				return replacer(match, arg, template);
+			}
+		} else if (match.startsWith("[\\") && match.endsWith("\\]")) {
+			return `[${match.slice(2, -2)}]`;
+		}
+		return match;
+	});
+}
+```
+
+- [Template strings | Output | webpack](https://webpack.js.org/configuration/output/#template-strings)

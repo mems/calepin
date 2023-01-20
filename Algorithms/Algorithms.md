@@ -510,3 +510,8 @@ Aka: GPS, accelerometers, gyroscopes adjustment
 ## 3D rotation
 
 - [Exponentially Better Rotations – Max Slater – Computer Graphics, Programming, and Math](https://web.archive.org/web/20220512150400/https://thenumbat.github.io/Exponential-Rotations/)
+
+## Synchronize data
+
+- [The rsync algorithm](https://www.andrew.cmu.edu/course/15-749/READINGS/required/cas/tridgell96.pdf)
+- [Time Machine](../Operating%20Systems/macOS/macOS.md#similar-tools)

@@ -120,3 +120,21 @@ php ./src/cli/imapcopy.php config.json
 ```
 
 - [wrzlbrmft/imapcopy: Recursively copy all e-mail messages and folders from one IMAP account to another.](https://github.com/wrzlbrmft/imapcopy)
+
+## Subaddressing
+
+`<local-part>+<tag>@<domain>`
+
+- [Subaddressing - Email address - Wikipedia](https://en.wikipedia.org/wiki/Email_address#Subaddressing)
+- [Plus Addressing in Exchange Online | Microsoft Learn](https://learn.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online)
+- [Official Gmail Blog: 2 hidden ways to get more from your Gmail address](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html?m=1)
+- [Plus addressing and subdomain addressing – Fastmail](https://web.archive.org/web/20221207144956/https://www.fastmail.help/hc/en-us/articles/360060591053-Plus-addressing-and-subdomain-addressing)
+- [The IAB loves tracking users. But it hates users tracking them | Hacker News](https://news.ycombinator.com/item?id=34400024)
+
+## Normalization
+
+Usally used for track users: remove parts that could be used for [subaddressing](#subaddressing), remove dots (`.`) in local-part, change case, etc. This could be destructive.
+
+- [uid2docs/api at main · IABTechLab/uid2docs · GitHub](https://web.archive.org/web/20230116231810/https://github.com/IABTechLab/uid2docs/tree/main/api#email-address-normalization)
+- [Passing Partner Data to ID5](https://web.archive.org/web/20230116221038/https://support.id5.io/portal/en/kb/articles/passing-partner-data-to-id5#Cleansing_Emails_Prior_to_Hashing)
+- [Local-part normalization - Email address - Wikipedia](https://en.wikipedia.org/wiki/Email_address#Local-part_normalization)

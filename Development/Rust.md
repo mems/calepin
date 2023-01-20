@@ -3,3 +3,4 @@
 - [Rust is more portable than C for pngquant/libimagequant](https://pngquant.org/rust.html)
 - [Citrus / Citrus · GitLab](https://gitlab.com/citrus-rs/citrus) - superseded by C2Rust
 - [C2Rust Demonstration](https://c2rust.com/)
+- [rauljordan::blog](https://web.archive.org/web/20230120004831/https://rauljordan.com/rust-concepts-i-wish-i-learned-earlier/)

@@ -84,15 +84,16 @@ Time Machine backup reliability:
 		&& ln -sf back-$date Backups/current"
 	```
 
-	See also [Easy Automated Snapshot-Style Backups with Rsync](http://www.mikerubel.org/computers/rsync_snapshots/)
+See also [Easy Automated Snapshot-Style Backups with Rsync](https://web.archive.org/web/20230107111048/http://www.mikerubel.org/computers/rsync_snapshots/)
+
 - [osx - Using rsync to backup - Ask Different](http://apple.stackexchange.com/questions/224747/using-rsync-to-backup)
 - [How to install & compile rsync on Mac OSX](https://gist.github.com/Sounds-of-Science/7561838) - Install rsync 3.x on macOS without macport or brew
 - In Win 8+ use [File History](http://windows.microsoft.com/en-us/windows-8/how-use-file-history). It use Shadow Copy Service and backupd to VHD format. See also [Backup and Restore](https://en.wikipedia.org/wiki/Backup_and_Restore) and [File History](https://en.wikipedia.org/wiki/Features_new_to_Windows_8#File_History)
 - [backup - Does an equivalent of Time Machine exist for Windows? - Super User](http://superuser.com/questions/7423/does-an-equivalent-of-time-machine-exist-for-windows)
 - [duplicity: Main](http://duplicity.nongnu.org/)
 - [Déjà Vu](http://propagandaprod.com/)
-- [Fake Time Machine](https://gist.github.com/pmarreck/1237806)
-- [Dissecting Time Machine & Replacing It With rsync | Mr. Backup Blog](http://www.backupcentral.com/mr-backup-blog-mainmenu-47/13-mr-backup-blog/282-time-machine-rsync.html)
+- [Fake Time Machine](https://gist.github.com/pmarreck/1237806) - "Fake Time Machine, a way to duplicate the functionality of Apple's Time Machine using rsync, which also might make it cross-platform, but also lets you run it to any remote server "
+- [Dissecting Time Machine & Replacing It With rsync - Backup Central](https://web.archive.org/web/20220424200355/https://www.backupcentral.com/time-machine-rsync/)
 - [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/flyback/) and [FlyBack — Wikipedia](https://en.wikipedia.org/wiki/FlyBack)
 - https://github.com/samdoran/rsync-time-machine (see also https://github.com/samdoran/rsync-time-machine/commit/3610f7c73c2b1f8617c7462d880e12e73611d6b4#commitcomment-13078199 and https://github.com/minolasoft/rsync-time-machine)
 - https://github.com/laurent22/rsync-time-backup

@@ -262,10 +262,7 @@ Aka partial checkout
 
 ### Commit as other author
 
-```
-
---author=<author>
-```
+`--author=<author>`
 
 ```
 From:

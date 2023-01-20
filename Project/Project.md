@@ -634,3 +634,7 @@ Software:
 - browser (type — family, version, capabilities like CSS support, image formats, images and videos support — one or more in same time, etc.)
 
 Eviter le browser sniffing et la catégorisation (mobile, tablet et desktop, des devices peuvent faire partie d'aucune ou de plus d'une catégorie)
+
+## Personas
+
+- [Personas | GitLab](https://web.archive.org/web/20230119133629/https://about.gitlab.com/handbook/product/personas/)
