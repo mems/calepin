@@ -14,9 +14,15 @@ Unorganized:
 - [expressjs/session: Simple session middleware for Express](https://github.com/expressjs/session) - Handle clients sessions
 - [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
+
+Configuration:
+
 - parse [configuration file](https://en.wikipedia.org/wiki/Configuration_file) / [run commands](https://en.wikipedia.org/wiki/Run_command): [rc](https://www.npmjs.com/package/rc)
 - load environnement variable (from `.env` file): ~~[dotenv](https://www.npmjs.com/package/dotenv)~~; do it view the command line instead: [bash - Set environment variables from file of key/value pairs - Stack Overflow](https://stackoverflow.com/questions/19331497/set-environment-variables-from-file-of-key-value-pairs/20909045#20909045)
-- [davidtheclark/cosmiconfig: Find and load configuration from a package.json property, rc file, or CommonJS module](https://github.com/davidtheclark/cosmiconfig)
+- [davidtheclark/cosmiconfig: Find and load configuration from a package.json property, rc file, or CommonJS module](https://github.com/davidtheclark/cosmiconfig) - used by [stylelint](https://stylelint.io/user-guide/configure) to load `.myapprc`, `.myapprc.json`, `myapp.config.js`, etc.
+- configuration overrides:
+	- [stylelint](https://stylelint.io/user-guide/configure#overrides): https://github.com/stylelint/stylelint/blob/1cce8bd49ab6b5948381d10537796a7f30bd1bb8/lib/augmentConfig.js#L442-L476
+	- [eslint](https://eslint.org/docs/latest/use/configure/configuration-files#how-do-overrides-work): https://github.com/eslint/eslintrc/blob/41efba80452ee0934ab60e4f5afbafac477ac3e7/lib/config-array-factory.js#L684-L713
 
 Parse DOM (HTML, XML, SVG) and CSSOM:
 
