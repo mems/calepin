@@ -132,6 +132,9 @@ wsp:
     (#x20 | #x9 | #xD | #xA)
 ```
 
+- [SVG Path Visualizer](https://svg-path-visualizer.netlify.app/) - [mathieudutour/svg-path-visualizer: Enter a SVG path data to visualize it and discover all its different commands](https://github.com/mathieudutour/svg-path-visualizer)
+- [SVG Path Strings](https://web.archive.org/web/20221224221726/https://roadtolarissa.com/blog/2015/02/22/svg-path-strings/)
+- [The SVG `path` Syntax: An Illustrated Guide | CSS-Tricks](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
 - [Paths – SVG 1.1 (Second Edition)](https://www.w3.org/TR/SVG/paths.html#PathDataBNF)
 - [SvgPathEditor](https://yqnn.github.io/svg-path-editor/)
 - [debug SVG paths in the browser](https://github.com/winkerVSbecks/xvg)

@@ -2746,15 +2746,15 @@ const uid = `${type}.${id}`;
 localStorage.setItem("config-primary_usage", uid);
 localStorage.setItem("usage-data-by-id", JSON.stringify({
 	[uid]: {
-		name: "My Custom Data Usage",
 		id,
-		uid,
+		name: "My Custom Data Usage",
 		type,
 		source,
 		/*meta: {
 			"access_date": "2019-05-03",
 			"month": "2019-04"
 		},*/
+		uid,
 		// 100 based values
 		dataByBrowser: {
 			// see "data" field in https://caniuse.com/process/request_region_data.php?id=US
@@ -2763,7 +2763,43 @@ localStorage.setItem("usage-data-by-id", JSON.stringify({
 }));
 ```
 
+[Simple Analytics](https://www.simpleanalytics.com/):
+
+```json
+{
+	"hostname": "example.com",
+	"agents": [
+		{
+			"count": 135755,
+			"browser_name": "Chrome",
+			"browser_version": "79",
+			"os_name": "Windows",
+			"os_version": "10",
+			"type": "desktop"
+		}
+
+	]
+}
+```
+
+```
+entry.browser_name = entry.browser_name
+	.replace(' for Android', '')
+	.replace(' Mobile', '')
+	.replace('iOS Safari', 'Safari');
+```
+
+Notes:
+- `hostname` is used as default name of the dataset if none provided
+- `browser_name` see an ex. list https://simpleanalytics.com/simpleanalytics.com.json?version=5&fields=browser_names
+- `type`: `mobile` or `desktop`
+- `os_name`: `(not set)`, `Windows`, `iOS`, `iPad`, `iPhone`, `iPod`, `Android`
+- `browser_version` and `os_version` can be empty (`""`) or `null`
+
+- `webpack:///src/components/ciu-sa-stats-import.ts` and `webpack:///src/utils/stats-import-utils.ts` `findBrowserVersion`
+- [Import statistics exclude some versions of Safari · Issue #6605 · Fyrd/caniuse](https://github.com/Fyrd/caniuse/issues/6605)
 - [Additional browser usage sources/functionality · Issue #1724 · Fyrd/caniuse](https://github.com/Fyrd/caniuse/issues/1724#issuecomment-497950671)
+- [Be able to import usage data from csv or json · Issue #6410 · Fyrd/caniuse](https://github.com/Fyrd/caniuse/issues/6410)
 
 ## Outlook
 

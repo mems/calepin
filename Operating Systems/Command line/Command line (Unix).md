@@ -2958,6 +2958,7 @@ echo a b c | awk '{print $1,$3}'
 - [awk-scripts/talk.txt at master · rethab/awk-scripts](https://github.com/rethab/awk-scripts/blob/master/talk.txt)
 - [onetrueawk/awk: One true awk](https://github.com/onetrueawk/awk)
 - [wernsey/d.awk: An Awk script to generate documentation from Markdown comments in C/C++/Java/JavaScript/C# source code.](https://github.com/wernsey/d.awk)
+- [GitHub - TheMozg/awk-raycaster: Pseudo-3D shooter written completely in gawk using raycasting technique](https://github.com/TheMozg/awk-raycaster)
 
 ## Disk and file system operations
 

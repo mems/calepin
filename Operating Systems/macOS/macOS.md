@@ -1726,7 +1726,7 @@ Keyboard:
 - to connect bluetooth Apple keyboard, tap on the keyboard the PIN code the OS provide, then tap enter
 - [Apple keyboard layout on Windows](#apple-keyboard-layout-on-windows)
 - [How to fix Apple Bluetooth Wireless Keyboard (Windows 10)](https://gist.github.com/mcandre/a1c6915d2e338fef6a42e54655d28062)
-- reboot if necessary
+- reboot if necessary (if the OS doesn't provide a PIN code but ask the one the device should provide)
 
 Bluetooth dual boot:
 
@@ -1743,6 +1743,7 @@ Bluetooth dual boot:
 	- [bluetooth lowenergy - Need details about EDIV and Rand - Stack Overflow](https://stackoverflow.com/questions/48165520/need-details-about-ediv-and-rand)
 	- [How to fix BLE devices · Issue #12 · digitalbirdo/BT-LinkkeySync · GitHub](https://web.archive.org/web/20211214212125/https://github.com/digitalbirdo/BT-LinkkeySync/issues/12)
 	- [Keep Bluetooth4.0/LE devices paired once between Mac/Windows | tonymacx86.com](https://web.archive.org/web/20211214211816/https://www.tonymacx86.com/threads/keep-bluetooth4-0-le-devices-paired-once-between-mac-windows.284441/)
+	- [Keep Bluetooth devices paired once between Mac/Windows - Tutorials (The Genius Bar) | InsanelyMac](https://web.archive.org/web/20220125061000/https://www.insanelymac.com/forum/topic/318483-keep-bluetooth-devices-paired-once-between-macwindows/)
 	- [console.systems | How to pair a Low Energy (LE) Bluetooth device in dual boot with Windows & Linux](https://web.archive.org/web/20210507025858/https://console.systems/2014/09/how-to-pair-low-energy-le-bluetooth.html) and [Using bluetooth mouse in windows/linux dual boot machine with out re-pairing – Balakrishna Vanka's blog](https://web.archive.org/web/20210514011513/https://www.balakrishnavanka.com/using-bluetooth-mouse-in-windowslinux-dual-boot-machine-with-out-re-pairing/)
 - Bluetooth Low Energy (4.2), LE Secure Connections use Long Term Key (LTK)
 - `sudo pkill bluetoothd`
@@ -3562,6 +3563,7 @@ Use cron or launchd
 
 - [MonitorControl/MonitorControl: 🖥 Control your display's brightness & volume on your Mac as if it was a native Apple Display. Use Apple Keyboard keys or custom shortcuts. Shows the native macOS OSDs.](https://github.com/MonitorControl/MonitorControl)
 - [waydabber/BetterDummy: Software Dummy Display Adapter for Apple Silicon/Intel Macs to Have Custom HiDPI Resolutions.](https://github.com/waydabber/BetterDummy) - also useful for headless Macs (servers)
+- [GitHub - jakehilborn/displayplacer: macOS command line utility to configure multi-display resolutions and arrangements. Essentially XRandR for macOS.](https://github.com/jakehilborn/displayplacer)
 
 ### Custom screen resolution or HiDPI
 

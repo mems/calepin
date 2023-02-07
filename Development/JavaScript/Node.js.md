@@ -515,9 +515,10 @@ module.exports = m.exports;
 - [Load node.js module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory/17585470#17585470)
 - [Package override](#package-override)
 
-## Package override
+## Package overrides
 
 - [package.json | npm Docs](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides)
+- [\[DOCS\] Please document "The overrides key will only be considered when it is in the root package.json file for a project" · Issue #4517 · npm/cli](https://github.com/npm/cli/issues/4517)
 
 ## Warning
 

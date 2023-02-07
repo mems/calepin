@@ -130,11 +130,9 @@ Aka icon
 - [Comment travailler avec des icônes en SVG](https://la-cascade.io/comment-travailler-avec-des-icones-en-svg/)
 - [SVG `symbol` a Good Choice for Icons | CSS-Tricks](https://css-tricks.com/svg-symbol-good-choice-icons/)
 
-## SVG Path
+## Path
 
-- [SVG Path Visualizer](https://svg-path-visualizer.netlify.app/) - [mathieudutour/svg-path-visualizer: Enter a SVG path data to visualize it and discover all its different commands](https://github.com/mathieudutour/svg-path-visualizer)
-- [SVG Path Strings - Road to Larissa](http://roadtolarissa.com/blog/2015/02/22/svg-path-strings/)
-- [The SVG `path` Syntax: An Illustrated Guide | CSS-Tricks](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
+- [SVG Path](../Formats,%20encoding%20and%20protocols/SVG/SVG.md)
 
 ### Relative ↔︎ Absolute path
 
@@ -143,7 +141,7 @@ Aka icon
 - https://stackoverflow.com/questions/9677885/convert-svg-path-to-absolute-commands/9677915#9677915
 - https://github.com/DmitryBaranovskiy/raphael/blob/bef7f6b0e259030138193d42f2c74b754c292f3e/dev/raphael.core.js#L1646
 
-### SVG Path Data API
+### Path Data API
 
 `SVGPathSeg`, `getPathData()` and `setPathData()`
 
@@ -643,6 +641,7 @@ Responsive
 - [Interactive Data Visualization: Animating the viewBox | CSS-Tricks](https://css-tricks.com/interactive-data-visualization-animating-viewbox/)
 - [SVG & media queries - JakeArchibald.com](https://jakearchibald.com/2016/svg-media-queries/)
 - [CSSconf EU 2014 | Sara Soueidan: Styling and Animating Scalable Vector Graphics with CSS - YouTube](https://www.youtube.com/watch?v=lf7L8X6ZBu8#t=1083)
+- [Responsive SVGs with Constant Font Size](https://web.archive.org/web/20220706073255/https://florian.ec/blog/responsive-svg-constant-font-size/)
 
 ### Adaptive image
 

@@ -1899,62 +1899,10 @@ Use pseudo element and flex box.
 - [removal techniques and implications](https://codepen.io/vincent-valentin/full/JjGmxzV)
 - [Hiding Elements On The Web](https://ishadeed.com/article/hiding-web/)
 - [CSS Image Replacement](https://css-tricks.com/examples/ImageReplacement/)
-- [Hiding DOM elements - ally.js](http://allyjs.io/tutorials/hiding-elements.html)
+- [Hiding DOM elements - ally.js](https://allyjs.io/tutorials/hiding-elements.html)
 - [Image Replacement Techniques in the Modern Age](https://www.sitepoint.com/image-replacement-techniques-in-the-modern-age/)
 - [css - display:none vs visibility:hidden vs text-indent:9999 How screen reader behave with each one? - Stack Overflow](https://stackoverflow.com/questions/1755656/displaynone-vs-visibilityhidden-vs-text-indent9999-how-screen-reader-behave-w)
 - [Hidden text and links - Search Console Help](https://support.google.com/webmasters/answer/66353)
-
-### Hide graphically a text
-
-But still accessible (and selectable)
-
-- [Hiding DOM elements - ally.js](https://allyjs.io/tutorials/hiding-elements.html#hiding-dom-elements)
-- [WebAIM: CSS in Action - Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
-- [A new (and easy) way to hide content accessibly | Zell Liew](https://zellwk.com/blog/hide-content-accessibly/)
-- [Cache-cache CSS – La vie en #ffoodd](https://web.archive.org/web/20210303215312/https://www.ffoodd.fr/cache-cache-css/) - details about role of each used properties
-
-#### `padding-top`
-
-Use `padding-top` to push down the content:
-
-```css
-*{
-	position: absolute;/*or fixed*/
-	overflow: hidden;
-	height: 0;
-	padding: 1px 0 0 0;
-	margin: 0;
-}
-```
-
-#### `text-indent`
-
-**This method is not recommended (see links below)**
-
-```css
-*{
-	display: block;/*or any other display mode where width is not defined by the content*/
-	text-indent: 9999px;
-	overflow: hidden;
-	white-space: nowrap;
-}
-```
-
-Use `px` for `text-indent` with great value instead of `%` because percentages not work correctly every times (and don't require relative computations)
-
-- [HTML “text-indent: -9999px” and holding the line | Maile Ohye: Love & Technology](https://web.archive.org/web/20220317140132/http://maileohye.com/html-text-indent-not-messing-up-your-rankings/)
-- [Disallow negative text indent · CSSLint/csslint Wiki](https://github.com/CSSLint/csslint/wiki/Disallow-negative-text-indent)
-- [Replacing the -9999px hack (new image replacement) - Zeldman on Web and Interaction Design](https://web.archive.org/web/20220509151823/https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
-- [WebCompat PSA: Please don't use negative `text-indent`s for hidden labels. - Dennis Schubert](https://web.archive.org/web/20211019040238/https://overengineer.dev/blog/2021/05/26/webcompat-text-indent.html)
-
-#### Text size or color
-
-`font-size: 0;` or `color: transparent;` or `line-height: 0;` can also works, but have few drawbacks. Require `overflow: hidden;` (+ set height/width).
-
-#### ARIA label
-
-You can use [`aria-label` and/or `title` attributes](HTML#labelling) instead or with `aria-labelledby=ID`
-It's accessible, but HTML is invalid when tag like `a`, `button`, `p`, `h1`, etc. are empty.
 
 ### Hide graphicaly an element
 
@@ -1988,20 +1936,69 @@ element:not(:active):not(:focus){
 }
 ```
 
-**Don't forget to display it when it's active**: http://littlebigdetails.com/post/110541390831/new-york-times-tabbing-reveals-accessibility
+**Don't forget to display it when it's active**: [New York Times - Tabbing reveals accessibility... | Little Big Details](https://web.archive.org/web/20221206013208/https://littlebigdetails.com/post/110541390831/new-york-times-tabbing-reveals-accesibility)
 Don't use `visibility: hidden;` (http://accessibilitytips.com/2008/03/05/avoiding-visibility-hidden/) or `display: none;` because it hide content for all users. "line feeds are not interpreted as spaces". [Beware smushed off-screen accessible text – Medium](https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe)
 **Use `white-space: nowrap;`**, else the text will be read wrongly: "showmore", without spaces
 
-- [Inclusively Hidden | scottohara.me](https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html)
-- https://github.com/h5bp/html5-boilerplate/blob/dbc3ed973573a77122f6b8a2aebd0a76a44ad6a6/src/css/main.css#L130-L141
+- [How to hide elements visually - Hiding DOM elements - ally.js](https://web.archive.org/web/20221216212040/https://allyjs.io/tutorials/hiding-elements.html#how-to-hide-elements-visually)
+- [Inclusively Hidden | scottohara.me](https://web.archive.org/web/20230120145804/https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html)
+- https://github.com/h5bp/html5-boilerplate/blob/dbc3ed973573a77122f6b8a2aebd0a76a44ad6a6/src/css/main.css#L130-L141 - `.visuallyhidden` of [HTML5 Boilerplate](https://html5boilerplate.com/)
 - [Hiding DOM elements - ally.js](https://allyjs.io/tutorials/hiding-elements.html#2017-edition-of-visuallyhidden)
-- [Clip Your Hidden Content For Better Accessibility | tenydnblog - Yahoo](https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html)
-- [Text for Screen Readers Only (Updated) - Coolfields Consulting](http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/)
-- [Maintaining Accessibility in a Responsive World | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/accessible-responsive.html)
-- [Maintaining Accessibility in a Responsive World | CSS-Tricks](https://css-tricks.com/maintaining-accessibility-responsive-world/)
-- [Beware smushed off-screen accessible text – J. Renée Beach – Medium](https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe)
-- [Cache-cache CSS – La vie en #ffoodd](http://www.ffoodd.fr/cache-cache-css/)
+- [Clip Your Hidden Content For Better Accessibility | tenydnblog - Yahoo](https://web.archive.org/web/20160616144545/https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html)
+- [Text for Screen Readers Only (Updated) - Coolfields Consulting](https://web.archive.org/web/20221127013458/http://www.coolfields.co.uk/2016/05/text-for-screen-readers-only-updated/)
+- [Maintaining Accessibility in a Responsive World | Filament Group, Inc.](https://web.archive.org/web/20230120233316/https://www.filamentgroup.com/lab/accessible-responsive.html)
+- [Maintaining Accessibility in a Responsive World | CSS-Tricks - CSS-Tricks](https://web.archive.org/web/20221206130031/https://css-tricks.com/maintaining-accessibility-responsive-world/)
+- [Beware smushed off-screen accessible text | by J. Renée Beach | Medium](https://web.archive.org/web/20220930051531/https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe)
+- [Cache-cache CSS – La vie en #ffoodd](https://web.archive.org/web/20220927152018/https://www.ffoodd.fr/cache-cache-css/)
 - [skiplinks not working correctly in iOS/Safari+VoiceOver and Android/Chrome+TalkBack · Issue #20732 · twbs/bootstrap](https://github.com/twbs/bootstrap/issues/20732)
+
+#### Hide graphically a text
+
+But still accessible (and selectable)
+
+- [Hiding DOM elements - ally.js](https://web.archive.org/web/20221216212040/https://allyjs.io/tutorials/hiding-elements.html#hiding-dom-elements)
+- [WebAIM: CSS in Action - Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+- [A new (and easy) way to hide content accessibly | Zell Liew](https://zellwk.com/blog/hide-content-accessibly/)
+- [Cache-cache CSS – La vie en #ffoodd](https://web.archive.org/web/20210303215312/https://www.ffoodd.fr/cache-cache-css/) - details about role of each used properties
+
+Using `padding-top` to push down the content:
+
+```css
+*{
+	position: absolute;/*or fixed*/
+	overflow: hidden;
+	height: 0;
+	padding: 1px 0 0 0;
+	margin: 0;
+}
+```
+
+Using `text-indent`, **but this method is not recommended anymore (see links below)**:
+
+```css
+*{
+	display: block;/*or any other display mode where width is not defined by the content*/
+	text-indent: 9999px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+```
+
+Use `px` for `text-indent` with great value instead of `%` because percentages not work correctly every times (and don't require relative computations)
+
+- [HTML “text-indent: -9999px” and holding the line | Maile Ohye: Love & Technology](https://web.archive.org/web/20220317140132/http://maileohye.com/html-text-indent-not-messing-up-your-rankings/)
+- [Disallow negative text indent · CSSLint/csslint Wiki](https://github.com/CSSLint/csslint/wiki/Disallow-negative-text-indent)
+- [Replacing the -9999px hack (new image replacement) - Zeldman on Web and Interaction Design](https://web.archive.org/web/20220509151823/https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
+- [WebCompat PSA: Please don't use negative `text-indent`s for hidden labels. - Dennis Schubert](https://web.archive.org/web/20211019040238/https://overengineer.dev/blog/2021/05/26/webcompat-text-indent.html)
+
+Using text size or color:
+
+`font-size: 0;` or `color: transparent;` or `line-height: 0;` can also works, but have few drawbacks. Require `overflow: hidden;` (+ set height/width).
+
+#### ARIA label
+
+You can use [`aria-label` and/or `title` attributes](HTML#labelling) instead or with `aria-labelledby=ID`
+It's accessible, but HTML is invalid when tag like `a`, `button`, `p`, `h1`, etc. are empty.
 
 ### Hide an element to assistive technologies
 

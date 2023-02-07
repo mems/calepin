@@ -150,6 +150,7 @@ Some libraries:
 - [barmalei/zebkit: JavaScript library that follow easy OOP concept, provide HTML5 Canva based Rich UI and include Java to JavaScript converter tool](https://github.com/barmalei/zebkit) - UI framework
 - [kornelski/slip: Slip.js — UI library for manipulating lists via swipe and drag gestures](https://github.com/kornelski/slip)
 - [cure53/DOMPurify: DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify works with a secure default, but offers a lot of configurability and hooks. Demo:](https://github.com/cure53/DOMPurify) - Remove "dirty" HTML, filter out tags and attributes
+- [jitbit/HtmlSanitizer: Fast JavaScript HTML Sanitizer, client-side (i.e. needs a browser, won't work in Node and other backend)](https://github.com/jitbit/HtmlSanitizer)
 - [FFMPEG.WASM](https://ffmpegwasm.github.io/) - "ffmpeg.wasm is a pure WebAssembly / JavaScript port of FFmpeg. It enables video & audio record, convert and stream right inside browsers."
 - [TrevorSundberg/h264-mp4-encoder: H264 encoder + MP4 output for the web](https://github.com/TrevorSundberg/h264-mp4-encoder)
 
@@ -943,14 +944,21 @@ handleReset()
 
 Aka "onevent"
 
-Event handler: `el.onload = func;`. Note: when func has its scope to `eventTarget`, form owner if any, and document. Ex: `onload="console.log(onload===this.onload,body===document.body)"`, properties can be used without `this` (but not functions).
+Event handler: `el.onload = func;`. Note: func has its scope to `eventTarget`, form owner if any, and document. Ex: `onload="console.log(onload===this.onload,body===document.body)"`, properties can be used without `this` (but not functions).
 
 See [DOM on-event handlers - Developer guides | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers#Event_handler's_parameters_this_binding_and_the_return_value) and [HTML Standard - "callback this value"](https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm) and [HTML Standard - "internal raw uncompiled handler FunctionCreate Scope"](https://html.spec.whatwg.org/multipage/webappapis.html#internal-raw-uncompiled-handler)
+
+>  scope
+> [...]
+> 5. If element is not null, then set scope to NewObjectEnvironment(element, true, scope).
+>
+> — https://html.spec.whatwg.org/multipage/webappapis.html#internal-raw-uncompiled-handler
 
 Inlined event listener in HTML:
 
 ```html
-<img src="about:error" onerror="console.log(this,onerror,body,src)">
+<img src="about:error" onerror="console.log({'this':this,onerror,body,src})">
+<!-- Will log: {this: img, body: body, src: 'about:error', onerror: ƒ onerror(event)} -->
 ```
 
 Scope is defined with something like:

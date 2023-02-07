@@ -1327,6 +1327,7 @@ An implicit id can't have the same name as a protected JS keyword and can't over
 - [DOM clobbering](http://www.thespanner.co.uk/2013/05/16/dom-clobbering/)
 - [In the DOM, no one will hear you scream](https://www.slideshare.net/x00mario/in-the-dom-no-one-will-hear-you-scream)
 - [cure53/DOMPurify: DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify works with a secure default, but offers a lot of configurability and hooks. Demo:](https://github.com/cure53/DOMPurify)
+- [jitbit/HtmlSanitizer: Fast JavaScript HTML Sanitizer, client-side (i.e. needs a browser, won't work in Node and other backend)](https://github.com/jitbit/HtmlSanitizer)
 - [DOMLint - Test suite against HTML/DOM conflicts](https://kangax.github.io/domlint/)
 - [Microsoft/JSanity: A secure-by-default, performance, cross-browser client-side HTML sanitization library](https://github.com/Microsoft/JSanity)
 - [JavaScript variable names you shouldn’t use - NCZOnline](https://www.nczonline.net/blog/2007/06/03/javascript-variable-names-you-shouldn-t-use/)
