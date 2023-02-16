@@ -279,6 +279,15 @@ In metadata, comment, extra fields or unused fields
 - [NTFS Alternate Data Streams: Hiding data in plain sight since 1993 – EventSentry Blog](https://www.eventsentry.com/blog/2008/07/ntfs-alternate-data-streams-hi.html)
 - embedded font or image in PDF, HTML, SVG, etc.
 
+JavaScript can hide code after `return`:
+
+```js
+function test(){return; console.log("test");}
+test();//void
+var raw = test.toString();
+test.constructor.call(null, raw.substr(0, raw.length - 1).split("{").slice(1).join("{").replace(/(^|\s)\s*return\s*(;\s*|$)/, ""));
+```
+
 - [ExifTool FAQ](https://sno.phy.queensu.ca/~phil/exiftool/faq.html#Q10) - "How does ExifTool handle coded character sets?", type-specific details are given below about comment handling for EXIF, IPTC, XMP, PNG, ID3, PDF, Photoshop, QuickTime, AIFF, RIFF, MIE and Vorbis information
 
 ### Hide data in pixels

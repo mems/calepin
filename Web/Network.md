@@ -86,6 +86,31 @@ dig @$(dig example.com NS +short | head -n1) www.example.com ANY +noall +answer
 - [List of DNS record types - Wikipedia](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 - [Domain Name System - Wikipedia](https://en.wikipedia.org/wiki/Domain_Name_System#Resource_records)
 
+### Local gTLD
+
+- `*.test` (purpose: "testing of current or new DNS related code")
+- `*.localhost` (but need a change in hosts file) for local only
+- `*.dev` own by Google, HSTS preload is enable (HTTPS is forced)
+	- [.dev — ICANNWiki](https://icannwiki.org/.dev)
+- `*.local` not recommended
+	> might be used for mDNS, mostly with Apple hardware (Bonjour).
+
+	> Any DNS query for a name ending with ".local." MUST be sent to the mDNS IPv4 link-local multicast address 224.0.0.251 (or its IPv6 equivalent FF02::FB).
+	>
+	> - [RFC 6762 - Multicast DNS](https://tools.ietf.org/html/rfc6762#section-3)
+
+	> we recommend against using `.local` as a private Unicast DNS top-level domain
+	>
+	> - [RFC 6762 - Multicast DNS](https://tools.ietf.org/html/rfc6762#appendix-G)
+
+	- [.local - Wikipedia](https://en.wikipedia.org/wiki/.local)
+- `*.intranet`
+- `*.internal`
+- `*.private`
+- `*.corp`
+- `*.home`
+- `*.lan`
+
 ## HTTP
 
 Note: don't name your local server `*.local`. See [Local TLD](macOS#local-tld)
@@ -442,6 +467,33 @@ Aka simple server
 - [A simple HTTP/2 server for development](https://github.com/GoogleChrome/simplehttp2server) - Written in Go
 - ([deprecated](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html)) [kzahel/web-server-chrome: An HTTP Web Server for Chrome (chrome.socket API)](https://github.com/kzahel/web-server-chrome)
 
+With Python you can create a file in server dir root `MySimpleHTTPServer.py`:
+
+```python
+#!/usr/bin/python
+
+import http.server
+import socketserver
+
+PORT = 8000
+
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+	print("serving at port", PORT)
+	httpd.serve_forever()
+```
+
+Then execute in the same folder:
+
+```sh
+python -m MySimpleHTTPServer
+```
+
+- [21.22. http.server — HTTP servers — Python 3.6.3 documentation](https://docs.python.org/3/library/http.server.html#module-http.server)
+- [20.19. SimpleHTTPServer — Simple HTTP request handler — Python 2.7.14 documentation](https://docs.python.org/2/library/simplehttpserver.html)
+- [python - SimpleHTTPServer Custom Headers - Stack Overflow](https://stackoverflow.com/questions/26635274/simplehttpserver-custom-headers)
+
 ### Content encoding
 
 See [Precompress](#precompress)
@@ -477,6 +529,7 @@ About brotli vs gzip:
 Aka cache policy
 
 > Sending `last-modified: Thu, 01 Jan 1970 00:00:01 GMT` prevents the page from updating. Gives it super long cache heuristic, and makes revalidation think it never ever changes.
+>
 > — [kornel@mastodon.social on Twitter: "New fun failure mode added to my collection: Sending `last-modified: Thu, 01 Jan 1970 00:00:01 GMT` prevents the page from updating. Gives it super long cache heuristic, and makes revalidation think it never ever changes." / Twitter](https://twitter.com/kornelski/status/1250769178455408640)
 
 - [kornelski/http-cache-semantics: RFC 7234 in JavaScript. Parses HTTP headers to correctly compute cacheability of responses, even in complex cases](https://github.com/kornelski/http-cache-semantics)
@@ -1433,3 +1486,45 @@ See also [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/S
 - [Give me /events, not webhooks | Hacker News](https://news.ycombinator.com/item?id=27823109)
 
 Or SMTP
+
+## Cookies
+
+- [Browser Cookie Limits](http://browsercookielimits.squawky.net/)
+- [WebCookies.org: Websites with most cookies](https://webcookies.org/number-of-cookies/)
+- [http - Why are cookie paths case sensitive? - Stack Overflow](https://stackoverflow.com/questions/399982/why-are-cookie-paths-case-sensitive)
+
+### Cookie max age
+
+For `document.cookies`, `max-age` is not suppoted by IE and some Edge versions (it considered as session cookie)
+
+- [Cookie specification compatibility in modern browsers](https://inikulin.github.io/cookie-compat/)
+- [Support for Cookie max-age – Welcome to the Window developer feedback site!](https://wpdev.uservoice.com/forums/257854-microsoft-edge-developer/suggestions/7718688-support-for-cookie-max-age)
+- [Cookie specification compatibility issue - Microsoft Edge Development](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7151935/)
+- [Document.cookie - Web API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+
+### Delete a cookie
+
+`max-age=0`, `expires=Thu, 01 Jan 1970 00:00:00 GMT"`
+
+`document.cookie = 'name=;path=/;domain=.domain.example;expires=Thu, 01 Jan 1970 00:00:00 GMT';`
+
+```js
+// Clear cookie
+// Note the case sensitive
+document.cookie = "{cookie-name}=;domain={domain};expires=Thu, 01 Jan 1970 00:00:00 GMT;max-age=0;path=/";
+```
+
+But max-age is not well supported, see [Cookie max age](#Cookie max age)
+
+### Cookie names are case-sensitive
+
+[RFC 6265](https://tools.ietf.org/html/rfc6265) says that "Expires",* "Max-Age", "Domain", "Path", "Secure", "HttpOnly" should match case-insensitively:
+
+> there is no assertion there about the cookie name itself - there's a reason for that, because the cookie name should not be matched case insensitively, hence why it is not mentioned there.
+
+> In some browsers, the path is case sensitive
+
+- [http - Is the name of a cookie case sensitive? - Stack Overflow](https://stackoverflow.com/questions/11311893/is-the-name-of-a-cookie-case-sensitive)
+- [Cookie names must be case insensitive · Issue #2241 · playframework/playframework](https://github.com/playframework/playframework/issues/2241)
+- [ASP.NET Cookies Overview](https://msdn.microsoft.com/en-us/library/ms178194.aspx)
+- [http - Why are cookie paths case sensitive? - Stack Overflow](https://stackoverflow.com/questions/399982/why-are-cookie-paths-case-sensitive)

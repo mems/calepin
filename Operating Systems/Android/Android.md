@@ -46,6 +46,11 @@ Setup Proxy (when using Emulator, or not) http://www.techverse.net/how-to-setup-
 	- [How to Install Android Lineage OS on VMware Workstation | XpertsTec](https://web.archive.org/web/20201122184440/https://www.xpertstec.com/how-to-install-android-lineage-os-on-vmware-workstation/)
 	- [How to Install Android in VirtualBox](https://web.archive.org/web/20201112022000/http://www.howtogeek.com/164570/how-to-install-android-in-virtualbox/)
 
+## Interoperability
+
+- [cinit/WSAPatch: Make WSA(Windows Subsystem for Android) run on Windows 10.](https://github.com/cinit/WSAPatch)
+- [A patch to enable Windows Subsystem for Android to run on Windows 10 | Hacker News](https://news.ycombinator.com/item?id=34664223)
+
 ## APK
 
 - [APK](../../Formats,%20encoding%20and%20protocols/APK/APK.md)

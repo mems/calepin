@@ -8,12 +8,21 @@
 
 - [Server-side Libraries](https://github.com/dexteryy/spellbook-of-modern-webdev#server-side-libraries-nodejs)
 
+- moment - date handling
+- yars, commander.js - helper for create CLI
+
+
 Unorganized:
 
 - [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip) - Read and write ZIP asynchronously
 - [expressjs/session: Simple session middleware for Express](https://github.com/expressjs/session) - Handle clients sessions
-- [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 ./node_modules/.bin/mail-null`
+- [mail-null](https://www.npmjs.com/package/mail-null) - `sleep 2 && open http://localhost:2345 & SMTP_PORT=3456 PORT=2345 npx mail-null`
+	Unix: `PORT=3512 npx mail-null`, Windows: `set PORT=3512&&cmd /c start http://localhost:%PORT%&&npx mail-null`
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Email client
+- [Stuk/jszip: Create, read and edit .zip files with Javascript](https://github.com/Stuk/jszip)
+- [expressjs/express: Fast, unopinionated, minimalist web framework for node.](https://github.com/expressjs/express) - [Express/Node introduction - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
+- [SBoudrias/Inquirer.js: A collection of common interactive command line user interfaces.](https://github.com/SBoudrias/Inquirer.js/)
+- [tj/commander.js: node.js command-line interfaces made easy](https://github.com/tj/commander.js) and [yargs/yargs: yargs the modern, pirate-themed successor to optimist.](https://github.com/yargs/yargs)
 
 Configuration:
 
@@ -458,7 +467,7 @@ See [Warning "root" does not have permission to access the dev dir · Issue #454
 
 - [config | npm Documentation](https://docs.npmjs.com/misc/config#unsafe-perm)
 
-## Parse URI as configuration
+## Use URI as configuration
 
 - https://github.com/sidorares/node-mysql2/blob/5f0fb8f1f5035e2c0207490aa2f0b838dc82fdc2/lib/connection_config.js#L166-L196
 - https://github.com/nodemailer/nodemailer/blob/5da6c87766e258f1a5fa9b628f2d9f57c9d533ce/lib/shared/index.js#L16-L91
@@ -732,3 +741,27 @@ See also:
 - [charlesguse/run-script-os: run-script-os will let you use OS specific operations in npm scripts without specifying which OS you are on. It's not magic though... you still have to write OS specific scripts.](https://github.com/charlesguse/run-script-os)
 - [kentcdodds/cross-env: 🔀 Cross platform setting of environment scripts](https://github.com/kentcdodds/cross-env)
 - https://github.com/npm/cmd-shim/blob/49ab03fae831a5727c30c37d11ba94fa5700100f/lib/index.js
+
+### Encryption with Node.js
+
+Asynmmetric encryption usally encrypt an symectric key used to encrypt: [RSA maximum bytes to encrypt, comparison to AES in terms of security? - Information Security Stack Exchange](https://security.stackexchange.com/questions/33434/rsa-maximum-bytes-to-encrypt-comparison-to-aes-in-terms-of-security/33445#33445)
+
+- [Asymmetric Public / Private Key Encryption (RSA) in Node.js](https://coolaj86.com/articles/asymmetric-public--private-key-encryption-in-node-js/)
+- [Encrypt and decrypt content with Nodejs - chris-rock](http://lollyrock.com/articles/nodejs-encryption/) - Symetric encryption
+
+See security [cryptography - "Diffie-Hellman Key Exchange" in plain English - Information Security Stack Exchange](https://security.stackexchange.com/questions/45963/diffie-hellman-key-exchange-in-plain-english)
+
+### Node IPC
+
+```js
+const path = isWindows ? "\\\\.\\pipe\\myprogram" : "/tmp/myprogram";// "myprogram" or a random string
+```
+
+- [Messages and IPC in Node](http://danespringmeyer.com/node-message-passing/#tcp-server)
+- [Inter-process communication - Wikipedia](https://en.wikipedia.org/wiki/Inter-process_communication)
+- [Redis](https://redis.io/)
+- use the net module
+- [Net | Node.js v9.5.0 Documentation](https://nodejs.org/api/net.html#net_identifying_paths_for_ipc_connections)
+- [javascript - What's the most efficient node.js inter-process communication library/method? - Stack Overflow](https://stackoverflow.com/questions/6463945/whats-the-most-efficient-node-js-inter-process-communication-library-method/12448328#12448328)
+- [Communication between N node.js processes - Stack Overflow](https://stackoverflow.com/questions/34374730/communication-between-n-node-js-processes/34404965#34404965)
+- [Performance of Inter-process Communications in Node.js | 60devs](https://60devs.com/performance-of-inter-process-communications-in-nodejs.html)

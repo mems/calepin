@@ -9,11 +9,88 @@
 
 ## JSON Schema
 
+
+## JSON Schema
+
+Media type with schema `application/json;schema="http://example.com/my-hyper-schema#`. See [JSON Schema: A Media Type for Describing JSON Documents](http://json-schema.org/draft-07/json-schema-core.html#rfc.section.11.2)
+It's possible to use `Link` header with `rel` parameter instead. See [JSON Schema: A Media Type for Describing JSON Documents](http://json-schema.org/draft-07/json-schema-core.html#rfc.section.11.1)
+
+There is not inherance, but a [validation rule](http://json-schema.org/draft-07/json-schema-validation.html#rfc.section.6.7.1) (more like interfaces):
+
+```json
+"allOf": [
+	{
+		"$ref": "#/definitions/some-object"
+	},
+	{
+		"type": "object",
+		"properties": {
+			"specific-property": {
+				"type": "number"
+			}
+		}
+	}
+]
+```
+
+- [Explain why inheritance isn't the right model · Issue #148 · json-schema-org/json-schema-org.github.io](https://github.com/json-schema-org/json-schema-org.github.io/issues/148)
+
+Can be used to edit (with a dedicated UI) JSON and validate again a schema it with:
+
+- [JSON Editor Online - view, edit and format JSON online](https://jsoneditoronline.org/)
+
+JSON Schema editors and validators:
+
+- [JSON Schema Validator - Newtonsoft](https://www.jsonschemavalidator.net/)
+- [JSON Schema validation online](https://json-schema-validator.herokuapp.com/)
+- [korzio/djv: Dynamic JSON Schema Validator - Supports draft-04/06](https://github.com/korzio/djv) - [RunKit + npm: djv](https://npm.runkit.com/djv)
+- [Ajv - Another JSON Schema Validator](http://epoberezkin.github.io/ajv/) - [RunKit + npm: ajv](https://npm.runkit.com/ajv)
+	1. open [RunKit + npm: ajv](https://npm.runkit.com/ajv)
+	2. past the following code in the playground textarea
+	3. fill it
+	4. then "run" (button below the textarea)
+	5. see the result
+
+	```js
+	const Ajv = require('ajv');
+	const ajv = new Ajv({allErrors: true});
+	ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
+
+	function test(data) {
+	  const valid = validate(data);
+	  if (valid){
+		console.log('Valid!');
+	  }
+	  else{
+		console.log('Invalid: ' + ajv.errorsText(validate.errors));
+	  }
+	}
+
+	const schema ={
+	  /* the content of CEDDL Schema */
+	};
+
+	const digitalData = {
+	  /* your digitalData here */
+	};
+
+	const validate = ajv.compile(schema);
+	test(digitalData);
+	```
+- [ebdrup/json-schema-benchmark: Benchmarks for Node.js JSON-schema validators](https://github.com/ebdrup/json-schema-benchmark)
+
+Documentation:
+
+- [Specification](http://json-schema.org/specification.html)
 - [JSON Schema](http://json-schema.org/)
 - [Understanding JSON Schema — Understanding JSON Schema 7.0 documentation](https://json-schema.org/understanding-json-schema/index.html)
 - [JSON Schema Store](http://schemastore.org/json/) - List of common JSON Schema
 - [JSON Schema](https://cswr.github.io/JsonSchema/) - For JSON Schema Draft 4 and below
 - [jdorn/json-editor: JSON Schema Based Editor](https://github.com/jdorn/json-editor)
+
+See also
+
+- [JSchema](http://jschema.org/)
 
 Data generator from schema:
 

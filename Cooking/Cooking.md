@@ -571,6 +571,31 @@ Pour 4 personnes :
 
 - https://www.marmiton.org/recettes/recette_aubergines-farcies-aux-legumes-ou-mixte_17955.aspx
 
+## Courgette farcie
+
+- 2 courgette
+- 1 oignon
+- huile d'olive
+- sel
+- poivre
+- gruyère râpé
+- ail
+- 250 gr de boeuf haché
+- 480 gr de tomates pelées sinon concentré/sauce de tomate
+- herbes de Provence
+- (optionel) 1 cube de bouillon de poule
+
+1. laver la courgette, en couper les extrémités, puis la couper en deux dans le sens de la longueur
+2. enlever les pépins du centre avec une cuillère, puis creuser la courgette. Récupérer la chair, la détailler en cubes.
+3. faire revenir la chair quelques instants dans une poele avec un peu d'huile d'olive, saler, poivrer.
+4. dans une casserole, faire fondre l'oignon haché. Lorsqu'il est blond, ajouter le haché de bœuf, le laisser cuire (à couvert) en remuant souvent pour bien défaire la viande.
+5. ajouter la boite de tomates pelées, couper grossièrement les tomates avec un couteau dans la casserole, ajouter 2 morceaux de sucre, une poignée d'herbes de Provence, le cube de bouillon de poule et l'ail pressé.
+6. laisser mijoter le tout environ 15 min, saler, poivrer. La sauce doit être épaisse.
+7. ajouter les dés de courgettes. Beurrer un plat allant au four, y déposer les courgettes côte à côte, les remplir de la préparation viande + cubes de courgettes.
+8. parsemer de gruyère râpé, mettre au four moyen pendant 30 min.
+
+- [Courgette farcie : recette de Courgette farcie](https://www.marmiton.org/recettes/recette_courgette-farcie_11173.aspx)
+
 ## Mousse au chocolat
 
 - 8 blancs d'oeuf

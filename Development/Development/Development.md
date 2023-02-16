@@ -252,6 +252,7 @@ Aka multiplayer game, streaming, RTS game, collaborative software, conflict reso
 - [I was wrong. CRDTs are the future](https://web.archive.org/web/20200929062536/https://josephg.com/blog/crdts-are-the-future/)
 - [yjs/yjs: Peer-to-peer shared types](https://github.com/yjs/yjs)
 - [share/sharedb: Realtime database backend based on Operational Transformation (OT)](https://github.com/share/sharedb)
+- [A Gentle Introduction to CRDTs - vlcn.io](https://web.archive.org/web/20230213184948/https://vlcn.io/blog/gentle-intro-to-crdts.html)
 
 ## Complexity
 

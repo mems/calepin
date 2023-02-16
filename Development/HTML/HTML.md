@@ -225,7 +225,20 @@ http://www.quirksmode.org/css/condcom.html
 
 ## Data URI
 
-See [Web#Data URI]
+See [Data URI](Web.md#data-uri)
+
+## Blank image
+
+- remove src attribute (allowed per spec?)
+- set no value (`<img src alt="">`) but could trigger double download (Safari)
+- `data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==`
+- `data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E`
+- `data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7`
+- `//:0` URL, but couldn't trigger error event?
+
+- [html - What' the valid way to include an image with no src? - Stack Overflow](https://stackoverflow.com/questions/5775469/whats-the-valid-way-to-include-an-image-with-no-src)
+- [Empty image src can destroy your site - NCZOnline](https://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/)
+- [html - Setting an image src to empty - Stack Overflow](https://stackoverflow.com/questions/19126185/setting-an-image-src-to-empty/28486885)
 
 ## Don't use `target="_blank"`
 

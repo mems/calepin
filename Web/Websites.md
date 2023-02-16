@@ -114,11 +114,11 @@ Parameter (required) `tweet_id`: Tweet ID
 
 ### Facebook
 
-URL template: `https://www.facebook.com/sharer/sharer.php?u={url}`
+URL templates:
 
-URL template: `https://www.facebook.com/sharer.php?s=100&p[url]={url}`
-
-URL template: `https://www.facebook.com/dialog/share?display=popup{&app_id,href,quote,hashtag}`
+- `https://www.facebook.com/sharer/sharer.php?u={url}`
+- `https://www.facebook.com/sharer.php?s=100&p[url]={url}`
+- `https://www.facebook.com/dialog/share?display=popup{&app_id,href,quote,hashtag}`
 
 Parameters:
 
@@ -577,6 +577,55 @@ In China?
 ## Google Search Console
 
 - [Malicious Google Search Console Verifications](https://blog.sucuri.net/2015/09/malicious-google-search-console-verifications.html)
+
+## Online document previewer
+
+Only files under 25 MB can be previewed with the Google Drive viewer.
+
+Google Drive viewer:
+
+- Image files (.JPEG, .PNG, .GIF, .TIFF, .BMP)
+- Video files (WebM, .MPEG4, .3GPP, .MOV, .AVI, .MPEGPS, .WMV, .FLV)
+- Text files (.TXT)
+- Markup/Code (.CSS, .HTML, .PHP, .C, .CPP, .H, .HPP, .JS)
+- Microsoft Word (.DOC and .DOCX)
+- Microsoft Excel (.XLS and .XLSX)
+- Microsoft PowerPoint (.PPT and .PPTX)
+- Adobe Portable Document Format (.PDF)
+- Apple Pages (.PAGES)
+- Adobe Illustrator (.AI)
+- Adobe Photoshop (.PSD)
+- Tagged Image File Format (.TIFF)
+- Autodesk AutoCad (.DXF)
+- Scalable Vector Graphics (.SVG)
+- PostScript (.EPS, .PS)
+- TrueType (.TTF)
+- XML Paper Specification (.XPS)
+- Archive file types (.ZIP and .RAR)
+
+```html
+<iframe src="https://docs.google.com/viewer?embedded=true&url=URL_OF_DOCUMENT"><a href="URL_OF_DOCUMENT">DOCUMENT_TITLE</a></iframe>
+<!-- https://drive.google.com/viewerng/viewer?embedded=true&url=URL_OF_DOCUMENT -->
+```
+
+Office Web Apps Viewer:
+
+- ppt
+- pptx
+- doc
+- docx
+- xls
+- xlsx
+
+```html
+<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=URL_OF_DOCUMENT"></iframe>
+<iframe src="http://docs.google.com/fileview?id=GOOGLE_DOC_ID&hl=en&pid=explorer&efh=false&a=v&chrome=false&embedded=true"></iframe>
+```
+
+- [Embedded File Viewer: Google Drive, OneDrive](https://gist.github.com/tzmartin/1cf85dc3d975f94cfddc04bc0dd399be)
+- https://docs.google.com/spreadsheets/d/SHEET_ID/pubhtml?widget=true&amp;headers=true
+- [oEmbed]
+- [Google Docs oEmbed — WordPress Plugins](https://wordpress.org/plugins/google-docs-oembed/#developers)
 
 ## URL shorteners
 
@@ -2492,6 +2541,10 @@ Example:
 - [git - gitweb snapshot of sub-directory - Stack Overflow](https://stackoverflow.com/questions/14444593/gitweb-snapshot-of-sub-directory)
 - https://github.com/git/git/blob/master/gitweb/gitweb.perl
 
+## Jira
+
+- [How to create issues using direct HTML links in Jira Server | Jira | Atlassian Documentation](https://confluence.atlassian.com/jirakb/how-to-create-issues-using-direct-html-links-in-jira-server-159474.html)
+
 ## Scribd
 
 ```
@@ -2780,13 +2833,6 @@ localStorage.setItem("usage-data-by-id", JSON.stringify({
 
 	]
 }
-```
-
-```
-entry.browser_name = entry.browser_name
-	.replace(' for Android', '')
-	.replace(' Mobile', '')
-	.replace('iOS Safari', 'Safari');
 ```
 
 Notes:

@@ -2026,6 +2026,16 @@ Mac keybinding: replace `Control` by `LeftApple` or `RightApple`
 
 Plugins infos are at `jdownloader/src/jd/plugins/hoster`
 
+(re)create a self contained macOS application (that no more the case since ???):
+
+1. install JDownloader 2
+2. copy `/Applications/JDownloader 2/JDownloader2.app` to `/Applications/JDownloader.app`
+3. in `/Applications/JDownloader 2/JDownloader2.app/Contents/Info.plist` replace `$APP_PACKAGE/..` by `$APP_PACKAGE/Contents/Resources/java`
+4. create a directory in `/Applications/JDownloader.app/Contents/Resources/java`
+5. copy the content of `/Applications/JDownloader 2` into `/Applications/JDownloader.app/Contents/Resources/java` (you can omit the files `JDownloader2.app` and `Uninstall JDownloader.app`)
+
+Only the content of `/Applications/JDownloader.app/Contents/Resources/java` will be updated
+
 ## Docker
 
 - [Get started with Docker for Mac - Docker Documentation](https://docs.docker.com/docker-for-mac/)
@@ -2161,6 +2171,66 @@ Authentication error; cannot obtain cookie
 
 - [How to install a Notepad++ plugin offline? - Stack Overflow](https://stackoverflow.com/questions/40015350/how-to-install-a-notepad-plugin-offline/52629470#52629470)
 
+For Function List Panel (View > Function List) with Markdown:
+
+In `functionList.xml` `/NotepadPlus/functionList/associationMap`:
+
+```xml
+<association id=    "markdown_title"      userDefinedLangName="Markdown" />
+<!-- ======================================================================== -->
+```
+
+And in `/NotepadPlus/functionList/parsers` (use Perl/PCRE regex):
+
+```xml
+<!-- ============================================== [ Markdown ] -->
+<!--
+|   https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#headers
+|   https://daringfireball.net/projects/markdown/syntax#header
+\-->
+<parser id="markdown_header" displayName="Markdown Header">
+	<function
+		mainExpr="(?x)                            					# Utilize inline comments (see `RegEx - Pattern Modifiers`)
+					(?m)
+					^												# start-of-line
+					(?:
+																	# ATX style
+						\#{1,6}										# hash
+						[ ]+										# space
+						[^\r\n]*$									# whatever, until end-of-line
+					|
+																	# Setext style
+						[^-\s]										# not start with - (used for list) or whitespaces
+						[^\r\n]*									# whatever
+						(?=											# lookafter
+							\r?\n									# new line
+							(?:
+								=+									# underlining =
+							|	-+									# underlining -
+							)
+							[ ]*									# optional spaces
+							$
+						)
+					)
+				"
+	>
+		<functionName>
+			<!-- use if you need hierachy <nameExpr expr="^.*$(?= *#* *)$" /> -->
+			<nameExpr expr="^(#* +)?\K.*$(?= *#* *)$" />
+		</functionName>
+	</function>
+</parser>
+```
+
+- `%APPDATA%\Notepad++\userDefineLang.xml` and `functionList.xml`
+- [nea/MarkdownViewerPlusPlus: A Notepad++ Plugin to view a Markdown file rendered on-the-fly](https://github.com/nea/MarkdownViewerPlusPlus)
+- [Edditoria/markdown-plus-plus: Markdown syntax highlighting for Notepad++, by customized UDL (user defined language) file](https://github.com/Edditoria/markdown-plus-plus)
+- [Notepad++ Function List](https://notepad-plus-plus.org/features/function-list.html)
+- [xml - Notepad++ Custom Function List (Basic) - Stack Overflow](https://stackoverflow.com/questions/27046002/notepad-custom-function-list-basic)
+- [regex - Extract Function name from Notepad++ for FunctionList - Stack Overflow](https://stackoverflow.com/questions/48410830/extract-function-name-from-notepad-for-functionlist)
+- [Editing Configuration Files - Notepad++ Wiki](http://docs.notepad-plus-plus.org/index.php/Editing_Configuration_Files#FunctionList)
+- [Function List - Notepad++ Wiki](http://docs.notepad-plus-plus.org/index.php/Function_List)
+
 ## WhatsApp
 
 Backup WhatsApp data for iOS
@@ -2182,15 +2252,3 @@ Backup WhatsApp data for iOS
 - Age of Empires: Definitive Edition: `%USERPROFILE%\Games\Age of Empires DE\Users\<user name>\Saved Games\*.aoe2spgame`
 - Age of Empires 2: Definitive Edition: `%USERPROFILE%\Games\Age of Empires 2 DE\<17 digits>\savegame\*.aoe2spgame`
 - World War Z: `%LOCALAPPDATA%\Saber\WWZ\client\storage`
-
-## JDownloader
-
-(re)create a self contained macOS application (that no more the case since ???):
-
-1. install JDownloader 2
-2. copy `/Applications/JDownloader 2/JDownloader2.app` to `/Applications/JDownloader.app`
-3. in `/Applications/JDownloader 2/JDownloader2.app/Contents/Info.plist` replace `$APP_PACKAGE/..` by `$APP_PACKAGE/Contents/Resources/java`
-4. create a directory in `/Applications/JDownloader.app/Contents/Resources/java`
-5. copy the content of `/Applications/JDownloader 2` into `/Applications/JDownloader.app/Contents/Resources/java` (you can omit the files `JDownloader2.app` and `Uninstall JDownloader.app`)
-
-Only the content of `/Applications/JDownloader.app/Contents/Resources/java` will be updated

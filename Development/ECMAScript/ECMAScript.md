@@ -2186,6 +2186,42 @@ function test(param = 0){
 }
 ```
 
+### Switch condition
+
+```js
+switch(true){
+	case event.key == "ArrowUp":
+		//move up
+		break;
+	case event.key == "ArrowUp" && event.shiftKey:
+		//fast move up
+		break;
+}
+```
+
+```js
+switch(event.key){
+	case "ArrowUp":
+		//move up
+		break;
+	case event.shiftKey && "ArrowUp":
+		//fast move up
+		break;
+}
+
+// Note: If the statment can be a boolean, the value of a conditioned case is evaluated as boolean "false" can match:
+switch(value){
+	case "A":
+		// Statements executed if value === "A"
+		break;
+	case false && "B":
+		// Statements executed if value === "B" or value === false
+		break;
+}
+```
+
+- [switch - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch#Rewriting_multiple_If_statements_with_Switch)
+
 ## Getters/setters vs method
 
 ```js

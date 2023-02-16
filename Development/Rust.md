@@ -1,6 +1,7 @@
 - [Rust for JS Developers](https://rustforjs.dev/)
 - [Rust for JavaScript Developers - Functions and Control Flow](https://web.archive.org/web/20210907183618/http://www.sheshbabu.com/posts/rust-for-javascript-developers-functions-and-control-flow/)
 - [Rust is more portable than C for pngquant/libimagequant](https://pngquant.org/rust.html)
-- [Citrus / Citrus · GitLab](https://gitlab.com/citrus-rs/citrus) - superseded by C2Rust
-- [C2Rust Demonstration](https://c2rust.com/)
+- [Citrus / Citrus · GitLab](https://gitlab.com/citrus-rs/citrus) - Experimental C to Rust transpiler. This project has been superseded by https://c2rust.com/
+- [C2Rust Demonstration](https://c2rust.com/) - [immunant/c2rust: Migrate C code to Rust](https://github.com/immunant/c2rust)
 - [rauljordan::blog](https://web.archive.org/web/20230120004831/https://rauljordan.com/rust-concepts-i-wish-i-learned-earlier/)
+- [When Rust hurts](https://web.archive.org/web/20230216004947/https://mmapped.blog/posts/15-when-rust-hurts.html)

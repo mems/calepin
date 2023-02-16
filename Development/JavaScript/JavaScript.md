@@ -906,6 +906,12 @@ See [Load external script](#load-external-script)
 
 See also [krux/postscribe: Asynchronously write javascript, even with document.write.](https://github.com/krux/postscribe)
 
+To debug `document.write()` calls, create a conditional breakpoint on the first line of the first script of the page and use the following code as condition (TODO could be simplified):
+
+```js
+document.write = html => {console.log(html); for(let regex = /<script[^>]+src="([^"]+)"/gi, match; match = regex.exec[HTML];){let script = document.createElement("script"); script.src = match[1]; document.head.appendChild(script)}; html = html.replace(/<script.+<\/script/g, ""); document.head.insertAdjacentHTML("beforeEnd", html)}, false
+```
+
 ### Don't put CSS and template in script
 
 Baking CSS and templates into scripts will increase the memory footprint of your web app. You’re obstructing the browsers’ optimizations.
@@ -7410,11 +7416,17 @@ function cancelKeepAlive() {
 - [A real world guide to WebRTC](https://deepstreamhub.com/tutorials/protocols/webrtc-intro/) - [deepstreamIO/dsh-demo-webrtc-examples](https://github.com/deepstreamIO/dsh-demo-webrtc-examples/tree/master/) and [A real world guide to WebRTC | Hacker News](https://news.ycombinator.com/item?id=14787285)
 - [How Zoom's web client avoids using WebRTC (DataChannel Update) - webrtcHacks](https://webrtchacks.com/zoom-avoids-using-webrtc/)
 
-### Event Source
+### Server-sent events
 
-Aka Server-Sent Events
+Aka Event Source
 
-- [Using server-sent events - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+Test per-server connection limitation (max connection) by using a Server-Send Event connections (to the same domain) shared accross multiple pages:
+
+> Clients that support HTTP’s per-server connection limitation might run into trouble when opening multiple pages from a site if each page has an EventSource to the same domain. Authors can avoid this using the relatively complex mechanism of using unique domain names per connection, or by allowing the user to enable or disable the EventSource functionality on a per-page basis, or by sharing a single EventSource object using a shared worker.
+>
+> — [Using SSE Instead Of WebSockets For Unidirectional Data Flow Over HTTP/2 — Smashing Magazine](https://www.smashingmagazine.com/2018/02/sse-websockets-data-flow-http2/#specific-server-requirements)
+
+- [Server-sent events - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
 - [Yaffle/EventSource: a polyfill for http://www.w3.org/TR/eventsource/](https://github.com/Yaffle/EventSource#example)
 - [Stream Updates with Server-Sent Events - HTML5 Rocks](https://www.html5rocks.com/en/tutorials/eventsource/basics/)
 

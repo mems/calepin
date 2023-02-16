@@ -302,26 +302,46 @@ http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#ja
 
 ### Google Closure Compiler
 
-/usr/share/java/closure-compiler.jar
+`/usr/share/java/closure-compiler.jar`
+
+Externs:
+
+```js
+// ==ClosureCompiler==
+// @output_file_name default.js
+// @compilation_level ADVANCED_OPTIMIZATIONS
+// @js_externs window.sas = {}
+// @js_externs window.sas.setup = function(config){config.networkid;config.domain}
+// ==/ClosureCompiler==
+window.sas;
+sas.setup({networkid: 0, domain: 0})
+```
+
+- [Advanced Compilation and Extern  |  Closure Compiler  |  Google Developers](https://developers.google.com/closure/compiler/docs/api-tutorial3#externs)
+- [Advanced Compilation and Extern  |  Closure Compiler  |  Google Developers](https://developers.google.com/closure/compiler/docs/api-tutorial3#howto-api)
 
 #### `git && ant`
 
-	#!/bin/bash
-	mkdir closure-compiler
-	cd closure-compiler
-	git clone https://github.com/google/closure-compiler.git .
-	ant jar
-	sudo cp -f ./build/compiler.jar /opt/local/share/java/closure-compiler.jar
-	cd ..
-	rm -rf closure-compiler
+```sh
+#!/bin/bash
+mkdir closure-compiler
+cd closure-compiler
+git clone https://github.com/google/closure-compiler.git .
+ant jar
+sudo cp -f ./build/compiler.jar /opt/local/share/java/closure-compiler.jar
+cd ..
+rm -rf closure-compiler
+```
 
 #### Download
 
-	#!/bin/bash
-	wget -qO- -O compiler-latest.zip http://dl.google.com/closure-compiler/compiler-latest.zip
-	unzip compiler-latest.zip -d compiler-latest
-	cp -f compiler-latest/compiler.jar /opt/local/share/java/closure-compiler.jar
-	rm -rf compiler-latest
+```sh
+#!/bin/bash
+wget -qO- -O compiler-latest.zip http://dl.google.com/closure-compiler/compiler-latest.zip
+unzip compiler-latest.zip -d compiler-latest
+cp -f compiler-latest/compiler.jar /opt/local/share/java/closure-compiler.jar
+rm -rf compiler-latest
+```
 
 https://github.com/google/closure-compiler
 http://dl.google.com/closure-compiler/compiler-latest.zip

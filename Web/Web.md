@@ -1670,6 +1670,17 @@ JSON Schema + form:
 
 ### Google Docs Sheets as CMS
 
+Need to: File > Publish to the Web
+
+- `https://spreadsheets.google.com/feeds/list/{worksheet_id}/{sheet_id}/public/full?alt=json`
+- `https://spreadsheets.google.com/feeds/worksheets/{sheet_id}/public/full?alt=json`
+- `https://spreadsheets.google.com/feeds/worksheets/{sheet_id}/private/full`
+
+Where `sheet_id` is `default` or `1`, `2`, etc. match the tab order
+
+- [Retrieve Google Spreadsheet Worksheet JSON - Stack Overflow](https://stackoverflow.com/questions/24531351/retrieve-google-spreadsheet-worksheet-json)
+- [Accessing a (new-style, public) Google sheet a JSON - Stack Overflow](https://stackoverflow.com/questions/30082277/accessing-a-new-style-public-google-sheet-as-json)
+
 - [IMPORTXML - Aide Éditeurs Docs](https://support.google.com/docs/answer/3093342?hl=fr)
 - [Google Spreadsheets as a CMS](https://pixeline.be/blog/development/using-google-spreadsheets-as-a-cms-1096.html)
 - [Mike Heavers | Google Spreadsheet Powered Content Management System](http://mikeheavers.com/tutorials/creating_a_website_with_a_google_spreadsheet_powered_cms/)
