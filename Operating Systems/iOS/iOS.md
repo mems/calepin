@@ -328,6 +328,12 @@ SIM_APP="/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/C
 $SIM_APP -SimulateApplication $SDK_DIR/iPhoneSimulator8.4.sdk/Applications/MobileSafari.app/MobileSafari
 ```
 
+- Delete no longer usable devices: `xcrun simctl delete unavailable`
+- `xcrun simctl` show help
+- list available runtimes (with more infos) `xcrun simctl list runtimes --json`
+- open simulator with URL `xcrun simctl openurl booted 'https://example.com'`, `xcrun simctl openurl booted 'myapp://custom'`
+- add some medias `xcrun simctl addmedia booted ~/sample-1.jpg ~/sample-2.jpg  ~/sample-3.mp4`
+- runtime bundle paths: `/Library/Developer/CoreSimulator/Profiles/Runtimes/*.simruntime` and `/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/*.simruntime`
 - [simctl: Control iOS Simulators from Command Line – XCBlog – Medium](https://medium.com/xcblog/simctl-control-ios-simulators-from-command-line-78b9006a20dc)
 - [terminal - How to launch an iOS Simulator with Safari open using a single command? - Ask Different](https://apple.stackexchange.com/questions/170743/how-to-launch-an-ios-simulator-with-safari-open-using-a-single-command)
 

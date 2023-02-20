@@ -505,6 +505,21 @@ RewriteCond %{HTTP_USER_AGENT} !^(FeedBurner|FeedValidator|talkr) [NC]
 RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
 ```
 
+```apache
+# In the .htaccess
+<IfModule mod_alias.c>
+	Include redirections.conf
+</IfModule>
+
+# In redirections.conf
+# Use status "gone" of "410"
+# Note: if you need to match query string, use mod_rewrite instead.
+# See https://web.archive.org/web/20220820210007/https://simonecarletti.com/blog/2009/01/apache-query-string-redirects/
+Redirect gone /a
+Redirect gone /b
+RedirectMatch gone \.gif$
+```
+
 - `RewriteMap`
     - [mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#rewritemap)
     - [Using RewriteMap - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/rewrite/rewritemap.html)
@@ -512,6 +527,7 @@ RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
 - [Logging - mod_rewrite - Apache HTTP Server Version 2.4](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html#logging) Debug `LogLevel rewrite:trace8`
 - [mod rewrite - mod_rewrite not sending Vary: accept-language when RewriteCond matches - Stack Overflow](https://stackoverflow.com/questions/3698363/mod-rewrite-not-sending-vary-accept-language-when-rewritecond-matches) - "header name will not be added to the `Vary` response header if it is not sent by the client."
 - [mod rewrite - how to use "AND", "OR" for RewriteCond on Apache? - Stack Overflow](https://stackoverflow.com/questions/922399/how-to-use-and-or-for-rewritecond-on-apache/31572003#31572003)
+- [mod_alias - Apache HTTP Server Version 2.2](https://httpd.apache.org/docs/2.2/mod/mod_alias.html#redirect)
 
 ## Cookies
 
