@@ -377,6 +377,7 @@ Loading and splash screen
 
 - [Skeleton Screen with CSS](http://codepen.io/oslego/pen/XdvWmd)
 - [hannahatkin › Skeleton Screens](http://hannahatkin.com/skeleton-screens/)
+- [Everything you need to know about skeleton screens | by Bill Chung | UX Collective](https://web.archive.org/web/20230221234627/https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a?gi=b2c53277c330)
 
 ## Empty state
 

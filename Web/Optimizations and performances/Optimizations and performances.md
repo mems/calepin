@@ -96,19 +96,28 @@ To mesure impacts ([KPI](https://en.wikipedia.org/wiki/Performance_indicator): [
 - https://www.bing.com/webmaster/tools/mobile-friendliness
 - [Mobile Web Application Best Practices](http://www.w3.org/TR/mwabp/)
 
+## Perceived performance
+
+Aka feedback first, skeleton UI
+
+- [Optimistic UI Patterns for Improved Perceived Performance](https://web.archive.org/web/20230114192037/https://simonhearne.com/2021/optimistic-ui-patterns/)
+
 ## Reduce bytes
 
 > http://www.haratetsuo.com/wp-content/themes/haratetsuo2018_cms_v2/images/ico/arrow.svg
 > The 30MB SVG image is a simple arrow! It's served uncompressed (gzipped would be 24MB and brotli would be 3.8MB). It contains 82 base64 encoded JPG images (one per image size). There are only 10 unique base64 images encoded in the file, so a lot of repetition...
-> [Paul Calvano on Twitter: "Exactly! The 30MB SVG image is a simple arrow!… https://t.co/ci2hz7WpLI"](https://twitter.com/paulcalvano/status/1164466648260198400)
+>
+> — [Paul Calvano on Twitter: "Exactly! The 30MB SVG image is a simple arrow!… https://t.co/ci2hz7WpLI"](https://twitter.com/paulcalvano/status/1164466648260198400)
 
 > The fastest byte is a byte not sent.
-— Ilya Grigorik http://chimera.labs.oreilly.com/books/1230000000545
+>
+> — Ilya Grigorik http://chimera.labs.oreilly.com/books/1230000000545
 
 Reduce page weight can give a (wrong) feedback about the page load time increase:
 
 > When I was at Google, someone told me a story about a time that “they” completed a big optimization push only to find that measured page load times increased. When they dug into the data, they found that the reason load times had increased was that they got a lot more traffic from Africa after doing the optimizations. The team’s product went from being unusable for people with slow connections to usable, which caused so many users with slow connections to start using the product that load times actually increased.
-— Dan Luu in [Most of the web really sucks if you have a slow connection](https://danluu.com/web-bloat/)
+>
+> — Dan Luu in [Most of the web really sucks if you have a slow connection](https://danluu.com/web-bloat/)
 
 Blocking deliberately or unintentionally device or connection capacities (browser version) will give wrong feedback about "users don't use old browser" (because they can't) or "users don't have slow connection" (because page can't load in decent time)
 See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matters).
@@ -872,13 +881,13 @@ Or partial load
 - [Progressive image](https://github.com/bompo/streamingtextures/)
 - [WebGL — Progressive loading](http://www.khronos.org/webgl/public-mailing-list/archives/1104/msg00056.html)
 - [Performance Calendar » Progressive jpegs: a new best practice](https://calendar.perfplanet.com/2012/progressive-jpegs-a-new-best-practice/)
-- [How Medium does progressive image loading - JMPerez Blog](https://jmperezperez.com/medium-image-progressive-loading-placeholder/)
-- [An Introduction to Progressive Image Rendering | Cloudinary Blog](https://cloudinary.com/blog/an_introduction_to_progressive_image_rendering)
+- [How Medium does progressive image loading – José M. Pérez](https://web.archive.org/web/20230215191414/https://jmperezperez.com/blog/medium-image-progressive-loading-placeholder/)
+- [An Introduction to Progressive Image Rendering](https://web.archive.org/web/20221225091309/https://cloudinary.com/blog/an_introduction_to_progressive_image_rendering)
 - [Lazy loading images using Intersection Observer | Dean Hume](http://deanhume.com/home/blogpost/lazy-loading-images-using-intersection-observer/10163)
 - Use same DCT coefficients, JPEGs with elided quant tables to reduce bytes loaded (recreate JPEG headers)
 	Plus use blur and scale to display the thumb
-	[The technology behind preview photos | Engineering Blog | Facebook Code](https://code.facebook.com/posts/991252547593574/the-technology-behind-preview-photos/)
-- progressive JPEG and interlaced PNG: [Introduction to PNG - nuwen.net](http://nuwen.net/png.html) & [Progressive Image Rendering](http://blog.codinghorror.com/progressive-image-rendering/).
+	[The technology behind preview photos - Engineering at Meta](https://web.archive.org/web/20230121062933/https://engineering.fb.com/2015/08/06/android/the-technology-behind-preview-photos/)
+- progressive JPEG and interlaced PNG: [Introduction to PNG - nuwen.net](http://nuwen.net/png.html) and [Progressive Image Rendering](http://blog.codinghorror.com/progressive-image-rendering/).
 	But can make file larger: [png - When to interlace an image? - Stack Overflow](https://stackoverflow.com/questions/13449314/when-to-interlace-an-image/14124340#14124340)
 
 	Benefit of HTTP2 multiplexing and progressive image to speed up first paint sooner
@@ -895,7 +904,7 @@ For images (works better with progressive images), in Edge Workers (Service Work
 6. send the rest
 
 - [Kornel Lesiński | Image Optimization | performance.now() 2018 - YouTube](https://www.youtube.com/watch?v=jTXhYj2aCDU?start=1035&end=1650)
-- [HTTP/2 progressive image streaming](https://blog.cloudflare.com/parallel-streaming-of-progressive-images/)
+- [HTTP/2 progressive image streaming](https://web.archive.org/web/20230105145540/https://blog.cloudflare.com/parallel-streaming-of-progressive-images/)
 
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
 - [Modern Asynchronous CSS Loading | Filament Group, Inc., Boston, MA](https://www.filamentgroup.com/lab/async-css.html)
@@ -958,11 +967,11 @@ Example: the hero image
 	- doesn't always support all kind of resources Firefox and IE/Edge
 	- often operate when the main/HTML parser/scanner is blocked
 
-	- [CSS Preload Scanner in WebKit · ariya.io](https://ariya.io/2013/04/css-preload-scanner-in-webkit)
-	- [How the Browser Pre-loader Makes Pages Load Faster - Andy Davies](https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/)
+	- [CSS Preload Scanner in WebKit · ariya.io](https://web.archive.org/web/20211022131300/https://ariya.io/2013/04/css-preload-scanner-in-webkit)
+	- [How the Browser Pre-loader Makes Pages Load Faster](https://web.archive.org/web/20230131040429/https://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/)
 	- [Building the DOM faster: speculative parsing, async, defer and preload - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/)
 	- [CSS and Network Performance – CSS Wizardry – CSS Architecture, Web Performance Optimisation, and more, by Harry Roberts](https://csswizardry.com/2018/11/css-and-network-performance/)
-	Note all CSS will be loaded, even if that doesn't match the current media, see [blog.tomayac.com » Blog von Thomas Steiner » homoblogiens](https://blog.tomayac.com/2018/11/08/why-browsers-download-stylesheets-with-non-matching-media-queries-180513)
+	Note all CSS will be loaded, even if that doesn't match the current media, see [Why Browsers Download Stylesheets With Non-Matching Media Queries](https://web.archive.org/web/20221004100556/https://blog.tomayac.com/2018/11/08/why-browsers-download-stylesheets-with-non-matching-media-queries-180513/)
 - JavaScript
 	- load start by preload scanner
 	- blocked by the network
@@ -1297,7 +1306,7 @@ At the bottom: Use the script as blocking script. Should be executed after all p
 - [Load Non-blocking JavaScript with HTML5 Async and Defer](https://www.sitepoint.com/non-blocking-async-defer/)
 - [Async scripts for asm.js - Game development | MDN](https://developer.mozilla.org/en-US/docs/Games/Techniques/Async_scripts)
 - [\<script\> - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async)
-- [Performance Calendar » Prefer DEFER Over ASYNC](http://calendar.perfplanet.com/2016/prefer-defer-over-async/)
+- [Web Performance Calendar » Prefer DEFER Over ASYNC](https://web.archive.org/web/20230215201211/https://calendar.perfplanet.com/2016/prefer-defer-over-async/)
 - [Async Attribute and Scripts At The Bottom | CSS-Tricks](https://css-tricks.com/async-attribute-scripts-bottom/)
 - [Loading Third-Party JavaScript  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/#use_async_or_defer)
 - [Optimizing HTTP/2 prioritization with BBR and tcp_notsent_lowat](https://blog.cloudflare.com/http-2-prioritization-with-nginx/#browsersandrequestprioritization)

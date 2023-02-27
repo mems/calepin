@@ -8,6 +8,7 @@
 - [Save Cleaned SVG - Inkscape Wiki](http://wiki.inkscape.org/wiki/index.php/Save_Cleaned_SVG)
 - [SVGcode—Convert raster images to SVG vector graphics](https://svgco.de/)
 - [SVGOMG - SVGO's Missing GUI](https://jakearchibald.github.io/svgomg/)
+- [cloudflare/svg-hush: Make it safe to serve untrusted SVG files](https://github.com/cloudflare/svg-hush) - [SVG support in Cloudflare Images](https://web.archive.org/web/20221012191425/https://blog.cloudflare.com/svg-support-in-cloudflare-images/)
 
 - https://github.com/AndyA/as3svgrendererlib
 

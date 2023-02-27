@@ -508,16 +508,13 @@ RewriteRule .* http://feeds.askapache.com/apache/htaccess? [R=307,L]
 ```apache
 # In the .htaccess
 <IfModule mod_alias.c>
-	Include redirections.conf
+	# Use status "gone" for 410 (HTTP status)
+	# Note: if you need to match query string, use mod_rewrite instead.
+	# See https://web.archive.org/web/20220820210007/https://simonecarletti.com/blog/2009/01/apache-query-string-redirects/
+	Redirect gone /a
+	Redirect gone /b
+	RedirectMatch gone \.gif$
 </IfModule>
-
-# In redirections.conf
-# Use status "gone" of "410"
-# Note: if you need to match query string, use mod_rewrite instead.
-# See https://web.archive.org/web/20220820210007/https://simonecarletti.com/blog/2009/01/apache-query-string-redirects/
-Redirect gone /a
-Redirect gone /b
-RedirectMatch gone \.gif$
 ```
 
 - `RewriteMap`

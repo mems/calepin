@@ -228,7 +228,8 @@ Aka WS
 
 - [Fanout Blog » You might not need a WebSocket](http://blog.fanout.io/2014/06/24/you-might-not-need-a-websocket/)
 - [WebSockets, caution required!](https://samsaffron.com/archive/2015/12/29/websockets-caution-required)
-- [600k concurrent websocket connections on AWS using Node.js - Jayway](http://www.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/) - [600k concurrent websocket connections on AWS using Node.js (2015) | Hacker News](https://news.ycombinator.com/item?id=21222913)
+- [600k concurrent websocket connections on AWS using Node.js - blog.](https://web.archive.org/web/20230220134438/https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/) - [600k concurrent websocket connections on AWS using Node.js (2015) | Hacker News](https://news.ycombinator.com/item?id=21222913)
+- [Millions of active WebSockets with Node.js | by uNetworking AB | Medium](https://web.archive.org/web/20230222064012/https://unetworkingab.medium.com/millions-of-active-websockets-with-node-js-7dc575746a01)
 - websocket server library used by Stack Overflow: https://github.com/StackExchange/NetGain
 - [node.js - Proxying WebSockets with TCP load balancer without sticky sessions - Stack Overflow](https://stackoverflow.com/questions/15266702/proxying-websockets-with-tcp-load-balancer-without-sticky-sessions/15270860#15270860)
 - [HTML5 WebSocket - A Quantum Leap in Scalability for the Web](http://www.websocket.org/quantum.html)
