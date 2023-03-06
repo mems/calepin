@@ -2115,6 +2115,7 @@ See also:
 
 - [SeleniumHQ Browser Automation](https://www.selenium.dev/)
 - [XPath | MDN](https://developer.mozilla.org/en-US/docs/Web/XPath)
+- [Xpath cheatsheet](https://devhints.io/xpath)
 - [CSS Selector to XPath conversion | hakre on wordpress](https://hakre.wordpress.com/2012/03/18/css-selector-to-xpath-conversion/)
 
 ## Website analysis

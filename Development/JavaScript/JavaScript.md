@@ -4490,6 +4490,7 @@ Test:
 - [pinpoint/end.js at 4b2ec192c0400f26d7ff80ec3a652e467d5ee563 · karanlyons/pinpoint](https://github.com/karanlyons/pinpoint/blob/4b2ec192c0400f26d7ff80ec3a652e467d5ee563/Pinpoint.safariextension/end.js#L98)
 - [Shorter link that still works with your addon: https://en.wikipedia.org/wiki/Nel... | Hacker News](https://news.ycombinator.com/item?id=17557686)
 - [Comparison of CSS Selectors and XPath - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors/Comparison_with_XPath)
+- [Xpath cheatsheet](https://devhints.io/xpath)
 
 ### Iterate with XPath
 

@@ -54,6 +54,10 @@ Security:
 - [auth0/node-jsonwebtoken: JsonWebToken implementation for node.js](https://github.com/auth0/node-jsonwebtoken) - JSON Token generation and verification (for access token)
 - [kelektiv/node.bcrypt.js: bcrypt for NodeJs](https://github.com/kelektiv/node.bcrypt.js) - bcrypt hash generation and verification (for password storage)
 
+Network:
+
+- [ljharb/qs: A querystring parser with nesting support](https://github.com/ljharb/qs) - `assert.deepEqual(qs.parse("foo[bar]=baz"), {foo: {bar: "baz"}});`
+
 ## Relative path
 
 ```js

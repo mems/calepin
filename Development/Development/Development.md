@@ -501,7 +501,7 @@ See also [Case styles](#case-styles)
 - behaviour
 - computation
 - tool, wizard, manager
-- tulpe "a data structure consisting of multiple parts. (in a relational database) an ordered set of data constituting a record." See also destructuring
+- tulpe "a data structure consisting of multiple parts. (in a relational database) an ordered set of data constituting a record.". [tuple](https://en.wikipedia.org/wiki/Tuple): finite ordered list. See also destructuring
 - nonempty ["Not empty" set in one word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/102771/not-empty-set-in-one-word)
 - edges (endpoints) and fields
 - substitute something (ex: `substituteTLDHost("example.com") // -> "example"`)
@@ -514,7 +514,6 @@ See also [Case styles](#case-styles)
 	? - User Experience Stack Exchange](http://ux.stackexchange.com/questions/27769/what-is-a-good-name-for-non-administrator-users)
 - greatest distance, longest path, high score
 - concurrency, race condition
-- [tuple](https://en.wikipedia.org/wiki/Tuple): finite ordered list
 - [Deterministic algorithm — Wikipedia](https://en.wikipedia.org/wiki/Deterministic_algorithm)
 - credentials - [Username + password = one word - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/309008/username-password-one-word)
 - authentication [nouns - Is "authentification" a real word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/7844/is-authentification-a-real-word)
@@ -1814,6 +1813,7 @@ Query languages
 - http://jsonselect.org/#overview
 - https://developer.mozilla.org/en-US/docs/CSS/Getting_Started/Selectors
 - https://developer.mozilla.org/en-US/docs/DOM/document.querySelectorAll
+- [Xpath cheatsheet](https://devhints.io/xpath)
 
 ### Sync/ASync process
 

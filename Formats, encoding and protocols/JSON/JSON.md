@@ -7,10 +7,26 @@
 
 - [We released simdjson 0.3: the fastest JSON parser in the world is even better! – Daniel Lemire's blog](https://lemire.me/blog/2020/03/31/we-released-simdjson-0-3-the-fastest-json-parser-in-the-world-is-even-better/) - [Simdjson 0.3: Faster JSON parser | Hacker News](https://news.ycombinator.com/item?id=22745351)
 
-## JSON Schema
+## JSON query and field selection
 
+- [nemtsov/json-mask: Tiny language and engine for selecting specific parts of a JS object, hiding the rest.](https://github.com/nemtsov/json-mask)
+- jq (see [Tools](#tools))
+- [RFC 6901: JavaScript Object Notation (JSON) Pointer](https://www.rfc-editor.org/rfc/rfc6901) - JSON pointer (used by JSON schema)
+- JSON Path
+	- [JSONPath Online Evaluator](https://jsonpath.com/)
+	- [JSONPath - XPath for JSON](https://web.archive.org/web/20230208122238/https://goessner.net/articles/JsonPath/index.html)
+	- [How to perform partial object serialization providing "paths" using Newtonsoft JSON.NET - Stack Overflow](https://stackoverflow.com/questions/30304128/how-to-perform-partial-object-serialization-providing-paths-using-newtonsoft-j/30333562#30333562)
+- [Queries and Mutations | GraphQL](https://graphql.org/learn/queries/)
+- Facebook (Social) Graph API fields:
+	- [Fields - API Graph](https://developers.facebook.com/docs/graph-api/overview#fields)
+	- [Field Expansion - API Graph](https://developers.facebook.com/docs/graph-api/guides/field-expansion)
+	- `?metadata=1` to get all available fields
+	- `https://graph.facebook.com/me?fields=id,name,albums.limit(5){name,photos.limit(2).after(MTAyMTE1OTQwNDc2MDAxNDkZD){name,picture.width(100).height(100).as(picture_small),picture.width(720).height(720).as(picture_large),tags.limit(2)}},posts.limit(5),adaccounts{campaigns{adsets{ads{insights.time_range({'since':'2020-05-01','until':'2020-05-01'}){adset_id,campaign_id,ad_id,clicks}}}}}`
+	- `act_2222222/insights?fields=unique_actions,actions&level=account&time_ranges=[{since:'2020-06-12',until:'2020-06-12'}]`
+	- see [Facebook Graph API Explorer](https://developers.facebook.com/tools/explorer/)
+- [Retrieve selected fields from a search | Elasticsearch Guide \[8.6\] | Elastic](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-fields.html#search-fields-param) - Elasticsearch fields selection
 
-## JSON Schema
+## JSON schema
 
 Media type with schema `application/json;schema="http://example.com/my-hyper-schema#`. See [JSON Schema: A Media Type for Describing JSON Documents](http://json-schema.org/draft-07/json-schema-core.html#rfc.section.11.2)
 It's possible to use `Link` header with `rel` parameter instead. See [JSON Schema: A Media Type for Describing JSON Documents](http://json-schema.org/draft-07/json-schema-core.html#rfc.section.11.1)

@@ -864,7 +864,7 @@ f([1, 2, 3])// 6
 
 ```js
 const obj = {
-	...condition && { prop: value },
+	...condition && { prop: value },// the result is cast as Object, (falsy can be null, false, 0 or "") then iterate
 };
 
 const arr = [

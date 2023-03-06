@@ -1290,14 +1290,17 @@ Examples:
 - [Google Universal Analytics for AS3](https://github.com/zwetan/as3-universal-analytics)
 - [guidelines/DINA-Web-API-Guidelines.md at master · DINA-Web/guidelines](https://github.com/DINA-Web/guidelines/blob/master/DINA-Web-API-Guidelines.md)
 - [LiveDNS API](https://doc.livedns.gandi.net/#reference)
+- [API Graph](https://developers.facebook.com/docs/graph-api) - Facebook API
 
-Paging:
+Filter, sort, paging:
 
 - `Link` header with rel `next`, `prev`, `last`, `first`
 - [Resources in the REST API - GitHub Docs](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#pagination)
 - [RFC 5988 - Web Linking](https://tools.ietf.org/html/rfc5988#page-6)
 - page cursor (works well for non user paging, or only for "load more") [API pagination design](https://web.archive.org/web/20201228003649/https://solovyov.net/blog/2020/api-pagination-design/) [API pagination design | Hacker News](https://news.ycombinator.com/item?id=25547716)
 - [What's good about offset pagination; designing parallel cursor-based web APIs — brandur.org](https://web.archive.org/web/20210104103214/https://brandur.org/fragments/offset-pagination)
+- [REST API Design: Filtering, Sorting, and Pagination | Moesif Blog](https://web.archive.org/web/20211029143837/https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/)
+- [Filtering | JSON:API module | Drupal Wiki guide on Drupal.org](https://web.archive.org/web/20230213224221/https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/filtering)
 
 Rate limit (quotas):
 
