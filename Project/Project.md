@@ -177,6 +177,10 @@ See [Design](Design)
 - don't release your open source project only on your blog or forum, for dev sake pick one of the forge [Comparison of source code hosting facilities — Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_source_code_hosting_facilities)
 - don't release a compiled version with no sources - if you call your project open source go read what it is [The Open Source Definition | Open Source Initiative](https://opensource.org/docs/osd)
 
+> If you ask, "any update on this?" on an open source issue, the answer is always, "no." Updates are on the issue.
+>
+> — [Nicholas C. Zakas sur Twitter : "Here's a time saver: If you ask, "any update on this?" on an open source issue, the answer is always, "no." Updates are on the issue." / Twitter](https://mobile.twitter.com/slicknet/status/782274190451671040)
+
 > Folks who manage/lead open source projects: Do you have any advice or lessons learned for someone who has no idea what she's doing?
 >
 > — [Suzana Ilić](https://twitter.com/suzatweet/status/1143425542122856448)
@@ -329,7 +333,9 @@ See also:
 - [Philippe Elsass on Twitter: "Popular JS projects have to manage huge communities, and the suspicion of strategic manoeuvres in a very competitive ecosystem https://t.co/uwGCB3RmXR"](https://twitter.com/elsassph/status/879424075252289536) - quoting Sebastian McKenzie (author of babeljs): "Hard to stay motivated when people are yelling at you to justify every little thing you do and take your actions as attacks."
 - [Open Source Guides | Learn how to launch and grow your project.](https://opensource.guide/)
 - [TODO guides // TODO: Talk openly, develop openly](https://todogroup.org/guides/)
-- [The cost of an open source contribution](https://rgommers.github.io/2019/06/the-cost-of-an-open-source-contribution/)
+- [The cost of an open source contribution](https://web.archive.org/web/20221225021157/https://rgommers.github.io/2019/06/the-cost-of-an-open-source-contribution/)
+- [Lessons learned from 15 years of SumatraPDF, an open source Windows app](https://web.archive.org/web/20230311180722/https://blog.kowalczyk.info/article/2f72237a4230410a888acbfce3dc0864/lessons-learned-from-15-years-of-sumatrapdf-an-open-source-windows-app.html)
+- [So, what's next? - core-js](https://web.archive.org/web/20230312094747/https://github.com/zloirock/core-js/blob/3a6698ece5d42b461104cce61e5aa5fffbc677b4/docs/2023-02-14-so-whats-next.md)
 
 ## Native App vs Progressive Web App
 

@@ -769,3 +769,121 @@ const path = isWindows ? "\\\\.\\pipe\\myprogram" : "/tmp/myprogram";// "myprogr
 - [javascript - What's the most efficient node.js inter-process communication library/method? - Stack Overflow](https://stackoverflow.com/questions/6463945/whats-the-most-efficient-node-js-inter-process-communication-library-method/12448328#12448328)
 - [Communication between N node.js processes - Stack Overflow](https://stackoverflow.com/questions/34374730/communication-between-n-node-js-processes/34404965#34404965)
 - [Performance of Inter-process Communications in Node.js | 60devs](https://60devs.com/performance-of-inter-process-communications-in-nodejs.html)
+
+## FNM
+
+On Windows for Bash, add to `%USERPROFILE%\.bashrc`:
+
+```sh
+# Use fnm https://github.com/Schniz/fnm/tree/master#shell-setup
+# Set in ~/.bashrc: https://github.com/Schniz/fnm/issues/351#issuecomment-749202468
+#eval "$(fnm env --use-on-cd --version-file-strategy recursive)"
+# Skip firt line of fnm env because on Git bash for Windows we need cygpath: https://github.com/Schniz/fnm/issues/390#issuecomment-776240883
+# And ignore --use-on-cd and reimplement it or you will get the warning https://github.com/Schniz/fnm/blob/d3841ad2929dd9c688777c1d63a6a70e5197cc2b/src/commands/use.rs#L199-L206 and also to use recursive and auto install options https://github.com/Schniz/fnm/blob/d3841ad2929dd9c688777c1d63a6a70e5197cc2b/src/shell/bash.rs#L26-L54
+eval "$(fnm env --log-level=error | sed 1d)"
+export PATH=$(cygpath $FNM_MULTISHELL_PATH):$PATH
+
+__fnm_use() {
+#	fnm use --silent-if-unchanged --version-file-strategy recursive --install-if-missing
+	fnm use --log-level=error --version-file-strategy recursive --install-if-missing
+}
+__fnmcd() {
+	\cd "$@" || return $?
+	__fnm_use
+}
+alias cd=__fnmcd
+__fnm_use
+```
+
+`%USERPROFILE%\.bash_profile`:
+
+```sh
+if [ -s ~/.bashrc ]; then source ~/.bashrc; fi
+```
+
+On Windows for CMD:
+
+Exec the registry script:
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
+"AutoRun"="@%USERPROFILE%\\autorun.cmd"
+```
+
+`%USERPROFILE%\autorun.cmd`:
+
+```cmd
+:: Windows Registry Editor Version 5.00
+::
+:: [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor]
+:: "AutoRun"="@%USERPROFILE%\\autorun.cmd"
+@echo off
+call "%USERPROFILE%\fnm\fnm_autorun.cmd"
+```
+
+`%USERPROFILE%\fnm\fnm_autorun.cmd`:
+
+```cmd
+@echo off
+call "%USERPROFILE%\fnm\fnm_env.cmd"
+doskey cd=%USERPROFILE%\fnm\fnm_cd.cmd $*
+```
+
+`%USERPROFILE%\fnm\fnm_use.cmd`:
+
+```cmd
+@echo off
+::fnm use --silent-if-unchanged --version-file-strategy recursive --install-if-missing
+fnm use --log-level=error --version-file-strategy recursive --install-if-missing
+```
+
+`%USERPROFILE%\fnm\fnm_cd.cmd`:
+
+```cmd
+@echo off
+cd %1
+call "%USERPROFILE%\fnm\fnm_use.cmd"
+```
+
+`%USERPROFILE%\fnm\fnm_env.cmd`:
+
+```cmd
+:: Use fnm https://github.com/Schniz/fnm/tree/master#shell-setup
+@echo off
+::FOR /f "tokens=*" %i IN ('fnm env') DO CALL %i
+:: And use recursive and auto install options https://github.com/Schniz/fnm/blob/d3841ad2929dd9c688777c1d63a6a70e5197cc2b/src/shell/windows_cmd/mod.rs#L30-L44 https://github.com/Schniz/fnm/blob/d3841ad2929dd9c688777c1d63a6a70e5197cc2b/src/shell/windows_cmd/cd.cmd
+:: Plus this do not use a subshell! Or this script will call itself (a loop)!
+set "tmpfile=%tmp%\autorun_fnm~%RANDOM%%RANDOM%%RANDOM%%RANDOM%.tmp"
+fnm env --log-level=error >%tmpfile%
+for /f "tokens=*" %%i in (%tmpfile%) do call %%i
+del %tmpfile%
+```
+
+`%USERPROFILE%\fnm\fnm_node.cmd`:
+
+```cmd
+@echo off
+call "%USERPROFILE%\fnm\fnm_env.cmd"
+call "%USERPROFILE%\fnm\fnm_use.cmd"
+node %*
+```
+
+`%USERPROFILE%\fnm\fnm_npm.cmd`:
+
+```cmd
+@echo off
+call "%USERPROFILE%\fnm\fnm_env.cmd"
+call "%USERPROFILE%\fnm\fnm_use.cmd"
+npm %*
+```
+
+`%USERPROFILE%\fnm\fnm_npx.cmd`:
+
+```cmd
+@echo off
+call "%USERPROFILE%\fnm\fnm_env.cmd"
+call "%USERPROFILE%\fnm\fnm_use.cmd"
+npx %*
+```

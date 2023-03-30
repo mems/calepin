@@ -6224,31 +6224,21 @@ And drag and drop to desktop
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable
 
 ```css
-[draggable='true'] {
-	-khtml-user-drag: element;
-	-webkit-user-drag: element;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
+[draggable="true"] {
 	user-select: none;
 }
 ```
 
 ```js
 drag.addEventListener("dragstart", function(e) {
-	var dt = e.dataTransfer,
-	// IE doesn't like anything other than "Text"
-	type = /*@cc_on!@*/0 ? "Text" : "text/plain";
-	dt.setData( type, "Some data to set" );
+	e.dataTransfer.setData( "text/plain", "Some data to set" );
 }, false);
 ```
 
 ```js
 drop.addEventListener("drop", function(e) {
-	var dt = e.dataTransfer,
-	// IE doesn't like anything other than "Text"
-	data = dt.getData( /*@cc_on!@*/0 ?
-	"Text" : "text/plain" );
+	const dt = e.dataTransfer,
+	const data = dt.getData("text/plain");
 	alert(data);
 }, false);
 ```
@@ -6266,11 +6256,10 @@ Solution 1:
 5. (optional) Remove the link (advice: add ~500ms delay before remove generated links)
 
 ```js
-let link = document.createElement('a');
-let list = ["file1.txt", "file2.txt", "file3.txt"];
-let i = 1;
+const link = document.createElement('a');
+const list = ["file1.txt", "file2.txt", "file3.txt"];
 document.body.appendChild(link);
-for(let file of list){
+for(const file of list){
 	link.href = file;
 	link.setAttribute("download", file);
 	link.click();//link.dispatchEvent(new MouseEvent("click"));
@@ -6386,17 +6375,17 @@ Use UTF-8 encoding (natively supported by JS, use UTF-16, 16 bits in memory to s
 The compress ratio is between 1:1 and 2:1
 
 ```js
-let buffer = (new Uint8Array(256)).fill(0).map((i, y) => y).buffer;//Uint8Array 0 to 255
+const buffer = (new Uint8Array(256)).fill(0).map((i, y) => y).buffer;//Uint8Array 0 to 255
 ```
 
 To generate the corresponding code:
 
 ```js
-let stringDelimiter = "\"";//"'"// can measure how many " ' or \r\n the string contains
-let stringDelimiterCharCode = stringDelimiter.charCodeAt(0);
-let multilineString = stringDelimiter != "\"" && stringDelimiter != "\'";
-let escapedString = (new Uint8Array(buffer)).reduce((result, charCode) => {
-	let char = String.fromCharCode(charCode);
+const stringDelimiter = "\"";//"'"// can measure how many " ' or \r\n the string contains
+const stringDelimiterCharCode = stringDelimiter.charCodeAt(0);
+const multilineString = stringDelimiter != "\"" && stringDelimiter != "\'";
+const escapedString = (new Uint8Array(buffer)).reduce((result, charCode) => {
+	const char = String.fromCharCode(charCode);
 	return result
 		+ (
 			char == stringDelimiter ? "\\" + stringDelimiter
@@ -6423,17 +6412,17 @@ Aka hexastring to binary data
 The ratio is 2:1 bytes
 
 ```js
-var data = "78da93e0e6b4d35f79d292d5c436c7b286d1daeedeb5684619658f1faf99";// must data.length % 2 == 0
+const data = "78da93e0e6b4d35f79d292d5c436c7b286d1daeedeb5684619658f1faf99";// must data.length % 2 == 0
 
 // Encode
 bytes.reduce((result, byte) => (result += byte.toString(16).padStart(2, "0"), result), "");
 
-let bytes = new Uint8Array(data.length / 2);
+const bytes = new Uint8Array(data.length / 2);
 for(let i = 0, j = 0; i < data.length; i += 2, j++){
 	 bytes[j] = parseInt(data.substr(i, 2), 16)
 }
 
-let bytes = new DataView(new ArrayBuffer());
+const bytes = new DataView(new ArrayBuffer());
 let i;
 let j = bytes.byteOffset;
 // Write 4 bytes
@@ -6466,16 +6455,16 @@ function base64ToBytes(data){
 	// Parts from https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView
 	// from StringView.base64ToBytes
 	// Invalid chars https://bugzilla.mozilla.org/show_bug.cgi?id=73026#c12
-	let cleanedData = data.replace(/\x20\t\r\n=/g, "");
+	const cleanedData = data.replace(/\x20\t\r\n=/g, "");
 	if (/[^A-Za-z0-9\+\/]/g.test(cleanedData)) {
 		throw new DOMException("Invalid base64 data", "DataError");
 	}
-	let dataLength = cleanedData.length;
-	let numBytes = /*length ? Math.ceil((dataLength * 3 + 1 >>> 2) / length) * length : */dataLength * 3 + 1 >>> 2;
+	const dataLength = cleanedData.length;
+	const numBytes = /*length ? Math.ceil((dataLength * 3 + 1 >>> 2) / length) * length : */dataLength * 3 + 1 >>> 2;
 	if (numBytes % 4 > 0) {
 		throw new DOMException("Invalid data URI", "DataError");
 	}
-	let bytes = new Uint8Array(numBytes);
+	const bytes = new Uint8Array(numBytes);
 
 	for (let mod3, mod4, buffer = 0, index = 0, dataIndex = 0; dataIndex < dataLength; dataIndex++) {
 		mod4 = dataIndex & 3;
@@ -6521,10 +6510,7 @@ function urlB64ToUint8Array(base64String) {
 	return outputArray;
 }
 
-function uint8ArrayToBase64Url(uint8Array, start, end) {
-	start = start || 0;
-	end = end || uint8Array.byteLength;
-
+function uint8ArrayToBase64Url(uint8Array, start = 0, end = uint8Array.byteLength) {
 	const base64 = window.btoa(String.fromCharCode.apply(null, uint8Array.subarray(start, end)));
 	return base64
 		.replace(/\=/g, "") // eslint-disable-line no-useless-escape
@@ -6642,7 +6628,7 @@ But as a ratio of 4:3 bytes
 
 Decode with XmlHttpRequest or fetch, but this could be not supported (see Safari)
 
-Note: It's async, because `XMLHttpRequest` can't be used in synchronous mode because responseType other than the default value (equivalent of `"text"`) need async.
+Note: It's async, because `XMLHttpRequest` can't be used in synchronous mode because `responseType` other than the default value (equivalent of `"text"`) need async.
 
 > (`responseType`) When set: throws an `InvalidAccessError` exception if the [synchronous flag](https://xhr.spec.whatwg.org/#synchronous-flag) is set
 >
@@ -6822,13 +6808,13 @@ let bytes = context.getImageData(0, 0, canvas.width, canvas.height).data;
 Create a blob from bytes:
 
 ```js
-let blob = new Blob([bytes], {type: mediaType});
+const blob = new Blob([bytes], {type: mediaType});
 ```
 
 Read the blob with FileReader:
 
 ```js
-let reader = new FileReader();
+const reader = new FileReader();
 reader.addEventListener("loadend", () => console.log(reader.result, blob.type, blob.size));
 reader.readAsArrayBuffer(blob);
 ```
@@ -6836,8 +6822,8 @@ reader.readAsArrayBuffer(blob);
 Or with XHR:
 
 ```js
-let url = URL.createObjectURL(blob);
-let xhr = new XMLHttpRequest();
+const url = URL.createObjectURL(blob);
+const xhr = new XMLHttpRequest();
 xhr.open("GET", url, true);
 xhr.responseType = "arraybuffer";
 xhr.addEventListener("error", event => console.log(event));
@@ -7005,50 +6991,47 @@ fetch is a very explicit API:
 - doesn't send `Accept` header by default (image formats, html, json, etc.) the browser accept
 - doesn't interpret HTTP status code as a motive of rejection (4XX or 5XX errors). See `response.ok`. Only reject for network errors (i.e. address could not be resolved, server is unreachable or CORS not permitted).
 - CORS is disabled by default
-- POST data must be a string (you must set the `Content-Type` header)
+- `POST` data must be a string (you must set the `Content-Type` header)
 - abortable (using [AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal))
 - promise will reject only for network error or CORS misconfiguration: [Using Fetch - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful)
 - ``await (await fetch(`data:,\uFEFF{"text":"hello world!"}`)).json()``
 
 ```js
-fetch(url)
-	.then(response => {
-		return response.json().then(data => {
-			if (response.ok) {
-				return data;
-			} else {
-				return Promise.reject({status: response.status, data});
-			}
-		});
-	})
-	.then(result => console.log('success:', result))
-	.catch(error => console.log('error:', error));
+try {
+	const response = await rejectNonOKResponse(fetch(url));
+	const data = await response.json();
+	console.log('success:', data);
+}
+catch(error)
+{
+	console.log('error:', error)
+}
+
+async function rejectNonOKResponse(response){
+	const syncResponse = await response;
+	return syncResponse.ok ? syncResponse : Promise.reject(new Error("Unexpected non OK HTTP status"));
+}
 ```
 
 Opaque response:
 
 ```js
-fetch('https://example.com', {
+const response = await fetch('https://example.com', {
 	mode: 'no-cors'
-})
-.then(response => {
-	/*
-	Response {
-	  body: null
-	  bodyUsed: false
-	  headers: Headers // always empty
-	  ok: false
-	  redirected: false
-	  status: 0 // not a regular HTTP status code
-	  statusText: "" // always empty
-	  type: "opaque"
-	  url: ""
-	}
-	*/
-	return console.log(response)
-}).catch(error => {
-	return console.log(error)
 });
+/*
+Response {
+  body: null
+  bodyUsed: false
+  headers: Headers // always empty
+  ok: false
+  redirected: false
+  status: 0 // not a regular HTTP status code
+  statusText: "" // always empty
+  type: "opaque"
+  url: ""
+}
+*/
 ```
 
 **Note: I you store in cache API (via [Service Worker](#service-worker)) an opaque response is padded and count for around 7MB (Chrome) in quota limit. See [796060 - Cache Storage value rises on each refresh when Analytics code is in the html - chromium - Monorail](https://bugs.chromium.org/p/chromium/issues/detail?id=796060#c17)**
@@ -7107,13 +7090,34 @@ function fetchWithCancel(url, options = {}) {
 
 ### jsonp
 
-jQuery can handle automatically the callback name
+**Use CORS instead**
+
+Note: jQuery can handle automatically the callback name
 
 ```js
-$.getJSON("http://example.com/api.php?format=json&callback=?", function(data) {
+$.getJSON("https://example.com/api.php?format=json&callback=?", function(data) {
 	console.log(data);
 });
 ```
+
+```js
+function jsonp(url){
+	return new Promise((resolve, reject) => {
+		const methodName = `_${Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)}`;// TODO detect if this method already exist
+		const removeHandler = () => delete window[methodName];
+		window[methodName] = (data) => {removeHandler(); resolve(data);}
+
+		const script = document.createElement("script");
+		const urlObj = new URL("https://example.com/api.php?format=json");
+		urlObj.searchParams.set("callback", methodName);
+		script.addEventListener("error", (error) => {removeHandler(); reject(new Error(error.message))});
+		script.src = urlObj;
+		document.head.append(script);
+	});
+}
+```
+
+- [JSONP - Wikipedia](https://en.wikipedia.org/wiki/JSONP)
 
 ### Stop resource loading
 

@@ -390,10 +390,10 @@ text/plain md markdown mdown txt
 audio/ogg oga
 audio/x-wav wav
 application/ogg ogg
-application/x-javascript js
-application/ecmascript js
-application/javascript js
-text/ecmascript js
+#application/x-javascript js
+#application/ecmascript js
+#application/javascript js
+#text/ecmascript js
 text/javascript js
 application/xhtml+xml xhtml xht
 image/gif gif
@@ -530,7 +530,8 @@ application/octet-stream	jpb
 image/jpeg	jpe
 image/jpeg	jpeg
 image/jpeg	jpg
-application/javascript	js
+#application/javascript	js
+text/javascript	js
 application/json	json
 application/ld+json	jsonld
 text/jscript	jsx
@@ -909,8 +910,8 @@ text/css							css
 # ECMAScript (ES) markup
 application/ecmascript				es ecma as
 # JavaScript (JS) markup
-application/javascript				js mjs
-application/x-javascript			js
+#application/javascript				js mjs
+#application/x-javascript			js
 text/javascript						js mjs
 application/json					json
 # VBScript (VBS) markup

@@ -893,6 +893,7 @@ Or partial load
 	Benefit of HTTP2 multiplexing and progressive image to speed up first paint sooner
 
 	See also [JPEG - Progressive](JPEG#Progressive) (scan config and number of it can be tweak)
+- [evanw/thumbhash: A very compact representation of an image placeholder](https://github.com/evanw/thumbhash) - [ThumbHash: A very compact representation of an image placeholder](https://web.archive.org/web/20230322221109/https://evanw.github.io/thumbhash/)
 
 For images (works better with progressive images), in Edge Workers (Service Workers for CDN):
 

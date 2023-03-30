@@ -187,12 +187,14 @@ Aka animated transitions
 
 ## Wording
 
-- [Sign Up, Sign In, Sign Out](http://robots.thoughtbot.com/sign-up-sign-in-sign-out)
-- [Register, log in, log out](http://uxmovement.com/buttons/why-sign-up-and-sign-in-button-labels-confuse-users/)
-- [Why ‘Sign Up’ and ‘Sign In’ Button Labels Confuse Users - UX Movement](http://uxmovement.com/buttons/why-sign-up-and-sign-in-button-labels-confuse-users/)
 - "Your xxxx", "My xxxx" or "xxxx" [Is this my interface or yours? – Medium](https://medium.com/@jsaito/is-this-my-interface-or-yours-b09a7a795256#)
 - [Making a case for letter case – Medium](https://medium.com/@jsaito/making-a-case-for-letter-case-19d09f653c98#)
 - Terminology and Wording: [OS X Human Interface Guidelines: Terminology and Wording](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/TerminologyWording.html#//apple_ref/doc/uid/20000957-CH15-SW1)
+
+Sign-in, log-in, signin, signup, signup, etc.:
+
+- [Sign Up, Sign In, Sign Out](https://web.archive.org/web/20221006234936/https://thoughtbot.com/blog/sign-up-sign-in-sign-out)
+- [Why ‘Sign Up’ and ‘Sign In’ Button Labels Confuse Users](https://web.archive.org/web/20230108060731/https://uxmovement.com/buttons/why-sign-up-and-sign-in-button-labels-confuse-users/)
 
 ## String troncation
 

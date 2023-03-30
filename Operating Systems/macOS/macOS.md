@@ -2826,6 +2826,7 @@ sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV2 "SELEC
 ```
 
 - [Add quarantine attribute to downloads · Issue #22388 · Homebrew/homebrew-cask](https://github.com/Homebrew/homebrew-cask/issues/22388)
+- [Ventura has changed app quarantine with a new xattr – The Eclectic Light Company](https://web.archive.org/web/20230314001755/https://eclecticlight.co/2023/03/13/ventura-has-changed-app-quarantine-with-a-new-xattr/)
 - [Extended attribute](#extended-attribute)
 
 ### Certificats

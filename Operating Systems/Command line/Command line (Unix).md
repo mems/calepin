@@ -1239,7 +1239,7 @@ Profile files, defined by (in order, but also if the shell is interactive and/or
 3. (user) `~/.bash_profile`
 4. (user) `~/.bash_login`
 5. (user) `~/.profile`
-6. (user) `~/.bashrc` (not used by some OS like macOS for login shell)
+6. (user) `~/.bashrc` (not used by some OS like macOS for login shell, it's recommended to `if [ -s ~/.bashrc ]; then source ~/.bashrc; fi` in `~/.profile` for that case)
 7. (user) `~/.bash_logout` au logout
 
 (and `/etc/bash.bashrc`, `/etc/bash.bashrc.local`?)
@@ -1263,6 +1263,7 @@ By convention, the prompt ends with `$` for users and by `#` for root
 - [bash - Difference between .bashrc and .bash_profile - Super User](https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile/183980#183980)
 - [Bourne shell: what does it execute on interactive, non-login? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/340837/bourne-shell-what-does-it-execute-on-interactive-non-login/340840#340840)
 - [How to check if a shell is login/interactive/batch - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/26676/how-to-check-if-a-shell-is-login-interactive-batch/26782#26782)
+- [Difference between Login Shell and Non-Login Shell? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/)
 - [bash - How to pass environment variables to a non-interactive shell (with example)? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/158117/how-to-pass-environment-variables-to-a-non-interactive-shell-with-example/158120#158120)
 - [How to permanently set environmental variables - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables/117470#117470)
 - [How To Read and Set Environmental and Shell Variables on Linux | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
@@ -2958,6 +2959,7 @@ echo a b c | awk '{print $1,$3}'
 - [awk-scripts/talk.txt at master · rethab/awk-scripts](https://github.com/rethab/awk-scripts/blob/master/talk.txt)
 - [onetrueawk/awk: One true awk](https://github.com/onetrueawk/awk)
 - [wernsey/d.awk: An Awk script to generate documentation from Markdown comments in C/C++/Java/JavaScript/C# source code.](https://github.com/wernsey/d.awk)
+- [Fascination of AWK | Volodymyr Gubarkov](https://web.archive.org/web/20230324090605/https://maximullaris.com/awk.html)
 - [GitHub - TheMozg/awk-raycaster: Pseudo-3D shooter written completely in gawk using raycasting technique](https://github.com/TheMozg/awk-raycaster)
 
 ## Disk and file system operations

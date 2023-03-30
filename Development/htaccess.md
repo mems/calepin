@@ -598,7 +598,7 @@ ExpiresByType text/html                 "access plus 0 seconds"
 
 # CSS and JavaScript
 ExpiresByType text/css                  "access plus 1 year"
-ExpiresByType application/javascript    "access plus 1 year"
+ExpiresByType text/javascript           "access plus 1 year"
 
 # Data
 ExpiresByType text/xml                  "access plus 0 seconds"

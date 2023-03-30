@@ -2525,7 +2525,7 @@ const uniq = [1, 2, 3, 4, 5, 1, 2, 6].filter((value, index, array) => !array.inc
 ```
 
 ```js
-let uniqueValues = values.reduce((dest, search) => {
+const uniqueValues = values.reduce((dest, search) => {
 	if (dest.indexOf(search) < 0){
 		dest.push(search);
 	}
@@ -2546,11 +2546,11 @@ Store object, array stringified JSON that could be parsed at execution, faster t
 Support forced direction
 
 ```js
-var toIndex;// start
-var fromIndex;// end
-var forcedDirection;// -1, 0, +1
-var count;// num elements
-var offset = 0;
+const toIndex;// start
+const fromIndex;// end
+const forcedDirection;// -1, 0, +1
+const count;// num elements
+let offset = 0;
 if(toIndex > fromIndex){
 	offset = this._transitionDirection < 0 || toIndex - fromIndex > count / 2 ? count + fromIndex - toIndex : fromIndex - toIndex;
 }else{
@@ -2561,8 +2561,8 @@ if(toIndex > fromIndex){
 For infinite loop
 
 ```js
-var index = fromIndex + offset;//offset = relative index
-var absIndex = (count + index % count) % count;// real index (support negative index)
+const index = fromIndex + offset;//offset = relative index
+const absIndex = (count + index % count) % count;// real index (support negative index)
 ```
 
 ## Insert property in object with order
@@ -2617,11 +2617,11 @@ progress = (progress < 0.5) ? progress * 2 : 1 - (progress - 0.5) * 2;// 0->1->0
 ### In time
 
 ```js
-let filesize = ...;
+const filesize = ...;
 let lastpercent = 0;
-let starttime = Date.time();
+const starttime = Date.time();
 function human(size){
-	let units = ['B','KiB','MiB','GiB','TiB','PiB', 'EiB', 'ZiB', 'YiB'];
+	const units = ['B','KiB','MiB','GiB','TiB','PiB', 'EiB', 'ZiB', 'YiB'];
 	let unitIndex = 0;
 	while(size > 1024 && unitIndex < units.length){
 		size /= 1024;
@@ -2635,7 +2635,7 @@ while(...){
 	let currentseek = ...;
 
 	if(currentseek / filesize > lastpercent){
-		let percent = (currentseek / filesize * 1000) / 10;// round ###.##
+		const percent = (currentseek / filesize * 1000) / 10;// round ###.##
 		console.log(percent + '%');
 		lastpercent += 0.01;
 		console.log(human(currentseek) + '/' + human(filesize));
@@ -2679,6 +2679,10 @@ See also [RegExp](RegExp)
 
 ### Look behind and look after
 
+```js
+`class="test" src="https://example.com" alt=""`.match(/(?<=src=(["'])).*?(?=\1)/);// > ["https://example.com", '"']
+```
+
 - [regex - Javascript: negative lookbehind equivalent? - Stack Overflow](https://stackoverflow.com/questions/641407/javascript-negative-lookbehind-equivalent)
 - [Flagrant Badassery » Mimicking Lookbehind in JavaScript](http://blog.stevenlevithan.com/archives/mimic-lookbehind-javascript)
 
@@ -2688,23 +2692,23 @@ Be carefull when create/inline regex in loops. Regex are muttable (`lastIndex` p
 
 ```js
 // Don’t do that:
-var count = 0;
+let count = 0;
 while (/a/g.test('babaa')) count++;
 ```
 
 But
 
 ```js
-var count = 0;
-var regex = /a/g;
+let count = 0;
+const regex = /a/g;
 while (regex.test('babaa')) count++;
 ```
 
 ```js
 // Don’t do that:
 function extractQuoted(str) {
-	var match;
-	var result = [];
+	let match;
+	const result = [];
 	while ((match = /"(.*?)"/g.exec(str)) != null) {
 		result.push(match[1]);
 	}
@@ -2718,8 +2722,8 @@ But
 const QUOTE_REGEX = /"(.*?)"/g;
 function extractQuoted(str) {
 	QUOTE_REGEX.lastIndex = 0;
-	var match;
-	var result = [];
+	let match;
+	const result = [];
 	while ((match = QUOTE_REGEX.exec(str)) != null) {
 		result.push(match[1]);
 	}
@@ -2733,22 +2737,13 @@ function extractQuoted(str) {
 ## String padding
 
 ```js
-var n = 13;
+const n = 13;
+String(n).padStart(3, "0");// > "013"
+("000" + n).substr(-3, 3);// > "013"
+("000" + n).slice(-3);// > "013"
 ```
 
-```js
-String(n).padStart(3, "0");// -> "013"
-```
-
-```js
-("000" + n).substr(-3, 3);// -> "013"
-```
-
-```js
-("000" + n).slice(-3);// -> "013"
-```
-
-`"000"` replace with `"0".repeat(3)`
+Replace `"000"` with `"0".repeat(3)`
 
 - [convert '1' to '0001' in JavaScript - Stack Overflow](https://stackoverflow.com/questions/5366849/convert-1-to-0001-in-javascript)
 - [ES proposal: string padding](http://www.2ality.com/2015/11/string-padding.html)
@@ -2758,7 +2753,7 @@ String(n).padStart(3, "0");// -> "013"
 ### Is power of two
 
 ```js
-let isPositivePowerOfTwo = a > 0 && (a & (a - 1)) == 0;
+const isPositivePowerOfTwo = a > 0 && (a & (a - 1)) == 0;
 ```
 
 ### Round to nearest power of two
@@ -3324,7 +3319,7 @@ function randomUUID(){
 
 ```js
 Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)// > "5lv1liy34k"
-BigInt(Math.round(Math.random() * Number.MAX_SAFE_INTEGER));
+BigInt(Math.round(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36);
 Math.round(Math.random() * (36**digits)).toString(36);
 ```
 

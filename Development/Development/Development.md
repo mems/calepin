@@ -563,6 +563,8 @@ See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
 
 ### Inclusive terminology
 
+To exclude any bias.
+
 > For symbol names and documentation, avoid introducing new usage of "master" / "slave" (or "slave" independent of "master") and "blacklist" / "whitelist".
 >
 > Recommended replacements for "master" / "slave" are:
@@ -584,11 +586,22 @@ See [synonymicon](https://en.wiktionary.org/wiki/synonymicon) / thesaurus
 
 Use more appropriate terms. Exemple, instead of "master and slave", use "primary and secondary" or "initiator and responder" (based on the context). For "whitelist and blacklist", use "safelist" and "blocklist".
 
+- feminization
+	- switch words: chirugien -> chirugienne, auteur -> autrice (ou auteure), madame le ministre -> madame **la** ministre
+	- duplicate: informaticien -> informaticien ou informaticienne
+	- short form (interpunct, uppercase, dash, etc.): informaticien -> informaticien·ne, chef de projet -> chef/fe de projet, un ami -> unE amiE, avocats -> avocat-e-s
+	- accord de proximité qui consiste à accorder avec le dernier listé: Les participants et les participant**e**s sont allé**e**s faire la file. Les participant**e**s et les participants sont all**é**s faire la file.
+- neutralization
+	- neutral words: Hommes -> humain, recherche chef de projet -> offre d'emploi : direction de projet
+	- form that doesn't use gender: Les canadiens -> la population canadienne
+	- neutral pronouns: iel passe prendre l'apéro ce soir
+
 - [Paul Vixie sur Twitter : "as the originator of the terms, i have to say, "master and slave" describe protocol roles not data mod](https://mobile.twitter.com/paulvixie/status/942849555111874560)
 - [Kelly Ellis sur Twitter : "The notion that the terms "master" and "slave" have no historical context is false. Otherwise they wo](https://mobile.twitter.com/justkelly_ok/status/933460605813641216)
 - [Amy Gebhardt on Twitter: "Huh! Just noticed that @travisci doesn't use whitelist/blacklist terminology. Instead, they choose "safelist" and "blocklist" in their documentation 💯 There. Now you have alternatives too. Let's stop using problematic phrases, yeah? Language matters. And it's not that hard." / Twitter](https://twitter.com/amlyhamm/status/1202684742069604353)
 - [kernel/git/torvalds/linux.git - Linux kernel source tree](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=49decddd39e5f6132ccd7d9fdc3d7c470b0061bb)
 - [Terminology, Power, and Inclusive Language in Internet-Drafts and RFCs](https://tools.ietf.org/id/draft-knodel-terminology-03.html) - [draft-knodel-terminology-03 - Terminology, Power, and Inclusive Language in Internet-Drafts and RFCs](https://datatracker.ietf.org/doc/draft-knodel-terminology/)
+- [L’écriture inclusive a-t-elle un intérêt ? Quelles preuves ? - YouTube](https://www.youtube.com/watch?v=url1TFdHlSI)
 
 ### Naming convention
 
@@ -1573,6 +1586,12 @@ See also:
 
 - [Game Programming Patterns](http://gameprogrammingpatterns.com/) - [munificent/game-programming-patterns: Source repo for the book](https://github.com/munificent/game-programming-patterns)
 
+## VR
+
+- [Making an interactive digital frame with head-tracking using Three.js and TensorFlow.js | Charlie Gerard | Senior frontend developer & Creative Technologist Charlie Gerard | Senior frontend developer & Creative Technologist](https://web.archive.org/web/20221205150510/https://charliegerard.dev/blog/interactive-frame-head-tracking/)
+- [Could we make the web more immersive using a simple optical illusion? – Spatial Commerce Projects – A Shopify lab exploring the crossroads of spatial computing and commerce; creating concepts, prototypes, and tools.](https://web.archive.org/web/20230307074049/https://shopify.github.io/spatial-commerce-projects/WonkaVision/)
+- [Head Tracking for Desktop VR Displays using the WiiRemote - YouTube](https://www.youtube.com/watch?v=Jd3-eiid-Uw) - [Johnny Chung Lee - Projects - Wii](https://web.archive.org/web/20230222111218/http://johnnylee.net/projects/wii/)
+
 ## License
 
 > This file incorporates work covered by the following copyright and permission notice:” followed by the original copyright and license copied in
@@ -1983,7 +2002,7 @@ namespace CommandPattern
       ICommand switchDown = new FlipDownCommand(lamp);
 
       Switch s = new Switch();
-      string arg = args.Length &gt; 0 ? args[0].ToUpper() : null;
+      string arg = args.Length > 0 ? args[0].ToUpper() : null;
       if (arg == "ON")
       {
         s.StoreAndExecute(switchUp);
