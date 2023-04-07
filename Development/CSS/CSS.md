@@ -2135,7 +2135,7 @@ See [Fragment identifier and SVG stack](SVG#fragment-identifier-and-svg-stack)
 	<g id="plus" class="icon"></g>
 	<g id="chart" class="icon"></g>
 </svg>
-```css
+```
 
 > Works currently only for img, iframe, embed, object in Firefox, Opera, IE9, Chrome, Safari
 

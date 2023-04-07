@@ -330,7 +330,7 @@ Aka crème de poivrons à la grenade
 
 - [Muhammara, crème de poivrons à la grenade - Un déjeuner de soleil](https://www.undejeunerdesoleil.com/2014/05/muhammara-creme-poivrons-noix-grenade.html)
 
-## Gauffre courgette - pomme de terre
+## Gaufre courgette - pomme de terre
 
 > Pour environ 10 mini gaufres:
 >
@@ -351,6 +351,61 @@ Aka crème de poivrons à la grenade
 > 5. Mélangez le tout jusqu'à obtention d'une pâte homogène
 > 6. Versez une belle cuillère à soupe dans chaque compartiment de votre gaufrier
 > 7. Refermez et laissez cuire jusqu'à ce que vos gaufres est une jolie couleur dorée
+
+## Gaufres ancienne
+
+Pour 6 personnes:
+
+- de l'eau
+- cuillère à soupe de sel
+- pincée de poivre
+- un peu d'huile
+- 2 louches de rémoulage (ou "rémoulage de blé" est un coproduit du blé tendre, enveloppes broyées des grains)
+- 2 louches de sarrazin
+- 4 louches de farine de froment
+
+1. mélanger les 3 farines
+2. saler, poivrer
+3. tourner avec un filet d'eau
+4. préchauffer des gauffriers huilées, dans le feu
+5. faire cuire 5 min chaque côté
+
+- [Recette : Les gaufres à l'ancienne 🧇 | Archive INA - YouTube](https://www.youtube.com/watch?v=zf3UPlzMO2o)
+
+## Gaufre liégeoise
+
+- préparation : 3 h
+- cuisson : 3 mn
+- repos : 2 h
+
+Pétrissage :
+
+- 1 kg de farine T55
+- 300 g d’œufs
+- 300 g de lait
+- 18 g de sel
+- 80 g de sucre inverti
+- 60 g de levure
+- 250 g de pâte fermentée viennoise
+
+Fin de pétrissage :
+
+- 500 g de beurre
+- 600 g de sucre casson / sucre perlé
+
+1. Pétrissage
+	a. la température de base de la pâte doit être comprise entre 46°C et 50°C.
+	b. au batteur, incorporez tous les ingrédients du pétrissage dans la cuve
+	c. mélanger d'abord en 1ère vitesse pendant 3 minutes (frasage)
+	d. mélanger ensuite pendant 5 minutes en 2ème vitesse (pétrissage)
+2. fin de pétrissage
+	a. ajouter le beurre en 1ère vitesse jusqu'à l'obtention d'une pâte lisse
+	b. il faut que la pâte ne soit trop ferme, ni trop souple (on dit "pâte bâtarde") et qu'elle soit à 23°C
+	c. laissez reposer 20 minutes et ajouter le sucre casson. Laisser à nouveau reposer, pendant 1 heure (pointage)
+	d. réaliser ensuite des pâtons de 100 g puis bouler. Laisser reposer encore 1 heure (apprêt)
+	e. faire cuire 3 minutes dans les fers à gaufres à grosses mailles, préchauffés à 180°C
+
+- [Recette de gaufre liégeoise](https://www.academiedugout.fr/recettes/gaufre-liegeoise_11892_2)
 
 ## Far breton
 

@@ -1268,6 +1268,7 @@ By convention, the prompt ends with `$` for users and by `#` for root
 - [How to permanently set environmental variables - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables/117470#117470)
 - [How To Read and Set Environmental and Shell Variables on Linux | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 - [terminal - Why doesn't .bashrc run automatically? - Ask Different](https://apple.stackexchange.com/questions/12993/why-doesnt-bashrc-run-automatically/13019#13019) - add `if [ -s ~/.bashrc ]; then source ~/.bashrc; fi` to `~/.bash_profile`
+- [Suggestion: disambiguate shell setup steps · Issue #351 · Schniz/fnm](https://github.com/Schniz/fnm/issues/351#issuecomment-749202468) - About macOS that doesn't source `~/.bashrc`
 
 ### Command alias
 
