@@ -4762,8 +4762,15 @@ Note: Scripts elements will be executed, only after been appended (like `documen
 
 ```js
 const range = document.createRange();
-range.selectNode(parent);// set the context element for the parser not required, by default it's will be document.body
+// Set the context element for the parser not required, by default it's will be document.body
+// This is needed for exemple when parse table elements (parent should be a table): `<tr><td></td></tr>` or the `DocumentFragment` will be empty.
+range.selectNode(parent);
 const nodes = range.createContextualFragment(htmlString);
+```
+
+```js
+// If the context element can't be provided, you need to wrap it in a template element
+const node = document.createRange().createContextualFragment(`<template>${htmlString}</template>`).firstElementChild.content;
 ```
 
 - [Range.createContextualFragment() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/range/createContextualFragment)
