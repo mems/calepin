@@ -1652,12 +1652,16 @@ Always use the same type in same property
 - > Prefer monomorphic code to polymorphic code
 	— [How the V8 engine works?](http://thibaultlaurens.github.io/javascript/2013/04/29/how-the-v8-engine-works/)
 
-## Loop over array like
+## Loop over iterable
+
+Aka array like
 
 ```js
-for(let item of arraylike){
-
+for(const item of arraylike){
+	console.log(item);
 }
+
+[...arraylike].forEach(item => console.log(item));
 ```
 
 - [Performance optimizations and for loops](http://www.2ality.com/2013/07/for-loop-performance.html)
@@ -2388,6 +2392,12 @@ requestAnimationFrame(() => console.log("requestAnimationFrame 2"));
 - [How JavaScript works: memory management + how to handle 4 common memory leaks | by Alexander Zlatkov | SessionStack Blog](https://web.archive.org/web/20201115130752/https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec?gi=e35da23f4d92)
 - [Concurrency model and Event Loop - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 - [Asynchronous Adventures in JavaScript: Understanding the Event Loop](https://web.archive.org/web/20191013173002/https://medium.com/dailyjs/asynchronous-adventures-in-javascript-understanding-the-event-loop-fc6f968d5f72)
+
+In Node.js:
+
+> - [`process.nextTick`](http://nodejs.org/api/process.html#process_process_nexttick_callback): Execute callback after current event queue finishes i.e. at the beginning of next event loop. It does not allow I/O execution until [`maxTickDepth`](http://nodejs.org/api/process.html#process_process_maxtickdepth) `nextTick` calls are executed. If used too much it can prevent I/O from occurring.
+> - [`setImmediate`](http://nodejs.org/api/timers.html#timers_setimmediate_callback_arg): Execute callback after I/O callbacks in current event loop are finished. Allows I/O to happen between multiple `setImmediate` calls.
+
 
 ## `finally` is executed after return
 

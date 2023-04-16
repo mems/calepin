@@ -1,5 +1,4 @@
 - [Test if native application installed](Security#test-if-native-application-installed)
-- [About Apple Configurator 2.3 - Apple Support](https://support.apple.com/en-us/HT207133)
 
 - [iMazing | iPhone, iPad & iPod Manager for Mac & PC](https://imazing.com/en)
 - [iTools - Provide the most useful tools for iOS users (thinkskysoft)](https://www.thinkskysoft.com/itools/)
@@ -17,6 +16,13 @@ Sideload IPA (install a third party app):
 
 - [Appdome | "Sideload" Apps Using MacOS](https://www.appdome.com/no-code-mobile-integration-knowledge-base/install-a-fused-ios-app-with-imazing/)
 - [Did you know how easy it is to sideload iOS apps to your iPhone?!](https://www.brianmadden.com/opinion/Did-you-know-how-easy-it-is-to-sideload-iOS-apps-to-your-iPhone)
+
+## Apple Configurator
+
+- [About Apple Configurator 2.3 - Apple Support](https://support.apple.com/en-us/HT207133)
+- [Apple Configurator on the Mac App Store](https://apps.apple.com/us/app/apple-configurator-2/id1037126344?mt=12)
+- [Apple Configurator (self-hosted local MDM, free macOS app in store) has an optio... | Hacker News](https://news.ycombinator.com/item?id=35448123) - Could be a "fix" for "iOS lets carriers add WiFi networks that you can’t stop from joining"
+- [Apple - Support - Search](https://support.apple.com/kb/index?page=search&type=suggested&locale=en_US&q=apple+configurator&src=globalnav_support)
 
 ## Firmware
 

@@ -4770,6 +4770,7 @@ const nodes = range.createContextualFragment(htmlString);
 
 ```js
 // If the context element can't be provided, you need to wrap it in a template element
+// Note: The parsed nodes are adopted by a new document. That means node.ownerDocument.defaultView is empty
 const node = document.createRange().createContextualFragment(`<template>${htmlString}</template>`).firstElementChild.content;
 ```
 

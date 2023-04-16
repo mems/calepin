@@ -24,6 +24,12 @@ See also [Math](../Math/Math.md)
 - [sherxon/AlgoDS: Implementation of Algorithms and Data Structures, Interview Questions and Answers](https://github.com/sherxon/AlgoDS/)
 - [10 Common Data Structures Explained with Videos + Exercises](https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b)
 - [Visualizing Algorithms](https://web.archive.org/web/20220703173926/https://bost.ocks.org/mike/algorithms/)
+- [trekhleb/javascript-algorithms: 📝 Algorithms and data structures implemented in JavaScript with explanations and links to further readings](https://github.com/trekhleb/javascript-algorithms)
+- [tayllan/awesome-algorithms: A curated list of awesome places to learn and/or practice algorithms.](https://github.com/tayllan/awesome-algorithms)
+- [EbTech/rust-algorithms: Common data structures and algorithms in Rust](https://github.com/EbTech/rust-algorithms)
+- [TheAlgorithms/Rust: All Algorithms implemented in Rust](https://github.com/TheAlgorithms/Rust)
+- [Yomguithereal/mnemonist: Curated collection of data structures for the JavaScript/TypeScript language.](https://github.com/Yomguithereal/mnemonist)
+- [Algorithms & Data Structures | Learn Algorithms with TypeScript for Interviews | Frontend Masters](https://frontendmasters.com/courses/algorithms/)
 
 ## GPU computing
 
