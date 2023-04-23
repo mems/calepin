@@ -53,3 +53,9 @@ See also:
 - [Wasmer - The Universal WebAssembly Runtime](https://wasmer.io/)
 - [I turned JS into a compiled language (for fun and Wasm) — surma.dev](https://web.archive.org/web/20221030033817/https://surma.dev/things/compile-js/)
 - [Docker+Wasm (Beta) | Docker Documentation](https://docs.docker.com/desktop/wasm/)
+
+## WebAssembly Text
+
+Aka WAT
+
+- [WebAssembly Text code samples - Eli Bendersky's website](https://web.archive.org/web/20230422170600/https://eli.thegreenplace.net/2023/webassembly-text-code-samples/)

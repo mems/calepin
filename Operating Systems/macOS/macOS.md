@@ -789,6 +789,8 @@ Ex: MySql DB files. Solution: cron mysqldump hourly (or less if large DB) + exlu
 
 ## OS
 
+- [OpenCore Legacy Patcher](https://dortania.github.io/OpenCore-Legacy-Patcher/) - "breathe new life into Macs no longer supported by Apple, allowing for the installation and usage of macOS Big Sur and newer on machines as old as 2007"
+
 ### Install macOS
 
 Use Option-Command (⌘)-R at startup to reinstall lastest version of the OS: [How to reinstall macOS - Apple Support](https://support.apple.com/en-us/HT204904)

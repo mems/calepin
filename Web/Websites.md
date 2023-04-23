@@ -36,6 +36,25 @@ This can also impact dependencies like styles, fonts, images, video, scripts (li
 - [How Google’s CDN prevents your site from loading in China](https://edjiang.com/how-googles-cdn-prevents-your-site-from-loading-in-china-67504845cd04)
 - [Dropbox, Google Drive and Microsoft OneDrive cloud services blocked in Turkey following leaks - Turkey Blocks](https://turkeyblocks.org/2016/10/08/google-drive-dropbox-blocked-in-turkey/)
 
+## Trust and safe
+
+- [VirusTotal - Home](https://www.virustotal.com/gui/home/url)
+- [Website Security Checker | Malware Scan | Sucuri SiteCheck](https://sitecheck.sucuri.net/)
+- [Is This Website Safe | Website Security | Norton Safe Web](https://safeweb.norton.com/)
+	- [NortonLifeLock Customer Support Portal](https://submit.norton.com/?type=URL)
+	- [Is This Website Safe | Website Security | Norton Safe Web](https://safeweb.norton.com/help/site_owners)
+- [Symantec Sitereview](https://sitereview.symantec.com/#/)
+- [Google Safe Browsing – Google Transparency Report](https://transparencyreport.google.com/safe-browsing/search?hl=en)
+- [SSL Server Test (Powered by Qualys SSL Labs)](https://www.ssllabs.com/ssltest/)
+- [webserver - Why is Norton Safe Web flagging my site as dangerous when it reports on PHP files/urls that don't exist? - Information Security Stack Exchange](https://security.stackexchange.com/questions/116093/why-is-norton-safe-web-flagging-my-site-as-dangerous-when-it-reports-on-php-file)
+- [urlquery.net - Automated URL scanner](https://urlquery.net/)
+- [Quttera - Detailed Malware Scan Report](https://quttera.com/detailed_report/example.com)
+- [Check Single URL](https://sitelookup.mcafee.com/)
+	- [McAfee SiteAdvisor Software - Website Safety Ratings and Secure Search](https://www.siteadvisor.com/sitereport.html?url=https://example.com)
+	- [McAfee KB - McAfee WebAdvisor website rating dispute resolution process (TS100806)](https://www.mcafee.com/support/?locale=en-US&articleId=TS100806&fromSearch=true&page=shell&shell=article-view)
+- [Manage warnings about unsafe sites - Computer - Google Chrome Help](https://support.google.com/chrome/answer/99020?hl=en&co=GENIE.Platform%3DDesktop)
+- [Website Safety Check & Phishing Protection | WOT](https://www.mywot.com/)
+
 ## Social media dimensions
 
 - https://docs.google.com/spreadsheets/d/1IpTYTTMJLcSXcPDtW9zSbPBHQyRdrLfKERohGIIkE_Q/edit#gid=1990145635

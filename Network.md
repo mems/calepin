@@ -73,3 +73,8 @@ See also:
 - [Zone file — Wikipedia](https://en.wikipedia.org/wiki/Zone_file)
 - [List of DNS record types — Wikipedia](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 - [Frequent Questions: DNS Records — Gandi Documentation documentation](https://docs.gandi.net/en/domain_names/faq/dns_records.html#do-you-have-examples-of-dns-records) - DNS records exampels
+
+## Wake-on-LAN
+
+- [Making a Linux home server sleep on idle and wake on demand — the simple way | Daniel P. Gross](https://web.archive.org/web/20230420192730/https://dgross.ca/blog/linux-home-server-auto-sleep/)
+- [Wake-on-LAN - Wikipedia](https://en.wikipedia.org/wiki/Wake-on-LAN)

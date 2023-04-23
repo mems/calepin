@@ -109,8 +109,9 @@ UPDATE wp_posts SET guid = replace(guid, @curent, @next);
 
 ## Plugins
 
-- [Proxy Cache Purge](https://fr.wordpress.org/plugins/varnish-http-purge/)
-- [WP Statistics](https://fr.wordpress.org/plugins/wp-statistics/)
+- [Proxy Cache Purge – WordPress plugin | WordPress.org](https://wordpress.org/plugins/varnish-http-purge/)
+- [WP Statistics – WordPress plugin | WordPress.org](https://wordpress.org/plugins/wp-statistics/)
+- [Duplicator – WordPress Migration & Backup Plugin – WordPress plugin | WordPress.org](https://wordpress.org/plugins/duplicator/)
 
 ## Rest API
 

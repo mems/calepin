@@ -12,10 +12,22 @@ dmesg
 ```
 
 - [What kind of CPU does my Synology NAS have?](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General/What_kind_of_CPU_does_my_NAS_have)
+- [\[Disassembly\] Synology DS415+ - YouTube](https://www.youtube.com/watch?v=1PYp9CNdgn4)
+- [Synology disassemble and reassembly - YouTube](https://www.youtube.com/watch?v=eHCf51AytLM)
+- [Will applying thermal paste on Synology NAS improve cooling? : jeeja.biz](https://web.archive.org/web/20220527124847/https://www.jeeja.biz/2021/01/04/apply-thermal-paste-on-synology-nas/)
 
 ### DSM on a PC
 
 - [Turn old PC into Synology NAS - YouTube](https://www.youtube.com/watch?v=_3_7ZzFxePI)
+
+### Intel's Atom C2000 series failure
+
+Aka 100Ω resistor fix
+
+- [Synology DS415+ does not boot - How to fix it!](https://web.archive.org/web/20230130025013/https://www.ajfriesen.com/synology-ds415-fix-boot-issue/)
+- [EEVblog #1288 - Synology NAS Dumpster Find! (REPAIR) - YouTube](https://www.youtube.com/watch?v=Y8_emfoR_MI)
+- [Intel c2000 failures | Synology Community](https://web.archive.org/web/20230422224537/https://community.synology.com/enu/forum/1/post/120548?page=3)
+- [\[Solved\] Repair options for RS815+ ? \[100 Ohm resistor fix\] | Synology Community](https://web.archive.org/web/20230121120108/https://community.synology.com/enu/forum/1/post/136284)
 
 ## Security
 

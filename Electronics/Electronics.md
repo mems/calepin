@@ -3,6 +3,7 @@ Mettre résistance en série. Ex. : LED 3mm = alimenté par 5V -> [2V, 20mA] = 1
 
 - [Calcul de section des cables electriques](http://forum-camping-car.fr/camping-car/142/calcul-section-fil-electricite.html)
 - [Calcul Section Câble : calculez facilement votre section de fil](https://commentcalculer.fr/calcul/section-cable/)
+- [resisto.rs](http://resisto.rs/#)
 
 - [Electronics - Wikipedia](https://en.wikipedia.org/wiki/Electronics)
 - [Don’t use 7-segment displays](https://web.archive.org/web/20210307053329/http://www.harold.thimbleby.net/cv/files/seven-segment.pdf)
