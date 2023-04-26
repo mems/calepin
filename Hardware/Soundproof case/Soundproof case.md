@@ -1,0 +1,4 @@
+- [How to Make a Sound Proof Box - YouTube](https://www.youtube.com/watch?app=desktop&v=jXVSNzr3p70)
+- [How to soundproof a Synology NAS · Geoff Ruddock](https://web.archive.org/web/20220811221851/https://geoffruddock.com/soundproof-synology/)
+- [How to Make High Performance Sound Absorption Panels for $5 - YouTube](https://www.youtube.com/watch?v=pABvTWSxOes)
+- [Do not build a sound insulated enclosure for your noisy air compressor! - YouTube](https://www.youtube.com/watch?v=isbVBdz79Q0)
