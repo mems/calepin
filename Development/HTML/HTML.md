@@ -1758,6 +1758,11 @@ If you have to define multiple size based on dppx or viewport size, you can use 
 
 See also [CSS - Image](../CSS/CSS.md#image)
 
+## Image map
+
+- [Free Online Image Map Generator](https://www.image-map.net/)
+- [Image map - Wikipedia](https://en.wikipedia.org/wiki/Image_map)
+
 ## Image description
 
 Image alternative
