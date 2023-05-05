@@ -78,3 +78,14 @@ See also:
 
 - [Making a Linux home server sleep on idle and wake on demand — the simple way | Daniel P. Gross](https://web.archive.org/web/20230420192730/https://dgross.ca/blog/linux-home-server-auto-sleep/)
 - [Wake-on-LAN - Wikipedia](https://en.wikipedia.org/wiki/Wake-on-LAN)
+
+## IP address
+
+- 0: 127.0.0.1 (or 0.0.0.0 on macOS)
+- 10.50.1: 10.50.0.1
+- 10.0.513: 10.0.2.1
+- 167772673: 10.0.2.1
+- A000201: 10.0.2.1
+- 10.0.2.010: 10.0.2.8
+
+- [There’s more than one way to write an IP address](https://web.archive.org/web/20230505170552/https://ma.ttias.be/theres-more-than-one-way-to-write-an-ip-address/)

@@ -62,6 +62,12 @@ Setup Proxy (when using Emulator, or not) http://www.techverse.net/how-to-setup-
 - [Kiosk Mode - Android 5.0 (Lollipop) or Higher | QuickTapSurvey : Help Center](http://support.quicktapsurvey.com/support/solutions/articles/208386-kiosk-mode-android-5-0-lollipop-or-higher)
 - [Kiosk Mode - Android | QuickTapSurvey : Help Center](http://support.quicktapsurvey.com/support/solutions/articles/197934-kiosk-mode-android)
 
+## Remote
+
+Mirrors video and audio
+
+- [Genymobile/scrcpy: Display and control your Android device](https://github.com/Genymobile/scrcpy)
+
 ## Reverse tethering
 
 Use the host network

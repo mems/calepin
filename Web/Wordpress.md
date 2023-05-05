@@ -112,6 +112,7 @@ UPDATE wp_posts SET guid = replace(guid, @curent, @next);
 - [Proxy Cache Purge – WordPress plugin | WordPress.org](https://wordpress.org/plugins/varnish-http-purge/)
 - [WP Statistics – WordPress plugin | WordPress.org](https://wordpress.org/plugins/wp-statistics/)
 - [Duplicator – WordPress Migration & Backup Plugin – WordPress plugin | WordPress.org](https://wordpress.org/plugins/duplicator/)
+- [Jekyll Exporter – WordPress plugin | WordPress.org](https://wordpress.org/plugins/jekyll-exporter/) - "One-click WordPress plugin that converts all posts, pages, taxonomies, metadata, and settings to Markdown and YAML which can be dropped into Jekyll (or Hugo or any other Markdown and YAML based site engine). "
 
 ## Rest API
 

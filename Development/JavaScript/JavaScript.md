@@ -1702,11 +1702,15 @@ Chrome `chrome://gpu/`
 - [Some aspects of WebGL optimisation | codedoc's notes](https://codedoc255.wordpress.com/2015/06/29/some-aspects-of-webgl-optimisation/)
 - [WebGL Masking & Composition – Your Majesty Co. – Medium](https://medium.com/@Zadvorsky/webgl-masking-composition-75b82dd4cdfd#)
 - [Thoughts On Fast Bitmap Image Rendering · openlayers/openlayers Wiki](https://github.com/openlayers/openlayers/wiki/Thoughts-On-Fast-Bitmap-Image-Rendering)
-- [WebGPU \<img\>, \<canvas\>, and \<video\> texture best practices | webgpu-best-practices](https://web.archive.org/web/20211020131241/https://toji.github.io/webgpu-best-practices/img-textures.html)
 
 - [Thinking in WebGL: Reducing Memory Usage | Goo Learn](https://goocreate.com/learn/reducing-memory-usage/)
 - [Thinking in WebGL: Reducing Draw Calls | Goo Learn](https://goocreate.com/learn/reducing-draw-calls/)
 - [Thinking in WebGL: Reducing CPU calculations | Goo Learn](https://goocreate.com/learn/reducing-cpu-calculations/)
+
+WebGPU:
+
+- [WebGPU \<img\>, \<canvas\>, and \<video\> texture best practices | webgpu-best-practices](https://web.archive.org/web/20211020131241/https://toji.github.io/webgpu-best-practices/img-textures.html)
+- [WebGPU Fundamentals](https://web.archive.org/web/20230503124843/https://webgpufundamentals.org/)
 
 WebGL: Combine textures to texture atlas (decrease texture binds)
 

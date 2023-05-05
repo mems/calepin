@@ -86,12 +86,6 @@ Install the Media Feature Pack:
 - [Download Windows 10 Media Feature Pack](https://www.microsoft.com/en-us/software-download/mediafeaturepack)
 - [Media Feature Pack list for Windows N editions](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)
 
-## Create a dot file
-
-Or rename, write `.gitignore.` or `.htaccess.` (with both dots). The trailing dot will be removed.
-
-- [How do I manually create a file with a . (dot) prefix in Windows? For example, .htaccess - Stack Overflow](https://stackoverflow.com/questions/5004633/how-do-i-manually-create-a-file-with-a-dot-prefix-in-windows-for-example/38425947#38425947)
-
 ## Bash shell on Windows
 
 On Windows 10, [Install the Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -249,12 +243,16 @@ dism /Image:X:ToolKit\Mount\Install /Cleanup-Image /StartComponentCleanup /Reset
 - [List of Environment Variables in Windows Operating System – AskVG](https://www.askvg.com/list-of-environment-variables-in-windows-xp-vista-and-7/)
 - [Windows Environment Variables - Windows CMD - SS64.com](https://ss64.com/nt/syntax-variables.html)
 
-## Special directories
+## Disk, file system and paths
+
+- [The weird world of Windows file paths | Fileside](https://web.archive.org/web/20230501191000/https://www.fileside.app/blog/2023-03-17_windows-file-paths/)
+
+### Special directories
 
 - [Is there a list of Windows special directories/shortcuts (like %TEMP%)? - Super User](https://superuser.com/questions/217504/is-there-a-list-of-windows-special-directories-shortcuts-like-temp)
 - [File path formats on Windows systems | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/standard/io/file-path-formats)
 
-## Directories from "This PC"
+### Directories from "This PC"
 
 ```reg
 Windows Registry Editor Version 5.00
@@ -284,6 +282,12 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{35286a68-3c57-41a1-bbb1-0eae73d76c95}\PropertyBag]
 "ThisPCPolicy"="Hide"
 ```
+
+### Create a dot file
+
+Or rename, write `.gitignore.` or `.htaccess.` (with both dots). The trailing dot will be removed.
+
+- [How do I manually create a file with a . (dot) prefix in Windows? For example, .htaccess - Stack Overflow](https://stackoverflow.com/questions/5004633/how-do-i-manually-create-a-file-with-a-dot-prefix-in-windows-for-example/38425947#38425947)
 
 ## Powershell
 

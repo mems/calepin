@@ -22,7 +22,8 @@ Falsehoods:
 >
 > — [Port or transfer your personal number - Google Voice Help](https://web.archive.org/web/20220107020847/https://support.google.com/voice/answer/1065667?hl=en)
 
-- [Falsehoods Programmers Believe About Phone Numbers](https://github.com/google/libphonenumber/blob/master/FALSEHOODS.md)
+- [libphonenumber/FALSEHOODS.md at master · google/libphonenumber · GitHub](https://github.com/google/libphonenumber/blob/master/FALSEHOODS.md)
+- [libphonenumber/FAQ.md at master · google/libphonenumber](https://github.com/google/libphonenumber/blob/master/FAQ.md#metadata_definition)
 - [Time-of-check to time-of-use — Wikipedia](https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use)
 
 ## Fictional numbers

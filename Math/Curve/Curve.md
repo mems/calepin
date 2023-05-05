@@ -90,6 +90,7 @@ Curves (Bezier)
 - [Cubic-to-quadratic bezier curve conversion](https://github.com/googlei18n/cu2qu) - converts any cubic curves to quadratic
 - [Bitmap/Bézier curves/Cubic - Rosetta Code](http://rosettacode.org/wiki/Bitmap/B%C3%A9zier_curves/Cubic)
 - [Bitmap/Bézier curves/Quadratic - Rosetta Code](http://rosettacode.org/wiki/Bitmap/B%C3%A9zier_curves/Quadratic)
+- [Cubic Interpolation of Quaternions](https://web.archive.org/web/20230505040332/https://theorangeduck.com/page/cubic-interpolation-quaternions)
 
 Bezier 3D
 

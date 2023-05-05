@@ -214,7 +214,7 @@ Note: don't forget to disable it after test done
 
 ## Battery status
 
-1. On macOS computer, open Console.app
+1. On macOS computer, open `Console.app`
 2. select your target device (your device must be allowed on the computer you use)
 3. connect the device to a power source (or wait a little)
 4. find `BatteryHealth`, enter
@@ -255,7 +255,7 @@ Beta only?:
 > hardware wise, volume down replaces the home button in functions like this, DFU, etc
 – [Steve Troughton-Smith sur Twitter : "Fun fact: hold down Home+VolUp at cold boot to boot iOS 10.3 into CheckerBoard, a new diagnostics &amp; logs system for Apple Retail stores https://t.co/Ft9eys1Dc3"](https://mobile.twitter.com/stroughtonsmith/status/836544547614248960)
 
-Capture diagnostic requets and change the response (works with iOS 9, but not with iOS 11 due to certificate pinning):
+Capture diagnostic requests and change the response (works with iOS 9, but not with iOS 11 due to certificate pinning):
 
 ```py
 from libmproxy.models import HTTPResponse
@@ -381,7 +381,6 @@ For videos
 
 1. Add files (`.jpg`, `.m4v`, `.mov`?, `.png`?) in `~/Library/$DATA_PATH/Media/DCIM/100APPLE/`.
 2. And delete these files
-
 	```
 	~/Library/$DATA_PATH/Media/PhotoData/Photos.sqlite-shm
 	~/Library/Application Support/$DATA_PATH/Media/PhotoData/Photos.sqlite-wal

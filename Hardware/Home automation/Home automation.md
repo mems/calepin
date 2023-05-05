@@ -1,0 +1,2 @@
+- [Home automation - Wikipedia](https://en.wikipedia.org/wiki/Home_automation)
+- [Homebridge](https://homebridge.io/) - "Bringing HomeKit support where there is none"

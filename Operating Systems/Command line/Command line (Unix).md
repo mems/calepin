@@ -1187,10 +1187,15 @@ xdg-open .
 
 ## Shell
 
+Command-line interface (CLI), not for graphical user interface (GUI)
+
 - [Minimal safe Bash script template | Better Dev](https://web.archive.org/web/20201225070311/https://betterdev.blog/minimal-safe-bash-script-template/)
 - [explainshell.com - match command-line arguments to their help text](https://explainshell.com/)
+- [dylanaraps/pure-sh-bible: 📖 A collection of pure POSIX sh alternatives to external processes.](https://github.com/dylanaraps/pure-sh-bible)
 - [dylanaraps/pure-bash-bible: 📖 A collection of pure bash alternatives to external processes.](https://github.com/dylanaraps/pure-bash-bible)
 - [BashPitfalls - Greg's Wiki](https://web.archive.org/web/20220215122427/http://mywiki.wooledge.org/BashPitfalls)
+- [Unix shell - Wikipedia](https://en.wikipedia.org/wiki/Unix_shell)
+- [Comparison of command shells - Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_command_shells)
 
 The default shell is defined for a specific user by the file `/etc/passwd`
 
@@ -1220,6 +1225,12 @@ fi
 
 - [.bashrc generator: create your .bashrc PS1 with a drag and drop interface](http://bashrcgenerator.com/)
 - [How to: Change / Setup bash custom prompt (PS1)](http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html)
+
+Shells:
+
+- [Bash (Unix shell) - Wikipedia](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) - Bourne-Again shell
+- [Bourne shell - Wikipedia](https://en.wikipedia.org/wiki/Bourne_shell)
+- [Z shell - Wikipedia](https://en.wikipedia.org/wiki/Z_shell)
 
 ### Shell config
 
@@ -1269,6 +1280,7 @@ By convention, the prompt ends with `$` for users and by `#` for root
 - [How To Read and Set Environmental and Shell Variables on Linux | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 - [terminal - Why doesn't .bashrc run automatically? - Ask Different](https://apple.stackexchange.com/questions/12993/why-doesnt-bashrc-run-automatically/13019#13019) - add `if [ -s ~/.bashrc ]; then source ~/.bashrc; fi` to `~/.bash_profile`
 - [Suggestion: disambiguate shell setup steps · Issue #351 · Schniz/fnm](https://github.com/Schniz/fnm/issues/351#issuecomment-749202468) - About macOS that doesn't source `~/.bashrc`
+- [Unix shell - Wikipedia](https://en.wikipedia.org/wiki/Unix_shell#Configuration_files) - Configuration files
 
 ### Command alias
 
@@ -3277,6 +3289,8 @@ To disallow SSH remote root login, in `/etc/ssh/sshd_config` update/add:
 ```sh
 PermitRootLogin no
 ```
+
+- [moul/quicssh: SSH over QUIC](https://github.com/moul/quicssh)
 
 ### SSH Keyfile
 
