@@ -887,3 +887,22 @@ call "%USERPROFILE%\fnm\fnm_env.cmd"
 call "%USERPROFILE%\fnm\fnm_use.cmd"
 npx %*
 ```
+
+## Max memory size
+
+Aka `--max-old-space-size`, "FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory", "EXEC : FATAL error : Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory"
+
+Increase memory to 4GB: `node --max-old-space-size=4096 index.js`. 1024 for 1GB, 1536 for 1.5GB, 2048 for 2GB, 3072 for 3GB, 5120 for 5GB, 6144 for 6GB, 7168 for 7GB, 8192 for 8GB, etc.
+
+> It is recommended to always explicitly set the `--max-old-space-size` instead of relying on default imposed by Node.js
+
+> On a machine with 2 GiB of memory, consider setting this to 1536 (1.5 GiB) to leave some memory for other uses and avoid swapping.
+> 
+> — [Command-line API - --max-old-space-size=SIZE (in megabytes)](https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes)
+
+- [node.js - Where do I set 'NODE_OPTIONS="--max-old-space-size=2048"' - Stack Overflow](https://stackoverflow.com/questions/56982005/where-do-i-set-node-options-max-old-space-size-2048/64409997#64409997)
+- `node --max-old-space-size=4096 "$(which npm)" install`
+- `node -r ts-node/register --max-old-space-size=4096 index.ts` for running Typescript
+- `v8.getHeapStatistics().heap_size_limit` for get the max memory size inside node process
+- [Finch:increase max_old_space_size to 4 GB based on availability of ph… · v8/v8@b2f75b0](https://github.com/v8/v8/commit/b2f75b008d14fd1e1ef8579c9c4d2bc7d374efd3) - changes in v8 for "Increase max size of the old space to 4 GB for x64 systems with the physical memory bigger than 16 GB"
+- [memory - How do I determine the correct "max-old-space-size" for Node.js? - Stack Overflow](https://stackoverflow.com/questions/48387040/how-do-i-determine-the-correct-max-old-space-size-for-node-js/63495296#63495296)
