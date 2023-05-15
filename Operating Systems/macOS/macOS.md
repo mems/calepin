@@ -95,8 +95,9 @@ See also [Easy Automated Snapshot-Style Backups with Rsync](https://web.archive.
 - [Fake Time Machine](https://gist.github.com/pmarreck/1237806) - "Fake Time Machine, a way to duplicate the functionality of Apple's Time Machine using rsync, which also might make it cross-platform, but also lets you run it to any remote server "
 - [Dissecting Time Machine & Replacing It With rsync - Backup Central](https://web.archive.org/web/20220424200355/https://www.backupcentral.com/time-machine-rsync/)
 - [Google Code Archive - Long-term storage for Google Code Project Hosting.](https://code.google.com/archive/p/flyback/) and [FlyBack — Wikipedia](https://en.wikipedia.org/wiki/FlyBack)
-- https://github.com/samdoran/rsync-time-machine (see also https://github.com/samdoran/rsync-time-machine/commit/3610f7c73c2b1f8617c7462d880e12e73611d6b4#commitcomment-13078199 and https://github.com/minolasoft/rsync-time-machine)
-- https://github.com/laurent22/rsync-time-backup
+- [samdoran/rsync-time-machine: Backup mimicking Time Machine from Mac OS X using rsync](https://github.com/samdoran/rsync-time-machine) (see also https://github.com/samdoran/rsync-time-machine/commit/3610f7c73c2b1f8617c7462d880e12e73611d6b4#commitcomment-13078199 and https://github.com/minolasoft/rsync-time-machine)
+- [basnijholt/rsync-time-machine.py: Time Machine-style backups using rsync](https://github.com/basnijholt/rsync-time-machine.py)
+- [laurent22/rsync-time-backup: Time Machine style backup with rsync.](https://github.com/laurent22/rsync-time-backup)
 - [TimeVault - Ubuntu Wiki](https://wiki.ubuntu.com/TimeVault)
 - [List of backup software — Wikipedia](https://en.wikipedia.org/wiki/List_of_backup_software)
 - [Backing Up Your Mac: The Online Appendixes](https://joeontech.net/extras/buym/)

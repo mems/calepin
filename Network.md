@@ -89,3 +89,10 @@ See also:
 - 10.0.2.010: 10.0.2.8
 
 - [There’s more than one way to write an IP address](https://web.archive.org/web/20230505170552/https://ma.ttias.be/theres-more-than-one-way-to-write-an-ip-address/)
+
+http://1089053027 is translated to http://64.233.161.99/ (then the server redirect to Google Search homepage)
+32-bit url 0x1000000111010011010000101100011 == 1089053027 == (64 << 24) + (233 << 16) + (161 << 8) + 99
+
+Supported in Firefox, Chrome, IE
+
+- [Dot-decimal notation - Wikipedia](https://en.wikipedia.org/wiki/Dot-decimal_notation)

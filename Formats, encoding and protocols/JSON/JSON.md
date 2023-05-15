@@ -7,6 +7,12 @@
 
 - [We released simdjson 0.3: the fastest JSON parser in the world is even better! – Daniel Lemire's blog](https://lemire.me/blog/2020/03/31/we-released-simdjson-0-3-the-fastest-json-parser-in-the-world-is-even-better/) - [Simdjson 0.3: Faster JSON parser | Hacker News](https://news.ycombinator.com/item?id=22745351)
 
+## JSON path
+
+- [RFC 6901 - JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901)
+- xpath
+- [nemtsov/json-mask: Tiny language and engine for selecting specific parts of a JS object, hiding the rest.](https://github.com/nemtsov/json-mask)
+
 ## JSON query and field selection
 
 - [nemtsov/json-mask: Tiny language and engine for selecting specific parts of a JS object, hiding the rest.](https://github.com/nemtsov/json-mask)

@@ -897,14 +897,32 @@ Increase memory to 4GB: `node --max-old-space-size=4096 index.js`. 1024 for 1GB,
 > It is recommended to always explicitly set the `--max-old-space-size` instead of relying on default imposed by Node.js
 
 > On a machine with 2 GiB of memory, consider setting this to 1536 (1.5 GiB) to leave some memory for other uses and avoid swapping.
-> 
+>
 > — [Command-line API - --max-old-space-size=SIZE (in megabytes)](https://nodejs.org/api/cli.html#--max-old-space-sizesize-in-megabytes)
 
 - [node.js - Where do I set 'NODE_OPTIONS="--max-old-space-size=2048"' - Stack Overflow](https://stackoverflow.com/questions/56982005/where-do-i-set-node-options-max-old-space-size-2048/64409997#64409997)
 - `node --max-old-space-size=4096 "$(which npm)" install`
-- `node -r ts-node/register --max-old-space-size=4096 index.ts` for running Typescript
+- `node -r ts-node/register --max-old-space-size=4096 index.ts` for running TypeScript
 - `v8.getHeapStatistics().heap_size_limit` for get the max memory size inside node process
 - [Finch:increase max_old_space_size to 4 GB based on availability of ph… · v8/v8@b2f75b0](https://github.com/v8/v8/commit/b2f75b008d14fd1e1ef8579c9c4d2bc7d374efd3) - changes in v8 for "Increase max size of the old space to 4 GB for x64 systems with the physical memory bigger than 16 GB" (~ Node 14)
 - [memory - How do I determine the correct "max-old-space-size" for Node.js? - Stack Overflow](https://stackoverflow.com/questions/48387040/how-do-i-determine-the-correct-max-old-space-size-for-node-js/63495296#63495296)
 - node <= 11: default is 1.4 GB, <= 13: 2.0 GB, >= 14 only on x64 with > 16 GB: 4.0 GB
 - [A tour of V8: Garbage Collection — jayconrod.com](https://web.archive.org/web/20230301112808/https://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection)
+
+## TypeScript
+
+- [esbuild-kit/tsx: ⚡️ TypeScript Execute (tsx): Node.js enhanced with esbuild to run TypeScript & ESM](https://github.com/esbuild-kit/tsx)
+- [TypeStrong/ts-node: TypeScript execution and REPL for node.js](https://github.com/TypeStrong/ts-node#swc-1)
+- [swc-project/swc-node: Faster ts-node without typecheck](https://github.com/swc-project/swc-node)
+
+## NPM install resolved packages from HTTPS to HTTP
+
+`npm config get registry` should return `https://registry.npmjs.org/`
+
+1. `rm -rf node_modules/`
+2. `npm cache clean --force`
+3. Revert the changes in your `package-lock.json` file
+4. `npm i`
+
+- [npm install downgrading resolved packages from https to http registry in package-lock.json - 🐞 bugs - npm forum](https://npm.community/t/npm-install-downgrading-resolved-packages-from-https-to-http-registry-in-package-lock-json/1818/7)
+- ["resolved" link changes from https://registry.npmjs.com to http://registry.npmjs.com on npm install · Issue #20719 · npm/npm](https://github.com/npm/npm/issues/20719)
