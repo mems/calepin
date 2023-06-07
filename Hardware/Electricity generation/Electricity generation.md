@@ -1,0 +1,4 @@
+- [Rooftop solar power - Wikipedia](https://en.wikipedia.org/wiki/Rooftop_solar_power)
+- [Photovoltaics - Wikipedia](https://en.wikipedia.org/wiki/Photovoltaics)
+- [Monter son propre kit photovoltaïque : choisir ses panneaux solaires et son micro-onduleur](https://www.nextinpact.com/article/71623/monter-son-propre-kit-photovoltaique-choisir-ses-panneaux-solaires-et-son-micro-onduleur)
+- https://commons.wikimedia.org/wiki/File:Solar_land_area.png - [Total Primary Energy Supply](https://web.archive.org/web/20220901052500/https://www.ez2c.de/ml/solar_land_area/)
