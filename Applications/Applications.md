@@ -624,44 +624,14 @@ Use firewall bock `Core Sync.app`, `CCXProcess.app`, `CC Troubleshooter.app`, `C
 ```
 # From https://www.reddit.com/r/AdobeZii/comments/z67rpm/potential_fix_for_adobe_genuine_software_popup_on/
 127.0.0.1 ic.adobe.io
-127.0.0.1 52.6.155.20
-127.0.0.1 52.10.49.85
-127.0.0.1 23.22.30.141
-127.0.0.1 34.215.42.13
-127.0.0.1 52.84.156.37
-127.0.0.1 65.8.207.109
-127.0.0.1 3.220.11.113
-127.0.0.1 3.221.72.231
-127.0.0.1 3.216.32.253
-127.0.0.1 3.208.248.199
-127.0.0.1 3.219.243.226
-127.0.0.1 13.227.103.57
-127.0.0.1 34.192.151.90
-127.0.0.1 34.237.241.83
-127.0.0.1 44.240.189.42
-127.0.0.1 52.20.222.155
-127.0.0.1 52.208.86.132
-127.0.0.1 54.208.86.132
-127.0.0.1 63.140.38.120
-127.0.0.1 63.140.38.160
-127.0.0.1 63.140.38.169
-127.0.0.1 63.140.38.219
 127.0.0.1 wip.adobe.com
 127.0.0.1 adobeereg.com
-127.0.0.1 18.228.243.121
-127.0.0.1 18.230.164.221
-127.0.0.1 54.156.135.114
-127.0.0.1 54.221.228.134
-127.0.0.1 54.224.241.105
-127.0.0.1 100.24.211.130
-127.0.0.1 162.247.242.20
 127.0.0.1 wip1.adobe.com
 127.0.0.1 wip2.adobe.com
 127.0.0.1 wip3.adobe.com
 127.0.0.1 wip4.adobe.com
 127.0.0.1 3dns.adobe.com
 127.0.0.1 ereg.adobe.com
-127.0.0.1 199.232.114.137
 127.0.0.1 bam.nr-data.net
 127.0.0.1 practivate.adobe
 127.0.0.1 ood.opsource.net
@@ -679,13 +649,8 @@ Use firewall bock `Core Sync.app`, `CCXProcess.app`, `CC Troubleshooter.app`, `C
 127.0.0.1 www.wip3.adobe.com
 127.0.0.1 www.wip4.adobe.com
 127.0.0.1 ereg.wip.adobe.com
-127.0.0.1 ereg.wip.adobe.com
 127.0.0.1 activate.adobe.com
 127.0.0.1 adobe-dns.adobe.com
-127.0.0.1 ereg.wip1.adobe.com
-127.0.0.1 ereg.wip2.adobe.com
-127.0.0.1 ereg.wip3.adobe.com
-127.0.0.1 ereg.wip4.adobe.com
 127.0.0.1 ereg.wip1.adobe.com
 127.0.0.1 ereg.wip2.adobe.com
 127.0.0.1 ereg.wip3.adobe.com
@@ -737,6 +702,7 @@ Use firewall bock `Core Sync.app`, `CCXProcess.app`, `CC Troubleshooter.app`, `C
 127.0.0.1 ethos.ethos02-prod-irl1.ethos.adobe.net
 127.0.0.1 geo2.adobe.com
 127.0.0.1 lcs-cops.adobe.io
+127.0.0.1 lcs-robs.adobe.io
 127.0.0.1 pv2bqhsp36w.prod.cloud.adobe.io
 127.0.0.1 services.prod.ims.adobejanus.com
 127.0.0.1 ssl-delivery.adobe.com.edgekey.net
@@ -744,7 +710,37 @@ Use firewall bock `Core Sync.app`, `CCXProcess.app`, `CC Troubleshooter.app`, `C
 127.0.0.1 stls.adobe.com-cn.edgesuite.net
 127.0.0.1 stls.adobe.com-cn.edgesuite.net.globalredir.akadns.net
 127.0.0.1 use-stls.adobe.com.edgesuite.net
+127.0.0.1 pv2yt8sqmh0.prod.cloud.adobe.io
+127.0.0.1 a1815.dscr.akamai.net
+127.0.0.1 e4578.dscd.akamaiedge.net
+127.0.0.1 fp2e7a.wpc.phicdn.net
+127.0.0.1 cctypekit.adobe.io
+127.0.0.1 ph0f2h2csf.adobe.io
+127.0.0.1 vcorzsld2a.adobe.io
+127.0.0.1 9ngulmtgqi.adobe.io
+127.0.0.1 r5hacgq5w6.adobe.io
+127.0.0.1 4vzokhpsbs.adobe.io
+127.0.0.1 69tu0xswvq.adobe.io
+127.0.0.1 vajcbj9qgq.adobe.io
+127.0.0.1 dyzt55url8.adobe.io
+127.0.0.1 3ca52znvmj.adobe.io
+127.0.0.1 7m31guub0q.adobe.io
 ```
+
+> At first this didn't work for me, but I fixed it by manually finding the new address that Photoshop was using and adding it to the bottom of this hosts file. This approach doesn't require Radio Silence (which ultimately didn't work for me), and it's actually a relatively simple process:
+>
+> 1. Make sure PS is closed.
+> 2. Download and install [Wireshark](https://www.wireshark.org/).
+> 3. Start scanning traffic in Wireshark (watch up to 1:45 in [this video](https://www.youtube.com/watch?v=TkCSr30UojM) for a walkthrough).
+> 4. Start PS and wait for the pop-up to appear.
+> 5. Stop scanning in Wireshark and type "DNS" in the filter bar (demo of how to filter at 5:06 in the video linked above). Scroll to where you see packets that have adobe addresses on the right side (you can click the magnifying glass and find packets with "adobe.io" to make this easier).
+> 6. Find a packet with an Info section that reads: "Standard query 0x13ef AAAA XXXXXXXXXX.adobe.io", where the Xs are a unique combination of letters and numbers.
+> 7. Add your version of XXXXXXXXXX.adobe.io to the bottom of the hosts file, following the same format as the other entries, then save it.
+> 8. Run this Terminal command to restart the mDNSResponder process (I saw it in another post, but not sure if it's actually necessary, so Windows users may be fine skipping this step):
+>   1. `sudo killall -HUP mDNSResponder && sudo dscacheutil -flushcache`
+> 9. Start PS and enjoy! Hope it works for you too.
+>
+> — [Adobe Photoshop (Genuine) and (Sorry App Is Not Available) Fix as of May 2023 : r/AdobeZii](https://www.reddit.com/r/AdobeZii/comments/13my2ij/comment/jlcok0s/)
 
 ### Offline packages
 

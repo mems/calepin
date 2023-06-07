@@ -5,3 +5,4 @@
 - [C2Rust Demonstration](https://c2rust.com/) - [immunant/c2rust: Migrate C code to Rust](https://github.com/immunant/c2rust)
 - [rauljordan::blog](https://web.archive.org/web/20230120004831/https://rauljordan.com/rust-concepts-i-wish-i-learned-earlier/)
 - [When Rust hurts](https://web.archive.org/web/20230216004947/https://mmapped.blog/posts/15-when-rust-hurts.html)
+- [Introduction - Rust for C#/.NET Developers](https://microsoft.github.io/rust-for-dotnet-devs/latest/introduction.html) - [microsoft/rust-for-dotnet-devs: Rust for C#/.NET Developers](https://github.com/microsoft/rust-for-dotnet-devs)

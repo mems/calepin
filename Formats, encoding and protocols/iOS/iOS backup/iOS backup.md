@@ -2,9 +2,14 @@
 
 - [omvt-project/mvt: MVT is a forensic tool to look for signs of infection in smartphone devices](https://github.com/mvt-project/mvt) - Read data from backup as JSON (like contacts, browser history, SMS messages, attachments,  etc.) then check infection. [Check a Backup with mvt-ios - Mobile Verification Toolkit](https://mvt-docs.readthedocs.io/en/latest/ios/backup/check.html)
 - [iphonebackupbrowser - iPhone Backup Browser - Google Project Hosting](https://code.google.com/p/iphonebackupbrowser/)
-- https://github.com/isakkarlsson/iphonebackupbrowser-enhanced
-- https://github.com/bschlenk/iPhone-Backup-Analyzer
-- https://github.com/gkaiser/iosbackuputil
+- [isaksamsten/iphonebackupbrowser-enhanced: Update and improved backup and forensics tool for iDevice backups. Tested with iPhone's](https://github.com/isaksamsten/iphonebackupbrowser-enhanced)
+- [bschlenk/iPhone-Backup-Analyzer: iPhone Backup Analyzer](https://github.com/bschlenk/iPhone-Backup-Analyzer)
+- [gkaiser/iosbackuputil: Reads and extracts data from iOS backup files (*.mbdx, *.mbdb).](https://github.com/gkaiser/iosbackuputil)
+- [triangle_check/__init__.py at main · KasperskyLab/triangle_check · GitHub](https://github.com/KasperskyLab/triangle_check/blob/main/triangle_check/__init__.py)
+- [WechatExport-iOS/IPhoneBackupReader at b22148f2a3d189fcffb6ac5f289f891ae36f7f21 · stomakun/WechatExport-iOS · GitHub](https://github.com/stomakun/WechatExport-iOS/tree/b22148f2a3d189fcffb6ac5f289f891ae36f7f21/IPhoneBackupReader)
+- [PicciMario/iPhone-Backup-Analyzer: iPhone Backup Analyzer](https://github.com/PicciMario/iPhone-Backup-Analyzer)
+- [znek/iBackupFS: FUSEOFS based filesystem for accessing iTunes device backups](https://github.com/znek/iBackupFS)
+- [gkaiser/iosbackuputil: Reads and extracts data from iOS backup files (*.mbdx, *.mbdb).](https://github.com/gkaiser/iosbackuputil)
 
 ### Binary plists format `*.mdbackup`
 

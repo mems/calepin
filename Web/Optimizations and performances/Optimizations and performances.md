@@ -410,6 +410,10 @@ To control static resource version, **use checksum instead of build number**. Wh
 
 Use forever cache (cache immutable) for static resources.
 
+- https://redbot.org/?uri=https://example.com
+- [Caching Header Best Practices](https://web.archive.org/web/20230325111719/https://simonhearne.com/2022/caching-header-best-practices/)
+- [Cache Test](https://www.lagado.com/tools/cache-test)
+- [HTTP Cache Headers - A Complete Guide - KeyCDN](https://web.archive.org/web/20230327211908/https://www.keycdn.com/blog/http-cache-headers)
 - [HTTP Heuristic Caching (Missing Cache-Control and Expires Headers) Explained – Paul Calvano](https://paulcalvano.com/index.php/2018/03/14/http-heuristic-caching-missing-cache-control-and-expires-headers-explained/)
 - [Un tutoriel de la mise en cache pour les auteurs Web et les webmestres](https://www.mnot.net/cache_docs/)
 - [Increasing Application Performance with HTTP Cache Headers | Heroku Dev Center](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
@@ -1262,6 +1266,7 @@ if(substr($_SERVER['SERVER_PROTOCOL'], 0, 7) === 'HTTP/2.'){
 ?>
 ```
 
+- [Performance Optimization Strategy in 2023 – Dropbox Paper](https://web.archive.org/web/20230605084333/https://paper.dropbox.com/doc/Performance-Optimization-Strategy-in-2023-qWcr7orx2cEWHpLqoLeTC#:uid=776675799262198432449914&h2=1.-Clean-up-and-reorder-the-%3Ch) - "1. Clean up and reorder the <head>"
 - [Get Your Head Straight - Speaker Deck](https://web.archive.org/web/20211104095209/https://speakerdeck.com/csswizardry/get-your-head-straight?slide=39) - [Smashing Magazine on Twitter: "🔖 For the bookmarks: Optimum \<head\> order for performance: \<meta /\> \<title\> preconnect \<script async\>\</script\> CSS with @imports sync JS sync CSS preload \<script defer\>\</script\> prefetch / prerender everything else (SEO, icons, open graph) via @csswizardry #webexpo #webperf https://t.co/Xar1kAjCY5" / Twitter](https://web.archive.org/web/20220123115517/https://twitter.com/smashingmag/status/1440697011985018881?s=12)
 - [Understanding Critical CSS – Smashing Magazine](https://www.smashingmagazine.com/2015/08/understanding-critical-css/)
 - https://github.com/bocoup/critical-css-boilerplate

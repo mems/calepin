@@ -1103,6 +1103,22 @@ Event names:
 - [Input Event Order](https://www.w3.org/TR/DOM-Level-3-Events/#events-inputevent-event-order): `beforeinput` -> (DOM element is updated) -> `input`
 - before and after event for asynchronous events [`beforeinput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforeinput_event) -> `input`, [`beforeprint`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeprint_event) -> [`afterprint`](https://developer.mozilla.org/en-US/docs/Web/API/Window/afterprint_event), [`beforeunload`](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event) -> `unload`
 
+Element interface properties:
+
+- `HTMLLinkElement` use `as` to reflect `as` element attribute
+- `HTMLLinkElement` use `crossOrigin` to reflect `crossorigin` element attribute
+- `HTMLLinkElement` use `referrerPolicy` to reflect `referrerpolicy` element attribute
+- `HTMLLinkElement` use `fetchPriority` to reflect `fetchpriority` element attribute
+- `HTMLLinkElement` use `imageSrcset` to reflect `imagesrcset` element attribute, where image use `srcset` property for `srcset` attribute
+- `HTMLLinkElement` use `imageSizes` to reflect `imagesizes` element attribute
+- `HTMLLinkElement` use `relList` to reflect `rel` element attribute
+- `HTMLAnchorElement` use `hreflang` to reflect `hreflang` element attribute
+- `HTMLButtonElement` use `formNoValidate` to reflect `formnovalidate` element attribute
+- `HTMLButtonElement` use `formEnctype` to reflect `formenctype` element attribute
+- `HTMLMetaElement` use `httpEquiv` to reflect `http-equiv` element attribute
+- `HTMLVideoElement` use `playsInline` to reflect `playsinline` element attribute
+- `HTMLModElement` use `dateTime` to reflect `datetime` element attribute
+
 Examples: `userId` and `profileURL`
 
 See also:
@@ -4413,6 +4429,20 @@ document.replaceChild(newDocEl, document.documentElement);
 - `element.children` (only element)
 - `TreeWalker` and `NodeIterator`
 - ...
+
+```js
+function* getComments(node){
+	const nodeIterator = document.createNodeIterator(
+		document.body,
+		NodeFilter.SHOW_COMMENT
+	);
+	while(nodeIterator.nextNode()){
+		yield nodeIterator.referenceNode;
+	}
+}
+
+console.log(Array.from(getComments(document.body), c => c.textContent));
+```
 
 See also:
 

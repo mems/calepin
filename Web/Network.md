@@ -21,6 +21,8 @@ DNS over HTTPS aka DoH:
 - RFC8484
 - [DNS over HTTPS — Wikipedia](https://en.wikipedia.org/wiki/DNS_over_HTTPS)
 - [DNS-over-HTTPS (DoH)  |  Public DNS  |  Google Developers](https://developers.google.com/speed/public-dns/docs/doh/)
+- [dcid/doh-php-client: DoH (DNS over HTTPS) PHP Client](https://github.com/dcid/doh-php-client)
+- [danog/dns-over-https: Async DNS-over-HTTPS resolution for AMPHP.](https://github.com/danog/dns-over-https/tree/v1)
 
 ```php
 <?php

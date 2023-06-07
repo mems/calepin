@@ -203,6 +203,16 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 </ifModule>
 ```
 
+## Maps
+
+- [Mapping Infrastructure Made Easy - Apache Baremaps](https://baremaps.apache.org/)
+- [maplibre/maplibre-gl-js: MapLibre GL JS - Interactive vector tile maps in WebGL2](https://github.com/maplibre/maplibre-gl-js) - [Projects | MapLibre](https://maplibre.org/projects/)
+- [OpenStreetMap](https://www.openstreetmap.org/)
+- [Open-source map styles – OpenMapTiles](https://openmaptiles.org/styles/)
+- [Stylesheets — OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/Stylesheets)
+- [Leaflet/Leaflet: 🍃 JavaScript library for mobile-friendly interactive maps 🇺🇦](https://github.com/Leaflet/Leaflet)
+- [mapbox/awesome-vector-tiles: awesome implementations of the Mapbox Vector Tile specification](https://github.com/mapbox/awesome-vector-tiles)
+
 ## Analytics
 
 Tracking and analytics
@@ -466,7 +476,8 @@ window.addEventListener("error", trackJavaScriptError, false);
 
 ## Anchor hash tag behaviour
 
-- (prefered) use an anchor (`<span id="target"></span>`) in targeted element (don't use `a` without `href`) (via `position: absolute; top: -200px;` etc.). Position absolute can also be used, to prevent autoscroll
+- [`scroll-margin`](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin)
+-  use an anchor (`<span id="target"></span>`) in targeted element (don't use `a` without `href`) (via `position: absolute; top: -200px;` etc.). Position absolute can also be used, to prevent autoscroll
 - (on click on link) `event.preventDefault();`, `history.pushState()` (`window.location.hash` will scroll automatically, so need to override `document.body.scrollTop` and `document.body.scrollLeft` after changing its value)
 - rename target IDs. Some browser keep in memory the position of the previous ID
 
@@ -972,6 +983,7 @@ See [Detection](#detection)
 Aka Web Extensions
 
 - [Impact of extension privileges | Almost Secure](https://web.archive.org/web/20221020162022/https://palant.info/2022/08/17/impact-of-extension-privileges/)
+- [Debug Native Messaging – text/plain](https://web.archive.org/web/20230204030748/https://textslashplain.com/2022/01/08/debug-native-messaging/)
 
 ### Safari Extensions
 
@@ -1574,6 +1586,10 @@ See [XSS and injection prevention](../Security/Data%20access%20and%20integrity/D
 
 ### Subresource checksum
 
+Aka subresource integrity
+
+See also `nonce` attribute.
+
 JavaScript:
 
 ```js
@@ -1592,6 +1608,19 @@ crypto.subtle.digest(algos[algo], sourceBytes).then(valueBuffer => {
 	let base64Value = btoa(valueChars);
 	return "'" + algo + "-" + base64Value + "'";// "'" hash-algo "-" base64-value "'"
 }).then(checksum => console.log(checksum))
+```
+
+```js
+// Inject an inlined script with integrity
+const src = `alert("hello")`;
+const s = document.createElement("script");
+s.src = "data:text/javascript," + encodeURI(src);
+s.crossOrigin = "anonymous";
+s.integrity = "sha256-" + btoa(
+	String.fromCharCode(...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(src))))
+);
+document.head.append(s);
+// That works only if CSP allow data: URIsn which is a bad practice: https://security.stackexchange.com/a/95011
 ```
 
 PHP:
@@ -1616,7 +1645,7 @@ echo sha256-$(echo -n 'alert("Hello, world.");' | openssl dgst -sha256 -binary |
 
 ### Bypass cross domain control
 
-If your JS need a resource but it's disallow but the third party (does not allow with Access Control headers)
+If your JS need a resource but it's disallow but the third party (does not allow with `Access-Control` headers)
 
 **Always filter which URL/domain you allow.** Else some evil people could use your proxy for illegal activity, etc.
 
@@ -1686,6 +1715,23 @@ Where `sheet_id` is `default` or `1`, `2`, etc. match the tab order
 - [Mike Heavers | Google Spreadsheet Powered Content Management System](http://mikeheavers.com/tutorials/creating_a_website_with_a_google_spreadsheet_powered_cms/)
 - [Use Google Spreadsheets as a CMS | Hacker News](https://news.ycombinator.com/item?id=7965652)
 - [Use Google Sheets for Multilingual Chat - Talk in any Language](https://www.labnol.org/internet/multilingual-chat-in-google-sheets/28698/)
+
+## Web IDE
+
+- GitLab Web IDE:
+	- [GitLab Web IDE | The GitLab Handbook](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/gitlab-web-ide/)
+	- [Web IDE | GitLab](https://docs.gitlab.com/ee/user/project/web_ide/)
+	- [GitLab.org / gitlab-web-ide · GitLab](https://gitlab.com/gitlab-org/gitlab-web-ide)
+- GitHub web editor (github.dev)
+	- use Visual Studio Code for the Web
+	- [The github.dev web-based editor - GitHub Docs](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor)
+- [coding/WebIDE: Coding WebIDE Community Edition](https://github.com/coding/WebIDE)
+- Visual Studio Code for the Web
+	- [Visual Studio Code for the Web](https://code.visualstudio.com/docs/editor/vscode-web)
+	- [Workspace - Visual Studio Code](https://vscode.dev/)
+	- [Visual Studio Code Server](https://code.visualstudio.com/docs/remote/vscode-server)
+
+See also: [zvizvi/GitHub-Web-IDE: ⚡ Open GitHub repositories in online web IDE](https://github.com/zvizvi/Github-Web-IDE)
 
 ## User script
 

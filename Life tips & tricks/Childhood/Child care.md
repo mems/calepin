@@ -6,6 +6,7 @@ garde d'enfant, auxiliaire parentale, babysitter, nounou
 
 Cour de Cassation, chambre sociale, n° 388 D Revue de jurisprudence sociale, n° 3, mars 1999
 
+- [Assistantes maternelles (statut) — Wikipédia](https://fr.wikipedia.org/wiki/Assistantes_maternelles_%28statut%29)
 - [Top-Assmat : la garde d'enfant, facilement.](https://top-assmat.com/)
 - [Complément de libre choix du mode de garde (CMG) - Assistante maternelle | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F345)
 
@@ -111,8 +112,31 @@ mois incomplet (ne commence pas le 1er du mois ou ne fini pas à la fin du mois,
 
 - [Contrat assistante maternelle - Zen avec mon Assmat](https://www.zen-avec-mon-assmat.com/contrat-assistante-maternelle)
 - [Le contrat de travail à durée indéterminée (CDI)|Pajemploi](https://www.pajemploi.urssaf.fr/pajewebinfo/cms/sites/pajewebinfo/accueil/employeur-dassistante-maternelle/je-recrute-et-jemploie/le-contrat-de-travail-a-duree-in.html)
-- [Contrat assistante maternelle - Zen avec mon Assmat](https://www.zen-avec-mon-assmat.com/contrat-assistante-maternelle)
+
+### Fin du contrat
+
+> Le recours à la rupture conventionnelle n’est pas possible.
+>
+> — [Rupture conventionnelle pour les assistants maternels et les salariés du particulier employeur - Code du travail numérique](https://code.travail.gouv.fr/information/la-rupture-conventionnelle-est-elle-possible-pour-les-assistants-maternels-et-salaries-du-particulier-employeur)
+
+> l'employeur et l'assistante maternelle ne peuvent pas conclure de rupture conventionnelle pour rompre le contrat de travail.
+>
+> — [Retrait de l'enfant | Mettre fin au contrat d'une assistante maternelle | Service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F16842)
+
+> L'employeur et l'assistante maternelle ne peuvent pas conclure de rupture conventionnelle.
+>
+> — [Rupture conventionnelle - Assistante maternelle | Service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F36476/1_0?idFicheParent=F19030#1_0)
+
+> A contrario, la rupture conventionnelle n’est pas ouverte aux assistants maternels, conformément à la volonté des partenaires sociaux confirmée par la nouvelle convention collective nationale des particuliers employeurs et de l’emploi à domicile du 15 mars 2021.
+>
+> — [La rupture conventionnelle du contrat de travail à durée indéterminée - Ministère du Travail, du Plein emploi et de l'Insertion](https://travail-emploi.gouv.fr/droit-du-travail/la-rupture-du-contrat-de-travail/article/la-rupture-conventionnelle-du-contrat-de-travail-a-duree-indeterminee)
+
 - [comment résilier le contrat de l’assistante maternelle agréée ? | PARENTS.fr](https://www.parents.fr/nos-experts/avocat/comment-resilier-le-contrat-de-lassistante-maternelle-agreee-326216)
+- [Indiquer la rupture conventionnelle pour un assistant maternel | Centre d'aide de Top-Assmat](https://aide.top-assmat.com/article/133-rupture-conventionnelle)
+
+Voir aussi :
+
+- [Rupture conventionnelle | Service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F19030)
 
 ## Salaire
 

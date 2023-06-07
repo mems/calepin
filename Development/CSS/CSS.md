@@ -2263,6 +2263,7 @@ For accessibility, disable animations / transitions with:
 
 - [cubic-bezier(.17,.67,.83,.67) ✿ cubic-bezier.com](https://cubic-bezier.com/#.17,.67,.83,.67)
 - [Spring physics with CSS variables](https://codepen.io/valhead/pen/yXYYdm)
+- [Linear easing generator](https://linear-easing-generator.netlify.app/) - [jakearchibald/linear-easing-generator](https://github.com/jakearchibald/linear-easing-generator)
 
 ### Playback
 

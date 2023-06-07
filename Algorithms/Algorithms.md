@@ -165,6 +165,7 @@ hash(vec2 xy)
 - [Can an involution be a competitive bit finalizer?](https://marc-b-reynolds.github.io/math/2019/08/20/InvFinalizer.html)
 - [shader - Random / noise functions for GLSL - Stack Overflow](https://stackoverflow.com/questions/4200224/random-noise-functions-for-glsl/17479300#17479300)
 - ["Best" Integer Hash](https://www.shadertoy.com/view/WttXWX)
+- [security - Which hashing algorithm is best for uniqueness and speed? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/49550/which-hashing-algorithm-is-best-for-uniqueness-and-speed)
 
 ## Inverse kinematics
 

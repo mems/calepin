@@ -108,6 +108,7 @@ See also [Inigo Quilez :: fractals, computer graphics, mathematics, demoscene an
 - [Path Rasterizer for OpenVG](https://brage.bibsys.no/xmlui/handle/11250/252871) - See [Path Rasterizer for OpenVG](Path Rasterizer for OpenVG.pdf). See also [OpenVG - The Standard for Vector Graphics Acceleration](https://www.khronos.org/openvg/)
 - [NVIDIA GPU-accelerated Path Rendering - SVG Part 1 - YouTube](https://www.youtube.com/watch?v=bCrohG6PJQE) (3 videos) and [NV_path_rendering Introduction (Part 1) - YouTube](https://www.youtube.com/watch?v=0IDyZof2pRI) (4 videos) - `NV_path_rendering` OpenGL extension to GPU-accelerate path rendering. See [NV Path Rendering | NVIDIA Developer](https://developer.nvidia.com/nv-path-rendering) and [NV Path Rendering Videos | NVIDIA Developer](https://developer.nvidia.com/nv-path-rendering-videos)
 - [Resolution independent rendering of Bezier curves in WebGL](https://gist.github.com/claus/1396250)
+- [aurimasg/blaze: Multi-threaded, CPU-based vector graphics rasterizer.](https://github.com/aurimasg/blaze) - [Parallel vector graphics rasterization on CPU - Aurimas Gasiulis](https://web.archive.org/web/20230525103933/https://gasiulis.name/parallel-rasterization-on-cpu/) and [Blaze Demo](https://gasiulis.name/parallel-rasterization-on-cpu/demo/)
 
 Based on "Resolution Independent Curve Rendering using Programmable Graphics Hardware", paper and implementations:
 
