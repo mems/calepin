@@ -32,6 +32,7 @@ Anti-cochenille, mouche blanche ([Aleurode](https://fr.wikipedia.org/wiki/Aleuro
 - [TOUT SUR LE FAMEUX ANTI-COCHENILLES MIOUMIOU, SOLUTION NATURELLE ET RADICALE - YouTube](https://www.youtube.com/watch?v=wIyCF8CtcRg)
 - [Maladie sur laurier-sauce - Au jardin, forum de jardinage](https://www.aujardin.org/viewtopic.php?t=128886#p2400614)
 - [La recette naturelle anti-cochenilles du 24 août 2013 - France Inter](https://www.franceinter.fr/emissions/la-main-verte/la-main-verte-24-aout-2013)
+- [Cochenille : identification et traitement naturel pour s'en débarrasser](https://web.archive.org/web/20220628215840/https://www.promessedefleurs.com/conseil-plantes-jardin/ficheconseil/cochenille)
 
 ## Frangipanier
 
@@ -104,3 +105,12 @@ Bourgeon et bouture :
 
 - [Grow Lots of Tomatoes... Not Leaves // Complete Growing Guide - YouTube](https://www.youtube.com/watch?v=9w-7RoH_uic)
 - [Salicylic acid — Wikipedia](https://en.wikipedia.org/wiki/Salicylic_acid#Plant_hormone) - Plant hormone
+
+## Irrigation
+
+- [Irrigation par jarre — Wikipédia](https://fr.wikipedia.org/wiki/Irrigation_par_jarre) - aka [olla (oya)](https://fr.wiktionary.org/wiki/olla)
+	- [Les Oyas sont des arroseurs autonomes écologiques et naturels. Un système d'irrigation simple.](https://www.oyas.eco/)
+	- [Mon oya - Boutique de jarres d'irrigation (fabriquées à la main)](https://www.mon-oya.fr/)
+	- [Comment fabriquer ses oyas maison ? | Gamm vert](https://web.archive.org/web/20230611215547/https://www.gammvert.fr/conseils/conseils-de-jardinage/comment-fabriquer-ses-oyas-maison)
+- [Drip irrigation - Wikipedia](https://en.wikipedia.org/wiki/Drip_irrigation)
+- [ARROSAGE automatique GRATUIT! - 1 mois tranquille - YouTube](https://www.youtube.com/watch?v=EFawDyPrdXI) - burried filled water plastic bottle with a tiny hole at the bottom (one side of the bottle) and closed cap (airtight)

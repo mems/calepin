@@ -208,7 +208,7 @@ Prefer to use library locally direclty. Use [`integrity` attribute](https://deve
 **Always use HTTPS for external resources.** Don't use protocol relative URLs or HTTP (without TLS)
 
 ```html
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" data-fallback-src="/path/to/your/jquery-1.2.6.min.js" integrity="sha512-4pean7m+KYmoRi7hfc/a4JtcsGFLJJxkrB0NV5vWvRpoA4mZVgLT3ls+/kVRzhziZEX+SU3kRIqFDJkue+HnmA==" onerror="document.head.appendChild(Object.assign(document.createElement('script'),{src:dataset.fallbackSrc}))"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" data-fallback-src="/path/to/your/jquery-1.2.6.min.js" integrity="sha512-4pean7m+KYmoRi7hfc/a4JtcsGFLJJxkrB0NV5vWvRpoA4mZVgLT3ls+/kVRzhziZEX+SU3kRIqFDJkue+HnmA==" onerror="this.after(Object.assign(document.createElement('script'),{src:dataset.fallbackSrc,integrity}))"></script>
 ```
 
 Note: in the example above, the attribute `onerror` will not work if the [CSP](../../Security/Data%20access%20and%20integrity/Data%20access%20and%20integrity.md#content-security-policy) doesn't allow inline scripts.
@@ -217,29 +217,14 @@ Note: in the example above, the attribute `onerror` will not work if the [CSP](.
 
 - [stimulusjs/stimulus: A modest JavaScript framework for the HTML you already have](https://github.com/stimulusjs/stimulus)
 
-### HTML templating
+### HTML templating librairies
 
 And Virtual DOM
 
-- [The Web smallest DOM diffing library - Andrea Giammarchi - Medium](https://medium.com/@WebReflection/the-web-smallest-dom-diffing-library-5b69ac4d1f4d)
 - [Polymer/lit-html: HTML template literals in JavaScript](https://github.com/Polymer/lit-html)
-- [WebReflection/hyperHTML: A Fast & Light Virtual DOM Alternative](https://github.com/WebReflection/hyperHTML) - Use compile an object based on [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) [hyperHTML: A Virtual DOM Alternative – Medium](https://medium.com/@WebReflection/hyperhtml-a-virtual-dom-alternative-279db455ee0e)
-	```js
-	let render = (strings, ...args) => console.log(strings, ...args);
-	render`a${1}b${2}`;//["a", "b", "", raw: Array(3)], 1, 2
-	render`a${3}b${4}`;//["a", "b", "", raw: Array(3)], 3, 4
-	// each times, strings argument (the first one) is the same reference: call2Strings === call1Strings; callNStrings === call1Strings
-	// this how string template works
-	```
-- [Reactive UI's with VanillaJS - Part 2: Class Based Components | CSS-Tricks](https://css-tricks.com/reactive-uis-vanillajs-part-2-class-based-components/)
-- [Building a React-esque component using vanilla javascript.](https://medium.com/@bluepnume/building-a-react-esque-component-using-vanilla-javascript-ddc99e76b867)
-- [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
-
+- [WebReflection/hyperHTML: A Fast & Light Virtual DOM Alternative](https://github.com/WebReflection/hyperHTML)
 - [A Virtual DOM and diffing algorithm](https://github.com/Matt-Esch/virtual-dom)
-- [DOM diffing with vanilla JS | Go Make Things](https://web.archive.org/web/20201026215850/https://gomakethings.com/dom-diffing-with-vanilla-js/)
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
-- [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](https://web.archive.org/web/20201108115943/http://webreflection.blogspot.com/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
-- [JSX + jQuery = jreact](https://glitch.com/~jquery-jsx-pragma) - Custom JSX renderer based on jQuery (no react)
 
 ### Date and time
 
@@ -8340,7 +8325,7 @@ return String(content).replace(/(<svg)(.*?)(\/?>)/s, (match, tagBegin, attribute
 });
 ```
 
-### Template string
+### Path template
 
 ```js
 const REGEXP = /\[\\*([\w-]+)\\*\]/gi;
@@ -8368,3 +8353,40 @@ function fromTemplate(template, replacements){
 ```
 
 - [Template strings | Output | webpack](https://webpack.js.org/configuration/output/#template-strings)
+
+
+### HTML templating
+
+See also [HTML templating librairies](#html-templating-librairies)
+
+And Virtual DOM
+
+- "context aware autoescaping HTML string templating"
+	- about:
+		- [Chris's Wiki :: blog/programming/OnHTMLViaStringTemplates](https://web.archive.org/web/20230602194205/https://utcc.utoronto.ca/~cks/space/blog/programming/OnHTMLViaStringTemplates)
+		- [PHP triky - Context-aware HTML escaping](https://web.archive.org/web/20220930185816/https://php.vrana.cz/context-aware-html-escaping.php)
+		- [Producing HTML using string templates has always been the wrong solution](https://web.archive.org/web/20230529154224/https://www.devever.net/~hl/stringtemplates)
+		- [Context-Sensitive Auto-Sanitization in Web Templating Languages Using Type Qualifiers](https://web.archive.org/web/20221226031926/https://people.eecs.berkeley.edu/~dawnsong/papers/2011%20Context-sensitive%20auto-sanitization%20in%20web%20templating%20languages%20using%20type%20qualifiers.pdf)
+		- [Google Online Security Blog: Reducing XSS by way of Automatic Context-Aware Escaping in Template Systems](https://web.archive.org/web/20230603101800/https://security.googleblog.com/2009/03/reducing-xss-by-way-of-automatic.html)
+	- [Autoescaping in Closure Templates - Google Developers](https://web.archive.org/web/20190501180009/https://developers.google.com/closure/templates/docs/security#autoescaping)
+	- [Quasis Demo — JavaScript Shell 1.4](https://web.archive.org/web/20230611110112/https://rawgit.com/mikesamuel/sanitized-jquery-templates/trunk/index.html)
+	- [mikesamuel/sanitized-jquery-templates: A contextual autoescaper for HTML template systems in JavaScript](https://github.com/mikesamuel/sanitized-jquery-templates/tree/trunk)
+	- see also [template package - html/template - Go Packages](https://pkg.go.dev/html/template)
+	- [harmony:quasis \[ES Wiki\]](https://web.archive.org/web/20170114115928/http://wiki.ecmascript.org/doku.php?id=harmony:quasis)
+	- "All template literal expressions and quasis"
+- [The Web smallest DOM diffing library - Andrea Giammarchi - Medium](https://medium.com/@WebReflection/the-web-smallest-dom-diffing-library-5b69ac4d1f4d)
+- Use compile an object based on [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) [hyperHTML: A Virtual DOM Alternative – Medium](https://medium.com/@WebReflection/hyperhtml-a-virtual-dom-alternative-279db455ee0e)
+	```js
+	let render = (strings, ...args) => console.log(strings, ...args);
+	render`a${1}b${2}`;//["a", "b", "", raw: Array(3)], 1, 2
+	render`a${3}b${4}`;//["a", "b", "", raw: Array(3)], 3, 4
+	// each times, strings argument (the first one) is the same reference: call2Strings === call1Strings; callNStrings === call1Strings
+	// this how string template works
+	```
+- [Reactive UI's with VanillaJS - Part 2: Class Based Components | CSS-Tricks](https://css-tricks.com/reactive-uis-vanillajs-part-2-class-based-components/)
+- [Building a React-esque component using vanilla javascript.](https://medium.com/@bluepnume/building-a-react-esque-component-using-vanilla-javascript-ddc99e76b867)
+- [lit-html vs hyperHTML vs lighterhtml – Andrea Giammarchi – Medium](https://medium.com/@WebReflection/lit-html-vs-hyperhtml-vs-lighterhtml-c084abfe1285)
+- [DOM diffing with vanilla JS | Go Make Things](https://web.archive.org/web/20201026215850/https://gomakethings.com/dom-diffing-with-vanilla-js/)
+- [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
+- [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](https://web.archive.org/web/20201108115943/http://webreflection.blogspot.com/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
+- [JSX + jQuery = jreact](https://glitch.com/~jquery-jsx-pragma) - Custom JSX renderer based on jQuery (no react)
