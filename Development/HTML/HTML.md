@@ -1276,7 +1276,7 @@ If list of slides are visible:
 ```
 
 - [How Tabs Should Work ◆ 24 ways](https://24ways.org/2015/how-tabs-should-work/)
-- https://github.com/nico3333fr/jquery-accessible-tabs-aria
+- [nico3333fr/jquery-accessible-tabs-aria: A simple jQuery code to provide accessible tabs starting from a simple source](https://github.com/nico3333fr/jquery-accessible-tabs-aria)
 - [Using tabbed interfaces with a screen reader – Tink](http://tink.uk/using-tabbed-interfaces-with-a-screen-reader/)
 - Don't use `role=listbox`: [javascript - WAI-ARIA Roles for Carousels (a.k.a. sliders, slideshows, galleries) - Stack Overflow](https://stackoverflow.com/questions/16840054/wai-aria-roles-for-carousels-a-k-a-sliders-slideshows-galleries)
 - [The Unbearable Inaccessibility of Slideshows](http://www.sitepoint.com/unbearable-accessible-slideshow/)

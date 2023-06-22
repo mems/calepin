@@ -2312,10 +2312,9 @@ Aka quarantine, icons, thumbnail, `xattr`
 >
 > — [Where did that metadata come from? – The Eclectic Light Company](https://web.archive.org/web/20211002161349/https://eclecticlight.co/2018/01/10/where-did-that-metadata-come-from/)
 
-
 See also [Spotlight](#spotlight) and [Uniform Type Identifier](#uniform-type-identifier)
 
-Extended attribute `com.apple.FinderInfo` (same/similar binary format as [resource fork](https://en.wikipedia.org/wiki/Resource_fork) and [AppleDouble file](https://en.wikipedia.org/wiki/AppleSingle_and_AppleDouble_formats), [`com.apple.ResourceFork`](https://web.archive.org/web/20201031144833/https://eclecticlight.co/2017/12/12/xattr-com-apple-resourcefork-a-classic-mac-resource-fork/)):
+Extended attribute `com.apple.FinderInfo` (same/similar binary format as [resource fork](../../Formats,%20encoding%20and%20protocols/Resource%20fork/Resource%20fork.md)):
 
 > com.apple.FinderInfo (XATTR_FINDERINFO_NAME, ATTR_CMN_FNDRINFO getattrlist(2))
 > 32 bytes of data for use by the Finder.  Equivalent to the concatenation of a FileInfo structure and an ExtendedFileInfo structure (or, for directories, a FolderInfo structure and an ExtendedFolderInfo structure).

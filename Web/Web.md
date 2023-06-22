@@ -119,6 +119,7 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 4. production
 
 - [Deployment environment — Wikipedia](https://en.wikipedia.org/wiki/Deployment_environment)
+- [Difference between QUALIF, UAT, PREPROD and PROD environment? - Software Engineering Stack Exchange](https://softwareengineering.stackexchange.com/questions/351058/difference-between-qualif-uat-preprod-and-prod-environment)
 
 ## Detection
 

@@ -14,17 +14,25 @@ Max length: 230
 
 format validation vs test (send an verification email)
 
+> ✔️ DO use a small regular expression to check for the valid structure of an email.
+> ✔️ DO send a test email to the address provided by a user of your app.
+> ❌ DON'T use a regular expression as the only way you validate an email.
+>
+> — [How to verify that strings are in valid email format | Microsoft Learn](https://web.archive.org/web/20230129040505/https://learn.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format)
+
 > The specified e-mail address 'myemail@address,com' is invalid. Did you mean 'myemail@address.com'?
 
 > If I ask you to validate a@uz and a@qz, a regex based on the RFC can't tell whether they are valid or not without reference to things outside the RFC, i.e. a DNS lookupn and that's not part of the validation!
 
 > distinguish "well-formed" from "deliverable"
 
-- [The 100% correct way to validate email addresses](https://hackernoon.com/the-100-correct-way-to-validate-email-addresses-7c4818f24643)
+- [Email address - Wikipedia](https://en.wikipedia.org/wiki/Email_address#Local-part)
+- [The 100% correct way to validate email addresses | by David Gilbertson | Medium](https://web.archive.org/web/20230519221313/https://david-gilbertson.medium.com/the-100-correct-way-to-validate-email-addresses-7c4818f24643)
+- [How to reduce incorrect email addresses | by David Gilbertson | Medium](https://web.archive.org/web/20230614154145/https://david-gilbertson.medium.com/how-to-reduce-incorrect-email-addresses-df3b70cb15a9)
+- [How to verify that strings are in valid email format | Microsoft Learn](https://web.archive.org/web/20230129040505/https://learn.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format)
 - [RFC Errata Report » RFC Editor](http://www.rfc-editor.org/errata_search.php?rfc=3696)
 - [php - Using a regular expression to validate an email address - Stack Overflow](https://stackoverflow.com/questions/201323/using-a-regular-expression-to-validate-an-email-address/532972#532972)
 - https://github.com/dominicsayers/isemail/ and JS port https://github.com/hapijs/isemail
-- [How to reduce incorrect email addresses](https://medium.com/@david.gilbertson/how-to-reduce-incorrect-email-addresses-df3b70cb15a9#)
 - [Email address — Wikipedia](https://en.wikipedia.org/wiki/Email_address#RFC_Specification)
 - [Mail::RFC822::Address](http://www.ex-parrot.com/~pdw/Mail-RFC822-Address.html)
 - [How to Verify if an Email Address Is Real or Fake](http://www.labnol.org/software/verify-email-address/18220/)

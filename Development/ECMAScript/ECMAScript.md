@@ -4937,16 +4937,87 @@ String(function(){console.log("Hello")}).slice(11, -1);// console.log("Hello")
 
 - [Tree traversal with ES6 generator - Hemanth.HM](https://h3manth.com/new/blog/2014/tree-traversal-with-es6-generator/)
 
-## Slug
+## Deburred letters
+
+Aka slug, deaccent
+
+**Do you realy need that?** You should use instead [`Intl.Collator.prototype.compare()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/compare),  [`String.prototype.normalize()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize) or [`crypto.subtle.digest()` to hex string](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest#converting_a_digest_to_a_hex_string)
+
+> Although these names suggest it is a ligature or a diacritical variant of the letter _o_, it is considered a separate letter in Danish and Norwegian, and it is alphabetized after "z" [...]
+>
+> In other languages that do not have the letter as part of the regular alphabet, or in limited character sets such as ASCII, "ø" may correctly be replaced with the digraph "oe", although in practice it is often replaced with just an "o"
+>
+> — [Ø - Wikipedia](https://en.wikipedia.org/wiki/%C3%98)
+
+> The Bosnian, Croatian, Montenegrin and Serbian Latin alphabets have the symbols č, ć, đ, š and ž, which are considered separate letters and are listed as such in dictionaries and other contexts in which words are listed according to alphabetical order.
+>
+> — [Diacritic - Wikipedia](https://en.wikipedia.org/wiki/Diacritic#Languages_with_letters_containing_diacritics)
+
+> Let's assume you're writing a software for a multinational industry to manage its employees. Since it's a multinational it has employees from all around the world with exotic (invented) names like 	> "Franco Lorè" or "Stjepan Bebić". The management will be very displeased when it will discover that if they look for "Bebic" they won't find Stjepan.
+>
+> Another example: you're managing a travel agency web site. A customer logs in, looks for travel offers for "cote d'Azur" and then goes away because your web site knows nothing about "cote d'Azur", it just knows "côte d'Azur".
+>
+> So: you should use Unicode whenever it's possible, but you should also know when "dumb it down".
+> [...]
+> remove diacritic marks and transform, for example, "côté" in "cote" and "Ελληνικά" in "Ελληνικα".
+> [...]
+> Let's say that you've got an e-mail from Mr. まさゆき たけだ. Assuming that you do not speak japanese and you don't know what "hiragana" is, how are you going to add this person to your address book? 	> And, even more important: how are you going to retrieve him?. Sometimes it's worse: a lot of software doesn't know how to handle characters that do not belong to the usual blocks, so they mangle the output and show just a bunch of question marks, so the e-mail is from Mr. ���� ���, which is even less useful than "weird-stuff-that-I-can't-read". Sometimes they fail gracefully and show something like "[307E][3055][3086][304D] [305F][3051][3060]".
+>
+> Going back to our employees example: if you strip diacritic marks from Łukasiński you get "Łukasinski" which is slightly better, but still your boss won't be able to find your polish colleague.
+>
+> If you are indexing text documents and you are from a western country, you'll hardly find the documents about China's capital 北亰.
+>
+> It turns out that sometimes just stripping out characters is not enough: sometimes you need to transliterate words from an alphabet to another. When the destination alphabet is the latin one this process is called romanization. So in the first case the e-mail sender is Mr. Masayuki Takeda, your boss will find Mr. Łukasiński even if she looks for Lukasinski and your documents about Bei Jing will be easier to retrieve.
+>
+> — [Unicode to ASCII: why and how - gcardone/junidecode: A Unicode to ASCII Java Library](https://github.com/gcardone/junidecode#unicode-to-ascii-why-and-how)
 
 ```js
-// For browsers that don't support normalization (IE<=11), ignore it
-// slug('Cómics más vendidos') === 'co-mics-ma-s-vendidos'
+// slug("Cómics más vendidos") === "co-mics-ma-s-vendidos"
 // It's not the same as https://github.com/Trott/slug but it's way smaller
 const slug = (value) =>
-	(String(value).normalize?.('NFD') ?? String(value))
-		.replace(/\s+/g, ' ')
+	String(value).normalize("NFD")
+		.replace(/\s+/g, " ")
 		.trim()
-		.replace(/[^\w]/g, '-')
+		.replace(/[^\w]/g, "-")
 		.toLowerCase();
 ```
+
+```js
+/*
+// From https://github.com/lodash/lodash/blob/6cb3460/.internal/deburrLetter.js
+const deburredLetters = {
+  // Latin-1 Supplement block.
+  '\xc0': 'A',  '\xc1': 'A', '\xc2': 'A', '\xc3': 'A', '\xc4': 'A', '\xc5': 'A',
+  '\xe0': 'a',  '\xe1': 'a', '\xe2': 'a', '\xe3': 'a', '\xe4': 'a', '\xe5': 'a',
+  '\xc7': 'C',  '\xe7': 'c',
+  '\xd0': 'D',  '\xf0': 'd',
+  '\xc8': 'E',  '\xc9': 'E', '\xca': 'E', '\xcb': 'E',
+  '\xe8': 'e',  '\xe9': 'e', '\xea': 'e', '\xeb': 'e',
+  '\xcc': 'I',  '\xcd': 'I', '\xce': 'I', '\xcf': 'I',
+  '\xec': 'i',  '\xed': 'i', '\xee': 'i', '\xef': 'i',
+  '\xd1': 'N',  '\xf1': 'n',
+  '\xd2': 'O',  '\xd3': 'O', '\xd4': 'O', '\xd5': 'O', '\xd6': 'O', '\xd8': 'O',
+  '\xf2': 'o',  '\xf3': 'o', '\xf4': 'o', '\xf5': 'o', '\xf6': 'o', '\xf8': 'o',
+  '\xd9': 'U',  '\xda': 'U', '\xdb': 'U', '\xdc': 'U',
+  '\xf9': 'u',  '\xfa': 'u', '\xfb': 'u', '\xfc': 'u',
+  '\xdd': 'Y',  '\xfd': 'y', '\xff': 'y',
+  '\xc6': 'Ae', '\xe6': 'ae',
+  '\xde': 'Th', '\xfe': 'th',
+  '\xdf': 'ss',
+  // Latin Extended-A block.
+  //...
+};
+*/
+```
+
+- Polish letter ł
+- Czech hrábě" /hra:bje/, "hrabě" /hrabje/, and "hrabe" /hrabe/
+- Swedish "höra" (hear) -> "hora" (whore)
+- how to handle different writing systems or alphabets (i.e. Arabic and Hebrew alphabets, [Chinese, Japanese and Korean characters](https://en.wikipedia.org/wiki/CJK_characters), Cyrillic, etc.), cf. [romanization](https://en.wikipedia.org/wiki/Romanization) and [transliteration](https://en.wikipedia.org/wiki/Transliteration)
+- https://github.com/apache/commons-lang/blob/68f58dc1ca6811db43368dd2f1b9156a198742df/src/main/java/org/apache/commons/lang3/StringUtils.java#L8116-L8142 - Java (Apache Commons) `StringUtils.stripAccents(input)`, use `\p{InCombiningDiacriticalMarks}` Unicode block in RegExp, "Note that ligatures will be left as is"
+- [java - Regex: what is InCombiningDiacriticalMarks? - Stack Overflow](https://stackoverflow.com/questions/5697171/regex-what-is-incombiningdiacriticalmarks/5697575#5697575)
+- `\p{M}` or `\p{Mark}`: a character intended to be combined with another character (e.g. accents, umlauts, enclosing boxes, etc.).
+- "NFKD is converting "ﬁ" to "fi", but it's not converting "Æ" to "AE""
+- [Combining character - Wikipedia](https://en.wikipedia.org/wiki/Combining_character)
+- [Combining Diacritical Marks - Wikipedia](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks)
+- https://github.com/apache/lucenenet/blob/51cc7418adf9da96cd37dd64ff5085d752a54074/src/Lucene.Net.Analysis.Common/Analysis/Miscellaneous/ASCIIFoldingFilter.cs#L154-L2096 - Lucene.NET `FoldToASCII()`

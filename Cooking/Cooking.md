@@ -656,6 +656,11 @@ pour 8 parts
 
 - [Flan pâtissier traditionnel : recette de Flan pâtissier traditionnel](https://www.marmiton.org/recettes/recette_flan-patissier-traditionnel_15330.aspx)
 
+### Brownie
+
+- [Triple-Chocolate Brownies Recipe | Bon Appétit](https://web.archive.org/web/20230529053714/https://www.bonappetit.com/recipe/triple-chocolate-brownies)
+- [I Baked 144 Brownies To Create The Perfect Recipe | Bon Appétit - YouTube](https://www.youtube.com/watch?app=desktop&v=w7vXPu7P3qE)
+
 ## Amuse-bouche
 
 ### Apéro à la Ben
