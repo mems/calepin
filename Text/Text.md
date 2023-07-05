@@ -149,7 +149,7 @@ Use non breaking spaces (`\u00a0`, `&nbsp;`, `&#160;`, ` `) for thousands separ
 
 ### Gender-neutral language
 
-Aka écriture inclusive, écriture non-sexiste, gender equality, woman/man equality, gender and plurial combined form
+Aka écriture inclusive, écriture non-sexiste, non genré, féminisation, neutralisation, gender equality, woman/man equality, gender and plurial combined form
 
 `un·e` for both `un` and `une`
 
@@ -164,6 +164,8 @@ Aka écriture inclusive, écriture non-sexiste, gender equality, woman/man equal
 - [Gender-neutral language — Wikipedia](https://en.wikipedia.org/wiki/Gender-neutral_language) and [Langage épicène — Wikipédia](https://fr.wikipedia.org/wiki/Langage_%C3%A9pic%C3%A8ne)
 - [Langage non genré et accessibilité font-ils bon ménage (...) - Access42](http://access42.net/langage-non-genre-accessibilite)
 - [épicène — Wiktionnaire](https://fr.wiktionary.org/wiki/%C3%A9pic%C3%A8ne)
+- [Comment écrit-on en inclusif déjà ?](https://eninclusif.fr/)
+- [Langage inclusif en français — Wikipédia](https://fr.wikipedia.org/wiki/Langage_inclusif_en_fran%C3%A7ais)
 
 ### Unit letter case
 

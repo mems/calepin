@@ -2209,7 +2209,13 @@ Windows Registry Editor Version 5.00
 - [Use your Apple Keyboard in Windows with Boot Camp - Apple Support](https://support.apple.com/en-us/HT202676)
 - [Keyboard mappings using a PC keyboard on a Macintosh](https://support.microsoft.com/en-us/help/970299/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh)
 
-### Mouse acceleration
+### Pointer
+
+Aka mouse
+
+- [LinearMouse | The mouse and trackpad utility for Mac.](https://linearmouse.app/)
+
+#### Mouse acceleration
 
 USB Overdrive works if you change system mouse speed to 0 (or -1)
 

@@ -66,6 +66,8 @@ See also:
 > - [wast2json](https://webassembly.github.io/wabt/doc/wast2json.1.html): convert a file in the wasm spec test format to a JSON file and associated wasm binary files
 > - [wasm-opcodecnt](https://webassembly.github.io/wabt/doc/wasm-opcodecnt.1.html): count opcode usage for instructions
 > - [spectest-interp](https://webassembly.github.io/wabt/doc/spectest-interp.1.html): read a Spectest JSON file, and run its tests in the interpreter
+- [WebAssembly](https://web.dev/webassembly/)
+- [Compiling mkbitmap to WebAssembly](https://web.archive.org/web/20230629044710/https://web.dev/compiling-mkbitmap-to-webassembly/)
 
 ## WebAssembly Text
 

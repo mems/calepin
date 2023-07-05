@@ -15,6 +15,8 @@
 - [blob - How to DEFLATE with a command line tool to extract a git object? - Stack Overflow](https://stackoverflow.com/questions/3178566/how-to-deflate-with-a-command-line-tool-to-extract-a-git-object)
 - [Some of git internals (updated)](https://web.archive.org/web/20201226115731/https://yurichev.com/news/20201220_git/)
 - [Git - Git SCM Wiki](https://web.archive.org/web/20210815164513/https://git.wiki.kernel.org/index.php/Git#Implementation)
+- [github - Make Git show the correct tag on branches with git describe - Stack Overflow](https://stackoverflow.com/questions/57685432/make-git-show-the-correct-tag-on-branches-with-git-describe/57697016#57697016) - About git tags and `git describe`
+- [Git Cookbook](https://git.seveas.net/)
 
 How stash works:
 

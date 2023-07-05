@@ -312,6 +312,16 @@ Aka categories, tags
 - [Responsive Images in WordPress 4.4 – Make WordPress Core](https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/)
 - [Responsive Images Now Landed In WordPress Core — Smashing Magazine](https://www.smashingmagazine.com/2015/12/responsive-images-in-wordpress-core/)
 
+## Update URL and media filename
+
+- [Automatic Domain Changer – WordPress plugin | WordPress.org](https://wordpress.org/plugins/automatic-domain-changer/)
+- [Rename WP Media Files Name – WordPress plugin | WordPress.org](https://wordpress.org/plugins/wp-media-files-name-rename/)
+- [Go Live Update Urls – WordPress plugin | WordPress.org](https://wordpress.org/plugins/go-live-update-urls/)
+
+## Backup and migration
+
+- [Duplicator – WordPress Migration & Backup Plugin – WordPress plugin | WordPress.org](https://wordpress.org/plugins/duplicator/)
+
 ## AJAX
 
 - http://code.tutsplus.com/articles/getting-started-with-ajax-wordpress-pagination--wp-23099
@@ -628,3 +638,24 @@ $my_theme = new My_Theme();
 ## Code
 
 - [WordPress/WordPress-Coding-Standards: PHP_CodeSniffer rules (sniffs) to enforce WordPress coding conventions](https://github.com/WordPress/WordPress-Coding-Standards)
+
+## External script use WordPress functions
+
+Aka headless, api
+
+```php
+<?php
+// Hide PHP Notice, Warning, logs...
+ini_set('display_errors', 0);
+
+header('Content-Type: application/json');
+
+const WP_USE_THEMES = false;
+$parse_uri = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
+require_once( $parse_uri[0] . 'wp-load.php' );
+?>
+```
+
+- [Dans quel ordre se charge WordPress ? - Fantassin](https://web.archive.org/web/20220926010522/https://learn.fantassin.fr/dans-quel-ordre-se-charge-wordpress/)
+- [Integrating WordPress with Your Website « WordPress Codex](https://codex.wordpress.org/Integrating_WordPress_with_Your_Website)
+- [php - How do you output JSON using wp_Query in wordpress? - Stack Overflow](https://stackoverflow.com/questions/6635336/how-do-you-output-json-using-wp-query-in-wordpress)

@@ -1296,30 +1296,14 @@ async function readNetLogFile(file, eventFilter = null){
 
 #### Custom device with higher granularity
 
-https://developer.chrome.com/devtools/docs/device-mode#custom-devices
+- https://developer.chrome.com/devtools/docs/device-mode#custom-devices
+- https://github.com/ChromeDevTools/devtools-frontend/blob/9f1eee62ea4b12b10515582647260353f2f0c5e5/front_end/models/emulation/EmulatedDevices.ts#L645-L1801 default emulated devices
+- `~/Library/Application Support/Google/Chrome/Default/Preferences` JSON, `data.devtools.preferences.customEmulatedDeviceList`
+- `chrome.experimental.devtools.*`
 
-```
-trunk/Source/devtools/front_end/emulation/EmulatedDevices.js
+See also:
 
-
-WebInspector.settings.createSetting("customEmulatedDeviceList", [])
-
-in customEmulatedDeviceList each entry:
-.capabilities = [];//["touch","mobile"]
-.type = "notebook";//"phone"//"tablet"//"unknown"
-For default value: 0 or ""
-
-WebInspector.EmulatedDevicesList.dispatchEventToListeners(WebInspector.EmulatedDevicesList.Events.CustomDevicesUpdated);
-
-
-chrome.experimental.devtools.*
-
-https://api.github.com/repos/GoogleChrome/devtools-device-data/contents/devices.json?ref=release
-https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
-
-~/Library/Application Support/Google/Chrome/Default/Preferences
-JSON: devtools.preferences.customEmulatedDeviceList parse as JSON
-```
+- https://github.com/GoogleChrome/devtools-device-data/blob/release/devices.json
 
 #### Update loop
 
@@ -1960,6 +1944,7 @@ See also:
 - [Why Experiment Server-Side? - DZone Web Dev](https://web.archive.org/web/20180301171006/https://dzone.com/articles/why-experiment-server-side)
 - [A/B testing - Wikipedia](https://en.wikipedia.org/wiki/A/B_testing)
 - [Caveats and Limitations of A/B Testing at Growth Tech Companies – r y x, r](https://web.archive.org/web/20221112171528/https://ryxcommar.com/2022/11/07/caveats-and-limitations-of-a-b-testing-at-growth-tech-companies/)
+- [8 annoying A/B testing mistakes every engineer should know - PostHog](https://web.archive.org/web/20230625231124/https://posthog.com/blog/ab-testing-mistakes)
 
 ## Content blocking
 
