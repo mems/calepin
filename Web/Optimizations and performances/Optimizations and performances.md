@@ -224,6 +224,9 @@ See also [Page Weight Matters](http://blog.chriszacharias.com/page-weight-matter
 	- Optimize tarball by sorting by file extension and dir. `find ./source \! -type d | rev | sort | rev | tar cjf archive.tar.bz2 --files-from=-`
 		That group similar files together, allow compression from redundancy across files similar files. (due to limited window size to 32K)
 	- remove optional filename and timestamp from gzipped stream (option `-n`): `gzip -9 -n -k file`
+	- rearrange data:
+		- [Server-Timing Compression - vaz.ac](https://web.archive.org/web/20230328152504/https://vaz.ac/post/server-timing-compression/) - store/send `Server-Timing: cdn-cache; desc=MISS, edge; dur=23, origin; dur=129` as `0,23:1,129:2`
+		- [Compressing ResourceTiming | NicJ.net](https://web.archive.org/web/20230330073644/https://nicj.net/compressing-resourcetiming/) - store/send `{"responseEnd":2436.426999978721,"responseStart":2435.966999968514,"reque...` as `370,1z,1c`. See [nicjansma/resourcetiming-compression.js: ResourceTiming compression and decompression](https://github.com/nicjansma/resourcetiming-compression.js)
 
 ## Reduce requests
 

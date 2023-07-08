@@ -452,10 +452,15 @@ See [Security](Security#http-referer)
 
 Aka POST, GET, HEAD, PUT, etc.
 
+> An HTTP method is **safe** if it doesn't alter the state of the server. In other words, a method is safe if it leads to a read-only operation. Several common HTTP methods are safe: `GET`, `HEAD`, or `OPTIONS`.
+>
+> — [Safe (HTTP Methods) - MDN Web Docs Glossary: Definitions of Web-related terms | MDN](https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP)
+
 See [RESTful](#restful) and [API](#api)
 
 - `X-HTTP-Method` (Microsoft), `X-HTTP-Method-Override` (Google/GData), `X-Method-Override` (IBM)
 - [The Definitive Guide to GET vs POST - Treehouse Blog](http://blog.teamtreehouse.com/the-definitive-guide-to-get-vs-post)
+- [Safe (HTTP Methods) - MDN Web Docs Glossary: Definitions of Web-related terms | MDN](https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP)
 
 ### Simple HTTP Server
 
