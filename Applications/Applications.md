@@ -2248,3 +2248,13 @@ Backup WhatsApp data for iOS
 - Age of Empires: Definitive Edition: `%USERPROFILE%\Games\Age of Empires DE\Users\<user name>\Saved Games\*.aoe2spgame`
 - Age of Empires 2: Definitive Edition: `%USERPROFILE%\Games\Age of Empires 2 DE\<17 digits>\savegame\*.aoe2spgame`
 - World War Z: `%LOCALAPPDATA%\Saber\WWZ\client\storage`
+
+## Tower
+
+- [Tower - Account Management](https://account.git-tower.com/account/licenses)
+
+On Windows:
+
+- binaries: `%USERPROFILE%\AppData\Local\Tower`
+- settings: `%USERPROFILE%\AppData\Local\fournova\Tower`
+- enable logging by set in `%USERPROFILE%\AppData\Local\fournova\Tower\Settings\main.settings` the keys `EnableLog` and `EnableRestLog` to `true`. This will generate for the next application start log files in `%USERPROFILE%\AppData\Local\fournova\Tower\logs`
