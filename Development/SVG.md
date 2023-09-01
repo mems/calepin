@@ -997,3 +997,23 @@ const SVG_DOCTYPE = `<?xml version="1.0" standalone="no"?>
 Aka WebGL
 
 - [WebGL in SVG via foreignObject](https://gist.github.com/spite/6675ac4622a39cc7a75449215603fe4d?short_path=65bbefd)
+
+## Text to Path
+
+- [mikolalysenko/vectorize-text: Turns a text string into a 2D poly line](https://github.com/mikolalysenko/vectorize-text/tree/master) - Render with a browser canvas or Cairo ([canvas](https://www.npmjs.com/package/canvas)), then detect edges
+- [bubkoo/text2svg: 🍄 Convert text to svg path.](https://github.com/bubkoo/text2svg/tree/master) - Use [opentype.js](https://github.com/opentypejs/opentype.js)
+- [text-to-svg/src/index.js at master · shrhdk/text-to-svg](https://github.com/shrhdk/text-to-svg/blob/master/src/index.js) - Use [opentype.js](https://github.com/opentypejs/opentype.js)
+- [ksss/text2svg: Generate SVG data from text and font file](https://github.com/ksss/text2svg/tree/master) - Use [FreeType](https://freetype.org/), written in Ruby. See [`svg_path_data`](https://github.com/ksss/freetype/blob/8e48fb665fbfe7055741e8ea8a33fa80862f9f83/lib/freetype/api.rb#L208-L236) and [`FT_Outline_Decompose`](https://freetype.org/freetype2/docs/reference/ft2-outline_processing.html#ft_outline_decompose)
+- `inkscape file_text.svg --export-text-to-path --export-plain-svg file_shapes.svg`
+- [kartsims/easysvg: Generate SVG definitions and XML using PHP](https://github.com/kartsims/easysvg/tree/master) - Render text path with SVG font, written in PHP
+- [php - How to convert text to SVG paths? - Stack Overflow](https://stackoverflow.com/questions/7742148/how-to-convert-text-to-svg-paths/9558337#9558337) - Render text path with SVG font, written in PHP
+- [danmarshall/google-font-to-svg-path: Create an SVG path from a Google font](https://github.com/danmarshall/google-font-to-svg-path/tree/master) - Use [maker.js](https://github.com/Microsoft/maker.js) (which use [opentype.js](https://github.com/opentypejs/opentype.js)), written in JS
+
+## SVG Font
+
+- [SVG Font Converter](https://xmlgraphics.apache.org/batik/tools/font-converter.html) - Batik `ttf2svg`
+- [Text to SVG Paths](https://web.archive.org/web/20210917224826/https://catherineh.github.io/programming/2018/02/01/text-to-svg-paths) with freetype and Python
+- FontForge scripting:
+	- native scripting: `fontforge -lang ff -c 'Open($1); Generate($2)' font.otf font.svg`
+	- pyton: `fontforge -c 'open(argv[1]).generate(argv[2])' font.otf font.svg`
+	- [Scripting FontForge](https://fontforge.org/docs/scripting/scripting.html#invoking-scripts)
