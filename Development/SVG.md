@@ -1009,6 +1009,11 @@ Aka WebGL
 - [php - How to convert text to SVG paths? - Stack Overflow](https://stackoverflow.com/questions/7742148/how-to-convert-text-to-svg-paths/9558337#9558337) - Render text path with SVG font, written in PHP
 - [danmarshall/google-font-to-svg-path: Create an SVG path from a Google font](https://github.com/danmarshall/google-font-to-svg-path/tree/master) - Use [maker.js](https://github.com/Microsoft/maker.js) (which use [opentype.js](https://github.com/opentypejs/opentype.js)), written in JS
 
+See also:
+
+- [HarfBuzz](https://harfbuzz.github.io/) - "HarfBuzz is a text shaping library"
+- [Pango](https://pango.gnome.org/) - "Pango is a library for laying out and rendering of text, with an emphasis on internationalization"
+
 ## SVG Font
 
 - [SVG Font Converter](https://xmlgraphics.apache.org/batik/tools/font-converter.html) - Batik `ttf2svg`
