@@ -807,7 +807,8 @@ On each client machine:
 
 - mkcert:
 	- [FiloSottile/mkcert: A simple zero-config tool to make locally trusted development certificates with any names you'd like.](https://github.com/FiloSottile/mkcert)
-	- [mkcert: valid HTTPS certificates for localhost](https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
+	- [mkcert: valid HTTPS certificates for localhost](https://web.archive.org/web/20230817143941/https://words.filippo.io/mkcert-valid-https-certificates-for-localhost/) (*.localhost domains)
+	- [Using SSL in local development](https://web.archive.org/web/20230131232048/https://blog.revathskumar.com/2020/07/using-ssl-in-local-development.html)
 - [Certificates for localhost - Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/docs/certificates-for-localhost/#making-and-trusting-your-own-certificates)
 - [ssl - Difference between self-signed CA and self-signed certificate - Stack Overflow](https://stackoverflow.com/questions/4024393/difference-between-self-signed-ca-and-self-signed-certificate)
 - [Self-signed SSL certificates, CA flagged true, for Android and OS X | Best Mac Tips](http://best-mac-tips.com/2015/05/28/self-signed-ssl-certificates-ca-true-android-os-x/)

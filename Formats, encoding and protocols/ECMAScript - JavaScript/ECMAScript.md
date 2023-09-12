@@ -55,6 +55,18 @@ Aka JavaScript (ECMAScript + DOM and Web APIs),
 - [Microsoft/ChakraCore: ChakraCore is the core part of the Chakra Javascript engine that power Microsoft Edge](https://github.com/Microsoft/ChakraCore)
 	- [nodejs/node-chakracore: Node.js on ChakraCore](https://github.com/nodejs/node-chakracore)
 	- Microsoft Edge
+- [GitHub - chakra-core/ChakraCore: ChakraCore is an open source Javascript engine with a C API.](https://github.com/chakra-core/ChakraCore)
+- [GitHub - oracle/graaljs: A ECMAScript 2022 compliant JavaScript implementation built on GraalVM. With polyglot language interoperability support. Running Node.js applications!](https://github.com/oracle/graaljs)
+- [GitHub - facebook/hermes: A JavaScript engine optimized for running React Native.](https://github.com/facebook/hermes)
+- [njs](https://nginx.org/en/docs/njs/index.html) - see [the njs command-line utility](https://nginx.org/en/docs/njs/cli.html), [GitHub - nginx/njs: An official read-only mirror of http://hg.nginx.org/njs/ which is updated hourly.](https://github.com/nginx/njs)
+- [Duktape](https://duktape.org/) - [GitHub - svaarala/duktape: Duktape - embeddable Javascript engine with a focus on portability and compact footprint](https://github.com/svaarala/duktape)
+- [QuickJS](https://bellard.org/quickjs/) - [GitHub - bellard/quickjs: Public repository of the QuickJS Javascript Engine. Pull requests are not accepted. Use the mailing list to submit patches.](https://github.com/bellard/quickjs)
+- [Home | SpiderMonkey JavaScript/WebAssembly Engine](https://spidermonkey.dev/)
+- [Bun — A fast all-in-one JavaScript runtime](https://bun.sh/)
+- [JavaScriptCore – WebKit](https://trac.webkit.org/wiki/JavaScriptCore)
+- [GitHub - Moddable-OpenSource/moddable-xst: Moddable XS Test Engine](https://github.com/Moddable-OpenSource/moddable-xst)
+
+See also [GitHub - GoogleChromeLabs/jsvu: JavaScript (engine) Version Updater](https://github.com/GoogleChromeLabs/jsvu#supported-engines-per-os)
 
 ## Editor
 

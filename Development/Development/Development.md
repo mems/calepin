@@ -1092,6 +1092,7 @@ One commit doesn't necessarily mean a feature change, there could be multiple at
 
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [How to Write a Git Commit Message](https://web.archive.org/web/20220426220055/https://cbea.ms/git-commit/)
+- [How to Write Better Git Commit Messages – A Step-By-Step Guide](https://web.archive.org/web/20230827155248/https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
 - [Commit](../Development/Git/Git.md#commit)
 
 > > This will come back to bite us
