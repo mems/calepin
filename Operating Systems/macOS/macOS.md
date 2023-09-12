@@ -1770,6 +1770,10 @@ Bluetooth dual boot:
 - [Bluetooth Pairing Part 3 -Low Energy LegacyPairing Passkey Entry | Bluetooth® Technology Website](https://web.archive.org/web/20211214220910/https://www.bluetooth.com/blog/bluetooth-pairing-passkey-entry/)
 - [Bluetooth Pairing Part 4:Bluetooth Low EnergySecure Connections -Numeric Comparison | Bluetooth® Technology Website](https://web.archive.org/web/20210425073720/https://www.bluetooth.com/blog/bluetooth-pairing-part-4/)
 
+### Change ownership
+
+- [Changing ownership of a used Mac - Apple Community](https://web.archive.org/web/20230122233113/https://discussions.apple.com/docs/DOC-5641)
+
 ## Network
 
 - [What causes some Network Drives using SMB no longer connect to macOS Catalina? - Ask Different](https://apple.stackexchange.com/questions/362739/what-causes-some-network-drives-using-smb-no-longer-connect-to-macos-catalina) - SMB and NetBIOS (`/etc/nsmb.conf`) troubles
@@ -3250,6 +3254,13 @@ How to fix "Failed to build osxfuse: command execution failed":
 - [install builded version](https://github.com/osxfuse/osxfuse/releases) then create a symlink to `fuse.pc`: `sudo ln -s /usr/local/lib/pkgconfig/fuse.pc /opt/local/lib/pkgconfig/fuse.pc`
 - [note: osxfuse is no longer an open source project since version 3.9.0](https://github.com/osxfuse/osxfuse/issues/590)
 - [#59316 (osxfuse @3.8.3: Assertion 'common_is_variable DEFAULT_SDK_10_15_ARCHITECURES' failed) – MacPorts](https://trac.macports.org/ticket/59316#comment:52)
+
+### App store
+
+Aka MAS (macOS App Store)
+
+- [catalina - Numbers can’t be installed on “macos” because macOS version 11 or later is required - Ask Different](https://apple.stackexchange.com/questions/430327/numbers-can-t-be-installed-on-macos-because-macos-version-11-or-later-is-requi)
+- [mojave - How do I update macOS App Store apps to the latest compatible version? - Ask Different](https://apple.stackexchange.com/questions/415461/how-do-i-update-macos-app-store-apps-to-the-latest-compatible-version)
 
 ## Preference pane
 

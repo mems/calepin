@@ -70,3 +70,8 @@ Use towel (multiple layers)
 - pour renforcer ou partir d'une base plane pour carreler, utiliser plaque a carreler (aussi appelé wedy)
 - montage a blanc des tuyaux avant sertissage ou soudage
 - ciment prompt pour bouger les orifices d'évacuation (raccord entre PVC et fonte/SME), il sèche très vite
+
+## Dry stone
+
+- [How To Build Walls – The Stone Trust](https://web.archive.org/web/20230601193946/https://thestonetrust.org/resource-information/how-to/)
+- [DRY STONE TV - YouTube](https://www.youtube.com/@drystone-tv)

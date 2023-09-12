@@ -985,6 +985,18 @@ Aka Web Extensions
 
 - [Impact of extension privileges | Almost Secure](https://web.archive.org/web/20221020162022/https://palant.info/2022/08/17/impact-of-extension-privileges/)
 - [Debug Native Messaging – text/plain](https://web.archive.org/web/20230204030748/https://textslashplain.com/2022/01/08/debug-native-messaging/)
+- [Download Google Chrome extension without installing it](./Websites.md#download-google-chrome-extension-without-installing-it)
+- [CRX / NEX (Opera)](./Websites.md#crx-nex-opera)
+
+Sideloading in Firefox is no more allowed since version 73:
+
+- [Add-ons for desktop apps | Firefox Extension Workshop](https://extensionworkshop.com/documentation/publish/distribute-sideloading/#standard-extension-folders)
+- [Enterprise distribution | Firefox Extension Workshop](https://extensionworkshop.com/documentation/enterprise/enterprise-distribution/)
+- [Upcoming changes to extension sideloading | Mozilla Add-ons Community Blog](https://blog.mozilla.org/addons/2019/10/31/firefox-to-discontinue-sideloaded-extensions/)
+
+Sideloading in Chrome:
+
+- [Alternative Chrome extension installation methods - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/external_extensions/#registry)
 
 ### Safari Extensions
 
@@ -1173,7 +1185,7 @@ Skia:
 
 Enable Chrome developer tools experiments:
 
-1. chrome://flags/#enable-devtools-experiments
+1. `chrome://flags/#enable-devtools-experiments`
 2. webdev tools "Settings"
 3. webdev tools "Experiment" tab
 4. press "Shift" 6 times to show more experiments

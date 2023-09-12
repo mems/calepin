@@ -4,8 +4,6 @@
 - Gougères
 - Gaufres de Liège
 
-Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est
-
 Poisson cru (type colin) cuit par du citron, avec lait coco et échalotes, coriandre
 
 Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C max:
@@ -29,7 +27,7 @@ Mettre le join au congélateur pour le faire rétrécire
 Ne pas le couper, même si il semble trop grand (de plusieurs centimètres)
 L'insérer de façon équitable au tour de l'insert
 
-## Main dishes
+## Main dishes and sides
 
 ### Gnocchi
 
@@ -370,6 +368,12 @@ Conseils
 - Verifier régulièrement la caramélisation, le plat ne doit être ni trop sec ni trop liquide. Accompagner d'un riz blanc. Pour les amateurs, proposer un jus de citron, l'acidité du citron se marie très bien avec la douceur du plat.
 - Vous pouvez ajouter quelques pluches de coriandre frais à la fin pour apporter un peu de fraîcheur au plat.
 - J'aime aussi ajouter un petit peu de gingembre haché.
+
+### Frites
+
+> Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est [enfin pas trop non plus]
+
+- [Frite — Wikipédia](https://fr.wikipedia.org/wiki/Frite#Pr%C3%A9paration)
 
 ## Other
 

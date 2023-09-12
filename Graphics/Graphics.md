@@ -146,6 +146,12 @@ Transform bitmap to vectors
 - [Upload Image To Trace - Vector Magic](http://vectormagic.com/online/upload)
 - [Depixelizing Pixel Art - pixel.pdf](https://johanneskopf.de/publications/pixelart/paper/pixel.pdf) [Depixelizing Pixel Art](Depixelizing Pixel Art.pdf)
 - [nitoyon/PotrAs - Spark project](http://www.libspark.org/wiki/nitoyon/PotrAs) - Generates vector graphics from a b/w image. See http://www.libspark.org/svn/as3/PotrAs/
+- [Tw1ddle/geometrize: :white_square_button: Geometrize is a desktop app that geometrizes images into geometric primitives](https://github.com/Tw1ddle/geometrize) - [Geometrize - desktop app for geometrizing images into geometric primitives](https://web.archive.org/web/20230624111209/https://www.geometrize.co.uk/), redraw bitmap image with vector shapes / primitives
+- [fogleman/primitive: Reproducing images with geometric primitives.](https://github.com/fogleman/primitive) - [Primitive for macOS](https://web.archive.org/web/20230526013755/https://primitive.lol/)
+- [axe312ger/sqip: "SQIP" (pronounced \\skwɪb\\ like the non-magical folk of magical descent) is a SVG-based LQIP technique.](https://github.com/axe312ger/sqip) (LQIP: Low-Quality Image Placeholder)
+- [jankovicsandras/imagetracerjs: Simple raster image tracer and vectorizer written in JavaScript.](https://github.com/jankovicsandras/imagetracerjs)
+
+See also [Progressive load](../Web/Optimizations%20and%20performances/Optimizations%20and%20performances.md)
 
 ## Lighting
 

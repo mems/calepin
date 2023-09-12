@@ -1218,11 +1218,17 @@ See also:
 
 ## Form
 
+- [Progressively Enhanced Form Validation, Part 1: HTML and CSS – Cloud Four](https://web.archive.org/web/20230822131453/https://cloudfour.com/thinks/progressively-enhanced-form-validation-part-1-html-and-css/)
+- [Progressively Enhanced Form Validation, Part 2: Layering in JavaScript – Cloud Four](https://web.archive.org/web/20230816055249/https://cloudfour.com/thinks/progressively-enhanced-form-validation-part-2-layering-in-javascript/)
+- [Progressively Enhanced Form Validation, Part 3: Validating a checkbox group – Cloud Four](https://web.archive.org/web/20230821153035/https://cloudfour.com/thinks/progressively-enhanced-form-validation-part-3-validating-a-checkbox-group/)
+
 ### Submit form programmatically
+
+**Use [`form.requestSubmit()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/requestSubmit).**
 
 When you call `form.submit()` the listener attached to the `submit` event are not triggered (depends browsers?). Also contraints are not validated.
 
-The workaround is create on-the-fly a submit button attach it to the form, click it, and finally remove it
+The workaround is create on-the-fly a submit button attach it to the form, click it, and finally remove it:
 
 ```js
 /**
@@ -1248,8 +1254,6 @@ function submitImplicitly(input){
 };
 ```
 
-- https://stackoverflow.com/questions/645555/should-jquerys-form-submit-not-trigger-onsubmit-within-the-form-tag
-- https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement.submit
 - https://gist.github.com/mems/97a733d9c787dcf99cff
 
 ### Get the form submitter
@@ -8390,3 +8394,6 @@ And Virtual DOM
 - [maxogden/yo-yo: A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals](https://github.com/maxogden/yo-yo)
 - [Web Reflection: The DOM Is NOT Slow, Your Abstraction Is](https://web.archive.org/web/20201108115943/http://webreflection.blogspot.com/2015/04/the-dom-is-not-slow-your-abstraction-is.html)
 - [JSX + jQuery = jreact](https://glitch.com/~jquery-jsx-pragma) - Custom JSX renderer based on jQuery (no react)
+- [WTF is JSX - JASON Format](https://web.archive.org/web/20230601224013/https://jasonformat.com/wtf-is-jsx/)
+- [krakenjs/jsx-pragmatic: Build JSX structures, then decide at runtime which pragma you want to use to render them.](https://github.com/krakenjs/jsx-pragmatic)
+- [Introducing JSX – React](https://legacy.reactjs.org/docs/introducing-jsx.html#jsx-represents-objects)

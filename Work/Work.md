@@ -103,12 +103,13 @@ See [Management](../Management/Management.md)
 
 ## Salary
 
-Aka salary, salaire
+Aka salary negotiation, salaire
 
 - [Time estimation](#time-estimation)
 - [Salaire brut/net - Code du travail numérique](https://code.travail.gouv.fr/outils/simulateur-embauche)
 - [Salaire brut / net : le convertisseur Urssaf - Mon-entreprise](https://mon-entreprise.fr/simulateurs/salaire-brut-net)
 - [The 10 commandments of salary negotiation - by Lenny Rachitsky - Lenny's Newsletter](https://web.archive.org/web/20211010073846/https://www.lennysnewsletter.com/p/negotiating-comp)
+- [How to sabotage your salary negotiation efforts before you even start](https://web.archive.org/web/20230824180031/https://interviewing.io/blog/sabotage-salary-negotiation-before-even-start)
 
 ## Self-employed
 

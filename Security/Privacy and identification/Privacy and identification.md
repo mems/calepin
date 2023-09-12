@@ -147,6 +147,7 @@ To protect against entropy and protect privacy (obfuscation): generate noise, fa
 - [TrackMeNot](http://cs.nyu.edu/trackmenot/)
 - [Obfuscation | The MIT Press](https://mitpress.mit.edu/books/obfuscation)
 - https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/
+- [Noiszy](https://noiszy.com/) - [GitHub - noiszy/noiszy](https://github.com/noiszy/noiszy), see also [GitHub - 2br-2b/datafaux: Help confuse targeted advertising by giving it a bunch of garbage data!](https://github.com/2br-2b/datafaux)
 
 Tools to finger print web browsers:
 

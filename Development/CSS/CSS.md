@@ -2037,19 +2037,28 @@ See [Content vs. decorative image](../HTML/HTML.md#content-vs-decorative-image)
 
 ### Broken image
 
-Use pseudo elements (works only when the image is broken): [Styling Broken Images](https://bitsofco.de/styling-broken-images/)
-
-Or override the image src with CSS (don't do that, see above):
+Use pseudo elements (works only when the image is broken):
 
 ```css
-*{
-	content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==") / "";
+img::after{
+	content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==") / attr(alt);
 }
+/*
+We can use:
+- `::first-line`
+- `::first-word`
+- `::first-letter`
+- `::before`
+- `::after`
+*/
 ```
 
-[This syntax](https://www.w3.org/TR/css-content-3/#alt) is not widly supported. (15/09/2016: it's still an Editor's Draft). If not supported (or removed from spec), don't use it because **(if not empty) you should always let the alt text be displayed**. (or use `... / attr(alt)`)
+- [CSS property: content: Alternative text after `/` | Can I use... Support tables for HTML5, CSS3, etc](https://caniuse.com/mdn-css_properties_content_alt_text)
+- [attr() - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/attr)
+- [content - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/content#image_combined_with_alternative_text)
+- [Styling Broken Images | bitsofcode](https://web.archive.org/web/20230325142352/https://bitsofco.de/styling-broken-images/)
 
-Or use Shadow DOM selector (not work currently): [Border Around ALT Text in Email Signature > Litmus](https://litmus.com/community/code/4309-border-around-alt-text-in-email-signature)
+Or use Shadow DOM selector (not work currently): [Border Around ALT Text in Email Signature \> Litmus](https://web.archive.org/web/20230329141829/https://litmus.com/community/discussions/4309-border-around-alt-text-in-email-signature)
 
 ### Content generated image
 
@@ -2406,7 +2415,16 @@ If roll over and roll out are both animations, an different `animation-name` is 
 
 ### Fading out siblings on hover
 
-- [Fading out siblings on hover in CSS | Trys Mudford](https://www.trysmudford.com/blog/fade-out-siblings-css-trick/)
+```css
+.nav:hover .nav-item:not(:hover) {
+	opacity: 0.65;
+}
+.nav-item:hover {
+	transform: scale(1.1);
+}
+```
+
+- [Fading out siblings on hover in CSS | Trys Mudford](https://web.archive.org/web/20230220192511/https://www.trysmudford.com/blog/fade-out-siblings-css-trick/)
 
 ### Don't define last frame value
 
@@ -2575,7 +2593,7 @@ Aka priority
 
 Note: `!important` can take the precedence, but for some CSS engines animation/transition can take percedence over `!important`. See [More important than !important – The Sea of Ideas](https://paulbakaus.com/2017/07/27/more-important-than-important/)
 
-`element:not(#id)`, have higher specificity than `element` (because `#id` = 10)
+`selector:not(#id)`, have higher specificity than `selector` (because `#id` = 10) or `selector:not(#\ )` or `selector:not(.\ )` (`id` and `class` cannot be set to a space in HTML)
 
 - [Eric Meyer, CSS Nerd sur Twitter : "@chriscoyier That buries active styles for any focused link, though. LVHFA or LVFHA are what I always recommend—unless you’re using chained pseudos like :focus:active and :visited:hover, in which case the order rarely matters." / Twitter](https://twitter.com/meyerweb/status/1279053893440282625)
 - [The CSS Cascade](https://web.archive.org/web/20220516003616/https://wattenberger.com/blog/css-cascade)

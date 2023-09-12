@@ -888,7 +888,7 @@ Or partial load
 - [Progressive image](https://github.com/bompo/streamingtextures/)
 - [WebGL — Progressive loading](http://www.khronos.org/webgl/public-mailing-list/archives/1104/msg00056.html)
 - [Performance Calendar » Progressive jpegs: a new best practice](https://calendar.perfplanet.com/2012/progressive-jpegs-a-new-best-practice/)
-- [How Medium does progressive image loading – José M. Pérez](https://web.archive.org/web/20230215191414/https://jmperezperez.com/blog/medium-image-progressive-loading-placeholder/)
+- [How Medium does progressive image loading – José M. Pérez](https://web.archive.org/web/20230215191414/https://jmperezperez.com/blog/medium-image-progressive-loading-placeholder/) - See also [How to use SVG as a Placeholder, and Other Image Loading Techniques](https://web.archive.org/web/20230224133619/https://www.freecodecamp.org/news/using-svg-as-placeholders-more-image-loading-techniques-bed1b810ab2c) and [Vectorization](../../Graphics/Graphics.md#vectorization) for previews of images (Low-Quality Image Placeholder)
 - [An Introduction to Progressive Image Rendering](https://web.archive.org/web/20221225091309/https://cloudinary.com/blog/an_introduction_to_progressive_image_rendering)
 - [Lazy loading images using Intersection Observer | Dean Hume](http://deanhume.com/home/blogpost/lazy-loading-images-using-intersection-observer/10163)
 - Use same DCT coefficients, JPEGs with elided quant tables to reduce bytes loaded (recreate JPEG headers)

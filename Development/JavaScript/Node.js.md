@@ -298,6 +298,10 @@ npm update --latest
 - `yarn upgrade-interactive --latest`
 - [npm-upgrade - npm](https://www.npmjs.com/package/npm-upgrade)
 
+### Security and trust
+
+- [How to protect yourself from npm – Timo Tijhof](https://web.archive.org/web/20230226143640/https://timotijhof.net/posts/2019/protect-yourself-from-npm/)
+
 ### Format and lint package JSON
 
 - sort `package.json` with `npx sort-package-json` - [npm - Is there a way to alphabetize package.json without installing a package? - Stack Overflow](https://stackoverflow.com/questions/34438465/is-there-a-way-to-alphabetize-package-json-without-installing-a-package/51773989#51773989)
@@ -926,3 +930,14 @@ Increase memory to 4GB: `node --max-old-space-size=4096 index.js`. 1024 for 1GB,
 
 - [npm install downgrading resolved packages from https to http registry in package-lock.json - 🐞 bugs - npm forum](https://npm.community/t/npm-install-downgrading-resolved-packages-from-https-to-http-registry-in-package-lock-json/1818/7)
 - ["resolved" link changes from https://registry.npmjs.com to http://registry.npmjs.com on npm install · Issue #20719 · npm/npm](https://github.com/npm/npm/issues/20719)
+
+## Single executable application
+
+> SABs are not meant for bundling dependencies
+
+- [Single executable applications](https://nodejs.org/api/single-executable-applications.html)
+- [What do we consider to be a Single Executable Application? · nodejs/single-executable · Discussion #34](https://github.com/nodejs/single-executable/discussions/34)
+- [vercel/pkg: Package your Node.js project into an executable](https://github.com/vercel/pkg)
+- [nexe/nexe: 🎉 create a single executable out of your node.js apps](https://github.com/nexe/nexe)
+- [Compiling a Node.js Application into an .exe File | Engineering Education (EngEd) Program | Section](https://web.archive.org/web/20230604094945/https://www.section.io/engineering-education/compile-your-nodejs-application-into-a-exe-file/) - Use pkg or nexe
+- [criblio/js2bin: NodeJS application to native executable](https://github.com/criblio/js2bin)

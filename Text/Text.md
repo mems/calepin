@@ -904,3 +904,9 @@ Aka NDR (Note Du Rédacteur), NDLR (Note de la rédaction), Ed., Editor Note
 See also:
 
 - [Note du traducteur — Wikipédia](https://fr.wikipedia.org/wiki/Note_du_traducteur)
+
+## Hashtag
+
+\#CamelCase is recomended vs \#Camel_Case for accessibility purpose (reading "camel case" vs "camel underscore case")
+
+- [noctiluce: "Salut la féérie diversifiée ! …" - Piaille](https://piaille.fr/@noctiluce/110940544357944418)

@@ -6,9 +6,12 @@ garde d'enfant, auxiliaire parentale, babysitter, nounou
 
 Cour de Cassation, chambre sociale, n° 388 D Revue de jurisprudence sociale, n° 3, mars 1999
 
+- [nounou-top : trouver une nounou c'est facile !](https://www.nounou-top.fr/)
 - [Assistantes maternelles (statut) — Wikipédia](https://fr.wikipedia.org/wiki/Assistantes_maternelles_%28statut%29)
 - [Top-Assmat : la garde d'enfant, facilement.](https://top-assmat.com/)
 - [Complément de libre choix du mode de garde (CMG) - Assistante maternelle | service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F345)
+- [Convention collective nationale des particuliers employeurs et de l'emploi à domicile du 15 mars 2021 - Étendue par arrêté du 6 octobre 2021 JORF 16 octobre 2021 - Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000044594539?origin=list)
+- [Bulletins officiels des conventions collectives - Légifrance](https://www.legifrance.gouv.fr/liste/bocc?idcc_suggest=3239&sortValue=BOCC_SORT_DESC&pageSize=100&page=1&tab_selection=all#bocc) - avenants IDCC 3239 "PARTICULIERS EMPLOYEURS ET EMPLOI À DOMICILE"
 
 ## Indemnités d’entretien
 
@@ -137,6 +140,7 @@ mois incomplet (ne commence pas le 1er du mois ou ne fini pas à la fin du mois,
 Voir aussi :
 
 - [Rupture conventionnelle | Service-public.fr](https://www.service-public.fr/particuliers/vosdroits/F19030)
+- [Mes démarches de fin de contrat avec Pajemploi](https://findecontrat-pajemploi.urssaf.fr/findecontrat/)
 
 ## Salaire
 

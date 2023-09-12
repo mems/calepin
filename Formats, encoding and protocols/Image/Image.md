@@ -8,6 +8,7 @@ See also [Compare image](../../Algorithms/Compare%20data/Compare%20data.md#compa
 
 Libraires support differents formats
 
+- [libvips](https://www.libvips.org/) - fast image processing library
 - [DevIL - A full featured cross-platform Image Library](http://openil.sourceforge.net/) - cross-platform image library utilizing a simple syntax to load, save, convert, manipulate, filter, and display a variety of images. See [Developer's Image Library (DevIL)](https://github.com/DentonW/DevIL)
 	Support lot of image formats (loading 40+). See https://github.com/DentonW/DevIL/tree/master/DevIL/src-IL/src
 
