@@ -148,6 +148,7 @@ add_filter('json_jsonp_enabled', '__return_false');
 Aka `theme.json`
 
 - [Managing CSS Styles in a WordPress Block Theme | CSS-Tricks - CSS-Tricks](https://css-tricks.com/managing-css-styles-in-a-wordpress-block-theme/)
+- [Exploring Enhanced Patterns In WordPress 6.3 — Smashing Magazine](https://www.smashingmagazine.com/2023/09/exploring-enhanced-patterns-system-wordpress/)
 
 ### Template hierarchy
 

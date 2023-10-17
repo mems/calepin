@@ -209,7 +209,7 @@ Implicit `role=""`: [3 Semantics, structure, and APIs of HTML documents — HTML
 
 See [Web](../../Web/Web.md#favicon)
 
-## (depreciated) Conditional comment for IE
+## Conditional comment for IE (depreciated)
 
 ```html
 <!--[if !IE]><!-->
@@ -225,7 +225,7 @@ http://www.quirksmode.org/css/condcom.html
 
 ## Data URI
 
-See [Data URI](Web.md#data-uri)
+See [Data URI](../../Web/Web.md#data-uri)
 
 ## Blank image
 
@@ -448,7 +448,7 @@ Component/template/object-oriented class name could be ideal, but semantic don't
 ### Inspiration
 
 - [Foobar — Wikipedia](https://en.wikipedia.org/wiki/Foobar)
-- [Full Hierarchy - schema.org](https://www.schema.org/docs/full.html)
+- [Full Hierarchy - schema.org](http://schema.org/docs/full.html)
 - [Browse A-Z: 0 Page 1 | Thesaurus.com](https://www.thesaurus.com/list/0)
 - [CSS Class Names to Prevent Refactoring](https://seesparkbox.com/foundry/naming_css_stuff_is_really_hard)
 - [Abbreviations.com](http://www.abbreviations.com/)
@@ -456,7 +456,6 @@ Component/template/object-oriented class name could be ideal, but semantic don't
 - [List of glossing abbreviations — Wikipedia](https://en.wikipedia.org/wiki/List_of_glossing_abbreviations)
 - [LaTeX/Document Structure - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/LaTeX/Document_Structure)
 - [hcard-input-formats · Microformats Wiki](http://microformats.org/wiki/hcard-input-formats)
-- [Full Hierarchy - schema.org](http://schema.org/docs/full.html)
 - [GoodRelations Language Reference](http://www.heppnetz.de/ontologies/goodrelations/v1.html)
 - [word choice - Looking for the most common abbreviation to indicate the end of a working day - English Language & Usage Stack Exchange](http://english.stackexchange.com/questions/137458/looking-for-the-most-common-abbreviation-to-indicate-the-end-of-a-working-day)
 - Rules: [Variables: The Backbone Of CSS Architecture – Smashing Magazine](https://www.smashingmagazine.com/2016/01/variables-in-css-architecture/#variables-nomenclature)
@@ -4639,3 +4638,7 @@ See also:
 - [mathiasbynens/jsesc: Given some data, jsesc returns the shortest possible stringified & ASCII-safe representation of that data.](https://github.com/mathiasbynens/jsesc#isscriptcontext)
 - [add jsesc options support by vincentdchan · Pull Request #8143 · babel/babel](https://github.com/babel/babel/pull/8143)
 - [How to safely escape user data in a script tag - man42 blog](https://www.man42.net/blog/2016/12/safely-escape-user-data-in-a-script-tag/#solution)
+
+## Hierachy
+
+- [Caninclude](https://caninclude.glitch.me/) - [GitHub - CyberLight/caninclude-v2: (v2) CAN I INCLUDE one TAG to ANOTHER? WHAT IS A QUESTION! Yorik (c) :)](https://github.com/CyberLight/caninclude-v2)

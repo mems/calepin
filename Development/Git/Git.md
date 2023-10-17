@@ -92,6 +92,146 @@ git config --global user.email john@doe.name
 - [Moving A Git Repository To A New Server — Smashing Magazine](https://web.archive.org/web/20220427155227/https://www.smashingmagazine.com/2014/05/moving-git-repository-new-server/)
 - [Merging Two Git Repositories Into One Repository Without Losing File History – SaintGimp](https://web.archive.org/web/20220809084011/https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/)
 
+### Merge two repositories example
+
+Project specificity:
+
+- merge a submodule into the projet
+- project and it submodule are hosted at `https://git_host/<project_or_submodule`
+- submodule is located at `<project>/submodules/<submodulename>`
+- submodule sources are inside `src/` where project sources are inside `Src/`
+- use `*.sln` and `*.csproj`
+
+Usage:
+
+```sh
+mkdir merge-workspace
+cd merge-workspace
+#chmod +x merge-submodule.sh
+# Execute the merge by providing the submodule and the repository, execute merge-submodule.sh without any args to show usage doc
+/path/to/merge-submodule.sh some.lib projectname
+# For a faster copy you can use local repository instead:
+# ./merge-submodule.sh /path/to/submodules/some.lib /path/to/projectname
+# But when you use local repository you need to push yourself to the origin the created branch `git push -u origin "$branch"` (from /path/to/projectname)
+# Further manual changes can be required: rename directories, change paths, update ProjectReference in submodules or in the merged submodule *.csproj to reflect the new location, etc.
+# The current working directory can now be removed:
+rm -rf .
+```
+
+Merge submodule script:
+
+```sh
+#!/usr/bin/env bash
+# Debug mode: display error message when not configured variables are used, display command line before run it
+# set -ux
+
+# Exit if a command fails
+set -e
+
+default_repo_base=https://git_host/
+default_repo=projectname
+
+usage() {
+	cat <<EOT
+Usage: $(basename "$0") <submodule> [<repository>] [<branch>]
+
+Submodule and repository references can be any Git URLs or a repository name of $default_repo_base
+If repository is not provided, use $default_repo
+See https://www.git-scm.com/docs/git-clone#_git_urls
+
+Note: Both submodule and repository are clones from given references.
+
+Example: $(basename "$0") submodulename $default_repo
+Example: $(basename "$0") ../projectname/submodules/submodulename ../$default_repo
+EOT
+}
+
+if [ "$#" -lt 1 ] || [ -z "$1" ]; then
+	echo "Invalid submodule repository" >&2
+	usage
+	exit 1
+fi
+submodule_ref=$1
+# https://git_host/projectname -> projectname
+submodule=$(basename "$submodule_ref")
+submodule_path="submodules/$submodule"
+if [ "$submodule" = "$submodule_ref" ]; then
+	submodule_ref="$default_repo_base$submodule"
+fi
+
+if [ "$#" -lt 2 ] || [ -z "$2" ]; then
+	repository_ref=$default_repo
+else
+	repository_ref=$2
+fi
+repository=$(basename "$repository_ref")
+if [ "$repository" = "$repository_ref" ]; then
+	repository_ref="$default_repo_base$repository"
+fi
+
+if [ "$#" -lt 3 ] || [ -z "$3" ]; then
+	branch_base=master
+else
+	branch_base=$3
+fi
+
+# Slugify submodule_ref name: Some.Library -> some-library
+slug=$(echo -n "$submodule" | tr -c [:alnum:] - | tr [:upper:] [:lower:])
+branch="merge-$slug"
+remote=$slug
+
+# Clone repositories, same branch
+git clone --branch "$branch_base" --single-branch "$submodule_ref"
+git clone --branch "$branch_base" --depth 1 --single-branch "$repository_ref"
+
+# Additional check
+if ! (cd "$repository" &&   git submodule --quiet status "$submodule_path"); then
+	echo "Module $submodule is not used by $repository in $branch_base"
+	usage
+	exit 1
+fi
+
+# Fix case (src -> Src/<submodule>)
+(
+	cd "$submodule"
+	# Checkout to a new dedicated branch based on base branch
+	git checkout -b "$branch" "$branch_base"
+	git config core.ignorecase false
+	# We can't use "git mv -f src Src" on case insensitive file system
+	# Instead rename to a temp file
+	tmp=$(mktemp tmp.XXXXXXXX --dry-run)
+	git mv src "$tmp"
+	mkdir -p "Src"
+	git mv "$tmp" "Src/$submodule"
+	# Commit the fix
+	git commit -m "Fix Src dir case and move to subdir"
+	#git push -u origin "$branch"
+)
+
+# Merge submodule
+(
+	cd "$repository"
+	# Checkout to a new dedicated branch based on base branch
+	git checkout -b "$branch" "$branch_base"
+	# Add the submodule as a (local) remote
+	git remote add "$remote" "../$submodule"
+	git fetch "$remote" --no-tags
+	commit_msg="Merge submodule $submodule into $branch"
+	# Merge submodule branch into repo branch
+	EDITOR=true git merge --allow-unrelated-histories "$remote/$branch" -m "$commit_msg" || read -s -p "Fix merge conflicts (Ex: with .gitignore, use \`git checkout --ours .gitignore && git add .gitignore && git merge --continue\`) and press any key to resume or use Ctrl+C to exit..."
+	git submodule deinit "$submodule_path"
+	git remote remove "$remote"
+	# Change paths: submodule\<submodule>\src\ -> Src\ and submodule\\<submodule>\\src\\ -> Src\\
+	echo "Update paths in:"
+	find \( -iname "*.sln" -o -iname "*.slnf" -o -name "*.csproj" \) -not -path "*/submodules/*" -type f \
+		-exec sed --in-place -e "s|submodules\\\\$submodule\\\\src\\\\|Src\\\\|i" -e "s|submodules\\\\\\\\$submodule\\\\\\\\src\\\\\\\\|Src\\\\\\\\|i" {} + \
+		-exec unix2dos -q {} + -print
+	# Add all changes to the merge commit
+	git commit --amend --no-edit -a
+	git push -u origin "$branch"
+)
+```
+
 ## Reset
 
 ```sh

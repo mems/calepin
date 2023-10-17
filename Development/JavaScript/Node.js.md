@@ -160,6 +160,34 @@ HTTP header `X-ChromeLogger-Data: jsonbase64value`
 - [olahol/express-chrome-logger: Debug your express app using the Chrome console.](https://github.com/olahol/express-chrome-logger)
 - [yannickcr/node-chromelogger: Implementation of the Chrome Logger protocol for Node.js](https://github.com/yannickcr/node-chromelogger)
 
+## Profile
+
+CPU profile file:
+
+- use the node `--cpu-prof` option that will generate a `cpuprofile` file
+- use Chrome Dev Tools Performance tab to read the file as flamegraph where the x-axis represents when a call happened. It annotate the source code with the sampled traces this gives an approximate time how much each line took to execute
+- use [speedscope](https://www.speedscope.app/) ([GitHub - jlfwong/speedscope: 🔬 A fast, interactive web-based viewer for performance profiles.](https://github.com/jlfwong/speedscope)) to read the file as flamegraph but it merge similar call-stacks together to see where the time is being spent, the x-axis represents time consumed of the total time. It referred to as a "left-heavy" visualization. It's not a standard flamegraph where the x-axis represents when a call happened.
+- use `node --cpu-prof $(which npm) run myscript` to do it when [run a script](https://docs.npmjs.com/cli/commands/npm-run-script)
+
+Heap profile file:
+
+- use the node `--heap-prof` option that will generate a `heapprofile` file
+- it can be open in Chrome Dev Tools Memory tab
+
+- [--cpu-prof - Command-line API | Node.js Documentation](https://nodejs.org/api/cli.html#--cpu-prof)
+- [--heap-prof - Command-line API | Node.js Documentation](https://nodejs.org/api/cli.html#--heap-prof)
+
+## Performance
+
+- [Performance | Electron](https://www.electronjs.org/docs/latest/tutorial/performance)
+- Speeding up the JavaScript ecosystem
+	- [Speeding up the JavaScript ecosystem - one library at a time](https://web.archive.org/web/20230929215348/https://marvinh.dev/blog/speeding-up-javascript-ecosystem/)
+	- [Speeding up the JavaScript ecosystem - module resolution](https://web.archive.org/web/20230929222224/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-2/)
+	- [Speeding up the JavaScript ecosystem - eslint](https://web.archive.org/web/20230929215346/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-3/)
+	- [Speeding up the JavaScript ecosystem - npm scripts](https://web.archive.org/web/20230929215300/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-4/)
+	- [Speeding up the JavaScript ecosystem - draft-js emoji plugin](https://web.archive.org/web/20230929220034/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-5/)
+	- [Speeding up the JavaScript ecosystem - Polyfills gone rogue](https://web.archive.org/web/20230929211110/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/)
+
 ## Child processes
 
 Cluster is `child_process` in a more convenient way to listen the same port by all children (it use `child_process` internally): [Cluster | Node.j v9.6.1 Documentation](https://nodejs.org/api/cluster.html#cluster_how_it_works)
@@ -337,6 +365,7 @@ npm view somepackagename
 
 - [npm-pack | npm Documentation](https://docs.npmjs.com/cli/pack.html)
 - [npm-view | npm Documentation](https://docs.npmjs.com/cli/view)
+- [npmgraph - NPM Dependency Diagrams](https://npmgraph.js.org/) - Visualize NPM package dependency graphs
 
 ### Package variables
 
@@ -412,6 +441,10 @@ Aka monorepos and multi packages
 ```
 
 - [package.json | npm Docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#local-paths)
+
+### Local package patch
+
+- [ds300/patch-package: Fix broken node modules instantly 🏃🏽‍♀️💨](https://github.com/ds300/patch-package)
 
 ## Promisify
 

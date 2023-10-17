@@ -921,17 +921,23 @@ For images (works better with progressive images), in Edge Workers (Service Work
 An other solution:
 
 ```html
-<link rel="stylesheet" href="styles/fonts.css" media="print" onload="media!='all'&&media='all'">
-<noscript><link rel="stylesheet" href="styles/fonts.css"></noscript>
+<link rel="stylesheet" href="styles.css" media="print" onload="onload=null;media='all'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
+```
+
+See also:
+
+```html
+<link rel="preload" href="styles.css" as="style" onload="onload=null;rel='stylesheet'">
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
 ```
 
 But this still blocking DOM parser on few browsers (IE11, Firefox 36). See https://github.com/scottjehl/css-inapplicable-load#the-bad
 Can be use to load fonts (inlined in CSS). Or use preload font
 
-Note: `media!='all'&&...` is required as a workaround for infinite event loop on Firefox, where change media dispatch a new load event.
-
 - [Loading CSS without blocking render by Keith Clark](http://keithclark.co.uk/articles/loading-css-without-blocking-render/)
 - [“Async” CSS without JavaScript by Taylor Hunt on CodePen](https://codepen.io/tigt/post/async-css-without-javascript)
+- [Defer non-critical CSS](https://web.dev/defer-non-critical-css/)
 - [Fonts and FOXX](CSS#fonts-and-foxx)
 
 See [`<noscript>` and search engines](#noscript-and-search-engines)

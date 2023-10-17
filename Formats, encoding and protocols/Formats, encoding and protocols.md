@@ -127,6 +127,7 @@ types:
 
 - [File Format Gallery for Kaitai Struct](http://formats.kaitai.io/)
 - [kaitai-io/kaitai_struct_formats: Kaitai Struct: library of binary file formats (.ksy)](https://github.com/kaitai-io/kaitai_struct_formats)
+- [kaitai-io/kaitai_struct: Kaitai Struct: declarative language to generate binary data parsers in C++ / C# / Go / Java / JavaScript / Lua / Nim / Perl / PHP / Python / Ruby](https://github.com/kaitai-io/kaitai_struct)
 - [KOLANICH/synalysis2kaitai: Work in progress, it's not finished.](https://github.com/KOLANICH/synalysis2kaitai)
 
 Synalyze It Grammar:
@@ -1584,6 +1585,10 @@ Use `multipart/related`?
 
 - [Another Forensics Blog: Mounting an APFS image in Linux](https://web.archive.org/web/20210531025605/https://az4n6.blogspot.com/2018/01/mounting-apfs-image-in-linux.html)
 - [sgan81/apfs-fuse: FUSE driver for APFS (Apple File System)](https://github.com/sgan81/apfs-fuse)
+- [cugu/apfs.ksy: APFS filesystem format for Kaitai Struct](https://github.com/cugu/apfs.ksy)
+- [About Apple File System | Apple Developer Documentation](https://developer.apple.com/documentation/foundation/file_system/about_apple_file_system)
+- [mac_apt/plugins/helpers/apfs.py at master · ydkhatri/mac_apt](https://github.com/ydkhatri/mac_apt/blob/master/plugins/helpers/apfs.py)
+- [mac_apt/plugins/helpers/apple_sparse_image.py at master · ydkhatri/mac_apt](https://github.com/ydkhatri/mac_apt/blob/master/plugins/helpers/apple_sparse_image.py)
 
 ## Reverse engineering data
 

@@ -1,0 +1,2 @@
+- [MIEUX APPRENDRE & ÉTUDIER : les (vraies) techniques scientifiques - YouTube](https://www.youtube.com/watch?v=RVB3PBPxMWg)
+- [What Works, What Doesn't - SCIENTIFIC AMERICAN MIND](https://web.archive.org/web/20230904223703/https://wcer.wisc.edu/docs/resources/cesa2017/Dunlosky_SciAmMind.pdf)

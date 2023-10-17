@@ -3003,12 +3003,12 @@ new Date(null)// > Thu Jan 01 1970 01:00:00 GMT+0100
 ```
 
 ```js
-Number.isNaN(Number(new Date("")))// > date invalid: true
-Number.isNaN(new Date("").getTime())// > date invalid: true
-Number.isNaN(new Date("").valueOf())// > date invalid: true
+Number.isNaN(Number(new Date("")))// > true
+Number.isNaN(new Date("").getTime())// > true
+Number.isNaN(new Date("").valueOf())// > true
 ```
 
-Compare a date with an invalid one is always falsy: `new Date() => new Date("")`
+Compare a date with an invalid one is always falsy: `new Date() >= new Date("")`
 
 ```js
 const now = new Date();

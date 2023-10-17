@@ -2445,6 +2445,8 @@ To add a text replacement for add a line break you need macOS synchronized with 
 
 **Note: You need to remove all space before the last line of previous paragraph (automatically added after each hashtags, user names or text replacements)**
 
+- [Download Instagram Stories and Highlights - StorySaver.net](https://www.storysaver.net/) - Get the link of the media (from cdninstagram.com)
+
 ## Pinterest
 
 ### Pinterest share count

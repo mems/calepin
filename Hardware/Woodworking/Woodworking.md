@@ -1,6 +1,10 @@
 Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate quand on coupe un bord
 
 - [Joint Venture Ep.1: Wedged, mitered through tenons (Japanese Joinery) - YouTube](https://www.youtube.com/watch?v=HmQ1m-SSdlU&list=PLGeGwvsTHKZ2IIbeGXwcvvMcg1u_kl4-j)
+- [Woodsmith Plans](https://www.woodsmithplans.com/)
+- [Samuel Mamias - YouTube](https://www.youtube.com/@SamuelMamias)
+- [Acheter-Rubio | Huile pour bois - Protection de tous les bois](https://www.acheter-rubio.fr/)
+- [Quincaillerie ameublement et menuiseries pour Professionnels | WURTH](https://eshop.wurth.fr/Categories-produits/Quincaillerie-ameublement-et-menuiseries/310715.cyid/3107.cgid/fr/FR/EUR/;pgid=oEWqWFmMIjQ77R3XmS1wb_g_0000tm5lSm6-;sid=LDJ5jMni0Z9yjKzPgJnyhznoQm0_pgHKYayzBwPb)
 
 ## Furniture
 
@@ -27,6 +31,7 @@ Quincaillerie :
 Aka wood
 
 - [Comment Acheter du Bois de QUALITÉ sans se RUINER ? - YouTube](https://www.youtube.com/watch?v=meseh9JmF4s)
+- [Mon plateau de bois | Bois, résine époxy, outils et accessoires](https://monplateaudebois.com/)
 
 ## Tools
 

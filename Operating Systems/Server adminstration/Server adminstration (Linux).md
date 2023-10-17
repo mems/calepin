@@ -14,29 +14,39 @@
 
 Editer le fichier `/etc/proftpd/proftpd.conf` :
 
-	DefaultRoot ~
+```
+DefaultRoot ~
+```
 
 Exclure des utilisateurs systèmes d'accès au FTP :
 
-	/etc/ftpusers
+```
+/etc/ftpusers
+```
 
 Il faut que dans `/etc/prodtpd/proftpd.conf` il y ai l'instruction :
 
-	UseFtpUsers on
+```
+UseFtpUsers on
+```
 
-* `man ftpusers`
+- `man ftpusers`
 
 ### Log of files transactions
 
-	/var/log/proftpd/xferlog
+```sh
+/var/log/proftpd/xferlog
+```
 
-* http://linux.die.net/man/5/xferlog
+- http://linux.die.net/man/5/xferlog
 
 ### Connections
 
 Voir les connections en live
 
-	ftptop
+```sh
+ftptop
+```
 
 ### FTP over TLS/SSL
 
@@ -48,27 +58,39 @@ Voir les connections en live
 
 Activer une configuration de virtual host (site), correspondant au fichier `example.com` dans `/etc/apache2/sites-available/` :
 
-	a2ensite example.com
+```sh
+a2ensite example.com
+```
 
 Désactiver une configuration :
 
-	a2dissite example.com
+```sh
+a2dissite example.com
+```
 
 Activer un module, disponible dans `/etc/apache2/mods-available` :
 
-	a2enmod mime_magic
+```sh
+a2enmod mime_magic
+```
 
 Désactiver un module :
 
-	a2dismod mime_magic
+```sh
+a2dismod mime_magic
+```
 
 ### Recharger la configuration d'Apache
 
-	/etc/init.d/apache2 reload
+```sh
+/etc/init.d/apache2 reload
+```
 
 ### Live de logs d'accès d'apache
 
-	tail -f /var/log/apache2/access.log
+```sh
+tail -f /var/log/apache2/access.log
+```
 
 ### Configuration
 
@@ -76,11 +98,13 @@ Il est possible de définir les configurations d'apache (et php), dans les fichi
 
 Exemple, pour la limite de mémoire de PHP (directive `PHP_INI_SYSTEM`):
 
-	<VirtualHost *:80>
-		DocumentRoot "..."
-		ServerName ...
-		php_admin_value memory_limit 128M
-	</VirtualHost>
+```
+<VirtualHost *:80>
+	DocumentRoot "..."
+	ServerName ...
+	php_admin_value memory_limit 128M
+</VirtualHost>
+```
 
 - http://php.net/manual/en/configuration.changes.php
 - http://www.php.net/manual/en/ini.list.php
@@ -89,9 +113,13 @@ Exemple, pour la limite de mémoire de PHP (directive `PHP_INI_SYSTEM`):
 
 ### Backup entière des bases :
 
-	mysqldump -u root -p --all-databases | /bin/gzip > mysql_backup.sql.gz
+```sh
+mysqldump -u root -p --all-databases | /bin/gzip > mysql_backup.sql.gz
+```
 
-	mysqldump -h localhost -u root -p'password%$' --all-databases > /srv/data/tmp/mysql_backup/`date '+%F'`.databases.sql ; rm /srv/data/tmp/mysql_backup/`date '+%F' --date '1 weeks ago'`.databases.sql
+```sh
+mysqldump -h localhost -u root -p'password%$' --all-databases > /srv/data/tmp/mysql_backup/`date '+%F'`.databases.sql ; rm /srv/data/tmp/mysql_backup/`date '+%F' --date '1 weeks ago'`.databases.sql
+```
 
 Cron dump:
 
@@ -111,15 +139,19 @@ For MAMP (Mac Apache MySQL PHP) it's include also the default (server-specific) 
 
 To get configuration file sorted by order of preference
 
-	mysql --help | grep cnf
+```sh
+mysql --help | grep cnf
+```
 
 To know current running mysql server conf file:
 
-	ps ax | grep '[m]ysqld'
-	# or
-	cat /proc/$(pidof mysqld)/cmdline | tr '\0' '\n'
-	# or
-	tr '\0' '\n' < /proc/$(pidof mysqld)/environ | grep -i cnf
+```sh
+ps ax | grep '[m]ysqld'
+# or
+cat /proc/$(pidof mysqld)/cmdline | tr '\0' '\n'
+# or
+tr '\0' '\n' < /proc/$(pidof mysqld)/environ | grep -i cnf
+```
 
 And find `--defaults-file` argument
 
@@ -129,39 +161,57 @@ And find `--defaults-file` argument
 
 Start daemon :
 
-	mysqld --skip-grant-tables &
+```sh
+mysqld --skip-grant-tables &
+```
 
 Login in root user without password (skip) :
 
-	mysql -u root -p mysql
+```sh
+mysql -u root -p mysql
+```
 
 (optionally) Restore root account infos: (in mysql interactive mode or by SQL file) :
 
-	INSERT INTO `user` (`Host`, `User`, `Password`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv`, `Create_view_priv`, `Show_view_priv`, `Create_routine_priv`, `Alter_routine_priv`, `Create_user_priv`, `ssl_type`, `ssl_cipher`, `x509_issuer`, `x509_subject`, `max_questions`, `max_updates`, `max_connections`, `max_user_connections`) VALUES (0x6c6f63616c686f7374, 0x726f6f74, 0x2a30303045314145434438383730463730443332433041333546384632393236464636373244333333, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', 0, 0, 0, 0), (0x6865646765686f67, 0x726f6f74, 0x2a30303045314145434438383730463730443332433041333546384632393236464636373244333333, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', 0, 0, 0, 0);
+```sql
+INSERT INTO `user` (`Host`, `User`, `Password`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`, `Drop_priv`, `Reload_priv`, `Shutdown_priv`, `Process_priv`, `File_priv`, `Grant_priv`, `References_priv`, `Index_priv`, `Alter_priv`, `Show_db_priv`, `Super_priv`, `Create_tmp_table_priv`, `Lock_tables_priv`, `Execute_priv`, `Repl_slave_priv`, `Repl_client_priv`, `Create_view_priv`, `Show_view_priv`, `Create_routine_priv`, `Alter_routine_priv`, `Create_user_priv`, `ssl_type`, `ssl_cipher`, `x509_issuer`, `x509_subject`, `max_questions`, `max_updates`, `max_connections`, `max_user_connections`) VALUES (0x6c6f63616c686f7374, 0x726f6f74, 0x2a30303045314145434438383730463730443332433041333546384632393236464636373244333333, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', 0, 0, 0, 0), (0x6865646765686f67, 0x726f6f74, 0x2a30303045314145434438383730463730443332433041333546384632393236464636373244333333, 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', '', '', '', '', 0, 0, 0, 0);
+```
 
 Change root password :
 
-	SET PASSWORD FOR root@localhost = PASSWORD('newpwd');
+```sh
+SET PASSWORD FOR root@localhost = PASSWORD('newpwd');
+```
 
 or
 
-	UPDATE user SET Password=PASSWORD('newpwd') WHERE User='root';
+```sh
+UPDATE user SET Password=PASSWORD('newpwd') WHERE User='root';
+```
 
 and check it
 
-	SELECT Host, User, Password FROM user WHERE User = 'root';
+```sh
+SELECT Host, User, Password FROM user WHERE User = 'root';
+```
 
 (optionally)
 
-	flush privileges;
+```sh
+flush privileges;
+```
 
 shutdown daemon
 
-	mysqladmin -u root -p shutdown
+```sh
+mysqladmin -u root -p shutdown
+```
 
 Restart after
 
-	/etc/init.d/mysql start
+```sh
+/etc/init.d/mysql start
+```
 
 * [Resetting a forgotten MySQL root password](http://www.debian-administration.org/articles/442)
 
@@ -173,8 +223,10 @@ Restart after
 
 Dans le fichier de configuration:
 
-	# Disable Remote Connections
-	bind-address=127.0.0.1
+```
+# Disable Remote Connections
+bind-address=127.0.0.1
+```
 
 ## PPTP (VPN)
 
@@ -182,43 +234,61 @@ Dans le fichier de configuration:
 
 Lancer la commande :
 
-	apt-get install pptpd
+```
+apt-get install pptpd
+```
 
 Editer le fichier `/etc/pptpd.conf` :
 
-	# Adresse IP attribuée au serveur sur le VPN
-	localip 192.168.1.1
-	
-	# Adresses IP attribuables automatiquement par le VPN (de 128 à 255)
-	remoteip 192.168.1.128-255
+```
+# Adresse IP attribuée au serveur sur le VPN
+localip 192.168.1.1
+```
+
+```
+# Adresses IP attribuables automatiquement par le VPN (de 128 à 255)
+remoteip 192.168.1.128-255
+```
 
 Editer le fichier `/etc/ppp/pptpd-options` :
 
-	# Nom du VPN, il sera utilisé dans le fichier "/etc/ppp/chap-secrets"
-	name LeNomDuVPN
-	
-	# Ca doit avoir un rapport avec l'encryptage et l'authentification
-	require-mschap-v2
-	require-mppe-128
+```
+# Nom du VPN, il sera utilisé dans le fichier "/etc/ppp/chap-secrets"
+name LeNomDuVPN
+```
 
-	# Configuration des DNS
-	# Il semble que ce soit aussi possible dans /etc/PPP/options
-	# mais je ne connais pas la différence
-	ms-dns 208.67.222.222
-	ms-dns 208.67.220.220
+```
+# Ca doit avoir un rapport avec l'encryptage et l'authentification
+require-mschap-v2
+require-mppe-128
+```
+
+```
+# Configuration des DNS
+# Il semble que ce soit aussi possible dans /etc/PPP/options
+# mais je ne connais pas la différence
+ms-dns 208.67.222.222
+ms-dns 208.67.220.220
+```
 
 Editer le fichier `/etc/ppp/chap-secrets` :
 
-	# Fichier des comptes utilisateurs
-	# Il est possible d'utiliser l'authentification du système (ou Samba), mais ce n'est pas le but ici
-	# Le paramètre "LeNomDuVPN" doit correspondre avec le paramètre "name" du fichier "/etc/ppp/pptpd-options"
-	
-	# Un utilisateur dont l'IP est définie manuellement
-	# Attention à ne pas définir une IP se trouvant dans "remoteip"
-	tutu LeNomDuVPN UnAutreMotDePasse 192.168.66.85
-	
-	# Un utilisateur dont l'IP est obtenue dans "remoteip" de /etc/pptpd.conf
-	toto LeNomDuVPN UnMotDePasse *
+```sh
+# Fichier des comptes utilisateurs
+# Il est possible d'utiliser l'authentification du système (ou Samba), mais ce n'est pas le but ici
+# Le paramètre "LeNomDuVPN" doit correspondre avec le paramètre "name" du fichier "/etc/ppp/pptpd-options"
+```
+
+```sh
+# Un utilisateur dont l'IP est définie manuellement
+# Attention à ne pas définir une IP se trouvant dans "remoteip"
+tutu LeNomDuVPN UnAutreMotDePasse 192.168.66.85
+```
+
+```sh
+# Un utilisateur dont l'IP est obtenue dans "remoteip" de /etc/pptpd.conf
+toto LeNomDuVPN UnMotDePasse *
+```
 
 Redémarrer le VPN :
 
@@ -228,33 +298,37 @@ Redémarrer le VPN :
 
 Lancer les commandes :
 
-	# Autoriser l'IP Forwarding 
-	echo 1 > /proc/sys/net/ipv4/ip_forward
-	
-	# Mettre en place la translation de l'adresse
-	iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE
+```sh
+# Autoriser l'IP Forwarding
+echo 1 > /proc/sys/net/ipv4/ip_forward
+```
+
+```sh
+# Mettre en place la translation de l'adresse
+iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE
+```
 
 Sauvegarder la configuration d'iptables lors des reboot, voir {PARTIE CONCERNEE}
 
-* [Création d'un serveur VPN Poptop](http://free.korben.info/index.php/Cr%C3%A9ation_d%27un_serveur_VPN_Poptop)
-* [Configurer une passerelle réseau]](http://free.korben.info/index.php/Configurer_une_passerelle_r%C3%A9seau)
-* [Getting IPTables to survive a reboot](http://www.debian-administration.org/articles/445)
+- [Création d'un serveur VPN Poptop](http://free.korben.info/index.php/Cr%C3%A9ation_d%27un_serveur_VPN_Poptop)
+- [Configurer une passerelle réseau]](http://free.korben.info/index.php/Configurer_une_passerelle_r%C3%A9seau)
+- [Getting IPTables to survive a reboot](http://www.debian-administration.org/articles/445)
 
 ## Postfix (SMTP server)
 
-* http://christian.caleca.free.fr/smtp/installation_de_postfix.htm
-* http://postfix.traduc.org/
+- http://christian.caleca.free.fr/smtp/installation_de_postfix.htm
+- http://postfix.traduc.org/
 
 ## SVN
 
-* http://svn1clicksetup.tigris.org/
-* http://tortoisesvn.net/docs/release/TortoiseSVN_fr/index.html
-* http://subversion.tigris.org/faq.html#multi-proj
-* http://svnbook.red-bean.com/
+- http://svn1clicksetup.tigris.org/
+- http://tortoisesvn.net/docs/release/TortoiseSVN_fr/index.html
+- http://subversion.tigris.org/faq.html#multi-proj
+- http://svnbook.red-bean.com/
 
 ## Cron
 
-* http://en.wikipedia.org/wiki/Cron
+- http://en.wikipedia.org/wiki/Cron
 
 ## Network sharing
 
@@ -282,3 +356,7 @@ SPF
 
 - [SRV record — Wikipedia](https://en.wikipedia.org/wiki/SRV_record)
 - [Autoconfiguration in Thunderbird - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Autoconfiguration) - Create config profile for Thunderbird
+
+## Database Schema
+
+- [The Liquibase Community | The Database DevOps Community](https://www.liquibase.org/)

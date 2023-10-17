@@ -2338,40 +2338,47 @@ Extended attribute `com.apple.FinderInfo` (same/similar binary format as [resour
 
 ```sh
 # Add a fake name
-xattr -w com.apple.metadata:kMDItemDisplayName MyNewFilename.txt ActualFile.txt
+xattr -w com.apple.metadata:kMDItemDisplayName DifferentFilename.txt ActualFilename.txt
 
 # Hide file to Finder
-xattr -px com.apple.FinderInfo testfile
-#00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-xattr -wx com.apple.FinderInfo "0000000000000000400000000000000000000000000000000000000000000000" filename
+xattr -px com.apple.FinderInfo /path/to/file
+xattr -wx com.apple.FinderInfo "0000000000000000400000000000000000000000000000000000000000000000" /path/to/file
 # or (spaces aren't important)
-xattr -wx com.apple.FinderInfo "00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" filename
+xattr -wx com.apple.FinderInfo "00 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" /path/to/file
 # Find some hidden files (kMDItemFSInvisible mapped from the extended attribute com.apple.FinderInfo)
 mdfind kMDItemFSInvisible=1 -onlyin .
 
 # Add custom colors and tags to a file
 # https://eclecticlight.co/2017/12/27/xattr-com-apple-metadata_kmditemusertags-finder-tags/
+# Rouge 6, Orange 7, Jaune 5, Vert 2, Bleu 4, Violet 3, Gris 1
 xattr -wx com.apple.metadata:_kMDItemUserTags "62706c69 73743030 a3010203 584f7261 6e67650a 37585965 6c6c6f77 0a355949 6d706f72 74616e74 080c151e 00000000 00000101 00000000 00000004 00000000 00000000 00000000 00000028" filename
-xattr -wx com.apple.metadata:_kMDItemUserTags "$(echo '["Orange\n7","Yellow\n5","Important"]' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
-xattr -w com.apple.metadata:_kMDItemUserTags '("Red\n6","new tag")' filename
-xattr -w com.apple.metadata:_kMDItemUserTags '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><array>...</array></plist>' filename
+xattr -wx com.apple.metadata:_kMDItemUserTags "$(echo '["Orange\n7","Yellow\n5","Important"]' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" /path/to/file
+xattr -w com.apple.metadata:_kMDItemUserTags '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><array>...</array></plist>' /path/to/file
+
+# The following command works to (king of valid plist string)
+xattr -w com.apple.metadata:_kMDItemUserTags '("Red\n6","Important")' /path/to/file
+# After change the metadata, Spotlight doesn't import the file immediatly. The workaround is to add another tag with UI (Finder) to all files, then remove it
+
 # Metadata see by Spotlight backend (metadata server)
-mdls -plist - -name _kMDItemUserTags
+#mdimport -i filename
+mdls -plist - -name _kMDItemUserTags filename | plutil -convert json -o - -
+xattr -px com.apple.metadata:_kMDItemUserTags /path/to/file | xxd -r -p | plutil -convert json -o - -
+mdfind "kMDItemUserTags = Important" -onlyin .
+# or: mdfind "_kMDItemUserTags = Important" -onlyin .
 
 # Set custom application association
 # Even if the type is the default "public.data"
 xattr -wx com.apple.LaunchServices.OpenWith "$(echo '{"version":1.0,"path":"\/Applications\/Hex Fiend.app","bundleidentifier":"com.ridiculousfish.HexFiend"}' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
 # Get custom application association
-xattr -p com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p - | plutil -convert json -o - -
-#xattr -p com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p - | plutil -convert json -o - -
+xattr -px com.apple.LaunchServices.OpenWith /path/to/file | xxd -r -p | plutil -convert json -o - -
 
 # Set the URL from which the file was downloaded
-xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '["http://example.com"]' | plutil -convert binary1 -o - - | xxd -p)" filename
-xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '["http://example.com/origin","http://example.com/referrer"]' | plutil -convert binary1 -o - - | xxd -p)" filename
-xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '<plist><array><string>http://example.com</string></array></plist>' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
+xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '["http://example.com"]' | plutil -convert binary1 -o - - | xxd -p)" /path/to/file
+xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '["http://example.com/origin","http://example.com/referrer"]' | plutil -convert binary1 -o - - | xxd -p)" /path/to/file
+xattr -wx com.apple.metadata:kMDItemWhereFroms "$(echo '<plist><array><string>http://example.com</string></array></plist>' | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" /path/to/file
 # Set the date when the file was downloaded
 # Note can't convert from JSON because date
-xattr -wx com.apple.metadata:kMDItemDownloadedDate "$(echo "<plist><array><date>$(date +%Y-%m-%dT%H:%M:%SZ)</date></array></plist>" | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" filename
+xattr -wx com.apple.metadata:kMDItemDownloadedDate "$(echo "<plist><array><date>$(date +%Y-%m-%dT%H:%M:%SZ)</date></array></plist>" | plutil -convert binary1 -o - - | xxd -p | tr -d "\n")" /path/to/file
 ```
 
 Other:
