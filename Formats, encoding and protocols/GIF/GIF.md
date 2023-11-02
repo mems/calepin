@@ -15,3 +15,4 @@
 
 - [Lossy GIF compressor](https://kornel.ski/lossygif) and https://github.com/pornel/giflossy
 - [Optimising GIFs for the Web](https://bitsofco.de/optimising-gifs/) - use `gifsicle -O3 --lossy=80 -o compressed.gif original.gif`
+- [gifski — highest-quality GIF converter](https://gif.ski/)

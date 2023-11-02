@@ -63,6 +63,10 @@ This can also impact dependencies like styles, fonts, images, video, scripts (li
 - [Raidious Support Your Owned Media Strategy by Creating Graphics - Raidious](http://www.raidious.com/support-your-owned-media-strategy-by-creating-graphics/)
 - [The Complete Social Media Image Size Guide: With Awesome Design Tips [Infographic] – Design School](https://designschool.canva.com/blog/social-media-image-size/)
 
+## Images
+
+- [qsniyg/maxurl: Finds larger/original versions of images and videos](https://github.com/qsniyg/maxurl) - [Image Max URL](https://qsniyg.github.io/maxurl/)
+
 ## Avatar
 
 Aka [identicon](https://en.wikipedia.org/wiki/Identicon)

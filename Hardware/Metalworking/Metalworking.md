@@ -25,6 +25,11 @@ Un fois la soudure réalisée, nettoyer avec du white spirit ou de l'eau ou de l
 - [Location de poste à souder : louer un poste à souder](https://poste-a-souder.ooreka.fr/comprendre/location-poste-a-souder)
 - [Choix du diamètre de fil en rapport avec l'épaisseur - tableau aide memoire](https://www.soudeurs.com/les-novices-les-neophytes-et-les-bricoleurs-soudeurs/3609-tableau-aide-memoire.html)
 - [Portail Soudeurs.com - Site Technique francophone de référence du soudeur](https://www.soudeurs.com/)
+- [Fireball Tool - YouTube](https://www.youtube.com/@FireballTool) - About welding, machining and general fabrication
+	- [Pro Tip For Grinding Perfect Inside and Outside Corners - YouTube](https://www.youtube.com/watch?v=pBfarxEoEoU)
+	- [Weld Sequencing- Keep Your Projects From Warping - YouTube](https://www.youtube.com/watch?v=lL98oE2NaQg)
+	- [How to Weld Without a Welding Table. Fixture Like This To Make It Flat - YouTube](https://www.youtube.com/watch?v=-PQLbdILaSU)
+- [SOUDURE & MÉTALLERIE - Benoît - YouTube](https://www.youtube.com/@Soudure_Metallerie)
 
 ### Plomberie
 

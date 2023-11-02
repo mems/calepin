@@ -2697,7 +2697,7 @@ rm -f "$temp_file"
 # Do something else
 ```
 
-- [tmp - How create a temporary file in shell script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/181937/how-create-a-temporary-file-in-shell-script) - See example with file descriptor
+- [tmp - How create a temporary file in shell script? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/181937/how-create-a-temporary-file-in-shell-script) - See example with file descriptor, which is cleaned automatically
 - [Mktemp with suffix/extension | Gawen's blog](https://web.archive.org/web/20211017095036/http://hauweele.net/~gawen/blog/?p=2529) - Use temp dir instead of temp file
 
 ### Prefix a list of paths

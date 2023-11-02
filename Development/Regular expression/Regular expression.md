@@ -120,6 +120,8 @@ See [Catastrophic Backtracking ‒ When Regular Expressions Explode on Vimeo](ht
 
 ## Comments
 
+Aka python's "Verbose Regular Expressions".
+
 With the `x` flag.
 
 ```regexp
@@ -139,7 +141,47 @@ With the `x` flag.
 $       # match end of line/string
 ```
 
+```python
+# from https://diveintopython3.problemsolving.io/regular-expressions.html#verbosere
+>>> pattern = """
+^                   # beginning of string
+M{0,4}              # thousands - 0 to 4 M's
+(CM|CD|D?C{0,3})    # hundreds - 900 (CM), 400 (CD), 0-300 (0 to 3 C's),
+                    #            or 500-800 (D, followed by 0 to 3 C's)
+(XC|XL|L?X{0,3})    # tens - 90 (XC), 40 (XL), 0-30 (0 to 3 X's),
+                    #        or 50-80 (L, followed by 0 to 3 X's)
+(IX|IV|V?I{0,3})    # ones - 9 (IX), 4 (IV), 0-3 (0 to 3 I's),
+                    #        or 5-8 (V, followed by 0 to 3 I's)
+$                   # end of string
+"""
+>>> re.search(pattern, 'M', re.VERBOSE)                1
+
+
+
+>>> pattern = '''
+    ^                   # beginning of string
+    M{0,3}              # thousands - 0 to 3 Ms
+    (CM|CD|D?C{0,3})    # hundreds - 900 (CM), 400 (CD), 0-300 (0 to 3 Cs),
+                        #            or 500-800 (D, followed by 0 to 3 Cs)
+    (XC|XL|L?X{0,3})    # tens - 90 (XC), 40 (XL), 0-30 (0 to 3 Xs),
+                        #        or 50-80 (L, followed by 0 to 3 Xs)
+    (IX|IV|V?I{0,3})    # ones - 9 (IX), 4 (IV), 0-3 (0 to 3 Is),
+                        #        or 5-8 (V, followed by 0 to 3 Is)
+    $                   # end of string
+    '''
+>>> re.search(pattern, 'M', re.VERBOSE)
+<_sre.SRE_Match object at 0x008EEB48>
+>>> re.search(pattern, 'MCMLXXXIX', re.VERBOSE)
+<_sre.SRE_Match object at 0x008EEB48>
+>>> re.search(pattern, 'MMMDCCCLXXXVIII', re.VERBOSE)
+<_sre.SRE_Match object at 0x008EEB48>
+>>> re.search(pattern, 'M')
+```
+
 - [DmitrySoshnikov/babel-plugin-transform-modern-regexp: Babel plugin for modern RegExp features in JavaScript](https://github.com/DmitrySoshnikov/babel-plugin-transform-modern-regexp#extended-x-flag)
 - [New flags :: XRegExp](http://xregexp.com/flags/)
 - [javascript - Commenting Regular Expressions - Stack Overflow](https://stackoverflow.com/questions/15463257/commenting-regular-expressions)
 - [RegExp `x` flag](https://esdiscuss.org/topic/regexp-x-flag)
+- [C# Regex "Verbose" like in Python - Stack Overflow](https://stackoverflow.com/questions/50683833/c-sharp-regex-verbose-like-in-python)
+- [Miscellaneous Constructs in Regular Expressions - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/base-types/miscellaneous-constructs-in-regular-expressions)
+- [Regular expressions - Dive Into Python 3](https://web.archive.org/web/20230329194501/http://diveintopython3.problemsolving.io/regular-expressions.html#verbosere)

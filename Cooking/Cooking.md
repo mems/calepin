@@ -373,6 +373,8 @@ Conseils
 
 > Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est [enfin pas trop non plus]
 
+- avec paprika ail
+- pomme de terre bintje
 - [Frite — Wikipédia](https://fr.wikipedia.org/wiki/Frite#Pr%C3%A9paration)
 
 ## Other
@@ -536,6 +538,17 @@ porter à feu doux le lait et le sucre, verser en pluie la semoule et remuer san
 - 260 gr de chocolat pâtissier (56% min de cacao)
 
 ## Pastry
+
+Vegan:
+
+- lait de soja
+- compote de pomme (qql cuillère à café)
+- huile de coco desaromatisée
+- remplace la pincée de sel par l’équivalent d’un 1/4 de sachet de levure
+
+See also:
+
+- Crumble marmelade de citron, avec un peu d’avoine
 
 ### Stollen
 

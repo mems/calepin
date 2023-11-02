@@ -59,6 +59,8 @@
 
 ## Parser examples
 
+Tokenizer + parser
+
 - [tree-sitter/tree-sitter: An incremental parsing system for programming tools](https://github.com/tree-sitter/tree-sitter) - Create a grammar and generate a parser
 - [retextjs/retext: Natural language processor powered by plugins based on @unifiedjs (and @vfile, @syntax-tree)](https://github.com/retextjs/retext) - Natural language parser (latin, english, etc.)
 - [shift-regexp-acceptor-js/index.js at es2016 · shapesecurity/shift-regexp-acceptor-js](https://github.com/shapesecurity/shift-regexp-acceptor-js/blob/es2016/src/index.js)
@@ -81,6 +83,8 @@
 - [MBED3 port of Lightweight Embedded JSON Parser](https://github.com/warmcat/lejp/blob/master/source/lejp.c)
 - [A fast and small JSON parser and writer for Java](https://github.com/ralfstx/minimal-json/blob/master/com.eclipsesource.json/src/main/java/com/eclipsesource/json/JsonParser.java)
 - [pvdz/tenko: An 100% spec compliant ES2020 JavaScript parser written in JS](https://github.com/pvdz/tenko)
+- [inikulin/parse5: HTML parsing/serialization toolset for Node.js. WHATWG HTML Living Standard (aka HTML5)-compliant.](https://github.com/inikulin/parse5)
+- [JamesNK/Newtonsoft.Json: Json.NET is a popular high-performance JSON framework for .NET](https://github.com/JamesNK/Newtonsoft.Json)
 
 Use `goto`s, "This is called computed (or assigned) goto and is a GCC extension"
 - https://github.com/quartzjer/js0n/blob/master/src/js0n.c

@@ -1,0 +1,8 @@
+- [Les meilleures gourdes pour remplacer les bouteilles jetables en 2023](https://www.lemonde.fr/guides-d-achat/article/2022/06/15/les-meilleures-gourdes-pour-remplacer-les-bouteilles-jetables_6130466_5306571.html)
+- [Hydro Flask](https://www.hydroflask.com/fr-fr/)
+- [Zeste | La seule gourde en inox Made in France](https://zeste.fr/)
+- [Gobi, eco-design Made in France](https://www.gobilab.com/)
+- [HydraPak | Systèmes d'Hydratation Performants, Softs Flasks, Gourdes et Bouteilles](https://www.hydrapak.fr/fr/)
+- [Gourdes | Decathlon](https://www.decathlon.fr/browse/c0-equipements-loisirs/c1-outdoor/c2-gourdes/_/N-1dqgq0p)
+- [Gourdes et bouteilles réutilisables - Sans BPA I Tupperware](https://www.tupperware.fr/shop/fr/gourdes-bouteilles.html)
+- [Qwetch | Bouteilles, gourdes et contenants inox isothermes](https://www.qwetch.com/)

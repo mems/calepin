@@ -512,6 +512,10 @@ document.addEventListener("paste", function(event) {
 });
 ```
 
+### Configuration files
+
+- [Directories used by the IDE to store settings, caches, plugins and logs – IDEs Support (IntelliJ Platform) | JetBrains](https://intellij-support.jetbrains.com/hc/en-us/articles/206544519)
+
 ### Scope
 
 Settings > Appearance & Behavior > Scopes
@@ -522,9 +526,7 @@ Settings > Appearance & Behavior > Scopes
 
 Aka modules, WebStorm
 
-Créer dans le dossier du sous projet :
-le dossier .idea
-le fichier .idea/MODULE_NAME.iml ou MODULE_NAME peut être n'importe quel nom (peut contenir des espaces. il sera prefixé par le nom du dossier du sous projet "nom-du-dossier [nom-du-sous-projet]" dans l'IDE) :
+Create in the subproject directory a file `.idea/MODULE_NAME.iml` (where `MODULE_NAME` can be whatever, can contains spaces, will be prefixed by the folder name in the root project "name-of-directory [name-of-subproject]" in the IDE) that contains :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -539,11 +541,11 @@ le fichier .idea/MODULE_NAME.iml ou MODULE_NAME peut être n'importe quel nom (p
 </module>
 ```
 
-Then open the project in "This Window":
+Then open the project in "This Window" ("Attach"):
 
 https://www.jetbrains.com/help/webstorm/opening-multiple-projects.html
 
-Will open add a module line in the root project .idea/modules.xml:
+It will add a new line in the root project `.idea/modules.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -560,7 +562,7 @@ You can use a subproject folder with the attribute `group` (can contains `/` for
 
 Modules order can't be changed: [How to order modules in intellij-idea? - Stack Overflow](https://stackoverflow.com/questions/31245847/how-to-order-modules-in-intellij-idea)
 
-You can change in the root project .idea/PROJECT_NAME.iml to define module order (and hide files/folders of the root project by remove `<content...`)
+You can change in the root project `.idea/PROJECT_NAME.iml` to define module order (and hide files/folders of the root project by remove `<content...`)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -574,6 +576,7 @@ You can change in the root project .idea/PROJECT_NAME.iml to define module order
 
 - [Managing Project under Version Control - Help | IntelliJ IDEA](https://www.jetbrains.com/help/idea/managing-projects-under-version-control.html)
 - [Configuring project - Help | IntelliJ IDEA](https://www.jetbrains.com/help/idea/configuring-projects.html)
+- [How to add a pure React project to an existing solution in Rider - Stack Overflow](https://stackoverflow.com/questions/66817169/how-to-add-a-pure-react-project-to-an-existing-solution-in-rider)
 
 ### External Tool
 

@@ -20,3 +20,11 @@
     - [cloudflare/lazyhtml: HTML5-compliant parser and serializer than enables building transformation pipeline in a pluggable manner](https://github.com/cloudflare/lazyhtml)
 - [servo/html5ever: High-performance browser-grade HTML5 parser](https://github.com/servo/html5ever)
 - [selectors - crates.io: Rust Package Registry](https://crates.io/crates/selectors)
+
+## Minification
+
+- [terser/html-minifier-terser: actively maintained fork of html-minifier - minify HTML, CSS and JS code using terser - supports ES6 code](https://github.com/terser/html-minifier-terser)
+- [wilsonzlin/minify-html: Extremely fast and smart HTML + JS + CSS minifier, available for Rust, Deno, Java, Node.js, Python, Ruby, and WASM](https://github.com/wilsonzlin/minify-html)
+- [kangax/html-minifier: Javascript-based HTML compressor/minifier (with Node.js support)](https://github.com/kangax/html-minifier) - [HTML minifier](https://kangax.github.io/html-minifier/)
+- [Swaagie/minimize: Minimize HTML](https://github.com/Swaagie/minimize)
+- [HTML Compressor - Speed up your web pages.](https://htmlcompressor.com/)

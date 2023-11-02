@@ -1794,7 +1794,7 @@ See also [Method cascades](#method-cascades)
 Supported in Dart language via `..`
 
 ```dart
-displayObject = new DisplayObject();
+instance = new SomeObject();
 ..x = 10;
 ..y = 20;
 ..alpha = 0.5;
@@ -1803,12 +1803,12 @@ displayObject = new DisplayObject();
 
 Vs.
 
-```as3
-displayObject = new DisplayObject();
-displayObject.x = 10;
-displayObject.y = 20;
-displayObject.alpha = 0.5;
-displayObject.rotation = 180;
+```js
+const instance = new SomeObject();
+instance.x = 10;
+instance.y = 20;
+instance.alpha = 0.5;
+instance.rotation = 180;
 ```
 
 See also [Chaining](#chaining)

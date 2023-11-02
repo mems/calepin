@@ -685,6 +685,7 @@ It's possible to make calculation on encrypted data using [Homomorphic encryptio
 - [The Netflix Tech Blog: Message Security Layer: A Modern Take on Securing Communication](http://techblog.netflix.com/2014/10/message-security-layer-modern-take-on.html)
 - [Message Security Layer](https://github.com/Netflix/msl)
 - [Frequency Analysis Tool - Online Letter Counter Tool](https://www.dcode.fr/frequency-analysis)
+- [Certificate Transparency Monitoring - Meta for Developers](https://developers.facebook.com/tools/ct/search/)
 
 #### Transport Layer Security
 
