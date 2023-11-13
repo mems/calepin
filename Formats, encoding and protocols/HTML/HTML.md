@@ -9,6 +9,7 @@
 - [Optional HTML: Everything You Need to Know · Jens Oliver Meiert](https://meiert.com/en/blog/optional-html/)
 - [mgdm/htmlq: Like jq, but for HTML.](https://github.com/mgdm/htmlq)
 - [Index of /Tools/HTML-XML-utils](https://www.w3.org/Tools/HTML-XML-utils/) - html-xml-utils
+- [Parsing Html The Cthulhu Way](https://web.archive.org/web/20230824030159/https://blog.codinghorror.com/parsing-html-the-cthulhu-way/)
 
 ## Parser
 

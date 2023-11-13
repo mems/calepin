@@ -79,9 +79,13 @@ It's will help you to found errors before you try/compile your code.
 ## Tools
 
 - [gulp/browserify-uglify-sourcemap.md at master · gulpjs/gulp](https://github.com/gulpjs/gulp/blob/master/docs/recipes/browserify-uglify-sourcemap.md)
-- [JavaScript Obfuscator Tool](https://obfuscator.io/) - [javascript-obfuscator/javascript-obfuscator: A powerful obfuscator for JavaScript and Node.js](https://github.com/javascript-obfuscator/javascript-obfuscator)
 - [facebook/jscodeshift: A JavaScript codemod toolkit.](https://github.com/facebook/jscodeshift) - Use [recast](https://github.com/benjamn/recast). Exemple to [remove asyncs and switch promises to statements](https://astexplorer.net/#/gist/b8e4e9313c4805a8928d9a199e3c9b7e/e0f298d99d81976061f5dcc0727d2e8e656d7261)
 - [benjamn/recast: JavaScript syntax tree transformer, nondestructive pretty-printer, and automatic source map generator](https://github.com/benjamn/recast)
+
+Obfuscation:
+
+- [JavaScript Obfuscator Tool](https://obfuscator.io/) - [javascript-obfuscator/javascript-obfuscator: A powerful obfuscator for JavaScript and Node.js](https://github.com/javascript-obfuscator/javascript-obfuscator), [JavaScript Obfuscator Tool](https://obfuscator.io/)
+- [JavaScript Deobfuscator](https://deobfuscate.io/) - [ben-sb/javascript-deobfuscator: General purpose JavaScript deobfuscator](https://github.com/ben-sb/javascript-deobfuscator)
 
 ### Unuglify
 

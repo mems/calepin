@@ -94,7 +94,7 @@ Result:
 
 Trace roote or GeoIP last IP address (between bracets) of "Received: from" field of (location of the sender).
 
-## Copy an account to an other
+## Copy emails from account to another
 
 ```sh
 # require php imap and php mbstring
@@ -127,6 +127,7 @@ php ./src/cli/imapcopy.php config.json
 }
 ```
 
+- [Official imapsync migration tool ( release 2.264 )](https://imapsync.lamiral.info/)
 - [wrzlbrmft/imapcopy: Recursively copy all e-mail messages and folders from one IMAP account to another.](https://github.com/wrzlbrmft/imapcopy)
 
 ## Subaddressing

@@ -5,6 +5,9 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Samuel Mamias - YouTube](https://www.youtube.com/@SamuelMamias)
 - [Acheter-Rubio | Huile pour bois - Protection de tous les bois](https://www.acheter-rubio.fr/)
 - [Quincaillerie ameublement et menuiseries pour Professionnels | WURTH](https://eshop.wurth.fr/Categories-produits/Quincaillerie-ameublement-et-menuiseries/310715.cyid/3107.cgid/fr/FR/EUR/;pgid=oEWqWFmMIjQ77R3XmS1wb_g_0000tm5lSm6-;sid=LDJ5jMni0Z9yjKzPgJnyhznoQm0_pgHKYayzBwPb)
+- [YASUHIRO TV - YouTube](https://www.youtube.com/@YASUHIROTV)
+- [Dekay's Crafts - YouTube](https://www.youtube.com/@dekayscrafts)
+- [INVENTORINDO FURNITURE - YouTube](https://www.youtube.com/@inventorindofurniture/videos)
 
 ## Furniture
 

@@ -51,3 +51,7 @@ See also https://github.com/WPO-Foundation/webpagetest/blob/4234baa351eb1cb9d6b0
 - [Generating HAR files and analyzing web requests | Atlassian Support | Atlassian Documentation](https://web.archive.org/web/20221001105159/https://confluence.atlassian.com/kb/generating-har-files-and-analyzing-web-requests-720420612.html)
 - [andrewf/pcap2har: A convertor from .pcap network capture files to HTTP Archive files.](https://github.com/andrewf/pcap2har)
 - [Save all network requests to a HAR file - Network features reference - Chrome Developers](https://developer.chrome.com/docs/devtools/network/reference/#save-as-har)
+- [GitHub - cloudflare/har-sanitizer](https://github.com/cloudflare/har-sanitizer)
+	- [HAR Sanitizer](https://har-sanitizer.pages.dev/)
+	- [Introducing HAR Sanitizer: secure HAR sharing](https://web.archive.org/web/20231104165833/https://blog.cloudflare.com/introducing-har-sanitizer-secure-har-sharing/)
+- [Gathering information for troubleshooting sites · Cloudflare Support docs](https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/gathering-information-for-troubleshooting-sites/#generate-a-har-file) - "Generate a HAR file" instruction for differents browsers

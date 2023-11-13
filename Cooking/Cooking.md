@@ -56,6 +56,11 @@ Oeuf coque : 3min au micro-onde (900W)
 
 - [Tasty Present - Here are five easy tip to cook perfect eggs...](https://www.facebook.com/TastyPresents/videos/154478935252929/)
 - [l'oeuf parfait : Recette de l'oeuf parfait - Marmiton](https://www.marmiton.org/recettes/recette_l-oeuf-parfait_383288.aspx)
+- poached eggs:
+	- Alain Ducasse technique: break fresh eggs and soak them in a 50/50 water vinegar ration for 10 minutes, in the pan at simmering temperature water (not boiling, faint bubbles at the bottom) 10 cm deep, place gently eggs in the water, leave them 2 to 3 minutes
+	- [We Found the Perfect Poached Egg Technique (How to Make it at Home) - YouTube](https://www.youtube.com/watch?v=hTX7B61GDo8)
+	- [The Incredible New Way to Poach Eggs that NEVER Fails | Epicurious 101 - YouTube](https://www.youtube.com/watch?v=mrq3iZcvHAw)
+- [Poached egg - Wikipedia](https://en.wikipedia.org/wiki/Poached_egg)
 
 ### Dinde de Thanksgiving
 

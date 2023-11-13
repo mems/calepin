@@ -510,6 +510,15 @@ if (req.http.host ~ "^example.com$") {
 
 - [RFC 7234 in JavaScript. Parses HTTP headers to correctly compute cacheability of responses, even in complex cases ](https://github.com/pornel/http-cache-semantics)
 
+#### Cacheable chunks
+
+Split resource in cacheable subresources
+
+- [Code-splitting Haxe’s JavaScript | Philippe.me](https://web.archive.org/web/20230328151617/https://philippe.elsass.me/2018/03/code-splitting-haxes-javascript/)
+- [The cost of small modules | Read the Tea Leaves](https://web.archive.org/web/20230524224259/https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/)
+- [Code Splitting | webpack](https://webpack.js.org/guides/code-splitting/) and [Caching | webpack](https://webpack.js.org/guides/caching/)
+- [Tree Shaking | webpack](https://webpack.js.org/guides/tree-shaking/)
+
 #### Not cached
 
 Prevent back button to show cache page (ex.: after logout)

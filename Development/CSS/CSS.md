@@ -170,6 +170,8 @@ Mobile: 16:9, 1280 × 800 @2dppx
 
 ## Scroll
 
+- [scrollbar-gutter - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter)
+
 See [Fixed elements](#fixed-elements) and [Sticky header](#sticky-header)
 
 ### Custom scrollbar
@@ -230,6 +232,10 @@ body.noscroll {
 ### Animate with scroll
 
 - [Bind CSS keyframe animation to scroll](https://codepen.io/scottkellum/pen/WWeXab) - use a CSS variable defined with JS to control `animation-delay` of a paused animation
+
+### Scroll driven animations
+
+- [Future CSS: Wishes Granted by Scroll-driven Animations](https://web.archive.org/web/20230716181030/https://kizu.dev/scroll-driven-animations/)
 
 ## Mediaqueries
 
@@ -1027,7 +1033,7 @@ Use the padding (see [Vertical percentages](#vertical-percentages)) to autoscale
 	}
 </style>
 <div class="iframe-container">
-	<iframe class="iframe" ...
+	<iframe class="iframe" ...>
 </div>
 ```
 
@@ -1546,7 +1552,6 @@ Then use:
 }
 ```
 
-
 ### Fonts and FO*T
 
 - FOUT (Flash Of Unstyled Text), FOFT (Flash Of Fallback Text) or FOUC (Flash Of Unstyled Text): default styles prior to loading an external CSS stylesheet
@@ -1893,6 +1898,10 @@ Aka `font-smooth`, font smoothing
 Use pseudo element and flex box.
 
 - [CodyHouse on Twitter: "💡 Use Flexbox to create a text divider with a single &lt;div&gt;. #codyhousenugget https://t.co/yiaL9XJTFL" / Twitter](https://twitter.com/CodyWebHouse/status/1233058458297143296)
+
+### Fit-to-width
+
+- [Fit-to-Width Text](https://web.archive.org/web/20230714091646/https://kizu.dev/fit-to-width-text/)
 
 ## Hide element
 
@@ -2582,7 +2591,7 @@ See [Progressive Enhancement](#progressive-enhancement)
 
 ### Classname
 
-See [HTML Classname](HTML#classname)
+See [HTML Classname](../HTML/HTML.md#classname-and-id)
 
 ### Selector specificity
 
@@ -3449,6 +3458,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 </script>
 ```
 
+- [Naming Variables In CSS](https://web.archive.org/web/20231104145457/https://jwdallas.com/posts/namingcssvariables/)
 - [The -​-var: ; hack to toggle multiple values with one custom property – Lea Verou](https://web.archive.org/web/20201116223623/https://lea.verou.me/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/)
 - [Conditions for CSS Variables](http://kizu.ru/en/fun/conditions-for-css-variables/)
 - [Switch font color for different backgrounds with CSS | CSS-Tricks](https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/)
@@ -3460,6 +3470,7 @@ Note: some keywords already exist: `white`, `black`, etc. See [color keywords](h
 - [DRY Switching with CSS Variables: The Difference of One Declaration | CSS-Tricks](https://css-tricks.com/dry-switching-with-css-variables-the-difference-of-one-declaration/)
 - [Custom property linear range mapping](https://codepen.io/leaverou/pen/bGRmQKv) - Tool to compute clamping map: "When `--p` is `-1`, we want to output `.2em`. When `--p` is `1`, we want to output `.8em`."
 - [The Big Gotcha With Custom Properties | CSS-Tricks - CSS-Tricks](https://css-tricks.com/the-big-gotcha-with-custom-properties/)
+- [Position-Driven Styles](https://web.archive.org/web/20230716181030/https://kizu.dev/position-driven-styles/) - Styling flex and grid rows and columns, staggered animations, wrap detection
 
 ### Conditional variable
 
@@ -4293,6 +4304,7 @@ use `:target` `:checked`
 - [Pure CSS / CSS3 Fullscreen Navigation with Hamburger Toggle - CSS Script](https://www.cssscript.com/pure-css-css3-fullscreen-navigation-with-hamburger-toggle/)
 - [You can get pretty far in making a slider with just HTML and CSS | CSS-Tricks](https://css-tricks.com/can-get-pretty-far-making-slider-just-html-css/)
 - [Stuff you can do with the "Checkbox Hack" | CSS-Tricks](https://css-tricks.com/the-checkbox-hack/)
+- [CSS Toggles](https://tabatkins.github.io/css-toggle/#:~:text=authors%20sometimes%20abuse%20them%20to%20get%20the%20same%20functionality)
 
 ## Bidirectionality
 

@@ -20,6 +20,8 @@ Il permet de nettoyer la surface
 
 Un fois la soudure réalisée, nettoyer avec du white spirit ou de l'eau ou de l'alcool, car le décapant est corrosif à moyen terme
 
+Weld shrink: start corner outside, then the oposite, then both sides before is cold. See [Weld Sequencing- Keep Your Projects From Warping - YouTube](https://www.youtube.com/watch?v=lL98oE2NaQg)
+
 - [Technique pour souder un bijou en laiton](http://metal-connexion.fr/forum/technique-pour-souder-un-bijou-en-laiton-t2183.html#p25920)
 - [TR3Rallye](http://www.trregisterfrance.com/TR3rallye/TR3Rallye_caisse2/TR3rallye_caisse2_1.htm) - Utiliser de l'étain pour reboucher des trous dans une carroserie / restauration de veilles voitures, avec un conseil (étain sur acier) : d'abord "étamer"
 - [Location de poste à souder : louer un poste à souder](https://poste-a-souder.ooreka.fr/comprendre/location-poste-a-souder)
@@ -30,6 +32,11 @@ Un fois la soudure réalisée, nettoyer avec du white spirit ou de l'eau ou de l
 	- [Weld Sequencing- Keep Your Projects From Warping - YouTube](https://www.youtube.com/watch?v=lL98oE2NaQg)
 	- [How to Weld Without a Welding Table. Fixture Like This To Make It Flat - YouTube](https://www.youtube.com/watch?v=-PQLbdILaSU)
 - [SOUDURE & MÉTALLERIE - Benoît - YouTube](https://www.youtube.com/@Soudure_Metallerie)
+- [Stick Welding Basics for Beginners: How to Stick Weld - YouTube](https://www.youtube.com/watch?v=pMtqDWUpJds)
+- [Essential Craftsman - YouTube](https://www.youtube.com/@essentialcraftsman)
+	- [Introduction to Welding - YouTube](https://www.youtube.com/watch?v=jy5wRgNOIkE)
+	- [Budget Welding Setup - YouTube](https://www.youtube.com/watch?v=40qxyX6HpvI)
+- [Distortion in Welding - YouTube](https://www.youtube.com/watch?v=ABoD0llybPk)
 
 ### Plomberie
 

@@ -213,12 +213,48 @@ message/external-body; access-type=local-file; name="file:/local/path/file.html"
 - [Stylesheets — OpenStreetMap Wiki](https://wiki.openstreetmap.org/wiki/Stylesheets)
 - [Leaflet/Leaflet: 🍃 JavaScript library for mobile-friendly interactive maps 🇺🇦](https://github.com/Leaflet/Leaflet)
 - [mapbox/awesome-vector-tiles: awesome implementations of the Mapbox Vector Tile specification](https://github.com/mapbox/awesome-vector-tiles)
+- [Protomaps | A free and open source map of the world](https://protomaps.com/) - "deployable as a single static file on cloud storage" "PMTiles, [...] accessible via HTTP Range Requests." [Protomaps Documentation | Protomaps Docs](https://docs.protomaps.com/)
 
 ## Analytics
 
 Tracking and analytics
 
 Use [Navigator.sendBeacon() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon)
+
+### Tracking parameters
+
+Aka query stripping
+
+- `mc_eid`
+- `oly_anon_id`
+- `oly_enc_id`
+- `__s`
+- `vero_id`
+- `_hsenc`
+- `mkt_tok`
+- `fbclid`
+
+
+```nginx
+http {
+  # redirect map in http block - remove fbclid argument from the end
+  map $request_uri $redirect_fbclid {
+    "~^(.*?)([?&]fbclid=[a-zA-Z0-9_-]+)$"  $1;
+  }
+
+  server {
+    # if redirect map is active, do 301 to the new url
+    if ( $redirect_fbclid ) {
+      return 301 $redirect_fbclid;
+    }
+  }
+}
+```
+
+- Mozilla Firefox's Enhanced Tracking Protection `privacy.query_stripping.enabled.pbmode`:
+	- [Query Parameter Stripping — Firefox Source Docs documentation](https://firefox-source-docs.mozilla.org/toolkit/components/antitracking/anti-tracking/query-stripping/index.html)
+	- [Security/Anti tracking policy - MozillaWiki](https://wiki.mozilla.org/Security/Anti_tracking_policy#2._Navigational_cross-site_tracking)
+	- [1706602 - (query-stripping) \[meta\] Implement URL query string stripping prototype](https://bugzilla.mozilla.org/show_bug.cgi?id=1706602)
 
 ### Data layer
 
@@ -487,7 +523,7 @@ window.addEventListener("error", trackJavaScriptError, false);
 - http://css-tricks.com/hash-tag-links-padding/
 - [Autoscroll to anchors](JavaScript#autoscroll-to-anchors)
 
-## in frame blocking
+## In frame blocking
 
 ```js
 <script>
@@ -922,6 +958,10 @@ See also:
 - [How to parse typescript definition to json? - Stack Overflow](https://stackoverflow.com/questions/39588436/how-to-parse-typescript-definition-to-json)
 
 ## Browsers
+
+- [The Ladybird browser project](https://ladybird.dev/)
+- [Flow Browser | The parallel, multithreaded HTML browser](https://www.ekioh.com/flow-browser/)
+- [Servo, the embeddable, independent, memory-safe, modular, parallel web rendering engine](https://servo.org/)
 
 ### Browsers version fragmentation
 

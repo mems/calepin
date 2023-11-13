@@ -462,6 +462,24 @@ Component/template/object-oriented class name could be ideal, but semantic don't
 
 #### Triage
 
+iOS:
+
+- elevated button [(7) Luke Wroblewski on X: "new elevated button styles popping up in iOS17 in safari &amp; music. https://t.co/sNINczYnr9" / X](https://twitter.com/lukew/status/1713952030837125200?s=12&t=ANJAT8PiNWoRUwJ-Ji-UzA)
+- [ornaments](https://web.archive.org/web/20231102160009/https://developer.apple.com/design/human-interface-guidelines/ornaments/)
+- pull-down buttons
+- [segmented controls](https://developer.apple.com/design/human-interface-guidelines/segmented-controls)
+- [pickers](https://developer.apple.com/design/human-interface-guidelines/pickers)
+- [sheets](https://developer.apple.com/design/human-interface-guidelines/sheets)
+- [token fields](https://developer.apple.com/design/human-interface-guidelines/token-fields)
+- [pull-down buttons](https://developer.apple.com/design/human-interface-guidelines/pull-down-buttons)
+- [pop-up buttons](https://developer.apple.com/design/human-interface-guidelines/pop-up-buttons)
+- [outline views](https://developer.apple.com/design/human-interface-guidelines/outline-views)
+- [lockups](https://developer.apple.com/design/human-interface-guidelines/lockups):
+	- Card: "A card combines a header, footer, and content view to present ratings and reviews for media items"
+	- Caption buttons: "A caption button can include a title and a subtitle beneath the button. A caption button can contain either an image or text"
+	- Monograms: "Monograms identify people, usually the cast and crew for a media item"
+	- Posters: "Posters consist of an image and an optional title and subtitle, which are hidden until the poster comes into focus"
+
 From [C# Controls abbreviation](https://gist.github.com/andyyou/3052671) and [abbreviation of controls](https://social.msdn.microsoft.com/forums/windows/en-us/9f1cda78-930e-48f8-bd88-e0cfc0190ab5/abbreviation-of-controls):
 
 	AdRotator / ar
@@ -1977,6 +1995,46 @@ Also because with this technique, the input can have only have one associated la
 ```
 
 - [html - How do I make a placeholder for a 'select' box? - Stack Overflow](https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box/8442831#8442831)
+
+### Select groups
+
+```html
+<label for="major-select">Please select a major:</label> <br/>
+
+<select name="majors" id="major-select">
+  <option value="">Select a major</option>
+  <hr>
+  <optgroup label="School of Art">
+    <option value="arth">Art History</option>
+    <option value="finearts">Fine Arts</option>
+    <option value="gdes">Graphic Design</option>
+    <option value="lit">Literature</option>
+    <option value="music">Music</option>
+  </optgroup>
+  <optgroup label="School of Engineering">
+    <option value="aeroeng">Aerospace Engineering</option>
+    <option value="biochemeng">Biochemical Engineering</option>
+    <option value="civileng">Civil Engineering</option>
+    <option value="compeng">Computer Engineering</option>
+    <option value="eleng">Electrical Engineering</option>
+    <option value="mecheng">Mechanical Engineering</option>
+  </optgroup>
+  <optgroup label="School of International Service">
+    <option value="polysci">Political Science</option>
+    <option value="intr">International Relations</option>
+    <option value="bizdev">Business Development</option>
+  </optgroup>
+  <optgroup label="School of Mathematics">
+    <option value="math">Mathematics</option>
+    <option value="econ">Economics</option>
+    <option value="stat">Statistics</option>
+  </optgroup>
+</select>
+```
+
+- [\<optgroup\>: The Option Group element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
+- [Select element: now with horizontal rules - Chrome for Developers](https://developer.chrome.com/en/blog/hr-in-select/), [WebKit Features in Safari 17.0 | WebKit](https://webkit.org/blog/14445/webkit-features-in-safari-17-0/)
+- [Splitting within Selects — Adrian Roselli](https://adrianroselli.com/2023/10/splitting-within-selects.html)
 
 ### Disabled vs readonly
 

@@ -1120,6 +1120,7 @@ See also:
 - [JavaScript guidelines - The MDN project | MDN](https://developer.mozilla.org/en-US/docs/MDN/Guidelines/Code_guidelines/JavaScript)
 - [airbnb/javascript: JavaScript Style Guide](https://github.com/airbnb/javascript#naming-conventions) - Naming conventions
 - [language agnostic - Acronyms in CamelCase - Stack Overflow](https://stackoverflow.com/questions/15526107/acronyms-in-camelcase)
+- [proposal-global/NAMING.md at master · tc39/proposal-global](https://github.com/tc39/proposal-global/blob/master/NAMING.md#constraints) - Naming Constraints of `globalThis` and why it's named like this
 
 See [Naming convention](../Development.md#naming-convention)
 

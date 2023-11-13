@@ -3,7 +3,6 @@
 - [Perlin noise — Wikipedia](https://en.wikipedia.org/wiki/Perlin_noise)
 - [Value noise — Wikipedia](https://en.wikipedia.org/wiki/Value_noise)
 - [Gradient noise — Wikipedia](https://en.wikipedia.org/wiki/Gradient_noise)
-- [The problem with 3D blue noise | Moments in Graphics](http://momentsingraphics.de/?p=148)
 - [A SciPy implementation of the void-and-cluster method for generation of blue noise textures with arbitrary dimension](https://github.com/MomentsInGraphics/BlueNoise)
 - [Improved Noise reference implementation](http://mrl.nyu.edu/~perlin/noise/)
 - [Perlin Noise](http://wayback.archive.org/web/20160510013854/http://freespace.virgin.net/hugo.elias/models/m_perlin.htm)
@@ -13,7 +12,8 @@
 - [The Perlin noise math FAQ](https://mzucker.github.io/html/perlin-noise-math-faq.html)
 - [advanced perlin noise - Inigo Quilez :: fractals, computer graphics, mathematics, demoscene and more](http://www.iquilezles.org/www/articles/morenoise/morenoise.htm)
 - [Making noise by Ken Perlin](http://web.archive.org/web/20160422091821/http://www.noisemachine.com/talk1/)
-- [Free blue noise textures | Moments in Graphics](http://momentsingraphics.de/?p=127)
+- [Free blue noise textures](https://web.archive.org/web/20231012164354/http://momentsingraphics.de/BlueNoise.html) - [Calinou/free-blue-noise-textures: Free 2D, 3D and 4D blue noise textures from the Moments in Graphics blog](https://github.com/Calinou/free-blue-noise-textures)
+	See also [The problem with 3D blue noise](https://web.archive.org/web/20230909063725/http://momentsingraphics.de/3DBlueNoise.html)
 - [implementation - How is Perlin-noise in flash implemented? - Stack Overflow](https://stackoverflow.com/questions/8467685/how-is-perlin-noise-in-flash-implemented) - "Flash implementation is [...] based on integer calculations rather than floats. This would explain why the rendering is fast"
 - [Humus - 3D](http://www.humus.name/index.php?page=3D&ID=29) - Perlin noise in a fragment program
 - [Noise-Based Particles, Part I at The Little Grasshopper](http://prideout.net/blog/?p=63) and [Noise-Based Particles, Part II at The Little Grasshopper](http://prideout.net/blog/?p=67)
@@ -52,8 +52,8 @@ float noise (in vec2 _st) {
 
     vec2 u = f * f * (3.0 - 2.0 * f);
 
-    return mix(a, b, u.x) + 
-            (c - a)* u.y * (1.0 - u.x) + 
+    return mix(a, b, u.x) +
+            (c - a)* u.y * (1.0 - u.x) +
             (d - b) * u.x * u.y;
 }
 ```
@@ -93,25 +93,25 @@ static void init(void);
 	b1 = (b0+1) & BM;\
 	r0 = t - (int)t;\
 	r1 = r0 - 1.;
-	
+
 double noise1(double arg)
 {
 	int bx0, bx1;
 	float rx0, rx1, sx, t, u, v, vec[1];
-	
+
 	vec[0] = arg;
 	if (start) {
 		start = 0;
 		init();
 	}
-	
+
 	setup(0, bx0,bx1, rx0,rx1);
-	
+
 	sx = s_curve(rx0);
-	
+
 	u = rx0 * g1[ p[ bx0 ] ];
 	v = rx1 * g1[ p[ bx1 ] ];
-	
+
 	return lerp(sx, u, v);
 }
 
@@ -120,36 +120,36 @@ float noise2(float vec[2])
 	int bx0, bx1, by0, by1, b00, b10, b01, b11;
 	float rx0, rx1, ry0, ry1, *q, sx, sy, a, b, t, u, v;
 	register i, j;
-	
+
 	if (start) {
 		start = 0;
 		init();
 	}
-	
+
 	setup(0, bx0,bx1, rx0,rx1);
 	setup(1, by0,by1, ry0,ry1);
-	
+
 	i = p[ bx0 ];
 	j = p[ bx1 ];
-	
+
 	b00 = p[ i + by0 ];
 	b10 = p[ j + by0 ];
 	b01 = p[ i + by1 ];
 	b11 = p[ j + by1 ];
-	
+
 	sx = s_curve(rx0);
 	sy = s_curve(ry0);
-	
+
 #define at2(rx,ry) ( rx * q[0] + ry * q[1] )
 
 	q = g2[ b00 ] ; u = at2(rx0,ry0);
 	q = g2[ b10 ] ; v = at2(rx1,ry0);
 	a = lerp(sx, u, v);
-	
+
 	q = g2[ b01 ] ; u = at2(rx0,ry1);
 	q = g2[ b11 ] ; v = at2(rx1,ry1);
 	b = lerp(sx, u, v);
-	
+
 	return lerp(sy, a, b);
 }
 
@@ -158,57 +158,57 @@ float noise3(float vec[3])
 	int bx0, bx1, by0, by1, bz0, bz1, b00, b10, b01, b11;
 	float rx0, rx1, ry0, ry1, rz0, rz1, *q, sy, sz, a, b, c, d, t, u, v;
 	register i, j;
-	
+
 	if (start) {
 		start = 0;
 		init();
 	}
-	
+
 	setup(0, bx0,bx1, rx0,rx1);
 	setup(1, by0,by1, ry0,ry1);
 	setup(2, bz0,bz1, rz0,rz1);
-	
+
 	i = p[ bx0 ];
 	j = p[ bx1 ];
-	
+
 	b00 = p[ i + by0 ];
 	b10 = p[ j + by0 ];
 	b01 = p[ i + by1 ];
 	b11 = p[ j + by1 ];
-	
+
 	t  = s_curve(rx0);
 	sy = s_curve(ry0);
 	sz = s_curve(rz0);
-	
+
 	#define at3(rx,ry,rz) ( rx * q[0] + ry * q[1] + rz * q[2] )
 
 	q = g3[ b00 + bz0 ] ; u = at3(rx0,ry0,rz0);
 	q = g3[ b10 + bz0 ] ; v = at3(rx1,ry0,rz0);
 	a = lerp(t, u, v);
-	
+
 	q = g3[ b01 + bz0 ] ; u = at3(rx0,ry1,rz0);
 	q = g3[ b11 + bz0 ] ; v = at3(rx1,ry1,rz0);
 	b = lerp(t, u, v);
-	
+
 	c = lerp(sy, a, b);
-	
+
 	q = g3[ b00 + bz1 ] ; u = at3(rx0,ry0,rz1);
 	q = g3[ b10 + bz1 ] ; v = at3(rx1,ry0,rz1);
 	a = lerp(t, u, v);
-	
+
 	q = g3[ b01 + bz1 ] ; u = at3(rx0,ry1,rz1);
 	q = g3[ b11 + bz1 ] ; v = at3(rx1,ry1,rz1);
 	b = lerp(t, u, v);
-	
+
 	d = lerp(sy, a, b);
-	
+
 	return lerp(sz, c, d);
 }
 
 static void normalize2(float v[2])
 {
 	float s;
-	
+
 	s = sqrt(v[0] * v[0] + v[1] * v[1]);
 	v[0] = v[0] / s;
 	v[1] = v[1] / s;
@@ -217,7 +217,7 @@ static void normalize2(float v[2])
 static void normalize3(float v[3])
 {
 	float s;
-	
+
 	s = sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
 	v[0] = v[0] / s;
 	v[1] = v[1] / s;
@@ -227,27 +227,27 @@ static void normalize3(float v[3])
 static void init(void)
 {
 	int i, j, k;
-	
+
 	for (i = 0 ; i < B ; i++) {
 		p[i] = i;
-		
+
 		g1[i] = (float)((random() % (B + B)) - B) / B;
-		
+
 		for (j = 0 ; j < 2 ; j++)
 			g2[i][j] = (float)((random() % (B + B)) - B) / B;
 		normalize2(g2[i]);
-		
+
 		for (j = 0 ; j < 3 ; j++)
 			g3[i][j] = (float)((random() % (B + B)) - B) / B;
 		normalize3(g3[i]);
 	}
-	
+
 	while (--i) {
 		k = p[i];
 		p[i] = p[j = random() % B];
 		p[j] = k;
 	}
-	
+
 	for (i = 0 ; i < B + 2 ; i++) {
 		p[B + i] = p[i];
 		g1[B + i] = g1[i];
@@ -309,7 +309,7 @@ See also [Noise](#noise)
 Random points on the sphere surface (see also [Sphere Point Picking](https://mathworld.wolfram.com/SpherePointPicking.html)):
 
 > The way to correctly generate a random point on the surface of a unit sphere is not to pick uniform distributions θ in [0,2π) and φ in [0,π), but instead choose u and v from uniform distributions on [0,1). Then
-> 
+>
 > φ = cos⁻¹(2v-1)
 > θ = 2πu
 > — [Fermat's Library on Twitter: "The way to correctly generate a random point on the surface of a unit sphere is not to pick uniform distributions θ in \[0,2π) and φ in \[0,π), but instead choose u and v from uniform distributions on \[0,1). Then φ = cos⁻¹(2v-1) θ = 2πu https://t.co/Y6IX23ZGIv" / Twitter](https://twitter.com/fermatslibrary/status/1238088369420357633?s=12)
@@ -351,61 +351,61 @@ function random(seed) {
 ```as3
 package net.dotswitch.math {
 	import flash.errors.IllegalOperationError;
-	
+
 	public class Random {
-		
+
 		public function Random() {
 			throw new IllegalOperationError("Illegal instantiation: Random.");
 		}
-		
-		
+
+
 		// just alias
 		public static function random():Number {
 			return Math.random();
 		}
-		
+
 		public static function randomPair():Array {
 			return [random(), random()];
 		}
-		
-		
+
+
 		public static function uniform():Number {
 			return 2.0 * Math.random() - 1.0;
 		}
-		
+
 		public static function uniformPair():Array {
 			return [uniform(), uniform()];
 		}
-		
-		
+
+
 		public static function gaussian():Number {
 			return gaussianPair()[0];
 		}
-		
+
 		public static function gaussianPair():Array {
 			var x1:Number, x2:Number, w:Number;
-			
+
 			do {
 				x1 = uniform();
 				x2 = uniform();
 				w = x1 * x1 + x2 * x2;
 			} while (w >= 1.0)
-			
+
 			w = Math.sqrt(-2.0 * Math.log(w) / w);
-			
+
 			return [x1 * w, x2 * w];
 		}
-	
-	
+
+
 		public static function spherical():Array {
 			var theta:Number = 2.0 * Math.PI * Math.random();
 			var z:Number = uniform();
-			
+
 			var c:Number = Math.sqrt(1 - z * z);
-			
+
 			var x:Number = c * Math.cos(theta);
 			var y:Number = c * Math.sin(theta);
-			
+
 			return [x, y, z];
 		}
 	}

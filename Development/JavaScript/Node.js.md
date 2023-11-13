@@ -187,6 +187,8 @@ Heap profile file:
 	- [Speeding up the JavaScript ecosystem - npm scripts](https://web.archive.org/web/20230929215300/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-4/)
 	- [Speeding up the JavaScript ecosystem - draft-js emoji plugin](https://web.archive.org/web/20230929220034/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-5/)
 	- [Speeding up the JavaScript ecosystem - Polyfills gone rogue](https://web.archive.org/web/20230929211110/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-6/)
+	- [Speeding up the JavaScript ecosystem - The barrel file debacle](https://web.archive.org/web/20231105163013/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/)
+	- [Speeding up the JavaScript ecosystem - Tailwind CSS](https://web.archive.org/web/20231111003315/https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-8/)
 
 ## Child processes
 
