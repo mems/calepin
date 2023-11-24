@@ -7,6 +7,7 @@ Renshape 460 for the pattern and Petrobond (BOND) for the sand cast
 
 - [FPI - Foundry Products Incorporated](http://www.foundryproductsonline.com/)
 - [myfordboy - YouTube](https://www.youtube.com/channel/UCNC9gjgYrzLfyMQmp31DnjA)
+- [Simple Bronze Casting - YouTube](https://www.youtube.com/channel/UCb7GbqAjyz0kwdEAUjr4FSQ) - a channel about forging and casting steel
 
 ## Brazing and welding
 

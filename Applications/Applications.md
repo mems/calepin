@@ -1183,7 +1183,7 @@ Aka masque d'écrêtage
 
 ### Adobe Lightroom
 
-- [Jeffrey Friedl's Blog » Accessing Lightroom’s SQLite DB Directly](http://regex.info/blog/2006-07-29/221)
+- [Jeffrey Friedl's Blog » Accessing Lightroom’s SQLite DB Directly](https://web.archive.org/web/20230328220741/http://regex.info/blog/2006-07-29/221)
 
 ```
 ~/Pictures/Lightroom 5 Catalog.lrcat
@@ -1201,6 +1201,8 @@ And copy cameras profiles (`CameraProfiles`) and lenses profiles (`LensProfiles`
 Then copy `/Library/Application Support/Adobe/CameraRaw/Settings` in `~/Library/Application Support/Adobe/CameraRaw/`
 
 For Windows: `%USER_APPDATA%\Roaming\Adobe\CameraRaw\LensProfiles\1.0\Downloaded` and `C:\ProgramData\Adobe\CameraRaw\LensProfiles\1.0\`
+
+- [Script to extract previews of lost or deleted photos](https://helpx.adobe.com/lightroom-classic/kb/extract-previews-for-lost-images-lightroom.html)
 
 ## FFMpeg
 

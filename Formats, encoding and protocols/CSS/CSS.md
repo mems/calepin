@@ -20,10 +20,11 @@ Where some values can be the same: 0 == 0px (not every where), or 10.7125em can 
 
 ## Tools
 
-CSS analyzers:
+Analyzer:
 
 - [Online CSS Code Quality Analyzer - Project Wallace](https://www.projectwallace.com/css-code-quality) - [GitHub - projectwallace/css-code-quality: Calculate the Code Quality score of your CSS based on a range of different quality guards.](https://github.com/projectwallace/css-code-quality)
 - [Online CSS Analyzer - Project Wallace](https://www.projectwallace.com/analyze-css) - [GitHub - projectwallace/css-analyzer: Analytics for CSS](https://github.com/projectwallace/css-analyzer), [GitHub - projectwallace/wallace-cli: Pretty CSS analytics on the CLI](https://github.com/projectwallace/wallace-cli)
+- [CSS Size Analyzer | DebugBear](https://www.debugbear.com/css-size-analyzer)
 
 Lint:
 

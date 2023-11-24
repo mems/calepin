@@ -2500,19 +2500,6 @@ https://calendar.google.com/calendar/event?action=TEMPLATE&text=Title+part&detai
 
 - [Google Calendar render action Template parameter documentation - Stack Overflow](https://stackoverflow.com/questions/22757908/google-calendar-render-action-template-parameter-documentation)
 
-## Google+
-
-- [Share URLs](#share-urls)
-- [Share  |  Google+ Platform for Web  |  Google Developers](https://developers.google.com/+/web/share/#sharelink)
-
-### Google+ share and like
-
-- https://developers.google.com/+/web/+1button/
-
-### GIF
-
-OK: 800 × 480 px (3.14 MB)
-
 ## Github
 
 Get Markdown of Wiki:

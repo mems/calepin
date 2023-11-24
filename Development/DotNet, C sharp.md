@@ -102,3 +102,8 @@ ASP.NET Core:
 ## Compilation
 
 - [MichalStrehovsky/zerosharp: Demo of the potential of C# for systems programming with the .NET native ahead-of-time compilation technology.](https://github.com/MichalStrehovsky/zerosharp)
+
+## Language version
+
+- [C# language versioning - C# Guide - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version)
+- [.net - What are the correct version numbers for C#? - Stack Overflow](https://stackoverflow.com/questions/247621/what-are-the-correct-version-numbers-for-c/38506668#38506668)
