@@ -7825,7 +7825,7 @@ const value = decodeURIComponent((document.cookie.match(new RegExp(`(?:^|;\\s)${
 // const value = !!document.cookie.split(";").find(pair => /cookiename=true(;|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
 
 // Read cookies
-const entries = document.cookie.split(/; ?/).map(s => /^([^=]*)=("?)(.*?)\2$/.exec(s)).map(([, k, , v]) => [k, v != null ? decodeURIComponent(v) : v]);
+const entries = document.cookie.split(/; ?/).map(s => /^([^=]*)=?("?)(.*?)\2$/.exec(s)).map(([, k, , v]) => [k, v != null ? decodeURIComponent(v) : v]);
 //const entries = [...document.cookie.matchAll(/(?<=^|(?:; ))([!#-'*+-.0-9A-Z^-z|~]+)=(("?)[!#-+--:<-\[\]-~]*\3)(?=;|$)/g)].map(([, k, v]) => [k, v != null ? decodeURIComponent(v) : v]);
 const cookies = new Map(entries);// as Map Object.fromEntries(entries)
 
