@@ -8,6 +8,12 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [YASUHIRO TV - YouTube](https://www.youtube.com/@YASUHIROTV)
 - [Dekay's Crafts - YouTube](https://www.youtube.com/@dekayscrafts)
 - [INVENTORINDO FURNITURE - YouTube](https://www.youtube.com/@inventorindofurniture/videos)
+- Foureyes Furniture
+	- [Tips and Tricks Every Woodworker Should Know - YouTube](https://www.youtube.com/watch?v=xqlN7mR6LkY)
+	- [Tips and Tricks Every Woodworker Should Know - Vol. 2 - YouTube](https://www.youtube.com/watch?v=hp4ZYt6JNEI)
+	- [Perfect Miters and 3 Other Tips Every Woodworker Should Know - YouTube](https://www.youtube.com/watch?v=_KEw83c8T98)
+	- [Modeling a Complete Project in Sketchup for Beginners Pt.1 - Sketchup for Woodworkers - YouTube](https://www.youtube.com/watch?v=AVb8ZBAOD0I)
+	- [Modeling a Complete Project in Sketchup for Beginners Pt.2 - Sketchup for Woodworkers - YouTube](https://www.youtube.com/watch?v=pqcEyXs0v4c)
 
 ## Furniture
 

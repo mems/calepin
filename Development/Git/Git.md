@@ -591,18 +591,33 @@ git reset --hard origin/master
 
 - [How to keep the prod cloned repo naked/bare when updating it from the dev repo? : git](https://www.reddit.com/r/git/comments/9rlyhk/how_to_keep_the_prod_cloned_repo_nakedbare_when/)
 
-## Git on Windows
+## Credential helper
 
-See also [Bash shell on Windows](../../Operating%20Systems/Windows/Windows.md#bash-shell-on-windows)
+Needed if you use non SSH remote repository
 
-### Credentials helper
-
-Use the native [Windows credentials manager (manager-core)](https://github.com/GitCredentialManager/git-credential-manager/tree/release) (saved as generic credentials like "git:https://mygitrepo"):
+Use the native [Git Credentials Manager](https://github.com/GitCredentialManager/git-credential-manager/tree/release):
 
 ```sh
-# On Windows you usally don't need to do that, it's the default credential helper installed with Git for Windows
-git config --global credential.helper manager-core
+git config --global credential.helper manager
 ```
+
+Credential helpers:
+
+- `manager` (was `manager-core` Git < 2.39), available on Windows, macOS, and Linux
+- `wincred` buit-in helper on Windows
+- , up to Git 2.38.1 on Windows, now just `manager` (GCM) ()
+
+- [Git - gitcredentials Documentation](https://git-scm.com/docs/gitcredentials)
+- [Git credential helpers](https://git-scm.com/doc/credential-helpers)
+- [Git Credential Manager for Windows | Git-Credential-Manager-for-Windows](https://microsoft.github.io/Git-Credential-Manager-for-Windows/Docs/CredentialManager.html)
+- [Caching your GitHub credentials in Git - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git)
+- [Why does \`git config --global credential.helper\` show wincred when it seems that I'm using Git Credential Manager Core? - Stack Overflow](https://stackoverflow.com/questions/74665534/why-does-git-config-global-credential-helper-show-wincred-when-it-seems-that)
+- [Updating credentials from the macOS Keychain - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain)
+- [msysgit - git: 'credential-cache' is not a git command - Stack Overflow](https://stackoverflow.com/questions/11693074/git-credential-cache-is-not-a-git-command/68768432#68768432)
+
+### Git on Windows
+
+On Windows, [Git Credentials Manager](https://github.com/GitCredentialManager/git-credential-manager/tree/release) saved as generic credentials as `git:https://mygitrepo`.
 
 - `explorer shell:::{1206F5F1-0569-412C-8FEC-3204630DFB70}` - access to Credential Manager, then go to "Windows Credentials"
 - [Accessing Credential Manager](https://support.microsoft.com/en-us/help/4026814/windows-accessing-credential-manager) - In control panel
@@ -614,6 +629,10 @@ About Explorer CLSIDs:
 - [Control Panel (Windows) - Wikipedia](https://en.wikipedia.org/wiki/Control_Panel_%28Windows%29)
 - [List of Control Panel Command Line Commands](https://www.lifewire.com/command-line-commands-for-control-panel-applets-2626060)
 - [git-credential-manager/install.md at release · GitCredentialManager/git-credential-manager](https://github.com/GitCredentialManager/git-credential-manager/blob/release/docs/install.md#git-for-windows-star)
+
+## Git on Windows
+
+See also [Bash shell on Windows](../../Operating%20Systems/Windows/Windows.md#bash-shell-on-windows)
 
 ## Diff and merge tools
 

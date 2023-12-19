@@ -313,6 +313,14 @@ powershell -File '..\SomeScript.ps1' -Arg1 'Val1'
 
 - [Start-Process (Microsoft.PowerShell.Management) - PowerShell | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process?view=powershell-5.1)
 - [Verb RunAs in a Start-Process Powershell command causes an error - Stack Overflow](https://stackoverflow.com/questions/25725925/verb-runas-in-a-start-process-powershell-command-causes-an-error) - `-NoNewWindow` and `-Verb RunAs` can't be combined. See also [Multiple inputs into new prompt & Powershell -run as and -nonewwindow issue - Stack Overflow](https://stackoverflow.com/questions/69243757/multiple-inputs-into-new-prompt-powershell-run-as-and-nonewwindow-issue/69247548#69247548)
+- [Strongly Encouraged Development Guidelines - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/strongly-encouraged-development-guidelines?view=powershell-7.3)
+- [Understanding Non-Terminating Errors in PowerShell - Scripting Blog \[archived\]](https://devblogs.microsoft.com/scripting/understanding-non-terminating-errors-in-powershell/)
+- [Everything you wanted to know about the if statement - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-if?view=powershell-7.3)
+- [How should I name my PowerShell Scripts? | Interface Technical Training | Interface Technical Training](https://web.archive.org/web/20230325210523/https://www.interfacett.com/blogs/how-should-i-name-my-powershell-scripts/)
+- [Invoking an executable from PowerShell with a dynamic number of parameters - Octopus Deploy](https://octopus.com/blog/dynamic-argument-list-when-calling-executable-from-powershell)
+- [PoshCode/PowerShellPracticeAndStyle: The Unofficial PowerShell Best Practices and Style Guide](https://github.com/PoshCode/PowerShellPracticeAndStyle/)
+- [Strongly Encouraged Development Guidelines - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/strongly-encouraged-development-guidelines)
+- [Hey Scripting Guy, How can I move function definitions to the end of my scripts](https://web.archive.org/web/20230523102505/https://social.technet.microsoft.com/Forums/windowsserver/en-US/f2a09ab0-ec84-41e4-b24e-ea7947b76f37/hey-scripting-guy-how-can-i-move-function-definitions-to-the-end-of-my-scripts) - Yes, with scriptblock at the top
 
 ## Unix tools
 

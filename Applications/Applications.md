@@ -596,6 +596,17 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command "Start-Proces
 - [BashSupport - Bash plugin for IntelliJ / WebStorm / PyCharm | IntelliJ plugin development - www.plugin-dev.com](https://www.plugin-dev.com/project/bashsupport/)
 - [PowerShell: Running a command a Administrator - Stack Overflow](https://stackoverflow.com/questions/7690994/powershell-running-a-command-as-administrator/39838527#39838527)
 
+### Ignore files and folders
+
+Index, hide in tree view
+
+- Editor > File Types > Ignored Files and Folders
+- Context Menu > Mark Folder As... > Excluded
+- Settings/Preferences > Directories
+- Context Menu > Tools > Stop Index
+
+- [rider - How to excluder a folder from search and indexing (JetBrains IDEs)? - Stack Overflow](https://stackoverflow.com/questions/66059572/how-to-excluder-a-folder-from-search-and-indexing-jetbrains-ides)
+
 ## Adobe
 
 ### Adobe Creative Cloud
@@ -1791,14 +1802,20 @@ Unsaved files:
     ```
 8. save `⌘S`
 
-- [Ciarán Walsh’s Blog » TextMate Tip – Where Am I?](http://ciaranwal.sh/2007/11/27/textmate-tip-where-am-i)
+- [Ciarán Walsh’s Blog » TextMate Tip – Where Am I?](https://web.archive.org/web/20210216113314/http://ciaranwal.sh/2007/11/27/textmate-tip-where-am-i)
 - [Bundles — TextMate Manual](https://macromates.com/textmate/manual/bundles#bundle-editor)
 
-Unsaved files:
+Unsaved files: `~/Library/Application Support/TextMate/Session`
 
-```
-~/Library/Application Support/TextMate/Session
-```
+Rename untitled tab/file: in `~/Library/Application Support/TextMate/Session/` add xattr attribute `com.macromates.backup.custom-name` (plain text) with the custom name
+
+See https://github.com/textmate/textmate/blob/346b52b108b387462d4b3def481fb74983ae89f3/Frameworks/document/src/OakDocument.mm#L355
+
+See also:
+
+- [TextMate Basics Tutorial](https://web.archive.org/web/20220924171805/http://projects.serenity.de/textmate/tutorials/basics/)
+- [TextMate Manual](https://macromates.com/textmate/manual/)
+- [TextMate 2 .tm_properties](https://gist.github.com/sipp11/3382426)
 
 ## Google AppEngine
 

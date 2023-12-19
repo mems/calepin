@@ -71,7 +71,7 @@ BASIC REALM
 
 If "Document & Data" is enabled in iCloud Sync
 
-```
+```sh
 ~/Library/Mobile Documents/
 ```
 
@@ -83,7 +83,7 @@ Bookmarks, opened tabs, etc.
 
 If Safari is enabled in iCloud Sync
 
-```
+```sh
 ~/Library/SyncedPreferences/com.apple.Safari.plist
 ~/Library/SyncedPreferences/com.apple.syncedpreferences.plist
 ```
@@ -98,7 +98,7 @@ And reading list (stored as bookmarks)
 
 If Safari is enabled in iCloud Sync. Updated by `/System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS/SafariBookmarksSyncAgent`
 
-```
+```sh
 ~/Library/SyncedPreferences/com.apple.Safari.plist
 ~/Library/Safari/Bookmarks.plist
 # SQLite updated when iCloud is sync
@@ -107,7 +107,7 @@ If Safari is enabled in iCloud Sync. Updated by `/System/Library/CoreServices/Sa
 
 The field `position` of table `cloud_tabs` in `CloudTabs.db` is deflate (zlib) of JSON like:
 
-```
+```json
 {"sortValues":[{"changeID":0,"sortValue":2000,"deviceIdentifier":"72E06CBB-9C58-479B-AD70-92BE116AE0E5"}]}
 ```
 
@@ -120,7 +120,7 @@ Order in the database doesn't match the order of tabs are opened. No logical ord
 
 Device name should match:
 
-```
+```sh
 scutil --get LocalHostName
 scutil --get ComputerName
 ```
@@ -133,7 +133,7 @@ Tab title with "Favoris" (fr) / "Favorites" (en) by the URL, is often a PDF docu
 
 ```
 # bookmarks to JSON using only
-plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | php('php://stdin','SimpleXMLElement',LIBXML_NOCDATA));"
+plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | php('php://stdin','SimpleXMLElement',LIBXML_NOCDATA);"
 ```
 
 - [Rebuilding iCloud Bookmarks | Sheep Systems](http://www.sheepsystems.com/files/support_articles/bkmx/rebuilding-icloud-bookmarks.html)

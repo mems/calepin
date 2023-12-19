@@ -51,6 +51,8 @@ plutil -convert json -o - file.plist | php -r "echo json_encode(simplexml_load_f
 - [Reverse Engineering Instruments’ File Format](http://jamie-wong.com/post/reverse-engineering-instruments-file-format/#making-a-binary-plist-parser)
 - [Marketcircle/bpylist: Parse and Generate binary plists and NSKeyedArchiver archives](https://github.com/Marketcircle/bpylist)
 - [jorik041/ccl-bplist at 423670d84c118f66c9fe79122ba37dd856d23595](https://github.com/jorik041/ccl-bplist/tree/423670d84c118f66c9fe79122ba37dd856d23595)
+- [joeferner/node-bplist-parser: Binary plist parser.](https://github.com/joeferner/node-bplist-parser)
+- [joeferner/node-bplist-creator: Binary Mac OS X Plist (property list) creator.](https://github.com/joeferner/node-bplist-creator)
 
 JavaScript implementation:
 

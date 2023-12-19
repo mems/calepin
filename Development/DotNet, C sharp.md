@@ -107,3 +107,11 @@ ASP.NET Core:
 
 - [C# language versioning - C# Guide - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version)
 - [.net - What are the correct version numbers for C#? - Stack Overflow](https://stackoverflow.com/questions/247621/what-are-the-correct-version-numbers-for-c/38506668#38506668)
+
+## Documentation comments
+
+- [Documentation comments - C# language specification | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments)
+- [Recommended XML documentation tags for a class and its members - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags)
+- [c# - How to reference generic classes and methods in xml documentation - Stack Overflow](https://stackoverflow.com/questions/532166/how-to-reference-generic-classes-and-methods-in-xml-documentation/41208166#41208166) - `cref` attribute
+- [Documentation comments - document APIs using /// comments - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/)
+- [C# XML Documentation Website Link - Stack Overflow](https://stackoverflow.com/questions/6960426/c-sharp-xml-documentation-website-link)
