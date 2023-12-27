@@ -1,5 +1,6 @@
 - [DIY - Shop Tool Cart - YouTube](https://www.youtube.com/watch?v=KyISgG2FLBU)
 - [Metalworking - Wikipedia](https://en.wikipedia.org/wiki/Metalworking)
+- [Inexpensive Soft Metal Bending Tool : 4 Steps (with Pictures) - Instructables](https://www.instructables.com/Inexpensive-Soft-Metal-Bending-Tool/)
 
 ## Casting
 
