@@ -139,6 +139,7 @@ php ./src/cli/imapcopy.php config.json
 - [Official Gmail Blog: 2 hidden ways to get more from your Gmail address](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html?m=1)
 - [Plus addressing and subdomain addressing – Fastmail](https://web.archive.org/web/20221207144956/https://www.fastmail.help/hc/en-us/articles/360060591053-Plus-addressing-and-subdomain-addressing)
 - [The IAB loves tracking users. But it hates users tracking them | Hacker News](https://news.ycombinator.com/item?id=34400024)
+- [Plus Addressing - Migadu Email](https://www.migadu.com/guides/plus_addressing/)
 
 ## Normalization
 
