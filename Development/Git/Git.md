@@ -49,6 +49,9 @@ git diff --binary HEAD > /path/to/mypatch.patch
 
 # Create an archive include files changes between 2 commits
 LAST_COMMIT_HASH=<newest-commit-id-to-include>; FIRST_COMMIT_HASH=<oldest-commit-id-to-include>; git archive --prefix=some_path_prefix/ -o ~/Desktop/patch.zip $LAST_COMMIT_HASH:src_path $(git diff-tree -r --no-commit-id --name-only --diff-filter=ACMRT $FIRST_COMMIT_HASH^:src_path $LAST_COMMIT_HASH:src_path)
+
+# Fast forward other local branch without checkout
+git fetch origin <origin-branch>:<local-branch>
 ```
 
 ## User infos

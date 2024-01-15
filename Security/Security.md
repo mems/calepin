@@ -148,10 +148,14 @@ See [Usurpation & social engineering](#usurpation-social-engineering)
 
 black hat trolling, social sabotage, guerilla
 
-- [Simple Sabotage Field Manual by United States. Office of Strategic Services - Ebook libre](http://www.gutenberg.org/ebooks/26184?msg=welcome_stranger) - Declassified OSS document
+- [Simple Sabotage Field Manual by United States. Office of Strategic Services | Project Gutenberg](https://www.gutenberg.org/ebooks/26184) - Declassified OSS document https://web.archive.org/web/20121126170237/http://www.gutenberg.org/files/26184/page-images/26184-images.pdf
 - [L'art du sabotage social par Horizon Gull - Montbazon 2016 - YouTube](https://www.youtube.com/watch?v=hSXSdr9hoMk) - see [Être stupide, où l’art du sabotage social selon les leçons de la CIA](https://web.archive.org/web/20220309100159/https://www.hacking-social.com/2016/05/09/etre-stupide-ou-lart-du-sabotage-social-selon-les-lecons-de-la-cia/) and [CIA-conseil-sabotage-social.pdf](https://web.archive.org/web/20220811234537/https://www.hacking-social.com/wp-content/uploads/2016/05/CIA-conseil-sabotage-social.pdf)
 - https://web.archive.org/web/20120927000536/https://www.cia.gov/news-information/featured-story-archive/2012-featured-story-archive/CleanedUOSSSimpleSabotage_sm.pdf
 - [The Art of Simple Sabotage - CIA](https://web.archive.org/web/20230131000747/https://www.cia.gov/stories/story/the-art-of-simple-sabotage/)
+- [Simple Sabotage Field Manual : Office of Strategic Services : Free Download, Borrow, and Streaming : Internet Archive](https://archive.org/details/SimpleSabotageFieldManual)
+- [SPECIAL OPERATIONS FIELD MANUAL -- STRATEGIC SERVICES (PROVISIONAL) - CIA-RDP89-01258R000100010010-5](https://web.archive.org/web/20230112174025/https://www.cia.gov/readingroom/docs/CIA-RDP89-01258R000100010010-5.pdf)
+- [Manuel de sabotage simple sur le terrain — Wikipédia](https://fr.wikipedia.org/wiki/Manuel_de_sabotage_simple_sur_le_terrain)
+- [Value of simple sabotage in wartime - Sabotage - Wikipedia](https://en.wikipedia.org/wiki/Sabotage#Value_of_simple_sabotage_in_wartime)
 
 ## Backup
 

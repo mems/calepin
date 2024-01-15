@@ -1671,6 +1671,7 @@ echo "Appended text" >> /path/file
 - `/usr/include/unistd.h`
 - http://en.wikipedia.org/wiki/File_descriptor
 - [bash - How to pipe stderr, and not stdout? - Stack Overflow](https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout)
+- [Why stdout is faster than stderr? - Orhun's Blog](https://web.archive.org/web/20240110144005/https://blog.orhun.dev/stdout-vs-stderr/)
 
 Pipe:
 
