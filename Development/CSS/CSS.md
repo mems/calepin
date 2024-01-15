@@ -477,6 +477,8 @@ input[type="checkbox"]:checked + label {
 
 ### Margin collapse
 
+To disable margin collapse (parent element collapse and/or sibling element collapse):
+
 Set overflow other to `auto` or `scroll`:
 
 ```css
@@ -485,7 +487,7 @@ element{
 }
 ```
 
-or:
+or by insert child pseudo elements:
 
 ```css
 element::before,
@@ -495,6 +497,13 @@ element::after{
 }
 ```
 
+Change the element dispaly:
+
+- `flow-root`
+- `flex`
+- `grid`
+
+- [css - How to disable margin-collapsing? - Stack Overflow](https://stackoverflow.com/questions/19718634/how-to-disable-margin-collapsing)
 - [Revisiting Margin Collapse - Pine](https://web.archive.org/web/20200925025359/https://pineco.de/revisiting-margin-collapse/)
 - [Collapsing Margins - SitePoint](http://www.sitepoint.com/web-foundations/collapsing-margins/)
 - [Box model](https://drafts.csswg.org/css2/box.html#collapsing-margins)
