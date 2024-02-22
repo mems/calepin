@@ -3328,6 +3328,7 @@ function randomUUID(){
 ## Random identifier
 
 ```js
+crypto.randomUUID();// > "36b8f84d-df4e-4d49-b662-bcde71a8764f"
 Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)// > "5lv1liy34k"
 BigInt(Math.round(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36);
 Math.round(Math.random() * (36**digits)).toString(36);

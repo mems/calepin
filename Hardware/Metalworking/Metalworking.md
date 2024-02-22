@@ -2,6 +2,9 @@
 - [Metalworking - Wikipedia](https://en.wikipedia.org/wiki/Metalworking)
 - [Inexpensive Soft Metal Bending Tool : 4 Steps (with Pictures) - Instructables](https://www.instructables.com/Inexpensive-Soft-Metal-Bending-Tool/)
 
+Dégraisser avec de l'acétone
+Appliquer de la cire et faire évaporer (avec un chalumeau) https://www.youtube.com/watch?v=X_sxaIi_zOk?t=709
+
 ## Casting
 
 Renshape 460 for the pattern and Petrobond (BOND) for the sand cast
@@ -62,3 +65,10 @@ brasage fort (résistance : 40 à 50 Kg/mm², température nécéssaire : > 450�
 - pate à roder / lapping paste
 
 - [Mécanique moto : extraire une vis foirée facilement ! - YouTube](https://www.youtube.com/watch?v=lNRpww-45Oo)
+
+## Black oxide coating
+
+- [Black Oxide: The Simple and Powerful Way to Transform Your Hardware - YouTube](https://www.youtube.com/watch?v=e7R8N3b4OtE)
+- [Black oxide - Wikipedia](https://en.wikipedia.org/wiki/Black_oxide)
+
+> muriatic/hydrochloric acid diluted in water (50% or 5 to 1 if you are using pure acid) has the same effect with the bonus of cleaning any rust present in the metal. also, boiled lindseed oil is really good as a finisher because it penetrates the porous black oxide and crystalizes inside
