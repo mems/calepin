@@ -115,3 +115,9 @@ ASP.NET Core:
 - [c# - How to reference generic classes and methods in xml documentation - Stack Overflow](https://stackoverflow.com/questions/532166/how-to-reference-generic-classes-and-methods-in-xml-documentation/41208166#41208166) - `cref` attribute
 - [Documentation comments - document APIs using /// comments - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/)
 - [C# XML Documentation Website Link - Stack Overflow](https://stackoverflow.com/questions/6960426/c-sharp-xml-documentation-website-link)
+
+##
+
+- [Understanding Async, Avoiding Deadlocks in C# | by Eke Péter | Rubrikk Group | Medium](https://medium.com/rubrikkgroup/understanding-async-avoiding-deadlocks-e41f8f2c6f5d)
+- [Why is .GetAwaiter().GetResult() bad in C#?](https://www.nikouusitalo.com/blog/why-is-getawaiter-getresult-bad-in-c/)
+- [C# - Handling exceptions from Tasks that are not awaited](https://peterdaugaardrasmussen.com/2021/06/05/dot-net-catching-exceptions-in-unawaited-tasks/)
