@@ -282,6 +282,19 @@ Small screen viewport size
 
 ## Attributes
 
+Attribute definition consideration, in priority:
+
+1. standardized vocabulary (HTML, microdata, etc.)
+2. generic extensions used by multiple independent tools
+3. web component author
+4. website author, which should use only `data-*` (aka "custom data attribute")
+
+> These attributes \[eg. `data-*`\] are not intended for use by software that is not known to the administrators of the site that uses the attributes. For generic extensions that are to be used by multiple independent tools, either this specification should be extended to provide the feature explicitly, or a technology like microdata should be used (with a standardized vocabulary).
+> [...]
+> JavaScript libraries may use the custom data attributes, as they are considered to be part of the page on which they are used. Authors of libraries that are reused by many authors are encouraged to include their name in the attribute names, to reduce the risk of clashes. Where it makes sense, library authors are also encouraged to make the exact name used in the attribute names customizable, so that libraries whose authors unknowingly picked the same name can be used on the same page, and so that multiple versions of a particular library can be used on the same page even when those versions are not mutually compatible.
+>
+> — [HTML Standard](https://html.spec.whatwg.org/multipage/dom.html#attr-data-*)
+
 ### Quotes
 
 ```html

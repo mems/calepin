@@ -23,6 +23,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [The Honest Carpenter - YouTube](https://www.youtube.com/@TheHonestCarpenter)
 - [JV POY WORKSHOP - YouTube](https://www.youtube.com/@ATELIERJVPOY)
 - [Olivier Verdier - YouTube](https://www.youtube.com/@OlivierVerdier)
+	- [Comment choisir ses lames de scie circulaire ? - YouTube](https://www.youtube.com/watch?v=FB3dgnUBX3M) - Freud
 - [Pirard Benoît - YouTube](https://www.youtube.com/@PirardBenoit)
 - [Popular Woodworking - YouTube](https://www.youtube.com/@popularwoodworking)
 
@@ -53,6 +54,7 @@ Aka wood
 
 - [Comment Acheter du Bois de QUALITÉ sans se RUINER ? - YouTube](https://www.youtube.com/watch?v=meseh9JmF4s)
 - [Mon plateau de bois | Bois, résine époxy, outils et accessoires](https://monplateaudebois.com/)
+- [Découpe sur mesure de bois massif et autres matériaux | ilicut.com](https://ilicut.com/fr_FR/)
 
 ## Tools
 

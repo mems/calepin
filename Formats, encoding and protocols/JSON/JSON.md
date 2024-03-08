@@ -189,3 +189,4 @@ Format used by [JSON Schema](https://json-schema.org/understanding-json-schema/r
 	- [stedolan/jq: Command-line JSON processor](https://github.com/stedolan/jq)
 	- [Extracting objects recursively with jq | Simon Willison’s TILs](https://til.simonwillison.net/jq/extracting-objects-recursively)
 - [antonmedv/fx: Command-line tool and terminal JSON viewer 🔥](https://github.com/antonmedv/fx)
+- [Editor | JSON Crack](https://jsoncrack.com/editor) - node / graph viewer

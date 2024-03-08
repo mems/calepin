@@ -683,6 +683,19 @@ pour 8 parts
 - [Triple-Chocolate Brownies Recipe | Bon Appétit](https://web.archive.org/web/20230529053714/https://www.bonappetit.com/recipe/triple-chocolate-brownies)
 - [I Baked 144 Brownies To Create The Perfect Recipe | Bon Appétit - YouTube](https://www.youtube.com/watch?app=desktop&v=w7vXPu7P3qE)
 
+### Carré aux amandes
+
+Aka Carré fourré amande
+Voir aussi le Boterkoek (gâteau au beurre néerlandais)
+
+Ces carrés à la pâte sablée sont fourrés d'une délicate crème à la saveur amande et décorés d'amande
+
+- [BANDIT blackz : LE CARRÉ AUX AMANDES...](https://web.archive.org/web/20240304003754/https://banditblackz.blogspot.com/2016/01/le-carre-aux-amandes.html) - [BANDIT blackz : CRÈME D'AMANDES..](https://web.archive.org/web/20240304003526/https://banditblackz.blogspot.com/2016/01/creme-damandes.html)
+- [Carré aux amandes](https://web.archive.org/web/20240304003821/http://moniquelacuisinequejaime.centerblog.net/384-carre-aux-amandes)
+- [Carrés aux amandes - Recettes faciles - Les gâteaux de Stéph](https://web.archive.org/web/20230128042002/https://www.lesgateauxdesteph.com/2018/02/carres-aux-amandes.html)
+- [Carrés d'amande - Bonheurs sucrés](https://web.archive.org/web/20230604125812/http://www.lejournaldececile.com/2015/11/carres-d-amande.html)
+- [Carrés amande & caramel au miel – Recette Special](https://recettespecial.com/carres-amande-caramel-au-miel/)
+
 ## Amuse-bouche
 
 ### Apéro à la Ben

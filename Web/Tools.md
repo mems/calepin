@@ -67,6 +67,10 @@ Android Emulator:
 - [Use modified hosts file on Android Emulator – Code, Procedure and Rants – Medium](https://medium.com/code-procedure-and-rants/use-modified-hosts-file-on-android-emulator-4f29f5d12ac1)
 - [android - Why is the intel x86 emulator accelerator (HAXM installer) is showing not compatible with windows? - Stack Overflow](https://stackoverflow.com/questions/41408552/why-is-the-intel-x86-emulator-accelerator-haxm-installer-is-showing-not-compat/43656782#43656782) (activate virtualization - Intel® VT-x - in the BIOS then install HAXM)
 
+## Console
+
+- [console.delight – Frontend Masters Boost](https://web.archive.org/web/20240226194603/https://frontendmasters.com/blog/console-delight/#b456d489-1a38-4839-b543-b60424b8b4c6-link)
+
 ## Tools & Workflow
 
 Export, Packing, Application packer (simple app/site vs. complexe app/site)
@@ -362,17 +366,19 @@ http://www.martiansoftware.com/nailgun/
 https://github.com/Homebrew/homebrew/issues/21880
 https://github.com/sethp-jive/homebrew/blob/0f0a86819d8f5bd53251f263a26ae8119f88dc20/Library/Formula/nailgun.rb
 
-	#!/bin/bash
-	# Server (java)
-	sudo wget -qO- -O /opt/local/share/java/nailgun.jar http://central.maven.org/maven2/com/martiansoftware/nailgun-server/0.9.1/nailgun-server-0.9.1.jar
-	# Client (c)
-	mkdir nailgun-client
-	cd nailgun-client
-	git clone https://github.com/martylamb/nailgun.git .
-	# Will install ng in /usr/local/bin/ng
-	sudo make install
-	cd ..
-	rm -rf nailgun-client
+```sh
+#!/bin/bash
+# Server (java)
+sudo wget -qO- -O /opt/local/share/java/nailgun.jar http://central.maven.org/maven2/com/martiansoftware/nailgun-server/0.9.1/nailgun-server-0.9.1.jar
+# Client (c)
+mkdir nailgun-client
+cd nailgun-client
+git clone https://github.com/martylamb/nailgun.git .
+# Will install ng in /usr/local/bin/ng
+sudo make install
+cd ..
+rm -rf nailgun-client
+```
 
 Exist as a variant of jruby: https://trac.macports.org/ticket/20552
 

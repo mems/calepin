@@ -1323,6 +1323,7 @@ https://clients2.google.com/service/update2/crx?response=redirect&prodversion={p
 Or:
 
 - https://addons.opera.com/en/extensions/details/download-chrome-extension-9/
+- [CRX Viewer](https://robwu.nl/crxviewer/) - [GitHub - Rob--W/crxviewer: Add-on / web app to view the source code of Chrome / Firefox / Opera 15 extensions and zip files.](https://github.com/Rob--W/crxviewer)
 
 See [CRX / NEX (Opera)](#crx--nex-opera)
 

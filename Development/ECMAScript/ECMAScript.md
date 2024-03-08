@@ -235,6 +235,7 @@ export function inc(){counter++}
 ```
 
 - [ecmascript 6 - Javascript ES6 export const vs export let - Stack Overflow](https://stackoverflow.com/questions/32558514/javascript-es6-export-const-vs-export-let)
+- [Automated Refactoring of Legacy JavaScript Code to ES6 Modules](https://arxiv.org/pdf/2107.10164.pdf)
 
 ### Modules names
 
