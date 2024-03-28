@@ -1548,13 +1548,17 @@ External body examples:
 - `message/external-body; access-type=URL; URL="http://www.foo.com/file"`
 - `message/external-body; access-type=local-file; name="file:/local/path/file.html"`
 
-	Content-type: message/external-body; access-type=local-file; name="/u/nsb/Me.gif"
+```http
+Content-type: message/external-body; access-type=local-file; name="/u/nsb/Me.gif"
+```
 
-	Content-type:  image/gif
-	Content-ID: <id42@guppylake.bellcore.com>
-	Content-Transfer-Encoding: binary
+```http
+Content-type:  image/gif
+Content-ID: <id42@guppylake.bellcore.com>
+Content-Transfer-Encoding: binary
 
-	THIS IS NOT REALLY THE BODY!
+THIS IS NOT REALLY THE BODY!
+```
 
 URIs:
 

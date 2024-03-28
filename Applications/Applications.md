@@ -2280,3 +2280,10 @@ On Windows:
 - binaries: `%USERPROFILE%\AppData\Local\Tower`
 - settings: `%USERPROFILE%\AppData\Local\fournova\Tower`
 - enable logging by set in `%USERPROFILE%\AppData\Local\fournova\Tower\Settings\main.settings` the keys `EnableLog` and `EnableRestLog` to `true`. This will generate for the next application start log files in `%USERPROFILE%\AppData\Local\fournova\Tower\logs`
+
+## SketchUp
+
+- Free SketchUp : SketchUp Make 2017
+	- [Downloading older versions | SketchUp Help](https://web.archive.org/web/20220330135556/https://help.sketchup.com/en/downloading-older-versions)
+		- https://web.archive.org/web/20220217222923/https://download.sketchup.com/sketchupmake-2017-3-116-90851-en.dmg
+		- https://web.archive.org/web/20220217222923/https://download.sketchup.com/sketchupmake-2017-2-2555-90782-en-x64.exe

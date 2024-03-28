@@ -1766,6 +1766,7 @@ See [Restrictions](SVG#restrictions)
 
 - `new XMLSerializer().serializeToString(svgnode)`
 - [Drawing DOM objects into a canvas - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas) - [Drawing DOM objects into a canvas - Web APIs | MDN](https://web.archive.org/web/20181006205840/https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas) (archive)
+- [bubkoo/html-to-image: ✂️ Generates an image from a DOM node using HTML5 canvas and SVG.](https://github.com/bubkoo/html-to-image)
 - [cburgmer/rasterizeHTML.js: Renders HTML into the browser's canvas](https://github.com/cburgmer/rasterizeHTML.js)
 - [niklasvh/html2canvas: Screenshots with JavaScript](https://github.com/niklasvh/html2canvas) - [html2canvas - Screenshots with JavaScript](https://html2canvas.hertzen.com/)
 - [canvg/canvg: JavaScript SVG parser and renderer on Canvas](https://github.com/canvg/canvg)
@@ -5031,7 +5032,8 @@ iframe.src = 'about:blank';
 ```
 
 - [Fun hacks for faster content - JakeArchibald.com](https://jakearchibald.com/2016/fun-hacks-faster-content/#using-iframes-and-documentwrite-to-improve-performance)
-- https://github.com/jakearchibald/streaming-html
+- [GitHub - jakearchibald/streaming-html](https://github.com/jakearchibald/streaming-html)
+- [lamplightdev - Streaming HTML out of order without JavaScript](https://lamplightdev.com/blog/2024/01/10/streaming-html-out-of-order-without-javascript/)
 
 ### Load SVG inline
 

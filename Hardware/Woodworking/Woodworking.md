@@ -26,6 +26,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 	- [Comment choisir ses lames de scie circulaire ? - YouTube](https://www.youtube.com/watch?v=FB3dgnUBX3M) - Freud
 - [Pirard Benoît - YouTube](https://www.youtube.com/@PirardBenoit)
 - [Popular Woodworking - YouTube](https://www.youtube.com/@popularwoodworking)
+- [Scott Brown Carpentry - YouTube](https://www.youtube.com/@ScottBrownCarpentry)
 
 ## Furniture
 
@@ -59,3 +60,7 @@ Aka wood
 ## Tools
 
 - [Shop - Paoson Woodworking](https://www.paoson.com/en/)
+
+## Mesure
+
+- [5 CONSEILS DE MENUISIER : COTES ET MESURES - YouTube](https://www.youtube.com/watch?v=c4bMyO8VyeM)

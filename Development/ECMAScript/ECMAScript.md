@@ -4508,6 +4508,7 @@ for (; 0 > a;) b()								while(a < 0){ b() }
 
 - [mishoo/UglifyJS: JavaScript parser / mangler / compressor / beautifier toolkit](https://github.com/mishoo/UglifyJS)
 - [eth-sri/UnuglifyJS: A simpler open-source version of JavaScript deobfuscator JSNice](https://github.com/eth-sri/UnuglifyJS)
+- [GitHub - beautifier/js-beautify: Beautifier for javascript](https://github.com/beautifier/js-beautify)
 
 ## Reduce by common divisor
 
