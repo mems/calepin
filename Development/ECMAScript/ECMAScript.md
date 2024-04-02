@@ -3333,6 +3333,20 @@ crypto.randomUUID();// > "36b8f84d-df4e-4d49-b662-bcde71a8764f"
 Math.round(Math.random() * Number.MAX_SAFE_INTEGER).toString(36)// > "5lv1liy34k"
 BigInt(Math.round(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36);
 Math.round(Math.random() * (36**digits)).toString(36);
+
+// Random cookie value, limit to char that don't need encoding
+// https://httpwg.org/specs/rfc6265.html#rfc.section.4.1.1 cookie-octet
+// US-ASCII characters excluding CTLs, whitespace DQUOTE, comma, semicolon, and backslash
+// ["\x21", ["\x23", "\x2B"], ["\x2D", "\x3A"], ["\x3C", "\x5B"], ["\x5D", "\x7E"]].map(([start, stop = start]) => Array.from({length: stop.charCodeAt(0) + 1 - start.charCodeAt(0)}, (_, v) => String.fromCharCode(start.charCodeAt(0) + v))).flatten().join("")
+// Exclude "%" (url encoding is not required by the RFC)
+// Exclude "<" and "&" or you can have HttpRequestValidationException if followed by a char that make a considered dangerous sequence by .NET, see https://github.com/microsoft/referencesource/blob/51cf7850defa8a17d815b4700b67116e3fa283c2/System.Web/CrossSiteScriptingValidation.cs#L88
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#attributes
+// https://github.com/js-cookie/js-cookie?tab=readme-ov-file#encoding
+const cookieValueChars = "!#$'()*-./0123456789=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ]^_`abcdefghijklmnopqrstuvwxyz{|}";
+function randomValue(length){
+	return Array.from(crypto.getRandomValues(new Uint8Array(length)), v => cookieValueChars[Math.round(v / 256 * (cookieValueChars.length - 1))]).join("");
+}
+randomValue(30);// > "e!N+4sNyD[#u@?8wA2`{SK?ZOg48Ns"
 ```
 
 ## Rounding numbers
