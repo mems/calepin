@@ -611,6 +611,8 @@ Backup to USB disk (with Hyper Backup):
 
 ### Hyper Backup
 
+> Hyper Backup uses rsync.
+
 Store metadata in `/volumeX/@img_bkp_cache` in the installed volume. Can be take gigas (use 57GB for 430GB of data and 2.1TB with all versions). This data can be build/rebuild from relink with HyperBackup app with a remote repository
 Exec `/var/packages/HyperBackup/target/bin/synouserdata` (see `/var/packages/HyperBackup/target/etc/userdata.config`)
 You can create a version of backup on an USB drive before relink once it's uploaded
@@ -635,6 +637,11 @@ Check Backup integrity:
 ```sh
 sudo cat /var/log/messages | grep 'img_backup\|img_worker\|synolocalbkp\|synoimgbkptool'
 ```
+
+- [Destination | Hyper Backup - Synology Knowledge Center](https://kb.synology.com/en-us/DSM/help/HyperBackup/data_backup_destination?version=7#b_29)
+- [Synology Hyper Backup to rsync-compatible Server — Warmest Robot + Warmest Human](https://web.archive.org/web/20240121131413/https://warmestrobot.com/blog/2021/10/28/synology-hyper-backup-to-rsync-compatible-server)
+- [Hyper Backup to rsync server over SSH | Synology Community](https://web.archive.org/web/20230131220112/https://community.synology.com/enu/forum/1/post/130048)
+- [Synology Hyper Backup - Sauvegarde vers FreeNAS - Français - Jj World](https://web.archive.org/web/20231128130646/https://www.jjworld.fr/synology-hyper-backup-sauvegarde-vers-freenas/)
 
 #### Format and storage
 

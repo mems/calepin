@@ -522,3 +522,88 @@ Aka: GPS, accelerometers, gyroscopes adjustment
 
 - [The rsync algorithm](https://www.andrew.cmu.edu/course/15-749/READINGS/required/cas/tridgell96.pdf)
 - [Time Machine](../Operating%20Systems/macOS/macOS.md#similar-tools)
+
+## Paging
+
+```
+public class PagerViewModelBuilder : IPagerViewModelBuilder
+{
+    /// <inheritdoc cref="IPagerViewModelBuilder.BuildPagerViewModel{T}(Func{int,T},int,int,int?,int?)" />
+    public PagerViewModel<T> BuildPagerViewModel<T>(Func<int, T> builder, int pageCount, int pageIndex = 1,
+        int? adjacentCount = null, int? boundaryCount = null)
+    {
+        // Will build model, thant allow to render a pager like this
+        // 1 2
+        // 1 2 3 > >>
+        // << < 10 11 12 > >>
+        // << < 1 2 ... 10 11 12 ... 20 21 > >>
+        // 14 15 16 > >>
+
+        // But this doesn't implement "spread pages" like search page
+        // For that ISeoSearchPagerViewModelBuilder.BuildSearchPagerViewModel():
+        // 1 2 3 4 12 ... 22 ... 102
+        // TODO implement it in a separated method (without boundaryCount)
+
+        // if (pageCount <= 1) throw new ArgumentOutOfRangeException(nameof(pageCount));
+        if (pageCount <= 1) return null;
+
+        const int firstPage = 1;
+        var lastPage = pageCount;
+
+        if (pageIndex < firstPage || pageIndex > lastPage) throw new ArgumentOutOfRangeException(nameof(pageIndex));
+
+        var hasPreviousPage = pageIndex > firstPage;
+        var hasNextPage = pageIndex < lastPage;
+
+        return new PagerViewModel<T>
+        {
+            FirstPage = builder(firstPage),
+            HasPreviousPage = hasPreviousPage,
+            PreviousPage = hasPreviousPage ? builder(pageIndex - 1) : default(T),
+            PageIndex = pageIndex,
+            Page = builder(pageIndex),
+            Pages = GetPages().Select(builder).ToList(),
+            PageCount = pageCount,
+            HasNextPage = hasNextPage,
+            NextPage = hasNextPage ? builder(pageIndex + 1) : default(T),
+            LastPage = builder(lastPage),
+        };
+
+        IEnumerable<int> GetPages()
+        {
+            // Return all pages if one of the adjacent or boundary counts are not provided
+            if (!adjacentCount.HasValue || !boundaryCount.HasValue)
+            {
+                return Enumerable.Range(firstPage, pageCount);
+            }
+
+            var adjacentCountOrDefault = adjacentCount.Value;
+            var firstHalfAdjacentCount = (int)Math.Ceiling((double)adjacentCountOrDefault / 2);
+            var lastHalfAdjacentCount = (int)Math.Floor((double)adjacentCountOrDefault / 2);
+            var firstHalfBoundaryCount = (int)Math.Ceiling((double)boundaryCount.Value / 2);
+            var lastHalfBoundaryCount = (int)Math.Floor((double)boundaryCount.Value / 2);
+            var firstAdjacentPage = Clamp(pageIndex - firstHalfAdjacentCount, firstPage,
+                Math.Max(lastPage - adjacentCountOrDefault, firstPage));
+            var lastAdjacentPage = Clamp(pageIndex + lastHalfAdjacentCount,
+                Math.Min(firstPage + adjacentCountOrDefault, lastPage), lastPage);
+            var endPageCount = Math.Min(lastHalfBoundaryCount, lastPage - lastAdjacentPage);
+
+            // Generate first adjacent pages, then bounding pages if possible
+            var adjacentPages = Enumerable.Range(firstAdjacentPage, lastAdjacentPage - firstAdjacentPage + 1);
+            var startPages = Enumerable.Range(firstPage, Math.Min(firstHalfBoundaryCount, firstAdjacentPage - 1));
+            var endPages = Enumerable.Range(lastPage - endPageCount + 1, endPageCount);
+
+            return startPages.Concat(adjacentPages).Concat(endPages);
+
+            // https://github.com/dotnet/runtime/blob/main/src/libraries/System.Private.CoreLib/src/System/Math.cs#L552-L569
+            int Clamp(int value, int min, int max)
+            {
+                if (min > max) throw new ArgumentException($"'{min}' cannot be greater than {max}.");
+                if (value < min) return min;
+                if (value > max) return max;
+                return value;
+            }
+        }
+    }
+}
+```

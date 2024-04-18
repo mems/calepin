@@ -2825,7 +2825,17 @@ sdiff file1 file2
 # Find in files with a multile regex
 # See https://stackoverflow.com/a/7167115/470117
 find ./path/to/files -type f -exec grep -Pazo '(?s)<control>.*?</control>' {} \+
+
+# Split string into an array
+mapfile -d '' array < <(echo -en "a\0b\0c")
+
+# Join array with single char separator
+echo "$(IFS=, ; echo "${array[*]}")"
+# Join array with multi chars separator
+printf "\"%s\"," "${array[@]}"
 ```
+
+- [How can I join elements of a Bash array into a delimited string? - Stack Overflow](https://stackoverflow.com/questions/1527049/how-can-i-join-elements-of-a-bash-array-into-a-delimited-string)
 
 ### Sed
 

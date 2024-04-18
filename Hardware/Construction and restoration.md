@@ -62,14 +62,26 @@ Use towel (multiple layers)
 ## Painting
 
 - [PEINDRE: LES 20 ERREURS DE DÉBUTANT - YouTube](https://www.youtube.com/watch?v=WYMX6pwJiFE)
+- [Fabriquer une sableuse artisanale avec bouteille gaz vide / DIY Sandblaster - YouTube](https://www.youtube.com/watch?v=4CanAwTFiiI)
 
-## Plomberie, carrelage
+## Plomberie
 
 - boucher trous robinets (dans le carrelage) avec silicone
 - avant de faire les joins silicone, remplir la baignoire
-- pour renforcer ou partir d'une base plane pour carreler, utiliser plaque a carreler (aussi appelé wedy)
 - montage a blanc des tuyaux avant sertissage ou soudage
 - ciment prompt pour bouger les orifices d'évacuation (raccord entre PVC et fonte/SME), il sèche très vite
+
+- [Le blog du plombier – Parlons de notre métier](https://blogs.plombiers-reunis.com/)
+
+- [DJ. PLOMBERIE - YouTube](https://www.youtube.com/@DJ.PLOMBERIE)
+- [Toni - YouTube](https://www.youtube.com/@Toni-ght)
+- [Make in France - YouTube](https://www.youtube.com/@MakeinFrance)
+- [wc suspendu - YouTube](https://www.youtube.com/watch?v=raZskSeb6Ks&t=724)
+- [Petit Plombier - YouTube](https://www.youtube.com/@PetitPlombier)
+
+## Carrelage
+
+- pour renforcer ou partir d'une base plane pour carreler, utiliser plaque a carreler (aussi appelé wedy)
 
 ## Dry stone
 

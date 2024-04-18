@@ -1581,6 +1581,21 @@ $date->setTimeZone(new DateTimeZone("Europe/Amsterdam");
 - [Proxies can transform content](#proxies-can-transform-content)
 - scripts or content not executed/loaded because CSP don't allow it
 - [Redirects can break `POST`](#redirects-can-break-post)
+- too many cookies
+	- [Maximum on HTTP header values? - Stack Overflow](https://stackoverflow.com/questions/686217/maximum-on-http-header-values/8623061#8623061) - Request `Cookie` is too long: `400 Bad Request - Request Too Long` (IIS) or `413 Entity Too Large`
+	- browser storage limitations
+		- [Browser Cookie Limits](https://web.archive.org/web/20240229023745/http://browsercookielimits.iain.guru/) (2017)
+		- [Issue #1340 - Update cookie size requirements by miketaylr · Pull Request #1563 · httpwg/http-extensions](https://github.com/httpwg/http-extensions/pull/1563)
+		- [http - Maximum Cookie Size of current browsers (Year 2018) - Stack Overflow](https://stackoverflow.com/questions/52203972/maximum-cookie-size-of-current-browsers-year-2018/52492934#52492934)
+		- [Cookie size limits - Chrome Platform Status](https://chromestatus.com/feature/4946713618939904) - RFC 6265bis: "limit the sum of the lengths of the cookie's name and value to 4096 bytes, and limit the length of each cookie attribute value to 1024 bytes. Any attempt to set a cookie exceeding the name+value limit is rejected, and any cookie attribute exceeding the attribute length limit is ignored."
+		- [Issue \#1340 - Update cookie size requirements by miketaylr \* Pull Request \#1563 \* httpwg/http-extensions \* GitHub](https://github.com/httpwg/http-extensions/pull/1563)
+		- [javascript - My team exceeds the chrome-capped 180 cookies per domain, is that fixable? - Stack Overflow](https://stackoverflow.com/questions/70753375/my-team-exceeds-the-chrome-capped-180-cookies-per-domain-is-that-fixable)
+		- https://searchfox.org/mozilla-central/rev/f63ca2952da98e0817bdae0ddf1314281a497106/netwerk/cookie/CookieCommons.h#55-61
+		- https://source.chromium.org/chromium/chromium/src/+/main:net/cookies/cookie_monster.h;l=117-134;drc=326a0bccb07af93a8084d2836d8b6ec4685c9b7e
+		- https://github.com/WebKit/WebKit/blob/28a06fc72f32a1ccbb5a3a09924253efb4a5469e/Source/WebCore/platform/network/curl/CookieUtil.cpp#L45
+		- https://github.com/WebKit/WebKit/blob/28a06fc72f32a1ccbb5a3a09924253efb4a5469e/Source/WebCore/platform/network/curl/CookieJarDB.cpp#L46-L47
+		- [1264192 - Browsing Twitter wipes out its login cookie because of a per-host limit](https://bugzilla.mozilla.org/show_bug.cgi?id=1264192#c44) - about cookies eviction strategy
+		- [RFC 6265: HTTP State Management Mechanism](https://www.rfc-editor.org/rfc/rfc6265#section-6.1)
 
 > 1. open Chrome
 > 2. open a white page:

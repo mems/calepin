@@ -3113,7 +3113,7 @@ sudo port selfupdate && sudo port upgrade outdated
 sudo port uninstall inactive
 ```
 
-- [MacPorts Guide](https://guide.macports.org/#using.port.upgrade)
+- [MacPorts Guide](https://guide.macports.org/#using.common-tasks) - Common Tasks
 
 - [How to remove unused MacPorts packages? - Ask Different](https://apple.stackexchange.com/questions/10149/how-to-remove-unused-macports-packages)
 

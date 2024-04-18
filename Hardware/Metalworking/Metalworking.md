@@ -78,17 +78,11 @@ Weld shrink: start corner outside, then the oposite, then both sides before is c
 brasage tendre (résistance : 5 à 10 kg / mm², température nécéssaire : 180 et 250°C, ex: soudure à l'étain): utiliser un chalumeau propane ou butane + alliage étain/argent
 brasage fort (résistance : 40 à 50 Kg/mm², température nécéssaire : > 450°C): utiliser un chalumeau oxyacétylénique
 
-
 **Bien nettoyer la surface de contact (tube et raccord) avec de la toile émeri 120 grains ou de la laine d'acier**
 
 - [Brasage — Wikipédia](https://fr.wikipedia.org/wiki/Brasage)
 - [Le brasage](http://herve.silve.pagesperso-orange.fr/brasage.htm)
 - [Un avis sur brasure "tendre" étain-cuivre ??? - 14 messages](https://www.forumconstruire.com/construire/topic-99290.php#1275876)
-- [wc suspendu - YouTube](https://www.youtube.com/watch?v=raZskSeb6Ks&t=724)
-
-- [DJ. PLOMBERIE - YouTube](https://www.youtube.com/@DJ.PLOMBERIE)
-- [Toni - YouTube](https://www.youtube.com/@Toni-ght)
-- [Make in France - YouTube](https://www.youtube.com/@MakeinFrance)
 
 ## Remove stripped screw
 

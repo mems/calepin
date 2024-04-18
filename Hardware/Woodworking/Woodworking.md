@@ -27,6 +27,8 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Pirard Benoît - YouTube](https://www.youtube.com/@PirardBenoit)
 - [Popular Woodworking - YouTube](https://www.youtube.com/@popularwoodworking)
 - [Scott Brown Carpentry - YouTube](https://www.youtube.com/@ScottBrownCarpentry)
+- [Astuces Design - Apprendre l'Ébénisterie - YouTube](https://www.youtube.com/@AstucesDesign/videos)
+	- [Comment Réussir vos COUPES D'ONGLET avec une Précision Extrême ! (et sans outils de mesure) - YouTube](https://www.youtube.com/watch?v=0usUql1lxLU) - faire un test sur une pièce de test, avant de faire l'opération sur les pièces définitives
 
 ## Furniture
 
@@ -60,6 +62,17 @@ Aka wood
 ## Tools
 
 - [Shop - Paoson Woodworking](https://www.paoson.com/en/)
+- lame
+	- dimension (en mm) : diamètre x ... x alésage (ex: 160x2.2.20)
+	- pas (espace entre 2 dents) / nombre de dents : moins elle a de dents plus elle débite, mais qualité de coupe médicore vs lame de finission
+	- angle d'attaque :  positif pour attaquer, neutre (0) ou négatif pour réduire les éclats
+	- profil des pastilles tranchantes
+		- plat : pour rainure ou feuillure
+		- alterné standard (inclinaison alternée des pastilles) : polyvalent et finition
+		- alterné trapézoïdal plat : pour découpe panneau mélaminé, stratifié ou plaqué avec essence de bois fine
+	- talon anti-recul pour limiter la profondeur de passe
+	- découpe anti-vibration (sous sur les lames pro)
+	- pastilles en carbure de tungstène ou en diamant de synthèse
 
 ## Mesure
 

@@ -2527,6 +2527,24 @@ Found commit that delete file: `https://github.com/{username}/{repository}/commi
 
 - [Customizing GitHub Gists / Coder's Block](http://codersblock.com/blog/customizing-github-gists/)
 
+## Gitlab
+
+Access to API from CI:
+
+- `curl -s "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs?job_token=${CI_JOB_TOKEN}" | jq --arg JOB_NAME "$JOB_NAME" '.[] | select(.name==$JOB_NAME) | .coverage'`
+- [Tutorial: Automate releases and release notes with GitLab](https://about.gitlab.com/blog/2023/11/01/tutorial-automated-release-and-release-notes-with-gitlab/)
+- [GitLab CI/CD job token | GitLab](https://docs.gitlab.com/ee/ci/jobs/ci_job_token.html#use-a-job-token-to-clone-a-private-projects-repository) - list of API and method that allow the use of job token
+- [REST API resources | GitLab](https://docs.gitlab.com/ee/api/api_resources.html) - all APIs
+- if API doens't allow job token you need to use a private access token (personal/project/group)
+- [REST API | GitLab](https://docs.gitlab.com/ee/api/rest/index.html#job-tokens) - `job_token` instead of `private_token` query param or `JOB-TOKEN` HTTP header instead of `PRIVATE-TOKEN`
+
+Parallelism (matrix) doesn't support variable:
+
+- [Choose when to run jobs | GitLab](https://docs.gitlab.com/ee/ci/jobs/job_control.html#run-a-one-dimensional-matrix-of-parallel-jobs)
+- [CI/CD YAML syntax reference | GitLab](https://docs.gitlab.com/ee/ci/yaml/index.html#parallelmatrix)
+- [Backend: Use CI/CD UI variables to define parallelism (#11549) · Issues · GitLab.org / GitLab · GitLab](https://gitlab.com/gitlab-org/gitlab/-/issues/11549)
+- [Backend: Implement `spec:inputs:` prerequisite for CI components (#383375) · Issues · GitLab.org / GitLab · GitLab](https://gitlab.com/gitlab-org/gitlab/-/issues/383375)
+
 ## Stackexchange
 
 Aka Stackoverflow, etc.

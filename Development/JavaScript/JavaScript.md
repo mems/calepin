@@ -7815,37 +7815,43 @@ var kerning = context.measureText("a").width + context.measureText("v").width - 
 
 ## Read and write cookies
 
+Note cookie name and value can be URL encoded, but it's not required by the RFC. You can have a cookie `a` or `%61`. Based on the implementation it's could be 2 differents cookies (ex: browsers).
+
+In Chrome, `document.cookie="%61=%61é"` gives `document.cookie === "%61=%61é"`, not `document.cookie === "a=a%C3%A9"`. And the cookie is send as `%61=%61%C3%A9`
+
 ```js
-// Read one cookie
-//const value = decodeURIComponent((document.cookie.match(/(?:^|;\s)cookiename=("?)(.*?)\1(?:;\s|$)/) ?? [, ""])[2]);
-//const found = document.cookie.split(/; ?/).find(pair => pair === "cookiename=true");
-//const found = document.cookie.match(/(?:^|;\s)cookiename=true(?:;|$)/);
-const name = "cookiename";
-//const value = decodeURIComponent((document.cookie.match(new RegExp(`(?:^|;\\s)${name.replaceAll(/\[\]\\\^\$\.\|\?\*\+\(\)\{\}/, "\\$&")}=("?)(.*?)\\1(?:;\\s|$)`)) ?? [, ""])[2]);
-const value = decodeURIComponent((document.cookie.match(new RegExp(`(?:^|;\\s)${name.replaceAll(/\[\]\\\^\$\.\|\?\*\+\(\)\{\}/, "\\$&")}=("?)(.*?)\\1(?:;\\s|$)`)) || [, ""])[2]);
+// Read cookies (not decoded)
+//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=.*)?$/));
+//const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")]);
+//const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
 
-// const value = !!document.cookie.split(";").find(pair => /cookiename=true(;|$)/.test(pair.trim()));// document.cookie = "cookiename=true"
+// Read cookies (url decoded)
+//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=.*)?$/).map(v => decodeURIComponent(v ?? "")));
+//const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")].map(v => decodeURIComponent(v)));
+//const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
 
-// Read cookies
-const entries = document.cookie.split(/; ?/).map(s => /^([^=]*)=?("?)(.*?)\2$/.exec(s)).map(([, k, , v]) => [k, v != null ? decodeURIComponent(v) : v]);
-//const entries = [...document.cookie.matchAll(/(?<=^|(?:; ))([!#-'*+-.0-9A-Z^-z|~]+)=(("?)[!#-+--:<-\[\]-~]*\3)(?=;|$)/g)].map(([, k, v]) => [k, v != null ? decodeURIComponent(v) : v]);
-const cookies = new Map(entries);// as Map Object.fromEntries(entries)
+// Read one cookie (not decoded)
+//const match = document.cookie.split(/; ?/).find(pair => pair === "cookiename=true");
+//const match = /(?:^|;\s)cookiename=true(?:;|$)/.test(document.cookie);
+//const hasCookie = document.cookie.split(/; ?/).find(pair => pair.startsWith("cookiename="));
+//const hasCookie = /(?:^|;\s)cookiename=/.test(document.cookie);
 
 // erase a cookie
 document.cookie = "cookiename=;domain=example.com;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
 
 // write a cookie
+const name = "cookiename";
 const value = "value";
 const path = "/";
 const domain = location.hostname.split(".").slice(-2).join(".");
 const expires = new Date(Date.now() + 90*24*60*60*1000);// now +90 days
-document.cookie = `cookiename=${encodeURIComponent(value)};path=${encodeURIComponent(path)};domain=${domain};expires=${expires.toUTCString()}`;
+document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)};path=${encodeURIComponent(path)};domain=${domain};expires=${expires.toUTCString()}`;
 ```
 
 [Proxying of `document.cookie`](https://stackoverflow.com/questions/32410331/proxying-of-document-cookie):
 
 ```js
-const cookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie") || Object.getOwnPropertyDescriptor(HTMLDocument.prototype, "cookie");
+const cookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie") ?? Object.getOwnPropertyDescriptor(HTMLDocument.prototype, "cookie");
 if (cookieDesc && cookieDesc.configurable) {
     Object.defineProperty(document, "cookie", {
         get: function () {
@@ -7897,6 +7903,7 @@ DQUOTE         =  %x22
 - [RFC 6265 - HTTP State Management Mechanism](https://tools.ietf.org/html/rfc6265)
 - [jshttp/cookie: HTTP server cookie parsing and serialization](https://github.com/jshttp/cookie)
 - [js-cookie/js-cookie: A simple, lightweight JavaScript API for handling browser cookies](https://github.com/js-cookie/js-cookie)
+- https://github.com/js-cookie/js-cookie/blob/2eca98a6b091162d9d776a766f4b21ba8e8ab6ab/src/api.mjs#L49-L74 - read `document.cookie`
 
 ## Ready state
 
@@ -8400,3 +8407,37 @@ And Virtual DOM
 - [WTF is JSX - JASON Format](https://web.archive.org/web/20230601224013/https://jasonformat.com/wtf-is-jsx/)
 - [krakenjs/jsx-pragmatic: Build JSX structures, then decide at runtime which pragma you want to use to render them.](https://github.com/krakenjs/jsx-pragmatic)
 - [Introducing JSX – React](https://legacy.reactjs.org/docs/introducing-jsx.html#jsx-represents-objects)
+
+## Crypto
+
+```
+@using System.Security.Cryptography
+@using System.Text
+@using System.Linq
+@using System.Text.Json
+
+@{
+	var random = new Random();// Or use new System.Security.Cryptography.RNGCryptoServiceProvider().GetBytes(bytes)
+	var key = new byte[32];
+	random.NextBytes(key);
+	var plaintext = Encoding.UTF8.GetBytes("<a href=mailto:test@example.com>text@example.com</a>");
+	var nonce = new byte[12];// aka IV // AesGcm.NonceByteSizes.MaxSize
+	random.NextBytes(nonce);
+	var cipherText = new byte[plaintext.Length];
+	var tag = new byte[16]; // AesGcm.TagByteSizes.MaxSize;
+	var associatedData = new byte[256];
+	random.NextBytes(associatedData);
+
+	using (var cipher = new AesGcm(key))
+    {
+        cipher.Encrypt(nonce, plaintext, cipherText, tag, associatedData);
+    }
+
+	string ConvertToJsonBase64String(byte[] value)
+	{
+		return JsonSerializer.Serialize(Convert.ToBase64String(value));
+	}
+}
+@* Web Crypto decrypt data is cipherText + tag *@
+<script>(async d=>crypto.subtle.decrypt({name:"AES-GCM",iv:d(@ConvertToJsonBase64String(nonce)),additionalData:d(@ConvertToJsonBase64String(associatedData)),tagLength:@(tag.Length*8)},await crypto.subtle.importKey("raw",d(@ConvertToJsonBase64String(key)),"AES-GCM",true,["decrypt"]),d(@ConvertToJsonBase64String(cipherText.Concat(tag).ToArray()))).then(v=>document.currentScript.outerHTML=new TextDecoder().decode(v)))(v=>Uint8Array.from(atob(v),c=>c.codePointAt(0)))</script>
+```

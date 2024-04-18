@@ -513,8 +513,8 @@ See also [Case styles](#case-styles)
 	[web app - What is a good name for non-administrator users
 	? - User Experience Stack Exchange](http://ux.stackexchange.com/questions/27769/what-is-a-good-name-for-non-administrator-users)
 - greatest distance, longest path, high score
-- concurrency, race condition
-- [Deterministic algorithm — Wikipedia](https://en.wikipedia.org/wiki/Deterministic_algorithm)
+- concurrency, [race condition](https://en.wikipedia.org/wiki/Race_condition), [deadlock](https://en.wikipedia.org/wiki/Deadlock)
+- [deterministic algorithm](https://en.wikipedia.org/wiki/Deterministic_algorithm)
 - credentials - [Username + password = one word - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/309008/username-password-one-word)
 - authentication [nouns - Is "authentification" a real word? - English Language & Usage Stack Exchange](https://english.stackexchange.com/questions/7844/is-authentification-a-real-word)
 
