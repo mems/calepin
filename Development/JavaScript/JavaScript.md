@@ -7821,12 +7821,12 @@ In Chrome, `document.cookie="%61=%61é"` gives `document.cookie === "%61=%61é"`
 
 ```js
 // Read cookies (not decoded)
-//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=.*)?$/));
+//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1));
 //const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")]);
 //const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
 
 // Read cookies (url decoded)
-//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=.*)?$/).map(v => decodeURIComponent(v ?? "")));
+//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1).map(v => decodeURIComponent(v ?? "")));
 //const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")].map(v => decodeURIComponent(v)));
 //const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
 
