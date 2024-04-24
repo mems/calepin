@@ -408,6 +408,7 @@ Normalize first ("NFD"), remove all non A-Za-z chars
 - [slugify/Resources/rules at master · cocur/slugify](https://github.com/cocur/slugify/tree/master/Resources/rules)
 - [String.prototype.normalize() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
 - [Clean URL - Wikipedia](https://en.wikipedia.org/wiki/Clean_URL#Slug)
+- [The Ultimate Way to Slugify a URL String in JavaScript | by Matthias Hagemann | Medium](https://web.archive.org/web/20230607220031/https://mhagemann.medium.com/the-ultimate-way-to-slugify-a-url-string-in-javascript-b8e4a0d849e1) - [Slugify makes a string URI-friendly](https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1)
 
 ## Naming
 
