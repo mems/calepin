@@ -2218,6 +2218,7 @@ Windows Registry Editor Version 5.00
 Aka mouse
 
 - [LinearMouse | The mouse and trackpad utility for Mac.](https://linearmouse.app/)
+- [SteerMouse](https://plentycom.jp/en/steermouse/index.html)
 
 #### Mouse acceleration
 

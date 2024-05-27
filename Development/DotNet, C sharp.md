@@ -10,7 +10,9 @@
   - VB
 
 - [Introduction to the C# Language and the .NET Framework | Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/csharp/getting-started/introduction-to-the-csharp-language-and-the-net-framework)
+- [Umbraco - the flexible open-source .NET (ASP.NET Core) CMS](https://umbraco.com/)
 - [| C# Online Compiler | .NET Fiddle](https://dotnetfiddle.net/)
+- [CSharpRepl | A command line C# REPL with syntax highlighting – explore the language, libraries and nuget packages interactively.](https://fuqua.io/CSharpRepl/)
 
 Convert VB.Net to C#:
 

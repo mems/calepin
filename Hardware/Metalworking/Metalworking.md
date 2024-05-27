@@ -101,3 +101,7 @@ brasage fort (résistance : 40 à 50 Kg/mm², température nécéssaire : > 450�
 - [Black oxide - Wikipedia](https://en.wikipedia.org/wiki/Black_oxide)
 
 > muriatic/hydrochloric acid diluted in water (50% or 5 to 1 if you are using pure acid) has the same effect with the bonus of cleaning any rust present in the metal. also, boiled lindseed oil is really good as a finisher because it penetrates the porous black oxide and crystalizes inside
+
+## Bend
+
+- [How to bend EMT conduit - tinktube](https://tinktube.com/tips/how-to-bend-emt-conduit/)

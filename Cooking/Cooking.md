@@ -534,6 +534,7 @@ Fin de pétrissage :
 - 35-50gr de sucre
 - raisin sec
 - un sachet de sucre vanillé
+- un peu de rhum
 
 porter à feu doux le lait et le sucre, verser en pluie la semoule et remuer sans s'arrêter jusqu'à ce que cela s'épaissise
 

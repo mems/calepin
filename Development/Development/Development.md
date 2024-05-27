@@ -1529,6 +1529,7 @@ Aka tabs vs spaces, spaces vs tabs
 - [Joonathan Mägi's answer to Why would a coder use spaces over tabs? - Quora](https://www.quora.com/Why-would-a-coder-use-spaces-over-tabs/answer/Joonathan-M%C3%A4gi)
 - [Developers who use spaces make more money than those who use tabs | Hacker News](https://news.ycombinator.com/item?id=14560042) - it's incorrect interpretation of data, see [Tabs, spaces and your salary - how is it really?](http://evelinag.com/blog/2017/06-20-stackoverflow-tabs-spaces-and-salary/index.html)
 - [eumemic 🟥 on Twitter: ""Spaces or tabs?" "Semicolons." @aisamanra… "](https://web.archive.org/web/20220125173208/https://twitter.com/dysmemic/status/779134762283732992) - C with semicolons as indentation char
+- [gitmoji | An emoji guide for your commit messages](https://gitmoji.dev/)
 
 ## Release note
 

@@ -2713,6 +2713,26 @@ prefix=/some/path/to/
 find -printf '%P\0' | awk -v prefix="$prefix" 'BEGIN {RS = "\0"; ORS = "\0"} {print prefix $0}' | do_something_with_null_sep_list
 ```
 
+### Change file in-place
+
+```sh
+file=test.json
+tmp=$(mktemp -u "${file}.XXXXXXXXXX")
+address=abcde
+jq --arg a "$address" '.address = $a' "$file" > "$tmp" && mv "$tmp" "$file"
+```
+
+```sh
+contents="$(jq '.address = "abcde"' test.json)" && echo -E "${contents}" > test.json
+# Note "contents" cannot contain a literal null character. Bash variables cannot store literal nulls.
+```
+
+Or `sponge`
+
+Do not use `echo "$( jq '.address = "abcde"' test.json )" > test.json`, this will not always work. Large files it will cause issues, also with whitespaces, non-printable and escapment sequences. Never redirect a file to itself, it is always a bad idea.
+
+See also [Temporary file](#temporary-file)
+
 ## Relative path
 
 ```sh
