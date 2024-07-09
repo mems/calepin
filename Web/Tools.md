@@ -67,6 +67,19 @@ Android Emulator:
 - [Use modified hosts file on Android Emulator – Code, Procedure and Rants – Medium](https://medium.com/code-procedure-and-rants/use-modified-hosts-file-on-android-emulator-4f29f5d12ac1)
 - [android - Why is the intel x86 emulator accelerator (HAXM installer) is showing not compatible with windows? - Stack Overflow](https://stackoverflow.com/questions/41408552/why-is-the-intel-x86-emulator-accelerator-haxm-installer-is-showing-not-compat/43656782#43656782) (activate virtualization - Intel® VT-x - in the BIOS then install HAXM)
 
+### Debug cookie written by JS
+
+Add a debugger breakpoint when a cookie is written.
+
+```js
+const desc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");// Object.getPrototypeOf(Object.getPrototypeOf(document);
+Object.defineProperty(document, "cookie", {...desc, set(...args) {debugger;return desc.set.apply(this, args);}});
+```
+
+See also
+
+- [Network features reference  |  Chrome DevTools  |  Chrome for Developers](https://developer.chrome.com/docs/devtools/network/reference?hl=en#filter-by-property) - DevTools filter `cookie-name:`
+
 ## Console
 
 - [console.delight – Frontend Masters Boost](https://web.archive.org/web/20240226194603/https://frontendmasters.com/blog/console-delight/#b456d489-1a38-4839-b543-b60424b8b4c6-link)
