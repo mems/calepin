@@ -883,6 +883,11 @@ Domain-Driven Design : on étudie le problème en large et en travers avant de c
 >
 > — [Cory House on Twitter: ""I don't have time to write tests". Do you have time to: 1. Run the app manually after each change 2. Investigate and fix broken builds 3. Investigate and fix QA errors 4. Investigate and fix production errors Add all that up. Writing automated tests *saves* time." / Twitter](https://twitter.com/housecor/status/1259091506830495745)
 
+Code generator:
+
+- [Record, replay, and measure user flows  |  Chrome DevTools  |  Chrome for Developers](https://developer.chrome.com/docs/devtools/recorder)
+- [Test generator | Playwright](https://playwright.dev/docs/codegen)
+
 - [minimaxir/big-list-of-naughty-strings: The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.](https://github.com/minimaxir/big-list-of-naughty-strings)
 - [unit testing](https://en.wikipedia.org/wiki/Unit_testing) (individual module testing) + [integration testing](https://en.wikipedia.org/wiki/Integration_testing) (test modules all together)
 - [Code smell](https://en.wikipedia.org/wiki/Code_smell)
@@ -2085,3 +2090,10 @@ Aka PbD
 - [Guide RGPD du développeur](https://lincnil.github.io/Guide-RGPD-du-developpeur/#Guide_RGPD_du_d%C3%A9veloppeur)
 - [OWASP Top 10 Privacy Risks](https://owasp.org/www-project-top-10-privacy-risks/)
 - [Adding Privacy by Design in Secure Application Development](https://owasp.org/www-pdf-archive//TOREON_Adding_Privacy_by_Design_in_Secure_Application_Development_v20180412.pdf)
+
+## Accessibility
+
+- [Proposal: README for sighted visitors thinking about making assistive technology : r/Blind](https://www.reddit.com/r/Blind/comments/hdkmo9/proposal_readme_for_sighted_visitors_thinking/?rdt=51850)
+- [Designing Accessible Chatbots: An Introduction | by Guy TONYE | Voice Tech Global | Medium](https://medium.com/voice-tech-global/designing-accessible-chatbots-an-introduction-332cead237d4)
+- [Technology For Blind And Visually Impaired | Facebook](https://www.facebook.com/groups/1870565113191997)
+- [Designing Accessible Chatbots: An Introduction | by Guy TONYE | Voice Tech Global | Medium](https://web.archive.org/web/20221205181217/https://medium.com/voice-tech-global/designing-accessible-chatbots-an-introduction-332cead237d4)

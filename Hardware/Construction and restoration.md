@@ -70,9 +70,10 @@ Use towel (multiple layers)
 - avant de faire les joins silicone, remplir la baignoire
 - montage a blanc des tuyaux avant sertissage ou soudage
 - ciment prompt pour bouger les orifices d'évacuation (raccord entre PVC et fonte/SME), il sèche très vite
+- installer le tuyaux d'eau chaude au dessus de celui d'eau froide pour éviter la condensation derrière la parois
 
 - [Le blog du plombier – Parlons de notre métier](https://blogs.plombiers-reunis.com/)
-
+- [La plomberie pro - D.Fedullo, T.Gallauziaux - 4e édition - Éditions Eyrolles](https://www.editions-eyrolles.com/Livre/9782212676440/la-plomberie-pro)
 - [DJ. PLOMBERIE - YouTube](https://www.youtube.com/@DJ.PLOMBERIE)
 - [Toni - YouTube](https://www.youtube.com/@Toni-ght)
 - [Make in France - YouTube](https://www.youtube.com/@MakeinFrance)

@@ -783,6 +783,7 @@ UI
 - (graphical) hero content / grid (see hero image)
 - (graphical) ticker
 - (graphical) polygon / plyg
+- chat / conversation: thread list, thread composer (form), messages
 
 Widgets
 
@@ -3732,7 +3733,7 @@ Note: [`title` attribute is not accessible](#title-attribute-is-not-accessible)
 
 ## Conversations
 
-Conversation transcript or chat
+Conversation transcript, chat or comments (blog post, product page, etc.)
 
 See also [forum post](#forum-post)
 
@@ -3854,6 +3855,49 @@ See also [forum post](#forum-post)
 </section>
 ```
 
+```html
+<blockquote class="comment even thread-even depth-1 parent" id="comment-260347">
+	<div>
+		<header>
+			<a rel="nofollow" class="comment-reply-link" href="somepage?replytocom=260347#respond">Reply</a>
+		</header>
+
+	<p>First paragraph</p>
+	<p>Second paragraph</p>
+
+	</div>
+	<footer>
+		<cite>Someone</cite>;
+		<time datetime="2023-07-25T18:08:12-04:00">25 July 2023 at 6:08 pm</time>.
+		<a href="somepage#comment-260347" class="noprint">Permalink</a>
+	</footer>
+</blockquote>
+
+<!-- Answer -->
+<blockquote class="odd alt depth-2" id="comment-260349">
+	<header>
+		In response to <a href="somepage#comment-260347">Someone</a>.
+
+		<a rel="nofollow" class="comment-reply-link" href="somepage?replytocom=260349#respond">Reply</a>
+	</header>
+
+	<p>Response paragraph</p>
+
+	<footer>
+		<cite><a href="https://somebodyelse.com" rel="external nofollow ugc" class="url">Somebodyelse</a></cite>;
+		<time datetime="2023-07-25T18:36:25-04:00">25 July 2023 at 6:36 pm</time>.
+		<a href="/2023/07/blockquotes-in-screen-readers.html#comment-260349" class="noprint">Permalink</a>
+	</footer>
+</blockquote>
+```
+
+- [Conversations - HTML Standard](https://html.spec.whatwg.org/#conversations)
+- [Blockquotes in Screen Readers — Adrian Roselli](https://adrianroselli.com/2023/07/blockquotes-in-screen-readers.html)
+- [Building a chat interface using HTML and CSS - CSS Projects| Scaler Topics](https://web.archive.org/web/20240515095339/https://www.scaler.com/topics/chat-interface-project-css/) - Note this example doesn't not use the right semantic for a chat or metadata
+- [Building a better chatbot UI with semantic HTML | CANAXESS](https://web.archive.org/web/20240312052920/https://canaxess.com.au/articles/build-better-chatbot-ui-semantic-html/) - use `<section aria-label="The bot said 2:41 PM" role="region">`
+- [Building accessible chatbots at yellow - by Adithya N R](https://tech.yellow.ai/p/building-accessible-chatbots-at-yellow)
+- [Voice Tech Global Accessibility Simulator](https://web.archive.org/web/20221205181217/https://files.voicetechglobal.com/simulator/accessible-chatbot.html)
+
 ## Details and summary
 
 Aka disclosure
@@ -3877,7 +3921,7 @@ Aka disclosure
 
 ## Forum post
 
-Note: you can use `<time>` tag:
+Note: you can use `<time>` tag.
 
 ```html
 <article>
@@ -3920,7 +3964,7 @@ Note: you can use `<time>` tag:
 ```
 
 - http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-blockquote-element-2
-- [HTML Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
+- [The blockquote element - HTML Standard](https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element)
 
 ## Pictures media
 

@@ -1608,7 +1608,7 @@ diff <(cd dir1; ls) <(cd dir2; ls)
 Here-doc & here-string:
 
 ```sh
-cat > /path/to/file << EOF
+cat > /path/to/file <<EOF
 Some thing.
 Blahblah!
 $somevar

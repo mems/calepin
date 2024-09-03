@@ -45,6 +45,7 @@ purge
 - [The ins and outs of using tmutil to backup, restore, and review Time Machine backups - krypted](https://krypted.com/mac-os-x/ins-outs-using-tmutil-backup-restore-review-time-machine-backups/)
 - [Consolation, T2M2, Ulbow and log utilities – The Eclectic Light Company](https://eclecticlight.co/consolation-t2m2-and-log-utilities/) - T2M2 (TheTimeMachineMechanic) summarise TM logs, Mints
 - [TM-Utilities  - Arthur Rosel, Ltd.](http://7clinton.com/TM-UtilitiesHelp.html)
+- [Time Machine.md](https://gist.github.com/martian111/e0d9885004eb56fd6abf3d1ba7671737)
 
 Time Machine backup reliability:
 
@@ -407,7 +408,9 @@ innodb_file_per_table=1
 
 - [database - How to shrink/purge ibdata1 file in MySQL - Stack Overflow](https://stackoverflow.com/questions/3456159/how-to-shrink-purge-ibdata1-file-in-mysql)
 
-### Explore sparsebundle
+### sparsebundle
+
+#### Explore sparsebundle
 
 Mount `*.sparsebundle` / `*.backupbundle` first: `hdiutil attach My.sparsebundle`
 
@@ -419,98 +422,7 @@ Mount `*.sparsebundle` / `*.backupbundle` first: `hdiutil attach My.sparsebundle
 - [timedog](https://github.com/nlfiedler/timedog)
 - `find /path/to/your/latest/backup -type f -links 1 -print` (Time Machine use hardlinks for unmodified files). But not realy usefull since some folder use hardlink too (and you can't exlude file in hardlinked folders)
 
-### Control when to backup
-
-More control, by can impact performances (battery, powernap, integrity, etc.)
-
-Change:
-
-- (before 10.8) `sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 7200` (7200 in seconds eq. 2 hours)
-- (10.8+) update `BackupInterval` in `/System/Library/LaunchDaemons/com.apple.backupd-auto.plist`
-
-Or use an app:
-
-- Time Machine Destination Manager: https://github.com/dustinrue/Tedium and [Tedium for Mac | MacUpdate](http://www.macupdate.com/app/mac/41700/tedium)
-- [TimeMachineEditor](https://tclementdev.com/timemachineeditor/)
-- [TimeMachineScheduler - set the backup interval of Time Machine](http://www.klieme.com/TimeMachineScheduler.html) or [TimeMachineEditor](http://timesoftware.free.fr/timemachineeditor/) or update `sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 3600` (for 1 hours, 7200 = 2 hours, etc.)
-- Use cron task
-	By controling when enable/disable/start it:
-
-	`sudo tmutil enable|disable` or `defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -boolean YES|NO` or `tmutil startbackup --auto --block`
-
-	- [How can I execute sudo commands as a cron job? - Ask Different](http://apple.stackexchange.com/questions/27181/how-can-i-execute-sudo-commands-as-a-cron-job)
-
-### Reduce size
-
-```sh
-tmutil listbackups
-sudo tmutil delete '/Volumes/Time Machine Backups/Backups.backupdb/.../2018-'{01,02,03,04}*
-sudo hdiutil compact '/Volumes/....sparsebundle'
-```
-
-- [Shrink Your Time Machine Backups and Free Disk Space - DZone Performance](https://dzone.com/articles/shrink-your-time-machine)
-- [Create or resize sparsebundle](#create-or-resize-sparsebundle)
-- [If the Time Machine backup disk for your Mac is full - Apple Support](https://support.apple.com/guide/mac-help/if-the-time-machine-backup-disk-is-full-mh15137/mac)
-- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/557425#557425)
-
-#### Remove specific file from Time Machine backup
-
-- `cd "/Volumes/Time Machine Backups/Backups.backupdb/<machinename>"`
-- `ls -li *"/<drivename>/<path>/"*`, `sudo bypass rm -rf *"/<drivename>/<path>/"*`
-- `ls -li *"/<drivename>/<file>"`, `sudo bypass rm -f *"/<drivename>/<path>/<file>"`
-- [time machine - Delete all backups of specific file/folder with tmutil - Ask Different](https://apple.stackexchange.com/questions/333767/delete-all-backups-of-specific-file-folder-with-tmutil/357119#357119)
-- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/912432#912432)
-- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/557425#557425)
-
-### Restore from a Time Machine backup
-
-> You can't restore this backup because it was created by a different model of Mac
-
-Could restore from a Time Machine Backup with [Migration Assistant](#migration-assistant).
-
-Restore from a Time Machine backup should restore all files, but few things are not:
-
-- System Preferences > Keyboard > Keyboard Shortcuts (key mapping, "open terminal here", etc.)
-- Few softwares require to re-enter licencies credentials (which depends on hardware finger print?)
-- Some login credentials
-- System Preferences > Security & Privacy
-- scanners and printers drivers and configurations
-- file type/protocol association
-- Character map recent and favs
-
-Also don't erase immediatly all TM snapshots, some are not complete due to concurency with software that also write on disk in same time (or use large files)
-
-### Change harddrive
-
-```sh
-sudo tmutil associatedisk -a mount_point snapshot_volume
-sudo tmutil inheritbackup {machine_directory | sparsebundle}
-```
-
-- [Time Machine: Inherit Backup Using `tmutil` - Simon Heimlicher](https://simon.heimlicher.com/articles/2012/07/10/time-machine-inherit-backup-using-tmutil)
-- [How can I use an existing Time Machine backup with my new computer? - Ask Different](http://apple.stackexchange.com/questions/32841/how-can-i-use-an-existing-time-machine-backup-with-my-new-computer)
-
-### Local snapshots
-
-```sh
-sudo tmutil enablelocal
-```
-
-```sh
-sudo tmutil disablelocal
-```
-
-```sh
-tmutil snapshot
-```
-
-In folder `/.MobileBackups`
-
-- http://pondini.org/TM/30.html
-- http://apple.stackexchange.com/questions/80183/any-way-to-change-the-location-of-time-machine-local-backups-mobilebackups-t
-- http://support.apple.com/kb/HT4878
-
-### Create or resize sparsebundle
+#### Create or resize sparsebundle
 
 Aka specify a size
 
@@ -634,7 +546,7 @@ fi
 echo "Finished! Happy backups!"
 ```
 
-### Change sparsebundle band size
+#### Change sparsebundle band size
 
 If "Time Machine must recreate a new copy" occure too often, or if after few month of TM use, back is slow, or if the host of the sparsebundle don't support well lot of file in one dir (ex: ext4 <40000)
 
@@ -667,7 +579,7 @@ hdiutil info -verbose | grep band-size
 - https://gist.github.com/Agiley/b3e9af8a641df1dc73c0
 - About band size [Why Time Machine use Sparse Bundle Disk Image f... | Apple Support Communities](https://discussions.apple.com/thread/3734638?tstart=0)
 
-### Backup into a sparsebundle file
+#### Backup into a sparsebundle file
 
 This format is often created to backup on a shared network volume (that is not HFS+)
 
@@ -690,6 +602,99 @@ sudo diskutil enableOwnership /dev/disk2s2
 - http://pondini.org/TM/18.html#id18
 - [How do I move a USB Time Machine backup to a Time Capsule? - Ask Different](http://apple.stackexchange.com/questions/104277/how-do-i-move-a-usb-time-machine-backup-to-a-time-capsule)
 - [tmutil(8) Mac OS X Manual Page](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man8/tmutil.8.html)
+
+
+### Control when to backup
+
+More control, by can impact performances (battery, powernap, integrity, etc.)
+
+Change:
+
+- (before 10.8) `sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 7200` (7200 in seconds eq. 2 hours)
+- (10.8+) update `BackupInterval` in `/System/Library/LaunchDaemons/com.apple.backupd-auto.plist`
+
+Or use an app:
+
+- Time Machine Destination Manager: https://github.com/dustinrue/Tedium and [Tedium for Mac | MacUpdate](http://www.macupdate.com/app/mac/41700/tedium)
+- [TimeMachineEditor](https://tclementdev.com/timemachineeditor/)
+- [TimeMachineScheduler - set the backup interval of Time Machine](http://www.klieme.com/TimeMachineScheduler.html) or [TimeMachineEditor](http://timesoftware.free.fr/timemachineeditor/) or update `sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 3600` (for 1 hours, 7200 = 2 hours, etc.)
+- Use cron task
+	By controling when enable/disable/start it:
+
+	`sudo tmutil enable|disable` or `defaults write /Library/Preferences/com.apple.TimeMachine AutoBackup -boolean YES|NO` or `tmutil startbackup --auto --block`
+
+	- [How can I execute sudo commands as a cron job? - Ask Different](http://apple.stackexchange.com/questions/27181/how-can-i-execute-sudo-commands-as-a-cron-job)
+
+### Restore from a Time Machine backup
+
+> You can't restore this backup because it was created by a different model of Mac
+
+Could restore from a Time Machine Backup with [Migration Assistant](#migration-assistant).
+
+Restore from a Time Machine backup should restore all files, but few things are not:
+
+- System Preferences > Keyboard > Keyboard Shortcuts (key mapping, "open terminal here", etc.)
+- Few softwares require to re-enter licencies credentials (which depends on hardware finger print?)
+- Some login credentials
+- System Preferences > Security & Privacy
+- scanners and printers drivers and configurations
+- file type/protocol association
+- Character map recent and favs
+
+Also don't erase immediatly all TM snapshots, some are not complete due to concurency with software that also write on disk in same time (or use large files)
+
+### Change harddrive
+
+```sh
+sudo tmutil associatedisk -a mount_point snapshot_volume
+sudo tmutil inheritbackup {machine_directory | sparsebundle}
+```
+
+- [Time Machine: Inherit Backup Using `tmutil` - Simon Heimlicher](https://simon.heimlicher.com/articles/2012/07/10/time-machine-inherit-backup-using-tmutil)
+- [How can I use an existing Time Machine backup with my new computer? - Ask Different](http://apple.stackexchange.com/questions/32841/how-can-i-use-an-existing-time-machine-backup-with-my-new-computer)
+
+### Local snapshots
+
+```sh
+sudo tmutil enablelocal
+```
+
+```sh
+sudo tmutil disablelocal
+```
+
+```sh
+tmutil snapshot
+```
+
+In folder `/.MobileBackups`
+
+- http://pondini.org/TM/30.html
+- http://apple.stackexchange.com/questions/80183/any-way-to-change-the-location-of-time-machine-local-backups-mobilebackups-t
+- http://support.apple.com/kb/HT4878
+
+### Remove specific file from Time Machine backup
+
+- `cd "/Volumes/Time Machine Backups/Backups.backupdb/<machinename>"`
+- `ls -li *"/<drivename>/<path>/"*`, `sudo bypass rm -rf *"/<drivename>/<path>/"*`
+- `ls -li *"/<drivename>/<file>"`, `sudo bypass rm -f *"/<drivename>/<path>/<file>"`
+- [time machine - Delete all backups of specific file/folder with tmutil - Ask Different](https://apple.stackexchange.com/questions/333767/delete-all-backups-of-specific-file-folder-with-tmutil/357119#357119)
+- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/912432#912432)
+- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/557425#557425)
+
+### Reduce size
+
+```sh
+tmutil listbackups
+sudo tmutil delete '/Volumes/Time Machine Backups/Backups.backupdb/.../2018-'{01,02,03,04}*
+sudo hdiutil compact '/Volumes/....sparsebundle'
+```
+
+- [Shrink Your Time Machine Backups and Free Disk Space - DZone Performance](https://dzone.com/articles/shrink-your-time-machine)
+- [Create or resize sparsebundle](#create-or-resize-sparsebundle)
+- [If the Time Machine backup disk for your Mac is full - Apple Support](https://support.apple.com/guide/mac-help/if-the-time-machine-backup-disk-is-full-mh15137/mac)
+- [macos - How can I delete Time Machine files using the commandline - Super User](https://superuser.com/questions/162690/how-can-i-delete-time-machine-files-using-the-commandline/557425#557425)
+- [Sparse bundles: what they are and how to work around their bugs – The Eclectic Light Company](https://eclecticlight.co/2020/04/27/sparse-bundles-what-they-are-and-how-to-work-around-their-bugs/)
 
 ### Troubleshooting
 
@@ -758,6 +763,7 @@ Via AFP (depreciated) or SMB protocols
 - `defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1 && killall Finder` (apparently it's ignored with OSX 10.11, SIP?)
 - [HowTo: Make Ubuntu A Perfect Mac File Server And Time Machine Volume ¦ kremalicious](https://kremalicious.com/ubuntu-as-mac-file-server-and-time-machine-volume/)
 - Why can't I use a sparsebundle disk image on a filesystem that does not support the F_FULLFSYNC file control? [Backing up to a disk image | Carbon Copy Cloner | Bombich Software](https://bombich.com/kb/ccc4/backing-up-disk-image#fullfsync)
+- [vfs_fruit](https://www.samba.org/samba/docs/current/man-html/vfs_fruit.8.html) - "The vfs_fruit module provides enhanced compatibility with Apple SMB clients and interoperability with a Netatalk 3 AFP fileserver."
 
 - [mac - Backup strategy for developer-focused Apple environments? - Server Fault](http://serverfault.com/questions/575357/backup-strategy-for-developer-focused-apple-environments)
 - [backup - What is a safe way to back up a sparsebundle that is exported via afpd? - Server Fault](http://serverfault.com/questions/594939/what-is-a-safe-way-to-back-up-a-sparsebundle-that-is-exported-via-afpd)
@@ -779,6 +785,28 @@ But how to restore, since iSCSI is not supported natively?
 - [how to use iscsi to support an apple time machine](https://web.archive.org/web/20221010232831/http://wiki.netbsd.org/tutorials/how_to_use_iscsi_to_support_an_apple_time_machine/)
 - [Droboshare Dashboard for Mac includes free Xtend SAN iSCSI Initiator (kind of) | Justus Beyer](https://web.archive.org/web/20220518171600/https://justus.berlin/2014/01/droboshare-dashboard-for-mac-includes-free-xtend-san-iscsi-initiator-kind-of/)
 - [Using Time Machine over iSCSI for Mac OS clients – daemonchild.com](https://web.archive.org/web/20160809180402/https://daemonchild.com/2015/01/30/using-time-machine-over-iscsi-for-mac-os-clients/)
+
+#### Quota
+
+Limit per client:
+
+```sh
+cat > .com.apple.TimeMachine.quota.plist <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>GlobalQuota</key>
+<integer>120000000000</integer><!-- size in bytes -->
+</dict>
+</plist>
+EOF
+chmod 644 .com.apple.TimeMachine.quota.plist
+```
+
+- [vfs_fruit](https://www.samba.org/samba/docs/current/man-html/vfs_fruit.8.html#:~:text=fruit%3Atime%20machine%20max%20size%20%3D%20size%20%5Bk%7Cm%7Cg%7Ct%7Cp%5D) - "fruit:time machine max size = SIZE [K|M|G|T|P]" "But I would discourage this, as it recalculates the share free space on every df call by the client" - [Implement Time Machine quota setting · Issue #910 · openmediavault/openmediavault · GitHub](https://github.com/openmediavault/openmediavault/issues/910#issue-777332700)
+- [Create or resize sparsebundle](#create-or-resize-sparsebundle)
+- [Remote Time Machine for Multiple Macs · jbowen.dev](https://blog.jbowen.dev/2020/05/remote-time-machine-for-multiple-macs/)
 
 ### Large modified files
 

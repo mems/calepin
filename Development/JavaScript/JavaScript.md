@@ -1576,7 +1576,7 @@ request.onerror = function() {
 
 That means if couldn't do an async operation (with a `setTimeout()`, [`requestIdleCallback()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback), `fetch`, user click, etc.) then use a transaction.
 
-Use transaction in an unload event is not guarantied to works, implementations could works differently: [Re: \[IndexedDB\] Transactions during window.unload? from Jonas Sicking on 2012-03-01 (public-webapps@w3.org from January to March 2012)](https://lists.w3.org/Archives/Public/public-webapps/2012JanMar/0944.html)
+Use transaction in an `unload` event is not guarantied to works, implementations could works differently: [Re: \[IndexedDB\] Transactions during window.unload? from Jonas Sicking on 2012-03-01 (public-webapps@w3.org from January to March 2012)](https://lists.w3.org/Archives/Public/public-webapps/2012JanMar/0944.html)
 
 - [How do you keep an indexeddb transaction alive? - Stack Overflow](https://stackoverflow.com/questions/10385364/how-do-you-keep-an-indexeddb-transaction-alive)
 
@@ -3375,19 +3375,11 @@ window.getComputedStyle(document.documentElement).getPropertyValue("--data").tri
 </script>
 ```
 
-## Detect if navigation is canceled
+## Detect if navigation is aborted
 
 After the user click on a link:
 
 ```js
-const beforeUnload = event => {
-	window.removeEventListener("beforeunload", beforeUnload);
-	// If the event has been prevented (by other any script)
-	if(event.defaultPrevented){
-		return;
-	}
-	clearTimeout(timeout);
-};
 const timeout = () => {
 	// navigation has been cancel
 	const blob = new Blob([value], {type: "text/html;charset=utf-8"});
@@ -3396,11 +3388,38 @@ const timeout = () => {
 };
 
 // listen unload event to wait a potential navigation event
-window.addEventListener("beforeunload", beforeUnload);
+window.addEventListener("beforeunload", event => {
+	// If the event has been prevented (by other any script)
+	if(event.defaultPrevented){
+		return;
+	}
+	clearTimeout(timeout);
+}, {once: true});
 // and set timeout to 100ms as fallback
 // 100ms is enough to be sure the navigation event is triggered before
 const unloadTimeoutID = setTimeout(timeout, 100);
 ```
+
+```js
+// 1. show a loader
+// 2. wait for the promise to be resolved when the navigation is aborted
+await new Promise((resolve) => {
+	navigation.addEventListener(
+		"navigate",
+		({ signal }) => {
+			signal.addEventListener("abort", () => resolve());
+		},
+		{ once: true },
+	);
+});
+// 3. hide the loader
+```
+
+See also:
+
+- [Navigation API - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API)
+- [javascript - Detecting if beforeunload event was cancelled by an unrelated function - Stack Overflow](https://stackoverflow.com/questions/54740394/detecting-if-beforeunload-event-was-cancelled-by-an-unrelated-function/54740520#54740520)
+- [Detecting Route Navigation Cancellation in JavaScript: Handling Stop Button Presses](https://web.archive.org/web/20240723170137/https://devcodef1.com/news/1101010/detecting-route-navigation-cancellation)
 
 ## Document ready
 
@@ -3536,6 +3555,76 @@ Tools
 ### Animation API
 
 - [Intro to the Web Animations API](https://pawelgrzybek.com/intro-to-the-web-animations-api/)
+
+### Animate text
+
+```js
+async #animate(...nodes) {
+	// Chars positions
+	const positions = nodes.flatMap((c) => Array.from(getCharPositions(c)));
+	if (positions.length <= 1) {
+		return;
+	}
+
+	// Create a range that will be used to highlight (in fact hide) the text. Initially include all the chars
+	const firstPosition = positions[0];
+	const lastPosition = positions[positions.length - 1];
+	const range = new Range();
+	range.setStart(firstPosition.node, firstPosition.offset);
+	range.setEnd(lastPosition.node, lastPosition.offset + 1);
+	highlight.add(range);
+
+	// Uncomment this to highlight the half of the text highlighted (no animation)
+	// const halfWayPosition = positions[Math.round((positions.length - 1) / 2)];
+	// range.setStart(halfWayPosition.node, halfWayPosition.offset);
+	// return;
+
+	const startTime = performance.now();
+	const speed = 8; // ms per character
+
+	// Loop until the animation is finished, await animation frames
+	for await (const currentTime of getAnimationFrames()) {
+		const index = Math.round((currentTime - startTime) / speed);
+		if (index >= positions.length) break;
+		const { node, offset } = positions[index];
+		range.setStart(node, offset);
+	}
+
+	// Remove the range (no more needed)
+	highlight.delete(range);
+}
+
+/**
+ * Get all positions in the text nodes to be used for range as start and end positions
+ *
+ * @param {Node} root
+ */
+function* getCharPositions(root) {
+	for (const node of getNodes(root, NodeFilter.SHOW_TEXT)) {
+		for (let offset = 0; offset < node.textContent.length; offset++) {
+			yield { node, offset };
+		}
+	}
+}
+
+async function* getAnimationFrames() {
+	for (;;) {
+		yield await new Promise((resolve) => requestAnimationFrame(resolve));
+	}
+}
+
+/**
+ * @param {Node} root
+ * @param {number} filter NodeFilter.SHOW_* constant
+ * @param {(node: Node) => 1 | 2 | 3} [callback]
+ */
+function* getNodes(root, filter, callback) {
+	const nodeIterator = root.ownerDocument.createNodeIterator(root, filter, callback);
+	while (nodeIterator.nextNode()) {
+		yield nodeIterator.referenceNode;
+	}
+}
+```
 
 ## Viewport dimension
 
@@ -4422,17 +4511,30 @@ document.replaceChild(newDocEl, document.documentElement);
 - ...
 
 ```js
-function* getComments(node){
+/**
+ * @param {Node} root
+ * @param {number} filter NodeFilter.SHOW_* constant
+ * @param {(node:Node) => 1|2|3} [callback]
+ */
+function* getNodes(root, filter, callback){
 	const nodeIterator = document.createNodeIterator(
-		document.body,
-		NodeFilter.SHOW_COMMENT
+		root,
+		filter,
+		callback
 	);
 	while(nodeIterator.nextNode()){
 		yield nodeIterator.referenceNode;
 	}
 }
 
-console.log(Array.from(getComments(document.body), c => c.textContent));
+console.log("all comment", Array.from(getNodes(document.body, NodeFilter.SHOW_COMMENT), c => c.textContent));
+
+// Wrap text nodes in span
+for (const node of getNodes(fragment, NodeFilter.SHOW_TEXT)) {
+	const span = document.createElement("span");
+	span.textContent = node.textContent;
+	node.replaceWith(span);
+}
 ```
 
 See also:

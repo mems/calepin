@@ -30,6 +30,18 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Astuces Design - Apprendre l'Ébénisterie - YouTube](https://www.youtube.com/@AstucesDesign/videos)
 	- [Comment Réussir vos COUPES D'ONGLET avec une Précision Extrême ! (et sans outils de mesure) - YouTube](https://www.youtube.com/watch?v=0usUql1lxLU) - faire un test sur une pièce de test, avant de faire l'opération sur les pièces définitives
 
+- find wood dealers / distributor:
+	- "hardwood lumber dealer [name of city]"
+	- "hardwood lumber company [name of city]"
+	- "sawmills near me selling hardwood"
+	- "plywood warehouse [name of city]"
+	- "plywood distributor [name of city]"
+- find company use this type of material:
+	- "custom cabinet company"
+	- "handmade furniture"
+	- "millworks"
+- look for "second-hand" material
+
 ## Furniture
 
 - [Geometric Veneer Record Player Stand - Wood Veneer WITHOUT a Vacuum Press - YouTube](https://www.youtube.com/watch?v=RArCzysOXgo)

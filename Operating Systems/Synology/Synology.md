@@ -29,6 +29,22 @@ Aka 100Ω resistor fix
 - [Intel c2000 failures | Synology Community](https://web.archive.org/web/20230422224537/https://community.synology.com/enu/forum/1/post/120548?page=3)
 - [\[Solved\] Repair options for RS815+ ? \[100 Ohm resistor fix\] | Synology Community](https://web.archive.org/web/20230121120108/https://community.synology.com/enu/forum/1/post/136284)
 
+### Abnormal power failure on drives
+
+It could be an issue with the power supply / power adapter.
+
+> SYSTEM: An unknown error occurred, so disk X was restarted. If you often see this message, please disable disk write cache.
+
+> The system detected an abnormal power failure that occurred on Drive X in Volume Y. For more information, go to Storage Manager > Storage and check the suggestion under the corresponding volume
+
+> Le bloc alimentation du DS918, identique à d'autres NAS comme le DS414, délivre une tension unique , malgré les 4 broches, proche de 12V (12,084V à vide et 11,6V pour une charge de 100W). Les courbes, tension en fonction du courant, ou bien, puissance en fonction du courant, sont droites. [...] Le 12V alimente les disques durs et ensuite, les tensions secondaires (5V, 3,3V, etc sont produites en interne du NAS à partir du 12V du bloc alimentation
+>
+> — [Synology - DS918+ R.I.P? | Forum des NAS : Synology, Qnap, Asustor...](https://www.forum-nas.fr/threads/ds918-r-i-p.19083/#post-123777)
+
+- [Synology NAS After Power Outages: What To Know - Tech Overwrite](https://web.archive.org/web/20240223173949/https://www.techoverwrite.com/synology-nas-power-outage/)
+- [Spare Parts | Synology Inc.](https://www.synology.com/en-us/products/spare_parts)
+- [Abnormal power failure on drives, data scrubbing required : r/synology](https://www.reddit.com/r/synology/comments/ruyze6/abnormal_power_failure_on_drives_data_scrubbing/)
+
 ## Security
 
 - [Hardening access to your Synology Diskstation, be prepared – Q&D](https://www.wijngaard.org/hardening-access-to-your-synology-diskstation-and-prepare/)
@@ -80,6 +96,8 @@ chmod 600 ~/.ssh/authorized_keys
 ## TimeMachine
 
 Create a shared folder, with permissions, `Control Panel > File Services > Mac File Service > Time Machine`. This folder will be available in TimeMachine backup disks
+
+- [vfs_fruit support was added in DSM 7.0 : r/synology](https://www.reddit.com/r/synology/comments/p5bz8t/vfs_fruit_support_was_added_in_dsm_70/)
 
 ## Shared and drop box
 
@@ -557,6 +575,29 @@ Drives: `/dev/sda`, `/dev/sdb`, `/dev/sdc`, etc. (partitions for the first disk:
 
 Startup scripts: `/usr/local/etc/rc.d/` (see also [Synology NAS - How to make a program run at startup](https://gist.github.com/SanCoder-Q/f3755435e6e8bd46ba95bf0ec54ae1a4))
 
+### Btrfs
+
+```sh
+mount
+cat /etc/fstab
+sudo btrfs fi show
+sudo btrfs subvolume show /volume2
+sudo btrfs subvolume list -st /volume2
+sudo btrfs filesystem reclaim-space -S /volume2 -r
+
+cd /volume2/@sharesnap/<sharedir>/
+sudo btrfs property set -ts ./GMT-<snapshotdate>/ ro false
+rm -Rf ./GMT-<snapshotdate>/path/to/file
+sudo btrfs property set -ts ./GMT-<snapshotdate>/ ro true
+```
+
+- "Remounting read-write after error is not allowed": reboot
+- [Recover from 'No space left'? : r/btrfs](https://www.reddit.com/r/btrfs/comments/llv5uk/recover_from_no_space_left/)
+- [linux - How to delete a file in all snapshots on a btrfs system? - Super User](https://superuser.com/questions/863588/how-to-delete-a-file-in-all-snapshots-on-a-btrfs-system/879766#879766)
+- [How can I free up the space consumed by snapshots? - Synology Knowledge Center](https://kb.synology.com/en-global/DSM/tutorial/How_can_I_free_up_snapshot_space_consumption)
+- [Btrfs defragmentation and how to reclaim space : r/synology](https://www.reddit.com/r/synology/comments/oobv0j/btrfs_defragmentation_and_how_to_reclaim_space/)
+- [Synology: Remove files from BTRFS snapshots - Blog - KMG Group](https://kmg.group/posts/2022-11-04-remove-files-from-btrfs-snapshots/)
+
 ## Media index
 
 TODO script: create file list from DB with mtime, create file list from Disk with mtime: compare added, deleted, updated files and call `synoindex` (see also `synoindexd`, `synoindexscand` and `/var/spool/syno_indexing_queue*`) or use inotify
@@ -907,6 +948,10 @@ Reset to factory default the admin password and network settings. Data will rema
 
 - [Synology's Scheduled Tasks | Beatifica Bytes](https://web.archive.org/web/20210208000645/https://www.beatificabytes.be/synologys-scheduled-tasks/)
 - [Run a command as root on Synology with any user | Beatifica Bytes](https://web.archive.org/web/20210208001120/https://www.beatificabytes.be/run-a-command-as-root-on-synology-with-any-user/)
+
+## Power schedule
+
+- [Synology NAS: Turn It Off At Night, Or Run It 24/7 (All The Time)? - Tech Overwrite](https://web.archive.org/web/20240114174810/https://www.techoverwrite.com/synology-nas-run-24-7/)
 
 ## Notifications
 

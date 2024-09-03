@@ -132,3 +132,73 @@ Aka [Computer-aided design](https://en.wikipedia.org/wiki/Computer-aided_design)
 - [KiCad EDA - Schematic Capture & PCB Design Software](https://www.kicad.org/)
 - [FreeCAD: Your own 3D parametric modeler](https://www.freecadweb.org/)
 - [Onshape Free Plan | Onshape](https://www.onshape.com/en/products/free)
+
+
+## Mastic et silicone
+
+Utiliser (spayer ou badigeonner) de l'eau savonneuse ou un produit de lissage pour faire le lissage
+
+Utilisation :
+
+> Mastic
+>
+> - Réparation des fissures et des trous dans les murs.
+> - Scellement des joints entre les cadres de fenêtres et les murs.
+> - Remplissage des joints entre les carreaux de céramique.
+> - Collage des éléments en bois, comme les plinthes ou les lambris.
+> - Réparation des surfaces en métal, comme les gouttières ou les tuyaux.
+>
+> Silicone
+>
+> - Scellement des joints de salle de bains ou de cuisine.
+> - Étanchéité des fenêtres et des portes pour empêcher les infiltrations d’air ou d’eau.
+> - Collage des éléments en verre, comme les miroirs ou les vitres.
+> - Isolation électrique des composants électroniques.
+> - Fixation des éléments décoratifs ou des accessoires dans la maison
+
+Avantages et inconvénients
+
+> Mastic
+>
+> Avantages
+>
+> - Bonne adhérence sur une grande variété de surfaces.
+> - Résistance aux intempéries et aux UV dans des conditions extérieures.
+> - Peut être peint ou poncé pour une finition plus esthétique.
+> - Certaines formulations sont sans solvant, ce qui les rend moins toxiques.
+>
+> Inconvénients
+>
+> - Temps de séchage plus long que le silicone.
+> - Moins flexible, ce qui peut entraîner des fissures avec les mouvements des surfaces.
+> - Certains types de mastic peuvent se rétracter ou se décolorer avec le temps.
+>
+> Silicone
+>
+> Avantages
+>
+> - Excellente flexibilité pour résister aux mouvements des surfaces.
+> - Bonne résistance à l’eau, à l’humidité et aux produits chimiques.
+> - Grande élasticité pour une longue durabilité.
+> - Disponible dans une variété de couleurs pour une esthétique accrue.
+>
+> Inconvénients
+>
+> - Adhérence initiale plus faible que le mastic.
+> - Peut être difficile à enlever ou à réparer en cas de besoin.
+> - Moins résistant aux intempéries et aux UV que le mastic.
+>
+> — [Mastic vs Silicone : Quelle est la différence ? Comparaison complète](https://umvie.com/mastic-vs-silicone-quelle-est-la-difference-comparaison-complete/)
+
+> - Le silicone est particulièrement utilisé dans le cas d’une fuite d’eau grâce à sa propriété étanche incontestable. Pour ce faire, il existe deux types de silicone : le silicone neutre et le silicone acétique. Ce dernier est le plus utilisé en matière de bricolage et de réparation.
+> - Le mastic est particulièrement robuste et il a l’avantage de pouvoir être peint. Voici quelques exemples d’applications : les collages de jointures (aluminium, acier, bois, etc.) dans le bâtiment, la rénovation d’une toiture avec des tuiles, le rafraîchissement d’une façade…
+>
+> Le silicone est un produit ressemblant au plastique. Au niveau de l’utilisation, il est utilisé pour des travaux d’aménagement intérieur : fuites, finitions, collages…
+>
+> Le mastic est plus compact et il est davantage utilisé en extérieur ou en construction : réparation de fissures et de brèches, pose de tuiles…
+>
+> — [Mastic ou silicone : Quelle est la différence ?](https://www.devenirbricoleur.com/mastic-ou-silicone.html)
+
+- [Choisir un Mastic : Silicone, Polyuréthane (PU), MS Polymer ou Acrylique ?](https://infos.wurth.fr/choisir-un-mastic/)
+- [Max Jointoyeur PRO - YouTube](https://www.youtube.com/@maxjointoyeurpro5994/videos)
+- [Tuto joint d'angle de finition , mur, plafond , menuiserie , apprendre les base et l'outillage . - YouTube](https://www.youtube.com/watch?v=nBbXPvU2uls)

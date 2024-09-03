@@ -2907,3 +2907,20 @@ rundll32 URL.DLL,FileProtocolHandler "https://outlook.office.com/?path=/mail/act
 - [Testing registerProtocolHandler and the web+ scheme prefix · lookout.net](https://web.archive.org/web/20161019081928/http://web.lookout.net:80/2012/01/testing-registerprotocolhandler-and-web.html)
 - [Web-based protocol handlers - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/registerProtocolHandler/Web-based_protocol_handlers)
 - [protocol_handlers - Web app manifests | MDN](https://developer.mozilla.org/en-US/docs/Web/Manifest/protocol_handlers)
+
+## Gitlab
+
+- by default gitlab ci runners uses `set -o pipefail` give "ERROR: Job failed: exit status 1"
+	- [Safer bash scripts with 'set -euxo pipefail' (Example)](https://coderwall.com/p/fkfaqq/safer-bash-scripts-with-set-euxo-pipefail)
+	- `trap 'rc=$?; echo "Error code $rc line $LINENO: $BASH_COMMAND" >&2; exit $rc' ERR`
+		- [linux - How do I find the line number in Bash when an error occured? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/462156/how-do-i-find-the-line-number-in-bash-when-an-error-occured)
+		- [bash - Trap, ERR, and echoing the error line - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/39623/trap-err-and-echoing-the-error-line)
+- [Keeping common scripts in GitLab CI](https://threedots.tech/post/keeping-common-scripts-in-gitlab-ci/)
+- [Gitlab: How to use artifacts in subsequent jobs after build - Stack Overflow](https://stackoverflow.com/questions/56721584/gitlab-how-to-use-artifacts-in-subsequent-jobs-after-build/56731740#56731740)
+- [CI/CD YAML syntax reference | GitLab](https://docs.gitlab.com/ee/ci/yaml/)
+- `curl --silent --header "PRIVATE-TOKEN: $CI_API_TOKEN" "$CI_API_V4_URL/projects/$CI_PROJECT_ID/repository/changelog?version=$CI_COMMIT_TAG" | jq --raw-output .notes > release_notes.md`
+- `wget --header="JOB-TOKEN: $CI_JOB_TOKEN" ${CI_API_V4_URL}/projects/1234/packages/generic/my_package/0.0.1/file.txt`
+
+## Medium
+
+- [und3fined/medium-unlocker: Read Medium content without limit!](https://github.com/und3fined/medium-unlocker)

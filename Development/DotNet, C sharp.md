@@ -118,8 +118,27 @@ ASP.NET Core:
 - [Documentation comments - document APIs using /// comments - C# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/)
 - [C# XML Documentation Website Link - Stack Overflow](https://stackoverflow.com/questions/6960426/c-sharp-xml-documentation-website-link)
 
-##
+## Sync and async
 
 - [Understanding Async, Avoiding Deadlocks in C# | by Eke Péter | Rubrikk Group | Medium](https://medium.com/rubrikkgroup/understanding-async-avoiding-deadlocks-e41f8f2c6f5d)
 - [Why is .GetAwaiter().GetResult() bad in C#?](https://www.nikouusitalo.com/blog/why-is-getawaiter-getresult-bad-in-c/)
 - [C# - Handling exceptions from Tasks that are not awaited](https://peterdaugaardrasmussen.com/2021/06/05/dot-net-catching-exceptions-in-unawaited-tasks/)
+
+## Dependecy injection
+
+- [How to register a service with multiple interfaces in ASP.NET Core DI](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)
+
+## Guidelines
+
+Follow Microsoft coding style:
+
+- [C\# identifier names - rules and conventions - C\# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names#camel-case)
+- [.NET documentation C\# Coding Conventions - C\# | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+- [Code-style rules overview - .NET | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/)
+- [Framework Design Guidelines | Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/) - Naming, type and member design, etc.
+
+See also:
+
+- [C\# at Google Style Guide | styleguide](https://google.github.io/styleguide/csharp-style.html)
+- [runtime/docs/coding-guidelines/coding-style.md at main \* dotnet/runtime](https://github.com/dotnet/runtime/blob/main/docs/coding-guidelines/coding-style.md)
+- [C\# Coding Guidelines - Stack Overflow](https://stackoverflow.com/questions/4238028/c-sharp-coding-guidelines)

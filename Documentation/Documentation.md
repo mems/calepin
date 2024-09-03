@@ -83,9 +83,28 @@ Aka sentence structure, inclusive documentation
 
 ## Versioning
 
-Aka semver, semantic versioning
+Aka semver, semantic versioning, calver
 
 - [Semantic Versioning 2.0.0 | Semantic Versioning](https://semver.org/spec/v2.0.0.html)
+- [Calendar Versioning — CalVer](https://calver.org/)
+- [Semantic versioning (aka SemVer) - Software versioning - Wikipedia](https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning)
+- [Calendar Versioning (aka CalVer) - Software versioning - Wikipedia](https://en.wikipedia.org/wiki/Software_versioning#Date_of_release)
+
+> Why CalVer
+>
+> - it signals a project is kept updated and maintained in time
+> - it’s semantic for users’ eyes … as in: they instantly understand when their version was released and have an idea of the status of that project (abandoned? outdated version?)
+>
+> [...]
+> Why SemVer
+>
+> - it doesn’t mentally couple a date on a (hopefully) robust and stable release for software that might be X years or months old and still rock-solid and (maybe) bugs free
+> - it clearly separates patches from changes without bounding _“meaningful changes”_ happened in a specific month … actually it frees anyone from thinking _“should we release earlier to close this month with the best up to that point and release also ASAP next month to signal these major changes?”_ … so it removes _“unnecessary release friction”_
+> - one can release minor to major within the same month independently, while it would be extremely confusing otherwise to me, understanding why everything breaks between 2024.01.1 and 2024.01.2 (possibly happened the 31st of January … as one month of changes and development might mean _everything_!)
+> - a release before Xmas and a patch after NYE really confuses me … 2023.12.2 and 2024.01.1 might mean everything and nothing at the same time … 1.7.1 on December and 1.7.2 on January would never make me even think about it … it’s a patch: I am good to update!
+> - it’s the de-facto industry standard dictated by the biggest community registry that we have right now: **npm**
+>
+> — [CalVer or SemVer?. This is going to be quick: there are… | by Andrea Giammarchi | Medium](https://webreflection.medium.com/calver-or-semver-50e9f32d00bd)
 
 ## API
 

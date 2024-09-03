@@ -7,6 +7,7 @@ Dimension / volume :
 - 59mmx143mm 420mg
 - 38mmx127mm 210mg
 
+- [I'm making an XXL SMOKE - YouTube](https://www.youtube.com/watch?v=Mg4japZiEm4)
 - [Rocket candy — Wikipédia](https://fr.wikipedia.org/wiki/Rocket_candy) - "Le « rocket candy » est un propergol solide artisanal à base de sucre pour moteur-fusée. Le sucre (combustible) est mélangé avec un oxydant (nitrate de potassium, un ergol solide). Les fusées qui utilisent ce mélange sont souvent appelées K/S pour KNO3/Sucre."
 - [Les moteurs a propergol solide.](https://web.archive.org/web/20210515232914/https://www.astromodelisme.com/les-moteurs-a-propergol-solide/)
 - [Comment fabriquer des fumigènes](https://web.archive.org/web/20161021061501/http://fumigenes.centerblog.net/)
