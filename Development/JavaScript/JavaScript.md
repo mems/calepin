@@ -1294,25 +1294,68 @@ See [Don't override native logic](#dont-override-native-logic)
 
 ### Submit form with AJAX
 
-Use `FormData` but require to use `POST` and content type `multipart/form-data`.
-
 ```js
-var form;
-var submitter;//non disabled button[type=submit]|input[type=button]|input[type=image]. See [get the form submitter](#get-the-form-submitter)
-var xhr = new XMLHttpRequest();
-var method = "POST"/*submitter.formMethod !== "" ? submitter.formMethod : form.method*/;// FormData works only with POST
-var enctype = submitter.formEnctype !== "" ? submitter.formEnctype : form.enctype;// Use FormData overwrite content type to "multipart/form-data;boundary=RANDOM_STRING"
-// TODO handle form.acceptCharset
-var action = submitter.formAction !== "" ? submitter.formAction : form.action;
-var data = new FormData(form);// FormData don't add button[type=submit]|input[type=button]
-// Add submitter
-if(submitter.name !== ""){
-	data.append(submitter.name, submitter.value);
+const form;
+const submitter;
+const url = new URL(
+	submitter.hasAttribute("formaction") ? submitter.formAction : form.action,
+);
+const formData = new FormData(form, submitter);
+const ENCTYPE_URL_ENCODED = "application/x-www-form-urlencoded";
+const ENCTYPE_FORM_DATA = "multipart/form-data";
+const ENCTYPE_TEXT = "text/plain";
+const enctype = valueOrDefault(
+	(submitter.hasAttribute("formenctype")
+		? submitter.formEnctype
+		: form.enctype
+	).toLowerCase(),
+	[ENCTYPE_URL_ENCODED, ENCTYPE_FORM_DATA, ENCTYPE_TEXT],
+	ENCTYPE_URL_ENCODED,
+);
+const METHOD_GET = "get";
+const METHOD_POST = "post";
+const METHOD_DIALOG = "dialog";
+const method = valueOrDefault(
+	(submitter.hasAttribute("formmethod")
+		? submitter.formMethod
+		: form.method
+	).toLowerCase(),
+	[METHOD_GET, METHOD_POST, METHOD_DIALOG],
+	METHOD_GET,
+);
+// TODO dialog method, there is no need to make a request
+// https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#form-submission-algorithm:attr-fs-method-get
+if (method == METHOD_GET) {
+	url.search = new URLSearchParams(formData).toString();
 }
-xhr.open(method, action);
-//xhr.setRequestHeader("Content-Type", enctype);//see enctype
-xhr.send(data);
+await fetch(url, {
+	method: method.toUpperCase(),
+	// TODO handle form.acceptCharset
+	headers:
+		method == "POST" && enctype === "text/plain"
+			? {
+					"Content-Type": "text/plain",
+				}
+			: null, // for other enctype it set automatically base on body type (FormData or URLSearchParams)
+	body:
+		method == METHOD_POST
+			? enctype === ENCTYPE_FORM_DATA
+				? formData
+				: enctype === ENCTYPE_TEXT
+					? Array.from(
+							formData.entries(),
+							([k, v]) => `${k}=${v}`,
+						).join("\r\n")
+					: new URLSearchParams(formData)
+			: null,
+});
+
+function valueOrDefault(value, values, defaultValue) {
+	return new Set(values).has(value) ? value : defaultValue;
+}
 ```
+
+- [get the form submitter](#get-the-form-submitter)
 
 ### Form validation
 

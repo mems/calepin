@@ -305,7 +305,7 @@ req.ip
 - [Expres behind proxies](https://expressjs.com/en/guide/behind-proxies.html)
 - [node.js - Express.js: how to get remote client addres - Stack Overflow](https://stackoverflow.com/questions/10849687/express-js-how-to-get-remote-client-address) - Responses are not correct, see the link above
 
-## NPM
+## NPM and packages
 
 - [how to set shell for npm run-scripts in windows - Stack Overflow](https://stackoverflow.com/questions/23243353/how-to-set-shell-for-npm-run-scripts-in-windows) - NPM can use bash as shell on Windows (require [git for Windows](https://git-scm.com/download/win))
 - [node.js - Difference between npm install and npm run build - Stack Overflow](https://stackoverflow.com/questions/43664200/difference-between-npm-install-and-npm-run-build)
@@ -444,51 +444,11 @@ Aka monorepos and multi packages
 
 - [package.json | npm Docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#local-paths)
 
-### Local package patch
+### Fix package with patch
 
-- [ds300/patch-package: Fix broken node modules instantly 🏃🏽‍♀️💨](https://github.com/ds300/patch-package)
+- [GitHub - ds300/patch-package: Fix broken node modules instantly 🏃🏽‍♀️💨](https://github.com/ds300/patch-package)
 
-## Promisify
-
-```js
-import {promisify} from 'util';
-const result;
-try{
-	result = await promisify(obj.method.bind(obj))("value1", "value2");
-	console.log(result);
-}catch(error){
-	console.error(error);
-}
-```
-
-Instead of:
-
-```js
-obj.method("value1", "value2", (error, result) => {
-	if(error){
-		console.error(error);
-		return;
-	}
-
-	console.log(result);
-})
-```
-
-```js
-import {readFile} from "fs/promises";
-const content = await readFile("./test.txt", "utf8");
-```
-
-- [File system | Node.js v14.9.0 Documentation](https://nodejs.org/docs/latest/api/fs.html#fs_fs_promises_api)
-- [Util | Node.js v8.9.4 Documentation](https://nodejs.org/docs/latest/api/util.html#util_util_promisify_original)
-
-## Modules
-
-- `core-modules/module.js`
-- [Requiring module in Node.js: Everything you need to know](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8)
-- [Load node.j module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory)
-
-## EACCES errors when installing global package
+### EACCES errors when installing global package
 
 First: Just **don't install packages globally**
 
@@ -510,183 +470,31 @@ See [Warning "root" does not have permission to access the dev dir · Issue #454
 
 - [config | npm Documentation](https://docs.npmjs.com/misc/config#unsafe-perm)
 
-## Use URI as configuration
+### NPM install resolved packages from HTTPS to HTTP
 
-- https://github.com/sidorares/node-mysql2/blob/5f0fb8f1f5035e2c0207490aa2f0b838dc82fdc2/lib/connection_config.js#L166-L196
-- https://github.com/nodemailer/nodemailer/blob/5da6c87766e258f1a5fa9b628f2d9f57c9d533ce/lib/shared/index.js#L16-L91
+`npm config get registry` should return `https://registry.npmjs.org/`
 
-## Global error handling
+1. `rm -rf node_modules/`
+2. `npm cache clean --force`
+3. Revert the changes in your `package-lock.json` file
+4. `npm i`
 
-- `process.setUncaughtExceptionCaptureCallback`
+- [npm install downgrading resolved packages from https to http registry in package-lock.json - 🐞 bugs - npm forum](https://npm.community/t/npm-install-downgrading-resolved-packages-from-https-to-http-registry-in-package-lock-json/1818/7)
+- ["resolved" link changes from https://registry.npmjs.com to http://registry.npmjs.com on npm install · Issue #20719 · npm/npm](https://github.com/npm/npm/issues/20719)
 
-## Node sources
-
-- [node/lib at master · nodejs/node](https://github.com/nodejs/node/tree/master/lib)
-
-Zlib will don't have extra gzip header fiels (empty values):
-
-> If deflateSetHeader is not used, the default gzip header has text false, the time set to zero, and os set to 255, with no extra, name, or comment fields.
-> - https://github.com/nodejs/node/blob/master/deps/zlib/zlib.h
-
-Zlib binding:
-
-- [node/node_zlib.cc at master · nodejs/node](https://github.com/nodejs/node/blob/master/src/node_zlib.cc)
-- [node/zlib.js at master · nodejs/node](https://github.com/nodejs/node/blob/master/lib/zlib.js)
-- [node/zlib.h at master · nodejs/node](https://github.com/nodejs/node/blob/master/deps/zlib/zlib.h)
-
-## Read UTF-8 JSON with BOM
-
-```js
-const fs = require('fs');
-cost config = fs.readFileSync('./config.json', 'utf-8');
-// JSON.parse(config); fail if not start with an allowed char (`"`, `[`, `{`);
-// BOM is 0xefbbbf and is considered white-space
-// It can be stripped by `.trim()`:
-JSON.parse(config.trim());
-```
-
-## Require a virtual file
-
-```js
-const fs = require("fs");
-const path = require("path");
-const filename = require.resolve("chrome-devtools-frontend/front_end/sdk/CookieParser.js");
-// See https://github.com/ChromeDevTools/devtools-frontend/blob/4c46d0969f10f460f2a27116f4896f20f65d0989/front_end/sdk/CookieParser.js
-let content = "const SDK = module.exports = {};\n" + fs.readFileSync(filename, "utf8");
-const Module = require("module");// same as module.constructor
-const m = new Module(filename, module/*or module.parent*/);
-m._compile(content, filename);
-m.filename = filename;
-m.paths = Module._nodeModulePaths(path.dirname(filename));
-m.loaded = true;
-module.exports = m.exports;
-```
-
-- [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L781-L816)
-- [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L945-L948)
-- [Load node.js module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory/17585470#17585470)
-- [Package override](#package-override)
-
-## Package overrides
+### Package overrides
 
 - [package.json | npm Docs](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides)
 - [\[DOCS\] Please document "The overrides key will only be considered when it is in the root package.json file for a project" · Issue #4517 · npm/cli](https://github.com/npm/cli/issues/4517)
 
-## Warning
-
-```js
-// Log stack trace of warning like depreciation https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code
-process.on("warning", warning => console.warn(warning.stack));
-```
-
-- [Process | Node.js v13.6.0 Documentation](https://nodejs.org/api/process.html#process_event_warning)
-
-## Depreciation
-
-```sh
-node --trace-warnings --trace-deprecation index.js
-```
-
-```js
-const util = require('util');
-module.exports.someDepreciatedFunction = util.deprecate(() => {
-	// Do something here.
-}, "someDepreciatedFunction() is deprecated. Use someOtherFunction() instead.", "DEP_SOME_FUNCTION");
-```
-
-- [Command Line Options | Node.js v13.6.0 Documentation](https://nodejs.org/api/cli.html#cli_trace_deprecation)
-- [Util | Node.js v13.6.0 Documentation](https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code)
-
-## Path case sensitivity on Windows
-
-Node handle pretty well path case insensibility on Windows. But if a module use a [symbolic link or a junction](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946) and the working directory doesn't match the case of that path (`d:\mydir` instead of `D:\MyDir`) Node load the same module twice, for each path case. Note: NPM use junction for [local path modules](https://docs.npmjs.com/files/package.json#local-paths).
-
-See an example:
-
-```cmd
-echo module.exports = class{get __filename(){return __filename}} > Class.js
-mkdir example
-echo module.exports = new (require("../Class")) > example/instance.js
-:: Create a junction ./junction/* <==> ./example/*
-:: Note: the junction store the case used when created ("mklink /j junction .\example" vs "mklink /j junction .\Example")
-mklink /j junction .\example
-::dir /AL /S .
-:: Main script
-echo const a = require("./junction/instance"); > index.js
-echo const b = require("./example/instance"); >> index.js
-echo const c = require("./class"); >> index.js
-echo console.log("process.cwd() =", process.cwd()); >> index.js
-echo console.log("junction/instance = a"); >> index.js
-echo console.log("example/instance = b"); >> index.js
-echo console.log("a instanceof c =", a instanceof c); >> index.js
-echo console.log("b instanceof c =", b instanceof c); >> index.js
-echo console.log("a super.__filename =", a.__filename); >> index.js
-echo console.log("b super.__filename =", b.__filename); >> index.js
-:: Enable node module debug (request, looking and load)
-::set "NODE_DEBUG=module"
-:: Use powsershell to start a process with the current working directory with lowercase as working directory
-powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait -WorkingDirectory $(Get-Location).ToString().ToLower()"
-
-:: Will log:
-::
-:: ```
-:: process.cwd() = D:\somepath\test
-:: junction/instance = a
-:: example/instance = b
-:: a === b = false
-:: a instanceof c = false
-:: b instanceof c = true
-:: a super.__filename = D:\SomePath\Test\Class.js
-:: b super.__filename = D:\somepath\test\Class.js
-:: ```
-::
-:: Note the difference of path case between constructors of a and b
-:: A and b should be the same object, have the same constructor from ./Class.js
-:: It's because the case of the instance is not the same: != path case -> != modules
-:: Compare  with:
-powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait
-```
-
-- [windows - What is the difference between NTFS Junction Points and Symbolic Links? - Stack Overflow](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946)
-- [Hard Links and Junctions - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions)
-
-## Inspect package
+### Inspect package
 
 ```sh
 # The package doesn't need to be installed
 npm view <packagename> dist.tarball
 ```
 
-## Require specific version of NPM and node
-
-```sh
-# update your package.json to add:
-# "engines": {
-# 	"npm": ">=6.6.0",
-# 	"node": ">=12.0.0"
-# },
-npm config set engine-strict false --userconfig ./.npmrc
-```
-
-If the version doesn't match, `npm install`:
-
-```
-npm ERR! code ENOTSUP
-npm ERR! notsup Unsupported engine for <package>@<version>: wanted: {"npm":">=6.6.0","node":">=12.0.0"} (current: {"node":"<current-node-version>","npm":"<current-npm-version>"})
-npm ERR! notsup Not compatible with your version of node/npm: <package>@<version>
-npm ERR! notsup Required: {"npm":">=6.6.0","node":">=12.0.0"}
-npm ERR! notsup Actual:   {"npm":"<current-npm-version>","node":"<current-node-version>"}
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     <log-file-path>
-```
-
-Note: that doesn't work for [`npm ci`](https://github.com/npm/cli/issues/1219) that ignore that check
-
-- [npm-config | npm Documentation](https://docs.npmjs.com/misc/config#engine-strict)
-- [npm-package.json | npm Documentation](https://docs.npmjs.com/files/package.json#engines)
-
-## Crossplatform scripts
+### Crossplatform scripts
 
 ```json
 {
@@ -784,6 +592,210 @@ See also:
 - [charlesguse/run-script-os: run-script-os will let you use OS specific operations in npm scripts without specifying which OS you are on. It's not magic though... you still have to write OS specific scripts.](https://github.com/charlesguse/run-script-os)
 - [kentcdodds/cross-env: 🔀 Cross platform setting of environment scripts](https://github.com/kentcdodds/cross-env)
 - https://github.com/npm/cmd-shim/blob/49ab03fae831a5727c30c37d11ba94fa5700100f/lib/index.js
+
+## Promisify
+
+```js
+import {promisify} from 'util';
+const result;
+try{
+	result = await promisify(obj.method.bind(obj))("value1", "value2");
+	console.log(result);
+}catch(error){
+	console.error(error);
+}
+```
+
+Instead of:
+
+```js
+obj.method("value1", "value2", (error, result) => {
+	if(error){
+		console.error(error);
+		return;
+	}
+
+	console.log(result);
+})
+```
+
+```js
+import {readFile} from "fs/promises";
+const content = await readFile("./test.txt", "utf8");
+```
+
+- [File system | Node.js v14.9.0 Documentation](https://nodejs.org/docs/latest/api/fs.html#fs_fs_promises_api)
+- [Util | Node.js v8.9.4 Documentation](https://nodejs.org/docs/latest/api/util.html#util_util_promisify_original)
+
+## Modules
+
+- `core-modules/module.js`
+- [Requiring module in Node.js: Everything you need to know](https://medium.freecodecamp.org/requiring-modules-in-node-js-everything-you-need-to-know-e7fbd119be8)
+- [Load node.j module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory)
+
+## Use URI as configuration
+
+- https://github.com/sidorares/node-mysql2/blob/5f0fb8f1f5035e2c0207490aa2f0b838dc82fdc2/lib/connection_config.js#L166-L196
+- https://github.com/nodemailer/nodemailer/blob/5da6c87766e258f1a5fa9b628f2d9f57c9d533ce/lib/shared/index.js#L16-L91
+
+## Global error handling
+
+- `process.setUncaughtExceptionCaptureCallback`
+
+## Node sources
+
+- [node/lib at master · nodejs/node](https://github.com/nodejs/node/tree/master/lib)
+
+Zlib will don't have extra gzip header fiels (empty values):
+
+> If deflateSetHeader is not used, the default gzip header has text false, the time set to zero, and os set to 255, with no extra, name, or comment fields.
+> - https://github.com/nodejs/node/blob/master/deps/zlib/zlib.h
+
+Zlib binding:
+
+- [node/node_zlib.cc at master · nodejs/node](https://github.com/nodejs/node/blob/master/src/node_zlib.cc)
+- [node/zlib.js at master · nodejs/node](https://github.com/nodejs/node/blob/master/lib/zlib.js)
+- [node/zlib.h at master · nodejs/node](https://github.com/nodejs/node/blob/master/deps/zlib/zlib.h)
+
+## Read UTF-8 JSON with BOM
+
+```js
+const fs = require('fs');
+cost config = fs.readFileSync('./config.json', 'utf-8');
+// JSON.parse(config); fail if not start with an allowed char (`"`, `[`, `{`);
+// BOM is 0xefbbbf and is considered white-space
+// It can be stripped by `.trim()`:
+JSON.parse(config.trim());
+```
+
+## Require a virtual file
+
+```js
+const fs = require("fs");
+const path = require("path");
+const filename = require.resolve("chrome-devtools-frontend/front_end/sdk/CookieParser.js");
+// See https://github.com/ChromeDevTools/devtools-frontend/blob/4c46d0969f10f460f2a27116f4896f20f65d0989/front_end/sdk/CookieParser.js
+let content = "const SDK = module.exports = {};\n" + fs.readFileSync(filename, "utf8");
+const Module = require("module");// same as module.constructor
+const m = new Module(filename, module/*or module.parent*/);
+m._compile(content, filename);
+m.filename = filename;
+m.paths = Module._nodeModulePaths(path.dirname(filename));
+m.loaded = true;
+module.exports = m.exports;
+```
+
+- [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L781-L816)
+- [node/loader.js at 6ce87c027dc2a16e1b8d85c753b52270ae0c6054 · nodejs/node](https://github.com/nodejs/node/blob/6ce87c027dc2a16e1b8d85c753b52270ae0c6054/lib/internal/modules/cjs/loader.js#L945-L948)
+- [Load node.js module from string in memory - Stack Overflow](https://stackoverflow.com/questions/17581830/load-node-js-module-from-string-in-memory/17585470#17585470)
+- [Package override](#package-override)
+
+## Warning
+
+```js
+// Log stack trace of warning like depreciation https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code
+process.on("warning", warning => console.warn(warning.stack));
+```
+
+- [Process | Node.js v13.6.0 Documentation](https://nodejs.org/api/process.html#process_event_warning)
+
+## Depreciation
+
+```sh
+node --trace-warnings --trace-deprecation index.js
+```
+
+```js
+const util = require('util');
+module.exports.someDepreciatedFunction = util.deprecate(() => {
+	// Do something here.
+}, "someDepreciatedFunction() is deprecated. Use someOtherFunction() instead.", "DEP_SOME_FUNCTION");
+```
+
+- [Command Line Options | Node.js v13.6.0 Documentation](https://nodejs.org/api/cli.html#cli_trace_deprecation)
+- [Util | Node.js v13.6.0 Documentation](https://nodejs.org/api/util.html#util_util_deprecate_fn_msg_code)
+
+## Path case sensitivity on Windows
+
+Node handle pretty well path case insensibility on Windows. But if a module use a [symbolic link or a junction](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946) and the working directory doesn't match the case of that path (`d:\mydir` instead of `D:\MyDir`) Node load the same module twice, for each path case. Note: NPM use junction for [local path modules](https://docs.npmjs.com/files/package.json#local-paths).
+
+See an example:
+
+```cmd
+echo module.exports = class{get __filename(){return __filename}} > Class.js
+mkdir example
+echo module.exports = new (require("../Class")) > example/instance.js
+:: Create a junction ./junction/* <==> ./example/*
+:: Note: the junction store the case used when created ("mklink /j junction .\example" vs "mklink /j junction .\Example")
+mklink /j junction .\example
+::dir /AL /S .
+:: Main script
+echo const a = require("./junction/instance"); > index.js
+echo const b = require("./example/instance"); >> index.js
+echo const c = require("./class"); >> index.js
+echo console.log("process.cwd() =", process.cwd()); >> index.js
+echo console.log("junction/instance = a"); >> index.js
+echo console.log("example/instance = b"); >> index.js
+echo console.log("a instanceof c =", a instanceof c); >> index.js
+echo console.log("b instanceof c =", b instanceof c); >> index.js
+echo console.log("a super.__filename =", a.__filename); >> index.js
+echo console.log("b super.__filename =", b.__filename); >> index.js
+:: Enable node module debug (request, looking and load)
+::set "NODE_DEBUG=module"
+:: Use powsershell to start a process with the current working directory with lowercase as working directory
+powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait -WorkingDirectory $(Get-Location).ToString().ToLower()"
+
+:: Will log:
+::
+:: ```
+:: process.cwd() = D:\somepath\test
+:: junction/instance = a
+:: example/instance = b
+:: a === b = false
+:: a instanceof c = false
+:: b instanceof c = true
+:: a super.__filename = D:\SomePath\Test\Class.js
+:: b super.__filename = D:\somepath\test\Class.js
+:: ```
+::
+:: Note the difference of path case between constructors of a and b
+:: A and b should be the same object, have the same constructor from ./Class.js
+:: It's because the case of the instance is not the same: != path case -> != modules
+:: Compare  with:
+powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait
+```
+
+- [windows - What is the difference between NTFS Junction Points and Symbolic Links? - Stack Overflow](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946)
+- [Hard Links and Junctions - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions)
+
+## Require specific version of NPM and node
+
+```sh
+# update your package.json to add:
+# "engines": {
+# 	"npm": ">=6.6.0",
+# 	"node": ">=12.0.0"
+# },
+npm config set engine-strict false --userconfig ./.npmrc
+```
+
+If the version doesn't match, `npm install`:
+
+```
+npm ERR! code ENOTSUP
+npm ERR! notsup Unsupported engine for <package>@<version>: wanted: {"npm":">=6.6.0","node":">=12.0.0"} (current: {"node":"<current-node-version>","npm":"<current-npm-version>"})
+npm ERR! notsup Not compatible with your version of node/npm: <package>@<version>
+npm ERR! notsup Required: {"npm":">=6.6.0","node":">=12.0.0"}
+npm ERR! notsup Actual:   {"npm":"<current-npm-version>","node":"<current-node-version>"}
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     <log-file-path>
+```
+
+Note: that doesn't work for [`npm ci`](https://github.com/npm/cli/issues/1219) that ignore that check
+
+- [npm-config | npm Documentation](https://docs.npmjs.com/misc/config#engine-strict)
+- [npm-package.json | npm Documentation](https://docs.npmjs.com/files/package.json#engines)
 
 ### Encryption with Node.js
 
@@ -953,18 +965,6 @@ Increase memory to 4GB: `node --max-old-space-size=4096 index.js`. 1024 for 1GB,
 - [esbuild-kit/tsx: ⚡️ TypeScript Execute (tsx): Node.js enhanced with esbuild to run TypeScript & ESM](https://github.com/esbuild-kit/tsx)
 - [TypeStrong/ts-node: TypeScript execution and REPL for node.js](https://github.com/TypeStrong/ts-node#swc-1)
 - [swc-project/swc-node: Faster ts-node without typecheck](https://github.com/swc-project/swc-node)
-
-## NPM install resolved packages from HTTPS to HTTP
-
-`npm config get registry` should return `https://registry.npmjs.org/`
-
-1. `rm -rf node_modules/`
-2. `npm cache clean --force`
-3. Revert the changes in your `package-lock.json` file
-4. `npm i`
-
-- [npm install downgrading resolved packages from https to http registry in package-lock.json - 🐞 bugs - npm forum](https://npm.community/t/npm-install-downgrading-resolved-packages-from-https-to-http-registry-in-package-lock-json/1818/7)
-- ["resolved" link changes from https://registry.npmjs.com to http://registry.npmjs.com on npm install · Issue #20719 · npm/npm](https://github.com/npm/npm/issues/20719)
 
 ## Single executable application
 

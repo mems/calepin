@@ -5,6 +5,16 @@ Construction quality and defects examples:
 - [Concours Photo AQC 2019 - Agence Qualité ConstructionAgence Qualité Construction](https://qualiteconstruction.com/actu-palmares-concours-photo-aqc-2019/)
 - [Nos ressources - Agence Qualité ConstructionAgence Qualité Construction](https://qualiteconstruction.com/nos-ressources/) - "Type de média" = "Photo" et "Rechercher par collection" = "Points de vigilance"
 
+MAP ou PF3 :
+
+- Collage: MAP ou PF3
+- Lissage: PF3
+- Rebouchage de petits manques: MAP ou PF3
+- Rebouchage de gros manques: PF3
+- Scellement légers: MAP ou PF3
+- Scellement lourds: PF3
+- Enduisage et surfaçage: PF3
+
 ## Door
 
 Porte de service blindé : 1000-1500€
@@ -17,7 +27,6 @@ Très souvent du sur mesure.
 - poignée blindée : casse ou l'arrachage du cylindre
 - 3+ paumelles
 - protège-gonds
-
 
 - [Blindage porte : tout savoir sur le blindage d’une porte](https://web.archive.org/web/20201021194222/https://porte.ooreka.fr/comprendre/blindage-de-porte)
 - [Comment faire un blindage de porte soi-même](https://web.archive.org/web/20200930194918/https://www.systemed.fr/menuiserie-exterieure/blinder-porte-existante,2366.html)

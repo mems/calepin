@@ -386,3 +386,7 @@ See [Time estimation](#time-estimation) and [Unsolicited reworks](#unsolicited-r
 > > I solved that one with only 1 tab.
 >
 > – [Uncle Cal on Twitter: "I no longer quantify problems in the length of time it took to solve them, or the lines of code. My new measurement is "Tabs". "This was a 30 tab problem. I had to go in deep." "I solved that one with only 1 tab. " :)"](https://twitter.com/calevans/status/1024371268118872070?s=12)
+
+## Learning
+
+- [Developer Roadmaps - roadmap.sh](https://roadmap.sh/) - [GitHub - kamranahmedse/developer-roadmap: Interactive roadmaps, guides and other educational content to help developers grow in their careers.](https://github.com/kamranahmedse/developer-roadmap)

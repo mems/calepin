@@ -697,6 +697,26 @@ Ces carrés à la pâte sablée sont fourrés d'une délicate crème à la saveu
 - [Carrés d'amande - Bonheurs sucrés](https://web.archive.org/web/20230604125812/http://www.lejournaldececile.com/2015/11/carres-d-amande.html)
 - [Carrés amande & caramel au miel – Recette Special](https://recettespecial.com/carres-amande-caramel-au-miel/)
 
+### Pâte sablée
+
+- farine 250 g
+- beurre 125 g
+- sucre fin (sucre glace) 50 g
+- jaune d'œuf 1
+- eau ingrédient 30 g
+- 1 pincée de sel
+
+1. mélanger la farine, le sucre, pincé de sel
+2. mélanger le beurre en petit morceau avec mélange à la main
+3. faire une boule l'emballer dans un film alimentaire au frigo 30 min pour que le beurre durcisse
+4. étaler la pâte avec peu de farine pour éviter de la sécher
+
+- [Pâte sablée : la meilleure recette](https://cuisine.journaldesfemmes.fr/recette/218786-pate-sablee-rapide)
+
+### Tarte au fruits
+
+- [Tarte aux mirabelles : Recette de Tarte aux mirabelles](https://www.marmiton.org/recettes/recette_tarte-aux-mirabelles_11226.aspx)
+
 ## Amuse-bouche
 
 ### Apéro à la Ben

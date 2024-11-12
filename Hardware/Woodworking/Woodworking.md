@@ -18,7 +18,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - Essential Craftsman
 	- [Lumber & Leverage: Handling Plywood, Boards, ANY Material with Ease - YouTube](https://www.youtube.com/watch?app=desktop&v=vE4wTWwgy-g&si=pd5T7JvyIwsk9dMB)
 	- [How to Not Buy Crap Lumber - YouTube](https://www.youtube.com/watch?v=4kv8s88ko38)
-- [Boite à outils manuels pour débutants ou les outils indispensables au travail du bois - YouTube](https://www.youtube.com/watch?v=Nb-0Xv_9NDU&t=565) - réglage rabot
+- [Boite à outils manuels pour débutants ou les outils indispensables au travail du bois - YouTube](https://www.youtube.com/watch?v=Nb-0Xv_9NDU)
 - [Sylvie Pereira - SyPer - YouTube](https://www.youtube.com/@SylviePereiraSyPer/videos)
 - [The Honest Carpenter - YouTube](https://www.youtube.com/@TheHonestCarpenter)
 - [JV POY WORKSHOP - YouTube](https://www.youtube.com/@ATELIERJVPOY)
@@ -27,6 +27,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Pirard Benoît - YouTube](https://www.youtube.com/@PirardBenoit)
 - [Popular Woodworking - YouTube](https://www.youtube.com/@popularwoodworking)
 - [Scott Brown Carpentry - YouTube](https://www.youtube.com/@ScottBrownCarpentry)
+- [Cray Birkenwald - YouTube](https://www.youtube.com/@CrayBirkenwald)
 - [Astuces Design - Apprendre l'Ébénisterie - YouTube](https://www.youtube.com/@AstucesDesign/videos)
 	- [Comment Réussir vos COUPES D'ONGLET avec une Précision Extrême ! (et sans outils de mesure) - YouTube](https://www.youtube.com/watch?v=0usUql1lxLU) - faire un test sur une pièce de test, avant de faire l'opération sur les pièces définitives
 
@@ -41,6 +42,10 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 	- "handmade furniture"
 	- "millworks"
 - look for "second-hand" material
+
+## Learn
+
+- [Cours de menuiserie - Apprendre la menuiserie](https://www.samuelmamias.com/cours-de-menuiserie/)
 
 ## Furniture
 
@@ -70,6 +75,25 @@ Aka wood
 - [Comment Acheter du Bois de QUALITÉ sans se RUINER ? - YouTube](https://www.youtube.com/watch?v=meseh9JmF4s)
 - [Mon plateau de bois | Bois, résine époxy, outils et accessoires](https://monplateaudebois.com/)
 - [Découpe sur mesure de bois massif et autres matériaux | ilicut.com](https://ilicut.com/fr_FR/)
+- [acheter son bois, où, comment et les pièges à éviter - YouTube](https://www.youtube.com/watch?v=caXIwdmnAzo)
+- [cubage du bois, taux d'humidité idéal, stockage etc... HD 1080p - YouTube](https://www.youtube.com/watch?v=TU0w5oVbK6A)
+- [quel est le prix du bois HD 1080p - YouTube](https://www.youtube.com/watch?v=LhnFHF2shq4)
+- [Comment Acheter du Bois de QUALITÉ sans se RUINER ? - YouTube](https://www.youtube.com/watch?v=meseh9JmF4s)
+- [AVIS DE MENUISIER : LES PANNEAUX DE BOIS - YouTube](https://www.youtube.com/watch?v=2zfx2dRrx5Q)
+- [AVIS DE MENUISIER - SE FOURNIR EN BOIS - YouTube](https://www.youtube.com/watch?v=zCYpRPNuTqA)
+- [Technique de menuiserie : quel bois choisir pour bien débuter la menuiserie (spécial débutants) - YouTube](https://www.youtube.com/watch?v=gk7uvVXNL_Q)
+- [Comment acheter du bois de menuiserie à un prix correct - YouTube](https://www.youtube.com/watch?v=ZJ5Id-EwjRI)
+
+Contre plaqué, résistance : Okoumé > Peuplier > Bouleau
+
+| Fournisseur                  | Les plus                                                                | Les moins                                                                                   |
+|------------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| scieries                     | - la qualité - le prix - la disponibilité - le choix                    | - généralement pas de petite quantité - parfois éloignées - ne livrent pas toujours         |
+| menuisier                    | - la qualité - la possiblité de petite quantité                         | - ce n'est pas un servcice courant - le prix est très variable - le choix n'est pas garanti |
+| particuliers / occassions    | - le prix (mais pas toujours) - la relation humaine (mais pas toujours) | - obligation de connaitre le bois -> qualité à vérifier - disponibilité aléatoire           |
+| sites internet               | - essences rares et/ou exotiques - plaquages - présent partout          | - le prix - les frais de port - petites quantités                                           |
+| GSB                          | - nombreux point de vente - pratique                                    | - la disponibilité - la qualité - le prix au m^3                                            |
+| Le fournisseurs de matériaux | - nombreux point de vente - disponibilité produits                      | - essences très spécifiques - dimensions limités - livraison par quantité                   |
 
 ## Tools
 
@@ -86,6 +110,78 @@ Aka wood
 	- découpe anti-vibration (sous sur les lames pro)
 	- pastilles en carbure de tungstène ou en diamant de synthèse
 
-## Mesure
+- [La table de FRAISAGE multifonction est faite en 4 heures. - YouTube](https://www.youtube.com/watch?v=CrjwJjnD-p0)
 
+## Mesure, calibration and fine-tuning
+
+- [Tracés et mesures, tous mes trucs, méthodes et astuces - YouTube](https://www.youtube.com/watch?v=vjDTNUCepZM)
+	- éviter de mesure
+	- crayon bien taillé 2H ou critérium/portemine 0,5 mm
 - [5 CONSEILS DE MENUISIER : COTES ET MESURES - YouTube](https://www.youtube.com/watch?v=c4bMyO8VyeM)
+- [Couper d'équerre au centième de degré. (la méthode des cinq coupes expliquée à ma grand-mère) - YouTube](https://www.youtube.com/watch?app=desktop&v=m9F1rWbGsI8)
+- [6 ASTUCES INFAILLIBLES POUR GAGNER EN PRÉCISION ! - YouTube](https://www.youtube.com/watch?app=desktop&v=u0BPJDkB5o0)
+	- le traçage
+	- la scie
+	- l'affûtage
+	- l'éclairage
+	- la planche à recaler
+	- la préparation de vos projets
+- [SCIE CIRCULAIRE : La technique simple et précise d'un rail pour scie circulaire ! - YouTube](https://www.youtube.com/watch?v=dfi0hTMPPso)
+- [SCIE CIRCULAIRE : 2 astuces simples et rapides pour gagner en précision ! - YouTube](https://www.youtube.com/watch?v=xHVZNTyYPzc)
+- [SCIE CIRCULAIRE : L'astuce simple et précise du travail au T - YouTube](https://www.youtube.com/watch?v=ncMlG9INtB4)
+- [Technique de menuiserie : tracer n'importe quel angle sans rapporteur - YouTube](https://www.youtube.com/watch?v=uz31Zw_7hjE) - [Tangente.xls - Google Drive](https://drive.google.com/file/d/1VP5YX2G3Q73qmN9aLSrsvZQEZF3o8UpV/view?pli=1)
+- [Être précis(e) avec des outils à main (technique de menuiserie) - YouTube](https://www.youtube.com/watch?v=T3DzsPSUIIM)
+
+## Router
+
+- [adjustable edge groove jig / no problem with groove position and panel thickness / trimmer - YouTube](https://www.youtube.com/watch?v=a4xOt9FCspU)
+- [Un double guide de défonceuse maison - YouTube](https://www.youtube.com/watch?v=NOF0b8u6O5g)
+- [Des rainures auto centrées (si, si ... ) - YouTube](https://www.youtube.com/watch?v=_5sw0mnDb2M)
+
+- commencer en contre fil [✅ MAISON : FABRIQUER DE MAGNIFIQUES PLANS DE TRAVAIL EN BOIS (partie 1) - Ep14S2 - LJVS - YouTube](https://www.youtube.com/watch?v=6qfeypvcJHo&t=624s)
+
+## Sanding
+
+- [comment poncer correctement - YouTube](https://www.youtube.com/watch?v=LrGzuxdbi9U)
+- [Comment choisir une ponceuse . Un besoin, une ponceuse 👍 - YouTube](https://www.youtube.com/watch?v=BXvDATGPztw)
+- [choix ponceuse orbitale](https://web.archive.org/web/20240930214628/http://www.metabricoleur.com/t5604-choix-ponceuse-orbitale#94907) - circulaire vs roto-orbitale vs roto-excentrique
+- [choix ponceuse orbitale](https://web.archive.org/web/20240930214628/http://www.metabricoleur.com/t5604-choix-ponceuse-orbitale#94936) - roto-excentrique vs roto-orbitale
+- circulaire < roto-orbitale < roto-excentrique
+- [Ponceuse Excentrique ou Orbitale : différences et usages](https://comptoir.bricozor.com/differences-entre-ponceuse-excentrique-et-orbitale.html)
+- [Choisir une ponceuse vibrante, orbitale ou à bande ?](https://comptoir.bricozor.com/choisir-une-ponceuse-vibrante-orbitale-ou-a-bande.html)
+- [quelle ponceuse pour quelles usages - YouTube](https://www.youtube.com/watch?v=vaNP07Y3qbg)
+- [Comment choisir sa ponceuse en 2024. Comment utiliser une ponceuse. TUTO ponçage facile en sécurité. - YouTube](https://www.youtube.com/watch?v=qAS8AOWH4tE)
+
+## Planer
+
+And benchtop planer
+
+Use a router:
+
+> Try a 1 1/2 inch surfacing bit on a 1/2 inch shank. Remove as much wood as you need to. Then on your last pass, lower the bit down a hair and go super slow back and forth across the wood.
+>
+> You'll see less ridging and a more even surface.
+>
+> — [First attempt at a router flattening jig.. : r/woodworking](https://www.reddit.com/r/woodworking/comments/a2kl42/first_attempt_at_a_router_flattening_jig/)
+
+- [Plane (tool) - Wikipedia](https://en.wikipedia.org/wiki/Plane_%28tool%29)
+
+## Sharpening tools
+
+- [L'AFFÛTAGE LE PLUS PARFAIT POSSIBLE (Et pour MOINS de 50€) - YouTube](https://www.youtube.com/watch?v=IZpI9K600gU)
+- [Affuter un rabot à main (technique de menuiserie) - YouTube](https://www.youtube.com/watch?v=NvzINUQ-vEM)
+- [Affuter à l'angle exact avec un gabarit universel, facile à fabriquer - YouTube](https://www.youtube.com/watch?v=NgIwEEInCr0)
+- [Tout sur l'affutage à la main sur abrasifs pour lames de rabot ou ciseaux à bois - YouTube](https://www.youtube.com/watch?v=zmBmlfFLkj4)
+- [Restauration d'un rabot métal : tout ce qu'il faut savoir pour arriver à un bon résultat - YouTube](https://www.youtube.com/watch?v=uqsv5XDeBjE)
+- [Boite à outils manuels pour débutants ou les outils indispensables au travail du bois - YouTube](https://www.youtube.com/watch?v=Nb-0Xv_9NDU&t=565) - réglage rabot
+- [Affûtage des mèches à bois plates - YouTube](https://www.youtube.com/watch?v=NipFV-mc0ZY)
+
+- [Comment affuter les forets à la main : conclusion, quelle méthode choisir - YouTube](https://www.youtube.com/watch?v=jgHr_R4uQ2M)
+- [Comment affuter les forets à métaux: les systèmes Drill Doctor 350X, 500x et le système Hozmann - YouTube](https://www.youtube.com/watch?v=n0CbF-QLIa8)
+- [Comment affuter les forets : le système Tormek DBS-22 - YouTube](https://www.youtube.com/watch?v=gynFltyxcPM)
+
+## Finishing
+
+- [CRASH TEST : Jusqu'où peut-on aller avec une PROTECTION CÉRAMIQUE ? - YouTube](https://www.youtube.com/watch?app=desktop&v=SEeO57q_ubA)
+- [Comment durcir une finition à la gomme laque - YouTube](https://www.youtube.com/watch?v=m6swOLcPG_0)
+- [Comment appliquer la gomme laque - YouTube](https://www.youtube.com/watch?v=araGVzZRHNs)

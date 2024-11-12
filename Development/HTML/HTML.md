@@ -1018,7 +1018,7 @@ Aka a11y
 - `lang` attribute should match the actual content language, else the screen reader's interpretation will be incomprehensible (`lang` attribute is also used by CSS for `hyphens`, quotes, etc.)
 - VoiceOver don't handle elements with `width: 0; height: 0;`
 - images `alt` attribute with null value (`alt=""`) are usally ignored. AT assume it is for decorative purposes.
-- avoid usage of line return for `alt` value: [Short note on coding alt text | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/09/short-note-on-coding-alt-text/)
+- avoid usage of line return for `alt` value: [Short note on coding alt text - TPGi](https://www.tpgi.com/short-note-on-coding-alt-text/)
 - duplicate content should be avoided. **Don't** Ex: `<a href="register.html"><img src="register.png" alt="Register">Register</a>`, image `alt` should null (else AT show : "Register, Register link")
 	or use `aria-hidden="true"` in conjonction with `role="presentation"`. But with an image, using CSS is recommended
 - using `role=button` can be sometimes irrevelant (for example if the node is an heading level. http://heydonworks.com/practical_aria_examples/#comment-1178134652). A child element is required to fix that.
@@ -1057,10 +1057,17 @@ See [Color contrast](../../User%20Interface%20and%20experience/UI%20-%20UX.md#co
 
 Examples (pattern, components):
 
-- [WAI-ARIA Authoring Practices 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/)
+- [Patterns | APG | WAI | W3C](https://www.w3.org/WAI/ARIA/apg/patterns/)
+- carousels and slideshows
+	- [Carousel (Slide Show or Image Rotator) Pattern | APG | WAI | W3C](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/)
+	- [A Step-By-Step Guide To Building Accessible Carousels — Smashing Magazine](https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/)
+	- [Carousels Tutorial | Web Accessibility Initiative (WAI) | W3C](https://www.w3.org/WAI/tutorials/carousels/)
+	- [Carousels and slideshows: accessibility for developers | Access iQ](http://www.accessiq.org/create/content/carousels-and-slideshows-accessibility-for-developers)
+- [ARIA Authoring Practices Guide | APG | WAI | W3C](https://www.w3.org/WAI/ARIA/apg/)
 - [Accessibility Wins, curated by Marcy Sutton](http://a11ywins.tumblr.com/)
 - [Accessibility section - jQuery Plugins - By Nicolas Hoffmann](http://a11y.nicolas-hoffmann.net/)
-- [Web Components punch list | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2014/09/web-components-punch-list/)
+
+- [Web Components punch list - TPGi](https://www.tpgi.com/web-components-punch-list/)
 - Examples and docs: [The Accessibility Project](http://a11yproject.com/)
 - [Patterns - The Accessibility Project](http://a11yproject.com/patterns/) - The A11Y Project patterns
 - [Practical ARIA Examples](http://heydonworks.com/practical_aria_examples/)
@@ -1092,6 +1099,7 @@ Others (doc, about, etc.):
 - See also [Input-Controlled Web Design](#input-controlled-web-design)
 - See also [SVG](../SVG/SVG.md#accessibility)
 
+- [Inclusive Design Principles](https://inclusivedesignprinciples.info/)
 - [Tips for making accessibility a core design principle](https://pixelpioneers.co/blog/2017/13-expert-tips-accessibility)
 - [Notes on ARIA by Taylor Hunt on CodePen](https://codepen.io/tigt/post/notes-on-aria)
 - [9 tips to get bare minimum of web accessibility – Abhijeet Kumar – Medium](https://medium.com/@realabhijeet4u/9-tips-to-get-bare-minimum-of-web-accessibility-739899a9437c)
@@ -1108,10 +1116,9 @@ Others (doc, about, etc.):
 - [Accessible Charts | amCharts](https://www.amcharts.com/accessible-charts/)
 - [Danger! Testing Accessibility with real people — Medium](https://medium.com/@LeonieWatson/danger-testing-accessibility-with-real-people-4515f72db648)
 - [a11yTips — Overview](http://dboudreau.tumblr.com/overview)
-- [Carousels and slideshows: accessibility for developers | Access iQ](http://www.accessiq.org/create/content/carousels-and-slideshows-accessibility-for-developers)
 - [Category:AriaBestPractices - W3C Wiki](http://www.w3.org/wiki/Category:AriaBestPractices)
 - [Accessibility | Marco's Accessibility Blog](https://www.marcozehe.de/category/accessibility/)
-- [Blog | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/)
+- [Technical Archives - TPGi](https://www.tpgi.com/technical/)
 - [Notes on ARIA by Taylor Hunt on CodePen](https://codepen.io/tigt/blog/notes-on-aria)
 - [The Accessibility Cheatsheet | bitsofcode](http://bitsofco.de/2015/the-accessibility-cheatsheet/)
 - [How to Meet WCAG 2.0](https://www.w3.org/WAI/WCAG20/quickref/)
@@ -1136,7 +1143,7 @@ Others (doc, about, etc.):
 - [WebAIM: Articles](http://webaim.org/articles/#html)
 - [Patterns for accessible webchats | Accessibility](https://accessibility.blog.gov.uk/2016/12/09/patterns-for-accessible-webchats/)
 - [CSS outline property - outline: none and outline: 0](http://outlinenone.com/)
-- [how to remove CSS outlines in an accessible manner? | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/)
+- [how to remove CSS outlines in an accessible manner? - TPGi](https://www.tpgi.com/how-to-remove-css-outlines-in-an-accessible-manner/)
 - [Accessibility Wins](http://a11ywins.tumblr.com/)
 - [paypal/AATT](https://github.com/paypal/AATT)
 - [Notes On Client-Rendered Accessibility](http://www.smashingmagazine.com/2015/05/06/client-rendered-accessibility/)
@@ -1254,9 +1261,8 @@ Because touch can't handle it on link, abbr, images, etc. Some screen reader ign
 
 See [Labelling](#labelling)
 
-- [Using the HTML title attribute – Updated Dec 2012 | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
+- [Using the HTML title attribute - Updated March 2020 - TPGi](https://www.tpgi.com/using-the-html-title-attribute/)
 - [3 Semantics, structure, and APIs of HTML documents — The title attribute | HTML 5.1 Nightly](http://www.w3.org/html/wg/drafts/html/master/dom.html#the-title-attribute)
-- [Using the HTML title attribute – Updated March 2020 | TPG – The Accessibility Experts](https://developer.paciellogroup.com/blog/2010/11/using-the-html-title-attribute/)
 
 ## Update content (script, AJAX)
 
@@ -1347,7 +1353,7 @@ Using `hidden` don't allow to make transitional states with CSS only. If you wan
 - http://tjvantoll.com/2013/01/09/html5-hidden-attribute-browser-support/
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#hidden
 - https://stackoverflow.com/questions/10349987/how-to-notify-screen-readers-using-wai-aria-that-a-div-is-now-visible/10351673#10351673
-- [HTML5 Accessibility Chops: hidden and aria-hidden | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/)
+- [HTML5 Accessibility Chops: hidden and aria-hidden - TPGi](https://www.tpgi.com/html5-accessibility-chops-hidden-and-aria-hidden/)
 
 ## Collapsible
 
@@ -1501,9 +1507,9 @@ Or use a shadow DOM/subdom:
 <p>Use tab key to focus the button</p>
 ```
 
-- [HTML5 canvas sub DOM | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/02/html5-canvas-sub-dom/)
-- [Flipboard – React Canvas Accessibility | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](http://www.paciellogroup.com/blog/2015/02/flipboard-react-canvas-accessibility/)
-- [Notes on accessibility of text replacement using HTML5 canvas | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2009/06/notes-accessibility-of-text-replacement-using-html5-canvas/)
+- [HTML5 canvas sub DOM - updated 29th march 2020 - TPGi](https://www.tpgi.com/html5-canvas-sub-dom/)
+- [Flipboard - React Canvas Accessibility - TPGi](https://www.tpgi.com/flipboard-react-canvas-accessibility/)
+- [Notes on accessibility of text replacement using HTML5 canvas - TPGi](https://www.tpgi.com/notes-accessibility-of-text-replacement-using-html5-canvas/)
 - [WebAIM: Future Web Accessibility: canvas](http://webaim.org/blog/future-web-accessibility-html-canvas/)
 - [Basic usage of canvas - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage)
 - [Hit regions and accessibility - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility)
@@ -1524,7 +1530,7 @@ Or use a shadow DOM/subdom:
 - Elements with `tabindex="-1"` are not, but are focusable with scripting
 - Elements with `tabindex=">0"` are never a good idea
 
-- [Using the tabindex attribute | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2014/08/using-the-tabindex-attribute/)
+- [Using the tabindex attribute - TPGi](https://www.tpgi.com/using-the-tabindex-attribute/)
 
 ### Focusable
 
@@ -1536,13 +1542,13 @@ See [Spelling is important](Text#spelling-is-important)
 
 ## Tooltip
 
-- [Simple standalone toggletip widget pattern | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2016/01/simple-standalone-toggletip-widget-pattern/)
+- [Simple standalone toggletip widget pattern - TPGi](https://www.tpgi.com/simple-standalone-toggletip-widget-pattern/)
 
 ## Scrollable element
 
 Firefox: scrollable elements are focusable (via keytab) without `tabindex` attribute
 
-- [Short note on improving usability of scrollable regions | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2016/02/short-note-on-improving-usability-of-scrollable-regions/)
+- [Short note on improving usability of scrollable regions - TPGi](https://www.tpgi.com/short-note-on-improving-usability-of-scrollable-regions/)
 
 ## Extra text ease accessibility
 
@@ -1878,7 +1884,7 @@ When a form is submitted, and the result is the same page (with error message, e
 - [nsLoginManager.js - DXR](https://dxr.mozilla.org/firefox/source/toolkit/components/passwordmgr/src/nsLoginManager.js#626) - Firefox source code of utils to find login and password inputs
 - [1119454 - (password-recipes) Support per-sites recipes for capturing and filling the user's login credentials](https://bugzilla.mozilla.org/show_bug.cgi?id=1119454)
 - [Label and name inputs properly — Web Fundamentals](https://developers.google.com/web/fundamentals/input/form/label-and-name-inputs?hl=en)
-- http://blog.paciellogroup.com/2011/07/html5-accessibility-chops-form-control-labeling/
+- [HTML5 Accessibility Chops: form control labeling - TPGi](https://www.tpgi.com/html5-accessibility-chops-form-control-labeling/)
 - [Accessible Forms 1: Labels and identification | Web Usability](http://usability.com.au/2013/04/accessible-forms-1-labels-and-identification/)
 - [Accessible Forms 2: Required Fields and Extra Information | Web Usability](http://usability.com.au/2013/05/accessible-forms-2-required-fields-and-extra-information/)
 - http://accessibility.oit.ncsu.edu/training/forms/multiple-inputs.html
@@ -1924,7 +1930,7 @@ See also:
 
 - [Labels in input fields aren’t such a good idea | Laura Kalbag](http://laurakalbag.com/labels-in-input-fields-arent-such-a-good-idea/)
 - [The HTML5 placeholder attribute is not a substitute for the label element | 456 Berea Street](http://www.456bereastreet.com/archive/201204/the_html5_placeholder_attribute_is_not_a_substitute_for_the_label_element/)
-- [HTML5 Accessibility Chops: the placeholder attribute | The Paciello Group – Your Accessibility Partner (WCAG 2.0/508 audits, VPAT, usability and accessible user experience)](https://www.paciellogroup.com/blog/2011/02/html5-accessibility-chops-the-placeholder-attribute/)
+- [HTML5 Accessibility Chops: the placeholder attribute - TPGi](https://www.tpgi.com/html5-accessibility-chops-the-placeholder-attribute/)
 - [UI - UX - Placeholder as label](UI - UX#placeholder-as-label)
 
 ### Input inside label
@@ -4566,7 +4572,7 @@ See also [Hide an element to assistive technologies](CSS#hide-an-element-to-assi
 - [Know your ARIA: 'Hidden' vs 'None'](http://www.scottohara.me/blog/2018/05/05/hidden-vs-none.html)
 - http://asurkov.blogspot.fr/2012/02/aria-hidden-and-rolepresentation.html
 - http://john.foliot.ca/aria-hidden
-- http://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/
+- [HTML5 Accessibility Chops: hidden and aria-hidden - TPGi](https://www.tpgi.com/html5-accessibility-chops-hidden-and-aria-hidden/)
 
 ## Input-Controlled Web Design
 
