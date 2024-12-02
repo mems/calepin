@@ -17,16 +17,18 @@
 
 ![PDF101 An Adobe Document Walkthrough](PDF101%20an%20Adobe%20document%20walkthrough.png)
 
+- [Free PDF Reader - Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader) - [sumatrapdfreader/sumatrapdf: SumatraPDF reader](https://github.com/sumatrapdfreader/sumatrapdf)
+
 ## Optimization
 
-- with Preview and Quartz filters
+- with Preview and Quartz filters (open the file in Preview, File -> Export, then selecting one of the Quartz filters)
 	- [Compress a PDF in Preview on Mac - Apple Support](https://support.apple.com/guide/preview/compress-a-pdf-prvw1509/mac)
 	- `/System/Library/Printers/Libraries/quartzfilter <inputfile> <filterpath.qfilter> <outputfile>`
 	- [joshcarr/Apple-Quartz-Filters](https://github.com/joshcarr/Apple-Quartz-Filters)
-	- [Shrink Preview files without ruining image quality | Macworld](https://www.macworld.com/article/1168311/shrink-preview-files-without-ruining-image-quality.html)
-	- [How to create custom PDF compression filters in OS X - CNET](https://www.cnet.com/how-to/how-to-create-custom-pdf-compression-filters-in-os-x/)
+	- [Shrink Preview files without ruining image quality | Macworld](https://web.archive.org/web/20240404094654/https://www.macworld.com/article/218979/shrink-preview-files-without-ruining-image-quality.html)
+	- [How to create custom PDF compression filters in OS X - CNET](https://web.archive.org/web/20240614195748/https://www.cnet.com/tech/computing/how-to-create-custom-pdf-compression-filters-in-os-x/)
 	- [macos - How to decrease .pdf size without losing quality - Ask Different](https://apple.stackexchange.com/questions/297417/how-to-decrease-pdf-size-without-losing-quality)
-
+- [Lightweight PDF – A PDF compressor for Mac](https://lightweightpdf.com/)
 - [mattdesl/gsx-pdf-optimize: Optimize PDFs with Ghostscript command](https://github.com/mattdesl/gsx-pdf-optimize)
 
 ## Signature

@@ -660,7 +660,7 @@ Pour 10 portions :
 pour 8 parts
 
 - 1 pâte brisée
-- 1 l de lait
+- 1L de lait
 - 150 g de sucre en poudre
 - 90 g de maïzena
 - 1 gousse de vanille
@@ -678,6 +678,19 @@ pour 8 parts
 10. laisser refroidir.
 
 - [Flan pâtissier traditionnel : recette de Flan pâtissier traditionnel](https://www.marmiton.org/recettes/recette_flan-patissier-traditionnel_15330.aspx)
+
+- 3 oeufs
+- 180 gr de sucre
+- 80 g de maïzena (fécule de maïs)
+- 1 gousse de vanille
+- 1L de lait écrémé
+- 200 gr de crème liquide entière
+- 1 pâte feuilletée
+
+50 minutes, 180°C
+
+
+- [Le flan en poudre, le secret le mieux gardé des boulangers - YouTube](https://www.youtube.com/watch?v=jXtQD22i3EY&t=110)
 
 ### Brownie
 
@@ -823,6 +836,20 @@ Citron
 
 43
 
-#### Punch
+#### Punch planteur
+
+- 10% de sucre (en sirop ou en poudre)
+- 20% de rhum 50° ou plus (rhum de qualité)
+- 40% de jus d'orange
+- 30% de jus autre (multivitamines, ananas, goyave, etc.)
+- [quatre épices ou équivalent](https://fr.wikipedia.org/wiki/Quatre-%C3%A9pices) :
+	- noix de muscade
+	- girofle
+	- gingembre ou poivre blanc
+	- cannelle
+- en fonction des goûts : une gousse de la vanille, un peu de jus de citron vert, quelques graines de cardamome, etc.
+
+Utiliser des jus de fruits 100% pur jus. Éviter le nectar de fruit, ABC/à base concentré, boissons goût fruit ou aux fruits.
+Faire le punch à l'avance et le laisser macérer au réfrigérateur au moins 24h, voire 48h.
 
 - [Les 3 secrets pour un bon punch planteur - Standblog](https://web.archive.org/web/20220709045929/https://www.standblog.org/blog/post/2008/08/12/Les-3-secrets-pour-un-bon-punch-planteur)

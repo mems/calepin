@@ -1,3 +1,4 @@
+- [Smartbuilders - YouTube](https://www.youtube.com/@Smartbuilders)
 
 Construction quality and defects examples:
 
@@ -97,3 +98,8 @@ Use towel (multiple layers)
 
 - [How To Build Walls – The Stone Trust](https://web.archive.org/web/20230601193946/https://thestonetrust.org/resource-information/how-to/)
 - [DRY STONE TV - YouTube](https://www.youtube.com/@drystone-tv)
+
+
+## Drywall
+
+- [Lathing and Plastering - GA Archives - YouTube](https://www.youtube.com/watch?v=-1CACkgUJcU&t=0s)
