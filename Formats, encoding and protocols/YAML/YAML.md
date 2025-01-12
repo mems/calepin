@@ -2,6 +2,11 @@
 - [The Official YAML Web Site](http://yaml.org/)
 - `*.yml`
 
+## Syntax
+
+- [syntax - How do I break a string in YAML over multiple lines? - Stack Overflow](https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines/21699210#21699210)
+- [Scripts and job logs | GitLab](https://docs.gitlab.com/ee/ci/yaml/script.html#use-special-characters-with-script) - "Use special characters with script": "commands that contain a colon (`:`) must be wrapped in single quotes (`'`)"
+
 ## YAML is a superset of JSON
 
 JSON can be used as YAML, but:

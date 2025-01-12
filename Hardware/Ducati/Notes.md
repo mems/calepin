@@ -10,6 +10,8 @@ Sinon après le boitier des fusibles
 
 TecMate SAE100 (et pas SAE71) (UNIVERSAL USB CHARGER) + TecMate SAE47 (SAE-DUCATI ADAPTERS)
 http://www.tecmate.com/u_accessories_power.php
+- [OptiMate CABLE O-47 - OptiMate](https://optimate1.com/product/cbleo-47/?wcmlc=EUR)
+- [OptiMate USB O-100 - OptiMate](https://optimate1.com/product/usbo-100/?wcmlc=EUR)
 
 Connecteur batterie moto (Cosse ronde/anneau): Eyelet or ring terminal.
 

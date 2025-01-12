@@ -29,6 +29,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - [Scott Brown Carpentry - YouTube](https://www.youtube.com/@ScottBrownCarpentry)
 - [Cray Birkenwald - YouTube](https://www.youtube.com/@CrayBirkenwald)
 - [Astuces Design - Apprendre l'Ébénisterie - YouTube](https://www.youtube.com/@AstucesDesign/videos)
+- [Workshop Companion - YouTube](https://www.youtube.com/@WorkshopCompanion)
 	- [Comment Réussir vos COUPES D'ONGLET avec une Précision Extrême ! (et sans outils de mesure) - YouTube](https://www.youtube.com/watch?v=0usUql1lxLU) - faire un test sur une pièce de test, avant de faire l'opération sur les pièces définitives
 
 - find wood dealers / distributor:
@@ -114,6 +115,8 @@ Contre plaqué, résistance : Okoumé > Peuplier > Bouleau
 
 ## Mesure, calibration and fine-tuning
 
+Aka precision, repetitive measurements, repeatability, pattern
+
 - [Tracés et mesures, tous mes trucs, méthodes et astuces - YouTube](https://www.youtube.com/watch?v=vjDTNUCepZM)
 	- éviter de mesure
 	- crayon bien taillé 2H ou critérium/portemine 0,5 mm
@@ -131,6 +134,7 @@ Contre plaqué, résistance : Okoumé > Peuplier > Bouleau
 - [SCIE CIRCULAIRE : L'astuce simple et précise du travail au T - YouTube](https://www.youtube.com/watch?v=ncMlG9INtB4)
 - [Technique de menuiserie : tracer n'importe quel angle sans rapporteur - YouTube](https://www.youtube.com/watch?v=uz31Zw_7hjE) - [Tangente.xls - Google Drive](https://drive.google.com/file/d/1VP5YX2G3Q73qmN9aLSrsvZQEZF3o8UpV/view?pli=1)
 - [Être précis(e) avec des outils à main (technique de menuiserie) - YouTube](https://www.youtube.com/watch?v=T3DzsPSUIIM)
+- [Scored Story Stick -- Dead On Accurate - YouTube](https://www.youtube.com/watch?app=desktop&v=hsjdWT6gqhE)
 
 ## Router
 
@@ -185,3 +189,16 @@ Use a router:
 - [CRASH TEST : Jusqu'où peut-on aller avec une PROTECTION CÉRAMIQUE ? - YouTube](https://www.youtube.com/watch?app=desktop&v=SEeO57q_ubA)
 - [Comment durcir une finition à la gomme laque - YouTube](https://www.youtube.com/watch?v=m6swOLcPG_0)
 - [Comment appliquer la gomme laque - YouTube](https://www.youtube.com/watch?v=araGVzZRHNs)
+
+## Joinery
+
+pilot hole
+
+- [Pocket Holes Overexplained - YouTube](https://www.youtube.com/watch?v=OmMN_XKJ4nc)
+- [Pocket-hole joinery - Wikipedia](https://en.m.wikipedia.org/wiki/Pocket-hole_joinery)
+- [Testing pocket holes against mortise and tenon and dowel joints](https://woodgears.ca/joint_strength/pockethole.html)
+- [What screws are best for pocket holes? - YouTube](https://www.youtube.com/watch?app=desktop&v=RbUNKbjnjHY)
+- [joinery - Pocket holes vs screwed butt joint - Woodworking Stack Exchange](https://woodworking.stackexchange.com/questions/7321/pocket-holes-vs-screwed-butt-joint)
+
+- [Dowelmax 1/2 Drill Guide and Center Block Package | Dowelmax](https://www.dowelmax.com/product/dowelmax-1-2-drill-guide-package/?aff=7)
+- [Pocket Hole Cutters | Castle, Inc.](https://castleusa.com/categories/machines-and-tables/pocket-cutters.html)

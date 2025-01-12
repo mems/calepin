@@ -765,6 +765,7 @@ powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.j
 powershell "Start-Process -NoNewWindow -FilePath node.exe -ArgumentList 'index.js' -Wait
 ```
 
+- `node --input-type=module -e "import*as p from'node:fs/promises';const c=process.cwd(),r=await p.realpath(c);console.log(r);process.exit(c==r?0:1)"`
 - [windows - What is the difference between NTFS Junction Points and Symbolic Links? - Stack Overflow](https://stackoverflow.com/questions/9042542/what-is-the-difference-between-ntfs-junction-points-and-symbolic-links/48586946#48586946)
 - [Hard Links and Junctions - Win32 apps | Microsoft Docs](https://docs.microsoft.com/en-us/windows/win32/fileio/hard-links-and-junctions)
 
@@ -859,6 +860,14 @@ if not defined FNM_AUTORUN_GUARD (
 )
 ```
 
+To spawn process without using a shell (`node`, `npm`, `npx`), use instead something like `C:\path\to\node.cmd` with the following content:
+
+```
+@echo off
+fnm use --silent-if-unchanged
+node %*
+```
+
 ## Max memory size
 
 Aka `--max-old-space-size`, "FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory", "EXEC : FATAL error : Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory"
@@ -896,3 +905,71 @@ Increase memory to 4GB: `node --max-old-space-size=4096 index.js`. 1024 for 1GB,
 - [nexe/nexe: 🎉 create a single executable out of your node.js apps](https://github.com/nexe/nexe)
 - [Compiling a Node.js Application into an .exe File | Engineering Education (EngEd) Program | Section](https://web.archive.org/web/20230604094945/https://www.section.io/engineering-education/compile-your-nodejs-application-into-a-exe-file/) - Use pkg or nexe
 - [criblio/js2bin: NodeJS application to native executable](https://github.com/criblio/js2bin)
+
+## HTTP Proxy
+
+Node use interally the package `undici`, which parse the proxy URI with URL API for which the protocol is not optional:
+
+```
+$ HTTPS_PROXY=example.com:8081 node -e "console.log(new URL(process.env.https_proxy ?? process.env.HTTPS_PROXY))"
+URL {
+  href: 'example.com:8081',
+  origin: 'null',
+  protocol: 'example.com:',
+  username: '',
+  password: '',
+  host: '',
+  hostname: '',
+  port: '',
+  pathname: '8081',
+  search: '',
+  searchParams: URLSearchParams {},
+  hash: ''
+}
+$ HTTPS_PROXY=https://example.com:8081 node -e "console.log(new URL(process.env.https_proxy ?? process.env.HTTPS_PROXY))"
+URL {
+  href: 'https://example.com:8081/',
+  origin: 'https://example.com:8081',
+  protocol: 'https:',
+  username: '',
+  password: '',
+  host: 'example.com:8081',
+  hostname: 'example.com',
+  port: '8081',
+  pathname: '/',
+  search: '',
+  searchParams: URLSearchParams {},
+  hash: ''
+}
+```
+
+
+> EnvHttpProxyAgent automatically reads the proxy configuration from the environment variables `http_proxy`, `https_proxy`, and `no_proxy` and sets up the proxy agents accordingly. When `http_proxy` and `https_proxy` are set, `http_proxy` is used for HTTP requests and `https_proxy` is used for HTTPS requests. If only `http_proxy` is set, `http_proxy` is used for both HTTP and HTTPS requests. If only `https_proxy` is set, it is only used for HTTPS requests.
+>
+> `no_proxy` is a comma or space-separated list of hostnames that should not be proxied. The list may contain leading wildcard characters (`*`). If `no_proxy` is set, the EnvHttpProxyAgent will bypass the proxy for requests to hosts that match the list. If > `no_proxy` is set to `"*"`, the EnvHttpProxyAgent will bypass the proxy for all requests.
+>
+> Uppercase environment variables are also supported: `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY`. However, if both the lowercase and uppercase environment variables are set, the uppercase environment variables will be ignored.
+
+Need to set full URI (not just the host and the port), eg. `HTTPS_PROXY=http://example.com:8000`
+
+For some libraires / tools the procotol is optional and could use http or https as default protocol
+
+- https://github.com/nodejs/node/blob/2cd385ef6714b24b62edf22dd2ddd756eee9d16b/deps/undici/src/lib/dispatcher/env-http-proxy-agent.js#L35-L47
+- https://github.com/nodejs/node/blob/2cd385ef6714b24b62edf22dd2ddd756eee9d16b/deps/undici/src/docs/docs/api/EnvHttpProxyAgent.md?plain=1#L7-L11
+
+- https://github.com/nodejs/node/blob/5ad2ca920cdc6d99a8d673724b35115fef925e78/deps/openssl/openssl/crypto/http/http_client.c#L965C17-L965C36 -> https://github.com/nodejs/node/blob/5ad2ca920cdc6d99a8d673724b35115fef925e78/deps/openssl/openssl/crypto/http/http_lib.c#L74-L84
+- NPM use [proxy-agent - npm](https://www.npmjs.com/package/proxy-agent), which use [proxy-from-env](https://www.npmjs.com/package/proxy-from-env) use the request procol as default https://github.com/Rob--W/proxy-from-env/blob/095d1c26902f37a12e22bea1b8c6b67bf13fe8cd/index.js#L47-L50 ("default to the requested URL's scheme")
+- curl use HTTP as default protocol ("head: It's a HTTP proxy") https://github.com/curl/curl/blob/4af40b3646d3b09f68e419f7ca866ff395d1f897/lib/url.c#L4608-L4638
+- wget use HTTP as default protocol ("Just prepend "http://" to URL.") https://git.savannah.gnu.org/cgit/wget.git/tree/src/retr.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482#n1283 https://git.savannah.gnu.org/cgit/wget.git/tree/src/url.c?id=93c1517c4071c4288ba5a4b038e7634e4c6b5482#n609
+- Python's urllib use request protocol as default https://github.com/python/cpython/blob/936135bb97fe04223aa30ca6e98eac8f3ed6b349/Lib/urllib/request.py#L801-L802
+
+See also:
+
+- [proxy - difference between http_proxy and https_proxy - Stack Overflow](https://stackoverflow.com/questions/58559109/difference-between-http-proxy-and-https-proxy)
+- [https_proxy=httpとhttps_proxy=httpsは何が違うのか？ - Qiita](https://web.archive.org/web/20220517024816/https://qiita.com/testnin2/items/1d6c0108512e7ff44ee1)
+- [Set up proxy using http_proxy & https_proxy environment variable in Linux? | GoLinuxCloud](https://web.archive.org/web/20240417033221/https://www.golinuxcloud.com/set-up-proxy-http-proxy-environment-variable/)
+- [http - Are HTTP_PROXY, HTTPS_PROXY and NO_PROXY environment variables standard? - Super User](https://superuser.com/questions/944958/are-http-proxy-https-proxy-and-no-proxy-environment-variables-standard)
+- [Proxy environment variables - everything curl](https://everything.curl.dev/usingcurl/proxies/env.html)
+- [proxy-agents/packages/proxy-agent at main · TooTallNate/proxy-agents](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent)
+- [make-fetch-happen/README.md at ecd8f33c411096e8f79ae6f7043edab11ab29289 · npm/make-fetch-happen](https://github.com/npm/make-fetch-happen/blob/ecd8f33c411096e8f79ae6f7043edab11ab29289/README.md#opts-proxy)
+- [x/net/http/httpproxy: document proxy authentication support · Issue #61505 · golang/go](https://github.com/golang/go/issues/61505)

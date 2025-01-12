@@ -382,6 +382,79 @@ Conseils
 - pomme de terre bintje
 - [Frite — Wikipédia](https://fr.wikipedia.org/wiki/Frite#Pr%C3%A9paration)
 
+### Lasagnes
+
+
+> Ingrédients pour 4 personnes :
+>
+> - 250 g de feuilles de lasagne sèches
+> - 100 g de parmesan en morceau
+> - ½ l de lait entier
+> - 40 g de farine
+> - 40 g de beurre
+> - 10 cl de bouillon de volaille
+> - 5 cl d’huile d’olive
+> - 200 g de bœuf haché
+> - 100 g de pulpe de tomates
+> - 100 g de carottes
+> - 50 d’oignons
+> - 50 g de céleris branches
+> - 2 gousses d’ail
+> - 5 cl de vin rouge
+> - Sel
+> - Poivre
+> - Thym
+> - Laurier
+> - Noix de muscade
+> - 3 g de sucre
+>
+> Préparation :
+>
+> Préparation des aromates :
+>
+> 1. Préchauffer le four à 180°C
+> 2. Peler et laver les légumes
+> 3. Ciseler finement l’oignon
+> 4. Tailler la carotte et le céleri en petits dés de 2 à 3 mm
+> 5. Dégermer les gousses d’ail
+>
+> Cuisson de la viande hachée :
+>
+> 1. Dans la cocotte, chauffer 3 cl d’huile d’olive
+> 2. Colorer les oignons, les carottes et le céleri
+> 3. Ajouter la viande hachée et colorer à feu vif durant 2 à 3 minutes
+> 4. Ajouter le vin rouge
+> 5. Laisser cuire jusqu’à évaporation quasi complète du vin rouge
+> 6. Ajouter ensuite le fond de volaille, le bouquet garni, les gousses d’ail, la pulpe de tomates et le sucre
+> 7. Couvrir et cuire au four à 180°C durant 1 heure
+>
+> Préparation du roux :
+>
+> 1. Réaliser un roux blanc avec le beurre et la farine. Pour cela, faire fondre le beurre puis ajouter la farine et mélanger.
+> 2. Ajouter le lait, le sel, le poivre et la noix de muscade en remuant. Laissez cuire jusqu’à 1 minute après ébullition.
+>
+> Assemblage et cuisson :
+>
+> 1. Dans un plat rectangulaire, verser le reste de l’huile d’olive et étaler avec un pinceau
+> 2. Répartir une fine couche de béchamel.
+> 3. Recouvrir uniformément de feuilles de lasagne
+> 4. Puis ajouter 5 mm de sauce tomate à la viande
+> 5. Replacer une couche de lasagnes
+> 6. Monter en couches superposées
+> 7. Terminer par une couche de lasagnes
+> 8. Verser le reste de béchamel sur les lasagnes
+> 9. Lisser uniformément
+> 10. Recouvrir de parmesan râpé
+> 11. Enfourner à 180°C et baisser le four à 160°C
+> 12. Laisser cuire durant 50 minutes à 1 heure
+> 13. Sortir les lasagnes du four et laisser reposer 10 à 15 minutes avant de couper
+>
+> Dressage des lasagnes
+>
+> 1. Couper une généreuse portion de lasagne et servir dans une assiette
+>
+> — [La meilleure façon de... Réussir ses lasagnes - 750g - YouTube](https://www.youtube.com/watch?v=0nE7dAlDshk)
+
 ## Other
 
 - [5 Mouth-Watering Rib Recipes by Tasty](https://tasty.co/compilation/5-mouth-watering-rib-recipes)

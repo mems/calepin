@@ -144,6 +144,7 @@ plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | php('php://stdin','
 - [rlictd/rlictd.py at master · anoved/rlictd](https://github.com/anoved/rlictd/blob/master/rlictd.py) - use AppleScripts to add item to ReadList, use Safari local file
 	Use [anoved/iCloudTabsReader: Python module to get list of iCloud Tabs currently known to the host Mac.](https://github.com/anoved/iCloudTabsReader)
 - https://addons.mozilla.org/en-US/firefox/addon/icloud-bookmarks/
+- [Export your links from Safari reading list · GitHub](https://gist.github.com/andphe/3232343) - `/usr/bin/plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | grep -E  -o '<string>http[s]{0,1}://.*</string>' | grep -v icloud | sed -E 's/<\/{0,1}string>//g'` (System Preferences > Security & Privacy > Privacy. Under "Full Disk Access" add Terminal)
 
 ## Photo Stream
 

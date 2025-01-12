@@ -27,6 +27,7 @@ Toolcraft, Facom (cher), Wolfcraft
 ## Electronics
 
 - [MQTT — Wikipedia](https://en.wikipedia.org/wiki/MQTT) - Machine to machine protocol
+- [Straighten Cables - update to answer your questions - YouTube](https://www.youtube.com/watch?v=4pGsR2k2UKI) - dip cable 15s in 80°C water
 
 ## USB-C
 
@@ -138,27 +139,20 @@ Aka [Computer-aided design](https://en.wikipedia.org/wiki/Computer-aided_design)
 
 Utiliser (spayer ou badigeonner) de l'eau savonneuse ou un produit de lissage pour faire le lissage
 
-Utilisation :
+> - Les mastics silicones sont les plus utilisés dans les domaines de la menuiserie, de la façade légère, du mur rideau, en vitrage bord à bord, en joint de vitrage pour menuiserie bois et pour les applications sanitaires.
+> - Les mastics hybrides et les polyuréthanes sont les plus utilisés en façade béton : joint de dilatation, joints entre panneaux, joint de construction.
+> - Les mastics acryliques sont surtout utilisés en finition intérieure pour menuiserie ou en finition avant peinture pour le rebouchage de fissures.
+> - Les mastics butyles sont principalement utilisés pour des assemblages démontables en menuiserie aluminium et pour les applications dans le domaine alimentaire, ainsi que dans de nombreux domaines industriels.
+>
+> — [Quels sont les différents types de mastics ? Quand les utiliser ? | Illbruck](https://www.illbruck.com/fr-fr/conseils-dexperts/blog/quels-sont-les-differents-types-de-mastics-quand-les-utiliser/)
 
-> Mastic
+> ## Mastic
 >
 > - Réparation des fissures et des trous dans les murs.
 > - Scellement des joints entre les cadres de fenêtres et les murs.
 > - Remplissage des joints entre les carreaux de céramique.
 > - Collage des éléments en bois, comme les plinthes ou les lambris.
 > - Réparation des surfaces en métal, comme les gouttières ou les tuyaux.
->
-> Silicone
->
-> - Scellement des joints de salle de bains ou de cuisine.
-> - Étanchéité des fenêtres et des portes pour empêcher les infiltrations d’air ou d’eau.
-> - Collage des éléments en verre, comme les miroirs ou les vitres.
-> - Isolation électrique des composants électroniques.
-> - Fixation des éléments décoratifs ou des accessoires dans la maison
-
-Avantages et inconvénients
-
-> Mastic
 >
 > Avantages
 >
@@ -173,7 +167,13 @@ Avantages et inconvénients
 > - Moins flexible, ce qui peut entraîner des fissures avec les mouvements des surfaces.
 > - Certains types de mastic peuvent se rétracter ou se décolorer avec le temps.
 >
-> Silicone
+> ## Silicone
+>
+> - Scellement des joints de salle de bains ou de cuisine.
+> - Étanchéité des fenêtres et des portes pour empêcher les infiltrations d’air ou d’eau.
+> - Collage des éléments en verre, comme les miroirs ou les vitres.
+> - Isolation électrique des composants électroniques.
+> - Fixation des éléments décoratifs ou des accessoires dans la maison
 >
 > Avantages
 >
@@ -199,6 +199,26 @@ Avantages et inconvénients
 >
 > — [Mastic ou silicone : Quelle est la différence ?](https://www.devenirbricoleur.com/mastic-ou-silicone.html)
 
+> Les colles permettent de relier les matériaux, mais ne sont pas toujours élastiques. Les mastics permettent également de lier les matériaux, tout en absorbant les mouvements de dilatation des supports. La liaison sera cependant moins rigide qu'avec une colle. Les différents produits [...] mastic à base de MS Polymères, offrent à la fois une liaison solide et une bonne étanchéité. Ils allient les deux propriétés.
+>
+> — [Quelle est la différence entre les mastics et les colles?](https://www.soudal.fr/pro/faq/quelle-est-la-diff%C3%A9rence-entre-les-mastics-et-les-colles)
+
 - [Choisir un Mastic : Silicone, Polyuréthane (PU), MS Polymer ou Acrylique ?](https://infos.wurth.fr/choisir-un-mastic/)
 - [Max Jointoyeur PRO - YouTube](https://www.youtube.com/@maxjointoyeurpro5994/videos)
 - [Tuto joint d'angle de finition , mur, plafond , menuiserie , apprendre les base et l'outillage . - YouTube](https://www.youtube.com/watch?v=nBbXPvU2uls)
+
+- [Règles d’application d’un calfeutrement avec fond de joint plus mastic | Illbruck](https://www.illbruck.com/fr-fr/conseils-dexperts/blog/regles-d-application-d-un-calfeutrement-avec-fond-de-joint-plus-mastic/)
+- [Calculateur pour mastics](https://sealantcalculator.klimopcms.nl/?language=fr)
+- [FAQ - Mastics | Illbruck](https://www.illbruck.com/fr-fr/conseils-dexperts/foire-aux-questions/faq-mastics/)
+
+## Label
+
+Aka étiquette, systèmes de marquage
+
+- HellermannTyton
+- Weidmüller
+- TE Connectivity
+- [LAPP](https://www.lapp.com/fr/fr/produits/systemes-de-marquage/c/114034)
+- [Brady FR | Identification industrielle, Signalisation de sécurité et Etiquetage](https://www.brady.fr/)
+- [Étiquettes Brady Fils & Câbles | Identification | Sodistrel](https://www.sodistrel.com/reperage-de-fils-et-cables)
+- [Résultats de la recherche - etiquette de cable" dans Accessoires pour câbles](https://www.conrad.fr/fr/search.html?search=etiquette%20de%20cable&categoryId=c110523)

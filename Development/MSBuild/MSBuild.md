@@ -92,11 +92,35 @@
 
 ## Exec task
 
+Aka tool task
+
 How to encode `;` in variable given to `EnvironmentVariables` (which use `;` as variables separator). TL;DR: use `%3B`:
 
 - [Customize system environment variable Path for MSBuild Exec Task - Stack Overflow](https://stackoverflow.com/questions/31664834/customize-system-environment-variable-path-for-msbuild-exec-task/66560402#66560402)
 - [Exec.EnvironmentVariables fails to parse well-formed PATH · Issue #773 · dotnet/msbuild](https://github.com/dotnet/msbuild/issues/773#issuecomment-262295113)
+- use an item group
 
 Other:
 
 - [Exec Task - MSBuild | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/msbuild/exec-task?view=vs-2022)
+- [Running Windows PowerShell Scripts from MSBuild Project Files | Microsoft Learn](https://learn.microsoft.com/en-us/aspnet/web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files)
+
+## Variables
+
+MSBuild Property, Item, Item Metadata
+
+```
+<Exec Command="powershell -NonInteractive -executionpolicy Unrestricted &quot;Write-Host `&quot;A=1``0B=2``0C=3`&quot;&quot;" EchoOff="true" ConsoleToMSBuild="true">
+	<Output TaskParameter="ConsoleOutput" PropertyName="EnvironmentVariablesRaw"/>
+</Exec>
+<ItemGroup>
+	<FnmEnvironmentVariables Include="$(EnvironmentVariablesRaw.Split(`%00`))"/>
+</ItemGroup>
+<Exec Command="powershell -NonInteractive -executionpolicy Unrestricted &quot;[System.Environment]::GetEnvironmentVariables()&quot;" EnvironmentVariables="@(FnmEnvironmentVariables)"/>
+```
+
+- [Different ways to pass variables in MSBuild - Stack Overflow](https://stackoverflow.com/questions/2814424/different-ways-to-pass-variables-in-msbuild#2816244)
+- [Use property functions to call .NET methods - MSBuild | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/msbuild/property-functions?view=vs-2022)
+- [IT:AD:MSbuild:HowTo:Project Syntax/Properties and Arrays / IT:AD:MSBuild:HowTo / IT:AD:MSBuild / IT:AD (IT App Development) / IT \[Notes\]](https://www.skysigal.com/it/ad/msbuild/howto/project_syntax_properties_and_arrays)
+- [How do I perform the EXEC task in a "loop" with MSBuild ItemGroups? - Stack Overflow](https://stackoverflow.com/questions/6036748/how-do-i-perform-the-exec-task-in-a-loop-with-msbuild-itemgroups)
+- [Escape Special Characters in MSBuild - MSBuild | Microsoft Learn](https://learn.microsoft.com/en-us/visualstudio/msbuild/how-to-escape-special-characters-in-msbuild?view=vs-2022)

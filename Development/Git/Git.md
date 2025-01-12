@@ -705,3 +705,30 @@ git checkout $(git rev-list -n 1 HEAD -- "$file")^ -- "$file"
 ## Map name and emails
 
 - [Git - gitmailmap Documentation](https://git-scm.com/docs/gitmailmap)
+
+## gitattributes
+
+- [.gitattributes Best Practices - Muhammad Rehan Saeed](https://web.archive.org/web/20240815034550/https://rehansaeed.com/gitattributes-best-practices/)
+- [Configuring Git to handle line endings - GitHub Docs](https://web.archive.org/web/20241211200345/https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings)
+
+```sh
+git add --renormalize .
+git commit -m "Normalize all the line endings"
+```
+
+Or (but do it partially)
+
+```sh
+git rm -rf --cached .
+git reset --hard HEAD
+git status
+git commit -m "Normalize all the line endings"
+```
+
+When a not normalized file block a merge or branch switching:
+
+```sh
+echo "" > .gitattributes
+git status
+git checkout .gitattributes
+```

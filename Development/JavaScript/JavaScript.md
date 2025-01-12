@@ -6591,6 +6591,10 @@ Aka hexastring to binary data
 The ratio is 2:1 bytes
 
 ```js
+Uint8Array.fromHex(data);
+```
+
+```js
 const data = "78da93e0e6b4d35f79d292d5c436c7b286d1daeedeb5684619658f1faf99";// must data.length % 2 == 0
 
 // Encode
@@ -6619,6 +6623,10 @@ for(; i < data.length; i += 2, j++){
 See [Store bytes in JS source as Data URI](#store-bytes-in-js-source-as-data-uri)
 
 Base64 to bytes. The ratio is 4:3 bytes
+
+```js
+Uint8Array.fromBase64(data);
+```
 
 ```js
 function base64ToBytes(data){
@@ -6698,6 +6706,7 @@ function uint8ArrayToBase64Url(uint8Array, start = 0, end = uint8Array.byteLengt
 }
 ```
 
+- [Uint8Array.fromBase64() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64)
 - [Base64 encoding and decoding - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#The_Unicode_Problem)
 - [StringView - Mozilla | MDN](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/StringView)
 - https://github.com/blueimp/JavaScript-Canvas-to-Blob
