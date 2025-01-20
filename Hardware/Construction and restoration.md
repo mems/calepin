@@ -71,6 +71,9 @@ Use towel (multiple layers)
 
 ## Painting
 
+- [réchampir — Wiktionnaire, le dictionnaire libre](https://fr.wiktionary.org/wiki/r%C3%A9champir)
+- [Brosse à rechampir — Wikipédia](https://fr.wikipedia.org/wiki/Brosse_%C3%A0_rechampir)
+
 - [PEINDRE: LES 20 ERREURS DE DÉBUTANT - YouTube](https://www.youtube.com/watch?v=WYMX6pwJiFE)
 - [Fabriquer une sableuse artisanale avec bouteille gaz vide / DIY Sandblaster - YouTube](https://www.youtube.com/watch?v=4CanAwTFiiI)
 
