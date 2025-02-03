@@ -311,6 +311,7 @@ powershell -Command "Start-Process -Verb RunAs cmd -ArgumentList '/c whoami /gro
 powershell -File '..\SomeScript.ps1' -Arg1 'Val1'
 ```
 
+- `?` = `Where-Object`, `%` = `ForEach-Object`
 - [Start-Process (Microsoft.PowerShell.Management) - PowerShell | Microsoft Docs](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process?view=powershell-5.1)
 - [Verb RunAs in a Start-Process Powershell command causes an error - Stack Overflow](https://stackoverflow.com/questions/25725925/verb-runas-in-a-start-process-powershell-command-causes-an-error) - `-NoNewWindow` and `-Verb RunAs` can't be combined. See also [Multiple inputs into new prompt & Powershell -run as and -nonewwindow issue - Stack Overflow](https://stackoverflow.com/questions/69243757/multiple-inputs-into-new-prompt-powershell-run-as-and-nonewwindow-issue/69247548#69247548)
 - [Strongly Encouraged Development Guidelines - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/strongly-encouraged-development-guidelines?view=powershell-7.3)
