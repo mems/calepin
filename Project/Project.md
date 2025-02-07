@@ -154,6 +154,10 @@ Or in search engine autocomplete:
 - [Copyright — Wikipedia](https://en.wikipedia.org/wiki/Copyright)
 - [Sin — Wikipedia](https://en.wikipedia.org/wiki/Sin)
 
+## Putting people first
+
+- [Inclusive Design Principles](https://inclusivedesignprinciples.info/)
+
 ## Kiss Principle
 
 Aka Keep It Simple, Stupid
@@ -379,6 +383,13 @@ AirBnB, Uber like
 
 - [PITCH FRENCH TECH](http://www.frenchtech.co/a-propos)
 - [J’ai rencontré #Ceuxquifont (de la merde) - Le site du journal Le Postillon](http://www.lepostillon.org/J-ai-rencontre-Ceuxquifont-de-la.html)
+
+## Release
+
+- 3-tier release strategy (nightly, prerelease, release) (like Firefox)
+- semver
+- [Rapid Release Model - MozillaWiki](https://wiki.mozilla.org/Rapid_Release_Model)
+- [Moving Firefox to a faster 4-week release cycle - Future Releases](https://blog.mozilla.org/futurereleases/2019/09/17/moving-firefox-to-a-faster-4-week-release-cycle/)
 
 ## Never rely on third-party service
 

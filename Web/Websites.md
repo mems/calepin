@@ -2126,7 +2126,8 @@ Note: does the size provided (`og:video:width` and `og:video:height`) have any i
 It's related with `https://www.facebook.com/ajax/flash/expand_inline.php?...` `response.dompos[0][3].__html`
 
 > When you call the debugger to scrap changes on your og:tags of your page, all previous Facebook shares of that URL will still show the old image/video. There is no way to update all previous posts and it's this way by design for security reasons. Otherwise, someone would be able to pretend that a user shared something that he/she actually didn't.
-— [opengraph - Facebook Open Graph not clearing cache - Stack Overflow](https://stackoverflow.com/questions/5776567/facebook-open-graph-not-clearing-cache)
+>
+> — [opengraph - Facebook Open Graph not clearing cache - Stack Overflow](https://stackoverflow.com/questions/5776567/facebook-open-graph-not-clearing-cache)
 
 - https://developers.facebook.com/docs/sharing/webmasters#video
 - https://developers.facebook.com/docs/reference/opengraph/object-type/video.other
@@ -2544,6 +2545,11 @@ Parallelism (matrix) doesn't support variable:
 - [CI/CD YAML syntax reference | GitLab](https://docs.gitlab.com/ee/ci/yaml/index.html#parallelmatrix)
 - [Backend: Use CI/CD UI variables to define parallelism (#11549) · Issues · GitLab.org / GitLab · GitLab](https://gitlab.com/gitlab-org/gitlab/-/issues/11549)
 - [Backend: Implement `spec:inputs:` prerequisite for CI components (#383375) · Issues · GitLab.org / GitLab · GitLab](https://gitlab.com/gitlab-org/gitlab/-/issues/383375)
+
+Run Gitlab pipelines locally:
+
+- [Use GitLab CI to run tests locally? - Stack Overflow](https://stackoverflow.com/questions/32933174/use-gitlab-ci-to-run-tests-locally/36358790#36358790)
+- [firecow/gitlab-ci-local: Tired of pushing to test your .gitlab-ci.yml?](https://github.com/firecow/gitlab-ci-local)
 
 ## Stackexchange
 

@@ -17,6 +17,21 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 
 ## Tools
 
+- [Quelles alternatives aux poêles en téflon ? I UFC Que Choisir - YouTube](https://www.youtube.com/watch?v=Aktt0O49_aY)
+
+### Hoven
+
+- Thermostat 1 : 30°C
+- Thermostat 2 : 60°C
+- Thermostat 3 : 90°C
+- Thermostat 4 : 120°C
+- Thermostat 5 : 150°C
+- Thermostat 6 : 180°C
+- Thermostat 7 : 210°C
+- Thermostat 8 : 240°C
+- Thermostat 9 : 270°C
+- Thermostat 10 : 300°C
+
 ### Sharpen knives
 
 - [The Best Way To Sharpen & Clean Knives (And The Worst) | Epicurious - YouTube](https://www.youtube.com/watch?app=desktop&v=t-_qzsMF8RM)
@@ -26,6 +41,38 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 Mettre le join au congélateur pour le faire rétrécire
 Ne pas le couper, même si il semble trop grand (de plusieurs centimètres)
 L'insérer de façon équitable au tour de l'insert
+
+### Steel pan
+
+poêle en acier
+
+Culottage :
+
+1. bien nettoyer la poêle en acier (au produit vaiselle)
+2. mettre sur un feux moyen (dé préférence sur un feu à gaz, utiliser avec une hotte ou le faire en exterieur)
+3. verser une bonne quantité d'huile de tournesol (1 à 2 mm d'huile dans le fond)
+4. imprégner les cotés à l'aide d'un chiffon / papier essuie tout
+5. attendre que l'huile atteigne sont point de fumée (elle va se polymériser)
+6. une fois qu'elle fume "bien", retirer l'excès d'huile (verser dans un récipient)
+7. remettre à sec sur le feu en essuyant avec un papier absorbant le reste de l'excès d'huile
+8. chauffer de façon homogène le fond de la poêle en essuyant un peu les excès d'huile
+
+On obtient une coloration noir/brillante/cuivrée
+
+- [Téflon toxique 1/2 : Rénovation poêle en fer et culottage #rénovation #naturelle #téflon - YouTube](https://www.youtube.com/shorts/F-dC0b13iiY)
+- [sans téflon 2/2 : Culottage traditionnel poêle en fer #rénovation #naturelle #téflon - YouTube](https://www.youtube.com/shorts/TLm7w-cQX4c)
+
+> [culottage d'une poêle en acier avec de l'huile de tournesol]
+> évite l'huile d'olive par exemple, faut une huile de tournesol ou de pépin de raisin par exemple car elles tiennent bien les grosses chaleurs, du moins plus que les autres huiles et ça évite que l'huile brûle à la place d'être polymérisée. :)
+
+> Après avoir enlever tout les aliments, faire chauffer la poêle très chaud à feu vif. Quand ça fume bien, y verser un verre d'eau chaude (du robinet) et tout va se décoller.
+> Finir de nettoyer à l'éponge SANS produit à l'intérieur de la poêle. Ça permet de garder une fine pellicule de graisse qui permettra d'encore moins accrocher.
+
+> pour le nettoyage c'est pas du tout une bonne idée d'utiliser une paille de fer, ou tout produit abrasif genre poudre ou crème à récurer : ça crée des micro rayures au fond de la poêle qui sont autant de points d'accroche pour que les aliments attachent...
+
+> Du point de vue des substances nocives comme l'acrylamide très cancérigène et pro-inflammatoire, la cuisson à une température supérieure à 120 degrés est à éviter absolument. Il faut absolument cuire [...] à feu doux et prendre le temps
+
+- [De Buyer : ustensiles de cuisine et pâtisserie professionnels](https://www.debuyer.com/fr/)
 
 ## Main dishes and sides
 
@@ -454,6 +501,10 @@ Conseils
 > 1. Couper une généreuse portion de lasagne et servir dans une assiette
 >
 > — [La meilleure façon de... Réussir ses lasagnes - 750g - YouTube](https://www.youtube.com/watch?v=0nE7dAlDshk)
+
+### Quiche
+
+- [Quiche lorraine classique : la recette incontournable](https://cuisine.journaldesfemmes.fr/recette/304074-quiche-lorraine)
 
 ## Other
 

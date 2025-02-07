@@ -1,6 +1,7 @@
 Printers:
 
-- Prusa i3 MK3S (2019-2020)
+- Bambu Lab X1C
+- Prusa i3 MK3S
 
 ## Smoothing
 

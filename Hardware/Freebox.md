@@ -1,5 +1,16 @@
 # Freebox
 
+## Debug Android
+
+> Dans le cas du player Mini4k qui reste un Android TV NMR1 standard, il faut activer l'option développeur en cliquant sur OK plusieurs fois dans Paramètres > À propos > Build. Une notification va alors s'afficher pour que vous deveniez développer ;-) Ensuite un nouveau menu dans paramètres > Option pour les développeurs > Débogage USB va apparaitre qu'il faut activer. Il est alors possible via Ethernet ou WiFi de se connecter au player en utilisant l'outil de Google adb qu'il faut installer sur votre ordinateur.
+>
+> — https://dev.freebox.fr/bugs/task/38809#comment179510
+
+> Il n’est pas possible d’utiliser adb en USB sur la Freebox Mini 4K.
+> Il faut se connecter via le réseau avec la commande ‘adb connect ip_du_player’
+>
+> — https://dev.freebox.fr/bugs/task/16698#comment68307
+
 ## Enregistrements protégé
 
 ### Software

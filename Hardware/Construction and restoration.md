@@ -109,3 +109,111 @@ Use towel (multiple layers)
 ## Drywall
 
 - [Lathing and Plastering - GA Archives - YouTube](https://www.youtube.com/watch?v=-1CACkgUJcU&t=0s)
+
+## Radiator
+
+- [La Fonte Manufacture - Rénovation de radiateurs anciens en fonte - Manufacture La Fonte](https://www.lafonte.fr/)
+- [La Clinique de la Fonte](https://www.lacliniquedelafonte.fr/)
+
+## Mastic et silicone
+
+Utiliser (spayer ou badigeonner) de l'eau savonneuse ou un produit de lissage pour faire le lissage
+
+> - Les mastics silicones sont les plus utilisés dans les domaines de la menuiserie, de la façade légère, du mur rideau, en vitrage bord à bord, en joint de vitrage pour menuiserie bois et pour les applications sanitaires.
+> - Les mastics hybrides et les polyuréthanes sont les plus utilisés en façade béton : joint de dilatation, joints entre panneaux, joint de construction.
+> - Les mastics acryliques sont surtout utilisés en finition intérieure pour menuiserie ou en finition avant peinture pour le rebouchage de fissures.
+> - Les mastics butyles sont principalement utilisés pour des assemblages démontables en menuiserie aluminium et pour les applications dans le domaine alimentaire, ainsi que dans de nombreux domaines industriels.
+>
+> — [Quels sont les différents types de mastics ? Quand les utiliser ? | Illbruck](https://www.illbruck.com/fr-fr/conseils-dexperts/blog/quels-sont-les-differents-types-de-mastics-quand-les-utiliser/)
+
+> ## Mastic
+>
+> - Réparation des fissures et des trous dans les murs.
+> - Scellement des joints entre les cadres de fenêtres et les murs.
+> - Remplissage des joints entre les carreaux de céramique.
+> - Collage des éléments en bois, comme les plinthes ou les lambris.
+> - Réparation des surfaces en métal, comme les gouttières ou les tuyaux.
+>
+> Avantages
+>
+> - Bonne adhérence sur une grande variété de surfaces.
+> - Résistance aux intempéries et aux UV dans des conditions extérieures.
+> - Peut être peint ou poncé pour une finition plus esthétique.
+> - Certaines formulations sont sans solvant, ce qui les rend moins toxiques.
+>
+> Inconvénients
+>
+> - Temps de séchage plus long que le silicone.
+> - Moins flexible, ce qui peut entraîner des fissures avec les mouvements des surfaces.
+> - Certains types de mastic peuvent se rétracter ou se décolorer avec le temps.
+>
+> ## Silicone
+>
+> - Scellement des joints de salle de bains ou de cuisine.
+> - Étanchéité des fenêtres et des portes pour empêcher les infiltrations d’air ou d’eau.
+> - Collage des éléments en verre, comme les miroirs ou les vitres.
+> - Isolation électrique des composants électroniques.
+> - Fixation des éléments décoratifs ou des accessoires dans la maison
+>
+> Avantages
+>
+> - Excellente flexibilité pour résister aux mouvements des surfaces.
+> - Bonne résistance à l’eau, à l’humidité et aux produits chimiques.
+> - Grande élasticité pour une longue durabilité.
+> - Disponible dans une variété de couleurs pour une esthétique accrue.
+>
+> Inconvénients
+>
+> - Adhérence initiale plus faible que le mastic.
+> - Peut être difficile à enlever ou à réparer en cas de besoin.
+> - Moins résistant aux intempéries et aux UV que le mastic.
+>
+> — [Mastic vs Silicone : Quelle est la différence ? Comparaison complète](https://umvie.com/mastic-vs-silicone-quelle-est-la-difference-comparaison-complete/)
+
+> - Le silicone est particulièrement utilisé dans le cas d’une fuite d’eau grâce à sa propriété étanche incontestable. Pour ce faire, il existe deux types de silicone : le silicone neutre et le silicone acétique. Ce dernier est le plus utilisé en matière de bricolage et de réparation.
+> - Le mastic est particulièrement robuste et il a l’avantage de pouvoir être peint. Voici quelques exemples d’applications : les collages de jointures (aluminium, acier, bois, etc.) dans le bâtiment, la rénovation d’une toiture avec des tuiles, le rafraîchissement d’une façade…
+>
+> Le silicone est un produit ressemblant au plastique. Au niveau de l’utilisation, il est utilisé pour des travaux d’aménagement intérieur : fuites, finitions, collages…
+>
+> Le mastic est plus compact et il est davantage utilisé en extérieur ou en construction : réparation de fissures et de brèches, pose de tuiles…
+>
+> — [Mastic ou silicone : Quelle est la différence ?](https://www.devenirbricoleur.com/mastic-ou-silicone.html)
+
+> Les colles permettent de relier les matériaux, mais ne sont pas toujours élastiques. Les mastics permettent également de lier les matériaux, tout en absorbant les mouvements de dilatation des supports. La liaison sera cependant moins rigide qu'avec une colle. Les différents produits [...] mastic à base de MS Polymères, offrent à la fois une liaison solide et une bonne étanchéité. Ils allient les deux propriétés.
+>
+> — [Quelle est la différence entre les mastics et les colles?](https://www.soudal.fr/pro/faq/quelle-est-la-diff%C3%A9rence-entre-les-mastics-et-les-colles)
+
+> ## Quel est le meilleur calfeutrement, avec mastic acrylique ou silicone ?
+>
+> Chaque technologie de mastic, acrylique ou silicone, a ses avantages. Les acryliques sont souvent utilisés pour des raisons esthétiques, afin de combler des espaces sur lesquels il n’y a pas de contraintes, par exemple des trous de perçage, ou des joints entre des murs et des boiseries qui doivent être repeints. Les acryliques ne sont pas très flexibles et ont tendance à se rétracter.
+>
+> En revanche, les silicones sont utilisés pour l'étanchéité des joints de mouvement, par exemple les joints de vitrage, les joints sanitaires ou les joints de dilatation étanches. Ils présentent une flexibilité supérieure, un faible retrait et d'excellentes propriétés de résistance aux intempéries, mais ils ne peuvent généralement pas être peints.
+>
+> — [FAQ - Mastics | Illbruck](https://www.illbruck.com/fr-fr/conseils-dexperts/foire-aux-questions/faq-mastics/)
+
+- [Choisir un Mastic : Silicone, Polyuréthane (PU), MS Polymer ou Acrylique ?](https://infos.wurth.fr/choisir-un-mastic/)
+- [Max Jointoyeur PRO - YouTube](https://www.youtube.com/@maxjointoyeurpro5994/videos)
+- [Tuto joint d'angle de finition , mur, plafond , menuiserie , apprendre les base et l'outillage . - YouTube](https://www.youtube.com/watch?v=nBbXPvU2uls)
+- [Mastics : les différents types et comment les utiliser ? - Würth](https://infos.wurth.fr/mastics-les-differents-types-et-comment-les-utiliser/)
+
+- [Règles d’application d’un calfeutrement avec fond de joint plus mastic | Illbruck](https://www.illbruck.com/fr-fr/conseils-dexperts/blog/regles-d-application-d-un-calfeutrement-avec-fond-de-joint-plus-mastic/)
+- [Calculateur pour mastics](https://sealantcalculator.klimopcms.nl/?language=fr)
+
+## Mousse polyuréthane
+
+Aka mousse expansive, mousse PU
+
+Ne pas utiliser pour le calfeutrement. Utilise du compribande (DTU 36.5)
+
+- réaction chimique de la mousse avec l’humidité de l’air ambiant, donc avec l'humidification légère des parois améliorera l'adhérence
+- pas de tenue dans le temps (dégradations).
+- pas de suivi de la dilatation différentielle des matériaux donc, à terme, des ruptures d’étanchéité (infiltrations d’eau possible)
+- n'adhère pas sur le polyéthylène, le téflon et le silicone voir aussi le verre, graisse/huile, anti-adhésifs, polypropylène
+- 40 à 45 fois le volume initial
+- frais, ce dissous avec de l'acétone (non sec)
+
+- [Rappel : pas de mousse expansive pour le calfeutrement ou l’étanchéité des fenêtres](https://www.batiweb.com/actualites/legislation/rappel-pas-de-mousse-expansive-pour-le-calfeutrement-ou-l-etancheite-des-fenetres-34462)
+- [QUID DES MOUSSES EXPANSIVES EN AEROSOL POUR LE CALFEUTREMENT DES FENETRES ? | UFME](https://www.ufme.fr/actualites/quid-des-mousses-expansives-en-aerosol-pour-le-calfeutrement-des-fenetres)
+- [https://www.ufme.fr/file/1092/download](https://www.ufme.fr/sites/default/files/actualites/position_pro_ufme_mousses_aerosol_def_0.pdf)
+- [RECOMMANDATIONS GÉNÉRALES POUR LA MISE EN ŒUVRE DES FENÊTRES ET PORTES EXTÉRIEURES DANS LES CONSTRUCTIONS NEUVES OU EN RÉNOVATION](https://www.ufme.fr/sites/default/files/actualites/calfeutrement.pdf)
+- [Qu’est-ce qu’une mousse polyuréthane expansive ? - Würth](https://infos.wurth.fr/mousse-polyurethane/)

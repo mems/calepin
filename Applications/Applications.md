@@ -1863,9 +1863,10 @@ Possible themes:
 - Xperience1080
 - Titan
 
-A file manager is included (to copy/past/rename/etc. files): System > File manager
+A file manager is included (to copy/past/rename/etc. files): System > File manager. It's the only way to access to Kodi files
 
-- [Userdata - Official Kodi Wiki](http://kodi.wiki/view/userdata)
+- [Userdata - Official Kodi Wiki](https://kodi.wiki/view/Userdata)
+- [Kodi data folder - Official Kodi Wiki](https://kodi.wiki/view/Kodi_data_folder)
 
 See also `sources.xml`. See also [Store passwords](#store-passwords)
 
@@ -1892,7 +1893,7 @@ On Android:
 
 If display "Add-on migration in progress - please wait", remove (or rename) the folder `$SYSTEMDATA/addons`
 
-Remove control with [Web interface](https://kodi.wiki/view/Web_interface): use a port like 9080 (default could be already used or blocked)
+Remote control with [Web interface](https://kodi.wiki/view/Web_interface): use a port like 9080 (default could be already used or blocked)
 
 ### Set up centralized database in Kodi
 

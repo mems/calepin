@@ -110,3 +110,17 @@ Files are in:
 /data/user/0/org.galexander.sshd/files/
 /data/data/org.galexander.sshd/files/authorized_keys
 ```
+
+## Files
+
+RSYNC over SSH file transfer:
+
+```sh
+host=192.168.1.228
+rsync --progress -ave 'ssh -p 2222' "root@${host}:/sdcard/DCIM/OpenCamera" .
+```
+
+- [Scoped storage  |  Android Open Source Project](https://source.android.com/docs/core/storage/scoped)
+- [Alex4SSB/ADB-Explorer: A fluent UI for ADB on Windows](https://github.com/Alex4SSB/ADB-Explorer)
+- [Aldeshov/ADBFileExplorer: File Explorer for Android devices](https://github.com/Aldeshov/ADBFileExplorer)
+- [Android Debug Bridge (adb)  |  Android Studio  |  Android Developers](https://developer.android.com/tools/adb)

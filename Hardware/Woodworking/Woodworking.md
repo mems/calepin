@@ -84,6 +84,7 @@ Aka wood
 - [AVIS DE MENUISIER - SE FOURNIR EN BOIS - YouTube](https://www.youtube.com/watch?v=zCYpRPNuTqA)
 - [Technique de menuiserie : quel bois choisir pour bien débuter la menuiserie (spécial débutants) - YouTube](https://www.youtube.com/watch?v=gk7uvVXNL_Q)
 - [Comment acheter du bois de menuiserie à un prix correct - YouTube](https://www.youtube.com/watch?v=ZJ5Id-EwjRI)
+- [Quelle pression peut supporter une planche mélaminé 18mm?](https://forums.futura-sciences.com/bricolage-decoration/934453-pression-supporter-une-planche-melamine-18mm.html)
 
 Contre plaqué, résistance : Okoumé > Peuplier > Bouleau
 
@@ -95,6 +96,20 @@ Contre plaqué, résistance : Okoumé > Peuplier > Bouleau
 | sites internet               | - essences rares et/ou exotiques - plaquages - présent partout          | - le prix - les frais de port - petites quantités                                           |
 | GSB                          | - nombreux point de vente - pratique                                    | - la disponibilité - la qualité - le prix au m^3                                            |
 | Le fournisseurs de matériaux | - nombreux point de vente - disponibilité produits                      | - essences très spécifiques - dimensions limités - livraison par quantité                   |
+
+- MDF (Medium Density Fiberboard)
+- panneau en fibre dure (HDF, Isorel ou Masonite)
+- latté
+- contreplaqué latté
+- contreplaqué
+	- Grade A : Excellente qualité, sans défauts visibles. Idéal pour les projets nécessitant une finition parfaite.
+	- Grade B : Qualité supérieure avec quelques défauts mineurs réparés. Convient pour les applications où l’esthétique est importante.
+	- Grade C : Qualité moyenne, avec des nœuds et des fissures apparents. Utilisé principalement pour des travaux de structure.
+	- Grade D : Qualité inférieure avec de nombreux défauts. Utilisé pour les projets où l’apparence n’est pas critère essentiel.
+- bois lamellé collé (BLC)
+- OSB (Oriented Strand Board)
+- agloméré
+- massif
 
 ## Tools
 
@@ -189,6 +204,13 @@ Use a router:
 - [CRASH TEST : Jusqu'où peut-on aller avec une PROTECTION CÉRAMIQUE ? - YouTube](https://www.youtube.com/watch?app=desktop&v=SEeO57q_ubA)
 - [Comment durcir une finition à la gomme laque - YouTube](https://www.youtube.com/watch?v=m6swOLcPG_0)
 - [Comment appliquer la gomme laque - YouTube](https://www.youtube.com/watch?v=araGVzZRHNs)
+
+> A great finish for MDF is oil-based poly mixed 50-50 with laquer thinner. It soaks in to the surface and hardens the MDF, and gets pretty deep too. You can do several coats and you get a really great hardened surface with a nice sheen to it.
+
+## Repair
+
+- sintobois
+- colle a bois + scieure fine du bois a reboucher, boucher avec un léger excédent, laisser sécher 24 à 48h
 
 ## Joinery
 
