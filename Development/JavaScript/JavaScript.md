@@ -8001,6 +8001,7 @@ In Chrome, `document.cookie="%61=%61é"` gives `document.cookie === "%61=%61é"`
 //const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1).map(v => decodeURIComponent(v ?? "")));
 //const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")].map(v => decodeURIComponent(v)));
 //const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
+// new URLSearchParams(decodeURIComponent((document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1)).find(([v]) => v == "mycookiname") || [])[1] || "")).get("mycookiesubvalue")
 
 // Read one cookie (not decoded)
 //const match = document.cookie.split(/; ?/).find(pair => pair === "cookiename=true");
