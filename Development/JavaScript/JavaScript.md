@@ -7338,10 +7338,21 @@ If top domain is shared, update `document.domain`
 
 ### Match origin
 
+Aka match domains, tld, subdomain
+
+Without regexp:
+
 ```js
 const domains = new URL("https://www.example.com").hostname.split(".").map((p, i, parts) => parts.slice(i).join("."));// ['www.example.com', 'example.com', 'com']
-return ["example.com"].some(d => domains.includes(d));
+domains.includes("example.com");// true
+domains.includes("www.example.com");// true
+domains.includes("other.example.com");// false
+domains.includes("net");// false
+domains.includes("www.example");// false
 ```
+
+- https://github.com/adobe/reactor-extension-core/blob/e9b3256486ca6c32f5ba5c82975be7d71dcef672/src/lib/conditions/domain.js
+- https://github.com/adobe/reactor-extension-core/blob/e9b3256486ca6c32f5ba5c82975be7d71dcef672/src/lib/conditions/subdomain.js
 
 ### Parse URL
 
