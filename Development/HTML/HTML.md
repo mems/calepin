@@ -4477,22 +4477,22 @@ Enhanced to (with JS):
 
 ```html
 <nav id="navigation">
-	<button type="button" aria-expanded="false" aria-label="Open the menu">Some icon</button>
-	<ul hidden>
+	<button type="button" aria-expanded="false" aria-label="Open the menu" aria-controls="menu">Some icon</button>
+	<ul hidden id="menu">
 		<li><a href="/">Home</a></li>
 		<li><a href="/about">About</a></li>
 		<li><a href="/shop">Shop</a></li>
 		<li><a href="/contact">Contact</a></li>
 	</ul>
 </nav>
-<!--
-document.querySelector('#navigation button').addEventListener('click', ({currentTarget}) => {
-	const expanded = currentTarget.getAttribute('aria-expanded') === 'true';
-	currentTarget.setAttribute('aria-expanded', !expanded);
-	const menu = currentTarget.nextElementSibling;
+<script>
+document.querySelector("#navigation button").addEventListener("click", ({currentTarget}) => {
+	const expanded = currentTarget.ariaExpanded === "true";
+	currentTarget.ariaExpanded = expanded ? "false" : "true";
+	const menu = document.getElementById(currentTarget.getAttribute("aria-controls"));
 	menu.hidden = !menu.hidden;
 });
--->
+</script>
 ```
 
 - [Menus & Menu Buttons](https://inclusive-components.design/menus-menu-buttons/)
