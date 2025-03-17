@@ -246,6 +246,7 @@ And Virtual DOM
 #### Text editors
 
 - [Monaco Editor](https://microsoft.github.io/monaco-editor/) - the code editor that powers VS Code
+- [ProseMirror/prosemirror: The ProseMirror WYSIWYM editor](https://github.com/ProseMirror/prosemirror) - editor used by Stack Overflow (Stacks editor) see [StackExchange/Stacks-Editor: Stack Overflow's Combination Rich Text / Markdown Editor](https://github.com/StackExchange/Stacks-Editor) and Nextcloud [nextcloud/text: 📑 Collaborative document editing using Markdown](https://github.com/nextcloud/text)
 - [GitHub - froala/wysiwyg-editor: The next generation Javascript WYSIWYG HTML Editor.](https://github.com/froala/wysiwyg-editor)
 - [Example | Sir Trevor JS | Made by Many](http://madebymany.github.io/sir-trevor-js/example.html) - smart editor using blocks. see [Rich content editing entirely re-imagined for the web](https://github.com/madebymany/sir-trevor-js)
 - [Ace (Ajax.org Cloud9 Editor)](https://ace.c9.io/)
