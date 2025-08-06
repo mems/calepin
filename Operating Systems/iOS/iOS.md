@@ -489,3 +489,13 @@ See [Remove specific file from Time Machine backup](../macOS/macOS.md#remove-spe
 ## Virtualization
 
 - [UTM](https://getutm.app/) - "Run virtual machines on iOS"
+
+## USB Tethering on Windows
+
+See also Apple Recovery (DFU) USB Drivers
+
+- install [iTunes](https://www.apple.com/itunes/)
+- [NelloKudo/Apple-Mobile-Drivers-Installer: Powershell script to easily install Apple USB and Mobile Device Ethernet (USB Tethering) drivers on Windows!](https://github.com/NelloKudo/Apple-Mobile-Drivers-Installer/tree/main)
+- [Install iOS device drivers on Windows without installing iTunes - Ask Different](https://apple.stackexchange.com/questions/34651/install-ios-device-drivers-on-windows-without-installing-itunes)
+- [Restart the Apple Mobile Device Service (AMDS) on Windows - Apple Support](https://support.apple.com/en-us/102347) - If an iPhone, iPad, or iPod touch isn’t recognized on Windows
+- [How to download "Apple Mobile Device USB … - Apple Community](https://discussions.apple.com/thread/7466913?sortBy=rank)
