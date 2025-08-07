@@ -268,8 +268,8 @@ Use a popular TLD do use DNS resolver cache:
 
 Congestion window: initial cwnd size is 10; 14.6KB = 10 packets of 1460 Bytes.
 
-**TODO: where "148 kb" come from?**
-
+- [Critical Resources and the First 14 KB - A Review | Tune The Web](https://www.tunetheweb.com/blog/critical-resources-and-the-first-14kb/) - "where this 14 KB number comes from ", 14.6KB or more
+- [Initcwnd settings of major CDN providers - CDN Planet](https://www.cdnplanet.com/blog/initcwnd-settings-major-cdn-providers/)
 - [TCP Slow-start](https://en.wikipedia.org/wiki/Slow-start)
 - [Napkin Problem 15: Increase HTTP Performance by Fitting In the Initial TCP Slow Start Window](https://sirupsen.com/napkin/problem-15/)
 - [Networking 101: Building Blocks of TCP - High Performance Browser Networking (O'Reilly)](https://hpbn.co/building-blocks-of-tcp/#slow-start)
