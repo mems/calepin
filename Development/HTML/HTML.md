@@ -2550,6 +2550,12 @@ Some (all major) browsers support:
 
 - [Can you nest html forms? - Stack Overflow](https://stackoverflow.com/questions/379610/can-you-nest-html-forms/11440422#11440422)
 
+### contenteditable 
+
+See [contenteditable (Javascript)](../JavaScript/JavaScript.md#contenteditable)
+
+- [Unlocking Rich Text Editing with HTML’s ContentEditable Attribute: A Developer’s Guide | by Anjali Malik | Naukri Engineering | Medium](https://web.archive.org/web/20240926131016/https://medium.com/naukri-engineering/unlocking-rich-text-editing-with-htmls-contenteditable-attribute-a-developer-s-guide-81a63a0e0b46) - "If we want to create a non-editable tag inside contentEditable then just set contentEditable false for the non-editable tag; also, when you will press backspace in contentEditable it will delete the entire tag from DOM all at once."
+
 ## Anchor element
 
 Aka `a` element
