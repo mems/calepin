@@ -2341,14 +2341,18 @@ if (selection.rangeCount > 0) {
 
 Aka richtext / rich textarea
 
+Not only richtext but support also plain text only
+
 About:
 
-- [ContentEditable — The Good, the Bad and the Ugly — Content Uneditable — Medium](https://medium.com/content-uneditable/contenteditable-the-good-the-bad-and-the-ugly-261a38555e9c)
-- [Why ContentEditable is Terrible — Medium Engineering — Medium](https://medium.com/medium-eng/why-contenteditable-is-terrible-122d8a40e480)
-- [Fixing ContentEditable — Content Uneditable — Medium](https://medium.com/content-uneditable/fixing-contenteditable-1a9a5073c35d)
-- [Content Editable is a Scary Place — Florian’s Blog](http://florian.rivoal.net/blog/2016/12/content-editable-is-a-scary-place/)
+- [ContentEditable — The Good, the Bad and the Ugly | by Piotrek Koszuliński | Content Uneditable | Medium](https://web.archive.org/web/20250312201320/https://medium.com/content-uneditable/contenteditable-the-good-the-bad-and-the-ugly-261a38555e9c)
+- [Why ContentEditable is Terrible. Or: How the Medium Editor Works | by Nick Santos | Medium Engineering](https://web.archive.org/web/20250819192838/https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480?gi=5cf99c9caad5)
+- [Fixing ContentEditable. Working with a system which is driving… | by Piotrek Koszuliński | Content Uneditable | Medium](https://web.archive.org/web/20241129104656/https://medium.com/content-uneditable/fixing-contenteditable-1a9a5073c35d)
+- [Content Editable is a Scary Place — Florian’s Blog](https://web.archive.org/web/20241015181052/https://florian.rivoal.net/blog/2016/12/content-editable-is-a-scary-place/)
+- [Get contenteditable plaintext with correct linebreaks | Stephen Haney](https://web.archive.org/web/20250714022257/https://stephenhaney.com/2020/get-contenteditable-plaintext-with-correct-linebreaks/)
+- [Unlocking Rich Text Editing with HTML’s ContentEditable Attribute: A Developer’s Guide | by Anjali Malik | Naukri Engineering | Medium](https://web.archive.org/web/20240926131016/https://medium.com/naukri-engineering/unlocking-rich-text-editing-with-htmls-contenteditable-attribute-a-developer-s-guide-81a63a0e0b46)
 
-See also [text editors libraries](Text editors)
+See also how [text editors libraries](#text-editors) use it.
 
 ## Custom Controls
 
