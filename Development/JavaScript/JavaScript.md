@@ -259,7 +259,11 @@ And Virtual DOM
 - [Quip](http://quip.com) has a hybrid editor (each paragraph is a contenteditable line; same with http://notion.so)
 - [Trix editor](http://trix-editor.org/) ignores contentEditable and maintains its own internal model (to avoid dealing with x-browser inconsistencies and complexities); same with [ProseMirror](https://github.com/ProseMirror/prosemirror#prosemirror)
 - (Math specific) [MathQuill](https://github.com/mathquill/mathquill) see also https://github.com/mathjax/MathJax
-- [pell - jaredreich.com](https://jaredreich.com/pell)
+- [jaredreich/pell: 📝 the simplest and smallest WYSIWYG text editor for web, with no dependencies](https://github.com/jaredreich/pell)
+- [yabwe/medium-editor: Medium.com WYSIWYG editor clone. Uses contenteditable API to implement a rich text solution.](https://github.com/yabwe/medium-editor)
+- [Creating an Editable Textarea That Supports Syntax-Highlighted Code | CSS-Tricks](https://css-tricks.com/creating-an-editable-textarea-that-supports-syntax-highlighted-code/)
+- [panphora/overtype: The markdown editor that's just a textarea https://overtype.dev](https://github.com/panphora/overtype)
+- [WebCoder49/code-input: An editable \<textarea\> that supports any syntax highlighting algorithm, for code or something else. Also, added plugins.](https://github.com/WebCoder49/code-input)
 
 See also [`contentEditable`](#contenteditable)
 
