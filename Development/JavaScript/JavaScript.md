@@ -1297,7 +1297,7 @@ See [Don't override native logic](#dont-override-native-logic)
 - [HTML: Why does Android browser show "Go" instead of "Next" in keyboard? - Stack Overflow](https://stackoverflow.com/questions/6545086/html-why-does-android-browser-show-go-instead-of-next-in-keyboard)
 - [android - Replace Go button on soft keyboard with Next in Phonegap - Stack Overflow](https://stackoverflow.com/questions/23470439/replace-go-button-on-soft-keyboard-with-next-in-phonegap)
 
-### Submit form with AJAX
+### Submit form with fetch
 
 ```js
 const form;
@@ -7118,6 +7118,17 @@ or with a form and an iframe:
 	let form = document.getElementById("form");
 	form.submit();
 </script>
+```
+
+### Append URL params
+
+Aka merge URL params
+
+```js
+const params = {a: "1", b: "2"};// or "a=1&b=2" or [["a", "1"], ["b", "2"]] or new FormData()
+const url = new URL("https://www.example.com", document.documentURI);
+url.search = new URLSearchParams([...url.searchParams, ...new URLSearchParams(params)]).toString();
+//> url.href;
 ```
 
 ### Image can be synchronously complete
