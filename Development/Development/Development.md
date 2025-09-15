@@ -1619,14 +1619,14 @@ Aka CLI
 > Because this:
 >
 > ```sh
-curl --silent checkip.dyndns.org | grep --extended-regexp --only-matching '[0-9\.]+'
-```
+> curl --silent checkip.dyndns.org | grep --extended-regexp --only-matching '[0-9\.]+'
+> ```
 >
 > is a lot easier for a human to understand than this:
 >
 > ```sh
-curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
-```
+> curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+> ```
 >
 > — [Use long flags when scripting |\> News and podcasts for developers |\> Changelog](https://changelog.com/posts/use-long-flags-when-scripting)
 
@@ -1636,9 +1636,9 @@ curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
 > [...]
 >
 > ```sh
-# Get my IP address by checking dyndns.org
-curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
-```
+> # Get my IP address by checking dyndns.org
+> curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'
+> ```
 >
 > — [Use long flags when scripting | Hacker News](https://news.ycombinator.com/item?id=5164354)
 
@@ -1884,6 +1884,12 @@ bindedFunction.call(object, param1);
 - http://en.wikipedia.org/wiki/Programming_paradigm
 - https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/apply
 - https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind
+
+### Fluent
+
+Use method chaining
+
+- [Fluent interface - Wikipedia](https://en.wikipedia.org/wiki/Fluent_interface)
 
 ### Blocking, non blocking (usage of events)
 
