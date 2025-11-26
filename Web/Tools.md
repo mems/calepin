@@ -69,7 +69,7 @@ Android Emulator:
 
 ### Debug cookie written by JS
 
-Add a debugger breakpoint when a cookie is written.
+Add a debugger breakpoint when a cookie is written (i.e. document.cookies = "some value"`).
 
 ```js
 const desc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");// Object.getPrototypeOf(Object.getPrototypeOf(document);
