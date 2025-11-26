@@ -436,7 +436,7 @@ $ANDROID_SDK/platform-tools/adb
 
 ## IntelliJ Applications
 
-Aka WebStorm, PhpStorm, IntelliJ IDEA
+Aka WebStorm, PhpStorm, IntelliJ IDEA, Rider
 
 Grunt task output `Task "watch" passed` or `Task "watch" failed` are handled by the app: [Grunt feedback : WEB-11713](https://youtrack.jetbrains.com/issue/WEB-11713#comment=27-718038)
 
@@ -606,6 +606,11 @@ Index, hide in tree view
 - Context Menu > Tools > Stop Index
 
 - [rider - How to excluder a folder from search and indexing (JetBrains IDEs)? - Stack Overflow](https://stackoverflow.com/questions/66059572/how-to-excluder-a-folder-from-search-and-indexing-jetbrains-ides)
+
+(Rider) To attach a folder (out of the solution) to the current solution:
+
+- right click on the Solution > Add > Existing folder...
+- by default it's indexed, if not:right click on the folder > Tools > Start Index. In some cases, after an upgrade, you need to stop index, then start it again 
 
 ## Adobe
 
