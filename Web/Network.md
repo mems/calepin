@@ -1506,7 +1506,7 @@ Or SMTP
 
 ### Cookie max age
 
-For `document.cookies`, `max-age` is not suppoted by IE and some Edge versions (it considered as session cookie)
+For `document.cookie`, `max-age` is not suppoted by IE and some Edge versions (it considered as session cookie)
 
 - [Cookie specification compatibility in modern browsers](https://inikulin.github.io/cookie-compat/)
 - [Support for Cookie max-age – Welcome to the Window developer feedback site!](https://wpdev.uservoice.com/forums/257854-microsoft-edge-developer/suggestions/7718688-support-for-cookie-max-age)
