@@ -17,6 +17,7 @@ Tools:
 - [SVG Path Builder](https://codepen.io/anthonydugois/pen/mewdyZ)
 - [cubic Bézier curve with SVG](http://codepen.io/thebabydino/pen/EKLNvZ)
 - [Svgbob Editor - Convert your ascii diagram scribbles into happy little SVG](https://ivanceras.github.io/svgbob-editor/)
+- [SVG Path Editor](https://svg-path.com/)
 
 Good to know:
 

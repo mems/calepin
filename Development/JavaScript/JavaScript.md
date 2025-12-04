@@ -3302,6 +3302,40 @@ requestAnimationFrame(() => {
 })()
 ```
 
+```js
+class AnimationFrameLoop {
+	#executor;
+	#requestID = null;
+	constructor(executor)
+	{
+		this.#executor = executor;
+	}
+	start(){
+		if(this.#requestID != null) return;// running
+		this.#requestNextFrame();
+	}
+	#requestNextFrame(){
+		this.#requestID = requestAnimationFrame(this.#internalExecutor);
+	}
+	#internalExecutor = (...args) => {
+		try{
+			this.#executor(...args);
+		}
+		catch(e){
+			reportError(e);
+		}
+		this.#requestNextFrame();
+	}
+	stop(){
+		cancelAnimationFrame(this.#requestID);
+		this.#requestID  = null;
+	}
+}
+
+const loop = new AnimationFrameLoop(() => {/*draw something*/});
+loop.start();
+```
+
 Layout triggers :
 
 - Element
@@ -3374,6 +3408,13 @@ See [relayout, repaint, reflow](CSS#relayout-repaint-reflow)
 - [Performance best practices for Firefox front-end engineers - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Performance_best_practices_for_Firefox_fe_engineers#Detecting_and_avoiding_synchronous_style_flushes) - Detecting and avoiding synchronous style flushes
 - [Performance best practices for Firefox front-end engineers - Mozilla | MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Performance_best_practices_for_Firefox_fe_engineers#How_do_I_avoid_triggering_uninterruptible_reflow) - How do I avoid triggering uninterruptible reflow
 - [Avoid Large, Complex Layouts and Layout Thrashing  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing)
+
+## Replace `setTimeout()` and `setInterval()` with `requestAnimationFrame()`
+
+Drop in replacements for setTimeout()/setInterval() that makes use of requestAnimationFrame() where possible for better performance
+
+- [Drop in replacements for setTimeout()/setInterval() that makes use of requestAnimationFrame() where possible for better performance](https://gist.github.com/joelambert/1002116#gistcomment-1953925)
+- https://researchhubs.com/post/computing/javascript/requestAnimationFrame.html#:~:text=what%E2%80%99s%20wrong%20with%20settimeout%20and%20setinterval%3F
 
 ## Check the visibility of an element
 
@@ -5711,6 +5752,7 @@ This property is not intended to be use as a storage. **Use `sessionStorage` to 
 - [Web Components will replace your frontend framework](https://medium.com/@drmoerkerke/web-components-will-replace-your-frontend-framework-3b17a580831c)
 - [Shadow DOM v1: Self-Contained Web Components  |  Web Fundamentals  |  Google Developers](https://developers.google.com/web/fundamentals/web-components/shadowdom)
 - [What's New in Shadow DOM v1 (by examples) — hayato.io](https://hayato.io/2016/shadowdomv1/) - Differences between draft (v0) and spec (v1)
+- [You're (probably) using connectedCallback wrong](https://hawkticehurst.com/2023/11/you-are-probably-using-connectedcallback-wrong/) - there is no reason to not add event listeners directly in the constructor, except for ancestors/document/window event listener in `connectedCallback` and remove it in `disconnectedCallback`.
 
 Polyfills:
 
@@ -7796,6 +7838,8 @@ Solutions:
 
 > on each frame ( requestAnimationFrame ), check the currentTime continually against the buffer length
 
+see also `video.requestVideoFrameCallback()`
+
 or
 
 > on each frame, check if current timestamp minus “last time the video was updated” is inferior to a certain threshold
@@ -8123,12 +8167,6 @@ When a promise is used, the exception or error can be the reason of the promise'
 - [Web IDL](https://heycam.github.io/webidl/#idl-DOMException-error-names)
 - [Error - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Error_types)
 - [Control flow and error handling - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#Exception_handling_statements)
-
-## Replace `setTimeout()` and `setInterval()` with `requestAnimationFrame()`
-
-Drop in replacements for setTimeout()/setInterval() that makes use of requestAnimationFrame() where possible for better performance
-
-https://gist.github.com/joelambert/1002116#gistcomment-1953925
 
 ## Server Push
 
@@ -8603,7 +8641,9 @@ And Virtual DOM
 
 ## Crypto
 
-```
+Decrypt encrypted content from ASP.NET
+
+```razor
 @using System.Security.Cryptography
 @using System.Text
 @using System.Linq

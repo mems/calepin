@@ -1,4 +1,5 @@
 - [How Wide Do Tree Roots Spread? | DeepRoot Blog](https://web.archive.org/web/20231022024518/https://www.deeproot.com/blog/blog-entries/how-wide-do-tree-roots-spread/)
+- [Nature's Always Right - YouTube](https://www.youtube.com/@NaturesAlwaysRight/featured)
 
 ## Insecticide
 
@@ -116,3 +117,8 @@ Bourgeon et bouture :
 	- [Comment fabriquer ses oyas maison ? | Gamm vert](https://web.archive.org/web/20230611215547/https://www.gammvert.fr/conseils/conseils-de-jardinage/comment-fabriquer-ses-oyas-maison)
 - [Drip irrigation - Wikipedia](https://en.wikipedia.org/wiki/Drip_irrigation)
 - [ARROSAGE automatique GRATUIT! - 1 mois tranquille - YouTube](https://www.youtube.com/watch?v=EFawDyPrdXI) - burried filled water plastic bottle with a tiny hole at the bottom (one side of the bottle) and closed cap (airtight)
+
+## Bambou
+
+- [How to Plant Bamboo so it Doesn't Take Over Your Garden! - YouTube](https://www.youtube.com/watch?v=C3vMoocLm80)
+- [The Secret to Killing Bamboo | NO Chemicals or Machines - YouTube](https://www.youtube.com/watch?v=pI4GaU9nNAs)

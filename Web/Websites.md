@@ -2613,6 +2613,14 @@ Exemple:
 	- [Wikidata:SPARQL query service/queries/examples - Wikidata](https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/queries/examples#Countries) - List of present-day countries and capital(s)
 	- [Research in programming Wikidata/Countries - Wikiversity](https://en.wikiversity.org/wiki/Research_in_programming_Wikidata/Countries)
 
+## VSCode marketplace
+
+Aka vsix
+
+https://marketplace.visualstudio.com/items?itemName={EXTENSION_ID}
+
+- [Download VS Code extensions as VSIX](https://gist.github.com/wanglf/7acc591890dc0d8ceff1e7ec9af32a55#file-vsix-bookmarklet) - see comments
+
 ## SlideShare
 
 Permalink to a slide number: `http://www.slideshare.net/.../presentation-name` → `http://www.slideshare.net/.../presentation-name/10` for the slide 10

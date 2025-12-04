@@ -58,3 +58,18 @@ See [URI](../URI/URI.md)
 - [QArt Python Implementation](https://github.com/7sDream/pyqart)
 - [Creative Arabic Calligraphy: Square Kufic](https://design.tutsplus.com/tutorials/creative-arabic-calligraphy-square-kufic--cms-23012)
 - [kochrt/qr-designer: QR designer web app with a novel method of designing qr codes that does not take advantage of error correction](https://github.com/kochrt/qr-designer) - [Create a swink - swink](https://web.archive.org/web/20230603221608/https://robko.ch/qr-designer/)
+
+## Data store
+
+Use only this characters make QR codes smaller:
+
+- Digits: 0 1 2 3 4 5 6 7 8 9
+- Uppercase letters: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+- Space
+- Symbols: $ % * + - . / :
+
+Uppercase URLs produce smaller QR codes than lowercase URLs (without query string)
+
+> Alphanumeric users 11 bits for every two characters, Byte mode uses (you guessed it!) 8 bits per single character.
+
+- [Why are QR Codes with capital letters smaller than QR codes with lower-case letters? – Terence Eden’s Blog](https://shkspr.mobi/blog/2025/02/why-are-qr-codes-with-capital-letters-smaller-than-qr-codes-with-lower-case-letters/)

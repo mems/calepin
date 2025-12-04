@@ -145,3 +145,14 @@ Aka étiquette, systèmes de marquage
 - [Brady FR | Identification industrielle, Signalisation de sécurité et Etiquetage](https://www.brady.fr/)
 - [Étiquettes Brady Fils & Câbles | Identification | Sodistrel](https://www.sodistrel.com/reperage-de-fils-et-cables)
 - [Résultats de la recherche - etiquette de cable" dans Accessoires pour câbles](https://www.conrad.fr/fr/search.html?search=etiquette%20de%20cable&categoryId=c110523)
+
+## Abrasives
+
+- [Hole pattern for abrasives — Klingspor Abrasive Technology](https://web.archive.org/web/20250204005932/https://www.klingspor.de/en/lowdown-on-grinding/hole_pattern_for_abrasives)
+- [Multifit™ - One Fits All - Mirka](https://www.mirka.com/en-us/know-how/solutions/multifit---perforation-technology-for-abrasives)
+- [This $.07 Upgrade Will Save You Hours - YouTube](https://www.youtube.com/watch?app=desktop&v=7W--YEYzQQY) - 3M 710W
+
+## Plastic
+
+- [How to fix any broken plastic - YouTube](https://www.youtube.com/watch?v=06XeF1HBazs)
+- [Technique du Pont parisien par collage à l’acétone - YouTube](https://www.youtube.com/watch?v=ecwO8rfL9wk) - Cellulose acetate and acetone solvent

@@ -101,9 +101,9 @@ Create a shared folder, with permissions, `Control Panel > File Services > Mac F
 
 ## Shared and drop box
 
-Inspiration of OSX: [OS X Yosemite: Share files with others who use your Mac](https://support.apple.com/kb/PH18716?locale=en_US)
+Inspiration of macOS: [OS X Yosemite: Share files with others who use your Mac](https://support.apple.com/kb/PH18716?locale=en_US)
 
-`domain/index.cgi?launchApp=SYNO.SDS.App.FileStation3.Instance&launchParam=openfile%3D${ENCODED_PATH}`, where `ENCODED_PATH` is twice URI encoded the path -> `/Media/Videos/TV Shows/` gives `%252FMedia%252FVideos%252FTV%2520Shows%252F`
+`http://domain/index.cgi?launchApp=SYNO.SDS.App.FileStation3.Instance&launchParam=openfile%3D${ENCODED_PATH}`, where `ENCODED_PATH` is twice URI encoded the path -> `/Media/Videos/TV Shows/` gives `%252FMedia%252FVideos%252FTV%2520Shows%252F`
 `launchParam` value is a URI encoded key value pairs (where values are also URI encoded)
 
 - [Upload files on your Synology with a link and no access rights – Synoguide](https://synoguide.com/2016/04/15/upload-files-on-your-synology-with-a-link-and-no-access-rights/)
@@ -429,10 +429,13 @@ Rename `dms.dmslog` to `dms.tar.gz`
 
 ### Disk info
 
-	sudo smartctl -a /dev/sdX | grep "^SATA"
-	dmesg | grep -i sata | grep 'link up'
-	sudo hdparm -I /dev/sdX
+```sh
+sudo smartctl -a /dev/sdX | grep "^SATA"
+dmesg | grep -i sata | grep 'link up'
+sudo hdparm -I /dev/sdX
+```
 
+- [Paths](#paths)
 - [Is DS1815+ Native SATA III - Synology Forum](https://forum.synology.com/enu/viewtopic.php?t=95139) - SATA version and speed repartition (first ones support higher speed)
 - [Mounting old Synology volumes in new hardware - Code, Rinse, Repeat](https://coderinserepeat.com/2017/05/13/mounting-existing-synology-volumes/)
 
@@ -444,7 +447,7 @@ RAID mirror disks: remove a disk and rebuild volume
 
 RAID without mirror or one disk: clone disk with `dd`. See [Clone disk](../Command%20line/Command%20line%20%28Unix%29.md#clone-disk)
 
-- [Replace Drives to Expand Storage Capacity | Synology Inc.](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk)
+- [Replace a Drive | DSM - Synology Knowledge Center](https://kb.synology.com/en-us/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk?version=7)
 - [Can I use dd to upgrade 1-bay synology NAS to bigger HD? - Super User](https://superuser.com/questions/898367/can-i-use-dd-to-upgrade-1-bay-synology-nas-to-bigger-hd)
 - [Adding a new disk drive to a Synology 2-bay drive - Super User](https://superuser.com/questions/575408/adding-a-new-disk-drive-to-a-synology-2-bay-drive)
 - [Upgrading disks in a RAID1 Synology 2-bay drive - Super User](https://superuser.com/questions/469325/upgrading-disks-in-a-raid1-synology-2-bay-drive)
@@ -1089,18 +1092,34 @@ See also [\[Tuto\] Synology-Se proteger des déconnexions VPN ou Coupure de cour
 - [HOWTO setup OpenVPN server and client configuration files using EasyRSA](https://web.archive.org/web/20201202040600/https://www.alanbonnici.com/2018/01/howto-setup-openvpn-server-and-client.html)
 - [How To Guide: Set Up & Configure OpenVPN client/server VPN | OpenVPN](https://openvpn.net/community-resources/how-to/) - [sample-config-files](https://github.com/OpenVPN/openvpn/tree/master/sample/sample-config-files)
 
-## Slow SMB Shares
+## SMB
+
+### Slow SMB Shares
 
 Advanced Settings:
 
 - ~~Minimum SMB protocol: SMB2~~
 - Transport encryption mode: disabled **This setting increase the speed (more than ×10)**
-- Enable Opportunistic Locking
+- enable Opportunistic Locking
 
 - [What can I do to fix slow SMB file transfers on OS X 10.11.5? | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General/What_can_I_do_to_fix_slow_SMB_file_transfers_on_OS_X_10_11_5)
 - [Turn off packet signing for SMB 2 and SMB 3 connections - Apple Support](https://support.apple.com/en-bh/HT205926)
 - [SMB | Synology Inc.](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_winmacnfs_win)
 - `smbutil statshares -a` if share mounted has `SIGNING_ON	TRUE`
+- [Fix horrendously bad macOS (12.3.1 tested) SMB (Samba) performance on Unraid · GitHub](https://gist.github.com/othyn/4554c1f409f34d1674ba2095acf441ee)
+- [Disable local SMB directory enumeration caching - Apple Support](https://support.apple.com/en-us/101918) - could be worst
+
+### macOS and special chars
+
+- symptoms: folders are empty in macOS Finder when it contains specials (non-ASCII) chars (like é, à, etc.)
+
+- [Fixing Slow macOS Finder SMB browsing on Synology File Shares using Samba vfs_fruit – setepontos tech](https://tech.setepontos.com/2019/02/04/fixing-slow-macos-finder-smb-browsing-on-synology-file-shares-using-samba-vfs_fruit/)
+- [Folders in MacOS Finder SMB share shown as empty | Synology Community](https://community.synology.com/enu/forum/1/post/162488)
+- [Strange behavior between different SMB shares with illegal SMB characters in file names : r/synology](https://www.reddit.com/r/synology/comments/qg9dj2/comment/hi9shfm/?utm_source=share&utm_medium=web2x&context=3) - about VFS on or off and it's impact on file listing
+- [Did I mess up by enabling the VFS module? : r/synology](https://www.reddit.com/r/synology/comments/115ccfw/did_i_mess_up_by_enabling_the_vfs_module/)
+- [GitHub - miguno/sauber: Sanitizes filenames on a Synology NAS so the files can be read and accessed through shared network drives on the NAS.](https://github.com/miguno/sauber)
+- [A file or folder name is displayed as something like 12HWA0~8 when accessed via SMB. What can I do? - Synology Knowledge Center](https://kb.synology.com/en-global/DSM/tutorial/file_or_folder_name_displayed_as_12HWA0_8)
+- `for file in *; slug=$(echo $file | tr -cd '[:blank:].ÆæØøÅåÖöÄäÜüA-Za-z0-9_-'); do mv "$file" "$slug"; done`
 
 ## Printers and scanners
 
@@ -1145,3 +1164,15 @@ synoservice --restart cupsd
 - [maxandersen/aircups: Cups print server with airprint enabled, works well with Synology](https://github.com/maxandersen/aircups)
 	Based on [quadportnick/docker-cups-airprint: Docker image for CUPS intended as an AirPrint relay on Synology DSM](https://github.com/quadportnick/docker-cups-airprint)
 - [mnbf9rca/cups-google-print: a CUPS printer with Google Cloud Print enabled](https://github.com/mnbf9rca/cups-google-print)
+
+## Internet of things
+
+Aka IoT
+
+- MQTT protocol, need an additional package like [Mosquitto](https://synocommunity.com/package/mosquitto) (exist as a Docker image too: [eclipse-mosquitto](https://hub.docker.com/_/eclipse-mosquitto))
+- [Tutoriel : installer Mosquitto MQTT sur NAS Synology – Les Alexiens](https://www.lesalexiens.fr/actualites/tutoriel-installer-mosquitto-mqtt-sur-nas-synology/) - install mosquitto as DSM package
+- [Installing an MQTT Broker with Synology (Mosquitto on Docker) | Chris Schuld](https://chrisschuld.com/installing-mqtt-broker-on-synology/) - install eclipse-mosquitto as Docker image
+- [Install Mosquitto MQTT on Synology NAS Server](https://gist.github.com/ajumalp/0ad2517d15c999cfc440cdf3d623fab8) - install mosquitto as DSM package
+- [Synology DSM 7 Easily ENABLE USB support for Zigbee Adapters - YouTube](https://www.youtube.com/watch?v=A2WmzU8N-38) - use zigbee2mqtt
+- [How to Install Eclipse Mosquitto on Your Synology NAS – Marius Hosting](https://mariushosting.com/how-to-install-eclipse-mosquitto-on-your-synology-nas/) - install eclipse-mosquitto as Docker image
+- [Synology: How to Add USB Support on DSM 7 – Marius Hosting](https://mariushosting.com/synology-how-to-add-usb-support-on-dsm-7/) - Zigbee dongles, etc.

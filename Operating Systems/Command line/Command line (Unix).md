@@ -3173,7 +3173,8 @@ Clone exact disk (boot sector, all partitions & data, etc.) to an other drive (t
 
 For disk use `/dev/sdX` (or `/dev/hdX`, or BSD `/dev/diskX` or even [`/dev/rdiskX` for better speed](https://superuser.com/questions/631592/why-is-dev-rdisk-about-20-times-faster-than-dev-disk-in-mac-os-x))
 
-```sh
+```sh4
+# From sdX to sdY
 sudo dd if=/dev/sdX of=/dev/sdY bs=64K conv=noerror,sync status=progress
 ```
 
@@ -3184,7 +3185,54 @@ With `bs=64K`:
 - USB 2.0 to USB 2.0: 20 to 11 MB/s
 - SATA 3.0 (3.0 Gb/s) to SATA 3.0 (3.0 Gb/s): 130 MB/s
 
-Check disk ID (here X and Y) in XXXXX
+```sh
+# In the following example, we work with 4th disk (/dev/sdd), which have 3 partition (1: /dev/sdd1, 2: /dev/sdd2, 5: /dev/sdd5) which is part of a RAID  Synology Hybrid RAID (SHR) with only one disk
+# Disk 1: /dev/sda, disk 2: /dev/sdb, etc. SATA: /dev/sdg
+
+# Duplicate the disk on SATA disk
+sudo dd if=/dev/sdd of=/dev/sdg bs=64K status=progress
+# Could lead to an error "client_loop: send disconnect: Broken pipe", the SSH session stopped copy end. We need to keep the SSH client awake
+
+# Stop the NAS
+# Switch disks in the bay: replace disk 4 with the SATA disk
+# Start the NAS
+# Repair volume in Storage Manager (System Partition Failed): Repair System Partition (see https://kb.synology.com/en-us/DSM/help/DSM/StorageManager/disk)
+# Check some infos
+sudo smartctl -a /dev/sdd
+# Check partitions
+sudo sfdisk -l /dev/sdd
+# Recreate partition from offset (based on previous command, here partition n°5 /dev/sdd5)
+sudo sfdisk -N5 -o9453280 -z-1 -tfd /dev/sdd
+# Check partitions
+sudo sfdisk -l /dev/sdd
+# Check RAID state
+cat /proc/mdstat
+sudo mdadm -D /dev/md4
+# Grow RAID volume
+sudo mdadm --grow /dev/md4 --size=max
+# Unmount volume, this will trigger bip
+sudo umount -f /volume3
+# or sudo umount -l /volume3
+# Stop the RAID volume
+sudo mdadm --stop /dev/md4
+# If this return the error "mdadm: Cannot get exclusive access to /dev/md4:Perhaps a running process, mounted filesystem or active volume group?", you need to restart the NAS with the disk 4 out of the bay
+# Restart the RAID volume and update it size
+sudo mdadm --assemble /dev/md4 /dev/sdd5 --update=devicesize
+# Check resize
+cat /sys/block/md4/md/dev-sdd5/size
+# List logical volumes (LVM)
+sudo pvdisplay
+# Resize LVM
+sudo pvresize /dev/md4
+# Restart the NAS
+# Extend unused space on volume in Storage Manager
+
+# See also
+sudo pvdisplay
+sudo vgdisplay
+sudo lvdisplay
+cat /etc/fstab
+```
 
 - [Disk cloning - ArchWiki](https://wiki.archlinux.org/index.php/disk_cloning)
 - [Some dd examples - LQWiki](http://wiki.linuxquestions.org/wiki/Some_dd_examples)
@@ -3192,6 +3240,9 @@ Check disk ID (here X and Y) in XXXXX
 - [performance - Is there a way to determine the optimal value for the bs parameter to dd? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/9432/is-there-a-way-to-determine-the-optimal-value-for-the-bs-parameter-to-dd)
 - [linux - Does the "bs" option in "dd" really improve the speed? - Server Fault](https://serverfault.com/questions/650086/does-the-bs-option-in-dd-really-improve-the-speed)
 - [partitioning - How would I speed up a full disk dd? - Ask Ubuntu](https://askubuntu.com/questions/523037/how-would-i-speed-up-a-full-disk-dd)
+- [Etendre Une Partition Sur Un Nouveau Disque Dur (Non Raid) - Installation, Démarrage et Configuration - NAS-Forum](https://web.archive.org/web/20250305223736/https://www.nas-forum.com/forum/topic/44795-etendre-une-partition-sur-un-nouveau-disque-dur-non-raid/)
+- [Can I dd a larger drive to a smaller one? - Ask Ubuntu](https://askubuntu.com/questions/435694/can-i-dd-a-larger-drive-to-a-smaller-one)
+- [Replace Drives to Expand Storage Capacity | DSM - Synology Knowledge Center](https://kb.synology.com/en-us/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk?version=6)
 
 ### CDs
 

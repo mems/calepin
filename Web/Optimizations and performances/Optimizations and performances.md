@@ -416,11 +416,21 @@ Use forever cache (cache immutable) for static resources.
 - https://redbot.org/?uri=https://example.com
 - [Caching Header Best Practices](https://web.archive.org/web/20230325111719/https://simonhearne.com/2022/caching-header-best-practices/)
 - [Cache Test](https://www.lagado.com/tools/cache-test)
-- [HTTP Cache Headers - A Complete Guide - KeyCDN](https://web.archive.org/web/20230327211908/https://www.keycdn.com/blog/http-cache-headers)
+- [HTTP Cache Headers - A Complete Guide - KeyCDN](https://web.archive.org/web/20250114073217/https://www.keycdn.com/blog/http-cache-headers)
 - [HTTP Heuristic Caching (Missing Cache-Control and Expires Headers) Explained – Paul Calvano](https://paulcalvano.com/index.php/2018/03/14/http-heuristic-caching-missing-cache-control-and-expires-headers-explained/)
 - [Un tutoriel de la mise en cache pour les auteurs Web et les webmestres](https://www.mnot.net/cache_docs/)
 - [Increasing Application Performance with HTTP Cache Headers | Heroku Dev Center](https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers)
 - https://restpatterns.mindtouch.us/Articles/Caching_Matters
+- [Prevent unnecessary network requests with the HTTP Cache  |  Articles  |  web.dev](https://web.dev/articles/http-cache)
+- [Caching on a Content Delivery Network (CDN) | DebugBear](https://www.debugbear.com/blog/cdn-cache)
+- [Leverage Browser Caching  |  PageSpeed Insights  |  Google for Developers](https://developers.google.com/speed/docs/insights/LeverageBrowserCaching)
+- [How to Check Cache Headers » Servebolt](https://web.archive.org/web/20241209002531/https://servebolt.com/help/caching/check-cache-headers/)
+- [Cache-Control - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
+- [Cache-Control - Expert Guide to HTTP headers](https://web.archive.org/web/20250215180741/https://http.dev/cache-control)
+- [CacheCheck - Check HTTP caching for any URL on the web](https://cachecheck.net/) - by [Cam McHenry](https://camchenry.com/)
+- [Cache-Control: Cheat Sheet.](https://web.archive.org/web/20241214005123/https://shayy.org/posts/cache-control)
+- [browser - Caching effect on CORS: No 'Access-Control-Allow-Origin' header is present on the requested resource - Stack Overflow](https://stackoverflow.com/a/45081016/470117
+- [Gert-Jan's Cache Control Reference - Differences Between Web Browsers](https://web.archive.org/web/20221211145438/https://gertjans.home.xs4all.nl/javascript/cache-control.html))
 
 #### Cached
 

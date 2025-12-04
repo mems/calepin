@@ -14,3 +14,10 @@ SSD Mac BookPro Retina 15" Mid 2012 use 18+8 pins connector
 - [How to replace 15" MacBook Pro Retina Glued Battery with a Thread - Part 1 - YouTube](https://www.youtube.com/watch?v=fupkPz55tUo)
 - [MacBook Pro 15" Retina Display Mid 2014 Battery Replacement - iFixit Repair Guide](https://www.ifixit.com/Guide/MacBook+Pro+15-Inch+Retina+Display+Mid+2014+Battery+Replacement/90276)
 - [Apple - Assistance - Sélection de produits](https://getsupport.apple.com/)
+
+## iPhone and iPad cases
+
+- [iPad Cases for all iPad, Pro, Air, Mini Models – DODOcase](https://dodocase.com/)
+- [OtterBox | Phone Cases, Screen Protectors & Power Banks](https://www.otterbox.com/)
+- [Phone Cases & Accessories | Pelican](https://www.pelican.com/us/en/products/phone-cases-and-accessories/)
+- [Coque antichoc et étanche pour téléphone et tablette](https://www.caseproof.net/fr/)

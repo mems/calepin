@@ -45,6 +45,28 @@ See also:
 
 For `Mail.app`, follow these intructions: [Access local mail via Mail.app - Mac OS X Hints](http://hints.macworld.com/article.php?story=20040313194905606)
 
+## Firefox
+
+Export synced tabs: use  sync tabs side panel and browser console (Cmd+Alt+Shift+I)
+
+```js
+// Select .tabs-container .item-tabs-list
+copy(`<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks</H1>
+<DL><p>
+    <DT><H3>Bookmarks ${new Date()}</H3>
+    <DL><p>
+${Array.from($0.querySelectorAll(".item"), i => `      <DT><A HREF="${i.dataset.url}" ADD_DATE="${Date.now()}">${i.querySelector(".item-title").textContent}</A>`).join("\n")}
+    </DL><p>
+</DL><p>
+`);
+// Save as bookmark.html then import it
+```
+
+- [How to open all synced tabs | Firefox Support Forum | Mozilla Support](https://support.mozilla.org/en-US/questions/1413287)
+
 ## Office
 
 - [Office 2016 Volume Installer findings | Jamf Nation](https://www.jamf.com/jamf-nation/discussions/16761/office-2016-volume-installer-findings)

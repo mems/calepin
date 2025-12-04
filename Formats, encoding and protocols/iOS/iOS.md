@@ -25,3 +25,7 @@
 - EnCase Ncutrino
 - iPhone Analyzer
 - iPhone backup browser http://code.google.com/p/iphonebackupbrowser/
+
+## Profiles
+
+- [Encrypted DNS Party](https://encrypted-dns.party/) - [nitrohorse / encrypted-dns-configs · GitLab](https://gitlab.com/nitrohorse/ios14-encrypted-dns-mobileconfigs)

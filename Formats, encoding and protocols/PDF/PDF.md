@@ -14,6 +14,7 @@
 - [pdfsandwich](http://www.tobias-elze.de/pdfsandwich/)
 - [pdfimages — Wikipedia](https://en.wikipedia.org/wiki/Pdfimages) - `pdfimages`. [Install poppler on macOS with MacPorts](https://ports.macports.org/port/poppler/)
 ![PDF](PDF.png)
+- [LuxPDF | An Open-source, Free, Privacy-focused, alternative to other PDF WebApps.](https://luxpdf.com/) - [GitHub - VSRemoter/LuxPDF](https://github.com/VSRemoter/LuxPDF) online tools use [pdf.js](https://github.com/mozilla/pdf.js/) and [pdf-lib](https://github.com/Hopding/pdf-lib) (see the fork [cantoo-scribe/pdf-lib](https://github.com/cantoo-scribe/pdf-lib))
 
 ![PDF101 An Adobe Document Walkthrough](PDF101%20an%20Adobe%20document%20walkthrough.png)
 

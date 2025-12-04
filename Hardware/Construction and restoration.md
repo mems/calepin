@@ -1,4 +1,5 @@
 - [Smartbuilders - YouTube](https://www.youtube.com/@Smartbuilders)
+- [Sal DiBlasi - YouTube](https://www.youtube.com/@SalDiBlasi) - tiler
 
 Construction quality and defects examples:
 
@@ -63,6 +64,12 @@ Voir norme EN 1935 / EN 12519 / DIN 107
 - [sens ouverture norme DIN](https://web.archive.org/web/20200922102730/https://www.systemportesindustrie.fr/sens-ouverture)
 - [Définir le sens d’ouverture des portes | HSB Bern](https://web.archive.org/web/20201126212248/https://www.hsb-bern.ch/fr/project/definir-le-sens-douverture-des-portes)
 
+## Build
+
+Aka maçonnerie, bricklayer, mason
+
+- [Maçons du 47 - YouTube](https://www.youtube.com/channel/UCD-9Ah43U1e9G4B-y_qpxJA)
+
 ## Sound absorption
 
 Use towel (multiple layers)
@@ -88,6 +95,14 @@ Use towel (multiple layers)
 - ciment prompt pour bouger les orifices d'évacuation (raccord entre PVC et fonte/SME), il sèche très vite
 - installer le tuyaux d'eau chaude au dessus de celui d'eau froide pour éviter la condensation derrière la parois
 
+Coller des tubes PVC :
+
+- chanfrein
+- gratter a la toile emeri
+- décapage à l'acétone
+- collage sans torsions (double encollage, mais sans aller au fond pour la partie femelle)
+- respecter les temps de sechage
+
 - [Le blog du plombier – Parlons de notre métier](https://blogs.plombiers-reunis.com/)
 - [La plomberie pro - D.Fedullo, T.Gallauziaux - 4e édition - Éditions Eyrolles](https://www.editions-eyrolles.com/Livre/9782212676440/la-plomberie-pro)
 - [DJ. PLOMBERIE - YouTube](https://www.youtube.com/@DJ.PLOMBERIE)
@@ -104,7 +119,6 @@ Use towel (multiple layers)
 
 - [How To Build Walls – The Stone Trust](https://web.archive.org/web/20230601193946/https://thestonetrust.org/resource-information/how-to/)
 - [DRY STONE TV - YouTube](https://www.youtube.com/@drystone-tv)
-
 
 ## Drywall
 
@@ -179,6 +193,8 @@ Utiliser (spayer ou badigeonner) de l'eau savonneuse ou un produit de lissage po
 >
 > — [Mastic ou silicone : Quelle est la différence ?](https://www.devenirbricoleur.com/mastic-ou-silicone.html)
 
+MS polymère (Modified Silane Polymer) (nettoyable avec de l'acétone)
+
 > Les colles permettent de relier les matériaux, mais ne sont pas toujours élastiques. Les mastics permettent également de lier les matériaux, tout en absorbant les mouvements de dilatation des supports. La liaison sera cependant moins rigide qu'avec une colle. Les différents produits [...] mastic à base de MS Polymères, offrent à la fois une liaison solide et une bonne étanchéité. Ils allient les deux propriétés.
 >
 > — [Quelle est la différence entre les mastics et les colles?](https://www.soudal.fr/pro/faq/quelle-est-la-diff%C3%A9rence-entre-les-mastics-et-les-colles)
@@ -217,3 +233,62 @@ Ne pas utiliser pour le calfeutrement. Utilise du compribande (DTU 36.5)
 - [https://www.ufme.fr/file/1092/download](https://www.ufme.fr/sites/default/files/actualites/position_pro_ufme_mousses_aerosol_def_0.pdf)
 - [RECOMMANDATIONS GÉNÉRALES POUR LA MISE EN ŒUVRE DES FENÊTRES ET PORTES EXTÉRIEURES DANS LES CONSTRUCTIONS NEUVES OU EN RÉNOVATION](https://www.ufme.fr/sites/default/files/actualites/calfeutrement.pdf)
 - [Qu’est-ce qu’une mousse polyuréthane expansive ? - Würth](https://infos.wurth.fr/mousse-polyurethane/)
+
+
+## Batteries
+
+Battery adapter
+
+- [Batterie CAS | Page d'accueil](https://www.cordless-alliance-system.com/fr/)
+
+## Systainer
+
+Coffret
+
+Tous fabriqué par Tanos ?
+
+- Berner Bera Clic/+
+- Hitachi Hit-Case
+- Makita MakPac
+- Metabo MetaBOX/MetaLoc
+- Mafell Max/T-Max
+- Starmix Starbox
+- Systra Modul
+- Fein L-BOXX
+- Festool
+- Tanos
+- Triton
+- Dewalt
+- Shaper
+- BTI
+- Menzer
+- Bott
+- Mirka
+
+- [Bac Europe — Wikipédia](https://fr.wikipedia.org/wiki/Bac_Europe)
+- [Systainer - Wikipedia](https://en.wikipedia.org/wiki/Systainer)
+
+- [systainer®](https://shop.systainer.com/fr/systainer/)
+- [Systainer - Recherche Leroy Merlin](https://www.leroymerlin.fr/search?q=Systainer)
+- [Coffrets | Autres accessoires | Outillage électroportatif Metabo](https://www.metabo.com/fr/fr/accessoires/autres-accessoires/coffrets/)
+- [Milwaukee Tools - Système de rangement Packout | Milwaukee Tools France](https://fr.milwaukeetool.eu/range/packout/?pageindex=0&pagesize=40)
+- [TANOS systainer® – Innovative Aufbewahrungssysteme für Profis | TANOS](https://www.tanos.de/)
+- [Autre - Abrasifs Online](https://www.abrasifs-online.fr/autre) - Systainer Mirka
+- [Coffrets MAKPAC](https://www.makita.fr/products/coffrets-makpac.html)
+- [Moulages spécifiques pour machines](https://www.makita.fr/products/moulages-sp%C3%A9cifiques-pour-machines.html)
+- [Coffret de transport et moulage Makpac Makita – Racetools](https://racetools.fr/collections/coffret-de-transport-et-moulage-makpac-makita)
+- [Moulage de calage MakPac Makita](https://www.toomanytools.com/992-moulage-makpac-de-calage-makita)
+- [Rangement, stockage - Outillage d’atelier - Outillage](https://www.maxoutil.com/outillage/outillage-d-atelier/rangement.html?marque=MAKITA)
+- [The ONLY way to organise a Makita Makpac Systainer | Tool Storage Makpac | Shadow Foam Easy Peel - YouTube](https://www.youtube.com/watch?v=H0mOoWYnOzA)
+- [Coffrets - Materiel BTP](https://materielbtp.fr/522-coffrets/)
+
+- [Systainer : rangements modulables, pratiques et résistant \[GUIDE\]](https://nopanic.fr/stockage-systainer/)
+
+## Issues
+
+- [⚠️ VIE DE CHANTIER : Respecter Le peintre et son travail ! bosser pour constructeurs c'est compliqué - YouTube](https://www.youtube.com/watch?v=u-yI9NKlnEE&list=PLQjA7bAfm97P_mTJHqPdjrsbJfbwg76wS&index=32)
+
+## Document technique unifié
+
+- [Document technique unifié — Wikipédia](https://fr.wikipedia.org/wiki/Document_technique_unifi%C3%A9)
+- [⚠️ VIE DE CHANTIER : Nettoyer son matériel peinture oui ou non ? et conseils DTU / E-Cahiers CSTB - YouTube](https://www.youtube.com/watch?v=dvHzXyRb02g&list=PLQjA7bAfm97P_mTJHqPdjrsbJfbwg76wS&index=28)

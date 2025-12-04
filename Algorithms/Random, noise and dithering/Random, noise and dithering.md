@@ -289,6 +289,11 @@ Could use [Diamond-square algorithm](Algorithms#diamond-square) to do the same e
 - [Sphere surface uniform random sampling](Sphere surface uniform random sampling.html) - see [Román Cortés » Furbee - My Js1k Spring ‘13 entry](http://www.romancortes.com/blog/furbee-my-js1k-spring-13-entry/)
 - [Floyd Steinberg dithering](https://codepen.io/nicoptere/pen/waPOOm)
 
+Atkinson dithering:
+
+- [gazs/canvas-atkinson-dither](https://github.com/gazs/canvas-atkinson-dither)
+- [Atkinson dithering - Wikipedia](https://en.wikipedia.org/wiki/Atkinson_dithering)
+
 ## Random
 
 Aka random number, pseudo random number (PRN)

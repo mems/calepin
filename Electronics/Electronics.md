@@ -42,3 +42,11 @@ The BMS quality is important: < 2$/cells-in-series is too cheap/risky
 
 - [Do you NEED a BMS for DIY Li-ion Batteries? - YouTube](https://www.youtube.com/watch?v=c3tUuiXXA1Y)
 - [Battery management system - Wikipedia](https://en.wikipedia.org/wiki/Battery_management_system)
+
+## Relais
+
+Faire une commutation (avec séparation de circuit)-
+
+NO NC COM
+relais statique (électrique, utilisant une LED)
+relais stable: pas besoin d'alimenter en continu pour maintenir le contact

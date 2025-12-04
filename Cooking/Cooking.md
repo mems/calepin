@@ -18,6 +18,9 @@ Cocotte Le Creuset avec un bouton en phénolique noire, passage au four, 200°C 
 ## Tools
 
 - [Quelles alternatives aux poêles en téflon ? I UFC Que Choisir - YouTube](https://www.youtube.com/watch?v=Aktt0O49_aY)
+- [Beka Cookware](https://www.beka-cookware.com/fr)
+- [De Buyer : ustensiles de cuisine et pâtisserie professionnels](https://www.debuyer.com/fr/)
+- [Ustensiles de cuisine écologique, poêle en fonte sans revêtement et accessoires pour la cuisine | Scandi-vie](https://www.scandi-vie.com/)
 
 ### Hoven
 
@@ -44,12 +47,12 @@ L'insérer de façon équitable au tour de l'insert
 
 ### Steel pan
 
-poêle en acier
+poêle en acier (pour la poêle en inox, ça dépend)
 
 Culottage :
 
 1. bien nettoyer la poêle en acier (au produit vaiselle)
-2. mettre sur un feux moyen (dé préférence sur un feu à gaz, utiliser avec une hotte ou le faire en exterieur)
+2. mettre sur un feux moyen (de préférence sur un feu à gaz, utiliser avec une hotte ou le faire en exterieur)
 3. verser une bonne quantité d'huile de tournesol (1 à 2 mm d'huile dans le fond)
 4. imprégner les cotés à l'aide d'un chiffon / papier essuie tout
 5. attendre que l'huile atteigne sont point de fumée (elle va se polymériser)
@@ -65,6 +68,7 @@ On obtient une coloration noir/brillante/cuivrée
 > [culottage d'une poêle en acier avec de l'huile de tournesol]
 > évite l'huile d'olive par exemple, faut une huile de tournesol ou de pépin de raisin par exemple car elles tiennent bien les grosses chaleurs, du moins plus que les autres huiles et ça évite que l'huile brûle à la place d'être polymérisée. :)
 
+> [Pour nettoyer]
 > Après avoir enlever tout les aliments, faire chauffer la poêle très chaud à feu vif. Quand ça fume bien, y verser un verre d'eau chaude (du robinet) et tout va se décoller.
 > Finir de nettoyer à l'éponge SANS produit à l'intérieur de la poêle. Ça permet de garder une fine pellicule de graisse qui permettra d'encore moins accrocher.
 
@@ -73,6 +77,19 @@ On obtient une coloration noir/brillante/cuivrée
 > Du point de vue des substances nocives comme l'acrylamide très cancérigène et pro-inflammatoire, la cuisson à une température supérieure à 120 degrés est à éviter absolument. Il faut absolument cuire [...] à feu doux et prendre le temps
 
 - [De Buyer : ustensiles de cuisine et pâtisserie professionnels](https://www.debuyer.com/fr/)
+- [Comment cuisiner dans des poêles en inox ? – Atma Kitchenware](https://atmakitchenware.fr/blogs/mediatma/comment-cuisiner-dans-des-poeles-en-inox)
+- [Comment cuire un steak haché à l'inox ? - Tuto détaillé - YouTube](https://www.youtube.com/watch?v=qvPk5sxRi8U&list=PL5X-aAjZBu5meeBpxfuIdYCKGEO0r7Sbq&index=2)
+- [Faut-il culotter une poêle en inox ? – Atma Kitchenware](https://atmakitchenware.fr/blogs/mediatma/faut-il-culotter-une-poele-en-inox)
+- [Comment culotter une poêle en acier ? Conseils et entretien - Comptoir des Industries Françaises](https://www.coin-fr.com/blog/nos-conseils-pour-bien-choisir/comment-culotter-une-poele-en-acier-conseils-et-entretien)
+- [Comment culotter une poêle antiadhésive (avec images)](https://fr.wikihow.com/culotter-une-po%C3%AAle-antiadh%C3%A9sive) - ???
+- [Cuisson acier](https://www.debuyer.com/fr/content/24-cuisson-acier) - [Comment réaliser le culottage d'une poêle en acier sur gaz ? - YouTube](https://www.youtube.com/watch?v=xt835UijyPc)
+- [Cuisson inox](https://www.debuyer.com/fr/content/35-cuisson-inox)
+- [Qu’est-ce que le culottage et comment le réaliser ?](https://www.esprit-barbecue.fr/blog/tout-savoir-culottage-fonte/)
+- [Carbon Steel Pan Sticky? Avoid This Seasoning Mistake - YouTube](https://www.youtube.com/watch?v=pjmo2NaTOoQ)
+- [Carbon Steel Seasoning: My Fool-Proof Method & What NOT to Do - YouTube](https://www.youtube.com/watch?v=N4d8u4_frxg)
+- [The Secret to Seasoning a Cast Iron Skillet (And What NOT to Do) - YouTube](https://www.youtube.com/watch?v=6b9YDn9PzFA)
+- [9 Cast Iron Cookware Myths Debunked (With Proof) - YouTube](https://www.youtube.com/watch?v=be6UDq1hZs0)
+- [Comment nettoyer une poêle en inox ? - YouTube](https://www.youtube.com/shorts/icSFhoPA6SE)
 
 ## Main dishes and sides
 
@@ -509,6 +526,7 @@ Conseils
 ## Other
 
 - [5 Mouth-Watering Rib Recipes by Tasty](https://tasty.co/compilation/5-mouth-watering-rib-recipes)
+- [Recette de Crème d'asperges blanches](https://cuisine.journaldesfemmes.fr/recette/317386-creme-d-asperges)
 
 ### Pain maison
 

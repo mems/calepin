@@ -16,6 +16,7 @@ Renshape 460 for the pattern and Petrobond (BOND) for the sand cast
 - [FPI - Foundry Products Incorporated](http://www.foundryproductsonline.com/)
 - [myfordboy - YouTube](https://www.youtube.com/channel/UCNC9gjgYrzLfyMQmp31DnjA)
 - [Simple Bronze Casting - YouTube](https://www.youtube.com/channel/UCb7GbqAjyz0kwdEAUjr4FSQ) - a channel about forging and casting steel
+- [J'ai fabriqué un four de fusion pour fondre des métaux ! - YouTube](https://www.youtube.com/watch?v=_W2wnFLlKZI)
 
 ## Brazing and welding
 
@@ -105,3 +106,9 @@ brasage fort (résistance : 40 à 50 Kg/mm², température nécéssaire : > 450�
 ## Bend
 
 - [How to bend EMT conduit - tinktube](https://tinktube.com/tips/how-to-bend-emt-conduit/)
+- [► Fabriquer une plieuse à tôles - YouTube](https://www.youtube.com/watch?v=V0rzVtY2KW8)
+- [Making an Inset Bench Metal Folder/Brake - YouTube](https://www.youtube.com/watch?v=Ggy1DHwAh_0)
+
+## Tools
+
+- [Metalprofi Machines à métal Holzprofi France](https://holzprofi.fr/62-metalprofi)

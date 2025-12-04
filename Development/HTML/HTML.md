@@ -1755,7 +1755,9 @@ It's no more true with HTML 5.1
 - [ManifeStation - Automagically create your Web App Manifest](https://webmanife.st/)
 - [Web App Manifest](https://www.w3.org/TR/appmanifest/)
 
-## Content vs. decorative image
+## Image
+
+### Content vs. decorative image
 
 `img[alt]:not([alt=""])` element vs. `img[alt=""]` or CSS `background-image`
 
@@ -1795,12 +1797,12 @@ If you have to define multiple size based on dppx or viewport size, you can use 
 
 See also [CSS - Image](../CSS/CSS.md#image)
 
-## Image map
+### Image map
 
 - [Free Online Image Map Generator](https://www.image-map.net/)
 - [Image map - Wikipedia](https://en.wikipedia.org/wiki/Image_map)
 
-## Image description
+### Image description
 
 Image alternative
 
@@ -1827,14 +1829,12 @@ Image alternative
 - [Alternate text for background images, alt text accessibility](http://davidmacd.com/blog/alternate-text-for-css-background-images.html)
 - [Writing great alt text: Emotion matters - JakeArchibald.com](https://web.archive.org/web/20220529194501/https://jakearchibald.com/2021/great-alt-text/)
 
-## Responsive image
+### Responsive image
 
 Aka adaptive image
 
 - `srcset` = what you got
 - `sizes` = how big it gonna be
-
-Note: Use SVG if srcset not supported
 
 ```html
 <img src="kirkjufell.jpg" srcset="kirkjufell_2x.jpg 2x" alt="Photograph of a blurred waterfall in Iceland with a conical mountain behind it">
@@ -1848,6 +1848,12 @@ Note: Use SVG if srcset not supported
 - [Responsive images with srcset and sizes – Medium](https://medium.com/@woutervanderzee/responsive-images-with-srcset-and-sizes-fc434845e948#)
 - [How to Build Responsive Images with srcset](https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/)
 - [Tutoriels sur les Images Responsives](https://la-cascade.io/tag/images-responsives/)
+
+### Image height and width
+
+Set HTML attributes `height` and `width` automatically define CSS `aspect-ratio`.
+
+- [Le retour de height et width](https://www.matthecat.com/le-retour-de-height-et-width.html)
 
 ## Form
 

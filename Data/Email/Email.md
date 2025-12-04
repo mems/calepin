@@ -78,14 +78,14 @@ telnet gmail-smtp-in.l.google.com 25
 < 220 mx.google.com ESMTP bo10si2114398wjb.163 - gsmtp
 > HELO
 < 250 mx.google.com at your service
-> MAIL FROM:<my@email.address>
+> MAIL FROM:<test@test.com>
 < 250 2.1.0 OK bo10si2114398wjb.163 - gsmtp
 > RCPT TO:<email-to-test@gmail.com>
 < 550-5.1.1 The email account that you tried to reach does not exist. Please try...
 ```
 
 ```
-printf 'HELO\r\nMAIL from:<my@email.address>\r\nRCPT to:<email-to-test@gmail.com>\r\nQUIT' | nc gmail-smtp-in.l.google.com 25 -i 1
+printf 'HELO\r\nMAIL from:<test@test.com>\r\nRCPT to:<email-to-test@gmail.com>\r\nQUIT' | nc gmail-smtp-in.l.google.com 25 -i 1
 ```
 
 Result:

@@ -4,7 +4,7 @@
 
 - [SVGO](https://github.com/svg/svgo)
 - [SVGCleaner](https://github.com/RazrFalcon/SVGCleaner)
-- https://github.com/scour-project/scour
+- [scour-project/scour: Scour - An SVG Optimizer / Cleaner](https://github.com/scour-project/scour)
 - [Save Cleaned SVG - Inkscape Wiki](http://wiki.inkscape.org/wiki/index.php/Save_Cleaned_SVG)
 - [SVGcode—Convert raster images to SVG vector graphics](https://svgco.de/)
 - [SVGOMG - SVGO's Missing GUI](https://jakearchibald.github.io/svgomg/)
@@ -137,6 +137,7 @@ wsp:
 - [SVG Path Strings](https://web.archive.org/web/20221224221726/https://roadtolarissa.com/blog/2015/02/22/svg-path-strings/)
 - [The SVG `path` Syntax: An Illustrated Guide | CSS-Tricks](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
 - [Paths – SVG 1.1 (Second Edition)](https://www.w3.org/TR/SVG/paths.html#PathDataBNF)
-- [SvgPathEditor](https://yqnn.github.io/svg-path-editor/)
+- [SvgPathEditor](https://yqnn.github.io/svg-path-editor/) - [Yqnn/svg-path-editor: Online editor to create and manipulate SVG paths](https://github.com/Yqnn/svg-path-editor)
 - [debug SVG paths in the browser](https://github.com/winkerVSbecks/xvg)
 - https://web.archive.org/web/20120208082724/http://www.libspark.org/svn/as3/SvgParser/trunk/src/svgparser/parser/Path.as
+- [SVG Path Editor](https://svg-path.com/) - [rfauver/svg_path_editor: Interactive SVG editor made with Next.js](https://github.com/rfauver/svg_path_editor)

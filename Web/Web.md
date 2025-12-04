@@ -1134,6 +1134,7 @@ Files in this directory:
 
 See also:
 
+- [How to restore a browsing session from backup | Firefox Help](https://support.mozilla.org/en-US/kb/how-restore-browsing-session-backup)
 - [Session History Scrounger for Firefox (with lz4 support) — Fx File Utilities](https://www.jeffersonscher.com/ffu/scrounger.html) - read file format in `sessionstore-backups` directory
 
 #### Integrated authentication
@@ -2236,3 +2237,9 @@ For:
 - [justjavac/ChromeSnifferPlus: Sniff web framework and javascript libraries run on browsing website.](https://github.com/justjavac/ChromeSnifferPlus)
 - [BuiltWith Technology Lookup](https://builtwith.com/)
 - [WhatRuns — Discover What Runs a Website](https://www.whatruns.com/)
+
+## HTTP cache
+
+aka `Cache-Control` header
+
+See also [Optimizations and performances](./Optimizations%20and%20performances/Optimizations%20and%20performances.md)

@@ -739,6 +739,7 @@ See also if it use SMB Shares, it could be slow itself (due to protocol version 
 - [Fix Time Machine Sparsebundle NAS Based Backup Errors | Garth Gillespie](http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html)
 - https://github.com/jamespayne/time-machine-sparse-bundle-fix and https://github.com/Parkcomm/time-machine-sparce-bundle-fix
 - https://gist.github.com/dipdi/fedb28652f8e7de2b11b
+- [micxer/time-machine-sparse-bundle-fix: Time Machine Sparsebundle Fix](https://github.com/micxer/time-machine-sparse-bundle-fix) - "Time Machine completed a verification of your backups. To improve reliability, Time Machine must create a new backup for you." fix
 
 ### Time Machine Volume on Network
 
@@ -804,6 +805,8 @@ EOF
 chmod 644 .com.apple.TimeMachine.quota.plist
 ```
 
+- [backup - Where to configure Time Machine quota when backing up to Mac Server - Ask Different](https://apple.stackexchange.com/questions/337148/where-to-configure-time-machine-quota-when-backing-up-to-mac-server)
+- [movq - Time Machine Quotas](https://web.archive.org/web/20241008120242/http://movq.us/2017/04/09/time-machine-quotas/)
 - [vfs_fruit](https://www.samba.org/samba/docs/current/man-html/vfs_fruit.8.html#:~:text=fruit%3Atime%20machine%20max%20size%20%3D%20size%20%5Bk%7Cm%7Cg%7Ct%7Cp%5D) - "fruit:time machine max size = SIZE [K|M|G|T|P]" "But I would discourage this, as it recalculates the share free space on every df call by the client" - [Implement Time Machine quota setting · Issue #910 · openmediavault/openmediavault · GitHub](https://github.com/openmediavault/openmediavault/issues/910#issue-777332700)
 - [Create or resize sparsebundle](#create-or-resize-sparsebundle)
 - [Remote Time Machine for Multiple Macs · jbowen.dev](https://blog.jbowen.dev/2020/05/remote-time-machine-for-multiple-macs/)
@@ -2668,7 +2671,9 @@ See also [Change the language used at the login screen on your Mac - Apple Suppo
 
 ### Reset NVRAM
 
-[How to Reset NVRAM on your Mac - Apple Support](https://support.apple.com/en-us/HT204063)
+And PRAM.
+
+- [How to Reset NVRAM on your Mac - Apple Support](https://support.apple.com/en-us/HT204063) - restart and hold Option, Command, P, R keys for 20 seconds
 
 ### Start up item
 
@@ -3128,9 +3133,9 @@ Macports install in `/opt/local` where Homebrew install in `/usr/local`.
 > `/usr/local`, for self, inhouse, compiled and maintained software.
 > `/opt` is for non-self, external, prepackaged binary/application bundle installation area
 
-- https://guide.macports.org/chunked/installing.macports.uninstalling.html
-- http://trac.macports.org/wiki/Migration
-- https://www.macports.org/install.php
+- [2.4. Uninstall MacPorts](https://guide.macports.org/chunked/installing.macports.uninstalling.html)
+- [Migration – MacPorts](https://trac.macports.org/wiki/Migration)
+- [The MacPorts Project -- Download & Installation](https://www.macports.org/install.php)
 
 > Macports is installed as root and uses its own account macports for some things.
 
@@ -3143,7 +3148,6 @@ sudo port uninstall inactive
 ```
 
 - [MacPorts Guide](https://guide.macports.org/#using.common-tasks) - Common Tasks
-
 - [How to remove unused MacPorts packages? - Ask Different](https://apple.stackexchange.com/questions/10149/how-to-remove-unused-macports-packages)
 
 Install ports:
