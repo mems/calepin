@@ -519,6 +519,23 @@ Conseils
 >
 > — [La meilleure façon de... Réussir ses lasagnes - 750g - YouTube](https://www.youtube.com/watch?v=0nE7dAlDshk)
 
+### Béchamel
+
+Aka sauce blanche
+
+- 40 gr de beurre
+- 40 gr de farine de blé ou maïzena
+- 40 cl de lait
+- sel
+- noix de muscade
+
+> Faites chauffer le reste de beurre dans une casserole. Ajoutez la farine et mélangez sur feu doux pendant environ 5 min. Versez le lait en filet et laissez cuire sans cesser de mélanger jusqu’à ce que la préparation épaississe. Salez et poivrez.
+
+- [La béchamel - Philippe Etchebest](https://philippe-etchebest.com/la-bechamel/?utm_source=You+Tube&utm_medium=Description&utm_campaign=100)
+- [Sauce béchamel facile](https://www.cuisineaz.com/recettes/sauce-bechamel-facile-37682.aspx)
+- [Sauce béchamel : la meilleure recette](https://cuisine.journaldesfemmes.fr/recette/311853-sauce-bechamel)
+- [Béchamel : Recette de Béchamel](https://www.marmiton.org/recettes/recette_bechamel_23880.aspx)
+
 ### Quiche
 
 - [Quiche lorraine classique : la recette incontournable](https://cuisine.journaldesfemmes.fr/recette/304074-quiche-lorraine)
