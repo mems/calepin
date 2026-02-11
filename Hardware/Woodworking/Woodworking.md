@@ -139,6 +139,8 @@ Aualité des faces , Les lettres indiquent pour chaque face la qualité de fabri
 - BB : Qualité ordinaire la plus courante. Utilisée sous les revêtements ou pour des structures.
 - WG : Qualité réservée aux sites moins exigeants.
 
+- [10 Secrets to avoid costly plywood mistakes! - YouTube](https://www.youtube.com/watch?v=qfjzFCE2tF4)
+
 - [JR Contreplaque](https://jr-contreplaque.fr/) - CP pour maquettes, découpe laser, jeux en bois
 
 ## Tools
@@ -170,32 +172,6 @@ Blocs de montage de précision, aka 1-2-3 blocks
 - [Precision Block Sets, Metric and Inch, 2 Ps Set(1 Pair Set)](https://accusizetools.com/en-global/products/precision-block-sets?variant=40807377928390)
 - [23 Hole 1-2-3 Blocks — Taylor Toolworks](https://taytools.com/collections/tools-machine-tools/products/taytools-1-2-3-matched-pair-1-2-3-23-holes-hardened-steel?variant=39259714191447)
 - [Blocs de montage de précision G 123 BS OTMT 21L03625](https://www.metiers-et-passions.com/is-bin/INTERSHOP.enfinity/WFS/MetP-France-Site/fr_FR/-/EUR/Navigation-Dispatch?R=38802&PrefixDirect=VK)
-
-## Mesure, calibration and fine-tuning
-
-Aka precision, repetitive measurements, repeatability, pattern
-
-- [Tracés et mesures, tous mes trucs, méthodes et astuces - YouTube](https://www.youtube.com/watch?v=vjDTNUCepZM)
-	- éviter de mesure
-	- crayon bien taillé 2H ou critérium/portemine 0,5 mm
-- [5 CONSEILS DE MENUISIER : COTES ET MESURES - YouTube](https://www.youtube.com/watch?v=c4bMyO8VyeM)
-- [Couper d'équerre au centième de degré. (la méthode des cinq coupes expliquée à ma grand-mère) - YouTube](https://www.youtube.com/watch?v=m9F1rWbGsI8)
-- [6 ASTUCES INFAILLIBLES POUR GAGNER EN PRÉCISION ! - YouTube](https://www.youtube.com/watch?app=desktop&v=u0BPJDkB5o0)
-	- le traçage
-	- la scie
-	- l'affûtage
-	- l'éclairage
-	- la planche à recaler
-	- la préparation de vos projets
-- [SCIE CIRCULAIRE : La technique simple et précise d'un rail pour scie circulaire ! - YouTube](https://www.youtube.com/watch?v=dfi0hTMPPso)
-- [SCIE CIRCULAIRE : 2 astuces simples et rapides pour gagner en précision ! - YouTube](https://www.youtube.com/watch?v=xHVZNTyYPzc)
-- [SCIE CIRCULAIRE : L'astuce simple et précise du travail au T - YouTube](https://www.youtube.com/watch?v=ncMlG9INtB4)
-- [Technique de menuiserie : tracer n'importe quel angle sans rapporteur - YouTube](https://www.youtube.com/watch?v=uz31Zw_7hjE) - [Tangente.xls - Google Drive](https://drive.google.com/file/d/1VP5YX2G3Q73qmN9aLSrsvZQEZF3o8UpV/view?pli=1)
-- [Être précis(e) avec des outils à main (technique de menuiserie) - YouTube](https://www.youtube.com/watch?v=T3DzsPSUIIM)
-- [Scored Story Stick -- Dead On Accurate - YouTube](https://www.youtube.com/watch?app=desktop&v=hsjdWT6gqhE)
-- [This is the BEST System for Cutting Plywood - YouTube](https://www.youtube.com/watch?v=fMAJCb9EGvs) - cut squares
-- [les outils indispensables pour faire de la menuiserie - YouTube](https://www.youtube.com/watch?v=dKJ-L6hi5t4)
-- [Diviser sans calculer #woodworking #bricolage #astuce #tips #tipsandtricks #menuiserie #wood - YouTube](https://www.youtube.com/shorts/69uBYohqzJE) - utiliser une diagonale qui peut facilement se diviser
 
 ## Cut
 

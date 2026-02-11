@@ -30,6 +30,8 @@ Bicarbonate de soude pour nettoyer un four (12 heures)
 Boule de papier aluminium + coca pour nettoyer les taches de rouille (du chrome, etc)
 Voir aussi pour le dentifrice pour le polish
 
+- [Clean That Up - YouTube](https://www.youtube.com/@CleanThatUp)
+
 ## Vente / achat
 
 - [Véhicules d'occasion : 5 conseils pour acheter tranquille | economie.gouv.fr](https://www.economie.gouv.fr/particuliers/achat-vehicules-occasion-conseils)
@@ -62,9 +64,9 @@ Paypal prend une commission pour la réception d'argent: [3,4% + 0,25€](https:
 
 Lancer une annonce 10j le jeudi à 20h pour finir la semaine suivante le dimanche à 20h
 
-# Health
+## Health
 
-## Traitement verrues plantaires
+### Traitement verrues plantaires
 
 Voir un dermatologues pour les autres type de verrue ou les plus grosses verrues plantaires
 
@@ -90,7 +92,7 @@ Les verrues guérissent spontanément dans 35 à 90% des cas
 
 - [Verrue — Wikipédia](https://fr.wikipedia.org/wiki/Verrue#Traitements_chimiques)
 
-## Mal de gorge
+### Mal de gorge
 
 Aussi extinction de voix
 
@@ -113,13 +115,13 @@ Aka déménagement
 
 - banques, services financiers
 - assurances, mutuelles
-- commerce (paiement et livraison) : Paypal, Ebay, Paypal, iTunes
+- commerce (paiement et livraison) : Paypal, Ebay, Apple
 - électricité, eau, gaz
 - téléphone, internet (déménagement de ligne, portabilité)
 - liste électorale ([Demande d'inscription en ligne sur les listes électorales](https://www.service-public.fr/particuliers/vosdroits/R16396))
 - impôts ([Je déménage | impots.gouv.fr](https://www.impots.gouv.fr/portail/particulier/je-demenage))
 - carte d’identité
-- passport
+- passeport
 - carte grise ([Calculer le coût de la carte grise](https://www.service-public.fr/particuliers/vosdroits/R39696), [Carte grise : changement d'adresse - ANTS - Site Immatriculation](https://immatriculation.ants.gouv.fr/Vos-demarches/Changement-d-adresse))
 - permis de conduire
 - organismes sociaux (santé, retraite) : caisses de sécurité sociale et de retraite, assurance maladie, pôle emploi, CPAM, CAF, caisse de retraite

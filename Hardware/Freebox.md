@@ -63,6 +63,10 @@ Use CAS Conditional Access System? Ni CSA (Common Scrambling algorithm)
 ## Wi-Fi
 
 - [Univers Freebox :: Voir le sujet - Configuration radio et options des parametres avancés](http://forum.universfreebox.com/viewtopic.php?p=441970&sid=328e17ef854d486c10cfc18f7c610ab0#441970)
+- [\[Tuto\] - Optimisations WiFi - Association WDA](https://forum.wda-fr.org/viewtopic.php?f=13&t=2463#p14634)
+- [FS#15115 : Bug de négociation débit wifi entre les Macs (=\<2010) et la Freebox Révolution (R1,R2, R3?)](https://dev.freebox.fr/bugs/task/15115#comment77247)
+- [Petit guide pour améliorer sa connexion internet • Tribune • Zeste de Savoir](https://zestedesavoir.com/billets/3530/petit-guide-pour-ameliorer-sa-connexion-internet/#p220578)
+- [\[Résolu\] Signification des paramètres avancés des cartes Wi-Fi d’une Freebox • Forum • Zeste de Savoir](https://zestedesavoir.com/forums/sujet/14338/signification-des-parametres-avances-des-cartes-wi-fi-dune-freebox/)
 - [FS#15008 : Documentation des paramètres Wifi Avancés](http://dev.freebox.fr/bugs/task/15008)
 
 ## VPN

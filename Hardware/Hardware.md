@@ -112,6 +112,7 @@ Adoucissant:
 - [Tuto : comment fabriquer un adoucissant maison](https://www.aufeminin.com/deco-pro/adoucissant-maison-s4012655.html) - 1 cuillère à soupe de bicarbonate de soude, 150 ml de vinaigre blanc, 250 ml d’eau distillée, 20 gouttes d’huile essentielle ou 250 ml de vinaigre blanc, 500ml d’eau distillée, 10 gouttes d’huile essentielle; adoucissant basse température ou plus : 125 g d’acide citrique, 350 ml d’eau déminéralisée, 20 gouttes d’huile essentielle
 - [Le Biowashball : la lessive perd la boule - Sciences et Avenir](https://www.sciencesetavenir.fr/decryptage/le-biowashball-la-lessive-perd-la-boule_37016)
 - [Comment adoucir le linge de façon naturelle: 11 étapes](https://fr.wikihow.com/adoucir-le-linge-de-fa%C3%A7on-naturelle)
+- [Comment éliminer les traces blanches sur vos verre après le lave-vaisselle - YouTube](https://www.youtube.com/watch?v=PWLsR8HJLxQ)
 
 ## Mattress
 
@@ -150,9 +151,37 @@ Aka étiquette, systèmes de marquage
 
 - [Hole pattern for abrasives — Klingspor Abrasive Technology](https://web.archive.org/web/20250204005932/https://www.klingspor.de/en/lowdown-on-grinding/hole_pattern_for_abrasives)
 - [Multifit™ - One Fits All - Mirka](https://www.mirka.com/en-us/know-how/solutions/multifit---perforation-technology-for-abrasives)
-- [This $.07 Upgrade Will Save You Hours - YouTube](https://www.youtube.com/watch?app=desktop&v=7W--YEYzQQY) - 3M 710W
+- [This $.07 Upgrade Will Save You Hours - YouTube](https://www.youtube.com/watch?v=7W--YEYzQQY) - 3M 710W
+- [Les abrasifs, welcome to the jungle ! - YouTube](https://www.youtube.com/watch?v=aAga8vAZEqo)
 
 ## Plastic
 
 - [How to fix any broken plastic - YouTube](https://www.youtube.com/watch?v=06XeF1HBazs)
 - [Technique du Pont parisien par collage à l’acétone - YouTube](https://www.youtube.com/watch?v=ecwO8rfL9wk) - Cellulose acetate and acetone solvent
+
+## Mesure, calibration and fine-tuning
+
+Aka precision, repetitive measurements, repeatability, pattern
+
+- [Tracés et mesures, tous mes trucs, méthodes et astuces - YouTube](https://www.youtube.com/watch?v=vjDTNUCepZM)
+	- éviter les mesure
+	- crayon bien taillé 2H ou critérium/portemine 0,5 mm
+- [5 CONSEILS DE MENUISIER : COTES ET MESURES - YouTube](https://www.youtube.com/watch?v=c4bMyO8VyeM)
+- [Couper d'équerre au centième de degré. (la méthode des cinq coupes expliquée à ma grand-mère) - YouTube](https://www.youtube.com/watch?v=m9F1rWbGsI8)
+- [6 ASTUCES INFAILLIBLES POUR GAGNER EN PRÉCISION ! - YouTube](https://www.youtube.com/watch?app=desktop&v=u0BPJDkB5o0)
+	- le traçage
+	- la scie
+	- l'affûtage
+	- l'éclairage
+	- la planche à recaler
+	- la préparation de vos projets
+- [SCIE CIRCULAIRE : La technique simple et précise d'un rail pour scie circulaire ! - YouTube](https://www.youtube.com/watch?v=dfi0hTMPPso)
+- [SCIE CIRCULAIRE : 2 astuces simples et rapides pour gagner en précision ! - YouTube](https://www.youtube.com/watch?v=xHVZNTyYPzc)
+- [SCIE CIRCULAIRE : L'astuce simple et précise du travail au T - YouTube](https://www.youtube.com/watch?v=ncMlG9INtB4)
+- [Technique de menuiserie : tracer n'importe quel angle sans rapporteur - YouTube](https://www.youtube.com/watch?v=uz31Zw_7hjE) - [Tangente.xls - Google Drive](https://drive.google.com/file/d/1VP5YX2G3Q73qmN9aLSrsvZQEZF3o8UpV/view?pli=1)
+- [Être précis(e) avec des outils à main (technique de menuiserie) - YouTube](https://www.youtube.com/watch?v=T3DzsPSUIIM)
+- [Scored Story Stick -- Dead On Accurate - YouTube](https://www.youtube.com/watch?app=desktop&v=hsjdWT6gqhE)
+- [This is the BEST System for Cutting Plywood - YouTube](https://www.youtube.com/watch?v=fMAJCb9EGvs) - cut squares
+- [les outils indispensables pour faire de la menuiserie - YouTube](https://www.youtube.com/watch?v=dKJ-L6hi5t4)
+- [Diviser sans calculer #woodworking #bricolage #astuce #tips #tipsandtricks #menuiserie #wood - YouTube](https://www.youtube.com/shorts/69uBYohqzJE) - utiliser une diagonale qui peut facilement se diviser
+- [Pourquoi tu rates tes cotes de 1mm (La faute au feutre) #bricolage #diy #fabrication #astuce - YouTube](https://www.youtube.com/shorts/yWB9DqG5avY)

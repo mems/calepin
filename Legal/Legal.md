@@ -84,7 +84,7 @@ A envoyer en [LRAR](https://fr.wiktionary.org/wiki/LRAR) au procureur de la rép
 - [Rérérentiel de certification des systèmes de caisse - LNE - referentiel-certification-systemes-caisse.pdf](https://www.lne.fr/sites/default/files/bloc-telecharger/referentiel-certification-systemes-caisse.pdf)
 - [Using Shopify POS in France and Europe - Shopify POS — Ecommerce University](https://ecommerce.shopify.com/c/shopify-point-of-sale/t/using-shopify-pos-in-france-and-europe-342848)
 
-## Usurpation d'indentité
+## Usurpation d'identité
 
 - [Usurpation d'identité — Wikipédia](https://fr.wikipedia.org/wiki/Usurpation_d%27identit%C3%A9)
 - [J’ai testé pour vous : se faire usurper son identité - LinuxFr.org](https://linuxfr.org/users/malizor/journaux/j-ai-teste-pour-vous-se-faire-usurper-son-identite)
@@ -99,3 +99,10 @@ A envoyer en [LRAR](https://fr.wiktionary.org/wiki/LRAR) au procureur de la rép
 - [What is an NDA? Non-Disclosure Agreements Explained](https://legaltemplates.net/resources/business/what-is-nda/)
 - [Non-disclosure agreement - Wikipedia](https://en.wikipedia.org/wiki/Non-disclosure_agreement)
 - [Non-Disclosure Agreement (NDA)](https://www.contractstandards.com/public/Contracts/nondisclosure-agreement)
+
+## Consommateur
+
+Aka acheteur, vendeur
+
+- [Garantie légale de conformité - Vos questions, nos réponses - Conseils - UFC-Que Choisir](https://www.quechoisir.org/decryptage-garantie-legale-de-conformite-vos-questions-nos-reponses-n2423/)
+- [Garantie électroménager : ce qu'il faut savoir ! | Electroguide](https://www.electroguide.com/garantie-electromenager)

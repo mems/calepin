@@ -23,9 +23,9 @@ Plus le grade à froid (0W, 5W, 10W, 15W, 20W, 25W) est petit, plus l'huile est 
 
 Plus le grade à chaud (20, 30, 40, 50, 60) est élevé, plus l'huile est visqueuse à haute température (100°C), et plus elle assure une bonne protection du moteur lors d'utilisations sévères.
 
--Voici donc les paramètres a prendre en compte, ne pas oublier qu'une huile très visqueuse a chaud (prenons l'exemple d'une 15W50) protégera certes le moteur comme il se doit a chaud (il faut faire plus attention a froid) et risquera moins d'être consommée par ce dernier, mais elle offriras aussi plus de résistance au moteur (petite perte de puissance possible, consommation d'essence supplémentaire possible).
+- Voici donc les paramètres a prendre en compte, ne pas oublier qu'une huile très visqueuse a chaud (prenons l'exemple d'une 15W50) protégera certes le moteur comme il se doit a chaud (il faut faire plus attention a froid) et risquera moins d'être consommée par ce dernier, mais elle offriras aussi plus de résistance au moteur (petite perte de puissance possible, consommation d'essence supplémentaire possible).
 
--Une huile beaucoup moins visqueuse (prenons l'exemple d'une 0W30) offrira le fait de faire un petit peu moins attention moteur froid, elle offrira aussi toute la liberté au moteur, moins de consommation d'essence possible, de meilleur performances a haut régime possibles, mais sera susceptible de mal protéger votre moteur et d'être consommée par un moteur qui a la segmentation ou les joints de queue de soupape légèrement usés!
+- Une huile beaucoup moins visqueuse (prenons l'exemple d'une 0W30) offrira le fait de faire un petit peu moins attention moteur froid, elle offrira aussi toute la liberté au moteur, moins de consommation d'essence possible, de meilleur performances a haut régime possibles, mais sera susceptible de mal protéger votre moteur et d'être consommée par un moteur qui a la segmentation ou les joints de queue de soupape légèrement usés!
 
 Souvenons nous que sur un moteur de compétition, préparé ou poussé, le choix de l'huile est très important, mais aussi le choix de l'équipement pour bien la faire circuler et la maintenir a une température convenable qui ne dépasse pas les 100 / 110°C dans l'idéal (radiateur d'huile, mesure de température d'huile, mesure de pression d'huile, pompe a huile haut débit...).
 
@@ -35,7 +35,7 @@ Souvenons nous que sur un moteur de compétition, préparé ou poussé, le choix
 
 1. mouiller (jet d’eau)
 2. nettoyer carrosserie (haut, avec shampoing lustrant pour auto ou produit vaisselle)
-3. nettoyer cycle et moteur (avec pétrole désaromatisé et WD40 pour les taches tenaces et Produit jantes ou décape four et brosse à dent, pinceau, brosse de cuisine), 
+3. nettoyer cycle et moteur (avec pétrole désaromatisé et WD40 pour les taches tenaces et Produit jantes ou décape four et brosse à dent, pinceau, brosse de cuisine),
 4. rincer (jet d’eau)
 
 Utiliser du pétrol désaromatisé pour nettoyer les parties métalliques sales. ex: ailettes du moteurs, jante. Le WD40 peut aussi être utilisé

@@ -442,9 +442,28 @@ Conseils
 
 > Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est [enfin pas trop non plus]
 
+En 2 temps dans la graisse de boeuf :
+
+1. pré-cuisson à 140-150°C pendant 7-8 min
+2. cuisson  à 175°C pendant 3-4 minutes pour faire dorer
+
 - avec paprika ail
-- pomme de terre bintje
+- pomme de terre Binje
 - [Frite — Wikipédia](https://fr.wikipedia.org/wiki/Frite#Pr%C3%A9paration)
+
+### Pomme de terre
+
+Chaire ferme : cuisson au four, salade, vapeur
+Chaire farineuse : purée, frites
+
+Binje
+Fontenay
+BF15
+
+See also
+
+- [Frites](#frites)
+- [POMMES DE TERRE : la variété change-t-elle VRAIMENT tout ? - YouTube](https://www.youtube.com/watch?v=jRGOPB805Tg)
 
 ### Lasagnes
 
@@ -539,6 +558,16 @@ Aka sauce blanche
 ### Quiche
 
 - [Quiche lorraine classique : la recette incontournable](https://cuisine.journaldesfemmes.fr/recette/304074-quiche-lorraine)
+
+### Riz
+
+A l'Iranienne
+
+- bien laver le riz (pour retirer l'amidon)
+- couvrir d'eau le riz (niveau du riz plus 1,5cm)
+- rajouter du sel et du beurre
+- fermer avec un couvercle
+- cuir à feu doux, jusqu'à ce que l'eau soit absorbé
 
 ## Other
 

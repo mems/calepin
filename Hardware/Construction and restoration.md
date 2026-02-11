@@ -240,6 +240,16 @@ Ne pas utiliser pour le calfeutrement. Utilise du compribande (DTU 36.5)
 Battery adapter
 
 - [Batterie CAS | Page d'accueil](https://www.cordless-alliance-system.com/fr/)
+- Battery adaptator Metabo (CAS) to xxx
+	- Power Tools Adapters
+		- [Adaptateur de batterie Metabo vers Makita – Power Tools Adapters](https://powertoolsadapters.fr/products/adaptateur-batterie-metabo-18v-vers-makita-18v)
+		- [Adaptateur de batterie Metabo vers Bosch – Power Tools Adapters](https://powertoolsadapters.fr/products/adaptateur-batterie-metabo-18v-cas-vers-bosch-blue-18v/)
+		- [Adaptateur de batterie Metabo vers DeWalt – Power Tools Adapters](https://powertoolsadapters.fr/products/adaptateur-de-batterie-metabo-18v-vers-dewalt-20v/)
+	- [Tous les modèles 3D de josephs・Cults](https://cults3d.com/fr/utilisateurs/josephs/fichiers-3d)
+		- [🔋 DEWALT sur METABO 18V / CAS-Alliance Adaptateur de batterie・Fichier STL pour Impression 3D・Cults](https://cults3d.com/fr/mod%C3%A8le-3d/outil/dewalt-sur-metabo-18v-cas-alliance)
+		- [🔋 METABO 18V sur MAKITA LXT Adaptateur de batterie・Fichier STL pour Impression 3D・Cults](https://cults3d.com/fr/mod%C3%A8le-3d/outil/metabo-18v-sur-makita)
+	- AkuAdapters
+		- [Aku Adapter METABO (CAS) / MAKITA - AkuAdapter](https://www.akuadapter.eu/en/product/aku-adapter-metabo-cas-makita/)
 
 ## Systainer
 
