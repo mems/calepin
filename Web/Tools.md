@@ -428,6 +428,26 @@ Other:
 - [Plugins | webpack](https://webpack.js.org/plugins/) and [list of plugins · webpack/docs Wiki](https://github.com/webpack/docs/wiki/list-of-plugins)
 - [scinos/webpack-plugin-hash-output: Plugin to replace webpack chunkhash with an md5 hash of the final file conent.](https://github.com/scinos/webpack-plugin-hash-output)
 
+### Get webpack module in browser console
+
+```js
+const chunkLoadingGlobal = globalThis[/*chunk loading global, usally `webpackChunk${uniqueName}` sometimes refered as webpackJsonp */];
+const __webpack_require__ = await new Promise((resolve) => {
+	const id = "RuntimeGlobalsGetter";
+	//push [chunkIds, moreModules, runtime]
+	chunkLoadingGlobal.push([["require_getter_chunk"], {}, (__webpack_require__) => { resolve(__webpack_require__) }]);
+})
+//__webpack_require__(), //__webpack_require__.O(), __webpack_require__.p, __webpack_require__.u(), etc.
+const module = __webpack_require__("exportedModuleId");
+```
+
+- [Output | webpack](https://webpack.js.org/configuration/output/#outputuniquename) - `output.uniqueName`
+- [Output | webpack](https://webpack.js.org/configuration/output/#outputchunkloadingglobal) - `output.chunkLoadingGlobal`
+- [webpack/lib/config/defaults.js at 16749886f1ba032616ffa7382ffc36c9377d3f1d · webpack/webpack](https://github.com/webpack/webpack/blob/16749886f1ba032616ffa7382ffc36c9377d3f1d/lib/config/defaults.js#L1473) - `chunkLoadingGlobal` default value
+- [webpack/lib/javascript/ArrayPushCallbackChunkFormatPlugin.js at 16749886f1ba032616ffa7382ffc36c9377d3f1d · webpack/webpack](https://github.com/webpack/webpack/blob/16749886f1ba032616ffa7382ffc36c9377d3f1d/lib/javascript/ArrayPushCallbackChunkFormatPlugin.js#L69-L73) - source code generator
+- [Some notes and techniques for reverse engineering Webpack (and a little bit about React/Vue/Angular) apps](https://gist.github.com/0xdevalias/8c621c5d09d780b1d321bfdb86d67cdd) - more indeep techniques like module replacement/proxy
+- [javascript - How do I require() from the console using webpack? - Stack Overflow](https://stackoverflow.com/questions/29223071/how-do-i-require-from-the-console-using-webpack/79808483#79808483)
+
 ## Puppeteer
 
 See also [playwright](https://github.com/microsoft/playwright)
