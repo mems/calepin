@@ -8114,24 +8114,27 @@ In Chrome, `document.cookie="%61=%61é"` gives `document.cookie === "%61=%61é"`
 
 ```js
 // Read cookies (not decoded)
-//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1));
-//const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")]);
-//const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
+const entries = await cookieStore.getAll();
+//const entries = document.cookie.split("; ").map((v) => {const i = Math.max(0, v.indexOf("=")); return { name: v.slice(0, i), value: v.slice(i + 1) }; });
+//const {value} = entries.find(({name}) => name === "cookiename") ?? {};
 
 // Read cookies (url decoded)
-//const entries = document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1).map(v => decodeURIComponent(v ?? "")));
-//const entries = document.cookie.split("; ").map(p => p.split("=")).map(([n, ...v]) => [n, v.join("=")].map(v => decodeURIComponent(v)));
-//const [, value] = entries.find(([n , v]) => n === "cookiename") ?? [];
+const entries = (await cookieStore.getAll()).map((name, value) => ({name: decodeURIComponent(name), value: decodeURIComponent(value)});
+//const entries = document.cookie.split("; ").map((v) => {const i = Math.max(0, v.indexOf("=")); return { name: decodeURIComponent(v.slice(0, i)), value: decodeURIComponent(v.slice(i + 1)) }; });
+//const {value} = entries.find(({name}) => name === "cookiename") ?? {};
 // new URLSearchParams(decodeURIComponent((document.cookie.split("; ").map(p => p.match(/^([^=]*)(?:=(.*))?$/).slice(1)).find(([v]) => v == "mycookiname") || [])[1] || "")).get("mycookiesubvalue")
 
 // Read one cookie (not decoded)
+const entries = await cookieStore.getAll("cookiename");// all cookiename
+//const entries = await cookieStore.get("cookiename");// the first cookiename
 //const match = document.cookie.split(/; ?/).find(pair => pair === "cookiename=true");
 //const match = /(?:^|;\s)cookiename=true(?:;|$)/.test(document.cookie);
 //const hasCookie = document.cookie.split(/; ?/).find(pair => pair.startsWith("cookiename="));
 //const hasCookie = /(?:^|;\s)cookiename=/.test(document.cookie);
 
 // erase a cookie
-document.cookie = "cookiename=;domain=example.com;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+await cookieStore.delete("cookiename");
+//document.cookie = "cookiename=;domain=example.com;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
 
 // write a cookie
 const name = "cookiename";
@@ -8139,7 +8142,8 @@ const value = "value";
 const path = "/";
 const domain = location.hostname.split(".").slice(-2).join(".");
 const expires = new Date(Date.now() + 90*24*60*60*1000);// now +90 days
-document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)};path=${encodeURIComponent(path)};domain=${domain};expires=${expires.toUTCString()}`;
+cookieStore.set({name, value, path, domain, expires: expires.getTime()});
+//document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)};path=${encodeURIComponent(path)};domain=${domain};expires=${expires.toUTCString()}`;
 ```
 
 [Proxying of `document.cookie`](https://stackoverflow.com/questions/32410331/proxying-of-document-cookie):
@@ -8196,7 +8200,7 @@ DQUOTE         =  %x22
 - Detect if cookies are enabled https://github.com/Modernizr/Modernizr/blob/master/feature-detects/cookies.js (Note: Server side scripts need a redirection to check if cookies are enabled)
 - [RFC 6265 - HTTP State Management Mechanism](https://tools.ietf.org/html/rfc6265)
 - [jshttp/cookie: HTTP server cookie parsing and serialization](https://github.com/jshttp/cookie)
-- [js-cookie/js-cookie: A simple, lightweight JavaScript API for handling browser cookies](https://github.com/js-cookie/js-cookie)
+- [js-cookie/js-cookie: A simple, lightweight JavaScript API for handling browser cookies](https://github.com/js-cookie/js-cookie) - note it decode URL encoding in cookie name and value
 - https://github.com/js-cookie/js-cookie/blob/2eca98a6b091162d9d776a766f4b21ba8e8ab6ab/src/api.mjs#L49-L74 - read `document.cookie`
 
 ## Ready state
