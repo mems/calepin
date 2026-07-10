@@ -73,6 +73,7 @@ Weld shrink: start corner outside, then the oposite, then both sides before is c
 - [Comment souder à l'arc MMA : les bons gestes](https://www.systemed.fr/materiel-d-atelier-protection/soudure-a-l-arc-reconnaitre-bon-geste,2850.html)
 - [Les Ateliers d'ICI](https://lesateliersdici.podia.com/) - Cours de soudure
 - [STAGES pour PARTICULIERS - STAGES DE SOUDURE GILBERT KADYSZEWSKI](https://www.kgilbert.fr/gilbert-kadyszewski-formateur/stages-pour-particuliers/)
+- [Brasure à l'étain JE te montre quand poser ton étain - YouTube](https://www.youtube.com/shorts/FSYPRr5JCew)
 
 ### Plomberie
 
@@ -112,3 +113,12 @@ brasage fort (résistance : 40 à 50 Kg/mm², température nécéssaire : > 450�
 ## Tools
 
 - [Metalprofi Machines à métal Holzprofi France](https://holzprofi.fr/62-metalprofi)
+
+## Metal box
+
+Aka tinkering, tin knocker, sheet metal
+
+- [Turning Flat Steel Into a Storage Box - YouTube](https://www.youtube.com/watch?v=7EjgP09OgFs)
+- [Lets Build A Simple Sheet Metal Tool Tray - YouTube](https://www.youtube.com/watch?v=4eXnYqNkF2o)
+- [A Riveted Metal Box With Lid : 11 Steps - Instructables](https://www.instructables.com/A-riveted-metal-box-with-lid/)
+- [Sheet Metal is Fun! Easy Reach Tool Holder. - YouTube](https://www.youtube.com/watch?v=FYunJQyQr6I)

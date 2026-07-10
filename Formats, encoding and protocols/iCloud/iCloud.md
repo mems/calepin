@@ -145,6 +145,7 @@ plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | php('php://stdin','
 	Use [anoved/iCloudTabsReader: Python module to get list of iCloud Tabs currently known to the host Mac.](https://github.com/anoved/iCloudTabsReader)
 - https://addons.mozilla.org/en-US/firefox/addon/icloud-bookmarks/
 - [Export your links from Safari reading list · GitHub](https://gist.github.com/andphe/3232343) - `/usr/bin/plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | grep -E  -o '<string>http[s]{0,1}://.*</string>' | grep -v icloud | sed -E 's/<\/{0,1}string>//g'` (System Preferences > Security & Privacy > Privacy. Under "Full Disk Access" add Terminal)
+- [iCloud Bookmarks – Get this Extension for 🦊 Firefox (en-US)](https://addons.mozilla.org/en-US/firefox/addon/icloud-bookmarks/)
 
 ## Photo Stream
 

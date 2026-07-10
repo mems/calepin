@@ -140,7 +140,7 @@ Some libraries:
     For Angular 2 `ng.probe($0)._debugInfo._view.changeDetectorRef.detectChanges()` `ng.probe($0).componentInstance` `ng.probe($0).triggerEventHandler('click')`, `ng.getComponent(domElement)` (`ng == angular`?)
     For Angular 9 `$0.__ngContext__` (human readable only when debug mode is enabled with debug view `$0.__ngContext__.debug`)
 - https://github.com/michalsnik/aos - scroll trigger **-> use `IntersectionObserver`**
-- [Svelte • The magical disappearing UI framework](https://svelte.technology/)
+- [Svelte • Web development for the rest of us](https://svelte.dev/)
 - videoplayer [mozilla-central: toolkit/content/widgets/videocontrols.xml](http://hg.mozilla.org/mozilla-central/file/tip/toolkit/content/widgets/videocontrols.xml)
 - [aFarkas/lazysizes: High performance and SEO friendly lazy loader for images (responsive and normal), iframes and more, that detects any visibility changes triggered through user interaction, CSS or JavaScript without configuration.](https://github.com/aFarkas/lazysizes) - Lazyload
 - [WebReflection/event-target: The EventTarget Class Polyfill.](https://github.com/WebReflection/event-target)
@@ -153,6 +153,63 @@ Some libraries:
 - [jitbit/HtmlSanitizer: Fast JavaScript HTML Sanitizer, client-side (i.e. needs a browser, won't work in Node and other backend)](https://github.com/jitbit/HtmlSanitizer)
 - [FFMPEG.WASM](https://ffmpegwasm.github.io/) - "ffmpeg.wasm is a pure WebAssembly / JavaScript port of FFmpeg. It enables video & audio record, convert and stream right inside browsers."
 - [TrevorSundberg/h264-mp4-encoder: H264 encoder + MP4 output for the web](https://github.com/TrevorSundberg/h264-mp4-encoder)
+
+```js
+// From https://github.com/xyzeva/k-id-age-verifier/blob/92768151515cc58a3d4c27f813c86ede5aa1833a/src/routes/%2Bpage.svelte#L50-L90
+
+// add a chunk to extract webpack's moduleCache
+const webpackChunksStore = window.webpackChunk;// TODO adapt to the context
+const webpackRequire = webpackChunksStore.push([[Symbol()],{},(r) => r]);
+// cleanup the chunk we added
+webpackChunksStore.pop();
+
+const modules = webpackRequire.m;
+//const cache = webpackRequire.c;
+
+// https://github.com/moonlight-mod/moonlight/blob/main/packages/core-extensions/src/spacepack/webpackModules/spacepack.ts
+// helper to find a webpack module via code snippet
+function findModuleByCode(src) {
+  for (const [id, mod] of Object.entries(modules)) {
+    if (mod.toString().includes(src)) {
+      //return cache[id].exports;
+	  return webpackRequire(id);
+    }
+  }
+}
+
+// like default or alias
+function getFirstExportedFunction(exports) {
+    if (!exports) return;
+    for (const exportKey of Object.getOwnPropertyNames(exports)) {
+      const obj = exports[exportKey];
+      if (typeof obj === "function") return obj;
+    }
+}
+
+// helper to find an object by its key
+function findObjectFromKey(exports, key) {
+  if (!exports) return;
+  for (const exportKey of Object.getOwnPropertyNames(exports)) {
+    const obj = exports[exportKey];
+    if (obj?.[key]) return obj;
+  }
+}
+
+// Some examples:
+
+// 1.
+// https://github.com/moonlight-mod/moonlight/blob/main/packages/mappings/src/mappings/discord/utils/HTTPUtils.ts
+// find the discord api client
+const api = findObjectFromKey(
+  findModuleByCode('.set("X-Audit-Log-Reason",'),
+  "patch",
+);
+
+
+// 2.
+// On some webside
+const fetchJSONWithBearer = getFirstExportedFunction(findModuleByCode("Authorization:\"Bearer \""));
+```
 
 ### Choose and use libraries
 

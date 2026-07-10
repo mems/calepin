@@ -185,3 +185,11 @@ Aka precision, repetitive measurements, repeatability, pattern
 - [les outils indispensables pour faire de la menuiserie - YouTube](https://www.youtube.com/watch?v=dKJ-L6hi5t4)
 - [Diviser sans calculer #woodworking #bricolage #astuce #tips #tipsandtricks #menuiserie #wood - YouTube](https://www.youtube.com/shorts/69uBYohqzJE) - utiliser une diagonale qui peut facilement se diviser
 - [Pourquoi tu rates tes cotes de 1mm (La faute au feutre) #bricolage #diy #fabrication #astuce - YouTube](https://www.youtube.com/shorts/yWB9DqG5avY)
+
+## Corrosion
+
+- [La résistance à la corrosion de l’aluminium – JPC France](https://www.jpcfrance.fr/bases-pratiques/matieres-premieres/la-resistance-a-la-corrosion/)
+- https://my80isfantastic.com/images/pdf/193/193_34bd71da755693fd595fa739d415c15e_Couples%20galvaniques_tableau_corrosion.pdf
+- https://www.getelec.com/wp-content/uploads/2022/05/GETELEC-Galvanic-couple-Table.pdf
+- https://www.blacksmitd-industrie.com/wp-content/uploads/2019/06/81-pdf-Couples-galvaniques-des-m%C3%A9taux.pdf
+- [La corrosion galvanique - GBM France](https://www.gbm-france.com/conseils/possibilite-de-connexion-de-differents-materiaux/)

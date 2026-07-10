@@ -428,7 +428,7 @@ URL template: `https://www.pinterest.com/pin/find/{?url}`
 | Twitter App			| twitter://post												| - `message`: `{URL}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
 | WhatsApp App			| whatsapp://send												| - `text`: `{URL}` or `{TEXT} {URL}`
-+-----------------------+---------------------------------------------------------------+----------------------------------------------------------
++-----------------------+---------------------------------------------------------------+-------------------------------------------------------------------------------------------+----------------------------------------------------------
 | WhatsApp App			| https://api.whatsapp.com/send									| - `phone`: phone number (international format, without spaces, etc.)
 | 						| 																| - `text`: `{TEXT}`
 +-----------------------+---------------------------------------------------------------+----------------------------------------------------------
@@ -1296,60 +1296,6 @@ function getNextPage(){
 }
 getNextPage();
 ```
-
-## Chrome Web Store
-
-### Download Google Chrome extension without installing it
-
-1. Find the ID of the extension you’re interested in. When on the details page of the extension, it will be something like `bfbmjmiodbnnpllbbbfblcplfjjepjdn` after `https://chrome.google.com/extensions/detail/` in the page URL
-2. Paste this URL into your browser: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc` replacing `{EXT_ID}` with the extension ID.
-3. You’ll be prompted to save a CRX file. Drag this file to a Chrome window and proceed with installation
-
- ```
-product_version = 91.0.4442.4 | 32.0
-os = mac | win | android | cros | openbsd | linux
-product_channel = unknown
-product_id = chromium
-nacl_arch =  arm | x86-64 | x86-32
-arch = x64
-os_arch = x86_64
-language = en-US
-accept_format = crx2,crx3
-https://clients2.google.com/service/update2/crx?response=redirect&os={os}&arch={arch}&os_arch={os_arch}&nacl_arch={nacl_arch}&prod={product_id}&prodchannel={product_channel}&prodversion={product_version}&lang={language}&acceptformat={accept_format}&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc
-https://clients2.google.com/service/update2/crx?response=redirect&os=linux&arch=x64&os_arch=x86_64&nacl_arch=x86-64&prod=chromium&prodchannel=unknown&prodversion=91.0.4442.4&lang=en-US&acceptformat=crx2,crx3&x=id%3Daedmpdookgbneegaeajpoldpnpfbpmlb%26installsource%3Dondemand%26uc
-https://clients2.google.com/service/update2/crx?response=redirect&prodversion={product_version}&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc
-```
-
-Or:
-
-- https://addons.opera.com/en/extensions/details/download-chrome-extension-9/
-- [CRX Viewer](https://robwu.nl/crxviewer/) - [GitHub - Rob--W/crxviewer: Add-on / web app to view the source code of Chrome / Firefox / Opera 15 extensions and zip files.](https://github.com/Rob--W/crxviewer)
-
-See [CRX / NEX (Opera)](#crx--nex-opera)
-
-### CRX / NEX (Opera)
-
-Find "PK" and remove all bytes before
-
-```c
-typedef struct {
-	SetBackColor(0xd8e5ed);
-	char magicNumber[4];
-	SetBackColor(0xd8edd8);
-	uint32 version;
-	SetBackColor(0xd8e5ed);
-	uint32 pkLength;
-	SetBackColor(0xd8edd8);
-	uint32 sigLength;
-	SetBackColor(0xf7d6c3);
-	byte pubKey[pkLength];
-	SetBackColor(0xd8edd8);
-	byte sig[sigLength];
-	byte zipData[];
-} CRX;
-```
-
-- [CRX Package Format - Google Chrome](https://developer.chrome.com/extensions/crx)
 
 ## Open Street Map
 

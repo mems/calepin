@@ -1020,47 +1020,6 @@ See [Detection](#detection)
 - [Web crawler — Wikipedia](https://en.wikipedia.org/wiki/Web_crawler)
 - [WebAIM: History of the browser user-agent string](http://webaim.org/blog/user-agent-string-history/)
 
-### Browsers extension
-
-Aka Web Extensions
-
-- [Impact of extension privileges | Almost Secure](https://web.archive.org/web/20221020162022/https://palant.info/2022/08/17/impact-of-extension-privileges/)
-- [Debug Native Messaging – text/plain](https://web.archive.org/web/20230204030748/https://textslashplain.com/2022/01/08/debug-native-messaging/)
-- [Download Google Chrome extension without installing it](./Websites.md#download-google-chrome-extension-without-installing-it)
-- [CRX / NEX (Opera)](./Websites.md#crx-nex-opera)
-
-Sideloading in Firefox is no more allowed since version 73:
-
-- [Add-ons for desktop apps | Firefox Extension Workshop](https://extensionworkshop.com/documentation/publish/distribute-sideloading/#standard-extension-folders)
-- [Enterprise distribution | Firefox Extension Workshop](https://extensionworkshop.com/documentation/enterprise/enterprise-distribution/)
-- [Upcoming changes to extension sideloading | Mozilla Add-ons Community Blog](https://blog.mozilla.org/addons/2019/10/31/firefox-to-discontinue-sideloaded-extensions/)
-
-Sideloading in Chrome:
-
-- [Alternative Chrome extension installation methods - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/external_extensions/#registry)
-
-### Safari Extensions
-
-#### Safari App Extension
-
-- [Safari App Extension | Apple Developer Documentation](https://developer.apple.com/documentation/safariservices/safari_app_extensions)
-
-#### Safari Extension
-
-Depreciated by Safari 12
-
-Use [xar](https://en.wikipedia.org/wiki/Xar_%28archiver%29)
-
-```sh
-xar -x -f XXXXX.safariextz
-```
-
-Ex: https://safari-extensions.apple.com/details/?id=com.diigo.safari.awesomescreenshot-5DXNM3K2CT
-
-```js
-(new URL(window.ex.render.install_link(window.ex.data.getItemByID((new URL(location)).searchParams.get("id"))), document.baseURI)).href
-```
-
 ### Kiosk mode
 
 - Chrome: `chrome --chrome --fullscreen --kiosk URI`
@@ -1085,6 +1044,42 @@ See also:
 - [Android](Android#kiosk-mode)
 - [Windows](Windows#kiosk-mode)
 - [macOS](macOS#kiosk-mode)
+
+### Browsers extension
+
+Aka Web Extensions
+
+- [Impact of extension privileges | Almost Secure](https://web.archive.org/web/20221020162022/https://palant.info/2022/08/17/impact-of-extension-privileges/)
+- [Debug Native Messaging – text/plain](https://web.archive.org/web/20230204030748/https://textslashplain.com/2022/01/08/debug-native-messaging/)
+
+- [Firefox](#firefox-extension)
+- [Safari](#safari-extension)
+- [Chrome](#chrome-extension)
+
+### CRX / NEX (Opera)
+
+Find "PK" and remove all bytes before
+
+```c
+// 010 Editor binary template .bt
+typedef struct {
+	SetBackColor(0xd8e5ed);
+	char magicNumber[4];
+	SetBackColor(0xd8edd8);
+	uint32 version;
+	SetBackColor(0xd8e5ed);
+	uint32 pkLength;
+	SetBackColor(0xd8edd8);
+	uint32 sigLength;
+	SetBackColor(0xf7d6c3);
+	byte pubKey[pkLength];
+	SetBackColor(0xd8edd8);
+	byte sig[sigLength];
+	byte zipData[];
+} CRX;
+```
+
+- [CRX Package Format - Google Chrome](https://developer.chrome.com/extensions/crx)
 
 ### Firefox
 
@@ -1114,6 +1109,16 @@ Dev tools:
 - [client · mozilla-central](https://phabricator.services.mozilla.com/source/mozilla-central/browse/default/devtools/client/;4e6dd979ed238a6c0be55ecfb8a42d6ca417d865)
 - [protocol.md - mozsearch](https://searchfox.org/mozilla-central/source/devtools/docs/backend/protocol.md)
 - [Remote Debugging Protocol · GitBook](https://docs.firefox-dev.tools/backend/protocol.html)
+
+#### Firefox extension
+
+Sideloading in Firefox is no more allowed since version 73:
+
+- [Add-ons for desktop apps | Firefox Extension Workshop](https://extensionworkshop.com/documentation/publish/distribute-sideloading/#standard-extension-folders)
+- [Enterprise distribution | Firefox Extension Workshop](https://extensionworkshop.com/documentation/enterprise/enterprise-distribution/)
+- [Upcoming changes to extension sideloading | Mozilla Add-ons Community Blog](https://blog.mozilla.org/addons/2019/10/31/firefox-to-discontinue-sideloaded-extensions/)
+
+- [API Implementation Basics — Firefox Source Docs documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html)
 
 #### Network debug
 
@@ -1175,6 +1180,26 @@ Source code:
 Dev tools:
 
 - [WebInspectorUI dans webkit/trunk/Source. – WebKit](http://trac.webkit.org/browser/trunk/Source/WebInspectorUI)
+
+#### Safari app extension
+
+- [Safari App Extension | Apple Developer Documentation](https://developer.apple.com/documentation/safariservices/safari_app_extensions)
+
+#### Safari extension
+
+Depreciated by Safari 12
+
+Use [xar](https://en.wikipedia.org/wiki/Xar_%28archiver%29)
+
+```sh
+xar -x -f XXXXX.safariextz
+```
+
+Ex: https://safari-extensions.apple.com/details/?id=com.diigo.safari.awesomescreenshot-5DXNM3K2CT
+
+```js
+(new URL(window.ex.render.install_link(window.ex.data.getItemByID((new URL(location)).searchParams.get("id"))), document.baseURI)).href
+```
 
 #### WebKit on Windows
 
@@ -1239,6 +1264,40 @@ Update error "An error occurred while checking for updates: Update check failed 
 - reinstall Chrome browser (without uninstall it)
 - in `C:\Program Files\Google\Chrome\Application` or `C:\Program Files\Google\Chrome Beta\Application`, rename `new_chrome.exe` to `chrome.exe` and `new_chrome_proxy.exe` to `chrome_proxy.exe`
 - `"%USERPROFILE%\Local Settings\Application Data\Google\Chrome\Application\0.4.154.25\Installer\setup.exe" --rename-chrome-exe --verbose-logging`
+
+#### Chrome extension
+
+Sideloading in Chrome:
+
+- [Alternative Chrome extension installation methods - Chrome Developers](https://developer.chrome.com/docs/extensions/mv3/external_extensions/#registry)
+
+Download Google Chrome extension without installing it
+
+1. Find the ID of the extension you’re interested in. When on the details page of the extension, it will be something like `bfbmjmiodbnnpllbbbfblcplfjjepjdn` after `https://chrome.google.com/extensions/detail/` in the page URL
+2. Paste this URL into your browser: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc` replacing `{EXT_ID}` with the extension ID.
+3. You’ll be prompted to save a CRX file. Drag this file to a Chrome window and proceed with installation
+
+```
+product_version = 91.0.4442.4 | 32.0
+os = mac | win | android | cros | openbsd | linux
+product_channel = unknown
+product_id = chromium
+nacl_arch =  arm | x86-64 | x86-32
+arch = x64
+os_arch = x86_64
+language = en-US
+accept_format = crx2,crx3
+https://clients2.google.com/service/update2/crx?response=redirect&os={os}&arch={arch}&os_arch={os_arch}&nacl_arch={nacl_arch}&prod={product_id}&prodchannel={product_channel}&prodversion={product_version}&lang={language}&acceptformat={accept_format}&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc
+https://clients2.google.com/service/update2/crx?response=redirect&os=linux&arch=x64&os_arch=x86_64&nacl_arch=x86-64&prod=chromium&prodchannel=unknown&prodversion=91.0.4442.4&lang=en-US&acceptformat=crx2,crx3&x=id%3Daedmpdookgbneegaeajpoldpnpfbpmlb%26installsource%3Dondemand%26uc
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion={product_version}&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc
+```
+
+Or:
+
+- https://addons.opera.com/en/extensions/details/download-chrome-extension-9/
+- [CRX Viewer](https://robwu.nl/crxviewer/) - [GitHub - Rob--W/crxviewer: Add-on / web app to view the source code of Chrome / Firefox / Opera 15 extensions and zip files.](https://github.com/Rob--W/crxviewer)
+
+See [CRX / NEX (Opera)](#crx--nex-opera)
 
 #### Network debug
 

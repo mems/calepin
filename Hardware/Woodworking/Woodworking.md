@@ -19,6 +19,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 - Essential Craftsman
 	- [Lumber & Leverage: Handling Plywood, Boards, ANY Material with Ease - YouTube](https://www.youtube.com/watch?app=desktop&v=vE4wTWwgy-g&si=pd5T7JvyIwsk9dMB)
 	- [How to Not Buy Crap Lumber - YouTube](https://www.youtube.com/watch?v=4kv8s88ko38)
+- [CR Carpentry & Remodeling - YouTube](https://www.youtube.com/@crcarpentryremodeling)
 - [Boite à outils manuels pour débutants ou les outils indispensables au travail du bois - YouTube](https://www.youtube.com/watch?v=Nb-0Xv_9NDU)
 - [Sylvie Pereira - SyPer - YouTube](https://www.youtube.com/@SylviePereiraSyPer/videos)
 - [The Honest Carpenter - YouTube](https://www.youtube.com/@TheHonestCarpenter)
@@ -36,6 +37,7 @@ Ajouter/coller une cale dans le prolongement pour éviter que le bois éclate qu
 	- [Comment Réussir vos COUPES D'ONGLET avec une Précision Extrême ! (et sans outils de mesure) - YouTube](https://www.youtube.com/watch?v=0usUql1lxLU) - faire un test sur une pièce de test, avant de faire l'opération sur les pièces définitives
 - [Category: Techniques | Popular Woodworking](https://www.popularwoodworking.com/category/techniques/)
 - [Articulos - Hágalo en Casa](https://hagaloencasa.com.co/articulos-2/)
+- [Bois+ Le Bouvet | Le site de référence des passionnés du bois](https://www.blb-bois.com/) - [blbboistv - YouTube](https://www.youtube.com/@blbboistv)
 
 - find wood dealers / distributor:
 	- "hardwood lumber dealer [name of city]"
@@ -97,21 +99,24 @@ Aka wood
 - [Comment acheter du bois de menuiserie à un prix correct - YouTube](https://www.youtube.com/watch?v=ZJ5Id-EwjRI)
 - [Quelle pression peut supporter une planche mélaminé 18mm?](https://forums.futura-sciences.com/bricolage-decoration/934453-pression-supporter-une-planche-melamine-18mm.html)
 - [Testing MDF vs Plywood - What to Buy? - YouTube](https://www.youtube.com/watch?app=desktop&v=Vwx3YivaPHk)
-- [MDF VS. PLYWOOD (Which Is Better?? Pros + Cons!!) - YouTube](https://www.youtube.com/watch?app=desktop&v=I0-fs1eMxQg)
+- [MDF VS. PLYWOOD (Which Is Better?? Pros + Cons!!) - YouTube](https://www.youtube.com/watch?v=I0-fs1eMxQg)
 - [I was wrong about MDF... - YouTube](https://www.youtube.com/watch?app=desktop&v=MCe0Gs0xkn8)
+- [Le panneau de bois contreplaqué | POINT.P](https://www.pointp.fr/conseils-experts/le-contreplaque-un-materiau-pour-de-multiples-applications)
+- [Classifications des contreplaqués - Groupe Thebault](https://www.groupe-thebault.com/services/classification-des-contreplaques/)
+- [NF Contreplaqués (CTBX - CTBC) - Institut Technologique FCBA](https://www.fcba.fr/certifications/nf-contreplaques-ctbx-ctbc/)
 
 Contre plaqué, résistance : Okoumé > Peuplier > Bouleau
 
-| Fournisseur                  | Les plus                                                                | Les moins                                                                                   |
-|------------------------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| scieries                     | - la qualité - le prix - la disponibilité - le choix                    | - généralement pas de petite quantité - parfois éloignées - ne livrent pas toujours         |
-| menuisier                    | - la qualité - la possiblité de petite quantité                         | - ce n'est pas un servcice courant - le prix est très variable - le choix n'est pas garanti |
-| particuliers / occassions    | - le prix (mais pas toujours) - la relation humaine (mais pas toujours) | - obligation de connaitre le bois -> qualité à vérifier - disponibilité aléatoire           |
-| sites internet               | - essences rares et/ou exotiques - plaquages - présent partout          | - le prix - les frais de port - petites quantités                                           |
-| GSB                          | - nombreux point de vente - pratique                                    | - la disponibilité - la qualité - le prix au m^3                                            |
-| Le fournisseurs de matériaux | - nombreux point de vente - disponibilité produits                      | - essences très spécifiques - dimensions limités - livraison par quantité                   |
+| Fournisseur                  | Les plus                                                                | Les moins                                                                                  |
+|------------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| scieries                     | - la qualité - le prix - la disponibilité - le choix                    | - généralement pas de petite quantité - parfois éloignées - ne livrent pas toujours        |
+| menuisier                    | - la qualité - la possiblité de petite quantité                         | - ce n'est pas un service courant - le prix est très variable - le choix n'est pas garanti |
+| particuliers / occasions     | - le prix (mais pas toujours) - la relation humaine (mais pas toujours) | - obligation de connaitre le bois -> qualité à vérifier - disponibilité aléatoire          |
+| sites internet               | - essences rares et/ou exotiques - plaquages - présent partout          | - le prix - les frais de port - petites quantités                                          |
+| GSB                          | - nombreux point de vente - pratique                                    | - la disponibilité - la qualité - le prix au m^3                                           |
+| Le fournisseurs de matériaux | - nombreux point de vente - disponibilité produits                      | - essences très spécifiques - dimensions limités - livraison par quantité                  |
 
-Bois en GSB est 3x plus cher que chez le détaillant
+Bois en GSB est 3x plus cher que chez un détaillant
 
 - MDF (Medium Density Fiberboard)
 	- MR MDF (Moisture Resistant), Medite MR MDF
@@ -123,6 +128,14 @@ Bois en GSB est 3x plus cher que chez le détaillant
 	- Grade B : Qualité supérieure avec quelques défauts mineurs réparés. Convient pour les applications où l’esthétique est importante.
 	- Grade C : Qualité moyenne, avec des nœuds et des fissures apparents. Utilisé principalement pour des travaux de structure.
 	- Grade D : Qualité inférieure avec de nombreux défauts. Utilisé pour les projets où l’apparence n’est pas critère essentiel.
+
+	- classe 1, CTB-S (usage intérieur)
+	- classe 2, CTB-H (milieu humide)
+	- classe 3, CTB-X (usage extérieur)
+	- CTB-C coffrage
+	- CTB-X Marine
+	- M1 ignifugé
+	- Aviation
 - bois lamellé collé (BLC)
 - OSB (Oriented Strand Board)
 - agloméré
@@ -180,6 +193,8 @@ Aka cut list, blade, teeth, CNC
 Lame à gouge (beaucoup de dents, alternées) pour le MDF
 
 - [OpenCutList sur L'Air du Bois](https://www.lairdubois.fr/logiciels/2-opencutlist.html)
+- [Les Plans, CutList Optimizer](https://duboisfrancaloeuvre.com/debitage-calcul-la-coupe-de-panneaux/)
+- [CutList Optimizer](https://cutlistoptimizer.com/)
 - [Build a CNC Router : 9 Steps (with Pictures) - Instructables](https://www.instructables.com/Build-a-CNC-Router/)
 
 ### Panel Saw
@@ -193,6 +208,8 @@ Lame à gouge (beaucoup de dents, alternées) pour le MDF
 - [adjustable edge groove jig / no problem with groove position and panel thickness / trimmer - YouTube](https://www.youtube.com/watch?v=a4xOt9FCspU)
 - [Un double guide de défonceuse maison - YouTube](https://www.youtube.com/watch?v=NOF0b8u6O5g)
 - [Des rainures auto centrées (si, si ... ) - YouTube](https://www.youtube.com/watch?v=_5sw0mnDb2M)
+- [5 erreurs et solutions avec une défonceuse - YouTube](https://www.youtube.com/watch?v=0ksNZVn1TBc)
+- [Rechercher "bague à copier"](https://www.outil-a-bois.com/fr/recherche?controller=search&s=bague+%C3%A0+copier)
 
 - commencer en contre fil [✅ MAISON : FABRIQUER DE MAGNIFIQUES PLANS DE TRAVAIL EN BOIS (partie 1) - Ep14S2 - LJVS - YouTube](https://www.youtube.com/watch?v=6qfeypvcJHo&t=624s)
 
@@ -293,12 +310,38 @@ Aka joinery
 - [Butt Joint - DT Online](https://wiki.dtonline.org/index.php/Butt_Joint)
 - [Category:Wood Joints - DT Online](https://wiki.dtonline.org/index.php/Category:Wood_Joints)
 - [Joinery - Wikipedia](https://en.wikipedia.org/wiki/Joinery)
+- [Tous les assemblages de bois en menuiserie - \[THEMATIQUE\]](https://mamaisondeaaz.gedimat.fr/article/869/98-tous-les-assemblages-de-bois-en-menuiserie.htm)
 
 - [Screws for MDF: the 3 types we use and why — Alastair Johnson](https://buymeacoffee.com/freebird/screws-mdf-3-types-use)
 
+- faux tenon (tourillon, lamelle/lamelo, domino)
+- règle de tiers de l'épaisseur (pour les rainures par ex.)
+- [LES ASSEMBLAGES | menuiserie](https://www.monatelierbois.com/articles-assemblages)
+- [Assemblage (bois) — Wikipédia](https://fr.wikipedia.org/wiki/Assemblage_%28bois%29)
+
+Tourillon
+
+- diamètre tourillon (diamètre environ 1/3 de l'épaisseur, sans dépasser 2/5): 12-14mm -> Ø 6mm, 15-18mm -> Ø 8mm, 19-30mm ->  Ø 10mm
+
+> Pour connaitre le nombre de tourillons nécessaires pour soutenir une surface S (en m²) qui recoit un poids P (en Kg) -ne pas oublier de compter le poids de la planche avec aussi- , il faut compter avec :
+> P = poids en kg de la planche + la charge à supporter
+> Rpg = Résistance pratique au cisaillement du hêtre, retenue à 5,6 (en Mpa)
+> D = ∅ des tourillons (en mm). le diamètre maximal des tourillons ne peut excéder 0,4 fois l'épaisseur de votre pièce de bois
+> Le nombre N de tourillons nécessaires est alors de :
+> N = 40 P / ( Rpg π * D² )
+> La longueur des tourillons doit être entre 4 et 6 fois leur diamètre
+>
+> Exemple 1 :
+> Pour une planche de 3kg qui doit soutenir 150kg (P), et qui est accrochée par des tourillons de hêtre (Rpg) de ∅10mm (D) sur un support fixe, il faudra donc a minima poser N tourillons tel que :
+> N = 40 153 / ( 5.6 π * 10² ) = 3.4 soit 4 tourillons de ∅10mm.
+>
+> Exemple 2 :
+> Vous avez le plancher d'une mezzanine qui doit pouvoir supporter 1600 kg et qui est supporté par 8 solives. Le poids global du plancher seul est 50kg. Chaque solive pèse 12kg et est posée avec de gros tourillons de hêtre (Rpg) ∅20mm (D) sur des montants perpendiculaires. Elle doit donc supporter à elle seule un poids P = (1600+50)/8+12 kg soit P=218.25 kg. Mis à part le fait que vous aurez dimensionné vos solives correctement, le nombre N de tourillons qui sera alors nécessaire pour chaque solive sera :
+> N = 40 218.25 / ( 5.6 π * 20² ) = 1,2 c'est à dire 2 tourillons de ∅20mm.
+
 pilot hole
 
-- [When to NOT use pocket screws... and when you SHOULD! | Evening Woodworker - YouTube](https://www.youtube.com/watch?app=desktop&si=bt8VUD7_pS6-xeAn&v=lKxUQKRjoEQ&feature=youtu.be)
+- [When to NOT use pocket screws... and when you SHOULD! | Evening Woodworker - YouTube](https://www.youtube.com/watch?v=lKxUQKRjoEQ)
 - [Pocket Holes Overexplained - YouTube](https://www.youtube.com/watch?v=OmMN_XKJ4nc)
 - [Pocket-hole joinery - Wikipedia](https://en.m.wikipedia.org/wiki/Pocket-hole_joinery)
 - [Testing pocket holes against mortise and tenon and dowel joints](https://woodgears.ca/joint_strength/pockethole.html)
@@ -311,9 +354,11 @@ pilot hole
 
 Screw:
 
-longeur de vis = au moins 3 fois l'épaisseur du matériau à visser
-ajouter une marge de sécurté sur les charges à fixer : 1,3x
+- longeur de vis = au moins 3 fois l'épaisseur du matériau à visser
+- ajouter une marge de sécurité sur les charges à fixer : 1,3x
+- prépercer à un diamètre de 0,5/1mm inferieur à celui de la vis
 - [Calcul de résistance des vis à bois | Comme un pingouin dans le désert](https://web.archive.org/web/20230330134034/https://www.comme-un-pingouin-dans-le-desert.fr/calcul-de-resistance-des-vis-a-bois)
+- [Conseils bricolage - Comment choisir le diamètre et la longueur d'une vis ? - YouTube](https://www.youtube.com/watch?v=-SIreDtSZI4)
 
 - [\[Pas à pas\] Gabarit à tenon et mortaise - Une première idée de mortaiseuse par Toutenbois sur L'Air du Bois](https://www.lairdubois.fr/pas-a-pas/articles/43.html)
 
@@ -356,3 +401,7 @@ ajouter une marge de sécurté sur les charges à fixer : 1,3x
 - [Nombre de charnières Sensys - Hettich Technical Assistant](https://hta.hettich.com/fr-fr/outils-de-calcul/nombre-de-charnieres-sensys)
 - [Calcul du poids pour les pièces de fabrication - Hettich Technical Assistant](https://hta.hettich.com/fr-fr/outils-de-calcul/calcul-du-poids-pour-les-pieces-de-fabrication)
 - [Capacités de charge - ArciTech - Hettich Technical Assistant](https://hta.hettich.com/fr-fr/outils-de-calcul/capacites-de-charge-arcitech) - Push to open Silent
+
+## Frame
+
+- [\[Pas à pas\] Notions de base de charpente pour L'Air du Bois par sylvainlefrancomtois sur L'Air du Bois](https://www.lairdubois.fr/pas-a-pas/489-notions-de-base-de-charpente-pour-lair-du-bois.html)

@@ -438,6 +438,10 @@ Conseils
 - Vous pouvez ajouter quelques pluches de coriandre frais à la fin pour apporter un peu de fraîcheur au plat.
 - J'aime aussi ajouter un petit peu de gingembre haché.
 
+### Curry d’aubergines
+
+- [Curry d'aubergines - Cuisine Addict](https://web.archive.org/web/20241206010832/https://cuisine-addict.com/curry-aubergines/)
+
 ### Frites
 
 > Frites : plus la température d'ébullition de l'huile est élevé, mieux c'est [enfin pas trop non plus]
