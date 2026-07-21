@@ -437,8 +437,10 @@ const __webpack_require__ = await new Promise((resolve) => {
 	//push [chunkIds, moreModules, runtime]
 	chunkLoadingGlobal.push([["require_getter_chunk"], {}, (__webpack_require__) => { resolve(__webpack_require__) }]);
 })
-//__webpack_require__(), //__webpack_require__.O(), __webpack_require__.p, __webpack_require__.u(), etc.
-const module = __webpack_require__("exportedModuleId");
+const moduleID = (() => {for(const c of chunkLoadingGlobal) for(const [id, m] of Object.entries(c[1])) if(String(m).includes("some string")) return id})() ?? (e => {throw e})(new Error("Module ID not found"));
+//__webpack_require__() or __webpack_require__.O(), __webpack_require__.p, __webpack_require__.u(), etc.
+const module = __webpack_require__(moduleID);
+const someExport = Object.values(module).find(e => String(e).includes("some string")) ?? (e => {throw e})(new Error("Export name not found")); 
 ```
 
 - [Output | webpack](https://webpack.js.org/configuration/output/#outputuniquename) - `output.uniqueName`
