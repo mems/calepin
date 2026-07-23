@@ -432,11 +432,8 @@ Other:
 
 ```js
 const chunkLoadingGlobal = globalThis[/*chunk loading global, usally `webpackChunk${uniqueName}` sometimes refered as webpackJsonp */];
-const __webpack_require__ = await new Promise((resolve) => {
-	const id = "RuntimeGlobalsGetter";
-	//push [chunkIds, moreModules, runtime]
-	chunkLoadingGlobal.push([["require_getter_chunk"], {}, (__webpack_require__) => { resolve(__webpack_require__) }]);
-})
+//push [chunkIds, moreModules, runtime]
+const __webpack_require__ = await new Promise((resolve) => chunkLoadingGlobal.push([[crypto.randomUUID()], {}, (__webpack_require__) => { resolve(__webpack_require__) }]));
 const moduleID = (() => {for(const c of chunkLoadingGlobal) for(const [id, m] of Object.entries(c[1])) if(String(m).includes("some string")) return id})() ?? (e => {throw e})(new Error("Module ID not found"));
 //__webpack_require__() or __webpack_require__.O(), __webpack_require__.p, __webpack_require__.u(), etc.
 const module = __webpack_require__(moduleID);
