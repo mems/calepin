@@ -6464,36 +6464,27 @@ Note: With blob or data URI, use `application/octet-stream` to force download.
 Aka save file
 
 ```html
-<a href="blob:..." download="filename.ext">Generated file</a><!-- a blob or a file: new File(["Hello"], "data.txt", {type: "plain/text"}) -->
+<a href="data:..." download="filename.ext">Generated file</a><!-- a blob or a file: new File(["Hello"], "data.txt", {type: "plain/text"}) -->
 ```
 
-`"data:application/octet-stream;base64," + btoa(data)` where `data`:
-
-```js
-let bytes = new Uint8Array(dataBytes);
-let data = bytes.reduce((chars, byte) => (chars += String.fromCharCode(byte), chars), "");// as raw string
-```
+`"data:application/octet-stream;base64," + new Uint8Array(dataBytes).toBase64()`
 
 Not supported everywhere. Also blob URI not work on iOS, use data URI. Or use [service worker](#service-worker).
 
 ```js
-let uri = "data:application/octet-stream;base64," + dataBase64;// could be a blob URI
-let filename = "data.bin";
-let link = document.createElement("a");
-link.download = filename;
-link.href = uri;
-// link.type = mediatype;// Does this have any impact?
-document.body.appendChild(link);// requireb by Firefox (not Chrome)
+const file = new File(["Hello world!"], "hello.txt", {"type": "application/octet-stream"});
+//const uri = "data:application/octet-stream;base64,....";
+const link = document.createElement("a");
+link.download = blob.name;
+link.href = URL.createObjectURL(file);
+link.type = blob.type;// Does this have any impact?
+document.body.appendChild(link);// required by Firefox (not Chrome)
 link.click();
 link.remove();
 ```
 
 ```js
-let msg = "Hello world!";
-let blob = new File([msg], "hello.txt", {"type": "application/octet-stream"});
-let link = document.createElement("a");
-link.href = URL.createObjectURL(blob);
-window.location.href = link;
+window.location.href = URL.createObjectURL(file);
 ```
 
 - [Can I use... Support tables for HTML5, CSS3, etc](http://caniuse.com/#feat=download)
