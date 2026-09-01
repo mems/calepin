@@ -69,11 +69,26 @@ Android Emulator:
 
 ### Debug cookie written by JS
 
-Add a debugger breakpoint when a cookie is written (i.e. document.cookies = "some value"`).
+Add a debugger breakpoint when a cookie is written (i.e. document.cookies = "test=some_value"` or `cookieStore.set({name: "test", value: "some_value"})`).
+Can replace `debugger` statement with `console.trace("document.cookie", ...args)`
 
 ```js
-const desc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");// Object.getPrototypeOf(Object.getPrototypeOf(document);
-Object.defineProperty(document, "cookie", {...desc, set(...args) {debugger;return desc.set.apply(this, args);}});
+const docCookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");// Object.getPrototypeOf(Object.getPrototypeOf(document);
+// For document.cookie setter
+Object.defineProperty(document, "cookie", {...desc, set(...args) {debugger;return docCookieDesc.set.apply(this, args);}});
+// For cookieStore.set()
+const cookieStoreSet = CookieStore.prototype.set;// Object.getPrototypeOf(cookieStore).set;
+CookieStore.prototype.set = function(...args){ debugger; cookieStoreSet.apply(this, args);}
+// For cookieStore.delete()
+const cookieStoreDelete = CookieStore.prototype.set;// Object.getPrototypeOf(cookieStore).delete;
+CookieStore.prototype.delete = function(...args){ debugger; cookieStoreDelete.apply(this, args);}
+```
+
+In Chromium, use console API utilities `debug()` or `monitor()`:
+```js
+debug(Object.getOwnPropertyDescriptor(Object.getPrototypeOf(Object.getPrototypeOf(document)), "cookie").set)
+debug(Object.getPrototypeOf(cookieStore).set)
+debug(Object.getPrototypeOf(cookieStore).delete)
 ```
 
 See also
