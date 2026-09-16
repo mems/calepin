@@ -983,7 +983,7 @@ Aka apex domain, base, bare, naked, root apex, or zone apex
 | tc39.github.io	 | tc39.github.io		 | github.io		 |
 |--------------------|-----------------------|-------------------|
 
-Note: [public suffix](https://en.wikipedia.org/wiki/Public_Suffix_List) aka effective top-level domain (eTDL).
+Note: [public suffix](https://en.wikipedia.org/wiki/Public_Suffix_List) aka effective top-level domain (eTLD).
 
 - [www. is not deprecated – really](http://www.yes-www.org/) and [Why use www? | Hacker News](https://news.ycombinator.com/item?id=11004396)
 - Chrome hide "trivial subdomains" (`www.`, `m.`)
