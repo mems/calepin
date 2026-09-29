@@ -4694,6 +4694,37 @@ See also:
 - [TreeWalker performance](https://codepen.io/mmems/pen/dwWyxv) - Performance of differents APIs
 - [dom - Is it possible to get reference to comment element/block by JavaScript? - Stack Overflow](https://stackoverflow.com/questions/6027830/is-it-possible-to-get-reference-to-comment-element-block-by-javascript/42652191#42652191)
 
+#### Get all comments nodes
+
+```js
+var nodeIterator = document.createNodeIterator(
+	document.body,
+	NodeFilter.SHOW_COMMENT,
+	node => NodeFilter.FILTER_ACCEPT
+);
+// For each comment node
+while ( nodeIterator.nextNode() ) {
+	nodeIterator.referenceNode.nodeValue
+}
+```
+
+```js
+function queryComment(filter, root = document){
+	filter = (f => c => f(c) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT)(typeof filter === "function" ? filter : (v => c => c.textContent == v)(filter));
+	const nodeIterator = document.createNodeIterator(root, NodeFilter.SHOW_COMMENT, filter)
+	return nodeIterator.nextNode() ? nodeIterator.referenceNode : null;
+}
+
+queryComment(" some comment "); // > <!-- some comment -->
+queryComment(c => c.textContent.includes("comment")); // > <!-- some comment -->
+```
+
+```js
+node.nodeType === Node.COMMENT_NODE;//8
+```
+
+- [Document.createTreeWalker() - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTreeWalker)
+
 ### Find an element / text
 
 See also [Subordinate resource](../../Web/Web.md#subordinate-resource)
@@ -5660,26 +5691,6 @@ document.querySelector("#" + element.id.replace(/(\*|\.|\\|:|\s|\[|\]....TODO...
 ### Compare document/node
 
 - https://github.com/patrick-steele-idem/morphdom
-
-### Get all comments nodes
-
-```js
-var nodeIterator = document.createNodeIterator(
-	document.body,
-	NodeFilter.SHOW_COMMENT,
-	node => NodeFilter.FILTER_ACCEPT
-);
-// For each comment node
-while ( nodeIterator.nextNode() ) {
-	nodeIterator.referenceNode.nodeValue
-}
-```
-
-```js
-node.nodeType === Node.COMMENT_NODE;//8
-```
-
-- [Document.createTreeWalker() - Web API Interfaces | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/createTreeWalker)
 
 ### Access to the script element's content
 
