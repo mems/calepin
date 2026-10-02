@@ -75,7 +75,7 @@ Can replace `debugger` statement with `console.trace("document.cookie", ...args)
 ```js
 const docCookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, "cookie");// Object.getPrototypeOf(Object.getPrototypeOf(document);
 // For document.cookie setter
-Object.defineProperty(document, "cookie", {...desc, set(...args) {debugger;return docCookieDesc.set.apply(this, args);}});
+Object.defineProperty(document, "cookie", {...docCookieDesc, set(...args) {debugger;return docCookieDesc.set.apply(this, args);}});
 // For cookieStore.set()
 const cookieStoreSet = CookieStore.prototype.set;// Object.getPrototypeOf(cookieStore).set;
 CookieStore.prototype.set = function(...args){ debugger; cookieStoreSet.apply(this, args);}
