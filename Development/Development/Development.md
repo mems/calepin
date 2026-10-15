@@ -320,10 +320,14 @@ See [Localization](../Conception/Conception.md#localization), [Locale](../Data/L
 
 Fake langues to test UI, etc.
 
+- [Pseudolocalization - Wikipedia](https://en.wikipedia.org/wiki/Pseudolocalization)
 - [Staś Małolepszy: Pseudolocales for Firefox OS](http://informationisart.com/27/)
 - [Pseudo-Locales (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd319106%28v=vs.85%29.aspx)
 - [Using Pseudo-Locales for Localization Testing (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd374118%28v=vs.85%29.aspx)
 - https://github.com/mozilla-b2g/gaia/blob/75bf3cbf589a01d735ebf8653732b721627c8701/build/l10n.js#L24-L128 and https://github.com/mozilla-b2g/gaia/blob/19e6df7cc6111c9d6f8150f8191f0d2d8e76004d/shared/js/l10n.js#L1036-L1146
+- [Test your app with pseudolocales  |  App architecture  |  Android Developers](https://developer.android.com/guide/topics/resources/pseudolocales)
+- [Pseudolocalization - Globalization | Microsoft Learn](https://learn.microsoft.com/en-us/globalization/methodology/pseudolocalization)
+- [Quenya — Wikipédia](https://fr.wikipedia.org/wiki/Quenya)
 
 ### Libs and tools
 
