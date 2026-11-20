@@ -1058,7 +1058,12 @@ Aka Web Extensions
 
 ### CRX / NEX (Opera)
 
-Find "PK" and remove all bytes before
+Find "PK" and remove all bytes before:
+
+```sh
+offset=$(grep -abo $'PK\x03\x04' file.crx | head -n1 | cut -d: -f1)
+dd if=file.crx of=content.zip iflag=skip_bytes skip="$offset"
+```
 
 ```c
 // 010 Editor binary template .bt
@@ -1298,6 +1303,8 @@ Or:
 - [CRX Viewer](https://robwu.nl/crxviewer/) - [GitHub - Rob--W/crxviewer: Add-on / web app to view the source code of Chrome / Firefox / Opera 15 extensions and zip files.](https://github.com/Rob--W/crxviewer)
 
 See [CRX / NEX (Opera)](#crx--nex-opera)
+
+- [How to download a CRX file from the Chrome web store for a given ID? - Stack Overflow](https://stackoverflow.com/questions/7184793/how-to-download-a-crx-file-from-the-chrome-web-store-for-a-given-id/14099762#14099762)
 
 #### Network debug
 
