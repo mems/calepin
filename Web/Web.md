@@ -1067,19 +1067,33 @@ dd if=file.crx of=content.zip iflag=skip_bytes skip="$offset"
 
 ```c
 // 010 Editor binary template .bt
+// uint32: UInt32LE
+// Based on v1.0 of https://www.sweetscape.com/010editor/repository/templates/file_info.php?file=CRX.bt&type=0&sort=
 typedef struct {
 	SetBackColor(0xd8e5ed);
+    // "Cr24"
 	char magicNumber[4];
 	SetBackColor(0xd8edd8);
+	// 2
 	uint32 version;
-	SetBackColor(0xd8e5ed);
-	uint32 pkLength;
-	SetBackColor(0xd8edd8);
-	uint32 sigLength;
-	SetBackColor(0xf7d6c3);
-	byte pubKey[pkLength];
-	SetBackColor(0xd8edd8);
-	byte sig[sigLength];
+	if( version == 2)
+	{
+		SetBackColor(0xd8e5ed);
+		uint32 pkLength;
+		SetBackColor(0xd8edd8);
+		uint32 sigLength;
+		SetBackColor(0xf7d6c3);
+		byte pubKey[pkLength];
+		SetBackColor(0xd8edd8);
+		byte sig[sigLength];
+	}
+	else if( version == 3 )
+	{
+		SetBackColor(0xd8e5ed);
+		uint32 headerSize;
+		SetBackColor(0xd8edd8);
+		byte header[headerSize];
+	}
 	byte zipData[];
 } CRX;
 ```
@@ -1280,7 +1294,8 @@ Download Google Chrome extension without installing it
 
 1. Find the ID of the extension you’re interested in. When on the details page of the extension, it will be something like `bfbmjmiodbnnpllbbbfblcplfjjepjdn` after `https://chrome.google.com/extensions/detail/` in the page URL
 2. Paste this URL into your browser: `https://clients2.google.com/service/update2/crx?response=redirect&prodversion=38.0&x=id%3D{EXT_ID}%26installsource%3Dondemand%26uc` replacing `{EXT_ID}` with the extension ID.
-3. You’ll be prompted to save a CRX file. Drag this file to a Chrome window and proceed with installation
+3. You’ll be prompted to save a CRX file.
+4. (optional) drag this file to a Chrome window and proceed with installation
 
 ```
 product_version = 91.0.4442.4 | 32.0
